@@ -42,6 +42,7 @@ import { createHash } from 'node:crypto';
 import { mergeUrlKey } from './lib/job-url-key.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { withGuardOff } from './lib/slug-preservation-guard.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const APPLY = process.argv.includes('--apply');
 const ROOT = process.cwd();
@@ -123,8 +124,7 @@ function processFile(file) {
 
 let totalSplit = 0, totalReId = 0, totalDecon = 0, filesChanged = 0;
 for (const dir of DIRS) {
-  if (!fs.existsSync(dir)) continue;
-  for (const name of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+  for (const name of listSliceFileNames(dir)) {
     const res = processFile(path.join(dir, name));
     if (res && res.changed) {
       filesChanged++;

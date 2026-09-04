@@ -22,10 +22,51 @@ describe('skyguide-job-parser', () => {
         </tr>
       </table>
     `;
-    const rows = parseSkyguideListings(html);
+    const { rows, skippedMalformedRows, ignoredNonJobRows } = parseSkyguideListings(html);
     expect(rows).toHaveLength(2);
     expect(isSkyguideTargetLocation(rows[0].location)).toBe(true);
     expect(isSkyguideTargetLocation(rows[1].location)).toBe(true);
+    expect(skippedMalformedRows).toBe(0);
+    expect(ignoredNonJobRows).toBe(0);
+  });
+
+  it('keeps the visible office of a multi-location row (nested "+N more" marker)', () => {
+    const html = `
+      <table id="searchresults">
+        <tr class="data-row">
+          <td class="colTitle"><a href="/job/Locarno-Formazione-controllorea-del-traffico-aereo-Locarno/1140799801/" class="jobTitle-link">Formazione controllore/a del traffico aereo - Locarno</a></td>
+          <td class="colLocation"><span class="jobLocation">Locarno, CH <small class="nobr">+2 more&hellip;</small></span></td>
+          <td class="colDepartment"><span class="jobDepartment">Operations</span></td>
+        </tr>
+      </table>
+    `;
+    const { rows } = parseSkyguideListings(html);
+    expect(rows).toHaveLength(1);
+    expect(rows[0].location).toBe('Locarno, CH');
+    expect(isSkyguideTargetLocation(rows[0].location)).toBe(true);
+  });
+
+  it('reports malformed rows without counting known page chrome as drift', () => {
+    const html = `
+      <table id="searchresults">
+        <tr class="data-row">
+          <td class="colTitle"><a href="/job/Locarno-Controller/1/" class="jobTitle-link">Air Traffic Controller</a></td>
+          <td class="colLocation"><span class="jobLocation">Locarno, CH</span></td>
+        </tr>
+        <tr class="data-row">
+          <td class="colTitle"><a class="jobTitle-link">Incomplete vacancy</a></td>
+          <td class="colLocation"><span class="jobLocation">Geneva, CH</span></td>
+        </tr>
+        <tr class="data-row">
+          <td class="colTitle"><a href="/search/" class="jobTitle-link">Search by keyword</a></td>
+        </tr>
+      </table>
+    `;
+
+    const result = parseSkyguideListings(html);
+    expect(result.rows).toHaveLength(1);
+    expect(result.skippedMalformedRows).toBe(1);
+    expect(result.ignoredNonJobRows).toBe(1);
   });
 
   it('parses detail content and builds localized payload', () => {

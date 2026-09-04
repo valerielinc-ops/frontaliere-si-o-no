@@ -5,7 +5,11 @@ import { fileURLToPath } from 'node:url';
 
 import {
   RESERVE_FOR_OLDEST,
+  FRESH_WINDOW_MS,
   QUEUE_AGE_ALERT_DAYS,
+  QUEUE_AGE_BUCKET_KEYS,
+  QUEUE_AGE_DISJOINT_BUCKET_KEYS,
+  TRAFFIC_STATS_KEYS,
   TRAFFIC_SOURCE_PATH,
   assertTrafficPriorityUsable,
   buildTrafficPriority,
@@ -150,6 +154,88 @@ describe('priorita per traffico — e davvero funzione del traffico', () => {
   });
 });
 
+describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', () => {
+  const popularity = { hot: 500, warm: 50 };
+
+  it('e SPENTA per default: il cascade non deve cambiare ordinamento', () => {
+    // Il modulo e' condiviso. Se il default fosse acceso, la corsia morderebbe
+    // anche su relocalize-pending-jobs.mjs, che processa 53 job in 90 minuti:
+    // 1.308 job freschi gli mangerebbero ogni slot di ogni run.
+    const pending = [job('fresh', daysAgo(0.1)), job('hot', daysAgo(300), {})];
+    const plain = buildTrafficPriority(pending, popularity, { now: NOW });
+    expect(plain.order[0].slug).toBe('hot');
+    expect(plain.stats.freshFirst).toBe(false);
+    expect(plain.stats.freshHead).toBe(0);
+  });
+
+  it('accesa, ogni job sotto le 24 ore passa davanti — anche a uno molto visto', () => {
+    const pending = [job('hot', daysAgo(300)), job('fresh', daysAgo(0.1))];
+    const { order, stats } = buildTrafficPriority(pending, popularity, { now: NOW, freshFirst: true });
+    expect(order[0].slug).toBe('fresh');
+    expect(stats.freshHead).toBe(1);
+  });
+
+  it('la finestra e 24 ore esatte: a 25 ore il job non e piu fresco', () => {
+    expect(FRESH_WINDOW_MS).toBe(24 * 60 * 60 * 1000);
+    const pending = [job('hot', daysAgo(300)), job('old', daysAgo(25 / 24))];
+    const { order, stats } = buildTrafficPriority(pending, popularity, { now: NOW, freshFirst: true });
+    expect(stats.freshHead).toBe(0);
+    expect(order[0].slug).toBe('hot');
+  });
+
+  it('dentro la testa comanda il traffico', () => {
+    const pending = [job('warm', daysAgo(0.1)), job('hot', daysAgo(0.9))];
+    const { order } = buildTrafficPriority(pending, popularity, { now: NOW, freshFirst: true });
+    expect(order.map((j: any) => j.slug)).toEqual(['hot', 'warm']);
+  });
+
+  it('la testa NON e una quota: consuma se stessa e restituisce tutto il resto', () => {
+    // E' l'argomento per cui la corsia non ha un secondo numero da regolare.
+    // La coorte fresca e' auto-limitata (~1.421 job/giorno contro un cap di
+    // 6.000 per esecuzione), quindi finisce da sola e la coda resta intera.
+    const fresh = Array.from({ length: 7 }, (_, i) => job(`f${i}`, daysAgo(0.5)));
+    const rest = Array.from({ length: 20 }, (_, i) => job(`r${i}`, daysAgo(40)));
+    const { order, stats } = buildTrafficPriority([...rest, ...fresh], {}, { now: NOW, freshFirst: true });
+    expect(order).toHaveLength(27);
+    expect(stats.freshHead).toBe(7);
+    expect(order.slice(0, 7).every((j: any) => j.slug.startsWith('f'))).toBe(true);
+    expect(new Set(order.map((j: any) => j.slug)).size).toBe(27);
+  });
+
+  it('la riserva oldest-first del resto NON viene spostata dalla testa', () => {
+    // Lo stride contava gli slot su TUTTA la coda: contando anche la testa,
+    // ogni slot di riserva slittava della sua dimensione e l'ordinamento del
+    // resto cambiava in silenzio. Il resto deve uscire identico a com'era.
+    const rest = [
+      ...Array.from({ length: 12 }, (_, i) => job(`t${i}`, daysAgo(5), {})),
+      job('ancient', daysAgo(400)),
+    ];
+    const pop = Object.fromEntries(rest.map((j, i) => [j.slug, j.slug === 'ancient' ? 0 : 100 - i]));
+    const senza = buildTrafficPriority(rest, pop, { now: NOW });
+    const con = buildTrafficPriority([job('fresh', daysAgo(0.2)), ...rest], pop, { now: NOW, freshFirst: true });
+    expect(con.order[0].slug).toBe('fresh');
+    expect(con.order.slice(1).map((j: any) => j.slug)).toEqual(senza.order.map((j: any) => j.slug));
+  });
+
+  it('il report dice sempre in che stato e la corsia', () => {
+    const off = formatPriorityReport(buildTrafficPriority([job('a', daysAgo(3))], {}, { now: NOW }).stats).join('\n');
+    expect(off).toContain('Freshness lane');
+    expect(off).toContain('off');
+    const on = formatPriorityReport(buildTrafficPriority([job('a', daysAgo(0.1))], {}, { now: NOW, freshFirst: true }).stats).join('\n');
+    expect(on).toMatch(/Freshness lane:\s+1 job\(s\) ahead of the stride \(< 24h old\)/);
+  });
+
+  it('il mop-up gratuito la accende, il cascade a pagamento no', () => {
+    // SCANSIONE DEL SORGENTE: i due call site sono in `main()`, non esportati.
+    // E' l'asimmetria che il ticket decide, e senza questo caso tornerebbe
+    // simmetrica con una riga.
+    const mopup = fs.readFileSync(path.join(ROOT, 'scripts/local-mt-mopup.mjs'), 'utf-8');
+    const cascade = fs.readFileSync(path.join(ROOT, 'scripts/relocalize-pending-jobs.mjs'), 'utf-8');
+    expect(mopup).toMatch(/buildTrafficPriority\([^;]*freshFirst:\s*true/s);
+    expect(cascade).not.toContain('freshFirst');
+  });
+});
+
 describe('riserva per i piu vecchi — la coda non puo avere una coda immortale', () => {
   it('un job vecchissimo senza traffico entra comunque nel batch', () => {
     // 40 job giovani con traffico + 1 vecchio senza. Con l ordine per solo
@@ -225,8 +311,83 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
     expect(a.count).toBe(5);
     expect(a.withTimestamp).toBe(5);
     expect(a.oldestAgeDays).toBe(200);
-    expect(a.buckets).toEqual({ '0-7d': 2, '7-30d': 0, '30-90d': 1, '90-180d': 1, '180d+': 1 });
+    expect(a.buckets).toEqual({
+      '0-1d': 0, '1-2d': 1, '2-7d': 1,
+      '0-7d': 2, '7-30d': 0, '30-90d': 1, '90-180d': 1, '180d+': 1,
+    });
     expect(a.p90AgeDays).toBeGreaterThanOrEqual(a.p50AgeDays!);
+  });
+
+  it('le fasce fini suddividono 0-7d, non si aggiungono a essa', () => {
+    // Il vincolo delle 24 ore della mappa e' invisibile a risoluzione di sette
+    // giorni: il 2026-09-04 `0-7d` valeva 4.360 job, di cui 1.308 sotto le 24
+    // ore. Ma `0-7d` RESTA, e resta la somma delle tre: le 200 righe gia'
+    // committate in data/translation-stats-history.json si leggono su quella
+    // chiave, e toglierla romperebbe la serie in silenzio.
+    const jobs = [daysAgo(0.2), daysAgo(0.9), daysAgo(1.5), daysAgo(3), daysAgo(6.9), daysAgo(50)]
+      .map((d, i) => job(`j${i}`, d));
+    const a = summarizeQueueAge(jobs, { now: NOW });
+    expect(a.buckets['0-1d']).toBe(2);
+    expect(a.buckets['1-2d']).toBe(1);
+    expect(a.buckets['2-7d']).toBe(2);
+    expect(a.buckets['0-7d']).toBe(5);
+    expect(a.buckets['0-1d'] + a.buckets['1-2d'] + a.buckets['2-7d']).toBe(a.buckets['0-7d']);
+    // La somma di TUTTE le fasce non sovrapposte resta il totale datato.
+    const disjoint = ['0-7d', '7-30d', '30-90d', '90-180d', '180d+'] as const;
+    expect(disjoint.reduce((s, k) => s + a.buckets[k], 0)).toBe(a.withTimestamp);
+  });
+
+  it('i consumatori sommano le fasce DISGIUNTE, mai Object.values(buckets)', () => {
+    // La rottura vera trovata in review: `validTrafficStats` e il ramo di
+    // coerenza a ~L1668 di translation-shadow-preflight-v2.mjs pretendevano
+    // che la somma di TUTTE le fasce facesse `withTimestamp`. Da quando
+    // `0-1d`/`1-2d`/`2-7d` suddividono `0-7d` invece di affiancarla, quella
+    // somma vale `withTimestamp + buckets['0-7d']`: bastava UN job fresco in
+    // coda per invalidare ogni osservazione del preflight, in silenzio.
+    const jobs = [daysAgo(0.5), daysAgo(3), daysAgo(20)].map((d, i) => job(`j${i}`, d));
+    const a = summarizeQueueAge(jobs, { now: NOW });
+    const all = Object.values(a.buckets).reduce((s, n) => s + n, 0);
+    const disjoint = QUEUE_AGE_DISJOINT_BUCKET_KEYS.reduce((s, k) => s + a.buckets[k], 0);
+    expect(disjoint).toBe(a.withTimestamp);
+    // La differenza NON e' zero: e' esattamente il doppio conteggio di 0-7d.
+    expect(all - disjoint).toBe(a.buckets['0-7d']);
+    expect(all).not.toBe(a.withTimestamp);
+  });
+
+  it('le due liste di chiavi sono la sola fonte, e il produttore le rispetta', () => {
+    // Ritipare le chiavi in un consumatore e' come il preflight si e' rotto in
+    // due punti a 1.130 righe di distanza. Ora vengono da qui.
+    const a = summarizeQueueAge([job('x', daysAgo(1))], { now: NOW });
+    expect(Object.keys(a.buckets)).toEqual([...QUEUE_AGE_BUCKET_KEYS]);
+    for (const k of QUEUE_AGE_DISJOINT_BUCKET_KEYS) expect(QUEUE_AGE_BUCKET_KEYS).toContain(k);
+  });
+
+  it('le chiavi di stats sono dichiarate dal produttore e il preflight le importa', () => {
+    // Stesso difetto delle fasce, un livello piu' su: `validTrafficStats` fa un
+    // controllo ESATTO anche sull'oggetto `stats`. I tre campi della corsia
+    // freschezza (#18) l'avrebbero invalidato in silenzio se fossero stati
+    // aggiunti solo qui.
+    const { stats } = buildTrafficPriority([job('x', daysAgo(1))], { x: 1 }, { now: NOW });
+    expect(Object.keys(stats).sort()).toEqual([...TRAFFIC_STATS_KEYS].sort());
+    const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/translation-shadow-preflight-v2.mjs'), 'utf-8');
+    expect(src).toContain('exactKeys(stats, TRAFFIC_STATS_KEYS)');
+  });
+
+  it('il preflight v2 IMPORTA le chiavi invece di ritiparle', () => {
+    // Il controllo di chiavi del preflight e' ESATTO e il suo ramo di coerenza
+    // somma le fasce: entrambi si erano rotti perche' le chiavi erano scritte
+    // a mano, in due punti a 1.130 righe di distanza. La difesa non e' un
+    // elenco duplicato qui, e' che il consumatore non abbia piu' un elenco.
+    const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/translation-shadow-preflight-v2.mjs'), 'utf-8');
+    expect(src).toMatch(/import \{[^}]*QUEUE_AGE_BUCKET_KEYS[^}]*\} from '\.\/job-traffic-priority\.mjs'/s);
+    expect(src).toContain('QUEUE_AGE_DISJOINT_BUCKET_KEYS.reduce');
+    // Nessuna fascia ritipata come letterale nel CODICE del consumatore. I
+    // commenti possono nominarle: e' proprio li' che si spiega perche' la
+    // somma di tutte le fasce sia sbagliata.
+    const code = src.split('\n').filter((l) => !l.trim().startsWith('//')).join('\n');
+    for (const key of QUEUE_AGE_BUCKET_KEYS) expect(code).not.toContain(`'${key}'`);
+    // E soprattutto: mai piu' la somma di TUTTE le fasce contro withTimestamp.
+    expect(src).not.toMatch(/Object\.values\([^)]*buckets\)\.reduce/);
   });
 
   it('un job oltre la soglia alza l ALLARME, e il report lo dice a parole', () => {

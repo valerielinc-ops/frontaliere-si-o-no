@@ -2,37 +2,48 @@
 /**
  * Faulhaber job parser — Fetcher and job builder.
  *
- * Source: https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebote
+ * Source: https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/Joboffers/GetJoboffersData
  *
- * HPv3.Jobs (HR4YOU) Vue.js portal. Job tiles are rendered client-side in:
- *   .joboffer-tile > div[data-v-*] > .tile-body containing:
- *     h3.tile-headline > a[href*="stellenangebot/{id}"] — title + detail link
- *     .tag with fa-map-marker icon — location
- *     .tag with fa-briefcase icon — department
- *
- * Since the page is a Vue.js SPA, the initial HTML may not contain job data.
- * The HPv3 portal often also serves the tile HTML server-side for SEO,
- * but if not, we fall back to the detail page links found in the HTML.
+ * HPv3.Jobs (HR4YOU) Vue.js portal. The listing SPA reads its authoritative
+ * vacancy records from the JSON endpoint above. Detail pages expose the full
+ * description inside `.annonce #position`.
  *
  * We filter for CH - Croglio (Ticino) locations only.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllFaulhaberJobs()  — Fetch and parse all jobs
  *   - isFaulhaberJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, buildJobSlug, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import {
+  slugify,
+  buildJobSlug,
+  stripHtml,
+  normalizeSpace,
+  fetchHtml,
+  isConnectionLevelFetchError,
+  WAF_IP_BLOCK_STATUS,
+} from './crawler-template.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 const BASE_URL = 'https://jobs.faulhaber.com';
-const CAREERS_URL = 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebote';
+const LISTING_DATA_URL = 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/Joboffers/GetJoboffersData';
+const LISTING_DATA_PATH = new URL(LISTING_DATA_URL).pathname;
+const SERVER_ERROR_PATH = '/HPv3.Jobs/Errors/ServerError';
+const JOB_DETAIL_PATH_RE = /^\/HPv3\.Jobs\/faulhaber\/stellenangebot\/\d+(?:\/|$)/;
 const HQ = getCompanyDefaults('faulhaber');
+
+/** @typedef {{ title: string, url: string, location: string, department: string }} FaulhaberListing */
+/** @typedef {(url: string, options: { timeoutMs: number, validateRedirectUrl?: (url: string) => void }) => Promise<string>} FaulhaberHtmlFetcher */
+/** @typedef {(url: string, options: { timeoutMs: number }) => Promise<string|null>} FaulhaberJinaFetcher */
+/** @typedef {{ fetchHtmlImpl?: FaulhaberHtmlFetcher, fetchJinaImpl?: FaulhaberJinaFetcher }} FaulhaberFetchDependencies */
 
 export const FAULHABER_KEY = 'faulhaber';
 export const FAULHABER_COMPANY_NAME = 'Faulhaber';
@@ -84,81 +95,88 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-/* ── HTML Parsing ─────────────────────────────────────────── */
+function assertTrustedListingDataUrl(rawUrl = '') {
+  let url;
+  try {
+    url = new URL(rawUrl);
+  } catch {
+    throw new Error('Faulhaber: invalid listing-data URL');
+  }
+  const approvedPath = url.pathname === LISTING_DATA_PATH
+    || (url.pathname === SERVER_ERROR_PATH && url.searchParams.get('aspxerrorpath') === LISTING_DATA_PATH);
+  if (url.protocol !== 'https:' || url.hostname !== 'jobs.faulhaber.com' || !approvedPath) {
+    throw new Error(`Faulhaber: listing-data redirect escaped the approved endpoint (${url.origin}${url.pathname})`);
+  }
+}
 
-/**
- * Parse the Faulhaber HPv3 listing page.
- * Job tiles are in .joboffer-tile divs:
- *   h3.tile-headline > a — title + detail link
- *   .tag with .fa-map-marker — location
- *   .tag with .fa-briefcase — department
- *
- * The HPv3 Vue.js app may not render tiles in the initial HTML (SSR varies).
- * If tiles aren't present, we fall back to parsing <a> links with stellenangebot paths.
- *
- * Returns an array of { title, url, location, department } objects.
- */
-function parseListingPage(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
-  const seen = new Set();
+function trustedDetailUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    return url.protocol === 'https:'
+      && url.hostname === 'jobs.faulhaber.com'
+      && JOB_DETAIL_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
 
-  // Strategy 1: Parse .joboffer-tile cards (HPv3 SSR)
-  const tiles = document.querySelectorAll('.joboffer-tile');
-  for (const tile of tiles) {
-    const titleLink = tile.querySelector('h3 a, .tile-headline a');
-    if (!titleLink) continue;
-
-    const title = normalizeSpace(titleLink.textContent || '');
-    if (!title || title.length < 3) continue;
-
-    let href = titleLink.getAttribute('href') || '';
-    if (!href) continue;
-    const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-    if (seen.has(url)) continue;
-
-    // Extract location from .tag with map-marker icon
-    let location = '';
-    let department = '';
-    const tags = tile.querySelectorAll('.tag');
-    for (const tag of tags) {
-      const icon = tag.querySelector('i, .icon');
-      const text = normalizeSpace(tag.querySelector('.text, span:last-child')?.textContent || tag.textContent || '');
-      if (icon?.className?.includes('map-marker')) {
-        location = text;
-      } else if (icon?.className?.includes('briefcase')) {
-        department = text;
-      }
+function detailRedirectValidator(expectedUrl) {
+  const expectedPath = new URL(expectedUrl).pathname;
+  return (rawUrl = '') => {
+    let url;
+    try {
+      url = new URL(rawUrl);
+    } catch {
+      throw new Error('Faulhaber: invalid detail redirect URL');
     }
+    const approvedServerError = url.protocol === 'https:'
+      && url.hostname === 'jobs.faulhaber.com'
+      && url.pathname === SERVER_ERROR_PATH
+      && url.searchParams.get('aspxerrorpath') === expectedPath;
+    const approvedDetail = url.protocol === 'https:'
+      && url.hostname === 'jobs.faulhaber.com'
+      && url.pathname === expectedPath;
+    if (!approvedDetail && !approvedServerError) {
+      throw new Error('Faulhaber: detail URL escaped the requested vacancy');
+    }
+  };
+}
 
-    // Only keep Swiss (Croglio) jobs
-    if (!SWISS_LOCATION_RE.test(location)) continue;
+/* ── Source parsing ───────────────────────────────────────── */
 
-    seen.add(url);
+/** @returns {FaulhaberListing[]} */
+function parseListingData(body = '') {
+  if (!body) throw new Error('Faulhaber: empty listing-data response');
+  const trimmed = String(body).trim();
+  const serialized = trimmed.startsWith('{')
+    ? trimmed
+    : new JSDOM(trimmed).window.document.querySelector('pre')?.textContent || '';
+  let payload;
+  try {
+    payload = JSON.parse(serialized);
+  } catch {
+    throw new Error('Faulhaber: listing-data response is not valid JSON');
+  }
+  if (!Array.isArray(payload?.Joboffers) || payload.JoboffersCount !== payload.Joboffers.length) {
+    throw new Error('Faulhaber: listing-data response is incomplete');
+  }
+  const jobs = [];
+  for (const row of payload.Joboffers) {
+    const title = normalizeSpace(row?.JobofferName || '');
+    const location = normalizeSpace(row?.LocationName || '');
+    const department = normalizeSpace(row?.Department || '');
+    let url;
+    try {
+      url = new URL(row?.JobofferUrl || '', BASE_URL).href;
+    } catch {
+      throw new Error('Faulhaber: listing data contains an invalid detail URL');
+    }
+    if (!trustedDetailUrl(url)) {
+      throw new Error('Faulhaber: listing data contains an unsafe detail URL');
+    }
+    if (!title || !SWISS_LOCATION_RE.test(location)) continue;
     jobs.push({ title, url, location, department });
   }
-
-  // Strategy 2: Fallback — parse <a> links with stellenangebot path
-  if (jobs.length === 0) {
-    const links = document.querySelectorAll('a[href*="stellenangebot"]');
-    for (const link of links) {
-      const title = normalizeSpace(link.textContent || '');
-      if (!title || title.length < 5) continue;
-      if (/job.?alert|subscribe|abonnieren/i.test(title)) continue;
-
-      let href = link.getAttribute('href') || '';
-      if (!href.includes('stellenangebot/')) continue;
-      const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-      if (seen.has(url)) continue;
-      seen.add(url);
-
-      // We can't determine location from fallback links without tile context,
-      // so include all and filter later from detail page content
-      jobs.push({ title, url, location: '', department: '' });
-    }
-  }
-
   return jobs;
 }
 
@@ -218,6 +236,19 @@ function parseDetailPage(html = '') {
   return { description: body, location };
 }
 
+function validateDetailHtml(html = '') {
+  if (!html) throw new Error('Faulhaber: empty detail response');
+  const { document } = new JSDOM(html).window;
+  if (!document.querySelector('.annonce #position')) {
+    throw new Error('Faulhaber: detail response has no supported vacancy boundary');
+  }
+  const detail = parseDetailPage(html);
+  if (detail.description.length < MIN_DESC_LENGTH) {
+    throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters`);
+  }
+  return html;
+}
+
 /* ── Category / Employment helpers ────────────────────────── */
 
 function detectCategory(title = '', department = '') {
@@ -252,23 +283,91 @@ function inferEmploymentType(title = '', description = '') {
   return 'FULL_TIME';
 }
 
+/**
+ * Fetch a Faulhaber HR4YOU source, routing through the Jina clean-IP proxy on
+ * HTTP 500. As of #6857 (verified live 2026-09-01) `jobs.faulhaber.com`'s
+ * listing-data and detail routes consistently 500 for Node's egress while
+ * Jina's clean IP returns the authoritative payload — the same
+ * IP-reputation-WAF class `fetchHtml()` already rescues for 403/406/415/451
+ * (WAF_IP_BLOCK_STATUS) and connection-level failures, just surfaced as 500
+ * here instead. 500 is deliberately NOT in the generic Jina-rescue set
+ * (transient-fetch.mjs: a persistent 5xx is usually a real server error and
+ * Jina can't help), so this fallback is scoped to these Faulhaber fetches
+ * rather than widening the shared status set for every crawler.
+ */
+/**
+ * @template T
+ * @param {string} url
+ * @param {{
+ *   timeoutMs: number,
+ *   validateRedirectUrl: (url: string) => void,
+ *   parseBody: (body: string) => T,
+ *   label: string,
+ *   fetchHtmlImpl?: FaulhaberHtmlFetcher,
+ *   fetchJinaImpl?: FaulhaberJinaFetcher,
+ * }} options
+ * @returns {Promise<T>}
+ */
+async function fetchFaulhaberHtml(url, {
+  timeoutMs,
+  validateRedirectUrl,
+  parseBody,
+  label,
+  fetchHtmlImpl = fetchHtml,
+  fetchJinaImpl = fetchHtmlViaJinaWithRetry,
+}) {
+  try {
+    const html = await fetchHtmlImpl(url, { timeoutMs, validateRedirectUrl });
+    if (looksLikeAntiBotChallenge(html)) {
+      console.warn(`  Direct fetch to the ${label} returned a WAF challenge page — retrying via Jina clean-IP proxy...`);
+      const rescued = await fetchJinaImpl(url, { timeoutMs });
+      if (rescued != null) return parseBody(rescued);
+    }
+    return parseBody(html);
+  } catch (err) {
+    if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status) || err?.status === 500)) {
+      throw err;
+    }
+    console.warn(`  Direct fetch to the ${label} failed (${err?.message || err}) — retrying via Jina clean-IP proxy...`);
+    const html = await fetchJinaImpl(url, { timeoutMs });
+    if (html != null) return parseBody(html);
+    throw err;
+  }
+}
+
+/**
+ * @param {FaulhaberFetchDependencies} dependencies
+ * @returns {Promise<FaulhaberListing[]>}
+ */
+export async function fetchListingData(dependencies = {}) {
+  return await fetchFaulhaberHtml(LISTING_DATA_URL, {
+    ...dependencies,
+    timeoutMs: 20000,
+    validateRedirectUrl: assertTrustedListingDataUrl,
+    parseBody: parseListingData,
+    label: 'listing-data endpoint',
+  });
+}
+
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
  * Fetch all Faulhaber jobs. Returns ParsedJob[] (source locale only).
  * Filters for CH - Croglio (Ticino) positions only.
  */
-export async function fetchAllFaulhaberJobs() {
-  console.log(`  Fetching Faulhaber jobs from ${CAREERS_URL}`);
-  let html = '';
+/** @param {FaulhaberFetchDependencies} dependencies */
+export async function fetchAllFaulhaberJobs({
+  fetchHtmlImpl = fetchHtml,
+  fetchJinaImpl = fetchHtmlViaJinaWithRetry,
+} = /** @type {FaulhaberFetchDependencies} */ ({})) {
+  console.log(`  Fetching Faulhaber jobs from ${LISTING_DATA_URL}`);
+  let listings = [];
   try {
-    html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
+    listings = await fetchListingData({ fetchHtmlImpl, fetchJinaImpl });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new Error(`Faulhaber: failed to fetch the listing data: ${err.message}`, { cause: err });
   }
-  let listings = parseListingPage(html);
-  console.log(`  Swiss jobs found on listing page: ${listings.length}`);
+  console.log(`  Swiss jobs found in listing data: ${listings.length}`);
   if (!listings.length) return [];
 
   const jobs = [];
@@ -278,22 +377,30 @@ export async function fetchAllFaulhaberJobs() {
 
     if (listing.url) {
       try {
-        const detailHtml = await fetchHtml(listing.url, { timeoutMs: 15000 });
+        const detailHtml = await fetchFaulhaberHtml(listing.url, {
+          timeoutMs: 15000,
+          validateRedirectUrl: detailRedirectValidator(listing.url),
+          parseBody: validateDetailHtml,
+          label: 'job detail',
+          fetchHtmlImpl,
+          fetchJinaImpl,
+        });
         const detail = parseDetailPage(detailHtml);
         description = detail.description;
         if (!detailLocation && detail.location) detailLocation = detail.location;
       } catch (err) {
-        console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
+        throw new Error(`Faulhaber: failed to fetch a trusted detail page: ${err.message}`, { cause: err });
       }
     }
 
     // If we got no location from listing and detail didn't confirm Swiss, skip
     if (!listing.location && !SWISS_LOCATION_RE.test(detailLocation)) continue;
 
-    // Fallback description
+    // A synthetic title/location fallback is thin content and would turn a
+    // transient detail outage into published low-quality data. Preserve the
+    // previous slice by failing the whole run instead.
     if (!description || description.length < MIN_DESC_LENGTH) {
-      description = `${listing.title} — Faulhaber, Croglio TI`;
-      if (listing.department) description += `. Abteilung: ${listing.department}`;
+      throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters for ${listing.url}`);
     }
 
     const sourceLang = detectLang(listing.title, 'de');

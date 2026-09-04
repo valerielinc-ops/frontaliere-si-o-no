@@ -1,6 +1,6 @@
 {
   "crawlerKey": "capri-holdings",
-  "assembledAt": "2026-08-28T05:33:01.244Z",
+  "assembledAt": "2026-09-03T23:40:09.313Z",
   "jobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Supervisor--30h-Michael-Kors-Landquart_R_785916",
@@ -70,6 +70,7 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -149,6 +150,7 @@
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -225,6 +227,7 @@
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -304,6 +307,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -383,6 +387,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -464,6 +469,7 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

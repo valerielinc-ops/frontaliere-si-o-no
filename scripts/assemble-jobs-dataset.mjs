@@ -44,12 +44,11 @@ import {
   readCrawlerSummaryStore,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
-import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
-import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
-import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
+import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
@@ -61,6 +60,7 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -124,18 +124,6 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
   });
 }
 
-/* ── Assembler-specific identity ──────────────────────────────────────── */
-
-/**
- * Build a deduplication key for the assembler.
- *
- * Unlike buildStableJobIdentity (which normalises URLs by stripping the hash),
- * we preserve the full raw URL including hash fragments. This is essential for
- * crawlers like Galenica that use hash-fragment URLs to distinguish individual
- * job positions (e.g. /it/jobs/#job.id=12345).
- *
- * Fallback chain: raw URL → slug → title+company+location
- */
 /**
  * Defensive sanitizer for the `location` / `addressLocality` field.
  *
@@ -431,14 +419,7 @@ export function normalizeParsedJobsForSlice(jobs) {
 }
 
 function assemblerIdentity(job = {}) {
-  // assembleUrlKey preserves the full raw URL incl. hash fragments (Galenica).
-  // Logic centralized in scripts/lib/job-url-key.mjs; behavior unchanged and
-  // pinned by tests/job-url-key.test.ts.
-  const rawUrl = assembleUrlKey(job.url);
-  if (rawUrl) return `url:${rawUrl}`;
-
-  // Delegate to the shared identity for non-URL fallbacks
-  return buildStableJobIdentity(job);
+  return buildAssembledJobIdentity(job);
 }
 
 /**
@@ -447,10 +428,16 @@ function assemblerIdentity(job = {}) {
  * The IT base slug (`job.slug`) is the natural owner of its (canton, slug)
  * tuple across all locales. When another job's translated locale slug
  * (`slugByLocale.en/de/fr`) coincides with someone else's IT base in the
- * same canton, the translation is suspected hallucinated — drop the slug
- * and the matching `titleByLocale` entry (so build's localizedSlug() falls
- * back to job.slug) and set `needsRetranslation` so a future crawler run
- * regenerates a fresh slug.
+ * same canton, that route already belongs to the base-slug owner. Resolve the
+ * collision immediately with this job's stable suffix. The colliding route
+ * must NEVER be recorded in `previousSlugs`: a bridge would claim another
+ * live job's canonical route and is cross-job history contamination (#6784).
+ *
+ * A slug collision is not reliable evidence that the translated title is
+ * wrong. Common retail/clinical titles routinely collide across independent
+ * postings, and deterministic translation regenerates the same value. Stable
+ * disambiguation preserves the useful title while making the route unique on
+ * the first pass, without a delete/retranslate/bridge cycle.
  *
  * Pure: mutates the passed jobs in-place AND returns a report. Exported so
  * the gate has a unit-testable surface independent of the assembler IO.
@@ -480,41 +467,11 @@ export function applyPerLocaleSlugCollisionGuard(jobs) {
       const owner = baseSlugOwners.get(`${canton}|${slug}`);
       if (!owner || owner === myId) continue;
 
-      // Recurrence guard: this exact slug string was already dropped by this
-      // guard in a prior assemble run (tracked in previousSlugs). Deterministic
-      // MT engines (Argos/CTranslate2) regenerate byte-identical output for the
-      // same source text, so re-flagging needsRetranslation here just
-      // recreates the identical collision on every future run — permanently
-      // destroying an otherwise-correct translation instead of fixing anything
-      // (confirmed incident: Fisiocare Sagl / EOC — Ente Ospedaliero Cantonale
-      // physiotherapist postings stuck needsRetranslation for 12-36 days with
-      // fully correct per-crawler titleByLocale/descriptionByLocale). Once a
-      // collision recurs, the fix isn't a new translation — it's a unique
-      // slug — so disambiguate and stop looping instead of deleting again.
-      const recurring = Array.isArray(job.previousSlugs) && job.previousSlugs.includes(slug);
-      if (recurring) {
-        const disambiguator = stableSlugHash(job) || String(job.id || '').slice(-6) || 'dup';
-        job.slugByLocale[locale] = appendSlugDisambiguator(slug, disambiguator);
-        count++;
-        if (details.length < 10) {
-          details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner} (disambiguated, repeat collision)`);
-        }
-        continue;
-      }
-
-      addPreviousSlugForLocale(job, locale, slug, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.collision-guard');
-      delete job.slugByLocale[locale];
-      if (job.titleByLocale && typeof job.titleByLocale === 'object') {
-        delete job.titleByLocale[locale];
-      }
-      job.needsRetranslation = true;
-      // We just invalidated a hallucinated title → the job genuinely needs work
-      // again, so lift any prior give-up suppression.
-      delete job.localeMismatchSuppressed;
-      delete job.localeMismatchSuppressedLen;
+      const disambiguator = stableSlugHash(job) || String(job.id || '').slice(-6) || 'dup';
+      job.slugByLocale[locale] = appendSlugDisambiguator(slug, disambiguator);
       count++;
       if (details.length < 10) {
-        details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner}`);
+        details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner} (disambiguated)`);
       }
     }
   }
@@ -572,11 +529,7 @@ export function computeAssembleInputFingerprint() {
   const dirs = [JOBS_SLICES_DIR, EXPIRED_SLICES_DIR, SUMMARIES_SLICES_DIR];
   const files = [];
   for (const d of dirs) {
-    if (!fs.existsSync(d)) continue;
-    for (const f of fs.readdirSync(d)) {
-      if (!f.endsWith('.json')) continue;
-      files.push(path.join(d, f));
-    }
+    files.push(...listSliceFiles(d));
   }
   files.sort();
   const hasher = crypto.createHash('sha256');
@@ -615,7 +568,7 @@ function readJson(filePath, fallback) {
 // step in the same job picked up as a slice and refused to parse).
 export function listSliceFiles(dir) {
   // Predicato in scripts/lib/crawler-slice-files.mjs: era duplicato in tre
-  // copie divergenti, e le due piu' magre non escludevano ne' `-cache` ne'
+  // copie divergenti, e le due piu' magre non escludevano ne' `-locale-cache` ne'
   // `.cleanup-tmp` — cioe' proprio il file che ha fatto fallire questa
   // assembly nella run 28783188549.
   return listSliceFilePaths(dir);
@@ -1694,6 +1647,9 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  * @param {string} crawlerKey   - Normalised company key (e.g. 'coop', 'galenica')
  * @param {object[]} jobs       - Array of job objects discovered in this run
  * @param {object} [options]
+ * @param {boolean} [options.preserveExistingSlugs] - Re-pin active slug fields
+ *   and their history after every writer hardening pass. Use only when a
+ *   metadata correction must not rename already-published vacancy URLs.
  * @param {boolean} [options.skipShrinkGuard] - Bypass the anti-shrink guard
  *   for THIS write only. Reserved for callers that have already verified,
  *   deterministically, that a shrink (including to zero) is a real
@@ -1965,10 +1921,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
+  const finalJobs = options.preserveExistingSlugs && Array.isArray(existingSlice?.jobs)
+    ? restoreExistingSlugIdentity(existingSlice.jobs, hardened.jobs).jobs
+    : hardened.jobs;
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
-    jobs: hardened.jobs,
+    jobs: finalJobs,
   };
   writeJson(slicePath, payload);
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
@@ -2660,7 +2619,7 @@ function assembleExpiredJobs() {
       const key = expiredKey(entry);
       const existing = bySlug.get(key);
       // Keep the most recently expired entry for each slug
-      if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
+      if (!existing || compareExpiredAt(entry.expiredAt, existing.expiredAt) >= 0) {
         bySlug.set(key, entry);
       }
     }
@@ -2680,7 +2639,7 @@ function assembleExpiredJobs() {
       if (!entry.slug) continue;
       const key = expiredKey(entry);
       const existing = bySlug.get(key);
-      if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
+      if (!existing || compareExpiredAt(entry.expiredAt, existing.expiredAt) >= 0) {
         bySlug.set(key, entry);
       }
     }
@@ -2688,7 +2647,7 @@ function assembleExpiredJobs() {
 
   // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
   let assembled = [...bySlug.values()]
-    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
   if (assembled.length > EXPIRED_JOBS_CAP) {
     assembled = assembled.slice(0, EXPIRED_JOBS_CAP);
   }

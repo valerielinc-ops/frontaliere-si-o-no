@@ -233,6 +233,9 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('frontaliere-articles');
     expect(TESTS_YML).toContain('/REVIEW.md');
     expect(TESTS_YML).toContain('/AGENTS.md');
+    expect(TESTS_YML).toContain('/firestore.rules');
+    expect(TESTS_YML).toContain('/docs/preferred-sources-checklist.md');
+    expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts');
     expect(TESTS_YML).toContain('hard repository-tool budget');
   });
 
@@ -242,8 +245,8 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('full PR diff omitted; see delta.patch');
     expect(TESTS_YML).toContain('review-code-files.txt');
     expect(TESTS_YML).toContain('delta-files.txt');
-    expect(TESTS_YML).toContain('set_tier incremental-high claude-sonnet-5 35');
-    expect(TESTS_YML).toContain('set_tier incremental claude-sonnet-5 35');
+    expect(TESTS_YML).toContain('set_tier incremental-high claude-opus-5 35');
+    expect(TESTS_YML).toContain('set_tier incremental claude-opus-5 35');
     expect(TESTS_YML).toContain('Read `REVIEW.md` first');
   });
 

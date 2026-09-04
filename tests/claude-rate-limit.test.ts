@@ -72,6 +72,32 @@ const OVERLOADED_EXEC = JSON.stringify([
   { type: 'result', subtype: 'success', is_error: true, num_turns: 1, terminal_reason: 'api_error', api_error_status: 529 },
 ]);
 
+// Run reale corpus 33338838671, ridotta ai campi rilevanti: la quota primaria
+// ha autorizzato 38 turni; è soltanto l'overage a pagamento a non essere
+// disponibile. Il vecchio OR fra status e overageStatus la marcava 429 dopo
+// che il fixer aveva già concluso con successo e postato il proprio verdetto.
+const ALLOWED_WITHOUT_OVERAGE_EXEC = JSON.stringify([
+  {
+    type: 'rate_limit_event',
+    rate_limit_info: {
+      status: 'allowed',
+      resetsAt: inHours(5),
+      rateLimitType: 'five_hour',
+      overageStatus: 'rejected',
+      overageDisabledReason: 'out_of_credits',
+      isUsingOverage: false,
+    },
+  },
+  {
+    type: 'result',
+    subtype: 'success',
+    is_error: false,
+    num_turns: 38,
+    total_cost_usd: 0.6,
+    api_error_status: null,
+  },
+]);
+
 describe('detectClaudeRateLimit', () => {
   it('riconosce un 429 che si presenta con subtype "success" (il caso dominante: 60/61 fail)', () => {
     const r = detectClaudeRateLimit(RATE_LIMIT_EXEC);
@@ -99,6 +125,14 @@ describe('detectClaudeRateLimit', () => {
 
   it('NON tratta un 5xx come quota: un 529 è transiente e va ri-tentato subito', () => {
     expect(detectClaudeRateLimit(OVERLOADED_EXEC).rateLimited).toBe(false);
+  });
+
+  it('NON confonde overage rifiutato con quota primaria esaurita quando status è allowed', () => {
+    expect(detectClaudeRateLimit(ALLOWED_WITHOUT_OVERAGE_EXEC)).toEqual({
+      rateLimited: false,
+      resetsAt: null,
+      rateLimitType: null,
+    });
   });
 
   it('legge anche il formato ndjson (la action ha cambiato forma nel tempo)', () => {

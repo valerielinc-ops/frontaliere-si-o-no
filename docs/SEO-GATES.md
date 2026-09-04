@@ -6,6 +6,84 @@ Each gate is a **per-feature ratchet**: counts can only go DOWN. Improvements ne
 
 ---
 
+## Hard vs nice-to-have (issue #6462, VISION.md driver D9)
+
+Every content-quality gate below falls into one of two buckets. The bucket
+decides how a FAILURE behaves — never how a regression is measured, and
+never the baseline itself (D2, unchanged: the ratchet still only shrinks).
+
+- **hard** — verifies a datum/markup Google literally requires for
+  indexing/rich-results: a structured-data mandatory field, canonical/
+  hreflang, a status code, a broken redirect, or a rendering defect severe
+  enough that the page does not actually serve (blank shell, broken JSON-LD
+  parse). Stays **blocking**: a red run sequesters `publish` (the deploy's
+  IndexNow / Google Indexing API / GSC notification), same as before.
+- **nice-to-have** — an opportunistic internal heuristic Google does not
+  require (text density, crawl depth, title cosmetics, near-duplicate
+  content value, …). The page still renders and serves when the gate is
+  red. Becomes **advisory**: the run stays RED and the failure issue still
+  opens (nothing here silences a regression — D2's "the measure is
+  corrected, never the threshold" still applies), but the gate no longer
+  sequesters `publish`.
+
+**Where the advisory behaviour actually lives.** `post-deploy-validate-dist.yml`
+does not gate `publish` on its own job result — it gates on
+`integrity-verdict`, which runs every failed gate name through
+`scripts/ci/classify-validate-dist-failures.mjs`'s `QUALITY_GATES` table
+(default-deny: unlisted = blocking). That mechanism already existed
+(issues #4828/#5128) for most of the census below; this issue's concrete
+delta was two gaps where the table had no entry at all — the auditor was
+registered in `scripts/audit-all.mjs` but silently fell through
+default-deny to blocking:
+
+| Gate | Bucket before #6462 | Fix |
+|---|---|---|
+| `audit:all/breadcrumb-coverage` | blocking (unlisted) | added to `QUALITY_GATES` — BreadcrumbList is an optional rich-result enhancement, not a mandatory field |
+| `audit:all/information-gain` | blocking (unlisted) | added to `QUALITY_GATES` — near-duplicate/thin-value heuristic (`docs/INFORMATION-GAIN.md`), not a Google requirement |
+
+**Census — every gate registered in `scripts/audit-all.mjs` (18) plus the
+2 that run outside it (BFS/orphan) plus the already report-only ones:**
+
+| Gate | Bucket | Why |
+|---|---|---|
+| text-html-ratio | nice-to-have | Semrush heuristic (§1); already `QUALITY_GATES` |
+| orphan-sitemap-pages | nice-to-have | internal-link crawl depth heuristic (§2); already `QUALITY_GATES` (`audit:orphan-sitemap-pages`) |
+| image-object-license | **hard** | structured-data mandatory fields for licensable-image rich results (§3); zero-tolerance, no ratchet |
+| max-bfs-depth | nice-to-have | crawl-depth heuristic (§4); already `QUALITY_GATES` (`audit:max-bfs-depth`) |
+| title-length | nice-to-have | SERP display/CTR heuristic (§5); already `QUALITY_GATES` |
+| title-no-disambig-hash | nice-to-have | CTR cosmetic, hash suffix (§6); already `QUALITY_GATES` |
+| information-gain | nice-to-have | near-duplicate/thin-value heuristic (§8); **fixed by #6462**, see table above |
+| footer-root-presence | **hard** | hydration-shell bug — page ships blank/buried content, does not actually serve |
+| jsonld-no-nested-scripts | **hard** | breaks JSON-LD parsing entirely — Google cannot read the structured data at all |
+| h1-title-duplicates | nice-to-have | Semrush "duplicate H1/title" style rule; already `QUALITY_GATES` |
+| salary-landing-template | nice-to-have | UI/UX template drift, not a Google signal; already `QUALITY_GATES` |
+| page-weight | nice-to-have | byte-size heuristic, not a literal Google requirement; already `QUALITY_GATES` |
+| content-duplicates | nice-to-have | exact-duplicate body heuristic within locale; already `QUALITY_GATES` |
+| faqpage-validity | **hard** | FAQPage structured-data validity — invalid markup, not eligible for rich results |
+| no-literal-markdown | nice-to-have | leaked markdown syntax is a rendering blemish, page still serves; already `QUALITY_GATES` |
+| breadcrumb-coverage | nice-to-have | optional BreadcrumbList rich-result enhancement, not mandatory; **fixed by #6462**, see table above |
+| single-h1-per-page | nice-to-have | ambiguous page topic (a Discover-card *preference*, not an indexing requirement) — the page still serves and indexes; already `QUALITY_GATES` |
+| duplicate-structured-data | nice-to-have | a duplicated JSON-LD `@type` costs that one rich-result feature, the page itself still serves and indexes; already `QUALITY_GATES` |
+| link-anchor-text | nice-to-have (dual-purpose) | protects accessible-name/WCAG as well as Semrush A3; kept as `QUALITY_GATES` already — page serves regardless |
+| duplicate-meta-description | nice-to-have | recycled `<meta description>`, Google just rewrites the snippet; already `QUALITY_GATES` |
+| discover-eligibility (§7) | n/a — never a gate | `report()` hardcodes `passed: true`; was already report-only before #6462, no change needed |
+
+**`cathedral-seo-gates-check.yml` — already fully advisory, no change needed.**
+Item 2 of #6462 asked to verify whether this workflow blocks anything
+downstream. It does not: it is a standalone weekly `schedule` job with no
+`needs:` edge from any other workflow, it replays a past deploy's already-
+published `dist/` artifact (it does not gate the deploy that produced it),
+and its own header comment states the contract explicitly — "This workflow
+NEVER mutates baselines" and only opens an issue (regression) or suggests a
+rebaseline (improvement, never applied automatically, see driver D9). A red
+run here fails the *workflow's own* GitHub Actions status, which nothing
+else consumes. It is the one gate in this census that was advisory from the
+day it was written; the delta introduced by #6462 is entirely in the
+`post-deploy-validate-dist.yml` / `classify-validate-dist-failures.mjs`
+pipeline documented above.
+
+---
+
 ## 1. Text-to-HTML ratio
 
 **Why.** Semrush flags pages with `visibleText / totalHTML ≤ 10 %` as "low text-to-HTML ratio". The Apr 2026 audit caught 1,193 such pages.

@@ -27,6 +27,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isApleonaSchweizAgJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ Apleona Schweiz AG crawler failed: ${err?.message || err}`);
   process.exit(1);

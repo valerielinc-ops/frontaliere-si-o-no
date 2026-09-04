@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Giorgio Armani job parser for SAP SuccessFactors career pages.
  *
@@ -34,14 +35,13 @@ function normalizeSpace(value = '') {
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-'), 180);
 }
 
 function htmlToText(html = '') {

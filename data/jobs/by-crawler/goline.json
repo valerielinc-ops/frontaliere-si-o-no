@@ -1,6 +1,6 @@
 {
   "crawlerKey": "goline",
-  "assembledAt": "2026-08-28T05:38:04.062Z",
+  "assembledAt": "2026-09-03T23:29:45.703Z",
   "jobs": [
     {
       "title": "Sviluppatore Web Full Stack (Backend e Frontend)",
@@ -56,6 +56,7 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

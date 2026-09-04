@@ -1,7 +1,84 @@
 {
   "crawlerKey": "reha-bellikon",
-  "assembledAt": "2026-08-27T20:22:49.137Z",
+  "assembledAt": "2026-09-03T23:34:29.638Z",
   "jobs": [
+    {
+      "id": "reha-bellikon-923da0e3254d",
+      "slug": "spontanbewerbungen-per-pflegeberufe-rehaklinik-bellikon",
+      "slugByLocale": {
+        "de": "spontanbewerbungen-fur-pflegeberufe-reha-bellikon-bellikon",
+        "it": "spontanbewerbungen-per-pflegeberufe-rehaklinik-bellikon",
+        "en": "spontanbewerbungen-fur-pflegeberufe-rehaklinik-bellikon-bellikon",
+        "fr": "spontanbewerbungen-fur-pflegeberufe-rehaklinik-bellikon-bellikon"
+      },
+      "company": "Rehaklinik Bellikon",
+      "companyKey": "reha-bellikon",
+      "companyDomain": "rehabellikon.ch",
+      "title": "Spontanbewerbungen für Pflegeberufe",
+      "titleByLocale": {
+        "de": "Spontanbewerbungen für Pflegeberufe",
+        "it": "Spontanbewerbungen per Pflegeberufe",
+        "en": "Spontanbewerbungen für Pflegeberufe",
+        "fr": "Spontanbewerbungen für Pflegeberufe"
+      },
+      "description": "Spontanbewerbungen für Pflegeberufe — Rehaklinik Bellikon (Bellikon).",
+      "descriptionByLocale": {
+        "de": "Spontanbewerbungen für Pflegeberufe — Rehaklinik Bellikon (Bellikon)."
+      },
+      "needsRetranslation": true,
+      "location": "Bellikon",
+      "canton": "AG",
+      "url": "https://jobs.rehabellikon.ch/",
+      "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:34:26.372Z",
+      "addressLocality": "Bellikon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5454",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://job.rehabellikon.ch/apply/aa3af3b3-cd2b-4aad-88f0-6a8cac65e12e",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "aa3af3b3-cd2b-4aad-88f0-6a8cac65e12e",
+      "previousSlugsByLocale": {
+        "it": [
+          "spontanbewerbung-als-assistenzarztin-arzt-reha-bellikon-bellikon",
+          "spontanbewerbungen-fur-pflegeberufe-reha-bellikon-bellikon"
+        ],
+        "de": [
+          "spontanbewerbung-als-assistenzarztin-arzt-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "spontanbewerbung-als-assistenzarztin-arzt-reha-bellikon-bellikon",
+        "spontanbewerbungen-fur-pflegeberufe-reha-bellikon-bellikon"
+      ],
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:34:26.372Z"
+    },
     {
       "id": "reha-bellikon-2c8e28aaabc9",
       "slug": "collaboratore-volontari-nel-campo-dell-accompagnamento-interno-dei-pazienti-volontariato-rehaklinik-bellikon-bellikon",
@@ -33,7 +110,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Interne-Patientenbegleitung-ehrenamtlich/ccae8bed-5e5a-4a28-84ad-c52eaf13a6e6",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:46.258Z",
+      "crawledAt": "2026-09-03T23:34:25.867Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -79,13 +156,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-reha",
-        "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-rehaklinik-bellikon-bellikon",
-        "collaboratore-volontari-nel-campo-dell-accompagnamento-interno-dei-pazienti-volontariato-rehaklinik-bellikon-bellikon"
+        "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-reha",
-          "collaboratore-volontari-nel-campo-dell-accompagnamento-interno-dei-pazienti-volontariato-rehaklinik-bellikon-bellikon"
+          "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-reha"
         ],
         "de": [
           "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-rehaklinik-bellikon-bellikon"
@@ -94,6 +169,7 @@
       "firstSeenAt": "2026-05-19T14:36:48.640Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -136,7 +212,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Begleitung-extern-ehrenamtlich/31674ecb-d45a-4c69-b03e-8c28c7cce989",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:45.748Z",
+      "crawledAt": "2026-09-03T23:34:25.384Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -181,18 +257,17 @@
       "pensum": "10 - 20%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "freiwillige-mitarbeitende-im-bereich-begleitung-extern-ehrenamtlich-reha-bellikon-bellikon",
-        "collaboratore-volontario-nel-campo-dell-accompagnamento-esterno-rehaklinik-bellikon-bellikon"
+        "freiwillige-mitarbeitende-im-bereich-begleitung-extern-ehrenamtlich-reha-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "freiwillige-mitarbeitende-im-bereich-begleitung-extern-ehrenamtlich-reha-bellikon-bellikon",
-          "collaboratore-volontario-nel-campo-dell-accompagnamento-esterno-rehaklinik-bellikon-bellikon"
+          "freiwillige-mitarbeitende-im-bereich-begleitung-extern-ehrenamtlich-reha-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:48.169Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -218,7 +293,7 @@
       "companyDomain": "rehabellikon.ch",
       "title": "Lernende /r Restaurantfachfrau / Restaurantfachmann EFZ",
       "titleByLocale": {
-        "it": "Apprendista /r Restaurantfachfrau / Restaurantfachmann CFC",
+        "it": "Apprentice /r Specialista ristorante / Specialista ristorante EFZ",
         "en": "Learning /r Restaurant specialist / Restaurant specialist EFZ",
         "de": "Lernende /r Restaurantfachfrau / Restaurantfachmann EFZ",
         "fr": "Apprentissage /r Spécialiste des restaurants / Spécialiste des restaurants EFZ"
@@ -230,13 +305,12 @@
         "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nWir bieten Ihnen eine fundierte und abwechslungsreiche Ausbildung als Restaurantfachfrau/-mann an. Während der dreijährigen Lehre arbeiten Sie in unserem Premium-Restaurant „Abalone“, im Restaurant „Mercato“ und in der „Vista Lounge“. Zudem unterstützen Sie das Team bei Anlässen.\n\nAufgaben\n\n• Begrüssung und Bedienung unserer Patienten und Gästen\n• Beratung der Patienten und Gäste bei der Auswahl von Speisen und Getränken\n• Einsatz im à la Carte Restaurant Abalone, Buffetrestaurant Mercato und Vista Lounge\n• Unterstützung des Teams bei Anlässen\n• Entgegennehmen von Bestellungen\n• Vor- und Nachbearbeitungsarbeiten für den Service\n\nProfil\n\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Freude am Umgang mit Gästen und Patienten\n• Kontaktfreudige, teamfähige und motivierte Persönlichkeit\n• Hilfsbereit und dienstleistungsorientiert\n• Sorgfältige und exakte Arbeitsweise\n• Abgeschlossene obligatorische Schulbildung\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau B2), weitere Fremdsprachenkenntnisse sind von Vorteil\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
         "fr": "Affiliation, sensualité et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauteurs et des profondeurs et les aidons à retrouver leur chemin vers la vie ou la carrière après un accident ou une maladie. Nous vous proposons une formation bien fondée et variée en tant que spécialiste des restaurants. Au cours de l'apprentissage de trois ans, vous travaillerez dans notre restaurant haut de gamme \"Abalone\", dans le restaurant \"Mercato\" et dans le salon \"Vista\". L'équipe vous soutiendra également à l'occasion. Tâche\n• Salutation et fonctionnement de nos patients et invités\n• Conseils aux patients et aux clients dans la sélection des aliments et des boissons\n• Utilisation à la Carte Restaurant halone, restaurant buffet Mercato et Vista Lounge\n• Soutien de l'équipe à l'occasion\n• Recouvrement des commandes\n• Travaux de prétraitement et de posttraitement pour le service Profil\n• Aspect bien gardé et bonne maniabilité\n• Fiabilité et responsabilité\n• La joie de traiter avec les clients et les patients\n• Personnalité amicale, motivée et adaptée à l'équipe\n• Auxiliaires et orientés vers le service\n• Fonctionnement soigné et précis\n• Achèvement de la scolarité obligatoire\n• Très bonne connaissance allemande de la parole et de l'écriture (au moins niveau B2), d'autres connaissances en langue étrangère sont avantageuses Pensum: 100% Ordre: fixé Entrée : 2027-08-01"
       },
-      "needsRetranslation": true,
       "location": "Bellikon",
       "canton": "AG",
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Restaurantfachfrau-Restaurantfachmann-EFZ/97ad3665-0743-4419-be7b-3fece8eaaaa8",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:45.228Z",
+      "crawledAt": "2026-09-03T23:34:24.919Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -260,14 +334,12 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon",
-        "learning-r-specialista-ristorante-specialista-ristorante-efz-rehaklinik-bellikon-bellikon",
-        "apprendista-r-restaurantfachfrau-restaurantfachmann-cfc-rehaklinik-bellikon-bellikon"
+        "learning-r-specialista-ristorante-specialista-ristorante-efz-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon",
-          "learning-r-specialista-ristorante-specialista-ristorante-efz-rehaklinik-bellikon-bellikon",
-          "apprendista-r-restaurantfachfrau-restaurantfachmann-cfc-rehaklinik-bellikon-bellikon"
+          "learning-r-specialista-ristorante-specialista-ristorante-efz-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon"
@@ -279,6 +351,7 @@
       "firstSeenAt": "2026-05-26T23:59:02.666Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -304,10 +377,10 @@
       "companyDomain": "rehabellikon.ch",
       "title": "Lernender /r Fachfrau / Fachmann Reinigungstechnik EFZ",
       "titleByLocale": {
-        "it": "Apprendista /r Fachfrau / Fachmann Reinigungstechnik CFC",
-        "en": "Apprentice /r Fachfrau / Fachmann Reinigungstechnik EFZ",
+        "it": "Istruttore /r esperto / tecnologia di pulizia esperto EFZ",
+        "en": "Learner /r expert / expert cleaning technology EFZ",
         "de": "Lernender /r Fachfrau / Fachmann Reinigungstechnik EFZ",
-        "fr": "Apprenti/e /r Fachfrau / Fachmann Reinigungstechnik EFZ"
+        "fr": "Apprentis /r expert / expert technologie de nettoyage EFZ"
       },
       "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu arbeitest gerne praktisch, bist körperlich aktiv und möchtest dazu beitragen, dass Patientenzimmer, Therapieräume und weitere Bereiche einer Rehaklinik hygienisch, sauber und gepflegt sind? Dann ist die Lehre als Fachmann/-frau Reinigungstechnik EFZ genau das Richtige für dich.\n\nAufgaben\n\n• Unterhalts-, Spezial- und Grundreinigungen durchführen\n• Glas-, Fassaden- und Bauendreinigungen ausführen\n• Reinigungsmaschinen und Geräte bedienen und warten\n• Reinigungs- und Pflegemittel korrekt und umweltschonend einsetzen\n• Arbeitsabläufe planen und Material vorbereiten\n• Qualitäts-, Hygiene- und Sicherheitsvorschriften einhalten\n• Mitarbeit in spannenden und abwechslungsreichen Einsätzen\n• Einhalten und Anwenden der vorgeschriebenen persönlichen Schutzausrüstung (PSA)\n\nProfil\n\n• Abgeschlossene obligatorische Schulbildung\n• Freude an praktischer und abwechslungsreicher Arbeit\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Sorgfältige und selbstständige Arbeitsweise\n• Teamfähigkeit und Flexibilität\n• Technisches Verständnis für Maschinen und Geräte\n• Keine Allergien auf Reinigungsprodukte\n• Frühdienst ab 06:00 Uhr stellt für dich kein Problem dar\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
       "descriptionByLocale": {
@@ -316,13 +389,12 @@
         "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu arbeitest gerne praktisch, bist körperlich aktiv und möchtest dazu beitragen, dass Patientenzimmer, Therapieräume und weitere Bereiche einer Rehaklinik hygienisch, sauber und gepflegt sind? Dann ist die Lehre als Fachmann/-frau Reinigungstechnik EFZ genau das Richtige für dich.\n\nAufgaben\n\n• Unterhalts-, Spezial- und Grundreinigungen durchführen\n• Glas-, Fassaden- und Bauendreinigungen ausführen\n• Reinigungsmaschinen und Geräte bedienen und warten\n• Reinigungs- und Pflegemittel korrekt und umweltschonend einsetzen\n• Arbeitsabläufe planen und Material vorbereiten\n• Qualitäts-, Hygiene- und Sicherheitsvorschriften einhalten\n• Mitarbeit in spannenden und abwechslungsreichen Einsätzen\n• Einhalten und Anwenden der vorgeschriebenen persönlichen Schutzausrüstung (PSA)\n\nProfil\n\n• Abgeschlossene obligatorische Schulbildung\n• Freude an praktischer und abwechslungsreicher Arbeit\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Sorgfältige und selbstständige Arbeitsweise\n• Teamfähigkeit und Flexibilität\n• Technisches Verständnis für Maschinen und Geräte\n• Keine Allergien auf Reinigungsprodukte\n• Frühdienst ab 06:00 Uhr stellt für dich kein Problem dar\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
         "fr": "Affiliation, sensualité et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauteurs et des profondeurs et les aidons à retrouver leur chemin vers la vie ou la carrière après un accident ou une maladie. Vous aimez travailler pratiquement, être physiquement actif et vouloir aider les chambres des patients, les salles de thérapie et d'autres zones d'une clinique de réadaptation sont hygiéniques, propres et bien entretenus? Ensuite, l'enseignement comme technique de nettoyage spécialisée EFZ est juste pour vous. Tâche\n• Effectuer l'entretien, le nettoyage spécial et de base\n• Nettoyage final du verre, de la façade et de la construction\n• Machines et équipements de nettoyage\n• Utiliser des produits de nettoyage et de soin correctement et respectueux de l'environnement\n• Planification des flux de travail et préparation du matériel\n• respecter les règles de qualité, d'hygiène et de sécurité\n• Travailler dans des applications passionnantes et variées\n• Garder et utiliser l'équipement de protection individuelle prescrit Profil\n• Achèvement de la scolarité obligatoire\n• Le plaisir du travail pratique et varié\n• Fiabilité et responsabilité\n• Opération attentive et indépendante\n• Compétences et flexibilité de l'équipe\n• Connaissance technique des machines et équipements\n• Pas d'allergie aux produits de nettoyage\n• Le service précoce à partir de 06:00 ne pose pas de problème pour vous Pensum: 100% Ordre: fixé Entrée : 2027-08-01"
       },
-      "needsRetranslation": true,
       "location": "Bellikon",
       "canton": "AG",
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernender-r-Fachfrau-Fachmann-Reinigungstechnik-EFZ/38e8a7e3-5946-43ff-b0f6-a5d9684068e1",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:44.716Z",
+      "crawledAt": "2026-09-03T23:34:24.456Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -348,15 +420,13 @@
         "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
         "imparare-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
         "apprentissage-technologie-de-nettoyage-professionnelle-efz-rehaklinik-bellikon-bellikon",
-        "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon",
-        "apprendista-r-fachfrau-fachmann-reinigungstechnik-cfc-rehaklinik-bellikon-bellikon"
+        "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
           "imparare-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
-          "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon",
-          "apprendista-r-fachfrau-fachmann-reinigungstechnik-cfc-rehaklinik-bellikon-bellikon"
+          "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
@@ -369,6 +439,7 @@
       "firstSeenAt": "2026-05-26T23:59:03.147Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -394,10 +465,10 @@
       "companyDomain": "rehabellikon.ch",
       "title": "Lernende /r Köchin / Koch EFZ",
       "titleByLocale": {
-        "it": "Apprendista /r Köchin / Koch CFC",
-        "en": "Apprentice /r Köchin / Koch EFZ",
+        "it": "Appartamento /r cuoco / chef EFZ",
+        "en": "Apprentice /r cook / chef EFZ",
         "de": "Lernende /r Köchin / Koch EFZ",
-        "fr": "Apprenti/e /r Köchin / Koch EFZ"
+        "fr": "Apprenti /r cuisinier / chef EFZ"
       },
       "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu liebst es, kreativ zu kochen, willst mit Lebensmitteln mehr machen als nur „Rezept nachkochen“ – und suchst einen Beruf mit Sinn? Dann bist du bei uns genau richtig! In deiner Ausbildung zum Koch / zur Köchin EFZ wirst du zum Allround-Talent in der Küche. Du zauberst täglich mit Leidenschaft leckere Gerichte für unsere Patienten, Mitarbeitenden, externe Gäste und für besondere Events wie Caterings oder Apéros. Bei uns erhältst du eine Ausbildung in einer modernen Küche, in der du von Anfang an echte Aufgaben übernimmst und Verantwortung trägst. Du arbeitest in einem sinnvollen Umfeld, in dem dein Essen einen direkten Beitrag zur Gesundheit und zum Wohlbefinden anderer Menschen leistet. Dabei kannst du deine Kreativität einbringen, Neues ausprobieren und dich fachlich wie persönlich weiterentwickeln. Ein motiviertes Team steht dir zur Seite und begleitet dich auf deinem Weg zum Küchenprofi.\n\nAufgaben\n\n• Du arbeitest mit im Team bei der Zubereitung von warmen & kalten Speisen – vom Menü für Patienten bis zum Apéro-Häppchen fürs nächste Event\n• Du lernst alle Bereiche der Küche kennen: Free Flow, Bankette, à la carte Service und Caterings.\n• Hygiene, Sicherheit und saubere Abläufe – du wirst zum Profi, der auch hinter den Kulissen den Überblick behält.\n\nProfil\n\n• Abgeschlossene obligatorische Schulzeit\n• Leidenschaft fürs Kochen und ein gutes Gespür für Lebensmittel\n• Interesse an Ernährung und daran, was gutes Essen für die Gesundheit tun kann\n• Du bist offen, kommunikativ und arbeitest gerne im Team\n• Selbständigkeit, Zuverlässigkeit und Verantwortungsbewusstsein gehören für dich dazu\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
       "descriptionByLocale": {
@@ -406,13 +477,12 @@
         "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu liebst es, kreativ zu kochen, willst mit Lebensmitteln mehr machen als nur „Rezept nachkochen“ – und suchst einen Beruf mit Sinn? Dann bist du bei uns genau richtig! In deiner Ausbildung zum Koch / zur Köchin EFZ wirst du zum Allround-Talent in der Küche. Du zauberst täglich mit Leidenschaft leckere Gerichte für unsere Patienten, Mitarbeitenden, externe Gäste und für besondere Events wie Caterings oder Apéros. Bei uns erhältst du eine Ausbildung in einer modernen Küche, in der du von Anfang an echte Aufgaben übernimmst und Verantwortung trägst. Du arbeitest in einem sinnvollen Umfeld, in dem dein Essen einen direkten Beitrag zur Gesundheit und zum Wohlbefinden anderer Menschen leistet. Dabei kannst du deine Kreativität einbringen, Neues ausprobieren und dich fachlich wie persönlich weiterentwickeln. Ein motiviertes Team steht dir zur Seite und begleitet dich auf deinem Weg zum Küchenprofi.\n\nAufgaben\n\n• Du arbeitest mit im Team bei der Zubereitung von warmen & kalten Speisen – vom Menü für Patienten bis zum Apéro-Häppchen fürs nächste Event\n• Du lernst alle Bereiche der Küche kennen: Free Flow, Bankette, à la carte Service und Caterings.\n• Hygiene, Sicherheit und saubere Abläufe – du wirst zum Profi, der auch hinter den Kulissen den Überblick behält.\n\nProfil\n\n• Abgeschlossene obligatorische Schulzeit\n• Leidenschaft fürs Kochen und ein gutes Gespür für Lebensmittel\n• Interesse an Ernährung und daran, was gutes Essen für die Gesundheit tun kann\n• Du bist offen, kommunikativ und arbeitest gerne im Team\n• Selbständigkeit, Zuverlässigkeit und Verantwortungsbewusstsein gehören für dich dazu\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
         "fr": "Affiliation, sensualité et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauteurs et des profondeurs et les aidons à retrouver leur chemin vers la vie ou la carrière après un accident ou une maladie. Vous aimez cuisiner de façon créative, voulez faire plus avec de la nourriture que juste la recette de cuisson – et chercher une profession avec le sens? Alors tu as raison avec nous ! Dans votre entraînement pour cuisiner / cuisiner EFZ, vous deviendrez un talent complet dans la cuisine. Chaque jour, vous conjurez de délicieux plats pour nos patients, employés, invités externes et des événements spéciaux comme la restauration ou l'apéritif. Avec nous vous recevrez une formation dans une cuisine moderne où vous prendrez des tâches réelles et prendrez la responsabilité dès le début. Vous travaillez dans un environnement raisonnable où votre alimentation contribue directement à la santé et au bien-être des autres. Vous pouvez contribuer à votre créativité, essayer de nouvelles choses et vous développer professionnellement et personnellement. Une équipe motivée vous aidera et vous accompagnera sur votre chemin vers le professionnel de la cuisine. Tâche\n• Vous travaillez avec l'équipe pour préparer des plats chauds et froids – du menu pour les patients à la collation Apéro pour le prochain événement\n• Vous apprendrez à connaître tous les domaines de la cuisine: Free Flow, banquet, service à la carte et restauration.\n• Hygiène, sécurité et procédures propres – vous devenez un professionnel qui garde également une vue d'ensemble en coulisses. Profil\n• Achèvement de la scolarité obligatoire\n• Passion pour la cuisine et une bonne sensation pour la nourriture\n• Intérêt pour la nutrition et pour la bonne alimentation\n• Vous êtes ouvert, communicatif et aimez travailler dans l'équipe\n• Le travail indépendant, la fiabilité et le sens des responsabilités sont les vôtres Pensum: 100% Ordre: fixé Entrée : 2027-08-01"
       },
-      "needsRetranslation": true,
       "location": "Bellikon",
       "canton": "AG",
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Koechin-Koch-EFZ/54b47a80-0321-45f1-a574-a31dcf587236",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:44.204Z",
+      "crawledAt": "2026-09-03T23:34:23.990Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -436,14 +506,12 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
-        "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
-        "apprendista-r-kochin-koch-cfc-rehaklinik-bellikon-bellikon"
+        "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
-          "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
-          "apprendista-r-kochin-koch-cfc-rehaklinik-bellikon-bellikon"
+          "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
@@ -455,6 +523,7 @@
       "firstSeenAt": "2026-05-26T23:59:03.615Z",
       "salaryMin": 58000,
       "salaryMax": 99000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -498,7 +567,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Sicherheitsbeauftragte-Sicherheitsbeauftragter/4f18e898-5ebb-42ba-932b-3ff48861eeb6",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:43.692Z",
+      "crawledAt": "2026-09-03T23:34:23.528Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -522,14 +591,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sicherheitsbeauftragte-sicherheitsbeauftragter-reha-bellikon-bellikon",
-        "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon",
-        "agente-di-sicurezza-agente-di-sicurezza-rehaklinik-bellikon-bellikon"
+        "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsbeauftragte-sicherheitsbeauftragter-reha-bellikon-bellikon",
-          "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon",
-          "agente-di-sicurezza-agente-di-sicurezza-rehaklinik-bellikon-bellikon"
+          "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon"
@@ -541,97 +608,7 @@
       "firstSeenAt": "2026-07-21T11:55:56.124Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "reha-bellikon-70fa464322b5",
-      "slug": "medico-di-servizio-medico-di-servizio-medico-notturno-medico-notturno-rehaklinik-bellikon-bellikon-625b06",
-      "slugByLocale": {
-        "it": "medico-di-servizio-medico-di-servizio-medico-notturno-medico-notturno-rehaklinik-bellikon-bellikon-625b06",
-        "en": "service-doctor-service-doctor-night-doctor-night-doctor-rehaklinik-bellikon-bellikon-625b06",
-        "de": "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
-        "fr": "medecin-de-service-medecin-de-service-medecin-de-nuit-medecin-de-nuit-rehaklinik-bellikon-bellikon-625b06"
-      },
-      "company": "Rehaklinik Bellikon",
-      "companyKey": "reha-bellikon",
-      "companyDomain": "rehabellikon.ch",
-      "title": "Dienstärztin / Dienstarzt - Nachtärztin / Nachtarzt",
-      "titleByLocale": {
-        "it": "medico di servizio / medico di servizio - medico notturno / medico notturno",
-        "en": "Service doctor / service doctor - night doctor / night doctor",
-        "de": "Dienstärztin / Dienstarzt - Nachtärztin / Nachtarzt",
-        "fr": "médecin de service / médecin de service - médecin de nuit / médecin de nuit"
-      },
-      "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDie Rehaklinik Bellikon weist einen einzigartig hohen Spezialisierungsgrad in der Unfallrehabilitation auf. In ihren Tätigkeitsbereichen - der neurologischen, orthopädischen und arbeitsorientierten Rehabilitation sowie der Sportmedizin - verfügt sie über ein besonderes Know-how.\n\nAufgaben\n\n• Betreuung stationärer Patientinnen und Patienten unserer Geschäftsbereiche in der Nacht und an definierten Wochenend-Tagen\n• Weitgehend selbstständiges Arbeiten und bei Bedarf Unterstützung durch einen Kaderarzt / eine Kaderärztin im Hintergrunddienst\n\nProfil\n\n• Freude und Interesse an einer vielseitigen Tätigkeit in einem inter- und transdisziplinären Team mit Patientinnen und Patienten aus dem neuroloischen und muskuloskelettalen Behandlungsspektrum inklusive Überwachungspflichtiger Rehabilitation\n• Klinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer Ereignisse sowie internistische Kenntnisse\n• Hohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n• Schweizer Diplom oder anerkanntes Äquivalent (Anerkennung durch das Bundesamt für Gesundheit respektive Medizinalberufekommission MEBEKO), von Vorteil mit abgeschlossener Facharztausbildung\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil\n\nPensum: 10-30%\n\nAnstellung: unbefristet\n\nEintritt: 2026-09-01",
-      "descriptionByLocale": {
-        "it": "Affidabilità, significato e competenza Con un team esperto, accompagniamo i pazienti attraverso alti e bassi e li aiutiamo a trovare il loro modo di tornare alla vita o lavorare dopo un incidente o una malattia.\n\nBellikon Rehabilitation Clinic ha un grado unico di specializzazione nella riabilitazione degli incidenti. Nei suoi campi di attività - riabilitazione neurologica, ortopedica e orientata al lavoro e medicina sportiva - ha un know-how speciale.\n\nCompiti\n\n• Cura degli inpatici nelle nostre business unit di notte e nei giorni di fine settimana definiti\n• Lavoro in gran parte indipendente e, se necessario, supporto da un medico cadre in servizio di fondo\n\nProfilo\n\n• Gioia e interesse per un lavoro versatile in un team interdisciplinare e transdisciplinare con pazienti dallo spettro di trattamento neuroloico e muscolo-scheletrico tra cui la riabilitazione di sorveglianza\n• Esperienza clinica nel trattamento di emergenza di eventi medici acuti e subacuti, nonché la conoscenza interna\n• Alta abilità sociali, abilità di lavoro di squadra e un aspetto professionale\n• Diploma svizzero o equivalente riconosciuto (riconoscimento da parte dell'Ufficio federale della sanità o della Commissione professionale medica MEBEKO), di vantaggio con formazione specialistica completa\n• Molto buone competenze tedesche nella parola e nella scrittura (minimo C1), le competenze linguistiche straniere sono un vantaggio\n\nPensum: 10-30 %\n\nOccupazione: indefinito\n\nIngresso: 2026-09-01",
-        "en": "Membership, meaningfulness and competence With an experienced team, we accompany patients through ups and downs and help them to find their way back to life or work after an accident or illness.\n\nBellikon Rehabilitation Clinic has a uniquely high degree of specialization in accident rehabilitation. In her fields of activity - neurological, orthopaedic and work-oriented rehabilitation as well as sports medicine - she has a special know-how.\n\nTasks\n\n• Care of inpatients in our business units at night and on defined weekend days\n• Largely independent work and, if necessary, support by a cadre doctor in background service\n\nProfile\n\n• Joy and interest in a versatile work in an inter- and transdisciplinary team with patients from the neuroloic and musculoskeletal treatment spectrum including surveillance rehabilitation\n• Clinical experience in emergency treatment of acute and subacute medical events as well as internal knowledge\n• High social skills, teamwork skills and a professional appearance\n• Swiss diploma or recognised equivalent (recognition by the Federal Office of Health or Medical Occupational Commission MEBEKO), of advantage with completed specialist training\n• Very good German skills in word and writing (minimum C1), foreign language skills are an advantage\n\nPensum: 10-30 %\n\nEmployment: indefinite\n\nEntrance: 2026-09-01",
-        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDie Rehaklinik Bellikon weist einen einzigartig hohen Spezialisierungsgrad in der Unfallrehabilitation auf. In ihren Tätigkeitsbereichen - der neurologischen, orthopädischen und arbeitsorientierten Rehabilitation sowie der Sportmedizin - verfügt sie über ein besonderes Know-how.\n\nAufgaben\n\n• Betreuung stationärer Patientinnen und Patienten unserer Geschäftsbereiche in der Nacht und an definierten Wochenend-Tagen\n• Weitgehend selbstständiges Arbeiten und bei Bedarf Unterstützung durch einen Kaderarzt / eine Kaderärztin im Hintergrunddienst\n\nProfil\n\n• Freude und Interesse an einer vielseitigen Tätigkeit in einem inter- und transdisziplinären Team mit Patientinnen und Patienten aus dem neuroloischen und muskuloskelettalen Behandlungsspektrum inklusive Überwachungspflichtiger Rehabilitation\n• Klinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer Ereignisse sowie internistische Kenntnisse\n• Hohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n• Schweizer Diplom oder anerkanntes Äquivalent (Anerkennung durch das Bundesamt für Gesundheit respektive Medizinalberufekommission MEBEKO), von Vorteil mit abgeschlossener Facharztausbildung\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil\n\nPensum: 10-30%\n\nAnstellung: unbefristet\n\nEintritt: 2026-09-01",
-        "fr": "Adhésion, sens et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauts et des bas et les aidons à retrouver leur chemin vers la vie ou le travail après un accident ou une maladie.\n\nLa Clinique de réadaptation Bellikon possède un niveau de spécialisation exceptionnellement élevé en réadaptation par accident. Dans ses domaines d'activité - la réadaptation neurologique, orthopédique et professionnelle ainsi que la médecine du sport - elle possède un savoir-faire particulier.\n\nTâches\n\n• Soins aux malades hospitalisés dans nos unités de travail la nuit et les jours de fin de semaine définis\n• Travail largement indépendant et, si nécessaire, soutien d'un médecin cadre en service d'arrière-plan\n\nProfil\n\n• La joie et l'intérêt pour un travail polyvalent dans une équipe interdisciplinaire et transdisciplinaire avec des patients du spectre de traitement neuroloïque et musculosquelettique incluant la réadaptation de surveillance\n• Expérience clinique dans le traitement d'urgence des événements médicaux aigus et subaigus ainsi que des connaissances internes\n• Hautes compétences sociales, esprit d'équipe et apparence professionnelle\n• Diplôme suisse ou équivalent reconnu (reconnaissance par l'Office fédéral de la santé ou la Commission médicale professionnelle MEBEKO), d'avantage avec formation spécialisée achevée\n• Très bonnes compétences en allemand en paroles et en écriture (minimum C1), compétences en langues étrangères sont un avantage\n\nPensum: 10-30 %\n\nEmploi indéfini\n\nEntrée : 2026-09-01"
-      },
-      "location": "Bellikon",
-      "canton": "AG",
-      "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Dienstaerztin-Dienstarzt-Nachtaerztin-Nachtarzt/5118bf75-74c2-47c6-925b-e7349b5d4bf1",
-      "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:43.172Z",
-      "addressLocality": "Bellikon",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5454",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://job.rehabellikon.ch/apply/5118bf75-74c2-47c6-925b-e7349b5d4bf1/website",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "5118bf75-74c2-47c6-925b-e7349b5d4bf1",
-      "pensumMin": 10,
-      "pensumMax": 30,
-      "pensum": "10 - 30%",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
-        "medico-di-servizio-medico-di-servizio-medico-notturno-medico-notturno-rehaklinik-bellikon-bellikon",
-        "service-doctor-service-doctor-night-doctor-night-doctor-rehaklinik-bellikon-bellikon",
-        "medecin-de-service-medecin-de-service-medecin-de-nuit-medecin-de-nuit-rehaklinik-bellikon-bellikon",
-        "medico-di-servizio-medico-di-servizio-medico-notturno-medico-notturno-rehaklinik-bellikon-bellikon-625b06"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
-          "medico-di-servizio-medico-di-servizio-medico-notturno-medico-notturno-rehaklinik-bellikon-bellikon",
-          "service-doctor-service-doctor-night-doctor-night-doctor-rehaklinik-bellikon-bellikon",
-          "medecin-de-service-medecin-de-service-medecin-de-nuit-medecin-de-nuit-rehaklinik-bellikon-bellikon",
-          "medico-di-servizio-medico-di-servizio-medico-notturno-medico-notturno-rehaklinik-bellikon-bellikon-625b06"
-        ],
-        "en": [
-          "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
-          "service-doctor-service-doctor-night-doctor-night-doctor-rehaklinik-bellikon-bellikon"
-        ],
-        "fr": [
-          "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
-          "medecin-de-service-medecin-de-service-medecin-de-nuit-medecin-de-nuit-rehaklinik-bellikon-bellikon"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:55:55.072Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -675,7 +652,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Pflegefachfrau-Pflegefachmann-HFFH-Fruehrehabilitation/a7904708-4e70-43d8-8e59-6c9ee7754fbe",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:42.630Z",
+      "crawledAt": "2026-09-03T23:34:23.039Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -710,8 +687,7 @@
         "assistenza-professionale-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon",
         "care-professional-hf-fh-early-rehabilitation-rehaklinik-bellikon-bellikon",
         "soins-professionnels-hf-fh-readaptation-precoce-rehaklinik-bellikon-bellikon",
-        "infermiera-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon",
-        "specialista-infermieristico-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon-e0ab57"
+        "infermiera-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -727,8 +703,7 @@
           "assistenza-professionale-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon",
           "care-professional-hf-fh-early-rehabilitation-rehaklinik-bellikon-bellikon",
           "soins-professionnels-hf-fh-readaptation-precoce-rehaklinik-bellikon-bellikon",
-          "infermiera-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon",
-          "specialista-infermieristico-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon-e0ab57"
+          "infermiera-hf-fh-riabilitazione-precoce-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-fruhrehabilitation-rehaklinik-bellikon-bellikon",
@@ -742,94 +717,7 @@
       "firstSeenAt": "2026-07-21T11:55:54.541Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "reha-bellikon-0cfcdaadd357",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon",
-      "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon",
-        "en": "nurse-nurse-specialist-hf-fh-rehaklinik-bellikon-bellikon",
-        "de": "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon",
-        "fr": "infirmiere-infirmiere-specialiste-hf-fh-rehaklinik-bellikon-bellikon"
-      },
-      "company": "Rehaklinik Bellikon",
-      "companyKey": "reha-bellikon",
-      "companyDomain": "rehabellikon.ch",
-      "title": "Pflegefachfrau / Pflegefachmann HF/FH",
-      "titleByLocale": {
-        "it": "Pflegefachfrau / Pflegefachmann HF/FH",
-        "en": "Nurse / Nurse specialist HF/FH",
-        "de": "Pflegefachfrau / Pflegefachmann HF/FH",
-        "fr": "Infirmière/infirmière spécialiste HF/FH"
-      },
-      "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nAufgaben\n\n• Du bist ein wichtiges Mitglied unseres Rehabilitation-Pflegeteams und daher mitverantwortlich, dass sich unsere Patientinnen und Patienten stets wohl und gut aufgehoben fühlen\n• Dich bringt nichts so schnell aus der Ruhe und du bevorzugst die interdisziplinäre Zusammenarbeit\n• Wir bleiben nicht stehen! Bring dich aktiv ein, damit der Schichtbetrieb und die interdisziplinäre Zusammenarbeit morgen noch besser funktionieren als heute\n• Als Teammitglied trägst du zum gemeinsamen Erfolg bei und unterstützt neue Mitarbeitende, Lernende und Studierende bei der Einführung\n• Wir schätzen deine Bereitschaft für Dienste in allen Schichten und an den Wochenenden. Bei der Dienstplanung berücksichtigen wir im Gegenzug wenn immer möglich deine Wünsche\n\nProfil\n\n• Du bist eine Dipl. Pflegefachkraft mit Leidenschaft und Freude am Beruf\n• Von Vorteil konntest du bereits Berufserfahrung in der Rehabilitationspflege sammeln oder möchtest gerne deinen Horizont in der Pflege erweitern\n• Wichtig ist uns, dass du motiviert, teamfähig und zuverlässig bist\n• Und dass der freundliche, einfühlsame Umgang mit unseren Patientinnen und Patienten dir genauso wichtig ist wie eine gute Work-Life Balance\n\nPensum: 30-100%\n\nAnstellung: unbefristet\n\nEintritt: 2026-08-01",
-      "descriptionByLocale": {
-        "it": "Affidabilità, significato e competenza Con un team esperto, accompagniamo i pazienti attraverso alti e bassi e li aiutiamo a trovare il loro modo di tornare alla vita o lavorare dopo un incidente o una malattia.\n\nCompiti\n\n• Sei un membro importante del nostro team di assistenza alla riabilitazione e quindi responsabile per garantire che i nostri pazienti si sentano sempre a proprio agio e curati.\n• Nulla vi porta così rapidamente fuori dalla pace e preferite la cooperazione interdisciplinare\n• Non ci fermiamo! Impegnarsi attivamente affinché le operazioni a turni e la cooperazione interdisciplinare funzionino ancora meglio domani che oggi\n• Come membro del team, si contribuisce al successo congiunto e sostenere nuovi dipendenti, studenti e studenti nell'introduzione\n• Apprezziamo la vostra disponibilità a servire in tutti i turni e nei fine settimana. Nella pianificazione dei servizi, prendiamo in considerazione i vostri desideri in cambio quando possibile\n\nProfilo\n\n• Sei un dipl. Infermiera con passione e piacere nella professione\n• Hai già acquisito esperienza professionale nella riabilitazione o vorresti espandere i tuoi orizzonti nella cura\n• È importante per noi che sei motivato, capace di lavoro di squadra e affidabile\n• E che il trattamento amichevole e sensibile dei nostri pazienti è altrettanto importante per voi come un buon equilibrio di lavoro-vita\n\nPenso: 30-100 %\n\nOccupazione: indefinito\n\nIngresso: 2026-08-01",
-        "en": "Membership, meaningfulness and competence With an experienced team, we accompany patients through ups and downs and help them to find their way back to life or work after an accident or illness.\n\nTasks\n\n• You are an important member of our rehabilitation care team and therefore responsible for ensuring that our patients always feel comfortable and well looked after.\n• Nothing brings you so quickly out of peace and you prefer the interdisciplinary cooperation\n• We are not stopping! Get actively involved so that shift operations and interdisciplinary cooperation work even better tomorrow than today\n• As a team member, you contribute to joint success and support new employees, learners and students in the introduction\n• We appreciate your willingness to serve in all shifts and on weekends. In service planning, we take your wishes into account in return whenever possible\n\nProfile\n\n• You are a dipl. Nurse with passion and pleasure in the profession\n• You have already gained professional experience in rehabilitation care or would like to expand your horizons in care\n• It is important to us that you are motivated, capable of teamwork and reliable\n• And that the friendly, sensitive treatment of our patients is just as important to you as a good work-life balance\n\nPensum: 30-100 %\n\nEmployment: indefinite\n\nEntrance: 2026-08-01",
-        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nAufgaben\n\n• Du bist ein wichtiges Mitglied unseres Rehabilitation-Pflegeteams und daher mitverantwortlich, dass sich unsere Patientinnen und Patienten stets wohl und gut aufgehoben fühlen\n• Dich bringt nichts so schnell aus der Ruhe und du bevorzugst die interdisziplinäre Zusammenarbeit\n• Wir bleiben nicht stehen! Bring dich aktiv ein, damit der Schichtbetrieb und die interdisziplinäre Zusammenarbeit morgen noch besser funktionieren als heute\n• Als Teammitglied trägst du zum gemeinsamen Erfolg bei und unterstützt neue Mitarbeitende, Lernende und Studierende bei der Einführung\n• Wir schätzen deine Bereitschaft für Dienste in allen Schichten und an den Wochenenden. Bei der Dienstplanung berücksichtigen wir im Gegenzug wenn immer möglich deine Wünsche\n\nProfil\n\n• Du bist eine Dipl. Pflegefachkraft mit Leidenschaft und Freude am Beruf\n• Von Vorteil konntest du bereits Berufserfahrung in der Rehabilitationspflege sammeln oder möchtest gerne deinen Horizont in der Pflege erweitern\n• Wichtig ist uns, dass du motiviert, teamfähig und zuverlässig bist\n• Und dass der freundliche, einfühlsame Umgang mit unseren Patientinnen und Patienten dir genauso wichtig ist wie eine gute Work-Life Balance\n\nPensum: 30-100%\n\nAnstellung: unbefristet\n\nEintritt: 2026-08-01",
-        "fr": "Adhésion, sens et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauts et des bas et les aidons à retrouver leur chemin vers la vie ou le travail après un accident ou une maladie.\n\nTâche\n\n• Vous êtes un membre important de notre équipe de soins de réadaptation et donc responsable de veiller à ce que nos patients se sentent toujours à l'aise et bien soignés.\n• Rien ne vous fait sortir si vite de la paix et vous préférez la coopération interdisciplinaire\n• Nous ne nous arrêtons pas ! Participer activement pour que les opérations de changement et la coopération interdisciplinaire fonctionnent encore mieux demain qu'aujourd'hui\n• En tant que membre de l'équipe, vous contribuez au succès conjoint et aidez les nouveaux employés, les apprenants et les étudiants dans l'introduction\n• Nous apprécions votre volonté de servir tous les quarts et les week-ends. Dans la planification de service, nous prenons en compte vos souhaits en retour chaque fois que possible\n\nProfil\n\n• Vous êtes un diplome. Infirmière avec passion et plaisir dans la profession\n• Vous avez déjà acquis une expérience professionnelle en soins de réadaptation ou souhaitez élargir vos horizons en soins\n• Il est important pour nous que vous soyez motivé, capable de travailler en équipe et fiable\n• Et que le traitement amical et sensible de nos patients est tout aussi important pour vous qu'un bon équilibre travail-vie personnelle\n\nPensum: 30-100 %\n\nEmploi: indéfini\n\nEntrée : 2026-08-01"
-      },
-      "needsRetranslation": true,
-      "location": "Bellikon",
-      "canton": "AG",
-      "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Pflegefachfrau-Pflegefachmann-HFFH/d6230486-b359-4eb4-9d84-4a3f0abeee2a",
-      "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:42.105Z",
-      "addressLocality": "Bellikon",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5454",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "applyUrl": "https://job.rehabellikon.ch/apply/d6230486-b359-4eb4-9d84-4a3f0abeee2a/website",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "d6230486-b359-4eb4-9d84-4a3f0abeee2a",
-      "pensumMin": 30,
-      "pensumMax": 100,
-      "pensum": "30 - 100%",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon",
-        "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon-bellikon",
-        "infermiera-infermiera-specialista-hf-fh-rehaklinik-bellikon-bellikon",
-        "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon",
-          "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon-bellikon",
-          "infermiera-infermiera-specialista-hf-fh-rehaklinik-bellikon-bellikon",
-          "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon"
-        ],
-        "en": [
-          "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon"
-        ],
-        "fr": [
-          "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:46:00.265Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -855,7 +743,7 @@
       "companyDomain": "rehabellikon.ch",
       "title": "Assistentin / Assistent Qualitäts- und Prozessmanagement",
       "titleByLocale": {
-        "it": "Assistentin / Assistent Qualitäts- e Prozessmanagement",
+        "it": "Assistente/Assistente Gestione della Qualità e del Processo",
         "en": "Assistant / Assistant Quality and Process Management",
         "de": "Assistentin / Assistent Qualitäts- und Prozessmanagement",
         "fr": "Assistant / Assistant Gestion de la qualité et des processus"
@@ -867,13 +755,12 @@
         "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nUnsere Zusammenarbeit im Team basiert auf Wohlwollen, Vertrauen, Verbindlichkeit und Dienstleistungsorientierung. Wenn diese Werte auch Ihnen wichtig sind und Sie sich engagieren möchten, die Suva-Kliniken sowie deren Qualität und Prozesse weiterzuentwickeln, dann freuen wir uns auf Ihre Bewerbung.\n\nAufgaben\n\n• Sachbearbeitung:\n• Dokumentenpflege und -lenkung\n• Management und Dokumentation von klinikübergreifenden Verbesserungs- und Korrekturmassnahmen\n• Organisation von Zufriedenheitsmessungen (Patienten, Zuweisende) sowie internen und externen Audits\n• Support bei den Risikokontrollen im Rahmen des ERM\n• Führung und Auswertung von Statistiken\n• Mitarbeit im Projekt bei der Transformation ins integrierte Managementsystem (IMS) der Suva-Kliniken an beiden Standorten – z.B.:\n• Aufbau einer Applikation zur Dokumentation des IMS\n• Prozessmodellierung und Migration von Dokumenten\n• Schulung von Mitarbeitenden\n• Mithilfe bei Erarbeitung und Umsetzung von Qualitätskonzepten und Qualitätsverbesserungsmassnahmen mit den Fachbereichen (z.B. zum Qualitätsvertrag nach KVG 58a)\n• Mithilfe bei Umsetzung und Controlling der internen und externen Qualitätsvorgaben/-standards (z.B. ANQ, Hplus)\n• Mitarbeit in Projekten (z.B. Lean-Management, Recordsmanagement)\n\nProfil\n\n• Kaufmännische Grundausbildung und/oder Gesundheitsberuf\n• Lehrgänge wie Qualitätsmanager/in Gesundheitswesen, Qualitäts- und Prozessmanager/in o.ä.\n• Erfahrung im Qualitätsmanagement, optimalerweise im Gesundheitswesen\n• Erfahrung in Projekt-, Lean- und Recordsmanagement von Vorteil\n• Vernetztes Denken und Handeln verbunden mit der Fähigkeit mit Personen aus verschiedenen Berufsgruppen / Anspruchsgruppen zusammen zu arbeiten\n• Fähigkeit stufen- und adressatengerecht sowie dienstleistungsorientiert zu kommunizieren in Wort und Schrift\n• Sehr gute Kenntnisse in der Anwendung von MS Office Produkten und Applikationen für integrierte Managementsysteme\n• Zwingend: Deutschkenntnisse auf Niveau Muttersprache sowie sehr gute Französischkenntnisse (mind. C1-C2) sowie Reisebereitschaft (Sion, Bern)\n\nPensum: 60%\n\nAnstellung: unbefristet\n\nEintritt: 2026-07-01",
         "fr": "Adhésion, sens et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauts et des bas et les aidons à retrouver leur chemin vers la vie ou le travail après un accident ou une maladie.\n\nNotre travail d'équipe repose sur la bonne volonté, la confiance, l'engagement et l'orientation du service. Si ces valeurs sont également importantes pour vous et que vous voulez vous engager à développer davantage les cliniques Suva ainsi que leur qualité et leurs processus, alors nous attendons avec impatience votre application.\n\nTâche\n\n• Manipulation des matériaux:\n• Entretien et contrôle des documents\n• Gestion et documentation des améliorations intercliniques et des mesures correctives\n• Organisation des mesures de satisfaction (patients, cessionnaires) et des audits internes et externes\n• Appui à la maîtrise des risques liés à la MCE\n• Gestion et évaluation des statistiques\n• Participation au projet de transformation en système de gestion intégrée (SGI) des cliniques Suva aux deux endroits – p. ex. :\n• Établissement d'une demande de documentation du SGI\n• Modélisation des processus et migration des documents\n• Formation des salariés\n• Assistance à l ' élaboration et à la mise en œuvre de concepts de qualité et de mesures d ' amélioration de la qualité dans les domaines spécialisés (par exemple sur le contrat de qualité conformément à la KVG 58a)\n• Assistance à la mise en œuvre et au contrôle des spécifications et normes de qualité internes et externes (par exemple ANQ, Hplus)\n• Collaboration à des projets (p. ex., gestion des fonds, gestion des dossiers)\n\nProfil\n\n• Éducation commerciale de base et/ou profession de la santé\n• Cours tels que Gestionnaire de la qualité/dans les soins de santé, Gestionnaire de la qualité et des processus/dans etc.\n• Expérience dans la gestion de la qualité, idéalement dans les soins de santé\n• L'expérience de la gestion de projet, maigre et record est un avantage\n• Réflexion et action en réseau associées à la capacité de travailler avec des personnes de différents groupes professionnels / parties prenantes\n• Aptitude à communiquer des mots et des écrits axés sur le niveau et l'adresse ainsi que sur le service\n• Très bonne connaissance de l'application des produits MS Office et des applications des systèmes de gestion intégrés\n• Obligatoire : connaissance de l'allemand au niveau de la langue maternelle ainsi que très bonne connaissance du français (minimum C1-C2) et volonté de voyager (Sion, Berne)\n\nPensum: 60%\n\nEmploi: indéfini\n\nEntrée : 2026-07-01"
       },
-      "needsRetranslation": true,
       "location": "Bellikon",
       "canton": "AG",
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Assistentin-Assistent-Qualitaets-und-Prozessmanagement/c5f51eff-185e-4dea-819c-37c76505aae7",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:41.583Z",
+      "crawledAt": "2026-09-03T23:34:22.562Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -899,16 +786,14 @@
         "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon",
         "assistentin-assistent-qualitats-e-prozessmanagement-rehaklinik-bellikon-8uxgaz",
         "assistant-assistant-quality-and-process-management-rehaklinik-bellikon-bellikon",
-        "assistant-assistant-gestion-de-la-qualite-et-des-processus-rehaklinik-bellikon-bellikon",
-        "assistentin-assistent-qualitats-e-prozessmanagement-rehaklinik-bellikon"
+        "assistant-assistant-gestion-de-la-qualite-et-des-processus-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon",
           "assistentin-assistent-qualitats-e-prozessmanagement-rehaklinik-bellikon-8uxgaz",
           "assistant-assistant-quality-and-process-management-rehaklinik-bellikon-bellikon",
-          "assistant-assistant-gestion-de-la-qualite-et-des-processus-rehaklinik-bellikon-bellikon",
-          "assistentin-assistent-qualitats-e-prozessmanagement-rehaklinik-bellikon"
+          "assistant-assistant-gestion-de-la-qualite-et-des-processus-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
@@ -920,6 +805,7 @@
       "firstSeenAt": "2026-08-04T11:45:59.715Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -963,7 +849,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Sozialarbeiterin-Sozialarbeiter/1d954f1d-0582-45ac-9569-924aea4d7d9b",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:41.066Z",
+      "crawledAt": "2026-09-03T23:34:22.100Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -992,8 +878,7 @@
         "travailleurs-sociaux-rehaklinik-bellikon-bellikon-6ce0c0",
         "assistente-sociale-rehaklinik-bellikon-bellikon",
         "social-worker-social-worker-rehaklinik-bellikon-bellikon",
-        "travailleurs-sociaux-rehaklinik-bellikon-bellikon",
-        "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon"
+        "travailleurs-sociaux-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1003,8 +888,7 @@
           "travailleurs-sociaux-rehaklinik-bellikon-bellikon-6ce0c0",
           "assistente-sociale-rehaklinik-bellikon-bellikon",
           "social-worker-social-worker-rehaklinik-bellikon-bellikon",
-          "travailleurs-sociaux-rehaklinik-bellikon-bellikon",
-          "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon"
+          "travailleurs-sociaux-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "social-worker-social-worker-rehaklinik-bellikon-bellikon-6ce0c0"
@@ -1016,6 +900,7 @@
       "firstSeenAt": "2026-08-10T10:36:54.454Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1058,7 +943,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Praktikantin-Praktikant-Pflege/78273bdd-a6be-4651-a038-1f4f91b96d3a",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:40.547Z",
+      "crawledAt": "2026-09-03T23:34:21.626Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1082,15 +967,17 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "praktikantin-praktikant-pflege-reha-bellikon-bellikon",
-        "intern-internship-care-rehaklinik-bellikon-bellikon"
+        "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-pflege-reha-bellikon-bellikon",
-          "intern-internship-care-rehaklinik-bellikon-bellikon"
+          "praktikantin-praktikant-pflege-reha-bellikon-bellikon"
         ],
         "en": [
           "praktikantin-praktikant-pflege-reha-bellikon-bellikon"
+        ],
+        "de": [
+          "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon"
         ],
         "fr": [
           "praktikantin-praktikant-pflege-reha-bellikon-bellikon"
@@ -1099,6 +986,7 @@
       "firstSeenAt": "2026-08-19T21:38:15.392Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1117,7 +1005,7 @@
         "it": "studi-medici-prepratici-prepratici-rehaklinik-bellikon-bellikon",
         "en": "pre-practical-pre-practical-medical-studies-rehaklinik-bellikon-bellikon",
         "de": "vorpraktikantin-vorpraktikant-medizinstudium-reha-bellikon-bellikon",
-        "fr": "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon"
+        "fr": "etudes-medicales-pre-pratiques-pre-pratiques-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1127,7 +1015,7 @@
         "it": "Studi medici prepratici / prepratici",
         "en": "Pre-practical / Pre-practical Medical Studies",
         "de": "Vorpraktikantin / Vorpraktikant Medizinstudium",
-        "fr": "Vorpraktikantin / Vorpraktikant Medizinstudium"
+        "fr": "Études médicales pré-pratiques / pré-pratiques"
       },
       "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nEin vierwöchiges Vorpraktikum in der Pflege ist Voraussetzung für Studenten/Studentinnen der Medizin. Als \"Häfelipraktikant/in\" erhältst du im Vorfeld Ihres Medizinstudiums Einblick in den Bereich neurologische oder orthopädische Rehabilitation.\n\nAufgaben\n\n• Als \"Häfelipraktikant/in\" erhältst du im Vorfeld des Medizinstudiums während vier Wochen einen Einblick in den Bereich neurologische oder orthopädische Rehabilitation\n• Du führst hauswirtschaftliche Arbeiten nach hygienischen Kriterien aus\n• Unterstützen das Pflegeteam in der Betreuung unserer Patientinnen und Patienten\n• Unterstützung der Hotellerie und des Patienten-Service\n• Administrative und logistische Tätigkeiten\n• Der Arbeitsbeginn ist jeweils morgens um 06.30 Uhr\n\nProfil\n\n• Studierende/r der Medizin\n• Körperliche und psychische Belastbarkeit\n• Initiative und Bereitschaft zur Ausführung der übertragenen Aufgaben\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2026-09-01",
       "descriptionByLocale": {
@@ -1136,13 +1024,12 @@
         "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nEin vierwöchiges Vorpraktikum in der Pflege ist Voraussetzung für Studenten/Studentinnen der Medizin. Als \"Häfelipraktikant/in\" erhältst du im Vorfeld Ihres Medizinstudiums Einblick in den Bereich neurologische oder orthopädische Rehabilitation.\n\nAufgaben\n\n• Als \"Häfelipraktikant/in\" erhältst du im Vorfeld des Medizinstudiums während vier Wochen einen Einblick in den Bereich neurologische oder orthopädische Rehabilitation\n• Du führst hauswirtschaftliche Arbeiten nach hygienischen Kriterien aus\n• Unterstützen das Pflegeteam in der Betreuung unserer Patientinnen und Patienten\n• Unterstützung der Hotellerie und des Patienten-Service\n• Administrative und logistische Tätigkeiten\n• Der Arbeitsbeginn ist jeweils morgens um 06.30 Uhr\n\nProfil\n\n• Studierende/r der Medizin\n• Körperliche und psychische Belastbarkeit\n• Initiative und Bereitschaft zur Ausführung der übertragenen Aufgaben\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2026-09-01",
         "fr": "Adhésion, sens et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauts et des bas et les aidons à retrouver leur chemin vers la vie ou le travail après un accident ou une maladie.\n\nUn stage préliminaire de quatre semaines en soins infirmiers est une condition préalable pour les étudiants en médecine. En tant que \"Hafelipraktikant\", vous aurez un aperçu du domaine de la réadaptation neurologique ou orthopédique avant vos études médicales.\n\nTâche\n\n• En tant que \"Hafelipraktikant\", vous recevrez un aperçu du domaine de la réadaptation neurologique ou orthopédique pendant quatre semaines avant les études médicales.\n• Vous effectuez des travaux domestiques selon des critères hygiéniques\n• Soutenir l'équipe de soins dans les soins de nos patients\n• Soutien à l'industrie hôtelière et au service aux patients\n• Activités administratives et logistiques\n• Le travail commence tous les matins à 6h30\n\nProfil\n\n• Étudiants de médecine\n• Résistance physique et psychologique\n• Initiative et volonté d'exécuter les tâches déléguées\n\nPensum: 100%\n\nEmploi temporaire\n\nEntrée : 2026-09-01"
       },
-      "needsRetranslation": true,
       "location": "Bellikon",
       "canton": "AG",
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Vorpraktikantin-Vorpraktikant-Medizinstudium/3a3eef5d-a7fd-431c-84d6-919da2968109",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:40.035Z",
+      "crawledAt": "2026-09-03T23:34:21.158Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1168,15 +1055,12 @@
         "vorpraktikantin-vorpraktikant-medizinstudium-reha-bellikon-bellikon",
         "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon",
         "etudes-medicales-prepratiques-prepratiques-rehaklinik-bellikon-bellikon",
-        "etudes-medicales-pre-pratiques-pre-pratiques-rehaklinik-bellikon-bellikon",
-        "studi-medici-prepratici-prepratici-rehaklinik-bellikon-bellikon",
         "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorpraktikantin-vorpraktikant-medizinstudium-reha-bellikon-bellikon",
-          "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon",
-          "studi-medici-prepratici-prepratici-rehaklinik-bellikon-bellikon"
+          "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon"
@@ -1184,13 +1068,13 @@
         "fr": [
           "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon",
           "etudes-medicales-prepratiques-prepratiques-rehaklinik-bellikon-bellikon",
-          "etudes-medicales-pre-pratiques-pre-pratiques-rehaklinik-bellikon-bellikon",
           "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon"
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:14.869Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1234,7 +1118,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Studierender-HF-fuer-die-2-3-jaehrige-Ausbildung-zur-diplomierten-Pflegefachfrau-mann-HF-wmd/3f7ef44d-4123-4d5b-b91a-14838e6f2e6f",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:22:39.504Z",
+      "crawledAt": "2026-09-03T23:34:20.681Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1257,18 +1141,103 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-hf-fur-die-2-3-jahrige-ausbildung-zur-diplomierten-pflegefachfrau-mann-hf-w",
-        "studierende-r-hf-per-la-2-3-jahrige-ausbildung-zur-diplomierten-pflegefachfrau-mann-hf-m-w-d-rehaklinik-bellikon"
+        "studierende-r-hf-fur-die-2-3-jahrige-ausbildung-zur-diplomierten-pflegefachfrau-mann-hf-w"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-hf-fur-die-2-3-jahrige-ausbildung-zur-diplomierten-pflegefachfrau-mann-hf-w",
-          "studierende-r-hf-per-la-2-3-jahrige-ausbildung-zur-diplomierten-pflegefachfrau-mann-hf-m-w-d-rehaklinik-bellikon"
+          "studierende-r-hf-fur-die-2-3-jahrige-ausbildung-zur-diplomierten-pflegefachfrau-mann-hf-w"
         ]
       },
       "firstSeenAt": "2026-08-26T10:17:39.599Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "reha-bellikon-4dca33c6c643",
+      "slug": "medico-di-discorso-medico-di-discorso-rehaklinik-bellikon-bellikon",
+      "slugByLocale": {
+        "it": "medico-di-discorso-medico-di-discorso-rehaklinik-bellikon-bellikon",
+        "en": "speech-doctor-speech-doctor-rehaklinik-bellikon-bellikon",
+        "de": "logopadin-logopade-reha-bellikon-bellikon",
+        "fr": "orthophoniste-orthophoniste-rehaklinik-bellikon-bellikon"
+      },
+      "company": "Rehaklinik Bellikon",
+      "companyKey": "reha-bellikon",
+      "companyDomain": "rehabellikon.ch",
+      "title": "Logopädin / Logopäde",
+      "titleByLocale": {
+        "it": "Medico di discorso / medico di discorso",
+        "en": "Speech doctor / Speech doctor",
+        "de": "Logopädin / Logopäde",
+        "fr": "orthophoniste / orthophoniste"
+      },
+      "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDich erwartet ein spannendes und vielseitiges Arbeitsumfeld, in dem du deine Fachkompetenz einbringen und aktiv mitgestalten kannst. Gemeinsam mit einem engagierten interprofessionellen Team begleitest du Patientinnen und Patienten auf ihrem Weg zurück zu mehr Lebensqualität. Freue dich auf eine abwechslungsreiche Tätigkeit mit viel Eigenverantwortung, fachlichem Austausch und der Möglichkeit, Menschen nachhaltig in ihrem Rehabilitationsprozess zu unterstützen. Werde Teil unseres Teams und gestalte mit uns Rehabilitation, die bewegt. Wir freuen uns auf deine Bewerbung.\n\nAufgaben\n\n• Du führst logopädische Abklärungen selbstständig durch, planst individuelle Therapien und setzt diese im Einzel- und Gruppensetting um\n• Gemeinsam mit Ärztinnen und Ärzten, Physio- und Ergotherapeutinnen und -therapeuten sowie weiteren Fachpersonen arbeitest du eng in einem interprofessionellen Behandlungsteam zusammen\n• An Rapporten, Fallbesprechungen und Supervisionen nimmst du regelmässig teil\n• Bei der Durchführung von fiberendoskopischen Schluckuntersuchungen (FEES) wirkst du aktiv mit\n• Die Koordination mit vorbehandelnden Stellen sowie die Planung weiterführender logopädischer Anschlusslösungen gehören ebenfalls zu deinem Verantwortungsbereich\n• Therapieverläufe dokumentierst du sorgfältig und erstellst die entsprechenden Berichte\n• Angehörige begleitest und berätst du kompetent und einfühlsam\n\nProfil\n\n• Du verfügst über eine abgeschlossene Ausbildung in Logopädie (BA, BSc oder Diplom mit EDK-Anerkennung)\n• Idealerweise konntest du bereits Erfahrung in der Rehabilitation oder im klinischen Umfeld sammeln, dies ist jedoch keine Voraussetzung\n• Sehr gute Deutschkenntnisse in Wort und Schrift zeichnen dich aus, weitere Sprachkenntnisse sind von Vorteil\n• Die interdisziplinäre Zusammenarbeit bereitet dir Freude und du überzeugst durch deine Kommunikationsstärke\n• Eine selbstständige, zuverlässige und strukturierte Arbeitsweise ist für dich selbstverständlich\n• Teamgeist, Offenheit für Feedback und ein wertschätzender Umgang mit anderen gehören zu deinen Stärken\n• Du bringst Engagement, Eigeninitiative und Verantwortungsbewusstsein mit\n• Die Bereitschaft zu Samstagseinsätzen rundet dein Profil ab\n\nPensum: 40-70%\n\nAnstellung: unbefristet\n\nEintritt: 2026-12-01",
+      "descriptionByLocale": {
+        "it": "Affidabilità, significato e competenza Con un team esperto, accompagniamo i pazienti attraverso alti e bassi e li aiutiamo a trovare il loro modo di tornare alla vita o lavorare dopo un incidente o una malattia.\n\nCi si può aspettare un ambiente di lavoro emozionante e versatile in cui è possibile contribuire la vostra esperienza e formarlo attivamente. Insieme a un team interprofessionale impegnato, accompagni i pazienti nel loro ritorno ad una migliore qualità della vita. Attendere con ansia una variegata attività con un sacco di responsabilità personale, scambio professionale e l'opportunità di sostenere le persone nel loro processo di riabilitazione. Diventa parte del nostro team e la riabilitazione progettuale che si muove con noi. Attendiamo con ansia la vostra applicazione.\n\nCompiti\n\n• Effettuare esami logopedici indipendentemente, pianificare terapie individuali e implementarli nelle impostazioni individuali e di gruppo.\n• Insieme a medici, fisioterapisti e terapisti del lavoro, lavorerai a stretto contatto in un team di terapia interprofessionale.\n• Partecipa regolarmente a relazioni, discussioni di casi e supervisione\n• Quando si eseguono esami di ingestione endoscopica fibra (FEES), si partecipa attivamente\n• Il coordinamento con gli organismi di pretrattamento e la pianificazione di ulteriori soluzioni di connessione logopedic fanno parte anche del vostro settore di responsabilità.\n• Documenti attentamente i corsi di trattamento e prepari i rapporti corrispondenti\n• Essi vi guideranno e vi consiglieranno in modo competente ed empatico.\n\nProfilo\n\n• Hai completato la formazione in terapia vocale (BA, BSc o diploma con riconoscimento EDK)\n• Idealmente, hai già acquisito esperienza nella riabilitazione o nell'ambiente clinico, ma questo non è un requisito\n• Molto buone competenze tedesche in parola e scrittura ti distinguono, ulteriori competenze linguistiche sono vantaggiose\n• La cooperazione interdisciplinare ti porta gioia e convinci attraverso la tua forza di comunicazione\n• Un metodo di lavoro indipendente, affidabile e strutturato è una questione naturalmente per voi\n• Spirito di squadra, apertura al feedback e un approccio apprezzativo per gli altri sono tra i vostri punti di forza.\n• Portate impegno, iniziativa e senso di responsabilità\n• Prontezza per le missioni di sabato completa il tuo profilo\n\nPenso: 40-70 %\n\nOccupazione: indefinito\n\nIngresso: 2026-12-01",
+        "en": "Membership, meaningfulness and competence With an experienced team, we accompany patients through ups and downs and help them to find their way back to life or work after an accident or illness.\n\nYou can expect an exciting and versatile working environment in which you can contribute your expertise and actively shape it. Together with a committed interprofessional team, you accompany patients on their way back to a better quality of life. Look forward to a varied activity with a lot of personal responsibility, professional exchange and the opportunity to support people in their rehabilitation process. Become part of our team and design rehabilitation that moves with us. We look forward to your application.\n\nTasks\n\n• You carry out logopedic examinations independently, plan individual therapies and implement them in individual and group settings.\n• Together with doctors, physiotherapists and occupational therapists, you will work closely together in an interprofessional treatment team.\n• Regularly participate in reports, case discussions and supervision\n• When performing fiber endoscopic swallowing examinations (FEES), you actively participate\n• The coordination with pre-treatment bodies as well as the planning of further logopedic connection solutions are also part of your area of responsibility.\n• You document treatment courses carefully and prepare the corresponding reports\n• They will guide and advise you competently and empathetically.\n\nProfile\n\n• You have completed training in speech therapy (BA, BSc or diploma with EDK recognition)\n• Ideally, you have already gained experience in rehabilitation or in the clinical environment, but this is not a requirement\n• Very good German skills in word and writing distinguish you, further language skills are advantageous\n• Interdisciplinary cooperation brings you joy and you convince through your communication strength\n• An independent, reliable and structured working method is a matter of course for you\n• Team spirit, openness to feedback and an appreciative approach to others are among your strengths.\n• You bring commitment, initiative and a sense of responsibility\n• Readiness for Saturday missions rounds off your profile\n\nPensum: 40-70 %\n\nEmployment: indefinite\n\nEntrance: 2026-12-01",
+        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDich erwartet ein spannendes und vielseitiges Arbeitsumfeld, in dem du deine Fachkompetenz einbringen und aktiv mitgestalten kannst. Gemeinsam mit einem engagierten interprofessionellen Team begleitest du Patientinnen und Patienten auf ihrem Weg zurück zu mehr Lebensqualität. Freue dich auf eine abwechslungsreiche Tätigkeit mit viel Eigenverantwortung, fachlichem Austausch und der Möglichkeit, Menschen nachhaltig in ihrem Rehabilitationsprozess zu unterstützen. Werde Teil unseres Teams und gestalte mit uns Rehabilitation, die bewegt. Wir freuen uns auf deine Bewerbung.\n\nAufgaben\n\n• Du führst logopädische Abklärungen selbstständig durch, planst individuelle Therapien und setzt diese im Einzel- und Gruppensetting um\n• Gemeinsam mit Ärztinnen und Ärzten, Physio- und Ergotherapeutinnen und -therapeuten sowie weiteren Fachpersonen arbeitest du eng in einem interprofessionellen Behandlungsteam zusammen\n• An Rapporten, Fallbesprechungen und Supervisionen nimmst du regelmässig teil\n• Bei der Durchführung von fiberendoskopischen Schluckuntersuchungen (FEES) wirkst du aktiv mit\n• Die Koordination mit vorbehandelnden Stellen sowie die Planung weiterführender logopädischer Anschlusslösungen gehören ebenfalls zu deinem Verantwortungsbereich\n• Therapieverläufe dokumentierst du sorgfältig und erstellst die entsprechenden Berichte\n• Angehörige begleitest und berätst du kompetent und einfühlsam\n\nProfil\n\n• Du verfügst über eine abgeschlossene Ausbildung in Logopädie (BA, BSc oder Diplom mit EDK-Anerkennung)\n• Idealerweise konntest du bereits Erfahrung in der Rehabilitation oder im klinischen Umfeld sammeln, dies ist jedoch keine Voraussetzung\n• Sehr gute Deutschkenntnisse in Wort und Schrift zeichnen dich aus, weitere Sprachkenntnisse sind von Vorteil\n• Die interdisziplinäre Zusammenarbeit bereitet dir Freude und du überzeugst durch deine Kommunikationsstärke\n• Eine selbstständige, zuverlässige und strukturierte Arbeitsweise ist für dich selbstverständlich\n• Teamgeist, Offenheit für Feedback und ein wertschätzender Umgang mit anderen gehören zu deinen Stärken\n• Du bringst Engagement, Eigeninitiative und Verantwortungsbewusstsein mit\n• Die Bereitschaft zu Samstagseinsätzen rundet dein Profil ab\n\nPensum: 40-70%\n\nAnstellung: unbefristet\n\nEintritt: 2026-12-01",
+        "fr": "Adhésion, sens et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauts et des bas et les aidons à retrouver leur chemin vers la vie ou le travail après un accident ou une maladie.\n\nVous pouvez vous attendre à un environnement de travail passionnant et polyvalent dans lequel vous pouvez apporter votre expertise et le façonner activement. Avec une équipe interprofessionnelle engagée, vous accompagnez les patients sur leur chemin vers une meilleure qualité de vie. Nous nous réjouissons à la perspective d'une activité variée avec beaucoup de responsabilités personnelles, d'échanges professionnels et la possibilité d'aider les gens dans leur processus de réadaptation. Faites partie de notre équipe et conception de réhabilitation qui se déplace avec nous. Nous attendons avec impatience votre candidature.\n\nTâche\n\n• Vous effectuez des examens logopédiques indépendamment, planifiez des thérapies individuelles et les implémentez dans des paramètres individuels et de groupe.\n• En collaboration avec des médecins, des physiothérapeutes et des ergothérapeutes, vous travaillerez en étroite collaboration dans une équipe interprofessionnelle de traitement.\n• Participer régulièrement aux rapports, aux discussions de cas et à la supervision\n• Lors de l'exécution d'examens d'ingestion endoscopique de fibres, vous participez activement\n• La coordination avec les organismes de prétraitement ainsi que la planification d'autres solutions de connexion logopédique font également partie de votre domaine de responsabilité.\n• Vous documentez soigneusement les cours de traitement et préparez les rapports correspondants\n• Ils vous guideront et vous conseilleront avec compétence et empathie.\n\nProfil\n\n• Vous avez suivi une formation en orthophonie (BA, BSc ou diplôme avec reconnaissance EDK)\n• Idéalement, vous avez déjà acquis de l'expérience en réadaptation ou en milieu clinique, mais ce n'est pas une exigence\n• Très bonnes compétences en allemand dans la parole et l'écriture vous distinguent, d'autres compétences linguistiques sont avantageuses\n• La coopération interdisciplinaire vous apporte la joie et vous convainquez par votre force de communication\n• Une méthode de travail indépendante, fiable et structurée est une question bien sûr pour vous\n• L'esprit d'équipe, l'ouverture à la rétroaction et une approche reconnaissante envers les autres sont parmi vos forces.\n• Vous apportez engagement, initiative et sens des responsabilités\n• L'état de préparation des missions du samedi complète votre profil\n\nPensum: 40-70 %\n\nEmploi: indéfini\n\nEntrée : 2026-12-01"
+      },
+      "location": "Bellikon",
+      "canton": "AG",
+      "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Logopaedin-Logopaede/dd00d7cc-528d-4df6-ba91-6ca03732a960",
+      "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:34:20.194Z",
+      "addressLocality": "Bellikon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5454",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://job.rehabellikon.ch/apply/dd00d7cc-528d-4df6-ba91-6ca03732a960/website",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "dd00d7cc-528d-4df6-ba91-6ca03732a960",
+      "pensumMin": 40,
+      "pensumMax": 70,
+      "pensum": "40 - 70%",
+      "contractDuration": "permanent",
+      "previousSlugs": [
+        "logopadin-logopade-rehaklinik-bellikon-bellikon",
+        "logopadin-logopade-reha-bellikon-bellikon"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "logopadin-logopade-rehaklinik-bellikon-bellikon"
+        ],
+        "it": [
+          "logopadin-logopade-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "logopadin-logopade-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "logopadin-logopade-reha-bellikon-bellikon"
+        ]
+      },
+      "firstSeenAt": "2026-09-01T07:36:45.874Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

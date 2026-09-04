@@ -13,8 +13,20 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  extractDetailFields,
+  isSufficientVacancyDescription,
+} from './prospector/extract.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  resolveSourceBackedSwissGeography,
+} from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { extractLinks } from './prospector/careers-trail.mjs';
+import {
+  extractUmantisDetailFields,
+  umantisVacancyIdentity,
+} from './prospector/umantis-detail.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -23,6 +35,7 @@ export const RECRUITINGAPP_2649_COMPANY_NAME = 'Alexander von Humboldt-Stiftung 
 export const RECRUITINGAPP_2649_COMPANY_DOMAIN = 'recruitingapp-2649.umantis.com';
 
 const CAREER_URL = 'https://recruitingapp-2649.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+const AUTHORITATIVE_NON_SWISS_LOCATIONS = new Set(['berlin', 'bonn']);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -32,6 +45,24 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+export function canonicalRecruitingapp2649Url(rawUrl = '') {
+  try {
+    const vacancyId = umantisVacancyIdentity(rawUrl);
+    if (!vacancyId) return '';
+    const url = new URL(rawUrl);
+    if (url.hostname.toLowerCase() !== RECRUITINGAPP_2649_COMPANY_DOMAIN) return '';
+    url.protocol = 'https:';
+    url.hostname = RECRUITINGAPP_2649_COMPANY_DOMAIN;
+    url.port = '';
+    url.pathname = `/Vacancies/${vacancyId}/Description/1`;
+    url.search = '';
+    url.hash = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -107,9 +138,126 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+function attachSnapshotProof(rows, proof) {
+  Object.defineProperty(rows, 'authoritativeSnapshotProof', {
+    value: proof,
+    enumerable: false,
+    configurable: false,
+    writable: false,
+  });
+  Object.defineProperty(rows, 'discoveredCount', {
+    value: proof.discoveredCount,
+    enumerable: false,
+    configurable: false,
+    writable: false,
+  });
+  return rows;
+}
+
+/**
+ * A source-proven zero is the only safe way to retire the stale Lugano/TI
+ * records once every current Umantis vacancy is demonstrably outside
+ * Switzerland. Any missing, thin or unidentifiable detail invalidates the
+ * whole batch, so the standard pipeline keeps the previous slice.
+ */
+async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(RECRUITINGAPP_2649_KEY);
-  return runSpecInProduction(spec);
+  const attemptedDetailIds = new Set();
+  const listingTitles = new Map();
+  const observedDetails = new Map();
+  const sourceFetch = runtime.fetchImpl || globalThis.fetch;
+
+  const observingFetch = async (input, init) => {
+    const rawUrl = typeof input === 'string' || input instanceof URL
+      ? String(input)
+      : String(input?.url || '');
+    const vacancyId = umantisVacancyIdentity(rawUrl);
+    if (vacancyId) attemptedDetailIds.add(vacancyId);
+    const response = await sourceFetch(input, init);
+    let pathname = '';
+    try { pathname = new URL(rawUrl).pathname; } catch { /* not a URL */ }
+    if (/^\/Jobs\/1\/?$/i.test(pathname) && response?.ok && typeof response.clone === 'function') {
+      const copy = response.clone();
+      const html = await copy.text();
+      for (const link of extractLinks(html, response.url || rawUrl)) {
+        const id = umantisVacancyIdentity(link.url);
+        const title = normalizeSpace(link.text || '');
+        if (!id || title.length < 4 || !/\/Vacancies\/\d+\/Description\/1\/?$/i.test(new URL(link.url).pathname)) {
+          continue;
+        }
+        const previousTitle = listingTitles.get(id);
+        listingTitles.set(id, previousTitle && normalize(previousTitle) !== normalize(title) ? '' : title);
+      }
+    }
+    return response;
+  };
+
+  const observingDetailExtractor = (html, pageUrl) => {
+    const detail = extractDetailFields(html, pageUrl);
+    const umantisDetail = extractUmantisDetailFields(html);
+    if (isSufficientVacancyDescription(umantisDetail.description)) {
+      detail.description = umantisDetail.description;
+    }
+    if (!detail.locationCandidates.length && umantisDetail.locationCandidates.length) {
+      detail.locationCandidates = umantisDetail.locationCandidates;
+      const [candidate] = umantisDetail.locationCandidates;
+      detail.location = candidate.location;
+      detail.addressCountry = candidate.addressCountry;
+    }
+
+    const vacancyId = umantisVacancyIdentity(pageUrl);
+    if (vacancyId) {
+      const decision = resolveDetailOrListingSwissGeography(detail, {});
+      observedDetails.set(vacancyId, {
+        id: vacancyId,
+        title: normalizeSpace(detail.title || ''),
+        rich: isSufficientVacancyDescription(detail.description),
+        swiss: Boolean(decision.geography),
+        locations: detail.locationCandidates
+          .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
+          .filter(Boolean),
+      });
+    }
+    return detail;
+  };
+
+  const rows = await runSpecInProduction(spec, {
+    ...runtime,
+    fetchImpl: observingFetch,
+    detailExtractor: observingDetailExtractor,
+  });
+  const details = [...observedDetails.values()];
+  const proof = {
+    discoveredCount: listingTitles.size,
+    attemptedDetailCount: attemptedDetailIds.size,
+    detailCount: details.length,
+    publishedCount: rows.length,
+    complete: listingTitles.size > 0
+      && attemptedDetailIds.size === listingTitles.size
+      && details.length === listingTitles.size
+      && details.every((detail) => detail.rich && detail.locations.length > 0)
+      && details.every((detail) => attemptedDetailIds.has(detail.id)
+        && normalize(listingTitles.get(detail.id)) === normalize(detail.title)),
+    details,
+  };
+  if ((proof.discoveredCount > 0 || proof.attemptedDetailCount > 0) && !proof.complete) {
+    throw new Error(
+      `recruitingapp-2649: incomplete detail snapshot (${proof.detailCount}/${proof.discoveredCount})`,
+    );
+  }
+  return attachSnapshotProof(rows, proof);
+}
+
+export function assertCompleteRecruitingapp2649Snapshot(jobs) {
+  if (!Array.isArray(jobs) || jobs.length !== 0) return false;
+  const proof = jobs.authoritativeSnapshotProof;
+  if (!proof?.complete || proof.discoveredCount <= 0 || proof.publishedCount !== 0) return false;
+  return proof.details.every((detail) => !detail.swiss
+    && detail.locations.length > 0
+    && detail.locations.every((location) => {
+      const locality = normalize(location).split(/[,;/|]/)[0].trim();
+      return AUTHORITATIVE_NON_SWISS_LOCATIONS.has(locality);
+    }));
 }
 
 /**
@@ -119,14 +267,20 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllRecruitingapp2649Jobs() {
+export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
   console.log(`🔍 Fetching Alexander von Humboldt-Stiftung Stellen jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return attachSnapshotProof([], listings?.authoritativeSnapshotProof || {
+      discoveredCount: 0,
+      detailCount: 0,
+      publishedCount: 0,
+      complete: false,
+      details: [],
+    });
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -138,11 +292,16 @@ export async function fetchAllRecruitingapp2649Jobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Lugano'; // TODO: extract actual location
-    const canton = inferSwissTargetCanton(location) || 'TI';
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || CAREER_URL;
+    if (!descriptionText) continue;
+    const publicUrl = canonicalRecruitingapp2649Url(listing.url || '');
+    if (!publicUrl) {
+      throw new Error('recruitingapp-2649: source vacancy has no canonical Umantis identity');
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} recruitingapp-2649 ch`);
@@ -158,8 +317,8 @@ export async function fetchAllRecruitingapp2649Jobs() {
       companyDomain: RECRUITINGAPP_2649_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Alexander von Humboldt-Stiftung Stellen`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Alexander von Humboldt-Stiftung Stellen` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -168,9 +327,12 @@ export async function fetchAllRecruitingapp2649Jobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
+      country: normalizeSpace(listing.addressCountry || "CH"),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),
@@ -189,5 +351,5 @@ export async function fetchAllRecruitingapp2649Jobs() {
   }
 
   console.log(`\n📋 Total Alexander von Humboldt-Stiftung Stellen jobs discovered: ${jobs.length}`);
-  return jobs;
+  return attachSnapshotProof(jobs, listings.authoritativeSnapshotProof);
 }

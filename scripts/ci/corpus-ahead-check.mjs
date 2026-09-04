@@ -415,7 +415,13 @@ export function localHash(rel) {
   return buf === null ? null : sha256(buf);
 }
 
-async function fetchRaw(repo, ref, rel) {
+/**
+ * Esportata (non solo uso interno) perche' `identical-twin-transport-dryrun.mjs`
+ * legge lo stesso manifest e gli stessi blob del corpus: una seconda
+ * implementazione di questo fetch divergerebbe dalla prima, la classe di
+ * difetto che questo file esiste per chiudere (vedi intestazione).
+ */
+export async function fetchRaw(repo, ref, rel) {
   const headers = { 'User-Agent': 'corpus-ahead-check' };
   if (process.env.GH_TOKEN) headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
   const res = await fetch(rawUrl(repo, ref, rel), { headers });
@@ -425,8 +431,9 @@ async function fetchRaw(repo, ref, rel) {
 }
 
 /** Piccolo pool: ~217 fetch in sequenza sono inutilmente lente, e in parallelo
- *  pieno prendono un rate-limit. Otto alla volta e' il compromesso. */
-async function mapPool(items, limit, fn) {
+ *  pieno prendono un rate-limit. Otto alla volta e' il compromesso.
+ *  Esportata per lo stesso motivo di `fetchRaw` sopra. */
+export async function mapPool(items, limit, fn) {
   const out = new Array(items.length);
   let i = 0;
   await Promise.all(

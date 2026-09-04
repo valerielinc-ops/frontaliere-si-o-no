@@ -39,6 +39,27 @@ import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } 
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
+// Sì, per due righe di logica si importa un file di ~2.870 righe: nit del
+// reviewer su PR #7276, valutato e NON preso, di proposito.
+//
+// L'estrazione ovvia (`scripts/ci/lib/workflow-push-capability.mjs` + una
+// ri-esportazione dal drainer) e' stata scritta e provata il 2026-09-04:
+// funziona, 526 test verdi. Il motivo per cui non e' stata spedita e' che
+// `scripts/ci/followup-drainer.mjs` e' `mode: identical` nel
+// `loop-sync-manifest.json` del corpus, mentre un file NUOVO non e' nel
+// manifest: la discesa porterebbe giu' il drainer che importa un modulo che
+// li' non esiste, e il drainer del corpus morirebbe con ERR_MODULE_NOT_FOUND
+// a ogni run. E' esattamente il difetto che il 2026-08-27 ha ucciso il
+// pre-pass di `needs-human-sweep.yml` per otto giorni (PR #7273): gli import
+// ESM sono statici, quindi non fallisce a volte, fallisce sempre e in
+// silenzio. Splittare vale la pena solo INSIEME alla voce di manifest e alla
+// PR gemella sul corpus, nello stesso giro.
+//
+// Nel frattempo l'import e' sicuro qui: `followup-drainer.mjs` ha il guard
+// `if (process.argv[1]?.endsWith('followup-drainer.mjs'))` sul suo `main()`,
+// quindi importarlo non esegue niente. Il contrario NON vale — questo file
+// il guard non ce l'ha e un `import()` lo esegue davvero.
+import { canPushWorkflows } from './ci/followup-drainer.mjs';
 
 const argv = process.argv.slice(2);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
@@ -115,9 +136,9 @@ function reconcileOpenPromotions(store) {
 /**
  * C'e' gia' una PR di promozione aperta?
  *
- * Ogni promozione rigenera TUTTI i 22 `crawler-group-*.yml`, perche' aggiungere
+ * Ogni promozione rigenera TUTTI i 23 `crawler-group-*.yml`, perche' aggiungere
  * un crawler ribilancia i gruppi. Due PR aperte insieme toccano quindi le stesse
- * 22 file dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
+ * 23 file dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
  * piu' — misurato su #6292 e #6297, 25 file in comune, entrambe bloccate.
  *
  * Il loop gira ogni notte, quindi senza una serializzazione esplicita il caso e'
@@ -348,11 +369,19 @@ try {
 // fine, al push — misurato qui: 10 crawler scaffoldati e poi
 // «refusing to allow a GitHub App to create or update workflow».
 //
-// Fail-closed: si rigenera solo se `mint-app-token.mjs` ha LETTO la capacita'
-// dalla risposta dell'API. Senza, il crawler entra comunque (parser, runner,
-// test, voce di manifest) e resta solo da schedulare — una PR in meno di valore,
-// non una PR bloccata.
-const canWriteWorkflows = process.env.APP_TOKEN_WORKFLOWS === 'true';
+// Fail-closed: si rigenera solo se la capacita' e' stata LETTA da una risposta
+// dell'API. Senza, il crawler entra comunque (parser, runner, test, voce di
+// manifest) e resta solo da schedulare — una PR in meno di valore, non una PR
+// bloccata.
+//
+// `canPushWorkflows()` e non `process.env.APP_TOKEN_WORKFLOWS` diretto: quella
+// env descrive UNA sola identita' (la GitHub App), e leggerla da sola e' la
+// stessa forma di difetto corretta il 2026-09-04 nel pre-flight del drainer —
+// dove sul corpus, che pusha con un PAT classico con scope `workflow`, la
+// risposta era `false` per costruzione. Qui oggi il risultato non cambia (il
+// loop del prospector gira con la App e non scrive `PAT_WORKFLOWS_SCOPE`), ma
+// la capacita' si legge da entrambe le sorgenti in un posto solo.
+const canWriteWorkflows = canPushWorkflows();
 let groupsRegenerated = false;
 if (canWriteWorkflows) {
   try {
@@ -449,8 +478,9 @@ ${bullets}${relaxedNote}
 // nominato nel body. `diffPaths` alimenta quel check qui, non solo nel gate CI.
 function changedWorkflowPaths() {
   try {
-    const modified = execFileSync('git', ['diff', '--name-only', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
-    const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    const workflowPaths = ['.github/workflows', '.github/corpus-workflows'];
+    const modified = execFileSync('git', ['diff', '--name-only', '--', ...workflowPaths], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard', '--', ...workflowPaths], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
     return [...modified.split('\n'), ...untracked.split('\n')].map((l) => l.trim()).filter(Boolean);
   } catch {
     return [];
@@ -489,7 +519,11 @@ try {
   // .yml ne sono la resa. Committare i .yml senza i pin lascia il nuovo crawler
   // "mai visto" al giro dopo, che lo riassegna a un gruppo qualunque — cioe'
   // esattamente il rimescolamento che i pin esistono per impedire.
-  if (groupsRegenerated) paths.push('.github/workflows', 'data/crawler-group-assignments.json');
+  if (groupsRegenerated) paths.push(
+    '.github/workflows',
+    '.github/corpus-workflows',
+    'data/crawler-group-assignments.json',
+  );
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);

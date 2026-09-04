@@ -61,7 +61,7 @@ async function initFirebase() {
  * @param {Array<{email:string, locale:string}>} items
  * @returns {Promise<Set<string>>} lowercased emails that FAILED to send
  */
-async function sendWinbacks(items) {
+export async function sendWinbacks(items) {
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
   const cascade = items.map((w) => {
     const { subject, html, text, unsubscribeUrl } = buildWinbackEmail({ email: w.email, locale: w.locale });
@@ -76,6 +76,12 @@ async function sendWinbacks(items) {
         // action on our canonical https origin (valid cert), and the resubscribe
         // hit is our own re-engagement signal — we don't need the ESP click event.
         tracking: false,
+        // campaign_id tag (#6317/#6765): forceProvider below is Resend, whose
+        // webhook only reads campaign_id off this tag — Maileroo's per-message
+        // ref fallback (functions/src/lib/mailerooRef.js defaultCampaignId)
+        // never applies here, so without it every send fell to the
+        // `unknown:<messageId>` fallback and was filed `unattributed`.
+        tags: [{ name: 'campaign_id', value: 'sunset_winback' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
@@ -90,7 +96,7 @@ async function sendWinbacks(items) {
   // the open-rate measurement. Resend's send fn already sets open_tracking
   // and click_tracking independently, so it's the only cascade provider that
   // can honor "clicks off, opens on". Volume is weekly/low (sunset cohort
-  // only), well inside Resend's 50k/mo budget.
+  // only); the shared cascade enforces Resend's free-plan 100/day ceiling.
   const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'resend' });
   logProviderSummary();
   return new Set(

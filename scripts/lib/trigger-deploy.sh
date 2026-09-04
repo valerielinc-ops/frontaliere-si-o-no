@@ -7,11 +7,11 @@
 # on deploy.yml, ensuring the site is rebuilt & redeployed with new data.
 #
 # Thin wrapper: builds the deploy.yml-specific inputs JSON (article metadata)
-# and delegates the ref-wait + dispatch-retry engine to
+# and delegates the ref-wait + single-dispatch engine to
 # scripts/lib/trigger-workflow.sh (issue #4837 stream C — extracted so a
-# second caller needing the same "wait for SHA, dispatch with 5xx retry"
+# second caller needing the same "wait for SHA, dispatch exactly once"
 # machinery, e.g. fast-publish-article.yml, doesn't hand-roll a literal
-# duplicate of this file's curl/retry loop; AGENTS.md Non-Negotiable #6).
+# duplicate of this file's curl loop; AGENTS.md Non-Negotiable #6).
 # All env var names, the `dispatch_sent` output key, and exit codes 0/1 are
 # unchanged from before this refactor — existing callers need no changes.
 #
@@ -29,7 +29,6 @@
 #   DEPLOY_ARTICLE_OG_DESCRIPTION — optional OG description for Facebook copy
 #   DEPLOY_ARTICLE_OG_IMAGE  — optional expected OG image for the live page
 #   DEPLOY_ARTICLE_CATEGORY  — optional article category for Facebook hashtags
-#   DEPLOY_DISPATCH_ATTEMPTS — max dispatch retry attempts (default: 3)
 #
 # Exit codes:
 #   0  — dispatch sent (or skipped when no token available)
@@ -78,5 +77,4 @@ TRIGGER_REF="${DEPLOY_REF:-main}" \
 TRIGGER_EXPECTED_SHA="${EXPECTED_SHA:-}" \
 TRIGGER_REF_WAIT_ATTEMPTS="${DEPLOY_REF_WAIT_ATTEMPTS:-20}" \
 TRIGGER_REF_WAIT_SECONDS="${DEPLOY_REF_WAIT_SECONDS:-2}" \
-TRIGGER_DISPATCH_ATTEMPTS="${DEPLOY_DISPATCH_ATTEMPTS:-3}" \
   bash "${SCRIPT_DIR}/trigger-workflow.sh" "deploy.yml" "$INPUTS_JSON"

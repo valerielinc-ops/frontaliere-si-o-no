@@ -10,6 +10,8 @@ import {
   emptyCounters,
   finalizeEntry,
   formatReport,
+  slotsPresentByLength,
+  isLanguageVerified,
 } from '../scripts/log-translation-stats.mjs';
 import {
   formatFlaggedRate,
@@ -196,10 +198,28 @@ describe('summarizeJobs / formatReport — presence is separated from translatio
     expect(entry.verifiedTranslated).toBe(1);
   });
 
-  it('records "not measured", never zero, for the un-wired language check', () => {
+  it('reports the wired language check as a ratio against presence, not "not measured"', () => {
     const entry = finalizeEntry(summarizeJobs([slotComplete()]), { label: 'test', timestamp: 'T' });
-    expect(entry.languageVerified).toBeNull();
-    expect(formatReport(entry).join('\n')).toContain('not measured');
+    expect(entry.slotsPresentByLength).toBe(1);
+    expect(entry.languageVerified).toBe(1);
+    const text = formatReport(entry).join('\n');
+    expect(text).toContain('1/1 (100%)');
+    // Ristretto alla RIGA della lingua (#17): il report porta ora anche l'età
+    // alla completezza, che su uno snapshot senza coorte dice legittimamente
+    // «not measured». Un `not.toContain` su tutto il testo confondeva le due
+    // metriche e sarebbe diventato rosso per la riga sbagliata.
+    const languageRow = text.split('\n').find((l) => l.includes('Language-verified:'));
+    expect(languageRow).toBeDefined();
+    expect(languageRow).not.toContain('not measured');
+  });
+
+  it('still prints "not measured" for a pre-wiring history row (null, never 0)', () => {
+    // The 200 committed rows written before #6389 carry `languageVerified: null`.
+    // A reader of the series must keep being able to tell "we did not look"
+    // apart from "we looked and found zero".
+    const legacy = { ...finalizeEntry(emptyCounters(), { label: 'old', timestamp: 'T' }),
+      languageVerified: null, slotsPresentByLength: undefined };
+    expect(formatReport(legacy).join('\n')).toContain('not measured');
   });
 
   it('reserves the word COMPLETE for zero incomplete AND zero flagged', () => {
@@ -387,5 +407,207 @@ describe('source-level regression guards', () => {
     const exits = validatorSrc.match(/process\.exit\(1\)/g) || [];
     expect(exits.length).toBe(3);
     expect(validatorSrc).toContain('if (strict && (flagged.length > 0');
+  });
+});
+
+/**
+ * languageVerified (#6389) — the two failures a language check MUST catch.
+ *
+ * Both shapes are taken from the live corpus (data/jobs/by-crawler, origin/main
+ * 2026-09-03), because a check that misses either is not a language check:
+ *
+ *  1. `fachkraft.json` — 2,217 jobs whose EN title is BYTE-IDENTICAL to the
+ *     German one, and 2,226 whose FR title is. All 3,198 jobs in that slice have
+ *     four populated slots, so pure presence counts every one of them.
+ *  2. The case byte-equality alone cannot reach: German with only its two
+ *     prepositions translated ("mit" -> "con"), which reads as Italian to a
+ *     presence counter and is not equal to its source.
+ *
+ * They are asserted against `isLanguageVerified` (which composes the two
+ * production detectors) rather than against a hand-rolled expectation, so the
+ * day a detector is retuned this test tells us whether the corpus families it
+ * was built for still land.
+ */
+describe('log-translation-stats.mjs — languageVerified catches what presence cannot', () => {
+  const germanTitle = 'Sachbearbeiter/in Rechnungswesen mit Führungsaufgaben';
+
+  /** The fachkraft shape: every slot populated, EN/FR left as the German. */
+  function byteCopiedTitles(): Job {
+    const job = slotComplete({ slug: 'fachkraft-shape' });
+    job.title = germanTitle;
+    job.titleByLocale = {
+      de: germanTitle,
+      it: 'Impiegato/a di contabilità con compiti di direzione',
+      en: germanTitle,
+      fr: germanTitle,
+    };
+    return job;
+  }
+
+  it('counts the byte-copied fachkraft shape as PRESENT but not language-verified', () => {
+    const job = byteCopiedTitles();
+    expect(slotsPresentByLength(job)).toBe(true);   // four slots, long enough
+    expect(isLanguageVerified(job)).toBe(false);    // …and two of them are German
+  });
+
+  it('catches German whose prepositions alone were translated (byte-equality cannot)', () => {
+    const source = 'Zimmermann/Zimmerin mit vielseitigen Holzbauaufgaben';
+    const job = slotComplete({ slug: 'zimmermann' });
+    job.title = source;
+    job.titleByLocale = {
+      de: source,
+      it: 'Zimmermann/Zimmerin con vielseitigen Holzbauaufgaben',
+      en: 'Carpenter with varied timber-construction duties',
+      fr: 'Charpentier aux tâches variées de construction bois',
+    };
+    // Not a byte copy of its source — the IT slot really is a different string.
+    expect((job.titleByLocale as Record<string, string>).it).not.toBe(source);
+    expect(slotsPresentByLength(job)).toBe(true);
+    expect(isLanguageVerified(job)).toBe(false);
+  });
+
+  it('verifies a genuinely translated job', () => {
+    expect(isLanguageVerified(slotComplete())).toBe(true);
+  });
+
+  it('requires presence first: a short slot is never language-verified', () => {
+    const job = slotComplete();
+    (job.descriptionByLocale as Record<string, string>).fr = 'troppo corto';
+    expect(slotsPresentByLength(job)).toBe(false);
+    expect(isLanguageVerified(job)).toBe(false);
+  });
+
+  /**
+   * OBSERVATIONAL — the whole point of the field. Adding it must not move a
+   * single number the pipeline acts on: `incomplete` selects the retranslation
+   * work, `verifiedTranslated` is the reported success rate.
+   */
+  it('does not feed incomplete / complete / verifiedTranslated', () => {
+    const jobs = [slotComplete({ slug: 'clean' }), byteCopiedTitles()];
+    const entry = finalizeEntry(summarizeJobs(jobs), { label: 'test', timestamp: 'T' });
+    // The byte-copied job is judged by the canonical predicate, exactly as
+    // before: classifyJob is the only thing that decides `incomplete`.
+    expect(entry.incomplete).toBe(jobs.filter((j) => classifyJob(j).incomplete).length);
+    expect(entry.complete).toBe(entry.total - entry.incomplete);
+    expect(entry.slotsPresent).toBe(entry.complete);
+    expect(entry.verifiedTranslated).toBe(entry.complete - entry.flaggedAmongSlotsPresent);
+    // …while the observational pair records the gap presence alone hides.
+    expect(entry.slotsPresentByLength).toBe(2);
+    expect(entry.languageVerified).toBe(1);
+  });
+});
+
+describe("l'età alla completezza (#17) — il numero che uno snapshot non può produrre", () => {
+  // La seconda condizione della destinazione della mappa traduzioni parla di
+  // «tutte e quattro le lingue entro 24 ore dal primo avvistamento». Nessuna
+  // fotografia della coda può misurarla: un job che diventa completo ESCE
+  // dalla coda, quindi `queueAge` non lo vede mai nel momento in cui è stato
+  // servito. Serve il diff fra la coorte del passaggio `before` e lo stato del
+  // passaggio `after`, ed è tutto ciò che questi casi difendono.
+  const NOW = Date.parse('2026-09-04T12:00:00.000Z');
+  const daysAgo = (d: number) => new Date(NOW - d * 86_400_000).toISOString();
+
+  function pending(url: string, firstSeenAt: string): Job {
+    // Fessure vuote: `classifyJob` lo conta incompleto.
+    return {
+      url,
+      firstSeenAt,
+      slug: url,
+      sourceLang: 'de',
+      title: 'Zimmermann/Zimmerin mit vielseitigen Holzbauaufgaben',
+      description: LONG,
+      titleByLocale: {},
+      descriptionByLocale: {},
+    };
+  }
+
+  function done(url: string, firstSeenAt: string): Job {
+    return slotComplete({ url, firstSeenAt, slug: url });
+  }
+
+  it('raccoglie gli id della coorte solo quando il chiamante lo chiede', () => {
+    const jobs = [pending('u1', daysAgo(3)), done('u2', daysAgo(3))];
+    expect(summarizeJobs(jobs).incompleteIds).toEqual([]);
+    expect(summarizeJobs(jobs, { collectIncompleteIds: true }).incompleteIds).toEqual(['u1']);
+  });
+
+  it('conta come completato in questa run SOLO chi era nella coorte di partenza', () => {
+    // `wasPending` era incompleto all'inizio della run: è la riparazione.
+    // `alreadyDone` era già completo: contarlo gonfierebbe il numero a ogni
+    // esecuzione con l'intero corpus già tradotto.
+    const previouslyIncomplete = new Set(['wasPending']);
+    const c = summarizeJobs(
+      [done('wasPending', daysAgo(0.5)), done('alreadyDone', daysAgo(90))],
+      { previouslyIncomplete },
+    );
+    expect(c.completedSamples).toHaveLength(1);
+    expect(c.completedSamples[0].firstSeenAt).toBe(daysAgo(0.5));
+  });
+
+  it("un job ancora incompleto non entra fra i completati, anche se è nella coorte", () => {
+    const c = summarizeJobs([pending('u1', daysAgo(1))], {
+      previouslyIncomplete: new Set(['u1']),
+    });
+    expect(c.completedSamples).toEqual([]);
+    expect(c.incomplete).toBe(1);
+  });
+
+  it("la entry porta la mediana dell'età alla completezza e la fascia sotto le 24 ore", () => {
+    const counters = mergeCounters(
+      emptyCounters(),
+      summarizeJobs(
+        [done('a', daysAgo(0.5)), done('b', daysAgo(0.8)), done('c', daysAgo(40))],
+        { previouslyIncomplete: new Set(['a', 'b', 'c']) },
+      ),
+    );
+    const entry = finalizeEntry(counters, { label: 'after', now: NOW });
+    expect(entry.completionAge.count).toBe(3);
+    expect(entry.completionAge.buckets['0-1d']).toBe(2);
+    expect(entry.completionAge.p50AgeDays).not.toBeNull();
+    expect(formatReport(entry).join('\n')).toContain('Age at completion (p50)');
+  });
+
+  it('«non misurato» e «nessun job completato» restano due frasi diverse', () => {
+    // È la distinzione che rende il numero utilizzabile: una run che ha perso
+    // la coorte non deve leggersi come una run che non ha riparato niente,
+    // altrimenti la misura prima/dopo di ogni ticket successivo è falsata.
+    // Nessuna coorte: è il passaggio `before`, uno snapshot manuale, o
+    // lib/translation-observability.mjs. Non ha misurato.
+    const noCohort = mergeCounters(emptyCounters(), summarizeJobs([pending('u1', daysAgo(3))]));
+    const notMeasured = finalizeEntry(noCohort, { label: 'before', now: NOW });
+    expect(notMeasured.completionAge).toBeNull();
+    expect(formatReport(notMeasured).join('\n')).toContain('not measured');
+
+    // Coorte presente, nessun job completato: ha misurato, e il risultato è zero.
+    const zeroCounters = mergeCounters(
+      emptyCounters(),
+      summarizeJobs([pending('u1', daysAgo(3))], { previouslyIncomplete: new Set(['u1']) }),
+    );
+    const measuredZero = finalizeEntry(zeroCounters, { label: 'after', now: NOW });
+    expect(measuredZero.completionAge.count).toBe(0);
+    expect(formatReport(measuredZero).join('\n')).toContain('this run completed no job');
+  });
+
+  it('un consumatore che non chiede il diff non finge di aver misurato', () => {
+    // `lib/translation-observability.mjs:72` chiama `summarizeJobs(jobs)` senza
+    // opzioni: è uno snapshot, non ha un passaggio gemello, e con un `[]` di
+    // default avrebbe pubblicato «zero job completati» a ogni report. Il
+    // default `null` lo rende impossibile per costruzione, non per disciplina.
+    const c = mergeCounters(emptyCounters(), summarizeJobs([done('a', daysAgo(1))]));
+    expect(c.completedSamples).toBeNull();
+    expect(finalizeEntry(c, { label: 'observability', now: NOW }).completionAge).toBeNull();
+  });
+
+  it('la staffetta before/after è cablata in main(), fuori dal repository', () => {
+    // SCANSIONE DEL SORGENTE: `main()` non è esportata. Il cablaggio è la sola
+    // cosa che i casi funzionali qui sopra non possono coprire, ed è quello che
+    // si rompe per primo se qualcuno «semplifica» le due etichette.
+    const src = fs.readFileSync(path.join(ROOT, 'scripts/log-translation-stats.mjs'), 'utf-8');
+    expect(src).toMatch(/const isBefore = label === 'before'/);
+    expect(src).toMatch(/const isAfter = label === 'after'/);
+    // Il sidecar sta nella temp del runner, mai sotto data/: la coorte è stato
+    // di una run, non un campo del corpus.
+    expect(src).toMatch(/os\.tmpdir\(\)/);
+    expect(src).not.toMatch(/COHORT_FILE\s*=\s*['"]data\//);
   });
 });

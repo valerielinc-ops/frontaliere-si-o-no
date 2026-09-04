@@ -4,7 +4,7 @@
  * The predicate lived in three copies that had drifted apart, and the drift was
  * not cosmetic — it was the bug the fullest copy documents in its own comment:
  *
- *   - `assemble-jobs-dataset.mjs`      excluded `.gitkeep`, `-cache`, `.cleanup-tmp`
+ *   - `assemble-jobs-dataset.mjs`      excluded `.gitkeep`, `-locale-cache`, `.cleanup-tmp`
  *   - `repair-job-locales.mjs`         excluded only `.gitkeep`
  *   - `backfill-expired-from-history.mjs`  excluded nothing
  *
@@ -30,7 +30,7 @@ export function isSliceFile(file) {
   return (
     file.endsWith('.json') &&
     file !== '.gitkeep' &&
-    !file.includes('-cache') &&
+    !file.endsWith('-locale-cache.json') &&
     !file.includes('.cleanup-tmp')
   );
 }

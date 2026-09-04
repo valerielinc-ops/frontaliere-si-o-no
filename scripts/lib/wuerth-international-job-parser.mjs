@@ -22,6 +22,7 @@
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { classifyMalformedRowDrift } from './malformed-row-observability.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -76,13 +77,15 @@ export function detectEmploymentType(raw = '') {
 
 /**
  * Parse the career listing page HTML table.
- * Returns an array of { title, url, location, entryLevel }.
+ * Returns `{ jobs, skippedMalformedRows }`. Header/chrome rows without data
+ * cells and duplicate URLs are not malformed and do not increment the count.
  */
 export function parseListingPage(html) {
-  if (!html || typeof html !== 'string') return [];
+  if (!html || typeof html !== 'string') return { jobs: [], skippedMalformedRows: 0 };
 
   const jobs = [];
   const seen = new Set();
+  let skippedMalformedRows = 0;
 
   // Find the DataTables table content
   const tableMatch = html.match(/<table[^>]*id="sortableTable9375499"[^>]*>([\s\S]*?)<\/table>/i);
@@ -102,17 +105,27 @@ export function parseListingPage(html) {
       cells.push(normalizeSpace(stripHtml(cellMatch[1])));
     }
 
-    if (cells.length < 3) continue;
+    if (cells.length === 0) continue;
+    if (cells.length < 3) {
+      skippedMalformedRows += 1;
+      continue;
+    }
 
     const title = cells[0];
     const location = cells[1] || 'Chur';
     const entryLevel = cells[2] || '';
 
-    if (!title || title.length < 3) continue;
+    if (!title || title.length < 3) {
+      skippedMalformedRows += 1;
+      continue;
+    }
 
     // Extract detail link
     const linkMatch = rowHtml.match(/<a[^>]+href="([^"]*Job-details[^"]*)"[^>]*>/i);
-    if (!linkMatch) continue;
+    if (!linkMatch) {
+      skippedMalformedRows += 1;
+      continue;
+    }
 
     const detailPath = linkMatch[1];
     const fullUrl = detailPath.startsWith('http')
@@ -125,7 +138,7 @@ export function parseListingPage(html) {
     jobs.push({ title, url: fullUrl, location, entryLevel });
   }
 
-  return jobs;
+  return { jobs, skippedMalformedRows };
 }
 
 /* ── Detail page parser ───────────────────────────────────── */
@@ -311,7 +324,18 @@ export async function fetchAllWuerthInternationalJobs() {
     clearTimeout(timer1);
   }
 
-  const listings = parseListingPage(listingHtml);
+  const { jobs: listings, skippedMalformedRows } = parseListingPage(listingHtml);
+  const listingDiagnostic = classifyMalformedRowDrift(listings.length, skippedMalformedRows);
+  if (skippedMalformedRows > 0) {
+    console.warn(
+      `⚠️ Würth International listing: skipped ${skippedMalformedRows}/${listingDiagnostic.total} malformed row(s).`,
+    );
+  }
+  if (listingDiagnostic.severity === 'error') {
+    throw new Error(
+      `Würth International listing structure drift: ${skippedMalformedRows}/${listingDiagnostic.total} rows malformed`,
+    );
+  }
   console.log(`  📋 Found ${listings.length} job listings\n`);
 
   if (listings.length === 0) {

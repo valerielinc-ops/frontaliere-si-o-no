@@ -1003,10 +1003,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58",
         "it": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
-        "en": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
-        "de": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
-        "fr": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich"
+        "en": "food-sales-associate-coop-genossenschaft-zurich",
+        "fr": "vendeur-euse-food-coop-genossenschaft-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
@@ -1020,6 +1020,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -9129,6 +9130,11 @@
       },
       "queries": [
         {
+          "query": "autista moritz",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
           "query": "offerte di lavoro ticino",
           "clicks": 0,
           "impressions": 6
@@ -9142,11 +9148,6 @@
           "query": "offerte di lavoro per autisti in svizzera",
           "clicks": 0,
           "impressions": 4
-        },
-        {
-          "query": "autista moritz",
-          "clicks": 0,
-          "impressions": 3
         },
         {
           "query": "lavoro autista svizzera canton ticino",
@@ -9165,6 +9166,11 @@
         },
         {
           "query": "autista offerte di lavoro",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "autista ticino",
           "clicks": 0,
           "impressions": 2
         },
@@ -9222,16 +9228,11 @@
           "query": "posto di lavoro ticino",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "lavoro autista",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 62,
+      "totalImpressions": 66,
       "totalClicks": 5,
-      "topQuery": "offerte di lavoro ticino",
+      "topQuery": "autista moritz",
       "title": "Autisti",
       "titleByLocale": {
         "it": "",
@@ -21586,6 +21587,64 @@
       ]
     },
     {
+      "slug": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+      "locale": "it",
+      "path": "/cerca-lavoro-lucerna/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-lucerna/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern/"
+      },
+      "queries": [
+        {
+          "query": "lavoro lucerna",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lavoro lucerna",
+      "title": "Datenbank ingegnere css versicherung",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Luzern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "en": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "de": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "fr": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "en": "/en/find-jobs-lucerne/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "de": "/de/jobs-im-luzern/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "datenzentrumstechniker-schweiz-gland-on-site-reboot-monkey-gland",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/datenzentrumstechniker-schweiz-gland-on-site-reboot-monkey-gland/",
@@ -25815,17 +25874,17 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 192
+          "impressions": 197
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 132
+          "impressions": 135
         },
         {
           "query": "politica sanitaria canton ticino anziani",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 13
         },
         {
           "query": "elderly care jobs in switzerland",
@@ -25913,7 +25972,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 375,
+      "totalImpressions": 384,
       "totalClicks": 5,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
@@ -37167,9 +37226,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-        "en": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-        "de": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-        "fr": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg"
+        "en": "junior-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
+        "de": "junior-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg",
+        "fr": "junior-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
@@ -37184,6 +37243,7 @@
       "source": [
         "gsc",
         "translation-cache",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -39775,6 +39835,11 @@
           "impressions": 14
         },
         {
+          "query": "logistica ticino lavoro",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
           "query": "offerte lavoro logistica ticino",
           "clicks": 3,
           "impressions": 13
@@ -39783,11 +39848,6 @@
           "query": "offerte lavoro svizzera per italiani",
           "clicks": 0,
           "impressions": 13
-        },
-        {
-          "query": "logistica ticino lavoro",
-          "clicks": 0,
-          "impressions": 12
         },
         {
           "query": "lavoro frontaliere svizzera",
@@ -39827,7 +39887,7 @@
         {
           "query": "site:frontaliereticino.ch",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "lavorare in svizzera frontaliere",
@@ -39865,7 +39925,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 184,
+      "totalImpressions": 189,
       "totalClicks": 7,
       "topQuery": "offerte lavoro frontaliere svizzera",
       "title": "Logistica",
@@ -43528,10 +43588,10 @@
         "fr": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "en": "/en/find-jobs-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "it": "/cerca-lavoro-sciaffusa/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "en": "/en/find-jobs-schaffhausen/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
         "de": "/de/jobs-im-basel/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "fr": "/fr/trouver-emploi-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster"
+        "fr": "/fr/trouver-emploi-schaffhouse/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -45658,10 +45718,10 @@
         "fr": "oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
-        "en": "/en/find-jobs-ticino/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
-        "de": "/de/jobs-im-tessin/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
-        "fr": "/fr/trouver-emploi-tessin/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne"
+        "it": "/cerca-lavoro-berna/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
+        "en": "/en/find-jobs-bern/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
+        "de": "/de/jobs-in-bern/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
+        "fr": "/fr/trouver-emploi-berne/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

@@ -1,18 +1,18 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-08-28T05:32:11.640Z",
+  "generatedAt": "2026-09-03T23:23:07.506Z",
   "total": 4,
   "discovered": null,
   "written": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7346,
-  "avgDurationMs": 7346,
+  "unchangedCount": 1,
+  "durationMs": 6818,
+  "avgDurationMs": 6818,
   "durationHistory": [
-    7346
+    6818
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/TOI-L-112/Medical-Physicist--f-m-d----Proton-Therapy_R-25505-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:32:06.105Z",
+      "crawledAt": "2026-09-03T23:23:02.497Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/LPN-BO/Senior-Strategic-Accounts-Manager-EMEA_R-29705-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:32:06.920Z",
+      "crawledAt": "2026-09-03T23:23:03.203Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/CEY-BO/Network-Engineer---Cloud-Operations_R-25439-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:32:07.678Z",
+      "crawledAt": "2026-09-03T23:23:03.938Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -126,10 +126,13 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "siemens-healthineers-f0d6a464ad2c",
-      "slug": "qa-engineer-siemens-healthineers-ch",
+      "slug": "qa-ingegnere-siemens-healthineers-dwl-t",
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
@@ -140,7 +143,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:32:08.339Z",
+      "crawledAt": "2026-09-03T13:43:41.628Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -156,15 +159,17 @@
       "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "jobReqId": "R-28619",
       "firstSeenAt": "2026-07-08T22:12:19.122Z",
-      "_qualityScore": 84,
+      "salaryMin": 85000,
+      "salaryMax": 145000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

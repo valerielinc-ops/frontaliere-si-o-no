@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-08-28T05:31:41.672Z",
+  "generatedAt": "2026-09-03T23:25:39.659Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1125,
-  "avgDurationMs": 1125,
+  "durationMs": 1254,
+  "avgDurationMs": 1254,
   "durationHistory": [
-    1125
+    1254
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -43,6 +43,7 @@
       "streetAddress": "",
       "postalCode": "6500",
       "firstSeenAt": "2026-04-28T11:44:39.710Z",
+      "salarySource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -52,43 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Executive Assistant",
-      "slug": "executive-assistant-tinext-lugano-execassistfid",
-      "url": "https://tinext.kenjo.io/execassistfid",
-      "applyUrl": "https://tinext.kenjo.io/execassistfid",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "Administration",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-06",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "tinext-22318b8749b7",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-07-06T15:13:02.185Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ehnv",
-  "assembledAt": "2026-08-28T05:20:10.631Z",
+  "assembledAt": "2026-09-03T23:15:59.612Z",
   "jobs": [
     {
       "id": "ehnv-0bb13e86b14a",
@@ -34,7 +34,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:07.526Z",
+      "crawledAt": "2026-09-03T23:15:56.008Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -82,6 +82,7 @@
       "firstSeenAt": "2026-07-08T10:56:36.199Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -89,100 +90,6 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ehnv-c26103d3bcb1",
-      "slug": "un-infermiera-all-80-90-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-      "slugByLocale": {
-        "it": "un-infermiera-all-80-90-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "en": "a-nurse-at-80-90-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "de": "eine-krankenschwester-bei-80-90-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "fr": "un-e-infirmier-ere-a-80-90-ehnv-pompaples"
-      },
-      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-      "companyKey": "ehnv",
-      "companyDomain": "ehnv.ch",
-      "title": "Un.e infirmier.ère à 80-90%",
-      "titleByLocale": {
-        "it": "Un'infermiera all'80-90%",
-        "en": "A nurse at 80-90%",
-        "de": "Eine Krankenschwester bei 80-90%",
-        "fr": "Un.e infirmier.ère à 80-90%"
-      },
-      "description": "L’UNITE HOSPITALIERE « ABC – ESPACE ST-LOUP » RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Accompagnement de patients souffrant de troubles alimentaires\n\n• Entretiens de suivis psychiatriques\n\n• Animations de groupes thérapeutiques\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être titulaire d’un diplôme d’infirmier.ère niveau II, HES ou titre jugé équivalent, reconnu par la Croix Rouge Suisse\n\n• Expérience dans le domaine de la psychiatrie et dans l’accompagnement de patients souffrant de troubles anorexie-boulimie serait un atout\n\n• Capacité d’analyse et de travailler en équipe interprofessionnelle\n\n• Flexibilité\n\nNOUS OFFRONS\n\n• Un poste innovant dans le cadre d’un établissement en constant développement\n\n• Une place stable et un travail varié\n\n• Des méthodes et des outils de travail modernes\n\n• Des possibilités de développement et de formation continue\n\n• D’excellentes prestations sociales\n\n• Salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Hélène Dos Santos, infirmière clinicienne abC, T. +41 021 866 54 75\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 31 août 2026.",
-      "descriptionByLocale": {
-        "it": "HOSPITALITÀ \"ABC – ST-LOUP AREA\"\n\nMISSIONI PRINCIPALI\n\n• Accompagnamento di pazienti con disturbi alimentari\n\n• Interviste di follow-up psichiatrico\n\n• Attività del gruppo terapeutico\n\nSKILLS – PRESCRIZIONI\n\n• Titolare di un diploma di livello II, HES o equivalente riconosciuto dalla Croce Rossa svizzera\n\n• L'esperienza nel campo della psichiatria e nei pazienti con disturbi dell'anoressia-boulimia sarebbe un bene\n\n• Capacità di analizzare e lavorare come team interprofessionale\n\n• Flessibilità\n\nUFFICIO\n\n• Una posizione innovativa in uno stabilimento in costante sviluppo\n\n• Posizione stabile e lavoro vario\n\n• Metodi e strumenti di lavoro moderni\n\n• Possibilità di sviluppo e di formazione continua\n\n• Vantaggi sociali eccellenti\n\n• Salario secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\nDICHIARAZIONE:\n\nUlteriori informazioni possono essere ottenute da Hélène Dos Santos, Clinical Nurse ABC, T. +41 021 866 54 75\n\nSei interessato?\n\nLe offerte con documenti abituali devono essere inviate entro il 31 agosto 2026.",
-        "en": "HOSPITALITY \"ABC – ST-LOUP AREA\" RESEARCH\n\nMAIN MISSIONS\n\n• Accompanying patients with eating disorders\n\n• Psychiatric follow-up interviews\n\n• Therapeutic group activities\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Holder of a level II, HES or equivalent diploma recognised by the Swiss Red Cross\n\n• Experience in the field of psychiatry and in accompanying patients with anorexia-boulimia disorders would be an asset\n\n• Ability to analyse and work as an interprofessional team\n\n• Flexibility\n\nWE OFFER\n\n• An innovative position in a constantly developing establishment\n\n• Stable position and varied work\n\n• Modern working methods and tools\n\n• Development and continuing training opportunities\n\n• Excellent social benefits\n\n• Salary according to the scale of the Vaudian Hospital Federation (FHV)\n\nDATE OF COMMENCEMENT:\n\nAdditional information may be obtained from Hélène Dos Santos, Clinical Nurse ABC, T. +41 021 866 54 75\n\nAre you interested?\n\nOffers with usual documents must be sent by 31 August 2026.",
-        "de": "HOSPITALITÄT \"ABC – ST-LOUP AREA\" FORSCHUNG\n\nWICHTIGSTE MISSIONEN\n\n• Begleitende Patienten mit Essstörungen\n\n• Psychiatrische Follow-up Interviews\n\n• Therapeutische Gruppenaktivitäten\n\nFÄHIGKEITEN — ERFORDERLICHE ANFORDERUNGEN\n\n• Inhaber eines vom Schweizerischen Roten Kreuz anerkannten Diploms der Stufe II, HES oder eines gleichwertigen Diploms\n\n• Erfahrung auf dem Gebiet der Psychiatrie und bei der Begleitung von Patienten mit Magersucht-Boulimie-Störungen wäre ein Gewinn\n\n• Fähigkeit zur Analyse und Arbeit als interprofessionelles Team\n\n• Flexibilität\n\nWIR ANGEBOT\n\n• Eine innovative Position in einer sich ständig entwickelnden Einrichtung\n\n• Stabile Position und abwechslungsreiche Arbeit\n\n• Moderne Arbeitsmethoden und Werkzeuge\n\n• Entwicklung und Weiterbildungsmöglichkeiten\n\n• Hervorragende Sozialleistungen\n\n• Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\nDATUM DER VERPFLICHTUNG:\n\nWeitere Informationen erhalten Sie bei Hélène Dos Santos, Clinical Nurse ABC, T. +41 021 866 54 75\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen müssen bis zum 31. August 2026 gesendet werden.",
-        "fr": "L’UNITE HOSPITALIERE « ABC – ESPACE ST-LOUP » RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Accompagnement de patients souffrant de troubles alimentaires\n\n• Entretiens de suivis psychiatriques\n\n• Animations de groupes thérapeutiques\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être titulaire d’un diplôme d’infirmier.ère niveau II, HES ou titre jugé équivalent, reconnu par la Croix Rouge Suisse\n\n• Expérience dans le domaine de la psychiatrie et dans l’accompagnement de patients souffrant de troubles anorexie-boulimie serait un atout\n\n• Capacité d’analyse et de travailler en équipe interprofessionnelle\n\n• Flexibilité\n\nNOUS OFFRONS\n\n• Un poste innovant dans le cadre d’un établissement en constant développement\n\n• Une place stable et un travail varié\n\n• Des méthodes et des outils de travail modernes\n\n• Des possibilités de développement et de formation continue\n\n• D’excellentes prestations sociales\n\n• Salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Hélène Dos Santos, infirmière clinicienne abC, T. +41 021 866 54 75\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 31 août 2026."
-      },
-      "location": "Pompaples",
-      "canton": "VD",
-      "url": "https://www.ehnv.ch/emplois#offer/4364/une-infirmierere-a-80-90",
-      "source": "eHnv Dedicated Parser (Johdi Suite)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:06.860Z",
-      "addressLocality": "Pompaples",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1318",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "applyUrl": "https://www.ehnv.ch/emplois#offer/4364/une-infirmierere-a-80-90",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4364",
-      "previousSlugs": [
-        "un-e-infirmier-ere-a-80-90-ehnv-pompaples",
-        "80-segretaria-medica-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "80-medical-secretary-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "80-arztsekretar-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "un-e-secretaire-medical-e-a-80-ehnv-pompaples",
-        "medizinische-sekretar-in-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-        "un-e-infirmier-ere-a-80-90-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-infirmier-ere-a-80-90-ehnv-pompaples",
-          "80-segretaria-medica-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-          "80-medical-secretary-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-          "80-arztsekretar-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-          "un-e-secretaire-medical-e-a-80-ehnv-pompaples",
-          "medizinische-sekretar-in-80-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
-        ],
-        "en": [
-          "un-e-infirmier-ere-a-80-90-ehnv-pompaples",
-          "80-medical-secretary-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
-        ],
-        "de": [
-          "un-e-infirmier-ere-a-80-90-ehnv-pompaples",
-          "80-arztsekretar-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
-          "un-e-infirmier-ere-a-80-90-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
-        ],
-        "fr": [
-          "un-e-secretaire-medical-e-a-80-ehnv-pompaples"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T22:20:17.144Z",
-      "salaryMin": 77900,
-      "salaryMax": 108500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77900,
-          "maxValue": 108500,
           "unitText": "YEAR"
         }
       }
@@ -218,7 +125,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4363/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:06.153Z",
+      "crawledAt": "2026-09-03T23:15:55.432Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -253,6 +160,7 @@
       "firstSeenAt": "2026-08-04T22:20:16.479Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -295,7 +203,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4376/une-infirmierere-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:05.461Z",
+      "crawledAt": "2026-09-03T23:15:54.835Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -330,6 +238,7 @@
       "firstSeenAt": "2026-08-10T10:29:09.126Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -372,7 +281,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4380/une-dieteticienne-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:04.798Z",
+      "crawledAt": "2026-09-03T23:15:54.253Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -407,6 +316,7 @@
       "firstSeenAt": "2026-08-11T10:14:02.932Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -449,7 +359,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4379/une-dieteticienne-a-80-en-cdd",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:04.169Z",
+      "crawledAt": "2026-09-03T23:15:53.671Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -484,6 +394,7 @@
       "firstSeenAt": "2026-08-11T10:14:02.300Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -509,7 +420,7 @@
       "companyDomain": "ehnv.ch",
       "title": "Un.e médecin associé.e en rhumatologie entre 50 et 100 %",
       "titleByLocale": {
-        "it": "Un.e médecin associé.e en rhumatologie entre 50 et 100 %",
+        "it": "Un medico associato in reumatologia tra il 50 e il 100%",
         "en": "An associate doctor in rheumatology between 50 and 100%",
         "de": "Ein Associate Doctor in Rheumatologie zwischen 50 und 100%",
         "fr": "Un.e médecin associé.e en rhumatologie entre 50 et 100 %"
@@ -521,13 +432,12 @@
         "de": "DIE HOSPITALFORSCHUNG\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Inhaber des Titels eines FMH-Spezialisten für Rheumatologie oder anerkannter ausländischer Titel in der Schweiz sein\n\n• Zulassung zur Ausübung im Kanton Waadt oder Bedingungen, die es ermöglichen,\n\n• Ausbildung und klinische Erfahrung in der stationären und/oder ambulanten Rheumatologie\n\n• Kenntnisse und Erfahrungen im Umgang mit komplexen rheumatischen Erkrankungen und chronischer ambulanter Nachsorge\n\n• Fähigkeit, als multidisziplinäres Team zu arbeiten\n\n• Innovation und Entwicklungskapazitäten\n\nEINFUHRDATUM: ZU VEREINBAREN\n\nWeitere Informationen erhalten Sie bei Dr. Julien Ombelli, Ärztlicher Direktor, T. +41 24 424 53 31\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen (Motivbrief, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 30. September 2026 zu übermitteln.",
         "fr": "L’HÔPITAL D’YVERDON RECHERCHE\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Etre porteur du titre de spécialiste FMH en rhumatologie, ou titre étranger reconnu en Suisse\n\n• Autorisation de pratiquer dans le canton de Vaud, ou conditions permettant son obtention\n\n• Formation et expérience clinique en rhumatologie hospitalière et/ou ambulatoire\n\n• Connaissances et expérience dans la prise en charge des maladies rhumatismales complexes hospitalières et du suivi ambulatoire chronique\n\n• Aptitude à travailler en équipe multidisciplinaire\n\n• Capacité d’innovation et de développement\n\nDATE D’ENTRÉE : A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès du Dr Julien Ombelli, Directeur médical, T. +41 24 424 53 31\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 30 septembre 2026."
       },
-      "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4402/une-medecin-associee-en-rhumatologie-entre-50-et-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:03.489Z",
+      "crawledAt": "2026-09-03T23:15:53.084Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -562,6 +472,7 @@
       "firstSeenAt": "2026-08-17T10:16:29.137Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -605,7 +516,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4421/une-cadre-de-proximite-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:02.861Z",
+      "crawledAt": "2026-09-03T23:15:52.494Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -646,6 +557,7 @@
       "firstSeenAt": "2026-08-20T21:40:33.215Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -689,7 +601,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4430/une-apprentie-logisticienne",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:02.176Z",
+      "crawledAt": "2026-09-03T23:15:51.902Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -724,6 +636,7 @@
       "firstSeenAt": "2026-08-21T09:52:37.013Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -767,7 +680,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4429/une-apprentie-agente-de-proprete",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:01.444Z",
+      "crawledAt": "2026-09-03T23:15:51.309Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -802,6 +715,7 @@
       "firstSeenAt": "2026-08-21T09:52:36.406Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -845,7 +759,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4428/une-apprentie-cuisinierere",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:00.822Z",
+      "crawledAt": "2026-09-03T23:15:50.715Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -880,6 +794,7 @@
       "firstSeenAt": "2026-08-21T09:52:35.809Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -923,7 +838,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4427/des-apprenties-employees-de-commerce",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:20:00.188Z",
+      "crawledAt": "2026-09-03T23:15:50.140Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -958,6 +873,7 @@
       "firstSeenAt": "2026-08-21T09:52:35.176Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -975,7 +891,7 @@
       "slugByLocale": {
         "it": "un-apprendista-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "en": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains",
-        "de": "un-e-apprenti-e-assistent-e-medical-e-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "de": "auszubildender-medizinischer-assistent-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "fr": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -985,7 +901,7 @@
       "titleByLocale": {
         "it": "Un apprendista assistente medico",
         "en": "An apprentice medical assistant",
-        "de": "Un·e apprenti·e Assistent·e médical·e",
+        "de": "Auszubildender medizinischer Assistent",
         "fr": "Un·e apprenti·e assistant·e médical·e"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
@@ -995,13 +911,12 @@
         "de": "EHNVS-SUCHE FÜR IHRE VERSCHIEDENEN SITES\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Schulpflicht mit Schulabschluss.\n\n• Die französische Sprache beherrschen\n\n• Seien Sie motiviert und möchten Sie Ihre Fähigkeiten lernen und entwickeln\n\n• Teamwork und Zusammenarbeit schätzen\n\n• Demonstrieren Sie professionelles Bewusstsein, Initiative und Autonomie\n\nWIR ANGEBOT\n\n• Qualitativ hochwertige pädagogische Beratung durch engagierte und motivierte Fachleute\n\n• Ein reicher und vielfältiger Lernpfad\n\n• Hervorragende Sozialleistungen\n\nSind Sie interessiert?\n\nIhr Angebot mit den üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Schulbulletins und Praktikumsberichte) sollte bis zum 31. Oktober 2026 verschickt werden.",
         "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
-      "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4426/une-apprentie-assistante-medicale",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:59.540Z",
+      "crawledAt": "2026-09-03T23:15:49.561Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1020,16 +935,21 @@
       "requirementsByLocale": {},
       "externalId": "4426",
       "previousSlugs": [
-        "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains"
+        "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains",
+        "un-e-apprenti-e-assistent-e-medical-e-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "un-e-apprenti-e-assistent-e-medical-e-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-08-21T09:52:34.595Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1047,7 +967,7 @@
       "slugByLocale": {
         "it": "apprendisti-nella-sanita-e-nella-cura-comunitaria-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "en": "apprentices-in-community-health-and-care-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "de": "des-apprenti-e-s-assistent-e-s-en-soins-et-sante-communautaire-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "de": "auszubildende-in-gemeinschaft-gesundheit-und-pflege-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "fr": "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1057,7 +977,7 @@
       "titleByLocale": {
         "it": "Apprendisti nella sanità e nella cura comunitaria",
         "en": "Apprentices in Community Health and Care",
-        "de": "Des apprenti·e·s Assistent·e·s en soins et santé communautaire",
+        "de": "Auszubildende in Gemeinschaft Gesundheit und Pflege",
         "fr": "Des apprenti·e·s assistant·e·s en soins et santé communautaire"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
@@ -1067,13 +987,12 @@
         "de": "EHNVS-SUCHE FÜR IHRE VERSCHIEDENEN SITES\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Schulpflicht mit Schulabschluss.\n\n• Die französische Sprache beherrschen\n\n• Seien Sie motiviert und möchten Sie Ihre Fähigkeiten lernen und entwickeln\n\n• Teamwork und Zusammenarbeit schätzen\n\n• Demonstrieren Sie professionelles Bewusstsein, Initiative und Autonomie\n\nWIR ANGEBOT\n\n• Qualitativ hochwertige pädagogische Beratung durch engagierte und motivierte Fachleute\n\n• Ein reicher und vielfältiger Lernpfad\n\n• Hervorragende Sozialleistungen\n\nSind Sie interessiert?\n\nIhr Angebot mit den üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Schulbulletins und Praktikumsberichte) sollte bis zum 31. Oktober 2026 verschickt werden.",
         "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
-      "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4425/des-apprenties-assistantes-en-soins-et-sante-communautaire",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:58.901Z",
+      "crawledAt": "2026-09-03T23:15:48.897Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1092,7 +1011,8 @@
       "requirementsByLocale": {},
       "externalId": "4425",
       "previousSlugs": [
-        "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains"
+        "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains",
+        "des-apprenti-e-s-assistent-e-s-en-soins-et-sante-communautaire-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1100,11 +1020,15 @@
         ],
         "en": [
           "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "des-apprenti-e-s-assistent-e-s-en-soins-et-sante-communautaire-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-08-21T09:52:34.006Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1148,7 +1072,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4442/une-technicienne-en-analyses-biomedicales-a-50-60-en-cdd-de-4-mois",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:58.281Z",
+      "crawledAt": "2026-09-03T23:15:48.313Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1183,6 +1107,7 @@
       "firstSeenAt": "2026-08-24T10:04:08.253Z",
       "salaryMin": 51900,
       "salaryMax": 72300,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1196,11 +1121,11 @@
     },
     {
       "id": "ehnv-06f46908f429",
-      "slug": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
+      "slug": "80-cornice-di-prossimita-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "it": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
-        "en": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
-        "de": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
+        "it": "80-cornice-di-prossimita-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "en": "80-proximity-frame-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "de": "80-naherungsrahmen-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "fr": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1208,9 +1133,9 @@
       "companyDomain": "ehnv.ch",
       "title": "Un.e cadre de proximité à 80 %",
       "titleByLocale": {
-        "it": "Un.e cadre de proximité à 80 %",
-        "en": "Un.e cadre de proximité à 80 %",
-        "de": "Un.e cadre de proximité à 80 %",
+        "it": "80 % cornice di prossimità",
+        "en": "80 % proximity frame",
+        "de": "80 % Näherungsrahmen",
         "fr": "Un.e cadre de proximité à 80 %"
       },
       "description": "LE SERVICE DE CHIRURGIE GENERALE DES EHNV – SITE D’YVERDON RECHERCHE\n\n« QU’EST-CE QUI VOUS ATTEND ? »\n\n• Une équipe à emmener de manière dynamique et inspirante\n\n• Une autonomie dans vos projets et idées novatrices\n\n• Un challenge stimulant dans une institution qui prône une gouvernance horizontale\n\n« QU’EST-CE QUE NOUS ATTENDONS ? »\n\n• Une communication fluide, spontanée et transparente\n\n• Une envie de penser autrement\n\n• Des idées inspirantes dans votre management d'équipe\n\nLE.A CANDIDAT.E IDEAL.E\n\nVous disposez d’une expérience confirmée dans une fonction managériale ou d’encadrement d’équipe, idéalement dans le domaine des soins aigus. Vous êtes titulaire d’un Bachelor en soins infirmiers ou d’un diplôme reconnu équivalent par la Croix—Rouge suisse. Vous bénéficiez d’au moins cinq années d’expérience professionnelle dans un service de soins aigus. Vous souhaitez mettre vos compétences de leadership au service des équipes et vous investir pleinement dans un rôle de cadre de proximité. Rejoignez-nous et contribuez activement à l’évolution de notre institution ainsi qu’à la construction d’un nouvel hôpital.\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Habiba Bechnoune, Directrice des soins adjointe, au Tél. +41 24 442 64 29\n\nCE POSTE VOUS CAPTIVE ?\n\nSaisissez l’opportunité de faire une différence significative dans la vie des individus. Postulez dès maintenant pour rejoindre nos équipes dynamiques !\n\nLes offres avec documents usuels sont à adresser d’ici au 24 septembre 2026.",
@@ -1226,7 +1151,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4458/une-cadre-de-proximite-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:57.650Z",
+      "crawledAt": "2026-09-03T23:15:47.700Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1247,6 +1172,7 @@
       "firstSeenAt": "2026-08-26T09:55:31.765Z",
       "salaryMin": 50400,
       "salaryMax": 86000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1256,7 +1182,21 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+        ],
+        "en": [
+          "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+      ]
     },
     {
       "id": "ehnv-6b8022a603f8",
@@ -1290,7 +1230,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4467/une-assistante-medicale-a-60-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:57.037Z",
+      "crawledAt": "2026-09-03T23:15:47.082Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1311,6 +1251,7 @@
       "firstSeenAt": "2026-08-27T19:53:22.125Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1354,7 +1295,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4466/une-secretaire-medicale-a-60-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:56.414Z",
+      "crawledAt": "2026-09-03T23:15:46.508Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1375,6 +1316,7 @@
       "firstSeenAt": "2026-08-27T19:53:21.518Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1418,7 +1360,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/3380/une-infirmierere-clinicienne-specialisee-icls-entre-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:55.795Z",
+      "crawledAt": "2026-09-03T23:15:45.903Z",
       "addressLocality": "Yverdon et Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1439,6 +1381,7 @@
       "firstSeenAt": "2026-08-27T19:53:20.912Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1481,7 +1424,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/2624/une-neuropsychologue-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:55.148Z",
+      "crawledAt": "2026-09-03T23:15:45.328Z",
       "addressLocality": "Chamblon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1512,6 +1455,7 @@
       "firstSeenAt": "2026-08-27T19:53:20.332Z",
       "salaryMin": 51900,
       "salaryMax": 72300,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1522,6 +1466,280 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ehnv-ce1d19bf3664",
+      "slug": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
+      "slugByLocale": {
+        "it": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
+        "en": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
+        "de": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
+        "fr": "deux-secretaires-medical-es-a-40-ehnv-pompaples"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Deux secrétaires médical.es à 40 %",
+      "titleByLocale": {
+        "it": "Deux secrétaires médical.es à 40 %",
+        "en": "Deux secrétaires médical.es à 40 %",
+        "de": "Deux secrétaires médical.es à 40 %",
+        "fr": "Deux secrétaires médical.es à 40 %"
+      },
+      "description": "Le Centre vaudois anorexie boulimie (abC) est le fruit d’une collaboration entre le Département de la santé publique et des affaires sociales, le Centre Hospitalier Universitaire Vaudois (CHUV) et les Etablissements Hospitaliers du Nord Vaudois (eHnv).\n Placé sous la responsabilité médicale du CHUV (Service de psychiatrie de liaison du Département de psychiatrie), l’abC est destiné aux adolescents et aux adultes souffrant de ces psychopathologies et est réparti sur deux sites, à Lausanne, « abC – espace Lausanne-CHUV » (activités communautaires, ambulatoires et intermédiaires), et à l’Hôpital de St-Loup des eHnv, « abC - espace St-Loup » (unité hospitalière). Dans ce contexte :\n\nL’UNITE HOSPITALIERE « ABC – ESPACE ST-LOUP » RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Assurer la gestion administrative du secrétariat médical\n\n• Assurer le suivi administratif des consultations privées et des dossiers patients\n\n• Frappe des lettres de sortie de l’unité hospitalière et gestion des lettres de suivi jusqu’à leur validation finale et leur envoi\n\n• Soutenir les médecins et psychologues responsables dans leurs activités\n\n• Participer à l’organisation et au bon fonctionnement de l’unité\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou paramédical\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un cabinet médical ou en milieu hospitalier\n\n• Maîtrise des outils informatiques usuels et spécialisés (Word – Excel – Outlook – Opale – Soarian)\n\n• Maîtrise de la terminologie médicale, de la langue française, excellente orthographe et sens de la communication\n\n• Capacité à travailler de manière autonome tout en sachant collaborer en équipe multidisciplinaire\n\n• Sens de l’organisation et capacité à établir les priorités\n\n• Grande flexibilité\n\nNOUS OFFRONS\n\n• Une activité variée dans le cadre d’un établissement en constant développement\n\n• Des possibilités de développement et de formation continue\n\n• D’excellentes prestations sociales\n\n• Salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme I. Hugot, responsable administration des patients, T. +41 021 866 55 59\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 18 septembre 2026",
+      "descriptionByLocale": {
+        "it": "Le Centre vaudois anorexie boulimie (abC) est le fruit d’une collaboration entre le Département de la santé publique et des affaires sociales, le Centre Hospitalier Universitaire Vaudois (CHUV) et les Etablissements Hospitaliers du Nord Vaudois (eHnv).\nPlacé sous la responsabilité médicale du CHUV (Service de psychiatrie de liaison du Département de psychiatrie), l’abC est destiné aux adolescents et aux adultes souffrant de ces psychopathologies et est réparti sur deux sites, à Lausanne, « abC – espace Lausanne-CHUV » (activités communautaires, ambulatoires et intermédiaires), et à l’Hôpital de St-Loup des eHnv, « abC - espace St-Loup » (unité hospitalière). Dans ce contexte :\n\nL’UNITE HOSPITALIERE « ABC – ESPACE ST-LOUP » RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Assurer la gestion administrative du secrétariat médical\n\n• Assurer le suivi administratif des consultations privées et des dossiers patients\n\n• Frappe des lettres de sortie de l’unité hospitalière et gestion des lettres de suivi jusqu’à leur validation finale et leur envoi\n\n• Soutenir les médecins et psychologues responsables dans leurs activités\n\n• Participer à l’organisation et au bon fonctionnement de l’unité\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou paramédical\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un cabinet médical ou en milieu hospitalier\n\n• Maîtrise des outils informatiques usuels et spécialisés (Word – Excel – Outlook – Opale – Soarian)\n\n• Maîtrise de la terminologie médicale, de la langue française, excellente orthographe et sens de la communication\n\n• Capacité à travailler de manière autonome tout en sachant collaborer en équipe multidisciplinaire\n\n• Sens de l’organisation et capacité à établir les priorités\n\n• Grande flexibilité\n\nNOUS OFFRONS\n\n• Une activité variée dans le cadre d’un établissement en constant développement\n\n• Des possibilités de développement et de formation continue\n\n• D’excellentes prestations sociales\n\n• Salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme I. Hugot, responsable administration des patients, T. +41 021 866 55 59\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 18 septembre 2026",
+        "en": "Le Centre vaudois anorexie boulimie (abC) est le fruit d’une collaboration entre le Département de la santé publique et des affaires sociales, le Centre Hospitalier Universitaire Vaudois (CHUV) et les Etablissements Hospitaliers du Nord Vaudois (eHnv).\nPlacé sous la responsabilité médicale du CHUV (Service de psychiatrie de liaison du Département de psychiatrie), l’abC est destiné aux adolescents et aux adultes souffrant de ces psychopathologies et est réparti sur deux sites, à Lausanne, « abC – espace Lausanne-CHUV » (activités communautaires, ambulatoires et intermédiaires), et à l’Hôpital de St-Loup des eHnv, « abC - espace St-Loup » (unité hospitalière). Dans ce contexte :\n\nL’UNITE HOSPITALIERE « ABC – ESPACE ST-LOUP » RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Assurer la gestion administrative du secrétariat médical\n\n• Assurer le suivi administratif des consultations privées et des dossiers patients\n\n• Frappe des lettres de sortie de l’unité hospitalière et gestion des lettres de suivi jusqu’à leur validation finale et leur envoi\n\n• Soutenir les médecins et psychologues responsables dans leurs activités\n\n• Participer à l’organisation et au bon fonctionnement de l’unité\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou paramédical\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un cabinet médical ou en milieu hospitalier\n\n• Maîtrise des outils informatiques usuels et spécialisés (Word – Excel – Outlook – Opale – Soarian)\n\n• Maîtrise de la terminologie médicale, de la langue française, excellente orthographe et sens de la communication\n\n• Capacité à travailler de manière autonome tout en sachant collaborer en équipe multidisciplinaire\n\n• Sens de l’organisation et capacité à établir les priorités\n\n• Grande flexibilité\n\nNOUS OFFRONS\n\n• Une activité variée dans le cadre d’un établissement en constant développement\n\n• Des possibilités de développement et de formation continue\n\n• D’excellentes prestations sociales\n\n• Salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme I. Hugot, responsable administration des patients, T. +41 021 866 55 59\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 18 septembre 2026",
+        "de": "Le Centre vaudois anorexie boulimie (abC) est le fruit d’une collaboration entre le Département de la santé publique et des affaires sociales, le Centre Hospitalier Universitaire Vaudois (CHUV) et les Etablissements Hospitaliers du Nord Vaudois (eHnv).\nPlacé sous la responsabilité médicale du CHUV (Service de psychiatrie de liaison du Département de psychiatrie), l’abC est destiné aux adolescents et aux adultes souffrant de ces psychopathologies et est réparti sur deux sites, à Lausanne, « abC – espace Lausanne-CHUV » (activités communautaires, ambulatoires et intermédiaires), et à l’Hôpital de St-Loup des eHnv, « abC - espace St-Loup » (unité hospitalière). Dans ce contexte :\n\nL’UNITE HOSPITALIERE « ABC – ESPACE ST-LOUP » RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Assurer la gestion administrative du secrétariat médical\n\n• Assurer le suivi administratif des consultations privées et des dossiers patients\n\n• Frappe des lettres de sortie de l’unité hospitalière et gestion des lettres de suivi jusqu’à leur validation finale et leur envoi\n\n• Soutenir les médecins et psychologues responsables dans leurs activités\n\n• Participer à l’organisation et au bon fonctionnement de l’unité\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou paramédical\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un cabinet médical ou en milieu hospitalier\n\n• Maîtrise des outils informatiques usuels et spécialisés (Word – Excel – Outlook – Opale – Soarian)\n\n• Maîtrise de la terminologie médicale, de la langue française, excellente orthographe et sens de la communication\n\n• Capacité à travailler de manière autonome tout en sachant collaborer en équipe multidisciplinaire\n\n• Sens de l’organisation et capacité à établir les priorités\n\n• Grande flexibilité\n\nNOUS OFFRONS\n\n• Une activité variée dans le cadre d’un établissement en constant développement\n\n• Des possibilités de développement et de formation continue\n\n• D’excellentes prestations sociales\n\n• Salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme I. Hugot, responsable administration des patients, T. +41 021 866 55 59\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 18 septembre 2026",
+        "fr": "Le Centre vaudois anorexie boulimie (abC) est le fruit d’une collaboration entre le Département de la santé publique et des affaires sociales, le Centre Hospitalier Universitaire Vaudois (CHUV) et les Etablissements Hospitaliers du Nord Vaudois (eHnv).\nPlacé sous la responsabilité médicale du CHUV (Service de psychiatrie de liaison du Département de psychiatrie), l’abC est destiné aux adolescents et aux adultes souffrant de ces psychopathologies et est réparti sur deux sites, à Lausanne, « abC – espace Lausanne-CHUV » (activités communautaires, ambulatoires et intermédiaires), et à l’Hôpital de St-Loup des eHnv, « abC - espace St-Loup » (unité hospitalière). Dans ce contexte :\n\nL’UNITE HOSPITALIERE « ABC – ESPACE ST-LOUP » RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Assurer la gestion administrative du secrétariat médical\n\n• Assurer le suivi administratif des consultations privées et des dossiers patients\n\n• Frappe des lettres de sortie de l’unité hospitalière et gestion des lettres de suivi jusqu’à leur validation finale et leur envoi\n\n• Soutenir les médecins et psychologues responsables dans leurs activités\n\n• Participer à l’organisation et au bon fonctionnement de l’unité\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou paramédical\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un cabinet médical ou en milieu hospitalier\n\n• Maîtrise des outils informatiques usuels et spécialisés (Word – Excel – Outlook – Opale – Soarian)\n\n• Maîtrise de la terminologie médicale, de la langue française, excellente orthographe et sens de la communication\n\n• Capacité à travailler de manière autonome tout en sachant collaborer en équipe multidisciplinaire\n\n• Sens de l’organisation et capacité à établir les priorités\n\n• Grande flexibilité\n\nNOUS OFFRONS\n\n• Une activité variée dans le cadre d’un établissement en constant développement\n\n• Des possibilités de développement et de formation continue\n\n• D’excellentes prestations sociales\n\n• Salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme I. Hugot, responsable administration des patients, T. +41 021 866 55 59\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 18 septembre 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Pompaples",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4470/deux-secretaires-medicales-a-40",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:15:44.661Z",
+      "addressLocality": "Pompaples",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1318",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4470/deux-secretaires-medicales-a-40",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4470",
+      "firstSeenAt": "2026-08-31T17:06:40.358Z",
+      "salaryMin": 34600,
+      "salaryMax": 48200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 34600,
+          "maxValue": 48200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ehnv-040737688336",
+      "slug": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
+      "slugByLocale": {
+        "it": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
+        "en": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
+        "de": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
+        "fr": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e Infirmier.ère à 80-100% poste transverse sur 2 sites",
+      "titleByLocale": {
+        "it": "Un.e Infirmier.ère à 80-100% poste transverse sur 2 sites",
+        "en": "Un.e Infirmier.ère à 80-100% poste transverse sur 2 sites",
+        "de": "Un.e Infirmier.ère à 80-100% poste transverse sur 2 sites",
+        "fr": "Un.e Infirmier.ère à 80-100% poste transverse sur 2 sites"
+      },
+      "description": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge des patients pré-opératoire et post-opératoire\n\n• Travail en binôme avec des ASSC et des aides-infirmiers\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un diplôme d’infirmier.ère HES ou équivalent, reconnu par la Croix Rouge Suisse\n\n• Avoir l’autonomie et l’intérêt pour le travail en équipe\n\n• Avoir le sens de communication et de l’organisation\n\n• Avoir la capacité d’adaptation et prise d’initiative\n\n• Avoir un leadership infirmier\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, certificats de travail et diplômes) sont à adresser d’ici au 25 septembre 2026 .\n\nUn extrait du casier judiciaire ainsi que l’extrait spécial sont demandés pour chaque engagement aux eHnv.",
+      "descriptionByLocale": {
+        "it": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge des patients pré-opératoire et post-opératoire\n\n• Travail en binôme avec des ASSC et des aides-infirmiers\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un diplôme d’infirmier.ère HES ou équivalent, reconnu par la Croix Rouge Suisse\n\n• Avoir l’autonomie et l’intérêt pour le travail en équipe\n\n• Avoir le sens de communication et de l’organisation\n\n• Avoir la capacité d’adaptation et prise d’initiative\n\n• Avoir un leadership infirmier\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, certificats de travail et diplômes) sont à adresser d’ici au 25 septembre 2026 .\n\nUn extrait du casier judiciaire ainsi que l’extrait spécial sont demandés pour chaque engagement aux eHnv.",
+        "en": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge des patients pré-opératoire et post-opératoire\n\n• Travail en binôme avec des ASSC et des aides-infirmiers\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un diplôme d’infirmier.ère HES ou équivalent, reconnu par la Croix Rouge Suisse\n\n• Avoir l’autonomie et l’intérêt pour le travail en équipe\n\n• Avoir le sens de communication et de l’organisation\n\n• Avoir la capacité d’adaptation et prise d’initiative\n\n• Avoir un leadership infirmier\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, certificats de travail et diplômes) sont à adresser d’ici au 25 septembre 2026 .\n\nUn extrait du casier judiciaire ainsi que l’extrait spécial sont demandés pour chaque engagement aux eHnv.",
+        "de": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge des patients pré-opératoire et post-opératoire\n\n• Travail en binôme avec des ASSC et des aides-infirmiers\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un diplôme d’infirmier.ère HES ou équivalent, reconnu par la Croix Rouge Suisse\n\n• Avoir l’autonomie et l’intérêt pour le travail en équipe\n\n• Avoir le sens de communication et de l’organisation\n\n• Avoir la capacité d’adaptation et prise d’initiative\n\n• Avoir un leadership infirmier\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, certificats de travail et diplômes) sont à adresser d’ici au 25 septembre 2026 .\n\nUn extrait du casier judiciaire ainsi que l’extrait spécial sont demandés pour chaque engagement aux eHnv.",
+        "fr": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge des patients pré-opératoire et post-opératoire\n\n• Travail en binôme avec des ASSC et des aides-infirmiers\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un diplôme d’infirmier.ère HES ou équivalent, reconnu par la Croix Rouge Suisse\n\n• Avoir l’autonomie et l’intérêt pour le travail en équipe\n\n• Avoir le sens de communication et de l’organisation\n\n• Avoir la capacité d’adaptation et prise d’initiative\n\n• Avoir un leadership infirmier\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, certificats de travail et diplômes) sont à adresser d’ici au 25 septembre 2026 .\n\nUn extrait du casier judiciaire ainsi que l’extrait spécial sont demandés pour chaque engagement aux eHnv."
+      },
+      "needsRetranslation": true,
+      "location": "Yverdon-les-Bains et Pompaples",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4477/une-infirmierere-a-80-100-poste-transverse-sur-2-sites",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:15:44.032Z",
+      "addressLocality": "Yverdon-les-Bains et Pompaples",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1400",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4477/une-infirmierere-a-80-100-poste-transverse-sur-2-sites",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4477",
+      "firstSeenAt": "2026-08-31T17:06:39.683Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ehnv-059bc29eef60",
+      "slug": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
+      "slugByLocale": {
+        "it": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
+        "en": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
+        "de": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
+        "fr": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e ASSC 70-100 % poste transverse sur 2 sites",
+      "titleByLocale": {
+        "it": "Un.e ASSC 70-100 % poste transverse sur 2 sites",
+        "en": "Un.e ASSC 70-100 % poste transverse sur 2 sites",
+        "de": "Un.e ASSC 70-100 % poste transverse sur 2 sites",
+        "fr": "Un.e ASSC 70-100 % poste transverse sur 2 sites"
+      },
+      "description": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge de patient en pré-opératoire et post-opératoire\n\n• Travail en binôme avec un.e infirmier.ère\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir un intérêt pour l’encadrement des élèves\n\n• Avoir de l’intérêt pour le travail en équipe pluridisciplinaire et en binôme\n\n• Posséder des qualités de communication, de flexibilité, des capacités d’adaptation\n\n• Avoir le sens des responsabilités et une bonne gestion du stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service à Yverdon, T. +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 25 septembre 2026 .\n\nL’extrait du casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv.",
+      "descriptionByLocale": {
+        "it": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge de patient en pré-opératoire et post-opératoire\n\n• Travail en binôme avec un.e infirmier.ère\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir un intérêt pour l’encadrement des élèves\n\n• Avoir de l’intérêt pour le travail en équipe pluridisciplinaire et en binôme\n\n• Posséder des qualités de communication, de flexibilité, des capacités d’adaptation\n\n• Avoir le sens des responsabilités et une bonne gestion du stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service à Yverdon, T. +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 25 septembre 2026 .\n\nL’extrait du casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv.",
+        "en": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge de patient en pré-opératoire et post-opératoire\n\n• Travail en binôme avec un.e infirmier.ère\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir un intérêt pour l’encadrement des élèves\n\n• Avoir de l’intérêt pour le travail en équipe pluridisciplinaire et en binôme\n\n• Posséder des qualités de communication, de flexibilité, des capacités d’adaptation\n\n• Avoir le sens des responsabilités et une bonne gestion du stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service à Yverdon, T. +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 25 septembre 2026 .\n\nL’extrait du casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv.",
+        "de": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge de patient en pré-opératoire et post-opératoire\n\n• Travail en binôme avec un.e infirmier.ère\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir un intérêt pour l’encadrement des élèves\n\n• Avoir de l’intérêt pour le travail en équipe pluridisciplinaire et en binôme\n\n• Posséder des qualités de communication, de flexibilité, des capacités d’adaptation\n\n• Avoir le sens des responsabilités et une bonne gestion du stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service à Yverdon, T. +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 25 septembre 2026 .\n\nL’extrait du casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv.",
+        "fr": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Prise en charge des patients d’orthopédie et de traumatologie\n\n• Prise en charge de patient en pré-opératoire et post-opératoire\n\n• Travail en binôme avec un.e infirmier.ère\n\n• Suivi d’activité hospitalière\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir un intérêt pour l’encadrement des élèves\n\n• Avoir de l’intérêt pour le travail en équipe pluridisciplinaire et en binôme\n\n• Posséder des qualités de communication, de flexibilité, des capacités d’adaptation\n\n• Avoir le sens des responsabilités et une bonne gestion du stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er OCTOBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service à St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service à Yverdon, T. +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 25 septembre 2026 .\n\nL’extrait du casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv."
+      },
+      "needsRetranslation": true,
+      "location": "Yverdon-les-Bains et Pompaples",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4476/une-assc-70-100-poste-transverse-sur-2-sites",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:15:43.411Z",
+      "addressLocality": "Yverdon-les-Bains et Pompaples",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1400",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4476/une-assc-70-100-poste-transverse-sur-2-sites",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4476",
+      "firstSeenAt": "2026-08-31T17:06:39.046Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ehnv-11eb6368b90d",
+      "slug": "un-esperto-di-qualita-e-sicurezza-responsabile-della-materializzazione-e-dello-sviluppo-di-qualita-per-piattaforme",
+      "slugByLocale": {
+        "it": "un-esperto-di-qualita-e-sicurezza-responsabile-della-materializzazione-e-dello-sviluppo-di-qualita-per-piattaforme",
+        "en": "an-expert-in-quality-and-safety-responsible-for-materialisation-and-quality-development-for-technical-platforms",
+        "de": "ein-experte-fur-qualitat-und-sicherheit-verantwortlich-fur-materialisierung-und-qualitatsentwicklung-fur-technische",
+        "fr": "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e expert.e qualité et sécurité responsable de la matériovigilance et du développement qualité pour les plateaux techniques (bloc opératoire) à 60 %",
+      "titleByLocale": {
+        "it": "Un esperto di qualità e sicurezza responsabile della materializzazione e dello sviluppo di qualità per piattaforme tecniche (unità operativa) al 60%",
+        "en": "An expert in quality and safety responsible for materialisation and quality development for technical platforms (operational unit) at 60%",
+        "de": "Ein Experte für Qualität und Sicherheit verantwortlich für Materialisierung und Qualitätsentwicklung für technische Plattformen (Betriebseinheit) mit 60%",
+        "fr": "Un.e expert.e qualité et sécurité responsable de la matériovigilance et du développement qualité pour les plateaux techniques (bloc opératoire) à 60 %"
+      },
+      "description": "LE SERVICE QUALITE ET SECURITE DES SOINS RECHERCHE\n\nMISSION PRINCIPALE\n\nVous assurez le rôle d’interlocuteur vigilance institutionnel relatif aux dispositifs médicaux et coordonnez les démarches qualité des blocs opératoires et des plateaux techniques.\n À l’interface des équipes médico-soignantes, techniques et administratives, vous garantissez le suivi des processus institutionnels liés aux dispositifs médicaux, aux registres qualité et à la gestion des risques. Vous jouez un rôle clé dans la coordination administrative, l’analyse des données, le suivi des indicateurs et le pilotage des actions d’amélioration continue.\n\nVos principales responsabilités :\n\n• Coordonner toutes les activités en lien avec la matériovigilance au sein de l’institution et être l’interlocuteur principal avec les fournisseurs et autorités compétentes\n\n• Garantir les déclarations réglementaires auprès des autorités compétentes\n\n• Assurer le suivi des non-conformités liées aux dispositifs médicaux et aux processus du bloc opératoire\n\n• Participer aux audits et aux inspections\n\n• Conduire des projets d'amélioration continue visant la qualité, la sécurité et la performance des processus opératoires et des plateaux techniques\n\n• Former et accompagner les collaborateurs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Formation certifiante dans le domaine de la santé ou titre jugé équivalent\n\n• Avoir une expérience professionnelle confirmée dans un environnement de bloc opératoire ou plateau technique\n\n• Formation complémentaire en gestion de la qualité, gestion des risques ou sécurité des patients (CAS, DAS) un atout\n\n• Excellentes capacités d'analyse, de synthèse et de rédaction\n\n• Excellente maitrise des outils et plateformes informatiques, des bases de données et des outils de reporting\n\n• Sens de l’organisation, rigueur et autonomie\n\nNOUS OFFRONS\n\n• Un poste transversal à fort impact\n\n• L’opportunité de contribuer au développement de la qualité des soins et de la sécurité des patients\n\n• Une fonction variée, entre coordination, analyse et gestion de projets\n\n• Un environnement stimulant favorisant l’innovation et la collaboration\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\n• Lieu d’activité principal : Yverdon\n\nDATE D’ENTRÉE : DÈS QUE POSSIBLE\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Laura Bochud, Responsable qualité et sécurité des soins, +41244245176.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 15 octobre 2026 .",
+      "descriptionByLocale": {
+        "it": "LE SERVICE QUALITE ET SECURITE DES SOINS RECHERCHE\n\nMISSION PRINCIPALE\n\nVous assurez le rôle d’interlocuteur vigilance institutionnel relatif aux dispositifs médicaux et coordonnez les démarches qualité des blocs opératoires et des plateaux techniques.\nÀ l’interface des équipes médico-soignantes, techniques et administratives, vous garantissez le suivi des processus institutionnels liés aux dispositifs médicaux, aux registres qualité et à la gestion des risques. Vous jouez un rôle clé dans la coordination administrative, l’analyse des données, le suivi des indicateurs et le pilotage des actions d’amélioration continue.\n\nVos principales responsabilités :\n\n• Coordonner toutes les activités en lien avec la matériovigilance au sein de l’institution et être l’interlocuteur principal avec les fournisseurs et autorités compétentes\n\n• Garantir les déclarations réglementaires auprès des autorités compétentes\n\n• Assurer le suivi des non-conformités liées aux dispositifs médicaux et aux processus du bloc opératoire\n\n• Participer aux audits et aux inspections\n\n• Conduire des projets d'amélioration continue visant la qualité, la sécurité et la performance des processus opératoires et des plateaux techniques\n\n• Former et accompagner les collaborateurs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Formation certifiante dans le domaine de la santé ou titre jugé équivalent\n\n• Avoir une expérience professionnelle confirmée dans un environnement de bloc opératoire ou plateau technique\n\n• Formation complémentaire en gestion de la qualité, gestion des risques ou sécurité des patients (CAS, DAS) un atout\n\n• Excellentes capacités d'analyse, de synthèse et de rédaction\n\n• Excellente maitrise des outils et plateformes informatiques, des bases de données et des outils de reporting\n\n• Sens de l’organisation, rigueur et autonomie\n\nNOUS OFFRONS\n\n• Un poste transversal à fort impact\n\n• L’opportunité de contribuer au développement de la qualité des soins et de la sécurité des patients\n\n• Une fonction variée, entre coordination, analyse et gestion de projets\n\n• Un environnement stimulant favorisant l’innovation et la collaboration\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\n• Lieu d’activité principal : Yverdon\n\nDATE D’ENTRÉE : DÈS QUE POSSIBLE\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Laura Bochud, Responsable qualité et sécurité des soins, +41244245176.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 15 octobre 2026 .",
+        "en": "LE SERVICE QUALITE ET SECURITE DES SOINS RECHERCHE\n\nMISSION PRINCIPALE\n\nVous assurez le rôle d’interlocuteur vigilance institutionnel relatif aux dispositifs médicaux et coordonnez les démarches qualité des blocs opératoires et des plateaux techniques.\nÀ l’interface des équipes médico-soignantes, techniques et administratives, vous garantissez le suivi des processus institutionnels liés aux dispositifs médicaux, aux registres qualité et à la gestion des risques. Vous jouez un rôle clé dans la coordination administrative, l’analyse des données, le suivi des indicateurs et le pilotage des actions d’amélioration continue.\n\nVos principales responsabilités :\n\n• Coordonner toutes les activités en lien avec la matériovigilance au sein de l’institution et être l’interlocuteur principal avec les fournisseurs et autorités compétentes\n\n• Garantir les déclarations réglementaires auprès des autorités compétentes\n\n• Assurer le suivi des non-conformités liées aux dispositifs médicaux et aux processus du bloc opératoire\n\n• Participer aux audits et aux inspections\n\n• Conduire des projets d'amélioration continue visant la qualité, la sécurité et la performance des processus opératoires et des plateaux techniques\n\n• Former et accompagner les collaborateurs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Formation certifiante dans le domaine de la santé ou titre jugé équivalent\n\n• Avoir une expérience professionnelle confirmée dans un environnement de bloc opératoire ou plateau technique\n\n• Formation complémentaire en gestion de la qualité, gestion des risques ou sécurité des patients (CAS, DAS) un atout\n\n• Excellentes capacités d'analyse, de synthèse et de rédaction\n\n• Excellente maitrise des outils et plateformes informatiques, des bases de données et des outils de reporting\n\n• Sens de l’organisation, rigueur et autonomie\n\nNOUS OFFRONS\n\n• Un poste transversal à fort impact\n\n• L’opportunité de contribuer au développement de la qualité des soins et de la sécurité des patients\n\n• Une fonction variée, entre coordination, analyse et gestion de projets\n\n• Un environnement stimulant favorisant l’innovation et la collaboration\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\n• Lieu d’activité principal : Yverdon\n\nDATE D’ENTRÉE : DÈS QUE POSSIBLE\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Laura Bochud, Responsable qualité et sécurité des soins, +41244245176.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 15 octobre 2026 .",
+        "de": "LE SERVICE QUALITE ET SECURITE DES SOINS RECHERCHE\n\nMISSION PRINCIPALE\n\nVous assurez le rôle d’interlocuteur vigilance institutionnel relatif aux dispositifs médicaux et coordonnez les démarches qualité des blocs opératoires et des plateaux techniques.\nÀ l’interface des équipes médico-soignantes, techniques et administratives, vous garantissez le suivi des processus institutionnels liés aux dispositifs médicaux, aux registres qualité et à la gestion des risques. Vous jouez un rôle clé dans la coordination administrative, l’analyse des données, le suivi des indicateurs et le pilotage des actions d’amélioration continue.\n\nVos principales responsabilités :\n\n• Coordonner toutes les activités en lien avec la matériovigilance au sein de l’institution et être l’interlocuteur principal avec les fournisseurs et autorités compétentes\n\n• Garantir les déclarations réglementaires auprès des autorités compétentes\n\n• Assurer le suivi des non-conformités liées aux dispositifs médicaux et aux processus du bloc opératoire\n\n• Participer aux audits et aux inspections\n\n• Conduire des projets d'amélioration continue visant la qualité, la sécurité et la performance des processus opératoires et des plateaux techniques\n\n• Former et accompagner les collaborateurs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Formation certifiante dans le domaine de la santé ou titre jugé équivalent\n\n• Avoir une expérience professionnelle confirmée dans un environnement de bloc opératoire ou plateau technique\n\n• Formation complémentaire en gestion de la qualité, gestion des risques ou sécurité des patients (CAS, DAS) un atout\n\n• Excellentes capacités d'analyse, de synthèse et de rédaction\n\n• Excellente maitrise des outils et plateformes informatiques, des bases de données et des outils de reporting\n\n• Sens de l’organisation, rigueur et autonomie\n\nNOUS OFFRONS\n\n• Un poste transversal à fort impact\n\n• L’opportunité de contribuer au développement de la qualité des soins et de la sécurité des patients\n\n• Une fonction variée, entre coordination, analyse et gestion de projets\n\n• Un environnement stimulant favorisant l’innovation et la collaboration\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\n• Lieu d’activité principal : Yverdon\n\nDATE D’ENTRÉE : DÈS QUE POSSIBLE\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Laura Bochud, Responsable qualité et sécurité des soins, +41244245176.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 15 octobre 2026 .",
+        "fr": "LE SERVICE QUALITE ET SECURITE DES SOINS RECHERCHE\n\nMISSION PRINCIPALE\n\nVous assurez le rôle d’interlocuteur vigilance institutionnel relatif aux dispositifs médicaux et coordonnez les démarches qualité des blocs opératoires et des plateaux techniques.\nÀ l’interface des équipes médico-soignantes, techniques et administratives, vous garantissez le suivi des processus institutionnels liés aux dispositifs médicaux, aux registres qualité et à la gestion des risques. Vous jouez un rôle clé dans la coordination administrative, l’analyse des données, le suivi des indicateurs et le pilotage des actions d’amélioration continue.\n\nVos principales responsabilités :\n\n• Coordonner toutes les activités en lien avec la matériovigilance au sein de l’institution et être l’interlocuteur principal avec les fournisseurs et autorités compétentes\n\n• Garantir les déclarations réglementaires auprès des autorités compétentes\n\n• Assurer le suivi des non-conformités liées aux dispositifs médicaux et aux processus du bloc opératoire\n\n• Participer aux audits et aux inspections\n\n• Conduire des projets d'amélioration continue visant la qualité, la sécurité et la performance des processus opératoires et des plateaux techniques\n\n• Former et accompagner les collaborateurs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Formation certifiante dans le domaine de la santé ou titre jugé équivalent\n\n• Avoir une expérience professionnelle confirmée dans un environnement de bloc opératoire ou plateau technique\n\n• Formation complémentaire en gestion de la qualité, gestion des risques ou sécurité des patients (CAS, DAS) un atout\n\n• Excellentes capacités d'analyse, de synthèse et de rédaction\n\n• Excellente maitrise des outils et plateformes informatiques, des bases de données et des outils de reporting\n\n• Sens de l’organisation, rigueur et autonomie\n\nNOUS OFFRONS\n\n• Un poste transversal à fort impact\n\n• L’opportunité de contribuer au développement de la qualité des soins et de la sécurité des patients\n\n• Une fonction variée, entre coordination, analyse et gestion de projets\n\n• Un environnement stimulant favorisant l’innovation et la collaboration\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\n• Lieu d’activité principal : Yverdon\n\nDATE D’ENTRÉE : DÈS QUE POSSIBLE\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Laura Bochud, Responsable qualité et sécurité des soins, +41244245176.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 15 octobre 2026 ."
+      },
+      "needsRetranslation": true,
+      "location": "Yverdon-les-Bains",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4473/une-experte-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement-qualite-pour-les-plateaux-techniques-bloc-operatoire-a-60",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:15:42.764Z",
+      "addressLocality": "Yverdon-les-Bains",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1400",
+      "category": "Tecnica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4473/une-experte-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement-qualite-pour-les-plateaux-techniques-bloc-operatoire-a-60",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4473",
+      "firstSeenAt": "2026-08-31T17:06:38.444Z",
+      "salaryMin": 42600,
+      "salaryMax": 64500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42600,
+          "maxValue": 64500,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+        ],
+        "en": [
+          "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+        ],
+        "de": [
+          "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+      ]
     }
   ]
 }

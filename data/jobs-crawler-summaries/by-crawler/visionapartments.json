@@ -1,18 +1,60 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-08-28T05:32:04.774Z",
-  "total": 0,
+  "generatedAt": "2026-09-03T23:39:35.988Z",
+  "total": 1,
   "discovered": null,
-  "written": 0,
+  "written": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 4181,
+  "avgDurationMs": 4181,
+  "durationHistory": [
+    4181
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "visionapartments-13b3c39f629e",
+      "slug": "inkasso-spezialist-in-60-80-visionapartments-zurich",
+      "company": "Vision Management Services GmbH",
+      "companyKey": "visionapartments",
+      "companyDomain": "visionapartments.com",
+      "title": "Inkasso Spezialist:in (60-80%)",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
+      "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:39:32.889Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Talstrasse 62",
+      "category": "Ingegneria",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Immobiliare / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
+      "firstSeenAt": "2026-09-01T14:26:59.054Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }

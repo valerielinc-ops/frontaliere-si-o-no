@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valiant-bank",
-  "assembledAt": "2026-08-28T05:26:40.965Z",
+  "assembledAt": "2026-09-03T23:20:45.616Z",
   "jobs": [
     {
       "id": "valiant-bank-e594269f30be",
@@ -16,7 +16,7 @@
       "companyDomain": "valiant.ch",
       "title": "Berater/in Privat- und Geschäftskunden 60 - 100 %",
       "titleByLocale": {
-        "it": "Berater/in Privat- e Geschäftskunden 60 - 100 %",
+        "it": "Consulenti in clienti privati e aziendali 60 - 100%",
         "en": "Consultants in private and business clients 60 - 100%",
         "de": "Berater/in Privat- und Geschäftskunden 60 - 100 %",
         "fr": "Consultants en clients privés et d'affaires 60 - 100%"
@@ -33,7 +33,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:37.542Z",
+      "crawledAt": "2026-09-03T23:20:42.338Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -50,7 +50,6 @@
       "postedDate": "2025-02-04",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -70,6 +69,7 @@
       "firstSeenAt": "2026-07-04T12:23:08.831Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -112,7 +112,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/d9fffdec-3231-4a14-99a4-aea8b98a91dd",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:37.033Z",
+      "crawledAt": "2026-09-03T23:20:41.318Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -133,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen",
-        "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-st-gallen"
+        "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen",
-          "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-st-gallen"
+          "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
         ],
         "en": [
           "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
@@ -151,6 +149,7 @@
       "firstSeenAt": "2026-07-04T12:23:09.147Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -176,7 +175,7 @@
       "companyDomain": "valiant.ch",
       "title": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
       "titleByLocale": {
-        "it": "Berater/in Privat- e Geschäftskunden 80 - 100 %",
+        "it": "Consulenti in clienti privati e aziendali 80 - 100%",
         "en": "Consultants in private and business clients 80 - 100%",
         "de": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
         "fr": "Consultants en clients privés et commerciaux 80 - 100%"
@@ -193,7 +192,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:36.538Z",
+      "crawledAt": "2026-09-03T23:20:35.022Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -210,7 +209,6 @@
       "postedDate": "2025-09-04",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -230,6 +228,7 @@
       "firstSeenAt": "2026-07-04T12:23:07.938Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -272,7 +271,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/responsable-d-equipe-administration-des-credits/ca0ef4aa-ba74-4f45-a918-e75398552416",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:26:36.176Z",
+      "crawledAt": "2026-09-03T23:20:25.860Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -293,13 +292,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
-        "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
+        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
-          "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
+          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
         ],
         "en": [
           "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
@@ -311,6 +308,7 @@
       "firstSeenAt": "2026-07-04T12:23:07.043Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -336,7 +334,7 @@
       "companyDomain": "valiant.ch",
       "title": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
       "titleByLocale": {
-        "it": "Berater/in Privat- e Geschäftskunden 80 - 100 %",
+        "it": "Consulenti in clienti privati e aziendali 80 - 100%",
         "en": "Consultants in private and business clients 80 - 100%",
         "de": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
         "fr": "Consultants en clients privés et commerciaux 80 - 100%"
@@ -353,7 +351,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/de9ea92c-2abd-4606-8efc-2f36e2961609",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:35.539Z",
+      "crawledAt": "2026-09-03T23:20:18.822Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -370,7 +368,6 @@
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/de9ea92c-2abd-4606-8efc-2f36e2961609",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -390,6 +387,7 @@
       "firstSeenAt": "2026-07-04T12:23:05.914Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -397,87 +395,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "valiant-bank-bcba690c63de",
-      "slug": "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-luzern",
-      "slugByLocale": {
-        "it": "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-luzern",
-        "en": "adviser-in-asset-advisory-clients-80-100-valiant-bank-ag-luzern",
-        "de": "berater-in-vermogensberatungskunden-80-100-valiant-luzern",
-        "fr": "conseillers-conseils-en-biens-80-100-valiant-bank-ag-luzern"
-      },
-      "company": "Valiant Bank AG",
-      "companyKey": "valiant-bank",
-      "companyDomain": "valiant.ch",
-      "title": "Berater/in Vermögensberatungskunden 80 - 100 %",
-      "titleByLocale": {
-        "it": "Consulente/in consulenza clienti 80 - 100%",
-        "en": "Adviser/in asset advisory clients 80 - 100%",
-        "de": "Berater/in Vermögensberatungskunden 80 - 100 %",
-        "fr": "Conseillers/conseils en biens 80 - 100%"
-      },
-      "description": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\n Sie werden\n\n• unsere kompetente Ansprechperson für vermögende Privatkunden und beraten diese ganzheitlich in den Bereichen Anlegen, Vorsorgen sowie Finanzieren\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• als Akquisiteur den Markt aktiv bearbeiten und Ihr Kundenportefeuille ertragsorientiert weiterentwickeln\n• mit anderen Geschäftsbereichen zusammenarbeiten und Cross-Selling-Potenziale identifizieren\n• an Events mit ausgewählten Kunden teilnehmen und die Bank repräsentieren\n Sie bringen\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• mehrjährige Berufserfahrung in der Bankbranche in den Bereichen Anlegen und Vorsorge sowie fundierte Kenntnisse in der ganzheitlichen Vermögensberatung\n• hohe Selbstständigkeit, Eigeninitiative und ausgeprägte Akquisitionsstärke\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• ein breites Beziehungsnetz und eine starke regionale Verankerung\n Fragen zum Bewerbungsprozess\nUrsula Dällenbach\n Über uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• unsere kompetente Ansprechperson für vermögende Privatkunden und beraten diese ganzheitlich in den Bereichen Anlegen, Vorsorgen sowie Finanzieren\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• als Akquisiteur den Markt aktiv bearbeiten und Ihr Kundenportefeuille ertragsorientiert weiterentwickeln\n• mit anderen Geschäftsbereichen zusammenarbeiten und Cross-Selling-Potenziale identifizieren\n• an Events mit ausgewählten Kunden teilnehmen und die Bank repräsentieren\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• mehrjährige Berufserfahrung in der Bankbranche in den Bereichen Anlegen und Vorsorge sowie fundierte Kenntnisse in der ganzheitlichen Vermögensberatung\n• hohe Selbstständigkeit, Eigeninitiative und ausgeprägte Akquisitionsstärke\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• ein breites Beziehungsnetz und eine starke regionale Verankerung",
-      "descriptionByLocale": {
-        "it": "Semplificare insieme. Perché la vita è piena di possibilità. Allo stesso tempo, è diventato complesso. Ecco perché cerchiamo dipendenti che lavorano con noi per promuovere la semplicità. Essi:\n• la nostra persona di contatto competente per i clienti privati ricchi e consigliarli in modo olistico nelle aree di investimento, pensioni e finanziamento\n• Costruire ed espandere il proprio portafoglio clienti e mantenere attivamente la vostra rete di relazioni\n• come acquirente, lavorare attivamente sul mercato e sviluppare ulteriormente il portafoglio clienti in modo orientato al profitto\n• Collaborare con altre aziende e identificare il potenziale di cross-selling\n• partecipare a eventi con clienti selezionati e rappresentare la banca loro portano\n• istruzione bancaria e formazione specifica bancaria\n• Diversi anni di esperienza professionale nell'industria bancaria nei settori dell'investimento e dell'offerta pensionistica, nonché conoscenze approfondite nella consulenza olistica degli asset\n• Alto livello di autooccupazione, iniziativa e forte forza di acquisizione\n• Difficoltà nel contatto quotidiano con i clienti e la capacità di identificare rapidamente le esigenze e le aspettative\n• Una vasta rete di relazioni e un forte ancoraggio regionale Domande sul processo di applicazione Ursula Dällenbach Informazioni su di noi Valiant è un fornitore indipendente di servizi finanziari svizzeri che opera esclusivamente in Svizzera. Offre ai clienti privati e alle PMI un'offerta completa e facile da comprendere in tutte le questioni finanziarie. Valiant è localmente ancorata nei seguenti 15 cantoni: Aargau, Basel Landscape, Basel City, Bern, Freiburg, Jura, Lucerna, Neuchâtel, Schaffhausen, Solothurn, St. Gallen, Thurgau, Vaud, Zug e Zurigo. È presente anche in tutta la Svizzera grazie ai servizi innovativi e digitali. Valiant ha un bilancio totale di 38,2 miliardi di franchi e impiega circa 1200 persone, di cui oltre 70 sono apprendisti.\n• la nostra persona di contatto competente per i clienti privati ricchi e consigliarli in modo olistico nelle aree di investimento, pensioni e finanziamento\n• Costruire ed espandere il proprio portafoglio clienti e mantenere attivamente la vostra rete di relazioni\n• come acquirente, lavorare attivamente sul mercato e sviluppare ulteriormente il portafoglio clienti in modo orientato al profitto\n• Collaborare con altre aziende e identificare il potenziale di cross-selling\n• partecipare a eventi con clienti selezionati e rappresentare la banca\n• istruzione bancaria e formazione specifica bancaria\n• Diversi anni di esperienza professionale nell'industria bancaria nei settori dell'investimento e dell'offerta pensionistica, nonché conoscenze approfondite nella consulenza olistica degli asset\n• Alto livello di autooccupazione, iniziativa e forte forza di acquisizione\n• Difficoltà nel contatto quotidiano con i clienti e la capacità di identificare rapidamente le esigenze e le aspettative\n• Una vasta rete di relazioni e un forte ancoraggio regionale",
-        "en": "Simplify together. Because life is full of possibilities. At the same time, it has become complex. That is why we are looking for employees who work with us to promote simplicity. They shall:\n• our competent contact person for wealthy private clients and advise them holistically in the areas of investing, pensions and financing\n• Build and expand your own customer portfolio and actively maintain your relationship network\n• as an acquirer, actively work on the market and further develop your customer portfolio in a profit-oriented manner\n• Collaborate with other businesses and identify cross-selling potential\n• participate in events with selected customers and represent the bank They bring\n• banking education and banking-specific training\n• Several years of professional experience in the banking industry in the areas of investment and pension provision as well as in-depth knowledge in holistic asset consulting\n• High level of self-employment, initiative and strong acquisition strength\n• Delight in daily customer contact and the ability to quickly identify needs and expectations\n• A broad network of relationships and a strong regional anchorage Questions about the application process Ursula Dällenbach About us Valiant is an independent Swiss financial services provider operating exclusively in Switzerland. It offers private customers and SMEs a comprehensive, easy-to-understand offer in all financial matters. Valiant is locally anchored in the following 15 cantons: Aargau, Basel Landscape, Basel City, Bern, Freiburg, Jura, Lucerne, Neuchâtel, Schaffhausen, Solothurn, St. Gallen, Thurgau, Vaud, Zug and Zurich. It is also present throughout Switzerland thanks to innovative, digital services. Valiant has a balance sheet total of 38.2 billion francs and employs around 1200 people – of which more than 70 are apprentices.\n• our competent contact person for wealthy private clients and advise them holistically in the areas of investing, pensions and financing\n• Build and expand your own customer portfolio and actively maintain your relationship network\n• as an acquirer, actively work on the market and further develop your customer portfolio in a profit-oriented manner\n• Collaborate with other businesses and identify cross-selling potential\n• participate in events with selected customers and represent the bank\n• banking education and banking-specific training\n• Several years of professional experience in the banking industry in the areas of investment and pension provision as well as in-depth knowledge in holistic asset consulting\n• High level of self-employment, initiative and strong acquisition strength\n• Delight in daily customer contact and the ability to quickly identify needs and expectations\n• A broad network of relationships and a strong regional anchorage",
-        "de": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• unsere kompetente Ansprechperson für vermögende Privatkunden und beraten diese ganzheitlich in den Bereichen Anlegen, Vorsorgen sowie Finanzieren\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• als Akquisiteur den Markt aktiv bearbeiten und Ihr Kundenportefeuille ertragsorientiert weiterentwickeln\n• mit anderen Geschäftsbereichen zusammenarbeiten und Cross-Selling-Potenziale identifizieren\n• an Events mit ausgewählten Kunden teilnehmen und die Bank repräsentieren\nSie bringen\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• mehrjährige Berufserfahrung in der Bankbranche in den Bereichen Anlegen und Vorsorge sowie fundierte Kenntnisse in der ganzheitlichen Vermögensberatung\n• hohe Selbstständigkeit, Eigeninitiative und ausgeprägte Akquisitionsstärke\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• ein breites Beziehungsnetz und eine starke regionale Verankerung\nFragen zum Bewerbungsprozess\nUrsula Dällenbach\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• unsere kompetente Ansprechperson für vermögende Privatkunden und beraten diese ganzheitlich in den Bereichen Anlegen, Vorsorgen sowie Finanzieren\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• als Akquisiteur den Markt aktiv bearbeiten und Ihr Kundenportefeuille ertragsorientiert weiterentwickeln\n• mit anderen Geschäftsbereichen zusammenarbeiten und Cross-Selling-Potenziale identifizieren\n• an Events mit ausgewählten Kunden teilnehmen und die Bank repräsentieren\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• mehrjährige Berufserfahrung in der Bankbranche in den Bereichen Anlegen und Vorsorge sowie fundierte Kenntnisse in der ganzheitlichen Vermögensberatung\n• hohe Selbstständigkeit, Eigeninitiative und ausgeprägte Akquisitionsstärke\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• ein breites Beziehungsnetz und eine starke regionale Verankerung",
-        "fr": "Simplifiez-vous ensemble. Parce que la vie est pleine de possibilités. En même temps, elle est devenue complexe. C'est pourquoi nous cherchons des employés qui travaillent avec nous pour promouvoir la simplicité. Ils:\n• notre personne de contact compétente pour les clients privés aisés et les conseiller globalement dans les domaines de l'investissement, des pensions et du financement\n• Construisez et élargissez votre propre portefeuille client et maintenez activement votre réseau relationnel\n• en tant qu'acquéreur, travaillez activement sur le marché et développez votre portefeuille client d'une manière orientée vers le profit\n• Collaborer avec d'autres entreprises et identifier le potentiel de vente croisée\n• participer à des événements avec des clients sélectionnés et représenter la banque Ils apportent\n• éducation bancaire et formation spécifique à la banque\n• Plusieurs années d'expérience professionnelle dans le secteur bancaire dans les domaines de l'investissement et des prestations de retraite ainsi que des connaissances approfondies en matière de conseil en actifs holistiques\n• Niveau élevé de travail indépendant, initiative et forte force d'acquisition\n• Délice dans le contact quotidien avec le client et la capacité d'identifier rapidement les besoins et les attentes\n• Un vaste réseau de relations et un fort ancrage régional Questions concernant le processus de demande Ursula Dällenbach Sur nous Valiant est un fournisseur de services financiers suisse indépendant opérant exclusivement en Suisse. Il offre aux clients privés et aux PME une offre complète et facile à comprendre en matière financière. Valiant est ancré localement dans les 15 cantons suivants : Argovie, Paysage de Bâle, Ville de Bâle, Berne, Freiburg, Jura, Lucerne, Neuchâtel, Schaffhausen, Soleure, St. Gallen, Thurgau, Vaud, Zug et Zurich. Il est également présent dans toute la Suisse grâce à des services numériques innovants. Valiant a un bilan total de 38,2 milliards de francs et emploie environ 1200 personnes, dont plus de 70 apprentis.\n• notre personne de contact compétente pour les clients privés aisés et les conseiller globalement dans les domaines de l'investissement, des pensions et du financement\n• Construisez et élargissez votre propre portefeuille client et maintenez activement votre réseau relationnel\n• en tant qu'acquéreur, travaillez activement sur le marché et développez votre portefeuille client d'une manière orientée vers le profit\n• Collaborer avec d'autres entreprises et identifier le potentiel de vente croisée\n• participer à des événements avec des clients sélectionnés et représenter la banque\n• éducation bancaire et formation spécifique à la banque\n• Plusieurs années d'expérience professionnelle dans le secteur bancaire dans les domaines de l'investissement et des prestations de retraite ainsi que des connaissances approfondies en matière de conseil en actifs holistiques\n• Niveau élevé de travail indépendant, initiative et forte force d'acquisition\n• Délice dans le contact quotidien avec le client et la capacité d'identifier rapidement les besoins et les attentes\n• Un vaste réseau de relations et un fort ancrage régional"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/791c1db8-befd-4f88-aeaf-c50dcae09e51",
-      "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:35.065Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "streetAddress": "",
-      "postalCode": "6000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Anlageberatung",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Banche / Servizi Finanziari",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/791c1db8-befd-4f88-aeaf-c50dcae09e51",
-      "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "berater-in-vermogensberatungskunden-80-100-valiant-luzern",
-        "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berater-in-vermogensberatungskunden-80-100-valiant-luzern",
-          "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-luzern"
-        ],
-        "en": [
-          "berater-in-vermogensberatungskunden-80-100-valiant-luzern"
-        ],
-        "fr": [
-          "berater-in-vermogensberatungskunden-80-100-valiant-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:23:05.626Z",
-      "salaryMin": 107500,
-      "salaryMax": 188500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 107500,
-          "maxValue": 188500,
           "unitText": "YEAR"
         }
       }
@@ -513,7 +430,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/e6ccb352-bdf5-46ab-8302-060383e05fc3",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:34.539Z",
+      "crawledAt": "2026-09-03T23:20:14.359Z",
       "addressLocality": "Bern Betlehem",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -534,13 +451,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-privatkunden-80-100-valiant-bern-betlehem",
-        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-bern-betlehem"
+        "berater-in-privatkunden-80-100-valiant-bern-betlehem"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-privatkunden-80-100-valiant-bern-betlehem",
-          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-bern-betlehem"
+          "berater-in-privatkunden-80-100-valiant-bern-betlehem"
         ],
         "en": [
           "berater-in-privatkunden-80-100-valiant-bern-betlehem"
@@ -552,6 +467,7 @@
       "firstSeenAt": "2026-07-04T12:23:05.346Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -594,7 +510,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/diverse-freie-ausbildungsplaetze-ab-1-august-2027/e511f785-7e8d-4da3-9cea-1a8a4992ecd4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:33.991Z",
+      "crawledAt": "2026-09-03T23:20:13.927Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 7",
@@ -615,13 +531,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern",
-        "vari-apprendisti-liberi-da-1-agosto-2027-valiant-bank-ag-bern"
+        "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern",
-          "vari-apprendisti-liberi-da-1-agosto-2027-valiant-bank-ag-bern"
+          "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
         ],
         "en": [
           "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
@@ -633,6 +547,7 @@
       "firstSeenAt": "2026-07-04T12:23:04.973Z",
       "salaryMin": 73500,
       "salaryMax": 129000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -658,7 +573,7 @@
       "companyDomain": "valiant.ch",
       "title": "Berater/in Privat- und Geschäftskunden 80 -100 %",
       "titleByLocale": {
-        "it": "Berater/in Privat- e Geschäftskunden 80 -100 %",
+        "it": "Consulente presso clienti privati e aziendali 80 -100 %",
         "en": "Consultant in private and business clients 80 -100 %",
         "de": "Berater/in Privat- und Geschäftskunden 80 -100 %",
         "fr": "Consultant en clientèle privée et d'affaires 80 -100 %"
@@ -675,7 +590,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:33.758Z",
+      "crawledAt": "2026-09-03T23:20:13.336Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -692,7 +607,6 @@
       "postedDate": "2026-05-26",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -712,6 +626,7 @@
       "firstSeenAt": "2026-07-04T12:23:04.839Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -737,7 +652,7 @@
       "companyDomain": "valiant.ch",
       "title": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
       "titleByLocale": {
-        "it": "Berater/in Privat- e Geschäftskunden 80 - 100 %",
+        "it": "Consulenti in clienti privati e aziendali 80 - 100%",
         "en": "Consultants in private and business clients 80 - 100%",
         "de": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
         "fr": "Consultants en clients privés et commerciaux 80 - 100%"
@@ -754,7 +669,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/64042003-3db5-4bcf-b663-13eba6d2a448",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:33.150Z",
+      "crawledAt": "2026-09-03T23:20:12.835Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -771,7 +686,6 @@
       "postedDate": "2026-05-26",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/64042003-3db5-4bcf-b663-13eba6d2a448",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -791,6 +705,7 @@
       "firstSeenAt": "2026-07-04T12:23:04.478Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -798,108 +713,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "valiant-bank-366edd2292db",
-      "slug": "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp",
-      "slugByLocale": {
-        "it": "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp",
-        "en": "consultant-residential-client-80-100-valiant-bank-ag-belp",
-        "de": "berater-in-privatkunden-80-100-valiant-belp",
-        "fr": "consultant-client-residentiel-80-100-valiant-bank-ag-belp"
-      },
-      "company": "Valiant Bank AG",
-      "companyKey": "valiant-bank",
-      "companyDomain": "valiant.ch",
-      "title": "Berater/in Privatkunden 80 - 100 %",
-      "titleByLocale": {
-        "it": "Consulente/cliente di riferimento 80 - 100%",
-        "en": "Consultant/residential client 80 - 100%",
-        "de": "Berater/in Privatkunden 80 - 100 %",
-        "fr": "Consultant/client résidentiel 80 - 100%"
-      },
-      "description": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\n Sie werden\n\n• die kompetente Ansprechperson für unsere Privatkunden sein und diese gesamtheitlich in den Bereichen Finanzieren, Anlegen und Vorsorge beraten\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• unsere Produkte und Dienstleistungen entsprechend den Kundenbedürfnissen einsetzen\n• Cross- und Upselling-Potenziale erkennen und den Kunden bei spezifischen Anliegen den passenden Spezialisten weiterleiten\n Sie bringen\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• Berufserfahrung in der Bankbranche in den Bereichen Finanzieren, Anlegen und Vorsorge\n• Kommunikationsstärke, Ziel- und Dienstleistungsorientiertheit\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• idealerweise ein bestehendes Beziehungsnetz und eine starke regionale Verankerung\n Über uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die kompetente Ansprechperson für unsere Privatkunden sein und diese gesamtheitlich in den Bereichen Finanzieren, Anlegen und Vorsorge beraten\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• unsere Produkte und Dienstleistungen entsprechend den Kundenbedürfnissen einsetzen\n• Cross- und Upselling-Potenziale erkennen und den Kunden bei spezifischen Anliegen den passenden Spezialisten weiterleiten\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• Berufserfahrung in der Bankbranche in den Bereichen Finanzieren, Anlegen und Vorsorge\n• Kommunikationsstärke, Ziel- und Dienstleistungsorientiertheit\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• idealerweise ein bestehendes Beziehungsnetz und eine starke regionale Verankerung",
-      "descriptionByLocale": {
-        "it": "Semplificare insieme. Perché la vita è piena di possibilità. Allo stesso tempo, è diventato complesso. Ecco perché cerchiamo dipendenti che lavorano con noi per promuovere la semplicità. Essi:\n• essere il referente competente per i nostri clienti privati e consigliarli in modo olistico nei settori del finanziamento, dell'investimento e della previdenza\n• Costruire ed espandere il proprio portafoglio clienti e mantenere attivamente la vostra rete di relazioni\n• utilizzare i nostri prodotti e servizi in base alle esigenze del cliente\n• Riconoscere il potenziale cross- e upselling e trasmettere al cliente gli specialisti appropriati per specifiche preoccupazioni loro portano\n• istruzione bancaria e formazione specifica bancaria\n• Esperienza professionale nel settore bancario nel finanziamento, investimenti e regimi pensionistici\n• Forza di comunicazione, obiettivo e orientamento di servizio\n• Difficoltà nel contatto quotidiano con i clienti e la capacità di identificare rapidamente le esigenze e le aspettative\n• idealmente una rete di relazioni esistente e un forte ancoraggio regionale Informazioni su di noi Valiant è un fornitore indipendente di servizi finanziari svizzeri che opera esclusivamente in Svizzera. Offre ai clienti privati e alle PMI un'offerta completa e facile da comprendere in tutte le questioni finanziarie. Valiant è localmente ancorata nei seguenti 15 cantoni: Aargau, Basel Landscape, Basel City, Bern, Freiburg, Jura, Lucerna, Neuchâtel, Schaffhausen, Solothurn, St. Gallen, Thurgau, Vaud, Zug e Zurigo. È presente anche in tutta la Svizzera grazie ai servizi innovativi e digitali. Valiant ha un bilancio totale di 38,2 miliardi di franchi e impiega circa 1200 persone, di cui oltre 70 sono apprendisti.\n• essere il referente competente per i nostri clienti privati e consigliarli in modo olistico nei settori del finanziamento, dell'investimento e della previdenza\n• Costruire ed espandere il proprio portafoglio clienti e mantenere attivamente la vostra rete di relazioni\n• utilizzare i nostri prodotti e servizi in base alle esigenze del cliente\n• Riconoscere il potenziale cross- e upselling e trasmettere al cliente gli specialisti appropriati per specifiche preoccupazioni\n• istruzione bancaria e formazione specifica bancaria\n• Esperienza professionale nel settore bancario nel finanziamento, investimenti e regimi pensionistici\n• Forza di comunicazione, obiettivo e orientamento di servizio\n• Difficoltà nel contatto quotidiano con i clienti e la capacità di identificare rapidamente le esigenze e le aspettative\n• idealmente una rete di relazioni esistente e un forte ancoraggio regionale",
-        "en": "Simplify together. Because life is full of possibilities. At the same time, it has become complex. That is why we are looking for employees who work with us to promote simplicity. They shall:\n• be the competent contact person for our private customers and advise them holistically in the areas of financing, investment and pension provision\n• Build and expand your own customer portfolio and actively maintain your relationship network\n• use our products and services according to customer needs\n• Recognize cross- and upselling potential and forward the customer to the appropriate specialists for specific concerns They bring\n• banking education and banking-specific training\n• Professional experience in the banking industry in financing, investing and pension schemes\n• Communication strength, target and service orientation\n• Delight in daily customer contact and the ability to quickly identify needs and expectations\n• ideally an existing relationship network and a strong regional anchorage About us Valiant is an independent Swiss financial services provider operating exclusively in Switzerland. It offers private customers and SMEs a comprehensive, easy-to-understand offer in all financial matters. Valiant is locally anchored in the following 15 cantons: Aargau, Basel Landscape, Basel City, Bern, Freiburg, Jura, Lucerne, Neuchâtel, Schaffhausen, Solothurn, St. Gallen, Thurgau, Vaud, Zug and Zurich. It is also present throughout Switzerland thanks to innovative, digital services. Valiant has a balance sheet total of 38.2 billion francs and employs around 1200 people – of which more than 70 are apprentices.\n• be the competent contact person for our private customers and advise them holistically in the areas of financing, investment and pension provision\n• Build and expand your own customer portfolio and actively maintain your relationship network\n• use our products and services according to customer needs\n• Recognize cross- and upselling potential and forward the customer to the appropriate specialists for specific concerns\n• banking education and banking-specific training\n• Professional experience in the banking industry in financing, investing and pension schemes\n• Communication strength, target and service orientation\n• Delight in daily customer contact and the ability to quickly identify needs and expectations\n• ideally an existing relationship network and a strong regional anchorage",
-        "de": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die kompetente Ansprechperson für unsere Privatkunden sein und diese gesamtheitlich in den Bereichen Finanzieren, Anlegen und Vorsorge beraten\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• unsere Produkte und Dienstleistungen entsprechend den Kundenbedürfnissen einsetzen\n• Cross- und Upselling-Potenziale erkennen und den Kunden bei spezifischen Anliegen den passenden Spezialisten weiterleiten\nSie bringen\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• Berufserfahrung in der Bankbranche in den Bereichen Finanzieren, Anlegen und Vorsorge\n• Kommunikationsstärke, Ziel- und Dienstleistungsorientiertheit\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• idealerweise ein bestehendes Beziehungsnetz und eine starke regionale Verankerung\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die kompetente Ansprechperson für unsere Privatkunden sein und diese gesamtheitlich in den Bereichen Finanzieren, Anlegen und Vorsorge beraten\n• ein eigenes Kundenportefeuille auf- und ausbauen und Ihr Beziehungsnetz aktiv pflegen\n• unsere Produkte und Dienstleistungen entsprechend den Kundenbedürfnissen einsetzen\n• Cross- und Upselling-Potenziale erkennen und den Kunden bei spezifischen Anliegen den passenden Spezialisten weiterleiten\n\n• eine Bankausbildung sowie eine bankspezifische Weiterbildung\n• Berufserfahrung in der Bankbranche in den Bereichen Finanzieren, Anlegen und Vorsorge\n• Kommunikationsstärke, Ziel- und Dienstleistungsorientiertheit\n• Freude am täglichen Kundenkontakt sowie die Fähigkeit, Bedürfnisse und Erwartungen schnell zu erkennen\n• idealerweise ein bestehendes Beziehungsnetz und eine starke regionale Verankerung",
-        "fr": "Simplifiez-vous ensemble. Parce que la vie est pleine de possibilités. En même temps, elle est devenue complexe. C'est pourquoi nous cherchons des employés qui travaillent avec nous pour promouvoir la simplicité. Ils:\n• être la personne de contact compétente pour nos clients privés et les conseiller globalement dans les domaines du financement, de l'investissement et de la pension\n• Construisez et élargissez votre propre portefeuille client et maintenez activement votre réseau relationnel\n• utiliser nos produits et services selon les besoins du client\n• Reconnaître le potentiel de vente croisée et de mise à jour et transmettre le client aux spécialistes appropriés pour des préoccupations spécifiques Ils apportent\n• éducation bancaire et formation spécifique à la banque\n• Expérience professionnelle dans le secteur bancaire dans le financement, l'investissement et les régimes de retraite\n• Force de communication, cible et orientation du service\n• Délice dans le contact quotidien avec le client et la capacité d'identifier rapidement les besoins et les attentes\n• idéalement un réseau de relations existant et un ancrage régional fort Sur nous Valiant est un fournisseur de services financiers suisse indépendant opérant exclusivement en Suisse. Il offre aux clients privés et aux PME une offre complète et facile à comprendre en matière financière. Valiant est ancré localement dans les 15 cantons suivants : Argovie, Paysage de Bâle, Ville de Bâle, Berne, Freiburg, Jura, Lucerne, Neuchâtel, Schaffhausen, Soleure, St. Gallen, Thurgau, Vaud, Zug et Zurich. Il est également présent dans toute la Suisse grâce à des services numériques innovants. Valiant a un bilan total de 38,2 milliards de francs et emploie environ 1200 personnes, dont plus de 70 apprentis.\n• être la personne de contact compétente pour nos clients privés et les conseiller globalement dans les domaines du financement, de l'investissement et de la pension\n• Construisez et élargissez votre propre portefeuille client et maintenez activement votre réseau relationnel\n• utiliser nos produits et services selon les besoins du client\n• Reconnaître le potentiel de vente croisée et de mise à jour et transmettre le client aux spécialistes appropriés pour des préoccupations spécifiques\n• éducation bancaire et formation spécifique à la banque\n• Expérience professionnelle dans le secteur bancaire dans le financement, l'investissement et les régimes de retraite\n• Force de communication, cible et orientation du service\n• Délice dans le contact quotidien avec le client et la capacité d'identifier rapidement les besoins et les attentes\n• idéalement un réseau de relations existant et un ancrage régional fort"
-      },
-      "location": "Belp",
-      "canton": "BE",
-      "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/d1506728-4daf-4851-8b31-4e182dc8f12f",
-      "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:32.654Z",
-      "addressLocality": "Belp",
-      "addressRegion": "BE",
-      "streetAddress": "",
-      "postalCode": "3123",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Kundenberatung",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Banche / Servizi Finanziari",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/d1506728-4daf-4851-8b31-4e182dc8f12f",
-      "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": false,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "berater-in-privatkunden-80-100-valiant-belp",
-        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag",
-        "consultant-residential-client-80-100-valiant-bank-ag-reinach-ag",
-        "berater-in-privatkunden-80-100-valiant-reinach-ag",
-        "consultant-client-residentiel-80-100-valiant-bank-ag-reinach-ag",
-        "consulente-cliente-di-riferimento-60-100-valiant-bank-ag-burgdorf",
-        "consultant-residential-client-60-100-valiant-bank-ag-burgdorf",
-        "berater-in-privatkunden-60-100-valiant-burgdorf",
-        "consultant-client-residentiel-60-100-valiant-bank-ag-burgdorf",
-        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berater-in-privatkunden-80-100-valiant-belp",
-          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag",
-          "consultant-residential-client-80-100-valiant-bank-ag-reinach-ag",
-          "berater-in-privatkunden-80-100-valiant-reinach-ag",
-          "consultant-client-residentiel-80-100-valiant-bank-ag-reinach-ag",
-          "consulente-cliente-di-riferimento-60-100-valiant-bank-ag-burgdorf",
-          "consultant-residential-client-60-100-valiant-bank-ag-burgdorf",
-          "berater-in-privatkunden-60-100-valiant-burgdorf",
-          "consultant-client-residentiel-60-100-valiant-bank-ag-burgdorf",
-          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp"
-        ],
-        "en": [
-          "berater-in-privatkunden-80-100-valiant-belp",
-          "consultant-residential-client-80-100-valiant-bank-ag-reinach-ag"
-        ],
-        "de": [
-          "berater-in-privatkunden-80-100-valiant-reinach-ag"
-        ],
-        "fr": [
-          "berater-in-privatkunden-80-100-valiant-belp",
-          "consultant-client-residentiel-80-100-valiant-bank-ag-reinach-ag"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:23:02.985Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -918,7 +731,7 @@
       "companyDomain": "valiant.ch",
       "title": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
       "titleByLocale": {
-        "it": "Berater/in Privat- e Geschäftskunden 80 - 100 %",
+        "it": "Consulenti in clienti privati e aziendali 80 - 100%",
         "en": "Consultants in private and business clients 80 - 100%",
         "de": "Berater/in Privat- und Geschäftskunden 80 - 100 %",
         "fr": "Consultants en clients privés et commerciaux 80 - 100%"
@@ -935,7 +748,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/fb5388c3-099e-48a1-b95b-eb06a04f069c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:31.469Z",
+      "crawledAt": "2026-09-03T23:20:12.312Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -952,7 +765,6 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/fb5388c3-099e-48a1-b95b-eb06a04f069c",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -972,6 +784,7 @@
       "firstSeenAt": "2026-07-04T12:23:02.622Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1014,7 +827,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-clientele-privee-et-commerciale/918ab9a2-ffbf-4116-82bd-abf85a2575b5",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:26:31.175Z",
+      "crawledAt": "2026-09-03T23:20:11.826Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1035,13 +848,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey",
-        "consulenza-clienti-privata-e-commerciale-age-80-100-valiant-bank-ag-vevey"
+        "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey",
-          "consulenza-clienti-privata-e-commerciale-age-80-100-valiant-bank-ag-vevey"
+          "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey"
         ],
         "en": [
           "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey"
@@ -1053,6 +864,7 @@
       "firstSeenAt": "2026-07-04T12:23:01.718Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1078,7 +890,7 @@
       "companyDomain": "valiant.ch",
       "title": "Berater/in Privatkunden (mit Entwicklungspotential in die Geschäftskundenberatung) 80 - 100 %",
       "titleByLocale": {
-        "it": "Berater/in Privatkunden (con Entwicklungspotential in la Geschäftskundenberatung) 80 - 100 %",
+        "it": "Consulenti clienti privati (con potenziale di sviluppo nella consulenza clienti aziendali) 80 - 100%",
         "en": "Private client consultants (with development potential in business client consulting) 80 - 100%",
         "de": "Berater/in Privatkunden (mit Entwicklungspotential in die Geschäftskundenberatung) 80 - 100 %",
         "fr": "Consultants clients privés (avec un potentiel de développement en conseil client d'affaires) 80 - 100%"
@@ -1095,7 +907,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/1429c305-7fd9-4962-8273-8d85ddab682c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:30.929Z",
+      "crawledAt": "2026-09-03T23:20:11.335Z",
       "addressLocality": "Seengen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1112,24 +924,22 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/1429c305-7fd9-4962-8273-8d85ddab682c",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100",
-        "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2",
-        "berater-in-privatkunden-con-entwicklungspotential-in-la-geschaftskundenberatung-80-100-valiant-bank-ag-seengen"
+        "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100",
-          "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2",
-          "berater-in-privatkunden-con-entwicklungspotential-in-la-geschaftskundenberatung-80-100-valiant-bank-ag-seengen"
+          "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2"
         ]
       },
       "firstSeenAt": "2026-07-04T12:23:01.145Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1137,87 +947,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "valiant-bank-bb568186769f",
-      "slug": "senior-responsabile-di-progetto-im-zentralen-projektmanagement-80-100-valiant-bank-ag-gumligen",
-      "slugByLocale": {
-        "it": "senior-responsabile-di-progetto-im-zentralen-projektmanagement-80-100-valiant-bank-ag-gumligen",
-        "en": "senior-project-manager-im-zentralen-projektmanagement-80-100-valiant-bank-ag-gumligen",
-        "de": "senior-projektleiter-in-im-zentralen-projektmanagement-80-100-valiant-gumligen",
-        "fr": "directeur-principal-de-projet-en-gestion-centrale-de-projet-80-100-valiant-bank-ag-gumligen"
-      },
-      "company": "Valiant Bank AG",
-      "companyKey": "valiant-bank",
-      "companyDomain": "valiant.ch",
-      "title": "Senior Projektleiter/in im zentralen Projektmanagement 80 - 100 %",
-      "titleByLocale": {
-        "it": "Senior Responsabile di progetto im zentralen Projektmanagement 80 - 100 %",
-        "en": "Senior Project Manager im zentralen Projektmanagement 80 - 100 %",
-        "de": "Senior Projektleiter/in im zentralen Projektmanagement 80 - 100 %",
-        "fr": "Directeur principal de projet en gestion centrale de projet 80 - 100%"
-      },
-      "description": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\n Sie werden\n\n• strategische Gesamtbank-Projekte leiten (u.a. auch regulatorische Projekte)\n• die Gesamtverantwortung über alle Projektphasen, inkl. Projektbudget, Zieldefinition sowie Controlling übernehmen\n• interdisziplinäre Projektteams planen, koordinieren und führen\n• Projektaufträge und Projektbeschriebe in Abstimmung mit den relevanten Stakeholdern (Stufe Geschäfts- oder Abteilungsleitung) erarbeiten\n• Entscheidungsgrundlagen, Statusberichte und Management-Reviews zuhanden des Project Boards und der Geschäftsleitung erstellen\n• laufend an der Professionalisierung der Strukturen und Instrumenten des Projektmanagements mitarbeiten\n• Teil des Teams Projektportfoliomanagement und -controlling (PPMC) von Valiant werden\n Sie bringen\n\n• mehrjährige Praxiserfahrung in der Leitung und Umsetzung von komplexen Projekten, idealerweise im Bankenumfeld\n• adäquate Ausbildung auf Stufe Hoch-/Fachhochschule sowie projektspezifische Weiterbildung(en)\n• Expertise in der Anwendung von Wasserfall- und agilen Projektmodellen\n• Neugier und Offenheit auch in der Umsetzung von regulatorischen Projekten im Bankenumfeld\n• hohe Belastbarkeit und Leistungsbereitschaft sowie ausgezeichnete analytische und konzeptionelle Fähigkeiten\n• ausgeprägte Überzeugungskraft mit Durchsetzungsvermögen sowie hohe Selbstständigkeit, Eigeninitiative und Verlässlichkeit\n• deutsche Muttersprache oder fortgeschrittenes deutsches Sprachniveau (mind. C1)\n Über uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• strategische Gesamtbank-Projekte leiten (u.a. auch regulatorische Projekte)\n• die Gesamtverantwortung über alle Projektphasen, inkl. Projektbudget, Zieldefinition sowie Controlling übernehmen\n• interdisziplinäre Projektteams planen, koordinieren und führen\n• Projektaufträge und Projektbeschriebe in Abstimmung mit den relevanten Stakeholdern (Stufe Geschäfts- oder Abteilungsleitung) erarbeiten\n• Entscheidungsgrundlagen, Statusberichte und Management-Reviews zuhanden des Project Boards und der Geschäftsleitung erstellen\n• laufend an der Professionalisierung der Strukturen und Instrumenten des Projektmanagements mitarbeiten\n• Teil des Teams Projektportfoliomanagement und -controlling (PPMC) von Valiant werden\n\n• mehrjährige Praxiserfahrung in der Leitung und Umsetzung von komplexen Projekten, idealerweise im Bankenumfeld\n• adäquate Ausbildung auf Stufe Hoch-/Fachhochschule sowie projektspezifische Weiterbildung(en)\n• Expertise in der Anwendung von Wasserfall- und agilen Projektmodellen\n• Neugier und Offenheit auch in der Umsetzung von regulatorischen Projekten im Bankenumfeld\n• hohe Belastbarkeit und Leistungsbereitschaft sowie ausgezeichnete analytische und konzeptionelle Fähigkeiten\n• ausgeprägte Überzeugungskraft mit Durchsetzungsvermögen sowie hohe Selbstständigkeit, Eigeninitiative und Verlässlichkeit\n• deutsche Muttersprache oder fortgeschrittenes deutsches Sprachniveau (mind. C1)",
-      "descriptionByLocale": {
-        "it": "Semplificare insieme. Perché la vita è piena di possibilità. Allo stesso tempo, è diventato complesso. Ecco perché cerchiamo dipendenti che lavorano con noi per promuovere la semplicità.\nEssi:\n\n• portare progetti bancari strategici globali (compresi i progetti normativi)\n• assumersi la responsabilità complessiva di tutte le fasi del progetto, tra cui budget di progetto, definizione di obiettivo e controllo\n• Pianificare, coordinare e condurre team di progetto interdisciplinari\n• Sviluppare ordini di progetto e descrizioni dei progetti in coordinamento con le parti interessate (livello di business o gestione dei servizi)\n• Creare basi decisionali, rapporti di stato e recensioni di gestione per il project board e la gestione\n• partecipare continuamente alla professionalizzazione delle strutture e degli strumenti di project management\n• Entra a far parte del team di Valiant Project Portfolio Management and Controlling (PPMC)\nloro portano\n\n• diversi anni di esperienza pratica nella gestione e realizzazione di progetti complessi, idealmente nell'ambiente bancario\n• Formazione adeguata a livello universitario/specialista e formazione specifica del progetto\n• Competenza nell'applicazione dei modelli di progetto cascata e agile\n• Curiosità e apertura anche nell'attuazione di progetti normativi nell'ambiente bancario\n• Alta resilienza e prestazioni, nonché eccellenti capacità analitiche e concettuali\n• Pronunciato potere di persuasione con assertività e alta indipendenza, iniziativa e affidabilità\n• Lingua madre tedesca o livello tedesco avanzato (minimo C1)\nSu di noi\nValiant è un fornitore indipendente di servizi finanziari svizzeri che opera esclusivamente in Svizzera. Offre ai clienti privati e alle PMI un'offerta completa e facile da comprendere in tutte le questioni finanziarie. Valiant è localmente ancorata nei seguenti 15 cantoni: Aargau, Basel Landscape, Basel City, Bern, Freiburg, Jura, Lucerna, Neuchâtel, Schaffhausen, Solothurn, St. Gallen, Thurgau, Vaud, Zug e Zurigo. È presente anche in tutta la Svizzera grazie ai servizi innovativi e digitali. Valiant ha un bilancio totale di 38,2 miliardi di franchi e impiega circa 1200 persone, di cui oltre 70 sono apprendisti.\n\n• portare progetti bancari strategici globali (compresi i progetti normativi)\n• assumersi la responsabilità complessiva di tutte le fasi del progetto, tra cui budget di progetto, definizione di obiettivo e controllo\n• Pianificare, coordinare e condurre team di progetto interdisciplinari\n• Sviluppare ordini di progetto e descrizioni dei progetti in coordinamento con le parti interessate (livello di business o gestione dei servizi)\n• Creare basi decisionali, rapporti di stato e recensioni di gestione per il project board e la gestione\n• partecipare continuamente alla professionalizzazione delle strutture e degli strumenti di project management\n• Entra a far parte del team di Valiant Project Portfolio Management and Controlling (PPMC)\n\n• diversi anni di esperienza pratica nella gestione e realizzazione di progetti complessi, idealmente nell'ambiente bancario\n• Formazione adeguata a livello universitario/specialista e formazione specifica del progetto\n• Competenza nell'applicazione dei modelli di progetto cascata e agile\n• Curiosità e apertura anche nell'attuazione di progetti normativi nell'ambiente bancario\n• Alta resilienza e prestazioni, nonché eccellenti capacità analitiche e concettuali\n• Pronunciato potere di persuasione con assertività e alta indipendenza, iniziativa e affidabilità\n• Lingua madre tedesca o livello tedesco avanzato (minimo C1)",
-        "en": "Simplify together. Because life is full of possibilities. At the same time, it became complex. That is why we are looking for employees who work with us to promote simplicity.\nThey shall:\n\n• lead strategic overall banking projects (including regulatory projects)\n• assume overall responsibility for all project phases, including project budget, goal definition and controlling\n• Plan, coordinate and lead interdisciplinary project teams\n• Develop project orders and project descriptions in coordination with the relevant stakeholders (level of business or department management)\n• Create decision-making bases, status reports and management reviews for the project board and management\n• continuously participate in the professionalization of the structures and instruments of project management\n• Become part of Valiant’s Project Portfolio Management and Controlling (PPMC) team\nThey bring\n\n• several years of practical experience in the management and implementation of complex projects, ideally in the banking environment\n• Appropriate training at university/specialist level and project-specific training(s)\n• Expertise in the application of waterfall and agile project models\n• Curiosity and openness also in the implementation of regulatory projects in the banking environment\n• High resilience and performance as well as excellent analytical and conceptual skills\n• Pronounced power of persuasion with assertiveness as well as high independence, initiative and reliability\n• German mother tongue or advanced German language level (minimum C1)\nAbout us\nValiant is an independent Swiss financial services provider operating exclusively in Switzerland. It offers private customers and SMEs a comprehensive, easy-to-understand offer in all financial matters. Valiant is locally anchored in the following 15 cantons: Aargau, Basel Landscape, Basel City, Bern, Freiburg, Jura, Lucerne, Neuchâtel, Schaffhausen, Solothurn, St. Gallen, Thurgau, Vaud, Zug and Zurich. It is also present throughout Switzerland thanks to innovative, digital services. Valiant has a balance sheet total of 38.2 billion francs and employs around 1200 people – of which more than 70 are apprentices.\n\n• lead strategic overall banking projects (including regulatory projects)\n• assume overall responsibility for all project phases, including project budget, goal definition and controlling\n• Plan, coordinate and lead interdisciplinary project teams\n• Develop project orders and project descriptions in coordination with the relevant stakeholders (level of business or department management)\n• Create decision-making bases, status reports and management reviews for the project board and management\n• continuously participate in the professionalization of the structures and instruments of project management\n• Become part of Valiant’s Project Portfolio Management and Controlling (PPMC) team\n\n• several years of practical experience in the management and implementation of complex projects, ideally in the banking environment\n• Appropriate training at university/specialist level and project-specific training(s)\n• Expertise in the application of waterfall and agile project models\n• Curiosity and openness also in the implementation of regulatory projects in the banking environment\n• High resilience and performance as well as excellent analytical and conceptual skills\n• Pronounced power of persuasion with assertiveness as well as high independence, initiative and reliability\n• German mother tongue or advanced German language level (minimum C1)",
-        "de": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• strategische Gesamtbank-Projekte leiten (u.a. auch regulatorische Projekte)\n• die Gesamtverantwortung über alle Projektphasen, inkl. Projektbudget, Zieldefinition sowie Controlling übernehmen\n• interdisziplinäre Projektteams planen, koordinieren und führen\n• Projektaufträge und Projektbeschriebe in Abstimmung mit den relevanten Stakeholdern (Stufe Geschäfts- oder Abteilungsleitung) erarbeiten\n• Entscheidungsgrundlagen, Statusberichte und Management-Reviews zuhanden des Project Boards und der Geschäftsleitung erstellen\n• laufend an der Professionalisierung der Strukturen und Instrumenten des Projektmanagements mitarbeiten\n• Teil des Teams Projektportfoliomanagement und -controlling (PPMC) von Valiant werden\nSie bringen\n\n• mehrjährige Praxiserfahrung in der Leitung und Umsetzung von komplexen Projekten, idealerweise im Bankenumfeld\n• adäquate Ausbildung auf Stufe Hoch-/Fachhochschule sowie projektspezifische Weiterbildung(en)\n• Expertise in der Anwendung von Wasserfall- und agilen Projektmodellen\n• Neugier und Offenheit auch in der Umsetzung von regulatorischen Projekten im Bankenumfeld\n• hohe Belastbarkeit und Leistungsbereitschaft sowie ausgezeichnete analytische und konzeptionelle Fähigkeiten\n• ausgeprägte Überzeugungskraft mit Durchsetzungsvermögen sowie hohe Selbstständigkeit, Eigeninitiative und Verlässlichkeit\n• deutsche Muttersprache oder fortgeschrittenes deutsches Sprachniveau (mind. C1)\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• strategische Gesamtbank-Projekte leiten (u.a. auch regulatorische Projekte)\n• die Gesamtverantwortung über alle Projektphasen, inkl. Projektbudget, Zieldefinition sowie Controlling übernehmen\n• interdisziplinäre Projektteams planen, koordinieren und führen\n• Projektaufträge und Projektbeschriebe in Abstimmung mit den relevanten Stakeholdern (Stufe Geschäfts- oder Abteilungsleitung) erarbeiten\n• Entscheidungsgrundlagen, Statusberichte und Management-Reviews zuhanden des Project Boards und der Geschäftsleitung erstellen\n• laufend an der Professionalisierung der Strukturen und Instrumenten des Projektmanagements mitarbeiten\n• Teil des Teams Projektportfoliomanagement und -controlling (PPMC) von Valiant werden\n\n• mehrjährige Praxiserfahrung in der Leitung und Umsetzung von komplexen Projekten, idealerweise im Bankenumfeld\n• adäquate Ausbildung auf Stufe Hoch-/Fachhochschule sowie projektspezifische Weiterbildung(en)\n• Expertise in der Anwendung von Wasserfall- und agilen Projektmodellen\n• Neugier und Offenheit auch in der Umsetzung von regulatorischen Projekten im Bankenumfeld\n• hohe Belastbarkeit und Leistungsbereitschaft sowie ausgezeichnete analytische und konzeptionelle Fähigkeiten\n• ausgeprägte Überzeugungskraft mit Durchsetzungsvermögen sowie hohe Selbstständigkeit, Eigeninitiative und Verlässlichkeit\n• deutsche Muttersprache oder fortgeschrittenes deutsches Sprachniveau (mind. C1)",
-        "fr": "Simplifiez-vous ensemble. Parce que la vie est pleine de possibilités. En même temps, il est devenu complexe. C'est pourquoi nous cherchons des employés qui travaillent avec nous pour promouvoir la simplicité.\nIls:\n\n• diriger des projets bancaires généraux stratégiques (y compris des projets réglementaires)\n• assumer la responsabilité globale de toutes les phases du projet, y compris le budget du projet, la définition des objectifs et le contrôle\n• Planifier, coordonner et diriger des équipes de projets interdisciplinaires\n• Élaborer les ordres de projet et les descriptions de projet en coordination avec les parties prenantes concernées (niveau de gestion des activités ou des ministères)\n• Créer des bases de décision, des rapports de situation et des examens de gestion pour le conseil de projet et la direction\n• participer en permanence à la professionnalisation des structures et instruments de gestion de projet\n• Devenez membre de l'équipe de gestion et de contrôle du portefeuille de projets Valiant.\nIls apportent\n\n• plusieurs années d'expérience pratique dans la gestion et la mise en œuvre de projets complexes, idéalement dans l'environnement bancaire\n• Formation appropriée au niveau universitaire/spécialiste et formation(s) spécifique(s) à un projet\n• Expertise dans l'application des modèles de projet cascade et agile\n• Curiosité et ouverture également dans la mise en œuvre de projets réglementaires dans l'environnement bancaire\n• Haute résilience et performance ainsi que d'excellentes compétences analytiques et conceptuelles\n• Prononcé pouvoir de persuasion avec assurance ainsi qu'une grande indépendance, initiative et fiabilité\n• Langue maternelle allemande ou niveau avancé de langue allemande (minimum C1)\nÀ propos de nous\nValiant est un fournisseur de services financiers suisse indépendant qui opère exclusivement en Suisse. Il offre aux clients privés et aux PME une offre complète et facile à comprendre en matière financière. Valiant est ancré localement dans les 15 cantons suivants : Argovie, Paysage de Bâle, Ville de Bâle, Berne, Freiburg, Jura, Lucerne, Neuchâtel, Schaffhausen, Soleure, St. Gallen, Thurgau, Vaud, Zug et Zurich. Il est également présent dans toute la Suisse grâce à des services numériques innovants. Valiant a un bilan total de 38,2 milliards de francs et emploie environ 1200 personnes, dont plus de 70 apprentis.\n\n• diriger des projets bancaires généraux stratégiques (y compris des projets réglementaires)\n• assumer la responsabilité globale de toutes les phases du projet, y compris le budget du projet, la définition des objectifs et le contrôle\n• Planifier, coordonner et diriger des équipes de projets interdisciplinaires\n• Élaborer les ordres de projet et les descriptions de projet en coordination avec les parties prenantes concernées (niveau de gestion des activités ou des ministères)\n• Créer des bases de décision, des rapports de situation et des examens de gestion pour le conseil de projet et la direction\n• participer en permanence à la professionnalisation des structures et instruments de gestion de projet\n• Devenez membre de l'équipe de gestion et de contrôle du portefeuille de projets Valiant.\n\n• plusieurs années d'expérience pratique dans la gestion et la mise en œuvre de projets complexes, idéalement dans l'environnement bancaire\n• Formation appropriée au niveau universitaire/spécialiste et formation(s) spécifique(s) à un projet\n• Expertise dans l'application des modèles de projet cascade et agile\n• Curiosité et ouverture également dans la mise en œuvre de projets réglementaires dans l'environnement bancaire\n• Haute résilience et performance ainsi que d'excellentes compétences analytiques et conceptuelles\n• Prononcé pouvoir de persuasion avec assurance ainsi qu'une grande indépendance, initiative et fiabilité\n• Langue maternelle allemande ou niveau avancé de langue allemande (minimum C1)"
-      },
-      "location": "Gümligen",
-      "canton": "BE",
-      "url": "https://jobs.valiant.ch/offene-stellen/senior-projektleiter-in-im-zentralen-projektmanagement/74c56c69-9945-4c1c-90d0-4c6f1c14f865",
-      "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:30.718Z",
-      "addressLocality": "Gümligen",
-      "addressRegion": "BE",
-      "streetAddress": "",
-      "postalCode": "3073",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Banca",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Banche / Servizi Finanziari",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-15",
-      "applyUrl": "https://jobs.valiant.ch/offene-stellen/senior-projektleiter-in-im-zentralen-projektmanagement/74c56c69-9945-4c1c-90d0-4c6f1c14f865",
-      "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-projektleiter-in-im-zentralen-projektmanagement-80-100-valiant-gumligen",
-        "senior-responsabile-di-progetto-im-zentralen-projektmanagement-80-100-valiant-bank-ag-gumligen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-projektleiter-in-im-zentralen-projektmanagement-80-100-valiant-gumligen",
-          "senior-responsabile-di-progetto-im-zentralen-projektmanagement-80-100-valiant-bank-ag-gumligen"
-        ],
-        "en": [
-          "senior-projektleiter-in-im-zentralen-projektmanagement-80-100-valiant-gumligen"
-        ],
-        "fr": [
-          "senior-projektleiter-in-im-zentralen-projektmanagement-80-100-valiant-gumligen"
-        ]
-      },
-      "firstSeenAt": "2026-07-15T22:08:17.081Z",
-      "salaryMin": 175000,
-      "salaryMax": 307500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 175000,
-          "maxValue": 307500,
           "unitText": "YEAR"
         }
       }
@@ -1253,7 +982,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-clientele-privee-evolution-clientele-commerciale/15aa446e-773b-4f9f-bc30-71724487e841",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:26:30.457Z",
+      "crawledAt": "2026-09-03T23:20:10.350Z",
       "addressLocality": "Moutier",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -1274,13 +1003,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier",
-        "consulente-age-del-cliente-privato-sviluppo-del-cliente-commerciale-80-100-valiant-bank-ag-moutier"
+        "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier",
-          "consulente-age-del-cliente-privato-sviluppo-del-cliente-commerciale-80-100-valiant-bank-ag-moutier"
+          "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier"
         ],
         "en": [
           "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier"
@@ -1292,6 +1019,7 @@
       "firstSeenAt": "2026-08-04T22:31:15.471Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1305,9 +1033,9 @@
     },
     {
       "id": "valiant-bank-27f1bcd7f258",
-      "slug": "responsabile-mitarbeitergeschafte-e-internationale-kunden-60-100-topsharing-moglich-valiant-bank-ag-bern",
+      "slug": "testa-di-aziende-dipendenti-e-clienti-internazionali-60-100-condivisione-massima-possibile-valiant-bank-ag-bern",
       "slugByLocale": {
-        "it": "responsabile-mitarbeitergeschafte-e-internationale-kunden-60-100-topsharing-moglich-valiant-bank-ag-bern",
+        "it": "testa-di-aziende-dipendenti-e-clienti-internazionali-60-100-condivisione-massima-possibile-valiant-bank-ag-bern",
         "en": "head-of-employee-businesses-and-international-customers-60-100-top-sharing-possible-valiant-bank-ag-bern",
         "de": "leiter-in-mitarbeitergeschafte-und-internationale-kunden-60-100-topsharing-moglich-valiant",
         "fr": "responsable-des-entreprises-salariees-et-clients-internationaux-60-100-hors-partage-possible-valiant-bank-ag-bern"
@@ -1317,7 +1045,7 @@
       "companyDomain": "valiant.ch",
       "title": "Leiter/in Mitarbeitergeschäfte und Internationale Kunden 60 - 100 % (Topsharing möglich)",
       "titleByLocale": {
-        "it": "Responsabile Mitarbeitergeschäfte e Internationale Kunden 60 - 100 % (Topsharing möglich)",
+        "it": "Testa di aziende dipendenti e clienti internazionali 60 - 100% (condivisione massima possibile)",
         "en": "Head of Employee Businesses and International Customers 60 - 100% (top sharing possible)",
         "de": "Leiter/in Mitarbeitergeschäfte und Internationale Kunden 60 - 100 % (Topsharing möglich)",
         "fr": "Responsable des Entreprises Salariées et Clients Internationaux 60 - 100% (hors partage possible)"
@@ -1334,7 +1062,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/leiter-in-mitarbeitergeschaefte-und-internationale-kunden-topsharing-moeglich/f9a9c2c6-374a-4cc6-802b-a108616c0656",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:30.219Z",
+      "crawledAt": "2026-09-03T23:20:10.148Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1351,7 +1079,6 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/leiter-in-mitarbeitergeschaefte-und-internationale-kunden-topsharing-moeglich/f9a9c2c6-374a-4cc6-802b-a108616c0656",
       "hiringOrganizationName": "Valiant Bank AG",
-      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -1373,6 +1100,7 @@
       "firstSeenAt": "2026-08-11T10:35:42.886Z",
       "salaryMin": 175000,
       "salaryMax": 307500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1415,7 +1143,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-topsharing-possible/12fd3207-8b45-44bb-8e6d-2579564eb8df",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:26:29.926Z",
+      "crawledAt": "2026-09-03T23:20:09.912Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1436,13 +1164,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100",
-        "responsabile-del-personale-e-partner-internazionali-e-clienti-60-100-topsharing-possibile-valiant-bank-ag-bern"
+        "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100",
-          "responsabile-del-personale-e-partner-internazionali-e-clienti-60-100-topsharing-possibile-valiant-bank-ag-bern"
+          "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100"
         ],
         "en": [
           "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100"
@@ -1454,6 +1180,7 @@
       "firstSeenAt": "2026-08-11T22:01:10.013Z",
       "salaryMin": 175000,
       "salaryMax": 307500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1496,7 +1223,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/digitale-r-berater-in-kundencenter/d3fdc74e-5c2a-49cb-8dc0-40200848cf3c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:29.696Z",
+      "crawledAt": "2026-09-03T23:20:09.681Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1517,13 +1244,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "digitale-r-berater-in-kundencenter-80-100-valiant-gumligen",
-        "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-gumligen",
         "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "digitale-r-berater-in-kundencenter-80-100-valiant-gumligen",
-          "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-gumligen",
           "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen"
         ],
         "en": [
@@ -1536,6 +1261,7 @@
       "firstSeenAt": "2026-08-12T21:51:43.539Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1578,7 +1304,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique-centre-clientele/7ac3ceab-7d2c-4ea5-bf9f-5471ea935e44",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:26:29.456Z",
+      "crawledAt": "2026-09-03T23:20:09.495Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1598,13 +1324,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen",
-        "consulente-di-eta-digitale-centro-clienti-80-100-valiant-bank-ag-gumligen"
+        "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen",
-          "consulente-di-eta-digitale-centro-clienti-80-100-valiant-bank-ag-gumligen"
+          "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
         ],
         "en": [
           "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
@@ -1616,6 +1340,7 @@
       "firstSeenAt": "2026-08-12T21:51:43.216Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1658,7 +1383,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/fachexperte-in-risk-senior/f5c4e406-75a5-441a-a980-a83a2f8afab1",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:29.164Z",
+      "crawledAt": "2026-09-03T23:20:09.231Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1678,13 +1403,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachexperte-in-risk-senior-80-100-valiant-bern",
-        "rischio-senior-80-100-valiant-bank-ag-bern"
+        "fachexperte-in-risk-senior-80-100-valiant-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexperte-in-risk-senior-80-100-valiant-bern",
-          "rischio-senior-80-100-valiant-bank-ag-bern"
+          "fachexperte-in-risk-senior-80-100-valiant-bern"
         ],
         "fr": [
           "fachexperte-in-risk-senior-80-100-valiant-bern"
@@ -1693,6 +1416,7 @@
       "firstSeenAt": "2026-08-13T10:44:00.212Z",
       "salaryMin": 122000,
       "salaryMax": 209000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1735,7 +1459,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/618da58d-9337-4a3f-8188-47df8f22e9ba",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:28.768Z",
+      "crawledAt": "2026-09-03T23:20:09.016Z",
       "addressLocality": "Reinach AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1756,13 +1480,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-privatkunden-80-100-valiant-reinach-ag",
-        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag"
+        "berater-in-privatkunden-80-100-valiant-reinach-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-privatkunden-80-100-valiant-reinach-ag",
-          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag"
+          "berater-in-privatkunden-80-100-valiant-reinach-ag"
         ],
         "en": [
           "berater-in-privatkunden-80-100-valiant-reinach-ag"
@@ -1774,6 +1496,7 @@
       "firstSeenAt": "2026-08-17T09:57:56.756Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1816,7 +1539,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/d938832f-15ae-438c-b16a-c7e74b63a6f4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:28.537Z",
+      "crawledAt": "2026-09-03T23:20:08.815Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1837,13 +1560,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geschaftsstellenleiter-in-80-100-valiant-koniz",
-        "responsabile-ufficio-in-80-100-valiant-bank-ag-koniz"
+        "geschaftsstellenleiter-in-80-100-valiant-koniz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsstellenleiter-in-80-100-valiant-koniz",
-          "responsabile-ufficio-in-80-100-valiant-bank-ag-koniz"
+          "geschaftsstellenleiter-in-80-100-valiant-koniz"
         ],
         "en": [
           "geschaftsstellenleiter-in-80-100-valiant-koniz"
@@ -1855,6 +1576,7 @@
       "firstSeenAt": "2026-08-18T09:48:33.607Z",
       "salaryMin": 175000,
       "salaryMax": 307500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1897,7 +1619,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-unternehmenskunden/4b91d8b9-a7d4-4809-aeda-af411fa89016",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:28.298Z",
+      "crawledAt": "2026-09-03T23:20:08.396Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1917,13 +1639,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-unternehmenskunden-80-100-valiant-st-gallen",
-        "consulente-cliente-aziendale-80-100-valiant-bank-ag-st-gallen"
+        "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-unternehmenskunden-80-100-valiant-st-gallen",
-          "consulente-cliente-aziendale-80-100-valiant-bank-ag-st-gallen"
+          "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
         ],
         "en": [
           "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
@@ -1935,6 +1655,7 @@
       "firstSeenAt": "2026-08-18T21:52:54.268Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1942,6 +1663,138 @@
           "@type": "QuantitativeValue",
           "minValue": 99000,
           "maxValue": 174000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "valiant-bank-f25b1afdaf43",
+      "slug": "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil",
+      "slugByLocale": {
+        "it": "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil",
+        "en": "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil",
+        "de": "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil",
+        "fr": "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil"
+      },
+      "company": "Valiant Bank AG",
+      "companyKey": "valiant-bank",
+      "companyDomain": "valiant.ch",
+      "title": "Geschäftsstellenleiter/in 80 - 100 %",
+      "titleByLocale": {
+        "it": "Geschäftsstellenleiter/in 80 - 100 %",
+        "en": "Geschäftsstellenleiter/in 80 - 100 %",
+        "de": "Geschäftsstellenleiter/in 80 - 100 %",
+        "fr": "Geschäftsstellenleiter/in 80 - 100 %"
+      },
+      "description": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\n Sie werden\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\n Sie bringen\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung\n Über uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung",
+      "descriptionByLocale": {
+        "it": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\nSie bringen\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung",
+        "en": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\nSie bringen\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung",
+        "de": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\nSie bringen\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung",
+        "fr": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\nSie bringen\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die Geschäftsstellen personell und fachlich führen\n• die Erreichung der strategischen Ziele verantworten\n• Privat- und Geschäftskunden in den Bereichen Anlagen, Finanzierungen und Vorsorge beraten\n• ein eigenes Kundenportefeuille betreuen und ihr Beziehungsnetz weiter ausbauen\n• unsere Bankprodukte und -dienstleistungen aktiv fördern und verkaufen\n• eng mit den verschiedenen Geschäftsbereichen zusammenarbeiten\n\n• eine bankspezifische oder betriebswirtschaftliche Aus- und Weiterbildung (Bankfachdiplom, HFBF, HFW, FH usw.)\n• mehrjährige Erfahrung im Bankwesen sowie in der Führung von Teams\n• eine dynamische, lösungs- und führungsorientierte Persönlichkeit mit ausgezeichneten Kommunikationsfähigkeiten\n• eine ausgeprägte Dienstleistungsorientierung und die Fähigkeit, Kundenbedürfnisse zu erkennen\n• ein breites Beziehungsnetz und idealerweise eine starke regionale Verankerung"
+      },
+      "location": "Langnau i",
+      "canton": "BE",
+      "url": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/df7446ef-6bf8-4f75-b83d-c775304f9949",
+      "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:20:08.198Z",
+      "addressLocality": "Langnau i",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "3550",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Banca",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Banche / Servizi Finanziari",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/df7446ef-6bf8-4f75-b83d-c775304f9949",
+      "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-01T14:18:04.962Z",
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 185000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "valiant-bank-47df8e7ec7be",
+      "slug": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
+      "slugByLocale": {
+        "it": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
+        "en": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
+        "de": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
+        "fr": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern"
+      },
+      "company": "Valiant Bank AG",
+      "companyKey": "valiant-bank",
+      "companyDomain": "valiant.ch",
+      "title": "Berater/in Privatkunden Bankgeschäfte Personal 50 - 100 %",
+      "titleByLocale": {
+        "it": "Berater/in Privatkunden Bankgeschäfte Personal 50 - 100 % (Jobsharing möglich)",
+        "en": "Berater/in Privatkunden Bankgeschäfte Personal 50 - 100 % (Jobsharing möglich)",
+        "de": "Berater/in Privatkunden Bankgeschäfte Personal 50 - 100 %",
+        "fr": "Berater/in Privatkunden Bankgeschäfte Personal 50 - 100 % (Jobsharing möglich)"
+      },
+      "description": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\n Sie werden\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\n Sie bringen\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil\n Über uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil",
+      "descriptionByLocale": {
+        "it": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\nSie bringen\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil",
+        "en": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\nSie bringen\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil",
+        "de": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\nSie bringen\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil",
+        "fr": "Gemeinsam vereinfachen. Denn das Leben ist voller Möglichkeiten. Und gleichzeitig komplex geworden. Deshalb suchen wir Mitarbeitende, die gemeinsam mit uns Einfachheit vorantreiben.\nSie werden\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\nSie bringen\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil\nÜber uns\nValiant ist eine unabhängige Schweizer Finanzdienstleisterin und ausschliesslich in der Schweiz tätig. Sie bietet Privatkundinnen und Privatkunden sowie KMU ein umfassendes, einfach verständliches Angebot in allen Finanzfragen. Valiant ist in folgenden 15 Kantonen lokal verankert: Aargau, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Jura, Luzern, Neuenburg, Schaffhausen, Solothurn, St. Gallen, Thurgau, Waadt, Zug und Zürich. Zudem ist sie dank innovativen, digitalen Dienstleistungen in der ganzen Schweiz präsent. Valiant hat eine Bilanzsumme von 38,2 Milliarden Franken und beschäftigt rund 1200 Mitarbeitende – davon über 70 Auszubildende.\n\n• die kompetente Ansprechperson für Valiant Mitarbeitende sowie deren Angehörige sein und diese ganzheitlich und professionell beraten\n• ein eigenes Kundenbuch in den Segmenten Finanzieren, Anlegen und Vorsorgen betreuen und ausbauen\n• unsere Produkte und Dienstleistungen professionell und bedürfnisgerecht beraten sowie für deren technische Abwicklung zuständig sein\n\n• eine Bankausbildung und Berufserfahrung in den Bereichen Finanzieren, Anlegen und Vorsorgen\n• eine ausgeprägte Kunden-, Dienstleistungs- und Zielorientierung sowie Kommunikationsstärke\n• einen verantwortungsvollen und diskreten Umgang mit vertraulichen Daten\n• Französischkenntnisse sowie Finnova Kenntnisse von Vorteil"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-bankgeschaefte-personal/bb8f1e27-4230-494d-b5d0-499020dd8d8f",
+      "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:20:07.992Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bundesplatz 4",
+      "postalCode": "3001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Kundenberatung",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Banche / Servizi Finanziari",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-bankgeschaefte-personal/bb8f1e27-4230-494d-b5d0-499020dd8d8f",
+      "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-02T13:45:36.212Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }

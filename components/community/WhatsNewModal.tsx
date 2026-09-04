@@ -35,6 +35,50 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.96.1',
+    date: '2026-09-03',
+    titleKey: 'whatsNew.v3961.title',
+    items: [
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3961.seo.title',
+        descKey: 'whatsNew.v3961.seo.desc',
+        link: { tab: 'blog' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3961.blog.title',
+        descKey: 'whatsNew.v3961.blog.desc',
+        link: { tab: 'blog' },
+      },
+    ],
+  },
+{
+    version: '3.96.0',
+    date: '2026-08-31',
+    titleKey: 'whatsNew.v3960.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3960.pharmacyHub.title',
+        descKey: 'whatsNew.v3960.pharmacyHub.desc',
+        href: '/farmacie/',
+      },
+    ],
+  },
+  {
+    version: '3.95.1',
+    date: '2026-08-31',
+    titleKey: 'whatsNew.v3951.title',
+    items: [
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3951.email.title',
+        descKey: 'whatsNew.v3951.email.desc',
+      },
+    ],
+  },
+  {
     version: '3.95.0',
     date: '2026-08-24',
     titleKey: 'whatsNew.v3950.title',

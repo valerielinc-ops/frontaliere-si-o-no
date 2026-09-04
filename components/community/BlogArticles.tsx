@@ -15,6 +15,8 @@ import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } f
 import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
+import { getAuthorBySlug } from '@/data/authors';
+import { resolveArticleProvenance } from '@/services/articleProvenance';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
@@ -1955,6 +1957,14 @@ function BlogArticles({
  const article = selectedArticleObj;
  if (!article) return null;
  const { authorSlug: effectiveAuthorSlug, authorName: effectiveAuthorName } = mergeArticleByline(articleAuthorOverride, article);
+ // The disclosure below is the only place on the page that states HOW an
+ // article came to exist, so it splits on the article's own provenance:
+ // `aiAssisted` when the article declares it, otherwise the registry default
+ // (`uid` ⇒ guest journalist ⇒ human contributor). The declaration exists
+ // because the registry alone answers a per-article question with a
+ // per-author property — see services/articleProvenance.ts.
+ const bylineAuthor = effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined;
+ const isHumanContributor = !resolveArticleProvenance(article, bylineAuthor).aiAssisted;
 
  // Wait for article body translations to load
  if (!bodyReady) {
@@ -2306,7 +2316,12 @@ function BlogArticles({
  </div>
  )}
 
- {/* AI transparency disclosure (Google News compliance — A3) */}
+ {/* Editorial transparency disclosure (Google News compliance — A3).
+ The AI wording is a claim about provenance, so it may only be printed
+ where it is true. On a guest journalist's article it was false — the
+ text is his, submitted through the dashboard — and it read as if the
+ redazione, not the author, had produced the piece. Reported 2026-09-03
+ alongside the `article:author` defect this fix ships with. */}
  <aside
  className="mx-4 sm:mx-6 mt-4 rounded-xl border border-edge bg-surface-alt px-4 py-3 text-sm text-subtle"
  role="note"
@@ -2314,8 +2329,10 @@ function BlogArticles({
  >
  <p className="mb-1">
  <strong className="text-body">Trasparenza editoriale:</strong>{' '}
- bozza assistita da intelligenza artificiale, revisionata dalla redazione.
- Le fonti utilizzate sono linkate nel testo.
+ {isHumanContributor
+ ? `contributo originale di ${effectiveAuthorName}, pubblicato dalla redazione senza stesura assistita da intelligenza artificiale.`
+ : 'bozza assistita da intelligenza artificiale, revisionata dalla redazione.'}
+ {' '}Le fonti utilizzate sono linkate nel testo.
  </p>
  <p className="text-xs">
  <a

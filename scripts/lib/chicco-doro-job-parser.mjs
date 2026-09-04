@@ -31,6 +31,10 @@ const CAREER_ALT_URLS = [
 ];
 const HQ = getCompanyDefaults('chicco-doro');
 
+const GENERIC_JOIN_US_HEADING = /^(?:lavora con noi|join us|careers?|candidatura spontanea|mandaci (?:il )?tuo curriculum vitae|invia (?:il )?tuo curriculum vitae)[.!]?$/i;
+const SOURCE_IDENTITY_RX = /chicco\s+d['\u2019]oro/i;
+const SNAPSHOT_STATE = 'complete-career-inventory';
+
 export const MIN_DESC_LENGTH = 100;
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -120,7 +124,7 @@ function detectEmploymentType(text = '') {
  *   - mailto: links with job-related subjects
  * Returns an array of { title, url, snippet, location } objects.
  */
-function parseListingPage(html = '', pageUrl = '') {
+export function parseListingPage(html = '', pageUrl = '') {
   if (!html) return [];
   const { document } = new JSDOM(html).window;
   const jobs = [];
@@ -140,7 +144,7 @@ function parseListingPage(html = '', pageUrl = '') {
       const titleEl = entry.querySelector('h2 a, h3 a, h4 a, a.title, a[class*="title"]') ||
                        entry.querySelector('h2, h3, h4');
       const title = normalizeSpace(titleEl?.textContent || '');
-      if (!title || title.length < 3 || seen.has(title.toLowerCase())) continue;
+      if (!title || title.length < 3 || GENERIC_JOIN_US_HEADING.test(title) || seen.has(title.toLowerCase())) continue;
 
       const linkEl = entry.querySelector('a[href]') || titleEl?.closest('a') || titleEl?.querySelector('a');
       const href = linkEl?.getAttribute('href') || '';
@@ -162,6 +166,7 @@ function parseListingPage(html = '', pageUrl = '') {
       const text = normalizeSpace(heading.textContent || '');
       if (!text || text.length < 5 || text.length > 200 || seen.has(text.toLowerCase())) continue;
       if (/^(menu|nav|footer|header|contatt|contact|chi siamo|dove siamo|about|sede|orari)/i.test(text)) continue;
+      if (GENERIC_JOIN_US_HEADING.test(text)) continue;
 
       const linkEl = heading.querySelector('a[href]') || heading.closest('a');
       const href = linkEl?.getAttribute('href') || '';
@@ -186,7 +191,7 @@ function parseListingPage(html = '', pageUrl = '') {
     for (const link of links) {
       const href = link.getAttribute('href') || '';
       const text = normalizeSpace(link.textContent || '');
-      if (!text || text.length < 5 || seen.has(text.toLowerCase())) continue;
+      if (!text || text.length < 5 || GENERIC_JOIN_US_HEADING.test(text) || seen.has(text.toLowerCase())) continue;
 
       const combinedCheck = `${text} ${href}`.toLowerCase();
       if (/posizion|lavora|career|job|vacan|candidat|assunzion|offert|impieg|selezione/i.test(combinedCheck) &&
@@ -214,7 +219,7 @@ function parseListingPage(html = '', pageUrl = '') {
         // Extract a meaningful title from surrounding context
         const prevHeading = parent?.closest('section, div')?.querySelector('h2, h3, h4');
         const title = prevHeading ? normalizeSpace(prevHeading.textContent || '') : `Candidatura spontanea`;
-        if (title.length >= 3) {
+        if (title.length >= 3 && !GENERIC_JOIN_US_HEADING.test(title)) {
           seen.add(title.toLowerCase());
           jobs.push({
             title,
@@ -228,6 +233,63 @@ function parseListingPage(html = '', pageUrl = '') {
   }
 
   return jobs;
+}
+
+function containsJobPostingSchema(value) {
+  if (Array.isArray(value)) return value.some(containsJobPostingSchema);
+  if (!value || typeof value !== 'object') return false;
+  const type = value['@type'];
+  if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) return true;
+  return Object.values(value).some(containsJobPostingSchema);
+}
+
+function inspectSourcePage(html = '') {
+  const { document } = new JSDOM(html).window;
+  const sourceIdentity = SOURCE_IDENTITY_RX.test(document.title || '')
+    || [...document.querySelectorAll('h1, h2, h3, h4')]
+      .some((node) => SOURCE_IDENTITY_RX.test(node.textContent || ''));
+  const genericOpenApplication = [...document.querySelectorAll('h1, h2, h3, h4')]
+    .some((node) => GENERIC_JOIN_US_HEADING.test(normalizeSpace(node.textContent || '')));
+  const hasJobPosting = [...document.querySelectorAll('script[type="application/ld+json"]')]
+    .some((node) => {
+      const source = node.textContent || '';
+      try {
+        return containsJobPostingSchema(JSON.parse(source));
+      } catch {
+        // Broken JobPosting JSON-LD is still vacancy evidence, not permission
+        // to retire the active slice as a proven zero.
+        return /"@type"\s*:\s*"JobPosting"/i.test(source);
+      }
+    });
+  return { sourceIdentity, genericOpenApplication, hasJobPosting };
+}
+
+function markCompleteSnapshot(jobs, { resolvedPageCount, canonicalOpenApplication }) {
+  Object.defineProperties(jobs, {
+    chiccoDoroSnapshotState: { value: SNAPSHOT_STATE, enumerable: false },
+    resolvedPageCount: { value: resolvedPageCount, enumerable: false },
+    canonicalOpenApplication: { value: canonicalOpenApplication, enumerable: false },
+    discoveredCount: { value: jobs.length, enumerable: false },
+  });
+  return jobs;
+}
+
+/**
+ * The bounded source inventory is authoritative only when every configured
+ * path either returned a branded Chicco d'Oro page or a definitive 404. A
+ * zero additionally needs the canonical contact page's explicit generic
+ * invitation: a markup/network regression must keep the previous slice.
+ */
+export function assertCompleteChiccoDoroSnapshot(jobs) {
+  if (
+    !Array.isArray(jobs)
+    || Reflect.get(jobs, 'chiccoDoroSnapshotState') !== SNAPSHOT_STATE
+    || Reflect.get(jobs, 'resolvedPageCount') !== CAREER_ALT_URLS.length
+    || (jobs.length === 0 && Reflect.get(jobs, 'canonicalOpenApplication') !== true)
+  ) {
+    throw new Error("Chicco d'Oro snapshot is not a proven complete career inventory");
+  }
+  return true;
 }
 
 /**
@@ -275,28 +337,49 @@ function parseDetailPage(html = '') {
  * Since the primary URL is /contatti (a contact page), we also try
  * alternative career-related paths to find actual job listings.
  */
-export async function fetchAllChiccoDoroJobs() {
+export async function fetchAllChiccoDoroJobs({ fetchPage = fetchHtml, sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)) } = {}) {
   console.log(`  Fetching Chicco d'Oro jobs`);
 
   let allListings = [];
+  let successfulListingPages = 0;
+  let resolvedListingPages = 0;
+  let sourceInventoryComplete = true;
+  let canonicalOpenApplication = false;
+  const listingFetchErrors = [];
 
   for (const url of CAREER_ALT_URLS) {
+    let html = '';
     try {
-      console.log(`  Trying: ${url}`);      let html = '';
-  try {
-    html = await fetchHtml(url, { timeoutMs: 20000 });
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
-      const listings = parseListingPage(html, url);
-      if (listings.length > 0) {
-        console.log(`  Jobs found on ${url}: ${listings.length}`);
-        allListings = allListings.concat(listings);
-      }
+      console.log(`  Trying: ${url}`);
+      html = await fetchPage(url, { timeoutMs: 20000 });
     } catch (err) {
       console.warn(`  Failed to fetch ${url}: ${err.message}`);
+      listingFetchErrors.push(err);
+      if (url !== CAREER_URL && /\bHTTP 404\b/i.test(String(err?.message || ''))) {
+        resolvedListingPages += 1;
+      } else {
+        sourceInventoryComplete = false;
+      }
+      continue;
     }
+
+    successfulListingPages += 1;
+    resolvedListingPages += 1;
+    const sourceState = inspectSourcePage(html);
+    sourceInventoryComplete = sourceInventoryComplete && sourceState.sourceIdentity;
+    if (url === CAREER_URL) canonicalOpenApplication = sourceState.genericOpenApplication;
+    const listings = parseListingPage(html, url);
+    if (sourceState.hasJobPosting && listings.length === 0) {
+      sourceInventoryComplete = false;
+    }
+    if (listings.length > 0) {
+      console.log(`  Jobs found on ${url}: ${listings.length}`);
+      allListings = allListings.concat(listings);
+    }
+  }
+
+  if (successfulListingPages === 0) {
+    throw new AggregateError(listingFetchErrors, `Chicco d'Oro: all career listing pages failed to fetch`);
   }
 
   // Deduplicate by title
@@ -309,14 +392,13 @@ export async function fetchAllChiccoDoroJobs() {
   });
 
   console.log(`  Total unique listings found: ${allListings.length}`);
-  if (!allListings.length) return [];
 
   const jobs = [];
   for (const listing of allListings) {
     let description = listing.snippet || '';
     if (listing.url && listing.url !== CAREER_URL) {
       try {
-        const detailHtml = await fetchHtml(listing.url, { timeoutMs: 25000 });
+        const detailHtml = await fetchPage(listing.url, { timeoutMs: 25000 });
         const detailBody = parseDetailPage(detailHtml);
         if (detailBody && detailBody.length > description.length) {
           description = detailBody;
@@ -363,9 +445,15 @@ export async function fetchAllChiccoDoroJobs() {
       crawledAt: new Date().toISOString(),
     });
 
-    await new Promise((r) => setTimeout(r, 300));
+    await sleep(300);
   }
 
   console.log(`  Total Chicco d'Oro jobs discovered: ${jobs.length}`);
-  return jobs;
+  if (!sourceInventoryComplete || resolvedListingPages !== CAREER_ALT_URLS.length) {
+    return jobs;
+  }
+  return markCompleteSnapshot(jobs, {
+    resolvedPageCount: resolvedListingPages,
+    canonicalOpenApplication,
+  });
 }

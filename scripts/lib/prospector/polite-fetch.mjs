@@ -14,26 +14,109 @@
  */
 import { UA, HOST_DELAY_MS, FETCH_TIMEOUT_MS } from './config.mjs';
 import { normalizeHost } from './registrable.mjs';
+import { RETRYABLE_STATUS } from '../transient-fetch.mjs';
+import {
+  createSpecUrlPolicy,
+  fetchFollowingValidatedRedirectsWithUrl,
+  isPublicFetchPolicyError,
+  PublicFetchPolicyError,
+} from './public-fetch-policy.mjs';
 
 /** @type {Map<string, number>} host -> timestamp of the last request */
 const lastHit = new Map();
+/** @type {Map<string, { until: number, generation: number }>} */
+const hostCooldown = new Map();
 /** @type {Map<string, Promise<{ disallow: string[], allow: string[] }>>} */
 const robotsCache = new Map();
+
+const RETRY_AFTER_CAP_MS = 60_000;
+const retryAfterHeader = Symbol('retryAfterHeader');
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
+ * Let `signal` cut a deliberate wait (cooldown/robots/retry-delay) short.
+ * Without this, a caller-supplied deadline can only take effect once the
+ * next real network attempt starts `AbortSignal.any`-ing it in `fetchOnce`,
+ * stalling cancellation for up to the full wait — RETRY_AFTER_CAP_MS in the
+ * worst case. `promise`'s own work is not cancelled, only raced: nothing here
+ * holds an external resource that needs tearing down.
+ * @template T
+ * @param {Promise<T>} promise
+ * @param {AbortSignal} [signal]
+ * @returns {Promise<T>}
+ */
+function raceSignal(promise, signal) {
+  if (!signal) return promise;
+  const abortReason = () => signal.reason ?? new DOMException('The operation was aborted.', 'AbortError');
+  if (signal.aborted) return Promise.reject(abortReason());
+  return new Promise((resolve, reject) => {
+    const onAbort = () => reject(abortReason());
+    signal.addEventListener('abort', onAbort, { once: true });
+    promise.then(resolve, reject).finally(() => signal.removeEventListener('abort', onAbort));
+  });
+}
+
+/**
  * Wait out the per-host cooldown, then stamp the host as hit.
  * @param {string} host
+ * @param {(ms: number) => Promise<unknown>} [sleepImpl]
+ * @param {() => number} [nowImpl]
+ * @param {number} [deadline] Internal: recursion-only, the absolute time past
+ *   which this call stops honouring further cooldown extensions.
  */
-async function throttle(host) {
-  const now = Date.now();
+async function throttle(host, sleepImpl = sleep, nowImpl = Date.now, deadline) {
+  const now = nowImpl();
+  // A burst of concurrent 429s can keep extending the host cooldown while we
+  // wait (each recursive re-check below reads whatever `until` is latest),
+  // so bound the *composed* wait across all re-checks to the same
+  // RETRY_AFTER_CAP_MS a single extension already honours (boundedRetryAfterMs).
+  // Without this, repeated extensions during the recursion can compound past
+  // the cap indefinitely as long as the burst continues.
+  const callDeadline = deadline ?? now + RETRY_AFTER_CAP_MS;
   const prev = lastHit.get(host) || 0;
-  const wait = prev + HOST_DELAY_MS - now;
+  const cooldown = hostCooldown.get(host) || { until: 0, generation: 0 };
+  const slot = Math.max(now, prev + HOST_DELAY_MS, Math.min(cooldown.until, callDeadline));
+  const wait = slot - now;
   // Stamp BEFORE awaiting so concurrent callers on the same host queue behind
   // each other instead of all reading the same stale timestamp and firing together.
-  lastHit.set(host, Math.max(now, prev + HOST_DELAY_MS));
-  if (wait > 0) await sleep(wait);
+  lastHit.set(host, slot);
+  if (wait > 0) await sleepImpl(wait);
+  // A sibling may receive 429 while this request is already queued. Re-check
+  // only when the server cooldown changed; this preserves deterministic test
+  // transports whose sleep implementation intentionally does not advance time.
+  const latest = hostCooldown.get(host);
+  if (latest && latest.generation !== cooldown.generation && latest.until > slot
+    && nowImpl() < callDeadline) {
+    await throttle(host, sleepImpl, nowImpl, callDeadline);
+  }
+}
+
+function boundedRetryAfterMs(value, fallbackMs, now) {
+  const fallback = Number.isFinite(fallbackMs) ? Math.max(0, fallbackMs) : 0;
+  const raw = String(value || '').trim();
+  let requested = null;
+  if (/^\d+$/.test(raw)) {
+    requested = Number(raw) * 1_000;
+  } else if (raw) {
+    const parsed = Date.parse(raw);
+    if (Number.isFinite(parsed) && parsed > now) requested = parsed - now;
+  }
+  // An explicit, valid Retry-After always wins over the scaled local
+  // fallback — including when it is SHORTER, since the host is telling us
+  // exactly how long to wait and HOST_DELAY_MS in throttle() still floors
+  // the next request. Only a missing/unparseable/expired header falls back
+  // to the scaled local backoff.
+  const ms = requested !== null ? requested : fallback;
+  return Math.min(RETRY_AFTER_CAP_MS, Math.max(0, ms));
+}
+
+function extendHostCooldown(host, delayMs, now) {
+  if (!host || !Number.isFinite(delayMs) || delayMs <= 0) return;
+  const previous = hostCooldown.get(host) || { until: 0, generation: 0 };
+  const until = now + delayMs;
+  if (until <= previous.until) return;
+  hostCooldown.set(host, { until, generation: previous.generation + 1 });
 }
 
 /**
@@ -95,22 +178,50 @@ export function robotsAllows(robots, pathname) {
 /**
  * @param {string} origin e.g. `https://example.ch`
  */
-function loadRobots(origin) {
+function loadRobots(origin, transport) {
   if (!robotsCache.has(origin)) {
     robotsCache.set(origin, (async () => {
       try {
-        const ac = new AbortController();
-        const t = setTimeout(() => ac.abort(), 8000);
-        const r = await fetch(`${origin}/robots.txt`, { signal: ac.signal, headers: { 'User-Agent': UA } });
-        clearTimeout(t);
+        const robotsUrlPolicy = async (rawUrl) => {
+          const validated = await transport.urlPolicy(rawUrl);
+          if (new URL(validated).origin !== origin) {
+            throw new PublicFetchPolicyError(`prospector robots origin not allowed: ${new URL(validated).origin}`);
+          }
+          return validated;
+        };
+        const r = await fetchOnce(`${origin}/robots.txt`, {
+          ...transport,
+          timeoutMs: Math.min(8000, transport.timeoutMs || 8000),
+          method: 'GET',
+          body: undefined,
+          urlPolicy: robotsUrlPolicy,
+          ignoreRobots: true,
+        });
         if (!r.ok) return { disallow: [], allow: [] };
-        return parseRobots(await r.text());
-      } catch {
+        return parseRobots(r.body);
+      } catch (error) {
+        // A transient robots failure remains fail-open as documented, but a
+        // deterministic URL/DNS policy rejection must stop the whole request.
+        // Otherwise the main fetch repeats the unsafe lookup after robots has
+        // already proved the origin forbidden.
+        if (isPublicFetchPolicyError(error)) {
+          robotsCache.delete(origin);
+          throw error;
+        }
         return { disallow: [], allow: [] };
       }
     })());
   }
   return robotsCache.get(origin);
+}
+
+class RobotsDeniedError extends Error {
+  /** @param {string} url */
+  constructor(url) {
+    super(`robots.txt disallows prospector URL: ${url}`);
+    this.name = 'RobotsDeniedError';
+    this.url = url;
+  }
 }
 
 /**
@@ -119,8 +230,8 @@ function loadRobots(origin) {
  * every run into an error-handling exercise instead of a discovery run.
  *
  * @param {string} url
- * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string>, retries?: number }} [opts]
- * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean }>}
+ * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, signal?: AbortSignal, sleepImpl?: (ms: number) => Promise<unknown>, nowImpl?: () => number }} [opts]
+ * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean, policyBlocked?: boolean, error?: string }>}
  */
 export async function politeFetch(url, opts = {}) {
   let parsed;
@@ -128,25 +239,80 @@ export async function politeFetch(url, opts = {}) {
     return { ok: false, status: 0, url, body: '', host: '' };
   }
   const host = normalizeHost(parsed.hostname);
-  const origin = `${parsed.protocol}//${parsed.host}`;
+  let policy;
+  let ownsPolicy = false;
+  try {
+    policy = opts.urlPolicy || createSpecUrlPolicy(
+      { seedUrls: [url] },
+      { lookupImpl: opts.lookupImpl },
+    );
+    ownsPolicy = !opts.urlPolicy;
+    await policy(url);
 
-  if (!opts.ignoreRobots) {
-    const robots = await loadRobots(origin);
-    if (!robotsAllows(robots, parsed.pathname)) {
-      return { ok: false, status: 0, url, body: '', host, blockedByRobots: true };
+    const transport = {
+      ...opts,
+      host,
+      urlPolicy: policy,
+      dispatcher: opts.dispatcher || policy.dispatcher,
+    };
+    // Keep the shared fetch contract: `retries` counts attempts AFTER the
+    // first request. The old runtime used the shared default of three retries
+    // (four attempts total); treating the option as an attempt count silently
+    // removed resilience from every promoted crawler.
+    const configuredRetries = Number(opts.retries ?? 3);
+    const retryCount = Number.isFinite(configuredRetries)
+      ? Math.max(0, Math.floor(configuredRetries))
+      : 3;
+    const attempts = retryCount + 1;
+    let last = { ok: false, status: 0, url, body: '', host };
+    let retryViaHostCooldown = false;
+    for (let attempt = 0; attempt < attempts; attempt++) {
+      if (attempt > 0 && !retryViaHostCooldown) {
+        await raceSignal((opts.sleepImpl || sleep)((opts.retryBaseMs ?? 1500) * attempt), opts.signal);
+      }
+      retryViaHostCooldown = false;
+      try {
+        last = await fetchOnce(url, transport);
+      } catch (error) {
+        last = {
+          ok: false,
+          status: 0,
+          url: error instanceof RobotsDeniedError ? error.url : url,
+          body: '',
+          host,
+          ...(error instanceof RobotsDeniedError ? { blockedByRobots: true } : {}),
+          ...(isPublicFetchPolicyError(error)
+            ? { policyBlocked: true, error: String(error?.message || error) }
+            : {}),
+        };
+      }
+      if (last.status === 429) {
+        const fallbackMs = Number(opts.retryBaseMs ?? 1500) * (attempt + 1);
+        const now = (opts.nowImpl || Date.now)();
+        const cooldownMs = boundedRetryAfterMs(last[retryAfterHeader], fallbackMs, now);
+        extendHostCooldown(last.host || host, cooldownMs, now);
+        retryViaHostCooldown = true;
+      }
+      // Retry only what a retry can fix. Policy failures, 4xx and successful
+      // responses are final; connection failures/5xx retain bounded retries.
+      if (last.ok || last.policyBlocked || last.blockedByRobots
+        || (last.status > 0 && !RETRYABLE_STATUS.has(last.status))) return last;
     }
+    return last;
+  } catch (error) {
+    return {
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host,
+      ...(isPublicFetchPolicyError(error)
+        ? { policyBlocked: true, error: String(error?.message || error) }
+        : {}),
+    };
+  } finally {
+    if (ownsPolicy) await policy?.dispatcher?.close?.();
   }
-
-  const attempts = Math.max(1, opts.retries ?? 1);
-  let last = { ok: false, status: 0, url, body: '', host };
-  for (let attempt = 0; attempt < attempts; attempt++) {
-    if (attempt > 0) await sleep(1500 * attempt);
-    last = await once(url, opts, host);
-    // Retry only what a retry can fix: a connection-level failure or a 5xx.
-    // A 404 or a 403 is an answer, and asking again is just rudeness.
-    if (last.ok || (last.status > 0 && last.status < 500)) return last;
-  }
-  return last;
 }
 
 /**
@@ -155,40 +321,97 @@ export async function politeFetch(url, opts = {}) {
  *
  * @param {string} url
  * @param {Record<string, any>} opts
- * @param {string} host
  */
-async function once(url, opts, host) {
-  await throttle(host);
-  const ac = new AbortController();
-  const timer = setTimeout(() => ac.abort(), opts.timeoutMs || FETCH_TIMEOUT_MS);
-  try {
-    const method = opts.method || (opts.body ? 'POST' : 'GET');
-    const headers = {
-      'User-Agent': UA,
-      Accept: opts.accept || 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'it,de;q=0.9,fr;q=0.8,en;q=0.7',
-    };
-    if (opts.body) headers['Content-Type'] = opts.contentType || 'application/json';
-    // Explicit overrides win, and an explicit `undefined` REMOVES a default —
-    // Overpass runs behind an Apache that answers 406 to our Accept-Language,
-    // so a source must be able to drop a header, not just replace it.
-    for (const [k, v] of Object.entries(opts.headers || {})) {
-      if (v === undefined) delete headers[k]; else headers[k] = v;
-    }
-    const res = await fetch(url, {
-      method,
-      redirect: 'follow',
-      signal: ac.signal,
-      headers,
-      ...(opts.body ? { body: opts.body } : {}),
-    });
-    const body = method === 'HEAD' ? '' : await res.text();
-    return { ok: res.ok, status: res.status, url: res.url, body, host };
-  } catch {
-    return { ok: false, status: 0, url, body: '', host };
-  } finally {
-    clearTimeout(timer);
+async function fetchOnce(url, opts) {
+  const method = opts.method || (opts.body ? 'POST' : 'GET');
+  const headers = {
+    'User-Agent': UA,
+    Accept: opts.accept || 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'it,de;q=0.9,fr;q=0.8,en;q=0.7',
+  };
+  if (opts.body) headers['Content-Type'] = opts.contentType || 'application/json';
+  // Explicit overrides win, and an explicit `undefined` REMOVES a default —
+  // Overpass runs behind an Apache that answers 406 to our Accept-Language,
+  // so a source must be able to drop a header, not just replace it.
+  for (const [k, v] of Object.entries(opts.headers || {})) {
+    if (v === undefined) delete headers[k]; else headers[k] = v;
   }
+  // The signal identifies one logical attempt across redirects. Keep that
+  // identity stable for observers, but arm a fresh timer only around actual
+  // network work so robots/throttle/cooldown waits cannot consume its budget.
+  const ac = new AbortController();
+  const signal = opts.signal
+    ? AbortSignal.any([opts.signal, ac.signal])
+    : ac.signal;
+  const withNetworkTimeout = async (operation) => {
+    const timer = setTimeout(() => ac.abort(), opts.timeoutMs || FETCH_TIMEOUT_MS);
+    try {
+      return await operation();
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+  const fetchImpl = (hopUrl, init = {}) => withNetworkTimeout(
+    () => (opts.fetchImpl || fetch)(hopUrl, { ...init, signal }),
+  );
+  const { response: res, effectiveUrl } = await fetchFollowingValidatedRedirectsWithUrl(url, {
+    fetchImpl,
+    validateUrl: opts.urlPolicy,
+    maxRedirects: opts.maxRedirects ?? 5,
+    beforeRequest: async (hopUrl) => {
+      const hop = new URL(hopUrl);
+      const hopHost = normalizeHost(hop.hostname);
+      if (!opts.ignoreRobots) {
+        const robots = await raceSignal(loadRobots(hop.origin, {
+          ...opts,
+          host: hopHost,
+        }), opts.signal);
+        if (!robotsAllows(robots, `${hop.pathname}${hop.search}`)) {
+          throw new RobotsDeniedError(hopUrl);
+        }
+      }
+      // Every actual request — including every redirect and robots fetch —
+      // consumes the destination host's slot. Cross-origin allowlisted hops
+      // therefore cannot borrow the seed host's throttle budget. Robots is
+      // loaded first so a policy/DNS rejection does not reserve a phantom
+      // target request or create what looks like retry backoff.
+      await raceSignal(throttle(hopHost, opts.sleepImpl || sleep, opts.nowImpl || Date.now), opts.signal);
+    },
+    requestOptions: {
+      method,
+      ...(opts.signal ? { signal: opts.signal } : {}),
+      headers,
+      ...(opts.dispatcher ? { dispatcher: opts.dispatcher } : {}),
+      ...(opts.body ? { body: opts.body } : {}),
+    },
+  });
+  const effectiveHost = normalizeHost(new URL(effectiveUrl).hostname);
+  const rawRetryAfter = res.headers?.get?.('retry-after') || null;
+  if (res.status === 429) {
+    const now = (opts.nowImpl || Date.now)();
+    const fallbackMs = Number(opts.retryBaseMs ?? 1500);
+    extendHostCooldown(
+      effectiveHost,
+      boundedRetryAfterMs(rawRetryAfter, fallbackMs, now),
+      now,
+    );
+  }
+  const body = method === 'HEAD' ? '' : await withNetworkTimeout(() => res.text());
+  return {
+    ok: res.ok,
+    status: res.status,
+    url: effectiveUrl,
+    body,
+    host: effectiveHost,
+    [retryAfterHeader]: rawRetryAfter,
+  };
+}
+
+/** Test-only state reset: avoids cross-test robots/throttle cache coupling. */
+export function clearPoliteFetchStateForTests() {
+  lastHit.clear();
+  hostCooldown.clear();
+  robotsCache.clear();
 }
 
 /**

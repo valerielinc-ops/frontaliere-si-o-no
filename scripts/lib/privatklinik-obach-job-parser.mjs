@@ -34,4 +34,5 @@ const parser = createSmnClinicParser({
 export const fetchAllPrivatklinikObachJobs = parser.fetchAllJobs;
 export const isPrivatklinikObachJob = parser.isCompanyJob;
 export const isTrustedDomain = parser.isTrustedDomain;
+export const matchesPrivatklinikObachPosting = parser.matchesClinicPosting;
 export const PRIVATKLINIK_OBACH_LISTING_URL = parser.LISTING_URL;

@@ -34,6 +34,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -49,6 +50,7 @@ import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/t
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -252,8 +254,12 @@ function postProcessTichJobs() {
   if (!Array.isArray(allJobs)) return 0;
 
   let updated = 0;
+  const retainedJobs = allJobs.filter(
+    (job) => !isTichJob(job) || !isCantonTicinoOscPosting(job),
+  );
+  const removedOsc = allJobs.length - retainedJobs.length;
 
-  for (const job of allJobs) {
+  for (const job of retainedJobs) {
     if (!isTichJob(job)) continue;
 
     const before = JSON.stringify({
@@ -327,12 +333,12 @@ function postProcessTichJobs() {
     if (before !== after) updated += 1;
   }
 
-  if (updated > 0) {
-    writeJsonAtomic(DATA_JOBS, allJobs);
+  if (updated > 0 || removedOsc > 0) {
+    writeJsonAtomic(DATA_JOBS, retainedJobs);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      writeJsonAtomic(PUBLIC_DATA_JOBS, allJobs);
+      writeJsonAtomic(PUBLIC_DATA_JOBS, retainedJobs);
     }
-    console.log(`🧹 Post-process Ti.CH: aggiornati ${updated} job (company canonica + clean descrizione).`);
+    console.log(`🧹 Post-process Ti.CH: aggiornati ${updated} job, esclusi ${removedOsc} job OSC.`);
   }
 
   return updated;
@@ -380,9 +386,13 @@ function normalizeDetailUrl(rawUrl = '') {
  *
  * Returns an array of absolute, canonical (no sid) detail URLs.
  */
-async function fetchTichJobDetailUrls() {
+export async function fetchTichJobDetailUrls(options = {}) {
   const allUrls = new Set();
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12_000;
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12_000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
+  let listingSucceeded = false;
+  let rssSucceeded = false;
+  let discoveredOccurrences = 0;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -392,7 +402,7 @@ async function fetchTichJobDetailUrls() {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(LISTING_URL, {
+    const res = await fetchImpl(LISTING_URL, {
       signal: controller.signal,
       headers: {
         Accept: 'text/html',
@@ -404,10 +414,16 @@ async function fetchTichJobDetailUrls() {
       console.warn(`⚠️ Listing returned ${res.status} — will try RSS fallback.`);
     } else {
       const html = await res.text();
+      if (!/<title[^>]*>[^<]*Amministrazione Cantonale Ticino Jobportal/i.test(html)
+          || !/\bjobsearch\b/i.test(html)) {
+        throw new Error('Ti.CH listing identity marker missing.');
+      }
+      listingSucceeded = true;
 
       // Extract all job detail href paths from the table
       let match;
       while ((match = JOB_DETAIL_HREF_RE.exec(html)) !== null) {
+        discoveredOccurrences += 1;
         const normalized = normalizeDetailUrl(match[1]);
         if (normalized) allUrls.add(normalized);
       }
@@ -426,7 +442,7 @@ async function fetchTichJobDetailUrls() {
   const rssController = new AbortController();
   const rssTimer = setTimeout(() => rssController.abort(), timeoutMs);
   try {
-    const res = await fetch(RSS_URL, {
+    const res = await fetchImpl(RSS_URL, {
       signal: rssController.signal,
       headers: {
         Accept: 'application/atom+xml, application/rss+xml, application/xml, text/xml',
@@ -438,11 +454,17 @@ async function fetchTichJobDetailUrls() {
       console.warn(`⚠️ RSS feed returned ${res.status} — skipping.`);
     } else {
       const xml = await res.text();
+      if (!/<feed\b[^>]*xmlns=["']http:\/\/www\.w3\.org\/2005\/Atom["']/i.test(xml)
+          || !/<title>Amministrazione Cantonale Ticino Jobportal\b/i.test(xml)) {
+        throw new Error('Ti.CH RSS identity marker missing.');
+      }
+      rssSucceeded = true;
       const beforeCount = allUrls.size;
 
       // Extract URLs from <link href="..."> and <id>...</id> elements
       let match;
       while ((match = RSS_YID_RE.exec(xml)) !== null) {
+        discoveredOccurrences += 1;
         const normalized = normalizeDetailUrl(match[1]);
         if (normalized) allUrls.add(normalized);
       }
@@ -451,6 +473,7 @@ async function fetchTichJobDetailUrls() {
       // Also try <id> elements that contain yid URLs
       const idRe = /<id>([^<]*offerte-d[''']impieghi\.html\?yid=\d+[^<]*)<\/id>/gi;
       while ((match = idRe.exec(xml)) !== null) {
+        discoveredOccurrences += 1;
         const normalized = normalizeDetailUrl(match[1]);
         if (normalized) allUrls.add(normalized);
       }
@@ -464,8 +487,35 @@ async function fetchTichJobDetailUrls() {
     clearTimeout(rssTimer);
   }
 
+  if (!listingSucceeded && !rssSucceeded) {
+    throw new Error('Ti.CH discovery failed: both the SSR listing and RSS fallback were unavailable.');
+  }
+  const byIdentity = new Map();
+  for (const rawUrl of allUrls) {
+    const parsed = new URL(rawUrl);
+    const yid = parsed.searchParams.get('yid');
+    if (parsed.protocol !== 'https:' || parsed.hostname !== 'www.concorsi.ti.ch'
+        || parsed.pathname !== "/offerte-d'impieghi.html" || !/^\d+$/.test(yid || '')
+        || [...parsed.searchParams.keys()].some((key) => key !== 'yid')) {
+      throw new Error(`Ti.CH discovery invariant failed: non-canonical detail URL ${rawUrl}.`);
+    }
+    const canonical = `${DETAIL_BASE}offerte-d'impieghi.html?yid=${yid}`;
+    const previous = byIdentity.get(yid);
+    if (previous && previous !== canonical) {
+      throw new Error(`Ti.CH discovery identity conflict for yid=${yid}.`);
+    }
+    byIdentity.set(yid, canonical);
+  }
+  const urls = [...byIdentity.values()].sort((a, b) => a.localeCompare(b));
   console.log(`✅ Total unique Ti.CH detail URLs discovered: ${allUrls.size}`);
-  return [...allUrls];
+  return {
+    urls,
+    sourceZero: urls.length === 0,
+    listingSucceeded,
+    rssSucceeded,
+    discoveredOccurrences,
+    duplicateIdentity: Math.max(0, discoveredOccurrences - urls.length),
+  };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -476,48 +526,47 @@ async function fetchTichJobDetailUrls() {
  * Ensure the Ti.CH adapter JSON has the correct seed URLs
  * (detail page URLs discovered from the listing page + RSS).
  */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${TICH_KEY}.json`);
+export function buildTichAdapterConfig(baseAdapter, seedUrls, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    companyHost: 'concorsi.ti.ch',
+    seedUrls,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html']))
+      .filter((mode) => mode !== 'jsonld'),
+    notes: 'Rexx Systems ATS portal — detail URLs scraped from listing page and Atom RSS feed, each page has rich HTML content.',
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${TICH_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertTichAdapterParity(adapter, seedUrls) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls) || adapter?.crawlerModes?.includes('jsonld')) {
+    throw new Error('Ti.CH adapter parity failed: persisted seeds or crawler modes differ from the verified listing/RSS union.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  adapterPath = path.join(ADAPTERS_DIR, `${TICH_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: TICH_KEY,
       companyName: 'Amministrazione cantonale TI',
       companyHost: 'concorsi.ti.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html'],
-      seedUrls,
-      notes:
-        'Rexx Systems ATS portal — detail URLs scraped from listing page and Atom RSS feed, each page has rich HTML content.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.companyHost = 'concorsi.ti.ch';
-    if (!adapter.crawlerModes?.includes('generic_ats')) {
-      adapter.crawlerModes = adapter.crawlerModes || [];
-      adapter.crawlerModes.unshift('generic_ats');
-    }
-    // Remove jsonld mode since Rexx Systems does not include structured data
-    adapter.crawlerModes = adapter.crawlerModes.filter((m) => m !== 'jsonld');
-    if (!adapter.crawlerModes.includes('html')) adapter.crawlerModes.push('html');
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.notes =
-      'Rexx Systems ATS portal — detail URLs scraped from listing page and Atom RSS feed, each page has rich HTML content.';
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${TICH_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildTichAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertTichAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${TICH_KEY} updated with ${seedUrls.length} seed URLs (listing/RSS parity verified).`);
+  return persisted;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -703,8 +752,9 @@ async function main() {
   console.log('');
 
   // Step 1: Fetch job detail URLs from listing page + RSS
-  const detailUrls = await fetchTichJobDetailUrls();
-  if (detailUrls.length === 0) {
+  const discovery = await fetchTichJobDetailUrls();
+  const detailUrls = discovery.urls;
+  if (discovery.sourceZero) {
     console.log(
       'ℹ️ Nessun URL di dettaglio Ti.CH trovato dalla listing. Uscita OK.',
     );
@@ -765,4 +815,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Ti.CH'));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Ti.CH'));
+}

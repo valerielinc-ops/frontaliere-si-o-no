@@ -1,7 +1,81 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-08-21T21:45:41.737Z",
+  "assembledAt": "2026-09-01T10:16:43.133Z",
   "jobs": [
+    {
+      "id": "upd-f3b31e4d72e7",
+      "slug": "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slugByLocale": {
+        "de": "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
+        "it": "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
+        "fr": "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Leitung oder Co-Leitung Reinigung & Textilmanagement",
+      "titleByLocale": {
+        "de": "Leitung oder Co-Leitung Reinigung & Textilmanagement",
+        "it": "Leitung o Co-Leitung Reinigung & Textilmanagement",
+        "en": "Leitung oder Co-Leitung Reinigung & Textilmanagement",
+        "fr": "Leitung oder Co-Leitung Reinigung & Textilmanagement"
+      },
+      "description": "Leitung oder Co-Leitung Reinigung & Textilmanagement bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "descriptionByLocale": {
+        "de": "Leitung oder Co-Leitung Reinigung & Textilmanagement bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "it": "Leitung oder Co-Leitung Reinigung & Textilmanagement bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "en": "Leitung oder Co-Leitung Reinigung & Textilmanagement bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Leitung oder Co-Leitung Reinigung & Textilmanagement bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)"
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3484/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T10:16:30.363Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Tecnica",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3484/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+      ],
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T10:16:30.363Z"
+    },
     {
       "id": "upd-ee8bfb28ee0d",
       "slug": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -78,7 +152,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     },
     {
       "id": "upd-bd388d976317",
@@ -157,165 +233,8 @@
       "previousSlugs": [
         "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern"
       ],
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "upd-3d356f7a5682",
-      "slug": "dipl-servizio-notturno-infermiere-icm-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "de": "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern",
-        "it": "dipl-servizio-notturno-infermiere-icm-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-night-service-nurse-icm-universitare-psychiatrische-dienste-bern-upd-bern",
-        "fr": "dipl-infirmiere-de-nuit-icm-universitare-psychiatrische-dienste-bern-upd-bern"
-      },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Dipl. Pflegefachperson im Nachtdienst ICM",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachperson im Nachtdienst ICM",
-        "it": "Dipl. Servizio notturno infermiere ICM",
-        "en": "Dipl. Night service nurse ICM",
-        "fr": "Dipl. Infirmière de nuit ICM"
-      },
-      "description": "Dipl. Pflegefachperson im Nachtdienst ICM bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-      "descriptionByLocale": {
-        "de": "Dipl. Pflegefachperson im Nachtdienst ICM bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Dipl. Specialista infermieristica in servizio notturno ICM presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Cura\n• Tipo: part-time\n• Termine temporaneo: perpetuo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
-        "en": "Dipl. Nursing specialist in night service ICM at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Care\n• Type: part-time\n• Temporary term: perpetual\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
-        "fr": "Dipl. Spécialiste des soins infirmiers en service de nuit ICM à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Soins\n• Type: temps partiel\n• Terme temporaire : perpétuel\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis de l'Université Services psychiatriques Bern (UPD)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3284/Description/1",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:47.014Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-19",
-      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3284/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-19T09:53:47.014Z",
       "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
-        ],
-        "en": [
-          "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
-      ]
-    },
-    {
-      "id": "upd-071d984c6923",
-      "slug": "analista-biomedico-analista-biomedico-bma-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern",
-        "it": "analista-biomedico-analista-biomedico-bma-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "biomedical-analyst-biomedical-analyst-bma-universitare-psychiatrische-dienste-bern-upd-bern",
-        "fr": "analyste-biomedical-analyste-biomedical-bma-universitare-psychiatrische-dienste-bern-upd-bern"
-      },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Biomedizinische Analytikerin / Biomedizinischer Analytiker (BMA)",
-      "titleByLocale": {
-        "de": "Biomedizinische Analytikerin / Biomedizinischer Analytiker (BMA)",
-        "it": "Analista Biomedico/Analista Biomedico (BMA)",
-        "en": "Biomedical Analyst / Biomedical Analyst (BMA)",
-        "fr": "Analyste biomédical / Analyste biomédical (BMA)"
-      },
-      "description": "Biomedizinische Analytikerin / Biomedizinischer Analytiker (BMA) bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Medizinisch-technische Berufe\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-      "descriptionByLocale": {
-        "de": "Biomedizinische Analytikerin / Biomedizinischer Analytiker (BMA) bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Medizinisch-technische Berufe\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Biomedical Analyst / Biomedical Analyst (BMA) presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Campo: professioni mediche e tecniche\n• Tipo: part-time\n• Termine temporaneo: perpetuo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
-        "en": "Biomedical Analyst / Biomedical Analyst (BMA) at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Field: Medical and technical professions\n• Type: part-time\n• Temporary term: perpetual\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
-        "fr": "Analyste biomédical / Analyste biomédical (BMA) à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: professions médicales et techniques\n• Type: temps partiel\n• Terme temporaire : perpétuel\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis de l'Université Services psychiatriques Bern (UPD)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3358/Description/1",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:26.810Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-19",
-      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3358/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-19T09:53:26.810Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
-        ],
-        "en": [
-          "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
-        ],
-        "fr": [
-          "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
-        ]
-      },
-      "previousSlugs": [
-        "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
-      ]
+      "salarySource": "reported"
     }
   ]
 }

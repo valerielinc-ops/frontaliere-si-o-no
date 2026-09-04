@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-im-hasel",
-  "assembledAt": "2026-08-28T05:14:58.290Z",
+  "assembledAt": "2026-09-03T23:17:55.310Z",
   "jobs": [
     {
       "id": "klinik-im-hasel-b4882cfaff23",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:53.658Z",
+      "crawledAt": "2026-09-03T23:17:51.301Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -66,18 +66,17 @@
         ]
       },
       "previousSlugs": [
-        "ausbildungsplatz-zur-diplomierten-pflegefachperson-hf-m-w-d-100-klinik-im-hasel",
-        "stage-per-diplomato-in-infermieristica-hf-m-f-d-100-klinik-im-hasel-gontenschwil"
+        "ausbildungsplatz-zur-diplomierten-pflegefachperson-hf-m-w-d-100-klinik-im-hasel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-zur-diplomierten-pflegefachperson-hf-m-w-d-100-klinik-im-hasel",
-          "stage-per-diplomato-in-infermieristica-hf-m-f-d-100-klinik-im-hasel-gontenschwil"
+          "ausbildungsplatz-zur-diplomierten-pflegefachperson-hf-m-w-d-100-klinik-im-hasel"
         ]
       },
       "firstSeenAt": "2026-05-19T16:17:59.522Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -120,7 +119,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:53.061Z",
+      "crawledAt": "2026-09-03T23:17:50.719Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -154,18 +153,17 @@
         ]
       },
       "previousSlugs": [
-        "praktikum-kunsttherapie-fachrichtung-gestaltungs-und-maltherapie-w-m-d-50-klinik-im-hasel",
-        "stage-di-terapia-dell-arte-specializzazione-in-terapia-del-design-e-della-pittura-w-m-d-50-klinik-im-hasel-gontenschwil"
+        "praktikum-kunsttherapie-fachrichtung-gestaltungs-und-maltherapie-w-m-d-50-klinik-im-hasel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-kunsttherapie-fachrichtung-gestaltungs-und-maltherapie-w-m-d-50-klinik-im-hasel",
-          "stage-di-terapia-dell-arte-specializzazione-in-terapia-del-design-e-della-pittura-w-m-d-50-klinik-im-hasel-gontenschwil"
+          "praktikum-kunsttherapie-fachrichtung-gestaltungs-und-maltherapie-w-m-d-50-klinik-im-hasel"
         ]
       },
       "firstSeenAt": "2026-05-19T16:17:58.820Z",
       "salaryMin": 22300,
       "salaryMax": 41300,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -173,85 +171,6 @@
           "@type": "QuantitativeValue",
           "minValue": 22300,
           "maxValue": 41300,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-im-hasel-1e3d2c9a94da",
-      "slug": "direzione-assistente-in-f-m-d-50-klinik-im-hasel-gontenschwil",
-      "slugByLocale": {
-        "it": "direzione-assistente-in-f-m-d-50-klinik-im-hasel-gontenschwil",
-        "en": "directorate-assistant-in-f-m-d-50-klinik-im-hasel-gontenschwil",
-        "de": "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil",
-        "fr": "assistant-de-direction-en-f-m-j-50-klinik-im-hasel-gontenschwil"
-      },
-      "company": "Klinik im Hasel",
-      "companyKey": "klinik-im-hasel",
-      "companyDomain": "klinikimhasel.ch",
-      "title": "Direktionsassistent:in (w/m/d), 50%",
-      "titleByLocale": {
-        "it": "Direzione Assistente:in (f/m/d), 50%",
-        "en": "Directorate Assistant:in (f/m/d), 50%",
-        "de": "Direktionsassistent:in (w/m/d), 50%",
-        "fr": "Assistant de direction : en (f/m/j), 50 %"
-      },
-      "description": "Direktionsassistent:in (w/m/d), 50% - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Direktionsassistent:in (w/m/d), 50% Wir suchen am Standort Lenzburg per 1. Oktober oder nach Vereinbarung Unterstützung im Direktionsbereich. Deine Aufgaben Du unterstützt unsere Geschäftsleitung sowie den Verwaltungsrat in sämtlichen administrativen und organisatorischen Belangen.\n\nDu koordinierst Termine, organisierst Sitzungen (inkl. Protokollführung) und sorgst für ein professionelles Gästemanagement.\n\nDu planst und koordinierst interne und externe Veranstaltungen (Fachtagungen, Teamanlässe, Weiterbildungsprogramme etc.).\n\nDu stellst eine strukturierte Dokumentenablage und Archivierung sicher.\n\nDie Arbeitstage sind Mo-FR jeweils am Vormittag\n\nDu verfügst über eine abgeschlossene kaufmännische Ausbildung. Die Zusatzausbildung Direktionsassistent:in ist von Vorteil, aber keine zwingende Voraussetzung. Du arbeitest selbstständig, strukturiert und vorausschauend und behältst auch in hektischen Situationen den Überblick. Diskretion, Zuverlässigkeit und ein professionelles Auftreten sind für dich selbstverständlich. Du bist ein Organisationstalent, kommunikationsstark und dienstleistungsorientiert. Der Umgang mit MS Office (insbesondere Outlook, Word, PowerPoint und Excel) fällt dir leicht und du arbeitest dich rasch in neue Systeme ein. Du kommunizierst stilsicher in Deutsch. Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nSelbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits 5 Wochen Ferien (ab dem 60. Altersjahr 6 Wochen) Gut ausgebautes Betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.\n\n• Bereich: Direktion / Stabsstelle",
-      "descriptionByLocale": {
-        "it": "Direttore aggiunto: in (f/m/d), 50% - clinica At Hasel AG La Clinica Im Hasel AG è una clinica specialistica psichiatrica-psicoterapeutica con un mandato di servizio cantonale per il trattamento di tossicodipendenza e disturbi del trauma. Come istituzione di assicurazione sanitaria approvata e parte della lista ospedaliera cantonale, offriamo trattamenti di alta qualità, basati su prove e orientati all'uomo per i nostri pazienti. Con circa 170 dipendenti dedicati in tre sedi – la nostra clinica ospedaliera a Gontenschwil, l'ambulatorium e la clinica diurna a Lenzburg e l'imboslatorium trauma-specifico a Baden – uniamo competenza professionale con una cooperazione apprezzativa e interdisciplinare. Direzione Assistente:in (f/m/d), 50% Siamo alla ricerca di sostegno nell'area di gestione presso la sede di Lenzburg dal 1° ottobre o su appuntamento. Lei sostiene la nostra gestione e il Consiglio di Amministrazione in tutte le questioni amministrative e organizzative.\n\nCoordinate gli appuntamenti, organizzate riunioni (inclusi i minuti) e assicurate la gestione professionale degli ospiti.\n\nSi pianifica e coordina eventi interni ed esterni (conferenze specialiste, eventi di squadra, programmi di formazione, ecc.).\n\nGarantisci l'archiviazione e l'archiviazione dei documenti strutturati.\n\nI giorni lavorativi sono Mo-FR ogni mattina\n\nHai una formazione commerciale completa. La direzione aggiuntiva di formazione Assistente:in è un vantaggio, ma non un requisito obbligatorio. Si lavora in modo indipendente, strutturato e previsionale e mantenere una panoramica anche in situazioni frenetiche. Discrezione, affidabilità e un aspetto professionale sono una questione naturalmente per voi. Sei un talento organizzativo, forte nella comunicazione e orientato al servizio. La gestione di MS Office (specialmente Outlook, Word, PowerPoint ed Excel) è facile per voi e si lavora rapidamente il vostro senso in nuovi sistemi. Si comunica con stile in tedesco. Vogliamo un atteggiamento di base che è caratterizzato da apprezzamento e rispetto nel trattare con i nostri pazienti: dentro.\n\nAttività indipendenti e responsabili Engaged e consolidato team Ulteriori opportunità di istruzione e benefici per i dipendenti 5 settimane vacanze (da 60 anni 6 settimane) Gestione della salute professionale ben sviluppata\n\nUlteriori informazioni sui vantaggi di Klinik Im Hasel AG come datore di lavoro possono essere trovate qui. Abbiamo avuto il tuo interesse? Attendiamo con ansia la vostra applicazione. Se avete domande, il nostro team HR sarà volentieri a vostra disposizione per telefono su telefono. 062 738 60 28. Vorremmo riempire questo posto vacante senza il supporto dei fornitori di servizi del personale.\n\n• Area: Direzione / Ufficio dello Stato",
-        "en": "Assistant director: in (f/m/d), 50% - clinic At Hasel AG The Clinic Im Hasel AG is a psychiatric-psychotherapeutic specialist clinic with a cantonal service mandate for the treatment of addiction and trauma disorders. As a health insurance-approved institution and part of the cantonal hospital list, we offer high-quality, evidence-based and human-oriented treatment for our patients. With around 170 dedicated employees at three locations – our inpatient clinic in Gontenschwil, the ambulatorium and the day clinic in Lenzburg and the trauma-specific ambulatorium in Baden – we combine professional competence with an appreciative and interdisciplinary cooperation. Directorate Assistant:in (f/m/d), 50% We are looking for support in the management area at the Lenzburg location as of 1 October or by appointment. You support our management and the Board of Directors in all administrative and organizational matters.\n\nYou coordinate appointments, organize meetings (including minutes) and ensure professional guest management.\n\nYou plan and coordinate internal and external events (specialist conferences, team events, training programs, etc.).\n\nYou ensure structured document storage and archiving.\n\nThe working days are Mo-FR each morning\n\nYou have a completed commercial education. The additional training Directorate Assistant:in is an advantage, but not a mandatory requirement. You work independently, structured and forward-looking and keep an overview even in hectic situations. Discretion, reliability and a professional appearance are a matter of course for you. You are an organizational talent, strong in communication and service-oriented. The handling of MS Office (especially Outlook, Word, PowerPoint and Excel) is easy for you and you quickly work your way into new systems. You communicate stylishly in German. We want a basic attitude that is characterized by appreciation and respect in dealing with our patients: inside.\n\nIndependent and responsible activities Engaged and established team Further education opportunities and employee benefits 5 weeks holidays (from 60 years old 6 weeks) Well-developed occupational health management\n\nFurther information on the advantages of Klinik Im Hasel AG as an employer can be found here. Did we get your interest? We look forward to your application. If you have any questions, our HR team will gladly be available to you by phone on tel. 062 738 60 28. We would like to fill this vacancy without the support of personnel service providers.\n\n• Area: Directorate/Staff Office",
-        "de": "Direktionsassistent:in (w/m/d), 50% - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Direktionsassistent:in (w/m/d), 50% Wir suchen am Standort Lenzburg per 1. Oktober oder nach Vereinbarung Unterstützung im Direktionsbereich. Deine Aufgaben Du unterstützt unsere Geschäftsleitung sowie den Verwaltungsrat in sämtlichen administrativen und organisatorischen Belangen.\n\nDu koordinierst Termine, organisierst Sitzungen (inkl. Protokollführung) und sorgst für ein professionelles Gästemanagement.\n\nDu planst und koordinierst interne und externe Veranstaltungen (Fachtagungen, Teamanlässe, Weiterbildungsprogramme etc.).\n\nDu stellst eine strukturierte Dokumentenablage und Archivierung sicher.\n\nDie Arbeitstage sind Mo-FR jeweils am Vormittag\n\nDu verfügst über eine abgeschlossene kaufmännische Ausbildung. Die Zusatzausbildung Direktionsassistent:in ist von Vorteil, aber keine zwingende Voraussetzung. Du arbeitest selbstständig, strukturiert und vorausschauend und behältst auch in hektischen Situationen den Überblick. Diskretion, Zuverlässigkeit und ein professionelles Auftreten sind für dich selbstverständlich. Du bist ein Organisationstalent, kommunikationsstark und dienstleistungsorientiert. Der Umgang mit MS Office (insbesondere Outlook, Word, PowerPoint und Excel) fällt dir leicht und du arbeitest dich rasch in neue Systeme ein. Du kommunizierst stilsicher in Deutsch. Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nSelbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits 5 Wochen Ferien (ab dem 60. Altersjahr 6 Wochen) Gut ausgebautes Betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.\n\n• Bereich: Direktion / Stabsstelle",
-        "fr": "Directeur adjoint: en (f/m/d), 50% - clinique Chez Hasel AG La clinique Im Hasel AG est une clinique psychiatrique-psychothérapeute spécialisée avec un mandat cantonal de service pour le traitement de la toxicomanie et des troubles traumatologiques. En tant qu'institution agréée par l'assurance maladie et faisant partie de la liste des hôpitaux cantonaux, nous offrons un traitement de haute qualité, fondé sur des données probantes et orienté vers l'humain pour nos patients. Avec environ 170 employés dévoués dans trois sites – notre clinique d'hospitalisation à Gontenschwil, l'ambulatorium et la clinique de jour à Lenzburg et l'ambulatorium spécifique aux traumatismes à Baden – nous combinons compétence professionnelle avec une coopération appréciatrice et interdisciplinaire. Direction Assistante : en (f/m/j), 50 % Nous cherchons du soutien dans la zone de gestion à l'emplacement de Lenzburg à compter du 1er octobre ou sur rendez-vous. Vous soutenez notre direction et le conseil d'administration dans toutes les questions administratives et organisationnelles.\n\nVous coordonnez les rendez-vous, organisez les réunions (y compris les procès-verbaux) et assurez la gestion professionnelle des invités.\n\nVous planifiez et coordonnez des événements internes et externes (conférences spécialisées, événements d'équipe, programmes de formation, etc.).\n\nVous assurez le stockage structuré des documents et l'archivage.\n\nLes jours ouvrables sont Mo-FR chaque matin\n\nVous avez une formation commerciale terminée. L'adjoint à la direction de la formation supplémentaire est un avantage, mais pas une exigence obligatoire. Vous travaillez de manière indépendante, structurée et tournée vers l'avenir et vous avez un aperçu même dans des situations mouvementées. Le discernement, la fiabilité et l'apparence professionnelle sont une question bien sûr pour vous. Vous êtes un talent organisationnel, fort en communication et axé sur le service. La gestion de MS Office (surtout Outlook, Word, PowerPoint et Excel) est facile pour vous et vous travaillez rapidement votre chemin dans de nouveaux systèmes. Vous communiquez avec style en allemand. Nous voulons une attitude de base caractérisée par l'appréciation et le respect de nos patients : à l'intérieur.\n\nActivités indépendantes et responsables Équipe engagée et établie Possibilités de formation continue et avantages sociaux des employés 5 semaines de congé (à partir de 60 ans 6 semaines) Gestion bien développée de la santé au travail\n\nVous trouverez ici de plus amples informations sur les avantages de Klinik Im Hasel AG en tant qu'employeur. On a eu votre intérêt ? Nous attendons avec impatience votre candidature. Si vous avez des questions, notre équipe des RH vous sera volontiers disponible par téléphone. 062 738 60 28. Nous voudrions combler cette vacance sans l'appui des fournisseurs de services du personnel.\n\n• Secteur : Direction/Bureau du personnel"
-      },
-      "needsRetranslation": true,
-      "location": "Gontenschwil",
-      "canton": "AG",
-      "url": "https://recruitingapp-2912.umantis.com/Vacancies/466/Description/1",
-      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:52.363Z",
-      "addressLocality": "Gontenschwil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5728",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/466/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil",
-        "direzione-assistente-in-f-m-d-50-klinik-im-hasel-gontenschwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil",
-          "direzione-assistente-in-f-m-d-50-klinik-im-hasel-gontenschwil"
-        ],
-        "en": [
-          "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil"
-        ],
-        "fr": [
-          "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T11:28:16.555Z",
-      "salaryMin": 44000,
-      "salaryMax": 61500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44000,
-          "maxValue": 61500,
           "unitText": "YEAR"
         }
       }
@@ -288,7 +207,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/475/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:51.656Z",
+      "crawledAt": "2026-09-03T23:17:50.022Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -306,13 +225,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil",
-        "specialista-psicologo-a-lenzburg-f-m-d-60-100-klinik-im-hasel-gontenschwil"
+        "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil",
-          "specialista-psicologo-a-lenzburg-f-m-d-60-100-klinik-im-hasel-gontenschwil"
+          "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil"
         ],
         "en": [
           "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil"
@@ -324,6 +241,7 @@
       "firstSeenAt": "2026-07-29T11:36:57.274Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -367,7 +285,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/467/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:50.927Z",
+      "crawledAt": "2026-09-03T23:17:49.394Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -394,8 +312,7 @@
         "psicologo-a-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
         "psycholog-in-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
         "psychologist-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
-        "psychologue-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
-        "specialista-psicologo-in-w-m-d-60-80-klinik-im-hasel-gontenschwil"
+        "psychologue-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -408,8 +325,7 @@
           "psicologo-a-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
           "psycholog-in-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
           "psychologist-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
-          "psychologue-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
-          "specialista-psicologo-in-w-m-d-60-80-klinik-im-hasel-gontenschwil"
+          "psychologue-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil"
         ],
         "en": [
           "psychologist-specialized-in-baden-m-f-d-60-klinik-im-hasel-gontenschwil",
@@ -426,6 +342,7 @@
       "firstSeenAt": "2026-07-29T11:36:56.900Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -469,7 +386,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/473/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:50.153Z",
+      "crawledAt": "2026-09-03T23:17:48.713Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -487,13 +404,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil",
-        "dipl-terapista-occupazionale-in-f-m-d-20-klinik-im-hasel-gontenschwil"
+        "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil",
-          "dipl-terapista-occupazionale-in-f-m-d-20-klinik-im-hasel-gontenschwil"
+          "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil"
         ],
         "en": [
           "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil"
@@ -505,6 +420,7 @@
       "firstSeenAt": "2026-07-29T11:36:55.553Z",
       "salaryMin": 17600,
       "salaryMax": 24600,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -548,7 +464,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/472/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:49.565Z",
+      "crawledAt": "2026-09-03T23:17:48.124Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -566,13 +482,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kunsttherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil",
-        "terapista-d-arte-in-f-m-d-20-klinik-im-hasel-gontenschwil"
+        "kunsttherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunsttherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil",
-          "terapista-d-arte-in-f-m-d-20-klinik-im-hasel-gontenschwil"
+          "kunsttherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil"
         ],
         "en": [
           "kunsttherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil"
@@ -584,6 +498,7 @@
       "firstSeenAt": "2026-07-29T11:36:54.886Z",
       "salaryMin": 17600,
       "salaryMax": 24600,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -627,7 +542,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/471/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:48.964Z",
+      "crawledAt": "2026-09-03T23:17:47.518Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -645,13 +560,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil",
-        "occupazione-sociale-in-f-m-d-80-klinik-im-hasel-gontenschwil"
+        "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil",
-          "occupazione-sociale-in-f-m-d-80-klinik-im-hasel-gontenschwil"
+          "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil"
         ],
         "en": [
           "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil"
@@ -663,6 +576,7 @@
       "firstSeenAt": "2026-07-29T11:36:54.218Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -676,9 +590,9 @@
     },
     {
       "id": "klinik-im-hasel-7468a89a2872",
-      "slug": "dipl-pflegefachperson-hf-fh-o-mpa-con-weiterbildung-m-w-d-60-klinik-im-hasel-gontenschwil",
+      "slug": "dipl-infermieristica-professionale-hf-fh-o-mpa-con-ulteriore-istruzione-m-f-d-60-klinik-im-hasel-gontenschwil",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-o-mpa-con-weiterbildung-m-w-d-60-klinik-im-hasel-gontenschwil",
+        "it": "dipl-infermieristica-professionale-hf-fh-o-mpa-con-ulteriore-istruzione-m-f-d-60-klinik-im-hasel-gontenschwil",
         "en": "dipl-nursing-professional-hf-fh-or-mpa-with-further-education-f-m-d-60-klinik-im-hasel-gontenschwil",
         "de": "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel",
         "fr": "dipl-professionnels-des-soins-infirmiers-hf-fh-ou-mpa-avec-formation-continue-f-m-j-60-klinik-im-hasel-gontenschwil"
@@ -688,7 +602,7 @@
       "companyDomain": "klinikimhasel.ch",
       "title": "Dipl. Pflegefachperson HF/FH oder MPA mit Weiterbildung (w/m/d), 60%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF/FH o MPA con Weiterbildung (w/m/d), 60%",
+        "it": "Dipl. Infermieristica professionale HF/FH o MPA con ulteriore istruzione (m/f/d), 60%",
         "en": "Dipl. Nursing professional HF/FH or MPA with further education (f/m/d), 60%",
         "de": "Dipl. Pflegefachperson HF/FH oder MPA mit Weiterbildung (w/m/d), 60%",
         "fr": "Dipl. Professionnels des soins infirmiers HF/FH ou MPA avec formation continue (f/m/j), 60%"
@@ -700,13 +614,12 @@
         "de": "Dipl. Pflegefachperson HF/FH oder MPA mit Weiterbildung (w/m/d), 60% - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Dipl. Pflegefachperson HF/FH oder MPA mit Weiterbildung (w/m/d), 60% An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung mehrere Dipl. Pflegefachperson HF/FH oder MPA Deine\n• Aufgaben Medizinische und pflegerische Betreuung unserer Patient:innen (ohne Grundpflege)\n\nLeitung von traumaspezifischen Gruppentherapien\n\nBezugspersonenpflege im Rahmen traumafokussierter Behandlungen\n\nTeilnahme an interdisziplinären Rapporten, Visiten, Teamsitzungen, Therapieplanungs- und Standortgesprächen\n\nMitwirkung bei der Umsetzung und Weiterentwicklung der Pflegstandards und des Therapiekonzeptes\n\nÜbernahme von Verantwortungsbereichen innerhalb der Pflege\n\nAbschluss als Dipl. Pflegefachperson HF/FH (AKP, DNII, PsyKP) oder MPA Berufserfahrung im psychiatrischen Fachbereich Berufserfahrung im Traumabereich von Vorteil und/oder starke Motivation, sich in diesem weiterzubilden Flexibilität, Integrität, Ausgeglichenheit und Geduld Offene, motivierte, verantwortungsbewusste, belastbare und teamfähige Persönlichkeit Wir erwarten eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen\n\nSelbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits 5 Wochen Ferien (ab dem 60. Altersjahr 6 Wochen) Gut ausgebautes Betriebliches Gesundheitsmanagement",
         "fr": "Dipl. Soins infirmiers professionnels HF/FH ou MPA avec une formation complémentaire (f/m/j), 60% - clinique à Hasel AG La clinique Im Hasel AG est une clinique psychiatrique-psychothérapeute spécialisée avec un mandat cantonal de service pour le traitement de la toxicomanie et des troubles traumatologiques. En tant qu'institution agréée par l'assurance maladie et faisant partie de la liste des hôpitaux cantonaux, nous offrons un traitement de haute qualité, fondé sur des données probantes et orienté vers l'humain pour nos patients. Avec environ 170 employés dévoués dans trois sites – notre clinique d'hospitalisation à Gontenschwil, l'ambulatorium et la clinique de jour à Lenzburg et l'ambulatorium spécifique aux traumatismes à Baden – nous combinons compétence professionnelle avec une coopération appréciatrice et interdisciplinaire. Infirmière diplômée HF/FH ou MPA avec une formation complémentaire (f/m/j), 60% À notre emplacement à Baden, nous construisons une offre quotidienne de traitement clinique spécifique aux traumatismes. Pour cela, nous recherchons plusieurs Dipl au 01.01.2027 ou par accord. Professionnels des soins infirmiers HF/FH ou MPA\n• Soins médicaux et infirmiers de nos patients : à l'intérieur (sans soins de base)\n\nPrise en charge des thérapies de groupe spécifiques aux traumatismes\n\nLes aidants naturels dans le contexte du traitement axé sur les traumatismes\n\nParticipation à des rapports interdisciplinaires, à des visites, à des réunions d'équipe, à la planification thérapeutique et à des discussions sur les lieux\n\nParticipation à la mise en œuvre et au développement des normes de soins et du concept de thérapie\n\nResponsabilités en matière de soins\n\nDiplôme de diplômé. Infirmière HF/FH (AKP, DNII, PsyKP) ou MPA Expérience de travail dans le corps professoral psychiatrique Expérience de travail dans le domaine des traumatismes bénéfique et/ou forte motivation à s'entraîner dans cette flexibilité, intégrité, équilibre et patience Nous nous attendons à une attitude de base caractérisée par l'appréciation et le respect envers nos patients :\n\nActivités indépendantes et responsables Équipe engagée et établie Possibilités de formation continue et avantages sociaux des employés 5 semaines de congé (à partir de 60 ans 6 semaines) Gestion bien développée de la santé au travail"
       },
-      "needsRetranslation": true,
       "location": "Gontenschwil",
       "canton": "AG",
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/470/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:48.272Z",
+      "crawledAt": "2026-09-03T23:17:46.807Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -724,11 +637,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel"
+        "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel",
+        "dipl-pflegefachperson-hf-fh-o-mpa-con-weiterbildung-m-w-d-60-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel"
+          "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel",
+          "dipl-pflegefachperson-hf-fh-o-mpa-con-weiterbildung-m-w-d-60-klinik-im-hasel-gontenschwil"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel"
@@ -740,6 +655,7 @@
       "firstSeenAt": "2026-07-29T11:36:53.549Z",
       "salaryMin": 52800,
       "salaryMax": 73800,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -758,7 +674,7 @@
         "it": "superpsicologo-in-f-m-d-80-100-klinik-im-hasel-gontenschwil",
         "en": "superpsychologist-in-f-m-d-80-100-klinik-im-hasel-gontenschwil",
         "de": "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-        "fr": "superpsychologue-in-f-m-j-80-100-klinik-im-hasel-gontenschwil"
+        "fr": "psychologue-senior-en-h-f-d-80-100-klinik-im-hasel-gontenschwil"
       },
       "company": "Klinik im Hasel",
       "companyKey": "klinik-im-hasel",
@@ -768,7 +684,7 @@
         "it": "Superpsicologo:in (f/m/d), 80-100 %",
         "en": "Superpsychologist:in (f/m/d), 80-100 %",
         "de": "Oberpsycholog:in (w/m/d), 80-100%",
-        "fr": "Superpsychologue:in (f/m/j), 80-100 %"
+        "fr": "Psychologue senior: en (h/f/d), 80-100 %"
       },
       "description": "Oberpsycholog:in (w/m/d), 80-100% - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Oberpsycholog:in (w/m/d), 80-100% Für unser Ambulatorium für Traumafolgestörungen in Baden suchen wir per 01.01.2027 oder nach Vereinbarung ein:e Oberpsycholog:in Deine\n• Aufgaben Teamleitung des ambulanten Psychotherapieteams (ca. 5 Personen) und personelle Vorgesetztenfunktion\n\nFachliche Führung von Psychotherapeut:innen in Weiterbildung\n\nEnge Zusammenarbeit mit Standortleitung zur strategischen und operativen Ausrichtung des ambulanten Behandlungsangebotes des Standortes\n\nStellvertretung der Standortleitung bei Abwesenheiten und projektbezogene Mitarbeit\n\nEigenständige Durchführung ambulanter Psychotherapien in Zusammenarbeit mit den psychiatrischen Fach- und Assistenzärzt:innen\n\nSelbständige Leitung und Co-Leitung von psychotherapeutischen Gruppentherapien\n\nInterdisziplinäre Zusammenarbeit mit internen und externen Stellen\n\nMitwirkung an Teamsitzungen, Intervision und Supervision",
       "descriptionByLocale": {
@@ -783,7 +699,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/469/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:47.569Z",
+      "crawledAt": "2026-09-03T23:17:46.226Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -802,23 +718,37 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-        "superpsicologo-in-f-m-d-80-100-klinik-im-hasel-gontenschwil"
+        "direzione-assistente-in-f-m-d-50-klinik-im-hasel-gontenschwil",
+        "directorate-assistant-in-f-m-d-50-klinik-im-hasel-gontenschwil",
+        "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil",
+        "assistant-de-direction-en-f-m-j-50-klinik-im-hasel-gontenschwil",
+        "superpsychologue-in-f-m-j-80-100-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-          "superpsicologo-in-f-m-d-80-100-klinik-im-hasel-gontenschwil"
+          "direzione-assistente-in-f-m-d-50-klinik-im-hasel-gontenschwil",
+          "directorate-assistant-in-f-m-d-50-klinik-im-hasel-gontenschwil",
+          "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil",
+          "assistant-de-direction-en-f-m-j-50-klinik-im-hasel-gontenschwil"
         ],
         "en": [
-          "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil"
+          "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+          "directorate-assistant-in-f-m-d-50-klinik-im-hasel-gontenschwil"
+        ],
+        "de": [
+          "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil"
         ],
         "fr": [
-          "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil"
+          "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+          "assistant-de-direction-en-f-m-j-50-klinik-im-hasel-gontenschwil",
+          "superpsychologue-in-f-m-j-80-100-klinik-im-hasel-gontenschwil"
         ]
       },
       "firstSeenAt": "2026-07-29T11:36:53.081Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -861,7 +791,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/476/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:46.796Z",
+      "crawledAt": "2026-09-03T23:17:45.508Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -879,13 +809,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil",
-        "infermiera-hf-fh-m-f-d-100-klinik-im-hasel-gontenschwil"
+        "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil",
-          "infermiera-hf-fh-m-f-d-100-klinik-im-hasel-gontenschwil"
+          "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil"
@@ -894,6 +822,7 @@
       "firstSeenAt": "2026-08-13T10:25:00.035Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -901,6 +830,198 @@
           "@type": "QuantitativeValue",
           "minValue": 88000,
           "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-im-hasel-b7559df3f1cb",
+      "slug": "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+      "slugByLocale": {
+        "it": "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+        "en": "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+        "de": "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+        "fr": "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil"
+      },
+      "company": "Klinik im Hasel",
+      "companyKey": "klinik-im-hasel",
+      "companyDomain": "klinikimhasel.ch",
+      "title": "Oberärzt:in in Baden (w/m/d), 60 - 100 %",
+      "titleByLocale": {
+        "it": "Oberärzt:in in Baden (w/m/d), 60 - 100 %",
+        "en": "Oberärzt:in in Baden (w/m/d), 60 - 100 %",
+        "de": "Oberärzt:in in Baden (w/m/d), 60 - 100 %",
+        "fr": "Oberärzt:in in Baden (w/m/d), 60 - 100 %"
+      },
+      "description": "Oberärzt:in in Baden (w/m/d), 60 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Oberärzt:in in Baden (w/m/d), 60 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Oberärztin oder einen Oberarzt. Deine\n• Aufgaben Ärztliche Betreuung der Patientinnen und Patienten\n\nWeiterentwicklung und Umsetzung des integrativen Therapiekonzeptes\n\nAusbildung des Assistenzärzte-Teams\n\nSupervision und Begleitung der Psychotherapien\n\nAmbulante Tätigkeit am Standort Lenzburg möglich\n\nNachweis eines erfolgreich abgeschlossenen Medizinstudiums CH/EU/EFTA FÄ/FA Psychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung Erfahrung im Bereich der Abhängigkeitserkrankungen Erfahrung in der Behandlung von Traumafolgestörungen Hohe Sozialkompetenz, Teamfähigkeit, Verantwortungsbewusstsein und Motivation Hohe Identifikation mit dem Leitbild und den konzeptuellen Grundlagen der therapeutischen Arbeit der Klinik Im Hasel AG Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nGeregelte Arbeitszeiten, 42 Stunden Wochenarbeitszeit, keine Nacht- und Wochenenddienste Umfassenden Einblick in den Bereich der Traumafolgestörungen, Suchtmedizin und Psychotraumatologie Interne und externe Fortbildungsmöglichkeiten Interdisziplinäres Arbeiten zusammen mit Pflege, Psychotherapie und Komplementärtherapie\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+      "descriptionByLocale": {
+        "it": "Oberärzt:in in Baden (w/m/d), 60 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Oberärzt:in in Baden (w/m/d), 60 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Oberärztin oder einen Oberarzt. Deine\n• Aufgaben Ärztliche Betreuung der stationären Patientinnen und Patienten\n\nMitarbeit bei der Umsetzung fortschrittlicher innovativer Behandlungskonzepte\n\nAusbildung des Assistenzärzte-Teams\n\nSupervision und Begleitung der Psychotherapien\n\nAmbulante Tätigkeit am Standort Lenzburg möglich\n\nNachweis eines erfolgreich abgeschlossenen Medizinstudiums CH/EU/EFTA FÄ/FA Psychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung Erfahrung im Bereich der Abhängigkeitserkrankungen Erfahrung in der Behandlung von Traumafolgestörungen Hohe Sozialkompetenz, Teamfähigkeit, Verantwortungsbewusstsein und Motivation Hohe Identifikation mit dem Leitbild und den konzeptuellen Grundlagen der therapeutischen Arbeit der Klinik Im Hasel AG Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nGeregelte Arbeitszeiten, 42 Stunden Wochenarbeitszeit, keine Nacht- und Wochenenddienste Umfassenden Einblick in den Bereich der Traumafolgestörungen, Suchtmedizin und Psychotraumatologie Interne und externe Fortbildungsmöglichkeiten Interdisziplinäres Arbeiten zusammen mit Pflege, Psychotherapie und Komplementärtherapie\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "en": "Oberärzt:in in Baden (w/m/d), 60 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Oberärzt:in in Baden (w/m/d), 60 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Oberärztin oder einen Oberarzt. Deine\n• Aufgaben Ärztliche Betreuung der stationären Patientinnen und Patienten\n\nMitarbeit bei der Umsetzung fortschrittlicher innovativer Behandlungskonzepte\n\nAusbildung des Assistenzärzte-Teams\n\nSupervision und Begleitung der Psychotherapien\n\nAmbulante Tätigkeit am Standort Lenzburg möglich\n\nNachweis eines erfolgreich abgeschlossenen Medizinstudiums CH/EU/EFTA FÄ/FA Psychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung Erfahrung im Bereich der Abhängigkeitserkrankungen Erfahrung in der Behandlung von Traumafolgestörungen Hohe Sozialkompetenz, Teamfähigkeit, Verantwortungsbewusstsein und Motivation Hohe Identifikation mit dem Leitbild und den konzeptuellen Grundlagen der therapeutischen Arbeit der Klinik Im Hasel AG Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nGeregelte Arbeitszeiten, 42 Stunden Wochenarbeitszeit, keine Nacht- und Wochenenddienste Umfassenden Einblick in den Bereich der Traumafolgestörungen, Suchtmedizin und Psychotraumatologie Interne und externe Fortbildungsmöglichkeiten Interdisziplinäres Arbeiten zusammen mit Pflege, Psychotherapie und Komplementärtherapie\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "de": "Oberärzt:in in Baden (w/m/d), 60 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Oberärzt:in in Baden (w/m/d), 60 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Oberärztin oder einen Oberarzt. Deine\n• Aufgaben Ärztliche Betreuung der Patientinnen und Patienten\n\nWeiterentwicklung und Umsetzung des integrativen Therapiekonzeptes\n\nAusbildung des Assistenzärzte-Teams\n\nSupervision und Begleitung der Psychotherapien\n\nAmbulante Tätigkeit am Standort Lenzburg möglich\n\nNachweis eines erfolgreich abgeschlossenen Medizinstudiums CH/EU/EFTA FÄ/FA Psychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung Erfahrung im Bereich der Abhängigkeitserkrankungen Erfahrung in der Behandlung von Traumafolgestörungen Hohe Sozialkompetenz, Teamfähigkeit, Verantwortungsbewusstsein und Motivation Hohe Identifikation mit dem Leitbild und den konzeptuellen Grundlagen der therapeutischen Arbeit der Klinik Im Hasel AG Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nGeregelte Arbeitszeiten, 42 Stunden Wochenarbeitszeit, keine Nacht- und Wochenenddienste Umfassenden Einblick in den Bereich der Traumafolgestörungen, Suchtmedizin und Psychotraumatologie Interne und externe Fortbildungsmöglichkeiten Interdisziplinäres Arbeiten zusammen mit Pflege, Psychotherapie und Komplementärtherapie\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "fr": "Oberärzt:in in Baden (w/m/d), 60 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Oberärzt:in in Baden (w/m/d), 60 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Oberärztin oder einen Oberarzt. Deine\n• Aufgaben Ärztliche Betreuung der stationären Patientinnen und Patienten\n\nMitarbeit bei der Umsetzung fortschrittlicher innovativer Behandlungskonzepte\n\nAusbildung des Assistenzärzte-Teams\n\nSupervision und Begleitung der Psychotherapien\n\nAmbulante Tätigkeit am Standort Lenzburg möglich\n\nNachweis eines erfolgreich abgeschlossenen Medizinstudiums CH/EU/EFTA FÄ/FA Psychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung Erfahrung im Bereich der Abhängigkeitserkrankungen Erfahrung in der Behandlung von Traumafolgestörungen Hohe Sozialkompetenz, Teamfähigkeit, Verantwortungsbewusstsein und Motivation Hohe Identifikation mit dem Leitbild und den konzeptuellen Grundlagen der therapeutischen Arbeit der Klinik Im Hasel AG Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nGeregelte Arbeitszeiten, 42 Stunden Wochenarbeitszeit, keine Nacht- und Wochenenddienste Umfassenden Einblick in den Bereich der Traumafolgestörungen, Suchtmedizin und Psychotraumatologie Interne und externe Fortbildungsmöglichkeiten Interdisziplinäres Arbeiten zusammen mit Pflege, Psychotherapie und Komplementärtherapie\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen."
+      },
+      "needsRetranslation": true,
+      "location": "Gontenschwil",
+      "canton": "AG",
+      "url": "https://recruitingapp-2912.umantis.com/Vacancies/477/Description/1",
+      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:17:44.780Z",
+      "addressLocality": "Gontenschwil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5728",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/477/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-02T13:34:38.481Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-im-hasel-533c634e33c6",
+      "slug": "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+      "slugByLocale": {
+        "it": "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "en": "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "de": "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "fr": "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil"
+      },
+      "company": "Klinik im Hasel",
+      "companyKey": "klinik-im-hasel",
+      "companyDomain": "klinikimhasel.ch",
+      "title": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 %",
+      "titleByLocale": {
+        "it": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 %",
+        "en": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 %",
+        "de": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 %",
+        "fr": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 %"
+      },
+      "description": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Assistenzärzt:in in Baden (w/m/d), 80 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Assistenzärztin oder einen Assistenzarzt. Deine\n• Aufgaben Psychiatrisch-psychotherapeutische Betreuung von Patient:innen, die sich in tagesklinischer und ambulanter, traumaspezifischer Behandlung befinden\n\nIndikationsstellung und periodische Prüfung von psychologischen Psychotherapien im Anordnungsmodell\n\nRegelmässige Fallbesprechungen mit Psychotherapeut:innen\n\nMitarbeit bei der Umsetzung fortschrittlicher innovativer Behandlungskonzepte\n\nWeiterentwicklung und Umsetzung des integrativen Therapiekonzeptes\n\nMEBEKO-Anerkennung ist eine zwingende Voraussetzung Mehrjährige medizinische und psychiatrische Erfahrung Erfahrung im Bereich der Traumafolgestörungen von Vorteil Teamfähige, offene, belastbare und kreative Persönlichkeit Gute organisatorische Fähigkeiten Wir erwarten eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patientinnen und Patienten.\n\nWir sind eine anerkannte Weiterbildungsstätte für den Schwerpunkttitel Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen Kat. A (2 Jahre, anrechenbar für den Facharzttitel Psychiatrie und Psychotherapie) Geregelte Arbeitszeiten sowie 42-Stunden-Woche bei 100%-Pensum Selbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitendenbenefits Gut ausgebautes Betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+      "descriptionByLocale": {
+        "it": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Assistenzärzt:in in Baden (w/m/d), 80 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Assistenzärztin oder einen Assistenzarzt. Deine\n• Aufgaben Psychiatrisch-psychotherapeutische Betreuung von Patient:innen, die sich in tagesklinischer und ambulanter, traumaspezifischer Behandlung befinden\n\nIndikationsstellung und periodische Prüfung von psychologischen Psychotherapien im Anordnungsmodell\n\nRegelmässige Fallbesprechungen mit Psychotherapeut:innen\n\nWeiterentwicklung und Umsetzung des integrativen Therapiekonzeptes\n\nMEBEKO-Anerkennung ist eine zwingende Voraussetzung Mehrjährige medizinische Erfahrung, psychiatrische Erfahrung von Vorteil Erfahrung im Bereich der Traumafolgestörungen von Vorteil Teamfähige, offene, belastbare und kreative Persönlichkeit Gute organisatorische Fähigkeiten Wir erwarten eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patientinnen und Patienten.\n\nWir sind eine anerkannte Weiterbildungsstätte für den Schwerpunkttitel Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen Kat. A (2 Jahre, anrechenbar für den Facharzttitel Psychiatrie und Psychotherapie) Geregelte Arbeitszeiten sowie 42-Stunden-Woche bei 100%-Pensum Selbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitendenbenefits Gut ausgebautes Betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "en": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Assistenzärzt:in in Baden (w/m/d), 80 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Assistenzärztin oder einen Assistenzarzt. Deine\n• Aufgaben Psychiatrisch-psychotherapeutische Betreuung von Patient:innen, die sich in tagesklinischer und ambulanter, traumaspezifischer Behandlung befinden\n\nIndikationsstellung und periodische Prüfung von psychologischen Psychotherapien im Anordnungsmodell\n\nRegelmässige Fallbesprechungen mit Psychotherapeut:innen\n\nWeiterentwicklung und Umsetzung des integrativen Therapiekonzeptes\n\nMEBEKO-Anerkennung ist eine zwingende Voraussetzung Mehrjährige medizinische Erfahrung, psychiatrische Erfahrung von Vorteil Erfahrung im Bereich der Traumafolgestörungen von Vorteil Teamfähige, offene, belastbare und kreative Persönlichkeit Gute organisatorische Fähigkeiten Wir erwarten eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patientinnen und Patienten.\n\nWir sind eine anerkannte Weiterbildungsstätte für den Schwerpunkttitel Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen Kat. A (2 Jahre, anrechenbar für den Facharzttitel Psychiatrie und Psychotherapie) Geregelte Arbeitszeiten sowie 42-Stunden-Woche bei 100%-Pensum Selbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitendenbenefits Gut ausgebautes Betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "de": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Assistenzärzt:in in Baden (w/m/d), 80 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Assistenzärztin oder einen Assistenzarzt. Deine\n• Aufgaben Psychiatrisch-psychotherapeutische Betreuung von Patient:innen, die sich in tagesklinischer und ambulanter, traumaspezifischer Behandlung befinden\n\nIndikationsstellung und periodische Prüfung von psychologischen Psychotherapien im Anordnungsmodell\n\nRegelmässige Fallbesprechungen mit Psychotherapeut:innen\n\nMitarbeit bei der Umsetzung fortschrittlicher innovativer Behandlungskonzepte\n\nWeiterentwicklung und Umsetzung des integrativen Therapiekonzeptes\n\nMEBEKO-Anerkennung ist eine zwingende Voraussetzung Mehrjährige medizinische und psychiatrische Erfahrung Erfahrung im Bereich der Traumafolgestörungen von Vorteil Teamfähige, offene, belastbare und kreative Persönlichkeit Gute organisatorische Fähigkeiten Wir erwarten eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patientinnen und Patienten.\n\nWir sind eine anerkannte Weiterbildungsstätte für den Schwerpunkttitel Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen Kat. A (2 Jahre, anrechenbar für den Facharzttitel Psychiatrie und Psychotherapie) Geregelte Arbeitszeiten sowie 42-Stunden-Woche bei 100%-Pensum Selbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitendenbenefits Gut ausgebautes Betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "fr": "Assistenzärzt:in in Baden (w/m/d), 80 - 100 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Assistenzärzt:in in Baden (w/m/d), 80 - 100 % An unserem Standort Baden bauen wir ein tagesklinisches, traumaspezifisches Behandlungsangebot auf. Für dieses suchen wir per 01.01.2027 oder nach Vereinbarung eine Assistenzärztin oder einen Assistenzarzt. Deine\n• Aufgaben Psychiatrisch-psychotherapeutische Betreuung von Patient:innen, die sich in tagesklinischer und ambulanter, traumaspezifischer Behandlung befinden\n\nIndikationsstellung und periodische Prüfung von psychologischen Psychotherapien im Anordnungsmodell\n\nRegelmässige Fallbesprechungen mit Psychotherapeut:innen\n\nWeiterentwicklung und Umsetzung des integrativen Therapiekonzeptes\n\nMEBEKO-Anerkennung ist eine zwingende Voraussetzung Mehrjährige medizinische Erfahrung, psychiatrische Erfahrung von Vorteil Erfahrung im Bereich der Traumafolgestörungen von Vorteil Teamfähige, offene, belastbare und kreative Persönlichkeit Gute organisatorische Fähigkeiten Wir erwarten eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patientinnen und Patienten.\n\nWir sind eine anerkannte Weiterbildungsstätte für den Schwerpunkttitel Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen Kat. A (2 Jahre, anrechenbar für den Facharzttitel Psychiatrie und Psychotherapie) Geregelte Arbeitszeiten sowie 42-Stunden-Woche bei 100%-Pensum Selbstständige und verantwortungsvolle Tätigkeiten Engagiertes und aufgestelltes Team Weiterbildungsmöglichkeiten und Mitarbeitendenbenefits Gut ausgebautes Betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen."
+      },
+      "needsRetranslation": true,
+      "location": "Gontenschwil",
+      "canton": "AG",
+      "url": "https://recruitingapp-2912.umantis.com/Vacancies/478/Description/1",
+      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:17:44.050Z",
+      "addressLocality": "Gontenschwil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5728",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/478/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-02T13:34:38.009Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-im-hasel-8e8093978046",
+      "slug": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
+      "slugByLocale": {
+        "it": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
+        "en": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
+        "de": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
+        "fr": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil"
+      },
+      "company": "Klinik im Hasel",
+      "companyKey": "klinik-im-hasel",
+      "companyDomain": "klinikimhasel.ch",
+      "title": "Praktikant:in Soziale Arbeit (w,m,d), 80 %",
+      "titleByLocale": {
+        "it": "Praktikant:in Soziale Arbeit (w,m,d), 80 %",
+        "en": "Praktikant:in Soziale Arbeit (w,m,d), 80 %",
+        "de": "Praktikant:in Soziale Arbeit (w,m,d), 80 %",
+        "fr": "Praktikant:in Soziale Arbeit (w,m,d), 80 %"
+      },
+      "description": "Praktikant:in Soziale Arbeit (w,m,d), 80 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Praktikant:in Soziale Arbeit (w,m,d), 80 % Per 1. Februar 2027 oder nach Vereinbarung suchen wir an unserem Standort in Gontenschwil eine motivierte Persönlichkeit für eine befristete Anstellung von 6–12 Monaten. Deine\n• Aufgaben Ziel- und Lösungsorientierte Beratung und Unterstützung von Patientinnen und Patienten\n\nAllgemeine sowie Patientenbezogene administrative Arbeiten\n\nMitarbeit bei der Dokumentation, Aktenführung, Organisation und Mitwirkung am Standortgesprächen, Helferkonferenzen mit internen und externen Stellen\n\nTeilnahme an Teamsitzungen und interdisziplinären Rapporten, Supervision und Intervision\n\nZweite Praktikumsstelle bei fortgeschrittenem Studium in Sozialer Arbeit Eine engagierte, neugierige und initiative Persönlichkeit Verantwortungsbewusst, belastbar, selbstständig und teamfähig Arbeitstage: Montag bis Donnerstag Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nInteressante und herausfordernde Tätigkeit mit viel Raum für eigenverantwortliches Arbeiten Sorgfältige Einarbeitung und Begleitung Mitarbeit in einem traumasensiblen Umfeld Durchgehende Anleitung und Supervision Interne Fortbildungsmöglichkeiten Engagiertes und unterstützendes Behandlungsteam Landschaftlich reizvolle Lage der Klinik Gut ausgebautes betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+      "descriptionByLocale": {
+        "it": "Praktikant:in Soziale Arbeit (w,m,d), 80 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Praktikant:in Soziale Arbeit (w,m,d), 80 % Per 1. Februar 2027 oder nach Vereinbarung suchen wir an unserem Standort in Gontenschwil eine motivierte Persönlichkeit für eine befristete Anstellung von 6–12 Monaten. Deine\n• Aufgaben Ziel- und Lösungsorientierte Beratung und Unterstützung von Patientinnen und Patienten\n\nAllgemeine sowie Patientenbezogene administrative Arbeiten\n\nMitarbeit bei der Dokumentation, Aktenführung, Organisation und Mitwirkung am Standortgesprächen, Helferkonferenzen mit internen und externen Stellen\n\nTeilnahme an Teamsitzungen und interdisziplinären Rapporten, Supervision und Intervision\n\nZweite Praktikumsstelle bei fortgeschrittenem Studium in Sozialer Arbeit Eine engagierte, neugierige und initiative Persönlichkeit Verantwortungsbewusst, belastbar, selbstständig und teamfähig Arbeitstage: Montag bis Donnerstag Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nInteressante und herausfordernde Tätigkeit mit viel Raum für eigenverantwortliches Arbeiten Sorgfältige Einarbeitung und Begleitung Mitarbeit in einem traumasensiblen Umfeld Durchgehende Anleitung und Supervision Interne Fortbildungsmöglichkeiten Engagiertes und unterstützendes Behandlungsteam Landschaftlich reizvolle Lage der Klinik Gut ausgebautes betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "en": "Praktikant:in Soziale Arbeit (w,m,d), 80 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Praktikant:in Soziale Arbeit (w,m,d), 80 % Per 1. Februar 2027 oder nach Vereinbarung suchen wir an unserem Standort in Gontenschwil eine motivierte Persönlichkeit für eine befristete Anstellung von 6–12 Monaten. Deine\n• Aufgaben Ziel- und Lösungsorientierte Beratung und Unterstützung von Patientinnen und Patienten\n\nAllgemeine sowie Patientenbezogene administrative Arbeiten\n\nMitarbeit bei der Dokumentation, Aktenführung, Organisation und Mitwirkung am Standortgesprächen, Helferkonferenzen mit internen und externen Stellen\n\nTeilnahme an Teamsitzungen und interdisziplinären Rapporten, Supervision und Intervision\n\nZweite Praktikumsstelle bei fortgeschrittenem Studium in Sozialer Arbeit Eine engagierte, neugierige und initiative Persönlichkeit Verantwortungsbewusst, belastbar, selbstständig und teamfähig Arbeitstage: Montag bis Donnerstag Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nInteressante und herausfordernde Tätigkeit mit viel Raum für eigenverantwortliches Arbeiten Sorgfältige Einarbeitung und Begleitung Mitarbeit in einem traumasensiblen Umfeld Durchgehende Anleitung und Supervision Interne Fortbildungsmöglichkeiten Engagiertes und unterstützendes Behandlungsteam Landschaftlich reizvolle Lage der Klinik Gut ausgebautes betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "de": "Praktikant:in Soziale Arbeit (w,m,d), 80 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Praktikant:in Soziale Arbeit (w,m,d), 80 % Per 1. Februar 2027 oder nach Vereinbarung suchen wir an unserem Standort in Gontenschwil eine motivierte Persönlichkeit für eine befristete Anstellung von 6–12 Monaten. Deine\n• Aufgaben Ziel- und Lösungsorientierte Beratung und Unterstützung von Patientinnen und Patienten\n\nAllgemeine sowie Patientenbezogene administrative Arbeiten\n\nMitarbeit bei der Dokumentation, Aktenführung, Organisation und Mitwirkung am Standortgesprächen, Helferkonferenzen mit internen und externen Stellen\n\nTeilnahme an Teamsitzungen und interdisziplinären Rapporten, Supervision und Intervision\n\nZweite Praktikumsstelle bei fortgeschrittenem Studium in Sozialer Arbeit Eine engagierte, neugierige und initiative Persönlichkeit Verantwortungsbewusst, belastbar, selbstständig und teamfähig Arbeitstage: Montag bis Donnerstag Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nInteressante und herausfordernde Tätigkeit mit viel Raum für eigenverantwortliches Arbeiten Sorgfältige Einarbeitung und Begleitung Mitarbeit in einem traumasensiblen Umfeld Durchgehende Anleitung und Supervision Interne Fortbildungsmöglichkeiten Engagiertes und unterstützendes Behandlungsteam Landschaftlich reizvolle Lage der Klinik Gut ausgebautes betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen.",
+        "fr": "Praktikant:in Soziale Arbeit (w,m,d), 80 % - Klinik Im Hasel AG Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen. Mit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit. Praktikant:in Soziale Arbeit (w,m,d), 80 % Per 1. Februar 2027 oder nach Vereinbarung suchen wir an unserem Standort in Gontenschwil eine motivierte Persönlichkeit für eine befristete Anstellung von 6–12 Monaten. Deine\n• Aufgaben Ziel- und Lösungsorientierte Beratung und Unterstützung von Patientinnen und Patienten\n\nAllgemeine sowie Patientenbezogene administrative Arbeiten\n\nMitarbeit bei der Dokumentation, Aktenführung, Organisation und Mitwirkung am Standortgesprächen, Helferkonferenzen mit internen und externen Stellen\n\nTeilnahme an Teamsitzungen und interdisziplinären Rapporten, Supervision und Intervision\n\nZweite Praktikumsstelle bei fortgeschrittenem Studium in Sozialer Arbeit Eine engagierte, neugierige und initiative Persönlichkeit Verantwortungsbewusst, belastbar, selbstständig und teamfähig Arbeitstage: Montag bis Donnerstag Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen.\n\nInteressante und herausfordernde Tätigkeit mit viel Raum für eigenverantwortliches Arbeiten Sorgfältige Einarbeitung und Begleitung Mitarbeit in einem traumasensiblen Umfeld Durchgehende Anleitung und Supervision Interne Fortbildungsmöglichkeiten Engagiertes und unterstützendes Behandlungsteam Landschaftlich reizvolle Lage der Klinik Gut ausgebautes betriebliches Gesundheitsmanagement\n\nWeitere Infos zu den Vorteilen der Klinik Im Hasel AG als Arbeitgeberin findest du hier . Haben wir dein Interesse geweckt? Wir freuen uns auf deine Bewerbung. Bei Fragen steht dir unser HR-Team gerne telefonisch zur Verfügung unter Tel. 062 738 60 28. Diese Vakanz möchten wir ohne Unterstützung von Personaldienstleistenden besetzen."
+      },
+      "needsRetranslation": true,
+      "location": "Gontenschwil",
+      "canton": "AG",
+      "url": "https://recruitingapp-2912.umantis.com/Vacancies/479/Description/1",
+      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:17:43.316Z",
+      "addressLocality": "Gontenschwil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5728",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/479/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-03T13:32:49.395Z",
+      "salaryMin": 35600,
+      "salaryMax": 66000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 35600,
+          "maxValue": 66000,
           "unitText": "YEAR"
         }
       }

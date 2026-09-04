@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-08-28T05:42:08.544Z",
+  "assembledAt": "2026-09-03T23:19:59.336Z",
   "jobs": [
     {
       "id": "klinik-gut-4367-59b216f06dc4",
@@ -34,7 +34,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.608Z",
+      "crawledAt": "2026-09-03T23:19:56.731Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -68,6 +68,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -111,7 +112,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.606Z",
+      "crawledAt": "2026-09-03T23:19:56.729Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -147,6 +148,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -189,7 +191,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3890",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.604Z",
+      "crawledAt": "2026-09-03T23:19:56.726Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -223,6 +225,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -265,7 +268,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3888",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.602Z",
+      "crawledAt": "2026-09-03T23:19:56.724Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -299,146 +302,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-gut-3117-dd3c1056af2f",
-      "slug": "esperto-a-anestesia-nds-hf-60-100-saisonsi-invernale-2026-27-klinik-gut-ag-flasch",
-      "slugByLocale": {
-        "it": "esperto-a-anestesia-nds-hf-60-100-saisonsi-invernale-2026-27-klinik-gut-ag-flasch",
-        "en": "anesthesia-specialist-nds-hf-60-100-winter-season-2026-27-klinik-gut-ag-flasch",
-        "de": "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch",
-        "fr": "expert-e-en-anesthesie-nds-hf-60-100-saison-hivernale-2026-27-klinik-gut-ag-flasch"
-      },
-      "company": "Klinik Gut AG",
-      "companyKey": "klinik-gut",
-      "companyDomain": "klinik-gut.ch",
-      "title": "Dipl. Experte/in Anästhesiepflege NDS HF 60 - 100 % Wintersaisons 2026/27",
-      "titleByLocale": {
-        "it": "Dipl. Esperto nella cura dell'anestesia NDS HF 60 - 100% stagioni invernali 2026/27",
-        "en": "Dipl. Expert in anesthesia care NDS HF 60 - 100% winter seasons 2026/27",
-        "de": "Dipl. Experte/in Anästhesiepflege NDS HF 60 - 100 % Wintersaisons 2026/27",
-        "fr": "Dipl. Expert en soins anesthésiques NDS HF 60 - 100% saison hivernale 2026/27"
-      },
-      "description": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Zürich uns Ascona.\n Zur Ergänzung unseres Teams am Klinikstandort in Fläsch, suchen wir für die Wintersaison 2026/27 - von September 2026 bis April oder Mai 2027 eine/n\n Dipl. Experte/in Anästhesiepflege NDS HF 60-100%\n Deine Aufgaben:\n\n• Durchführung von Allgemeinanästhesien und Unterstützung bei Regionalanästhesien\n\n• Betreuung und Überwachung der Patient/innen vor, während und nach operativen Eingriffen\n\n• Technische Handhabung und Bereitstellung von Anästhesiegeräten\n\n• Zusammenarbeit mit dem ärztlichen Team und anderen Fachbereichen zur Optimierung der Anästhesieprozesse\n Dein Profil:\n\n• Abgeschlossene Ausbildung als Dipl. Experte/in Anästhesiepflege NDS HF\n\n• Mehrjährige Berufserfahrung in der Anästhesiepflege oder eine hohe Lernbereitschaft für Berufseinsteiger\n\n• Hohe Sozialkompetenz und Empathie im Umgang mit Patientinnen und Patienten\n\n• Selbstständige, engagierte und zuverlässige Arbeitsweise mit hohem Dienstleistungs- und Qualitätsbewusstsein\n\n• Technisches Flair sowie gute organisatorische Fähigkeiten\n Wir bieten dir:\n\n• Einen attraktiven, modernen, vielseitigen Arbeitsplatz\n\n• Familiäre Atmosphäre in einem kleinen Umfeld, gegenseitige Wertschätzung\n\n• Arbeiten in einem kleinen, motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\n Für weitere Auskünfte steht dir Frau Claudia Segmüller Gschwend, Co-Leitung Anästhesiepflege, gerne unter  c.segmueller@klinik-gut.ch / +41 81 595 56 11 zur Verfügung\n Sende deine vollständigen Bewerbungsunterlagen bitte direkt per E-Mail an:  c.segmueller@klinik-gut.ch\n Wir freuen uns auf dich!\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
-      "descriptionByLocale": {
-        "it": "Klinik Gut è una clinica privata stabilita per ortopedia e chirurgia incidente. Ci occupiamo anche dei nostri clienti nazionali e internazionali presso le sedi cliniche di St. Moritz e Fläsch nelle sedi di pratica a Chur, Buchs, Zurigo e Ascona. Per completare il nostro team nel sito clinico di Fläsch, ne cerchiamo uno per la stagione invernale 2026/27 - dal settembre 2026 ad aprile o maggio 2027 Dipl. Esperto nella cura dell'anestesia NDS HF 60-100 % I vostri compiti:\n• Attuazione dell'anestesia generale e sostegno all'anestesia regionale\n• Cura e monitoraggio dei pazienti prima, durante e dopo l'intervento chirurgico\n• Gestione tecnica e fornitura di attrezzature anestesia\n• Collaborazione con il team medico e altre aree specializzate per ottimizzare i processi di anestesia Il tuo profilo:\n• Allenamento completato come Dipl. Esperto nella cura dell'anestesia NDS HF\n• Diversi anni di esperienza professionale nella cura dell'anestesia o un'elevata disponibilità ad imparare per i nuovi partecipanti\n• Alta capacità sociale ed empatia nel trattare con i pazienti\n• Metodo di lavoro indipendente, impegnato e affidabile con un alto livello di servizio e consapevolezza della qualità\n• Diffusione tecnica e buone capacità organizzative Vi offriamo:\n• Un posto di lavoro attraente, moderno e versatile\n• Atmosfera familiare in un piccolo ambiente, reciproco apprezzamento\n• Lavorare in un piccolo e motivato team caratterizzato da dedizione e impegno Per ulteriori informazioni si prega di contattare Claudia Segmüller Gschwend, Co-Head of Anesthesia Care, a c.segmueller@klinik-gut.ch / +41 81 595 56 11 Si prega di inviare i documenti di applicazione completi direttamente via email a: c.segmueller@klinik-gut.ch Non vediamo l'ora di vederti! PS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
-        "en": "Klinik Gut is an established private clinic for orthopaedics and accident surgery. We also look after our national and international customers at the clinic locations in St. Moritz and Fläsch in the practice locations in Chur, Buchs, Zurich and Ascona. To complement our team at the clinic site in Fläsch, we are looking for one for the winter season 2026/27 - from September 2026 to April or May 2027 Dipl. Expert in anesthesia care NDS HF 60-100 % Your tasks:\n• Implementation of general anaesthesia and support for regional anaesthesia\n• Care and monitoring of patients before, during and after surgery\n• Technical handling and provision of anesthesia equipment\n• Collaboration with the medical team and other specialist areas to optimize anesthesia processes Your profile:\n• Completed training as a Dipl. Expert in anesthesia care NDS HF\n• Several years of professional experience in anesthesia care or a high willingness to learn for new entrants\n• High social skills and empathy in dealing with patients\n• Independent, committed and reliable working method with a high level of service and quality awareness\n• Technical flair and good organizational skills We offer you:\n• An attractive, modern, versatile workplace\n• Family atmosphere in a small environment, mutual appreciation\n• Working in a small, motivated team characterised by dedication and commitment For further information please contact Claudia Segmüller Gschwend, Co-Head of Anesthesia Care, at c.segmueller@klinik-gut.ch / +41 81 595 56 11 Please send your complete application documents directly by email to: c.segmueller@klinik-gut.ch We look forward to seeing you! PS: We are curious: How did you come across our place? Let us know in your motivation letter.",
-        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Zürich uns Ascona.\nZur Ergänzung unseres Teams am Klinikstandort in Fläsch, suchen wir für die Wintersaison 2026/27 - von September 2026 bis April oder Mai 2027 eine/n\nDipl. Experte/in Anästhesiepflege NDS HF 60-100%\nDeine Aufgaben:\n\n• Durchführung von Allgemeinanästhesien und Unterstützung bei Regionalanästhesien\n\n• Betreuung und Überwachung der Patient/innen vor, während und nach operativen Eingriffen\n\n• Technische Handhabung und Bereitstellung von Anästhesiegeräten\n\n• Zusammenarbeit mit dem ärztlichen Team und anderen Fachbereichen zur Optimierung der Anästhesieprozesse\nDein Profil:\n\n• Abgeschlossene Ausbildung als Dipl. Experte/in Anästhesiepflege NDS HF\n\n• Mehrjährige Berufserfahrung in der Anästhesiepflege oder eine hohe Lernbereitschaft für Berufseinsteiger\n\n• Hohe Sozialkompetenz und Empathie im Umgang mit Patientinnen und Patienten\n\n• Selbstständige, engagierte und zuverlässige Arbeitsweise mit hohem Dienstleistungs- und Qualitätsbewusstsein\n\n• Technisches Flair sowie gute organisatorische Fähigkeiten\nWir bieten dir:\n\n• Einen attraktiven, modernen, vielseitigen Arbeitsplatz\n\n• Familiäre Atmosphäre in einem kleinen Umfeld, gegenseitige Wertschätzung\n\n• Arbeiten in einem kleinen, motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\nFür weitere Auskünfte steht dir Frau Claudia Segmüller Gschwend, Co-Leitung Anästhesiepflege, gerne unter c.segmueller@klinik-gut.ch / +41 81 595 56 11 zur Verfügung\nSende deine vollständigen Bewerbungsunterlagen bitte direkt per E-Mail an: c.segmueller@klinik-gut.ch\nWir freuen uns auf dich!\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
-        "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous nous occupons également de nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch dans les centres d'entraînement de Chur, Buchs, Zurich et Ascona. Pour compléter notre équipe sur le site de la clinique à Fläsch, nous en recherchons un pour la saison d'hiver 2026/27 - de septembre 2026 à avril ou mai 2027 Dipl. Expert en soins anesthésiques NDS HF 60-100 % Vos tâches :\n• Mise en œuvre de l'anesthésie générale et soutien à l'anesthésie régionale\n• Soins et suivi des patients avant, pendant et après l'intervention\n• Manipulation technique et fourniture de matériel d'anesthésie\n• Collaboration avec l'équipe médicale et d'autres domaines spécialisés pour optimiser les processus d'anesthésie Votre profil:\n• La formation terminée en tant que dipl. Expert en soins anesthésiques NDS HF\n• Plusieurs années d'expérience professionnelle dans les soins d'anesthésie ou une forte volonté d'apprendre pour les nouveaux venus\n• Compétences sociales élevées et empathie face aux patients\n• Méthode de travail indépendante, engagée et fiable avec un niveau de service élevé et une sensibilisation à la qualité\n• Caractéristiques techniques et bonnes compétences organisationnelles Nous vous offrons:\n• Un lieu de travail attrayant, moderne et polyvalent\n• Ambiance familiale dans un petit environnement, appréciation mutuelle\n• Travailler dans une petite équipe motivée caractérisée par le dévouement et l'engagement Pour de plus amples informations, veuillez contacter Claudia Segmüller Gschwend, Co-Chef des soins anesthésiques, à c.segmueller@klinik-gut.ch / +41 81 595 56 11 Veuillez envoyer vos documents de candidature complets directement par courriel à : c.segmueller@klinik-gut.ch Nous avons hâte de vous voir ! PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
-      },
-      "location": "Fläsch",
-      "canton": "GR",
-      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3117",
-      "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.601Z",
-      "addressLocality": "Fläsch",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7306",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3117",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T22:54:47.986Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-gut-1764-30693b2d9c0b",
-      "slug": "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch",
-      "slugByLocale": {
-        "it": "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch",
-        "en": "diploma-anesthesia-specialist-nds-hf-50-100-klinik-gut-ag-flasch",
-        "de": "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch",
-        "fr": "specialiste-diplome-e-en-anesthesie-nds-hf-50-100-klinik-gut-ag-flasch"
-      },
-      "company": "Klinik Gut AG",
-      "companyKey": "klinik-gut",
-      "companyDomain": "klinik-gut.ch",
-      "title": "Dipl. Experte/in Anästhesiepflege NDS HF 50-100%",
-      "titleByLocale": {
-        "it": "Dipl. Esperto nella cura di anestesia NDS HF 50-100 %",
-        "en": "Dipl. Expert in anesthesia care NDS HF 50-100 %",
-        "de": "Dipl. Experte/in Anästhesiepflege NDS HF 50-100%",
-        "fr": "Dipl. Expert en soins anesthésiques NDS HF 50-100 %"
-      },
-      "description": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Zürich uns Ascona.\n Zur Ergänzung unseres Teams am Klinikstandort in Fläsch, suchen wir per sofort oder nach Vereinbarung eine/n\n Dipl. Experte/in Anästhesiepflege NDS HF 50-100%\n Deine Aufgaben:\n\n• Durchführung von Allgemeinanästhesien und Unterstützung bei Regionalanästhesien\n\n• Betreuung und Überwachung der Patient/innen vor, während und nach operativen Eingriffen\n\n• Technische Handhabung und Bereitstellung von Anästhesiegeräten\n\n• Zusammenarbeit mit dem ärztlichen Team und anderen Fachbereichen zur Optimierung der Anästhesieprozesse\n Dein Profil:\n\n• Abgeschlossene Ausbildung als Dipl. Experte/in Anästhesiepflege NDS HF\n\n• Mehrjährige Berufserfahrung in der Anästhesiepflege oder eine hohe Lernbereitschaft für Berufseinsteiger\n\n• Hohe Sozialkompetenz und Empathie im Umgang mit Patientinnen und Patienten\n\n• Selbstständige, engagierte und zuverlässige Arbeitsweise mit hohem Dienstleistungs- und Qualitätsbewusstsein\n\n• Technisches Flair sowie gute organisatorische Fähigkeiten\n Wir bieten dir:\n\n• Einen attraktiven, modernen, vielseitigen Arbeitsplatz\n\n• Familiäre Atmosphäre in einem kleinen Umfeld, gegenseitige Wertschätzung\n\n• Arbeiten in einem kleinen, motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\n Für weitere Auskünfte steht dir Frau Claudia Segmüller Gschwend, Co-Leitung Anästhesiepflege, gerne unter  c.segmueller@klinik-gut.ch / +41 81 595 56 11 zur Verfügung\n Sende deine vollständigen Bewerbungsunterlagen bitte direkt per E-Mail an:  c.segmueller@klinik-gut.ch\n Wir freuen uns auf dich!\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
-      "descriptionByLocale": {
-        "it": "Klinik Gut è una clinica privata stabilita per ortopedia e chirurgia incidente. Ci occupiamo anche dei nostri clienti nazionali e internazionali presso le sedi cliniche di St. Moritz e Fläsch nelle sedi di pratica a Chur, Buchs, Zurigo e Ascona. Per completare il nostro team nella clinica di Fläsch, stiamo cercando un Dipl. Esperto nella cura di anestesia NDS HF 50-100 % I vostri compiti:\n• Attuazione dell'anestesia generale e sostegno all'anestesia regionale\n• Cura e monitoraggio dei pazienti prima, durante e dopo l'intervento chirurgico\n• Gestione tecnica e fornitura di attrezzature anestesia\n• Collaborazione con il team medico e altre aree specializzate per ottimizzare i processi di anestesia Il tuo profilo:\n• Allenamento completato come Dipl. Esperto nella cura dell'anestesia NDS HF\n• Diversi anni di esperienza professionale nella cura dell'anestesia o un'elevata disponibilità ad imparare per i nuovi partecipanti\n• Alta capacità sociale ed empatia nel trattare con i pazienti\n• Metodo di lavoro indipendente, impegnato e affidabile con un alto livello di servizio e consapevolezza della qualità\n• Diffusione tecnica e buone capacità organizzative Vi offriamo:\n• Un posto di lavoro attraente, moderno e versatile\n• Atmosfera familiare in un piccolo ambiente, reciproco apprezzamento\n• Lavorare in un piccolo e motivato team caratterizzato da dedizione e impegno Per ulteriori informazioni si prega di contattare Claudia Segmüller Gschwend, Co-Head of Anesthesia Care, a c.segmueller@klinik-gut.ch / +41 81 595 56 11 Si prega di inviare i documenti di applicazione completi direttamente via email a: c.segmueller@klinik-gut.ch Non vediamo l'ora di vederti! PS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
-        "en": "Klinik Gut is an established private clinic for orthopaedics and accident surgery. We also look after our national and international customers at the clinic locations in St. Moritz and Fläsch in the practice locations in Chur, Buchs, Zurich and Ascona. To complement our team at the clinic location in Fläsch, we are looking for an Dipl. Expert in anesthesia care NDS HF 50-100 % Your tasks:\n• Implementation of general anaesthesia and support for regional anaesthesia\n• Care and monitoring of patients before, during and after surgery\n• Technical handling and provision of anesthesia equipment\n• Collaboration with the medical team and other specialist areas to optimize anesthesia processes Your profile:\n• Completed training as a Dipl. Expert in anesthesia care NDS HF\n• Several years of professional experience in anesthesia care or a high willingness to learn for new entrants\n• High social skills and empathy in dealing with patients\n• Independent, committed and reliable working method with a high level of service and quality awareness\n• Technical flair and good organizational skills We offer you:\n• An attractive, modern, versatile workplace\n• Family atmosphere in a small environment, mutual appreciation\n• Working in a small, motivated team characterised by dedication and commitment For further information please contact Claudia Segmüller Gschwend, Co-Head of Anesthesia Care, at c.segmueller@klinik-gut.ch / +41 81 595 56 11 Please send your complete application documents directly by email to: c.segmueller@klinik-gut.ch We look forward to seeing you! PS: We are curious: How did you come across our place? Let us know in your motivation letter.",
-        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Zürich uns Ascona.\nZur Ergänzung unseres Teams am Klinikstandort in Fläsch, suchen wir per sofort oder nach Vereinbarung eine/n\nDipl. Experte/in Anästhesiepflege NDS HF 50-100%\nDeine Aufgaben:\n\n• Durchführung von Allgemeinanästhesien und Unterstützung bei Regionalanästhesien\n\n• Betreuung und Überwachung der Patient/innen vor, während und nach operativen Eingriffen\n\n• Technische Handhabung und Bereitstellung von Anästhesiegeräten\n\n• Zusammenarbeit mit dem ärztlichen Team und anderen Fachbereichen zur Optimierung der Anästhesieprozesse\nDein Profil:\n\n• Abgeschlossene Ausbildung als Dipl. Experte/in Anästhesiepflege NDS HF\n\n• Mehrjährige Berufserfahrung in der Anästhesiepflege oder eine hohe Lernbereitschaft für Berufseinsteiger\n\n• Hohe Sozialkompetenz und Empathie im Umgang mit Patientinnen und Patienten\n\n• Selbstständige, engagierte und zuverlässige Arbeitsweise mit hohem Dienstleistungs- und Qualitätsbewusstsein\n\n• Technisches Flair sowie gute organisatorische Fähigkeiten\nWir bieten dir:\n\n• Einen attraktiven, modernen, vielseitigen Arbeitsplatz\n\n• Familiäre Atmosphäre in einem kleinen Umfeld, gegenseitige Wertschätzung\n\n• Arbeiten in einem kleinen, motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\nFür weitere Auskünfte steht dir Frau Claudia Segmüller Gschwend, Co-Leitung Anästhesiepflege, gerne unter c.segmueller@klinik-gut.ch / +41 81 595 56 11 zur Verfügung\nSende deine vollständigen Bewerbungsunterlagen bitte direkt per E-Mail an: c.segmueller@klinik-gut.ch\nWir freuen uns auf dich!\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
-        "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous nous occupons également de nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch dans les centres d'entraînement de Chur, Buchs, Zurich et Ascona. Pour compléter notre équipe à la clinique de Fläsch, nous cherchons Dipl. Expert en soins anesthésiques NDS HF 50-100 % Vos tâches :\n• Mise en œuvre de l'anesthésie générale et soutien à l'anesthésie régionale\n• Soins et suivi des patients avant, pendant et après l'intervention\n• Manipulation technique et fourniture de matériel d'anesthésie\n• Collaboration avec l'équipe médicale et d'autres domaines spécialisés pour optimiser les processus d'anesthésie Votre profil:\n• La formation terminée en tant que dipl. Expert en soins anesthésiques NDS HF\n• Plusieurs années d'expérience professionnelle dans les soins d'anesthésie ou une forte volonté d'apprendre pour les nouveaux venus\n• Compétences sociales élevées et empathie face aux patients\n• Méthode de travail indépendante, engagée et fiable avec un niveau de service élevé et une sensibilisation à la qualité\n• Caractéristiques techniques et bonnes compétences organisationnelles Nous vous offrons:\n• Un lieu de travail attrayant, moderne et polyvalent\n• Ambiance familiale dans un petit environnement, appréciation mutuelle\n• Travailler dans une petite équipe motivée caractérisée par le dévouement et l'engagement Pour de plus amples informations, veuillez contacter Claudia Segmüller Gschwend, Co-Chef des soins anesthésiques, à c.segmueller@klinik-gut.ch / +41 81 595 56 11 Veuillez envoyer vos documents de candidature complets directement par courriel à : c.segmueller@klinik-gut.ch Nous avons hâte de vous voir ! PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
-      },
-      "location": "Fläsch",
-      "canton": "GR",
-      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1764",
-      "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.599Z",
-      "addressLocality": "Fläsch",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7306",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1764",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T22:54:47.985Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -481,7 +345,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.597Z",
+      "crawledAt": "2026-09-03T23:19:56.722Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -511,6 +375,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.983Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -523,37 +388,37 @@
       }
     },
     {
-      "id": "klinik-gut-3886-2e8e8c547b5d",
-      "slug": "specialista-tecnico-chirurgico-hf-80-klinik-gut-ag-st-moritz",
+      "id": "klinik-gut-4447-3a3d9a8bf4b5",
+      "slug": "ricevimento-dei-dipendenti-80-posizione-stagionale-novembre-2026-a-marzo-aprile-2027-klinik-gut-ag-st-moritz",
       "slugByLocale": {
-        "it": "specialista-tecnico-chirurgico-hf-80-klinik-gut-ag-st-moritz",
-        "en": "technical-surgical-specialist-hf-80-klinik-gut-ag-st-moritz",
-        "de": "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz",
-        "fr": "specialiste-technique-en-chirurgie-hf-80-klinik-gut-ag-st-moritz"
+        "it": "ricevimento-dei-dipendenti-80-posizione-stagionale-novembre-2026-a-marzo-aprile-2027-klinik-gut-ag-st-moritz",
+        "en": "employee-reception-80-seasonal-position-november-2026-to-march-april-2027-klinik-gut-ag-st-moritz",
+        "de": "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
+        "fr": "reception-des-employes-80-poste-saisonnier-novembre-2026-a-mars-avril-2027-klinik-gut-ag-st-moritz"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
       "companyDomain": "klinik-gut.ch",
-      "title": "Dipl. technische Operations-Fachfrau / -mann HF (80%)",
+      "title": "Mitarbeiter/in Empfang 80% (Saisonstelle, November 2026 bis März/April 2027)",
       "titleByLocale": {
-        "it": "Specialista tecnico chirurgico HF (80%)",
-        "en": "Technical surgical specialist HF (80%)",
-        "de": "Dipl. technische Operations-Fachfrau / -mann HF (80%)",
-        "fr": "Spécialiste technique en chirurgie HF (80 %)"
+        "it": "Ricevimento dei dipendenti 80% (posizione stagionale, novembre 2026 a marzo/aprile 2027)",
+        "en": "Employee reception 80% (seasonal position, November 2026 to March/April 2027)",
+        "de": "Mitarbeiter/in Empfang 80% (Saisonstelle, November 2026 bis März/April 2027)",
+        "fr": "Réception des employés 80% (poste saisonnier, novembre 2026 à mars/avril 2027)"
       },
-      "description": "Gemeinsam für höchste Qualität im OP. Wir erweitern unser Team.\n Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n Zur Ergänzung unseres OP - Teams am Klinikstandort St. Moritz suchen wir für die Wintersaison 2026 / 27 (01. Dezember 2026 bis 30. April 2027) eine motivierte Persönlichkeit als:\n Dipl. technische Operations-Fachfrau / -mann HF (80%)\n Dein Wirkungsfeld bei uns\n\n• Zudienen und Instrumentieren bei Operationen\n\n• Fachgerechte Vorbereitung und Bedienung der notwendigen Geräte, Instrumentarien und Sterilgüter\n\n• Vor- und Nachbereitung operativer Eingriffe\n\n• Mithilfe bei der Sicherstellung eines reibungslosen Tagesablaufs im Operationssaal\n\n• Dokumentierung aller pflegerischen Tätigkeiten inklusive Leistungserfassung\n\nDamit überzeugst du uns\n\n• Dein Fundament: Du bist Dipl. Fachperson Operationstechnik HF, oder gleichwertige Ausbildung\n\n• Deine Mentalität: Hohe Einsatzfreude sowie Bereitschaft, Wochenend- und Pikettdienst zu leisten\n\n• Deine Stärke: Du bist teamorientiert, flexibel und belastbar. Wenn es mal hektisch wird, behältst du die Übersicht und gehst für das Team auch mal die Extrameile\n\nDas wartet auf dich\n\n• Spannender Alltag: Ein abwechslungsreiches Aufgabengebiet, in dem du selbstständig in deinem Kompetenzbereich arbeiten kannst\n\n• Echter Teamgeist: Ein familiäres, einsatzfreudiges Team, das dich mit offenen Armen empfängt und sich gegenseitig unterstützt\n\n• Wertschätzung, die ankommt: Dich erwartet ein attraktives Gesamtpaket mit zeitgemässen Anstellungsbedingungen und ein Umfeld, in dem wir uns gegenseitig unterstützen\n\n• Die perfekte Kulisse: Das Oberengadin bietet dir direkt vor der Haustür eine Traumlandschaft mit unzähligen Freizeit- und Sportaktivitäten\n\nLust auf eine neue Herausforderung?\n Für Fragen steht dir Bettina Gubser (Gesamtleitung Pflege Nord- und Südbünden) unter\n +41 81 839 82 03 gerne zur Verfügung.\n Deine vollständige Bewerbung schickst du einfach per E-Mail an: b.gubser@klinik-gut.ch\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+      "description": "Werde Teil unseres Winterteams – mitten im wunderschönen Engadin!\n Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Ascona und Zürich.\n Für die Wintersaison 2026/27 suchen wir dich als\n Mitarbeiter/in Empfang 80% (Saisonstelle, November 2026 bis Ende März 2027)\n Du bist unser herzliches Willkommen am Empfang und sorgst gemeinsam mit unserem Team für einen reibungslosen Ablauf im Klinikalltag.\n Deine Hauptaufgaben sind\n\n• Patientenaufnahme und Organisation der Sprechstunden sämtlicher Ärzte und Notfälle\n\n• Auskunftserteilung am Empfang und am Telefon\n\n• Mündlicher und schriftlicher Kontakt mit Patienten, Versicherungen und Arbeitgebern sowie allgemeine Administrationsaufgaben\n Du bringst mit\n\n• Erfahrung im Gesundheitswesen (z. B. MPA), in der Hotellerie oder mit kaufmännischem Hintergrund\n\n• Zuverlässige, empathische und flexible Persönlichkeit, die auch in einem lebhaften Umfeld die Übersicht nicht verliert\n\n• Freude am direkten Patientenkontakt\n\n• Sehr gute Planungs- und Organisationsfähigkeit mit strukturierter Arbeitsweise\n\n• Gute Sprachkenntnisse (D, I, E) und erweiterte PC-Kenntnisse\n Darauf kannst du dich freuen\n\n• Eine abwechslungsreiche Aufgabe in einem engagierten, herzlichen Team\n\n• Zeitgemässe Anstellungsbedingungen\n\n• Möglichkeit, Prozesse mitzugestalten und Verantwortung zu übernehmen\n\n• Und das Beste: Arbeiten, wo andere Skifahren gehen – mitten im Oberengadin mit all seinen Freizeitmöglichkeiten und Naturwundern\n Fragen?\n Unser HR-Team ist gerne für dich da: +41 81 836 34 70\n 📧 Bereit für dein Winterabenteuer?\n Dann sende uns deine vollständigen Bewerbungsunterlagen an: hr@klinik-gut.ch",
       "descriptionByLocale": {
-        "it": "Insieme per la massima qualità nella sala operatoria. Stiamo espandendo la nostra squadra. Klinik Gut è una clinica privata stabilita per l'ortopedia e la chirurgia degli incidenti. Serviamo i nostri clienti nazionali e internazionali nelle sedi cliniche di St. Moritz e Fläsch, nonché nelle sedi di pratica a Chur, Buchs, Zurigo e Ascona. Per completare il nostro team chirurgico presso la clinica di St. Moritz, stiamo cercando la stagione invernale 2026 / 27 (dal 1 dicembre 2026 al 30 dicembre). Aprile 2027) una personalità motivata come: Specialista tecnico chirurgico HF (80%) Il tuo campo di attività con noi\n• Utilizzo e strumentazione nelle operazioni\n• Preparazione professionale e funzionamento delle attrezzature necessarie, strumenti e merci sterili\n• Preparazione e controllo degli interventi operativi\n• Assistenza per garantire una routine quotidiana regolare nella sala operatoria\n• Documentazione di tutte le attività di allattamento, compresa la registrazione delle prestazioni Questo ci convincerà\n• La vostra fondazione: Tu sei Dipl. Tecnica chirurgica specialistica HF, o formazione equivalente\n• La vostra mentalità: Alta dedizione e disponibilità a fornire il fine settimana e servizi di piketting\n• La vostra forza: siete orientati al team, flessibili e resilienti. Se diventa frenetico, si mantiene la panoramica e andare per la squadra anche il miglio in più Ti sta aspettando.\n• Eccitante vita di tutti i giorni: una variegata area di responsabilità in cui è possibile lavorare indipendentemente nella vostra area di competenza\n• Genuine spirito di squadra: un team dedicato e familiare che vi accoglie a braccia aperte e vi sostiene a vicenda\n• Apprezzamento che arriva: Ci si può aspettare un pacchetto complessivo attraente con condizioni di lavoro contemporaneo e un ambiente in cui ci sosteniamo a vicenda\n• Lo sfondo perfetto: L'Oberengadin vi offre un paesaggio da sogno con innumerevoli attività ricreative e sportive a portata di mano Alla ricerca di una nuova sfida? Per domande, Bettina Gubser (overall management of North and South Alliances) è sotto la vostra cura. +41 81 839 82 03 è disponibile. Invia la tua domanda completa via email a: b.gubser@klinik-gut.ch PS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
-        "en": "Together for the highest quality in the OR. We are expanding our team. Klinik Gut is an established private clinic for orthopaedics and accident surgery. We serve our national and international customers at the clinic locations in St. Moritz and Fläsch, as well as in the practice locations in Chur, Buchs, Zurich and Ascona. To complement our surgical team at the clinic location in St. Moritz, we are looking for the winter season 2026 / 27 (December 1, 2026 to 30). April 2027) a motivated personality as: Technical surgical specialist HF (80%) Your field of activity with us\n• Use and instrumentation in operations\n• Professional preparation and operation of the necessary equipment, instruments and sterile goods\n• Preparation and follow-up of operational interventions\n• Assistance in ensuring a smooth daily routine in the operating room\n• Documentation of all nursing activities including performance recording This will convince us\n• Your foundation: You are Dipl. Specialist surgical technique HF, or equivalent training\n• Your mentality: High dedication and willingness to provide weekend and piketting services\n• Your strength: You are team-oriented, flexible and resilient. If it gets hectic, you keep the overview and go for the team also the extra mile This is waiting for you\n• Exciting everyday life: A varied area of responsibility in which you can work independently in your competence area\n• Genuine team spirit: A family-friendly, dedicated team that welcomes you with open arms and supports each other\n• Appreciation that arrives: You can expect an attractive overall package with contemporary employment conditions and an environment in which we support each other\n• The perfect backdrop: The Oberengadin offers you a dream landscape with countless leisure and sports activities right on your doorstep Looking for a new challenge? For questions, Bettina Gubser (overall management of North and South Alliances) is under your care. +41 81 839 82 03 is available. Simply send your full application by email to: b.gubser@klinik-gut.ch PS: We are curious: How did you come across our place? Let us know in your motivation letter.",
-        "de": "Gemeinsam für höchste Qualität im OP. Wir erweitern unser Team.\nDie Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\nZur Ergänzung unseres OP - Teams am Klinikstandort St. Moritz suchen wir für die Wintersaison 2026 / 27 (01. Dezember 2026 bis 30. April 2027) eine motivierte Persönlichkeit als:\nDipl. technische Operations-Fachfrau / -mann HF (80%)\nDein Wirkungsfeld bei uns\n\n• Zudienen und Instrumentieren bei Operationen\n\n• Fachgerechte Vorbereitung und Bedienung der notwendigen Geräte, Instrumentarien und Sterilgüter\n\n• Vor- und Nachbereitung operativer Eingriffe\n\n• Mithilfe bei der Sicherstellung eines reibungslosen Tagesablaufs im Operationssaal\n\n• Dokumentierung aller pflegerischen Tätigkeiten inklusive Leistungserfassung\n\nDamit überzeugst du uns\n\n• Dein Fundament: Du bist Dipl. Fachperson Operationstechnik HF, oder gleichwertige Ausbildung\n\n• Deine Mentalität: Hohe Einsatzfreude sowie Bereitschaft, Wochenend- und Pikettdienst zu leisten\n\n• Deine Stärke: Du bist teamorientiert, flexibel und belastbar. Wenn es mal hektisch wird, behältst du die Übersicht und gehst für das Team auch mal die Extrameile\n\nDas wartet auf dich\n\n• Spannender Alltag: Ein abwechslungsreiches Aufgabengebiet, in dem du selbstständig in deinem Kompetenzbereich arbeiten kannst\n\n• Echter Teamgeist: Ein familiäres, einsatzfreudiges Team, das dich mit offenen Armen empfängt und sich gegenseitig unterstützt\n\n• Wertschätzung, die ankommt: Dich erwartet ein attraktives Gesamtpaket mit zeitgemässen Anstellungsbedingungen und ein Umfeld, in dem wir uns gegenseitig unterstützen\n\n• Die perfekte Kulisse: Das Oberengadin bietet dir direkt vor der Haustür eine Traumlandschaft mit unzähligen Freizeit- und Sportaktivitäten\n\nLust auf eine neue Herausforderung?\nFür Fragen steht dir Bettina Gubser (Gesamtleitung Pflege Nord- und Südbünden) unter\n+41 81 839 82 03 gerne zur Verfügung.\nDeine vollständige Bewerbung schickst du einfach per E-Mail an: b.gubser@klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
-        "fr": "Ensemble pour la plus haute qualité dans le bloc. Nous développons notre équipe. Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch, ainsi que dans les cabinets de Chur, Buchs, Zurich et Ascona. Pour compléter notre équipe chirurgicale à la clinique de St. Moritz, nous cherchons la saison d'hiver 2026 / 27 (1er décembre 2026 à 30). Avril 2027) une personnalité motivée comme: Spécialiste technique en chirurgie HF (80 %) Votre domaine d'activité avec nous\n• Utilisation et instrumentation dans les opérations\n• Préparation et fonctionnement professionnels des équipements, instruments et produits stériles nécessaires\n• Préparation et suivi des interventions opérationnelles\n• Assistance pour assurer une routine quotidienne en douceur dans la salle d'opération\n• Documentation de toutes les activités de soins infirmiers, y compris l'enregistrement des performances Cela nous convaincra\n• Votre fondation : Vous êtes Dipl. Technique chirurgicale spécialisée HF, ou formation équivalente\n• Votre mentalité: Un haut dévouement et la volonté de fournir des services de fin de semaine et de piquetage\n• Votre force : vous êtes orientés vers l'équipe, flexibles et résistants. Si elle devient agitée, vous gardez l'aperçu et allez pour l'équipe aussi le mile supplémentaire Ça vous attend.\n• La vie quotidienne passionnante: un domaine de responsabilité varié dans lequel vous pouvez travailler de manière indépendante dans votre domaine de compétence\n• Un véritable esprit d'équipe : une équipe familiale et dévouée qui vous accueille à bras ouverts et se soutient mutuellement\n• Appréciation qui arrive : Vous pouvez vous attendre à un ensemble global attrayant avec des conditions d'emploi contemporaines et un environnement dans lequel nous nous soutenons mutuellement\n• Le décor parfait : l'Oberengadin vous offre un paysage de rêve avec d'innombrables loisirs et activités sportives sur votre porte Vous cherchez un nouveau défi ? Pour toute question, Bettina Gubser (gestion globale des Alliances Nord et Sud) est sous votre garde. +41 81 839 82 03 est disponible. Envoyez simplement votre demande complète par courriel à: b.gubser@klinik-gut.ch PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
+        "it": "Entrate a far parte della nostra squadra invernale – in mezzo alla bella Engadina!\nKlinik Gut è una clinica privata stabilita per l'ortopedia e la chirurgia degli incidenti. Serviamo anche i nostri clienti nazionali e internazionali nelle sedi cliniche di St. Moritz e Fläsch nelle sedi di pratica a Chur, Buchs, Ascona e Zurigo.\nPer la stagione invernale 2026/27 ti stiamo cercando come\nRicevimento dei dipendenti 80% (posizione stagionale, novembre 2026 fino alla fine di marzo 2027)\nSiete il nostro caloroso benvenuto alla reception e insieme al nostro team assicurano una routine regolare in clinica.\nI vostri compiti principali sono:\n\n• ammissione e organizzazione del paziente ore di consultazione per tutti i medici e le emergenze\n\n• Informazioni fornite alla reception e al telefono\n\n• Contatto orale e scritto con pazienti, compagnie di assicurazione e datori di lavoro nonché compiti di amministrazione generale\nPorta con te\n\n• Esperienza nella sanità (ad esempio MPA), nell'industria alberghiera o con un background commerciale\n\n• Personalità affidabile, empatica e flessibile che non perde traccia anche in un ambiente vivace\n\n• Gioia del contatto diretto del paziente\n\n• Ottima pianificazione e capacità organizzativa con metodi di lavoro strutturati\n\n• Buone competenze linguistiche (D, I, E) e competenze PC avanzate\nNon vedo l'ora.\n\n• Un compito vario in un team impegnato e caldo\n\n• Condizioni di lavoro attuali\n\n• Possibilità di modellare i processi e assumersi la responsabilità\n\n• E soprattutto: lavoro dove gli altri vanno a sciare – nel mezzo di Oberengadin con tutte le sue opportunità di svago e le meraviglie naturali\nDomande?\nIl nostro team HR è felice per voi: +41 81 836 34 70\nPronti per la vostra avventura invernale?\nInviateci i vostri documenti applicativi completi a: hr@klinik-gut.ch",
+        "en": "Become part of our winter team – in the middle of beautiful Engadin!\nKlinik Gut is an established private clinic for orthopaedics and accident surgery. We also serve our national and international customers at the clinic locations in St. Moritz and Fläsch in the practice locations in Chur, Buchs, Ascona and Zurich.\nFor the winter season 2026/27 we are looking for you as\nEmployee reception 80% (seasonal position, November 2026 until the end of March 2027)\nYou are our warm welcome at the reception and together with our team ensure a smooth routine in the clinic.\nYour main tasks are\n\n• Patient admission and organisation of consultation hours for all doctors and emergencies\n\n• Information provided on reception and telephone\n\n• Oral and written contact with patients, insurance companies and employers as well as general administration tasks\nYou bring with you\n\n• Experience in healthcare (e.g. MPA), in the hotel industry or with a commercial background\n\n• Reliable, empathetic and flexible personality that does not lose track even in a lively environment\n\n• Joy of direct patient contact\n\n• Very good planning and organizational ability with structured working methods\n\n• Good language skills (D, I, E) and advanced PC skills\nYou can look forward to that.\n\n• A varied task in a committed, warm team\n\n• Current employment conditions\n\n• Possibility to shape processes and take responsibility\n\n• And best of all: work where others go skiing – in the middle of Oberengadin with all its leisure opportunities and natural wonders\nQuestions?\nOur HR team is happy for you: +41 81 836 34 70\nReady for your winter adventure?\nThen send us your complete application documents to: hr@klinik-gut.ch",
+        "de": "Werde Teil unseres Winterteams – mitten im wunderschönen Engadin!\nDie Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Ascona und Zürich.\nFür die Wintersaison 2026/27 suchen wir dich als\nMitarbeiter/in Empfang 80% (Saisonstelle, November 2026 bis Ende März 2027)\nDu bist unser herzliches Willkommen am Empfang und sorgst gemeinsam mit unserem Team für einen reibungslosen Ablauf im Klinikalltag.\nDeine Hauptaufgaben sind\n\n• Patientenaufnahme und Organisation der Sprechstunden sämtlicher Ärzte und Notfälle\n\n• Auskunftserteilung am Empfang und am Telefon\n\n• Mündlicher und schriftlicher Kontakt mit Patienten, Versicherungen und Arbeitgebern sowie allgemeine Administrationsaufgaben\nDu bringst mit\n\n• Erfahrung im Gesundheitswesen (z. B. MPA), in der Hotellerie oder mit kaufmännischem Hintergrund\n\n• Zuverlässige, empathische und flexible Persönlichkeit, die auch in einem lebhaften Umfeld die Übersicht nicht verliert\n\n• Freude am direkten Patientenkontakt\n\n• Sehr gute Planungs- und Organisationsfähigkeit mit strukturierter Arbeitsweise\n\n• Gute Sprachkenntnisse (D, I, E) und erweiterte PC-Kenntnisse\nDarauf kannst du dich freuen\n\n• Eine abwechslungsreiche Aufgabe in einem engagierten, herzlichen Team\n\n• Zeitgemässe Anstellungsbedingungen\n\n• Möglichkeit, Prozesse mitzugestalten und Verantwortung zu übernehmen\n\n• Und das Beste: Arbeiten, wo andere Skifahren gehen – mitten im Oberengadin mit all seinen Freizeitmöglichkeiten und Naturwundern\nFragen?\nUnser HR-Team ist gerne für dich da: +41 81 836 34 70\n📧 Bereit für dein Winterabenteuer?\nDann sende uns deine vollständigen Bewerbungsunterlagen an: hr@klinik-gut.ch",
+        "fr": "Devenez membre de notre équipe d'hiver – au milieu de la belle Engadin!\nKlinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons également nos clients nationaux et internationaux aux cliniques de St. Moritz et Fläsch dans les lieux d'entraînement à Chur, Buchs, Ascona et Zurich.\nPour la saison d'hiver 2026/27 nous vous recherchons comme\nRéception des employés 80% (poste saisonnier, novembre 2026 jusqu'à fin mars 2027)\nVous êtes notre accueil chaleureux à la réception et avec notre équipe assurer une routine en douceur dans la clinique.\nVos principales tâches sont :\n\n• Admission des patients et organisation des heures de consultation pour tous les médecins et urgences\n\n• Informations fournies sur la réception et le téléphone\n\n• Contacts oraux et écrits avec les patients, les compagnies d'assurance et les employeurs ainsi que tâches administratives générales\nTu amènes avec toi\n\n• Expérience en soins de santé (p. ex. MPA), dans l'industrie hôtelière ou avec une expérience commerciale\n\n• Personnalité fiable, empathique et flexible qui ne perd pas de vue même dans un environnement animé\n\n• Joy de contact direct avec le patient\n\n• Très bonne planification et capacité organisationnelle avec des méthodes de travail structurées\n\n• Bonnes compétences linguistiques (D, I, E) et compétences avancées en PC\nVous pouvez attendre avec impatience.\n\n• Une tâche variée dans une équipe engagée et chaleureuse\n\n• Conditions d'emploi actuelles\n\n• Possibilité de façonner les processus et de prendre des responsabilités\n\n• Et surtout : le travail où les autres vont skier – au milieu d'Oberengadin avec toutes ses possibilités de loisirs et ses merveilles naturelles\nDes questions ?\nNotre équipe HR est heureuse pour vous: +41 81 836 34 70\nPrêt pour votre aventure hivernale ?\nEnvoyez-nous ensuite vos documents de candidature à l'adresse suivante : hr@klinik-gut.ch"
       },
       "location": "St. Moritz",
       "canton": "GR",
-      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3886",
+      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.594Z",
+      "crawledAt": "2026-09-03T23:19:56.719Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -567,25 +432,29 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-29",
-      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3886",
+      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz",
-        "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz"
+        "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
+        "collaboratore-trice-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz",
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-st-moritz"
+          "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
+          "collaboratore-trice-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-ag-st-moritz"
         ],
         "en": [
-          "dipl-technische-operations-fachfrau-mann-hf-80-klinik-gut-ag-st-moritz"
+          "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st"
+        ],
+        "fr": [
+          "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st"
         ]
       },
-      "firstSeenAt": "2026-06-29T22:54:47.989Z",
+      "firstSeenAt": "2026-06-29T22:54:47.985Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -609,18 +478,18 @@
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
       "companyDomain": "klinik-gut.ch",
-      "title": "Med. Praxisassistent/in 80-100 % oder Dipl. Pflegefachperson HF 80-100%- Wintersaison 2026/27",
+      "title": "Med. Praxisassistent/in oder Dipl. Pflegefachperson HF 80-100%- Notfall - Wintersaison 2026/27",
       "titleByLocale": {
-        "it": "Med. Praxisassistent/in 80-100 % o Dipl. Pflegefachperson HF 80-100%- Wintersaison 2026/27",
+        "it": "Med. Praxisassistent/in o Dipl. Pflegefachperson HF 80-100%- Notfall - Wintersaison 2026/27",
         "en": "Med. Practical assistant/in 60 – 80% - Winter season 2026/27",
-        "de": "Med. Praxisassistent/in 80-100 % oder Dipl. Pflegefachperson HF 80-100%- Wintersaison 2026/27",
+        "de": "Med. Praxisassistent/in oder Dipl. Pflegefachperson HF 80-100%- Notfall - Wintersaison 2026/27",
         "fr": "Med. Assistant pratique/en 60 – 80% - saison d'hiver 2026/27"
       },
-      "description": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch sowie in unseren Praxen in Chur, Buchs, Zürich und Ascona.\n Für das Ambulatorium mit Notfallstation in St. Moritz suchen wir ab 1. Dezember 2026 bis 31. März 2027 (Wintersaison 2026/27) eine/n\n Med. Praxisassistent/in 80 - 100% oder Dipl. Pflegefachperson HF 80-100%\n Deine Aufgaben:\n\n• Betreuung von traumatologischen Notfällen und Operationsvorbereitung\n\n• Betreuung von medizinischen Notfällen und ggfs. Vorbereitung für deren Verlegung\n\n• Sprechstundenassistenz der Orthopäden und Betreuung ambulanter Patienten\n\n• Arbeit in internem Labor sowie Zusammenarbeit mit externen Laboratorien\n\n• Digitales Röntgen und Zusammenarbeit mit MRI und CT\n\n• Wundversorgungen, Blutentnahmen, Infusionstherapien\n\n• Anlegen von diversen Bandagen und Gipsen\n Dein Profil:\n\n• Abgeschlossene Ausbildung und Berufserfahrung im Aktuspital/ Notfall von Vorteil\n\n• Sehr gute Deutschkenntnisse und versierter Umgang mit MS Office\n\n• Selbständige, verantwortungsbewusste Arbeitsweise mit ausgeprägter Sozialkompetenz\n Wir bieten dir:\n\n• Einen attraktiven, vielseitigen Arbeitsplatz in einer Region, welche dir ein grosses Angebot an Freizeitaktivitäten und eine hohe Lebensqualität.\n\n• Familiäre Atmosphäre in einem dynamischen Umfeld mit gegenseitiger Wertschätzung\n\n• Günstige Verpflegungskonditionen\n\n• Arbeiten in einem motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\n Weitere Auskünfte erteilt dir gerne Barbara Pobitzer Walther, E-Mail: B.PobitzerWalther@kinik-gut.ch .\n Wir freuen uns auf deine Bewerbung per E-Mail: an hr@klinik-gut.ch\n Klinik Gut AG\nPersonalbüro\nPlazza Paracelsus 2a\n7500 St. Moritz\n www.klinik-gut.ch\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+      "description": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch sowie in unseren Praxen in Chur, Buchs, Zürich und Ascona.\n Für das Ambulatorium mit Notfallstation in St. Moritz suchen wir ab 1. Dezember 2026 bis 31. März 2027 (Wintersaison 2026/27) eine/n\n Med. Praxisassistent/in oder Dipl. Pflegefachperson HF 80-100%\n Deine Aufgaben:\n\n• Betreuung von traumatologischen Notfällen und Operationsvorbereitung\n\n• Betreuung von medizinischen Notfällen und ggfs. Vorbereitung für deren Verlegung\n\n• Sprechstundenassistenz der Orthopäden und Betreuung ambulanter Patienten\n\n• Arbeit in internem Labor sowie Zusammenarbeit mit externen Laboratorien\n\n• Digitales Röntgen und Zusammenarbeit mit MRI und CT\n\n• Wundversorgungen, Blutentnahmen, Infusionstherapien\n\n• Anlegen von diversen Bandagen und Gipsen\n Dein Profil:\n\n• Abgeschlossene Ausbildung und Berufserfahrung im Akutspital/ Notfall von Vorteil\n\n• Sehr gute Deutschkenntnisse und versierter Umgang mit MS Office\n\n• Selbständige, verantwortungsbewusste Arbeitsweise mit ausgeprägter Sozialkompetenz\n Wir bieten dir:\n\n• Einen attraktiven, vielseitigen Arbeitsplatz in einer Region, welche dir ein grosses Angebot an Freizeitaktivitäten und eine hohe Lebensqualität.\n\n• Familiäre Atmosphäre in einem dynamischen Umfeld mit gegenseitiger Wertschätzung\n\n• Günstige Verpflegungskonditionen\n\n• Arbeiten in einem motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\n Weitere Auskünfte erteilt dir gerne Barbara Pobitzer Walther, E-Mail: B.PobitzerWalther@kinik-gut.ch .\n Wir freuen uns auf deine Bewerbung per E-Mail: an hr@klinik-gut.ch\n Klinik Gut AG\nPersonalbüro\nPlazza Paracelsus 2a\n7500 St. Moritz\n www.klinik-gut.ch\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
       "descriptionByLocale": {
         "it": "Klinik Gut è una clinica privata stabilita per ortopedia e chirurgia incidente. Serviamo i nostri clienti nazionali e internazionali nelle sedi cliniche di St. Moritz e Fläsch, nonché nelle nostre pratiche a Chur, Buchs, Zurigo e Ascona. Per l'imboslatorium con una stazione di emergenza a St. Moritz, stiamo cercando una //n dal 1 dicembre 2026 al 31 marzo 2027 (stagione invernale 2026/27). Med. Assistente pratico/in 60 – 80 % I vostri compiti:\n• Cura delle emergenze traumatologiche e preparazione alle operazioni\n• Cura delle emergenze mediche e se necessario. Preparazione per il trasferimento\n• Orari di consultazione per assistere ortopedisti e sostenere gli ambulatori\n• Lavoro in laboratorio interno e collaborazione con laboratori esterni\n• Digital X-ray e collaborazione con MRI e CT\n• Cura dei tessuti, campionamento del sangue, terapie infusione\n• Applicazione di varie bende e gesso Il tuo profilo:\n• Formazione completa e esperienza professionale in actuspital/emergency benefica\n• Ottima conoscenza della gestione tedesca e esperta di MS Office\n• Lavoro autonomo, responsabile del lavoro con forti competenze sociali Vi offriamo:\n• Un posto di lavoro attraente e versatile in una regione che offre una vasta gamma di attività ricreative e un'alta qualità della vita.\n• Atmosfera familiare in un ambiente dinamico con reciproco apprezzamento\n• Condizioni di cibo economiche\n• Lavorare in un team motivato caratterizzato da dedizione e volontà di eseguire Per ulteriori informazioni si prega di contattare Barbara Pobitzer Walther, email: B.Pobitzer@kinik-gut.ch . Non vediamo l'ora di ricevere la tua candidatura via e-mail: Klinik Gut AG Ufficio del personale Plazza Paracelsus 2a 7500 St. Moritz www.klinik-gut.ch PS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
         "en": "Klinik Gut is an established private clinic for orthopaedics and accident surgery. We serve our national and international customers at the clinic locations in St. Moritz and Fläsch as well as in our practices in Chur, Buchs, Zurich and Ascona. For the ambulatorium with an emergency station in St. Moritz, we are looking for a //n from 1 December 2026 to 31 March 2027 (winter season 2026/27). Med. Practical assistant/in 60 – 80 % Your tasks:\n• Care of traumatological emergencies and preparation for operations\n• Care of medical emergencies and if necessary. Preparation for their transfer\n• Consultation hours assisting orthopaedists and supporting outpatients\n• Work in internal laboratory as well as cooperation with external laboratories\n• Digital X-ray and cooperation with MRI and CT\n• Wound care, blood sampling, infusion therapies\n• Applying various bandages and plasters Your profile:\n• Completed training and professional experience in actuspital/emergency beneficial\n• Very good knowledge of German and experienced handling of MS Office\n• Self-employed, responsible working with strong social skills We offer you:\n• An attractive, versatile workplace in a region that offers you a wide range of leisure activities and a high quality of life.\n• Family atmosphere in a dynamic environment with mutual appreciation\n• Cheap food conditions\n• Working in a motivated team characterized by dedication and willingness to perform For further information please contact Barbara Pobitzer Walther, email: B.Pobitzer@kinik-gut.ch . We look forward to receiving your application by email: Klinik Gut AG Staff Office Plazza Paracelsus 2a 7500 St. Moritz www.klinik-gut.ch PS: We are curious: How did you come across our place? Let us know in your motivation letter.",
-        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch sowie in unseren Praxen in Chur, Buchs, Zürich und Ascona.\nFür das Ambulatorium mit Notfallstation in St. Moritz suchen wir ab 1. Dezember 2026 bis 31. März 2027 (Wintersaison 2026/27) eine/n\nMed. Praxisassistent/in 80 - 100% oder Dipl. Pflegefachperson HF 80-100%\nDeine Aufgaben:\n\n• Betreuung von traumatologischen Notfällen und Operationsvorbereitung\n\n• Betreuung von medizinischen Notfällen und ggfs. Vorbereitung für deren Verlegung\n\n• Sprechstundenassistenz der Orthopäden und Betreuung ambulanter Patienten\n\n• Arbeit in internem Labor sowie Zusammenarbeit mit externen Laboratorien\n\n• Digitales Röntgen und Zusammenarbeit mit MRI und CT\n\n• Wundversorgungen, Blutentnahmen, Infusionstherapien\n\n• Anlegen von diversen Bandagen und Gipsen\nDein Profil:\n\n• Abgeschlossene Ausbildung und Berufserfahrung im Aktuspital/ Notfall von Vorteil\n\n• Sehr gute Deutschkenntnisse und versierter Umgang mit MS Office\n\n• Selbständige, verantwortungsbewusste Arbeitsweise mit ausgeprägter Sozialkompetenz\nWir bieten dir:\n\n• Einen attraktiven, vielseitigen Arbeitsplatz in einer Region, welche dir ein grosses Angebot an Freizeitaktivitäten und eine hohe Lebensqualität.\n\n• Familiäre Atmosphäre in einem dynamischen Umfeld mit gegenseitiger Wertschätzung\n\n• Günstige Verpflegungskonditionen\n\n• Arbeiten in einem motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\nWeitere Auskünfte erteilt dir gerne Barbara Pobitzer Walther, E-Mail: B.PobitzerWalther@kinik-gut.ch .\nWir freuen uns auf deine Bewerbung per E-Mail: an hr@klinik-gut.ch\nKlinik Gut AG\nPersonalbüro\nPlazza Paracelsus 2a\n7500 St. Moritz\nwww.klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch sowie in unseren Praxen in Chur, Buchs, Zürich und Ascona.\nFür das Ambulatorium mit Notfallstation in St. Moritz suchen wir ab 1. Dezember 2026 bis 31. März 2027 (Wintersaison 2026/27) eine/n\nMed. Praxisassistent/in oder Dipl. Pflegefachperson HF 80-100%\nDeine Aufgaben:\n\n• Betreuung von traumatologischen Notfällen und Operationsvorbereitung\n\n• Betreuung von medizinischen Notfällen und ggfs. Vorbereitung für deren Verlegung\n\n• Sprechstundenassistenz der Orthopäden und Betreuung ambulanter Patienten\n\n• Arbeit in internem Labor sowie Zusammenarbeit mit externen Laboratorien\n\n• Digitales Röntgen und Zusammenarbeit mit MRI und CT\n\n• Wundversorgungen, Blutentnahmen, Infusionstherapien\n\n• Anlegen von diversen Bandagen und Gipsen\nDein Profil:\n\n• Abgeschlossene Ausbildung und Berufserfahrung im Akutspital/ Notfall von Vorteil\n\n• Sehr gute Deutschkenntnisse und versierter Umgang mit MS Office\n\n• Selbständige, verantwortungsbewusste Arbeitsweise mit ausgeprägter Sozialkompetenz\nWir bieten dir:\n\n• Einen attraktiven, vielseitigen Arbeitsplatz in einer Region, welche dir ein grosses Angebot an Freizeitaktivitäten und eine hohe Lebensqualität.\n\n• Familiäre Atmosphäre in einem dynamischen Umfeld mit gegenseitiger Wertschätzung\n\n• Günstige Verpflegungskonditionen\n\n• Arbeiten in einem motivierten Team, das sich durch Einsatzfreude und Leistungsbereitschaft auszeichnet\nWeitere Auskünfte erteilt dir gerne Barbara Pobitzer Walther, E-Mail: B.PobitzerWalther@kinik-gut.ch .\nWir freuen uns auf deine Bewerbung per E-Mail: an hr@klinik-gut.ch\nKlinik Gut AG\nPersonalbüro\nPlazza Paracelsus 2a\n7500 St. Moritz\nwww.klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
         "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch ainsi que dans nos pratiques à Chur, Buchs, Zurich et Ascona. Pour l'ambulatorium avec une station d'urgence à St. Moritz, nous cherchons un //n du 1er décembre 2026 au 31 mars 2027 (hiver 2026/27). Med. Assistant pratique/dans 60 – 80 % Vos tâches :\n• Prise en charge des urgences traumatologiques et préparation aux opérations\n• Soins d'urgence médicale et si nécessaire. Préparation de leur transfert\n• Heures de consultation pour aider les orthopédistes et les patients externes\n• Travail en laboratoire interne et coopération avec des laboratoires externes\n• Radiographie numérique et coopération avec IRM et CT\n• Soins des plaies, prélèvement de sang, thérapies pour perfusion\n• Application de divers pansements et plâtres Votre profil:\n• Formation complète et expérience professionnelle en actuspital/urgence bénéfique\n• Très bonne connaissance de l'allemand et de la gestion expérimentée de MS Office\n• Indépendants, responsables travaillant avec de solides compétences sociales Nous vous offrons:\n• Un lieu de travail attrayant et polyvalent dans une région qui vous offre un large éventail d'activités de loisirs et une qualité de vie élevée.\n• Ambiance familiale dans un environnement dynamique avec appréciation mutuelle\n• Conditions alimentaires bon marché\n• Travailler dans une équipe motivée caractérisée par le dévouement et la volonté d'accomplir Pour de plus amples renseignements, veuillez contacter Barbara Pobitzer Walther, courriel : B.Pobitzer@kinik-gut.ch . Nous sommes impatients de recevoir votre demande par courriel : Klinik Gut AG Bureau du personnel Plazza Paracelsus 2a 7500 St. Moritz www.klinik-gut.ch PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
       },
       "needsRetranslation": true,
@@ -629,7 +498,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3196",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.592Z",
+      "crawledAt": "2026-09-03T23:19:56.717Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -648,14 +517,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27"
+          "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27",
+          "med-praxisassistent-in-oder-dipl-pflegefachperson-hf-80-100-notfall-wintersaison-2026-27"
         ],
         "it": [
           "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
           "med-praxisassistent-in-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
           "med-assistant-pratique-60-80-saison-hivernale-2026-27-klinik-gut-ag-st-moritz",
           "med-practical-assistant-60-80-winter-season-2026-27-klinik-gut-ag-st-moritz",
-          "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27"
+          "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27",
+          "med-praxisassistent-in-oder-dipl-pflegefachperson-hf-80-100-notfall-wintersaison-2026-27"
         ]
       },
       "previousSlugs": [
@@ -663,11 +534,13 @@
         "med-praxisassistent-in-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
         "med-assistant-pratique-60-80-saison-hivernale-2026-27-klinik-gut-ag-st-moritz",
         "med-practical-assistant-60-80-winter-season-2026-27-klinik-gut-ag-st-moritz",
-        "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27"
+        "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27",
+        "med-praxisassistent-in-oder-dipl-pflegefachperson-hf-80-100-notfall-wintersaison-2026-27"
       ],
       "firstSeenAt": "2026-06-29T22:54:47.981Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -693,7 +566,7 @@
       "companyDomain": "klinik-gut.ch",
       "title": "Dipl. Pflegefachfrau/-mann HF oder FH 80-100% / Wintersaison 2026/27",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann HF o FH 80-100% / Wintersaison 2026/27",
+        "it": "Dipl. HF o FH 80-100% / Stagione invernale 2026/27",
         "en": "Dipl. HF or FH 80-100% / Winter season 2026/27",
         "de": "Dipl. Pflegefachfrau/-mann HF oder FH 80-100% / Wintersaison 2026/27",
         "fr": "Dipl. HF ou FH 80-100% / Saison d'hiver 2026/27"
@@ -705,13 +578,12 @@
         "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n\nZur Ergänzung unseres Pflegeteams am Klinikstandort St. Moritz suchen wir für die Wintersaison 2026/27 (1. November 2026 oder nach Vereinbarung bis 30. April 2027)\neine/n Dipl. Pflegefachfrau/mann HF/FH 80-100 %\nDein Wirkungsbereich:\n\n• Zielorientierte Betreuung: Du begleitest unsere Patientinnen und Patienten gemäss den definierten Zielen im Pflegeprozess.\n\n• Gelebte Qualität: Die Einhaltung der Pflegerichtlinien und Standards ist für dich absolut selbstverständlich.\n\n• Zukunft fördern: Die Unterstützung bei der Ausbildung unserer Lernenden und Studierenden ist dir ein echtes Anliegen.\nDamit überzeugst du uns:\n\n• Dein Fundament: Ausbildung als Dipl. Pflegefachperson HF/FH (Berufserfahrung ist ein Plus).\n\n• Dein Fokus: Hohe Pflegequalität und ein starker Servicegedanke.\n\n• Deine Persönlichkeit: Belastbar, flexibel, kommunikativ und ein echter Teamplayer.\n\n• Deine Arbeitsweise: Exakt, eigenverantwortliche und absolut zuverlässig.\n\n• Dein Mindset: Du gehst die Extrameile und bleibst auch in hektischen Momenten cool.\nWir bieten dir:\n\n• Abwechslungsreicher Alltag: Ein vielseitiges Aufgabengebiet mit grosser Selbstständigkeit im eigenen Kompetenzbereich.\n\n• Echter Teamgeist: Dich erwartet ein attraktives Gesamtpaket und ein familiäres, engagiertes Arbeitsumfeld, in dem wir uns gegenseitig den Rücken stärken und neue Teammitglieder offen empfangen.\n\n• Traumhafte Kulisse: Das winterliche Oberengadin direkt vor der Haustür für eine Vielzahl von Freizeit- und Sportaktivitäten und den perfekten Freizeitausgleich.\nWeitere Auskünfte erteilt dir gerne Frau Tanja Kropf, Stationsleitung Pflege unter der Telefonnummer:\n+41 81 836 35 22.\nWir freuen uns auf deine vollständige Bewerbung per E-Mail an:\nt.kropf@klinik-gut.ch\nKlinik Gut AG\nFrau Tanja Kropf\nPlazza Paracelsus 2a\n7500 St. Moritz\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
         "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch, ainsi que dans les cabinets de Chur, Buchs, Zurich et Ascona. Pour compléter notre équipe de soins à la clinique de St. Moritz, nous cherchons la saison d'hiver 2026/27 (1er novembre 2026 ou sur rendez-vous jusqu'à 30. Avril 2027 1/n Dipl. Professionnels des soins infirmiers HF/FH 80-100 %\n• Vous prenez soin de nos patients selon les objectifs définis dans le processus de soins.\n• Le respect des lignes directrices et des normes de soins est bien sûr une question pour vous.\n• L'aide à la formation de nos apprenants et étudiants est certaine pour vous. Nos exigences:\n• Vous êtes Dipl. Soins infirmiers professionnels HF/FH et idéalement vous avez déjà une expérience professionnelle.\n• Vous assurez une qualité appropriée et individuelle des soins pour le patient et apportez une idée de service prononcée.\n• Vous êtes une personnalité résiliente, flexible et communicative et aimez travailler en équipe.\n• Votre méthode de travail exacte, auto-responsable et fiable coupe votre profil.\n• Vous aimez aller au mille supplémentaire et garder une tête cool même dans des situations agitées Nous vous offrons:\n• Emploi et conditions de travail contemporains.\n• Intéressant et varié domaine de responsabilité, travail indépendant dans le domaine de compétence.\n• Vous travaillez dans une équipe familiale qui se caractérise par son dévouement et sa volonté d'accomplir et qui est heureuse de vous soutenir dans vos tâches. En outre, dans le Haut Engadin, vous pourrez profiter d'une variété d'activités de loisirs et de sports ainsi que d'un paysage merveilleux. Pour de plus amples renseignements, veuillez communiquer avec Mme Tanja Kropf, Services de gestion des stations, au numéro de téléphone suivant : +41 81 836 35 22. Nous attendons avec intérêt votre candidature complète par courriel à : T.kropf@klinik-gut.ch Klinik Gut AG Mme Tanja Kropf Plazza Paracelsus 2a 7500 St. Moritz PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
       },
-      "needsRetranslation": true,
       "location": "St. Moritz",
       "canton": "GR",
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.582Z",
+      "crawledAt": "2026-09-03T23:19:56.714Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -739,6 +611,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.979Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -764,7 +637,7 @@
       "companyDomain": "klinik-gut.ch",
       "title": "Dipl. Pflegefachfrau/mann HF oder FH 60-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/mann HF o FH 60-100%",
+        "it": "Dipl. Infermieristica professionale HF o FH 60-100 %",
         "en": "Dipl. Nursing professional HF or FH 60-100 %",
         "de": "Dipl. Pflegefachfrau/mann HF oder FH 60-100%",
         "fr": "Dipl. Professionnels des soins infirmiers HF ou FH 60-100 %"
@@ -776,13 +649,12 @@
         "de": "Neuer Job im Oberengadin? Halte mit uns die Pflege auf Top-Niveau!\nDie Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\nFür unser Pflegeteam am Klinikstandort St. Moritz suchen wir per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als:\nDipl. Pflegefachfrau / -mann HF oder FH (60–100%)\nTeilzeit-Anstellung absolut möglich!\nDein Wirkungsfeld bei uns:\n\n• Individuelle Pflege: Du steuerst den Pflegeprozess zielgerichtet und begleitest unsere Patienten mit Herz und Verstand.\n\n• Qualität leben: Die Einhaltung unserer Pflegerichtlinien und Standards ist für dich kein Müssen, sondern die Basis deiner Arbeit.\n\n• Zukunft fördern: Du gibst dein Wissen gerne weiter und unterstützt die Ausbildung unserer Lernenden und Studierenden.\nDamit überzeugst du uns:\n\n• Dein Fundament: Du bist Dipl. Pflegefachfrau/-mann HF/FH und bringst im Idealfall schon etwas Berufserfahrung mit.\n\n• Deine Mentalität: Ein ausgeprägter Servicegedanke und eine exakte, zuverlässige und eigenverantwortliche Arbeitsweise sind für dich selbstverständlich.\n\n• Deine Stärke: Du bist teamorientiert, flexibel und belastbar. Wenn es mal hektisch wird, behältst du die Übersicht und gehst für das Team auch mal die Extrameile.\nDas wartet auf dich:\n\n• Spannender Alltag: Ein abwechslungsreiches Aufgabengebiet, in dem du selbstständig in deinem Kompetenzbereich arbeiten kannst.\n\n• Echter Teamgeist: Ein familiäres, einsatzfreudiges Team, das dich mit offenen Armen empfängt und sich gegenseitig unterstützt.\n\n• Wertschätzung, die ankommt: Dich erwartet ein attraktives Gesamtpaket mit zeitgemässen Anstellungsbedingungen und ein Umfeld, in dem wir uns gegenseitig unterstützen.\n\n• Die perfekte Kulisse: Das Oberengadin bietet dir direkt vor der Haustür eine Traumlandschaft mit unzähligen Freizeit- und Sportaktivitäten.\nLust auf eine neue Herausforderung?\nFür Fragen steht dir Tanja Kropf (Stationsleitung Pflege) unter +41 81 836 35 22 gerne zur Verfügung.\nDeine vollständige Bewerbung schickst du einfach per E-Mail an: t.kropf@klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
         "fr": "Un nouveau travail à Oberengadin ? Gardez les soins au plus haut niveau avec nous ! Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch, ainsi que dans les cabinets de Chur, Buchs, Zurich et Ascona. Pour notre équipe de soins à l'emplacement de la clinique St. Moritz, nous recherchons une personnalité motivée comme: Dipl. Professionnels des soins infirmiers HF ou FH (60 à 100%) L'emploi à temps partiel est absolument possible! Votre domaine d'activité avec nous\n• Soins individuels : Vous contrôlez le processus de soins avec soin et accompagnez nos patients avec cœur et esprit.\n• Une vie de qualité : le respect de nos lignes directrices et normes de soins n'est pas un impératif pour vous, mais la base de votre travail.\n• Promouvoir l'avenir : Vous êtes heureux de transmettre vos connaissances et de soutenir l'éducation de nos apprenants et étudiants. Cela nous convaincra\n• Votre fondation : Vous êtes Dipl. Spécialiste des soins infirmiers HF/FH et apporter idéalement une certaine expérience professionnelle.\n• Votre mentalité: Un concept de service prononcé et une méthode de travail exacte, fiable et auto-responsable sont une question bien sûr pour vous.\n• Votre force : Vous êtes tourné vers l'équipe, flexible et résilient. Si ça devient agité, vous gardez la vue d'ensemble et faites le mile supplémentaire pour l'équipe. Ça vous attend.\n• Vie quotidienne passionnante : Un domaine de responsabilité varié dans lequel vous pouvez travailler de manière indépendante dans votre domaine de compétence.\n• Vrai esprit d'équipe : Une équipe familiale et dévouée qui vous accueille à bras ouverts et se soutient mutuellement.\n• Appréciation qui arrive : Vous pouvez vous attendre à un ensemble global attrayant avec des conditions d'emploi contemporaines et un environnement dans lequel nous nous soutenons mutuellement.\n• Le décor parfait : l'Oberengadin vous offre un paysage de rêve avec d'innombrables loisirs et activités sportives sur votre porte. Vous cherchez un nouveau défi ? Pour toute question, Tanja Kropf (station d'entretien) est à votre disposition au +41 81 836 35 22. Envoyez simplement votre demande complète par courriel à: t.kropf@klinik-gut.ch PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
       },
-      "needsRetranslation": true,
       "location": "St. Moritz",
       "canton": "GR",
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.562Z",
+      "crawledAt": "2026-09-03T23:19:56.696Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -810,6 +682,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.967Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

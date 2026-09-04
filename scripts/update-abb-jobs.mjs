@@ -21,6 +21,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -48,6 +49,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -178,12 +180,11 @@ function deriveAbbDetailSlug(job) {
     }
   }
 
-  return String(job?.title || '')
+  return truncateSlugAtWordBoundary(String(job?.title || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 140);
+    .replace(/^-+|-+$/g, ''), 140);
 }
 
 function buildAbbDetailUrl(job) {
@@ -217,7 +218,7 @@ function buildSeedMetaFromJob(job, canton) {
   };
 }
 
-async function fetchAbbSearchPage(from, size, timeoutMs, userAgent) {
+async function fetchAbbSearchPage(from, size, timeoutMs, userAgent, fetchImpl = globalThis.fetch) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -250,7 +251,7 @@ async function fetchAbbSearchPage(from, size, timeoutMs, userAgent) {
       locationType: '',
     };
 
-    const res = await fetch(ABB_SEARCH_API, {
+    const res = await fetchImpl(ABB_SEARCH_API, {
       signal: controller.signal,
       method: 'POST',
       headers: {
@@ -268,47 +269,53 @@ async function fetchAbbSearchPage(from, size, timeoutMs, userAgent) {
     const refine = payload?.refineSearch || payload?.eagerLoadRefineSearch || {};
     const data = refine?.data || {};
     const jobs = assertJsonListShape(data, { key: 'jobs', source: 'abb' });
-    const hits = Number(refine?.hits ?? data?.hits ?? jobs.length ?? 0);
-    const totalHits = Number(refine?.totalHits ?? data?.totalHits ?? jobs.length ?? 0);
+    const hits = Number(refine?.hits ?? data?.hits);
+    const totalHits = Number(refine?.totalHits ?? data?.totalHits);
     return { jobs, hits, totalHits };
   } finally {
     clearTimeout(timer);
   }
 }
 
-async function fetchAbbJobDetailUrls() {
+export async function fetchAbbJobDetailUrls(options = {}) {
   const selectedByKey = new Map();
   const seedMetaByUrl = {};
 
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-  const maxPages = Math.max(1, Number(process.env.JOBS_ABB_MAX_PAGES || 100000)); // uncapped — loop breaks on offset>=totalHits / empty page
-  const pageSize = Math.max(1, Number(process.env.JOBS_ABB_PAGE_SIZE || 50));
+  const maxPages = Math.max(1, Number(options.maxPages || process.env.JOBS_ABB_MAX_PAGES || 100000));
+  const pageSize = Math.max(1, Number(options.pageSize || process.env.JOBS_ABB_PAGE_SIZE || 50));
 
   console.log('🔍 Fetching ABB jobs from careers.abb Phenom refineSearch API...');
   console.log(`   Filter: country=${ABB_SEARCH_COUNTRY} (CH-wide, all cantons)`);
 
   let totalHits = null;
   let offset = 0;
+  let droppedNonTarget = 0;
+  let droppedMalformed = 0;
+  let duplicateIdentity = 0;
 
   for (let page = 0; page < maxPages; page += 1) {
     if (totalHits !== null && offset >= totalHits) break;
 
     console.log(`  📡 Page ${page + 1}: from=${offset} size=${pageSize}`);
 
-    let payload;
-    try {
-      payload = await fetchAbbSearchPage(offset, pageSize, timeoutMs, userAgent);
-    } catch (err) {
-      console.warn(`    ⚠️ ABB page fetch failed: ${err?.message || err}`);
-      break;
-    }
+    const payload = await fetchAbbSearchPage(offset, pageSize, timeoutMs, userAgent, fetchImpl);
 
     const jobs = payload.jobs;
-    if (!Array.isArray(jobs) || jobs.length === 0) break;
-    totalHits = Number.isFinite(payload.totalHits) && payload.totalHits > 0 ? payload.totalHits : totalHits;
+    if (!Number.isInteger(payload.hits) || payload.hits !== jobs.length
+        || !Number.isInteger(payload.totalHits) || payload.totalHits < 0
+        || (totalHits !== null && payload.totalHits !== totalHits)) {
+      throw new Error(`ABB discovery envelope invalid: hits=${payload.hits}, jobs=${jobs.length}, total=${payload.totalHits}, expectedTotal=${totalHits ?? payload.totalHits}.`);
+    }
+    totalHits = payload.totalHits;
+    if (jobs.length === 0) {
+      if (offset !== totalHits) throw new Error(`ABB discovery incomplete: fetched ${offset}/${totalHits} jobs.`);
+      break;
+    }
 
     console.log(`    📦 jobs: ${jobs.length} (totalHits=${totalHits ?? '?'})`);
 
@@ -318,25 +325,48 @@ async function fetchAbbJobDetailUrls() {
       // We do NOT gate on job.country here because multi-location CH jobs may
       // carry a foreign primary country while still having a Swiss location.
       const canton = inferCantonFromJob(job);
-      if (!isTargetCanton(canton)) continue;
+      if (!isTargetCanton(canton)) {
+        droppedNonTarget += 1;
+        continue;
+      }
 
       const detailUrl = toAbsoluteAbbUrl(buildAbbDetailUrl(job));
-      if (!detailUrl || !detailUrl.includes('/global/en/job/')) continue;
+      let canonical = '';
+      try {
+        const parsed = new URL(detailUrl);
+        if (parsed.protocol === 'https:' && parsed.hostname === ABB_HOST
+            && /^\/global\/en\/job\/[^/]+\/[^/]+$/.test(parsed.pathname)
+            && !parsed.search && !parsed.hash) canonical = parsed.href;
+      } catch {}
+      if (!canonical) {
+        droppedMalformed += 1;
+        continue;
+      }
 
       const reqId = extractReqId(job);
       const seq = String(job?.jobSeqNo || '').trim();
-      const key = reqId ? `req:${reqId}` : (seq ? `seq:${seq}` : `url:${detailUrl.toLowerCase()}`);
+      const key = reqId ? `req:${reqId}` : (seq ? `seq:${seq}` : '');
+      if (!key) {
+        droppedMalformed += 1;
+        continue;
+      }
       const score =
         String(job?.descriptionTeaser || '').length +
         String(job?.title || '').length;
 
       const prev = selectedByKey.get(key);
+      if (prev) duplicateIdentity += 1;
       if (!prev || score > prev.score) {
-        selectedByKey.set(key, { score, detailUrl, job, canton });
+        selectedByKey.set(key, { score, detailUrl: canonical, job, canton });
       }
     }
 
     offset += jobs.length;
+  }
+
+  const accounted = selectedByKey.size + duplicateIdentity + droppedNonTarget + droppedMalformed;
+  if (totalHits === null || offset !== totalHits || accounted !== offset || droppedMalformed !== 0) {
+    throw new Error(`ABB discovery invariant failed: fetched=${offset}/${totalHits ?? '?'}, canonical=${selectedByKey.size}, duplicates=${duplicateIdentity}, non-target=${droppedNonTarget}, malformed=${droppedMalformed}.`);
   }
 
   const urls = [];
@@ -347,51 +377,64 @@ async function fetchAbbJobDetailUrls() {
   urls.sort((a, b) => a.localeCompare(b));
 
   console.log(`\n✅ Total unique ABB detail URLs discovered (CH-wide): ${urls.length}`);
-  return { urls, seedMetaByUrl };
+  return {
+    urls,
+    seedMetaByUrl,
+    totalHits,
+    fetched: offset,
+    duplicateIdentity,
+    droppedNonTarget,
+    droppedMalformed,
+    sourceZero: totalHits === 0,
+  };
 }
 
-function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${ABB_KEY}.json`);
+export function buildAbbAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl = {}, updatedAt = new Date().toISOString()) {
   const notes =
     'Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.';
+  return {
+    ...(baseAdapter || {}),
+    companyName: ABB_COMPANY_NAME,
+    companyHost: ABB_HOST,
+    seedUrls,
+    seedMetaByUrl,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html', 'jsonld'])),
+    notes,
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${ABB_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertAbbAdapterParity(adapter, seedUrls, seedMetaByUrl = {}) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)
+      || !isDeepStrictEqual(adapter?.seedMetaByUrl, seedMetaByUrl)) {
+    throw new Error('ABB adapter parity failed: persisted seeds differ from the complete Phenom feed.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  seedMetaByUrl = {},
+  adapterPath = path.join(ADAPTERS_DIR, `${ABB_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: ABB_KEY,
       companyName: ABB_COMPANY_NAME,
       companyHost: ABB_HOST,
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      seedMetaByUrl,
-      notes,
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.companyName = ABB_COMPANY_NAME;
-    adapter.companyHost = ABB_HOST;
-    adapter.seedUrls = seedUrls;
-    adapter.seedMetaByUrl = seedMetaByUrl;
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.crawlerModes = Array.isArray(adapter.crawlerModes) ? adapter.crawlerModes : [];
-    if (!adapter.crawlerModes.includes('generic_ats')) adapter.crawlerModes.unshift('generic_ats');
-    if (!adapter.crawlerModes.includes('html')) adapter.crawlerModes.push('html');
-    if (!adapter.crawlerModes.includes('jsonld')) adapter.crawlerModes.push('jsonld');
-    adapter.notes = notes;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${ABB_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err?.message || err}`);
-  }
+  const adapter = buildAbbAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertAbbAdapterParity(persisted, seedUrls, seedMetaByUrl);
+  console.log(`📝 Adapter ${ABB_KEY} updated with ${seedUrls.length} seed URLs (Phenom parity verified).`);
+  return persisted;
 }
 
 function runBaseCrawler() {
@@ -578,7 +621,7 @@ async function main() {
   console.log('');
 
   const discovery = await fetchAbbJobDetailUrls();
-  if (discovery.urls.length === 0) {
+  if (discovery.sourceZero) {
     console.log('ℹ️ Nessun URL di dettaglio ABB trovato. Uscita OK.');
     return;
   }
@@ -623,4 +666,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'ABB'));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'ABB'));
+}

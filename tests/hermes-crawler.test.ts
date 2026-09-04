@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   HERMES_KEY,
   HERMES_COMPANY_NAME,
+  hermesAddressFields,
   isHermesJob,
   isTrustedDomain,
 } from '../scripts/lib/hermes-job-parser.mjs';
@@ -12,6 +13,16 @@ describe('Hermès crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(HERMES_KEY).toBe('hermes');
     expect(HERMES_COMPANY_NAME).toBe('Hermès');
+  });
+
+  it('uses postal code 1204 only for the exact Genève HQ locality', () => {
+    expect(hermesAddressFields('Genève, GE', 'GE')).toMatchObject({
+      addressLocality: 'Genève', postalCode: '1204', addressRegion: 'Genève',
+    });
+    expect(hermesAddressFields('Meyrin, GE', 'GE')).toMatchObject({
+      addressLocality: 'Meyrin', postalCode: undefined, addressRegion: 'GE',
+    });
+    expect(hermesAddressFields('Genève, VD', 'VD').postalCode).toBeUndefined();
   });
 
   // ── isCompanyJob ──

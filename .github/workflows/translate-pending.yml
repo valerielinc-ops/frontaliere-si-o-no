@@ -53,6 +53,7 @@ on:
 concurrency:
   group: jobs-data-pipeline
   cancel-in-progress: false
+  queue: max
 
 permissions:
   contents: write
@@ -502,6 +503,11 @@ jobs:
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "✅ All translations complete — triggering deploy"
+            # Hard-fail by design (no `|| true`, #6936): a failed dispatch
+            # here fails the job, caught by "Report failure to GitHub Issues"
+            # below — that GitHub issue IS this caller's recovery net
+            # (auto-triage picks it up), so silencing it would just hide a
+            # real deploy gap.
             bash scripts/lib/trigger-deploy.sh
           else
             echo "⏳ Some translations still incomplete — skipping deploy trigger"

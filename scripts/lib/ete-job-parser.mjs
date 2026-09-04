@@ -11,9 +11,14 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  extractDetailFields,
+  isSufficientVacancyDescription,
+} from './prospector/extract.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -23,6 +28,12 @@ export const ETE_COMPANY_NAME = 'Emil Egger AG';
 export const ETE_COMPANY_DOMAIN = 'ete.ch';
 
 const CAREER_URL = 'https://www.ete.ch/unternehmen/jobs/';
+const ETE_REQUEST_HEADERS = {
+  // ETE currently serves Brotli bytes through the custom public-DNS dispatcher
+  // without exposing a decoded HTML body. Requesting identity encoding keeps
+  // the SSRF-safe transport and makes the source document parseable.
+  'Accept-Encoding': 'identity',
+};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -32,6 +43,55 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * ETE renders the authoritative vacancy body in `section.job_description`,
+ * which the generic detail extractor already reads correctly. Its job-specific
+ * location is a labelled `dt`/`dd` pair instead of a schema/location class, so
+ * generic extraction cannot see it and the geography gate drops every row.
+ *
+ * Keep the shared body extraction, but accept a location only from the exact
+ * ETE datasheet field (`Standort`, or its observed French label `Site`). The
+ * listing grid and the related-jobs widget repeat other locations on the same
+ * page; neither is allowed to become evidence for the current vacancy.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ */
+export function extractEteDetailFields(html = '', pageUrl = '') {
+  const source = String(html || '');
+  const detail = extractDetailFields(source, pageUrl);
+  if (!source) return detail;
+
+  const dom = new JSDOM(source);
+  const { document } = dom.window;
+  try {
+    const vacancyBody = document.querySelector('section.job_description');
+    const locationLabel = [...document.querySelectorAll('section.data-sheet dt')]
+      .find((node) => /^(?:standort|site)$/i.test(normalizeSpace(node.textContent || '')));
+    const locationValue = locationLabel?.nextElementSibling;
+    const location = locationValue?.tagName === 'DD'
+      ? normalizeSpace(locationValue.textContent || '')
+      : '';
+    const description = vacancyBody && isSufficientVacancyDescription(detail.description)
+      ? detail.description
+      : '';
+    const locationCandidate = location
+      ? { location, addressLocality: location, addressCountry: '' }
+      : null;
+
+    return {
+      ...detail,
+      description,
+      location,
+      addressLocality: locationCandidate?.addressLocality || '',
+      addressCountry: '',
+      locationCandidates: locationCandidate ? [locationCandidate] : [],
+    };
+  } finally {
+    dom.window.close();
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -107,9 +167,13 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(ETE_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    ...runtime,
+    headers: { ...(runtime.headers || {}), ...ETE_REQUEST_HEADERS },
+    detailExtractor: extractEteDetailFields,
+  });
 }
 
 /**
@@ -119,11 +183,11 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllEteJobs() {
+export async function fetchAllEteJobs(runtime = {}) {
   console.log(`🔍 Fetching Emil Egger AG jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
@@ -138,14 +202,19 @@ export async function fetchAllEteJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Lugano'; // TODO: extract actual location
-    const canton = inferSwissTargetCanton(location) || 'TI';
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} ete ch`);
+    // ETE publishes identical titles at distinct depots. Location is exact
+    // source evidence and keeps new routes injective; the runner separately
+    // pins already-published records to their existing slugs.
+    const jobSlug = slugify(`${title} ete ch ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const job = {
@@ -158,8 +227,8 @@ export async function fetchAllEteJobs() {
       companyDomain: ETE_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Emil Egger AG`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Emil Egger AG` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -168,9 +237,12 @@ export async function fetchAllEteJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
+      country: normalizeSpace(listing.addressCountry || "CH"),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),

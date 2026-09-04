@@ -55,6 +55,7 @@ import {
 import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, readRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -79,6 +80,18 @@ const DRY_RUN = String(process.env.RELOCALIZE_DRY_RUN || '0') === '1';
 // it stops starving genuinely-pending jobs. Auto-resets when the source changes
 // (re-crawl) — see needsTranslation() and the direct-scan in run().
 const MAX_RETRANSLATION_ATTEMPTS = 3;
+
+// How many companies in a row can fail before the whole run aborts. A single
+// company's error (transient network blip, malformed source data) used to
+// `break` the entire per-company loop, leaving every company later in
+// `companyKeys` order untouched for that run — and since that order is
+// traffic-weighted (job-traffic-priority.mjs), low-traffic companies always
+// sort last and could go untouched run after run (issue #5976: 408 jobs 30d+
+// stuck, 93% never attempted even once). Only a run of consecutive failures —
+// a real signal of a systemic outage (e.g. AI quota exhausted on every tier)
+// — should still abort early to avoid burning quota on companies destined to
+// fail too.
+const MAX_CONSECUTIVE_COMPANY_FAILURES = 3;
 
 /**
  * Default cascade cap when neither --max-jobs nor RELOCALIZE_MAX_JOBS is given.
@@ -130,6 +143,76 @@ function parseCompanyKey() {
 
 const COMPANY_KEY_FILTER = parseCompanyKey();
 
+function parseShadowPreflightV2Options() {
+  const args = process.argv.slice(2);
+  const valueFor = (flag) => {
+    const index = args.indexOf(flag);
+    return index >= 0 && typeof args[index + 1] === 'string' ? args[index + 1] : '';
+  };
+  return Object.freeze({
+    outputPath: valueFor('--shadow-preflight-v2-output'),
+    baselineMainSha: valueFor('--shadow-preflight-v2-baseline-main-sha'),
+    runnerTemp: valueFor('--shadow-preflight-v2-runner-temp'),
+    repository: valueFor('--shadow-preflight-v2-repository'),
+    workflow: valueFor('--shadow-preflight-v2-workflow'),
+    runId: valueFor('--shadow-preflight-v2-run-id'),
+    runAttempt: valueFor('--shadow-preflight-v2-run-attempt'),
+    workflowBlobSha: valueFor('--shadow-preflight-v2-workflow-blob-sha'),
+  });
+}
+
+const SHADOW_PREFLIGHT_V2 = parseShadowPreflightV2Options();
+
+export function createObserverCompensatedClock(now = Date.now) {
+  let observerElapsedMs = 0;
+  return Object.freeze({
+    now: () => now() - observerElapsedMs,
+    measureObserver: (operation) => {
+      const startedMs = now();
+      try {
+        return operation();
+      } finally {
+        const finishedMs = now();
+        if (Number.isFinite(startedMs) && Number.isFinite(finishedMs)) {
+          observerElapsedMs += Math.max(0, finishedMs - startedMs);
+        }
+      }
+    },
+  });
+}
+
+const LEGACY_CLOCK = createObserverCompensatedClock();
+
+function emitTranslationShadowPreflightV2(inputFactory) {
+  if (!SHADOW_PREFLIGHT_V2.outputPath) return null;
+  return LEGACY_CLOCK.measureObserver(() => {
+    try {
+      const runBinding = {
+        repository: SHADOW_PREFLIGHT_V2.repository,
+        workflow: SHADOW_PREFLIGHT_V2.workflow,
+        runId: SHADOW_PREFLIGHT_V2.runId,
+        runAttempt: SHADOW_PREFLIGHT_V2.runAttempt,
+        sourceCommit: SHADOW_PREFLIGHT_V2.baselineMainSha,
+        workflowBlobSha: SHADOW_PREFLIGHT_V2.workflowBlobSha || null,
+      };
+      const input = inputFactory();
+      return runTranslationShadowPreflightV2({
+        ...input,
+        baselineMainSha: SHADOW_PREFLIGHT_V2.baselineMainSha,
+        runBinding,
+      }, {
+        outputPath: SHADOW_PREFLIGHT_V2.outputPath,
+        runnerTemp: SHADOW_PREFLIGHT_V2.runnerTemp,
+      });
+    } catch (error) {
+      // Shadow mode is observational. A bad path, timeout, or observer defect may
+      // not change the legacy translation outcome or its production writes.
+      console.warn(`⚠️  Translation shadow preflight v2 unavailable: ${error?.message || error}`);
+      return null;
+    }
+  });
+}
+
 // Time budget: stop starting new companies when this many ms have elapsed.
 // The workflow job has timeout-minutes:350; we stop at 320min to leave a
 // comfortable margin for the commit/deploy steps to run.
@@ -170,7 +253,7 @@ function readJson(filePath) {
  * Check if a job needs translation work.
  * Returns true if the job has needsRetranslation flag or incomplete locale coverage.
  */
-function needsTranslation(job) {
+export function needsTranslation(job) {
   // Explicit flag set by either a crawler or the assembler's locale-completeness
   // guard (assemble-jobs-dataset.mjs flags suppressed jobs whose locale slots are
   // still empty). Takes priority over the suppression check so that assembler-
@@ -268,7 +351,7 @@ export function reconcileRetranslationState(job, { attempted = false } = {}) {
  * safe side: it can only delay a give-up, never cause a false suppression.
  */
 export function jobLocaleSignature(job) {
-  return `${JSON.stringify(job.titleByLocale || {})} ${JSON.stringify(job.descriptionByLocale || {})}`;
+  return `${JSON.stringify(job.titleByLocale || {})}\u0000${JSON.stringify(job.descriptionByLocale || {})}`;
 }
 
 /** Snapshot { slug → signature } for one company's jobs (call before the crawler runs). */
@@ -291,6 +374,37 @@ export function changedSlugsSince(snapshot, jobs, companyKey) {
     if (before === undefined || before !== jobLocaleSignature(j)) changed.add(j.slug);
   }
   return changed;
+}
+
+/**
+ * Decide whether the per-company cascade loop should abort after a company
+ * failed, given how many companies failed in a row so far (including this
+ * one). A single/isolated failure returns false (continue to the next
+ * company); MAX_CONSECUTIVE_COMPANY_FAILURES in a row is treated as a
+ * systemic signal (e.g. AI quota exhausted on every tier) and returns true.
+ */
+export function shouldStopAfterConsecutiveFailures(
+  consecutiveFailures,
+  max = MAX_CONSECUTIVE_COMPANY_FAILURES,
+) {
+  return consecutiveFailures >= max;
+}
+
+/**
+ * Return why a cascade pass must stop, with the run-wide cascade deadline
+ * taking precedence over the general workflow time-budget guard.
+ */
+export function cascadeStopReason({
+  nowMs,
+  runStartMs,
+  cascadeDeadlineMs,
+  passStartMs,
+  timeBudgetMs,
+  timeBudgetFraction,
+}) {
+  if (nowMs >= runStartMs + cascadeDeadlineMs) return 'cascade deadline';
+  if (nowMs - passStartMs >= timeBudgetMs * timeBudgetFraction) return 'time budget';
+  return null;
 }
 
 /**
@@ -472,7 +586,7 @@ function sortByPriority(a, b) {
  * @param {object[]} pending
  * @returns {object[]} the same jobs, reordered
  */
-function orderPendingByTraffic(pending) {
+export function orderPendingByTraffic(pending, { capture } = {}) {
   let popularity = readJson(JOB_POPULARITY_PATH);
   if (!popularity || typeof popularity !== 'object' || Array.isArray(popularity)) {
     if (!ALLOW_NO_TRAFFIC) {
@@ -490,6 +604,10 @@ function orderPendingByTraffic(pending) {
   const { order, stats } = buildTrafficPriority(pending, popularity);
   for (const line of formatPriorityReport(stats)) console.log(line);
   assertTrafficPriorityUsable(stats, { allowEmpty: ALLOW_NO_TRAFFIC });
+  if (capture && typeof capture === 'object') {
+    capture.popularity = popularity;
+    capture.stats = stats;
+  }
   return order;
 }
 
@@ -534,7 +652,7 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // i.e. a company that starts past the deadline does nothing and leaves its
     // jobs for the next run, never an unbounded run.
     JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: String(
-      Math.max(1, CASCADE_LOCALIZATION_DEADLINE_MS - (Date.now() - RUN_START_MS)),
+      Math.max(1, CASCADE_LOCALIZATION_DEADLINE_MS - (LEGACY_CLOCK.now() - RUN_START_MS)),
     ),
   };
 
@@ -672,8 +790,8 @@ export function matchAssembledJob(crawlerJob, assembledByKey) {
 
 /**
  * Carry forward SEO bridge slugs the assembled dataset already knows about
- * (e.g. captured by assemble-jobs-dataset's applyPerLocaleSlugCollisionGuard
- * or trackSlugHistoryDrift) but this per-crawler file (the committed source of
+ * (e.g. captured by assemble-jobs-dataset's trackSlugHistoryDrift) but this
+ * per-crawler file (the committed source of
  * truth the build plugin reads to emit redirect/bridge pages) is still
  * missing. Mutates `crawlerJob` in place; returns whether anything was added.
  *
@@ -964,6 +1082,13 @@ function invalidateCacheForIncompleteJobs(companyKey, incompleteJobs) {
   return invalidated;
 }
 
+export function filterPendingForCompany(pendingJobs, companyKeyFilter) {
+  if (!companyKeyFilter) return [...pendingJobs];
+  return pendingJobs.filter((job) => (
+    normalizeCompanyKey(job.companyKey || job.company || '') === companyKeyFilter
+  ));
+}
+
 async function main() {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
@@ -1014,18 +1139,39 @@ async function main() {
 
   // Find all jobs needing translation (flagged or incomplete)
   let pending = jobs.filter(needsTranslation);
+  const pendingBeforeCompanyFilter = pending.length;
 
   // Filter to a single company if --company-key is specified
   if (COMPANY_KEY_FILTER) {
     const before = pending.length;
-    pending = pending.filter(j => normalizeCompanyKey(j.companyKey || j.company || '') === COMPANY_KEY_FILTER);
+    pending = filterPendingForCompany(pending, COMPANY_KEY_FILTER);
     console.log(`🎯 Company filter: ${COMPANY_KEY_FILTER} — ${pending.length}/${before} pending jobs match\n`);
   }
+  const pendingAfterCompanyFilter = pending.length;
 
   const flaggedCount = pending.filter(j => j.needsRetranslation).length;
   const incompleteCount = pending.length - flaggedCount;
 
   if (pending.length === 0) {
+    emitTranslationShadowPreflightV2(() => ({
+      dryRun: false,
+      notAttemptedReason: 'legacy_no_pending_before_execution_plan',
+      jobs,
+      pendingJobs: pending,
+      legacy: {
+        allowNoTraffic: ALLOW_NO_TRAFFIC,
+        companyFilter: {
+          population: 'assembled_company_filtered',
+          value: COMPANY_KEY_FILTER || null,
+          before: pendingBeforeCompanyFilter,
+          after: pendingAfterCompanyFilter,
+        },
+        maxJobs: MAX_JOBS,
+        preClear: { status: 'not_needed' },
+        postClear: { population: 'assembled_company_filtered', pending: 0 },
+        trafficSource: TRAFFIC_SOURCE_PATH,
+      },
+    }));
     console.log('✅ All jobs have complete locale coverage. Nothing to re-localize.');
     return;
   }
@@ -1059,6 +1205,24 @@ async function main() {
   }
 
   if (DRY_RUN) {
+    emitTranslationShadowPreflightV2(() => ({
+      dryRun: true,
+      jobs,
+      pendingJobs: pending,
+      legacy: {
+        allowNoTraffic: ALLOW_NO_TRAFFIC,
+        companyFilter: {
+          population: 'assembled_company_filtered',
+          value: COMPANY_KEY_FILTER || null,
+          before: pendingBeforeCompanyFilter,
+          after: pendingAfterCompanyFilter,
+        },
+        maxJobs: MAX_JOBS,
+        preClear: { status: 'not_attempted', reason: 'legacy_dry_run_before_execution_plan' },
+        postClear: null,
+        trafficSource: TRAFFIC_SOURCE_PATH,
+      },
+    }));
     console.log('\n🏁 Dry run — skipping re-localization.');
     return;
   }
@@ -1072,16 +1236,48 @@ async function main() {
 
     // Re-filter pending after pre-clear
     const stillPendingJobs = jobs.filter(needsTranslation);
-    if (stillPendingJobs.length === 0) {
+    const filteredStillPendingJobs = filterPendingForCompany(stillPendingJobs, COMPANY_KEY_FILTER);
+    if (filteredStillPendingJobs.length === 0) {
+      emitTranslationShadowPreflightV2(() => ({
+        dryRun: false,
+        notAttemptedReason: 'legacy_preclear_emptied_execution_plan',
+        jobs,
+        pendingJobs: filteredStillPendingJobs,
+        legacy: {
+          allowNoTraffic: ALLOW_NO_TRAFFIC,
+          companyFilter: {
+            population: 'assembled_company_filtered',
+            value: COMPANY_KEY_FILTER || null,
+            before: pendingBeforeCompanyFilter,
+            after: 0,
+            reappliedAfterPreClear: Boolean(COMPANY_KEY_FILTER),
+          },
+          maxJobs: MAX_JOBS,
+          preClear: {
+            direct: {
+              population: 'all_per_crawler_occurrences',
+              cleared: directCleared,
+              reset: directReset,
+            },
+            assembled: {
+              population: 'all_assembled_jobs',
+              flagsCleared: preCleared,
+            },
+            filteredPending: {
+              population: 'assembled_company_filtered',
+              before: pendingAfterCompanyFilter,
+            },
+          },
+          postClear: { population: 'assembled_company_filtered', pending: 0 },
+          trafficSource: TRAFFIC_SOURCE_PATH,
+        },
+      }));
       console.log('✅ All jobs complete after pre-clear. Nothing left to translate.');
       return;
     }
     // Update pending count, re-applying company filter if active
     pending.length = 0;
-    const filtered = COMPANY_KEY_FILTER
-      ? stillPendingJobs.filter(j => normalizeCompanyKey(j.companyKey || j.company || '') === COMPANY_KEY_FILTER)
-      : stillPendingJobs;
-    for (const j of filtered) pending.push(j);
+    for (const j of filteredStillPendingJobs) pending.push(j);
     if (COMPANY_KEY_FILTER) {
       console.log(`🎯 Company filter re-applied after pre-clear: ${pending.length} jobs for ${COMPANY_KEY_FILTER}\n`);
     }
@@ -1095,7 +1291,8 @@ async function main() {
   // (data/job-popularity.json, Firestore job_views), with a fixed share of the
   // batch drawn oldest-first so the tail cannot starve. An unusable traffic
   // source throws instead of falling back — see assertTrafficPriorityUsable.
-  const orderedPending = orderPendingByTraffic(pending);
+  const trafficCapture = {};
+  const orderedPending = orderPendingByTraffic(pending, { capture: trafficCapture });
   pending.length = 0;
   for (const j of orderedPending) pending.push(j);
 
@@ -1105,11 +1302,55 @@ async function main() {
   const companyJobCounts = new Map();
   for (const job of cappedPending) {
     const key = normalizeCompanyKey(job.companyKey || job.company || '');
-    if (!key) continue;
+    if (!key) {
+      continue;
+    }
     companyJobCounts.set(key, (companyJobCounts.get(key) || 0) + 1);
   }
 
   const companyKeys = [...companyJobCounts.keys()];
+
+  emitTranslationShadowPreflightV2(() => ({
+    dryRun: false,
+    jobs,
+    pendingJobs: pending,
+    orderedPending,
+    capWindow: cappedPending,
+    capWindowCompanyKeys: cappedPending.map((job) => {
+      const key = normalizeCompanyKey(job.companyKey || job.company || '');
+      return key || null;
+    }),
+    companyBudgets: [...companyJobCounts].map(([companyKey, count]) => ({ companyKey, jobs: count })),
+    traffic: trafficCapture,
+    legacy: {
+      allowNoTraffic: ALLOW_NO_TRAFFIC,
+      companyFilter: {
+        population: 'assembled_company_filtered',
+        value: COMPANY_KEY_FILTER || null,
+        before: pendingBeforeCompanyFilter,
+        after: pending.length,
+        reappliedAfterPreClear: preCleared > 0,
+      },
+      maxJobs: MAX_JOBS,
+      preClear: {
+        direct: {
+          population: 'all_per_crawler_occurrences',
+          cleared: directCleared,
+          reset: directReset,
+        },
+        assembled: {
+          population: 'all_assembled_jobs',
+          flagsCleared: preCleared,
+        },
+        filteredPending: {
+          population: 'assembled_company_filtered',
+          before: pendingAfterCompanyFilter,
+        },
+      },
+      postClear: { population: 'assembled_company_filtered', pending: pending.length },
+      trafficSource: TRAFFIC_SOURCE_PATH,
+    },
+  }));
 
   if (companyKeys.length === 0) {
     console.log('⚠️  No valid company keys found. Skipping.');
@@ -1121,25 +1362,35 @@ async function main() {
   // Process each company separately with intermediate saves
   let totalFixed = 0;
   let totalProcessed = 0;
-  const startTime = Date.now();
+  let consecutiveFailures = 0;
+  const startTime = LEGACY_CLOCK.now();
 
   for (const key of companyKeys) {
     const companyJobCount = companyJobCounts.get(key) || 0;
 
-    // Time budget: stop before starting a new company once we pass the cascade
-    // deadline (250min), so no company is started that would only immediately
+    // Stop before starting a new company once the RUN-WIDE cascade deadline
+    // passes, so no company is started that would only immediately
     // defer (its per-call budget would be ~0) and so ~100min is left for the
     // Argos mop-up + the always()-guarded commit/scatter/slug/deploy steps before
     // the 350min job timeout. (Was TIME_BUDGET_MS=320min, which left a 250–320min
     // window where late companies could still run — review #2205 🔴 round 2.)
-    const elapsedMs = Date.now() - startTime;
-    if (elapsedMs > CASCADE_LOCALIZATION_DEADLINE_MS) {
-      const elapsedMin = Math.round(elapsedMs / 60_000);
-      console.log(`\n⏰ Cascade deadline reached (${elapsedMin}min elapsed) — stopping to leave room for mop-up + commit.`);
+    const companyNowMs = LEGACY_CLOCK.now();
+    const companyStopReason = cascadeStopReason({
+      nowMs: companyNowMs,
+      runStartMs: RUN_START_MS,
+      cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+      passStartMs: startTime,
+      timeBudgetMs: TIME_BUDGET_MS,
+      timeBudgetFraction: 1,
+    });
+    if (companyStopReason) {
+      const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);
+      console.log(`\n⏰ ${companyStopReason === 'cascade deadline' ? 'Cascade deadline' : 'Time budget'} reached (${elapsedMin}min run-wide elapsed) — stopping to leave room for mop-up + commit.`);
       console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining (deferred to next run).`);
       break;
     }
 
+    const elapsedMs = companyNowMs - RUN_START_MS;
     console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${key} (${companyJobCount} jobs) — ${Math.round(elapsedMs / 60_000)}min elapsed...`);
 
     // Invalidate stale cache entries for incomplete jobs so the shared crawler
@@ -1234,21 +1485,37 @@ async function main() {
       }
 
       totalProcessed += companyJobCount;
+      consecutiveFailures = 0;
       if (totalProcessed >= effectiveMax) break;
 
     } catch (err) {
+      consecutiveFailures++;
       console.error(`   ❌ ${key} failed: ${err.message}`);
       console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
-      // Stop on first failure to avoid burning more AI quota
-      break;
+      if (shouldStopAfterConsecutiveFailures(consecutiveFailures)) {
+        // N failures in a row is a systemic signal (e.g. AI quota exhausted on
+        // every tier) — stop to avoid burning more quota on companies that
+        // would fail too. A single/isolated failure continues to the next
+        // company instead of starving every later company for the whole run.
+        console.log(`   🛑 ${consecutiveFailures} consecutive company failures — stopping to avoid burning more AI quota`);
+        break;
+      }
+      console.log(`   ⏭️  Isolated failure, continuing to next company`);
     }
   }
 
   // ── Retry pass: re-attempt companies that had partial success ──────────
   // Rate limits often clear partway through a run. Companies processed early
   // may have had failures that would succeed now. Only retry if we have time.
-  const retryElapsedMs = Date.now() - startTime;
-  if (totalFixed > 0 && retryElapsedMs < TIME_BUDGET_MS * 0.85) {
+  const retryStartReason = cascadeStopReason({
+    nowMs: LEGACY_CLOCK.now(),
+    runStartMs: RUN_START_MS,
+    cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    passStartMs: startTime,
+    timeBudgetMs: TIME_BUDGET_MS,
+    timeBudgetFraction: 0.85,
+  });
+  if (totalFixed > 0 && !retryStartReason) {
     const retryJobs = readJson(DATA_JOBS_PATH);
     const retryPending = Array.isArray(retryJobs)
       ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
@@ -1268,9 +1535,16 @@ async function main() {
       console.log(`\n🔁 Retry pass: ${retryTotal} jobs across ${retryCompanies.size} companies still pending...`);
 
       for (const [key, count] of retryCompanies) {
-        const retryNow = Date.now() - startTime;
-        if (retryNow > TIME_BUDGET_MS * 0.95) {
-          console.log(`   ⏰ Time budget reached during retry — stopping`);
+        const retryCompanyStopReason = cascadeStopReason({
+          nowMs: LEGACY_CLOCK.now(),
+          runStartMs: RUN_START_MS,
+          cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+          passStartMs: startTime,
+          timeBudgetMs: TIME_BUDGET_MS,
+          timeBudgetFraction: 0.95,
+        });
+        if (retryCompanyStopReason) {
+          console.log(`   ⏰ Retry stopped: ${retryCompanyStopReason} reached — deferring remaining companies to the next run`);
           break;
         }
 
@@ -1296,6 +1570,8 @@ async function main() {
         }
       }
     }
+  } else if (totalFixed > 0) {
+    console.log(`\n⏰ Retry pass skipped: ${retryStartReason} reached — deferring retries to the next run`);
   }
 
   // Final summary — use saved slug set instead of re-reading data/jobs.json

@@ -12,61 +12,77 @@
   "seedUrls": [
     "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/",
     "https://career.ibsagroup.com/job/Manno-Pharmaceutical-Technology-Technician-TI-6928/1361831455/",
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-TI-6926/1343827855/",
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Medical-Writing-Specialist-TI-6926/1360401955/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Clinical-&-Safety-Compliance-Specialist-TI-6926/1361803055/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-TI-6926/1343827855/"
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/",
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/"
   ],
   "notes": "Dedicated IBSA crawler seeds from career.ibsagroup.com TI search and canonicalizes detail URLs under /job/.../:jobId/.",
-  "updatedAt": "2026-08-28T05:29:06.544Z",
+  "updatedAt": "2026-09-01T10:13:03.939Z",
   "seedMetaByUrl": {
     "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/": {
-      "location": "Ticino",
+      "location": "Grancia",
       "canton": "TI",
       "country": "CH",
+      "postalCode": "6916",
       "company": "IBSA Institut Biochimique",
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Manno-Pharmaceutical-Technology-Technician-TI-6928/1361831455/": {
-      "location": "Ticino",
+      "location": "Manno",
       "canton": "TI",
       "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Medical-Writing-Specialist-TI-6926/1360401955/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Clinical-&-Safety-Compliance-Specialist-TI-6926/1361803055/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
+      "postalCode": "6928",
       "company": "IBSA Institut Biochimique",
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-TI-6926/1343827855/": {
-      "location": "Ticino",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "country": "CH",
+      "postalCode": "6926",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/": {
+      "location": "Collina d'Oro",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6926",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Medical-Writing-Specialist-TI-6926/1360401955/": {
+      "location": "Collina d'Oro",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6926",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Clinical-&-Safety-Compliance-Specialist-TI-6926/1361803055/": {
+      "location": "Collina d'Oro",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6926",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/": {
+      "location": "Collina d'Oro",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6926",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/": {
+      "location": "Collina d'Oro",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6926",
       "company": "IBSA Institut Biochimique",
       "companyDomain": "ibsa.ch"
     }

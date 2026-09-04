@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-08-27T20:22:47.572Z",
+  "assembledAt": "2026-09-03T23:34:30.214Z",
   "jobs": [
     {
       "title": "Precious Metal Control Manager",
@@ -58,6 +58,7 @@
         }
       },
       "firstSeenAt": "2026-08-19T21:38:27.862Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
@@ -126,7 +127,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:07:24.592Z"
+      "firstSeenAt": "2026-08-12T22:07:24.592Z",
+      "salarySource": "estimated"
     },
     {
       "title": "Tecnico di laboratorio",
@@ -183,7 +185,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-11T22:04:16.279Z"
+      "firstSeenAt": "2026-08-11T22:04:16.279Z",
+      "salarySource": "estimated"
     },
     {
       "title": "Operatore reparto Raffineria",
@@ -272,7 +275,8 @@
         "it": [
           "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro"
         ]
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
@@ -368,7 +372,8 @@
           "specialiste-technique-en-chimie-responsable-d-exploitation-d-usine-mks-pamp-castel-san-pietro"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:10:50.570Z"
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "salarySource": "reported"
     }
   ]
 }

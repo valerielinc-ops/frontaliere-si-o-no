@@ -4,6 +4,7 @@ import {
   inferSwissTargetCanton,
   isCantonRelevant,
   isGrigioniRelevant,
+  isKnownSwissMunicipalityInCanton,
   isTargetSwissLocation,
   isTicinoRelevant,
   TICINO_MUNICIPALITIES,
@@ -31,6 +32,13 @@ describe('target swiss locations', () => {
   it('keeps legacy locality aliases used by job boards after municipal mergers', () => {
     expect(isTicinoRelevant('Giubiasco, CH')).toBe(true);
     expect(inferSwissTargetCanton('Coira, Switzerland')).toBe('GR');
+  });
+
+  it('uses ambiguous raw municipality names once the canton disambiguates them', () => {
+    expect(isKnownSwissMunicipalityInCanton('Court', 'BE')).toBe(true);
+    expect(isKnownSwissMunicipalityInCanton('Sâles', 'FR')).toBe(true);
+    expect(isKnownSwissMunicipalityInCanton('Concise', 'VD')).toBe(true);
+    expect(isKnownSwissMunicipalityInCanton('Court', 'FR')).toBe(false);
   });
 
   it('does not classify unrelated Swiss cities as target', () => {

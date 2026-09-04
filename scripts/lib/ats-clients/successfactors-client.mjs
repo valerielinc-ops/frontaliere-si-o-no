@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
 /**
  * SuccessFactors ATS client — shared abstraction for SAP SuccessFactors career sites.
  *
@@ -355,14 +356,13 @@ export function parseSuccessFactorsPostedDate(rawDate) {
  */
 
 function slugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-'), 180);
 }
 
 function normalizeSpace(value = '') {

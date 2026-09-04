@@ -150,6 +150,21 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/company-alert.test.ts', roots: ['services/locales/'] },
   { file: 'tests/corpus-wide-test-partition.test.ts', roots: ['data/jobs/', 'packages/articles/content/'] },
   { file: 'tests/crawler-regression-quality-guards.test.ts', roots: ['data/jobs/'] },
+  // Corpus genuinely the subject: this negative production invariant verifies
+  // that the three poisoned learned specs retired by #7001 stay absent from
+  // the live prospector registry. A fixture would not catch their resurrection.
+  { file: 'tests/albergo-gardenia-live-regression.test.ts', roots: ['data/prospector/'] },
+  // Corpus genuinely the subject: the retirement observer verifies the live
+  // active/summary/prospector owners stay absent and every historical route
+  // remains in the checked-in expired archive.
+  {
+    file: 'tests/de-crawler-retirement.test.ts',
+    roots: ['data/jobs-crawler-summaries/', 'data/jobs/', 'data/prospector/'],
+  },
+  // Corpus genuinely the subject: #6784 is a ratchet over the six repaired
+  // production slices. New cross-job ownership or empty-bucket regrowth is the
+  // data event this test is intentionally meant to surface.
+  { file: 'tests/decontaminate-prev-slugs-live-regression.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/dist-hash-manifest-deploy-perimeter.test.ts', roots: ['data/jobs.json'] },
   { file: 'tests/edge-retired-paths.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/git-commit-data-append-only-sets.test.ts', roots: ['data/jobs/'] },
@@ -164,6 +179,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/job-locale-mark-persistence.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/news-ticker-data.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/packages-articles-confinement.test.ts', roots: ['packages/articles/'] },
+  // Corpus genuinely the subject: the turnover-safe #7045 observer compares
+  // the live iPersonal active and expired slices so every known route keeps one
+  // recoverable owner as jobs move between lifecycle states.
+  { file: 'tests/ipersonal-route-recovery-7045-live.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/refline-detail-title.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/sitemap-slug-integrity.test.ts', roots: ['data/jobs.json'] },
   { file: 'tests/slug-active-loss-regression-5229.test.ts', roots: ['data/jobs/'] },
@@ -183,6 +202,37 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/topic-cluster-hubs.test.ts', roots: ['services/locales/'] },
   { file: 'tests/weekly-employers.test.ts', roots: ['services/locales/'] },
   { file: 'tests/whats-new-localization-guard.test.ts', roots: ['services/locales/'] },
+]);
+
+/**
+ * Scanner false positives that must remain in the blocking PR suite.
+ *
+ * These tests resolve other repository inputs against ROOT and also contain a
+ * live-root-looking path as synthetic workflow/receipt text or underneath a
+ * temporary repository. They do not read those paths from this checkout, so
+ * classifying them as live-data tests would silently remove useful code gates.
+ */
+export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
+  {
+    file: 'tests/crawler-generation-barrier-workflows.test.ts',
+    roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
+    reason: 'job slice paths are synthetic receipt payload fields; filesystem reads target workflow SSOT files',
+  },
+  {
+    file: 'tests/crawler-generation-receipt.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'every job slice is created inside a mkdtemp git fixture, never read from the checkout',
+  },
+  {
+    file: 'tests/generate-crawler-group-workflows.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'job slice paths are asserted YAML/env strings, not checkout filesystem reads',
+  },
+  {
+    file: 'tests/nord-anglia-crawler.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'the path is an expected workflow env string; ROOT reads target workflow/parser sources',
+  },
 ]);
 
 /**
@@ -249,7 +299,8 @@ export function scanLiveDataTests(root = ROOT) {
  */
 export function diffAgainstInventory(root = ROOT) {
   const found = scanLiveDataTests(root);
-  const known = new Set(KNOWN_LIVE_DATA_TESTS.map((e) => e.file));
+  const inventoried = [...KNOWN_LIVE_DATA_TESTS, ...LIVE_DATA_SCAN_EXEMPTIONS];
+  const known = new Set(inventoried.map((e) => e.file));
   const foundFiles = new Set(found.map((e) => e.file));
   const explicitlyTransitive = new Set(
     KNOWN_LIVE_DATA_TESTS

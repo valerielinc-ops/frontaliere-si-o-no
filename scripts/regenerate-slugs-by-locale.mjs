@@ -42,6 +42,7 @@ import {
   slugMatchesTitle,
 } from './lib/regenerate-slugs-helpers.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { hasUsableJobId } from './lib/job-match-key.mjs';
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -71,7 +72,7 @@ async function main() {
     const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
     for (const job of jobs) {
       preScanJobs++;
-      if (!job?.id) continue;
+      if (!hasUsableJobId(job)) continue;
       const sbl = job.slugByLocale || {};
       for (const locale of LOCALES) {
         const slug = (sbl[locale] || '').trim();
@@ -197,7 +198,7 @@ async function main() {
         // link equity stays glued to one URL per job. This prevents the
         // downstream emit collisions documented in Phase 4 cases 1 and 4
         // (Convit, Projektleiter/Projektingenieur, etc).
-        if (job.id) {
+        if (hasUsableJobId(job)) {
           const slugMap = usedSlugs.get(locale);
           const owner = slugMap.get(newSlug);
           if (owner && owner !== job.id) {
@@ -226,7 +227,7 @@ async function main() {
         // Update the cross-job uniqueness map: this job now owns newSlug
         // for this locale, and (if changing from currentSlug) releases
         // currentSlug back to the pool.
-        if (job.id) {
+        if (hasUsableJobId(job)) {
           const slugMap = usedSlugs.get(locale);
           if (currentSlug && slugMap.get(currentSlug) === job.id) {
             slugMap.delete(currentSlug);

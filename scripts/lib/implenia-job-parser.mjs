@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
 
@@ -35,9 +35,9 @@ const BROWSER_UA =
 
 const PAGE_SIZE = 10; // RMK listing page size (confirmed live)
 
-// HQ fallback (recon): Implenia HQ — Glattpark (Opfikon), ZH, 8152.
-// streetAddress confirmed live in RMK jobLocationShort address-form samples
-// (see parseLocation docstring below).
+// Known HQ metadata (recon): Implenia HQ — Glattpark (Opfikon), ZH, 8152.
+// It completes the address only when the source itself names this locality;
+// streetAddress is confirmed in RMK jobLocationShort address-form samples.
 const HQ = {
   city: 'Glattpark (Opfikon)',
   canton: 'ZH',
@@ -369,11 +369,12 @@ export async function fetchAllImpleniaJobs() {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
-    const location = normalizeSpace(listing.location || '') || HQ.city;
-    const canton = inferSwissTargetCanton(location) || HQ.canton;
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
     const postalCode = listing.postalCode || (location === HQ.city ? HQ.postalCode : '');
     const streetAddress = listing.streetAddress || (location === HQ.city ? HQ.streetAddress : '');
-    const addressRegion = canton === HQ.canton ? HQ.addressRegion : canton;
+    const addressRegion = canton;
 
     // The RMK listing API carries no description body. Fetch the REAL job body
     // from the server-rendered detail page's itemprop="description" microdata

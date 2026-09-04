@@ -286,8 +286,9 @@ export function employerNameFromPage(html = '', host = '', links = []) {
   if (ogSite) candidates.push(ogSite);
   // Quote-balanced (#6480): a company name with an apostrophe — `Casa d'Anziani`,
   // `L'Oréal` — was truncated at the apostrophe by the old `[^"']+` class.
-  const logoImg = /<img\b[^>]*(?:class|id)\s*=\s*(["'])[^"']*logo[^"']*\1[^>]*>/i.exec(html)?.[0]
-    || /<img\b[^>]*alt\s*=\s*(["'])[\s\S]*?\1[^>]*(?:class|id)\s*=\s*(["'])[^"']*logo[^"']*\2[^>]*>/i.exec(html)?.[0];
+  const logoImg = [...String(html || '').matchAll(/<img\b[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => /logo/i.test(readAttr(tag, 'class')) || /logo/i.test(readAttr(tag, 'id')));
   const logoAlt = clean(logoImg ? readAttr(logoImg, 'alt') : '');
   if (logoAlt) candidates.push(logoAlt);
 

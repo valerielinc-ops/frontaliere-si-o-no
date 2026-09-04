@@ -204,8 +204,8 @@ describe('scan-job-timeouts — a host-killed leg opens an issue instead of vani
   });
 
   it('a host-kill taking out several jobs of one run stays ONE issue', async () => {
-    // A dead host takes every job on it. All of them map to the same title, so the
-    // in-process memo must hold across the host-kill path too, not just the timeout one.
+    // A dead host takes every job on it. The complete run must be persisted in
+    // one body so a failed secondary comment cannot lose part of the diagnosis.
     mockGh([
       hostKilledJob(),
       hostKilledJob({ name: 'build-locale (de)', check_run_url: 'https://api.github.com/repos/o/r/check-runs/3' }),
@@ -215,10 +215,10 @@ describe('scan-job-timeouts — a host-killed leg opens an issue instead of vani
     await main();
 
     expect(callsFor('create')).toHaveLength(1);
-    const comments = callsFor('comment');
-    expect(comments).toHaveLength(1);
-    expect(comments[0][2]).toBe('5780');
-    // The second dead job is deduped, not dropped.
-    expect(comments[0][comments[0].indexOf('--body') + 1]).toContain('build-locale (de)');
+    expect(callsFor('comment')).toHaveLength(0);
+    const created = callsFor('create')[0];
+    const body = created[created.indexOf('--body') + 1];
+    expect(body).toContain('build-locale (it)');
+    expect(body).toContain('build-locale (de)');
   });
 });

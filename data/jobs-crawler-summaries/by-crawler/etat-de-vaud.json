@@ -1,43 +1,41 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-08-28T05:30:08.876Z",
-  "total": 63,
+  "generatedAt": "2026-09-03T23:25:53.660Z",
+  "total": 52,
   "discovered": null,
-  "written": 63,
+  "written": 52,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 32684,
-  "avgDurationMs": 32684,
+  "unchangedCount": 0,
+  "durationMs": 31481,
+  "avgDurationMs": 31481,
   "durationHistory": [
-    32684
+    31481
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5721",
-      "slug": "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-d7b800",
+      "id": "etat-de-vaud-5713",
+      "slug": "taxist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Gestionnaire de dossiers spécialisés",
+      "title": "Fiscaliste",
       "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5721",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5713",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:11:14.093Z",
+      "crawledAt": "2026-09-03T13:47:12.820Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1000",
       "streetAddress": "Place du Château 1",
-      "category": "Amministrazione",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -45,11 +43,12 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5721",
-      "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 2,
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5713",
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -58,5 +57,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

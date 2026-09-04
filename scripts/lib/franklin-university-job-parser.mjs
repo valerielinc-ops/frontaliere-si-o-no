@@ -171,8 +171,7 @@ export async function fetchAllFranklinUniversityJobs() {
   try {
     html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new Error(`Franklin University: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
   const listings = parseListingPage(html);
   console.log(`  Jobs found on listing page: ${listings.length}`);

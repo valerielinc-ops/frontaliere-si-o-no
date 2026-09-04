@@ -277,7 +277,8 @@ function buildAtsParserSection(tier) {
     // l'estrazione qui e' LA STESSA che il gate ha giudicato — se divergesse,
     // il voto di qualita' parlerebbe di un altro programma.
     return {
-      imports: `import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';`,
+      imports: `import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';`,
       fetchBlock: `/* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
@@ -458,6 +459,15 @@ async function fetchJobListings() {
 }
 
 const atsSection = buildAtsParserSection(atsTier);
+const locationBlock = atsTier === 'prospected'
+  ? `    const geography = resolveSourceBackedSwissGeography(listing.location);
+    // Required structured-data geography must come from the vacancy source.
+    // Missing, foreign or non-specific values are not replaced with an HQ.
+    if (!geography) continue;
+    const { location, canton } = geography;`
+  : `    const location = normalizeSpace(listing.location || '');
+    if (!location) continue;
+    const canton = inferSwissTargetCanton(location) || '';`;
 
 /* ── Template: Parser ────────────────────────────────────────── */
 
@@ -684,13 +694,10 @@ export async function fetchAll${pascalKey}Jobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(listing.location || '');
-    // Never fabricate Lugano/TI when the source did not provide a location.
-    // Prospector-generated crawlers must publish only source-backed geography.
-    if (!location) continue;
-    const canton = inferSwissTargetCanton(location) || '';
+${locationBlock}
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, '${sourceLang}');
@@ -717,9 +724,14 @@ export async function fetchAll${pascalKey}Jobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      // Prospected runtime rows retain the selected structured candidate;
+      // other ATS tiers use the same fields when their client exposes them.
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+      country: normalizeSpace(listing.addressCountry || 'CH'),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),

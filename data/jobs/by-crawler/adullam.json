@@ -1,6 +1,6 @@
 {
   "crawlerKey": "adullam",
-  "assembledAt": "2026-08-28T05:34:59.183Z",
+  "assembledAt": "2026-09-03T23:21:15.245Z",
   "jobs": [
     {
       "id": "adullam-cb01b7a45399",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4058459",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:55.796Z",
+      "crawledAt": "2026-09-03T13:43:59.686Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
       "firstSeenAt": "2026-08-21T22:09:55.805Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -84,7 +85,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "adullam-17c8725593e5",
@@ -100,10 +102,10 @@
       "companyDomain": "adullam.ch",
       "title": "Dipl. Physiotherapeut/ Physiotherapeutin",
       "titleByLocale": {
-        "it": "Dipl. Fisioterapia/-in",
+        "it": "Dipl. Fisioterapista/fisioterapista",
         "en": "Dipl. Physiotherapist/physiotherapist",
         "de": "Dipl. Physiotherapeut/ Physiotherapeutin",
-        "fr": "Dipl. Physiothérapeute/-in"
+        "fr": "Dipl. Physiothérapeute/physiothérapiste"
       },
       "description": "Bei uns stehen Menschen im Mittelpunkt – Tag für Tag Bei uns sind es die Menschen, die den Unterschied machen – sowohl unsere Patient:innen als auch unser Team. In deiner Rolle als Leitung der Physiotherapie stellst du sicher, dass Patient:innen eine sorgfältige und individuell abgestimmte physiotherapeutische Begleitung erhalten und das Team gut zusammenarbeitet. Du führst mit Klarheit, Qualitätsbewusstsein und Menschlichkeit und verbindest fachliche Verantwortung mit dem Alltag in der Praxis.\n\nWerde Teil unseres Teams und helfe uns dabei, die Mobilität und Lebensfreude unserer betagten Patient:innen zu stärken. Wir suchen zum 01.11.2026 oder nach Vereinbarung eine/n motivierte/n und engagierte/-n Mitarbeiter/-in für den Standort Basel als Dipl. Physiotherapeut/ Physiotherapeutin 80 - 100% | Standort Basel Deine Aufgaben\n• Physiotherapeutische Befundaufnahme und individuelle Therapie und Begleitung: Du erstellst gezielte Therapiekonzepte, die auf die Bedürfnisse und Fähigkeiten älterer Menschen abgestimmt sind, und arbeitest sowohl im Einzelsetting als auch in Gruppen\n• Behandlung von akut medizinischen Patientinnen und Patienten als auch Rehabilitation nach chirurgischen und orthopädischen Eingriffen sowie Neurorehabilitation\n• Mobilitäts- und Sturzpräventionsprogramme: Gemeinsam mit dem interdisziplinären Team führst Du Übungen zur Förderung von Balance und Kraft durch und wirkst aktiv an der Sturzprävention mit\n• Aktive interprofessionelle Zusammenarbeit mit dem Ärzte- und Pflegeteam sowie weiteren therapeutischen Diensten\n• Mit Empathie und Kompetenz trägst Du zur Optimierung der Beweglichkeit und Selbstständigkeit bei, um den Alltag für unsere Patient:innen so aktiv und selbstbestimmt wie möglich zu gestalten\n• Dokumentation der Therapiefortschritte und Teilnahme an interdisziplinären Fallbesprechungen Dein Profil\n• Abgeschlossene Ausbildung als Physiotherapeut:in (BSc, FH oder ein äquivalentes ausländisches Diplom mit abgeschlossener SRK-Anerkennung)\n• Berufliche Erfahrung in der geriatrischen Rehabilitation oder grosses Interesse an diesem Bereich\n• Freude, Empathie und Geduld im Umgang mit betagten Menschen\n• Kommunikationsstärke und die Fähigkeit, motivierende und vertrauensvolle Beziehungen zu Patient:innen und deren Angehörigen aufzubauen\n• Selbstständige, strukturierte und vernetzt denkende Arbeitsweise Du möchtest in einem Umfeld arbeiten, in dem Deine Arbeit Wirkung zeigt und Dein Engagement geschätzt wird? Dann freuen wir uns auf Deine Bewerbung! Bei der Adullam-Stiftung erwartet dich eine verantwortungsvolle Aufgabe in einem engagierten Team, das gemeinsam viel bewegt. Bewirb Dich jetzt und gestalte mit uns eine fürsorgliche Zukunft für ältere Menschen! Für weitere Auskünfte steht Dir Herr Jeremy Morgen, Gruppenleiter Physiotherapie, gerne zur Verfügung. Telefon +41 61 266 63 22 Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Interne Yoga-Kurse\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%",
       "descriptionByLocale": {
@@ -112,13 +114,12 @@
         "de": "Bei uns stehen Menschen im Mittelpunkt – Tag für Tag Bei uns sind es die Menschen, die den Unterschied machen – sowohl unsere Patient:innen als auch unser Team. In deiner Rolle als Leitung der Physiotherapie stellst du sicher, dass Patient:innen eine sorgfältige und individuell abgestimmte physiotherapeutische Begleitung erhalten und das Team gut zusammenarbeitet. Du führst mit Klarheit, Qualitätsbewusstsein und Menschlichkeit und verbindest fachliche Verantwortung mit dem Alltag in der Praxis.\n\nWerde Teil unseres Teams und helfe uns dabei, die Mobilität und Lebensfreude unserer betagten Patient:innen zu stärken. Wir suchen zum 01.11.2026 oder nach Vereinbarung eine/n motivierte/n und engagierte/-n Mitarbeiter/-in für den Standort Basel als Dipl. Physiotherapeut/ Physiotherapeutin 80 - 100% | Standort Basel Deine Aufgaben\n• Physiotherapeutische Befundaufnahme und individuelle Therapie und Begleitung: Du erstellst gezielte Therapiekonzepte, die auf die Bedürfnisse und Fähigkeiten älterer Menschen abgestimmt sind, und arbeitest sowohl im Einzelsetting als auch in Gruppen\n• Behandlung von akut medizinischen Patientinnen und Patienten als auch Rehabilitation nach chirurgischen und orthopädischen Eingriffen sowie Neurorehabilitation\n• Mobilitäts- und Sturzpräventionsprogramme: Gemeinsam mit dem interdisziplinären Team führst Du Übungen zur Förderung von Balance und Kraft durch und wirkst aktiv an der Sturzprävention mit\n• Aktive interprofessionelle Zusammenarbeit mit dem Ärzte- und Pflegeteam sowie weiteren therapeutischen Diensten\n• Mit Empathie und Kompetenz trägst Du zur Optimierung der Beweglichkeit und Selbstständigkeit bei, um den Alltag für unsere Patient:innen so aktiv und selbstbestimmt wie möglich zu gestalten\n• Dokumentation der Therapiefortschritte und Teilnahme an interdisziplinären Fallbesprechungen Dein Profil\n• Abgeschlossene Ausbildung als Physiotherapeut:in (BSc, FH oder ein äquivalentes ausländisches Diplom mit abgeschlossener SRK-Anerkennung)\n• Berufliche Erfahrung in der geriatrischen Rehabilitation oder grosses Interesse an diesem Bereich\n• Freude, Empathie und Geduld im Umgang mit betagten Menschen\n• Kommunikationsstärke und die Fähigkeit, motivierende und vertrauensvolle Beziehungen zu Patient:innen und deren Angehörigen aufzubauen\n• Selbstständige, strukturierte und vernetzt denkende Arbeitsweise Du möchtest in einem Umfeld arbeiten, in dem Deine Arbeit Wirkung zeigt und Dein Engagement geschätzt wird? Dann freuen wir uns auf Deine Bewerbung! Bei der Adullam-Stiftung erwartet dich eine verantwortungsvolle Aufgabe in einem engagierten Team, das gemeinsam viel bewegt. Bewirb Dich jetzt und gestalte mit uns eine fürsorgliche Zukunft für ältere Menschen! Für weitere Auskünfte steht Dir Herr Jeremy Morgen, Gruppenleiter Physiotherapie, gerne zur Verfügung. Telefon +41 61 266 63 22 Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Interne Yoga-Kurse\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%",
         "fr": "Descrizione Nous nous concentrons sur les gens – jour après jour. Avec nous, ce sont les gens qui font la différence – nos patients et notre équipe. Dans votre rôle de chef de la physiothérapie, vous assurez que les patients reçoivent un soutien physiothérapeutique soigneusement et individuellement coordonné et travaillent bien ensemble. Vous dirigez avec clarté, conscience de la qualité et humanité et combinez la responsabilité professionnelle avec la vie quotidienne dans la pratique. Faites partie de notre équipe et aidez-nous à renforcer la mobilité et la joie de vivre de nos patients âgés. Mansioni - Évaluation physiothérapeutique et thérapie individuelle et accompagnement: Vous créez des concepts thérapeutiques ciblés qui sont adaptés aux besoins et aux compétences des personnes âgées, et travaillez à la fois en milieu individuel et en groupe - Traitement des patients médicaux aigus ainsi que la réadaptation après des interventions chirurgicales et orthopédiques ainsi que la neuroréadaptation - Programmes de mobilité et de prévention des chutes : Avec l'équipe interdisciplinaire, vous effectuez des exercices pour promouvoir l'équilibre et la force et vous engagez activement dans la prévention des chutes - Coopération interprofessionnelle active avec l'équipe médicale et infirmière et d'autres services thérapeutiques - Avec empathie et compétence, vous contribuez à l'optimisation de la mobilité et du travail indépendant afin de rendre la vie quotidienne pour nos patients aussi active et déterminée que possible - Documentation des progrès de la thérapie et participation à des réunions interdisciplinaires de cas\n• Requisiti - Formation complétée en physiothérapeute : en (BSc, FH ou un diplôme étranger équivalent avec reconnaissance SRK terminée) - Expérience professionnelle en réadaptation gériatrique ou grand intérêt dans ce domaine - La joie, l'empathie et la patience face aux personnes âgées - La force de la communication et la capacité d'établir des relations motivantes et confiantes avec les patients : - Indépendants, structurés et en réseau\n• Cosa offriamo - Billet d'emploi TNW au tarif jeunesse - Restaurant personnel avec une nourriture à prix réduit - Pause payée avec gel - Soutien généreux à la formation externe - Des prestations sociales équitables et des formules de vacances attrayantes - les prestations de retraite, y compris les pensions à temps partiel faibles - Modèles attrayants à temps partiel et temps de travail annuel - Conseil social externe pour les salariés - Culture de bienvenue et environnement de travail précieux - Cours de yoga interne Contatto - Ordre : Indéfini - Pensum: 80-100 % - Téléphone: +41 61 266 63 22 - M. Jeremy Morgen, chef de groupe en physiothérapie"
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://live.solique.ch/adullam/job/details/4009855",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:55.108Z",
+      "crawledAt": "2026-09-03T23:21:12.432Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -163,6 +164,7 @@
       "firstSeenAt": "2026-06-05T21:29:09.540Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -206,7 +208,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4029980",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:54.372Z",
+      "crawledAt": "2026-09-03T23:21:11.774Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -272,6 +274,7 @@
       "firstSeenAt": "2026-06-30T10:48:22.165Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -315,7 +318,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4019248",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:53.711Z",
+      "crawledAt": "2026-09-03T23:21:11.072Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -358,6 +361,7 @@
       "firstSeenAt": "2026-06-11T12:03:26.366Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -400,7 +404,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052086",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:53.059Z",
+      "crawledAt": "2026-09-03T23:21:10.328Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -441,6 +445,7 @@
       "firstSeenAt": "2026-08-10T22:09:14.908Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -483,7 +488,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044685",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:52.398Z",
+      "crawledAt": "2026-09-03T23:21:09.663Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -526,6 +531,7 @@
       "firstSeenAt": "2026-07-27T13:01:15.011Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -568,7 +574,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044764",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:51.726Z",
+      "crawledAt": "2026-09-03T23:21:08.989Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -609,6 +615,7 @@
       "firstSeenAt": "2026-07-27T13:01:14.308Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -634,7 +641,7 @@
       "companyDomain": "adullam.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Dipl. Infermiera / Infermiera specialista HF",
         "en": "Dipl. Nurse / Nurse specialist HF",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF"
@@ -646,13 +653,12 @@
         "de": "Manchmal braucht es einen Ort, an dem nicht alles schneller werden muss - sondern bewusster. Bei uns steht der Mensch im Mittelpunkt: Unsere Patientinnen und Patienten genauso wie unsere Mitarbeitenden. Wir glauben daran, dass gute Pflege dort entsteht, wo Fachkompetenz, Verantwortung und Menschlichkeit zusammenwirken.\n\nFür unsere Spital in Basel, suchen wir per sofort eine Persönlichkeit, die genau diesen Weg mit uns gehen möchte: Dipl. Pflegefachfrau / Pflegefachmann HF 80 - 100% | Standort Basel Dein Beitrag\n• Du bringst Pflegequalität und individuelle Bedürfnisse unserer Patientinnen und Patienten in Einklang\n• Du verantwortest den pflegediagnostischen Prozess (nach NANDA) und stellst eine strukturierte, fachlich fundierte Pflege sicher\n• Du begleitest und förderst Auszubildende FaGe sowie Studierende HF in ihrem Lernprozess\n• Du vertrittst den Pflegedienst aktiv im interprofessionellen Team Was dich auszeichnet\n• Abschluss als dipl. Pflegefachfrau/-mann HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Erfahrung im Akutspital oder in der Rehabilitation\n• Eine offene, lösungsorientierte und initiative Arbeitsweise\n• Hohe Sozialkompetenz, Zuverlässigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse sowie sichere IT-Anwenderkenntnisse Darauf kannst Du Dich freuen Dich erwartet eine abwechslungsreiche und verantwortungsvolle Aufgabe in einer renommierten Basler Institution. Bei uns arbeitest Du in einem engagierten Team, das Menschlichkeit, gegenseitige Wertschätzung und eine hohe Pflegequalität täglich lebt. Wenn Du den Kontakt mit älteren Menschen schätzt und deine Erfahrungen in einem spezialisierten geriatrischen Umfeld einbringen möchtest, freuen wir uns auf Deine Online-Bewerbung mit vollstän-digem Bewerbungsdossier. Für Fragen steht Dir Madeleine Schulz, Stationsleiterin, unter +41 61 266 82 60 gerne zur Verfügung. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Keine Nachtdienste Boni für spontanes Einspringen\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%",
         "fr": "Parfois, il prend un endroit où tout ne doit pas devenir plus rapide - mais plus conscient. Nous nous concentrons sur les gens : nos patients et nos employés. Nous croyons qu'un bon soin est créé là où l'expertise, la responsabilité et l'humanité travaillent ensemble.\n\nPour notre hôpital de Bâle, nous cherchons une personnalité qui veut aller exactement de cette façon avec nous : Dipl. Spécialiste des soins infirmiers HF 80 - 100% Votre contribution\n• Vous conciliez la qualité des soins et les besoins individuels de nos patients\n• Vous êtes responsable du processus de diagnostic des soins infirmiers (selon NANDA) et assurez un soin structuré et techniquement sain\n• Vous accompagnez et promeutz l'apprenti FaGe et les étudiants HF dans leur processus d'apprentissage\n• Vous représentez activement le service de soins dans l'équipe interprofessionnelle\n• Achèvement en tant que dipl. Formation professionnelle en soins infirmiers HF/FH ou formation équivalente avec reconnaissance SRC\n• Expérience en milieu hospitalier ou en réadaptation\n• Une méthode de travail ouverte, axée sur la solution et l'initiative\n• Haute compétence sociale, fiabilité et responsabilité\n• Très bonne connaissance de l'allemand ainsi que la connaissance des utilisateurs informatiques sécurisés Vous pouvez vous attendre à une tâche variée et responsable dans une institution de Bâle réputée. Avec nous, vous travaillez dans une équipe dévouée qui vit l'humanité, l'appréciation mutuelle et une haute qualité de soins chaque jour. Si vous appréciez le contact avec les personnes âgées et souhaitez apporter votre expérience dans un environnement gériatrique spécialisé, nous attendons avec impatience votre candidature en ligne avec un dossier d'application complet. Pour toute question, Madeleine Schulz, responsable de station, est à votre disposition au +41 61 266 82 60. Notre offre Job-Ticket TNW pour le taux de la jeunesse Restaurant personnel à prix réduit Pause payante avec Znüni gratuit Aide généreuse pour l'éducation complémentaire externe Avantages sociaux équitables et des vacances attrayantes, également pour le travail à temps partiel faible Modèles attrayants à temps partiel et heures de travail annuelles Conseils sociaux externes pour les employés Culture chaleureuse et environnement de travail appréciatif Cours de yoga interne Bonus pour le passage spontané\n\nLa Fondation Adullam est une institution de premier plan pour la médecine de l'âge, la thérapie et les soins dans le nord-ouest de la Suisse. À Bâle et Riehen, il exploite un hôpital et un centre de soins affilié. Les quelque 800 employés offrent aux personnes âgées des soins complets et uniques au niveau régional, depuis la médecine aiguë jusqu'à la réadaptation jusqu'aux soins de transition et de longue durée. Les soins holistiques à Adullam comprennent un niveau de qualité élevé, une humanité vécue et un grand respect pour la vieillesse.\n\nEmploi permanent\n\nPensum: 80-100 %"
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://live.solique.ch/adullam/job/details/4049813",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:51.049Z",
+      "crawledAt": "2026-09-03T23:21:08.332Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -695,6 +701,7 @@
       "firstSeenAt": "2026-08-05T11:41:50.414Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -737,7 +744,7 @@
       "url": "https://live.solique.ch/adullam/job/details/3868124",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:50.370Z",
+      "crawledAt": "2026-09-03T23:21:07.015Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -780,6 +787,7 @@
       "firstSeenAt": "2026-06-05T21:29:07.865Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -822,7 +830,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052120",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:49.687Z",
+      "crawledAt": "2026-09-03T23:21:06.355Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -863,6 +871,7 @@
       "firstSeenAt": "2026-08-10T22:09:11.751Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -873,6 +882,77 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "adullam-a8ad282b351a",
+      "slug": "berufsbildner-in-pflegezentrum-adullam-basel",
+      "slugByLocale": {
+        "de": "berufsbildner-in-pflegezentrum-adullam-basel",
+        "it": "berufsbildner-in-pflegezentrum-adullam-basel",
+        "en": "berufsbildner-in-pflegezentrum-adullam-basel",
+        "fr": "berufsbildner-in-pflegezentrum-adullam-basel"
+      },
+      "company": "Adullam-Stiftung",
+      "companyKey": "adullam",
+      "companyDomain": "adullam.ch",
+      "title": "Berufsbildner/in Pflegezentrum",
+      "titleByLocale": {
+        "de": "Berufsbildner/in Pflegezentrum",
+        "it": "Berufsbildner/in Pflegezentrum",
+        "en": "Berufsbildner/in Pflegezentrum",
+        "fr": "Berufsbildner/in Pflegezentrum"
+      },
+      "description": "Dein Wissen. Deine Begeisterung. Deine Bühne. Du brennst für die Pflege – und für die Zukunft? Im Adullam Spital Basel begleiten wir Menschen mit Erfahrung und Empathie - und wir bilden mit Herz und Verstand die nächste Generation aus. Wenn du deine Fachkompetenz und deine pädagogische Leidenschaft aktiv weitergeben möchtest, bieten wir dir den idealen Rahmen.\n\nZur Verstärkung unseres Berufsbildungsteams mit einem Pensum von 30% suchen wir Berufsbildner/in Pflegezentrum 60% | Standort Basel Was dich erwartet: Als Berufsbildner:in gestaltest du die Ausbildungsreise unserer Lernenden FaGe und Studierenden HF von Anfang bis Ende mit. Du begleitest, motivierst, reflektierst – individuell wie auch in Gruppen – und bringst deine Expertise aktiv in die Weiterentwicklung unserer Bildungsqualität ein. Zu deinen\n• Aufgaben gehören: > Persönliche Begleitung der Lernenden und Studierenden durch alle Praxisphasen – im bewährten Drei-Lernorte-Prinzip > Mitgestaltung und Umsetzung des betrieblichen Bildungsplans für FaGe & HF > Durchführung von Praxisbegleitungen, Standortgesprächen und Gruppenunterricht > Beurteilung von Lernerfolgen: von Kompetenznachweisen bis zu Fachgesprächen > Enger Austausch mit Prüfungsexpert:innen und internen Fachstellen > Mitwirkung an der Qualitätssicherung und -entwicklung in der Berufsbildung > Flexible Arbeitszeiten (auch halbtags möglich) Was du mitbringst: > Abschluss FAGE oder Abschluss als Dipl. Pflegefachfrau/-mann HF > Berufsbildnerkurs – abgeschlossen und bereit, ihn zu leben > Abschluss SVEB 1 oder die Bereitschaft, diesen zu erlangen > Freude am Austausch – mit jungen Menschen und mit betagten Patient:innen > Begeisterung für Berufspädagogik & aktuelle Entwicklungen in der Ausbildung > Zuverlässigkeit, Flexibilität und eine offene, klare Kommunikation > Sehr gute Deutschkenntnisse in Wort und Schrift > Überblick über die Pflegeausbildungen in der Schweiz Warum zu uns? Das Adullam Spital Basel ist ein traditionsreiches, modernes Zentrum für Akutgeriatrie und Rehabilitation. Wir setzen auf menschliche Nähe, interdisziplinäre Zusammenarbeit und gezielte Förderung. Freue dich auf ein wertschätzendes Umfeld, ein engagiertes Team und einen Arbeitsplatz, an dem Fachlichkeit und Menschlichkeit zusammengehören. Bei uns hast du die Möglichkeit, deine Kompetenzen langfristig einzubringen, Verantwortung zu übernehmen und den Pflegealltag aktiv mitzugestalten. Du wirst Teil eines engagierten Teams, das Bildung nicht nur begleitet, sondern aktiv mitgestaltet. Nähere Auskünfte erteilt Dir gerne Frau Carole Francisco, Leiterin Berufsbildung Pflegedienste, Tel. +41 61 266 63 07. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Interne Yoga-Kurse\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Dein Wissen. Deine Begeisterung. Deine Bühne. Du brennst für die Pflege – und für die Zukunft? Im Adullam Spital Basel begleiten wir Menschen mit Erfahrung und Empathie - und wir bilden mit Herz und Verstand die nächste Generation aus. Wenn du deine Fachkompetenz und deine pädagogische Leidenschaft aktiv weitergeben möchtest, bieten wir dir den idealen Rahmen.\n\nZur Verstärkung unseres Berufsbildungsteams mit einem Pensum von 30% suchen wir Berufsbildner/in Pflegezentrum 60% | Standort Basel Was dich erwartet: Als Berufsbildner:in gestaltest du die Ausbildungsreise unserer Lernenden FaGe und Studierenden HF von Anfang bis Ende mit. Du begleitest, motivierst, reflektierst – individuell wie auch in Gruppen – und bringst deine Expertise aktiv in die Weiterentwicklung unserer Bildungsqualität ein. Zu deinen\n• Aufgaben gehören: > Persönliche Begleitung der Lernenden und Studierenden durch alle Praxisphasen – im bewährten Drei-Lernorte-Prinzip > Mitgestaltung und Umsetzung des betrieblichen Bildungsplans für FaGe & HF > Durchführung von Praxisbegleitungen, Standortgesprächen und Gruppenunterricht > Beurteilung von Lernerfolgen: von Kompetenznachweisen bis zu Fachgesprächen > Enger Austausch mit Prüfungsexpert:innen und internen Fachstellen > Mitwirkung an der Qualitätssicherung und -entwicklung in der Berufsbildung > Flexible Arbeitszeiten (auch halbtags möglich) Was du mitbringst: > Abschluss FAGE oder Abschluss als Dipl. Pflegefachfrau/-mann HF > Berufsbildnerkurs – abgeschlossen und bereit, ihn zu leben > Abschluss SVEB 1 oder die Bereitschaft, diesen zu erlangen > Freude am Austausch – mit jungen Menschen und mit betagten Patient:innen > Begeisterung für Berufspädagogik & aktuelle Entwicklungen in der Ausbildung > Zuverlässigkeit, Flexibilität und eine offene, klare Kommunikation > Sehr gute Deutschkenntnisse in Wort und Schrift > Überblick über die Pflegeausbildungen in der Schweiz Warum zu uns? Das Adullam Spital Basel ist ein traditionsreiches, modernes Zentrum für Akutgeriatrie und Rehabilitation. Wir setzen auf menschliche Nähe, interdisziplinäre Zusammenarbeit und gezielte Förderung. Freue dich auf ein wertschätzendes Umfeld, ein engagiertes Team und einen Arbeitsplatz, an dem Fachlichkeit und Menschlichkeit zusammengehören. Bei uns hast du die Möglichkeit, deine Kompetenzen langfristig einzubringen, Verantwortung zu übernehmen und den Pflegealltag aktiv mitzugestalten. Du wirst Teil eines engagierten Teams, das Bildung nicht nur begleitet, sondern aktiv mitgestaltet. Nähere Auskünfte erteilt Dir gerne Frau Carole Francisco, Leiterin Berufsbildung Pflegedienste, Tel. +41 61 266 63 07. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Interne Yoga-Kurse\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet",
+        "it": "Dein Wissen. Deine Begeisterung. Deine Bühne. Du brennst für die Pflege – und für die Zukunft? Im Adullam Spital Basel begleiten wir Menschen mit Erfahrung und Empathie - und wir bilden mit Herz und Verstand die nächste Generation aus. Wenn du deine Fachkompetenz und deine pädagogische Leidenschaft aktiv weitergeben möchtest, bieten wir dir den idealen Rahmen.\n\nZur Verstärkung unseres Berufsbildungsteams mit einem Pensum von 30% suchen wir Berufsbildner/in Pflegezentrum 60% | Standort Basel Was dich erwartet: Als Berufsbildner:in gestaltest du die Ausbildungsreise unserer Lernenden FaGe und Studierenden HF von Anfang bis Ende mit. Du begleitest, motivierst, reflektierst – individuell wie auch in Gruppen – und bringst deine Expertise aktiv in die Weiterentwicklung unserer Bildungsqualität ein. Zu deinen\n• Aufgaben gehören: > Persönliche Begleitung der Lernenden und Studierenden durch alle Praxisphasen – im bewährten Drei-Lernorte-Prinzip > Mitgestaltung und Umsetzung des betrieblichen Bildungsplans für FaGe & HF > Durchführung von Praxisbegleitungen, Standortgesprächen und Gruppenunterricht > Beurteilung von Lernerfolgen: von Kompetenznachweisen bis zu Fachgesprächen > Enger Austausch mit Prüfungsexpert:innen und internen Fachstellen > Mitwirkung an der Qualitätssicherung und -entwicklung in der Berufsbildung > Flexible Arbeitszeiten (auch halbtags möglich) Was du mitbringst: > Abschluss FAGE oder Abschluss als Dipl. Pflegefachfrau/-mann HF > Berufsbildnerkurs – abgeschlossen und bereit, ihn zu leben > Abschluss SVEB 1 oder die Bereitschaft, diesen zu erlangen > Freude am Austausch – mit jungen Menschen und mit betagten Patient:innen > Begeisterung für Berufspädagogik & aktuelle Entwicklungen in der Ausbildung > Zuverlässigkeit, Flexibilität und eine offene, klare Kommunikation > Sehr gute Deutschkenntnisse in Wort und Schrift > Überblick über die Pflegeausbildungen in der Schweiz Warum zu uns? Das Adullam Spital Basel ist ein traditionsreiches, modernes Zentrum für Akutgeriatrie und Rehabilitation. Wir setzen auf menschliche Nähe, interdisziplinäre Zusammenarbeit und gezielte Förderung. Freue dich auf ein wertschätzendes Umfeld, ein engagiertes Team und einen Arbeitsplatz, an dem Fachlichkeit und Menschlichkeit zusammengehören. Bei uns hast du die Möglichkeit, deine Kompetenzen langfristig einzubringen, Verantwortung zu übernehmen und den Pflegealltag aktiv mitzugestalten. Du wirst Teil eines engagierten Teams, das Bildung nicht nur begleitet, sondern aktiv mitgestaltet. Nähere Auskünfte erteilt Dir gerne Frau Carole Francisco, Leiterin Berufsbildung Pflegedienste, Tel. +41 61 266 63 07. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Interne Yoga-Kurse\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet",
+        "en": "Dein Wissen. Deine Begeisterung. Deine Bühne. Du brennst für die Pflege – und für die Zukunft? Im Adullam Spital Basel begleiten wir Menschen mit Erfahrung und Empathie - und wir bilden mit Herz und Verstand die nächste Generation aus. Wenn du deine Fachkompetenz und deine pädagogische Leidenschaft aktiv weitergeben möchtest, bieten wir dir den idealen Rahmen.\n\nZur Verstärkung unseres Berufsbildungsteams mit einem Pensum von 30% suchen wir Berufsbildner/in Pflegezentrum 60% | Standort Basel Was dich erwartet: Als Berufsbildner:in gestaltest du die Ausbildungsreise unserer Lernenden FaGe und Studierenden HF von Anfang bis Ende mit. Du begleitest, motivierst, reflektierst – individuell wie auch in Gruppen – und bringst deine Expertise aktiv in die Weiterentwicklung unserer Bildungsqualität ein. Zu deinen\n• Aufgaben gehören: > Persönliche Begleitung der Lernenden und Studierenden durch alle Praxisphasen – im bewährten Drei-Lernorte-Prinzip > Mitgestaltung und Umsetzung des betrieblichen Bildungsplans für FaGe & HF > Durchführung von Praxisbegleitungen, Standortgesprächen und Gruppenunterricht > Beurteilung von Lernerfolgen: von Kompetenznachweisen bis zu Fachgesprächen > Enger Austausch mit Prüfungsexpert:innen und internen Fachstellen > Mitwirkung an der Qualitätssicherung und -entwicklung in der Berufsbildung > Flexible Arbeitszeiten (auch halbtags möglich) Was du mitbringst: > Abschluss FAGE oder Abschluss als Dipl. Pflegefachfrau/-mann HF > Berufsbildnerkurs – abgeschlossen und bereit, ihn zu leben > Abschluss SVEB 1 oder die Bereitschaft, diesen zu erlangen > Freude am Austausch – mit jungen Menschen und mit betagten Patient:innen > Begeisterung für Berufspädagogik & aktuelle Entwicklungen in der Ausbildung > Zuverlässigkeit, Flexibilität und eine offene, klare Kommunikation > Sehr gute Deutschkenntnisse in Wort und Schrift > Überblick über die Pflegeausbildungen in der Schweiz Warum zu uns? Das Adullam Spital Basel ist ein traditionsreiches, modernes Zentrum für Akutgeriatrie und Rehabilitation. Wir setzen auf menschliche Nähe, interdisziplinäre Zusammenarbeit und gezielte Förderung. Freue dich auf ein wertschätzendes Umfeld, ein engagiertes Team und einen Arbeitsplatz, an dem Fachlichkeit und Menschlichkeit zusammengehören. Bei uns hast du die Möglichkeit, deine Kompetenzen langfristig einzubringen, Verantwortung zu übernehmen und den Pflegealltag aktiv mitzugestalten. Du wirst Teil eines engagierten Teams, das Bildung nicht nur begleitet, sondern aktiv mitgestaltet. Nähere Auskünfte erteilt Dir gerne Frau Carole Francisco, Leiterin Berufsbildung Pflegedienste, Tel. +41 61 266 63 07. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Interne Yoga-Kurse\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet",
+        "fr": "Dein Wissen. Deine Begeisterung. Deine Bühne. Du brennst für die Pflege – und für die Zukunft? Im Adullam Spital Basel begleiten wir Menschen mit Erfahrung und Empathie - und wir bilden mit Herz und Verstand die nächste Generation aus. Wenn du deine Fachkompetenz und deine pädagogische Leidenschaft aktiv weitergeben möchtest, bieten wir dir den idealen Rahmen.\n\nZur Verstärkung unseres Berufsbildungsteams mit einem Pensum von 30% suchen wir Berufsbildner/in Pflegezentrum 60% | Standort Basel Was dich erwartet: Als Berufsbildner:in gestaltest du die Ausbildungsreise unserer Lernenden FaGe und Studierenden HF von Anfang bis Ende mit. Du begleitest, motivierst, reflektierst – individuell wie auch in Gruppen – und bringst deine Expertise aktiv in die Weiterentwicklung unserer Bildungsqualität ein. Zu deinen\n• Aufgaben gehören: > Persönliche Begleitung der Lernenden und Studierenden durch alle Praxisphasen – im bewährten Drei-Lernorte-Prinzip > Mitgestaltung und Umsetzung des betrieblichen Bildungsplans für FaGe & HF > Durchführung von Praxisbegleitungen, Standortgesprächen und Gruppenunterricht > Beurteilung von Lernerfolgen: von Kompetenznachweisen bis zu Fachgesprächen > Enger Austausch mit Prüfungsexpert:innen und internen Fachstellen > Mitwirkung an der Qualitätssicherung und -entwicklung in der Berufsbildung > Flexible Arbeitszeiten (auch halbtags möglich) Was du mitbringst: > Abschluss FAGE oder Abschluss als Dipl. Pflegefachfrau/-mann HF > Berufsbildnerkurs – abgeschlossen und bereit, ihn zu leben > Abschluss SVEB 1 oder die Bereitschaft, diesen zu erlangen > Freude am Austausch – mit jungen Menschen und mit betagten Patient:innen > Begeisterung für Berufspädagogik & aktuelle Entwicklungen in der Ausbildung > Zuverlässigkeit, Flexibilität und eine offene, klare Kommunikation > Sehr gute Deutschkenntnisse in Wort und Schrift > Überblick über die Pflegeausbildungen in der Schweiz Warum zu uns? Das Adullam Spital Basel ist ein traditionsreiches, modernes Zentrum für Akutgeriatrie und Rehabilitation. Wir setzen auf menschliche Nähe, interdisziplinäre Zusammenarbeit und gezielte Förderung. Freue dich auf ein wertschätzendes Umfeld, ein engagiertes Team und einen Arbeitsplatz, an dem Fachlichkeit und Menschlichkeit zusammengehören. Bei uns hast du die Möglichkeit, deine Kompetenzen langfristig einzubringen, Verantwortung zu übernehmen und den Pflegealltag aktiv mitzugestalten. Du wirst Teil eines engagierten Teams, das Bildung nicht nur begleitet, sondern aktiv mitgestaltet. Nähere Auskünfte erteilt Dir gerne Frau Carole Francisco, Leiterin Berufsbildung Pflegedienste, Tel. +41 61 266 63 07. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Interne Yoga-Kurse\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://live.solique.ch/adullam/job/details/4064701",
+      "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:21:07.674Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4054",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://live.solique.ch/adullam/job/details/4064701",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4064701",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "contractDuration": "permanent",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:21:07.674Z"
     }
   ]
 }

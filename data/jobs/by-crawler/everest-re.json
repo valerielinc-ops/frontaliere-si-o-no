@@ -1,6 +1,6 @@
 {
   "crawlerKey": "everest-re",
-  "assembledAt": "2026-08-28T05:34:46.135Z",
+  "assembledAt": "2026-09-03T23:21:08.139Z",
   "jobs": [
     {
       "id": "everest-re-f1d13b3c25ab",
@@ -33,7 +33,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:34:43.873Z",
+      "crawledAt": "2026-09-03T23:21:05.145Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,13 +52,11 @@
       "jobReqId": "R7298",
       "previousSlugs": [
         "senior-underwriting-assistant-everest-re-ch",
-        "senior-underwriting-assistant-everest-re-zurich",
-        "assistente-di-sottoscrizione-senior-everest-re-zurich"
+        "senior-underwriting-assistant-everest-re-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-underwriting-assistant-everest-re-ch",
-          "assistente-di-sottoscrizione-senior-everest-re-zurich"
+          "senior-underwriting-assistant-everest-re-ch"
         ],
         "fr": [
           "senior-underwriting-assistant-everest-re-zurich"
@@ -67,6 +65,7 @@
       "firstSeenAt": "2026-07-03T21:59:53.293Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

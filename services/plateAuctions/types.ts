@@ -117,6 +117,84 @@ export function validatePlateAuctionSourceEntry(key: string, entry: unknown): st
   return errors;
 }
 
+const REQUIRED_PLATE_AUCTION_STRING_FIELDS: readonly (keyof PlateAuction)[] = [
+  'id',
+  'canton',
+  'platePrefix',
+  'plateNumber',
+  'normalizedPlate',
+  'auctionStatus',
+  'officialAuctionUrl',
+  'sourceFetchedAt',
+  'lastVerifiedAt',
+  'dataConfidence',
+  'rawSnapshotHash',
+];
+
+const AUCTION_STATUSES: readonly PlateAuctionStatus[] = [
+  'upcoming',
+  'active',
+  'closed',
+  'sold',
+  'unsold',
+  'cancelled',
+  'unknown',
+];
+
+const DATA_CONFIDENCES: readonly PlateAuctionDataConfidence[] = [
+  'verified',
+  'partial',
+  'unverified',
+  'conflicting',
+];
+
+const OPTIONAL_NUMBER_FIELDS: readonly (keyof PlateAuction)[] = [
+  'currentBidChf',
+  'finalPriceChf',
+  'bidCount',
+  'minimumIncrementChf',
+];
+
+/**
+ * Validates a single connector-produced `PlateAuction` snapshot, returning
+ * the list of problems found (empty = valid). Used by per-canton connector
+ * tests (e.g. `tests/plate-auction-connector-vs.test.ts`) so a schema drift
+ * in one connector's output fails loudly instead of silently reaching the
+ * pages/classifiche that read it.
+ */
+export function validatePlateAuction(entry: unknown): string[] {
+  const errors: string[] = [];
+  if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
+    return ['entry is not an object'];
+  }
+  const e = entry as Record<string, unknown>;
+
+  for (const field of REQUIRED_PLATE_AUCTION_STRING_FIELDS) {
+    if (typeof e[field] !== 'string' || (e[field] as string).trim() === '') {
+      errors.push(`missing or empty required field "${String(field)}"`);
+    }
+  }
+
+  if (typeof e.auctionStatus === 'string' && !AUCTION_STATUSES.includes(e.auctionStatus as PlateAuctionStatus)) {
+    errors.push(`invalid auctionStatus "${e.auctionStatus}"`);
+  }
+
+  if (
+    typeof e.dataConfidence === 'string' &&
+    !DATA_CONFIDENCES.includes(e.dataConfidence as PlateAuctionDataConfidence)
+  ) {
+    errors.push(`invalid dataConfidence "${e.dataConfidence}"`);
+  }
+
+  for (const field of OPTIONAL_NUMBER_FIELDS) {
+    if (e[field] !== undefined && typeof e[field] !== 'number') {
+      errors.push(`"${String(field)}" must be a number when present`);
+    }
+  }
+
+  return errors;
+}
+
 /**
  * Validates a full `PlateAuctionSourcesRegistry` file, returning the list of
  * problems found across every entry (empty = valid).

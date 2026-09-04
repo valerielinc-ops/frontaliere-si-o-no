@@ -5,14 +5,24 @@
  * slugify(), stripHtml(), inferEmploymentType()
  * using HTML fixtures matching the real SAP SuccessFactors portal.
  */
-import { describe, it, expect } from 'vitest';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchPradaDetailPage,
+  fetchPradaJobUrls,
+  normalizePradaJobUrl,
+  resolvePradaTicinoLocation,
   parsePradaListingHtml,
   parsePradaDetailHtml,
   slugify,
   stripHtml,
   inferEmploymentType,
 } from '@/scripts/lib/prada-job-parser.mjs';
+import { archiveRemovedJobsToSlice } from '@/scripts/lib/expired-jobs-archive.mjs';
+import { sanitizeLocalityForRegion } from '@/build-plugins/shared/jobPostingSchema';
+import { mutateFixture } from './helpers/mutateFixture';
 
 // ── Fixtures matching real SuccessFactors search results ────────────────────
 
@@ -96,6 +106,271 @@ const EMPTY_SEARCH_HTML = `
 
 // ── Tests ────────────────────────────────────────────────────────
 
+describe('Prada Group crawler — URL boundary', () => {
+  it('allows only relative or same-origin HTTPS Prada job routes', () => {
+    const path = '/job/Mendrisio-Client-Advisor/1377980233/';
+    expect(normalizePradaJobUrl(path)).toBe(`https://jobs.pradagroup.com${path}`);
+    expect(normalizePradaJobUrl(`https://jobs.pradagroup.com${path}`))
+      .toBe(`https://jobs.pradagroup.com${path}`);
+    expect(normalizePradaJobUrl(`https://attacker.example${path}`)).toBeNull();
+    expect(normalizePradaJobUrl(`http://jobs.pradagroup.com${path}`)).toBeNull();
+    expect(normalizePradaJobUrl('https://jobs.pradagroup.com/search/1377980233/')).toBeNull();
+  });
+
+  it('fails closed before fetch for an unsafe detail URL', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch');
+    try {
+      await expect(fetchPradaDetailPage('https://attacker.example/job/Mendrisio-Client-Advisor/1377980233/'))
+        .resolves.toBeNull();
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('retries a transient partial-snapshot failure and publishes only after both queries recover', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location',
+        text: async () => LISTING_HTML_FIXTURE,
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: false,
+        status: 503,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location',
+        text: async () => '',
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location',
+        text: async () => LISTING_HTML_FIXTURE,
+      } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toHaveLength(2);
+      expect(fetchSpy).toHaveBeenCalledTimes(3);
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+      vi.unstubAllEnvs();
+    }
+  });
+
+  it('bounds persistent transient retries and still discards the partial snapshot', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location',
+        text: async () => LISTING_HTML_FIXTURE,
+      } as Response)
+      .mockResolvedValue({
+        ok: false,
+        status: 503,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location',
+        text: async () => '',
+      } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      expect(fetchSpy).toHaveBeenCalledTimes(4); // first query + 3 bounded attempts
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+      vi.unstubAllEnvs();
+    }
+  });
+
+  it('retries a proven network error without treating it as an authoritative empty snapshot', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch')
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValue({
+        ok: true,
+        status: 200,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location',
+        text: async () => LISTING_HTML_FIXTURE,
+      } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toHaveLength(2);
+      expect(fetchSpy).toHaveBeenCalledTimes(3); // retry + second authoritative query
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+      vi.unstubAllEnvs();
+    }
+  });
+
+  it('fails closed without retrying a structural redirect', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: false,
+      status: 302,
+      url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location',
+      text: async () => '',
+    } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+      expect(fetchSpy.mock.calls[0][1]).toMatchObject({ redirect: 'manual' });
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+    }
+  });
+
+  it.each([
+    'https://attacker.example/search/?q=',
+    'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/',
+  ])('fails closed without retrying an untrusted effective search URL: %s', async (effectiveUrl) => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      status: 200,
+      url: effectiveUrl,
+      text: async () => LISTING_HTML_FIXTURE,
+    } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+    }
+  });
+
+  it('fails closed on a 200 response without the authoritative listing table', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      status: 200,
+      url: 'https://jobs.pradagroup.com/search/',
+      text: async () => '<html><body>Access denied</body></html>',
+    } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+    }
+  });
+
+  it('rejects off-domain listing links without reserving their job ID', () => {
+    const html = `
+      <a class="jobTitle-link" href="https://attacker.example/job/Fake/1377980233/">Fake job</a>
+      <a class="jobTitle-link" href="/job/Mendrisio-Client-Advisor/1377980233/">Client Advisor</a>`;
+    expect(parsePradaListingHtml(html).map((job) => job.url))
+      .toEqual(['https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/']);
+  });
+});
+
+describe('Prada Group crawler — Ticino ownership', () => {
+  it('accepts source-backed Mendrisio locations and canonical route fallback', () => {
+    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
+    expect(resolvePradaTicinoLocation({ location: 'Mendrisio', url })).toBe('Mendrisio');
+    expect(resolvePradaTicinoLocation({ location: 'Mendrisio, TI, Switzerland', url }))
+      .toBe('Mendrisio');
+    expect(resolvePradaTicinoLocation({
+      location: '',
+      url,
+    })).toBe('Mendrisio');
+  });
+
+  it.each([
+    ['Arezzo Purchasing intern', 'https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/'],
+    ['Nearest Major Market: Las Vegas', 'https://jobs.pradagroup.com/job/Las-Vegas-Client-Advisor/1387030234/'],
+    ['St. Moritz', 'https://jobs.pradagroup.com/job/St-Moritz-Client-Advisor/1387030235/'],
+    ['', 'https://jobs.pradagroup.com/job/Milano-Digital-Content-Intern/1387030236/'],
+  ])('rejects non-Ticino source evidence: %s', (location, url) => {
+    expect(resolvePradaTicinoLocation({ location, url })).toBeNull();
+  });
+
+  it('tolerates real SuccessFactors detail-page location formatting without dropping a valid Mendrisio job', () => {
+    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
+    // Postal-code-prefixed variants seen on detail pages (same convention
+    // already handled for other crawlers, e.g. agroscope-job-parser.mjs).
+    expect(resolvePradaTicinoLocation({ location: '6850 Mendrisio', url })).toBe('Mendrisio');
+    expect(resolvePradaTicinoLocation({ location: 'CH-6850 Mendrisio, Ticino', url }))
+      .toBe('Mendrisio');
+    // Hyphen-joined variant (same bug class: a space-only strip left this
+    // unstripped and still fail-closed).
+    expect(resolvePradaTicinoLocation({ location: '6850-Mendrisio', url })).toBe('Mendrisio');
+    // Case and stray whitespace already tolerated — kept here as regression guards.
+    expect(resolvePradaTicinoLocation({ location: '  MENDRISIO  ', url })).toBe('Mendrisio');
+  });
+
+  it('canonicalizes every accepted variant before slug and JobPosting locality consumers', () => {
+    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
+    const resolved = ['Mendrisio', '6850 Mendrisio', '6850-Mendrisio']
+      .map((location) => resolvePradaTicinoLocation({ location, url }));
+
+    expect(resolved).toEqual(['Mendrisio', 'Mendrisio', 'Mendrisio']);
+    expect(new Set(resolved.map((location) => slugify(`Client Advisor-prada-group-${location}`))))
+      .toEqual(new Set(['client-advisor-prada-group-mendrisio']));
+    for (const location of resolved) {
+      expect(sanitizeLocalityForRegion(String(location), 'TI')).toBe('Mendrisio');
+    }
+  });
+
+  it('still rejects a bare postal code or a foreign city sharing no Mendrisio prefix', () => {
+    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
+    expect(resolvePradaTicinoLocation({ location: '6850', url })).toBeNull();
+    expect(resolvePradaTicinoLocation({ location: '6850--', url })).toBeNull();
+    expect(resolvePradaTicinoLocation({ location: '6850--Mendrisio', url })).toBeNull();
+    expect(resolvePradaTicinoLocation({ location: '6900 Lugano', url })).toBeNull();
+    expect(resolvePradaTicinoLocation({ location: '6900-Lugano', url })).toBeNull();
+  });
+
+  it('does not let a Mendrisio title override an authoritative foreign location', () => {
+    expect(resolvePradaTicinoLocation({
+      location: 'Arezzo',
+      url: 'https://jobs.pradagroup.com/job/Arezzo-Mendrisio-Manager/1387030237/',
+    })).toBeNull();
+  });
+
+  it('rejects a historical foreign route even when its stale location was defaulted to Mendrisio', () => {
+    expect(resolvePradaTicinoLocation({
+      location: 'Mendrisio',
+      url: 'https://jobs.pradagroup.com/job/Paris-Client-Advisor/1387030238/',
+    })).toBeNull();
+  });
+
+  it('archives a retired foreign route with its slug history intact', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'prada-expired-'));
+    const prior = {
+      slug: 'purchasing-intern-prada-group-arezzo',
+      title: 'Purchasing intern',
+      company: 'Prada Group',
+      companyKey: 'prada',
+      location: 'Arezzo',
+      url: 'https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/',
+      slugByLocale: { it: 'stage-acquisti-prada-arezzo' },
+      previousSlugs: ['purchasing-intern-prada-arezzo'],
+      previousSlugsByLocale: { it: ['vecchio-stage-acquisti-prada-arezzo'] },
+    };
+    try {
+      const retired = [prior].filter((job) => !resolvePradaTicinoLocation(job));
+      expect(archiveRemovedJobsToSlice(retired, 'prada', { dir })).toBe(1);
+      const archived = JSON.parse(readFileSync(path.join(dir, 'prada.json'), 'utf8'));
+      expect(archived[0]).toMatchObject({
+        slug: prior.slug,
+        slugByLocale: prior.slugByLocale,
+        previousSlugs: prior.previousSlugs,
+        previousSlugsByLocale: prior.previousSlugsByLocale,
+      });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
 describe('Prada Group crawler — SuccessFactors listing parsing', () => {
   it('extracts jobs from SuccessFactors search results', () => {
     const jobs = parsePradaListingHtml(LISTING_HTML_FIXTURE);
@@ -127,6 +402,17 @@ describe('Prada Group crawler — SuccessFactors listing parsing', () => {
     const stMoritzJob = jobs.find((j) => j.title.includes('St. Moritz'));
     expect(mendrisioJob!.location).toBe('Mendrisio');
     expect(stMoritzJob!.location).toBe('St. Moritz');
+  });
+
+  it('keeps the visible office of a multi-location row (nested "+N more" marker)', () => {
+    const multiLocation = mutateFixture(
+      LISTING_HTML_FIXTURE,
+      '<td class="colLocation hidden-phone">Mendrisio</td>',
+      '<td class="colLocation hidden-phone">Mendrisio <small class="nobr">+3 more&hellip;</small></td>',
+    );
+    const jobs = parsePradaListingHtml(multiLocation);
+    const mendrisioJob = jobs.find((j) => j.title.includes('Mendrisio'));
+    expect(mendrisioJob!.location).toBe('Mendrisio');
   });
 
   it('deduplicates desktop and mobile rows by jobId', () => {

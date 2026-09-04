@@ -40,6 +40,7 @@ import {
   countHreflangLinks,
 } from '../../build-plugins/shared/headLinkPatterns';
 import { ALTERNATE_LOCALES } from '../../build-plugins/shared/localeAlternateBlock';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
@@ -327,6 +328,18 @@ function ratio(html: string): number {
   const text = extractVisibleText(html);
   const textBytes = Buffer.byteLength(text, 'utf8');
   return textBytes / Math.max(htmlBytes, 1);
+}
+
+/**
+ * Below-floor bridge pages (`renderClusterBelowFloorBridge`) are `noindex`
+ * BY DESIGN — canonical points at the hub, body is a short redirect notice.
+ * Same detection idiom as `tests/seo/cathedral-sector-hubs.test.ts` and
+ * `tests/seo/search-pages-head-contract.test.ts` ("AGENTS.md below-floor
+ * bridge doctrine"). Google never indexes these, so their short body isn't
+ * the thin-content emission break this gate exists to catch.
+ */
+function isBridgePage(html: string): boolean {
+  return html.includes(REDIRECT_STUB_MARKER) || /<meta[^>]+noindex/i.test(html);
 }
 
 function totalClusterCount(): number {
@@ -648,12 +661,17 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expectSystemicRate(offenders, scanned, 'no `dark:` classes leaked');
     });
 
-    it('text-to-HTML ratio ≥10 % across a sample of 30 pages', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
+    it('text-to-HTML ratio ≥10 % across a sample of 30 real (non-bridge) pages', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
       let scanned = 0;
       let sampled = 0;
+      let bridgesSkipped = 0;
       outer: for (const loc of LOCALES) {
-        for (const page of loadClusterPages(loc, 30)) {
+        for (const page of loadClusterPages(loc, 30 + bridgesSkipped)) {
+          if (isBridgePage(page.html)) {
+            bridgesSkipped++;
+            continue;
+          }
           scanned++;
           const r = ratio(page.html);
           if (r < 0.1) {

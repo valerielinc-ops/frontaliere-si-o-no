@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-08-28T05:23:10.622Z",
-  "total": 4,
+  "generatedAt": "2026-09-03T23:20:08.979Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 10689,
-  "avgDurationMs": 10689,
+  "unchangedCount": 3,
+  "durationMs": 9103,
+  "avgDurationMs": 9103,
   "durationHistory": [
-    10689
+    9103
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -49,6 +49,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "firstSeenAt": "2026-08-07T01:15:25.380Z",
+      "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,6 +93,7 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-08-06T12:13:09.195Z",
       "needsRetranslation": true,
+      "salarySource": "reported",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,55 +135,14 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-31T11:54:47.257Z",
+      "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
         "translation": 25,
         "completeness": 14
-      }
-    },
-    {
-      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
-      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
-      "title": "Junior Brand Control & Pricing Specialist",
-      "company": "Ermenegildo Zegna Group",
-      "companyKey": "ermenegildo-zegna-logistica",
-      "location": "Stabio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "junior-brand-control-pricing-specialista-ermenegildo-zegna-group-stabio",
-      "department": "Corporate and Staff Functions/Finance & Control",
-      "category": "Corporate and Staff Functions/Finance & Control",
-      "datePosted": "2026-06-23",
-      "source": "zegna-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "brand": "Zegna",
-      "contractType": "Permanent Job",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Stabio"
-      },
-      "sourceLang": "en",
-      "crawledAt": "",
-      "id": "ermenegildo-zegna-logistica-5ea47ef7d5ea",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Lugano 13",
-      "postalCode": "6855",
-      "addressLocality": "Stabio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-06-23T23:26:22.911Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
       }
     }
   ]

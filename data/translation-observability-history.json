@@ -1,0 +1,3543 @@
+{
+  "schemaVersion": 1,
+  "weeks": [
+    {
+      "period": "2026-W36",
+      "runs": 19,
+      "latest": {
+        "runId": "33817410877",
+        "finishedAt": "2026-09-04T04:49:59.321Z",
+        "digest": "sha256:6552411db8c9fc875cb628c84fda0fd3f47792b7881de4953b2fa74497b7c32b",
+        "outcome": "success",
+        "finalCommit": "750bb76acdd901cb1043bcdb92cc8119f3f83bc7",
+        "stateTransition": {
+          "advanced": true,
+          "generation": 12,
+          "stateDigest": "sha256:765634d7b58174febf8ea471b53a94fb5d282881329c33115d03659d68cc7bb6",
+          "reason": "valid_true_final"
+        },
+        "before": {
+          "total": 25529,
+          "incomplete": 11090,
+          "slotsPresent": 14439,
+          "needsRetranslation": 10533,
+          "flaggedAmongSlotsPresent": 49,
+          "verifiedTranslated": 14390,
+          "suppressed": 103,
+          "missingByLocale": {
+            "it": 4282,
+            "en": 3951,
+            "de": 878,
+            "fr": 3833
+          },
+          "jobSetDigest": "sha256:5f337a0f01f90c247bb8c2e5d829c3866ede6b243f4809b045b2fb137accb739"
+        },
+        "final": {
+          "total": 25529,
+          "incomplete": 10686,
+          "slotsPresent": 14843,
+          "needsRetranslation": 10093,
+          "flaggedAmongSlotsPresent": 3,
+          "verifiedTranslated": 14840,
+          "suppressed": 103,
+          "missingByLocale": {
+            "it": 3929,
+            "en": 3638,
+            "de": 791,
+            "fr": 3538
+          },
+          "jobSetDigest": "sha256:5f337a0f01f90c247bb8c2e5d829c3866ede6b243f4809b045b2fb137accb739"
+        },
+        "delta": {
+          "added": 0,
+          "removed": 0,
+          "persisted": 25529,
+          "transitions": {
+            "complete": 0,
+            "flagged": 0,
+            "incomplete": 0,
+            "incomplete_to_complete": 404,
+            "flagged_to_complete": 47,
+            "incomplete_to_flagged": 1,
+            "complete_to_incomplete": 1
+          },
+          "ingress": 1,
+          "drain": 451
+        },
+        "cohorts": {
+          "age": {
+            "0-1d": 1013,
+            "2-7d": 2926,
+            "8-30d": 4402,
+            "31-90d": 2070,
+            "91d+": 278,
+            "unknown": 0
+          },
+          "topCompanies": [
+            {
+              "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+              "pending": 2621
+            },
+            {
+              "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+              "pending": 951
+            },
+            {
+              "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+              "pending": 351
+            },
+            {
+              "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+              "pending": 236
+            },
+            {
+              "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+              "pending": 194
+            },
+            {
+              "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+              "pending": 192
+            },
+            {
+              "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+              "pending": 168
+            },
+            {
+              "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+              "pending": 167
+            },
+            {
+              "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+              "pending": 165
+            },
+            {
+              "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+              "pending": 158
+            },
+            {
+              "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+              "pending": 119
+            },
+            {
+              "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+              "pending": 118
+            },
+            {
+              "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+              "pending": 116
+            },
+            {
+              "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+              "pending": 108
+            },
+            {
+              "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+              "pending": 106
+            },
+            {
+              "companyFingerprint": "sha256:67c44b058e99d9d3c886a6bcd5e95c9c6c31c3df6ae541b7f29a259f4f44fb5a",
+              "pending": 85
+            },
+            {
+              "companyFingerprint": "sha256:127f3331899ea11e22ad15283d0be87601f396c861f854ac853f05784777ada1",
+              "pending": 84
+            },
+            {
+              "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+              "pending": 82
+            },
+            {
+              "companyFingerprint": "sha256:2570a499857dad23e94bef23f4d39b4c63aa73f411d8c976299f82c09a0e0bc8",
+              "pending": 78
+            },
+            {
+              "companyFingerprint": "sha256:bec44aa1ecd13ced9387486dd6afadda262c1e163b78985ae45d76ce58c91d70",
+              "pending": 78
+            }
+          ]
+        },
+        "quality": {
+          "reasons": {
+            "needs_retranslation": 10093,
+            "source_copy_description:it": 5288,
+            "source_copy_description:en": 4969,
+            "source_copy_description:de": 860,
+            "locale_mismatch_suppressed": 103,
+            "source_copy_description:fr": 4950,
+            "description_missing:it": 426,
+            "description_missing:en": 373,
+            "description_missing:de": 285,
+            "description_missing:fr": 206,
+            "title_missing:en": 314,
+            "title_missing:de": 221,
+            "title_missing:fr": 143,
+            "title_missing:it": 304
+          },
+          "byLocale": {
+            "all": 10196,
+            "it": 6018,
+            "en": 5656,
+            "de": 1366,
+            "fr": 5299
+          },
+          "bySourceLang": {
+            "fr": 3365,
+            "de": 22520,
+            "en": 2205,
+            "it": 445
+          },
+          "byLocaleSourceLang": {
+            "all:fr": 832,
+            "it:fr": 819,
+            "en:fr": 837,
+            "de:fr": 810,
+            "all:de": 8194,
+            "all:en": 873,
+            "it:de": 4743,
+            "en:de": 4766,
+            "fr:de": 4752,
+            "it:en": 441,
+            "de:en": 446,
+            "fr:en": 437,
+            "all:it": 297,
+            "en:it": 45,
+            "de:it": 45,
+            "fr:it": 43,
+            "de:de": 65,
+            "it:it": 15,
+            "en:en": 8,
+            "fr:fr": 67
+          }
+        },
+        "languageQuality": {
+          "baseline": {
+            "measured": false,
+            "titles": null,
+            "descriptions": null
+          },
+          "trueFinal": {
+            "measured": true,
+            "titles": {
+              "populationSlots": 75667,
+              "suspectedUntranslatedCount": 22926,
+              "suspectedUntranslatedRate": 0.3029854494033066
+            },
+            "descriptions": {
+              "populationSlots": 100826,
+              "servedPopulationSlots": 61743,
+              "servedShare": 0.6123718088588261,
+              "detectedWrongLanguageCount": 15,
+              "detectedWrongLanguageRate": 0.0001487711502985341
+            }
+          }
+        },
+        "continuity": {
+          "activePersisted": 24333,
+          "newIdentities": 1108,
+          "ambiguous": 12,
+          "perfectReuseCandidates": 34,
+          "retired": 1842,
+          "deleteReaddEvidence": {
+            "observable": true,
+            "complete": true,
+            "proven": 76,
+            "reason": "valid_intergenerational_comparison",
+            "retentionDays": 90,
+            "retiredCap": 50000,
+            "evictedThisGeneration": {
+              "retention": 0,
+              "cap": 0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "months": [
+    {
+      "period": "2026-09",
+      "runs": 19,
+      "latest": {
+        "runId": "33817410877",
+        "finishedAt": "2026-09-04T04:49:59.321Z",
+        "digest": "sha256:6552411db8c9fc875cb628c84fda0fd3f47792b7881de4953b2fa74497b7c32b",
+        "outcome": "success",
+        "finalCommit": "750bb76acdd901cb1043bcdb92cc8119f3f83bc7",
+        "stateTransition": {
+          "advanced": true,
+          "generation": 12,
+          "stateDigest": "sha256:765634d7b58174febf8ea471b53a94fb5d282881329c33115d03659d68cc7bb6",
+          "reason": "valid_true_final"
+        },
+        "before": {
+          "total": 25529,
+          "incomplete": 11090,
+          "slotsPresent": 14439,
+          "needsRetranslation": 10533,
+          "flaggedAmongSlotsPresent": 49,
+          "verifiedTranslated": 14390,
+          "suppressed": 103,
+          "missingByLocale": {
+            "it": 4282,
+            "en": 3951,
+            "de": 878,
+            "fr": 3833
+          },
+          "jobSetDigest": "sha256:5f337a0f01f90c247bb8c2e5d829c3866ede6b243f4809b045b2fb137accb739"
+        },
+        "final": {
+          "total": 25529,
+          "incomplete": 10686,
+          "slotsPresent": 14843,
+          "needsRetranslation": 10093,
+          "flaggedAmongSlotsPresent": 3,
+          "verifiedTranslated": 14840,
+          "suppressed": 103,
+          "missingByLocale": {
+            "it": 3929,
+            "en": 3638,
+            "de": 791,
+            "fr": 3538
+          },
+          "jobSetDigest": "sha256:5f337a0f01f90c247bb8c2e5d829c3866ede6b243f4809b045b2fb137accb739"
+        },
+        "delta": {
+          "added": 0,
+          "removed": 0,
+          "persisted": 25529,
+          "transitions": {
+            "complete": 0,
+            "flagged": 0,
+            "incomplete": 0,
+            "incomplete_to_complete": 404,
+            "flagged_to_complete": 47,
+            "incomplete_to_flagged": 1,
+            "complete_to_incomplete": 1
+          },
+          "ingress": 1,
+          "drain": 451
+        },
+        "cohorts": {
+          "age": {
+            "0-1d": 1013,
+            "2-7d": 2926,
+            "8-30d": 4402,
+            "31-90d": 2070,
+            "91d+": 278,
+            "unknown": 0
+          },
+          "topCompanies": [
+            {
+              "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+              "pending": 2621
+            },
+            {
+              "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+              "pending": 951
+            },
+            {
+              "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+              "pending": 351
+            },
+            {
+              "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+              "pending": 236
+            },
+            {
+              "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+              "pending": 194
+            },
+            {
+              "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+              "pending": 192
+            },
+            {
+              "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+              "pending": 168
+            },
+            {
+              "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+              "pending": 167
+            },
+            {
+              "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+              "pending": 165
+            },
+            {
+              "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+              "pending": 158
+            },
+            {
+              "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+              "pending": 119
+            },
+            {
+              "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+              "pending": 118
+            },
+            {
+              "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+              "pending": 116
+            },
+            {
+              "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+              "pending": 108
+            },
+            {
+              "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+              "pending": 106
+            },
+            {
+              "companyFingerprint": "sha256:67c44b058e99d9d3c886a6bcd5e95c9c6c31c3df6ae541b7f29a259f4f44fb5a",
+              "pending": 85
+            },
+            {
+              "companyFingerprint": "sha256:127f3331899ea11e22ad15283d0be87601f396c861f854ac853f05784777ada1",
+              "pending": 84
+            },
+            {
+              "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+              "pending": 82
+            },
+            {
+              "companyFingerprint": "sha256:2570a499857dad23e94bef23f4d39b4c63aa73f411d8c976299f82c09a0e0bc8",
+              "pending": 78
+            },
+            {
+              "companyFingerprint": "sha256:bec44aa1ecd13ced9387486dd6afadda262c1e163b78985ae45d76ce58c91d70",
+              "pending": 78
+            }
+          ]
+        },
+        "quality": {
+          "reasons": {
+            "needs_retranslation": 10093,
+            "source_copy_description:it": 5288,
+            "source_copy_description:en": 4969,
+            "source_copy_description:de": 860,
+            "locale_mismatch_suppressed": 103,
+            "source_copy_description:fr": 4950,
+            "description_missing:it": 426,
+            "description_missing:en": 373,
+            "description_missing:de": 285,
+            "description_missing:fr": 206,
+            "title_missing:en": 314,
+            "title_missing:de": 221,
+            "title_missing:fr": 143,
+            "title_missing:it": 304
+          },
+          "byLocale": {
+            "all": 10196,
+            "it": 6018,
+            "en": 5656,
+            "de": 1366,
+            "fr": 5299
+          },
+          "bySourceLang": {
+            "fr": 3365,
+            "de": 22520,
+            "en": 2205,
+            "it": 445
+          },
+          "byLocaleSourceLang": {
+            "all:fr": 832,
+            "it:fr": 819,
+            "en:fr": 837,
+            "de:fr": 810,
+            "all:de": 8194,
+            "all:en": 873,
+            "it:de": 4743,
+            "en:de": 4766,
+            "fr:de": 4752,
+            "it:en": 441,
+            "de:en": 446,
+            "fr:en": 437,
+            "all:it": 297,
+            "en:it": 45,
+            "de:it": 45,
+            "fr:it": 43,
+            "de:de": 65,
+            "it:it": 15,
+            "en:en": 8,
+            "fr:fr": 67
+          }
+        },
+        "languageQuality": {
+          "baseline": {
+            "measured": false,
+            "titles": null,
+            "descriptions": null
+          },
+          "trueFinal": {
+            "measured": true,
+            "titles": {
+              "populationSlots": 75667,
+              "suspectedUntranslatedCount": 22926,
+              "suspectedUntranslatedRate": 0.3029854494033066
+            },
+            "descriptions": {
+              "populationSlots": 100826,
+              "servedPopulationSlots": 61743,
+              "servedShare": 0.6123718088588261,
+              "detectedWrongLanguageCount": 15,
+              "detectedWrongLanguageRate": 0.0001487711502985341
+            }
+          }
+        },
+        "continuity": {
+          "activePersisted": 24333,
+          "newIdentities": 1108,
+          "ambiguous": 12,
+          "perfectReuseCandidates": 34,
+          "retired": 1842,
+          "deleteReaddEvidence": {
+            "observable": true,
+            "complete": true,
+            "proven": 76,
+            "reason": "valid_intergenerational_comparison",
+            "retentionDays": 90,
+            "retiredCap": 50000,
+            "evictedThisGeneration": {
+              "retention": 0,
+              "cap": 0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "baselineReports": [
+    {
+      "runId": "33519288323",
+      "finishedAt": "2026-09-01T22:38:58.113Z",
+      "digest": "sha256:717fb2cd5fdde628ed80ef1fd3b6e6bc6ebe84406a8e9033160eb526b59bd71d",
+      "outcome": "success",
+      "finalCommit": "be3798aff77bca4f21d5189016c6a1b84cc612a0",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 1,
+        "stateDigest": "sha256:1c09611877a628146cbe35e0e899ae13e1bd43726a604dc0165ddfa5901d726a",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25225,
+        "incomplete": 13813,
+        "slotsPresent": 11412,
+        "needsRetranslation": 15108,
+        "flaggedAmongSlotsPresent": 2204,
+        "verifiedTranslated": 9208,
+        "suppressed": 71,
+        "missingByLocale": {
+          "it": 4576,
+          "en": 4262,
+          "de": 825,
+          "fr": 4139
+        },
+        "jobSetDigest": "sha256:7964455938a3e619ee67b40394bd56d60f7e1570094bd2bf580796bdb52ab1fb"
+      },
+      "final": {
+        "total": 25225,
+        "incomplete": 13737,
+        "slotsPresent": 11488,
+        "needsRetranslation": 12830,
+        "flaggedAmongSlotsPresent": 5,
+        "verifiedTranslated": 11483,
+        "suppressed": 71,
+        "missingByLocale": {
+          "it": 4563,
+          "en": 4256,
+          "de": 817,
+          "fr": 4129
+        },
+        "jobSetDigest": "sha256:7964455938a3e619ee67b40394bd56d60f7e1570094bd2bf580796bdb52ab1fb"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25225,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "flagged_to_complete": 2199,
+          "incomplete_to_complete": 76
+        },
+        "ingress": 0,
+        "drain": 2275
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 1648,
+          "2-7d": 4951,
+          "8-30d": 3390,
+          "31-90d": 3274,
+          "91d+": 479,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3150
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1170
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 388
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 352
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 308
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 239
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 236
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 162
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 161
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 138
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 135
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 128
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 120
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 119
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 111
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:a185ae9570396303abfaaaec23ae509ab557c1b20a17e12e62537e76530b11b3",
+            "pending": 90
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 89
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12830,
+          "source_copy_description:it": 5776,
+          "source_copy_description:en": 5515,
+          "source_copy_description:de": 793,
+          "locale_mismatch_suppressed": 71,
+          "source_copy_description:fr": 5465,
+          "title_missing:it": 377,
+          "description_missing:it": 600,
+          "title_missing:en": 434,
+          "description_missing:en": 524,
+          "title_missing:fr": 259,
+          "description_missing:fr": 355,
+          "title_missing:de": 240,
+          "description_missing:de": 320
+        },
+        "byLocale": {
+          "all": 12901,
+          "it": 6753,
+          "en": 6473,
+          "de": 1353,
+          "fr": 6079
+        },
+        "bySourceLang": {
+          "fr": 3426,
+          "de": 27542,
+          "en": 2062,
+          "unknown": 18,
+          "it": 511
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 894,
+          "it:fr": 815,
+          "en:fr": 835,
+          "de:fr": 812,
+          "all:de": 10840,
+          "all:en": 868,
+          "it:en": 396,
+          "de:en": 399,
+          "fr:en": 392,
+          "it:de": 5521,
+          "en:de": 5559,
+          "fr:de": 5548,
+          "fr:fr": 70,
+          "all:unknown": 3,
+          "en:unknown": 5,
+          "de:unknown": 5,
+          "fr:unknown": 5,
+          "all:it": 296,
+          "en:it": 67,
+          "de:it": 63,
+          "fr:it": 64,
+          "it:it": 21,
+          "de:de": 74,
+          "en:en": 7
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74432,
+            "suspectedUntranslatedCount": 28969,
+            "suspectedUntranslatedRate": 0.38920088134135855
+          },
+          "descriptions": {
+            "populationSlots": 99101,
+            "servedPopulationSlots": 49580,
+            "servedShare": 0.5002976761082129,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.0001513607329895763
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 0,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 0,
+        "deleteReaddEvidence": {
+          "observable": false,
+          "complete": false,
+          "proven": 0,
+          "reason": "bootstrap_first_valid_generation",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33536247097",
+      "finishedAt": "2026-09-02T01:12:13.901Z",
+      "digest": "sha256:6495b2fda4c79cfe7dc00944babb868a7b1e04c5ebcf2cf3700ad51040184473",
+      "outcome": "success",
+      "finalCommit": "e65af3747f537625e601acd4c73c6eb3c9348bd5",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 2,
+        "stateDigest": "sha256:6f1c922023fea2eb9244a57c9fa27414a32dab216eb2de821ceb4cd4ca5fea7d",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25225,
+        "incomplete": 13734,
+        "slotsPresent": 11491,
+        "needsRetranslation": 12826,
+        "flaggedAmongSlotsPresent": 4,
+        "verifiedTranslated": 11487,
+        "suppressed": 72,
+        "missingByLocale": {
+          "it": 4555,
+          "en": 4249,
+          "de": 817,
+          "fr": 4122
+        },
+        "jobSetDigest": "sha256:7964455938a3e619ee67b40394bd56d60f7e1570094bd2bf580796bdb52ab1fb"
+      },
+      "final": {
+        "total": 25225,
+        "incomplete": 13710,
+        "slotsPresent": 11515,
+        "needsRetranslation": 12796,
+        "flaggedAmongSlotsPresent": 8,
+        "verifiedTranslated": 11507,
+        "suppressed": 76,
+        "missingByLocale": {
+          "it": 4532,
+          "en": 4225,
+          "de": 815,
+          "fr": 4099
+        },
+        "jobSetDigest": "sha256:7964455938a3e619ee67b40394bd56d60f7e1570094bd2bf580796bdb52ab1fb"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25225,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_complete": 20,
+          "incomplete_to_flagged": 4
+        },
+        "ingress": 0,
+        "drain": 20
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 1347,
+          "2-7d": 5230,
+          "8-30d": 3387,
+          "31-90d": 3275,
+          "91d+": 479,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3150
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1157
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 387
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 352
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 305
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 239
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 236
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 162
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 161
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 138
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 135
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 128
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 120
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 119
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 111
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:a185ae9570396303abfaaaec23ae509ab557c1b20a17e12e62537e76530b11b3",
+            "pending": 90
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 89
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12796,
+          "source_copy_description:it": 5758,
+          "source_copy_description:en": 5497,
+          "source_copy_description:de": 791,
+          "locale_mismatch_suppressed": 76,
+          "source_copy_description:fr": 5448,
+          "title_missing:it": 365,
+          "description_missing:it": 587,
+          "title_missing:en": 422,
+          "description_missing:en": 511,
+          "title_missing:fr": 247,
+          "description_missing:fr": 342,
+          "title_missing:de": 240,
+          "description_missing:de": 320
+        },
+        "byLocale": {
+          "all": 12872,
+          "it": 6710,
+          "en": 6430,
+          "de": 1351,
+          "fr": 6037
+        },
+        "bySourceLang": {
+          "fr": 3423,
+          "de": 27391,
+          "en": 2061,
+          "unknown": 18,
+          "it": 507
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 894,
+          "it:fr": 814,
+          "en:fr": 834,
+          "de:fr": 811,
+          "all:de": 10813,
+          "all:en": 867,
+          "it:en": 396,
+          "de:en": 399,
+          "fr:en": 392,
+          "it:de": 5479,
+          "en:de": 5518,
+          "fr:de": 5507,
+          "fr:fr": 70,
+          "all:unknown": 3,
+          "en:unknown": 5,
+          "de:unknown": 5,
+          "fr:unknown": 5,
+          "all:it": 295,
+          "en:it": 66,
+          "de:it": 62,
+          "fr:it": 63,
+          "it:it": 21,
+          "de:de": 74,
+          "en:en": 7
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74468,
+            "suspectedUntranslatedCount": 28913,
+            "suspectedUntranslatedRate": 0.3882607294408337
+          },
+          "descriptions": {
+            "populationSlots": 99140,
+            "servedPopulationSlots": 49716,
+            "servedShare": 0.5014726649182973,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.00015130119023602984
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25225,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 0,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33585398593",
+      "finishedAt": "2026-09-02T06:37:59.730Z",
+      "digest": "sha256:21b70404c8c710713cb5eb0d9e3e59dee1401f4c3c05337c3eed3e9e2c60890c",
+      "outcome": "success",
+      "finalCommit": "06b8eee940d637dfde8c8cfc1f1e2a6ef26d56b4",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 3,
+        "stateDigest": "sha256:82986ac64f3759df4404a669e5798cf590ae9bc5fb5ade2c67266d9d9a71f350",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25275,
+        "incomplete": 13804,
+        "slotsPresent": 11471,
+        "needsRetranslation": 12877,
+        "flaggedAmongSlotsPresent": 5,
+        "verifiedTranslated": 11466,
+        "suppressed": 76,
+        "missingByLocale": {
+          "it": 4386,
+          "en": 4072,
+          "de": 818,
+          "fr": 3940
+        },
+        "jobSetDigest": "sha256:a23bdfa2db589225ebad61c9341861f78a03925defe93312b50f65345ce6d7cb"
+      },
+      "final": {
+        "total": 25275,
+        "incomplete": 13757,
+        "slotsPresent": 11518,
+        "needsRetranslation": 12833,
+        "flaggedAmongSlotsPresent": 11,
+        "verifiedTranslated": 11507,
+        "suppressed": 79,
+        "missingByLocale": {
+          "it": 4346,
+          "en": 4035,
+          "de": 812,
+          "fr": 3907
+        },
+        "jobSetDigest": "sha256:a23bdfa2db589225ebad61c9341861f78a03925defe93312b50f65345ce6d7cb"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25275,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_complete": 40,
+          "incomplete_to_flagged": 7,
+          "flagged_to_complete": 1
+        },
+        "ingress": 0,
+        "drain": 41
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 1182,
+          "2-7d": 5451,
+          "8-30d": 3362,
+          "31-90d": 3267,
+          "91d+": 506,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3150
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1136
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 388
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 352
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 305
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 169
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 166
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 136
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 135
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 121
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 117
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 117
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 89
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 88
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12833,
+          "source_copy_description:it": 5798,
+          "source_copy_description:en": 5522,
+          "source_copy_description:de": 802,
+          "locale_mismatch_suppressed": 79,
+          "source_copy_description:fr": 5475,
+          "title_missing:it": 350,
+          "description_missing:it": 563,
+          "title_missing:en": 408,
+          "description_missing:en": 488,
+          "title_missing:fr": 234,
+          "description_missing:fr": 320,
+          "title_missing:de": 239,
+          "description_missing:de": 311
+        },
+        "byLocale": {
+          "all": 12912,
+          "it": 6711,
+          "en": 6418,
+          "de": 1352,
+          "fr": 6029
+        },
+        "bySourceLang": {
+          "fr": 3442,
+          "de": 27372,
+          "en": 2111,
+          "unknown": 18,
+          "it": 479
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 898,
+          "it:fr": 821,
+          "en:fr": 838,
+          "de:fr": 816,
+          "all:de": 10834,
+          "all:en": 893,
+          "it:de": 5469,
+          "en:de": 5506,
+          "fr:de": 5495,
+          "it:en": 403,
+          "de:en": 407,
+          "fr:en": 401,
+          "fr:fr": 69,
+          "all:unknown": 3,
+          "en:unknown": 5,
+          "de:unknown": 5,
+          "fr:unknown": 5,
+          "all:it": 284,
+          "en:it": 62,
+          "de:it": 56,
+          "fr:it": 59,
+          "de:de": 68,
+          "it:it": 18,
+          "en:en": 7
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74660,
+            "suspectedUntranslatedCount": 29066,
+            "suspectedUntranslatedRate": 0.3893115456737209
+          },
+          "descriptions": {
+            "populationSlots": 99418,
+            "servedPopulationSlots": 49768,
+            "servedShare": 0.500593453901708,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.00015087811060371362
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25030,
+        "newIdentities": 245,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 195,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33593960445",
+      "finishedAt": "2026-09-02T09:05:52.101Z",
+      "digest": "sha256:8282b7b8fb792fee0a143ddfd49369b8c1f999c0427e8099a258fb078f6d866c",
+      "outcome": "success",
+      "finalCommit": "def952db5faa85463ce59721ce135a018f8818f5",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 4,
+        "stateDigest": "sha256:1d3cf26e42f0320b21b3bebe668eb7f1c53091b13a8d30828d644fc120414152",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25270,
+        "incomplete": 13755,
+        "slotsPresent": 11515,
+        "needsRetranslation": 12832,
+        "flaggedAmongSlotsPresent": 12,
+        "verifiedTranslated": 11503,
+        "suppressed": 79,
+        "missingByLocale": {
+          "it": 4346,
+          "en": 4035,
+          "de": 812,
+          "fr": 3907
+        },
+        "jobSetDigest": "sha256:cbcbc08aad39673dd5ba2e66474ced727b691c38216b2863ed23a7be1ad949a7"
+      },
+      "final": {
+        "total": 25270,
+        "incomplete": 13714,
+        "slotsPresent": 11556,
+        "needsRetranslation": 12793,
+        "flaggedAmongSlotsPresent": 17,
+        "verifiedTranslated": 11539,
+        "suppressed": 82,
+        "missingByLocale": {
+          "it": 4307,
+          "en": 3996,
+          "de": 807,
+          "fr": 3873
+        },
+        "jobSetDigest": "sha256:cbcbc08aad39673dd5ba2e66474ced727b691c38216b2863ed23a7be1ad949a7"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25270,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_flagged": 13,
+          "incomplete_to_complete": 28,
+          "flagged_to_complete": 8
+        },
+        "ingress": 0,
+        "drain": 36
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 979,
+          "2-7d": 5621,
+          "8-30d": 3361,
+          "31-90d": 3264,
+          "91d+": 506,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3150
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1121
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 388
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 352
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 291
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 169
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 166
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 136
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 135
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 121
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 117
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 117
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 89
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 88
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12793,
+          "source_copy_description:it": 5775,
+          "source_copy_description:en": 5499,
+          "source_copy_description:de": 798,
+          "locale_mismatch_suppressed": 82,
+          "source_copy_description:fr": 5456,
+          "description_missing:it": 547,
+          "title_missing:en": 392,
+          "description_missing:en": 472,
+          "title_missing:de": 238,
+          "description_missing:de": 310,
+          "title_missing:fr": 219,
+          "description_missing:fr": 305,
+          "title_missing:it": 335
+        },
+        "byLocale": {
+          "all": 12875,
+          "it": 6657,
+          "en": 6363,
+          "de": 1346,
+          "fr": 5980
+        },
+        "bySourceLang": {
+          "fr": 3419,
+          "de": 27196,
+          "en": 2111,
+          "unknown": 18,
+          "it": 477
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 892,
+          "it:fr": 816,
+          "en:fr": 832,
+          "de:fr": 810,
+          "all:de": 10805,
+          "all:en": 893,
+          "it:de": 5420,
+          "en:de": 5457,
+          "fr:de": 5446,
+          "it:en": 403,
+          "de:en": 407,
+          "fr:en": 401,
+          "fr:fr": 69,
+          "all:unknown": 3,
+          "en:unknown": 5,
+          "de:unknown": 5,
+          "fr:unknown": 5,
+          "all:it": 282,
+          "en:it": 62,
+          "de:it": 56,
+          "fr:it": 59,
+          "de:de": 68,
+          "it:it": 18,
+          "en:en": 7
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74692,
+            "suspectedUntranslatedCount": 28979,
+            "suspectedUntranslatedRate": 0.38797997108124027
+          },
+          "descriptions": {
+            "populationSlots": 99446,
+            "servedPopulationSlots": 49908,
+            "servedShare": 0.5018603060957706,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.0001508356293868029
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25270,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 200,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33596596124",
+      "finishedAt": "2026-09-02T11:36:56.636Z",
+      "digest": "sha256:cfd0278906baf719a1d755026cb5b37bc9e5b6cbb5864379c84e2c0f9e3c1252",
+      "outcome": "success",
+      "finalCommit": "3cdd2818b600d05020bd28dc802821ab47d87ac4",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 5,
+        "stateDigest": "sha256:90b389bd1c5f40be8204259847f1d47c14c58765ff779436c45522562317bbc5",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25270,
+        "incomplete": 13714,
+        "slotsPresent": 11556,
+        "needsRetranslation": 12793,
+        "flaggedAmongSlotsPresent": 17,
+        "verifiedTranslated": 11539,
+        "suppressed": 82,
+        "missingByLocale": {
+          "it": 4307,
+          "en": 3996,
+          "de": 807,
+          "fr": 3873
+        },
+        "jobSetDigest": "sha256:cbcbc08aad39673dd5ba2e66474ced727b691c38216b2863ed23a7be1ad949a7"
+      },
+      "final": {
+        "total": 25270,
+        "incomplete": 13680,
+        "slotsPresent": 11590,
+        "needsRetranslation": 12748,
+        "flaggedAmongSlotsPresent": 11,
+        "verifiedTranslated": 11579,
+        "suppressed": 87,
+        "missingByLocale": {
+          "it": 4286,
+          "en": 3974,
+          "de": 799,
+          "fr": 3855
+        },
+        "jobSetDigest": "sha256:cbcbc08aad39673dd5ba2e66474ced727b691c38216b2863ed23a7be1ad949a7"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25270,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "flagged_to_complete": 13,
+          "incomplete_to_complete": 27,
+          "incomplete_to_flagged": 7
+        },
+        "ingress": 0,
+        "drain": 40
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 845,
+          "2-7d": 5517,
+          "8-30d": 3563,
+          "31-90d": 3260,
+          "91d+": 506,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3150
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1109
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 388
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 352
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 279
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 169
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 166
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 136
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 135
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 121
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 117
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 117
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 89
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 88
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12748,
+          "source_copy_description:it": 5769,
+          "source_copy_description:en": 5493,
+          "source_copy_description:de": 797,
+          "locale_mismatch_suppressed": 87,
+          "source_copy_description:fr": 5451,
+          "description_missing:it": 532,
+          "description_missing:en": 456,
+          "description_missing:de": 303,
+          "description_missing:fr": 295,
+          "title_missing:it": 334,
+          "title_missing:en": 376,
+          "title_missing:fr": 206,
+          "title_missing:de": 231
+        },
+        "byLocale": {
+          "all": 12835,
+          "it": 6635,
+          "en": 6325,
+          "de": 1331,
+          "fr": 5952
+        },
+        "bySourceLang": {
+          "fr": 3378,
+          "de": 27101,
+          "en": 2111,
+          "it": 477,
+          "unknown": 11
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 887,
+          "it:fr": 809,
+          "en:fr": 819,
+          "de:fr": 797,
+          "all:de": 10771,
+          "all:en": 893,
+          "it:de": 5405,
+          "en:de": 5434,
+          "fr:de": 5423,
+          "it:en": 403,
+          "de:en": 407,
+          "fr:en": 401,
+          "all:it": 282,
+          "en:it": 62,
+          "de:it": 56,
+          "fr:it": 59,
+          "de:de": 68,
+          "it:it": 18,
+          "all:unknown": 2,
+          "en:unknown": 3,
+          "de:unknown": 3,
+          "fr:unknown": 3,
+          "en:en": 7,
+          "fr:fr": 66
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74726,
+            "suspectedUntranslatedCount": 28931,
+            "suspectedUntranslatedRate": 0.3871610952011348
+          },
+          "descriptions": {
+            "populationSlots": 99494,
+            "servedPopulationSlots": 50088,
+            "servedShare": 0.5034273423523027,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.00015076286007196415
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25270,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 200,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33610892157",
+      "finishedAt": "2026-09-02T14:03:20.792Z",
+      "digest": "sha256:82466e8595f19ad174980a776e5651984a26482783312717a53344634d46af97",
+      "outcome": "success",
+      "finalCommit": "6279aca29a7cf57bed18a34bd77524d5bd818342",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 6,
+        "stateDigest": "sha256:dad6103158ffb115cb5b5455d0a54c86c5037d5d8446d6eac7a6bf1f7b1f6032",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25270,
+        "incomplete": 13666,
+        "slotsPresent": 11604,
+        "needsRetranslation": 12735,
+        "flaggedAmongSlotsPresent": 11,
+        "verifiedTranslated": 11593,
+        "suppressed": 87,
+        "missingByLocale": {
+          "it": 4271,
+          "en": 3963,
+          "de": 790,
+          "fr": 3841
+        },
+        "jobSetDigest": "sha256:cbcbc08aad39673dd5ba2e66474ced727b691c38216b2863ed23a7be1ad949a7"
+      },
+      "final": {
+        "total": 25270,
+        "incomplete": 13639,
+        "slotsPresent": 11631,
+        "needsRetranslation": 12702,
+        "flaggedAmongSlotsPresent": 8,
+        "verifiedTranslated": 11623,
+        "suppressed": 90,
+        "missingByLocale": {
+          "it": 4239,
+          "en": 3931,
+          "de": 784,
+          "fr": 3815
+        },
+        "jobSetDigest": "sha256:cbcbc08aad39673dd5ba2e66474ced727b691c38216b2863ed23a7be1ad949a7"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25270,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_complete": 23,
+          "incomplete_to_flagged": 4,
+          "flagged_to_complete": 7
+        },
+        "ingress": 0,
+        "drain": 30
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 745,
+          "2-7d": 5568,
+          "8-30d": 3485,
+          "31-90d": 3341,
+          "91d+": 508,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3149
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1098
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 388
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 351
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 265
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 169
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 166
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 136
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 135
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 121
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 117
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 116
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 89
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 88
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12702,
+          "source_copy_description:it": 5734,
+          "source_copy_description:en": 5461,
+          "source_copy_description:de": 782,
+          "locale_mismatch_suppressed": 90,
+          "source_copy_description:fr": 5422,
+          "description_missing:it": 520,
+          "description_missing:en": 445,
+          "description_missing:de": 303,
+          "description_missing:fr": 284,
+          "title_missing:it": 334,
+          "title_missing:en": 365,
+          "title_missing:fr": 195,
+          "title_missing:de": 231
+        },
+        "byLocale": {
+          "all": 12792,
+          "it": 6588,
+          "en": 6271,
+          "de": 1316,
+          "fr": 5901
+        },
+        "bySourceLang": {
+          "fr": 3347,
+          "de": 26948,
+          "en": 2093,
+          "it": 469,
+          "unknown": 11
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 880,
+          "it:fr": 801,
+          "en:fr": 811,
+          "de:fr": 789,
+          "all:de": 10740,
+          "all:en": 890,
+          "it:de": 5371,
+          "en:de": 5390,
+          "fr:de": 5379,
+          "it:en": 398,
+          "de:en": 402,
+          "fr:en": 396,
+          "all:it": 280,
+          "en:it": 60,
+          "de:it": 54,
+          "fr:it": 57,
+          "de:de": 68,
+          "it:it": 18,
+          "all:unknown": 2,
+          "en:unknown": 3,
+          "de:unknown": 3,
+          "fr:unknown": 3,
+          "en:en": 7,
+          "fr:fr": 66
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74748,
+            "suspectedUntranslatedCount": 28817,
+            "suspectedUntranslatedRate": 0.38552202065607105
+          },
+          "descriptions": {
+            "populationSlots": 99528,
+            "servedPopulationSlots": 50272,
+            "servedShare": 0.5051040913109879,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.00015071135760790934
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25270,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 200,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33637913108",
+      "finishedAt": "2026-09-02T22:26:52.518Z",
+      "digest": "sha256:e71c970ba6305735097b5ae5682d60d3e24aecb5136710e7bf9e16d7d0a8f9de",
+      "outcome": "success",
+      "finalCommit": "62cc50aa8a5765dda36cb8f53b0ed84ecabb0ae8",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 7,
+        "stateDigest": "sha256:1700e4cea3a4703e9e09f0a8617565e00000ac6ae1cb975f6b676d3dc3ae6e14",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25327,
+        "incomplete": 13839,
+        "slotsPresent": 11488,
+        "needsRetranslation": 13550,
+        "flaggedAmongSlotsPresent": 635,
+        "verifiedTranslated": 10853,
+        "suppressed": 88,
+        "missingByLocale": {
+          "it": 4505,
+          "en": 4158,
+          "de": 832,
+          "fr": 4066
+        },
+        "jobSetDigest": "sha256:431eca535ba39113454a13fa0247473d637056a8eb1eb3c67f061295a1bfd13e"
+      },
+      "final": {
+        "total": 25327,
+        "incomplete": 13791,
+        "slotsPresent": 11536,
+        "needsRetranslation": 12871,
+        "flaggedAmongSlotsPresent": 10,
+        "verifiedTranslated": 11526,
+        "suppressed": 88,
+        "missingByLocale": {
+          "it": 4488,
+          "en": 4143,
+          "de": 829,
+          "fr": 4052
+        },
+        "jobSetDigest": "sha256:431eca535ba39113454a13fa0247473d637056a8eb1eb3c67f061295a1bfd13e"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25327,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "flagged_to_complete": 631,
+          "incomplete_to_complete": 42,
+          "incomplete_to_flagged": 6
+        },
+        "ingress": 0,
+        "drain": 673
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 528,
+          "2-7d": 6089,
+          "8-30d": 3353,
+          "31-90d": 3312,
+          "91d+": 519,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3132
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1088
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 393
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 347
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 256
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 239
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 186
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 181
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 136
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 130
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 124
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 122
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 121
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 115
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 92
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 91
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12871,
+          "source_copy_description:it": 5945,
+          "source_copy_description:en": 5633,
+          "source_copy_description:de": 832,
+          "locale_mismatch_suppressed": 88,
+          "source_copy_description:fr": 5608,
+          "title_missing:it": 378,
+          "description_missing:it": 553,
+          "title_missing:en": 403,
+          "description_missing:en": 478,
+          "title_missing:fr": 235,
+          "description_missing:fr": 319,
+          "description_missing:de": 304,
+          "title_missing:de": 234
+        },
+        "byLocale": {
+          "all": 12959,
+          "it": 6876,
+          "en": 6514,
+          "de": 1370,
+          "fr": 6162
+        },
+        "bySourceLang": {
+          "fr": 3431,
+          "de": 27721,
+          "en": 2229,
+          "it": 489,
+          "unknown": 11
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 901,
+          "it:fr": 823,
+          "en:fr": 830,
+          "de:fr": 809,
+          "all:de": 10833,
+          "all:en": 925,
+          "it:en": 432,
+          "de:en": 435,
+          "fr:en": 430,
+          "it:de": 5603,
+          "en:de": 5613,
+          "fr:de": 5603,
+          "all:it": 298,
+          "en:it": 61,
+          "de:it": 54,
+          "fr:it": 58,
+          "it:it": 18,
+          "de:de": 69,
+          "all:unknown": 2,
+          "en:unknown": 3,
+          "de:unknown": 3,
+          "fr:unknown": 3,
+          "en:en": 7,
+          "fr:fr": 68
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74797,
+            "suspectedUntranslatedCount": 29217,
+            "suspectedUntranslatedRate": 0.39061727074615293
+          },
+          "descriptions": {
+            "populationSlots": 99654,
+            "servedPopulationSlots": 49824,
+            "servedShare": 0.49996989583960505,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.0001505208019748329
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 24829,
+        "newIdentities": 448,
+        "ambiguous": 5,
+        "perfectReuseCandidates": 8,
+        "retired": 596,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 45,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33658495943",
+      "finishedAt": "2026-09-03T01:03:18.890Z",
+      "digest": "sha256:d493b5b6560703ddb157d792c61ff0ea27123e37ad337bb8bdd6b8d273f57e71",
+      "outcome": "success",
+      "finalCommit": "41e8dc95ff785776d02b57d48571014a2a6718dc",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 8,
+        "stateDigest": "sha256:e2354dece5ade509ac08da4e06e803c06c579c38da30a126ff162bf355608685",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25327,
+        "incomplete": 13787,
+        "slotsPresent": 11540,
+        "needsRetranslation": 12867,
+        "flaggedAmongSlotsPresent": 10,
+        "verifiedTranslated": 11530,
+        "suppressed": 88,
+        "missingByLocale": {
+          "it": 4486,
+          "en": 4142,
+          "de": 829,
+          "fr": 4051
+        },
+        "jobSetDigest": "sha256:431eca535ba39113454a13fa0247473d637056a8eb1eb3c67f061295a1bfd13e"
+      },
+      "final": {
+        "total": 25327,
+        "incomplete": 13761,
+        "slotsPresent": 11566,
+        "needsRetranslation": 12840,
+        "flaggedAmongSlotsPresent": 10,
+        "verifiedTranslated": 11556,
+        "suppressed": 88,
+        "missingByLocale": {
+          "it": 4459,
+          "en": 4115,
+          "de": 829,
+          "fr": 4024
+        },
+        "jobSetDigest": "sha256:431eca535ba39113454a13fa0247473d637056a8eb1eb3c67f061295a1bfd13e"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25327,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_flagged": 6,
+          "incomplete_to_complete": 20,
+          "flagged_to_complete": 6
+        },
+        "ingress": 0,
+        "drain": 26
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 388,
+          "2-7d": 3543,
+          "8-30d": 6001,
+          "31-90d": 3320,
+          "91d+": 519,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3132
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1072
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 393
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 347
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 250
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 239
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 186
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 181
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 135
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 133
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 130
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 124
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 122
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 121
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 115
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 92
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 91
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12840,
+          "source_copy_description:it": 5929,
+          "source_copy_description:en": 5618,
+          "source_copy_description:de": 832,
+          "locale_mismatch_suppressed": 88,
+          "source_copy_description:fr": 5593,
+          "title_missing:it": 365,
+          "description_missing:it": 540,
+          "title_missing:en": 390,
+          "description_missing:en": 465,
+          "title_missing:fr": 222,
+          "description_missing:fr": 306,
+          "description_missing:de": 304,
+          "title_missing:de": 234
+        },
+        "byLocale": {
+          "all": 12928,
+          "it": 6834,
+          "en": 6473,
+          "de": 1370,
+          "fr": 6121
+        },
+        "bySourceLang": {
+          "fr": 3431,
+          "de": 27568,
+          "en": 2228,
+          "it": 488,
+          "unknown": 11
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 901,
+          "it:fr": 823,
+          "en:fr": 830,
+          "de:fr": 809,
+          "all:de": 10804,
+          "all:en": 924,
+          "it:en": 432,
+          "de:en": 435,
+          "fr:en": 430,
+          "it:de": 5561,
+          "en:de": 5572,
+          "fr:de": 5562,
+          "all:it": 297,
+          "en:it": 61,
+          "de:it": 54,
+          "fr:it": 58,
+          "it:it": 18,
+          "de:de": 69,
+          "all:unknown": 2,
+          "en:unknown": 3,
+          "de:unknown": 3,
+          "fr:unknown": 3,
+          "en:en": 7,
+          "fr:fr": 68
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 74836,
+            "suspectedUntranslatedCount": 29170,
+            "suspectedUntranslatedRate": 0.3897856646533754
+          },
+          "descriptions": {
+            "populationSlots": 99693,
+            "servedPopulationSlots": 49948,
+            "servedShare": 0.5010181256457324,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.0001504619180885318
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25327,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 596,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33718515481",
+      "finishedAt": "2026-09-03T07:45:44.428Z",
+      "digest": "sha256:fac5ce1bd0c7ed20a7b9068d2be658e3fa2ad331c8af8bf64fa730203e95cbae",
+      "outcome": "success",
+      "finalCommit": "1b090e9e09daf4fea567281e766e6099777e21b8",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 9,
+        "stateDigest": "sha256:fcafe486bc123a9151de5e91ab93cf1c4cea6ecec78649969937f439b51935aa",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25500,
+        "incomplete": 13957,
+        "slotsPresent": 11543,
+        "needsRetranslation": 13041,
+        "flaggedAmongSlotsPresent": 7,
+        "verifiedTranslated": 11536,
+        "suppressed": 87,
+        "missingByLocale": {
+          "it": 4617,
+          "en": 4259,
+          "de": 891,
+          "fr": 4149
+        },
+        "jobSetDigest": "sha256:6d3c542baf1dd504b39d6524d147acc461eb7c68171f3b90f46cae96d8a0df39"
+      },
+      "final": {
+        "total": 25500,
+        "incomplete": 13915,
+        "slotsPresent": 11585,
+        "needsRetranslation": 12994,
+        "flaggedAmongSlotsPresent": 13,
+        "verifiedTranslated": 11572,
+        "suppressed": 91,
+        "missingByLocale": {
+          "it": 4585,
+          "en": 4227,
+          "de": 885,
+          "fr": 4124
+        },
+        "jobSetDigest": "sha256:6d3c542baf1dd504b39d6524d147acc461eb7c68171f3b90f46cae96d8a0df39"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25500,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_complete": 33,
+          "incomplete_to_flagged": 9,
+          "flagged_to_complete": 3
+        },
+        "ingress": 0,
+        "drain": 36
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 520,
+          "2-7d": 3501,
+          "8-30d": 6054,
+          "31-90d": 3333,
+          "91d+": 520,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3132
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1035
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 396
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 347
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 250
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 239
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 229
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 184
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 181
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 130
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 129
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 124
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 122
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 119
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 116
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 98
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 90
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12994,
+          "source_copy_description:it": 6128,
+          "source_copy_description:en": 5795,
+          "source_copy_description:de": 901,
+          "locale_mismatch_suppressed": 91,
+          "source_copy_description:fr": 5754,
+          "title_missing:it": 345,
+          "description_missing:it": 523,
+          "title_missing:en": 368,
+          "description_missing:en": 447,
+          "title_missing:fr": 201,
+          "description_missing:fr": 292,
+          "description_missing:de": 307,
+          "title_missing:de": 233
+        },
+        "byLocale": {
+          "all": 13085,
+          "it": 6996,
+          "en": 6610,
+          "de": 1441,
+          "fr": 6247
+        },
+        "bySourceLang": {
+          "fr": 3569,
+          "de": 27951,
+          "en": 2322,
+          "it": 526,
+          "unknown": 11
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 937,
+          "it:fr": 859,
+          "en:fr": 864,
+          "de:fr": 843,
+          "all:de": 10901,
+          "all:en": 940,
+          "it:de": 5658,
+          "en:de": 5666,
+          "fr:de": 5657,
+          "it:en": 458,
+          "de:en": 461,
+          "fr:en": 455,
+          "all:it": 305,
+          "en:it": 69,
+          "de:it": 65,
+          "fr:it": 66,
+          "it:it": 21,
+          "de:de": 69,
+          "all:unknown": 2,
+          "en:unknown": 3,
+          "de:unknown": 3,
+          "fr:unknown": 3,
+          "en:en": 8,
+          "fr:fr": 66
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 75417,
+            "suspectedUntranslatedCount": 29632,
+            "suspectedUntranslatedRate": 0.39290876062426244
+          },
+          "descriptions": {
+            "populationSlots": 100431,
+            "servedPopulationSlots": 50024,
+            "servedShare": 0.49809321822943114,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.00014935627445708993
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25092,
+        "newIdentities": 327,
+        "ambiguous": 1,
+        "perfectReuseCandidates": 33,
+        "retired": 751,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 80,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33720853126",
+      "finishedAt": "2026-09-03T10:14:29.135Z",
+      "digest": "sha256:105b4023d56e0e2917d8c5ad05cc9dd7f24cd64bd91efbfa82f03284dced974d",
+      "outcome": "success",
+      "finalCommit": "6cf06fe39ac9242d433a4af4bd2cbc3e7543349e",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 10,
+        "stateDigest": "sha256:d72aa4af1c5815d4e67f4949bcbc85576f3308d5043e9a12aedf82b94ac80765",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25494,
+        "incomplete": 13911,
+        "slotsPresent": 11583,
+        "needsRetranslation": 12991,
+        "flaggedAmongSlotsPresent": 13,
+        "verifiedTranslated": 11570,
+        "suppressed": 91,
+        "missingByLocale": {
+          "it": 4583,
+          "en": 4225,
+          "de": 884,
+          "fr": 4123
+        },
+        "jobSetDigest": "sha256:9d0e351677e9fe09d4943c54b57df0cb28f2211e3f17ddf56a1163c9a81a3e54"
+      },
+      "final": {
+        "total": 25494,
+        "incomplete": 13884,
+        "slotsPresent": 11610,
+        "needsRetranslation": 12957,
+        "flaggedAmongSlotsPresent": 11,
+        "verifiedTranslated": 11599,
+        "suppressed": 95,
+        "missingByLocale": {
+          "it": 4559,
+          "en": 4205,
+          "de": 874,
+          "fr": 4109
+        },
+        "jobSetDigest": "sha256:9d0e351677e9fe09d4943c54b57df0cb28f2211e3f17ddf56a1163c9a81a3e54"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25494,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "flagged_to_complete": 9,
+          "incomplete_to_complete": 20,
+          "incomplete_to_flagged": 7
+        },
+        "ingress": 0,
+        "drain": 29
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 509,
+          "2-7d": 3487,
+          "8-30d": 6051,
+          "31-90d": 3328,
+          "91d+": 520,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3132
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1025
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 396
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 347
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 239
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 237
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 229
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 184
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 181
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 130
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 124
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 124
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 122
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 119
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 116
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 98
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 90
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12957,
+          "source_copy_description:it": 6111,
+          "source_copy_description:en": 5780,
+          "source_copy_description:de": 890,
+          "locale_mismatch_suppressed": 95,
+          "source_copy_description:fr": 5746,
+          "title_missing:it": 337,
+          "description_missing:it": 516,
+          "title_missing:en": 361,
+          "description_missing:en": 440,
+          "title_missing:fr": 194,
+          "description_missing:fr": 285,
+          "description_missing:de": 307,
+          "title_missing:de": 233
+        },
+        "byLocale": {
+          "all": 13052,
+          "it": 6964,
+          "en": 6581,
+          "de": 1430,
+          "fr": 6225
+        },
+        "bySourceLang": {
+          "fr": 3529,
+          "de": 27873,
+          "en": 2313,
+          "it": 526,
+          "unknown": 11
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 926,
+          "it:fr": 848,
+          "en:fr": 855,
+          "de:fr": 834,
+          "all:de": 10882,
+          "all:en": 937,
+          "it:de": 5639,
+          "en:de": 5646,
+          "fr:de": 5637,
+          "it:en": 456,
+          "de:en": 459,
+          "fr:en": 453,
+          "all:it": 305,
+          "en:it": 69,
+          "de:it": 65,
+          "fr:it": 66,
+          "it:it": 21,
+          "de:de": 69,
+          "all:unknown": 2,
+          "en:unknown": 3,
+          "de:unknown": 3,
+          "fr:unknown": 3,
+          "en:en": 8,
+          "fr:fr": 66
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 75421,
+            "suspectedUntranslatedCount": 29589,
+            "suspectedUntranslatedRate": 0.3923177894750799
+          },
+          "descriptions": {
+            "populationSlots": 100428,
+            "servedPopulationSlots": 50148,
+            "servedShare": 0.49934281276138126,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.00014936073604970726
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25494,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 757,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33736371917",
+      "finishedAt": "2026-09-03T12:43:00.184Z",
+      "digest": "sha256:e6a26432539eea9f3442f8f34ed6df758f3abe2330ed34afee62e66a8d7a8e93",
+      "outcome": "success",
+      "finalCommit": "e86c9041af95e6f9e9bcc871a9ae853d2c2de35c",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 11,
+        "stateDigest": "sha256:16a9734df66e85e30ad2b651cce7055e54836052969abce7a93552588831d213",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25494,
+        "incomplete": 13871,
+        "slotsPresent": 11623,
+        "needsRetranslation": 12944,
+        "flaggedAmongSlotsPresent": 11,
+        "verifiedTranslated": 11612,
+        "suppressed": 95,
+        "missingByLocale": {
+          "it": 4547,
+          "en": 4189,
+          "de": 863,
+          "fr": 4091
+        },
+        "jobSetDigest": "sha256:9d0e351677e9fe09d4943c54b57df0cb28f2211e3f17ddf56a1163c9a81a3e54"
+      },
+      "final": {
+        "total": 25494,
+        "incomplete": 13852,
+        "slotsPresent": 11642,
+        "needsRetranslation": 12912,
+        "flaggedAmongSlotsPresent": 6,
+        "verifiedTranslated": 11636,
+        "suppressed": 102,
+        "missingByLocale": {
+          "it": 4533,
+          "en": 4175,
+          "de": 861,
+          "fr": 4079
+        },
+        "jobSetDigest": "sha256:9d0e351677e9fe09d4943c54b57df0cb28f2211e3f17ddf56a1163c9a81a3e54"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25494,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_complete": 17,
+          "flagged_to_complete": 7,
+          "incomplete_to_flagged": 2
+        },
+        "ingress": 0,
+        "drain": 24
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 509,
+          "2-7d": 3457,
+          "8-30d": 5982,
+          "31-90d": 3387,
+          "91d+": 523,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 3132
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 1013
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 396
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 346
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 239
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 235
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 229
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 224
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 184
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 181
+          },
+          {
+            "companyFingerprint": "sha256:59346db30e835649113f8c214d31653b39772e2370d2080e38c8137489a8b476",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 137
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 130
+          },
+          {
+            "companyFingerprint": "sha256:b1f658e819a7a46f2e1af8610886e87b7fc123b4d611a8e762bd2813fa5cc7b7",
+            "pending": 124
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 124
+          },
+          {
+            "companyFingerprint": "sha256:093c71d7d38c303f6ab3f0fbac4919d68a80bf130f13e106da11761134fdc7e9",
+            "pending": 122
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 118
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 116
+          },
+          {
+            "companyFingerprint": "sha256:4c09985d7ecc408808bf531b12d1a77aaa313b1f77f07dd3e79340b07bf0eb62",
+            "pending": 98
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 90
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 12912,
+          "source_copy_description:it": 6097,
+          "source_copy_description:en": 5763,
+          "source_copy_description:de": 878,
+          "locale_mismatch_suppressed": 102,
+          "source_copy_description:fr": 5729,
+          "title_missing:it": 337,
+          "description_missing:it": 504,
+          "title_missing:en": 348,
+          "description_missing:en": 427,
+          "title_missing:fr": 181,
+          "description_missing:fr": 272,
+          "description_missing:de": 306,
+          "title_missing:de": 232
+        },
+        "byLocale": {
+          "all": 13014,
+          "it": 6938,
+          "en": 6538,
+          "de": 1416,
+          "fr": 6182
+        },
+        "bySourceLang": {
+          "fr": 3511,
+          "de": 27767,
+          "en": 2302,
+          "it": 504,
+          "unknown": 4
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 917,
+          "it:fr": 845,
+          "en:fr": 852,
+          "de:fr": 831,
+          "all:de": 10860,
+          "all:en": 935,
+          "it:de": 5619,
+          "en:de": 5614,
+          "fr:de": 5605,
+          "it:en": 453,
+          "de:en": 456,
+          "fr:en": 450,
+          "all:it": 301,
+          "en:it": 63,
+          "de:it": 59,
+          "fr:it": 60,
+          "it:it": 21,
+          "de:de": 69,
+          "all:unknown": 1,
+          "en:unknown": 1,
+          "de:unknown": 1,
+          "fr:unknown": 1,
+          "en:en": 8,
+          "fr:fr": 66
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 75448,
+            "suspectedUntranslatedCount": 29508,
+            "suspectedUntranslatedRate": 0.39110380659527094
+          },
+          "descriptions": {
+            "populationSlots": 100467,
+            "servedPopulationSlots": 50328,
+            "servedShare": 0.5009406073636119,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.00014930275612887813
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 25494,
+        "newIdentities": 0,
+        "ambiguous": 0,
+        "perfectReuseCandidates": 0,
+        "retired": 757,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 0,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    },
+    {
+      "runId": "33817410877",
+      "finishedAt": "2026-09-04T04:49:59.321Z",
+      "digest": "sha256:6552411db8c9fc875cb628c84fda0fd3f47792b7881de4953b2fa74497b7c32b",
+      "outcome": "success",
+      "finalCommit": "750bb76acdd901cb1043bcdb92cc8119f3f83bc7",
+      "stateTransition": {
+        "advanced": true,
+        "generation": 12,
+        "stateDigest": "sha256:765634d7b58174febf8ea471b53a94fb5d282881329c33115d03659d68cc7bb6",
+        "reason": "valid_true_final"
+      },
+      "before": {
+        "total": 25529,
+        "incomplete": 11090,
+        "slotsPresent": 14439,
+        "needsRetranslation": 10533,
+        "flaggedAmongSlotsPresent": 49,
+        "verifiedTranslated": 14390,
+        "suppressed": 103,
+        "missingByLocale": {
+          "it": 4282,
+          "en": 3951,
+          "de": 878,
+          "fr": 3833
+        },
+        "jobSetDigest": "sha256:5f337a0f01f90c247bb8c2e5d829c3866ede6b243f4809b045b2fb137accb739"
+      },
+      "final": {
+        "total": 25529,
+        "incomplete": 10686,
+        "slotsPresent": 14843,
+        "needsRetranslation": 10093,
+        "flaggedAmongSlotsPresent": 3,
+        "verifiedTranslated": 14840,
+        "suppressed": 103,
+        "missingByLocale": {
+          "it": 3929,
+          "en": 3638,
+          "de": 791,
+          "fr": 3538
+        },
+        "jobSetDigest": "sha256:5f337a0f01f90c247bb8c2e5d829c3866ede6b243f4809b045b2fb137accb739"
+      },
+      "delta": {
+        "added": 0,
+        "removed": 0,
+        "persisted": 25529,
+        "transitions": {
+          "complete": 0,
+          "flagged": 0,
+          "incomplete": 0,
+          "incomplete_to_complete": 404,
+          "flagged_to_complete": 47,
+          "incomplete_to_flagged": 1,
+          "complete_to_incomplete": 1
+        },
+        "ingress": 1,
+        "drain": 451
+      },
+      "cohorts": {
+        "age": {
+          "0-1d": 1013,
+          "2-7d": 2926,
+          "8-30d": 4402,
+          "31-90d": 2070,
+          "91d+": 278,
+          "unknown": 0
+        },
+        "topCompanies": [
+          {
+            "companyFingerprint": "sha256:147189df0c697c7e10bcfbce728dfaba052b2d9b7fa4116519f5620679e422e3",
+            "pending": 2621
+          },
+          {
+            "companyFingerprint": "sha256:1d3def9ab793445a25da510388c50da78c0460eee13857908bd6693f6871cc3d",
+            "pending": 951
+          },
+          {
+            "companyFingerprint": "sha256:6a55635091b9bdb58f7a42ab3eb6158ff0ceafd9dfdc5096e6e3351cffcc61ca",
+            "pending": 351
+          },
+          {
+            "companyFingerprint": "sha256:a6cf229e64b8b087ec6455acdedacd530408c1afe88f8afa2fd6f885f1f002ff",
+            "pending": 236
+          },
+          {
+            "companyFingerprint": "sha256:b18d0ca02d9539161d95a02b1cfd848f16a2d900bc3eae1ca428480d2c392893",
+            "pending": 194
+          },
+          {
+            "companyFingerprint": "sha256:c49fb164c29843fa32ca6cd1100a50ffddae2ab7bfd51929f0e7b433a5e674c0",
+            "pending": 192
+          },
+          {
+            "companyFingerprint": "sha256:b7662cb48874a4831649e18b0b514d1b0ca9dc5afe0ec6de709ad64a8aae6142",
+            "pending": 168
+          },
+          {
+            "companyFingerprint": "sha256:07e7fc6588c653b75b6a4b8e69e15d1f36e55c9fee37dd4ce2581eed2f8f1ed1",
+            "pending": 167
+          },
+          {
+            "companyFingerprint": "sha256:993a6644a9270261831706368af045d551a2e546aa59e64722dd7ee3e17821bb",
+            "pending": 165
+          },
+          {
+            "companyFingerprint": "sha256:132ee7fe2adcc48f110a38d5fdc8a3fd8f6f85ba27b064ccb6c8bcd6bba1bdd7",
+            "pending": 158
+          },
+          {
+            "companyFingerprint": "sha256:57906b2660e4e2e227e96b86ec676dbac58f2fbc9673c2e03a63ceb29f94b220",
+            "pending": 119
+          },
+          {
+            "companyFingerprint": "sha256:76543e2359385d88fff204450394f1c0d209d57a400aeb2c6eac3dfa1c72725a",
+            "pending": 118
+          },
+          {
+            "companyFingerprint": "sha256:80b3dce6bb6cd3b4e96634c82ac26b278be15da0cdd14c31276333c782c480d0",
+            "pending": 116
+          },
+          {
+            "companyFingerprint": "sha256:e5c267444bb99c0c6c21c4c6a2b4d42c2b047362a61664e8ae4afacda20a5ffc",
+            "pending": 108
+          },
+          {
+            "companyFingerprint": "sha256:363dd731d8a161b9bcedaf0fa90373bc76414f139d3825fae7af1b7de02ba7b1",
+            "pending": 106
+          },
+          {
+            "companyFingerprint": "sha256:67c44b058e99d9d3c886a6bcd5e95c9c6c31c3df6ae541b7f29a259f4f44fb5a",
+            "pending": 85
+          },
+          {
+            "companyFingerprint": "sha256:127f3331899ea11e22ad15283d0be87601f396c861f854ac853f05784777ada1",
+            "pending": 84
+          },
+          {
+            "companyFingerprint": "sha256:80378fa495d32fc9f36e1f4c60e7fe01bcd1fbbd9516261ab4077163f3e9d3dc",
+            "pending": 82
+          },
+          {
+            "companyFingerprint": "sha256:2570a499857dad23e94bef23f4d39b4c63aa73f411d8c976299f82c09a0e0bc8",
+            "pending": 78
+          },
+          {
+            "companyFingerprint": "sha256:bec44aa1ecd13ced9387486dd6afadda262c1e163b78985ae45d76ce58c91d70",
+            "pending": 78
+          }
+        ]
+      },
+      "quality": {
+        "reasons": {
+          "needs_retranslation": 10093,
+          "source_copy_description:it": 5288,
+          "source_copy_description:en": 4969,
+          "source_copy_description:de": 860,
+          "locale_mismatch_suppressed": 103,
+          "source_copy_description:fr": 4950,
+          "description_missing:it": 426,
+          "description_missing:en": 373,
+          "description_missing:de": 285,
+          "description_missing:fr": 206,
+          "title_missing:en": 314,
+          "title_missing:de": 221,
+          "title_missing:fr": 143,
+          "title_missing:it": 304
+        },
+        "byLocale": {
+          "all": 10196,
+          "it": 6018,
+          "en": 5656,
+          "de": 1366,
+          "fr": 5299
+        },
+        "bySourceLang": {
+          "fr": 3365,
+          "de": 22520,
+          "en": 2205,
+          "it": 445
+        },
+        "byLocaleSourceLang": {
+          "all:fr": 832,
+          "it:fr": 819,
+          "en:fr": 837,
+          "de:fr": 810,
+          "all:de": 8194,
+          "all:en": 873,
+          "it:de": 4743,
+          "en:de": 4766,
+          "fr:de": 4752,
+          "it:en": 441,
+          "de:en": 446,
+          "fr:en": 437,
+          "all:it": 297,
+          "en:it": 45,
+          "de:it": 45,
+          "fr:it": 43,
+          "de:de": 65,
+          "it:it": 15,
+          "en:en": 8,
+          "fr:fr": 67
+        }
+      },
+      "languageQuality": {
+        "baseline": {
+          "measured": false,
+          "titles": null,
+          "descriptions": null
+        },
+        "trueFinal": {
+          "measured": true,
+          "titles": {
+            "populationSlots": 75667,
+            "suspectedUntranslatedCount": 22926,
+            "suspectedUntranslatedRate": 0.3029854494033066
+          },
+          "descriptions": {
+            "populationSlots": 100826,
+            "servedPopulationSlots": 61743,
+            "servedShare": 0.6123718088588261,
+            "detectedWrongLanguageCount": 15,
+            "detectedWrongLanguageRate": 0.0001487711502985341
+          }
+        }
+      },
+      "continuity": {
+        "activePersisted": 24333,
+        "newIdentities": 1108,
+        "ambiguous": 12,
+        "perfectReuseCandidates": 34,
+        "retired": 1842,
+        "deleteReaddEvidence": {
+          "observable": true,
+          "complete": true,
+          "proven": 76,
+          "reason": "valid_intergenerational_comparison",
+          "retentionDays": 90,
+          "retiredCap": 50000,
+          "evictedThisGeneration": {
+            "retention": 0,
+            "cap": 0
+          }
+        }
+      }
+    }
+  ],
+  "seenReports": [
+    "33455986103:sha256:b9df7a39c01b7875f7d12bf4ecb387e3906d907255064e19691c935d4a2d56dd",
+    "33475284123:sha256:4ae1c370320e4fb1887470cf555a46637b941e3eeb472bc3a8ddbc271f48ddeb",
+    "33481586645:sha256:3efd12bf2045f6d4ed4c52a4634700f162c8138a35064fbd152b785fc12ee55f",
+    "33496167979:sha256:dd3dd186cf5cc06117a9cf8c45921d95abf951eb92de7dd8b7eae1d2f85465cb",
+    "33519288323:sha256:717fb2cd5fdde628ed80ef1fd3b6e6bc6ebe84406a8e9033160eb526b59bd71d",
+    "33536247097:sha256:6495b2fda4c79cfe7dc00944babb868a7b1e04c5ebcf2cf3700ad51040184473",
+    "33570724601:sha256:435f5325648fe426722271abdf63f09bc9e5bf4b8afc769007c8562f9f070a5e",
+    "33585398593:sha256:21b70404c8c710713cb5eb0d9e3e59dee1401f4c3c05337c3eed3e9e2c60890c",
+    "33593960445:sha256:8282b7b8fb792fee0a143ddfd49369b8c1f999c0427e8099a258fb078f6d866c",
+    "33596596124:sha256:cfd0278906baf719a1d755026cb5b37bc9e5b6cbb5864379c84e2c0f9e3c1252",
+    "33610892157:sha256:82466e8595f19ad174980a776e5651984a26482783312717a53344634d46af97",
+    "33637913108:sha256:e71c970ba6305735097b5ae5682d60d3e24aecb5136710e7bf9e16d7d0a8f9de",
+    "33658495943:sha256:d493b5b6560703ddb157d792c61ff0ea27123e37ad337bb8bdd6b8d273f57e71",
+    "33694675127:sha256:490543813352631b455f64479ca59902ca0af2b3e5065b729d83fc17aa6c6684",
+    "33718515481:sha256:fac5ce1bd0c7ed20a7b9068d2be658e3fa2ad331c8af8bf64fa730203e95cbae",
+    "33720853126:sha256:105b4023d56e0e2917d8c5ad05cc9dd7f24cd64bd91efbfa82f03284dced974d",
+    "33736371917:sha256:e6a26432539eea9f3442f8f34ed6df758f3abe2330ed34afee62e66a8d7a8e93",
+    "33781657568:sha256:23a68cb2faaf18eb4a22d60bad76815367f091b4806bec5649b7c58877a8bf82",
+    "33817410877:sha256:6552411db8c9fc875cb628c84fda0fd3f47792b7881de4953b2fa74497b7c32b"
+  ],
+  "baselineStatus": {
+    "requiredGenerations": 14,
+    "collectedGenerations": 12,
+    "ready": false
+  }
+}

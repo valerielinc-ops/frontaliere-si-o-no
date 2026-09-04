@@ -1,19 +1,53 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-28T05:34:54.346Z",
-  "total": 8,
+  "generatedAt": "2026-09-03T23:29:45.391Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16206,
-  "avgDurationMs": 16206,
+  "unchangedCount": 1,
+  "durationMs": 17802,
+  "avgDurationMs": 17802,
   "durationHistory": [
-    16206
+    17802
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "url": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
+      "applyUrl": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
+      "title": "Controls Engineer Specialist (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "controls-engineer-specialist-m-f-d-mikron",
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-09-03",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "firstSeenAt": "2026-09-03T13:45:11.813Z",
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
     {
       "url": "https://www.mikron.com/en/warehouse-logistic-operator-mfd-0",
       "applyUrl": "https://www.mikron.com/en/warehouse-logistic-operator-mfd-0",
@@ -85,7 +119,7 @@
     {
       "url": "https://www.mikron.com/en/product-care-leader-mfd",
       "applyUrl": "https://www.mikron.com/en/product-care-leader-mfd",
-      "title": "Product Care Leader (m/f/d)",
+      "title": "Software Product Care Leader (m/f/d)",
       "company": "Mikron Group",
       "companyKey": "mikron",
       "location": "Boudry",
@@ -95,7 +129,7 @@
       "streetAddress": "Route du Vignoble 17, 2017 Boudry",
       "slug": "product-care-leader-m-f-d-mikron",
       "sourceLang": "fr",
-      "category": "production",
+      "category": "technology",
       "datePosted": "2026-08-24",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
@@ -251,7 +285,10 @@
         "translation": 23,
         "completeness": 15
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-francese",
       "applyUrl": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-francese",
@@ -278,15 +315,18 @@
       "firstSeenAt": "2026-08-19T10:01:58.202Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
-      "_qualityScore": 81,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

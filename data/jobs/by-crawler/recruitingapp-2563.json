@@ -1,7 +1,72 @@
 {
   "crawlerKey": "recruitingapp-2563",
-  "assembledAt": "2026-08-25T10:11:50.877Z",
+  "assembledAt": "2026-08-31T17:15:49.076Z",
   "jobs": [
+    {
+      "id": "recruitingapp-2563-30a3e08d865c",
+      "slug": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
+      "slugByLocale": {
+        "de": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
+        "it": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
+        "en": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
+        "fr": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and"
+      },
+      "company": "Switch Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-2563",
+      "companyDomain": "recruitingapp-2563.umantis.com",
+      "title": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich",
+      "titleByLocale": {
+        "de": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich",
+        "it": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich",
+        "en": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich",
+        "fr": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich"
+      },
+      "description": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "de": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
+        "it": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
+        "en": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
+        "fr": "Chief Information Officer - Mitglied der Geschäftsleitung (80-100% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1",
+      "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:15:44.340Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:15:44.340Z"
+    },
     {
       "id": "recruitingapp-2563-97a2b838b3bd",
       "slug": "technical-documentation-specialista-60-all-identities-and-backgrounds-in-zurich-switch-bewerbermanagement-stellen-lugano",
@@ -77,7 +142,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     },
     {
       "id": "recruitingapp-2563-052f9f19df69",
@@ -153,7 +220,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     }
   ]
 }

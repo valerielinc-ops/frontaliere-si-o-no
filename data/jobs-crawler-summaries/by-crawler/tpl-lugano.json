@@ -1,10 +1,11 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-08-28T05:25:50.855Z",
+  "generatedAt": "2026-09-03T23:16:53.901Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "written": 0,
+  "sourceProvenEmpty": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
@@ -13,6 +14,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "durationMs": 1818
 }

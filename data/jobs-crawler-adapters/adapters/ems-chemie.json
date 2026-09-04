@@ -8,29 +8,27 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/entwicklungschemiker-entwicklungsingenieur-m-w-d/c9b0ac93-f797-4150-8e84-5ef5f33f89de",
     "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/bfcd16eb-1a00-4444-9ddc-2f9be9347fa4",
     "https://jobs.ems-group.com/offene-stellen/area-sales-manager-m-w-d/7087611b-f352-44c2-82a5-9ee01f7638fb",
-    "https://jobs.ems-group.com/offene-stellen/it-system-engineer-m-w-d/8de46953-255a-4aab-8f90-a97ffb59ab67",
     "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/45364b0a-facc-415c-838d-718632db9f57",
     "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/0dac06fc-8d42-4700-9df4-0cabc77f489d",
     "https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/211dd557-2fa2-4b01-8403-92eb77225a26",
     "https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/2f08313e-23ed-4ff6-99ea-57918393e378",
     "https://jobs.ems-group.com/offene-stellen/prozessingenieur-betriebsentwicklung-m-w-d/ddd7597c-73ce-4c80-ba40-d4d79f00c9bd",
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/ca8b12b3-6d8f-4747-8e70-ddd27635ec2d",
-    "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/7a2afd55-e869-46e1-82b4-b51040c88909",
-    "https://jobs.ems-group.com/offene-stellen/polymechaniker-m-w-d/a1497cf6-d676-4f3d-971e-178ef4e2367e",
-    "https://jobs.ems-group.com/offene-stellen/it-supporter/fa8d0255-f3e5-46d0-b3fd-9d30e3b36c60"
+    "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/7a2afd55-e869-46e1-82b4-b51040c88909"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/entwicklungschemiker-entwicklungsingenieur-m-w-d/c9b0ac93-f797-4150-8e84-5ef5f33f89de": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/bfcd16eb-1a00-4444-9ddc-2f9be9347fa4": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
     },
     "https://jobs.ems-group.com/offene-stellen/area-sales-manager-m-w-d/7087611b-f352-44c2-82a5-9ee01f7638fb": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/it-system-engineer-m-w-d/8de46953-255a-4aab-8f90-a97ffb59ab67": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
     },
@@ -61,16 +59,8 @@
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/7a2afd55-e869-46e1-82b4-b51040c88909": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/polymechaniker-m-w-d/a1497cf6-d676-4f3d-971e-178ef4e2367e": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/it-supporter/fa8d0255-f3e5-46d0-b3fd-9d30e3b36c60": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
     }
   },
   "notes": "Specialty chemicals company HQ in Domat/Ems (GR). Career page HTML crawler.",
-  "updatedAt": "2026-08-28T05:38:03.465Z"
+  "updatedAt": "2026-09-01T10:12:54.385Z"
 }

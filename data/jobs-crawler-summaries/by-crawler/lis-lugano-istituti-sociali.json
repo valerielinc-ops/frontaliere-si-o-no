@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-08-28T05:39:07.543Z",
+  "generatedAt": "2026-09-03T23:22:40.512Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 37737,
-  "avgDurationMs": 37737,
+  "durationMs": 40476,
+  "avgDurationMs": 40476,
   "durationHistory": [
-    37737
+    40476
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -51,6 +51,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -97,6 +98,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -142,6 +144,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -188,6 +191,7 @@
       "employmentType": "FULL_TIME",
       "id": "lis-lugano-istituti-sociali-3d122d9fd62d",
       "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -234,6 +238,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -279,6 +284,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -325,6 +331,7 @@
       "employmentType": "FULL_TIME",
       "id": "lis-lugano-istituti-sociali-80dcd2586afe",
       "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -371,6 +378,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -417,6 +425,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -462,6 +471,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -510,6 +520,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -556,6 +567,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -601,6 +613,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,

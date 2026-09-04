@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sodexo",
-  "assembledAt": "2026-08-28T05:13:54.116Z",
+  "assembledAt": "2026-09-03T23:09:20.676Z",
   "jobs": [
     {
       "id": "sodexo-deaab39c32d3",
@@ -16,7 +16,7 @@
       "companyDomain": "sodexo.ch",
       "title": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
       "titleByLocale": {
-        "it": "Pulitore di manutenzione: in (m/f/d) su richiesta",
+        "it": "Pulitori di manutenzione: su richiesta in (m/f/d)",
         "en": "Maintenance cleaner:in (m/f/d) on demand",
         "de": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
         "fr": "Nettoyant d'entretien: en (m/f/d) sur demande"
@@ -34,7 +34,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/7d3010c11d08cf990b7614d2c2ca9098_0/5213/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:50.643Z",
+      "crawledAt": "2026-09-03T23:09:15.742Z",
       "addressLocality": "Dagmersellen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -72,6 +72,7 @@
       "firstSeenAt": "2026-07-16T22:04:24.623Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -114,7 +115,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/90610aa0e24f63ec6d2637e06f9b9af2_0/5374/Sales_Project_Manager_m_w_d_-_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:50.020Z",
+      "crawledAt": "2026-09-03T23:09:15.105Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -148,6 +149,7 @@
       "firstSeenAt": "2026-07-04T12:06:51.543Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -190,7 +192,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/4f3d7d38d24b740c95da2b03dc3a2333_0/5370/Business_Development_Manager_m_w_d_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:49.412Z",
+      "crawledAt": "2026-09-03T23:09:14.517Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -211,6 +213,7 @@
       "firstSeenAt": "2026-07-04T12:06:50.955Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -254,7 +257,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/57e4f98889f96942ec0691d6a5995dad_0/5388/Unterhaltsreiniger_in_m_w_d_ca_25_Stunden_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:48.764Z",
+      "crawledAt": "2026-09-03T23:09:13.869Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -291,6 +294,7 @@
       "firstSeenAt": "2026-07-04T12:06:50.397Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -333,7 +337,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/0678ca2eae02d542cc931e81b74de122_0/5408/Manufacturing_Area_Support_m_w_d_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:48.036Z",
+      "crawledAt": "2026-09-03T23:09:13.326Z",
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -367,6 +371,7 @@
       "firstSeenAt": "2026-07-04T12:06:49.834Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -410,7 +415,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/609c5e5089a9aa967232aba2a4d03114_0/5428/Unterhaltsreiniger_in_m_w_d_35_Stunden_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:47.338Z",
+      "crawledAt": "2026-09-03T23:09:12.808Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -460,6 +465,7 @@
       "firstSeenAt": "2026-07-10T11:57:01.384Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -503,7 +509,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/d0cbf1a1aa1726784df15a81ead214f7_0/5576/Betriebsmitarbeiter_in_m_w_d_Service_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:46.620Z",
+      "crawledAt": "2026-09-03T23:09:12.266Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -540,84 +546,7 @@
       "firstSeenAt": "2026-07-10T22:01:32.962Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sodexo-502c7c827d14",
-      "slug": "betriebsmitarbeiter-in-m-w-d-abwaschkuche-e-automatenbetreuung-100-sodexo-suisse-sa-schaffhausen",
-      "slugByLocale": {
-        "it": "betriebsmitarbeiter-in-m-w-d-abwaschkuche-e-automatenbetreuung-100-sodexo-suisse-sa-schaffhausen",
-        "en": "company-employees-in-m-f-d-dishwashing-room-and-vending-machine-support-100-sodexo-suisse-sa-schaffhausen",
-        "de": "betriebsmitarbeiter-in-m-w-d-abwaschkuche-und-automatenbetreuung-100-sodexo-schaffhausen",
-        "fr": "employes-de-l-entreprise-en-m-f-d-lave-vaisselle-et-soutien-machine-distributeur-100-sodexo-suisse-sa-schaffhausen"
-      },
-      "company": "Sodexo (Suisse) SA",
-      "companyKey": "sodexo",
-      "companyDomain": "sodexo.ch",
-      "title": "Betriebsmitarbeiter:in (m/w/d) Abwaschküche und Automatenbetreuung 100%",
-      "titleByLocale": {
-        "it": "Betriebsmitarbeiter:in (m/w/d) Abwaschküche e Automatenbetreuung 100%",
-        "en": "Company employees: in (m/f/d) dishwashing room and vending machine support 100%",
-        "de": "Betriebsmitarbeiter:in (m/w/d) Abwaschküche und Automatenbetreuung 100%",
-        "fr": "Employés de l'entreprise: en (m/f/d) lave-vaisselle et soutien machine distributeur 100%"
-      },
-      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Betriebsmitarbeiter:in (m/w/d) Abwaschküche und Automatenbetreuung 100% Stellennummer 5580 am Standort Schaffhausen CH-8200 - Vollzeit Das sind deine Aufgaben\n• Befüllen und Reinigen der Automaten\n• Reinigen von Geschirr, Gläser, Besteck sowie Küchenutensilien\n• Einhaltung des Reinigungsplans\n• Lagerreinigung\n• Bringen der Kaffeewagen nach Bestellung\n• Mitarbeit bei der Entsorgung von Lebensmittel\n• Temperaturkontrollen: Spülmaschinen\n• Verräumen von Getränken und Automateninhalten\n• Reinigung des Fahrzeuges\n• Freundlicher Umgang mit Gästen und Kunden Das erwarten wir von dir\n• Abgeschlossene Ausbildung, Erfahrung in dem Bereich\n• Kommunikationsstark,\n• Gepflegtes Erscheinungsbild\n• Organisiert, diszipliniert, flexibel\n• Gute Deutschkenntnisse mündlich und schriftlich\n• Führerausweis In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Eva Dillinger, +41 79 243 84 40 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
-      "descriptionByLocale": {
-        "it": "Sodexo è stata fondata nel 1966 da Pierre Bellon a Marsiglia ed è il fornitore leader mondiale di catering aziendale sostenibile e di esperienze speciali in tutti i settori della vita. Con le sue due divisioni Food and Facilities Management Services, Sodexo incontra tutte le sfide della vita quotidiana con un duplice obiettivo: migliorare la qualità della vita dei nostri dipendenti e delle persone che serviamo. Crescita e impegno sociale vanno di pari passo. Il motto di Sodexo è “creare un quotidiano migliore per tutti per costruire una vita migliore per tutti”. In Svizzera, siamo l'unico fornitore specializzato nella gestione degli impianti e nei servizi di ristorazione. Perseguiamo un approccio olistico per i nostri clienti, concentrandoci sulle infrastrutture, sulle persone e sul loro benessere e sull'ambiente. I nostri circa 650 dipendenti lavorano nei settori della pulizia, della ristorazione, della ristorazione aziendale, della logistica, della sicurezza e dei servizi di accoglienza, dei servizi di conferenza e della gestione degli edifici tecnici. Ci sforziamo sempre di rendere la vita quotidiana delle persone di fronte e dietro le quinte migliore con le nostre azioni e il pensiero. Volete lavorare per una delle più grandi aziende familiari del mondo? Quindi diventare parte del nostro team e richiedere questo compito emozionante. Dipendenti dell'azienda: in (m/f/d) sala lavastoviglie e distributore automatico di supporto al 100% numero di lavoro 5580 presso il sito Schaffhausen CH-8200 - a tempo pieno Questi sono i tuoi compiti\n• Riempimento e pulizia delle macchine\n• Pulizia di utensili da cucina\n• Compliance con piano di pulizia\n• Servizi di stoccaggio\n• Portare i carrelli del caffè dopo l'ordine\n• Cooperazione nello smaltimento dei prodotti alimentari\n• Controlli di temperatura: lavastoviglie\n• Bevande e distributori automatici\n• Servizi di pulizia del veicolo\n• Trattamento amichevole di ospiti e clienti Questo è ciò che ci aspettiamo da te\n• Formazione completa, esperienza nel campo\n• comunicazione forte,\n• Aspetto principale\n• Organizzata, disciplinata, flessibile\n• Buona conoscenza del tedesco per via orale e per iscritto\n• In questa posizione, avete molto spazio per la manovra e la responsabilità personale e lavorare in un ambiente emozionante e dinamico. Anche se siamo parte di un giocatore globale, viviamo nella nostra piccola squadra una mentalità pronunciata “hands-on”. Il tuo contatto Ti senti indirizzato? Quindi non vediamo l'ora che i tuoi documenti applicativi completi tramite il nostro portale online. Con i nostri annunci di lavoro, appelliamo a tutti e siamo impegnati nella diversità e nella diversità in azienda. Sodexo (Suisse) SA, Eva Dillinger, +41 79 243 84 40 Si prega di applicare direttamente qui online. Le applicazioni per posta o e-mail non possono purtroppo essere considerate, così come le applicazioni da reclutatori.",
-        "en": "Sodexo was founded in 1966 by Pierre Bellon in Marseille and is the world’s leading provider of sustainable company catering and special experiences in all areas of life. With its two divisions Food and Facilities Management Services, Sodexo meets all the challenges of daily life with a dual goal: to improve the quality of life of our employees and the people we serve. Growth and social commitment go hand in hand. Sodexo’s motto is “to create a better everyday for everyone to build a better life for all.” In Switzerland, we are the only provider specialising in facility management and catering services. We pursue a holistic approach for our customers, focusing on infrastructure, people and their well-being as well as the environment. Our approximately 650 employees work in the areas of cleaning, catering, corporate catering, logistics, security and reception services, conference services and technical building management. We always strive to make the everyday life of people in front of and behind the scenes better with our actions and thinking. Would you like to work for one of the largest family businesses in the world? Then become part of our team and apply for this exciting task. Company employees: in (m/f/d) dishwashing room and vending machine support 100% job number 5580 at the site Schaffhausen CH-8200 - full-time These are your tasks\n• Filling and cleaning of machines\n• Cleaning of kitchen utensils\n• Compliance with cleaning plan\n• Storage services\n• Bring the coffee carts after order\n• Cooperation in the disposal of food\n• Temperature controls: dishwashers\n• Drinks and vending machine contents\n• Vehicle cleaning services\n• Friendly treatment of guests and customers This is what we expect from you\n• Completed training, experience in the field\n• strong communication,\n• Maintained appearance\n• Organized, disciplined, flexible\n• Good knowledge of German orally and in writing\n• In this position, you have a lot of room for manoeuvre and personal responsibility and work in an exciting and dynamic environment. Although we are part of a global player, we live in our small team a pronounced “hands-on” mentality. Your contact Do you feel addressed? Then we look forward to your complete application documents via our online portal. With our job advertisements, we appeal to everyone and are committed to diversity and diversity in the company. Sodexo (Suisse) SA, Eva Dillinger, +41 79 243 84 40 Please apply directly here online. Applications by post or e-mail can unfortunately not be considered, as well as applications from recruiters.",
-        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Betriebsmitarbeiter:in (m/w/d) Abwaschküche und Automatenbetreuung 100% Stellennummer 5580 am Standort Schaffhausen CH-8200 - Vollzeit Das sind deine Aufgaben\n• Befüllen und Reinigen der Automaten\n• Reinigen von Geschirr, Gläser, Besteck sowie Küchenutensilien\n• Einhaltung des Reinigungsplans\n• Lagerreinigung\n• Bringen der Kaffeewagen nach Bestellung\n• Mitarbeit bei der Entsorgung von Lebensmittel\n• Temperaturkontrollen: Spülmaschinen\n• Verräumen von Getränken und Automateninhalten\n• Reinigung des Fahrzeuges\n• Freundlicher Umgang mit Gästen und Kunden Das erwarten wir von dir\n• Abgeschlossene Ausbildung, Erfahrung in dem Bereich\n• Kommunikationsstark,\n• Gepflegtes Erscheinungsbild\n• Organisiert, diszipliniert, flexibel\n• Gute Deutschkenntnisse mündlich und schriftlich\n• Führerausweis In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Eva Dillinger, +41 79 243 84 40 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
-        "fr": "Sodexo a été fondée en 1966 par Pierre Bellon à Marseille et est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif : améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde pour construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous poursuivons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées. Aimeriez-vous travailler pour l'une des plus grandes entreprises familiales au monde? Faites ensuite partie de notre équipe et postulez pour cette tâche passionnante. Employés de l'entreprise: en (m/f/d) lave-vaisselle et soutien machine distributeur 100% numéro d'emploi 5580 au site Schaffhausen CH-8200 - temps plein Ce sont vos tâches\n• Remplissage et nettoyage des machines\n• Nettoyage des ustensiles de cuisine\n• Respect du plan de nettoyage\n• Services de stockage\n• Apportez les chariots après commande\n• Coopération dans l'élimination des denrées alimentaires\n• Contrôles de température: lave-vaisselle\n• Boissons et contenu des distributeurs automatiques\n• Services de nettoyage des véhicules\n• Traitement amical des clients C'est ce que nous attendons de vous.\n• Formation terminée, expérience sur le terrain\n• une communication forte,\n• Aspect maintenu\n• Organisation, discipline, souplesse\n• Bonne connaissance de l'allemand oralement et par écrit\n• Dans cette position, vous avez beaucoup de marge de manoeuvre et de responsabilité personnelle et travaillez dans un environnement passionnant et dynamique. Bien que nous faisons partie d'un joueur mondial, nous vivons dans notre petite équipe une mentalité prononcée de \"hands-on\". Votre contact Vous sentez-vous adressé? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne. Avec nos offres d'emploi, nous plaidons pour tous et nous sommes engagés à la diversité et à la diversité dans l'entreprise. Sodexo (Suisse) SA, Eva Dillinger, +41 79 243 84 40 Veuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, ainsi que les candidatures des recruteurs."
-      },
-      "needsRetranslation": true,
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "url": "https://sodexo-suisse.concludis.de/prj/shw/a58337d1b8c98bf3225186673be3407b_0/5580/Betriebsmitarbeiter_in_m_w_d_Abwaschkueche_und_Automatenbetreuung_100.htm?b=0&lang=de_DE",
-      "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:45.969Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8200",
-      "streetAddress": "Wallisellenstrasse 55",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "full-time",
-      "experienceLevel": "mid",
-      "sector": "Ristorazione collettiva / Facility Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/a58337d1b8c98bf3225186673be3407b_0/5580/Betriebsmitarbeiter_in_m_w_d_Abwaschkueche_und_Automatenbetreuung_100.htm?b=0&lang=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "betriebsmitarbeiter-in-m-w-d-abwaschkuche-und-automatenbetreuung-100-sodexo-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebsmitarbeiter-in-m-w-d-abwaschkuche-und-automatenbetreuung-100-sodexo-schaffhausen"
-        ],
-        "en": [
-          "betriebsmitarbeiter-in-m-w-d-abwaschkuche-und-automatenbetreuung-100-sodexo-schaffhausen"
-        ],
-        "fr": [
-          "betriebsmitarbeiter-in-m-w-d-abwaschkuche-und-automatenbetreuung-100-sodexo-schaffhausen"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T22:01:32.429Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -660,7 +589,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/386854131f58a556343e056f03626e00_0/5551/Unterhaltsreiniger_in_m_w_d_auf_Abruf_befristet_bis_Ende_September.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:45.247Z",
+      "crawledAt": "2026-09-03T23:09:11.693Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -695,6 +624,7 @@
       "firstSeenAt": "2026-07-13T21:56:25.611Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -737,7 +667,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/d47619b92cebc6ebfa07969ab5370ae6_0/5496/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:44.648Z",
+      "crawledAt": "2026-09-03T23:09:11.130Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -806,6 +736,7 @@
       "firstSeenAt": "2026-07-13T21:56:25.065Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -813,152 +744,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sodexo-3042142f0535",
-      "slug": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
-      "slugByLocale": {
-        "it": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
-        "en": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
-        "de": "unterhaltsreiniger-in-m-w-d-50-sodexo-luzern",
-        "fr": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern"
-      },
-      "company": "Sodexo (Suisse) SA",
-      "companyKey": "sodexo",
-      "companyDomain": "sodexo.ch",
-      "title": "Unterhaltsreiniger:in (m/w/d) 50%",
-      "titleByLocale": {
-        "it": "Assistente di Pulizia (m/f/d) 50%",
-        "en": "Cleaning Assistant (m/f/d) 50%",
-        "de": "Unterhaltsreiniger:in (m/w/d) 50%",
-        "fr": "Assistante de Nettoyage (m/f/d) 50%"
-      },
-      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 50% Stellennummer 5475 am Standort Luzern CH-6005 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 09:00 - 13:30 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
-      "descriptionByLocale": {
-        "it": "Descrizione\nSodexo è stata fondata a Marsiglia nel 1966 da Pierre Bellon ed è il fornitore leader a livello mondiale di ristorazione aziendale sostenibile ed esperienze speciali in tutti gli ambiti della vita. Con le sue due aree di business, Food e Facilities Management Services, Sodexo affronta tutte le sfide della vita quotidiana e persegue un duplice obiettivo: migliorare la qualità della vita dei nostri dipendenti e delle persone che serviamo. Crescita e impegno sociale vanno di pari passo. L’obiettivo di Sodexo è anche il suo motto: “creare una vita quotidiana migliore per tutti, per costruire una vita migliore per tutti”. Siamo gli unici fornitori in Svizzera specializzati nel facility management e nei servizi di ristorazione. Perseguiamo un approccio olistico per i nostri clienti, in cui ci concentriamo sulle infrastrutture, sulle persone e sul loro benessere, nonché sull’ambiente. I nostri circa 650 dipendenti lavorano nei settori pulizia, ristorazione, ristorazione aziendale, logistica, servizi di sicurezza e accoglienza, servizi congressuali e gestione tecnica degli edifici. Ci impegniamo sempre a migliorare con le nostre azioni e pensieri la vita quotidiana delle persone davanti e dietro le quinte.\n\nCompiti\n- Aspirazione negli uffici e nelle sale riunioni\n- Pulisci i piatti e falli lavare\n- Pulisci le scrivanie con un panno umido\n- Pulisci il pavimento del WC con un panno umido\n- Pulire servizi igienici, orinatoi e lavandini\n- Smaltimento della carta e dei rifiuti\n- Orario di lavoro: dal lunedì al venerdì dalle 9:00 alle 13:30\n\nRequisiti\n- Esperienza professionale nel settore delle pulizie\n- Orientamento al cliente, al servizio e alla qualità\n- Flessibilità, affidabilità e capacità di lavorare in team\n- Precisione e resistenza fisica\n- Buona conoscenza della lingua tedesca\n\nOffriamo\n- Ampio margine di azione e responsabilità personale\n- Lavorare in un ambiente stimolante e dinamico\n- Forte mentalità \"pratica\" in una piccola squadra\n- Contatto Ti senti indirizzato? Allora non vediamo l'ora di ricevere i documenti di candidatura completi tramite il nostro portale online.\n\nContatto\nSi prega di fare domanda online qui. Purtroppo non possono essere prese in considerazione le candidature inviate per posta o via e-mail, così come le candidature dei reclutatori.\n\nSodexo (Suisse) SA, Melissa Vacic",
-        "en": "Description\nSodexo was founded in Marseille in 1966 by Pierre Bellon and is the world's leading provider of sustainable company catering and special experiences in all areas of life. With its two business areas, Food and Facilities Management Services, Sodexo meets all the challenges of daily life and pursues a dual goal: to improve the quality of life of our employees and the people we serve. Growth and social commitment go hand in hand. Sodexo’s goal is also its motto: “to create a better everyday life for everyone to build a better life for all.” We are the only provider in Switzerland to specialize in facility management and catering services. We pursue a holistic approach for our customers, in which we focus on the infrastructure, people and their well-being, as well as the environment. Our approximately 650 employees work in the areas of cleaning, catering, corporate catering, logistics, security and reception services, conference services and technical building management. We always strive to make the everyday lives of people in front of and behind the scenes better with our actions and thoughts.\n\nTasks\n- Vacuuming in offices and meeting rooms\n- Clear the dishes and have them washed\n- Wipe desks with a damp cloth\n- Wipe the toilet floor with a damp cloth\n- Clean toilets, urinals and sinks\n- Disposal of paper and rubbish\n- Working hours: Monday - Friday from 9:00 a.m. to 1:30 p.m\n\nRequirements\n- Professional experience in cleaning\n- Customer, service and quality orientation\n- Flexibility, reliability and ability to work in a team\n- Thoroughness and physical resilience\n- Good knowledge of German\n\nWe offer\n- Lots of scope for action and personal responsibility\n- Work in an exciting and dynamic environment\n- Strong “hands-on” mentality in a small team\n- Contact Do you feel addressed? Then we look forward to receiving your complete application documents via our online portal.\n\nContact\nPlease apply online here. Unfortunately, applications by post or email cannot be considered, nor can applications from recruiters.\n\nSodexo (Suisse) SA, Melissa Vacic",
-        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 50% Stellennummer 5475 am Standort Luzern CH-6005 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 09:00 - 13:30 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
-        "fr": "Désignation des marchandises\nFondé en 1966 par Pierre Bellon à Marseille, Sodexo est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif : améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde de construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous adoptons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées.\n\nTâches\nAspirateur dans les bureaux et salles de réunion\n- la vaisselle claire et les rincer\n- Ordinateurs mouillés\n- Linge humide de sol de toilette\n- Toilettes propres, urinoirs et lavabos\n- Élimination du papier et des déchets\n- Heures de travail: Mo. - P. de 09:00 - 13:30\n\nExigences\n- Expérience professionnelle en nettoyage\n- Orientation client, service et qualité\nFlexibilité, fiabilité et travail d'équipe\n- Ténacité et résilience physique\nBonne connaissance de l'allemand\n\nNous offrons\n- Beaucoup de marge de manoeuvre et de responsabilité personnelle\n- Travailler dans un environnement passionnant et dynamique\n- Une mentalité forte dans une petite équipe\n- Contact Vous sentez-vous approché ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne.\n\nCoordonnées\nVeuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, tout comme les candidatures des agences de recrutement.\n\nSodexo (Suisse) SA, Melissa Vacic"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://sodexo-suisse.concludis.de/prj/shw/65173795697c8229dd202ad94e821bab_0/5475/Unterhaltsreiniger_in_m_w_d_50.htm?b=0&lang=de_DE",
-      "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:44.028Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6005",
-      "streetAddress": "Wallisellenstrasse 55",
-      "category": "admin",
-      "contract": "part-time",
-      "employmentType": "part-time",
-      "experienceLevel": "mid",
-      "sector": "Ristorazione collettiva / Facility Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/65173795697c8229dd202ad94e821bab_0/5475/Unterhaltsreiniger_in_m_w_d_50.htm?b=0&lang=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "unterhaltsreiniger-in-m-w-d-50-sodexo-luzern",
-        "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "unterhaltsreiniger-in-m-w-d-50-sodexo-luzern",
-          "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T21:56:24.543Z",
-      "salaryMin": 34800,
-      "salaryMax": 53000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 34800,
-          "maxValue": 53000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sodexo-1d6160217850",
-      "slug": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
-      "slugByLocale": {
-        "it": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
-        "en": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
-        "de": "unterhaltsreiniger-in-m-w-d-25-sodexo-luzern",
-        "fr": "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern"
-      },
-      "company": "Sodexo (Suisse) SA",
-      "companyKey": "sodexo",
-      "companyDomain": "sodexo.ch",
-      "title": "Unterhaltsreiniger:in (m/w/d) 25%",
-      "titleByLocale": {
-        "it": "Assistente di Pulizia (m/f/d) 25%",
-        "en": "Cleaning Assistant (m/f/d) 25%",
-        "de": "Unterhaltsreiniger:in (m/w/d) 25%",
-        "fr": "Assistante de Nettoyage (m/f/d) 25%"
-      },
-      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 25% Stellennummer 5547 am Standort Luzern CH-6006 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr.: 18.30 – 20.30 Uhr, Aushilfsweise Früh- oder Mittagsreinigung wenn möglich Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Personalabteilung Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
-      "descriptionByLocale": {
-        "it": "Designazione\n\nSodexo è stata fondata nel 1966 da Pierre Bellon a Marsiglia ed è il fornitore leader mondiale di catering aziendale sostenibile e di esperienze speciali in tutti i settori della vita. Con le sue due divisioni Food and Facilities Management Services, Sodexo incontra tutte le sfide della vita quotidiana con un duplice obiettivo: migliorare la qualità della vita dei nostri dipendenti e delle persone che serviamo. Crescita e impegno sociale vanno di pari passo. Il motto di Sodexo è “creare un quotidiano migliore per tutti per costruire una vita migliore per tutti”. In Svizzera, siamo l'unico fornitore specializzato nella gestione degli impianti e nei servizi di ristorazione. Perseguiamo un approccio olistico per i nostri clienti, concentrandoci sulle infrastrutture, sulle persone e sul loro benessere e sull'ambiente. I nostri circa 650 dipendenti lavorano nei settori della pulizia, della ristorazione, della ristorazione aziendale, della logistica, della sicurezza e dei servizi di accoglienza, dei servizi di conferenza e della gestione degli edifici tecnici. Ci sforziamo sempre di rendere la vita quotidiana delle persone di fronte e dietro le quinte migliore con le nostre azioni e il nostro pensiero.\n\nCompiti\n\nVacuum in uffici e sale riunioni\n- Pulizie bagnate\n- Tergicristallo bagnato\n- Bagni puliti, orina e lavandini\n- Smaltimento di carta e rifiuti\n- Ore lavorative: Mo. - P.: 18.30 - 8.30, pulizia anticipata o di mezzogiorno, se possibile\n\nRequisiti\n\n- Esperienza professionale nella pulizia\n- Clienti, assistenza e orientamento di qualità\nFlessibilità, affidabilità e lavoro di squadra\n- Tortuosità e resistenza fisica\nBuona conoscenza del tedesco\n\nOffriamo\n\n- Un sacco di spazio per la manovra e la responsabilità personale\n- Lavorare in un ambiente emozionante e dinamico\n- Forte mentalità \"hands-on\" in una piccola squadra\n- Contatto Ti senti avvicinato? Quindi non vediamo l'ora che i tuoi documenti applicativi completi tramite il nostro portale online.\n\nInformazioni di contatto\n\nSi prega di applicare direttamente qui online. Le domande per posta o per e-mail non possono purtroppo essere considerate, proprio come applicazioni da agenzie di reclutamento.\n\nSodexo (Suisse) SA, Melissa Vacic",
-        "en": "Description\n\nSodexo was founded in 1966 by Pierre Bellon in Marseille and is the world’s leading provider of sustainable company catering and special experiences in all areas of life. With its two divisions Food and Facilities Management Services, Sodexo meets all the challenges of daily life with a double goal: to improve the quality of life of our employees and the people we serve. Growth and social commitment go hand in hand. Sodexo’s motto is “to create a better everyday for everyone to build a better life for all.” In Switzerland, we are the only provider specialising in facility management and catering services. We pursue a holistic approach for our customers, focusing on infrastructure, people and their well-being as well as the environment. Our approximately 650 employees work in the areas of cleaning, catering, corporate catering, logistics, security and reception services, conference services and technical building management. We always strive to make the everyday life of people in front of and behind the scenes better with our actions and thinking.\n\nTasks\n\nVacuum in offices and meeting rooms\n- Wiping desks wet\n- Toilet floor wet wipe\n- Clean toilets, urinals and sinks\n- Disposal of paper and waste\n- Working hours: Mo. - Fr.: 6.30 p.m. - 8.30 p.m., early or midday cleaning if possible\n\nRequirements\n\n- Professional experience in cleaning\n- Customer, service and quality orientation\nFlexibility, reliability and teamwork\n- Thoroughness and physical resilience\nGood knowledge of German\n\nWe offer\n\n- A lot of room for manoeuvre and personal responsibility\n- Working in an exciting and dynamic environment\n- Strong \"hands-on\" mentality in a small team\n- Contact Do you feel approached? Then we look forward to your complete application documents via our online portal.\n\nContact details\n\nPlease apply directly here online. Applications by post or e-mail can unfortunately not be considered, just as applications from recruitment agencies.\n\nSodexo (Suisse) SA, Melissa Vacic",
-        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 25% Stellennummer 5547 am Standort Luzern CH-6006 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr.: 18.30 – 20.30 Uhr, Aushilfsweise Früh- oder Mittagsreinigung wenn möglich Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Personalabteilung Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
-        "fr": "Désignation des marchandises\n\nFondé en 1966 par Pierre Bellon à Marseille, Sodexo est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif : améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde de construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous adoptons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées.\n\nTâches\n\nAspirateur dans les bureaux et salles de réunion\n- Ordinateurs mouillés\n- Linge humide de sol de toilette\n- Toilettes propres, urinoirs et lavabos\n- Élimination du papier et des déchets\n- Heures de travail: Mo. - Fr.: 18h30 - 20h30, nettoyage tôt ou midi si possible\n\nExigences\n\n- Expérience professionnelle en nettoyage\n- Orientation client, service et qualité\nFlexibilité, fiabilité et travail d'équipe\n- Ténacité et résilience physique\nBonne connaissance de l'allemand\n\nNous offrons\n\n- Beaucoup de marge de manoeuvre et de responsabilité personnelle\n- Travailler dans un environnement passionnant et dynamique\n- Une mentalité forte dans une petite équipe\n- Contact Vous sentez-vous approché ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne.\n\nCoordonnées\n\nVeuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, tout comme les candidatures des agences de recrutement.\n\nSodexo (Suisse) SA, Melissa Vacic"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://sodexo-suisse.concludis.de/prj/shw/80f2f15983422987ea30d77bb531be86_0/5547/Unterhaltsreiniger_in_m_w_d_25.htm?b=0&lang=de_DE",
-      "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:43.366Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6006",
-      "streetAddress": "Wallisellenstrasse 55",
-      "category": "admin",
-      "contract": "part-time",
-      "employmentType": "part-time",
-      "experienceLevel": "mid",
-      "sector": "Ristorazione collettiva / Facility Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/80f2f15983422987ea30d77bb531be86_0/5547/Unterhaltsreiniger_in_m_w_d_25.htm?b=0&lang=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "unterhaltsreiniger-in-m-w-d-25-sodexo-luzern",
-        "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "unterhaltsreiniger-in-m-w-d-25-sodexo-luzern",
-          "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T21:56:24.001Z",
-      "salaryMin": 17400,
-      "salaryMax": 26500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 17400,
-          "maxValue": 26500,
           "unitText": "YEAR"
         }
       }
@@ -977,7 +762,7 @@
       "companyDomain": "sodexo.ch",
       "title": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
       "titleByLocale": {
-        "it": "Pulitore di manutenzione: in (m/f/d) su richiesta",
+        "it": "Pulitori di manutenzione: su richiesta in (m/f/d)",
         "en": "Maintenance cleaner:in (m/f/d) on demand",
         "de": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
         "fr": "Nettoyant d'entretien: en (m/f/d) sur demande"
@@ -995,7 +780,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/56c3b2c6ea3a83aaeeff35eeb45d700d_0/5488/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:42.722Z",
+      "crawledAt": "2026-09-03T23:09:10.570Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1032,6 +817,7 @@
       "firstSeenAt": "2026-07-31T22:06:39.887Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1075,7 +861,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/ab81265d898ef7f38a3e95fc98c2a669_0/5596/Rezeptionist_in_60_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:42.030Z",
+      "crawledAt": "2026-09-03T23:09:09.996Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1116,6 +902,7 @@
       "firstSeenAt": "2026-07-31T22:06:38.651Z",
       "salaryMin": 41700,
       "salaryMax": 63600,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1159,7 +946,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/fb4c835feb0a65cc39739320d7a51c02_0/5460/Betriebsmitarbeiter_in_Service_Attache_80.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:41.300Z",
+      "crawledAt": "2026-09-03T23:09:09.446Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1217,6 +1004,7 @@
       "firstSeenAt": "2026-07-31T22:06:37.499Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1229,78 +1017,382 @@
       }
     },
     {
-      "id": "sodexo-9a264f29928f",
-      "slug": "general-service-manager-aarau-f-m-d-80-100-con-effetto-immediato-sodexo-suisse-sa-aarau",
+      "id": "sodexo-c6850f7a4810",
+      "slug": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-luzern",
       "slugByLocale": {
-        "it": "general-service-manager-aarau-f-m-d-80-100-con-effetto-immediato-sodexo-suisse-sa-aarau",
-        "en": "general-service-manager-aarau-w-m-d-80-100-per-sofort-sodexo-aarau",
-        "de": "general-service-manager-aarau-w-m-d-80-100-per-sofort-sodexo-aarau",
-        "fr": "directeur-des-services-generaux-aarau-f-m-j-80-100-avec-effet-immediat-sodexo-suisse-sa-aarau"
+        "it": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-luzern",
+        "en": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-luzern",
+        "de": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-luzern",
+        "fr": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-luzern"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
       "companyDomain": "sodexo.ch",
-      "title": "General Service Manager Aarau (w/m/d) 80-100% per sofort",
+      "title": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
       "titleByLocale": {
-        "it": "General Service Manager Aarau (f/m/d) 80-100% con effetto immediato",
-        "en": "General Service Manager Aarau (m/f/d) 80-100% with immediate effect",
-        "de": "General Service Manager Aarau (w/m/d) 80-100% per sofort",
-        "fr": "Directeur des services généraux Aarau (f/m/j) 80-100 % avec effet immédiat"
+        "it": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
+        "en": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
+        "de": "Unterhaltsreiniger:in (m/w/d) auf Abruf",
+        "fr": "Unterhaltsreiniger:in (m/w/d) auf Abruf"
       },
-      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. General Service Manager Aarau (w/m/d) 80-100% per sofort Stellennummer 5628 am Standort Aarau CH-5001 - Vollzeit Das sind deine Aufgaben\n• Hauptverantwortung für ein nationales Mandat mit Grosstandorten in Aarau, Luzern, Zürich, St. Gallen und diversen Aussenstandorten\n• Verantwortung für die Akquisition von zusätzlichen Dienstleistungen und für die Weiterentwicklung des lokalen Vertrages\n• Effektive Führung und Entwicklung von hochqualifizierten Teams\n• Sicherstellung der Kontrolle von Ausgaben und Entwicklung des Budgets\n• Zusammenarbeit mit den Länderteams und Länderexperten über eine Matrixstruktur\n• Erstellung von monatlichen P&Ls auf Vertragsebene\n• Berichterstattung über SLAs\n• Zusammenarbeit mit Fachexperten, um Innovation, Qualitätssicherung, Best Practice und Compliance-Standards sicherzustellen\n• QHSE-Verantwortung Das erwarten wir von dir\n• Du bringst mehrjährige Erfahrung im Facility Management mit Fokus auf Hard FM und Reinigung mit, vorzugsweise im Hotel- oder Hospitality-Umfeld. Zudem verfügst du über Erfahrung in der Ergebnis- und Budgetverantwortung\n• Du bringst mehrjährige direkte Führungserfahrung von Teams mit, die du auch in herausfordernden Situationen zu motivieren wusstest\n• Erfahrung in dezentralisierten Strukturen\n• Kommunikationstalent auf unterschiedlichen Ebenen\n• Du bist ein dienstleistungsorientierter Netzwerker sowie ein Teamplayer, der/die lösungsorientiert und unternehmerisch denkt und handelt\n• Du gehst strukturiert vor, bist gut organisiert und suchst nach innovativen Lösungen für alle Beteiligten. Deine Mitarbeitenden förderst du zielgerichtet und individuell\n• Du behältst auch in hektischen Situationen die nötige Ruhe sowie den Weit- und Überblick\n• Sehr gute Deutsch-Kenntnisse sind zwingend, Englisch und Französisch ist von Vorteil In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Neben Remote Work bieten wir auch flexible Arbeitszeiten an. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) auf Abruf Stellennummer 5632 am Standort Luzern CH-6005 Geringfügige Beschäftigung Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
       "descriptionByLocale": {
-        "it": "Sodexo è stata fondata nel 1966 da Pierre Bellon a Marsiglia ed è il fornitore leader mondiale di catering aziendale sostenibile e di esperienze speciali in tutti i settori della vita. Con le sue due divisioni Food and Facilities Management Services, Sodexo incontra tutte le sfide della vita quotidiana con un duplice obiettivo: migliorare la qualità della vita dei nostri dipendenti e delle persone che serviamo. Crescita e impegno sociale vanno di pari passo. Il motto di Sodexo è “creare un quotidiano migliore per tutti per costruire una vita migliore per tutti”. In Svizzera, siamo l'unico fornitore specializzato nella gestione degli impianti e nei servizi di ristorazione. Perseguiamo un approccio olistico per i nostri clienti, concentrandoci sulle infrastrutture, sulle persone e sul loro benessere e sull'ambiente. I nostri circa 650 dipendenti lavorano nei settori della pulizia, della ristorazione, della ristorazione aziendale, della logistica, della sicurezza e dei servizi di accoglienza, dei servizi di conferenza e della gestione degli edifici tecnici. Ci sforziamo sempre di rendere la vita quotidiana delle persone di fronte e dietro le quinte migliore con le nostre azioni e il pensiero. Vuoi lavorare per una delle più grandi aziende familiari del mondo? Quindi diventare parte del nostro team e richiedere questo compito emozionante. General Service Manager Aarau (f/m/d) 80-100% con numero di lavoro immediato 5628 presso la sede Aarau CH-5001 - a tempo pieno Questi sono i tuoi compiti\n• Principale responsabilità per un mandato nazionale con sedi importanti in Aarau, Lucerna, Zurigo, St. Gallen e varie sedi all'aperto\n• Responsabilità per l'acquisizione di servizi aggiuntivi e per l'ulteriore sviluppo del contratto locale\n• Efficace leadership e sviluppo di team altamente qualificati\n• Garantire il controllo delle spese e dello sviluppo del bilancio\n• Cooperazione con i gruppi nazionali e gli esperti nazionali tramite una struttura a matrice\n• Creazione di P&L mensili a livello di contratto\n• Rapporto su SLAs\n• Collabora con gli esperti per garantire innovazione, garanzia di qualità, migliori pratiche e standard di conformità\n• QHSE responsabilità Questo è ciò che ci aspettiamo da te\n• Porti diversi anni di esperienza nella gestione delle strutture con un focus su hard FM e pulizia, preferibilmente in hotel o ambiente di ospitalità. Hai anche esperienza in guadagni e responsabilità di bilancio\n• Porti diversi anni di esperienza di leadership diretta da team che sapevi come motivare anche in situazioni difficili\n• Esperienza nelle strutture decentrate\n• Talenti di comunicazione a diversi livelli\n• Sei un networker orientato al servizio e un giocatore di squadra che pensa e agisce in modo orientato alla soluzione e imprenditoriale.\n• Siete strutturati, ben organizzati e alla ricerca di soluzioni innovative per tutti i partecipanti. Promuovi i tuoi dipendenti in modo mirato e individualmente\n• Anche in situazioni frenetiche, si manterrà la necessaria pace della mente, così come la lontana e panoramica\n• Molto buona conoscenza del tedesco è obbligatoria, inglese e francese è un vantaggio In questa posizione avete molto spazio per la manovra e la responsabilità personale e lavorare in un ambiente emozionante e dinamico. Oltre al lavoro remoto, offriamo anche orari di lavoro flessibili. Anche se siamo parte di un giocatore globale, viviamo nella nostra piccola squadra una mentalità pronunciata “hands-on”. Il tuo contatto Ti senti indirizzato? Quindi non vediamo l'ora che i tuoi documenti applicativi completi tramite il nostro portale online. Con i nostri annunci di lavoro, parliamo a tutti e siamo impegnati nella diversità e nella diversità in azienda. Sodexo (Suisse) SA, +41 44 305 80 90 Si prega di applicare direttamente qui online. Le domande per posta o e-mail non possono purtroppo essere considerate, così come le domande da agenzie di reclutamento.",
-        "en": "Sodexo was founded in 1966 by Pierre Bellon in Marseille and is the world’s leading provider of sustainable company catering and special experiences in all areas of life. With its two divisions Food and Facilities Management Services, Sodexo meets all the challenges of daily life with a double goal: to improve the quality of life of our employees and the people we serve. Growth and social commitment go hand in hand. Sodexo’s motto is “to create a better everyday for everyone to build a better life for all.” In Switzerland, we are the only provider specialising in facility management and catering services. We pursue a holistic approach for our customers, focusing on infrastructure, people and their well-being as well as the environment. Our approximately 650 employees work in the areas of cleaning, catering, corporate catering, logistics, security and reception services, conference services and technical building management. We always strive to make the everyday life of people in front of and behind the scenes better with our actions and thinking. Do you want to work for one of the largest family businesses in the world? Then become part of our team and apply for this exciting task. General Service Manager Aarau (f/m/d) 80-100% with immediate job number 5628 at the Aarau CH-5001 location - full-time These are your tasks\n• Main responsibility for a national mandate with major locations in Aarau, Lucerne, Zurich, St. Gallen and various outdoor locations\n• Responsibility for the acquisition of additional services and for the further development of the local contract\n• Effective leadership and development of highly qualified teams\n• Ensuring control of expenditure and budget development\n• Cooperation with country teams and country experts via a matrix structure\n• Creation of monthly P&Ls at contract level\n• Reporting on SLAs\n• Collaborate with experts to ensure innovation, quality assurance, best practice and compliance standards\n• QHSE responsibility This is what we expect from you\n• You bring several years of experience in facility management with a focus on hard FM and cleaning, preferably in the hotel or hospitality environment. You also have experience in earnings and budget responsibility\n• You bring several years of direct leadership experience from teams that you knew how to motivate even in challenging situations\n• Experience in decentralized structures\n• Communication talent at different levels\n• You are a service-oriented networker and a team player who thinks and acts in a solution-oriented and entrepreneurial manner.\n• You are structured, well organized and looking for innovative solutions for everyone involved. You promote your employees purposefully and individually\n• Even in hectic situations, you will retain the necessary peace of mind as well as the far-reaching and overview\n• Very good knowledge of German is mandatory, English and French is an advantage In this position you have a lot of room for manoeuvre and personal responsibility and work in an exciting and dynamic environment. In addition to remote work, we also offer flexible working hours. Although we are part of a global player, we live in our small team a pronounced “hands-on” mentality. Your contact Do you feel addressed? Then we look forward to your complete application documents via our online portal. With our job advertisements, we speak to everyone and are committed to diversity and diversity in the company. Sodexo (Suisse) SA, +41 44 305 80 90 Please apply directly here online. Applications by post or e-mail can unfortunately not be considered, as well as applications from recruitment agencies.",
-        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. General Service Manager Aarau (w/m/d) 80-100% per sofort Stellennummer 5628 am Standort Aarau CH-5001 - Vollzeit Das sind deine Aufgaben\n• Hauptverantwortung für ein nationales Mandat mit Grosstandorten in Aarau, Luzern, Zürich, St. Gallen und diversen Aussenstandorten\n• Verantwortung für die Akquisition von zusätzlichen Dienstleistungen und für die Weiterentwicklung des lokalen Vertrages\n• Effektive Führung und Entwicklung von hochqualifizierten Teams\n• Sicherstellung der Kontrolle von Ausgaben und Entwicklung des Budgets\n• Zusammenarbeit mit den Länderteams und Länderexperten über eine Matrixstruktur\n• Erstellung von monatlichen P&Ls auf Vertragsebene\n• Berichterstattung über SLAs\n• Zusammenarbeit mit Fachexperten, um Innovation, Qualitätssicherung, Best Practice und Compliance-Standards sicherzustellen\n• QHSE-Verantwortung Das erwarten wir von dir\n• Du bringst mehrjährige Erfahrung im Facility Management mit Fokus auf Hard FM und Reinigung mit, vorzugsweise im Hotel- oder Hospitality-Umfeld. Zudem verfügst du über Erfahrung in der Ergebnis- und Budgetverantwortung\n• Du bringst mehrjährige direkte Führungserfahrung von Teams mit, die du auch in herausfordernden Situationen zu motivieren wusstest\n• Erfahrung in dezentralisierten Strukturen\n• Kommunikationstalent auf unterschiedlichen Ebenen\n• Du bist ein dienstleistungsorientierter Netzwerker sowie ein Teamplayer, der/die lösungsorientiert und unternehmerisch denkt und handelt\n• Du gehst strukturiert vor, bist gut organisiert und suchst nach innovativen Lösungen für alle Beteiligten. Deine Mitarbeitenden förderst du zielgerichtet und individuell\n• Du behältst auch in hektischen Situationen die nötige Ruhe sowie den Weit- und Überblick\n• Sehr gute Deutsch-Kenntnisse sind zwingend, Englisch und Französisch ist von Vorteil In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Neben Remote Work bieten wir auch flexible Arbeitszeiten an. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
-        "fr": "Sodexo a été fondée en 1966 par Pierre Bellon à Marseille et est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif : améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde de construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous adoptons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, des services de sécurité et d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées. Voulez-vous travailler pour l'une des plus grandes entreprises familiales au monde? Faites ensuite partie de notre équipe et postulez pour cette tâche passionnante. Directeur des services généraux Aarau (f/m/j) 80-100 % avec le numéro d'emploi immédiat 5628 à l'emplacement d'Aarau CH-5001 - temps plein Ce sont vos tâches\n• Principale responsabilité d'un mandat national avec des emplacements majeurs à Aarau, Lucerne, Zurich, St. Gallen et divers emplacements extérieurs\n• Responsabilité de l'acquisition de services supplémentaires et de la poursuite du développement du contrat local\n• Un leadership efficace et le développement d'équipes hautement qualifiées\n• Assurer le contrôle des dépenses et l'élaboration du budget\n• Coopération avec les équipes de pays et les experts de pays au moyen d ' une structure matricielle\n• Création de P&L mensuelles au niveau des contrats\n• Rapports sur les ALS\n• Collaborer avec des experts pour garantir l'innovation, l'assurance de la qualité, les meilleures pratiques et les normes de conformité\n• Responsabilité QHSE C'est ce que nous attendons de vous.\n• Vous apportez plusieurs années d'expérience dans la gestion des installations en mettant l'accent sur le FM dur et le nettoyage, de préférence dans l'environnement hôtelier ou hôtelier. Vous avez aussi de l'expérience en rémunération et responsabilité budgétaire\n• Vous apportez plusieurs années d'expérience de leadership direct d'équipes que vous savez motiver même dans des situations difficiles\n• Expérience des structures décentralisées\n• Les talents de communication à différents niveaux\n• Vous êtes un networker orienté service et un joueur d'équipe qui pense et agit d'une manière orientée vers la solution et entrepreneuriale.\n• Vous êtes structuré, bien organisé et à la recherche de solutions innovantes pour tous les acteurs. Vous faites la promotion de vos employés volontairement et individuellement\n• Même dans les situations agitées, vous garderez la paix d'esprit nécessaire ainsi que la portée et l'aperçu\n• Très bonne connaissance de l'allemand est obligatoire, l'anglais et le français est un avantage Dans cette position, vous avez beaucoup de marge de manoeuvre et de responsabilité personnelle et travaillez dans un environnement passionnant et dynamique. En plus du travail à distance, nous offrons également des horaires flexibles. Bien que nous faisons partie d'un joueur mondial, nous vivons dans notre petite équipe une mentalité prononcée de \"hands-on\". Votre contact Vous sentez-vous adressé? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne. Avec nos offres d'emploi, nous parlons à tout le monde et sommes attachés à la diversité et à la diversité dans l'entreprise. Sodexo (Suisse) SA, +41 44 305 80 90 Veuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être prises en considération, ainsi que les candidatures des agences de recrutement."
+        "it": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) auf Abruf Stellennummer 5632 am Standort Luzern CH-6005 Geringfügige Beschäftigung Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "en": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) auf Abruf Stellennummer 5632 am Standort Luzern CH-6005 Geringfügige Beschäftigung Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) auf Abruf Stellennummer 5632 am Standort Luzern CH-6005 Geringfügige Beschäftigung Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "fr": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) auf Abruf Stellennummer 5632 am Standort Luzern CH-6005 Geringfügige Beschäftigung Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern."
       },
-      "location": "Aarau",
-      "canton": "AG",
-      "url": "https://sodexo-suisse.concludis.de/prj/shw/2548a4ac7ad6eddd035bced24ec6d964_0/5628/General_Service_Manager_Aarau_w_m_d_80-100_per_sofort.htm?b=0&lang=de_DE",
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://sodexo-suisse.concludis.de/prj/shw/a2232b5b6b17429cdff8ddc2f14ea8c9_0/5632/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:32:40.292Z",
-      "addressLocality": "Aarau",
-      "addressRegion": "AG",
+      "crawledAt": "2026-09-03T23:09:08.894Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5001",
+      "postalCode": "6005",
       "streetAddress": "Wallisellenstrasse 55",
       "category": "admin",
-      "contract": "full-time",
-      "employmentType": "full-time",
-      "experienceLevel": "senior",
+      "contract": "part-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
       "sector": "Ristorazione collettiva / Facility Management",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/2548a4ac7ad6eddd035bced24ec6d964_0/5628/General_Service_Manager_Aarau_w_m_d_80-100_per_sofort.htm?b=0&lang=de_DE",
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/a2232b5b6b17429cdff8ddc2f14ea8c9_0/5632/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "general-service-manager-aarau-w-m-d-80-100-per-sofort-sodexo-aarau",
-        "general-service-manager-aarau-f-m-d-80-100-con-effetto-immediato-sodexo-suisse-sa-aarau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "general-service-manager-aarau-w-m-d-80-100-per-sofort-sodexo-aarau",
-          "general-service-manager-aarau-f-m-d-80-100-con-effetto-immediato-sodexo-suisse-sa-aarau"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T22:02:49.830Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "firstSeenAt": "2026-09-02T13:31:02.415Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sodexo-eaf33bde04ab",
+      "slug": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-buchs",
+      "slugByLocale": {
+        "it": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-buchs",
+        "en": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-buchs",
+        "de": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-buchs",
+        "fr": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-buchs"
+      },
+      "company": "Sodexo (Suisse) SA",
+      "companyKey": "sodexo",
+      "companyDomain": "sodexo.ch",
+      "title": "Unterhaltsreiniger:in (m/w/d) 15h pro Woche",
+      "titleByLocale": {
+        "it": "Unterhaltsreiniger:in (m/w/d) 15h pro Woche",
+        "en": "Unterhaltsreiniger:in (m/w/d) 15h pro Woche",
+        "de": "Unterhaltsreiniger:in (m/w/d) 15h pro Woche",
+        "fr": "Unterhaltsreiniger:in (m/w/d) 15h pro Woche"
+      },
+      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 15h pro Woche Stellennummer 5668 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 13:00 - 16:00 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+      "descriptionByLocale": {
+        "it": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 15h pro Woche Stellennummer 5668 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 13:00 - 16:00 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "en": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 15h pro Woche Stellennummer 5668 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 13:00 - 16:00 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 15h pro Woche Stellennummer 5668 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 13:00 - 16:00 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "fr": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 15h pro Woche Stellennummer 5668 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 13:00 - 16:00 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern."
+      },
+      "needsRetranslation": true,
+      "location": "Argovia",
+      "canton": "AG",
+      "url": "https://sodexo-suisse.concludis.de/prj/shw/048e9aee4ffe42efbf7865f0bd5a2fa4_0/5668/Unterhaltsreiniger_in_m_w_d_15h_pro_Woche.htm?b=0&lang=de_DE",
+      "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:09:08.359Z",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5033",
+      "streetAddress": "Wallisellenstrasse 55",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
+      "sector": "Ristorazione collettiva / Facility Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/048e9aee4ffe42efbf7865f0bd5a2fa4_0/5668/Unterhaltsreiniger_in_m_w_d_15h_pro_Woche.htm?b=0&lang=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pulitore-di-manutenzione-in-m-f-d-15h-a-settimana-sodexo-suisse-sa-zurich",
+        "maintenance-cleaner-in-m-f-d-15h-per-week-sodexo-suisse-sa-zurich",
+        "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-zurich",
+        "nettoyeur-d-entretien-en-m-f-j-15h-par-semaine-sodexo-suisse-sa-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pulitore-di-manutenzione-in-m-f-d-15h-a-settimana-sodexo-suisse-sa-zurich",
+          "maintenance-cleaner-in-m-f-d-15h-per-week-sodexo-suisse-sa-zurich",
+          "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-zurich",
+          "nettoyeur-d-entretien-en-m-f-j-15h-par-semaine-sodexo-suisse-sa-zurich"
+        ],
+        "en": [
+          "maintenance-cleaner-in-m-f-d-15h-per-week-sodexo-suisse-sa-zurich"
+        ],
+        "de": [
+          "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-zurich"
+        ],
+        "fr": [
+          "nettoyeur-d-entretien-en-m-f-j-15h-par-semaine-sodexo-suisse-sa-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T13:31:01.861Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sodexo-6150ca57d774",
+      "slug": "capo-squadra-cleaning-m-w-d-20h-pro-woche-sodexo-suisse-sa-argovia",
+      "slugByLocale": {
+        "it": "capo-squadra-cleaning-m-w-d-20h-pro-woche-sodexo-suisse-sa-argovia",
+        "en": "team-leader-cleaning-m-w-d-20h-pro-woche-sodexo-buchs",
+        "de": "team-leader-cleaning-m-w-d-20h-pro-woche-sodexo-buchs",
+        "fr": "team-leader-cleaning-m-w-d-20h-pro-woche-sodexo-buchs"
+      },
+      "company": "Sodexo (Suisse) SA",
+      "companyKey": "sodexo",
+      "companyDomain": "sodexo.ch",
+      "title": "Team Leader Cleaning (m/w/d) 20h pro Woche",
+      "titleByLocale": {
+        "it": "Capo squadra Cleaning (m/w/d) 20h pro Woche",
+        "en": "Team Leader Cleaning (m/w/d) 20h pro Woche",
+        "de": "Team Leader Cleaning (m/w/d) 20h pro Woche",
+        "fr": "Team Leader Cleaning (m/w/d) 20h pro Woche"
+      },
+      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Team Leader Cleaning (m/w/d) 20h pro Woche Stellennummer 5655 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Führung des Reinigungsteams\n• Kontrolle der Reinigungsräume, richtiges Lagern der Reinigungsmittel, Reinigungsmaterial und Hilfsmittel sowie deren Anwendung\n• Bestellen des Reinigungsmaterials\n• Monatliches Visieren, Kontrolle der Vorschriften und allgemeine Verwaltung\n• Überwachung der Sicherheitsvorschriften und aktive Unfallverhütung durch Beseitigung von Unfallquellen und Schulungen\n• Teilnahme an Schulungen gemäss Vorgabe des Kunden und Sodexo\n• Ferienplanung und Organisierung der Arbeitsabläufe in Absprache und Arbeitsplanung\n• Arbeitszeiten: Mo. - Fr. von 15:00 - 19:00 Uhr Das erwarten wir von dir\n• Erfahrung in der Reinigung\n• Führungserfahrung\n• Qualitätsbewusstsein und gute Organisationsfähigkeit\n• Durchsetzungsvermögen und selbständiges Arbeiten\n• Gepflegtes, freundliches und dienstleistungsorientiertes Auftreten\n• Effiziente und saubere Arbeitsweise\n• Teamfähig\n• Gute Kommunikations skills\n• Gute Deutschkenntnisse in Wort und Schrift In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+      "descriptionByLocale": {
+        "it": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Team Leader Cleaning (m/w/d) 20h pro Woche Stellennummer 5655 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Führung des Reinigungsteams\n• Kontrolle der Reinigungsräume, richtiges Lagern der Reinigungsmittel, Reinigungsmaterial und Hilfsmittel sowie deren Anwendung\n• Bestellen des Reinigungsmaterials\n• Monatliches Visieren, Kontrolle der Vorschriften und allgemeine Verwaltung\n• Überwachung der Sicherheitsvorschriften und aktive Unfallverhütung durch Beseitigung von Unfallquellen und Schulungen\n• Teilnahme an Schulungen gemäss Vorgabe des Kunden und Sodexo\n• Ferienplanung und Organisierung der Arbeitsabläufe in Absprache und Arbeitsplanung\n• Arbeitszeiten: Mo. - Fr. von 15:00 - 19:00 Uhr Das erwarten wir von dir\n• Erfahrung in der Reinigung\n• Führungserfahrung\n• Qualitätsbewusstsein und gute Organisationsfähigkeit\n• Durchsetzungsvermögen und selbständiges Arbeiten\n• Gepflegtes, freundliches und dienstleistungsorientiertes Auftreten\n• Effiziente und saubere Arbeitsweise\n• Teamfähig\n• Gute Kommunikations skills\n• Gute Deutschkenntnisse in Wort und Schrift In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "en": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Team Leader Cleaning (m/w/d) 20h pro Woche Stellennummer 5655 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Führung des Reinigungsteams\n• Kontrolle der Reinigungsräume, richtiges Lagern der Reinigungsmittel, Reinigungsmaterial und Hilfsmittel sowie deren Anwendung\n• Bestellen des Reinigungsmaterials\n• Monatliches Visieren, Kontrolle der Vorschriften und allgemeine Verwaltung\n• Überwachung der Sicherheitsvorschriften und aktive Unfallverhütung durch Beseitigung von Unfallquellen und Schulungen\n• Teilnahme an Schulungen gemäss Vorgabe des Kunden und Sodexo\n• Ferienplanung und Organisierung der Arbeitsabläufe in Absprache und Arbeitsplanung\n• Arbeitszeiten: Mo. - Fr. von 15:00 - 19:00 Uhr Das erwarten wir von dir\n• Erfahrung in der Reinigung\n• Führungserfahrung\n• Qualitätsbewusstsein und gute Organisationsfähigkeit\n• Durchsetzungsvermögen und selbständiges Arbeiten\n• Gepflegtes, freundliches und dienstleistungsorientiertes Auftreten\n• Effiziente und saubere Arbeitsweise\n• Teamfähig\n• Gute Kommunikations skills\n• Gute Deutschkenntnisse in Wort und Schrift In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Team Leader Cleaning (m/w/d) 20h pro Woche Stellennummer 5655 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Führung des Reinigungsteams\n• Kontrolle der Reinigungsräume, richtiges Lagern der Reinigungsmittel, Reinigungsmaterial und Hilfsmittel sowie deren Anwendung\n• Bestellen des Reinigungsmaterials\n• Monatliches Visieren, Kontrolle der Vorschriften und allgemeine Verwaltung\n• Überwachung der Sicherheitsvorschriften und aktive Unfallverhütung durch Beseitigung von Unfallquellen und Schulungen\n• Teilnahme an Schulungen gemäss Vorgabe des Kunden und Sodexo\n• Ferienplanung und Organisierung der Arbeitsabläufe in Absprache und Arbeitsplanung\n• Arbeitszeiten: Mo. - Fr. von 15:00 - 19:00 Uhr Das erwarten wir von dir\n• Erfahrung in der Reinigung\n• Führungserfahrung\n• Qualitätsbewusstsein und gute Organisationsfähigkeit\n• Durchsetzungsvermögen und selbständiges Arbeiten\n• Gepflegtes, freundliches und dienstleistungsorientiertes Auftreten\n• Effiziente und saubere Arbeitsweise\n• Teamfähig\n• Gute Kommunikations skills\n• Gute Deutschkenntnisse in Wort und Schrift In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "fr": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Team Leader Cleaning (m/w/d) 20h pro Woche Stellennummer 5655 am Standort Buchs CH-CH-5033 - Teilzeit Das sind deine Aufgaben\n• Führung des Reinigungsteams\n• Kontrolle der Reinigungsräume, richtiges Lagern der Reinigungsmittel, Reinigungsmaterial und Hilfsmittel sowie deren Anwendung\n• Bestellen des Reinigungsmaterials\n• Monatliches Visieren, Kontrolle der Vorschriften und allgemeine Verwaltung\n• Überwachung der Sicherheitsvorschriften und aktive Unfallverhütung durch Beseitigung von Unfallquellen und Schulungen\n• Teilnahme an Schulungen gemäss Vorgabe des Kunden und Sodexo\n• Ferienplanung und Organisierung der Arbeitsabläufe in Absprache und Arbeitsplanung\n• Arbeitszeiten: Mo. - Fr. von 15:00 - 19:00 Uhr Das erwarten wir von dir\n• Erfahrung in der Reinigung\n• Führungserfahrung\n• Qualitätsbewusstsein und gute Organisationsfähigkeit\n• Durchsetzungsvermögen und selbständiges Arbeiten\n• Gepflegtes, freundliches und dienstleistungsorientiertes Auftreten\n• Effiziente und saubere Arbeitsweise\n• Teamfähig\n• Gute Kommunikations skills\n• Gute Deutschkenntnisse in Wort und Schrift In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern."
+      },
+      "needsRetranslation": true,
+      "location": "Argovia",
+      "canton": "AG",
+      "url": "https://sodexo-suisse.concludis.de/prj/shw/2d13dd919b0ec4519c4a0967c4c7cd47_0/5655/Team_Leader_Cleaning_m_w_d_20h_pro_Woche.htm?b=0&lang=de_DE",
+      "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:09:07.814Z",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5033",
+      "streetAddress": "Wallisellenstrasse 55",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
+      "sector": "Ristorazione collettiva / Facility Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/2d13dd919b0ec4519c4a0967c4c7cd47_0/5655/Team_Leader_Cleaning_m_w_d_20h_pro_Woche.htm?b=0&lang=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "team-leader-cleaning-m-w-d-20h-pro-woche-sodexo-buchs",
+        "capo-squadra-cleaning-m-w-d-20h-pro-woche-sodexo-suisse-sa-argovia"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-cleaning-m-w-d-20h-pro-woche-sodexo-buchs",
+          "capo-squadra-cleaning-m-w-d-20h-pro-woche-sodexo-suisse-sa-argovia"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T13:31:01.312Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sodexo-afbfe4bcdbfd",
+      "slug": "koch-kochin-m-w-d-auf-abruf-sodexo-zurich-flughafen",
+      "slugByLocale": {
+        "it": "koch-kochin-m-w-d-auf-abruf-sodexo-zurich-flughafen",
+        "en": "koch-kochin-m-w-d-auf-abruf-sodexo-zurich-flughafen",
+        "de": "koch-kochin-m-w-d-auf-abruf-sodexo-zurich-flughafen",
+        "fr": "koch-kochin-m-w-d-auf-abruf-sodexo-zurich-flughafen"
+      },
+      "company": "Sodexo (Suisse) SA",
+      "companyKey": "sodexo",
+      "companyDomain": "sodexo.ch",
+      "title": "Koch/Köchin (m/w/d) auf Abruf",
+      "titleByLocale": {
+        "it": "Koch/Köchin (m/w/d) auf Abruf",
+        "en": "Koch/Köchin (m/w/d) auf Abruf",
+        "de": "Koch/Köchin (m/w/d) auf Abruf",
+        "fr": "Koch/Köchin (m/w/d) auf Abruf"
+      },
+      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Koch/Köchin (m/w/d) auf Abruf Stellennummer 5648 am Standort Zürich Flughafen CH-8058 - Geringfügige Beschäftigung Das sind deine Aufgaben\n• Herstellung und Zubereitung der kalten, warmen und Dessert-Speisen nach exakt vorgegebener Rezeptur\n• Anrichten der Speisen auf dem Buffet\n• Verantwortungsvoller, sorgsamer Umgang mit Lebensmitteln und Arbeitsmitteln\n• Mise en place\n• Fachgerechte Einlagerung der Lebensmittel in die verschiedenen Kühlräume\n• Tägliche und wöchentliche Reinigungsarbeiten gemäss Reinigungsplan\n• Täglicher Austausch/Feedback mit Supervisor\n• Turnusmässige Reinigungsarbeiten (Hygieneplan)\n• Lagerordnung\n• Gewährleistung von Sauberkeit und Durchführung der Hygienestandards in der Küche, den Kühlhäusern und den Lagerräumen Das erwarten wir von dir\n• Ausbildung Koch (oder lange Erfahrung in diesem Bereich), mindestens 2-3 Jahre Berufserfahrung\n• Selbstständige Arbeitsweise\n• Flexibilität, produktiv, verantwortungsvoll, pünktlich\n• Präzise und effiziente Arbeitsweise\n• Leidenschaft für’s Kochen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, ausreichende Englischkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, HR Team, Tel.: +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+      "descriptionByLocale": {
+        "it": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Koch/Köchin (m/w/d) auf Abruf Stellennummer 5648 am Standort Zürich Flughafen CH-8058 - Geringfügige Beschäftigung Das sind deine Aufgaben\n• Herstellung und Zubereitung der kalten, warmen und Dessert-Speisen nach exakt vorgegebener Rezeptur\n• Anrichten der Speisen auf dem Buffet\n• Verantwortungsvoller, sorgsamer Umgang mit Lebensmitteln und Arbeitsmitteln\n• Mise en place\n• Fachgerechte Einlagerung der Lebensmittel in die verschiedenen Kühlräume\n• Tägliche und wöchentliche Reinigungsarbeiten gemäss Reinigungsplan\n• Täglicher Austausch/Feedback mit Supervisor\n• Turnusmässige Reinigungsarbeiten (Hygieneplan)\n• Lagerordnung\n• Gewährleistung von Sauberkeit und Durchführung der Hygienestandards in der Küche, den Kühlhäusern und den Lagerräumen Das erwarten wir von dir\n• Ausbildung Koch (oder lange Erfahrung in diesem Bereich), mindestens 2-3 Jahre Berufserfahrung\n• Selbstständige Arbeitsweise\n• Flexibilität, produktiv, verantwortungsvoll, pünktlich\n• Präzise und effiziente Arbeitsweise\n• Leidenschaft für’s Kochen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, ausreichende Englischkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, HR Team, Tel.: +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "en": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Koch/Köchin (m/w/d) auf Abruf Stellennummer 5648 am Standort Zürich Flughafen CH-8058 - Geringfügige Beschäftigung Das sind deine Aufgaben\n• Herstellung und Zubereitung der kalten, warmen und Dessert-Speisen nach exakt vorgegebener Rezeptur\n• Anrichten der Speisen auf dem Buffet\n• Verantwortungsvoller, sorgsamer Umgang mit Lebensmitteln und Arbeitsmitteln\n• Mise en place\n• Fachgerechte Einlagerung der Lebensmittel in die verschiedenen Kühlräume\n• Tägliche und wöchentliche Reinigungsarbeiten gemäss Reinigungsplan\n• Täglicher Austausch/Feedback mit Supervisor\n• Turnusmässige Reinigungsarbeiten (Hygieneplan)\n• Lagerordnung\n• Gewährleistung von Sauberkeit und Durchführung der Hygienestandards in der Küche, den Kühlhäusern und den Lagerräumen Das erwarten wir von dir\n• Ausbildung Koch (oder lange Erfahrung in diesem Bereich), mindestens 2-3 Jahre Berufserfahrung\n• Selbstständige Arbeitsweise\n• Flexibilität, produktiv, verantwortungsvoll, pünktlich\n• Präzise und effiziente Arbeitsweise\n• Leidenschaft für’s Kochen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, ausreichende Englischkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, HR Team, Tel.: +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Koch/Köchin (m/w/d) auf Abruf Stellennummer 5648 am Standort Zürich Flughafen CH-8058 - Geringfügige Beschäftigung Das sind deine Aufgaben\n• Herstellung und Zubereitung der kalten, warmen und Dessert-Speisen nach exakt vorgegebener Rezeptur\n• Anrichten der Speisen auf dem Buffet\n• Verantwortungsvoller, sorgsamer Umgang mit Lebensmitteln und Arbeitsmitteln\n• Mise en place\n• Fachgerechte Einlagerung der Lebensmittel in die verschiedenen Kühlräume\n• Tägliche und wöchentliche Reinigungsarbeiten gemäss Reinigungsplan\n• Täglicher Austausch/Feedback mit Supervisor\n• Turnusmässige Reinigungsarbeiten (Hygieneplan)\n• Lagerordnung\n• Gewährleistung von Sauberkeit und Durchführung der Hygienestandards in der Küche, den Kühlhäusern und den Lagerräumen Das erwarten wir von dir\n• Ausbildung Koch (oder lange Erfahrung in diesem Bereich), mindestens 2-3 Jahre Berufserfahrung\n• Selbstständige Arbeitsweise\n• Flexibilität, produktiv, verantwortungsvoll, pünktlich\n• Präzise und effiziente Arbeitsweise\n• Leidenschaft für’s Kochen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, ausreichende Englischkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, HR Team, Tel.: +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "fr": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Koch/Köchin (m/w/d) auf Abruf Stellennummer 5648 am Standort Zürich Flughafen CH-8058 - Geringfügige Beschäftigung Das sind deine Aufgaben\n• Herstellung und Zubereitung der kalten, warmen und Dessert-Speisen nach exakt vorgegebener Rezeptur\n• Anrichten der Speisen auf dem Buffet\n• Verantwortungsvoller, sorgsamer Umgang mit Lebensmitteln und Arbeitsmitteln\n• Mise en place\n• Fachgerechte Einlagerung der Lebensmittel in die verschiedenen Kühlräume\n• Tägliche und wöchentliche Reinigungsarbeiten gemäss Reinigungsplan\n• Täglicher Austausch/Feedback mit Supervisor\n• Turnusmässige Reinigungsarbeiten (Hygieneplan)\n• Lagerordnung\n• Gewährleistung von Sauberkeit und Durchführung der Hygienestandards in der Küche, den Kühlhäusern und den Lagerräumen Das erwarten wir von dir\n• Ausbildung Koch (oder lange Erfahrung in diesem Bereich), mindestens 2-3 Jahre Berufserfahrung\n• Selbstständige Arbeitsweise\n• Flexibilität, produktiv, verantwortungsvoll, pünktlich\n• Präzise und effiziente Arbeitsweise\n• Leidenschaft für’s Kochen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, ausreichende Englischkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, HR Team, Tel.: +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich Flughafen",
+      "canton": "ZH",
+      "url": "https://sodexo-suisse.concludis.de/prj/shw/84f2798f05d595273de40e3046329309_0/5648/Koch_Koechin_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
+      "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:09:07.253Z",
+      "addressLocality": "Zürich Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "Wallisellenstrasse 55",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
+      "sector": "Ristorazione collettiva / Facility Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/84f2798f05d595273de40e3046329309_0/5648/Koch_Koechin_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-02T13:31:00.725Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sodexo-3042142f0535",
+      "slug": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+      "slugByLocale": {
+        "it": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+        "en": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+        "de": "unterhaltsreiniger-in-m-w-d-50-sodexo-luzern",
+        "fr": "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern"
+      },
+      "company": "Sodexo (Suisse) SA",
+      "companyKey": "sodexo",
+      "companyDomain": "sodexo.ch",
+      "title": "Unterhaltsreiniger:in (m/w/d) 50%",
+      "titleByLocale": {
+        "it": "Assistente di Pulizia (m/f/d) 50%",
+        "en": "Cleaning Assistant (m/f/d) 50%",
+        "de": "Unterhaltsreiniger:in (m/w/d) 50%",
+        "fr": "Assistante de Nettoyage (m/f/d) 50%"
+      },
+      "description": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 50% Stellennummer 5475 am Standort Luzern CH-6005 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 09:00 - 13:30 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+      "descriptionByLocale": {
+        "it": "Descrizione\nSodexo è stata fondata a Marsiglia nel 1966 da Pierre Bellon ed è il fornitore leader a livello mondiale di ristorazione aziendale sostenibile ed esperienze speciali in tutti gli ambiti della vita. Con le sue due aree di business, Food e Facilities Management Services, Sodexo affronta tutte le sfide della vita quotidiana e persegue un duplice obiettivo: migliorare la qualità della vita dei nostri dipendenti e delle persone che serviamo. Crescita e impegno sociale vanno di pari passo. L’obiettivo di Sodexo è anche il suo motto: “creare una vita quotidiana migliore per tutti, per costruire una vita migliore per tutti”. Siamo gli unici fornitori in Svizzera specializzati nel facility management e nei servizi di ristorazione. Perseguiamo un approccio olistico per i nostri clienti, in cui ci concentriamo sulle infrastrutture, sulle persone e sul loro benessere, nonché sull’ambiente. I nostri circa 650 dipendenti lavorano nei settori pulizia, ristorazione, ristorazione aziendale, logistica, servizi di sicurezza e accoglienza, servizi congressuali e gestione tecnica degli edifici. Ci impegniamo sempre a migliorare con le nostre azioni e pensieri la vita quotidiana delle persone davanti e dietro le quinte.\n\nCompiti\n- Aspirazione negli uffici e nelle sale riunioni\n- Pulisci i piatti e falli lavare\n- Pulisci le scrivanie con un panno umido\n- Pulisci il pavimento del WC con un panno umido\n- Pulire servizi igienici, orinatoi e lavandini\n- Smaltimento della carta e dei rifiuti\n- Orario di lavoro: dal lunedì al venerdì dalle 9:00 alle 13:30\n\nRequisiti\n- Esperienza professionale nel settore delle pulizie\n- Orientamento al cliente, al servizio e alla qualità\n- Flessibilità, affidabilità e capacità di lavorare in team\n- Precisione e resistenza fisica\n- Buona conoscenza della lingua tedesca\n\nOffriamo\n- Ampio margine di azione e responsabilità personale\n- Lavorare in un ambiente stimolante e dinamico\n- Forte mentalità \"pratica\" in una piccola squadra\n- Contatto Ti senti indirizzato? Allora non vediamo l'ora di ricevere i documenti di candidatura completi tramite il nostro portale online.\n\nContatto\nSi prega di fare domanda online qui. Purtroppo non possono essere prese in considerazione le candidature inviate per posta o via e-mail, così come le candidature dei reclutatori.\n\nSodexo (Suisse) SA, Melissa Vacic",
+        "en": "Description\nSodexo was founded in Marseille in 1966 by Pierre Bellon and is the world's leading provider of sustainable company catering and special experiences in all areas of life. With its two business areas, Food and Facilities Management Services, Sodexo meets all the challenges of daily life and pursues a dual goal: to improve the quality of life of our employees and the people we serve. Growth and social commitment go hand in hand. Sodexo’s goal is also its motto: “to create a better everyday life for everyone to build a better life for all.” We are the only provider in Switzerland to specialize in facility management and catering services. We pursue a holistic approach for our customers, in which we focus on the infrastructure, people and their well-being, as well as the environment. Our approximately 650 employees work in the areas of cleaning, catering, corporate catering, logistics, security and reception services, conference services and technical building management. We always strive to make the everyday lives of people in front of and behind the scenes better with our actions and thoughts.\n\nTasks\n- Vacuuming in offices and meeting rooms\n- Clear the dishes and have them washed\n- Wipe desks with a damp cloth\n- Wipe the toilet floor with a damp cloth\n- Clean toilets, urinals and sinks\n- Disposal of paper and rubbish\n- Working hours: Monday - Friday from 9:00 a.m. to 1:30 p.m\n\nRequirements\n- Professional experience in cleaning\n- Customer, service and quality orientation\n- Flexibility, reliability and ability to work in a team\n- Thoroughness and physical resilience\n- Good knowledge of German\n\nWe offer\n- Lots of scope for action and personal responsibility\n- Work in an exciting and dynamic environment\n- Strong “hands-on” mentality in a small team\n- Contact Do you feel addressed? Then we look forward to receiving your complete application documents via our online portal.\n\nContact\nPlease apply online here. Unfortunately, applications by post or email cannot be considered, nor can applications from recruiters.\n\nSodexo (Suisse) SA, Melissa Vacic",
+        "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 50% Stellennummer 5475 am Standort Luzern CH-6005 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 09:00 - 13:30 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
+        "fr": "Désignation des marchandises\nFondé en 1966 par Pierre Bellon à Marseille, Sodexo est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif : améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde de construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous adoptons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées.\n\nTâches\nAspirateur dans les bureaux et salles de réunion\n- la vaisselle claire et les rincer\n- Ordinateurs mouillés\n- Linge humide de sol de toilette\n- Toilettes propres, urinoirs et lavabos\n- Élimination du papier et des déchets\n- Heures de travail: Mo. - P. de 09:00 - 13:30\n\nExigences\n- Expérience professionnelle en nettoyage\n- Orientation client, service et qualité\nFlexibilité, fiabilité et travail d'équipe\n- Ténacité et résilience physique\nBonne connaissance de l'allemand\n\nNous offrons\n- Beaucoup de marge de manoeuvre et de responsabilité personnelle\n- Travailler dans un environnement passionnant et dynamique\n- Une mentalité forte dans une petite équipe\n- Contact Vous sentez-vous approché ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne.\n\nCoordonnées\nVeuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, tout comme les candidatures des agences de recrutement.\n\nSodexo (Suisse) SA, Melissa Vacic"
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://sodexo-suisse.concludis.de/prj/shw/65173795697c8229dd202ad94e821bab_0/5475/Unterhaltsreiniger_in_m_w_d_50.htm?b=0&lang=de_DE",
+      "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T23:05:03.095Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6005",
+      "streetAddress": "Wallisellenstrasse 55",
+      "category": "admin",
+      "contract": "part-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
+      "sector": "Ristorazione collettiva / Facility Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/65173795697c8229dd202ad94e821bab_0/5475/Unterhaltsreiniger_in_m_w_d_50.htm?b=0&lang=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "unterhaltsreiniger-in-m-w-d-50-sodexo-luzern",
+        "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+        "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
+        "unterhaltsreiniger-in-m-w-d-25-sodexo-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "unterhaltsreiniger-in-m-w-d-50-sodexo-luzern",
+          "unterhaltsreiniger-in-m-w-d-50-sodexo-suisse-sa-luzern",
+          "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern",
+          "unterhaltsreiniger-in-m-w-d-25-sodexo-luzern"
+        ],
+        "de": [
+          "unterhaltsreiniger-in-m-w-d-25-sodexo-luzern"
+        ],
+        "fr": [
+          "unterhaltsreiniger-in-m-w-d-25-sodexo-suisse-sa-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T21:56:24.543Z",
+      "salaryMin": 34800,
+      "salaryMax": 53000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 34800,
+          "maxValue": 53000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

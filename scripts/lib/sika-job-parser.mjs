@@ -13,7 +13,10 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  schemaJobLocationCandidates,
+} from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -35,7 +38,7 @@ const MAX_OFFSET = 1000; // hard safety cap on pagination
 
 const SECTOR = 'Specialty chemicals (construction & industrial)';
 
-// HQ fallback (Sika AG, Zugerstrasse 50, CH-6341 Baar, ZG).
+// Known HQ postal metadata (Sika AG, Zugerstrasse 50, CH-6341 Baar, ZG).
 const HQ = { city: 'Baar', canton: 'ZG', postalCode: '6341', addressRegion: 'Canton of Zug' };
 
 const UA =
@@ -188,20 +191,34 @@ async function fetchJobDetail(url) {
       }
       const node = Array.isArray(parsed) ? parsed.find((n) => n?.['@type'] === 'JobPosting') : parsed;
       if (!node || node['@type'] !== 'JobPosting') continue;
-      const addr = node?.jobLocation?.address || {};
+      const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
+      const primaryLocation = locationCandidates[0];
       return {
         datePosted: node.datePosted || '',
         employmentType: node.employmentType || '',
-        addressLocality: addr.addressLocality || '',
-        postalCode: addr.postalCode || '',
-        streetAddress: addr.streetAddress || '',
-        addressRegion: addr.addressRegion || '',
+        addressLocality: primaryLocation?.addressLocality || '',
+        addressCountry: primaryLocation?.addressCountry || '',
+        postalCode: primaryLocation?.postalCode || '',
+        streetAddress: primaryLocation?.streetAddress || '',
+        addressRegion: primaryLocation?.addressRegion || '',
+        locationCandidates,
       };
     }
   } catch (err) {
     console.warn(`   ⚠️ Detail fetch failed for ${url}: ${err?.message || err}`);
   }
   return {};
+}
+
+export function resolveSikaListingGeography(listing = {}, detail = {}) {
+  return resolveDetailOrListingSwissGeography(
+    {
+      locationCandidates: detail.locationCandidates || [],
+      location: [detail.addressLocality, detail.addressRegion].filter(Boolean).join(', '),
+      addressCountry: detail.addressCountry || '',
+    },
+    { location: listing.location || '' },
+  );
 }
 
 /**
@@ -228,24 +245,24 @@ export async function fetchAllSikaJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(listing.location || '') || `${HQ.city}, ${HQ.addressRegion}, Switzerland`;
-    // CH-only guard: the endpoint is country=ch filtered, but double-check the
-    // location resolves to a Swiss canton; fall back to the HQ canton (ZG).
-    const canton = inferSwissTargetCanton(location) || HQ.canton;
-
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
 
     // Enrich from the detail-page JSON-LD (datePosted, employmentType, address).
     const detail = await fetchJobDetail(publicUrl);
+    const decision = resolveSikaListingGeography(listing, detail);
+    const geography = decision.geography;
+    if (!geography) continue;
+    const { location, canton } = geography;
+    const evidence = decision.candidate;
 
-    // Resolve address fields: detail JSON-LD first, then listing string, then HQ.
+    // Resolve address fields from the detail JSON-LD or listing string only.
     const localityFromListing = location.split(',')[0]?.trim() || '';
-    const addressLocality = detail.addressLocality || localityFromListing || HQ.city;
-    const addressRegion = detail.addressRegion || (location.split(',')[1]?.trim() || HQ.addressRegion);
-    const postalCode = detail.postalCode || HQ.postalCode;
-    const streetAddress = detail.streetAddress || '';
+    const addressLocality = evidence.addressLocality || localityFromListing;
+    const addressRegion = canton;
+    const postalCode = evidence.postalCode || (addressLocality === HQ.city ? HQ.postalCode : '');
+    const streetAddress = evidence.streetAddress || '';
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} sika ch`);

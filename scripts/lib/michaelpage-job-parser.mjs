@@ -2,7 +2,7 @@
 /**
  * Michael Page job parser — Fetcher and job builder.
  *
- * Source: https://www.pageexecutive.com/jobs/americas
+ * Source: https://www.pageexecutive.com/jobs/switzerland
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllMichaelpageJobs()  — Fetch and parse all jobs
@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -22,7 +22,7 @@ export const MICHAELPAGE_KEY = 'michaelpage';
 export const MICHAELPAGE_COMPANY_NAME = 'Michael Page';
 export const MICHAELPAGE_COMPANY_DOMAIN = 'pageexecutive.com';
 
-const CAREER_URL = 'https://www.pageexecutive.com/jobs/americas';
+const CAREER_URL = 'https://www.pageexecutive.com/jobs/switzerland';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -109,7 +109,11 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(MICHAELPAGE_KEY);
-  return runSpecInProduction(spec);
+  // PageExecutive currently serves a gzip body without a Content-Encoding
+  // header to the pinned public-only transport. Asking for identity encoding
+  // keeps the body parseable; transport, DNS, redirects and robots stay on the
+  // shared Prospector path.
+  return runSpecInProduction(spec, { headers: { 'Accept-Encoding': 'identity' } });
 }
 
 /**
@@ -138,10 +142,12 @@ export async function fetchAllMichaelpageJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Lugano'; // TODO: extract actual location
-    const canton = inferSwissTargetCanton(location) || 'TI';
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
@@ -158,8 +164,8 @@ export async function fetchAllMichaelpageJobs() {
       companyDomain: MICHAELPAGE_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Michael Page`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Michael Page` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -168,9 +174,12 @@ export async function fetchAllMichaelpageJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
+      country: normalizeSpace(listing.addressCountry || "CH"),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),

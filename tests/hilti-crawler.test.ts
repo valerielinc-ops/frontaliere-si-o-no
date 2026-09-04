@@ -4,8 +4,10 @@ import {
   HILTI_COMPANY_NAME,
   isHiltiJob,
   isTrustedDomain,
+  resolveHiltiListingGeography,
 } from '../scripts/lib/hilti-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { schemaJobLocationCandidates } from '../scripts/lib/prospector/location-evidence.mjs';
 
 describe('Hilti crawler parser', () => {
   // ── Constants ──
@@ -77,6 +79,39 @@ describe('Hilti crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  describe('structured location evidence', () => {
+    it('blocks a Swiss-looking listing when detail country is authoritative foreign', () => {
+      const locationCandidates = schemaJobLocationCandidates({
+        address: { addressLocality: 'Geneva', addressRegion: 'NY', addressCountry: 'US' },
+      });
+      expect(resolveHiltiListingGeography({ location: 'Geneva', locationCandidates }).geography).toBeNull();
+    });
+
+    it('selects the Swiss candidate after a foreign first jobLocation', () => {
+      const locationCandidates = schemaJobLocationCandidates([
+        { address: { addressLocality: 'Paris', addressCountry: 'FR' } },
+        { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      ]);
+      expect(resolveHiltiListingGeography({ location: 'Geneva', locationCandidates }).geography)
+        .toMatchObject({ location: 'Zürich, ZH', canton: 'ZH', addressCountry: 'CH' });
+    });
+
+    it('does not let an LI candidate pre-empt a later Swiss location', () => {
+      const locationCandidates = schemaJobLocationCandidates([
+        { address: { addressLocality: 'Schaan', addressCountry: 'LI' } },
+        { address: { addressLocality: 'Buchs', addressRegion: 'SG', addressCountry: 'CH', postalCode: '9470' } },
+      ]);
+      const decision = resolveHiltiListingGeography({ location: 'Multiple locations', locationCandidates });
+      expect(decision.geography).toMatchObject({ location: 'Buchs, SG', canton: 'SG' });
+      expect(decision.candidate).toMatchObject({ addressLocality: 'Buchs', postalCode: '9470' });
+    });
+
+    it('keeps the listing location when detail geography is unresolved', () => {
+      expect(resolveHiltiListingGeography({ location: 'Chiasso' }).geography)
+        .toMatchObject({ location: 'Chiasso', canton: 'TI' });
     });
   });
 

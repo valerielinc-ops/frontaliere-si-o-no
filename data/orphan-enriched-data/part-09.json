@@ -1243,10 +1243,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "verkaufer-in-food-coop-city-zurich-fix6o0",
         "it": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
-        "en": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
-        "de": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
-        "fr": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich"
+        "en": "food-sales-associate-coop-genossenschaft-zurich-42e898",
+        "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
@@ -1260,6 +1260,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -10172,17 +10173,17 @@
         {
           "query": "jobs bellinzona",
           "clicks": 0,
-          "impressions": 38
+          "impressions": 40
         },
         {
           "query": "nebenjobs bellinzona",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 21
         },
         {
           "query": "bestbezahlte jobs bellinzona",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 19
         },
         {
           "query": "lehrstellen bellinzona",
@@ -10220,7 +10221,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 90,
+      "totalImpressions": 96,
       "totalClicks": 0,
       "topQuery": "jobs bellinzona",
       "title": "bellinzona",
@@ -10267,7 +10268,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 142
+          "impressions": 152
         },
         {
           "query": "homeoffice jobs bellinzona",
@@ -10365,7 +10366,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 184,
+      "totalImpressions": 194,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -10476,17 +10477,17 @@
         {
           "query": "offerte lavoro bellinzona",
           "clicks": 1,
-          "impressions": 19
+          "impressions": 21
         },
         {
           "query": "lavoro bellinzona",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
           "query": "bellinzona lavoro",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 14
         },
         {
           "query": "bellinzona offerte di lavoro",
@@ -10497,6 +10498,11 @@
           "query": "cerco lavoro a bellinzona",
           "clicks": 0,
           "impressions": 7
+        },
+        {
+          "query": "bellinzona lavora con noi",
+          "clicks": 0,
+          "impressions": 6
         },
         {
           "query": "cerco lavoro bellinzona",
@@ -10510,11 +10516,6 @@
         },
         {
           "query": "agenzie lavoro bellinzona",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "bellinzona lavora con noi",
           "clicks": 0,
           "impressions": 5
         },
@@ -10537,6 +10538,11 @@
           "query": "lavori bellinzona",
           "clicks": 0,
           "impressions": 4
+        },
+        {
+          "query": "posti di lavoro bellinzona",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "posti vacanti bellinzona",
@@ -10562,14 +10568,9 @@
           "query": "lavoro bellinzona svizzera",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "lavoro part-time bellinzona",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 157,
+      "totalImpressions": 164,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -18210,10 +18211,10 @@
         "it": "consulente-di-vendita-cosmetici-coop-genossenschaft-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
-        "en": "/en/find-jobs-basel/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
+        "it": "/cerca-lavoro-lucerna/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
+        "en": "/en/find-jobs-lucerne/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
         "de": "/de/jobs-im-bern/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
-        "fr": "/fr/trouver-emploi-bale/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern"
+        "fr": "/fr/trouver-emploi-lucerne/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28074,10 +28075,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-koniz-6d0bbc"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
-        "en": "/en/find-jobs-ticino/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
-        "de": "/de/jobs-im-tessin/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
-        "fr": "/fr/trouver-emploi-tessin/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc"
+        "it": "/cerca-lavoro-berna/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
+        "en": "/en/find-jobs-bern/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
+        "de": "/de/jobs-in-bern/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
+        "fr": "/fr/trouver-emploi-berne/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -40409,7 +40410,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 51
+          "impressions": 57
         },
         {
           "query": "job mendrisio",
@@ -40482,7 +40483,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 78,
+      "totalImpressions": 84,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -40596,12 +40597,17 @@
         {
           "query": "offerte di lavoro mendrisio",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "offerte lavoro mendrisio",
           "clicks": 0,
           "impressions": 7
+        },
+        {
+          "query": "aziende mendrisio che assumono",
+          "clicks": 0,
+          "impressions": 4
         },
         {
           "query": "lavoro in svizzera mendrisio",
@@ -40617,11 +40623,6 @@
           "query": "offerte di lavoro mendrisio svizzera",
           "clicks": 0,
           "impressions": 4
-        },
-        {
-          "query": "aziende mendrisio che assumono",
-          "clicks": 0,
-          "impressions": 3
         },
         {
           "query": "fabbriche mendrisio offerta lavoro",
@@ -40684,7 +40685,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 123,
+      "totalImpressions": 127,
       "totalClicks": 1,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",

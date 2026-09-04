@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suchthilfe-region-basel",
-  "assembledAt": "2026-08-28T05:41:12.807Z",
+  "assembledAt": "2026-09-03T23:19:31.827Z",
   "jobs": [
     {
       "id": "suchthilfe-region-basel-7919dba2884a",
@@ -34,7 +34,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/07/Coach_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:41:09.650Z",
+      "crawledAt": "2026-09-03T23:19:28.787Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -82,6 +82,7 @@
       "firstSeenAt": "2026-07-09T22:26:32.387Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -125,7 +126,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:41:09.018Z",
+      "crawledAt": "2026-09-03T23:19:28.239Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -161,6 +162,7 @@
       "firstSeenAt": "2026-05-21T00:25:07.625Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -203,7 +205,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:41:08.436Z",
+      "crawledAt": "2026-09-03T23:19:27.586Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -239,6 +241,7 @@
       "firstSeenAt": "2026-05-21T00:25:07.039Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

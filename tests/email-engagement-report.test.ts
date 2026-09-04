@@ -127,7 +127,7 @@ describe('aggregateMessages', () => {
 
 describe('detectRegressions', () => {
   const snap = (over: any = {}) => ({
-    byType: {}, byProvider: {},
+    byType: {}, byProvider: {}, byPair: {},
     integrity: { scanned: 10000, providerMissing: 0, unmeasurable: 0, unattributed: 0 },
     ...over,
   });
@@ -174,9 +174,9 @@ describe('detectRegressions', () => {
     expect(REGRESSION_RULES.MIN_SENDS).toBeGreaterThan(30);
   });
 
-  it('compares providers too, not only types', () => {
-    const prev = snap({ byProvider: { maileroo: { sent: 20000, opened: 6400, clicked: 900 } } });
-    const cur = snap({ byProvider: { maileroo: { sent: 20000, opened: 2000, clicked: 880 } } });
+  it('compares providers too, not only types — off non-cascade-ordered volume', () => {
+    const prev = snap({ byPair: { 'maileroo|newsletter_weekly': { sent: 20000, opened: 6400, clicked: 900 } } });
+    const cur = snap({ byPair: { 'maileroo|newsletter_weekly': { sent: 20000, opened: 2000, clicked: 880 } } });
     expect(detectRegressions(cur, prev).map((x: any) => x.metric)).toContain('provider:maileroo:open');
   });
 
@@ -184,5 +184,33 @@ describe('detectRegressions', () => {
     const prev = snap({ byType: {} });
     const cur = snap({ byType: { daily_brief: { sent: 5000, opened: 10, clicked: 1 } } });
     expect(detectRegressions(cur, prev)).toEqual([]);
+  });
+
+  it('ignores a provider-level open-rate swing driven only by job_alert tier-cascade composition', () => {
+    // Same mechanism the report already documents for cross-provider comparison
+    // (fixed daily quota + engagement-tier ordering), but along the time axis:
+    // mailgun's job_alert lane swings hard week to week while its other, non-cascade
+    // types (newsletter_weekly here) stay flat. The provider-level check must not fire.
+    const prev = snap({
+      byPair: {
+        'mailgun|job_alert': { sent: 398, opened: 345, clicked: 56 },
+        'mailgun|newsletter_weekly': { sent: 400, opened: 300, clicked: 40 },
+      },
+    });
+    const cur = snap({
+      byPair: {
+        'mailgun|job_alert': { sent: 98, opened: 44, clicked: 6 },
+        'mailgun|newsletter_weekly': { sent: 400, opened: 295, clicked: 39 },
+      },
+    });
+    const metrics = detectRegressions(cur, prev).map((x: any) => x.metric);
+    expect(metrics).not.toContain('provider:mailgun:open');
+  });
+
+  it('still flags a real per-type-per-provider drop at pair granularity', () => {
+    const prev = snap({ byPair: { 'mailgun|job_alert': { sent: 400, opened: 340, clicked: 56 } } });
+    const cur = snap({ byPair: { 'mailgun|job_alert': { sent: 400, opened: 120, clicked: 50 } } });
+    const metrics = detectRegressions(cur, prev).map((x: any) => x.metric);
+    expect(metrics).toContain('pair:mailgun|job_alert:open');
   });
 });

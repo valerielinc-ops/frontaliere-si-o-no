@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-08-28T05:13:21.491Z",
+  "assembledAt": "2026-09-03T23:15:17.828Z",
   "jobs": [
     {
       "id": "ukbb-e7925ffef938",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ukbb.ch/jobs/sekretaer-in-im-bereich-operationstechnik-80-100/f6505cd3-fbe9-41fb-ad0d-a15cbb10a4eb",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:18.488Z",
+      "crawledAt": "2026-09-03T23:15:14.350Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -53,104 +53,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sekretar-in-im-bereich-operationstechnik-80-100-ukbb-basel",
-        "sekretar-in-im-bereich-operationstechnik-80-100-universitats-kinderspital-beider-basel-basel"
+        "sekretar-in-im-bereich-operationstechnik-80-100-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretar-in-im-bereich-operationstechnik-80-100-ukbb-basel",
-          "sekretar-in-im-bereich-operationstechnik-80-100-universitats-kinderspital-beider-basel-basel"
+          "sekretar-in-im-bereich-operationstechnik-80-100-ukbb-basel"
         ]
       },
       "firstSeenAt": "2026-08-14T10:22:50.245Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ukbb-95b135d028d1",
-      "slug": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
-      "slugByLocale": {
-        "it": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
-        "en": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
-        "de": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel",
-        "fr": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
-      },
-      "company": "Universitäts-Kinderspital beider Basel",
-      "companyKey": "ukbb",
-      "companyDomain": "ukbb.ch",
-      "title": "Ausbildung Fachfrau/Fachmann Gesundheit EFZ (Schwerpunkt Pädiatrie)",
-      "titleByLocale": {
-        "it": "Ausbildung Fachfrau/Fachmann Gesundheit CFC (Schwerpunkt Pädiatrie)",
-        "en": "Training professional/health EFZ (focus on paediatrics)",
-        "de": "Ausbildung Fachfrau/Fachmann Gesundheit EFZ (Schwerpunkt Pädiatrie)",
-        "fr": "Formation professionnelle/santé EFZ (accent sur la pédiatrie)"
-      },
-      "description": "• Unterstützung bei der Pflege und Betreuung von Kindern und Jugendlichen\n\n• Durchführung von therapeutischen und medizinischen Massnahmen nach Anweisung\n\n• Beobachtung und Dokumentation des Gesundheitszustandes der Patient*innen\n\n• Zusammenarbeit im interdisziplinären Team\n\n• Förderung der Mobilität und des Wohlbefindens der Patient*innen",
-      "descriptionByLocale": {
-        "it": "• Sostegno alla cura e alla cura dei bambini e dei giovani\n\n• Attuazione delle misure terapeutiche e mediche\n\n• Osservazione e documentazione dello stato di salute dei pazienti\n\n• Cooperazione in un team interdisciplinare\n\n• Promuovere la mobilità e il benessere dei pazienti",
-        "en": "• Support for the care and care of children and young people\n\n• Implementation of therapeutic and medical measures as directed\n\n• Observation and documentation of patients’ health status\n\n• Cooperation in an interdisciplinary team\n\n• Promoting patient mobility and well-being",
-        "de": "• Unterstützung bei der Pflege und Betreuung von Kindern und Jugendlichen\n\n• Durchführung von therapeutischen und medizinischen Massnahmen nach Anweisung\n\n• Beobachtung und Dokumentation des Gesundheitszustandes der Patient*innen\n\n• Zusammenarbeit im interdisziplinären Team\n\n• Förderung der Mobilität und des Wohlbefindens der Patient*innen",
-        "fr": "• Soutien à la prise en charge des enfants et des jeunes\n\n• Mise en œuvre des mesures thérapeutiques et médicales\n\n• Observation et documentation de l'état de santé des patients\n\n• Coopération dans une équipe interdisciplinaire\n\n• Promouvoir la mobilité et le bien-être des patients"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.ukbb.ch/jobs/ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-paediatrie/e845655a-2d2e-47e1-930e-eef715f2a440",
-      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:17.758Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4056",
-      "streetAddress": "Spitalstrasse 33",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://jobs.ukbb.ch/jobs/ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-paediatrie/e845655a-2d2e-47e1-930e-eef715f2a440",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel",
-        "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kind-ruh9x9",
-        "training-specialist-health-efz-focus-on-pediatrics-universitats-kinderspital-beider-basel-basel",
-        "formation-de-specialistes-de-la-sante-efz-accent-sur-la-pediatrie-universitats-kinderspital-beider-basel-basel",
-        "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel",
-          "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kind-ruh9x9",
-          "training-specialist-health-efz-focus-on-pediatrics-universitats-kinderspital-beider-basel-basel",
-          "formation-de-specialistes-de-la-sante-efz-accent-sur-la-pediatrie-universitats-kinderspital-beider-basel-basel",
-          "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
-        ],
-        "en": [
-          "training-specialist-health-efz-focus-on-pediatrics-universitats-kinderspital-beider-basel-basel"
-        ],
-        "fr": [
-          "formation-de-specialistes-de-la-sante-efz-accent-sur-la-pediatrie-universitats-kinderspital-beider-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T11:16:47.699Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -176,7 +89,7 @@
       "companyDomain": "ukbb.ch",
       "title": "Pflegeexpert*in BScN oder MScN 80-90% Neonatologie",
       "titleByLocale": {
-        "it": "Pflegeexpert*in BScN o MScN 80-90% Neonatologie",
+        "it": "Esperto infermieristico BScN o MScN 80-90% Neonatologia",
         "en": "Nursing expert BScN or MScN 80-90% Neonatology",
         "de": "Pflegeexpert*in BScN oder MScN 80-90% Neonatologie",
         "fr": "Expert en soins infirmiers BScN ou MScN 80-90% Néonatologie"
@@ -188,13 +101,12 @@
         "de": "• Förderung und Entwicklung der Pflege und deren Qualitätssicherung\n\n• Fachliche sowie methodische Anleitung und Coaching der Mitarbeitenden in Pflege, Beratung und Edukation\n\n• Zusammenarbeit in interprofessionellen Teams, Projektgruppen\n\n• Mitarbeit im spitalübergreifenden Fachbereich Pflegeentwicklung\n\n• Erstellen und Überarbeiten von Pflegerichtlinien, Konzepten und Merkblättern\n\n• Umsetzen und Unterstützen der Pflegeteams in der Durchführung des Pflegeprozesses\n\n• Durchführung von internen Fortbildungsveranstaltungen\n\n• Mitarbeit im Team im Schichtbetrieb\n\n• Patientenorientierte Betreuung, Pflege und Förderung von Früh- oder Neugeborenen (Level 3) in akuten bis kritisch-instabilen Gesundheitszuständen\n\n• Selbständiges Ausführen komplexer Pflegeinterventionen im hochspezialisierten Fachbereich\n\n• Kontinuierliches Überwachen der Patienten*innen und Einleiten und/oder Ausführen von Massnahmen in rasch wechselnden Situationen einschliesslich der Anwendung fachspezifischer Medizinaltechnik\n\n• Beraten und Anleiten von Patient*innen und deren Familien mit spezifischen Krankheiten oder Situationen zur Verbesserung der Lebensqualität oder des Genesungsprozesses",
         "fr": "• Promotion et développement des soins et de leur assurance qualité\n\n• Orientation professionnelle et méthodologique et encadrement des employés en matière de soins, de conseils et d'éducation\n\n• Collaboration en équipes interprofessionnelles, groupes de projets\n\n• Coopération dans la faculté interhospitalière de développement des soins infirmiers\n\n• Création et révision de politiques, de concepts et de brochures en matière de soins\n\n• Mettre en œuvre et appuyer les équipes de soins dans la mise en œuvre du processus de soins\n\n• Organisation d'événements internes de formation\n\n• Travail d'équipe en équipes\n\n• Soins axés sur le patient, soins et promotion des prématurés ou des nouveau-nés (niveau 3) dans des conditions de santé aiguës à extrêmement instables\n\n• Exécution indépendante d'interventions complexes dans le domaine hautement spécialisé\n\n• Surveillance continue des patients et lancement et/ou mise en œuvre de mesures dans des situations en évolution rapide, y compris l'application de technologies médicales spécialisées\n\n• Conseiller et guider les patients et leur famille avec des maladies ou des situations spécifiques pour améliorer la qualité de vie ou le processus de récupération"
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.ukbb.ch/jobs/pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie/df6d0d9e-3878-4204-8512-528c180fd64b",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:17.152Z",
+      "crawledAt": "2026-09-03T23:15:13.609Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -223,8 +135,7 @@
         "expert-en-soins-en-bscn-ou-mscn-80-90-universitats-kinderspital-beider-basel-basel",
         "esperta-professionista-in-assistenza-infermieristica-bscn-mscn-80-90-universitats-kinderspital-beider-basel-basel",
         "infirmier-ere-expert-e-en-soins-bscn-mscn-80-90-universitats-kinderspital-beider-basel-basel",
-        "pflegeexperte-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel",
-        "pflegeexpert-in-bscn-o-mscn-80-90-neonatologie-universitats-kinderspital-beider-basel"
+        "pflegeexperte-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -238,8 +149,7 @@
           "expert-en-soins-en-bscn-ou-mscn-80-90-universitats-kinderspital-beider-basel-basel",
           "esperta-professionista-in-assistenza-infermieristica-bscn-mscn-80-90-universitats-kinderspital-beider-basel-basel",
           "infirmier-ere-expert-e-en-soins-bscn-mscn-80-90-universitats-kinderspital-beider-basel-basel",
-          "pflegeexperte-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel",
-          "pflegeexpert-in-bscn-o-mscn-80-90-neonatologie-universitats-kinderspital-beider-basel"
+          "pflegeexperte-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel"
         ],
         "en": [
           "pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie-ukbb-basel",
@@ -256,6 +166,7 @@
       "firstSeenAt": "2026-07-23T11:16:47.035Z",
       "salaryMin": 79200,
       "salaryMax": 110700,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -298,7 +209,7 @@
       "url": "https://jobs.ukbb.ch/jobs/zivildienst-in-der-pflege/dd8e0921-3080-4959-bb5d-0b27319318dc",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:16.424Z",
+      "crawledAt": "2026-09-03T23:15:12.885Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -317,13 +228,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zivildienst-in-der-pflege-ukbb-basel",
-        "servizio-civile-in-cura-universitats-kinderspital-beider-basel-basel"
+        "zivildienst-in-der-pflege-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienst-in-der-pflege-ukbb-basel",
-          "servizio-civile-in-cura-universitats-kinderspital-beider-basel-basel"
+          "zivildienst-in-der-pflege-ukbb-basel"
         ],
         "en": [
           "zivildienst-in-der-pflege-ukbb-basel"
@@ -335,6 +244,7 @@
       "firstSeenAt": "2026-07-23T11:16:46.384Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -377,7 +287,7 @@
       "url": "https://jobs.ukbb.ch/jobs/medizinische-r-praxisassistent-in-mpa-notfall-40/d79db7a5-6db4-4d57-9946-363e08898c5f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:14.355Z",
+      "crawledAt": "2026-09-03T23:15:10.831Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -405,8 +315,7 @@
         "medical-practice-assistant-mpa-80-100-universitats-kinderspital-beider-basel-basel",
         "medizinische-r-praxisassistent-in-mpa-80-100-ukbb-basel",
         "assistant-medical-mpa-80-100-universitats-kinderspital-beider-basel-basel",
-        "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel",
-        "medizinische-r-praxisassistent-in-mpa-notfall-40-universitats-kinderspital-beider-basel-basel"
+        "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -419,8 +328,7 @@
           "medical-practice-assistant-mpa-80-100-universitats-kinderspital-beider-basel-basel",
           "medizinische-r-praxisassistent-in-mpa-80-100-ukbb-basel",
           "assistant-medical-mpa-80-100-universitats-kinderspital-beider-basel-basel",
-          "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel",
-          "medizinische-r-praxisassistent-in-mpa-notfall-40-universitats-kinderspital-beider-basel-basel"
+          "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel"
         ],
         "en": [
           "medical-practice-assistant-mpa-emergency-service-universitats-kinderspital-beider-basel-basel",
@@ -437,6 +345,7 @@
       "firstSeenAt": "2026-07-23T11:16:44.565Z",
       "salaryMin": 35200,
       "salaryMax": 49200,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -480,7 +389,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-6-woechiges-wahlpflichtpraktikum-in-der-paediatrie/d31d0352-f7bd-40f5-b2ca-a196225b92bf",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:13.626Z",
+      "crawledAt": "2026-09-03T23:15:10.119Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -503,8 +412,7 @@
         "tirocinio-di-specializzazione-in-pneumatologia-pediatrica-6-settimane-universitats-kinderspital-beider-basel-basel",
         "pediatric-specialization-practicum-6-weeks-universitats-kinderspital-beider-basel-basel",
         "stage-specialise-en-pediatrie-6-semaines-universitats-kinderspital-beider-basel-basel",
-        "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beid-rqb3kp",
-        "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beider"
+        "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beid-rqb3kp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -512,8 +420,7 @@
           "tirocinio-di-specializzazione-in-pneumatologia-pediatrica-6-settimane-universitats-kinderspital-beider-basel-basel",
           "pediatric-specialization-practicum-6-weeks-universitats-kinderspital-beider-basel-basel",
           "stage-specialise-en-pediatrie-6-semaines-universitats-kinderspital-beider-basel-basel",
-          "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beid-rqb3kp",
-          "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beider"
+          "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beid-rqb3kp"
         ],
         "en": [
           "pediatric-specialization-practicum-6-weeks-universitats-kinderspital-beider-basel-basel"
@@ -525,6 +432,7 @@
       "firstSeenAt": "2026-07-23T11:16:43.956Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -568,7 +476,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-uewp-neonatologie-80-100/cf339dbd-db33-4f55-8ad0-135eee70b132",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:12.919Z",
+      "crawledAt": "2026-09-03T23:15:09.318Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -588,19 +496,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-oder-uwp-neonatologie-80-100-ukbb-basel",
-        "dipl-pflegefachperson-hf-o-uwp-neonatologie-80-100-universitats-kinderspital-beider-dsj2ds",
-        "dipl-pflegefachperson-hf-o-uwp-neonatologie-80-100-universitats-kinderspital-beider-basel"
+        "dipl-pflegefachperson-hf-o-uwp-neonatologie-80-100-universitats-kinderspital-beider-dsj2ds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-oder-uwp-neonatologie-80-100-ukbb-basel",
-          "dipl-pflegefachperson-hf-o-uwp-neonatologie-80-100-universitats-kinderspital-beider-dsj2ds",
-          "dipl-pflegefachperson-hf-o-uwp-neonatologie-80-100-universitats-kinderspital-beider-basel"
+          "dipl-pflegefachperson-hf-o-uwp-neonatologie-80-100-universitats-kinderspital-beider-dsj2ds"
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:43.336Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -644,7 +551,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-paediatrie/ce261eef-f32c-49c5-8688-17633be08e0d",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:12.222Z",
+      "crawledAt": "2026-09-03T23:15:08.496Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -663,13 +570,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-        "bachelor-of-science-in-infermieristica-modulo-b-aggiuntivo-in-pediatria-universitats-kinderspital-beider-basel-basel"
+        "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-          "bachelor-of-science-in-infermieristica-modulo-b-aggiuntivo-in-pediatria-universitats-kinderspital-beider-basel-basel"
+          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
         ],
         "en": [
           "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
@@ -681,6 +586,7 @@
       "firstSeenAt": "2026-07-23T11:16:42.720Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -706,7 +612,7 @@
       "companyDomain": "ukbb.ch",
       "title": "Dipl. Pflegefachperson HF oder MPA EFZ mit PSG/EEG Erfahrung 60%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF o MPA CFC con PSG/EEG Erfahrung 60%",
+        "it": "Dipl. Infermiera HF o MPA EFZ con esperienza PSG/EEG 60%",
         "en": "Dipl. Care professional HF or MPA EFZ with PSG/EEG experience 60-80 %",
         "de": "Dipl. Pflegefachperson HF oder MPA EFZ mit PSG/EEG Erfahrung 60%",
         "fr": "Dipl. Soins professionnels HF ou MPA EFZ avec expérience PSG/EEG 60-80 %"
@@ -718,13 +624,12 @@
         "de": "• Aktive Mitgestaltung und Einbringung ihres Wissens sowie ihrer Erfahrung beim weiteren Aufbau der Telemetrie Station\n\n• Sicherstellung eines reibungslosen Ablaufs im Stationsbetrieb\n\n• Installation, Durchführung und Überwachung von Polysomnographien und Langzeit-EEG’s\n\n• Fachgerechte venöse und kapillare Blutentnahmen bei Patient*innen aller Altersgruppen\n\n• Messen von Vitalparametern",
         "fr": "• Participation active et contribution de leurs connaissances et de leur expérience au développement de la station de télémétrie\n\n• Assurer le bon fonctionnement des stations\n\n• Installation, mise en œuvre et suivi des polysomnographies et des EEG à long terme\n\n• Extractions sanguines veineuses et capillaires professionnelles chez les patients de tous âges\n\n• Mesure des paramètres vitaux"
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60/c9c4baaf-d25a-4006-b59c-f80a0ddeb799",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:11.520Z",
+      "crawledAt": "2026-09-03T23:15:07.749Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -748,8 +653,7 @@
         "dipl-nursing-specialist-hf-or-mpa-efz-with-psg-eeg-experience-60-80-universitats-kinderspital-beider-basel-basel",
         "infirmier-diplome-hf-ou-mpa-efz-avec-experience-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel",
         "dipl-pflegefachperson-hf-o-mpa-efz-con-esperienza-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel",
-        "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-ukbb-basel",
-        "dipl-pflegefachperson-hf-o-mpa-cfc-con-psg-eeg-erfahrung-60-80-universitats-kinderspital-beider-basel"
+        "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -758,8 +662,7 @@
           "dipl-nursing-specialist-hf-or-mpa-efz-with-psg-eeg-experience-60-80-universitats-kinderspital-beider-basel-basel",
           "infirmier-diplome-hf-ou-mpa-efz-avec-experience-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel",
           "dipl-pflegefachperson-hf-o-mpa-efz-con-esperienza-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel",
-          "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-ukbb-basel",
-          "dipl-pflegefachperson-hf-o-mpa-cfc-con-psg-eeg-erfahrung-60-80-universitats-kinderspital-beider-basel"
+          "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-ukbb-basel"
         ],
         "en": [
           "dipl-nursing-specialist-hf-or-mpa-efz-with-psg-eeg-experience-60-80-universitats-kinderspital-beider-basel-basel"
@@ -771,6 +674,7 @@
       "firstSeenAt": "2026-07-23T11:16:42.008Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -813,7 +717,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-60-haematologische-onkologische-poliklinik/bee296f6-33a2-4aa2-8358-d3b99c45de38",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:10.742Z",
+      "crawledAt": "2026-09-03T23:15:07.021Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -832,18 +736,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-60-hamatologische-onkologische-poliklinik-ukbb-basel",
-        "dipl-pflegefachperson-hf-60-hamatologische-onkologische-poliklinik-universitats-kinderspital-beider-basel-basel"
+        "dipl-pflegefachperson-hf-60-hamatologische-onkologische-poliklinik-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-60-hamatologische-onkologische-poliklinik-ukbb-basel",
-          "dipl-pflegefachperson-hf-60-hamatologische-onkologische-poliklinik-universitats-kinderspital-beider-basel-basel"
+          "dipl-pflegefachperson-hf-60-hamatologische-onkologische-poliklinik-ukbb-basel"
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:40.638Z",
       "salaryMin": 52800,
       "salaryMax": 73800,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -887,7 +790,7 @@
       "url": "https://jobs.ukbb.ch/jobs/praktikant-in-ict-80-100/b637bdf5-d775-4b44-9f9c-870a3373cf8f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:10.154Z",
+      "crawledAt": "2026-09-03T23:15:06.295Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -906,13 +809,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-ict-80-100-ukbb-basel",
-        "stage-in-tic-80-100-universitats-kinderspital-beider-basel-basel"
+        "praktikant-in-ict-80-100-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-ict-80-100-ukbb-basel",
-          "stage-in-tic-80-100-universitats-kinderspital-beider-basel-basel"
+          "praktikant-in-ict-80-100-ukbb-basel"
         ],
         "en": [
           "praktikant-in-ict-80-100-ukbb-basel"
@@ -924,6 +825,7 @@
       "firstSeenAt": "2026-07-23T11:16:40.010Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -949,25 +851,24 @@
       "companyDomain": "ukbb.ch",
       "title": "Dipl. Pflegefachperson HF/FH 80% (Psychosomatik)",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF/FH 80% (Psychosomatik)",
-        "en": "Dipl. Pflegefachperson HF/FH 80% (Psychosomatik)",
+        "it": "Dipl. Cura professionale HF/FH 80% (psicosomatica)",
+        "en": "Dipl. Care professional HF/FH 80% (psychosomatics)",
         "de": "Dipl. Pflegefachperson HF/FH 80% (Psychosomatik)",
-        "fr": "Dipl. Pflegefachperson HF/FH 80% (Psychosomatik)"
+        "fr": "Dipl. Soins professionnels HF/FH 80% (psychosomatique)"
       },
       "description": "• Professionelle pflegerische Behandlung und Betreuung der Patient*innen im Alter von 5-18 Jahren\n\n• Krisenintervention in psychiatrischen Notfallsituation\n\n• Betreuung von Kindern und Jugendlichen mit Essstörungen\n\n• Arbeit im Bezugspflegesystem",
       "descriptionByLocale": {
-        "it": "• Professionelle pflegerische Behandlung und Betreuung der Patient*innen im Alter von 5-18 Jahren\n\n• Krisenintervention in psychiatrischen Notfallsituation\n\n• Betreuung von Kindern und Jugendlichen mit Essstörungen\n\n• Arbeit im Bezugspflegesystem",
-        "en": "• Professionelle pflegerische Behandlung und Betreuung der Patient*innen im Alter von 5-18 Jahren\n\n• Krisenintervention in psychiatrischen Notfallsituation\n\n• Betreuung von Kindern und Jugendlichen mit Essstörungen\n\n• Arbeit im Bezugspflegesystem",
+        "it": "• Trattamento e cura professionale dei pazienti di età compresa tra 5 e 18 anni\n\n• Intervento di crisi nella situazione di emergenza psichiatrica\n\n• Cura di bambini e adolescenti con disturbi alimentari\n\n• Lavoro nel sistema di riferimento",
+        "en": "• Professional nursing treatment and care of patients aged 5-18 years\n\n• Crisis intervention in psychiatric emergency situation\n\n• Care of children and adolescents with eating disorders\n\n• Work in the reference care system",
         "de": "• Professionelle pflegerische Behandlung und Betreuung der Patient*innen im Alter von 5-18 Jahren\n\n• Krisenintervention in psychiatrischen Notfallsituation\n\n• Betreuung von Kindern und Jugendlichen mit Essstörungen\n\n• Arbeit im Bezugspflegesystem",
-        "fr": "• Professionelle pflegerische Behandlung und Betreuung der Patient*innen im Alter von 5-18 Jahren\n\n• Krisenintervention in psychiatrischen Notfallsituation\n\n• Betreuung von Kindern und Jugendlichen mit Essstörungen\n\n• Arbeit im Bezugspflegesystem"
+        "fr": "• Traitement et soins infirmiers professionnels des patients âgés de 5 à 18 ans\n\n• Intervention de crise en situation d'urgence psychiatrique\n\n• Prise en charge des enfants et adolescents souffrant de troubles de l ' alimentation\n\n• Travail dans le système de soins de référence"
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-fh-80-psychosomatik/af762693-471a-40cc-9310-eb64e171806c",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:09.412Z",
+      "crawledAt": "2026-09-03T23:15:05.576Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -986,18 +887,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel",
-        "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel"
+        "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel",
-          "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel"
+          "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel"
         ]
       },
       "firstSeenAt": "2026-08-25T21:31:00.723Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1013,9 +913,9 @@
       "id": "ukbb-8fb99a0a1ac5",
       "slug": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
       "slugByLocale": {
-        "de": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
         "it": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
         "en": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
+        "de": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
         "fr": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
@@ -1023,16 +923,16 @@
       "companyDomain": "ukbb.ch",
       "title": "Dipl. Sozialpädagoge*in FH / HF 80%",
       "titleByLocale": {
-        "de": "Dipl. Sozialpädagoge*in FH / HF 80%",
         "it": "Dipl. Sozialpädagoge*in FH / HF 80%",
         "en": "Dipl. Sozialpädagoge*in FH / HF 80%",
+        "de": "Dipl. Sozialpädagoge*in FH / HF 80%",
         "fr": "Dipl. Sozialpädagoge*in FH / HF 80%"
       },
       "description": "• Bezugspersonenarbeit: Sie begleiten Kinder und Jugendliche als feste Bezugsperson und gestalten den individuellen Pflege- und Entwicklungsprozess aktiv mit.\n\n• Krisenmanagement: Sie betreuen und stabilisieren Kinder und Jugendliche im Alter von 5 bis 18 Jahren in psychiatrischen und somatischen Notfall- sowie Krisensituationen.\n\n• Multimodale Therapie: Sie bringen Ihre sozialpädagogische Expertise aktiv in unser interprofessionelles Team ein und gestalten den multimodalen Behandlungsplan mit.\n\n• Milieutherapie & Stationsalltag: Sie schaffen durch eine klare Tagesstruktur einen sicheren, entwicklungsfördernden Beziehungs- und Orientierungsrahmen und leiten ressourcenorientierte Gruppen- und Freizeitaktivitäten an.\n\n• Projektmitarbeit: Sie beteiligen sich aktiv an der Weiterentwicklung unseres Stationskonzepts und bringen sich in abteilungsübergreifende Projekte oder Arbeitsgruppen ein.",
       "descriptionByLocale": {
-        "de": "• Bezugspersonenarbeit: Sie begleiten Kinder und Jugendliche als feste Bezugsperson und gestalten den individuellen Pflege- und Entwicklungsprozess aktiv mit.\n\n• Krisenmanagement: Sie betreuen und stabilisieren Kinder und Jugendliche im Alter von 5 bis 18 Jahren in psychiatrischen und somatischen Notfall- sowie Krisensituationen.\n\n• Multimodale Therapie: Sie bringen Ihre sozialpädagogische Expertise aktiv in unser interprofessionelles Team ein und gestalten den multimodalen Behandlungsplan mit.\n\n• Milieutherapie & Stationsalltag: Sie schaffen durch eine klare Tagesstruktur einen sicheren, entwicklungsfördernden Beziehungs- und Orientierungsrahmen und leiten ressourcenorientierte Gruppen- und Freizeitaktivitäten an.\n\n• Projektmitarbeit: Sie beteiligen sich aktiv an der Weiterentwicklung unseres Stationskonzepts und bringen sich in abteilungsübergreifende Projekte oder Arbeitsgruppen ein.",
         "it": "• Bezugspersonenarbeit: Sie begleiten Kinder und Jugendliche als feste Bezugsperson und gestalten den individuellen Pflege- und Entwicklungsprozess aktiv mit.\n\n• Krisenmanagement: Sie betreuen und stabilisieren Kinder und Jugendliche im Alter von 5 bis 18 Jahren in psychiatrischen und somatischen Notfall- sowie Krisensituationen.\n\n• Multimodale Therapie: Sie bringen Ihre sozialpädagogische Expertise aktiv in unser interprofessionelles Team ein und gestalten den multimodalen Behandlungsplan mit.\n\n• Milieutherapie & Stationsalltag: Sie schaffen durch eine klare Tagesstruktur einen sicheren, entwicklungsfördernden Beziehungs- und Orientierungsrahmen und leiten ressourcenorientierte Gruppen- und Freizeitaktivitäten an.\n\n• Projektmitarbeit: Sie beteiligen sich aktiv an der Weiterentwicklung unseres Stationskonzepts und bringen sich in abteilungsübergreifende Projekte oder Arbeitsgruppen ein.",
         "en": "• Bezugspersonenarbeit: Sie begleiten Kinder und Jugendliche als feste Bezugsperson und gestalten den individuellen Pflege- und Entwicklungsprozess aktiv mit.\n\n• Krisenmanagement: Sie betreuen und stabilisieren Kinder und Jugendliche im Alter von 5 bis 18 Jahren in psychiatrischen und somatischen Notfall- sowie Krisensituationen.\n\n• Multimodale Therapie: Sie bringen Ihre sozialpädagogische Expertise aktiv in unser interprofessionelles Team ein und gestalten den multimodalen Behandlungsplan mit.\n\n• Milieutherapie & Stationsalltag: Sie schaffen durch eine klare Tagesstruktur einen sicheren, entwicklungsfördernden Beziehungs- und Orientierungsrahmen und leiten ressourcenorientierte Gruppen- und Freizeitaktivitäten an.\n\n• Projektmitarbeit: Sie beteiligen sich aktiv an der Weiterentwicklung unseres Stationskonzepts und bringen sich in abteilungsübergreifende Projekte oder Arbeitsgruppen ein.",
+        "de": "• Bezugspersonenarbeit: Sie begleiten Kinder und Jugendliche als feste Bezugsperson und gestalten den individuellen Pflege- und Entwicklungsprozess aktiv mit.\n\n• Krisenmanagement: Sie betreuen und stabilisieren Kinder und Jugendliche im Alter von 5 bis 18 Jahren in psychiatrischen und somatischen Notfall- sowie Krisensituationen.\n\n• Multimodale Therapie: Sie bringen Ihre sozialpädagogische Expertise aktiv in unser interprofessionelles Team ein und gestalten den multimodalen Behandlungsplan mit.\n\n• Milieutherapie & Stationsalltag: Sie schaffen durch eine klare Tagesstruktur einen sicheren, entwicklungsfördernden Beziehungs- und Orientierungsrahmen und leiten ressourcenorientierte Gruppen- und Freizeitaktivitäten an.\n\n• Projektmitarbeit: Sie beteiligen sich aktiv an der Weiterentwicklung unseres Stationskonzepts und bringen sich in abteilungsübergreifende Projekte oder Arbeitsgruppen ein.",
         "fr": "• Bezugspersonenarbeit: Sie begleiten Kinder und Jugendliche als feste Bezugsperson und gestalten den individuellen Pflege- und Entwicklungsprozess aktiv mit.\n\n• Krisenmanagement: Sie betreuen und stabilisieren Kinder und Jugendliche im Alter von 5 bis 18 Jahren in psychiatrischen und somatischen Notfall- sowie Krisensituationen.\n\n• Multimodale Therapie: Sie bringen Ihre sozialpädagogische Expertise aktiv in unser interprofessionelles Team ein und gestalten den multimodalen Behandlungsplan mit.\n\n• Milieutherapie & Stationsalltag: Sie schaffen durch eine klare Tagesstruktur einen sicheren, entwicklungsfördernden Beziehungs- und Orientierungsrahmen und leiten ressourcenorientierte Gruppen- und Freizeitaktivitäten an.\n\n• Projektmitarbeit: Sie beteiligen sich aktiv an der Weiterentwicklung unseres Stationskonzepts und bringen sich in abteilungsübergreifende Projekte oder Arbeitsgruppen ein."
       },
       "needsRetranslation": true,
@@ -1041,7 +941,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-sozialpaedagoge-in-fh-hf-80/ad0e5717-5fcc-43af-8a8d-8d61931836bf",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:08.732Z",
+      "crawledAt": "2026-09-03T23:15:04.728Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1058,11 +958,11 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-sozialpaedagoge-in-fh-hf-80/ad0e5717-5fcc-43af-8a8d-8d61931836bf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-28T05:13:08.732Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1072,8 +972,7 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-28T05:13:08.732Z"
+      }
     },
     {
       "id": "ukbb-8f8a88ec37c9",
@@ -1106,7 +1005,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-expert-in-anaesthesiepflege-nds-hf-80-100/a1852e47-d823-4635-b8d3-40883ab9b018",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:08.006Z",
+      "crawledAt": "2026-09-03T23:15:03.963Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1129,8 +1028,7 @@
         "esperto-a-anestesia-pediatrica-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "paediatric-anesthesia-expert-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "expert-e-en-anesthesie-pediatrique-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-        "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel-u7rbnp",
-        "dipl-esperto-nella-cura-di-anestesia-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
+        "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel-u7rbnp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1138,8 +1036,7 @@
           "esperto-a-anestesia-pediatrica-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
           "paediatric-anesthesia-expert-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
           "expert-e-en-anesthesie-pediatrique-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-          "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel-u7rbnp",
-          "dipl-esperto-nella-cura-di-anestesia-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
+          "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel-u7rbnp"
         ],
         "en": [
           "paediatric-anesthesia-expert-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
@@ -1151,6 +1048,7 @@
       "firstSeenAt": "2026-07-23T11:16:39.357Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1194,7 +1092,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-fachperson-op-technik-hf-topa/9d53a3c1-93b5-4830-b9cd-a68109b1e097",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:07.256Z",
+      "crawledAt": "2026-09-03T23:15:01.284Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1216,16 +1114,14 @@
         "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
         "dipl-op-tecnico-hf-topa-universitats-kinderspital-beider-basel-basel",
         "specialiste-certifie-en-technologie-chirurgicale-hf-topa-universitats-kinderspital-beider-basel-basel",
-        "dipl-fachperson-op-technik-hf-topa-ukbb-basel-7o3723",
-        "dipl-tecnologia-operativa-specializzata-hf-topa-universitats-kinderspital-beider-basel-basel"
+        "dipl-fachperson-op-technik-hf-topa-ukbb-basel-7o3723"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
           "dipl-op-tecnico-hf-topa-universitats-kinderspital-beider-basel-basel",
           "specialiste-certifie-en-technologie-chirurgicale-hf-topa-universitats-kinderspital-beider-basel-basel",
-          "dipl-fachperson-op-technik-hf-topa-ukbb-basel-7o3723",
-          "dipl-tecnologia-operativa-specializzata-hf-topa-universitats-kinderspital-beider-basel-basel"
+          "dipl-fachperson-op-technik-hf-topa-ukbb-basel-7o3723"
         ],
         "fr": [
           "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
@@ -1235,6 +1131,7 @@
       "firstSeenAt": "2026-07-23T11:16:38.626Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1278,7 +1175,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fachspezialist-in-ertragsmanagement-60-70/97e75efa-3bbf-4cf2-880b-d78a2df122b5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:06.567Z",
+      "crawledAt": "2026-09-03T23:15:00.507Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1297,18 +1194,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-ertragsmanagement-60-70-ukbb-basel",
-        "fachspezialist-in-ertragsmanagement-60-70-universitats-kinderspital-beider-basel-basel"
+        "fachspezialist-in-ertragsmanagement-60-70-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-ertragsmanagement-60-70-ukbb-basel",
-          "fachspezialist-in-ertragsmanagement-60-70-universitats-kinderspital-beider-basel-basel"
+          "fachspezialist-in-ertragsmanagement-60-70-ukbb-basel"
         ]
       },
       "firstSeenAt": "2026-08-27T00:36:17.742Z",
       "salaryMin": 61600,
       "salaryMax": 86100,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1335,7 +1231,7 @@
       "title": "Praktikant*in ICT - Schwerpunkt Support 100%",
       "titleByLocale": {
         "it": "Internship in ICT - Focus on Support 100%",
-        "en": "Intern ICT - Focus on Support 100%",
+        "en": "Internship in ICT - Focus on Support 100%",
         "de": "Praktikant*in ICT - Schwerpunkt Support 100%",
         "fr": "Stage dans les TIC - Focus sur le soutien 100%"
       },
@@ -1351,7 +1247,7 @@
       "url": "https://jobs.ukbb.ch/jobs/praktikant-in-ict-schwerpunkt-support-100/8dafd0e9-bc80-40f8-b4a5-b622218286db",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:05.803Z",
+      "crawledAt": "2026-09-03T23:14:59.428Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1374,8 +1270,7 @@
         "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel",
         "intern-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel",
         "stage-dans-les-tic-focus-sur-le-soutien-100-universitats-kinderspital-beider-basel-basel",
-        "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel-qmcm33",
-        "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel-b49a1d"
+        "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel-qmcm33"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1383,8 +1278,7 @@
           "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel",
           "intern-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel",
           "stage-dans-les-tic-focus-sur-le-soutien-100-universitats-kinderspital-beider-basel-basel",
-          "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel-qmcm33",
-          "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel-b49a1d"
+          "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel-qmcm33"
         ],
         "en": [
           "intern-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel"
@@ -1397,6 +1291,7 @@
       "firstSeenAt": "2026-07-23T11:16:37.990Z",
       "salaryMin": 58000,
       "salaryMax": 99000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1440,7 +1335,7 @@
       "url": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-60-100/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:05.031Z",
+      "crawledAt": "2026-09-03T23:14:58.574Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1459,13 +1354,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-        "arztsekretar-in-orthopala-60-100-universitats-kinderspital-beider-basel-basel"
+        "arztsekretar-in-orthopadie-60-100-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-          "arztsekretar-in-orthopala-60-100-universitats-kinderspital-beider-basel-basel"
+          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
         ],
         "en": [
           "arztsekretar-in-orthopadie-60-100-ukbb-basel"
@@ -1477,6 +1370,7 @@
       "firstSeenAt": "2026-07-23T11:16:36.655Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1520,7 +1414,7 @@
       "url": "https://jobs.ukbb.ch/jobs/sozialpaedagog-in-50-mutterschaftsvertretung/6d5592ca-e3e9-43ce-b364-e79d37a273c3",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:04.344Z",
+      "crawledAt": "2026-09-03T23:14:57.769Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1539,18 +1433,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagog-in-50-mutterschaftsvertretung-ukbb-basel",
-        "sozialpadagog-in-50-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel"
+        "sozialpadagog-in-50-mutterschaftsvertretung-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-50-mutterschaftsvertretung-ukbb-basel",
-          "sozialpadagog-in-50-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel"
+          "sozialpadagog-in-50-mutterschaftsvertretung-ukbb-basel"
         ]
       },
       "firstSeenAt": "2026-07-30T11:14:28.419Z",
       "salaryMin": 44000,
       "salaryMax": 61500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1594,7 +1487,7 @@
       "url": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-neuropaediatrie-80/4ca06ae6-0aa8-4f7a-bbda-d9ffa1c41fcc",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:03.442Z",
+      "crawledAt": "2026-09-03T23:14:56.732Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1613,18 +1506,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "terminkoordinator-in-neuropadiatrie-80-ukbb-basel",
-        "terminkoordinator-in-neuropadiatrie-80-universitats-kinderspital-beider-basel-basel"
+        "terminkoordinator-in-neuropadiatrie-80-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "terminkoordinator-in-neuropadiatrie-80-ukbb-basel",
-          "terminkoordinator-in-neuropadiatrie-80-universitats-kinderspital-beider-basel-basel"
+          "terminkoordinator-in-neuropadiatrie-80-ukbb-basel"
         ]
       },
       "firstSeenAt": "2026-08-18T22:14:15.439Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1668,7 +1560,7 @@
       "url": "https://jobs.ukbb.ch/jobs/expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100/4a0d26ea-c54c-4093-a107-521d48e3413e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:02.453Z",
+      "crawledAt": "2026-09-03T23:14:55.975Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1687,18 +1579,90 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100-ukbb-basel",
-        "expert-innen-intensivpflege-nds-o-dipl-pflegefachperson-hf-100-universitats-kinderspital-beider-basel"
+        "expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100-ukbb-basel",
-          "expert-innen-intensivpflege-nds-o-dipl-pflegefachperson-hf-100-universitats-kinderspital-beider-basel"
+          "expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100-ukbb-basel"
         ]
       },
       "firstSeenAt": "2026-08-27T00:36:14.452Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ukbb-1db47511f5aa",
+      "slug": "applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100-universitats-kinderspital-beider-basel-basel",
+      "slugByLocale": {
+        "it": "applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100-universitats-kinderspital-beider-basel-basel",
+        "en": "applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100-universitats-kinderspital-beider-basel-basel",
+        "de": "applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100-ukbb-basel",
+        "fr": "applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100-universitats-kinderspital-beider-basel-basel"
+      },
+      "company": "Universitäts-Kinderspital beider Basel",
+      "companyKey": "ukbb",
+      "companyDomain": "ukbb.ch",
+      "title": "Applikationsbetreuer*in mit Schwerpunkt KIS (KISIM) 100%",
+      "titleByLocale": {
+        "it": "Applikationsbetreuer*in con Schwerpunkt KIS (KISIM) 100%",
+        "en": "Applikationsbetreuer*in mit Schwerpunkt KIS (KISIM) 100%",
+        "de": "Applikationsbetreuer*in mit Schwerpunkt KIS (KISIM) 100%",
+        "fr": "Applikationsbetreuer*in mit Schwerpunkt KIS (KISIM) 100%"
+      },
+      "description": "• Sicherstellung des Betriebs, der Betreuung sowie der Weiterentwicklung des Klinikinformationssystems KISIM von Cistec\n\n• Enge Zusammenarbeit mit den Fachabteilungen sowie aktive Mitarbeit an (interdisziplinären) Projekten im Bereich der klinischen Applikationen\n\n• Sie bilden die Schnittstelle zwischen dem klinischen Betrieb und der technischen Informatik\n\n• Spezifikation und Umsetzung der technischen Anforderungen in Zusammenarbeit mit den medizinischen Fachbereichen\n\n• Planung und Implementierung von Change Requests und Releases\n\n• 2nd Level Support und Koordination mit den Lieferanten im 3rd Level-Bereich\n\n• Analyse und Bearbeitung von Incidents wie Parametrierprobleme, Schnittstellen-Themen sowie Anwendungsfragen (2nd Level Support)\n\n• Erstellung von Anleitungen, Dokumentationen, Mockups, etc.\n\n• Unterstützung der Key-User in den Fachabteilungen\n\n• Teilnahme an den entsprechenden Fachgruppen (z.B. Board KISIM, etc.)",
+      "descriptionByLocale": {
+        "it": "• Sicherstellung des Betriebs, der Betreuung sowie der Weiterentwicklung des Klinikinformationssystems KISIM von Cistec\n\n• Enge Zusammenarbeit mit den Fachabteilungen sowie aktive Mitarbeit an (interdisziplinären) Projekten im Bereich der klinischen Applikationen\n\n• Sie bilden die Schnittstelle zwischen dem klinischen Betrieb und der technischen Informatik\n\n• Spezifikation und Umsetzung der technischen Anforderungen in Zusammenarbeit mit den medizinischen Fachbereichen\n\n• Planung und Implementierung von Change Requests und Releases\n\n• 2nd Level Support und Koordination mit den Lieferanten im 3rd Level-Bereich\n\n• Analyse und Bearbeitung von Incidents wie Parametrierprobleme, Schnittstellen-Themen sowie Anwendungsfragen (2nd Level Support)\n\n• Erstellung von Anleitungen, Dokumentationen, Mockups, etc.\n\n• Unterstützung der Key-User in den Fachabteilungen\n\n• Teilnahme an den entsprechenden Fachgruppen (z.B. Board KISIM, etc.)",
+        "en": "• Sicherstellung des Betriebs, der Betreuung sowie der Weiterentwicklung des Klinikinformationssystems KISIM von Cistec\n\n• Enge Zusammenarbeit mit den Fachabteilungen sowie aktive Mitarbeit an (interdisziplinären) Projekten im Bereich der klinischen Applikationen\n\n• Sie bilden die Schnittstelle zwischen dem klinischen Betrieb und der technischen Informatik\n\n• Spezifikation und Umsetzung der technischen Anforderungen in Zusammenarbeit mit den medizinischen Fachbereichen\n\n• Planung und Implementierung von Change Requests und Releases\n\n• 2nd Level Support und Koordination mit den Lieferanten im 3rd Level-Bereich\n\n• Analyse und Bearbeitung von Incidents wie Parametrierprobleme, Schnittstellen-Themen sowie Anwendungsfragen (2nd Level Support)\n\n• Erstellung von Anleitungen, Dokumentationen, Mockups, etc.\n\n• Unterstützung der Key-User in den Fachabteilungen\n\n• Teilnahme an den entsprechenden Fachgruppen (z.B. Board KISIM, etc.)",
+        "de": "• Sicherstellung des Betriebs, der Betreuung sowie der Weiterentwicklung des Klinikinformationssystems KISIM von Cistec\n\n• Enge Zusammenarbeit mit den Fachabteilungen sowie aktive Mitarbeit an (interdisziplinären) Projekten im Bereich der klinischen Applikationen\n\n• Sie bilden die Schnittstelle zwischen dem klinischen Betrieb und der technischen Informatik\n\n• Spezifikation und Umsetzung der technischen Anforderungen in Zusammenarbeit mit den medizinischen Fachbereichen\n\n• Planung und Implementierung von Change Requests und Releases\n\n• 2nd Level Support und Koordination mit den Lieferanten im 3rd Level-Bereich\n\n• Analyse und Bearbeitung von Incidents wie Parametrierprobleme, Schnittstellen-Themen sowie Anwendungsfragen (2nd Level Support)\n\n• Erstellung von Anleitungen, Dokumentationen, Mockups, etc.\n\n• Unterstützung der Key-User in den Fachabteilungen\n\n• Teilnahme an den entsprechenden Fachgruppen (z.B. Board KISIM, etc.)",
+        "fr": "• Sicherstellung des Betriebs, der Betreuung sowie der Weiterentwicklung des Klinikinformationssystems KISIM von Cistec\n\n• Enge Zusammenarbeit mit den Fachabteilungen sowie aktive Mitarbeit an (interdisziplinären) Projekten im Bereich der klinischen Applikationen\n\n• Sie bilden die Schnittstelle zwischen dem klinischen Betrieb und der technischen Informatik\n\n• Spezifikation und Umsetzung der technischen Anforderungen in Zusammenarbeit mit den medizinischen Fachbereichen\n\n• Planung und Implementierung von Change Requests und Releases\n\n• 2nd Level Support und Koordination mit den Lieferanten im 3rd Level-Bereich\n\n• Analyse und Bearbeitung von Incidents wie Parametrierprobleme, Schnittstellen-Themen sowie Anwendungsfragen (2nd Level Support)\n\n• Erstellung von Anleitungen, Dokumentationen, Mockups, etc.\n\n• Unterstützung der Key-User in den Fachabteilungen\n\n• Teilnahme an den entsprechenden Fachgruppen (z.B. Board KISIM, etc.)"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.ukbb.ch/jobs/applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100/478cee10-aed9-4954-9924-92d8f6ddd9e2",
+      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:14:55.240Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4056",
+      "streetAddress": "Spitalstrasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://jobs.ukbb.ch/jobs/applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100/478cee10-aed9-4954-9924-92d8f6ddd9e2",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100-ukbb-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100-ukbb-basel"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T23:07:12.210Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1724,7 +1688,7 @@
       "companyDomain": "ukbb.ch",
       "title": "Dipl. Pflegefachperson HF oder Expert*in Notfallpflege NDS HF 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF o Expert*in Notfallpflege NDS HF 80-100%",
+        "it": "Dipl. Cura professionale HF o esperto di assistenza di emergenza NDS HF 80-100 %",
         "en": "Dipl. Care professional HF or emergency care expert NDS HF 80-100 %",
         "de": "Dipl. Pflegefachperson HF oder Expert*in Notfallpflege NDS HF 80-100%",
         "fr": "Dipl. Spécialiste des soins de santé ou spécialiste des soins d'urgence NDS HF 80-100 %"
@@ -1736,13 +1700,12 @@
         "de": "• Sie werden als wichtiger Teil eines professionell agierenden Teams in einem hochmodernen universitären Kinderspital die täglichen Herausforderungen einer pädiatrischen Notfallstation mit Herz, Verstand und Wissen meistern\n\n• Unsere Patient*innen befinden sich von Geburt bis zum 18. Lebensjahr vielfach in akuten, kritisch-instabilen bis lebensbedrohlichen Gesundheitszuständen, in denen wir gemeinsam in einem hochmotivierten interdisziplinären Team zusammenarbeiten\n\n• Bei aller Professionalität verlieren Sie Humor, Empathie und Freude nicht aus dem Blick und schaffen gemeinsam mit ihrem Team ein Umfeld, in dem sich unsere Patient*innen und ihre Angehörigen sicher und aufgehoben fühlen",
         "fr": "• En tant que partie importante d'une équipe professionnelle dans un hôpital d'enfants universitaires ultramoderne, vous maîtriserez les défis quotidiens d'un service d'urgence pédiatrique avec cœur, esprit et connaissances.\n\n• Nos patients sont de la naissance à 18. Année de vie souvent dans des conditions de santé aiguës, extrêmement instables à mettre en danger la vie dans lesquelles nous travaillons ensemble dans une équipe interdisciplinaire très motivée\n\n• Malgré tout le professionnalisme, vous ne perdez pas de vue l'humour, l'empathie et la joie et créez avec votre équipe un environnement dans lequel nos patients et leurs proches se sentent en sécurité."
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100/3f40a320-1e74-46d2-8bce-3c773f7e5011",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:01.601Z",
+      "crawledAt": "2026-09-03T23:14:54.432Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1767,8 +1730,7 @@
         "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "dipl-specialiste-des-soins-de-sante-ou-specialiste-des-soins-d-urgence-nds-hf-80-100-universitats-kinderspital-beider",
-        "professional-in-dipl-expert-in-nds-hf-emergency-care-spital-limmattal-schlieren",
-        "dipl-pflegefachperson-hf-o-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel"
+        "professional-in-dipl-expert-in-nds-hf-emergency-care-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1777,8 +1739,7 @@
           "dipl-professionnel-de-la-sante-hf-ou-expert-en-soins-d-urgence-nds-hf-80-100-universitats-kinderspital-beider-basel",
           "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
           "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-          "professional-in-dipl-expert-in-nds-hf-emergency-care-spital-limmattal-schlieren",
-          "dipl-pflegefachperson-hf-o-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel"
+          "professional-in-dipl-expert-in-nds-hf-emergency-care-spital-limmattal-schlieren"
         ],
         "fr": [
           "dipl-professionnel-de-la-sante-hf-ou-expert-en-soins-d-urgence-nds-hf-80-100-universitats-kinderspital-beider-basel",
@@ -1788,6 +1749,7 @@
       "firstSeenAt": "2026-07-23T11:16:34.743Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1831,7 +1793,7 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-terminkoordination-100-polikliniken-radiologie/3b3e5804-60ce-46a2-9df6-50de5a90193c",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:00.854Z",
+      "crawledAt": "2026-09-03T23:14:53.286Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1851,14 +1813,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-terminkoordination-100-polikliniken-radiologie-ukbb-basel",
-        "teamleiter-in-terminkoordination-100-polikliniken-radiologie-universitats-kinderspital-beider-basel-basel",
-        "team-leader-in-coordinamento-nominativo-100-policlinici-radiologia-universitats-kinderspital-beider-basel-basel"
+        "teamleiter-in-terminkoordination-100-polikliniken-radiologie-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-terminkoordination-100-polikliniken-radiologie-ukbb-basel",
-          "teamleiter-in-terminkoordination-100-polikliniken-radiologie-universitats-kinderspital-beider-basel-basel",
-          "team-leader-in-coordinamento-nominativo-100-policlinici-radiologia-universitats-kinderspital-beider-basel-basel"
+          "teamleiter-in-terminkoordination-100-polikliniken-radiologie-universitats-kinderspital-beider-basel-basel"
         ],
         "en": [
           "teamleiter-in-terminkoordination-100-polikliniken-radiologie-universitats-kinderspital-beider-basel-basel"
@@ -1870,6 +1830,7 @@
       "firstSeenAt": "2026-07-31T22:07:06.889Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1895,7 +1856,7 @@
       "companyDomain": "ukbb.ch",
       "title": "Oberarzt*in für die Pädiatrische Nephrologie 50-80%",
       "titleByLocale": {
-        "it": "Oberarzt*in per la Pädiatrische Nephrologie 50-80%",
+        "it": "Medico senior per nefrologia pediatrica 50-80 %",
         "en": "Senior physician for pediatric nephrology 50-80 %",
         "de": "Oberarzt*in für die Pädiatrische Nephrologie 50-80%",
         "fr": "Médecin principal en néphrologie pédiatrique 50-80 %"
@@ -1907,13 +1868,12 @@
         "de": "• Sie betreuen Kinder und Jugendliche mit Nierenerkrankungen im ambulanten und im stationären Bereich\n\n• Sie führen die akute und chronische Peritonealdialyse durch und betreuen Kinder und Jugendliche vor und nach Nierentransplantation\n\n• Sie pflegen eine enge Zusammenarbeit mit der Urologie, der Intensivstation sowie den anderen pädiatrischen Schwerpunkten im Haus\n\n• Sie pflegen den intensiven Kontakt mit den Kollegen*innen der Nephrologie und Transplantationsimmunologie und der Genetik am USB, sowie den Kollegen*innen der Kindernephrologie am Inselspital Bern sowie in Bellinzona (Tessin)",
         "fr": "• Ils s ' occupent des enfants et des adolescents atteints de maladies rénales dans les zones ambulatoires et dans les zones d ' hospitalisation\n\n• Ils effectuent une dialyse péritonéale aiguë et chronique et prennent soin des enfants et des adolescents avant et après la transplantation rénale\n\n• Ils entretiennent une collaboration étroite avec l'urologie, l'unité de soins intensifs et les autres domaines d'intervention pédiatriques de la maison.\n\n• Ils maintiennent un contact intensif avec leurs collègues en néphrologie et en immunologie et en génétique de transplantation à l'USB, ainsi qu'avec leurs collègues en épirologie pédiatrique à l'Inselspital Bern et à Bellinzona (Ticino)."
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-fuer-die-paediatrische-nephrologie-50-80/32cb67ef-2767-46fe-9291-c3e157a0c537",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:00.090Z",
+      "crawledAt": "2026-09-03T23:14:52.271Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1932,13 +1892,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel",
-        "oberarzt-in-per-la-padiatrische-nephrologie-50-80-universitats-kinderspital-beider-basel"
+        "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel",
-          "oberarzt-in-per-la-padiatrische-nephrologie-50-80-universitats-kinderspital-beider-basel"
+          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
         ],
         "en": [
           "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
@@ -1950,6 +1908,7 @@
       "firstSeenAt": "2026-07-23T11:16:34.099Z",
       "salaryMin": 95200,
       "salaryMax": 132800,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1957,6 +1916,79 @@
           "@type": "QuantitativeValue",
           "minValue": 95200,
           "maxValue": 132800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ukbb-2eaf5f7f7b64",
+      "slug": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel",
+      "slugByLocale": {
+        "it": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel",
+        "en": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel",
+        "de": "teamleiter-in-patientenaufnahme-100-ukbb-basel",
+        "fr": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel"
+      },
+      "company": "Universitäts-Kinderspital beider Basel",
+      "companyKey": "ukbb",
+      "companyDomain": "ukbb.ch",
+      "title": "Teamleiter*in Patientenaufnahme 100 %",
+      "titleByLocale": {
+        "it": "Teamleiter*in Patientenaufnahme 100 %",
+        "en": "Teamleiter*in Patientenaufnahme 100 %",
+        "de": "Teamleiter*in Patientenaufnahme 100 %",
+        "fr": "Teamleiter*in Patientenaufnahme 100 %"
+      },
+      "description": "• Personelle, fachliche und organisatorische Führung der Teams in der der stationären Aufnahme und Tagesklinik, IV-Koordination und Notfallaufnahme\n\n• Verantwortung für die Sicherstellung effizienter und serviceorientierter administrativer Prozesse entlang des Patientenpfads\n\n• Zentrale Ansprechperson für patientenbezogene administrative Prozesse und Schnittstellen\n\n• Weiterentwicklung, Optimierung und Dokumentation von Prozessen und Arbeitsabläufen\n\n• Förderung einer kundenorientierten, qualitätsbewussten und konstruktiven Teamkultur\n\n• Übernahme delegierter Aufgaben der Abteilungsleitung, inklusive Auswertungen, Reporting sowie die Bewirtschaftung des Personaleinsatzplanungssystems (PEP Polypoint)\n\n• Enge Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Aktive Mitarbeit im operativen Tagesgeschäft in der stationären Aufnahme und Tagesklinik",
+      "descriptionByLocale": {
+        "it": "• Personelle, fachliche und organisatorische Führung der Teams in der der stationären Aufnahme und Tagesklinik, IV-Koordination und Notfallaufnahme\n\n• Verantwortung für die Sicherstellung effizienter und serviceorientierter administrativer Prozesse entlang des Patientenpfads\n\n• Zentrale Ansprechperson für patientenbezogene administrative Prozesse und Schnittstellen\n\n• Weiterentwicklung, Optimierung und Dokumentation von Prozessen und Arbeitsabläufen\n\n• Förderung einer kundenorientierten, qualitätsbewussten und konstruktiven Teamkultur\n\n• Übernahme delegierter Aufgaben der Abteilungsleitung, inklusive Auswertungen, Reporting sowie die Bewirtschaftung des Personaleinsatzplanungssystems (PEP Polypoint)\n\n• Enge Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Aktive Mitarbeit im operativen Tagesgeschäft in der stationären Aufnahme und Tagesklinik",
+        "en": "• Personelle, fachliche und organisatorische Führung der Teams in der der stationären Aufnahme und Tagesklinik, IV-Koordination und Notfallaufnahme\n\n• Verantwortung für die Sicherstellung effizienter und serviceorientierter administrativer Prozesse entlang des Patientenpfads\n\n• Zentrale Ansprechperson für patientenbezogene administrative Prozesse und Schnittstellen\n\n• Weiterentwicklung, Optimierung und Dokumentation von Prozessen und Arbeitsabläufen\n\n• Förderung einer kundenorientierten, qualitätsbewussten und konstruktiven Teamkultur\n\n• Übernahme delegierter Aufgaben der Abteilungsleitung, inklusive Auswertungen, Reporting sowie die Bewirtschaftung des Personaleinsatzplanungssystems (PEP Polypoint)\n\n• Enge Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Aktive Mitarbeit im operativen Tagesgeschäft in der stationären Aufnahme und Tagesklinik",
+        "de": "• Personelle, fachliche und organisatorische Führung der Teams in der der stationären Aufnahme und Tagesklinik, IV-Koordination und Notfallaufnahme\n\n• Verantwortung für die Sicherstellung effizienter und serviceorientierter administrativer Prozesse entlang des Patientenpfads\n\n• Zentrale Ansprechperson für patientenbezogene administrative Prozesse und Schnittstellen\n\n• Weiterentwicklung, Optimierung und Dokumentation von Prozessen und Arbeitsabläufen\n\n• Förderung einer kundenorientierten, qualitätsbewussten und konstruktiven Teamkultur\n\n• Übernahme delegierter Aufgaben der Abteilungsleitung, inklusive Auswertungen, Reporting sowie die Bewirtschaftung des Personaleinsatzplanungssystems (PEP Polypoint)\n\n• Enge Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Aktive Mitarbeit im operativen Tagesgeschäft in der stationären Aufnahme und Tagesklinik",
+        "fr": "• Personelle, fachliche und organisatorische Führung der Teams in der der stationären Aufnahme und Tagesklinik, IV-Koordination und Notfallaufnahme\n\n• Verantwortung für die Sicherstellung effizienter und serviceorientierter administrativer Prozesse entlang des Patientenpfads\n\n• Zentrale Ansprechperson für patientenbezogene administrative Prozesse und Schnittstellen\n\n• Weiterentwicklung, Optimierung und Dokumentation von Prozessen und Arbeitsabläufen\n\n• Förderung einer kundenorientierten, qualitätsbewussten und konstruktiven Teamkultur\n\n• Übernahme delegierter Aufgaben der Abteilungsleitung, inklusive Auswertungen, Reporting sowie die Bewirtschaftung des Personaleinsatzplanungssystems (PEP Polypoint)\n\n• Enge Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Aktive Mitarbeit im operativen Tagesgeschäft in der stationären Aufnahme und Tagesklinik"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-patientenaufnahme-100/2b78f596-2408-4404-b1af-83bdbe9f1d26",
+      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:14:51.243Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4056",
+      "streetAddress": "Spitalstrasse 33",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://jobs.ukbb.ch/jobs/teamleiter-in-patientenaufnahme-100/2b78f596-2408-4404-b1af-83bdbe9f1d26",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiter-in-patientenaufnahme-100-ukbb-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-patientenaufnahme-100-ukbb-basel"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T17:01:00.574Z",
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
           "unitText": "YEAR"
         }
       }
@@ -1993,7 +2025,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-radiologie-80-100/1cb676e3-f106-43fa-b498-924913fd0aa5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:12:59.389Z",
+      "crawledAt": "2026-09-03T23:14:50.175Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2012,13 +2044,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-in-radiologie-80-100-ukbb-basel",
-        "radiologia-medico-senior-80-100-universitats-kinderspital-beider-basel-basel"
+        "oberarzt-in-radiologie-80-100-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-in-radiologie-80-100-ukbb-basel",
-          "radiologia-medico-senior-80-100-universitats-kinderspital-beider-basel-basel"
+          "oberarzt-in-radiologie-80-100-ukbb-basel"
         ],
         "en": [
           "oberarzt-in-radiologie-80-100-ukbb-basel"
@@ -2030,6 +2060,7 @@
       "firstSeenAt": "2026-07-23T11:16:33.348Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2073,7 +2104,7 @@
       "url": "https://jobs.ukbb.ch/jobs/ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-paediatrie/0fe24a9a-c685-47e4-8e93-962b860e240e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:12:58.649Z",
+      "crawledAt": "2026-09-03T23:14:49.103Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2096,8 +2127,7 @@
         "formazione-in-diploma-di-tecnico-operativo-hf-specializzazione-in-pediatria-universitats-kinderspital-beider-basel-basel",
         "diploma-in-surgical-technology-pediatrics-specialization-universitats-kinderspital-beider-basel-basel",
         "formation-en-technicien-ne-op-hf-specialisation-pediatrie-universitats-kinderspital-beider-basel-basel",
-        "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-base-t7oqfv",
-        "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
+        "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-base-t7oqfv"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2105,8 +2135,7 @@
           "formazione-in-diploma-di-tecnico-operativo-hf-specializzazione-in-pediatria-universitats-kinderspital-beider-basel-basel",
           "diploma-in-surgical-technology-pediatrics-specialization-universitats-kinderspital-beider-basel-basel",
           "formation-en-technicien-ne-op-hf-specialisation-pediatrie-universitats-kinderspital-beider-basel-basel",
-          "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-base-t7oqfv",
-          "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
+          "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-base-t7oqfv"
         ],
         "en": [
           "diploma-in-surgical-technology-pediatrics-specialization-universitats-kinderspital-beider-basel-basel"
@@ -2118,6 +2147,7 @@
       "firstSeenAt": "2026-07-23T11:16:32.697Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

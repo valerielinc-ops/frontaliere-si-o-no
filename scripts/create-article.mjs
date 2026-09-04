@@ -108,6 +108,7 @@ import {
   stripFabricatedExamples,
 } from './lib/article-sanitizers.mjs';
 import { decodeHtmlEntities } from './lib/decode-html-entities.mjs';
+import { readAttr } from './lib/html-attr.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
@@ -4462,7 +4463,7 @@ function extractDateFromUrl(url) {
 }
 
 /** Build a map of URL → date from <time> elements found near <a> links in the HTML */
-function extractDatesFromHtml(html, baseUrl) {
+export function extractDatesFromHtml(html, baseUrl) {
   const dateMap = new Map();
   // Match <time datetime="..."> anywhere in HTML — build global date context
   const timeRe = /<time[^>]*datetime=["']([^"']+)["'][^>]*>/gi;
@@ -4472,11 +4473,13 @@ function extractDatesFromHtml(html, baseUrl) {
     const pos = tm.index;
     // Find the nearest <a href> within 500 chars before or after this <time>
     const context = html.slice(Math.max(0, pos - 500), pos + 500);
-    const nearbyLink = context.match(/href=["'](https?:\/\/[^"']+)["']/);
+    const nearbyLink = [...context.matchAll(/<a\b[^>]*>/gi)]
+      .map((match) => readAttr(match[0], 'href'))
+      .find((href) => /^https?:\/\//i.test(href));
     if (nearbyLink) {
       try {
         const d = new Date(dateStr);
-        if (!isNaN(d.getTime())) dateMap.set(nearbyLink[1], d);
+        if (!isNaN(d.getTime())) dateMap.set(nearbyLink, d);
       } catch { /* skip invalid dates */ }
     }
   }
@@ -4490,9 +4493,11 @@ function extractDatesFromHtml(html, baseUrl) {
   // (then false-matched into the proven pool). Scope the date to the anchor's
   // own inner HTML so the link↔date pairing is exact (proximity windows misfire
   // when the same nwsId appears in multiple sidebars).
-  const anchorRe = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const anchorRe = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let am;
   while ((am = anchorRe.exec(html)) !== null) {
+    const rawHref = readAttr(am[1], 'href');
+    if (!rawHref) continue;
     const inner = am[2];
     const dmy = inner.match(/\b([0-3]?\d)\.(0?[1-9]|1[0-2])\.(20\d{2})\b/);
     if (!dmy) continue;
@@ -4502,7 +4507,7 @@ function extractDatesFromHtml(html, baseUrl) {
     if (day < 1 || day > 31) continue;
     // Resolve to the absolute URL so the key matches extractHeadlines' lookup.
     let href;
-    try { href = new URL(am[1], baseUrl).href; } catch { continue; }
+    try { href = new URL(rawHref, baseUrl).href; } catch { continue; }
     if (!href.startsWith('http') || dateMap.has(href)) continue;
     const d = new Date(year, month - 1, day);
     // Round-trip: reject calendar-impossible dates (31.04, 30.02) that
@@ -4526,14 +4531,15 @@ function isWithinDays(date, days) {
 }
 
 // ── Step 1b: Extract links and headlines from an HTML page ──
-function extractHeadlines(html, baseUrl) {
+export function extractHeadlines(html, baseUrl) {
   const results = [];
   const htmlDateMap = extractDatesFromHtml(html, baseUrl);
   // Match <a href="...">text</a> — capture href and inner text
-  const linkRe = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const linkRe = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = linkRe.exec(html)) !== null) {
-    let href = m[1];
+    let href = readAttr(m[1], 'href');
+    if (!href) continue;
     const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     // Only keep links with meaningful text (likely headlines)
     if (text.length < 15 || text.length > 300) continue;
@@ -4568,7 +4574,7 @@ function isRssFeed(content) {
 }
 
 /** Parse RSS/Atom XML and return { url, headline, date }[] — same shape as extractHeadlines */
-function extractRssItems(xml, feedUrl) {
+export function extractRssItems(xml, feedUrl) {
   const results = [];
   const isAtom = /<feed[\s>]/i.test(xml.slice(0, 500));
 
@@ -4579,12 +4585,24 @@ function extractRssItems(xml, feedUrl) {
     while ((em = entryRe.exec(xml)) !== null) {
       const block = em[0];
       const title = block.match(/<title[^>]*><!\[CDATA\[([\s\S]*?)\]\]><\/title>|<title[^>]*>([\s\S]*?)<\/title>/i);
-      const link = block.match(/<link[^>]*href=["']([^"']+)["']/i)
-        || block.match(/<link[^>]*>([^<]+)<\/link>/i);
+      const linkTags = block.match(/<link\b[^>]*>/gi) ?? [];
+      const linkText = block.match(/<link[^>]*>([^<]+)<\/link>/i);
       const date = block.match(/<updated>([^<]+)<\/updated>/i)
         || block.match(/<published>([^<]+)<\/published>/i);
       const headline = (title?.[1] || title?.[2] || '').replace(/<[^>]+>/g, '').trim();
-      const href = (link?.[1] || '').trim();
+      const atomLinks = linkTags
+        .map((tag) => ({
+          href: readAttr(tag, 'href').trim(),
+          rel: readAttr(tag, 'rel').trim().toLowerCase(),
+        }))
+        .filter((link) => link.href);
+      // Atom defines an omitted rel as `alternate`. Prefer an explicit
+      // alternate, then the default/omitted form, before falling back to a
+      // self-only feed so metadata links cannot eclipse the article URL.
+      const preferredLink = atomLinks.find((link) => link.rel.split(/\s+/).includes('alternate'))
+        || atomLinks.find((link) => !link.rel)
+        || atomLinks[0];
+      const href = (preferredLink?.href || linkText?.[1] || '').trim();
       if (!headline || headline.length < 10 || !href) continue;
       let parsedDate = null;
       if (date?.[1]) { try { parsedDate = new Date(date[1]); if (isNaN(parsedDate.getTime())) parsedDate = null; } catch { parsedDate = null; } }

@@ -1,0 +1,25 @@
+{
+  "url": "https://jobs.coopjobs.ch/postes-vacantes/vendeuse-vendeur-food-f-h-d/55f02a7a-203a-4900-811b-0be9d92e2838",
+  "jsonLd": {
+    "@context": "http://schema.org",
+    "@type": "JobPosting",
+    "title": "Vendeuse / Vendeur Food (f/h/d)",
+    "employmentType": "PART_TIME",
+    "description": "<p><div>Mission</div><br><ul><li>Vous aimez le changement et servez et conseillez notre clientèle dans différents rayons, avec une amabilité et un engagement constants.</li><li>Votre implication active dynamise les ventes et garantit la gestion optimale des produits.</li><li>Vous respectez nos consignes en matière de fraîcheur, de qualité et d'hygiène.</li></ul></p>",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Coop Genossenschaft"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Suisse",
+        "addressLocality": "Chavornay",
+        "addressRegion": "Vaud",
+        "postalCode": "1373",
+        "streetAddress": "Rue de la Gare 11"
+      }
+    }
+  }
+}

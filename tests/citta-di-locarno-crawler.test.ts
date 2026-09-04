@@ -7,6 +7,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   parseLocarnoListingHtml,
+  normalizeLocarnoPdfUrl,
+  normalizeLocarnoApplicationUrl,
   normalizeJobTitle,
   isTitleTooGeneric,
   parseLocarnoDate,
@@ -22,14 +24,14 @@ const LISTING_HTML_FIXTURE = `
   <li>
     <p>13.03.2026</p>
     <p>
-      <a href="/docs/concorso-direttrice-30.pdf">
+      <a href="/files/documenti/concorso-direttrice-30.pdf">
         Concorso per l'assunzione di un/a direttrice/direttore (30%)
       </a>
       <br/>
-      &#8627; <a href="https://locarno-apply.example.com/apply/101">Candidatura online</a>
+      &#8627; <a href="https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&amp;lang=I#position,id=101,popup=y">Candidatura online</a>
     </p>
     <p>
-      <a href="/docs/concorso-direttrice-30.pdf">
+      <a href="/files/documenti/concorso-direttrice-30.pdf">
         <img src="icon_download_2x.png"/>
         0.2 MB
       </a>
@@ -38,14 +40,14 @@ const LISTING_HTML_FIXTURE = `
   <li>
     <p>13.03.2026</p>
     <p>
-      <a href="/docs/concorso-maestro-musica.pdf">
+      <a href="/files/documenti/concorso-maestro-musica.pdf">
         Concorso per l'assunzione di un/a Maestro/a della Musica
       </a>
       <br/>
-      &#8627; <a href="https://locarno-apply.example.com/apply/102">Candidatura online</a>
+      &#8627; <a href="https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&amp;lang=I#position,id=102,popup=y">Candidatura online</a>
     </p>
     <p>
-      <a href="/docs/concorso-maestro-musica.pdf">
+      <a href="/files/documenti/concorso-maestro-musica.pdf">
         <img src="icon_download_2x.png"/>
         0.2 MB
       </a>
@@ -54,12 +56,12 @@ const LISTING_HTML_FIXTURE = `
   <li>
     <p>10.03.2026</p>
     <p>
-      <a href="/docs/concorso-giardiniere.pdf">
+      <a href="/files/documenti/concorso-giardiniere.pdf">
         3 giardinieri/e per il servizio parchi e giardini
       </a>
     </p>
     <p>
-      <a href="/docs/concorso-giardiniere.pdf">
+      <a href="/files/documenti/concorso-giardiniere.pdf">
         <img src="icon_download_2x.png"/>
         0.3 MB
       </a>
@@ -68,12 +70,12 @@ const LISTING_HTML_FIXTURE = `
   <li>
     <p>05.03.2026</p>
     <p>
-      <a href="/docs/concorso-apprendista.pdf">
+      <a href="/files/documenti/concorso-apprendista.pdf">
         1 apprendista AFC impiegato/a di commercio
       </a>
     </p>
     <p>
-      <a href="/docs/concorso-apprendista.pdf">
+      <a href="/files/documenti/concorso-apprendista.pdf">
         <img src="icon_download_2x.png"/>
         0.1 MB
       </a>
@@ -83,6 +85,41 @@ const LISTING_HTML_FIXTURE = `
 `;
 
 // ── Tests ────────────────────────────────────────────────────────
+
+describe('Locarno crawler — URL boundary', () => {
+  it('allows only relative or same-origin HTTPS municipal PDF routes', () => {
+    const path = '/files/documenti/concorso-direttrice-30.pdf';
+    expect(normalizeLocarnoPdfUrl(path)).toBe(`https://www.locarno.ch${path}`);
+    expect(normalizeLocarnoPdfUrl(`https://www.locarno.ch${path}`)).toBe(`https://www.locarno.ch${path}`);
+    expect(normalizeLocarnoPdfUrl(`https://attacker.example${path}`)).toBeNull();
+    expect(normalizeLocarnoPdfUrl(`http://www.locarno.ch${path}`)).toBeNull();
+    expect(normalizeLocarnoPdfUrl('https://www.locarno.ch/it/albo-comunale/concorsi-loc')).toBeNull();
+  });
+
+  it('allows only the HTTPS PI ASP municipal application tenant', () => {
+    const valid = 'https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&lang=I#position,id=101,popup=y';
+    expect(normalizeLocarnoApplicationUrl(valid)).toBe(valid);
+    expect(normalizeLocarnoApplicationUrl(valid.replace('locarno.pi-asp.de', 'attacker.example'))).toBeNull();
+    expect(normalizeLocarnoApplicationUrl(valid.replace('https:', 'http:'))).toBeNull();
+    expect(normalizeLocarnoApplicationUrl(valid.replace('100-FIRMA-ID', 'OTHER'))).toBeNull();
+    expect(normalizeLocarnoApplicationUrl('/bewerber-web/?company=100-FIRMA-ID')).toBeNull();
+  });
+
+  it('drops an unsafe PDF and falls back to a trusted PDF when only apply is unsafe', () => {
+    const unsafePdf = `<li><p>13.03.2026</p><p>
+      <a href="https://attacker.example/files/documenti/job.pdf">Direttrice/direttore (30%)</a>
+    </p></li>`;
+    expect(parseLocarnoListingHtml(unsafePdf)).toEqual([]);
+
+    const unsafeApply = `<li><p>13.03.2026</p><p>
+      <a href="/files/documenti/job.pdf">Direttrice/direttore (30%)</a>
+      <a href="https://attacker.example/bewerber-web/?company=100-FIRMA-ID">Candidatura online</a>
+    </p></li>`;
+    const [job] = parseLocarnoListingHtml(unsafeApply);
+    expect(job.applyUrl).toBeNull();
+    expect(job.url).toBe('https://www.locarno.ch/files/documenti/job.pdf');
+  });
+});
 
 describe('Locarno crawler — title normalization', () => {
   it('strips "Concorso per l\'assunzione di un/a" prefix', () => {
@@ -171,7 +208,7 @@ describe('Locarno crawler — listing HTML parsing', () => {
   it('extracts application URLs (Candidatura online)', () => {
     const jobs = parseLocarnoListingHtml(LISTING_HTML_FIXTURE);
     const director = jobs.find((j) => j.title.includes('irettrice'));
-    expect(director!.applyUrl).toContain('locarno-apply.example.com');
+    expect(director!.applyUrl).toContain('locarno.pi-asp.de/bewerber-web/');
   });
 
   it('handles jobs without application URL', () => {

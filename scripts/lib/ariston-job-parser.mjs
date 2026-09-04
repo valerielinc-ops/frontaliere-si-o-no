@@ -1,4 +1,5 @@
-import { XMLParser } from 'fast-xml-parser';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation, TARGET_CANTONS  } from './target-swiss-locations.mjs';
 import { assertRssChannelItems } from './assert-json-list-shape.mjs';
@@ -7,15 +8,27 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+class AristonRssItemShapeError extends Error {}
+
+function readOptionalRssScalar(item, field, itemNumber) {
+  const value = item?.[field];
+  if (value == null) return '';
+  if (typeof value !== 'string') {
+    throw new AristonRssItemShapeError(
+      `Ariston RSS item ${itemNumber} ${field} must be a single scalar string`,
+    );
+  }
+  return value;
+}
+
 function slugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-'), 180);
 }
 
 function htmlToText(html = '') {
@@ -45,6 +58,13 @@ function localizeAristonTitle(rawTitle = '', locale = 'it') {
 }
 
 export function isAristonTargetLocation(rawLocation = '') {
+  // The SuccessFactors RSS feed carries an authoritative ISO country marker
+  // in every location (for example `Bedano, CH, 6930`). Require that marker
+  // before applying fuzzy municipality/canton matching: otherwise German
+  // vacancies mentioning names such as Koblenz are mistaken for their Swiss
+  // homonyms and published on the CH board.
+  const countryMatch = String(rawLocation || '').match(/,\s*([a-z]{2})\s*,\s*(?:\d{4}|x)(?=\s|$)/i);
+  if (!countryMatch || countryMatch[1].toUpperCase() !== 'CH') return false;
   return isTargetSwissLocation(rawLocation);
 }
 
@@ -65,6 +85,15 @@ export function inferAristonCategory(title = '', description = '') {
 }
 
 export function parseAristonSitemapFeed(xml = '') {
+  if (typeof xml !== 'string') {
+    throw new Error('Ariston sitemap feed failed to parse as XML: expected a string');
+  }
+  const validation = XMLValidator.validate(xml);
+  if (validation !== true) {
+    const detail = validation?.err?.msg || validation?.err?.code || 'invalid XML';
+    throw new Error(`Ariston sitemap feed failed to parse as XML: ${detail}`);
+  }
+
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: '',
@@ -93,15 +122,31 @@ export function parseAristonSitemapFeed(xml = '') {
   }
   const normalizedItems = assertRssChannelItems(parsed, { source: 'ariston' });
   return normalizedItems
-    .map((item) => ({
-      title: normalizeSpace(item?.title || ''),
-      url: normalizeSpace(item?.link || ''),
-      location: normalizeSpace(item?.['g:location'] || item?.location || ''),
-      employer: normalizeSpace(item?.['g:employer'] || ''),
-      category: normalizeSpace(item?.['g:job_function'] || ''),
-      validThrough: normalizeSpace(item?.['g:expiration_date'] || ''),
-    }))
-    .filter((item) => item.title && item.url && item.location);
+    .map((item, index) => {
+      const itemNumber = index + 1;
+      try {
+        const namespacedLocation = readOptionalRssScalar(item, 'g:location', itemNumber);
+        const fallbackLocation = readOptionalRssScalar(item, 'location', itemNumber);
+        return {
+          title: normalizeSpace(readOptionalRssScalar(item, 'title', itemNumber)),
+          url: normalizeSpace(readOptionalRssScalar(item, 'link', itemNumber)),
+          location: normalizeSpace(namespacedLocation || fallbackLocation),
+          employer: normalizeSpace(readOptionalRssScalar(item, 'g:employer', itemNumber)),
+          category: normalizeSpace(readOptionalRssScalar(item, 'g:job_function', itemNumber)),
+          validThrough: normalizeSpace(readOptionalRssScalar(item, 'g:expiration_date', itemNumber)),
+        };
+      } catch (err) {
+        // Recover only declared leaf-shape failures; unexpected regressions
+        // must propagate to the crawler's existing zero-feed hard guard.
+        if (!(err instanceof AristonRssItemShapeError)) throw err;
+        // Per-item guard: one degenerate leaf (non-scalar/repeated field) must
+        // not zero out the whole ~180-item feed. Feed-shape drift (malformed
+        // XML, missing envelope) still throws above, before this map.
+        console.warn(`⚠️ Ariston RSS item ${itemNumber} skipped: ${err?.message || err}`);
+        return null;
+      }
+    })
+    .filter((item) => item && item.title && item.url && item.location);
 }
 
 function extractDescriptionSections(body) {

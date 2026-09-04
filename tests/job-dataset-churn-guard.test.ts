@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 
 import { detectChurnAnomalies } from '../scripts/lib/job-dataset-churn-guard.mjs';
+
+const TEST_NOW_MS = Date.now();
 
 function quietEntry(date: string, added: number, removed: number) {
   return { date, totalJobs: 22000, added, removed, addedKeys: [], removedKeys: [] };
@@ -18,6 +21,15 @@ function entryWithTotals(
   removed: number
 ) {
   return { date, totalJobs, added, updated, removed, addedKeys: [], removedKeys: [] };
+}
+
+function daysAgo(days: number) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Zurich',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date(TEST_NOW_MS - days * 86_400_000));
 }
 
 describe('detectChurnAnomalies', () => {
@@ -58,7 +70,48 @@ describe('detectChurnAnomalies', () => {
     const anomalies = detectChurnAnomalies(history);
     expect(anomalies).toHaveLength(1);
     expect(anomalies[0]).toMatchObject({ date: '2026-08-24', metric: 'added', observed: 3779 });
+    expect(anomalies[0].issueTitle).toMatch(/^\[job-dataset-churn\] added spike [a-f0-9]{10}: www\.fachkraft\.ch$/);
     expect(anomalies[0].topHosts[0]).toEqual({ host: 'www.fachkraft.ch', count: 3015 });
+  });
+
+  it('keeps one cross-day issue key for the same metric and host, but separates new hosts (#6720)', () => {
+    const baseline = Array.from({ length: 10 }, (_, i) => quietEntry(daysAgo(11 - i), 500, 500));
+    const anomalyFor = (date: string, host: string) =>
+      detectChurnAnomalies({
+        entries: [
+          ...baseline,
+          {
+            ...quietEntry(date, 3000, 500),
+            addedKeys: addedKeysFor(host, 3000),
+          },
+        ],
+      })[0];
+
+    const firstDay = anomalyFor(daysAgo(1), 'jobs.example.com');
+    const secondDay = anomalyFor(daysAgo(0), 'jobs.example.com');
+    const differentHost = anomalyFor(daysAgo(0), 'careers.example.org');
+
+    expect(firstDay.issueTitle).toBe(secondDay.issueTitle);
+    expect(differentHost.issueTitle).not.toBe(firstDay.issueTitle);
+  });
+
+  it('keeps the date in unattributed spike keys so unrelated unknown events are not collapsed (#6720)', () => {
+    const baseline = Array.from({ length: 10 }, (_, i) => quietEntry(daysAgo(11 - i), 500, 500));
+    const issueTitleFor = (date: string) =>
+      detectChurnAnomalies({ entries: [...baseline, quietEntry(date, 3000, 500)] })[0].issueTitle;
+
+    expect(issueTitleFor(daysAgo(1))).not.toBe(issueTitleFor(daysAgo(0)));
+  });
+
+  it('wires the stable issue title into the workflow reporter (#6720)', () => {
+    const workflow = readFileSync(
+      new URL('../.github/workflows/persist-job-stats.yml', import.meta.url),
+      'utf8',
+    );
+    expect(workflow).toContain(
+      'title=$(jq -r ".[${i}].issueTitle" data/job-dataset-churn-issues.json)',
+    );
+    expect(workflow).not.toContain('title="[job-dataset-churn] ${date}: ${metric} spike"');
   });
 
   it('flags a removed-side reabsorption spike a few days later', () => {
@@ -88,6 +141,7 @@ describe('detectChurnAnomalies', () => {
     const anomalies = detectChurnAnomalies(history);
     expect(anomalies).toHaveLength(1);
     expect(anomalies[0]).toMatchObject({ date: '2026-08-30', metric: 'stale-snapshot' });
+    expect(anomalies[0].issueTitle).toBe('[job-dataset-churn] stale snapshot');
     expect(anomalies[0].observed).toContain('totalJobs=22943');
     expect(anomalies[0].observed).toContain('added=33');
     expect(anomalies[0].observed).toContain('updated=22557');

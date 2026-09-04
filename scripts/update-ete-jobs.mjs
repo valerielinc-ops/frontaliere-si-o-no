@@ -27,6 +27,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isEteJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ Emil Egger AG crawler failed: ${err?.message || err}`);
   process.exit(1);

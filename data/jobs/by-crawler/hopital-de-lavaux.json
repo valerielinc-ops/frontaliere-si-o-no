@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-de-lavaux",
-  "assembledAt": "2026-08-28T05:19:23.545Z",
+  "assembledAt": "2026-09-03T23:15:13.840Z",
   "jobs": [
     {
       "id": "hopital-de-lavaux-a7255dd10142",
@@ -33,7 +33,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:20.625Z",
+      "crawledAt": "2026-09-03T23:15:09.945Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,6 +64,7 @@
       "firstSeenAt": "2026-08-21T09:57:50.014Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -106,7 +107,7 @@
       "url": "https://app.beehire.com/invite/swtNGdXFJ",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:20.623Z",
+      "crawledAt": "2026-09-03T23:15:09.944Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -140,6 +141,7 @@
       "firstSeenAt": "2026-07-23T22:11:55.984Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

@@ -8,13 +8,17 @@
  *   - fetchAllRecruitingapp1123Jobs()  — Fetch and parse all jobs
  *   - isRecruitingapp1123Job()         — Match jobs belonging to this company
  *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - slugify()                   — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { slugify } from './crawler-template.mjs';
+import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { loadSpec, createSpecUrlPolicy } from './prospector/spec-crawler.mjs';
+import { politeFetch } from './prospector/polite-fetch.mjs';
+import { extractLinks } from './prospector/careers-trail.mjs';
+import { extractDetailFields } from './prospector/extract.mjs';
+import { extractUmantisDetailFields } from './prospector/umantis-detail.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -23,6 +27,7 @@ export const RECRUITINGAPP_1123_COMPANY_NAME = 'BIG & ARE Stellen';
 export const RECRUITINGAPP_1123_COMPANY_DOMAIN = 'recruitingapp-1123.umantis.com';
 
 const CAREER_URL = 'https://recruitingapp-1123.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+const MIN_DETAIL_WORDS = 50;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -107,9 +112,129 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+function wordCount(value = '') {
+  return String(value || '').trim().split(/\s+/).filter(Boolean).length;
+}
+
+function explicitSourceCountry(description = '') {
+  const normalized = String(description || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return /\b(?:osterreich(?:s|isch\w*)?|austria(?:n)?)\b/.test(normalized) ? 'AT' : '';
+}
+
+export function discoverRecruitingapp1123Listings(html = '', pageUrl = CAREER_URL) {
+  const seen = new Set();
+  return extractLinks(html, pageUrl).flatMap((link) => {
+    let url;
+    try { url = new URL(link.url); } catch { return []; }
+    const match = /^\/Vacancies\/(\d+)\/Description\/\d+\/?$/i.exec(url.pathname);
+    const title = normalizeSpace(link.text || '');
+    if (!match || url.hostname !== RECRUITINGAPP_1123_COMPANY_DOMAIN || title.length < 3 || seen.has(match[1])) return [];
+    seen.add(match[1]);
+    const canonicalUrl = new URL(`/Vacancies/${match[1]}/Description/1`, CAREER_URL).toString();
+    return [{ vacancyId: match[1], title, url: canonicalUrl }];
+  });
+}
+
+async function fetchRequiredPage(url, urlPolicy, runtime = {}) {
+  const result = await politeFetch(url, {
+    urlPolicy,
+    dispatcher: urlPolicy.dispatcher,
+    fetchImpl: runtime.fetchImpl,
+    sleepImpl: runtime.sleepImpl,
+    retries: runtime.retries ?? 2,
+    retryBaseMs: runtime.retryBaseMs,
+    timeoutMs: runtime.timeoutMs,
+    ignoreRobots: runtime.ignoreRobots === true,
+  });
+  if (!result.ok || !String(result.body || '').trim()) {
+    throw new Error(`Recruitingapp-1123 source fetch failed (${result.status || 0}): ${url}`);
+  }
+  return result;
+}
+
+export async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(RECRUITINGAPP_1123_KEY);
-  return runSpecInProduction(spec);
+  const urlPolicy = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl });
+  try {
+    const listingPage = await fetchRequiredPage(CAREER_URL, urlPolicy, runtime);
+    const listings = discoverRecruitingapp1123Listings(listingPage.body, listingPage.url || CAREER_URL);
+    if (listings.length === 0) {
+      throw new Error('Recruitingapp-1123 authoritative listing contained no canonical vacancy links');
+    }
+
+    // Fetch and parse every detail before returning anything. A timeout,
+    // malformed page or thin source rejects the complete batch, so a partial
+    // listing snapshot can never replace the published slice.
+    const settled = await Promise.allSettled(listings.map(async (listing) => {
+      const page = await fetchRequiredPage(listing.url, urlPolicy, runtime);
+      const generic = extractDetailFields(page.body, page.url || listing.url);
+      const umantis = extractUmantisDetailFields(page.body);
+      const description = [umantis.description, generic.description]
+        .map((value) => String(value || '').trim())
+        .sort((a, b) => wordCount(b) - wordCount(a))[0] || '';
+      if (wordCount(description) < MIN_DETAIL_WORDS) {
+        throw new Error(`Recruitingapp-1123 detail description is thin for vacancy ${listing.vacancyId}`);
+      }
+      if (generic.authoritativeLocationConflict) {
+        throw new Error(`Recruitingapp-1123 detail location evidence conflicts for vacancy ${listing.vacancyId}`);
+      }
+      const rawCandidates = [
+        ...(generic.locationCandidates || []),
+        ...(umantis.locationCandidates || []),
+      ];
+      if (rawCandidates.length === 0) {
+        throw new Error(`Recruitingapp-1123 detail location is missing for vacancy ${listing.vacancyId}`);
+      }
+      const pageCountry = explicitSourceCountry(description);
+      const decisions = rawCandidates.map((candidate) => {
+        let decision = evaluateSourceBackedSwissGeography([candidate]);
+        // BIG's detail body explicitly identifies Austria. Apply that country
+        // evidence only when the location itself is not already verifiably
+        // Swiss, so a future Bern/CH vacancy cannot be erased by company prose.
+        if (!decision.geography && !decision.explicitlyForeign && pageCountry) {
+          decision = evaluateSourceBackedSwissGeography([{ ...candidate, addressCountry: pageCountry }]);
+        }
+        return decision;
+      });
+      const swissDecisions = decisions.filter((decision) => decision.geography);
+      const hasForeignEvidence = decisions.some((decision) => decision.explicitlyForeign);
+      if (swissDecisions.length > 0 && hasForeignEvidence) {
+        throw new Error(`Recruitingapp-1123 detail location evidence conflicts for vacancy ${listing.vacancyId}`);
+      }
+      const decision = swissDecisions[0];
+      if (!decision) {
+        if (hasForeignEvidence) return null; // authoritative non-Swiss vacancy
+        throw new Error(`Recruitingapp-1123 detail location is unverifiable for vacancy ${listing.vacancyId}`);
+      }
+      return {
+        ...listing,
+        description,
+        location: decision.geography.location,
+        canton: decision.geography.canton,
+        addressLocality: decision.candidate.addressLocality || decision.geography.location,
+        addressRegion: decision.candidate.addressRegion || decision.geography.canton,
+        addressCountry: decision.candidate.addressCountry || decision.geography.addressCountry || 'CH',
+        postalCode: decision.candidate.postalCode || '',
+        streetAddress: decision.candidate.streetAddress || '',
+        postedDate: generic.postedDate || '',
+        employmentType: generic.employmentType || '',
+      };
+    }));
+    const failed = settled.find((result) => result.status === 'rejected');
+    if (failed) throw failed.reason;
+    const detailed = settled.map((result) => result.value);
+    const swiss = detailed.filter(Boolean);
+    const foreign = detailed.length - swiss.length;
+    swiss.discoveredCount = listings.length;
+    swiss.detailCount = detailed.length;
+    swiss.foreignCount = foreign;
+    if (foreign > 0) {
+      console.warn(`  🌍 Recruitingapp-1123: ${foreign}/${detailed.length} authoritative non-Swiss details excluded`);
+    }
+    return swiss;
+  } finally {
+    await urlPolicy.dispatcher.close();
+  }
 }
 
 /**
@@ -119,29 +244,31 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllRecruitingapp1123Jobs() {
+export async function fetchAllRecruitingapp1123Jobs(runtime = {}) {
   console.log(`🔍 Fetching BIG & ARE Stellen jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
+    console.warn('⚠️ No source-backed Swiss job listings returned.');
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
+  console.log(`  📋 Source-backed Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  const observedAt = new Date(runtime.now?.() || Date.now()).toISOString();
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Lugano'; // TODO: extract actual location
-    const canton = inferSwissTargetCanton(location) || 'TI';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
+    const location = normalizeSpace(listing.location || '');
+    const canton = normalizeSpace(listing.canton || '');
+    const descriptionText = String(listing.description || '').trim();
+    if (!location || !canton || wordCount(descriptionText) < MIN_DETAIL_WORDS) {
+      throw new Error(`Recruitingapp-1123 source-detail invariant failed for ${listing.url || title}`);
+    }
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -158,27 +285,30 @@ export async function fetchAllRecruitingapp1123Jobs() {
       companyDomain: RECRUITINGAPP_1123_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — BIG & ARE Stellen`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — BIG & ARE Stellen` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
       source: 'BIG & ARE Stellen Dedicated Parser',
       sourceLang,
-      crawledAt: new Date().toISOString(),
+      crawledAt: observedAt,
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      addressLocality: normalizeSpace(listing.addressLocality),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+      country: normalizeSpace(listing.addressCountry || 'CH'),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      employmentType: listing.employmentType || detectEmploymentType(listing.timeType || title),
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      postedDate: listing.postedDate || observedAt.split('T')[0],
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -189,5 +319,34 @@ export async function fetchAllRecruitingapp1123Jobs() {
   }
 
   console.log(`\n📋 Total BIG & ARE Stellen jobs discovered: ${jobs.length}`);
+  jobs.discoveredCount = listings.discoveredCount;
+  jobs.detailCount = listings.detailCount;
+  jobs.foreignCount = listings.foreignCount;
   return jobs;
+}
+
+/** Prove the canonical listing and every detail were observed in one batch. */
+export function assertCompleteRecruitingapp1123Snapshot(jobs) {
+  if (!Array.isArray(jobs)) throw new Error('Recruitingapp-1123 snapshot is not an array');
+  const discovered = Number(jobs.discoveredCount);
+  const detailed = Number(jobs.detailCount);
+  const foreign = Number(jobs.foreignCount);
+  if (![discovered, detailed, foreign].every(Number.isInteger) || discovered < 0 || detailed !== discovered) {
+    throw new Error(`Recruitingapp-1123 snapshot parity failed: discovered=${discovered}, detailed=${detailed}, foreign=${foreign}`);
+  }
+  if (jobs.length + foreign !== discovered) {
+    throw new Error(`Recruitingapp-1123 publication parity failed: swiss=${jobs.length}, foreign=${foreign}, discovered=${discovered}`);
+  }
+  const identities = new Set();
+  for (const job of jobs) {
+    const identity = String(job?.url || '');
+    if (!identity || identities.has(identity) || !isTrustedDomain(identity)) {
+      throw new Error(`Recruitingapp-1123 snapshot identity invalid: ${identity || 'missing'}`);
+    }
+    if (!job.location || !job.canton || wordCount(job.description) < MIN_DETAIL_WORDS) {
+      throw new Error(`Recruitingapp-1123 source-detail invariant failed: ${identity}`);
+    }
+    identities.add(identity);
+  }
+  return true;
 }

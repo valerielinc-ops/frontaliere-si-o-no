@@ -69,12 +69,31 @@ export interface PharmacySourceEntry {
   status: PharmacySourceStatus;
   /** Free-text discovery notes (e.g. what's still unconfirmed for this canton). */
   notes?: string;
+  /** ISO date/time the source config itself was last human-verified against the live site (distinct from `fetchedAt` on a `Pharmacy`/`PharmacyDuty` record, which is per-fetch). Optional: not every entry has been re-verified since creation. */
+  lastVerifiedAt?: string;
+  /** ISO date/time of the most recent successful fetch from `officialSourceUrl` by a connector. Optional: unset until a connector exists for this canton. */
+  sourceFetchedAt?: string;
 }
 
 export interface PharmacySourcesRegistry {
   generatedAt: string;
   sources: Record<string, PharmacySourceEntry>;
 }
+
+/**
+ * `/farmacie/` national coverage hub, per locale (#6399). Source of truth for
+ * `build-plugins/pharmacyHubPlugin.ts`, which emits the page, and for
+ * `services/router.ts`, which mirrors these four literals in its
+ * `staticOverlay` routing (same pattern as `COMMUNICATIONS_PAGE_PATH` in
+ * `services/communicationChannels.ts` — kept out of the build-only plugin
+ * file so this lightweight domain module is what the client bundle pulls in).
+ */
+export const PHARMACY_HUB_PATH: Readonly<Record<'it' | 'en' | 'de' | 'fr', string>> = Object.freeze({
+  it: '/farmacie/',
+  en: '/en/pharmacies/',
+  de: '/de/apotheken/',
+  fr: '/fr/pharmacies/',
+});
 
 const REQUIRED_STRING_FIELDS: readonly (keyof PharmacySourceEntry)[] = [
   'canton',

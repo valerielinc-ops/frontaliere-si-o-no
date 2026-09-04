@@ -487,7 +487,18 @@ describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => 
     const walk = (dir: string) => {
       for (const entry of readdirSync(dir)) {
         const full = join(dir, entry);
-        if (statSync(full).isDirectory()) { walk(full); continue; }
+        let entryStat: ReturnType<typeof statSync>;
+        try {
+          entryStat = statSync(full);
+        } catch (error) {
+          // CI and sparse worktrees intentionally leave some corpus symlinks
+          // dangling. Those excluded targets cannot contain shipped runtime
+          // code in this checkout, so skip only ENOENT and surface every other
+          // filesystem error normally.
+          if ((error as NodeJS.ErrnoException).code === 'ENOENT') continue;
+          throw error;
+        }
+        if (entryStat.isDirectory()) { walk(full); continue; }
         if (!/\.(ts|tsx)$/.test(entry)) continue;
         // AdSenseBanner is the one legitimate client-side creator: it renders its
         // own <ins> when armed and pushes for it through its own observer.

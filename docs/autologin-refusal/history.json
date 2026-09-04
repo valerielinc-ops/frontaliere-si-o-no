@@ -492,6 +492,128 @@
         "legacySunset": null
       },
       "findings": []
+    },
+    {
+      "date": "2026-08-31",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 25,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 1,
+        "noise": 1,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 1,
+        "auth_code_not_yet_valid": 1
+      },
+      "graded": 25,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 20,
+        "legacy": 5
+      },
+      "ageDaysP50": 3,
+      "ageDaysP95": 8,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": [
+        "insufficient_sample"
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 85,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 2,
+        "noise": 2,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 2,
+        "auth_code_not_yet_valid": 2
+      },
+      "graded": 85,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 81,
+        "legacy": 4
+      },
+      "ageDaysP50": 1,
+      "ageDaysP95": 8,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
+    },
+    {
+      "date": "2026-09-02",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 93,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 2,
+        "noise": 2,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 2,
+        "auth_code_not_yet_valid": 2
+      },
+      "graded": 93,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 91,
+        "legacy": 2
+      },
+      "ageDaysP50": 0,
+      "ageDaysP95": 2,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
+    },
+    {
+      "date": "2026-09-03",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 213,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 2,
+        "noise": 2,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 2,
+        "auth_code_not_yet_valid": 2
+      },
+      "graded": 213,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 212,
+        "legacy": 1
+      },
+      "ageDaysP50": 0,
+      "ageDaysP95": 2,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
     }
   ]
 }

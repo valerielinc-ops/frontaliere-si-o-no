@@ -1,7 +1,8 @@
-# Ticino — farmacie di turno (`ofct.ch`)
+# Ticino — farmacie di turno (`ofct.ch`, `farmacielocarnese.ch`)
 
 Verifica di rete (issue #6398, sub-issue `from-decompose` di #6173 Fase 1
-MVP), 2026-08-31.
+MVP), 2026-08-31. Aggiornato con la verifica del connettore Locarnese
+(issue #6740, follow-up di #6722), stesso giorno.
 
 ## Metodo
 
@@ -66,21 +67,71 @@ risposta HTML iniziale.
    **non ha `robots.txt`** (404 sul path) — nessun vincolo dichiarato, ma la
    struttura dati non è stata ispezionata in questa verifica.
 
-## Verdetto
+## Verifica Locarnese (`farmacielocarnese.ch`, #6740, 2026-08-31)
 
-**Fonte affidabile per lo scraping HTML** su 4/5 regioni ticinesi
-(Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli): niente JSON/API, ma
-due tabelle HTML server-rendered con classi/id stabili, raggiungibili con un
-fetch statico (no browser headless richiesto in produzione — Playwright è
-servito solo per la verifica). Il connettore Ticino può passare da
-`unverified` ad **`active`** con `accessMethod: "html-scrape"` su questa
-base, coprendo 4 regioni su 5.
+Metodo: `curl -A "Mozilla/5.0"` semplice (nessuna esecuzione JS) sulla home
+`https://www.farmacielocarnese.ch/` e su `https://www.farmacielocarnese.ch/robots.txt`.
 
-**Locarnese resta fuori** da questo verdetto: dominio e template diversi
-(`farmacielocarnese.ch`), da verificare separatamente prima di includerlo
-nello stesso connettore o come fonte a parte.
+1. **Homepage risponde 200, `robots.txt` risponde 404** (nessun file
+   pubblicato) — nessun vincolo `Disallow`/`crawl-delay` dichiarato. Nessuna
+   pagina privacy/cookie/ToU raggiungibile (nessun link in footer, il sito
+   non ha footer).
+2. **Sito single-page, server-rendered, nessuna XHR/API**: markup Bootstrap
+   5 con un `<form id="form1">` di layout (non un postback ASP.NET —
+   nessun `__VIEWSTATE`), niente `<iframe>`, niente script che carica dati
+   via fetch/XHR verso un endpoint separato. I dati sono già nella risposta
+   HTML iniziale, confermato dal fatch statico via `curl` (nessun browser
+   richiesto).
+3. **Farmacia di turno corrente** (box "Farmacia di turno"): nome e
+   telefono in bottoni `<a>` semplici senza id stabile ma testo
+   riconoscibile (es. `Farmacia Soldati`, `tel:+41917521555`);
+   l'**indirizzo** della farmacia attiva è disponibile solo dentro la
+   chiamata inline `initFarmaciaMap(lng, lat, htmlPopup)` a fondo pagina
+   (es. `via Vallemaggia 61`), non in un nodo HTML dedicato — parsing più
+   fragile del box anagrafica di `ofct.ch`.
+4. **Tabella turni** (box "Turni", classe `.gridview-wrapper > table`,
+   nessun `id`): righe `<tr>` con 4 celle `Data` (`DD.MM.YYYY`) / `Ora`
+   (`HH:MM`) / `Farmacia` / `Località` — quest'ultima solo il nome del
+   comune, **senza CAP né indirizzo completo** (a differenza di
+   `#tabella_lista_farmacie` su `ofct.ch`). La riga attiva ora porta uno
+   style inline `font-weight:bold;border-top:2px solid #000;...`, le righe
+   scadute `opacity:0.5;text-decoration:line-through;` — nessuna classe
+   CSS dedicata come `di_turno`/`old_row` su `ofct.ch`, lo stato va letto
+   dallo style inline o dalla posizione riga vs. data odierna.
+5. **Nessuna tabella anagrafica farmacie** (equivalente a
+   `#tabella_lista_farmacie`): la home pubblica solo la farmacia
+   attualmente di turno (nome+telefono+indirizzo via JS inline) e il
+   calendario turni futuri (nome+comune, senza indirizzo). Un'anagrafica
+   completa delle farmacie della regione non è pubblicata su questa
+   pagina.
+
+### Verdetto Locarnese
+
+**Fonte scrapabile via HTTP statico** (nessun JS/API richiesto, stesso
+pattern di `ofct.ch`): `robots.txt` assente = nessun vincolo dichiarato,
+nessun ToU raggiungibile. La struttura dati è però **meno uniforme** di
+`ofct.ch` — tabella turni senza indirizzo/CAP, indirizzo della farmacia
+attiva solo dentro una stringa JS inline, nessuna tabella anagrafica — un
+parser dedicato (diverso da `pharmacy-ticino-parser.mjs`, che assume la
+struttura `ofct.ch`) è necessario prima di poter includere Locarnese nel
+connettore Ticino. Non un blocco di accesso: un blocco di forma-dati,
+lasciato alla prossima fase implementativa (#6173).
+
+## Verdetto complessivo
+
+**Fonte affidabile per lo scraping HTML** su 5/5 regioni ticinesi
+(Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli via `ofct.ch`,
+Locarnese via `farmacielocarnese.ch`): niente JSON/API su nessuno dei due
+domini, solo HTML server-rendered raggiungibile con un fetch statico (no
+browser headless richiesto in produzione — Playwright/curl sono serviti
+solo per la verifica). Il connettore Ticino può passare da `unverified` ad
+**`active`** con `accessMethod: "html-scrape"` su questa base.
 
 Prossimo passo per il connettore vero e proprio (#6173 Fase successiva): un
-parser che visita le 4 URL regione `ofct.ch`, estrae le due tabelle per
-regione, normalizza secondo `PharmacyDuty`/`Pharmacy`
-(`services/pharmacies/types.ts`), rispetta `crawl-delay: 10`.
+parser che visita le 4 URL regione `ofct.ch` (già scritto,
+`scripts/lib/pharmacy-ticino-parser.mjs`) più un parser dedicato per
+`farmacielocarnese.ch` (struttura diversa, vedi sopra), normalizza secondo
+`PharmacyDuty`/`Pharmacy` (`services/pharmacies/types.ts`), rispetta il
+`crawl-delay: 10` dichiarato da `ofct.ch` (Locarnese non ne dichiara uno,
+ma un connettore futuro deve comunque restare rispettoso: stesso ritardo
+minimo tra fetch).

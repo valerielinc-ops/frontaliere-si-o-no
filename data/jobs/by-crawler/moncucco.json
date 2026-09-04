@@ -1,6 +1,6 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-08-28T05:19:16.632Z",
+  "assembledAt": "2026-09-03T23:12:13.682Z",
   "jobs": [
     {
       "id": "moncucco-8b751476ca5b",
@@ -46,11 +46,12 @@
       "applyUrl": "https://www.moncucco.ch/infermiere_capo_reparto_area_internistica.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:19:13.870Z",
+      "crawledAt": "2026-09-03T23:12:11.334Z",
       "firstSeenAt": "2026-08-05T11:36:52.216Z",
       "salaryMin": 95000,
       "salaryMax": 132500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

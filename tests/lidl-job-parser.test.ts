@@ -8,6 +8,9 @@
  *   - https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-657113
  *   - https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-656562
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   parseLidlDetailPage,
@@ -18,8 +21,15 @@ import {
   LIDL_DEFAULT_RESULTS_PER_PAGE,
   buildLidlSearchQuery,
   getLidlSearchPageCount,
+  extractLidlSearchLanguagePartitions,
   extractLidlApiHitFields,
 } from '../scripts/lib/lidl-job-parser.mjs';
+import {
+  assertLidlAdapterParity,
+  ensureAdapterSeedUrls,
+  fetchLidlJobDetailUrls,
+  inferLidlCanton,
+} from '../scripts/update-lidl-jobs.mjs';
 
 // ─── Fixture helpers ──────────────────────────────────────────────────────────
 
@@ -371,6 +381,15 @@ describe('buildLidlSearchQuery', () => {
     );
     expect(general.resultsPerPage).toBe(LIDL_DEFAULT_RESULTS_PER_PAGE);
   });
+
+  it('adds a source-backed language facet without changing the pagination object', () => {
+    const params = new URLSearchParams(buildLidlSearchQuery(2, 20, 'fr'));
+    expect(JSON.parse(params.get('general') as string)).toMatchObject({
+      page: 2,
+      resultsPerPage: 20,
+    });
+    expect(JSON.parse(params.get('facets') as string)).toEqual({ language: ['fr'] });
+  });
 });
 
 describe('getLidlSearchPageCount', () => {
@@ -382,6 +401,50 @@ describe('getLidlSearchPageCount', () => {
   it('returns 1 for a missing/empty meta envelope', () => {
     expect(getLidlSearchPageCount(undefined)).toBe(1);
     expect(getLidlSearchPageCount({})).toBe(1);
+  });
+});
+
+describe('extractLidlSearchLanguagePartitions', () => {
+  it('accepts one exact language partition whose counts sum to the national total', () => {
+    expect(extractLidlSearchLanguagePartitions({
+      totalCount: 341,
+      filters: [{
+        identifier: 'language',
+        values: [
+          { identifier: 'it', count: 4 },
+          { identifier: 'de', count: 297 },
+          { identifier: 'fr', count: 40 },
+        ],
+      }],
+    })).toEqual([
+      { language: 'de', count: 297 },
+      { language: 'fr', count: 40 },
+      { language: 'it', count: 4 },
+    ]);
+  });
+
+  it('accepts an authoritative zero without requiring facets', () => {
+    expect(extractLidlSearchLanguagePartitions({ totalCount: 0 })).toEqual([]);
+  });
+
+  it.each([
+    [{ totalCount: 1 }, /exactly one language filter/],
+    [{ totalCount: 1, filters: [
+      { identifier: 'language', values: [{ identifier: 'it', count: 1 }] },
+      { identifier: 'language', values: [{ identifier: 'de', count: 0 }] },
+    ] }, /exactly one language filter/],
+    [{ totalCount: 2, filters: [{ identifier: 'language', values: [
+      { identifier: 'it', count: 1 },
+      { identifier: 'it', count: 1 },
+    ] }] }, /language partition invalid/],
+    [{ totalCount: 2, filters: [{ identifier: 'language', values: [
+      { identifier: 'italiano', count: 2 },
+    ] }] }, /language partition invalid/],
+    [{ totalCount: 2, filters: [{ identifier: 'language', values: [
+      { identifier: 'it', count: 1 },
+    ] }] }, /facets=1, national=2/],
+  ])('fails closed for malformed or incomplete facet metadata', (meta, error) => {
+    expect(() => extractLidlSearchLanguagePartitions(meta)).toThrow(error);
   });
 });
 
@@ -426,5 +489,313 @@ describe('extractLidlApiHitFields', () => {
     expect(f.detailUrl).toBe('');
     expect(f.city).toBe('');
     expect(f.highlight).toBe(false);
+  });
+});
+
+function licaHit(id: number, overrides: Record<string, unknown> = {}) {
+  return {
+    title: `Collaboratore vendita ${id}`,
+    descResponsibilities: '<ul><li>Consulenza alla clientela e gestione accurata della merce.</li><li>Collaborazione quotidiana con il team della filiale.</li></ul>',
+    language: 'it',
+    requisitionId: String(id),
+    jobDetailUrl: `https://team.lidl.ch/it/jobs/collaboratore-vendita-lugano-${id}`,
+    location: { city: 'Lugano', country: 'CH' },
+    ...overrides,
+  };
+}
+
+function lidlRequest(input: string | URL | Request) {
+  const params = new URL(String(input)).searchParams;
+  const general = JSON.parse(params.get('general') || '{}');
+  const facets = JSON.parse(params.get('facets') || '{}');
+  return {
+    page: Number(general.page),
+    language: String(facets.language?.[0] || ''),
+  };
+}
+
+function languageFilters(counts: Record<string, number>) {
+  return [{
+    identifier: 'language',
+    values: Object.entries(counts).map(([identifier, count]) => ({ identifier, count })),
+  }];
+}
+
+const LIDL_VERIFIED_LOCATIONS = [
+  ['Staad', '9422', 'SG'],
+  ['Rudolfstetten', '8964', 'AG'],
+  ['Gattikon', '8136', 'ZH'],
+  ['Jona', '8645', 'SG'],
+  ['Siebnen', '8854', 'SZ'],
+  ['Samstagern', '8833', 'ZH'],
+  ['Bützberg', '4922', 'BE'],
+  ['Küssnacht a. R.', '6403', 'SZ'],
+  ['Perlen', '6035', 'LU'],
+  ['Emmenbrücke', '6020', 'LU'],
+  ['Bevaix', '2022', 'NE'],
+] as const;
+
+function licaEnvelope(
+  jobs: ReturnType<typeof licaHit>[],
+  { totalCount, page = 1, filters }: { totalCount: number; page?: number; filters?: unknown[] },
+) {
+  return {
+    jobs,
+    meta: {
+      totalCount,
+      resultsPerPage: 20,
+      page,
+      count: jobs.length,
+      ...(filters ? { filters } : {}),
+    },
+  };
+}
+
+describe('Lidl authoritative LiCa discovery', () => {
+  it('uses the authoritative CH city field without reopening foreign or unknown guesses', () => {
+    expect(inferLidlCanton({ city: 'Bulle', country: 'CH' })).toBe('FR');
+    expect(inferLidlCanton({ city: 'Sâles', country: 'CH' })).toBe('FR');
+    expect(inferLidlCanton({ city: 'Bulle', country: 'FR' })).toBe('');
+    expect(inferLidlCanton({ city: 'Unknown place', country: 'CH' })).toBe('');
+  });
+
+  it.each(LIDL_VERIFIED_LOCATIONS)(
+    'resolves the source-verified Lidl delivery locality %s %s to %s',
+    (city, zipCode, canton) => {
+      expect(inferLidlCanton({ city, zipCode, country: 'CH' })).toBe(canton);
+      expect(inferLidlCanton({ city, zipCode: '0000', country: 'CH' })).toBe('');
+    },
+  );
+
+  it('drains every reported language page and preserves exact feed-to-adapter accounting', async () => {
+    const allHits = Array.from({ length: 21 }, (_, index) => licaHit(70000 + index));
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { page, language } = lidlRequest(input);
+      if (!language) {
+        return new Response(JSON.stringify(licaEnvelope(allHits.slice(0, 20), {
+          totalCount: 21,
+          filters: languageFilters({ it: 21 }),
+        })), { status: 200 });
+      }
+      const jobs = page === 1 ? allHits.slice(0, 20) : allHits.slice(20);
+      return new Response(JSON.stringify(licaEnvelope(jobs, { totalCount: 21, page })), {
+        status: 200,
+      });
+    };
+    const result = await fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 });
+    expect(result).toMatchObject({
+      totalCount: 21,
+      rawFetched: 21,
+      duplicateIdentity: 0,
+      droppedForeign: 0,
+      unresolvedSwiss: 0,
+      droppedMalformed: 0,
+      sourceZero: false,
+    });
+    expect(result.urls).toHaveLength(21);
+    expect(result.jobsFromApi).toHaveLength(21);
+    expect(Object.keys(result.seedMetaByUrl)).toHaveLength(21);
+  });
+
+  it('fails closed on partial pagination, total drift, malformed URLs, and HTTP failure', async () => {
+    const partial = async (input: string | URL | Request) => {
+      const { page, language } = lidlRequest(input);
+      if (!language) {
+        return new Response(JSON.stringify(licaEnvelope([], {
+          totalCount: 22,
+          filters: languageFilters({ it: 22 }),
+        })), { status: 200 });
+      }
+      const jobs = page === 1
+        ? Array.from({ length: 20 }, (_, index) => licaHit(71000 + index))
+        : [licaHit(71020)];
+      return new Response(JSON.stringify(licaEnvelope(jobs, { totalCount: 22, page })), {
+        status: 200,
+      });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: partial, timeoutMs: 1000 }))
+      .rejects.toThrow(/it page 2 returned 1\/2 expected hits/);
+
+    const drift = async (input: string | URL | Request) => {
+      const { page, language } = lidlRequest(input);
+      if (!language) {
+        return new Response(JSON.stringify(licaEnvelope([], {
+          totalCount: 21,
+          filters: languageFilters({ it: 21 }),
+        })), { status: 200 });
+      }
+      const jobs = page === 1
+        ? Array.from({ length: 20 }, (_, index) => licaHit(72000 + index))
+        : [licaHit(72020)];
+      return new Response(JSON.stringify(licaEnvelope(jobs, {
+        totalCount: page === 1 ? 21 : 22,
+        page,
+      })), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: drift, timeoutMs: 1000 }))
+      .rejects.toThrow(/total drift/);
+
+    const malformed = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      const jobs = language
+        ? [licaHit(73000, { jobDetailUrl: 'https://example.test/it/jobs/x-73000' })]
+        : [];
+      return new Response(JSON.stringify(licaEnvelope(jobs, {
+        totalCount: 1,
+        filters: language ? undefined : languageFilters({ it: 1 }),
+      })), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: malformed, timeoutMs: 1000 }))
+      .rejects.toThrow(/malformed=1/);
+
+    const unavailable = async () => new Response('down', { status: 503 });
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: unavailable, timeoutMs: 1000 }))
+      .rejects.toThrow(/503/);
+  });
+
+  it('deduplicates the same requisition across language facets without losing accounting', async () => {
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      if (!language) {
+        return new Response(JSON.stringify(licaEnvelope([], {
+          totalCount: 2,
+          filters: languageFilters({ de: 1, fr: 1 }),
+        })), { status: 200 });
+      }
+      const jobs = [licaHit(73500, {
+        language,
+        title: language === 'fr' ? 'Collaborateur vente' : 'Mitarbeiter Verkauf',
+        jobDetailUrl: `https://team.lidl.ch/${language}/jobs/verkauf-lugano-73500`,
+      })];
+      return new Response(JSON.stringify(licaEnvelope(jobs, { totalCount: 1 })), { status: 200 });
+    };
+
+    await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
+      totalCount: 2,
+      rawFetched: 2,
+      duplicateIdentity: 1,
+      droppedForeign: 0,
+      unresolvedSwiss: 0,
+      droppedMalformed: 0,
+      urls: [expect.stringMatching(/73500$/)],
+      jobsFromApi: [expect.objectContaining({ url: expect.stringMatching(/73500$/) })],
+    });
+  });
+
+  it('fails closed when a source-declared Swiss city/postal pair is unresolved', async () => {
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      if (!language) {
+        return new Response(JSON.stringify(licaEnvelope([], {
+          totalCount: 2,
+          filters: languageFilters({ it: 2 }),
+        })), { status: 200 });
+      }
+      const jobs = [
+        licaHit(73800),
+        licaHit(73801, { location: { city: 'Not A Real Swiss Village', country: 'CH' } }),
+      ];
+      return new Response(JSON.stringify(licaEnvelope(jobs, { totalCount: 2 })), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 }))
+      .rejects.toThrow(/unresolved Swiss locations: 1 hit.*Not A Real Swiss Village\|\?\|CH/);
+  });
+
+  it('recovers every source-verified Swiss locality while distinguishing a real foreign hit', async () => {
+    const swissHits = LIDL_VERIFIED_LOCATIONS.map(([city, zipCode], index) => licaHit(
+      73810 + index,
+      { location: { city, zipCode, country: 'CH' } },
+    ));
+    const foreignHit = licaHit(73830, {
+      location: { city: 'Milano', zipCode: '20121', country: 'IT' },
+    });
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      const jobs = language ? [...swissHits, foreignHit] : [];
+      return new Response(JSON.stringify(licaEnvelope(jobs, {
+        totalCount: jobs.length || swissHits.length + 1,
+        filters: language ? undefined : languageFilters({ it: swissHits.length + 1 }),
+      })), { status: 200 });
+    };
+
+    await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
+      totalCount: 12,
+      rawFetched: 12,
+      duplicateIdentity: 0,
+      droppedForeign: 1,
+      unresolvedSwiss: 0,
+      droppedMalformed: 0,
+      urls: expect.arrayContaining(LIDL_VERIFIED_LOCATIONS.map((_, index) => (
+        expect.stringMatching(new RegExp(`${73810 + index}$`))
+      ))),
+      jobsFromApi: expect.arrayContaining(LIDL_VERIFIED_LOCATIONS.map(([, , canton]) => (
+        expect.objectContaining({ canton })
+      ))),
+    });
+  });
+
+  it('fails closed on a short intermediate page and a facet-language mismatch', async () => {
+    const shortIntermediate = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      if (!language) {
+        return new Response(JSON.stringify(licaEnvelope([], {
+          totalCount: 41,
+          filters: languageFilters({ de: 41 }),
+        })), { status: 200 });
+      }
+      const jobs = Array.from({ length: 19 }, (_, index) => licaHit(73600 + index, {
+        language: 'de',
+        jobDetailUrl: `https://team.lidl.ch/de/jobs/verkauf-lugano-${73600 + index}`,
+      }));
+      return new Response(JSON.stringify(licaEnvelope(jobs, { totalCount: 41 })), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: shortIntermediate, timeoutMs: 1000 }))
+      .rejects.toThrow(/de page 1 returned 19\/20 expected hits/);
+
+    const wrongLanguage = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      const jobs = language ? [licaHit(73700, { language: 'fr' })] : [];
+      return new Response(JSON.stringify(licaEnvelope(jobs, {
+        totalCount: 1,
+        filters: language ? undefined : languageFilters({ it: 1 }),
+      })), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: wrongLanguage, timeoutMs: 1000 }))
+      .rejects.toThrow(/it returned language fr/);
+  });
+
+  it('accepts an authoritative zero only with a complete empty envelope', async () => {
+    const fetchImpl = async () => new Response(JSON.stringify({
+      jobs: [],
+      meta: { totalCount: 0, resultsPerPage: 20, page: 1, count: 0 },
+    }), { status: 200 });
+    await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
+      urls: [], jobsFromApi: [], totalCount: 0, rawFetched: 0, sourceZero: true,
+    });
+  });
+});
+
+describe('Lidl adapter persistence', () => {
+  it('is atomic, parity-checked, idempotent, and never swallows stale/write failures', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lidl-adapter-'));
+    const adapterPath = path.join(dir, 'lidl.json');
+    const urls = ['https://team.lidl.ch/it/jobs/collaboratore-vendita-lugano-74000'];
+    const meta = { [urls[0]]: { location: 'Lugano', canton: 'TI' } };
+    const updatedAt = '2026-09-01T00:00:00.000Z';
+    try {
+      ensureAdapterSeedUrls(urls, meta, adapterPath, updatedAt);
+      const firstBytes = fs.readFileSync(adapterPath, 'utf8');
+      ensureAdapterSeedUrls(urls, meta, adapterPath, updatedAt);
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(firstBytes);
+      expect(() => assertLidlAdapterParity({ seedUrls: [] }, urls, meta)).toThrow(/parity failed/);
+
+      fs.writeFileSync(adapterPath, '{ stale');
+      const staleBytes = fs.readFileSync(adapterPath, 'utf8');
+      expect(() => ensureAdapterSeedUrls(urls, meta, adapterPath, updatedAt)).toThrow();
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(staleBytes);
+      expect(() => ensureAdapterSeedUrls(urls, meta, dir, updatedAt)).toThrow();
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

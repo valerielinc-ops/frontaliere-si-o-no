@@ -51,7 +51,11 @@ import {
   extractBalancedTagBlock,
   USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 const PAGE_SIZE = 25; // SF CSB default — observed 78 jobs returned on a single
                       // page for ZURZACH Care, so larger sites may need it.
@@ -148,15 +152,25 @@ export function parseCsbSearchResults(html) {
     const colLocationMatch = rowHtml.match(
       /<td[^>]*class="[^"]*colLocation[^"]*hidden-phone[^"]*"[^>]*>([\s\S]*?)<\/td>/i,
     ) || rowHtml.match(/<td[^>]*headers="hdrLocation"[^>]*>([\s\S]*?)<\/td>/i);
+    // A posting open in several offices appends a nested `<small>+N
+    // more&hellip;</small>` INSIDE the location cell. Strip it here, at
+    // extraction: the heuristic gate below elects the location cell with
+    // `/,\s*[A-Z]{2}(?:,|$)/`, which "Lugano, CH +1 more…" fails (the `, CH`
+    // is followed by a space) — stripping downstream would leave those CSB
+    // tenants with an empty location instead of the visible office.
     if (colLocationMatch) {
-      location = decodeEntities(normalizeSpace(stripHtml(colLocationMatch[1])));
+      location = stripSuccessFactorsMoreLocations(
+        decodeEntities(normalizeSpace(stripHtml(colLocationMatch[1]))),
+      );
     }
 
     const cells = [];
     const cellRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     let cellMatch;
     while ((cellMatch = cellRe.exec(rowHtml)) !== null) {
-      cells.push(decodeEntities(normalizeSpace(stripHtml(cellMatch[1]))));
+      cells.push(
+        stripSuccessFactorsMoreLocations(decodeEntities(normalizeSpace(stripHtml(cellMatch[1])))),
+      );
     }
 
     // Fallback: heuristic — find the cell that looks like a location ("City,
@@ -255,6 +269,22 @@ function readPropertyBlock(html, propId) {
 }
 
 /**
+ * Read the exact element carrying a CSB property instead of cutting at the
+ * next layout marker. Long description blocks can contain nested spans and a
+ * trailing sibling widget; a balanced boundary keeps the real body while
+ * preventing job-alert/cookie chrome from reaching the field sanitizer.
+ */
+function readBalancedPropertyBlock(html, propId) {
+  const loc = locateTagByAttribute(
+    html,
+    `data-careersite-propertyid="${propId}"`,
+    { skipVoidTags: true },
+  );
+  if (!loc) return '';
+  return extractBalancedTagBlock(loc.rest, loc.tagName);
+}
+
+/**
  * Locate a schema.org microdata field's opening tag (`itemprop="prop"`) via
  * the shared `locateTagByAttribute`. Returns `{ tagName, contentAttr, rest }`
  * — `contentAttr` is set when the element carries a `content="..."`
@@ -295,6 +325,27 @@ function readItemprop(html, prop) {
 }
 
 /**
+ * Read the authoritative PostalAddress embedded by SuccessFactors detail
+ * pages. This is shared by CSB and jobs2web skins; labels and free-text fields
+ * differ by tenant, while these microdata names remain stable.
+ */
+export function parseSuccessFactorsMicrodataLocation(html) {
+  if (!html || typeof html !== 'string') return null;
+  const city = readItemprop(html, 'addressLocality');
+  const region = readItemprop(html, 'addressRegion');
+  const postalCode = readItemprop(html, 'postalCode');
+  const country = readItemprop(html, 'addressCountry');
+  if (!city && !region && !postalCode && !country) return null;
+  return {
+    city,
+    region,
+    postalCode,
+    country,
+    location: [city, region].filter(Boolean).join(', '),
+  };
+}
+
+/**
  * Parse a SuccessFactors CSB job detail page.
  * Returns `{ title, descriptionHtml, descriptionText, location, applyUrl,
  *            postedDate, rateText, language }`.
@@ -308,7 +359,8 @@ export function parseCsbDetailPage(html) {
   // listing.title fallback (see createSuccessFactorsParser) takes over.
   const title = sanitizeSuccessFactorsField(decodeEntities(normalizeSpace(stripHtml(titleHtml))));
 
-  let descriptionHtml = readPropertyBlock(html, 'description');
+  let descriptionHtml = readBalancedPropertyBlock(html, 'description')
+    || readPropertyBlock(html, 'description');
   let descriptionText = htmlToText(descriptionHtml);
 
   // Some CSB tenants (e.g. Helsana, as of mid-2026) stopped emitting the
@@ -351,7 +403,13 @@ export function parseCsbDetailPage(html) {
       if (pm) { postalCode = pm[1]; break; }
     }
   }
-  const locationFirstLine = canonicalLoc ? canonicalLoc[0] : locationRaw.split(/\n/)[0];
+  const microdataLocation = parseSuccessFactorsMicrodataLocation(html);
+  if (!city) city = microdataLocation?.city || '';
+  if (!region) region = microdataLocation?.region || '';
+  if (!postalCode) postalCode = microdataLocation?.postalCode || '';
+  const locationFirstLine = canonicalLoc
+    ? canonicalLoc[0]
+    : (locationRaw.split(/\n/)[0] || microdataLocation?.location || '');
 
   // Customfield5 is usually "Workload" on CSB sites (e.g. "100%", "80–100%")
   const rateHtml = readPropertyBlock(html, 'customfield5');

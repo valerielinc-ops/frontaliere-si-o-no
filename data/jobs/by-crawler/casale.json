@@ -1,6 +1,6 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-08-28T05:14:15.975Z",
+  "assembledAt": "2026-09-03T23:15:25.842Z",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/expediter-1",
@@ -86,6 +86,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -156,6 +157,7 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

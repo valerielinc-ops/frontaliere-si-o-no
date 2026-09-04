@@ -1,6 +1,6 @@
 {
   "crawlerKey": "centiel",
-  "assembledAt": "2026-08-27T00:55:55.519Z",
+  "assembledAt": "2026-09-03T23:22:33.850Z",
   "jobs": [
     {
       "title": "Product Manager – Critical Power",
@@ -60,6 +60,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "product-manager-critical-power-centiel-ticino"
@@ -127,6 +128,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "specialista-ufficio-tecnico-centiel-ticino"
@@ -203,6 +205,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "operatore-di-produzione-centiel-ticino"
@@ -279,6 +282,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "tecnico-collaudatore-centiel-ticino"
@@ -355,6 +359,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-06-19T12:14:25.157Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "technical-services-manager-centiel-uk-centiel-ticino"
@@ -443,7 +448,8 @@
       "previousSlugs": [
         "project-manager-potenza-critica-centiel-lugano",
         "project-manager-critical-power-centiel-ticino"
-      ]
+      ],
+      "salarySource": "estimated"
     },
     {
       "title": "Pre-Sales Application Engineer – Critical Power",
@@ -518,7 +524,8 @@
       "previousSlugs": [
         "ingegnere-di-applicazione-pre-sales-potere-critico-centiel-lugano",
         "pre-sales-application-engineer-critical-power-centiel-ticino"
-      ]
+      ],
+      "salarySource": "estimated"
     },
     {
       "title": "Research & Development Engineer",
@@ -607,7 +614,8 @@
           "ingnieur-de-recherche-et-dveloppement-centiel-cadro-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:21:09.576Z"
+      "firstSeenAt": "2026-04-13T21:21:09.576Z",
+      "salarySource": "reported"
     },
     {
       "title": "After-Sales Technician",
@@ -676,7 +684,8 @@
           "technicien-sav-centiel-cadro-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:21:09.576Z"
+      "firstSeenAt": "2026-04-13T21:21:09.576Z",
+      "salarySource": "reported"
     }
   ]
 }

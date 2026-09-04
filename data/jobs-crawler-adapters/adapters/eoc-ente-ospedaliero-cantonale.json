@@ -6,24 +6,23 @@
   "priority": 10,
   "crawlerModes": [
     "generic_ats",
-    "html"
+    "html",
+    "jsonld"
   ],
   "seedUrls": [
+    "https://recruitingapp-2761.umantis.com/Vacancies/2777/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2775/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2774/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2771/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2769/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2765/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2767/Description/4",
-    "https://recruitingapp-2761.umantis.com/Vacancies/2768/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2764/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2741/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2760/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2762/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2761/Description/4",
-    "https://recruitingapp-2761.umantis.com/Vacancies/2759/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2755/Description/4",
-    "https://recruitingapp-2761.umantis.com/Vacancies/2743/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2726/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/933/Description/4",
@@ -79,7 +78,6 @@
     "https://recruitingapp-2761.umantis.com/Vacancies/2100/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2079/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2125/Description/4",
-    "https://recruitingapp-2761.umantis.com/Vacancies/2108/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2110/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2102/Description/4",
     "https://recruitingapp-2761.umantis.com/Vacancies/2105/Description/4",
@@ -185,5 +183,5 @@
     "https://recruitingapp-2761.umantis.com/Vacancies/1096/Description/4"
   ],
   "notes": "Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.",
-  "updatedAt": "2026-08-28T05:27:17.542Z"
+  "updatedAt": "2026-09-01T10:40:45.066Z"
 }

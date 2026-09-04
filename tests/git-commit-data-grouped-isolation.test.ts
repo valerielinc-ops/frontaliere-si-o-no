@@ -3,10 +3,11 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { chmodSync, existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { delimiter, join, resolve } from 'node:path';
+import { delimiter, dirname, join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
+const GENERATION_TOKEN = '9001-2';
 
 // The script uses `declare -A` (associative arrays), requiring bash 4+.
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
@@ -21,7 +22,7 @@ function initClonePair() {
   return { originDir, repoDir };
 }
 
-function runScript(repoDir: string, sliceFile: string) {
+function runScript(repoDir: string, sliceFile: string, githubOutput = '') {
   execFileSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'test commit'], {
     cwd: repoDir,
     env: {
@@ -33,8 +34,57 @@ function runScript(repoDir: string, sliceFile: string) {
       GITHUB_TOKEN: '',
       GITHUB_RUN_ID: '',
       GITHUB_REPOSITORY: '',
-      GITHUB_OUTPUT: '',
+      GITHUB_OUTPUT: githubOutput,
     },
+  });
+}
+
+function groupEnv(
+  repoDir: string,
+  runnerTemp: string,
+  crawlerId = '',
+  generationToken = GENERATION_TOKEN,
+) {
+  return {
+    ...process.env,
+    CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
+    CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
+    CRAWLER_GENERATION_TOKEN: generationToken,
+    RUNNER_TEMP: runnerTemp,
+    ...(crawlerId ? { JOBS_HOUSEKEEPING_SCOPE: crawlerId } : {}),
+    SKIP_AI_TRANSLATION: '1',
+    SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+    GH_TOKEN: '',
+    GITHUB_TOKEN: '',
+    GITHUB_RUN_ID: '',
+    GITHUB_REPOSITORY: '',
+    GITHUB_OUTPUT: '',
+  };
+}
+
+function deferGroupCommit(
+  repoDir: string,
+  runnerTemp: string,
+  crawlerId: string,
+  extraPaths: string[] = [],
+  generationToken = GENERATION_TOKEN,
+) {
+  return spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', `update ${crawlerId}`, ...extraPaths], {
+    cwd: repoDir,
+    encoding: 'utf8',
+    env: {
+      ...groupEnv(repoDir, runnerTemp, crawlerId, generationToken),
+      CRAWLER_GROUP_DEFER_COMMIT: '1',
+      JOBS_SLICE_FILE: `data/jobs/by-crawler/${crawlerId}.json`,
+    },
+  });
+}
+
+function commitGroup(repoDir: string, runnerTemp: string) {
+  return spawnSync(BASH_BIN, [SCRIPT_PATH, '--group-batch', 'batch update'], {
+    cwd: repoDir,
+    encoding: 'utf8',
+    env: groupEnv(repoDir, runnerTemp),
   });
 }
 
@@ -51,6 +101,544 @@ function runScript(repoDir: string, sliceFile: string) {
 // shared worktree/index at all: it builds the commit via a private temp index
 // on top of the freshly fetched origin/main and pushes the sha directly.
 describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', () => {
+  it.each([
+    ['missing', '', /Missing CRAWLER_GENERATION_TOKEN/],
+    ['malformed', 'not-a-generation-token', /Invalid crawler commit descriptor generation token/],
+  ])('fails closed on a %s generation token before persisting a descriptor', (_label, token, error) => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-token-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"old"}]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      const remoteHead = execFileSync(
+        'git',
+        ['ls-remote', 'origin', 'refs/heads/main'],
+        { cwd: repoDir, encoding: 'utf8' },
+      ).trim();
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"new"}]\n');
+      const deferred = deferGroupCommit(repoDir, runnerTemp, 'a', [], token);
+      expect(deferred.status).toBe(1);
+      expect(`${deferred.stdout}${deferred.stderr}`).toMatch(error);
+      expect(existsSync(join(
+        runnerTemp,
+        'crawler-generation',
+        'commit-batch',
+        'a.json',
+      ))).toBe(false);
+      expect(execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim())
+        .toBe(head);
+      expect(execFileSync(
+        'git',
+        ['ls-remote', 'origin', 'refs/heads/main'],
+        { cwd: repoDir, encoding: 'utf8' },
+      ).trim()).toBe(remoteHead);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('commits the deferred active+expired snapshots after a sibling rewrites the live paths', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs/expired/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/ipersonal.json'), '[{"id":"old-active"}]\n');
+      writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/ipersonal.json'), '[{"id":"old-expired"}]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      const deferredActive = '[{"id":"schinznach","previousSlugs":["route-a"]},{"id":"st-moritz","previousSlugsByLocale":{"de":["route-b"]}}]\n';
+      const deferredExpired = `${JSON.stringify(Array.from({ length: 110 }, (_, index) => ({ id: `expired-${index}` })))}\n`;
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/ipersonal.json'), deferredActive);
+      writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/ipersonal.json'), deferredExpired);
+
+      const deferred = deferGroupCommit(repoDir, runnerTemp, 'ipersonal');
+      expect(deferred.status, `${deferred.stdout}${deferred.stderr}`).toBe(0);
+      const descriptor = JSON.parse(readFileSync(
+        join(runnerTemp, 'crawler-generation', 'commit-batch', 'ipersonal.json'),
+        'utf8',
+      ));
+      expect(descriptor).toMatchObject({
+        schemaVersion: 3,
+        generationToken: GENERATION_TOKEN,
+        crawlerId: 'ipersonal',
+      });
+      expect(descriptor.files).toEqual(expect.arrayContaining([
+        expect.objectContaining({
+          path: 'data/jobs/by-crawler/ipersonal.json',
+          operation: 'modify',
+          state: 'present',
+          blobOid: expect.stringMatching(/^[a-f0-9]{40,64}$/),
+          sha256: expect.stringMatching(/^sha256:/),
+        }),
+        expect.objectContaining({
+          path: 'data/jobs/expired/by-crawler/ipersonal.json',
+          operation: 'modify',
+          state: 'present',
+          sha256: expect.stringMatching(/^sha256:/),
+        }),
+      ]));
+
+      // Reproduce the production ordering: after iPersonal deferred its 110
+      // expired records, a sibling/global assembler rewrites both live paths
+      // with a degraded view before the atomic batch starts.
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/ipersonal.json'), '[{"id":"degraded-active"}]\n');
+      writeFileSync(
+        join(repoDir, 'data/jobs/expired/by-crawler/ipersonal.json'),
+        `${JSON.stringify(Array.from({ length: 98 }, (_, index) => ({ id: `degraded-${index}` })))}\n`,
+      );
+
+      const firstBatch = commitGroup(repoDir, runnerTemp);
+      expect(firstBatch.status, `${firstBatch.stdout}${firstBatch.stderr}`).toBe(0);
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const pushed = execFileSync('git', ['rev-parse', 'origin/main'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      expect(execFileSync('git', ['show', `${pushed}:data/jobs/by-crawler/ipersonal.json`], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      })).toBe(deferredActive);
+      expect(execFileSync('git', ['show', `${pushed}:data/jobs/expired/by-crawler/ipersonal.json`], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      })).toBe(deferredExpired);
+      expect(readFileSync(join(repoDir, 'data/jobs/by-crawler/ipersonal.json'), 'utf8')).toContain('degraded-active');
+
+      const secondBatch = commitGroup(repoDir, runnerTemp);
+      expect(secondBatch.status, `${secondBatch.stdout}${secondBatch.stderr}`).toBe(0);
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).split(/\s+/)[0]).toBe(pushed);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed before any commit when a descriptor is tampered or missing', () => {
+    for (const failure of ['tampered', 'missing'] as const) {
+      const { originDir, repoDir } = initClonePair();
+      const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+      try {
+        mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+        for (const crawlerId of ['a', 'b']) {
+          writeFileSync(join(repoDir, `data/jobs/by-crawler/${crawlerId}.json`), '[]\n');
+        }
+        execFileSync('git', ['add', '.'], { cwd: repoDir });
+        execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+        execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+        const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim();
+        writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+        writeFileSync(join(repoDir, 'data/jobs/by-crawler/b.json'), '[{"id":"b1"}]\n');
+        expect(deferGroupCommit(repoDir, runnerTemp, 'a').status).toBe(0);
+        expect(deferGroupCommit(repoDir, runnerTemp, 'b').status).toBe(0);
+
+        const descriptorPath = join(runnerTemp, 'crawler-generation', 'commit-batch', 'b.json');
+        if (failure === 'tampered') {
+          const descriptor = JSON.parse(readFileSync(descriptorPath, 'utf8'));
+          descriptor.commitMessage = 'tampered attribution';
+          writeFileSync(descriptorPath, JSON.stringify(descriptor));
+        } else {
+          rmSync(descriptorPath);
+        }
+
+        const batch = commitGroup(repoDir, runnerTemp);
+        expect(batch.status, `${failure}: ${batch.stdout}${batch.stderr}`).toBe(1);
+        expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+          cwd: repoDir,
+          encoding: 'utf8',
+        }).split(/\s+/)[0]).toBe(base);
+      } finally {
+        rmSync(originDir, { recursive: true, force: true });
+        rmSync(repoDir, { recursive: true, force: true });
+        rmSync(runnerTemp, { recursive: true, force: true });
+      }
+    }
+  });
+
+  it('fails closed when a descriptor snapshot blob is missing', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"snapshot-only-content"}]\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a').status).toBe(0);
+      const descriptor = JSON.parse(readFileSync(
+        join(runnerTemp, 'crawler-generation', 'commit-batch', 'a.json'),
+        'utf8',
+      ));
+      const snapshot = descriptor.files.find(({ path: filePath }: { path: string }) => (
+        filePath === 'data/jobs/by-crawler/a.json'
+      ));
+      rmSync(join(repoDir, '.git', 'objects', snapshot.blobOid.slice(0, 2), snapshot.blobOid.slice(2)));
+
+      const batch = commitGroup(repoDir, runnerTemp);
+      expect(batch.status, `${batch.stdout}${batch.stderr}`).toBe(1);
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).split(/\s+/)[0]).toBe(base);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects same-path sibling descriptors deterministically', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/shared'), { recursive: true });
+      for (const crawlerId of ['a', 'b']) {
+        writeFileSync(join(repoDir, `data/jobs/by-crawler/${crawlerId}.json`), '[]\n');
+      }
+      writeFileSync(join(repoDir, 'data/shared/ownership.json'), '{}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      writeFileSync(join(repoDir, 'data/shared/ownership.json'), '{"writer":"both"}\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', ['data/shared/ownership.json']).status).toBe(0);
+      expect(deferGroupCommit(repoDir, runnerTemp, 'b', ['data/shared/ownership.json']).status).toBe(0);
+
+      const batch = commitGroup(repoDir, runnerTemp);
+      expect(batch.status).toBe(1);
+      expect(`${batch.stdout}${batch.stderr}`).toContain(
+        'Crawler commit descriptor path conflict: data/shared/ownership.json (a,b)',
+      );
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).split(/\s+/)[0]).toBe(base);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('commits a deferred deletion even when the live path is recreated before the batch', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"retire-me"}]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      rmSync(join(repoDir, 'data/jobs/by-crawler/a.json'));
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a').status).toBe(0);
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"recreated-too-late"}]\n');
+      const firstBatch = commitGroup(repoDir, runnerTemp);
+      expect(firstBatch.status, `${firstBatch.stdout}${firstBatch.stderr}`).toBe(0);
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      expect(spawnSync('git', ['cat-file', '-e', 'origin/main:data/jobs/by-crawler/a.json'], {
+        cwd: repoDir,
+      }).status).not.toBe(0);
+
+      const pushed = execFileSync('git', ['rev-parse', 'origin/main'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      const secondBatch = commitGroup(repoDir, runnerTemp);
+      expect(secondBatch.status, `${secondBatch.stdout}${secondBatch.stderr}`).toBe(0);
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).split(/\s+/)[0]).toBe(pushed);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it.each<[string, string, string[]]>([
+    ['active slice', 'data/jobs/by-crawler/a.json', []],
+    ['crawler summary', 'data/jobs-crawler-summaries/by-crawler/a.json', []],
+    ['translation cache', 'data/translation-cache/a.json', []],
+    ['explicit adapter', 'data/jobs-crawler-adapters/adapters/a.json', ['data/jobs-crawler-adapters/adapters/a.json']],
+  ])('aborts instead of resurrecting a remotely deleted %s after defer', (_kind, targetPath, extraPaths) => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(dirname(join(repoDir, targetPath)), { recursive: true });
+      writeFileSync(join(repoDir, targetPath), '{"state":"old"}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, targetPath), '{"state":"deferred"}\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', extraPaths).status).toBe(0);
+
+      const remoteDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-remote-'));
+      try {
+        execFileSync('git', ['clone', '-q', originDir, remoteDir]);
+        execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: remoteDir });
+        execFileSync('git', ['config', 'user.name', 'Test'], { cwd: remoteDir });
+        rmSync(join(remoteDir, targetPath));
+        execFileSync('git', ['add', '.'], { cwd: remoteDir });
+        execFileSync('git', ['commit', '-q', '-m', 'retire slice'], { cwd: remoteDir });
+        execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: remoteDir });
+
+        const remoteDeletion = execFileSync('git', ['rev-parse', 'HEAD'], {
+          cwd: remoteDir,
+          encoding: 'utf8',
+        }).trim();
+        const batch = commitGroup(repoDir, runnerTemp);
+        expect(batch.status, `${batch.stdout}${batch.stderr}`).toBe(1);
+        expect(`${batch.stdout}${batch.stderr}`).toContain(
+          `snapshot conflicts with a newer remote deletion for ${targetPath}`,
+        );
+        expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+          cwd: repoDir,
+          encoding: 'utf8',
+        }).split(/\s+/)[0]).toBe(remoteDeletion);
+      } finally {
+        rmSync(remoteDir, { recursive: true, force: true });
+      }
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  // #7060 follow-up on #7054: the fail-closed abort's blast radius and
+  // reachability on non-job paths (summary/translation-cache/adapter) were
+  // unmeasured in production. Both open questions need queryable signal in
+  // the batch's own Actions log, not just a passing unit test — this locks
+  // in that the abort message tags its path class and that a per-run
+  // summary line reports non-"unchanged" operations by class.
+  it.each<[string, string, string[]]>([
+    ['crawler summary', 'data/jobs-crawler-summaries/by-crawler/a.json', []],
+    ['translation cache', 'data/translation-cache/a.json', []],
+    ['explicit adapter', 'data/jobs-crawler-adapters/adapters/a.json', ['data/jobs-crawler-adapters/adapters/a.json']],
+  ])('tags the fail-closed abort for a remotely deleted %s with its path class', (_kind, targetPath, extraPaths) => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(dirname(join(repoDir, targetPath)), { recursive: true });
+      writeFileSync(join(repoDir, targetPath), '{"state":"old"}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, targetPath), '{"state":"deferred"}\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', extraPaths).status).toBe(0);
+
+      const remoteDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-remote-'));
+      try {
+        execFileSync('git', ['clone', '-q', originDir, remoteDir]);
+        execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: remoteDir });
+        execFileSync('git', ['config', 'user.name', 'Test'], { cwd: remoteDir });
+        rmSync(join(remoteDir, targetPath));
+        execFileSync('git', ['add', '.'], { cwd: remoteDir });
+        execFileSync('git', ['commit', '-q', '-m', 'retire slice'], { cwd: remoteDir });
+        execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: remoteDir });
+
+        const batch = commitGroup(repoDir, runnerTemp);
+        expect(batch.status, `${batch.stdout}${batch.stderr}`).toBe(1);
+        const kindToClass: Record<string, string> = {
+          'crawler summary': 'summary',
+          'translation cache': 'translation-cache',
+          'explicit adapter': 'adapter',
+        };
+        expect(`${batch.stdout}${batch.stderr}`).toContain(
+          `snapshot conflicts with a newer remote deletion for ${targetPath} (class=${kindToClass[_kind]})`,
+        );
+      } finally {
+        rmSync(remoteDir, { recursive: true, force: true });
+      }
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('logs a per-class snapshot operation summary for a mixed non-job batch', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    const summaryPath = 'data/jobs-crawler-summaries/by-crawler/a.json';
+    const cachePath = 'data/translation-cache/a.json';
+    try {
+      mkdirSync(dirname(join(repoDir, summaryPath)), { recursive: true });
+      mkdirSync(dirname(join(repoDir, cachePath)), { recursive: true });
+      execFileSync('git', ['add', '-A'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed', '--allow-empty'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, summaryPath), '{"state":"created"}\n');
+      writeFileSync(join(repoDir, cachePath), '{"state":"created"}\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', [summaryPath, cachePath]).status).toBe(0);
+
+      const batch = commitGroup(repoDir, runnerTemp);
+      expect(batch.status, `${batch.stdout}${batch.stderr}`).toBe(0);
+      expect(`${batch.stdout}${batch.stderr}`).toMatch(
+        /snapshot operations by class \(excludes unchanged\):.*summary:create=1/,
+      );
+      expect(`${batch.stdout}${batch.stderr}`).toMatch(
+        /snapshot operations by class \(excludes unchanged\):.*translation-cache:create=1/,
+      );
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps create, unchanged and explicit delete semantics distinct for non-job descriptor paths', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    const root = 'data/jobs-crawler-adapters/adapters';
+    const createPath = `${root}/create.json`;
+    const unchangedPath = `${root}/unchanged.json`;
+    const deletePath = `${root}/delete.json`;
+    try {
+      mkdirSync(join(repoDir, root), { recursive: true });
+      writeFileSync(join(repoDir, unchangedPath), '{"state":"same"}\n');
+      writeFileSync(join(repoDir, deletePath), '{"state":"delete-me"}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, createPath), '{"state":"created"}\n');
+      rmSync(join(repoDir, deletePath));
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', [createPath, unchangedPath, deletePath]).status).toBe(0);
+
+      const remoteDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-remote-'));
+      try {
+        execFileSync('git', ['clone', '-q', originDir, remoteDir]);
+        execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: remoteDir });
+        execFileSync('git', ['config', 'user.name', 'Test'], { cwd: remoteDir });
+        rmSync(join(remoteDir, unchangedPath));
+        execFileSync('git', ['add', '.'], { cwd: remoteDir });
+        execFileSync('git', ['commit', '-q', '-m', 'delete unchanged path remotely'], { cwd: remoteDir });
+        execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: remoteDir });
+      } finally {
+        rmSync(remoteDir, { recursive: true, force: true });
+      }
+
+      writeFileSync(join(repoDir, deletePath), '{"state":"recreated-too-late"}\n');
+      const firstBatch = commitGroup(repoDir, runnerTemp);
+      expect(firstBatch.status, `${firstBatch.stdout}${firstBatch.stderr}`).toBe(0);
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      expect(execFileSync('git', ['show', `origin/main:${createPath}`], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      })).toBe('{"state":"created"}\n');
+      for (const absentPath of [unchangedPath, deletePath]) {
+        expect(spawnSync('git', ['cat-file', '-e', `origin/main:${absentPath}`], { cwd: repoDir }).status).not.toBe(0);
+      }
+
+      const pushed = execFileSync('git', ['rev-parse', 'origin/main'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      const secondBatch = commitGroup(repoDir, runnerTemp);
+      expect(secondBatch.status, `${secondBatch.stdout}${secondBatch.stderr}`).toBe(0);
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).split(/\s+/)[0]).toBe(pushed);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects repository-escaping descriptor paths at defer time', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      const deferred = deferGroupCommit(repoDir, runnerTemp, 'a', ['../escape.json']);
+      expect(deferred.status).toBe(1);
+      expect(`${deferred.stdout}${deferred.stderr}`).toContain('Invalid crawler commit descriptor path');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('persists successful crawler descriptors in one ancestor commit and is idempotent', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs-crawler-adapters/adapters'), { recursive: true });
+      for (const crawlerId of ['a', 'b', 'failed']) {
+        writeFileSync(join(repoDir, `data/jobs/by-crawler/${crawlerId}.json`), '[]\n');
+      }
+      for (const crawlerId of ['b', 'failed']) {
+        writeFileSync(join(repoDir, `data/jobs-crawler-adapters/adapters/${crawlerId}.json`), '{}\n');
+      }
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim();
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/b.json'), '[{"id":"b1"}]\n');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/failed.json'), '[{"id":"partial"}]\n');
+      writeFileSync(join(repoDir, 'data/jobs-crawler-adapters/adapters/b.json'), '{"status":"complete"}\n');
+      writeFileSync(join(repoDir, 'data/jobs-crawler-adapters/adapters/failed.json'), '{"status":"partial"}\n');
+
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', ['data/jobs-crawler-adapters/']).status).toBe(0);
+      expect(deferGroupCommit(repoDir, runnerTemp, 'b', ['data/jobs-crawler-adapters/adapters/b.json']).status).toBe(0);
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], { cwd: repoDir, encoding: 'utf8' }).split(/\s+/)[0]).toBe(base);
+
+      const firstBatch = commitGroup(repoDir, runnerTemp);
+      expect(firstBatch.status, `${firstBatch.stdout}${firstBatch.stderr}`).toBe(0);
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const pushed = execFileSync('git', ['rev-parse', 'origin/main'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      expect(execFileSync('git', ['rev-list', '--count', `${base}..${pushed}`], { cwd: repoDir, encoding: 'utf8' }).trim()).toBe('1');
+      expect(execFileSync('git', ['show', `${pushed}:data/jobs/by-crawler/a.json`], { cwd: repoDir, encoding: 'utf8' })).toContain('a1');
+      expect(execFileSync('git', ['show', `${pushed}:data/jobs/by-crawler/b.json`], { cwd: repoDir, encoding: 'utf8' })).toContain('b1');
+      expect(execFileSync('git', ['show', `${pushed}:data/jobs/by-crawler/failed.json`], { cwd: repoDir, encoding: 'utf8' })).toBe('[]\n');
+      expect(execFileSync('git', ['show', `${pushed}:data/jobs-crawler-adapters/adapters/b.json`], { cwd: repoDir, encoding: 'utf8' })).toContain('complete');
+      expect(execFileSync('git', ['show', `${pushed}:data/jobs-crawler-adapters/adapters/failed.json`], { cwd: repoDir, encoding: 'utf8' })).toBe('{}\n');
+
+      const receiptRoot = join(runnerTemp, 'crawler-generation', 'receipts');
+      const receipts = ['a', 'b'].map((crawlerId) => JSON.parse(readFileSync(join(receiptRoot, `${crawlerId}.json`), 'utf8')));
+      expect(receipts.map(({ outcome }) => outcome)).toEqual(['pushed', 'pushed']);
+      expect(new Set(receipts.map(({ commit }) => commit))).toEqual(new Set([pushed]));
+      expect(new Set(receipts.map(({ remoteBaseCommit }) => remoteBaseCommit))).toEqual(new Set([base]));
+      expect(existsSync(join(receiptRoot, 'failed.json'))).toBe(false);
+
+      const secondBatch = commitGroup(repoDir, runnerTemp);
+      expect(secondBatch.status, `${secondBatch.stdout}${secondBatch.stderr}`).toBe(0);
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], { cwd: repoDir, encoding: 'utf8' }).split(/\s+/)[0]).toBe(pushed);
+      for (const crawlerId of ['a', 'b']) {
+        const receipt = JSON.parse(readFileSync(join(receiptRoot, `${crawlerId}.json`), 'utf8'));
+        expect(receipt).toMatchObject({ crawlerId, outcome: 'noop', commit: pushed, remoteBaseCommit: pushed });
+      }
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
   it('survives a remote divergence without touching the sibling\'s dirty worktree files (no stash, no rebase)', () => {
     const { originDir, repoDir } = initClonePair();
     // Second clone simulates ANOTHER group's runner pushing to origin
@@ -332,7 +920,12 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
   // green step. Simulated deterministically with a PATH `git` shim that fails
   // every `git push` with a canned output and delegates everything else to
   // the real git; MAX_PUSH_ATTEMPTS=1 exhausts the loop on the first attempt.
-  function runScriptWithPushShim(repoDir: string, sliceFile: string, pushFailureOutput: string) {
+  function runScriptWithPushShim(
+    repoDir: string,
+    sliceFile: string | undefined,
+    pushFailureOutput: string,
+    githubOutput = '',
+  ) {
     const realGit = execFileSync('which', ['git'], { encoding: 'utf-8' }).trim();
     const shimDir = mkdtempSync(join(tmpdir(), 'gcd-git-shim-'));
     const outputFile = join(shimDir, 'push-output.txt');
@@ -350,14 +943,14 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
         ...process.env,
         PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
         MAX_PUSH_ATTEMPTS: '1',
-        JOBS_SLICE_FILE: sliceFile,
+        ...(sliceFile ? { JOBS_SLICE_FILE: sliceFile } : {}),
         SKIP_AI_TRANSLATION: '1',
         SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
         GH_TOKEN: '',
         GITHUB_TOKEN: '',
         GITHUB_RUN_ID: '',
         GITHUB_REPOSITORY: '',
-        GITHUB_OUTPUT: '',
+        GITHUB_OUTPUT: githubOutput,
       },
     });
     rmSync(shimDir, { recursive: true, force: true });
@@ -372,6 +965,47 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
     execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
     writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
   }
+
+  it('emits the pushed SHA while preserving the local HEAD', () => {
+    const { originDir, repoDir } = initClonePair();
+    const output = join(repoDir, 'github-output.txt');
+    try {
+      seedRepoWithPendingSlice(repoDir);
+      const headBefore = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf-8' }).trim();
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json', output);
+
+      const pushed = execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], { cwd: repoDir, encoding: 'utf-8' })
+        .split(/\s+/)[0];
+      expect(readFileSync(output, 'utf-8')).toBe(`has_changes=true\nfinal_commit=${pushed}\n`);
+      expect(execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf-8' }).trim()).toBe(headBefore);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('does not emit final_commit for a no-op or sequential soft push contention', () => {
+    const { originDir, repoDir } = initClonePair();
+    const output = join(repoDir, 'github-output.txt');
+    const contention = ' ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs\n';
+    try {
+      seedRepoWithPendingSlice(repoDir);
+      execFileSync('git', ['checkout', '--', 'data/jobs/by-crawler/a.json'], { cwd: repoDir });
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json', output);
+      expect(readFileSync(output, 'utf-8')).toBe('has_changes=false\n');
+
+      writeFileSync(output, '');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+      const result = runScriptWithPushShim(repoDir, undefined, contention, output);
+      expect(result.status).toBe(0);
+      expect(readFileSync(output, 'utf-8')).not.toContain('final_commit=');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
 
   it('exits 42 when retries are exhausted by a genuine ref rejection/race', () => {
     const { originDir, repoDir } = initClonePair();

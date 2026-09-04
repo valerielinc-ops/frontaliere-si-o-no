@@ -32,6 +32,34 @@ beforeEach(() => {
   delete process.env.GH_REPO;
 });
 
+describe('dedupKey cold-start CLOSED lookup (#6814)', () => {
+  it('reuses the joint election instead of repeating search and listing', async () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/81';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'Duplicate crawler companies: 0 groups',
+      description: 'cold-start probe',
+      labels: ['bug'],
+      dedupKey: 'Duplicate crawler companies:',
+      reopenWithinHours: 720,
+    } as any);
+
+    const closedLookups = ghCalls().filter((args) => {
+      if (args[0] !== 'issue' || args[1] !== 'list') return false;
+      const stateAt = args.indexOf('--state');
+      return stateAt >= 0 && args[stateAt + 1] === 'closed';
+    });
+    // One logical lookup intentionally has two commands: search-index query
+    // plus plain listing fallback. The regression repeated both (4 total).
+    expect(closedLookups).toHaveLength(2);
+    expect(ghCalls().filter((args) => args[0] === 'issue' && args[1] === 'create')).toHaveLength(1);
+  });
+});
+
 describe('github-issue-creator crawler-failure consecutive gate', () => {
   it('1st failure → ledger entry, NOT a per-crawler issue (#5139/#5137)', async () => {
     // No open issue, no recently-closed issue, no ledger yet.

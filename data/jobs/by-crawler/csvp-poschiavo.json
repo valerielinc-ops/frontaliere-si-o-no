@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-08-28T05:29:04.992Z",
+  "assembledAt": "2026-09-03T23:16:16.035Z",
   "jobs": [
     {
       "id": "csvp-poschiavo-4229ad282e88",
@@ -33,7 +33,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/922-infermiere-sss-oss-fage",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:29:01.888Z",
+      "crawledAt": "2026-09-03T23:16:13.440Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -53,6 +53,7 @@
       "firstSeenAt": "2026-08-25T09:56:31.307Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -63,6 +64,86 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "csvp-poschiavo-8677de807949",
+      "slug": "operatore-sociosanitario-fage-o-addetto-alle-cure-sociosanitarie-m-f-csvp-poschiavo",
+      "slugByLocale": {
+        "it": "operatore-sociosanitario-fage-o-addetto-alle-cure-sociosanitarie-m-f-csvp-poschiavo",
+        "en": "socio-sanitary-practitioner-fage-or-health-care-assistant-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "de": "heilpraktiker-fage-oder-gesundheitsassistent-m-w-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "fr": "praticien-socio-sanitaire-fage-ou-assistant-de-soins-de-sante-h-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+      },
+      "company": "Centro Sanitario Valposchiavo (CSVP)",
+      "companyKey": "csvp-poschiavo",
+      "companyDomain": "csvp.ch",
+      "title": "Operatore sociosanitario (FaGe) o Addetto alle cure sociosanitarie (m/f)",
+      "titleByLocale": {
+        "it": "Operatore sociosanitario (FaGe) o Addetto alle cure sociosanitarie (m/f)",
+        "en": "Socio-sanitary practitioner (FaGe) or health care assistant (m/f)",
+        "de": "Heilpraktiker (FaGe) oder Gesundheitsassistent (m/w)",
+        "fr": "praticien socio-sanitaire (FaGe) ou assistant de soins de santé (h/f)"
+      },
+      "description": "Per la Spitex\n\n7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch www.csvp.chIl Centro sanitario Valposchiavo cerca per la Spitex Operatore sociosanitario (FaGe) o Addetto alle cure sociosanitarie (m/f) a ore, 50 - 60 % Compiti principali Assistenza nelle cure infermieristiche di base Lavori di economia domestica Assistenza/accompagnamento degli utenti con varie patologie \n• Requisiti Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Equilibrio psicofisico Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi Conoscenze e abilità in campo informatico Conoscenza del tedesco auspicabile Patente di guida e vettura propria Gradite eventuali esperienze specialistiche \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 20 settembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch Informazioni Possono essere richieste a: Ufficio Risorse umane, Tel. 081 839 11 05\n\nDettagli (PDF): https://www.csvp.ch/images/Posti_di_lavoro_PDF/FaGe_o_AGS.pdf\n\nCentro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).",
+      "descriptionByLocale": {
+        "it": "Per la Spitex\n\n7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch www.csvp.chIl Centro sanitario Valposchiavo cerca per la Spitex Operatore sociosanitario (FaGe) o Addetto alle cure sociosanitarie (m/f) a ore, 50 - 60 % Compiti principali Assistenza nelle cure infermieristiche di base Lavori di economia domestica Assistenza/accompagnamento degli utenti con varie patologie \n• Requisiti Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Equilibrio psicofisico Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi Conoscenze e abilità in campo informatico Conoscenza del tedesco auspicabile Patente di guida e vettura propria Gradite eventuali esperienze specialistiche \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 20 settembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch Informazioni Possono essere richieste a: Ufficio Risorse umane, Tel. 081 839 11 05\n\nDettagli (PDF): https://www.csvp.ch/images/Posti_di_lavoro_PDF/FaGe_o_AGS.pdf\n\nCentro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).",
+        "en": "Per la Spitex\n\n7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch www.csvp.chIl Centro sanitario Valposchiavo cerca per la Spitex Operatore sociosanitario (FaGe) o Addetto alle cure sociosanitarie (m/f) a ore, 50 - 60 % Compiti principali Assistenza nelle cure infermieristiche di base Lavori di economia domestica Assistenza/accompagnamento degli utenti con varie patologie\n• Requisiti Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Equilibrio psicofisico Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi Conoscenze e abilità in campo informatico Conoscenza del tedesco auspicabile Patente di guida e vettura propria Gradite eventuali esperienze specialistiche\n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 20 settembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch Informazioni Possono essere richieste a: Ufficio Risorse umane, Tel. 081 839 11 05\n\nDettagli (PDF): https://www.csvp.ch/images/Posti_di_lavoro_PDF/FaGe_o_AGS.pdf\n\nCentro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).",
+        "de": "Per la Spitex\n\n7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch www.csvp.chIl Centro sanitario Valposchiavo cerca per la Spitex Operatore sociosanitario (FaGe) o Addetto alle cure sociosanitarie (m/f) a ore, 50 - 60 % Compiti principali Assistenza nelle cure infermieristiche di base Lavori di economia domestica Assistenza/accompagnamento degli utenti con varie patologie\n• Requisiti Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Equilibrio psicofisico Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi Conoscenze e abilità in campo informatico Conoscenza del tedesco auspicabile Patente di guida e vettura propria Gradite eventuali esperienze specialistiche\n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 20 settembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch Informazioni Possono essere richieste a: Ufficio Risorse umane, Tel. 081 839 11 05\n\nDettagli (PDF): https://www.csvp.ch/images/Posti_di_lavoro_PDF/FaGe_o_AGS.pdf\n\nCentro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).",
+        "fr": "Per la Spitex\n\n7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch www.csvp.chIl Centro sanitario Valposchiavo cerca per la Spitex Operatore sociosanitario (FaGe) o Addetto alle cure sociosanitarie (m/f) a ore, 50 - 60 % Compiti principali Assistenza nelle cure infermieristiche di base Lavori di economia domestica Assistenza/accompagnamento degli utenti con varie patologie\n• Requisiti Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Equilibrio psicofisico Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi Conoscenze e abilità in campo informatico Conoscenza del tedesco auspicabile Patente di guida e vettura propria Gradite eventuali esperienze specialistiche\n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 20 settembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch Informazioni Possono essere richieste a: Ufficio Risorse umane, Tel. 081 839 11 05\n\nDettagli (PDF): https://www.csvp.ch/images/Posti_di_lavoro_PDF/FaGe_o_AGS.pdf\n\nCentro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR)."
+      },
+      "needsRetranslation": true,
+      "location": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/927-operatore-sociosanitario-fage-o-addetto-alle-cure-sociosanitarie-m-f",
+      "source": "CSVP Dedicated Parser (Joomla HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-03T23:16:12.092Z",
+      "addressLocality": "Poschiavo",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7742",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/927-operatore-sociosanitario-fage-o-addetto-alle-cure-sociosanitarie-m-f",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-31T17:14:03.685Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "operatore-sociosanitario-fage-o-associate-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ],
+        "de": [
+          "operatore-sociosanitario-fage-o-mitarbeiter-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ],
+        "fr": [
+          "operatore-sociosanitario-fage-o-prepose-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-sociosanitario-fage-o-associate-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "operatore-sociosanitario-fage-o-mitarbeiter-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "operatore-sociosanitario-fage-o-prepose-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+      ]
     }
   ]
 }

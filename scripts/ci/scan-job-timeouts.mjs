@@ -28,9 +28,11 @@
  * thing anybody could see were those three downstream symptoms. The dead leg itself
  * was invisible. This scanner is the observer that was missing.
  *
- * ALGORITHM (best-effort, stateless):
- *   1. List runs created within the lookback window, twice: conclusion `cancelled`
- *      (signature A) and conclusion `failure` (signature B).
+ * ALGORITHM (best-effort, no persisted cursor):
+ *   1. List runs completed/updated within the lookback window, twice: conclusion
+ *      `cancelled` (signature A) and conclusion `failure` (signature B). `created_at`
+ *      is deliberately NOT the clock: a 350-minute job is already older than an
+ *      hourly lookback when its timeout first becomes observable.
  *   2A. For each cancelled run, list its jobs; a `cancelled` job is a *candidate*
  *      (concurrency groups with `cancel-in-progress: true` also cancel superseded
  *      runs — that is normal, not a timeout, so conclusion alone is not proof).
@@ -55,23 +57,26 @@
  * in `report-workflow-failure.mjs`: no reporter ships until the same change says WHO
  * closes its issues, because with title dedup an unclosable issue is a permanent one.
  *
- * Stateless by design: no persisted scan cursor. The lookback window is sized wider
- * than the cron interval so no run is missed; the cost of the overlap is an extra
- * COMMENT on the canonical issue (never a duplicate issue) if the same run is seen
- * in two consecutive scans.
+ * No persisted scan cursor by design. The lookback window is sized wider than the
+ * cron interval so no run is missed. Overlap is deduped against the durable issue
+ * body/comments by run URL: the same physical run is emitted once, while a different
+ * run of the same workflow remains a real recurrence on the canonical issue.
  *
  * DEDUP, and why one layer was not enough. A single run can time out in SEVERAL
  * jobs, and every one of them maps to the same `CI Failure: <workflow>` title. The
  * title-based dedup in `createGithubIssue` resolved through GitHub's SEARCH INDEX,
  * which is eventually consistent: the second job, seconds behind the first, did not
  * see the issue the first had just opened and opened its own. That is #5305/#5306 —
- * same run 31171006342, same title, 3 seconds apart. Two layers now close it:
- *   a) `emittedByTitle` below — an in-process map title → issue ref. Once a title
- *      has been reported in THIS scan, further jobs comment on that issue instead
- *      of calling the reporter again. No API lookup, so no race to lose.
- *   b) the listing fallback inside `searchIssuesByTitlePrefix` — covers the
- *      cross-PROCESS case (two scans, or this scan racing another reporter), which
- *      (a) by construction cannot see.
+ * same run 31171006342, same title, 3 seconds apart. Three layers now close it:
+ *   a) every run is aggregated into ONE deterministic issue write containing all
+ *      of its dead jobs. There is no secondary best-effort comment whose failure
+ *      could leave a partially-recorded run.
+ *   b) search results and the immediately-consistent open listing are ALWAYS
+ *      merged by issue number. An old indexed issue therefore cannot mask a new
+ *      canonical issue that search has not indexed yet.
+ *   c) `findIssueReportingRun` — body/comment lookup by run URL before the first
+ *      emission for a title in each scan. Title dedup alone cannot distinguish
+ *      "same run seen twice" from "a later run really recurred"; this layer can.
  *
  * BRANCH-SCOPED TITLE (#6036): `close-recovered-failure-issues.mjs` measures
  * recurrence/chronic-escalation on `gh run list -w <workflow> -b main` — a population
@@ -91,12 +96,29 @@
  * separate population, separate thread, no cross-contamination either direction.
  */
 import { execFileSync } from 'node:child_process';
-import { createGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
+import {
+  createGithubIssue,
+  commentOnGithubIssue,
+  searchSafePrefix,
+} from '../lib/github-issue-creator.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const LOOKBACK_MINUTES = Number(process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES || 75);
-const MAX_RUNS = 200; // safety cap per scan
+// `updated_at` e' il clock dell'osservatore, ma l'API filtra solo `created`.
+// Non basta quindi sommare il timeout del singolo job: una run puo' aspettare
+// in coda, attraversare job `needs` e restare in attesa di un'approvazione.
+// GitHub documenta 35 giorni come limite dell'INTERA run, inclusi waiting e
+// approval; oltre questo orizzonte la run viene cancellata. E' il solo bound
+// lato server che non esclude una run ancora capace di aggiornarsi nel cutoff.
+const MAX_WORKFLOW_RUN_AGE_MIN = 35 * 24 * 60;
+
+// Con qualunque filtro (`status` e `created` qui) GitHub restituisce al massimo
+// 1.000 risultati PER SEARCH. Un cap locale piu' alto sarebbe irraggiungibile:
+// per coprire l'intero orizzonte si biseca la finestra `created` finche' ogni
+// search e' sotto il limite, poi si paginano tutte le sue pagine.
+const RUN_SEARCH_RESULT_CAP = 1000;
+const RUN_SEARCH_MAX_SPLIT_DEPTH = 20;
 const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum number of minutes)/i;
 // A job that has only just failed can be read back mid-finalisation, with a step
 // still momentarily `in_progress` — indistinguishable from a host-kill. Ignore
@@ -132,24 +154,73 @@ function ghJson(path, { allowFailure = true } = {}) {
   }
 }
 
-function listRunsByStatus(status, cutoffMs) {
-  const runs = [];
+function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
+  const runsById = new Map();
   const perPage = 100;
-  for (let page = 1; runs.length < MAX_RUNS; page += 1) {
-    const data = ghJson(repoPath(`actions/runs?status=${status}&per_page=${perPage}&page=${page}`));
-    const batch = data?.workflow_runs || [];
-    if (batch.length === 0) break;
-    let hitCutoff = false;
+
+  const observe = (batch) => {
     for (const run of batch) {
-      if (Date.parse(run.created_at) < cutoffMs) {
-        hitCutoff = true;
+      const observedAt = Date.parse(run.updated_at || run.created_at || '');
+      if (Number.isFinite(observedAt) && observedAt >= cutoffMs) {
+        runsById.set(run.id, run);
+      }
+    }
+  };
+
+  const fetchCreatedSlice = (startMs, endMs, depth = 0) => {
+    const created = encodeURIComponent(
+      `${new Date(startMs).toISOString()}..${new Date(endMs).toISOString()}`,
+    );
+    const pagePath = (page) => repoPath(
+      `actions/runs?status=${status}&created=${created}&per_page=${perPage}&page=${page}`,
+    );
+    const first = ghJson(pagePath(1));
+    if (!first) return;
+
+    const totalCount = Number(first.total_count);
+    if (Number.isFinite(totalCount) && totalCount > RUN_SEARCH_RESULT_CAP) {
+      const midpoint = Math.floor((startMs + endMs) / 2);
+      if (depth >= RUN_SEARCH_MAX_SPLIT_DEPTH || midpoint < startMs || midpoint >= endMs) {
+        console.warn(
+          `::warning::[scan-job-timeouts] search ${status} ancora oltre il limite API `
+            + `(${totalCount} > ${RUN_SEARCH_RESULT_CAP}) dopo ${depth} split — `
+            + `possibile troncamento tra ${new Date(startMs).toISOString()} e ${new Date(endMs).toISOString()}.`,
+        );
+        observe(first.workflow_runs || []);
+        return;
+      }
+      // Intervalli disgiunti al millisecondo: nessun buco, nessun doppio
+      // conteggio sul confine (runsById resta comunque l'ultima difesa).
+      fetchCreatedSlice(startMs, midpoint, depth + 1);
+      fetchCreatedSlice(midpoint + 1, endMs, depth + 1);
+      return;
+    }
+
+    const expectedPages = Number.isFinite(totalCount)
+      ? Math.ceil(totalCount / perPage)
+      : null;
+    let page = 1;
+    let data = first;
+    while (data) {
+      const batch = data.workflow_runs || [];
+      if (batch.length === 0) break;
+      observe(batch);
+      if (batch.length < perPage) break;
+      if (expectedPages !== null && page >= expectedPages) break;
+      if (expectedPages === null && page >= RUN_SEARCH_RESULT_CAP / perPage) {
+        console.warn(
+          `::warning::[scan-job-timeouts] search ${status} ha raggiunto il limite API `
+            + `senza total_count — possibile troncamento nella slice created.`,
+        );
         break;
       }
-      runs.push(run);
+      page += 1;
+      data = ghJson(pagePath(page));
     }
-    if (hitCutoff || batch.length < perPage) break;
-  }
-  return runs;
+  };
+
+  fetchCreatedSlice(cutoffMs - MAX_WORKFLOW_RUN_AGE_MIN * 60_000, nowMs);
+  return [...runsById.values()];
 }
 
 function listJobs(runId) {
@@ -202,11 +273,79 @@ export function detectHostKill(job, nowMs = Date.now()) {
   return { stuck, neverRan };
 }
 
+function issueRepoFlag() {
+  return REPO ? ['--repo', REPO] : [];
+}
+
+// Rete di sicurezza, non filtro primario (#692, Item 3). Il listing sotto e'
+// il fallback per l'eventual consistency dell'indice di ricerca (una issue
+// appena creata potrebbe non comparire ancora in `--search`); prima del fix
+// era troncato a un `--limit 200` fisso, quindi oltre 200 issue aperte la
+// canonica poteva restare fuori e la dedup per run-URL falliva in silenzio,
+// aprendo un duplicato invece di commentare su quella esistente. Alzato e
+// segnalato ad alta voce se toccato, stesso stile di `RUN_LISTING_SAFETY_CAP`.
+const OPEN_ISSUE_LISTING_SAFETY_CAP = 1000;
+
+function parseIssueList(raw) {
+  try {
+    const parsed = JSON.parse(raw || '[]');
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Find the canonical issue only when it already contains THIS physical run.
+ *
+ * The title identifies a workflow across recurrences; the run URL identifies one
+ * occurrence. Search handles old/closed canonical issues, while the plain open
+ * listing is the immediately-consistent fallback for a just-created issue. Every
+ * read is best-effort: a GitHub read failure must not hide a real dead job.
+ */
+function findIssueReportingRun(title, runUrl) {
+  if (!runUrl) return null;
+  const titlePrefix = searchSafePrefix(title);
+  const common = ['--json', 'number,title,state', ...issueRepoFlag()];
+  const searched = parseIssueList(gh([
+    'issue', 'list', '--state', 'all', '--search', `${titlePrefix} in:title`,
+    '--limit', '20', ...common,
+  ], { allowFailure: true }));
+  const listed = parseIssueList(gh([
+    'issue', 'list', '--state', 'open', '--limit', String(OPEN_ISSUE_LISTING_SAFETY_CAP), ...common,
+  ], { allowFailure: true }));
+  if (listed.length >= OPEN_ISSUE_LISTING_SAFETY_CAP) {
+    console.warn(
+      `::warning::[scan-job-timeouts] cap di sicurezza (${OPEN_ISSUE_LISTING_SAFETY_CAP}) raggiunto `
+        + 'sul listing issue aperte — possibile troncamento della canonica.',
+    );
+  }
+  const candidates = [...searched, ...listed]
+    .filter((issue) => String(issue?.title || '').startsWith(titlePrefix))
+    .filter((issue, index, all) => all.findIndex((candidate) => candidate?.number === issue?.number) === index);
+
+  for (const issue of candidates) {
+    const raw = gh([
+      'issue', 'view', String(issue.number), '--json', 'body,comments', ...issueRepoFlag(),
+    ], { allowFailure: true });
+    if (!raw) continue;
+    try {
+      const data = JSON.parse(raw);
+      const text = [data?.body, ...(data?.comments || []).map((comment) => comment?.body)]
+        .filter(Boolean).join('\n');
+      if (text.includes(runUrl)) return issue;
+    } catch {
+      // Fail open: dedup uncertainty may add noise, but never hides a dead job.
+    }
+  }
+  return null;
+}
+
 export async function main() {
   const nowMs = Date.now();
   const cutoffMs = nowMs - LOOKBACK_MINUTES * 60 * 1000;
-  const cancelledRuns = listRunsByStatus('cancelled', cutoffMs);
-  const failedRuns = listRunsByStatus('failure', cutoffMs);
+  const cancelledRuns = listRunsByStatus('cancelled', cutoffMs, nowMs);
+  const failedRuns = listRunsByStatus('failure', cutoffMs, nowMs);
   console.log(
     `[scan-job-timeouts] ${cancelledRuns.length} cancelled + ${failedRuns.length} failed run(s) `
       + `in the last ${LOOKBACK_MINUTES}m`,
@@ -219,81 +358,129 @@ export async function main() {
   // host, so one run can produce several hits that all map to the same title.
   const emittedByTitle = new Map();
 
-  async function emit({ title, description, labels, workflow, jobName }) {
-    reported += 1;
-    if (DRY_RUN) {
-      const dup = emittedByTitle.has(title) ? ' (already emitted → would COMMENT)' : '';
-      console.log(`[scan-job-timeouts] (dry-run) would report "${title}"${dup}`);
-      emittedByTitle.set(title, { number: null });
+  async function emit({ title, description, labels, workflow, runUrl, jobCount }) {
+    const already = emittedByTitle.get(title);
+
+    // Every emission is atomic at run level, so the durable run URL proves that
+    // all dead jobs in this run were recorded together.
+    if (already?.persistedRunUrl === runUrl) {
+      console.log(`[scan-job-timeouts] run già segnalata su #${already.number} — skip ${runUrl}`);
       return;
     }
 
-    const already = emittedByTitle.get(title);
-    if (already?.number) {
-      // Same title already reported in this scan: comment on the known issue
-      // number. The second job's detail must survive — it is a distinct job
-      // that died — but it must not become a second issue.
-      commentOnGithubIssue(
-        already.number,
-        `➕ Altro job dello stesso scan con lo stesso titolo.\n\n${description}`,
-      );
-      console.log(`[scan-job-timeouts] deduped onto #${already.number} — ${jobName}`);
+    // A different run of the same workflow is a real recurrence. It is already
+    // aggregated, so one comment records the whole occurrence atomically. A
+    // CLOSED canonical deliberately falls through to createGithubIssue: that
+    // helper owns the guarded reopen path; commenting here would leave the new
+    // incident closed and invisible to triage.
+    if (already && already.state !== 'CLOSED') {
+      reported += jobCount;
+      if (DRY_RUN) {
+        console.log(`[scan-job-timeouts] (dry-run) would report "${title}" (already emitted → would COMMENT)`);
+        return;
+      }
+      if (already.number) {
+        const commented = commentOnGithubIssue(
+          already.number,
+          `🔁 Nuova run con lo stesso titolo.\n\n${description}`,
+        );
+        if (!commented) {
+          throw new Error(`failed to persist recurrence for ${runUrl} on #${already.number}`);
+        }
+        console.log(`[scan-job-timeouts] deduped onto #${already.number} — ${runUrl}`);
+        return;
+      }
+      throw new Error(`cannot persist recurrence for ${runUrl}: canonical issue has no number`);
+    }
+
+    const persisted = findIssueReportingRun(title, runUrl);
+    if (persisted) {
+      emittedByTitle.set(title, { ...persisted, persistedRunUrl: runUrl });
+      console.log(`[scan-job-timeouts] run già segnalata su #${persisted.number} — skip ${runUrl}`);
+      return;
+    }
+
+    reported += jobCount;
+    if (DRY_RUN) {
+      console.log(`[scan-job-timeouts] (dry-run) would report "${title}"`);
+      emittedByTitle.set(title, { number: null, state: 'OPEN' });
       return;
     }
 
     const issue = await createGithubIssue({ title, description, priority: 2, labels, workflow });
-    // Record even a null-numbered result so a failed create doesn't turn every
-    // remaining job of the run into another create attempt.
-    emittedByTitle.set(title, issue || { number: null });
+    if (!issue?.number || issue.persisted !== true) {
+      throw new Error(`failed to persist ${runUrl}: issue create/reopen did not confirm the write`);
+    }
+    emittedByTitle.set(title, {
+      ...issue,
+      state: 'OPEN',
+      persistedRunUrl: runUrl,
+    });
   }
 
   // (A) timeout — `cancelled`, proven by the check-run annotation.
   for (const run of cancelledRuns) {
-    for (const job of listJobs(run.id)) {
-      const hit = findTimeoutAnnotation(job);
-      if (!hit) continue;
-
-      const description = [
-        '## Job cancellato per timeout',
+    const hits = listJobs(run.id)
+      .map((job) => ({ job, hit: findTimeoutAnnotation(job) }))
+      .filter(({ hit }) => hit)
+      .sort((a, b) => String(a.job?.name || '').localeCompare(String(b.job?.name || '')));
+    if (hits.length === 0) continue;
+    for (const { job } of hits) {
+      console.log(`[scan-job-timeouts] TIMEOUT: ${run.name} / ${job.name} (run ${run.id})`);
+    }
+    const jobBlocks = hits.flatMap(({ job, hit }, index) => [
+      `### Job ${index + 1}: ${job.name}`,
+      `**Motivo:** ${hit.message}`,
+      '',
+    ]);
+    const description = [
+        '## Job cancellati per timeout',
         '',
-        `**Job:** ${job.name}`,
-        `**Motivo:** ${hit.message}`,
         `**Run:** ${run.html_url}`,
         `**Trigger:** ${run.event}`,
         `**Ref:** ${run.head_branch}`,
         '',
+        ...jobBlocks,
         'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico, non dal workflow stesso — '
           + 'un job cancellato per timeout non passa mai `if: failure()`).',
       ].join('\n');
-
-      console.log(`[scan-job-timeouts] TIMEOUT: ${run.name} / ${job.name} (run ${run.id})`);
-      await emit({
-        title: scopedTitle(run),
-        description,
-        labels: ['Bug', 'ci-timeout'],
-        workflow: run.name,
-        jobName: job.name,
-      });
-    }
+    await emit({
+      title: scopedTitle(run),
+      description,
+      labels: ['Bug', 'ci-timeout'],
+      workflow: run.name,
+      runUrl: run.html_url,
+      jobCount: hits.length,
+    });
   }
 
   // (B) host-kill — `failure` with a step frozen `in_progress`.
   for (const run of failedRuns) {
-    for (const job of listJobs(run.id)) {
-      const kill = detectHostKill(job, nowMs);
-      if (!kill) continue;
-
+    const kills = listJobs(run.id)
+      .map((job) => ({ job, kill: detectHostKill(job, nowMs) }))
+      .filter(({ kill }) => kill)
+      .sort((a, b) => String(a.job?.name || '').localeCompare(String(b.job?.name || '')));
+    if (kills.length === 0) continue;
+    for (const { job } of kills) {
+      console.log(`[scan-job-timeouts] HOST-KILL: ${run.name} / ${job.name} (run ${run.id})`);
+    }
+    const jobBlocks = kills.flatMap(({ job, kill }, index) => {
       const stuckNames = kill.stuck.map((s) => `#${s.number} «${s.name}»`).join(', ');
-      const description = [
-        '## Job ucciso dall’host (runner morto a metà step)',
-        '',
-        `**Job:** ${job.name}`,
+      return [
+        `### Job ${index + 1}: ${job.name}`,
         `**Step rimasto \`in_progress\`:** ${stuckNames}`,
         `**Step mai partiti:** ${kill.neverRan.length}`,
+        '',
+      ];
+    });
+    const description = [
+        '## Job uccisi dall’host (runner morto a metà step)',
+        '',
         `**Run:** ${run.html_url}`,
         `**Trigger:** ${run.event}`,
         `**Ref:** ${run.head_branch}`,
         '',
+        ...jobBlocks,
         'Il job risulta `failure` ma nessuno step ha prodotto un errore, uno stack o un exit '
           + 'code: lo step di cui sopra è ancora `in_progress` via API su un job concluso. È la '
           + 'firma di un kill del runner host (OOM o perdita della VM), **non** di un bug '
@@ -310,16 +497,14 @@ export async function main() {
         '',
         'Rilevato da `scripts/ci/scan-job-timeouts.mjs`.',
       ].join('\n');
-
-      console.log(`[scan-job-timeouts] HOST-KILL: ${run.name} / ${job.name} (run ${run.id})`);
-      await emit({
-        title: scopedTitle(run),
-        description,
-        labels: ['Bug', 'ci-host-kill'],
-        workflow: run.name,
-        jobName: job.name,
-      });
-    }
+    await emit({
+      title: scopedTitle(run),
+      description,
+      labels: ['Bug', 'ci-host-kill'],
+      workflow: run.name,
+      runUrl: run.html_url,
+      jobCount: kills.length,
+    });
   }
 
   console.log(`[scan-job-timeouts] done — ${reported} dead job(s) reported (dry-run=${DRY_RUN}).`);

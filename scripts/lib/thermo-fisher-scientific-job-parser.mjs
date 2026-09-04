@@ -22,7 +22,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { htmlToMarkdown } from './axpo-job-parser.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -38,6 +38,12 @@ const JOB_DETAIL_BASE = 'https://jobs.thermofisher.com/global/en/job';
 const PAGE_SIZE = 50;
 
 const HQ = { city: 'Reinach', canton: 'BL', postalCode: '4153', addressRegion: 'Basel-Landschaft' };
+
+/** @param {string} locality @param {string} canton @param {string} [sourcePostalCode] */
+export function thermoFisherPostalCode(locality, canton, sourcePostalCode = '') {
+  return normalizeSpace(sourcePostalCode)
+    || (canton === HQ.canton && normalize(locality) === normalize(HQ.city) ? HQ.postalCode : '');
+}
 const SECTOR = 'Life Sciences — Pharma Manufacturing & Quality';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
@@ -156,7 +162,7 @@ function pickSwissLocation(raw) {
   const country = normalize(raw?.country || '');
   const location = normalizeSpace(raw?.location || raw?.cityStateCountry || '');
   if (country === 'switzerland' || /switzerland/i.test(location)) {
-    return location || `${raw?.city || HQ.city}, Switzerland`;
+    return location || normalizeSpace(raw?.city || '') || null;
   }
   return null;
 }
@@ -285,15 +291,14 @@ export async function fetchAllThermoFisherScientificJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const realLocationText = normalizeSpace(listing.rawLocation || '');
-    const location = normalizeSpace(listing.location || '') || `${HQ.city}, Switzerland`;
-    const inferredCanton = inferSwissTargetCanton(realLocationText) || null;
-    if (realLocationText && !inferredCanton) {
-      console.warn(`  ⚠️ Thermo Fisher Scientific: skipping unresolvable location "${realLocationText}" (${title})`);
+    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
+    const geography = resolveSourceBackedSwissGeography(sourceLocation);
+    if (!geography) {
+      console.warn(`  ⚠️ Thermo Fisher Scientific: skipping unresolvable location "${sourceLocation}" (${title})`);
       continue;
     }
-    const canton = inferredCanton || HQ.canton;
-    const addressLocality = normalizeSpace(location.split(',')[0]) || HQ.city;
+    const { location, canton } = geography;
+    const addressLocality = normalizeSpace(location.split(',')[0]);
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;
 
@@ -330,7 +335,7 @@ export async function fetchAllThermoFisherScientificJobs() {
 
       // ── Recommended fields ──
       addressLocality,
-      postalCode: listing.postalCode || (/reinach/i.test(addressLocality) ? HQ.postalCode : ''),
+      postalCode: thermoFisherPostalCode(addressLocality, canton, listing.postalCode),
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',

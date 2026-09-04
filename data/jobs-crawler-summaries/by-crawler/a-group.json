@@ -1,50 +1,18 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-08-28T05:26:25.995Z",
+  "generatedAt": "2026-09-03T23:17:17.364Z",
   "total": 2,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5026,
-  "avgDurationMs": 5026,
+  "durationMs": 4918,
+  "avgDurationMs": 4918,
   "durationHistory": [
-    5026
+    4918
   ],
   "newJobs": [
-    {
-      "title": "Booking & Revenue Specialist – Luxury Hospitality",
-      "slug": "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "architecture",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 44,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 0,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
     {
       "title": "Front Office",
       "slug": "front-office-a-plus-plus-group-massagno",
@@ -65,7 +33,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -97,7 +65,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -129,7 +97,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -139,6 +107,47 @@
         "richness": 0,
         "translation": 4,
         "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
+      "title": "Booking & Revenue Specialist – Luxury Hospitality",
+      "slug": "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "architecture",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "a-group-3ed7b9973902",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-28T05:26:25.994Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 0,
+        "translation": 19,
+        "completeness": 25
       }
     },
     {
@@ -161,20 +170,26 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 49,
+      "id": "a-group-555f4c55dbc7",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-28T05:26:25.994Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
-        "completeness": 20
+        "translation": 15,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

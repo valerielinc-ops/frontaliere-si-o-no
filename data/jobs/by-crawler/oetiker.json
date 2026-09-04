@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oetiker",
-  "assembledAt": "2026-08-28T05:20:28.189Z",
+  "assembledAt": "2026-09-03T23:19:45.892Z",
   "jobs": [
     {
       "id": "oetiker-e8ad3c22184a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:20:24.678Z",
+      "crawledAt": "2026-09-03T23:19:42.316Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -70,6 +70,7 @@
       "firstSeenAt": "2026-07-06T15:15:19.162Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -112,7 +113,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000143252339-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:20:24.675Z",
+      "crawledAt": "2026-09-03T23:19:42.280Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -151,6 +152,7 @@
       "firstSeenAt": "2026-08-13T10:19:10.620Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -158,94 +160,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "oetiker-67888c0434c2",
-      "slug": "cnc-polymechaniker-fraser-mit-teamfuhrung-all-oetiker-horgen-switzerland",
-      "slugByLocale": {
-        "it": "cnc-polymechaniker-fraser-mit-teamfuhrung-all-oetiker-horgen-switzerland",
-        "en": "cnc-polymechanic-milling-machine-with-team-leadership-all-oetiker-horgen-switzerland",
-        "de": "cnc-polymechaniker-fraser-mit-teamfuhrung-all-oetiker-horgen-switzerland",
-        "fr": "cnc-polymecanique-fraiseuse-avec-chef-d-equipe-tous-oetiker-horgen-switzerland"
-      },
-      "company": "Oetiker",
-      "companyKey": "oetiker",
-      "companyDomain": "oetiker.com",
-      "title": "CNC Polymechaniker / Fräser mit Teamführung (all)",
-      "titleByLocale": {
-        "it": "CNC Polymechaniker / Fräser con Teamführung (all)",
-        "en": "CNC polymechanic / milling machine with team leadership (all)",
-        "de": "CNC Polymechaniker / Fräser mit Teamführung (all)",
-        "fr": "CNC polymécanique / fraiseuse avec chef d'équipe (tous)"
-      },
-      "description": "• Programmieren und Einrichten von 3-Achsen CNC-Fräsmaschinen mit Mastercam\n\n• Überwachung der Fertigungsprozesse\n\n• Sicherstellung der Qualitätsstandards\n\n• Einhalten der Sicherheitsvorschriften\n\n• Wartung und Pflege der Maschinen\n\n• Fachliche Führung eines kleinen Fräs-Teams\n\n• Sicherstellung eines reibungslosen Informationsflusses zwischen dem Team und Vorgesetzten\n\n• Feinplanung und Koordination der täglichen Abläufe und Ressourcen\n\n• Abgeschlossene Technische Ausbildung als Polymechaniker EFZ oder ähnliches\n\n• Mehrjährige Berufserfahrung im CNC-Fräsen (Werkzeug-/ Formenbau)\n\n• Sichererer Umgang mit technischen Zeichnungen\n\n• Fundierte Kenntnisse im Programmieren und Einrichten von Maschinen mit Mastercam\n\n• Selbstständige, qualitätsbewusste und lösungsorientierte Arbeitsweise\n\n• Bodenständige, Teamfähige und zuverlässige Persönlichkeit\n\n• Bereitschaft zur Schichtarbeit (falls erforderlich)\n\n#besteArbeitgeberinTopTen#GreatPlaceToWork#",
-      "descriptionByLocale": {
-        "it": "• Programmazione e configurazione di fresatura CNC a 3 assi con Mastercam\n\n• Monitoraggio dei processi produttivi\n\n• Garantire standard di qualità\n\n• Rispetto delle regole di sicurezza\n\n• Manutenzione e manutenzione di macchinari\n\n• Gestione professionale di un piccolo team di fresatura\n\n• Garantire un flusso regolare di informazioni tra team e supervisore\n\n• Pianificazione dettagliata e coordinamento dei processi e delle risorse quotidiane\n\n• Formazione tecnica completa come EFZ polimeccanico o simile\n\n• Diversi anni di esperienza professionale nella fresatura CNC (tool/mould making)\n\n• Gestione più sicura dei disegni tecnici\n\n• Conoscenza approfondita nella programmazione e nella creazione di macchine con Mastercam\n\n• Metodo di lavoro indipendente, di qualità e orientato alla soluzione\n\n• personalità in grado di collaborare e affidabile\n\n• Prontezza per il lavoro a turni (se necessario)\n\n#best datore di lavoroTopTen#GreatPlaceToWork#",
-        "en": "• Programming and setting up 3-axis CNC milling machines with Mastercam\n\n• Monitoring of manufacturing processes\n\n• Ensuring quality standards\n\n• Compliance with safety rules\n\n• Maintenance and maintenance of machinery\n\n• Professional management of a small milling team\n\n• Ensuring a smooth flow of information between the team and supervisor\n\n• Detailed planning and coordination of daily processes and resources\n\n• Completed technical training as polymechanic EFZ or similar\n\n• Several years of professional experience in CNC milling (tool/mould making)\n\n• Safer handling of technical drawings\n\n• In-depth knowledge in programming and setting up machines with Mastercam\n\n• Independent, quality-conscious and solution-oriented working method\n\n• Down-to-earth, team-capable and reliable personality\n\n• Readiness for shift work (if necessary)\n\n#best employerTopTen#GreatPlaceToWork#",
-        "de": "• Programmieren und Einrichten von 3-Achsen CNC-Fräsmaschinen mit Mastercam\n\n• Überwachung der Fertigungsprozesse\n\n• Sicherstellung der Qualitätsstandards\n\n• Einhalten der Sicherheitsvorschriften\n\n• Wartung und Pflege der Maschinen\n\n• Fachliche Führung eines kleinen Fräs-Teams\n\n• Sicherstellung eines reibungslosen Informationsflusses zwischen dem Team und Vorgesetzten\n\n• Feinplanung und Koordination der täglichen Abläufe und Ressourcen\n\n• Abgeschlossene Technische Ausbildung als Polymechaniker EFZ oder ähnliches\n\n• Mehrjährige Berufserfahrung im CNC-Fräsen (Werkzeug-/ Formenbau)\n\n• Sichererer Umgang mit technischen Zeichnungen\n\n• Fundierte Kenntnisse im Programmieren und Einrichten von Maschinen mit Mastercam\n\n• Selbstständige, qualitätsbewusste und lösungsorientierte Arbeitsweise\n\n• Bodenständige, Teamfähige und zuverlässige Persönlichkeit\n\n• Bereitschaft zur Schichtarbeit (falls erforderlich)\n\n#besteArbeitgeberinTopTen#GreatPlaceToWork#",
-        "fr": "• Programmation et mise en place de fraiseuses CNC 3 axes avec Mastercam\n\n• Surveillance des procédés de fabrication\n\n• Assurer des normes de qualité\n\n• Respect des règles de sécurité\n\n• Entretien et entretien des machines\n\n• Gestion professionnelle d'une petite équipe de fraisage\n\n• Assurer la fluidité de l'information entre l'équipe et le superviseur\n\n• Planification et coordination détaillées des processus et des ressources quotidiens\n\n• Formation technique terminée en tant que FEZ polymécanique ou similaire\n\n• Plusieurs années d'expérience professionnelle dans le fraisage CNC (tool/mould making)\n\n• Manipulation plus sûre des dessins techniques\n\n• Connaissance approfondie de la programmation et de la mise en place de machines avec Mastercam\n\n• Méthode de travail indépendante, soucieuse de la qualité et orientée vers la solution\n\n• Personnalité de haut en bas, capable d'équipe et fiable\n\n• Préparation au travail posté (si nécessaire)\n\n#meilleur employeurTopTen#Great PlaceToWork#"
-      },
-      "location": "Horgen, , Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.smartrecruiters.com/Oetiker/744000139219189-cnc-polymechaniker-fraser-mit-teamfuhrung-all-?oga=true",
-      "source": "Oetiker Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:20:24.648Z",
-      "addressLocality": "Horgen",
-      "addressRegion": "ZH",
-      "streetAddress": "Spätzstrasse 11",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000139219189-cnc-polymechaniker-fraser-mit-teamfuhrung-all-?oga=true",
-      "jobReqId": "744000139219189",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "team-leader-cnc-milling-tutti-oetiker-horgen-switzerland",
-        "team-leader-cnc-milling-all-oetiker-horgen-switzerland",
-        "teamleiter-cnc-frasen-all-oetiker-horgen-switzerland",
-        "chef-d-equipe-fraisage-cnc-tous-oetiker-horgen-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "team-leader-cnc-milling-tutti-oetiker-horgen-switzerland",
-          "team-leader-cnc-milling-all-oetiker-horgen-switzerland",
-          "teamleiter-cnc-frasen-all-oetiker-horgen-switzerland",
-          "chef-d-equipe-fraisage-cnc-tous-oetiker-horgen-switzerland"
-        ],
-        "en": [
-          "team-leader-cnc-milling-all-oetiker-horgen-switzerland"
-        ],
-        "de": [
-          "teamleiter-cnc-frasen-all-oetiker-horgen-switzerland"
-        ],
-        "fr": [
-          "chef-d-equipe-fraisage-cnc-tous-oetiker-horgen-switzerland"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-23T11:35:01.626Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }

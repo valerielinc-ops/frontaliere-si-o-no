@@ -1,58 +1,18 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-08-28T05:39:18.753Z",
-  "total": 1,
+  "generatedAt": "2026-09-03T23:22:43.595Z",
+  "total": 0,
   "discovered": null,
-  "written": 1,
+  "written": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4239,
-  "avgDurationMs": 4239,
-  "durationHistory": [
-    4239
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "fondation-domus-b22f9013dfc2",
-      "slug": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
-      "company": "Fondation Domus",
-      "companyKey": "fondation-domus",
-      "companyDomain": "fondation-domus.ch",
-      "title": "Infirmier en psychiatrie (60% à 80%)",
-      "location": "Ardon",
-      "canton": "VS",
-      "url": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
-      "source": "Fondation Domus Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:39:16.427Z",
-      "addressLocality": "Ardon",
-      "postalCode": "1957",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Social / Fondation",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T09:51:18.113Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

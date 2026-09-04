@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   buildAgieCharmillesLocalizedContent,
+  cleanAgieCharmillesCity,
   parseAgieCharmillesDetailPage,
 } from '@/scripts/lib/agie-charmilles-job-parser.mjs';
 import { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
@@ -48,6 +49,13 @@ const AGIE_DETAIL_HTML = `
 </section>`;
 
 describe('agie-charmilles parser', () => {
+  it('accepts one PLZ-city hyphen but does not strip separator-only input', () => {
+    expect(cleanAgieCharmillesCity('CH-6616 Losone')).toBe('Losone');
+    expect(cleanAgieCharmillesCity('CH-6616-Losone')).toBe('Losone');
+    expect(cleanAgieCharmillesCity('CH-6616--')).toBe('6616--');
+    expect(cleanAgieCharmillesCity('CH-6616--Losone')).toBe('6616--Losone');
+  });
+
   it('extracts only the real job description from job-list-desc', () => {
     const { description } = parseAgieCharmillesDetailPage(AGIE_DETAIL_HTML);
 

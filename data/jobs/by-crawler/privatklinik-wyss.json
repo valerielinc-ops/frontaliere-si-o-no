@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-wyss",
-  "assembledAt": "2026-08-28T05:14:00.024Z",
+  "assembledAt": "2026-09-03T23:09:24.733Z",
   "jobs": [
     {
       "id": "privatklinik-wyss-53276e49b5c3",
@@ -33,7 +33,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/ausbildung-praktika/lehrstelle-fachfrau-fachmann-gesundheit-efz-august-2027-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:55.318Z",
+      "crawledAt": "2026-09-03T23:09:19.418Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -92,6 +92,7 @@
       "firstSeenAt": "2026-05-19T21:02:12.189Z",
       "salaryMin": 66000,
       "salaryMax": 112000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -136,7 +137,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/administration/fachspezialist-in-finanzen-und-controlling-m-w-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:54.542Z",
+      "crawledAt": "2026-09-03T23:09:18.766Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -172,6 +173,7 @@
       "firstSeenAt": "2026-08-24T09:57:07.130Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -216,7 +218,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-spezialtherapie/stv-musiktherapeut-in-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:53.783Z",
+      "crawledAt": "2026-09-03T23:09:18.156Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -268,6 +270,7 @@
       "firstSeenAt": "2026-06-24T22:36:14.843Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -311,7 +314,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-medizin/oberaerztin-oberarzt-w-m-d-2",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:53.039Z",
+      "crawledAt": "2026-09-03T23:09:17.536Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -336,7 +339,6 @@
         "assistant-doctor-m-f-d-privatklinik-wyss-munchenbuchsee",
         "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
         "assistant-medecin-m-f-d-privatklinik-wyss-munchenbuchsee",
-        "medico-senior-f-m-d-privatklinik-wyss-munchenbuchsee",
         "segretario-medico-m-f-d-privatklinik-wyss-munchenbuchsee",
         "medical-secretary-m-f-d-privatklinik-wyss-munchenbuchsee",
         "medizinische-r-sekretar-in-m-w-d-privatklinik-wyss-ch",
@@ -349,7 +351,6 @@
           "assistant-doctor-m-f-d-privatklinik-wyss-munchenbuchsee",
           "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
           "assistant-medecin-m-f-d-privatklinik-wyss-munchenbuchsee",
-          "medico-senior-f-m-d-privatklinik-wyss-munchenbuchsee",
           "segretario-medico-m-f-d-privatklinik-wyss-munchenbuchsee",
           "medical-secretary-m-f-d-privatklinik-wyss-munchenbuchsee",
           "medizinische-r-sekretar-in-m-w-d-privatklinik-wyss-ch",
@@ -373,6 +374,7 @@
       "firstSeenAt": "2026-07-23T11:16:28.579Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -387,9 +389,9 @@
     },
     {
       "id": "privatklinik-wyss-bd6f79022bd3",
-      "slug": "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-m-w-d-privatklinik-wyss-munchenbuchsee",
+      "slug": "psichiatria-superiore-e-psicologia-m-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
-        "it": "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-m-w-d-privatklinik-wyss-munchenbuchsee",
+        "it": "psichiatria-superiore-e-psicologia-m-f-d-privatklinik-wyss-munchenbuchsee",
         "en": "senior-physician-psychiatry-and-psychotherapy-f-m-d-privatklinik-wyss-munchenbuchsee",
         "de": "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-privatklinik-wyss-ch",
         "fr": "medecin-principal-psychiatrie-et-psychotherapie-f-m-j-privatklinik-wyss-munchenbuchsee"
@@ -399,7 +401,7 @@
       "companyDomain": "privatklinik-wyss.ch",
       "title": "Leitende Ärztin / Leitender Arzt Psychiatrie und Psychotherapie (w/m/d)",
       "titleByLocale": {
-        "it": "Leitende Ärztin / Leitender Arzt Psychiatrie e Psychotherapie (w/m/d)",
+        "it": "Psichiatria superiore e Psicologia (m/f/d)",
         "en": "Senior physician Psychiatry and psychotherapy (f/m/d)",
         "de": "Leitende Ärztin / Leitender Arzt Psychiatrie und Psychotherapie (w/m/d)",
         "fr": "Médecin principal Psychiatrie et psychothérapie (f/m/j)"
@@ -411,13 +413,12 @@
         "de": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in der Region Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Leitende Ärztin / Leitender Arzt Psychiatrie und Psychotherapie (w/m/d) Beschäftigungsgrad 80% - 100% Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn Per 1. Januar 2027 oder nach Vereinbarung Für diese Stelle werden keine Unterlagen von Personalvermittlungen berücksichtigt. #Psychiatrie #Wertschätzung, #gemeinsam, #Führung, #Entfaltung: Eine leitende ärztliche Tätigkeit mit fachlicher Tiefe, Gestaltungsspielraum und Zusammenarbeit auf Augenhöhe wartet auf Dich. Das Wichtigste in Kürze Die Stelle eignet sich für flexible und selbstständige Kolleg*innen mit abgeschlossener Facharztweiterbildung in Psychiatrie und Psychotherapie, die Freude an einer vertieften, psychotherapeutisch ausgerichteten Behandlung von Menschen mit Depressionen haben. In dieser Position übernimmst du gemeinsam mit der Leitung Pflege und einer Fachpsychologin die medizinisch-therapeutische, organisatorische und konzeptionelle Leitung der Spezialstation für Menschen mit Depressionserkrankungen mit rund 25 stationären Therapieplätzen. Du supervidierst und förderst Assistenzärzt*innen und gestaltest die fachliche sowie konzeptionelle Weiterentwicklung der Abteilung aktiv mit. Zudem wirkst du bei der Implementierung und Weiterentwicklung moderner, evidenzbasierter antidepressiver Behandlungsangebote (Pharmakotherapie und Psychotherapie in Einzel- und Gruppensettings) mit und beteiligst dich an klinikweiten Aufgaben und Projekten. Zusammen mit den anderen Leitenden Ärzt*innen und Fachärzt*innen bildest du das kaderärztliche Kollegium der Privatklinik Wyss. Im Zuge der Weiterentwicklung unserer Klinik besteht bei entsprechender Qualifikation und Eignung zudem die Möglichkeit, die Stelle künftig als stellvertretende Chefärztin bzw. stellvertretender Chefarzt zu besetzen. Darüber hinaus besteht die Möglichkeit einer privatärztlichen ambulanten Tätigkeit innerhalb der Klinik. Wenn du Freude an einer abwechslungsreichen klinischen Tätigkeit, an der Gestaltung strukturierter psychotherapeutischer Behandlungsangebote sowie an der Planung, Organisation und Qualitätssicherung einer spezialisierten Abteilung mitbringst, freuen wir uns sehr auf deine Bewerbung. Das bringst Du mit\n• Staatsexamen in Medizin (CH) oder äquivalente Qualifikation (EU/EFTA)\n• anerkannte Facharztqualifikation in Psychiatrie und Psychotherapie\n• fortgeschrittene Methodenkenntnisse in Psychotherapie und Pharmakotherapie\n• sehr gute Deutschkenntnisse in Wort und Schrift (mind. Niveau C1)\n• hohes Engagement, Flexibilität und Freude an interprofessioneller Zusammenarbeit\n• respektvollen Umgang mit Patient*innen, Angehörigen und Mitarbeitenden\n• idealerweise Führungserfahrung in einer vergleichbaren Funktion\n• Interesse und Freude an interprofessioneller Fort- und Weiterbildung\n• Engagement an der Ausbildung von Medizinstudierenden (Unterassistent*innen) Das darfst Du von uns erwarten\n• strukturierte, sorgfältige und unterstützende Einführung am Arbeitsplatz\n• angenehme Arbeitsatmosphäre und einzigartige Unternehmenskultur\n• Zusammenarbeit mit engagierten, interdisziplinären Teams\n• vielfältige Aufgaben in der Führungsunterstützung, Fort- und Weiterbildung\n• abwechslungsreiche und fachlich selbstständige Tätigkeit in einem zukunftsorientierten Unternehmen\n• umfassende interne und externe Fortbildungsmöglichkeiten\n• attraktive und zeitgemässe Anstellungsbedingungen Eine Übersicht unserer vielfältigen Benefits und Anstellungshighlights findest Du hier Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen\n• •\n• • •",
         "fr": "Privatklinik Wyss AG est une clinique spécialisée de psychiatrie et de psychothérapie. Les domaines d'expertise particuliers comprennent le traitement de la dépression, y compris l'épuisement ainsi que l'anxiété et les troubles obsessionnels-compulsifs. La clinique offre ses services ambulatoires, cliniques quotidiens et hospitaliers dans la région de Berne, Münchenbuchsee et Biel et emploie environ 340 employés dans les trois localités. Médecin principal / Médecin principal Psychiatrie et psychothérapie (f/m/j) Niveau d'emploi 80 % - 100 % relation d'emploi pendant une période illimitée Lieu Privatklinik Wyss AG Début du travail Par 1. Janvier 2027 ou par accord Aucun document des agences de recrutement ne sera pris en considération pour ce poste. #Psychiatry #appréciation, #ensemble, #leadership, #développement: Un travail médical senior avec profondeur professionnelle, portée créative et coopération au niveau des yeux vous attend. Le poste est adapté aux collègues flexibles et indépendants avec une formation spécialisée complète en psychiatrie et en psychothérapie, qui bénéficient d'un traitement psychothérapeutique plus profond des personnes souffrant de dépression. Dans ce poste, ainsi que la gestion des soins infirmiers et un psychologue spécialisé, vous prendrez en charge la gestion médicale-thérapeutique, organisationnelle et conceptuelle de l'unité spéciale pour les personnes souffrant de dépression avec environ 25 postes de thérapie internat. Vous supervisez et faites la promotion des médecins adjoints et façonnez activement le développement professionnel et conceptuel du département. De plus, vous participez à la mise en oeuvre et au développement d'offres modernes de traitement antidépresseur (pharmacothérapie et psychothérapie en milieu individuel et en groupe) et participez à des tâches et projets à l'échelle de la clinique. Avec les autres médecins et spécialistes de premier plan, vous formez le Cederal College of the Private Clinic Wyss. Au cours du développement de notre clinique, il y a aussi la possibilité, s'il y a lieu, de remplir le poste de médecin en chef adjoint. En outre, il y a la possibilité d'une activité médicale externe privée au sein de la clinique. Si vous aimez une activité clinique variée, la conception de traitements psychothérapeutiques structurés ainsi que la planification, l'organisation et l'assurance de la qualité d'un département spécialisé, nous attendons avec impatience votre application. Apporte ça avec toi.\n• Examen d'État en médecine (CH) ou diplôme équivalent (UE/AELE)\n• qualification spécialisée reconnue en psychiatrie et psychothérapie\n• Connaissances méthodologiques avancées en psychothérapie et pharmacothérapie\n• très bonne connaissance de l'allemand dans la parole et l'écriture (niveau inférieur C1)\n• Engagement, flexibilité et jouissance de la coopération interprofessionnelle\n• Traitement respectueux des patients, des proches et des employés\n• expérience de leadership idéale dans une fonction comparable\n• Intérêt et plaisir pour la formation interprofessionnelle\n• Engagement à la formation des étudiants en médecine (sous-assistants) Vous pouvez attendre ça de nous.\n• Introduction structurée, soignée et favorable au travail\n• ambiance de travail agréable et culture d'entreprise unique\n• Collaboration avec des équipes interdisciplinaires engagées\n• Diverses tâches en matière d'appui au leadership, de formation et de formation continue\n• travail varié et professionnellement indépendant dans une entreprise orientée vers l'avenir\n• possibilités de formation internes et externes complètes\n• Conditions d'emploi attrayantes et contemporaines Une vue d'ensemble de nos différents avantages et points saillants de l'emploi peut être trouvée Veuillez soumettre vos documents de candidature ici exclusivement en ligne. Maintenant appliquer les annonces recommandent"
       },
-      "needsRetranslation": true,
       "location": "Münchenbuchsee",
       "canton": "BE",
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-medizin/leitende-aerztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:52.291Z",
+      "crawledAt": "2026-09-03T23:09:16.914Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -437,11 +438,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-privatklinik-wyss-ch"
+        "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-privatklinik-wyss-ch",
+        "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-privatklinik-wyss-ch"
+          "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-privatklinik-wyss-ch",
+          "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-m-w-d-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-privatklinik-wyss-ch"
@@ -453,6 +456,7 @@
       "firstSeenAt": "2026-08-05T11:27:50.695Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -497,7 +501,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/zusatz-modul-b-zmb-in-der-psychiatrischen-pflege",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:51.519Z",
+      "crawledAt": "2026-09-03T23:09:16.298Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -527,6 +531,7 @@
       "firstSeenAt": "2026-05-19T21:02:10.914Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -570,7 +575,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:50.766Z",
+      "crawledAt": "2026-09-03T23:09:15.675Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -639,6 +644,7 @@
       "firstSeenAt": "2026-05-19T21:02:10.286Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -682,7 +688,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-w-m-d-auf-der-akutabteilung-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:50.008Z",
+      "crawledAt": "2026-09-03T23:09:15.061Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -754,6 +760,7 @@
       "firstSeenAt": "2026-05-19T21:02:09.669Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -797,7 +804,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/try-and-hire-deine-flexible-anstellungsloesung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:49.255Z",
+      "crawledAt": "2026-09-03T23:09:14.419Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -852,6 +859,7 @@
       "firstSeenAt": "2026-05-19T21:02:09.039Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -871,7 +879,7 @@
         "it": "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
         "en": "nursing-director-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
-        "fr": "directeur-de-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "directeur-des-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -881,7 +889,7 @@
         "it": "Direttore infermieristico (lun/f/d)",
         "en": "Nursing Director (m/f/d)",
         "de": "Pflegedirektor*in (m/w/d)",
-        "fr": "Directeur de soins* en (h/f/d)"
+        "fr": "Directeur des soins* en (h/f/d)"
       },
       "description": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in der Region Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Pflegedirektor*in (m/w/d) Beschäftigungsgrad 90% - 100 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn Per 1. Januar 2027 oder nach Vereinbarung Für diese Stelle werden keine Unterlagen von Personalvermittlungen berücksichtigt. #Klinikleitung, #Führung, #Pflege, #Vernetzung, #Firmenkultur, #unternehmerisch: Vielfalt in familiärem und wohlwollendem Umfeld wartet auf Dich! Das Wichtigste in Kürze Als Mitglied unserer Klinikleitung arbeitest Du eng mit allen Bereichen unserer psychiatrischen Klinik zusammen und prägst die strategische und unternehmerische Ausrichtung der Pflegeorganisation. Du übernimmst die Gesamtverantwortung für alle Pflegeteams und stellst sicher, dass eine moderne, sichere und patientenzentrierte Pflege gelebt wird. Neben der direkten Führung der Pflegebereiche in unseren Patientenhäusern verantwortest Du auch zentrale Einheiten wie das Qualitätsmanagement, die Zentrale Bildung der Pflege, die Pflegeentwicklung, die Apotheke sowie die Patientendisposition & Therapiebuchungsstelle. In diesem breiten Tätigkeitsfeld steuerst Du sowohl strategische als auch operative Projekte, entwickelst mit Deinen Teams pflegerische Standards weiter und stellst sicher, dass Qualität, Bildung und Versorgung optimal ineinandergreifen. Du führst die Pflegeprofession durch anstehende Veränderungs- und Wachstumsprozesse der Klinik und sorgst dafür, dass unsere familiäre, wertschätzende und interprofessionell gelebte Kultur erhalten bleibt und sich weiterentwickeln kann. Du vernetzt Dich aktiv mit kantonalen Stellen, Fachgremien, Verbänden und weiteren relevanten Partnern im Gesundheitswesen. Das bringst Du mit\n• mehrjährige Führungserfahrung in einer ähnlichen Tätigkeit in der Pflege, idealerweise im psychiatrischen Umfeld oder in einer komplexen Klinikorganisation\n• ein abgeschlossenes Studium in Pflege, Pflegewissenschaft, Gesundheitsmanagement oder einem verwandten Bereich\n• fundierte Kenntnisse in Pflegeentwicklung, Qualitätsmanagement und modernen Führungsinstrumenten\n• eine ausgeprägte Dienstleistungsorientierung sowie Freude an einer wohlwollenden, partizipativen und familiären Führungskultur\n• Erfahrung in der Steuerung von Projekten und in der Begleitung von Veränderungsprozessen\n• eine klare, empathische Kommunikation über alle Berufsgruppen und Hierarchiestufen hinweg\n• Sicherheit im Umgang mit unterschiedlichen Anspruchsgruppen und deren Bedürfnissen\n• gute Vernetzung und Bereitschaft zum Ausbau und Pflege des Netzwerks sowie unternehmerisches & prozessorientiertes Denken Das darfst Du von uns erwarten Als KMU im Gesundheitswesen mit einer ansehnlichen Grösse sind die Arbeitstage sehr abwechslungsreich und vielfältig. Der Kontakt zu und unter den Mitarbeitenden ist persönlich und die Entscheidungswege sind kurz. Wir sind mit flexiblen Arbeitszeitmodellen unterwegs und nutzen, wo immer möglich, Technologien, um unsere Flexibilität zu stützen. Wir zählen auf Eigenverantwortung und die Kompetenzen unserer Mitarbeitenden und fördern diese in deren Weiterentwicklung. Unsere einzigartige Firmenkultur und unsere Führungsprinzipien sind fester Bestandteil unseres täglichen Wirkens und geben uns so einen geeigneten Rahmen für ein Arbeiten auf Augenhöhe. Eine Übersicht unserer vielfältigen Benefits und Anstellungshighlights findest Du hier . Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen\n• •\n• • •",
       "descriptionByLocale": {
@@ -895,7 +903,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/pflegedirektor-in-m-w-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:47.721Z",
+      "crawledAt": "2026-09-03T23:09:13.151Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -921,7 +929,7 @@
         "psychologin-psychologe-w-m-d-privatklinik-wyss-ch",
         "psychologue-f-m-d-privatklinik-wyss-munchenbuchsee",
         "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee",
-        "directeur-des-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee",
+        "directeur-de-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee",
         "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
@@ -942,13 +950,14 @@
         "fr": [
           "psychologue-f-m-d-privatklinik-wyss-munchenbuchsee",
           "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee",
-          "directeur-des-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee",
+          "directeur-de-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee",
           "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-06-22T15:02:55.484Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -963,9 +972,9 @@
     },
     {
       "id": "privatklinik-wyss-d2f7a29cfb25",
-      "slug": "dipl-pflegefachperson-hf-fh-per-la-privatabteilung-m-w-d-privatklinik-wyss-munchenbuchsee",
+      "slug": "dipl-specialista-hf-fh-m-f-d-per-il-reparto-privato-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-per-la-privatabteilung-m-w-d-privatklinik-wyss-munchenbuchsee",
+        "it": "dipl-specialista-hf-fh-m-f-d-per-il-reparto-privato-privatklinik-wyss-munchenbuchsee",
         "en": "dipl-nurse-hf-fh-for-the-private-department-f-m-d-privatklinik-wyss-munchenbuchsee",
         "de": "dipl-pflegefachperson-hf-fh-fur-die-privatabteilung-w-m-d-privatklinik-wyss-ch",
         "fr": "dipl-infirmiere-hf-fh-pour-le-service-prive-f-m-d-privatklinik-wyss-munchenbuchsee"
@@ -975,7 +984,7 @@
       "companyDomain": "privatklinik-wyss.ch",
       "title": "Dipl. Pflegefachperson HF/FH (w/m/d) für die Privatabteilung",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF/FH (w/m/d) per la Privatabteilung",
+        "it": "Dipl. Specialista HF/FH (m/f/d) per il reparto privato",
         "en": "Dipl. Nurse HF/FH for the private department (f/m/d)",
         "de": "Dipl. Pflegefachperson HF/FH (w/m/d) für die Privatabteilung",
         "fr": "Dipl. Infirmière HF/FH pour le service privé (f/m/d)"
@@ -987,13 +996,12 @@
         "de": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in den Regionen Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Dipl. Pflegefachperson HF/FH (w/m/d) für die Privatabteilung Beschäftigungsgrad 70 - 100 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn 1. Oktober 2026 oder nach Vereinbarung #Psychiatrie, #Verantwortung, #Teamarbeit, #Entwicklung Eine sinnstiftende Aufgabe mit Gestaltungsspielraum und partnerschaftlicher Zusammenarbeit in einem wertschätzenden Umfeld wartet auf dich! Ob als BerufseinsteigerIn direkt nach dem Studium oder mit mehrjähriger Erfahrung - wir begleiten dich auf deinem Weg in der Psychiatriepflege. Wir suchen dich als diplomierte Pflegefachperson für unsere Privatabteilung. Deine Aufgaben\n• Du betreust Menschen mit psychiatrischen Erkrankungen und setzt den Pflegeprozess im Bezugspersonensystem um\n• Du bist Teil der interdisziplinären Behandlung und bringst deine Perspektive ein\n• Du unterstützt unser zentrales Bildungsteam bei der Ausbildung von Lernenden (FaGe) und Studierenden (HF/FH)\n• Du arbeitest in einem lean-orientierten Umfeld\n• Du planst deine Diensteinsätze selbstbestimmt im Pflegeteam Dein Profil\n• Du bist eine diplomierte Pflegefachperson HF/FH idealerweise mit Erfahrung in der Psychiatrie\n• Du übernimmst eigenverantwortlich Bezugspersonenarbeit und trägst als pflegerische Bezugsperson die pflegerische Fallverantwortung: Die medizinisch-therapeutische Fallführung liegt bei Ärztin/Arzt oder Psychologin/Psychologe\n• Du liebst Dynamik, willst dich weiterentwickeln und Dinge mitgestalten\n• Du bist selbstreflektiert, ruhig, geduldig und serviceorientiert\n• Du schätzt Teamarbeit, arbeitest prozessorientiert und bist offen für psychotherapeutische Ansätze\n• Du hast gute Deutschkenntnisse in Wort und Schrift\n• Du hast gute IT-Kenntnisse und bist sicher im Umgang mit MS Office (Word, Excel) Deine Perspektiven\n• Eine strukturierte Einführung und ein Team, das dich willkommen heisst\n• Ein angenehmes, unterstützendes Teamfeeling\n• Mindset für eine gute Work-Life-Balance mit der Möglichkeit von fixen Einsatztagen bzw. freien Tagen sowie unbezahltem Urlaub\n• Attraktive Prämie bei kurzfristigen Dienstübernahmen\n• Regelmässige Supervisionen, Intervisionen sowie Fallbesprechungen\n• Klare Karriere- und Weiterbildungsmöglichkeiten, die mit dir wachsen\n• Moderne Infrastruktur in naturnaher Umgebung\n• Viele tolle Benefits-Angebote Neugierig geworden? Wir freuen uns auf deine Bewerbung und darauf, dich kennenzulernen! Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen\n• •\n• • •",
         "fr": "Privatklinik Wyss AG est une clinique spécialisée de psychiatrie et de psychothérapie. Les domaines d'expertise particuliers comprennent le traitement de la dépression, y compris l'épuisement ainsi que l'anxiété et les troubles obsessionnels-compulsifs. La clinique offre ses services ambulatoires, cliniques quotidiens et hospitaliers dans les régions de Berne, Münchenbuchsee et Biel et emploie environ 340 employés dans les trois localités. Dipl. infirmier spécialiste HF/FH pour le ministère privé (f/m/d) niveau d'emploi 70 - 100% taux d'emploi lieu perpétuel Privatklinik Wyss AG Début du travail 1. Octobre 2026 ou par accord #psychiatrie, #responsabilité, #travail d'équipe, #développement Une tâche significative avec une portée créative et un partenariat dans un environnement reconnaissant vous attend! Que ce soit en début de carrière après des études ou avec plusieurs années d'expérience, nous vous accompagnons sur votre chemin en soins psychiatriques. Nous vous recherchons comme infirmière qualifiée pour notre service privé. Vos tâches\n• Vous prenez soin des personnes atteintes de maladies psychiatriques et mettez en œuvre le processus de soins dans le système de soins\n• Vous faites partie du traitement interdisciplinaire et apportez votre perspective\n• Vous soutenez notre équipe d'éducation centrale dans la formation des apprenants (FaGe) et des étudiants (HF/FH)\n• Vous travaillez dans un environnement orienté maigre\n• Vous planifiez vos affectations de service auto-déterminées dans l'équipe de soins Votre profil\n• Vous êtes une infirmière qualifiée HF/FH idéalement avec l'expérience en psychiatrie\n• Vous assumez le travail de soignant responsable et, en tant que soignant, assumez la responsabilité du cas de soignant : La gestion des cas médicaux et thérapeutiques incombe à un médecin ou un psychologue/psychologue\n• Vous aimez le dynamisme, voulez évoluer et façonner les choses\n• Vous êtes réfléchi, calme, patient et orienté vers le service\n• Vous appréciez le travail en équipe, le travail orienté processus et êtes ouvert aux approches psychothérapeutiques\n• Vous avez une bonne connaissance de l'allemand en paroles et en écriture\n• Vous avez de bonnes connaissances en TI et êtes sûr de traiter avec MS Office (Word, Excel) Vos perspectives\n• Une introduction structurée et une équipe pour vous accueillir\n• Un sentiment d'équipe agréable et solidaire\n• Mindset pour un bon équilibre entre vie professionnelle et vie privée avec la possibilité de jours d'utilisation fixes ou de jours de congé et de congés non rémunérés\n• Prime attractive pour les hypothèses à court terme\n• Surveillance régulière, intervisions et discussions de cas\n• Possibilités claires de carrière et de formation continue qui grandissent avec vous\n• Infrastructure moderne dans un environnement semi-naturel\n• Beaucoup d'offres de grands avantages Veuillez soumettre vos documents de candidature exclusivement en ligne. Maintenant appliquer les annonces recommandent"
       },
-      "needsRetranslation": true,
       "location": "Münchenbuchsee",
       "canton": "BE",
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-fuer-die-privatabteilung-w-m-d-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:46.977Z",
+      "crawledAt": "2026-09-03T23:09:12.534Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -1014,12 +1022,14 @@
       "pensum": "70 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-fur-die-privatabteilung-w-m-d-privatklinik-wyss-ch",
-        "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+        "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
+        "dipl-pflegefachperson-hf-fh-per-la-privatabteilung-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-die-privatabteilung-w-m-d-privatklinik-wyss-ch",
-          "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+          "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
+          "dipl-pflegefachperson-hf-fh-per-la-privatabteilung-m-w-d-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-fur-die-privatabteilung-w-m-d-privatklinik-wyss-ch"
@@ -1031,6 +1041,7 @@
       "firstSeenAt": "2026-07-15T22:00:14.444Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1045,9 +1056,9 @@
     },
     {
       "id": "privatklinik-wyss-9266dadce1b5",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee",
+      "slug": "salute-professionale-efz-m-f-d-per-il-dipartimento-privato-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee",
+        "it": "salute-professionale-efz-m-f-d-per-il-dipartimento-privato-privatklinik-wyss-munchenbuchsee",
         "en": "professional-health-efz-f-m-d-for-the-private-department-privatklinik-wyss-munchenbuchsee",
         "de": "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
         "fr": "sante-professionnelle-efz-f-m-d-pour-le-service-prive-privatklinik-wyss-munchenbuchsee"
@@ -1057,7 +1068,7 @@
       "companyDomain": "privatklinik-wyss.ch",
       "title": "Fachfrau/Fachmann Gesundheit EFZ (w/m/d) für die Privatabteilung",
       "titleByLocale": {
-        "it": "Fachfrau/Fachmann Gesundheit CFC (w/m/d) per la Privatabteilung",
+        "it": "Salute professionale EFZ (m/f/d) per il dipartimento privato",
         "en": "Professional Health EFZ (f/m/d) for the private department",
         "de": "Fachfrau/Fachmann Gesundheit EFZ (w/m/d) für die Privatabteilung",
         "fr": "Santé professionnelle EFZ (f/m/d) pour le service privé"
@@ -1069,13 +1080,12 @@
         "de": "Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in der Region Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Fachfrau/Fachmann Gesundheit EFZ (w/m/d) für die Privatabteilung Beschäftigungsgrad 70 - 100 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn per 1. Oktober 2026 oder nach Vereinbarung #Psychiatrie, #Verantwortung, #Teamarbeit, #Entwicklung Eine sinnstiftende Aufgabe mit Gestaltungsspielraum und partnerschaftlicher Zusammenarbeit in einem wertschätzenden Umfeld wartet auf dich! Wir suchen dich als Fachfrau/Fachmann Gesundheit EFZ für unsere Privatabteilung . Dein Aufgabenbereich\n• Du unterstützt unser erfahrenes Pflegeteam bei der individuellen Betreuung unserer PatientInnen\n• Du führst medizinaltechnische Verrichtungen wie Vitalzeichenkontrolle und Blutentnahmen fachgerecht durch\n• Du arbeitest gerne im milieutherapeutischeim interprofessionellen Rahmen\n• Du unterstützt als Bezugsperson bei der Umsetzung des Pflegeprozesses im Bezugspersonensystem\n• Du übernimmst abteilungsspezifische, administrative Aufgaben\n• Du planst deine Diensteinsätze selbstbestimmt im Pflegeteam Dein Profil\n• Du bist Fachfrau oder Fachmann Gesundheit EFZ mit Berufserfahrung in der Psychiatrie\n• Du liebst Dynamik, willst dich weiteentwickeln und Dinge mitgestalten\n• Du bist selbstreflektiert, ruhig, geduldig und serviceorientiert\n• Du schätzt Teamarbeit, arbeitest prozessorientiert und bist offen für psychotherapeutische Ansätze\n• Du hast sehr gute mündliche und schriftliche Deutschkenntnisse\n• Du hast gute IT-Kenntnisse und bist sicher im Umgang mit MS-Office (Word, Excel) Deine Perspektiven\n• Eine gut strukturierte Einführung und ein Team, das dich willkommen heisst\n• Ein angenehmes, unterstützendes Team-Feeling\n• Mindset für eine gute Work-Life-Balance mit der Möglichkeit von fixen Einsatztagen bzw. freien Tagen sowie unbezahltem Urlaub\n• Attraktive Prämie bei kurzfristigen Dienstübernahmen\n• Regelmässige Supervisionen, Intervisionen sowie Fallbesprechungen\n• Klare Karriere- und Weiterbildungsperspektiven, die mit dir wachsen\n• Moderne Infrastruktur in naturnaher Umgebung\n• Viele tolle Benefits-Angebote Noch Fragen? Wir freuen uns auf deine Bewerbung un darauf, dich kennenzulernen! Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen\n• •\n• • •",
         "fr": "Les domaines d'expertise particuliers comprennent le traitement de la dépression, y compris l'épuisement ainsi que l'anxiété et les troubles obsessionnels-compulsifs. La clinique offre ses services ambulatoires, cliniques quotidiens et hospitaliers dans la région de Berne, Münchenbuchsee et Biel et emploie environ 340 employés dans les trois localités. Spécialiste/Expert en santé EFZ (f/m/d) pour le département privé de l'emploi 70 - 100 % rapport emploi lieu permanent Privatklinik Wyss AG Début du travail à partir de 1. Octobre 2026 ou par accord #psychiatrie, #responsabilité, #travail d'équipe, #développement Une tâche significative avec une portée créative et un partenariat dans un environnement reconnaissant vous attend! Nous vous recherchons en tant que spécialiste de la santé EFZ pour notre service privé. Vos responsabilités\n• Vous soutenez notre équipe de soins expérimentés dans les soins individuels de nos patients\n• Vous effectuez des procédures médicales telles que le contrôle des signes vitaux et l'échantillonnage du sang professionnellement\n• Vous aimez travailler dans le milieu thérapeutique dans le cadre interprofessionnel\n• Vous soutenez en tant que personne de référence dans la mise en oeuvre du processus de soins dans le système des personnes de référence\n• Vous assumez des tâches administratives spécifiques au département\n• Vous planifiez vos affectations de service auto-déterminées dans l'équipe de soins Votre profil\n• Vous êtes un spécialiste de la santé EFZ avec une expérience professionnelle en psychiatrie\n• Vous aimez le dynamisme, voulez évoluer et façonner les choses\n• Vous êtes réfléchi, calme, patient et orienté vers le service\n• Vous appréciez le travail en équipe, le travail orienté processus et êtes ouvert aux approches psychothérapeutiques\n• Vous avez une très bonne connaissance orale et écrite de l'allemand\n• Vous avez de bonnes connaissances en TI et êtes sûr de traiter avec MS-Office (Word, Excel) Vos perspectives\n• Une introduction bien structurée et une équipe pour vous accueillir\n• Un sentiment d'équipe agréable et solidaire\n• Mindset pour un bon équilibre entre vie professionnelle et vie privée avec la possibilité de jours d'utilisation fixes ou de jours de congé et de congés non rémunérés\n• Prime attractive pour les hypothèses à court terme\n• Surveillance régulière, intervisions et discussions de cas\n• Des perspectives de carrière claires et de formation continue qui grandissent avec vous\n• Infrastructure moderne dans un environnement semi-naturel\n• Beaucoup de grands avantages offrent Toujours des questions? Nous nous réjouissons de votre candidature et de vous rencontrer! Veuillez soumettre vos documents de candidature exclusivement en ligne. Maintenant appliquer les annonces recommandent"
       },
-      "needsRetranslation": true,
       "location": "Münchenbuchsee",
       "canton": "BE",
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/fachfrau-fachmann-gesundheit-efz-w-m-d-fuer-die-privatabteilung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:46.386Z",
+      "crawledAt": "2026-09-03T23:09:11.899Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -1095,22 +1105,30 @@
       "pensumMax": 100,
       "pensum": "70 - 100%",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+        "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
+        "fachfrau-fachmann-gesundheit-cfc-m-w-d-per-la-psychotherapieabteilungung-privatklinik-wyss-munchenbuchsee",
+        "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-psychotherapieabteilungung-privatklinik",
+        "fachfrau-fachmann-gesundheit-cfc-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+          "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
+          "fachfrau-fachmann-gesundheit-cfc-m-w-d-per-la-psychotherapieabteilungung-privatklinik-wyss-munchenbuchsee",
+          "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-psychotherapieabteilungung-privatklinik",
+          "fachfrau-fachmann-gesundheit-cfc-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+          "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
+          "fachfrau-fachmann-gesundheit-efz-w-m-d-fur-die-psychotherapieabteilungung-privatklinik"
         ]
       },
       "firstSeenAt": "2026-07-16T11:06:18.655Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1118,6 +1136,81 @@
           "@type": "QuantitativeValue",
           "minValue": 73000,
           "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "privatklinik-wyss-4cd1404cf143",
+      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-per-la-psychotherapieabteilung-privatklinik-wyss-munchenbuchsee",
+      "slugByLocale": {
+        "it": "dipl-pflegefachperson-hf-fh-m-w-d-per-la-psychotherapieabteilung-privatklinik-wyss-munchenbuchsee",
+        "en": "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch",
+        "de": "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch",
+        "fr": "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch"
+      },
+      "company": "Privatklinik Wyss",
+      "companyKey": "privatklinik-wyss",
+      "companyDomain": "privatklinik-wyss.ch",
+      "title": "Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung",
+      "titleByLocale": {
+        "it": "Dipl. Pflegefachperson HF/FH (w/m/d) per la Psychotherapieabteilung",
+        "en": "Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung",
+        "de": "Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung",
+        "fr": "Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung"
+      },
+      "description": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in den Regionen Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung Beschäftigungsgrad 60 - 90 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn 1. Januar 2027 oder nach Vereinbarung #Psychiatrie, #Verantwortung, #Teamarbeit, #Entwicklung Eine sinnstiftende Aufgabe mit Gestaltungsspielraum und partnerschaftlicher Zusammenarbeit in einem wertschätzenden Umfeld wartet auf dich! Ob als BerufseinsteigerIn direkt nach dem Studium oder mit mehrjähriger Erfahrung - wir begleiten dich auf deinem Weg in der Psychiatriepflege. Wir suchen dich als diplomierte Pflegefachperson für die Psychotherapieabteilung mit Schwerpunkt affektive Störungen. Deine Aufgaben\n• Du betreust Menschen mit psychiatrischen Erkrankungen und setzt den Pflegeprozess im Bezugspersonensystem um\n• Du bist Teil der interdisziplinären Behandlung und bringst deine Perspektive ein\n• Du unterstützt unser zentrales Bildungsteam bei der Ausbildung von Lernenden (FaGe) und Studierenden (HF/FH)\n• Du arbeitest in einem lean-orientierten Umfeld\n• Du planst deine Diensteinsätze selbstbestimmt im Pflegeteam Dein Profil\n• Du bist eine diplomierte Pflegefachperson HF/FH idealerweise mit Erfahrung in der Psychiatrie\n• Du übernimmst eigenverantwortlich Bezugspersonenarbeit und trägst als pflegerische Bezugsperson die pflegerische Fallverantwortung: Die medizinisch-therapeutische Fallführung liegt bei Ärztin/Arzt oder Psychologin/Psychologe\n• Du liebst Dynamik, willst dich weiterentwickeln und Dinge mitgestalten\n• Du bist selbstreflektiert, ruhig, geduldig und serviceorientiert\n• Du schätzt Teamarbeit, arbeitest prozessorientiert und bist offen für psychotherapeutische Ansätze\n• Du hast gute Deutschkenntnisse in Wort und Schrift\n• Du hast gute IT-Kenntnisse und bist sicher im Umgang mit MS Office (Word, Excel) Deine Perspektiven\n• Eine strukturierte Einführung und ein Team, das dich willkommen heisst\n• Ein angenehmes, unterstützendes Teamfeeling\n• Mindset für eine gute Work-Life-Balance mit der Möglichkeit von fixen Einsatztagen bzw. freien Tagen sowie unbezahltem Urlaub\n• Attraktive Prämie bei kurzfristigen Dienstübernahmen\n• Regelmässige Supervisionen, Intervisionen sowie Fallbesprechungen\n• Klare Karriere- und Weiterbildungsmöglichkeiten, die mit dir wachsen\n• Moderne Infrastruktur in naturnaher Umgebung\n• Viele tolle Benefits-Angebote Neugierig geworden? Wir freuen uns auf deine Bewerbung und darauf, dich kennenzulernen! Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen\n• •\n• • •",
+      "descriptionByLocale": {
+        "it": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in den Regionen Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung Beschäftigungsgrad 60 - 90 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn 1. Januar 2027 oder nach Vereinbarung #Psychiatrie, #Verantwortung, #Teamarbeit, #Entwicklung Eine sinnstiftende Aufgabe mit Gestaltungsspielraum und partnerschaftlicher Zusammenarbeit in einem wertschätzenden Umfeld wartet auf dich! Ob als BerufseinsteigerIn direkt nach dem Studium oder mit mehrjähriger Erfahrung - wir begleiten dich auf deinem Weg in der Psychiatriepflege. Wir suchen dich als diplomierte Pflegefachperson für die Psychotherapieabteilung mit Schwerpunkt affektive Störungen. Deine Aufgaben\n• Du betreust Menschen mit psychiatrischen Erkrankungen und setzt den Pflegeprozess im Bezugspersonensystem um\n• Du bist Teil der interdisziplinären Behandlung und bringst deine Perspektive ein\n• Du unterstützt unser zentrales Bildungsteam bei der Ausbildung von Lernenden (FaGe) und Studierenden (HF/FH)\n• Du arbeitest in einem lean-orientierten Umfeld\n• Du planst deine Diensteinsätze selbstbestimmt im Pflegeteam Dein Profil\n• Du bist eine diplomierte Pflegefachperson HF/FH idealerweise mit Erfahrung in der Psychiatrie\n• Du übernimmst eigenverantwortlich Bezugspersonenarbeit und trägst als pflegerische Bezugsperson die pflegerische Fallverantwortung: Die medizinisch-therapeutische Fallführung liegt bei Ärztin/Arzt oder Psychologin/Psychologe\n• Du liebst Dynamik, willst dich weiterentwickeln und Dinge mitgestalten\n• Du bist selbstreflektiert, ruhig, geduldig und serviceorientiert\n• Du schätzt Teamarbeit, arbeitest prozessorientiert und bist offen für psychotherapeutische Ansätze\n• Du hast gute Deutschkenntnisse in Wort und Schrift\n• Du hast gute IT-Kenntnisse und bist sicher im Umgang mit MS Office (Word, Excel) Deine Perspektiven\n• Eine strukturierte Einführung und ein Team, das dich willkommen heisst\n• Ein angenehmes, unterstützendes Teamfeeling\n• Mindset für eine gute Work-Life-Balance mit der Möglichkeit von fixen Einsatztagen bzw. freien Tagen sowie unbezahltem Urlaub\n• Attraktive Prämie bei kurzfristigen Dienstübernahmen\n• Regelmässige Supervisionen, Intervisionen sowie Fallbesprechungen\n• Klare Karriere- und Weiterbildungsmöglichkeiten, die mit dir wachsen\n• Moderne Infrastruktur in naturnaher Umgebung\n• Viele tolle Benefits-Angebote Neugierig geworden? Wir freuen uns auf deine Bewerbung und darauf, dich kennenzulernen! Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen",
+        "en": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in den Regionen Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung Beschäftigungsgrad 60 - 90 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn 1. Januar 2027 oder nach Vereinbarung #Psychiatrie, #Verantwortung, #Teamarbeit, #Entwicklung Eine sinnstiftende Aufgabe mit Gestaltungsspielraum und partnerschaftlicher Zusammenarbeit in einem wertschätzenden Umfeld wartet auf dich! Ob als BerufseinsteigerIn direkt nach dem Studium oder mit mehrjähriger Erfahrung - wir begleiten dich auf deinem Weg in der Psychiatriepflege. Wir suchen dich als diplomierte Pflegefachperson für die Psychotherapieabteilung mit Schwerpunkt affektive Störungen. Deine Aufgaben\n• Du betreust Menschen mit psychiatrischen Erkrankungen und setzt den Pflegeprozess im Bezugspersonensystem um\n• Du bist Teil der interdisziplinären Behandlung und bringst deine Perspektive ein\n• Du unterstützt unser zentrales Bildungsteam bei der Ausbildung von Lernenden (FaGe) und Studierenden (HF/FH)\n• Du arbeitest in einem lean-orientierten Umfeld\n• Du planst deine Diensteinsätze selbstbestimmt im Pflegeteam Dein Profil\n• Du bist eine diplomierte Pflegefachperson HF/FH idealerweise mit Erfahrung in der Psychiatrie\n• Du übernimmst eigenverantwortlich Bezugspersonenarbeit und trägst als pflegerische Bezugsperson die pflegerische Fallverantwortung: Die medizinisch-therapeutische Fallführung liegt bei Ärztin/Arzt oder Psychologin/Psychologe\n• Du liebst Dynamik, willst dich weiterentwickeln und Dinge mitgestalten\n• Du bist selbstreflektiert, ruhig, geduldig und serviceorientiert\n• Du schätzt Teamarbeit, arbeitest prozessorientiert und bist offen für psychotherapeutische Ansätze\n• Du hast gute Deutschkenntnisse in Wort und Schrift\n• Du hast gute IT-Kenntnisse und bist sicher im Umgang mit MS Office (Word, Excel) Deine Perspektiven\n• Eine strukturierte Einführung und ein Team, das dich willkommen heisst\n• Ein angenehmes, unterstützendes Teamfeeling\n• Mindset für eine gute Work-Life-Balance mit der Möglichkeit von fixen Einsatztagen bzw. freien Tagen sowie unbezahltem Urlaub\n• Attraktive Prämie bei kurzfristigen Dienstübernahmen\n• Regelmässige Supervisionen, Intervisionen sowie Fallbesprechungen\n• Klare Karriere- und Weiterbildungsmöglichkeiten, die mit dir wachsen\n• Moderne Infrastruktur in naturnaher Umgebung\n• Viele tolle Benefits-Angebote Neugierig geworden? Wir freuen uns auf deine Bewerbung und darauf, dich kennenzulernen! Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen",
+        "de": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in den Regionen Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung Beschäftigungsgrad 60 - 90 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn 1. Januar 2027 oder nach Vereinbarung #Psychiatrie, #Verantwortung, #Teamarbeit, #Entwicklung Eine sinnstiftende Aufgabe mit Gestaltungsspielraum und partnerschaftlicher Zusammenarbeit in einem wertschätzenden Umfeld wartet auf dich! Ob als BerufseinsteigerIn direkt nach dem Studium oder mit mehrjähriger Erfahrung - wir begleiten dich auf deinem Weg in der Psychiatriepflege. Wir suchen dich als diplomierte Pflegefachperson für die Psychotherapieabteilung mit Schwerpunkt affektive Störungen. Deine Aufgaben\n• Du betreust Menschen mit psychiatrischen Erkrankungen und setzt den Pflegeprozess im Bezugspersonensystem um\n• Du bist Teil der interdisziplinären Behandlung und bringst deine Perspektive ein\n• Du unterstützt unser zentrales Bildungsteam bei der Ausbildung von Lernenden (FaGe) und Studierenden (HF/FH)\n• Du arbeitest in einem lean-orientierten Umfeld\n• Du planst deine Diensteinsätze selbstbestimmt im Pflegeteam Dein Profil\n• Du bist eine diplomierte Pflegefachperson HF/FH idealerweise mit Erfahrung in der Psychiatrie\n• Du übernimmst eigenverantwortlich Bezugspersonenarbeit und trägst als pflegerische Bezugsperson die pflegerische Fallverantwortung: Die medizinisch-therapeutische Fallführung liegt bei Ärztin/Arzt oder Psychologin/Psychologe\n• Du liebst Dynamik, willst dich weiterentwickeln und Dinge mitgestalten\n• Du bist selbstreflektiert, ruhig, geduldig und serviceorientiert\n• Du schätzt Teamarbeit, arbeitest prozessorientiert und bist offen für psychotherapeutische Ansätze\n• Du hast gute Deutschkenntnisse in Wort und Schrift\n• Du hast gute IT-Kenntnisse und bist sicher im Umgang mit MS Office (Word, Excel) Deine Perspektiven\n• Eine strukturierte Einführung und ein Team, das dich willkommen heisst\n• Ein angenehmes, unterstützendes Teamfeeling\n• Mindset für eine gute Work-Life-Balance mit der Möglichkeit von fixen Einsatztagen bzw. freien Tagen sowie unbezahltem Urlaub\n• Attraktive Prämie bei kurzfristigen Dienstübernahmen\n• Regelmässige Supervisionen, Intervisionen sowie Fallbesprechungen\n• Klare Karriere- und Weiterbildungsmöglichkeiten, die mit dir wachsen\n• Moderne Infrastruktur in naturnaher Umgebung\n• Viele tolle Benefits-Angebote Neugierig geworden? Wir freuen uns auf deine Bewerbung und darauf, dich kennenzulernen! Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen\n• •\n• • •",
+        "fr": "Die Privatklinik Wyss AG ist eine führende Fachklinik für Psychiatrie und Psychotherapie. Zu den besonderen Kompetenzbereichen gehört die Behandlung von Depressionen inklusive Burnout sowie Angst– und Zwangsstörungen. Die Klinik bietet ihre ambulanten, tagesklinischen und stationären Leistungen in den Regionen Bern, Münchenbuchsee und Biel an und beschäftigt an allen drei Standorten zusammen rund 340 Mitarbeitende. Dipl. Pflegefachperson HF/FH (w/m/d) für die Psychotherapieabteilung Beschäftigungsgrad 60 - 90 % Anstellungsverhältnis unbefristet Standort Privatklinik Wyss AG Arbeitsbeginn 1. Januar 2027 oder nach Vereinbarung #Psychiatrie, #Verantwortung, #Teamarbeit, #Entwicklung Eine sinnstiftende Aufgabe mit Gestaltungsspielraum und partnerschaftlicher Zusammenarbeit in einem wertschätzenden Umfeld wartet auf dich! Ob als BerufseinsteigerIn direkt nach dem Studium oder mit mehrjähriger Erfahrung - wir begleiten dich auf deinem Weg in der Psychiatriepflege. Wir suchen dich als diplomierte Pflegefachperson für die Psychotherapieabteilung mit Schwerpunkt affektive Störungen. Deine Aufgaben\n• Du betreust Menschen mit psychiatrischen Erkrankungen und setzt den Pflegeprozess im Bezugspersonensystem um\n• Du bist Teil der interdisziplinären Behandlung und bringst deine Perspektive ein\n• Du unterstützt unser zentrales Bildungsteam bei der Ausbildung von Lernenden (FaGe) und Studierenden (HF/FH)\n• Du arbeitest in einem lean-orientierten Umfeld\n• Du planst deine Diensteinsätze selbstbestimmt im Pflegeteam Dein Profil\n• Du bist eine diplomierte Pflegefachperson HF/FH idealerweise mit Erfahrung in der Psychiatrie\n• Du übernimmst eigenverantwortlich Bezugspersonenarbeit und trägst als pflegerische Bezugsperson die pflegerische Fallverantwortung: Die medizinisch-therapeutische Fallführung liegt bei Ärztin/Arzt oder Psychologin/Psychologe\n• Du liebst Dynamik, willst dich weiterentwickeln und Dinge mitgestalten\n• Du bist selbstreflektiert, ruhig, geduldig und serviceorientiert\n• Du schätzt Teamarbeit, arbeitest prozessorientiert und bist offen für psychotherapeutische Ansätze\n• Du hast gute Deutschkenntnisse in Wort und Schrift\n• Du hast gute IT-Kenntnisse und bist sicher im Umgang mit MS Office (Word, Excel) Deine Perspektiven\n• Eine strukturierte Einführung und ein Team, das dich willkommen heisst\n• Ein angenehmes, unterstützendes Teamfeeling\n• Mindset für eine gute Work-Life-Balance mit der Möglichkeit von fixen Einsatztagen bzw. freien Tagen sowie unbezahltem Urlaub\n• Attraktive Prämie bei kurzfristigen Dienstübernahmen\n• Regelmässige Supervisionen, Intervisionen sowie Fallbesprechungen\n• Klare Karriere- und Weiterbildungsmöglichkeiten, die mit dir wachsen\n• Moderne Infrastruktur in naturnaher Umgebung\n• Viele tolle Benefits-Angebote Neugierig geworden? Wir freuen uns auf deine Bewerbung und darauf, dich kennenzulernen! Deine Bewerbung Bewerbungsunterlagen bitte ausschliesslich online einreichen. Jetzt bewerben Inserat weiterempfehlen"
+      },
+      "needsRetranslation": true,
+      "location": "Münchenbuchsee",
+      "canton": "BE",
+      "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-fuer-die-privatabteilung-w-m-d-1-1",
+      "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:09:11.278Z",
+      "addressLocality": "Münchenbuchsee",
+      "postalCode": "3053",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-fuer-die-privatabteilung-w-m-d-1-1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 60,
+      "pensumMax": 90,
+      "pensum": "60 - 90%",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T13:31:05.916Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },

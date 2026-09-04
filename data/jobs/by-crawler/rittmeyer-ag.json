@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rittmeyer-ag",
-  "assembledAt": "2026-08-27T20:22:48.781Z",
+  "assembledAt": "2026-09-03T23:34:29.268Z",
   "jobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
@@ -72,6 +72,7 @@
         }
       },
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "salarySource": "reported",
       "needsRetranslation": true
     },
     {
@@ -123,8 +124,7 @@
           "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino"
         ],
         "it": [
-          "ingegnere-di-progetto-a-impianti-di-idroelettrica-rittmeyer-ag-baar",
-          "ingeniero-progetto-a-im-settore-idroenergetico-rittmeyer-ag-baar"
+          "ingegnere-di-progetto-a-impianti-di-idroelettrica-rittmeyer-ag-baar"
         ],
         "de": [
           "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
@@ -133,8 +133,7 @@
       "previousSlugs": [
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "ingegnere-di-progetto-a-impianti-di-idroelettrica-rittmeyer-ag-baar",
-        "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "ingeniero-progetto-a-im-settore-idroenergetico-rittmeyer-ag-baar"
+        "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -152,7 +151,8 @@
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1341
+      "localeMismatchSuppressedLen": 1341,
+      "salarySource": "estimated"
     },
     {
       "title": "Technicien de service Automation & Réseaux industriels (a) Région Fribourg, Bulle, Yverdon et environ",
@@ -224,6 +224,7 @@
         }
       },
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
+      "salarySource": "reported",
       "needsRetranslation": true
     },
     {
@@ -296,6 +297,7 @@
         }
       },
       "firstSeenAt": "2026-08-14T10:29:24.869Z",
+      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -377,7 +379,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-06T15:19:20.855Z"
+      "firstSeenAt": "2026-07-06T15:19:20.855Z",
+      "salarySource": "estimated"
     },
     {
       "title": "Projektleiter (a) Wasser- und Energieversorgung",
@@ -405,7 +408,7 @@
       "validThrough": "",
       "description": "## Panoramica\nMöchtest Du Projekte in der Wasser- und Energieversorgung von Anfang bis Ende begleiten und dabei wirklich etwas bewegen? Arbeitest Du gerne selbstständig, behältst aber gleichzeitig den Überblick über Termine, Kosten und Qualität? Dann könntest Du gut in unser Team passen!\n\n## Dettagli principali\n- Area: Operations\n- Località: Baar\n- Percentuale: 80-100%\n\n## Cosa ti offriamo\n- Jobs mit Zukunft: Sinnstiftendes Arbeiten in einem zukunftsorientierten und umweltbewussten Unternehmen mit langjähriger Tradition.\n- Vertrauensvolle Arbeitskultur: DU-Kultur, Kommunikation auf Augenhöhe und offene Türen (bis zum CEO)\n- Flexibilität und Work-Life-Balance: Jahresarbeitszeitmodell, 5-6 Wochen Ferien, bezahlte Brückentage und nicht gesetzliche Feiertage (Vorholtage), flexibles Arbeiten, Homeoffice, Third Place, Teilzeitarbeit\n- Mobilität: Top-Lage unserer Standorte mit Autobahnverbindung und ÖV-Anbindung. Drei Standorte in der Schweiz: Baar, Avry und Camorino. Weltweite Standorte: Schweiz, Deutschland, Österreich, Kroatien, Italien, Frankreich, USA und Singapur\n- Arbeitsplatz: Tolle Büroräumlichkeiten mit ergonomischen Arbeitsplätzen und moderner IT-Infrastruktur\n- Vergünstigungen: Von gratis Früchten zu vergünstigten Mittagsmenüs, gestellter Arbeitskleidung bis hin zur individuellen Nutzung von Velos sowie Poolfahrzeugen",
       "titleByLocale": {
-        "it": "Projektleiter (a) Wasser- e Energieversorgung",
+        "it": "Project Manager (a) approvvigionamento idrico ed energetico",
         "en": "Project manager (a) Water and energy supply",
         "de": "Projektleiter (a) Wasser- und Energieversorgung",
         "fr": "Ingenieur commercial projets Tessin"
@@ -450,7 +453,7 @@
       },
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "title": "Techniker Verkaufsinnendienst (a)",
@@ -521,7 +524,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T00:50:36.287Z"
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "salarySource": "reported"
     },
     {
       "title": "Sales Project Engineer (a) Ticino",
@@ -607,7 +611,8 @@
           "sales-project-ingenieur-a-ticino-rittmeyer-ag-camorino-2oiwox"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:18:55.902Z"
+      "firstSeenAt": "2026-04-13T22:18:55.902Z",
+      "salarySource": "reported"
     }
   ]
 }

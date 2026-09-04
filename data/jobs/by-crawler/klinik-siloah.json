@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-siloah",
-  "assembledAt": "2026-08-28T05:24:22.394Z",
+  "assembledAt": "2026-09-03T23:16:42.149Z",
   "jobs": [
     {
       "id": "klinik-siloah-a78a8194b768",
@@ -16,7 +16,7 @@
       "companyDomain": "swissmedical.net",
       "title": "Dipl. Pflegefachperson HF/FH 40-100% für die chirurgische Bettenstation",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF/FH 40-100% per la chirurgische Bettenstation",
+        "it": "Dipl. Infermieristica professionale HF/FH 40-100% per la stazione del letto chirurgico",
         "en": "Dipl. Care specialist HF/FH 40-100% for the surgical bed station",
         "de": "Dipl. Pflegefachperson HF/FH 40-100% für die chirurgische Bettenstation",
         "fr": "Dipl. Spécialiste des soins HF/FH 40-100% pour le poste de lit chirurgical"
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145455543-dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:24:15.173Z",
+      "crawledAt": "2026-09-03T23:16:35.058Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,29 +52,33 @@
       "datePosted": "2026-08-25",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah"
-        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
-          "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
+          "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network"
         ],
         "en": [
+          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
-      ],
       "firstSeenAt": "2026-08-25T21:43:58.452Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -85,88 +89,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "klinik-siloah-541765e2c813",
-      "slug": "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
-      "slugByLocale": {
-        "it": "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "en": "apprenticeship-specialist-health-as-of-2027-on-the-surgical-bed-station-privatklinik-siloah-muri-bei-bern",
-        "de": "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "fr": "apprentissage-sante-specialisee-a-partir-de-2027-sur-le-poste-de-lit-chirurgical-privatklinik-siloah-muri-bei-bern"
-      },
-      "company": "Privatklinik Siloah",
-      "companyKey": "klinik-siloah",
-      "companyDomain": "swissmedical.net",
-      "title": "Lehrstelle Fachperson Gesundheit per 2027 auf der chirurgischen Bettenstation",
-      "titleByLocale": {
-        "it": "Apprendistato Fachperson Gesundheit per 2027 auf der chirurgischen Bettenstation",
-        "en": "Apprenticeship specialist health as of 2027 on the surgical bed station",
-        "de": "Lehrstelle Fachperson Gesundheit per 2027 auf der chirurgischen Bettenstation",
-        "fr": "Apprentissage santé spécialisée à partir de 2027 sur le poste de lit chirurgical"
-      },
-      "description": "Als zukünftigen Fachperson Gesundheit arbeiten Sie nah am Menschen. Sie begleiten und unterstützen unsere Patientinnen und Patienten sowie deren Angehörige während des gesamten Spitalaufenthalts. Sie erbringen pflegerische, medizinaltechnische, administrative und hauswirtschaftliche Dienstleistungen.\n\n• Abgeschlossene Sekundarschule, Realschule mit guten Noten oder einem absolvierten 10. Schuljahr\n\n• Freude an pflegerischen Tätigkeiten und an der Medizinaltechnik\n\n• Einfühlungsvermögen, Teamfähigkeit und ein respektvoller Umgang mit Mitmenschen\n\n• Selbstständige, zuverlässige, ehrgeizige und motivierte Persönlichkeit\n\n• Fähigkeit, auch in anspruchsvollen Situationen ruhig und konzentriert zu bleiben\n\n• Rasche Auffassungsgabe, Dienstleistungsorientierung und Bereitschaft, Neues zu lernen\n\n• Ein tolles Team, in dem hohe Pflegequalität und eine gute Zusammenarbeit grossgeschrieben wird\n\n• Eine interessante, vielseitige und verantwortungsvolle Tätigkeit\n\n• Entwicklungsmöglichkeiten in einem expandierenden Arbeitsumfeld\n\n• Kindertagesstätte direkt auf dem Siloah-Areal\n\n• Vergünstigter Zugang zum Fitnessraum\n\n• Breites Angebot an Aus- und Weiterbildungskursen\n\n• Vielseitiges Vergünstigungsangebot der Privatklinik Siloah sowie der Gruppe Swiss Medical Network\n\n• Mindestens 5 Wochen Ferien\n\n• 5 bezahlte Umkleidetage\n\n• 2 zusätzliche Ferien-Flexitage\n\n• Reichhaltiges Mittagsmenü für jeweils CHF 5.00 im Personalrestaurant\n\nFür zusätzliche Informationen steht Ihnen Frau Adina Aeberhard, Berufsbildungsverantwortliche Fachperson Gesundheit, 031 958 17 33 gerne zur Verfügung.\n\nDie Privatklinik Siloah in Gümligen kommt dank ihrer langjährigen, ausgewiesenen Expertise und Kompetenz in den verschiedenen Sparten der Chirurgie im Gesundheitssektor der Region Bern eine tragende Rolle zu. Dabei setzen wir uns für eine qualitativ hochstehende, innovative und patientenorientierte Versorgung ein. Rund 50 Belegärztinnen und Belegärzte und mehr als 70 Mitarbeitende bieten Patientinnen und Patienten erstklassige medizinische Betreuung in den Fachgebieten Orthopädie, Neurochirurgie, HNO und Allgemein- und Viszeralchirurgie an.",
-      "descriptionByLocale": {
-        "it": "Come futuro professionista della salute, si lavora vicino alle persone. Essi accompagnano e sostengono i nostri pazienti e i loro parenti durante l'intero soggiorno in ospedale. Essi forniscono servizi di cura, medico, amministrativo e domestico.\n\n• Scuola secondaria completata, scuola secondaria con buoni voti o un completato 10. Anno scolastico\n\n• Divertimento delle attività di cura e della tecnologia medica\n\n• Empatia, lavoro di squadra e trattamento rispettoso di altri esseri umani\n\n• personalità indipendente, affidabile, ambiziosa e motivata\n\n• Capacità di rimanere calmo e concentrato anche in situazioni difficili\n\n• Rapida comprensione, orientamento di servizio e la volontà di imparare nuove cose\n\n• Un grande team, in cui l'alta qualità della cura e una buona cooperazione è importante\n\n• Un'attività interessante, versatile e responsabile\n\n• Opportunità di sviluppo in un ambiente di lavoro in espansione\n\n• Centro di assistenza direttamente sul sito Siloah\n\n• Accesso ridotto alla sala fitness\n\n• Ampia gamma di corsi di formazione\n\n• Vari sconti offerti dall'Ospedale Privato di Siloah e dal Gruppo di Rete Medica Svizzera\n\n• Almeno 5 settimane di vacanza\n\n• 5 spogliatoi a pagamento\n\n• 2 maggiore flessibilità di vacanza\n\n• Ricco menu pranzo per CHF 5.00 ciascuno nel ristorante del personale\n\nPer ulteriori informazioni, Ms. Adina Aeberhard, specialista sanitario responsabile della formazione professionale, 031 958 17 33 è a vostra disposizione.\n\nLa Clinica Privata di Siloah a Gümligen svolge un ruolo chiave nel settore sanitario della regione di Berna grazie alla sua consolidata esperienza e competenza nei vari campi di intervento. Siamo impegnati a cure di alta qualità, innovative e orientate al paziente. Circa 50 medici e più di 70 dipendenti offrono ai pazienti cure mediche di prima classe nei campi di ortopedia, neurochirurgia, ENT e chirurgia generale e viscerale.",
-        "en": "As a future health professional, you work close to people. They accompany and support our patients and their relatives during the entire hospital stay. They provide nursing, medical, administrative and domestic services.\n\n• Completed secondary school, secondary school with good grades or a completed 10. School year\n\n• Enjoyment of nursing activities and medical technology\n\n• Empathy, teamwork and respectful treatment of fellow human beings\n\n• Independent, reliable, ambitious and motivated personality\n\n• Ability to remain calm and focused even in demanding situations\n\n• Rapid understanding, service orientation and willingness to learn new things\n\n• A great team, in which high quality of care and a good cooperation is important\n\n• An interesting, versatile and responsible activity\n\n• Development opportunities in an expanding working environment\n\n• Daycare center directly on the Siloah site\n\n• Reduced access to the fitness room\n\n• Broad range of training courses\n\n• Various discounts offered by the Siloah Private Hospital and the Swiss Medical Network Group\n\n• At least 5 weeks of vacation\n\n• 5 paid changing rooms\n\n• 2 additional holiday flexibility\n\n• Rich lunch menu for CHF 5.00 each in the staff restaurant\n\nFor additional information, Ms. Adina Aeberhard, health specialist responsible for vocational training, 031 958 17 33 is at your disposal.\n\nThe Siloah Private Clinic in Gümligen plays a key role in the health sector of the Berne region thanks to its long-standing proven expertise and competence in the various fields of surgery. We are committed to high-quality, innovative and patient-oriented care. Around 50 medical doctors and more than 70 employees offer patients first-class medical care in the fields of orthopedics, neurosurgery, ENT and general and visceral surgery.",
-        "de": "Als zukünftigen Fachperson Gesundheit arbeiten Sie nah am Menschen. Sie begleiten und unterstützen unsere Patientinnen und Patienten sowie deren Angehörige während des gesamten Spitalaufenthalts. Sie erbringen pflegerische, medizinaltechnische, administrative und hauswirtschaftliche Dienstleistungen.\n\n• Abgeschlossene Sekundarschule, Realschule mit guten Noten oder einem absolvierten 10. Schuljahr\n\n• Freude an pflegerischen Tätigkeiten und an der Medizinaltechnik\n\n• Einfühlungsvermögen, Teamfähigkeit und ein respektvoller Umgang mit Mitmenschen\n\n• Selbstständige, zuverlässige, ehrgeizige und motivierte Persönlichkeit\n\n• Fähigkeit, auch in anspruchsvollen Situationen ruhig und konzentriert zu bleiben\n\n• Rasche Auffassungsgabe, Dienstleistungsorientierung und Bereitschaft, Neues zu lernen\n\n• Ein tolles Team, in dem hohe Pflegequalität und eine gute Zusammenarbeit grossgeschrieben wird\n\n• Eine interessante, vielseitige und verantwortungsvolle Tätigkeit\n\n• Entwicklungsmöglichkeiten in einem expandierenden Arbeitsumfeld\n\n• Kindertagesstätte direkt auf dem Siloah-Areal\n\n• Vergünstigter Zugang zum Fitnessraum\n\n• Breites Angebot an Aus- und Weiterbildungskursen\n\n• Vielseitiges Vergünstigungsangebot der Privatklinik Siloah sowie der Gruppe Swiss Medical Network\n\n• Mindestens 5 Wochen Ferien\n\n• 5 bezahlte Umkleidetage\n\n• 2 zusätzliche Ferien-Flexitage\n\n• Reichhaltiges Mittagsmenü für jeweils CHF 5.00 im Personalrestaurant\n\nFür zusätzliche Informationen steht Ihnen Frau Adina Aeberhard, Berufsbildungsverantwortliche Fachperson Gesundheit, 031 958 17 33 gerne zur Verfügung.\n\nDie Privatklinik Siloah in Gümligen kommt dank ihrer langjährigen, ausgewiesenen Expertise und Kompetenz in den verschiedenen Sparten der Chirurgie im Gesundheitssektor der Region Bern eine tragende Rolle zu. Dabei setzen wir uns für eine qualitativ hochstehende, innovative und patientenorientierte Versorgung ein. Rund 50 Belegärztinnen und Belegärzte und mehr als 70 Mitarbeitende bieten Patientinnen und Patienten erstklassige medizinische Betreuung in den Fachgebieten Orthopädie, Neurochirurgie, HNO und Allgemein- und Viszeralchirurgie an.",
-        "fr": "En tant que futur professionnel de la santé, vous travaillez près des gens. Ils accompagnent et soutiennent nos patients et leurs proches pendant tout le séjour à l'hôpital. Ils fournissent des services infirmiers, médicaux, administratifs et domestiques.\n\n• L'école secondaire terminée, l'école secondaire avec de bonnes notes ou une fin 10. Année scolaire\n\n• Appréciation des activités infirmières et de la technologie médicale\n\n• Empathie, travail d'équipe et traitement respectueux des autres êtres humains\n\n• Personnalité indépendante, fiable, ambitieuse et motivée\n\n• Capacité à rester calme et concentré même dans des situations exigeantes\n\n• Compréhension rapide, orientation des services et volonté d'apprendre de nouvelles choses\n\n• Une grande équipe, dans laquelle la haute qualité des soins et une bonne coopération est importante\n\n• Une activité intéressante, polyvalente et responsable\n\n• Possibilités de développement dans un environnement de travail en expansion\n\n• Centre de garderie directement sur le site de Siloah\n\n• Accès réduit à la salle de fitness\n\n• Large gamme de cours de formation\n\n• Divers rabais offerts par l'hôpital privé de Siloah et le groupe Swiss Medical Network\n\n• Au moins 5 semaines de vacances\n\n• 5 vestiaires payants\n\n• 2 possibilités de vacances supplémentaires\n\n• Menu déjeuner riche pour CHF 5.00 chacun dans le restaurant du personnel\n\nPour de plus amples renseignements, Mme Adina Aeberhard, spécialiste de la santé responsable de la formation professionnelle, 031 958 17 33 est à votre disposition.\n\nLa clinique privée Siloah de Gümligen joue un rôle clé dans le secteur de la santé de la région de Berne grâce à son expertise et sa compétence éprouvées de longue date dans les différents domaines de la chirurgie. Nous nous engageons à offrir des soins de qualité, innovants et axés sur le patient. Environ 50 médecins et plus de 70 employés offrent des soins médicaux de première classe aux patients dans les domaines de l'orthopédie, de la neurochirurgie, de l'ENT et de la chirurgie générale et viscérale."
-      },
-      "needsRetranslation": true,
-      "location": "Muri bei Bern",
-      "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142787529-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142787529-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
-      "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:41:57.205Z",
-      "addressLocality": "Muri bei Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3073",
-      "streetAddress": "Worbstrasse 324, 3073 Gümligen",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-11",
-      "datePosted": "2026-08-11",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
-        ],
-        "en": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
-        ],
-        "de": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
-        ],
-        "fr": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
-        ]
-      },
-      "firstSeenAt": "2026-08-11T10:21:48.023Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }

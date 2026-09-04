@@ -13,8 +13,12 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { loadSpec } from './prospector/spec-crawler.mjs';
+import {
+  getVerifiedIpersonalGeography,
+  runIpersonalSpecInProduction,
+} from './ipersonal-spec-runtime.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -109,7 +113,9 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(IPERSONAL_KEY);
-  return runSpecInProduction(spec);
+  return /** @type {Promise<Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number }>} */ (
+    runIpersonalSpecInProduction(spec)
+  );
 }
 
 /**
@@ -138,10 +144,20 @@ export async function fetchAllIpersonalJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Lugano'; // TODO: extract actual location
-    const canton = inferSwissTargetCanton(location) || 'TI';
+    // Pass the full listing, not just `listing.location`: the row already
+    // carries the addressLocality/addressRegion/addressCountry evidence that
+    // runIpersonalSpecInProduction's upstream geography resolver used to
+    // accept it (e.g. an ambiguous municipality disambiguated only by a
+    // structured canton). Re-checking with the bare string alone drops rows
+    // upstream already verified, silently reproducing the "snapshot incomplete"
+    // fail-closed this quality gate exists to distinguish from.
+    const geography = getVerifiedIpersonalGeography(listing)
+      || resolveSourceBackedSwissGeography(listing);
+    if (!geography) continue;
+    const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -158,8 +174,8 @@ export async function fetchAllIpersonalJobs() {
       companyDomain: IPERSONAL_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — iPersonal AG`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — iPersonal AG` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -168,9 +184,12 @@ export async function fetchAllIpersonalJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
+      country: normalizeSpace(listing.addressCountry || "CH"),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),
@@ -180,8 +199,6 @@ export async function fetchAllIpersonalJobs() {
       featured: false,
       postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
       applyUrl: publicUrl,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
@@ -189,5 +206,41 @@ export async function fetchAllIpersonalJobs() {
   }
 
   console.log(`\n📋 Total iPersonal AG jobs discovered: ${jobs.length}`);
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: Number(listings.discoveredCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'expectedSeedCount', {
+    value: Number(listings.expectedSeedCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'loadedSeedCount', {
+    value: Number(listings.loadedSeedCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'resolvedDetailCount', {
+    value: Number(listings.resolvedDetailCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'parsedDetailCount', {
+    value: Number(listings.parsedDetailCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'qualityDroppedCount', {
+    value: listings.qualityDroppedCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'detailFailureCount', {
+    value: listings.detailFailureCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'sourceIdentityCollisionCount', {
+    value: listings.sourceIdentityCollisionCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'unaccountedReturnedCount', {
+    value: listings.unaccountedReturnedCount ?? 0,
+    enumerable: false,
+  });
   return jobs;
 }

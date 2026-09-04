@@ -503,8 +503,18 @@ jobs:
             npm run validate:crawler-summaries & pids+=("$!")
           run_validator validate:third-party-secrets      /tmp/v12.log \
             npm run validate:third-party-secrets & pids+=("$!")
+          # --maxWorkers=2: unrestrained, vitest's own thread pool (pool:
+          # 'threads', isolate: true) opens up to nCPU worker threads on TOP of
+          # the three sibling validators above, all racing for the same 4 vCPU.
+          # That oversubscription is what turned "slow" into "past the global
+          # 15s testTimeout" on issue #7192's two recurrences — a DIFFERENT
+          # test timed out each time (cathedral-previous-slug-canton.test.ts,
+          # then cathedral-expired-tracking-canton.test.ts), the signature of
+          # scheduling contention, not a defect in either test. Same lever
+          # already proven in tests.yml (VITEST_MAX_WORKERS=2) for the
+          # identical shape: two CPU-bound processes contending for 4 vCPU.
           run_validator gate:seo-source                   /tmp/v27.log \
-            npm run gate:seo-source & pids+=("$!")
+            npm run gate:seo-source -- --maxWorkers=2 & pids+=("$!")
           for p in "${pids[@]}"; do wait "$p" || true; done
 
           # Merge the per-validator result files into the single results file the
@@ -2492,7 +2502,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json

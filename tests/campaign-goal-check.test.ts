@@ -234,6 +234,36 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     expect(results.find((r) => r.id === 'gsc1')?.state).toBe('passed');
   });
 
+  it('routes to ga4Fallback instead of unmeasurable when the goal declares one and PostHog is dead', async () => {
+    // Issue #6463 (owner decision 2026-08-25): a goal with a real GA4
+    // equivalent must keep evaluating through the outage, not sit
+    // `unmeasurable` for its whole duration like the regression covered
+    // above (goals with no ga4Fallback keep that exact behaviour).
+    const evaluate = vi.fn();
+    const ga4Fallback = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd [GA4 fallback]' });
+    const goals = [
+      { id: 'ph2', title: 'PH2', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate, ga4Fallback },
+    ];
+    const createIssueImpl = vi.fn();
+    const { results } = await runCampaignGoalCheck({
+      goals,
+      now: NOW,
+      campaignStart: isoDaysAgo(20),
+      loadStateImpl: () => ({ goals: {} }),
+      saveStateImpl: vi.fn(),
+      createIssueImpl,
+      checkLivenessImpl: async () => ({
+        alive: false, reason: 'posthog ingested < 500 events/day on 14 of 14 complete day(s)',
+        windowDays: 30, floor: 500, daysEvaluated: [], deadDays: [], totalEvents: 70,
+        source: 'posthog', dailyCounts: new Map(),
+      }),
+    });
+
+    expect(evaluate).not.toHaveBeenCalled();
+    expect(ga4Fallback).toHaveBeenCalledTimes(1);
+    expect(results.find((r) => r.id === 'ph2')?.state).toBe('passed');
+  });
+
   it('flags a source as dead when every attempted goal for it errors this run', async () => {
     const failing = vi.fn().mockRejectedValue(new Error('auth broken'));
     const goals = [

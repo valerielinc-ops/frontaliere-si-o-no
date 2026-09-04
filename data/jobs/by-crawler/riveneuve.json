@@ -1,6 +1,6 @@
 {
   "crawlerKey": "riveneuve",
-  "assembledAt": "2026-08-28T05:19:16.099Z",
+  "assembledAt": "2026-09-03T23:12:14.207Z",
   "jobs": [
     {
       "id": "riveneuve-6211b5c5e83a",
@@ -9,7 +9,7 @@
         "it": "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay",
         "en": "full-time-nurse-negotiable-rate-fondation-rive-neuve-blonay",
         "de": "vollzeit-pflegekraft-verhandelbarer-satz-fondation-rive-neuve-blonay",
-        "fr": "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay"
+        "fr": "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -33,7 +33,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:11.294Z",
+      "crawledAt": "2026-09-03T23:12:11.137Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -78,24 +78,25 @@
           "Ausgezeichnete interpersonelle Fähigkeiten und Teamgeist"
         ]
       },
-      "previousSlugsByLocale": {
-        "fr": [
-          "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay",
-          "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay"
-        ],
-        "it": [
-          "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay",
-          "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay"
-        ]
-      },
       "previousSlugs": [
         "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay",
         "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay",
         "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay",
+          "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay"
+        ],
+        "fr": [
+          "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay",
+          "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay"
+        ]
+      },
       "firstSeenAt": "2026-05-19T11:37:46.973Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -114,7 +115,7 @@
         "it": "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay",
         "en": "80-community-health-and-care-assistant-fondation-rive-neuve-blonay",
         "de": "80-assistent-in-fur-gesundheit-und-gemeindepflege-fondation-rive-neuve-blonay",
-        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay"
+        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -138,7 +139,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:10.348Z",
+      "crawledAt": "2026-09-03T23:12:09.938Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -174,24 +175,25 @@
           "Beherrschung von Computerwerkzeugen (Microsoft Office, Soarian...)"
         ]
       },
-      "previousSlugsByLocale": {
-        "fr": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay",
-          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay"
-        ],
-        "it": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay",
-          "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay"
-        ]
-      },
       "previousSlugs": [
         "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay",
         "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay",
         "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay",
+          "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay"
+        ],
+        "fr": [
+          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay",
+          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay"
+        ]
+      },
       "firstSeenAt": "2026-05-19T11:37:46.266Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -210,7 +212,7 @@
         "it": "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay",
         "en": "full-time-community-health-and-care-assistant-fondation-rive-neuve-blonay",
         "de": "vollzeit-assistent-in-fur-gemeindegesundheit-und-pflege-fondation-rive-neuve-blonay",
-        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay"
+        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -234,7 +236,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:09.401Z",
+      "crawledAt": "2026-09-03T23:12:08.927Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -270,24 +272,25 @@
           "Kenntnisse der Computer-Tools (Microsoft Office, Soarian...)"
         ]
       },
-      "previousSlugsByLocale": {
-        "fr": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay",
-          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay"
-        ],
-        "it": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay",
-          "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay"
-        ]
-      },
       "previousSlugs": [
         "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay",
         "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay",
         "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay",
+          "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay"
+        ],
+        "fr": [
+          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay",
+          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay"
+        ]
+      },
       "firstSeenAt": "2026-05-19T11:37:45.530Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -306,7 +309,7 @@
         "it": "infermiere-a-diurno-fondation-rive-neuve-blonay",
         "en": "day-nurse-fondation-rive-neuve-blonay",
         "de": "pflegefachperson-tagdienst-fondation-rive-neuve-blonay",
-        "fr": "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay"
+        "fr": "un-e-infirmier-ere-journalier-ere-riveneuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -330,7 +333,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:08.406Z",
+      "crawledAt": "2026-09-03T23:12:07.706Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -378,24 +381,25 @@
           "Perfekte Beherrschung der französischen Sprache"
         ]
       },
-      "previousSlugsByLocale": {
-        "fr": [
-          "un-e-infirmier-ere-journalier-ere-riveneuve-blonay",
-          "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay"
-        ],
-        "it": [
-          "un-e-infirmier-ere-journalier-ere-riveneuve-blonay",
-          "infermiere-a-diurno-fondation-rive-neuve-blonay"
-        ]
-      },
       "previousSlugs": [
         "un-e-infirmier-ere-journalier-ere-riveneuve-blonay",
         "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay",
         "infermiere-a-diurno-fondation-rive-neuve-blonay"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-ere-journalier-ere-riveneuve-blonay",
+          "infermiere-a-diurno-fondation-rive-neuve-blonay"
+        ],
+        "fr": [
+          "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay",
+          "un-e-infirmier-ere-journalier-ere-riveneuve-blonay"
+        ]
+      },
       "firstSeenAt": "2026-05-19T11:37:44.377Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

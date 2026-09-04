@@ -49,6 +49,30 @@ describe('isTransientFetchError', () => {
   it('honours an explicit retryable=true tag', () => {
     expect(isTransientFetchError(Object.assign(new Error('whatever'), { retryable: true }))).toBe(true);
   });
+
+  it('pins the literal Node wording used by the substring fallback (#7093)', () => {
+    // No `.code`/`.cause` at all — this isolates the message-substring
+    // fallback (as opposed to the `code`-based checks above, which win first
+    // whenever a `.cause.code`/`.code` is present). If Node/undici ever
+    // changes this exact wording, THIS test — not just the regex — must be
+    // updated in the same change, so a silent drift fails loud here instead
+    // of quietly de-classifying every "fetch failed" as non-transient.
+    const err = new TypeError('fetch failed');
+    expect(err.cause).toBeUndefined();
+    expect(err.code).toBeUndefined();
+    expect(isTransientFetchError(err)).toBe(true);
+  });
+
+  it('lets a wrapped DNS policy rejection override TypeError fetch-failed', () => {
+    const policy = Object.assign(new Error('unsafe prospector DNS target: x.test'), {
+      code: 'ERR_PUBLIC_FETCH_POLICY',
+      retryable: false,
+    });
+    const wrapped = Object.assign(new TypeError('fetch failed'), {
+      cause: Object.assign(new Error('connector error'), { cause: policy }),
+    });
+    expect(isTransientFetchError(wrapped)).toBe(false);
+  });
 });
 
 describe('isConnectionLevelFetchError (Jina egress fallback gate)', () => {
@@ -100,6 +124,16 @@ describe('fetchWithRetry', () => {
   it('does NOT retry a persistent (404-like) error', async () => {
     const attempt = vi.fn().mockRejectedValue(Object.assign(new Error('HTTP 404'), { status: 404 }));
     await expect(fetchWithRetry(attempt, { retryBaseMs: 0 })).rejects.toThrow(/404/);
+    expect(attempt).toHaveBeenCalledTimes(1);
+  });
+
+  it('does NOT retry an Undici-wrapped DNS policy rejection', async () => {
+    const policy = Object.assign(new Error('unsafe prospector DNS target: x.test'), {
+      code: 'ERR_PUBLIC_FETCH_POLICY',
+      retryable: false,
+    });
+    const attempt = vi.fn().mockRejectedValue(Object.assign(new TypeError('fetch failed'), { cause: policy }));
+    await expect(fetchWithRetry(attempt, { retries: 4, retryBaseMs: 0 })).rejects.toThrow(/fetch failed/);
     expect(attempt).toHaveBeenCalledTimes(1);
   });
 

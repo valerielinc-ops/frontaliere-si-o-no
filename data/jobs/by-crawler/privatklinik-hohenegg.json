@@ -1,12 +1,12 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-08-28T05:18:15.618Z",
+  "assembledAt": "2026-09-03T23:15:05.706Z",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-2c9323d6be7b",
-      "slug": "fachperson-gesundheit-cfc-apprendistato-privatklinik-hohenegg-meilen",
+      "slug": "professionista-della-salute-efz-apprendistato-privatklinik-hohenegg-meilen",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-apprendistato-privatklinik-hohenegg-meilen",
+        "it": "professionista-della-salute-efz-apprendistato-privatklinik-hohenegg-meilen",
         "en": "health-professional-efz-apprenticeship-privatklinik-hohenegg-meilen",
         "de": "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch",
         "fr": "professionnel-de-la-sante-efz-apprentissage-privatklinik-hohenegg-meilen"
@@ -16,7 +16,7 @@
       "companyDomain": "hohenegg.ch",
       "title": "Fachperson Gesundheit EFZ (Lehrstelle)",
       "titleByLocale": {
-        "it": "Fachperson Gesundheit CFC (Apprendistato)",
+        "it": "Professionista della Salute EFZ (apprendistato)",
         "en": "Health professional EFZ (apprenticeship)",
         "de": "Fachperson Gesundheit EFZ (Lehrstelle)",
         "fr": "Professionnel de la santé EFZ (apprentissage)"
@@ -28,13 +28,12 @@
         "de": "• Die Privatklinik Hohenegg AG ist eine Spezialklinik mit 95 Betten für Psychiatrie, Psychotherapie und Psychosomatik. Sie wird offen geführt und ist für Privat-, Halbprivat- und Allgemein-Versicherte aus der Schweiz sowie Selbstzahler zugänglich. Neben dem stationären Angebot betreiben wir ein Zentrum für psychische Gesundheit (ZPG) für ambulante und spitalassoziierte Psychiatrie an zwei Standorten. Die Trägerschaft der Klinik ist eine gemeinnützige Stiftung.\n\nWir suchen per August 2027 ein einsatzfreudiges Talent für die Ausbildung zur\n\nFachperson Gesundheit EFZ (Lehrstelle)\n\nDeine Aufgaben\n\nIn der Lehre zur Fachperson Gesundheit erlernst du Fähigkeiten und Kompetenzen für die Pflege und Betreuung von Patientinnen und Patienten mit psychischen Beschwerden. Über die gesamte Dauer deiner Lehre wirst du von fachverantwortlichen Berufsbildnern begleitet, die dich unterstützen und fördern.\n\nDein Profil\n\n• Integrität und soziale Kompetenz\n• Spass an patientenorientiertem Arbeiten\n• Offene und freundliche Persönlichkeit\n• Gutes Schulzeugnis aus der Sek A oder B\n• Spannende Ausbildungsstelle\n• Lehrreiches und vielfältiges Umfeld\n• Kollegiale Zusammenarbeit mit gutem Arbeitsklima\n• Kostenlose Sportangebote\n• Diverse Team- und Firmenevents",
         "fr": "• Privatklinik Hohenegg AG est une clinique spécialisée avec 95 lits pour la psychiatrie, la psychothérapie et la psychosomatique. Il est ouvert et accessible aux assurés privés, semi-privés et généraux de Suisse ainsi qu'aux auto-payeurs. En plus des services hospitaliers, nous gérons un centre de santé mentale (ZPG) pour la psychiatrie ambulatoire et hospitalière à deux endroits. Le parrainage de la clinique est une fondation caritative.\n\nEn août 2027, nous sommes à la recherche d'un talent actif pour la formation\n\nProfessionnel de la santé EFZ (apprentissage)\n\nVos tâches\n\nDans l'enseignement en tant que spécialiste de la santé, vous apprendrez les compétences et les compétences pour les soins et les soins aux patients souffrant de troubles mentaux. Pendant toute la durée de votre apprentissage, vous serez accompagné de formateurs professionnels qui vous soutiennent et vous promeuvent.\n\nVotre profil\n\n• Intégrité et compétence sociale\n• Profitez d'un travail axé sur le patient\n• Personnalité ouverte et amicale\n• Bon rapport scolaire de Sek A ou B\n• Centre de formation passionnant\n• Éducation et environnement divers\n• Coopération collégiale avec une bonne atmosphère de travail\n• Offres sportives gratuites\n• Divers événements d'équipe et d'entreprise"
       },
-      "needsRetranslation": true,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:18:10.950Z",
+      "crawledAt": "2026-09-03T23:15:01.048Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,6 +74,7 @@
       "firstSeenAt": "2026-08-18T22:11:32.287Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -118,7 +118,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:18:10.465Z",
+      "crawledAt": "2026-09-03T23:15:00.600Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,14 +141,12 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
         "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
-        "dipl-soins-infirmiers-professionnels-en-formation-privatklinik-hohenegg-meilen",
-        "dipl-infermieristica-professionale-hf-in-formazione-privatklinik-hohenegg-meilen"
+        "dipl-soins-infirmiers-professionnels-en-formation-privatklinik-hohenegg-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
-          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
-          "dipl-infermieristica-professionale-hf-in-formazione-privatklinik-hohenegg-meilen"
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
@@ -161,6 +159,7 @@
       "firstSeenAt": "2026-08-18T22:11:31.842Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -203,7 +202,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:18:09.946Z",
+      "crawledAt": "2026-09-03T23:15:00.127Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -224,13 +223,11 @@
       "pensumMax": 10,
       "pensum": "10%",
       "previousSlugs": [
-        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d"
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-          "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d"
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
         ],
         "en": [
           "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
@@ -242,6 +239,7 @@
       "firstSeenAt": "2026-08-14T21:28:33.112Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

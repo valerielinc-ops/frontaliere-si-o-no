@@ -1,12 +1,12 @@
 {
   "crawlerKey": "clinica-holistica-engiadina",
-  "assembledAt": "2026-08-27T20:23:51.977Z",
+  "assembledAt": "2026-09-03T23:35:14.714Z",
   "jobs": [
     {
       "id": "clinica-holistica-engiadina-72c9c3974d19",
-      "slug": "oberarztin-o-oberarzt-con-facharzttitel-in-psychiatrie-e-psychotherapie-80-100-bei-hinreichender-eignung-anstellung-come-leitende-arztin-leitender-arzt-moglich-clinica-holistica-en",
+      "slug": "medico-senior-o-medico-senior-con-titolo-specialistico-in-psichiatria-e-psicoterapia-80-100-se-adatto-lavoro-come-medico",
       "slugByLocale": {
-        "it": "oberarztin-o-oberarzt-con-facharzttitel-in-psychiatrie-e-psychotherapie-80-100-bei-hinreichender-eignung-anstellung-come-leitende-arztin-leitender-arzt-moglich-clinica-holistica-en",
+        "it": "medico-senior-o-medico-senior-con-titolo-specialistico-in-psichiatria-e-psicoterapia-80-100-se-adatto-lavoro-come-medico",
         "en": "senior-physician-or-senior-physician-with-specialist-title-in-psychiatry-and-psychotherapy-80-100-if-suitable-employment",
         "de": "oberarztin-oder-oberarzt-mit-facharzttitel-in-psychiatrie-und-psychotherapie-80-100-bei",
         "fr": "medecin-ou-medecin-principal-ayant-le-titre-de-specialiste-en-psychiatrie-et-en-psychotherapie-80-100-si-un-emploi"
@@ -16,7 +16,7 @@
       "companyDomain": "clinica-holistica.ch",
       "title": "Oberärztin oder Oberarzt mit Facharzttitel in Psychiatrie und Psychotherapie 80 - 100 % - bei hinreichender Eignung Anstellung als Leitende Ärztin / Leitender Arzt möglich",
       "titleByLocale": {
-        "it": "Oberärztin o Oberarzt con Facharzttitel in Psychiatrie e Psychotherapie 80 - 100 % - bei hinreichender Eignung Anstellung come Leitende Ärztin / Leitender Arzt möglich",
+        "it": "Medico senior o medico senior con titolo specialistico in psichiatria e psicoterapia 80 - 100% - se adatto lavoro come medico senior / medico senior possibile",
         "en": "Senior physician or senior physician with specialist title in psychiatry and psychotherapy 80 - 100% - if suitable employment as senior physician / senior physician possible",
         "de": "Oberärztin oder Oberarzt mit Facharzttitel in Psychiatrie und Psychotherapie 80 - 100 % - bei hinreichender Eignung Anstellung als Leitende Ärztin / Leitender Arzt möglich",
         "fr": "Médecin ou médecin principal ayant le titre de spécialiste en psychiatrie et en psychothérapie 80 - 100% - si un emploi approprié en tant que médecin ou médecin principal est possible"
@@ -47,20 +47,21 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:23:48.973Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:11.438Z",
       "previousSlugs": [
         "oberarztin-oder-oberarzt-mit-facharzttitel-in-psychiatrie-und-psychotherapie-80-100-bei",
         "medico-specialista-in-psichiatria-e-psicoterapia-80-100-possibilita-di-ruolo-di-capo-dipartimento-clinica-holistica",
         "senior-psychiatrist-or-psychotherapist-80-100-leadership-role-possible-clinica-holistica-engiadina-susch",
-        "medecin-chef-ou-chef-de-service-en-psychiatrie-et-psychotherapie-80-100-possibilite-de-poste-de-responsable-medical"
+        "medecin-chef-ou-chef-de-service-en-psychiatrie-et-psychotherapie-80-100-possibilite-de-poste-de-responsable-medical",
+        "oberarztin-o-oberarzt-con-facharzttitel-in-psychiatrie-e-psychotherapie-80-100-bei-hinreichender-eignung-anstellung-come-leitende-arztin-leitender-arzt-moglich-clinica-holistica-en"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oder-oberarzt-mit-facharzttitel-in-psychiatrie-und-psychotherapie-80-100-bei",
           "medico-specialista-in-psichiatria-e-psicoterapia-80-100-possibilita-di-ruolo-di-capo-dipartimento-clinica-holistica",
           "senior-psychiatrist-or-psychotherapist-80-100-leadership-role-possible-clinica-holistica-engiadina-susch",
-          "medecin-chef-ou-chef-de-service-en-psychiatrie-et-psychotherapie-80-100-possibilite-de-poste-de-responsable-medical"
+          "medecin-chef-ou-chef-de-service-en-psychiatrie-et-psychotherapie-80-100-possibilite-de-poste-de-responsable-medical",
+          "oberarztin-o-oberarzt-con-facharzttitel-in-psychiatrie-e-psychotherapie-80-100-bei-hinreichender-eignung-anstellung-come-leitende-arztin-leitender-arzt-moglich-clinica-holistica-en"
         ],
         "en": [
           "oberarztin-oder-oberarzt-mit-facharzttitel-in-psychiatrie-und-psychotherapie-80-100-bei",
@@ -74,6 +75,7 @@
       "firstSeenAt": "2026-07-06T13:21:17.104Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -87,9 +89,9 @@
     },
     {
       "id": "clinica-holistica-engiadina-9a7d57a47dbc",
-      "slug": "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-come-oberpsychologin-oberpsychologe-moglich-clinica-holistica-engiadina-susch",
+      "slug": "specialista-psicologo-80-100-se-l-occupazione-adatta-come-psicologo-senior-psicologo-senior-possibile-clinica-holistica",
       "slugByLocale": {
-        "it": "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-come-oberpsychologin-oberpsychologe-moglich-clinica-holistica-engiadina-susch",
+        "it": "specialista-psicologo-80-100-se-l-occupazione-adatta-come-psicologo-senior-psicologo-senior-possibile-clinica-holistica",
         "en": "specialist-psychologist-80-100-if-suitable-employment-as-senior-psychologist-senior-psychologist-possible-clinica",
         "de": "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als",
         "fr": "psychologue-specialise-80-100-si-un-emploi-approprie-comme-psychologue-senior-psychologue-senior-possible-clinica"
@@ -99,7 +101,7 @@
       "companyDomain": "clinica-holistica.ch",
       "title": "Fachpsychologin / Fachpsychologe 80 - 100 % - bei hinreichender Eignung Anstellung als Oberpsychologin / Oberpsychologe möglich",
       "titleByLocale": {
-        "it": "Fachpsychologin / Fachpsychologe 80 - 100 % - bei hinreichender Eignung Anstellung come Oberpsychologin / Oberpsychologe möglich",
+        "it": "Specialista psicologo 80 - 100 % - se l'occupazione adatta come psicologo senior / psicologo senior possibile",
         "en": "Specialist psychologist 80 - 100 % - if suitable employment as senior psychologist / senior psychologist possible",
         "de": "Fachpsychologin / Fachpsychologe 80 - 100 % - bei hinreichender Eignung Anstellung als Oberpsychologin / Oberpsychologe möglich",
         "fr": "Psychologue spécialisé 80 - 100 % - si un emploi approprié comme psychologue senior / psychologue senior possible"
@@ -130,20 +132,21 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als-oberpsychologin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:23:46.536Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:09.191Z",
       "previousSlugs": [
         "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als",
         "psicologo-specializzato-80-100-possibilita-di-assunzione-come-psicologo-capo-se-idoneo-clinica-holistica-engiadina-susch",
         "specialist-psychologist-80-100-possible-appointment-as-senior-psychologist-if-suitable-clinica-holistica-engiadina-susch",
-        "psychologue-specialise-80-100-possibilite-d-embauche-en-tant-que-psychologue-principal-si-approprie-clinica-holistica"
+        "psychologue-specialise-80-100-possibilite-d-embauche-en-tant-que-psychologue-principal-si-approprie-clinica-holistica",
+        "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-come-oberpsychologin-oberpsychologe-moglich-clinica-holistica-engiadina-susch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als",
           "psicologo-specializzato-80-100-possibilita-di-assunzione-come-psicologo-capo-se-idoneo-clinica-holistica-engiadina-susch",
           "specialist-psychologist-80-100-possible-appointment-as-senior-psychologist-if-suitable-clinica-holistica-engiadina-susch",
-          "psychologue-specialise-80-100-possibilite-d-embauche-en-tant-que-psychologue-principal-si-approprie-clinica-holistica"
+          "psychologue-specialise-80-100-possibilite-d-embauche-en-tant-que-psychologue-principal-si-approprie-clinica-holistica",
+          "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-come-oberpsychologin-oberpsychologe-moglich-clinica-holistica-engiadina-susch"
         ],
         "en": [
           "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als",
@@ -157,6 +160,7 @@
       "firstSeenAt": "2026-07-06T13:21:19.291Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -170,9 +174,9 @@
     },
     {
       "id": "clinica-holistica-engiadina-fb15ab723e90",
-      "slug": "somatische-arztin-o-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin-physikalische-medizin-e-rehabilitation-clinica-holistica-engiadina-susch",
+      "slug": "medico-somatico-titolo-specialistico-medicina-generale-medicina-interna-medicina-pisica-e-riabilitazione-clinica",
       "slugByLocale": {
-        "it": "somatische-arztin-o-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin-physikalische-medizin-e-rehabilitation-clinica-holistica-engiadina-susch",
+        "it": "medico-somatico-titolo-specialistico-medicina-generale-medicina-interna-medicina-pisica-e-riabilitazione-clinica",
         "en": "somatic-doctor-specialist-title-general-medicine-internal-medicine-physical-medicine-and-rehabilitation-clinica",
         "de": "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin",
         "fr": "medecin-somatique-titre-specialise-medecine-generale-medecine-interne-medecine-physique-et-readaptation-clinica"
@@ -182,7 +186,7 @@
       "companyDomain": "clinica-holistica.ch",
       "title": "Somatische Ärztin oder somatischer Arzt (Facharzttitel Allgemeinmedizin/Innere Medizin/Physikalische Medizin und Rehabilitation)",
       "titleByLocale": {
-        "it": "Somatische Ärztin o somatischer Arzt (Facharzttitel Allgemeinmedizin/Innere Medizin/Physikalische Medizin e Rehabilitation)",
+        "it": "Medico somatico (titolo specialistico Medicina Generale / Medicina Interna/ Medicina Pisica e Riabilitazione)",
         "en": "Somatic doctor (specialist title General Medicine/Internal Medicine/Physical Medicine and Rehabilitation)",
         "de": "Somatische Ärztin oder somatischer Arzt (Facharzttitel Allgemeinmedizin/Innere Medizin/Physikalische Medizin und Rehabilitation)",
         "fr": "Médecin somatique (titre spécialisé Médecine générale/Médecine interne/Médecine physique et réadaptation)"
@@ -213,20 +217,21 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:23:44.273Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:07.248Z",
       "previousSlugs": [
         "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin",
         "medico-somatico-o-medico-somatico-specialista-in-medicina-generale-medicina-interna-medicina-fisica-e-riabilitazione",
         "somatic-physician-or-somatic-doctor-specialist-in-general-medicine-internal-medicine-physical-medicine-and",
-        "medecin-somatique-ou-medecin-somatique-specialiste-en-medecine-generale-medecine-interne-medecine-physique-et-de"
+        "medecin-somatique-ou-medecin-somatique-specialiste-en-medecine-generale-medecine-interne-medecine-physique-et-de",
+        "somatische-arztin-o-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin-physikalische-medizin-e-rehabilitation-clinica-holistica-engiadina-susch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin",
           "medico-somatico-o-medico-somatico-specialista-in-medicina-generale-medicina-interna-medicina-fisica-e-riabilitazione",
           "somatic-physician-or-somatic-doctor-specialist-in-general-medicine-internal-medicine-physical-medicine-and",
-          "medecin-somatique-ou-medecin-somatique-specialiste-en-medecine-generale-medecine-interne-medecine-physique-et-de"
+          "medecin-somatique-ou-medecin-somatique-specialiste-en-medecine-generale-medecine-interne-medecine-physique-et-de",
+          "somatische-arztin-o-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin-physikalische-medizin-e-rehabilitation-clinica-holistica-engiadina-susch"
         ],
         "en": [
           "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin",
@@ -240,6 +245,7 @@
       "firstSeenAt": "2026-07-06T13:21:08.070Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -296,22 +302,20 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:23:41.848Z",
+      "crawledAt": "2026-09-03T23:35:05.040Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch",
         "aiuto-cuoco-assistente-di-cucina-m-f-d-clinica-holistica-engiadina-susch",
         "assistant-cook-kitchen-helper-m-f-d-clinica-holistica-engiadina-susch",
-        "aide-cuisinier-aide-de-cuisine-h-f-d-clinica-holistica-engiadina-susch",
-        "cucina-ausiliaria-aiuto-cucina-m-f-d-clinica-holistica-engiadina-susch"
+        "aide-cuisinier-aide-de-cuisine-h-f-d-clinica-holistica-engiadina-susch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch",
           "aiuto-cuoco-assistente-di-cucina-m-f-d-clinica-holistica-engiadina-susch",
           "assistant-cook-kitchen-helper-m-f-d-clinica-holistica-engiadina-susch",
-          "aide-cuisinier-aide-de-cuisine-h-f-d-clinica-holistica-engiadina-susch",
-          "cucina-ausiliaria-aiuto-cucina-m-f-d-clinica-holistica-engiadina-susch"
+          "aide-cuisinier-aide-de-cuisine-h-f-d-clinica-holistica-engiadina-susch"
         ],
         "en": [
           "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch",
@@ -325,6 +329,7 @@
       "firstSeenAt": "2026-07-06T13:21:10.016Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -381,16 +386,14 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/raumpflegerin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:23:39.456Z",
+      "crawledAt": "2026-09-03T23:35:02.779Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "raumpfleger-in-clinica-holistica-engiadina-susch",
-        "camera-clinica-holistica-engiadina-susch"
+        "raumpfleger-in-clinica-holistica-engiadina-susch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "raumpfleger-in-clinica-holistica-engiadina-susch",
-          "camera-clinica-holistica-engiadina-susch"
+          "raumpfleger-in-clinica-holistica-engiadina-susch"
         ],
         "en": [
           "raumpfleger-in-clinica-holistica-engiadina-susch"
@@ -402,6 +405,7 @@
       "firstSeenAt": "2026-07-29T22:12:41.672Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -458,16 +462,14 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:23:37.006Z",
+      "crawledAt": "2026-09-03T23:35:00.611Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch",
-        "responsabile-kunsttherapie-clinica-holistica-engiadina-susch"
+        "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch",
-          "responsabile-kunsttherapie-clinica-holistica-engiadina-susch"
+          "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch"
         ],
         "en": [
           "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch"
@@ -479,6 +481,7 @@
       "firstSeenAt": "2026-08-03T13:10:25.665Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

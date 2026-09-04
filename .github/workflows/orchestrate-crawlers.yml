@@ -76,6 +76,9 @@ jobs:
           # `Cannot find module`). Harmless if redundant.
           sparse-checkout: |
             .github/workflows
+            .github/corpus-workflows/contract.json
+            .github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml
+            functions/src/githubApiHeaders.js
             scripts
             scripts/lib
           sparse-checkout-cone-mode: false
@@ -185,234 +188,76 @@ jobs:
       - name: Load secrets from Remote Config (GITHUB_PAT_NANAKO — needed for the cross-repo dispatches below)
         run: node scripts/load-rc-env.mjs
 
-      - name: Discover and dispatch crawler group workflows
+      - name: Preflight crawler generation shadow transport
+        id: generation_preflight
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DELAY: ${{ inputs.delay_seconds || '60' }}
+          GITHUB_API_URL: ${{ github.api_url }}
+        run: >-
+          node scripts/crawler-generation-dispatch.mjs preflight
+          --contract .github/corpus-workflows/contract.json
+          --observer .github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml
+
+      - name: Dispatch crawler generation wave
+        id: generation_wave
+        if: steps.generation_preflight.outputs.ready == 'true'
+        env:
+          GITHUB_API_URL: ${{ github.api_url }}
+          GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
+          SITE_CODE_COMMIT: ${{ github.sha }}
+          CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
+          SHADOW_READY: ${{ steps.generation_preflight.outputs.ready }}
+          DELAY_SECONDS: ${{ inputs.delay_seconds || '60' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          CHECKPOINT: ${{ runner.temp }}/crawler-generation-dispatch/checkpoint.json
+        run: >-
+          node scripts/crawler-generation-dispatch.mjs dispatch-groups
+          --generation-token "$GENERATION_TOKEN"
+          --site-code-commit "$SITE_CODE_COMMIT"
+          --corpus-code-commit "$CORPUS_CODE_COMMIT"
+          --shadow-ready "$SHADOW_READY"
+          --delay-seconds "$DELAY_SECONDS"
+          --failure-tolerance "2"
+          --dry-run "$DRY_RUN"
+          --repository "$GITHUB_WORKSPACE"
+          --runner-temp "$RUNNER_TEMP"
+          --checkpoint "$CHECKPOINT"
+
+      - name: Dispatch crawler generation sentinel
+        id: generation_sentinel
+        if: always()
+        continue-on-error: true
+        env:
+          GITHUB_API_URL: ${{ github.api_url }}
+          GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
+          SHADOW_READY: ${{ steps.generation_wave.outputs.shadow_ready || 'false' }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          CHECKPOINT: ${{ runner.temp }}/crawler-generation-dispatch/checkpoint.json
+        run: |
+          if [ "$SHADOW_READY" != "true" ] || [ "$DRY_RUN" = "true" ]; then
+            echo "Crawler generation observer stays dormant (shadow preflight=$SHADOW_READY, dry-run=$DRY_RUN)."
+            exit 0
+          fi
+          node scripts/crawler-generation-dispatch.mjs dispatch-sentinel \
+            --generation-token "$GENERATION_TOKEN" \
+            --repository "$GITHUB_WORKSPACE" \
+            --runner-temp "$RUNNER_TEMP" \
+            --checkpoint "$CHECKPOINT"
+
+      - name: Cleanup accepted crawler generation ref
+        if: >-
+          always()
+          && steps.generation_wave.outputs.shadow_ready == 'true'
+          && steps.generation_sentinel.outcome == 'success'
+          && steps.generation_sentinel.outputs.accepted == 'true'
+        env:
+          GITHUB_API_URL: ${{ github.api_url }}
+          GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
+          CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
         run: |
           set -euo pipefail
-
-          echo "╔══════════════════════════════════════════════════════════╗"
-          echo "║  Crawler Orchestrator — $(date -u '+%Y-%m-%d %H:%M UTC')  ║"
-          echo "╚══════════════════════════════════════════════════════════╝"
-          echo ""
-
-          # Consolidation (2026-07): 581 individual crawlers collapsed into 23
-          # grouped workflows (crawler-group-01..23.yml — see
-          # scripts/generate-crawler-group-workflows.mjs). The old FRO-326/
-          # FRO-424 volume-based per-crawler stagger (20s/60s/120s by known
-          # job-count tier) no longer applies at this granularity: there are
-          # only 23 dispatch calls total instead of ~580, so GitHub API
-          # rate-limit / runner-contention risk is already far lower. A single
-          # flat delay between dispatches is enough headroom for the dispatch
-          # RPCs themselves.
-          #
-          # issue #6314 (follow-up of #6296): the flat delay ALSO doubles as
-          # the lever for reducing write contention on `main` at the source.
-          # Every group's ~25-28 member crawlers start crawling concurrently
-          # right after that group's own short setup phase, then each does an
-          # individual flock-serialized commit+push as soon as it personally
-          # finishes (git-commit-data.sh / git-push-with-retry.sh — unchanged
-          # per-crawler mechanism, owner-mandated, see docs/CRAWLERS.md
-          # "Crawler-Group Workflows"). Duration is heavy-tailed (measured from
-          # data/crawler-workflow-duration-baseline.json: p10=4.7min,
-          # p25=9.9min, median=24.5min) — a quarter of all crawlers finish (and
-          # push) inside 10 minutes of their group starting. With the old 20s
-          # flat delay, all 23 groups start within ~7min of each other, so
-          # every group's fast-finishing quarter lands its push burst in
-          # roughly the SAME few-minute window — the exact contention this
-          # issue traces (measured on refresh-thin-promotions.yml: 40 retries
-          # exhausted against 157 commits in ~19min during the crawler-dispatch
-          # queue). Raising the delay to 60s spreads the 23 dispatches across
-          # ~22min instead of ~7min, spreading each group's fast-crawler push
-          # burst proportionally and lowering how many groups can be in their
-          # commit-and-push moment at the same wall-clock instant. This does
-          # NOT reduce the total number of pushes (batching them would — see
-          # the issue — but that conflicts with the owner-mandated "every
-          # crawler's own unchanged commit-and-push mechanism, no shared/
-          # generic step" constraint in generate-crawler-group-workflows.mjs),
-          # only how clustered they are in time. Observable via the existing
-          # "push contention loss (exit 42)" step-summary warning already
-          # emitted per crawler — frequency should drop post-fix.
-          get_delay() {
-            echo "$DELAY"
-          }
-
-          # Verify-by-observation: `gh workflow run` is a fire-and-forget RPC against
-          # the dispatches endpoint (HTTP 204). Its exit code is unreliable — the
-          # client can time out *after* the server already created the run. Trusting
-          # the exit code produced 3 false failures (and `exit 1` on the whole job)
-          # on 2026-05-27 even though all 3 runs existed server-side. Instead, we
-          # ignore the exit code and poll the runs API to confirm the side-effect.
-          STDERR_LOG="${RUNNER_TEMP:-/tmp}/dispatch-stderr.log"
-          : >"$STDERR_LOG"
-
-          # Retry the fire+verify up to DISPATCH_ATTEMPTS times. The dispatches
-          # endpoint occasionally returns a transient 5xx (HTTP 500 observed
-          # 2026-06-10 on a single crawler — `thurklinik` — out of 219, failing
-          # the whole shard and opening a noisy false-positive issue, FRO #1786).
-          # A transient API error leaves no run behind, so re-firing is safe and
-          # almost always succeeds on the next attempt. We only re-fire when the
-          # previous attempt produced NO run (verified via the runs API), so a
-          # slow-but-successful dispatch is not double-fired.
-          DISPATCH_ATTEMPTS=3
-          # target_repo/target_token optional (default: this repo, $GH_TOKEN) —
-          # every crawler-group-*.yml now passes both explicitly to dispatch
-          # onto nanakokyobashi-rgb/frontaliere-articles with
-          # GITHUB_PAT_NANAKO instead of the local repo with the default
-          # token (see the `if` below). Any OTHER target this function might
-          # be called for in the future can still omit args 2/3 to fall back
-          # to the local-repo default, unchanged from before the migration.
-          dispatch_and_verify() {
-            local filename="$1"
-            local target_repo="${2:-$GITHUB_REPOSITORY}"
-            local target_token="${3:-$GH_TOKEN}"
-            local attempt
-            for attempt in $(seq 1 "$DISPATCH_ATTEMPTS"); do
-              local before_iso
-              before_iso=$(date -u -d '-5 seconds' '+%Y-%m-%dT%H:%M:%SZ')
-
-              # Fire-and-forget. Stderr is captured for post-mortem; exit code ignored.
-              GH_TOKEN="$target_token" gh workflow run "$filename" --repo "$target_repo" --ref main -f skip_ai_translation=1 \
-                >/dev/null 2>>"$STDERR_LOG" || true
-
-              # Poll for up to ~15s for a new workflow_dispatch run created after t0.
-              # GitHub normally registers dispatches within 1-3s.
-              local deadline=$(( $(date +%s) + 15 ))
-              while [ "$(date +%s)" -lt "$deadline" ]; do
-                sleep 2
-                local newest
-                newest=$(GH_TOKEN="$target_token" gh api \
-                  "/repos/${target_repo}/actions/workflows/${filename}/runs?per_page=1&event=workflow_dispatch" \
-                  --jq '.workflow_runs[0].created_at // ""' 2>/dev/null || echo "")
-                if [ -n "$newest" ] && [[ "$newest" > "$before_iso" ]]; then
-                  return 0
-                fi
-              done
-
-              # No run appeared — likely a transient dispatch error. Back off and
-              # re-fire (unless this was the last attempt).
-              if [ "$attempt" -lt "$DISPATCH_ATTEMPTS" ]; then
-                echo -n " ↻retry$attempt"
-                sleep 5
-              fi
-            done
-            return 1
-          }
-
-          # Discover all crawler-group workflow files (stable alphabetical
-          # order — crawler-group-01..23.yml sorts correctly since indices are
-          # zero-padded). LC_ALL=C pins a byte-wise collation regardless of
-          # runner locale for determinism.
-          # -not -name '*-logic.yml' excludes the 23 reusable-workflow files
-          # (crawler-group-NN-logic.yml) that the migration to nanako added
-          # alongside each disabled crawler-group-NN.yml — the glob
-          # 'crawler-group-*.yml' matches them too, but they declare only
-          # `on: workflow_call` (no workflow_dispatch), so any dispatch
-          # attempt on them always fails. Without this exclusion every run
-          # produced 23 guaranteed failures (one per group), well past
-          # DISPATCH_FAIL_TOLERANCE, failing the whole orchestrator job.
-          mapfile -t workflows < <(find .github/workflows -name 'crawler-group-*.yml' -not -name '*-logic.yml' -type f | LC_ALL=C sort)
-          total=${#workflows[@]}
-
-          if [ "$total" -eq 0 ]; then
-            echo "❌ No crawler-group workflows found!"
-            exit 1
-          fi
-
-          echo "📋 Dispatching $total crawler-group workflows"
-          echo ""
-
-          dispatched=0
-          failed=0
-
-          # Dispatch all crawler-group workflows in alphabetical order, with a
-          # flat delay between each (see get_delay() above).
-          for wf in "${workflows[@]}"; do
-            filename=$(basename "$wf")
-            counter=$((dispatched + failed + 1))
-
-            this_delay=$(get_delay "$filename")
-
-            # Cross-repo migration (reusable workflow, see
-            # crawler-group-NN-logic.yml), validated by the crawler-group-23
-            # pilot then applied to every remaining group in the same batch:
-            # EVERY crawler-group-*.yml dispatches onto
-            # nanakokyobashi-rgb/frontaliere-articles instead of this repo, so
-            # its Actions minutes land on nanako's separate, less-saturated
-            # pool instead of this account's ~20-concurrent-job Free-plan
-            # pool. The local crawler-group-NN.yml files here are all
-            # disabled (see each one's own header comment) — their logic now
-            # lives as reusable workflows consumed by the frontaliere-articles
-            # copies of this filename. The regex match (rather than a fixed
-            # list) means a future crawler-group-NN.yml added by the
-            # generator routes here automatically too — if a group is ever
-            # migrated BACK to running locally, its filename simply needs to
-            # stop matching (e.g. rename, or narrow the regex), not be added
-            # to an exclude list.
-            # Rollback (all groups): delete this `if` block (falls through to
-            # the default) and re-enable every crawler-group-NN.yml's local
-            # dispatch (undo each one's own "DISABLED" header first).
-            target_repo="$GITHUB_REPOSITORY"
-            target_token="$GH_TOKEN"
-            if [[ "$filename" =~ ^crawler-group-[0-9]+\.yml$ ]]; then
-              target_repo="nanakokyobashi-rgb/frontaliere-articles"
-              target_token="${GITHUB_PAT_NANAKO:-}"
-              echo -n "  [$counter/$total] $filename → ${target_repo} (reusable-workflow) (delay: ${this_delay}s)"
-            else
-              echo -n "  [$counter/$total] $filename (delay: ${this_delay}s)"
-            fi
-
-            if [ "$DRY_RUN" = "true" ]; then
-              echo " — 🔵 DRY RUN (would dispatch)"
-              dispatched=$((dispatched + 1))
-              continue
-            fi
-
-            if dispatch_and_verify "$filename" "$target_repo" "$target_token"; then
-              echo " — ✅ dispatched"
-              dispatched=$((dispatched + 1))
-            else
-              echo " — ❌ FAILED (no run appeared within 15s)"
-              failed=$((failed + 1))
-            fi
-
-            # Delay between dispatches
-            if [ "$counter" -lt "$total" ] && [ "$DRY_RUN" != "true" ]; then
-              sleep "$this_delay"
-            fi
-          done
-
-          echo ""
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "  ✅ Dispatched: $dispatched"
-          echo "  ❌ Failed:     $failed"
-          echo "  📊 Total:      $total crawler-group workflows"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-          if [ "$failed" -gt 0 ]; then
-            echo ""
-            echo "⚠️  Some dispatches failed — captured stderr below for diagnosis:"
-            echo "---- begin gh stderr ----"
-            cat "$STDERR_LOG" || true
-            echo "---- end gh stderr ----"
-          fi
-
-          # Tolerate a few transient dispatch hiccups before failing the job.
-          # `dispatch_and_verify` already retries; a residual "no run appeared
-          # within 15s" is a flaky GitHub dispatch-API timing issue, NOT a
-          # crawler bug — the un-dispatched group is simply re-dispatched on
-          # the next cron cycle, so nothing breaks. Failing the whole job on a
-          # single hiccup out of only 23 targets would be too sensitive, so we
-          # keep a small tolerance before treating it as a systemic outage.
-          DISPATCH_FAIL_TOLERANCE="${DISPATCH_FAIL_TOLERANCE:-2}"
-          if [ "$failed" -gt "$DISPATCH_FAIL_TOLERANCE" ]; then
-            echo "❌ $failed dispatch failure(s) exceed tolerance ($DISPATCH_FAIL_TOLERANCE) — systemic dispatch outage, failing the job."
-            exit 1
-          elif [ "$failed" -gt 0 ]; then
-            echo "✅ $failed transient dispatch failure(s) within tolerance ($DISPATCH_FAIL_TOLERANCE) — not failing the job; they retry next cron cycle."
-          fi
+          node scripts/crawler-generation-dispatch.mjs cleanup-ref \
+            --generation-token "$GENERATION_TOKEN" \
+            --corpus-code-commit "$CORPUS_CODE_COMMIT"
 
       # translate-pending.yml migrated to frontaliere-articles alongside the
       # crawler groups (same batch as the crawler-group-01..22 migration on

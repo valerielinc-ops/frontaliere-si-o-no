@@ -33,6 +33,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { dedicatedFribourgOwner } from './crawler-company-ownership.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -41,6 +42,10 @@ export const RFSM_FRIBOURG_COMPANY_NAME = 'RFSM - Réseau fribourgeois santé me
 export const RFSM_FRIBOURG_COMPANY_DOMAIN = 'jobs.fr.ch';
 export const RFSM_FRIBOURG_CAREERS_URL =
   'https://jobs.fr.ch/search/?q=RFSM&locale=fr_FR';
+export const RFSM_FRIBOURG_CAREERS_URLS = [
+  RFSM_FRIBOURG_CAREERS_URL,
+  'https://jobs.fr.ch/search/?q=FNPG&locale=de_DE',
+];
 
 const DETAIL_DELAY_MS = 600;
 const HQ_CANTON = 'FR';
@@ -112,7 +117,7 @@ export function parseListing(html = '') {
     // anchors for the same job whose anchor text is empty or "View".
     if (!titleRaw || titleRaw.length < 5) continue;
     if (/^(view|details|d[ée]tails|voir|see)/i.test(titleRaw)) continue;
-    if (!/rfsm/i.test(titleRaw)) continue; // Hard filter: only RFSM postings.
+    if (dedicatedFribourgOwner({ title: titleRaw }) !== RFSM_FRIBOURG_KEY) continue;
     seen.add(jobId);
     out.push({
       url: `https://jobs.fr.ch${href}`,
@@ -200,17 +205,21 @@ export function parseDetail(html = '') {
 
 export async function fetchAllRfsmFribourgJobs() {
   console.log(`🏥 Fetching ${RFSM_FRIBOURG_COMPANY_NAME} jobs`);
-  console.log(`   Listing: ${RFSM_FRIBOURG_CAREERS_URL}\n`);
+  console.log(`   Listings: ${RFSM_FRIBOURG_CAREERS_URLS.join(', ')}\n`);
 
-  let listingHtml;
-  try {
-    listingHtml = await fetchHtml(RFSM_FRIBOURG_CAREERS_URL);
-  } catch (err) {
-    console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+  const byId = new Map();
+  for (const listingUrl of RFSM_FRIBOURG_CAREERS_URLS) {
+    try {
+      const listingHtml = await fetchHtml(listingUrl);
+      for (const row of parseListing(listingHtml)) {
+        if (!byId.has(row.jobId)) byId.set(row.jobId, row);
+      }
+    } catch (err) {
+      console.warn(`⚠️ Listing fetch failed (${listingUrl}): ${err?.message || err}`);
+    }
   }
-  const rows = parseListing(listingHtml);
-  console.log(`  ✓ ${rows.length} unique RFSM postings detected`);
+  const rows = [...byId.values()];
+  console.log(`  ✓ ${rows.length} unique RFSM/FNPG postings detected`);
   if (rows.length === 0) return [];
 
   const todayIso = new Date().toISOString().slice(0, 10);

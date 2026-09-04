@@ -119,3 +119,7 @@
 {"timestamp":"2026-08-26T05:28:30.563Z","id":"B.6.embedding-store-outdated","severity":"P1","message":"Embedding store covers 3348 articles but blog-meta-it has 3590 (gap 242 > 50)","evidence":{"liveCount":3590,"storedCount":3348,"gap":242}}
 {"timestamp":"2026-08-28T17:07:12.195Z","id":"heartbeat","severity":"P3","message":"no alerts"}
 {"timestamp":"2026-08-30T10:14:19.061Z","id":"heartbeat","severity":"P3","message":"no alerts"}
+{"timestamp":"2026-08-31T11:18:05.209Z","id":"heartbeat","severity":"P3","message":"no alerts"}
+{"timestamp":"2026-09-01T09:43:06.668Z","id":"heartbeat","severity":"P3","message":"no alerts"}
+{"timestamp":"2026-09-02T09:15:38.114Z","id":"heartbeat","severity":"P3","message":"no alerts"}
+{"timestamp":"2026-09-03T09:23:59.612Z","id":"B.6.embedding-store-outdated","severity":"P1","message":"Embedding store covers 3644 articles but blog-meta-it has 3717 (gap 73 > 50)","evidence":{"liveCount":3717,"storedCount":3644,"gap":73}}

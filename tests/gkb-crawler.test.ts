@@ -5,7 +5,9 @@
  * parseDate(), isGkbJob(), isTrustedDomain() using HTML fixtures mirroring
  * the real Umantis ATS page structure at tenant 2607.
  */
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { describe, it, expect, vi } from 'vitest';
 
 import {
   GKB_KEY,
@@ -16,6 +18,10 @@ import {
   parseGkbDetailPage,
   extractLocation,
   parseDate,
+  mergeGkbListing,
+  fetchAllGkbJobs,
+  LISTING_URLS,
+  MIN_GKB_DETAIL_DESCRIPTION_CHARS,
 } from '../scripts/lib/gkb-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -160,9 +166,40 @@ const FIXTURE_DETAIL_PAGE = `<!DOCTYPE html>
 </body>
 </html>`;
 
+const DEGRADED_DETAIL_PAGE = fs.readFileSync(
+  path.join(process.cwd(), 'tests', 'fixtures', 'gkb-umantis-degraded-detail.html'),
+  'utf8',
+);
+
+function htmlResponse(body: string, status = 200) {
+  return { ok: status >= 200 && status < 300, status, text: async () => body } as Response;
+}
+
 // ─── Tests ────────────────────────────────────────────────────────────────
 
 describe('Graubündner Kantonalbank crawler parser', () => {
+  it('keeps richer /Jobs/All metadata when /Jobs/1 repeats a sparse row', () => {
+    expect(mergeGkbListing(
+      { vacancyId: '1924', title: 'Berater:in', department: 'Region Thusis / RTHU', division: 'Märkte' },
+      { vacancyId: '1924', title: 'Berater:in', department: '', division: '', location: 'Thusis' },
+    )).toMatchObject({
+      vacancyId: '1924',
+      department: 'Region Thusis / RTHU',
+      division: 'Märkte',
+      location: 'Thusis',
+    });
+  });
+  it('warns when the two Umantis views disagree on a populated field', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mergeGkbListing(
+      { vacancyId: '1924', title: 'First title' },
+      { vacancyId: '1924', title: 'Second title' },
+    );
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining(
+      'GKB vacancy 1924: conflicting title',
+    ));
+    warn.mockRestore();
+  });
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(GKB_KEY).toBe('gkb');
@@ -229,6 +266,15 @@ describe('Graubündner Kantonalbank crawler parser', () => {
   // ── parseGkbListingPage ──
   describe('parseGkbListingPage', () => {
     const listings = parseGkbListingPage(FIXTURE_LISTING_HTML);
+
+    it('parses the alternate /Jobs/1 element ids used by the wider catalogue', () => {
+      const alternate = FIXTURE_LISTING_HTML
+        .replaceAll('1152488', '3473')
+        .replaceAll('1152487', '3472')
+        .replaceAll('1152491', '3474')
+        .replaceAll('1152495', '26475');
+      expect(parseGkbListingPage(alternate)).toHaveLength(3);
+    });
 
     it('parses correct number of listings', () => {
       expect(listings).toHaveLength(3);
@@ -376,6 +422,74 @@ describe('Graubündner Kantonalbank crawler parser', () => {
         </div></body></html>`;
       const result = parseGkbDetailPage(foundationHtml, 'Mediamatiker:in');
       expect(result.description).toBe('');
+    });
+
+    it('classifies the observed Umantis chrome-only response as thin', () => {
+      const result = parseGkbDetailPage(DEGRADED_DETAIL_PAGE, 'Senior Projektleiter:in');
+      expect(result.description.length).toBeLessThan(MIN_GKB_DETAIL_DESCRIPTION_CHARS);
+    });
+  });
+
+  describe('whole-snapshot detail quality', () => {
+    const oneListing = FIXTURE_LISTING_HTML.replace(
+      /<tr class="tableaslist_contentrow2">[\s\S]*?<\/tr>[\s\S]*?<tr class="tableaslist_contentrow1">[\s\S]*?<\/tr>/,
+      '',
+    );
+    const detailUrl = 'https://recruitingapp-2607.umantis.com/Vacancies/1912/Description/1/Default';
+
+    it('retries a degraded detail and returns no partial thin snapshot', async () => {
+      const fetchImpl = vi.fn(async (url: string) => {
+        if (LISTING_URLS.includes(url)) return htmlResponse(oneListing);
+        if (url === detailUrl) return htmlResponse(DEGRADED_DETAIL_PAGE);
+        throw new Error(`unexpected URL ${url}`);
+      });
+
+      await expect(fetchAllGkbJobs({
+        fetchImpl,
+        retries: 1,
+        retryBaseMs: 0,
+        sleepImpl: async () => {},
+      })).rejects.toMatchObject({ code: 'ERR_GKB_INCOMPLETE_SNAPSHOT' });
+      expect(fetchImpl.mock.calls.filter(([url]) => url === detailUrl)).toHaveLength(2);
+    });
+
+    it('retries a chrome-only detail and preserves canonical identity on recovery', async () => {
+      let detailAttempts = 0;
+      const fetchImpl = vi.fn(async (url: string) => {
+        if (LISTING_URLS.includes(url)) return htmlResponse(oneListing);
+        if (url === detailUrl && detailAttempts++ === 0) return htmlResponse(DEGRADED_DETAIL_PAGE);
+        if (url === detailUrl) return htmlResponse(FIXTURE_DETAIL_PAGE);
+        throw new Error(`unexpected URL ${url}`);
+      });
+
+      const jobs = await fetchAllGkbJobs({
+        fetchImpl,
+        retries: 1,
+        retryBaseMs: 0,
+        sleepImpl: async () => {},
+      });
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        id: 'gkb-90f2d079ebac',
+        slug: 'specialist-payments-services-80-100-gkb-ch',
+        url: 'https://recruitingapp-2607.umantis.com/Vacancies/1912/Description/1',
+      });
+      expect(jobs[0].description.length).toBeGreaterThanOrEqual(MIN_GKB_DETAIL_DESCRIPTION_CHARS);
+      expect(detailAttempts).toBe(2);
+    });
+
+    it('rejects the whole snapshot when either required listing route fails', async () => {
+      const fetchImpl = vi.fn(async (url: string) => {
+        if (url === LISTING_URLS[0]) return htmlResponse(oneListing);
+        if (url === LISTING_URLS[1]) return htmlResponse('', 503);
+        throw new Error(`unexpected URL ${url}`);
+      });
+      await expect(fetchAllGkbJobs({
+        fetchImpl,
+        retries: 0,
+        sleepImpl: async () => {},
+      })).rejects.toThrow(`HTTP 503 from ${LISTING_URLS[1]}`);
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
     });
   });
 

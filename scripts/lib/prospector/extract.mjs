@@ -19,7 +19,12 @@
  */
 import { normalizeHost, safeDecodePath } from './registrable.mjs';
 import { decodeEntities } from './entities.mjs';
-import { readAttr, readTagByAttr } from '../html-attr.mjs';
+import { readAttr, scanHtmlTags } from '../html-attr.mjs';
+import {
+  evaluateSourceBackedSwissGeography,
+  locationEvidenceCandidates,
+  schemaJobLocationCandidates,
+} from './location-evidence.mjs';
 
 /**
  * Tokens that mark a URL path or heading as vacancy-related on their own, in
@@ -145,12 +150,22 @@ function firstString(v) {
  * @typedef {Object} Vacancy
  * @property {string} title
  * @property {string} url
+ * @property {boolean} [urlExplicit] Whether the structured record itself named the URL
  * @property {string} [company]
  * @property {string} [location]
+ * @property {string} [addressCountry]
+ * @property {Array<{
+ *   location: string,
+ *   addressCountry: string,
+ *   addressLocality?: string,
+ *   addressRegion?: string,
+ *   postalCode?: string,
+ *   streetAddress?: string,
+ * }>} [locationCandidates]
  * @property {string} [description]
  * @property {string} [postedDate]
  * @property {string} [employmentType]
- * @property {'jsonld'|'microdata'|'template'} via
+ * @property {'jsonld'|'microdata'|'template'|'known-template'} via
  */
 
 /**
@@ -159,16 +174,23 @@ function firstString(v) {
  * @returns {Vacancy[]}
  */
 export function extractJsonLd(html, pageUrl) {
+  /** @type {Vacancy[]} */
   const out = [];
   for (const node of jsonLdBlocks(html)) {
     if (!isJobPostingNode(node)) continue;
-    const loc = node.jobLocation;
-    const addr = (Array.isArray(loc) ? loc[0] : loc)?.address;
+    const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
+    const primaryLocation = locationCandidates[0] || { location: '', addressCountry: '' };
+    const rawExplicitUrl = firstString(node.url) || firstString(node.sameAs);
+    let explicitUrl = rawExplicitUrl;
+    try { if (rawExplicitUrl) explicitUrl = new URL(rawExplicitUrl, pageUrl).toString(); } catch { /* retain raw evidence */ }
     out.push({
       title: firstString(node.title) || firstString(node.name),
-      url: firstString(node.url) || firstString(node.sameAs) || pageUrl,
+      url: explicitUrl || pageUrl,
+      urlExplicit: Boolean(rawExplicitUrl),
       company: firstString(node.hiringOrganization),
-      location: [firstString(addr?.addressLocality), firstString(addr?.addressRegion)].filter(Boolean).join(', '),
+      location: primaryLocation.location || '',
+      addressCountry: primaryLocation.addressCountry || '',
+      locationCandidates,
       description: textOf(firstString(node.description)).slice(0, 8000),
       postedDate: firstString(node.datePosted),
       employmentType: firstString(node.employmentType),
@@ -178,6 +200,91 @@ export function extractJsonLd(html, pageUrl) {
   return out.filter((v) => v.title);
 }
 
+/** A shared floor for deciding whether a structured listing can skip detail. */
+export function isSufficientVacancyDescription(value = '') {
+  const description = textOf(value);
+  return description.length >= 80 && description.split(/\s+/).filter(Boolean).length >= 12;
+}
+
+const identityText = (value = '') => textOf(value).toLowerCase()
+  .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .replace(/[^a-z0-9]+/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+function canonicalIdentityUrl(value = '') {
+  try {
+    const url = new URL(value);
+    url.hash = '';
+    url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Select only structured records describing the current detail page. Sibling
+ * JobPosting nodes are common in "recommended jobs" widgets and must never be
+ * folded into the primary vacancy's geography.
+ *
+ * @param {Partial<Vacancy>[]} records
+ * @param {string} pageUrl
+ * @param {string} renderedTitle
+ */
+function selectDetailStructuredRecords(records, pageUrl, renderedTitle) {
+  if (records.length <= 1) return records;
+  const pageIdentity = canonicalIdentityUrl(pageUrl);
+  const explicitUrlMatches = records.filter(
+    (record) => record.urlExplicit && canonicalIdentityUrl(record.url) === pageIdentity,
+  );
+  // An exact structured URL is stronger identity than a rendered heading: the
+  // heading can belong to a recommendation widget or otherwise be stale. Keep
+  // URL-less structured evidence only when its title independently agrees with
+  // the exact record, and only as a unique complementary representation.
+  if (explicitUrlMatches.length) {
+    const exactTitleIdentities = new Set(explicitUrlMatches
+      .map((record) => identityText(record.title))
+      .filter(Boolean));
+    if (exactTitleIdentities.size !== 1) return [];
+    const [exactTitleIdentity] = exactTitleIdentities;
+    const exactFormats = new Set(explicitUrlMatches.map((record) => record.via));
+    const compatibleByFormat = new Map();
+    for (const record of records) {
+      if (record.urlExplicit
+        || identityText(record.title) !== exactTitleIdentity
+        || exactFormats.has(record.via)) continue;
+      const matches = compatibleByFormat.get(record.via) || [];
+      matches.push(record);
+      compatibleByFormat.set(record.via, matches);
+    }
+    const complementary = [];
+    for (const matches of compatibleByFormat.values()) {
+      if (matches.length === 1) complementary.push(matches[0]);
+    }
+    return [...explicitUrlMatches, ...complementary];
+  }
+  const titleIdentity = identityText(renderedTitle);
+  if (titleIdentity) {
+    const titleMatches = records.filter((record) => identityText(record.title) === titleIdentity
+      && (!record.urlExplicit || canonicalIdentityUrl(record.url) === pageIdentity));
+    // This retains complementary URL-less microdata for the current JSON-LD
+    // record while excluding explicitly different recommended-job URLs. Two
+    // same-format URL-less records remain indistinguishable siblings even when
+    // their titles happen to match, so fail closed instead of merging them.
+    if (titleMatches.length === 1) return titleMatches;
+    const titleMatchFormats = new Set(titleMatches.map((record) => record.via));
+    if (titleMatches.length === 2
+      && titleMatchFormats.has('jsonld')
+      && titleMatchFormats.has('microdata')) return titleMatches;
+    if (titleMatches.length > 1) return [];
+  }
+  // Multiple records with neither a current URL nor a matching rendered title
+  // are indistinguishable siblings. Returning none is the only fail-closed
+  // choice; callers may still use an independently valid listing location.
+  return records.length === 1 ? records : [];
+}
+
 /**
  * Read authoritative fields from a vacancy detail page. JSON-LD often contains
  * only a teaser; the rendered detail body is therefore preferred when it is
@@ -185,14 +292,76 @@ export function extractJsonLd(html, pageUrl) {
  *
  * @param {string} html
  * @param {string} pageUrl
- * @returns {{ title: string, location: string, description: string, postedDate: string, employmentType: string }}
+ * @returns {{
+ *   title: string,
+ *   location: string,
+ *   addressCountry: string,
+ *   locationCandidates: Array<{
+ *     location: string,
+ *     addressCountry: string,
+ *     addressLocality?: string,
+ *     addressRegion?: string,
+ *     postalCode?: string,
+ *     streetAddress?: string,
+ *   }>,
+ *   authoritativeLocationConflict: boolean,
+ *   description: string,
+ *   postedDate: string,
+ *   employmentType: string,
+ * }}
  */
 export function extractDetailFields(html = '', pageUrl = '') {
-  const structured = extractJsonLd(html, pageUrl)[0] || {};
-  const title = structured.title || textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
-  const location = structured.location || textOf(
+  // A detail page can expose JSON-LD and microdata simultaneously, sometimes
+  // with complementary or conflicting locations. Preserve every candidate so
+  // authoritative foreign evidence cannot disappear merely because the other
+  // format (or rendered text) names a Swiss homonym.
+  const allStructuredRecords = /** @type {Partial<Vacancy>[]} */ ([
+    ...extractJsonLd(html, pageUrl),
+    ...extractMicrodata(html, pageUrl),
+  ]);
+  const renderedTitle = textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
+  const structuredRecords = selectDetailStructuredRecords(allStructuredRecords, pageUrl, renderedTitle);
+  const ambiguousStructuredSiblings = allStructuredRecords.length > 1 && !structuredRecords.length;
+  const structured = structuredRecords[0] || {};
+  const title = renderedTitle || structured.title || '';
+  const renderedLocation = ambiguousStructuredSiblings ? '' : textOf(
     /<(?:div|span|p|li)[^>]*(?:class|itemprop)\s*=\s*["'][^"']*(?:job[-_ ]?region|job[-_ ]?location|location|addressLocality)[^"']*["'][^>]*>([\s\S]{0,500}?)<\//i.exec(html)?.[1] || '',
   );
+  const locationCandidates = [];
+  const locationCandidateKeys = new Set();
+  for (const record of structuredRecords) {
+    const candidates = Array.isArray(record.locationCandidates)
+      ? record.locationCandidates
+      : (record.location || record.addressCountry
+        ? [{ location: record.location || '', addressCountry: record.addressCountry || '' }]
+        : []);
+    for (const candidate of candidates) {
+      const key = JSON.stringify(candidate);
+      if (locationCandidateKeys.has(key)) continue;
+      locationCandidateKeys.add(key);
+      locationCandidates.push(candidate);
+    }
+  }
+  if (!locationCandidates.length && renderedLocation) {
+    locationCandidates.push({ location: renderedLocation, addressCountry: '' });
+  }
+  const primaryLocation = /** @type {any} */ (locationCandidates[0] || {});
+  const structuredLocationClasses = structuredRecords.map((record) => {
+    const decisions = locationEvidenceCandidates(record)
+      .map((candidate) => evaluateSourceBackedSwissGeography([candidate]));
+    return {
+      swiss: decisions.some((decision) => Boolean(decision.geography)),
+      foreign: decisions.some((decision) => decision.explicitlyForeign),
+    };
+  });
+  // A single JobPosting may legitimately advertise multiple locations. A
+  // conflict across separate JSON-LD/microdata representations of the current
+  // job is different: do not let a Swiss secondary representation erase an
+  // authoritative foreign primary one.
+  const authoritativeLocationConflict = structuredRecords.length > 1
+    && structuredLocationClasses.some((entry) => entry.swiss)
+    && structuredLocationClasses.some((entry) => entry.foreign);
+  const location = primaryLocation.location || structured.location || renderedLocation;
   const blocks = [];
   // Extract balanced containers so nested lists/divs do not truncate the
   // vacancy at the first inner closing tag. The vocabulary is vendor-neutral;
@@ -215,88 +384,238 @@ export function extractDetailFields(html = '', pageUrl = '') {
     }
     if (end !== undefined) blocks.push(textOf(html.slice(openingRx.lastIndex, end)));
   }
-  const semanticRx = /<([a-z0-9]+)\b[^>]*itemprop\s*=\s*["']description["'][^>]*>([\s\S]*?)<\/\1>/i.exec(html);
-  if (semanticRx) blocks.push(textOf(semanticRx[2]));
+  // Read the description element to its matching close tag. SuccessFactors
+  // nests many same-name spans inside itemprop="description"; the former
+  // non-greedy regex stopped at the first inner </span>, making a correct
+  // published body appear unrelated to its source in the quality audit.
+  const semanticIndex = indexHtmlTags(html);
+  const semanticOpening = semanticIndex.openings.find((candidate) =>
+    !candidate.selfClosing
+    && !VOID_HTML_TAGS.has(candidate.name)
+    && readAttr(candidate.raw, 'itemprop').split(/\s+/).includes('description')
+  );
+  const semanticBounds = semanticOpening
+    ? semanticIndex.boundsByStart.get(semanticOpening.index)
+    : null;
+  if (semanticOpening && semanticBounds) {
+    blocks.push(textOf(html.slice(semanticOpening.end, semanticBounds.contentEnd)));
+  }
   // A detail page with no useful class still commonly puts the vacancy body
   // in its main/article container. Use it only when it is materially larger
   // than the page's structured teaser, avoiding a navigation-only shell.
   const main = /<(main|article)\b[^>]*>([\s\S]*?)<\/\1>/i.exec(html);
   if (!blocks.length && main) blocks.push(textOf(main[2]));
-  const descriptions = [...blocks, blocks.length > 1 ? blocks.join(' ') : '', structured.description || ''].filter(Boolean);
+  const descriptions = [
+    ...blocks,
+    blocks.length > 1 ? blocks.join(' ') : '',
+    ...structuredRecords.map((record) => record.description || ''),
+  ].filter(Boolean);
   descriptions.sort((a, b) => b.length - a.length);
   return {
     title,
     location,
+    addressCountry: primaryLocation.addressCountry || structured.addressCountry || '',
+    locationCandidates,
+    authoritativeLocationConflict,
     description: descriptions[0] || '',
-    postedDate: structured.postedDate || '',
-    employmentType: structured.employmentType || '',
+    postedDate: structuredRecords.find((record) => record.postedDate)?.postedDate || '',
+    employmentType: structuredRecords.find((record) => record.employmentType)?.employmentType || '',
   };
+}
+
+/**
+ * @typedef {{
+ *   raw: string,
+ *   name: string,
+ *   index: number,
+ *   end: number,
+ *   closing: boolean,
+ *   selfClosing: boolean,
+ * }} HtmlTag
+ * @typedef {{
+ *   openings: HtmlTag[],
+ *   boundsByStart: Map<number, {contentEnd: number, end: number}>,
+ *   tagCount: number,
+ * }} HtmlTagIndex
+ */
+const VOID_HTML_TAGS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'source', 'track', 'wbr',
+]);
+
+/** @param {string} block @returns {HtmlTagIndex} */
+function indexHtmlTags(block) {
+  const tags = scanHtmlTags(block);
+  /** @type {HtmlTag[]} */
+  const openings = [];
+  /** @type {Map<string, HtmlTag[]>} */
+  const pendingByName = new Map();
+  /** @type {Map<number, {contentEnd: number, end: number}>} */
+  const boundsByStart = new Map();
+  for (const tag of tags) {
+    if (!tag.closing) {
+      openings.push(tag);
+      if (!tag.selfClosing && !VOID_HTML_TAGS.has(tag.name)) {
+        if (!pendingByName.has(tag.name)) pendingByName.set(tag.name, []);
+        pendingByName.get(tag.name).push(tag);
+      }
+      continue;
+    }
+    const pending = pendingByName.get(tag.name);
+    const opening = pending?.pop();
+    if (opening) {
+      boundsByStart.set(opening.index, { contentEnd: tag.index, end: tag.end });
+    }
+  }
+  return { openings, boundsByStart, tagCount: tags.length };
 }
 
 /**
  * Text of an `itemprop` element that has no `content` attribute — i.e. the
  * value lives in the element's rendered body, not a meta-style attribute.
- *
- * A single-`<`-lookahead regex (the previous approach) reads only up to the
- * first nested tag, so `<div itemprop="description"> <p>full text</p></div>`
- * — a `<p>` wrapping the actual copy, the shape arsante.ch (#6372) and any
- * other CMS that doesn't emit the description as a bare text node — yields
- * an empty string instead of the paragraph. Matching to the itemprop
- * element's own balanced closing tag reads the whole subtree regardless of
- * how deep the real text sits.
+ * Matching to the itemprop element's own balanced closing tag reads the whole
+ * subtree regardless of how deep the rendered value sits.
  *
  * @param {string} block
- * @param {string} tag   The opening tag returned by `readTagByAttr`.
+ * @param {HtmlTag} opening
+ * @param {HtmlTagIndex} index
  * @returns {string}
  */
-function readItempropBody(block, tag) {
-  const tagName = /^<([a-z0-9]+)/i.exec(tag)?.[1];
-  const start = block.indexOf(tag);
-  if (!tagName || start === -1) return '';
-  const contentStart = start + tag.length;
-  const tags = new RegExp(`<\\/?${tagName}\\b[^>]*>`, 'gi');
-  tags.lastIndex = contentStart;
-  let depth = 1;
-  let end = -1;
-  let t;
-  while ((t = tags.exec(block))) {
-    if (/^<\//.test(t[0])) depth--;
-    else if (!/\/\s*>$/.test(t[0])) depth++;
-    if (depth === 0) { end = t.index; break; }
+function readItempropBody(block, opening, index) {
+  const bounds = index.boundsByStart.get(opening.index);
+  const contentEnd = bounds?.contentEnd ?? Math.min(block.length, opening.end + 2000);
+  return textOf(block.slice(opening.end, contentEnd));
+}
+
+/**
+ * Return balanced element containers selected by one attribute. The same
+ * scanner protects both the outer JobPosting and its jobLocation subtrees
+ * from premature closure on nested elements with the same tag name.
+ *
+ * @param {string} block
+ * @param {string} attribute
+ * @param {(value: string) => boolean} matches
+ * @param {HtmlTagIndex} index
+ * @returns {string[]}
+ */
+function readAttributeContainers(block, attribute, matches, index) {
+  const containers = [];
+  let consumedUntil = 0;
+  for (const opening of index.openings) {
+    if (opening.index < consumedUntil || !matches(readAttr(opening.raw, attribute))) continue;
+    if (opening.selfClosing || VOID_HTML_TAGS.has(opening.name)) {
+      containers.push(opening.raw);
+      continue;
+    }
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    containers.push(block.slice(opening.index, bounds.end));
+    consumedUntil = bounds.end;
   }
-  return textOf(block.slice(contentStart, end === -1 ? contentStart + 2000 : end));
+  return containers;
+}
+
+function readItempropContainers(block, property, index) {
+  return readAttributeContainers(
+    block,
+    'itemprop',
+    (value) => value.split(/\s+/).filter(Boolean).includes(property),
+    index,
+  );
 }
 
 /**
  * @param {string} html
  * @param {string} pageUrl
+ * @param {{onIndex?: (metrics: {sourceLength: number, tagCount: number}) => void}} [diagnostics]
  * @returns {Vacancy[]}
  */
-export function extractMicrodata(html, pageUrl) {
+export function extractMicrodata(html, pageUrl, diagnostics = {}) {
+  /** @type {Vacancy[]} */
   const out = [];
-  const rx = /<([a-z0-9]+)\b[^>]*itemtype\s*=\s*["'][^"']*schema\.org\/JobPosting["'][^>]*>([\s\S]{0,20000}?)<\/\1>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
-    const block = m[2];
-    const prop = (name) => {
+  /** @type {Map<string, HtmlTagIndex>} */
+  const indexCache = new Map();
+  /** @param {string} source @returns {HtmlTagIndex} */
+  const indexFor = (source) => {
+    let index = indexCache.get(source);
+    if (!index) {
+      index = indexHtmlTags(source);
+      indexCache.set(source, index);
+      diagnostics.onIndex?.({ sourceLength: source.length, tagCount: index.tagCount });
+    }
+    return index;
+  };
+  const jobPostingBlocks = readAttributeContainers(
+    html,
+    'itemtype',
+    (value) => value.split(/\s+/).some((itemtype) => /schema\.org\/JobPosting\/?$/i.test(itemtype)),
+    indexFor(html),
+  );
+  for (const block of jobPostingBlocks) {
+    const blockIndex = indexFor(block);
+    const propFrom = (source, name, sourceIndex = indexFor(source)) => {
       // #6480: reading `itemprop=X ... content=Y` with one glued regex let the
       // `[^"']` class run through an apostrophe between the two attributes and
       // truncate the value. Locate the tag, then read its attributes.
-      const tag = readTagByAttr(block, 'itemprop', name);
-      const content = tag ? readAttr(tag, 'content') : '';
-      return (content || (tag ? readItempropBody(block, tag) : '')).trim();
+      const opening = sourceIndex.openings.find(
+        (candidate) => readAttr(candidate.raw, 'itemprop').toLowerCase() === name.toLowerCase(),
+      );
+      const content = opening ? readAttr(opening.raw, 'content') : '';
+      return (content || (opening ? readItempropBody(source, opening, sourceIndex) : '')).trim();
     };
+    const prop = (name) => propFrom(block, name, blockIndex);
     const title = prop('title') || prop('name');
     if (!title) continue;
-    const anchor = /<a\b[^>]*>/i.exec(block)?.[0];
+    const anchor = blockIndex.openings.find((candidate) => candidate.name === 'a')?.raw;
     const href = anchor ? readAttr(anchor, 'href') : '';
     let url = pageUrl;
     try { if (href) url = new URL(href, pageUrl).toString(); } catch { /* keep page url */ }
+    const locationCandidates = readItempropContainers(block, 'jobLocation', blockIndex)
+      .map((container) => {
+        const containerIndex = indexFor(container);
+        const locality = propFrom(container, 'addressLocality', containerIndex);
+        const region = propFrom(container, 'addressRegion', containerIndex);
+        const addressCountry = propFrom(container, 'addressCountry', containerIndex);
+        const postalCode = propFrom(container, 'postalCode', containerIndex);
+        const streetAddress = propFrom(container, 'streetAddress', containerIndex);
+        const directLocation = !locality && !region ? propFrom(container, 'jobLocation', containerIndex) : '';
+        return {
+          location: [locality || directLocation, region].filter(Boolean).join(', '),
+          addressCountry,
+          ...(locality ? { addressLocality: locality } : {}),
+          ...(region ? { addressRegion: region } : {}),
+          ...(postalCode ? { postalCode } : {}),
+          ...(streetAddress ? { streetAddress } : {}),
+        };
+      })
+      .filter((candidate) => candidate.location || candidate.addressCountry);
+    if (!locationCandidates.length) {
+      const location = [prop('addressLocality') || prop('jobLocation'), prop('addressRegion')]
+        .filter(Boolean)
+        .join(', ');
+      const addressCountry = prop('addressCountry');
+      const addressLocality = prop('addressLocality');
+      const addressRegion = prop('addressRegion');
+      const postalCode = prop('postalCode');
+      const streetAddress = prop('streetAddress');
+      if (location || addressCountry) locationCandidates.push({
+        location,
+        addressCountry,
+        ...(addressLocality ? { addressLocality } : {}),
+        ...(addressRegion ? { addressRegion } : {}),
+        ...(postalCode ? { postalCode } : {}),
+        ...(streetAddress ? { streetAddress } : {}),
+      });
+    }
+    const primaryLocation = locationCandidates[0] || { location: '', addressCountry: '' };
     out.push({
       title,
       url,
+      urlExplicit: Boolean(href),
       company: prop('hiringOrganization'),
-      location: prop('addressLocality') || prop('jobLocation'),
+      location: primaryLocation.location || '',
+      addressCountry: primaryLocation.addressCountry || '',
+      locationCandidates,
       description: textOf(prop('description')).slice(0, 8000),
       postedDate: prop('datePosted'),
       employmentType: prop('employmentType'),
@@ -363,11 +682,13 @@ export function extractByTemplate(links, pageUrl) {
   // Without a vacancy-ish path token the cluster is just as likely to be a news
   // archive, so refuse it rather than publish a blog as jobs.
   if (!best || !best.jobish) return [];
-  return best.items.map((i) => ({
+  /** @type {Vacancy[]} */
+  const vacancies = best.items.map((i) => ({
     title: (i.text || '').replace(/\s+/g, ' ').trim().slice(0, 180),
     url: i.url,
-    via: 'template',
+    via: /** @type {'template'} */ ('template'),
   })).filter((v) => v.title.length > 3);
+  return vacancies;
 }
 
 /**

@@ -14,6 +14,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const ELAVORO_HOST = 'www.e-lavoro.ch';
 const ELAVORO_BASE_URL = `https://${ELAVORO_HOST}`;
@@ -49,7 +50,7 @@ export function slugify(value = '', suffix = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /** Minimum description length to accept. */

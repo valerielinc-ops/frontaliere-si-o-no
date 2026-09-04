@@ -1,267 +1,34 @@
 #!/usr/bin/env node
-/**
- * Dedicated Zurich Insurance crawler runner.
- * Runs only Zurich Insurance jobs (careers.zurich.com — SuccessFactors ATS)
- * and enforces full locale coverage for SEO-critical fields.
- *
- * The Zurich careers portal supports `locationsearch` query parameter.
- * We search across major Ticino and Graubünden cities to maximize job discovery.
- */
-import fs from 'node:fs';
+/** Dedicated Zurich Insurance Switzerland crawler runner. */
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
-import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
+import { readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
+import { exitCrawlerOnError, runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
-  writeJobsCrawlerSlice,
-  writeSummaryCrawlerSlice,
-  registerCrawlerSummaryGuard,
-  assembleJobsDataset,
-  readExistingCrawlerJobs,
-} from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, normalize } from './lib/dedicated-crawler-common.mjs';
-import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+  prepareZurichInsuranceCrawler,
+  ZURICH_INSURANCE_COMPANY_NAME,
+  ZURICH_INSURANCE_KEY,
+} from './lib/zurich-insurance-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-const ZURICH_KEY = 'zurich-insurance-sede-ticino';
-// Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
-// defaults to internally for a single-key run, so this script's own
-// pre/post-crawl reads see the shared engine's actual output instead of the
-// gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
-// of #3775/#3768, confirmed cause of #3769/#3770).
-const DATA_JOBS = crawlerScratchPathFor(ZURICH_KEY);
-
-/**
- * Country-level search terms for the Zurich careers portal (SuccessFactors ATS).
- * We query by country name in all four national languages so the crawl covers
- * ALL of Switzerland (nationwide) while still excluding foreign postings.
- * Keeping the list short is critical: each seed URL triggers a full BFS crawl
- * in crawlGenericListingJobs() (up to 8 listing + 12 detail pages per seed).
- */
-const SEED_SEARCH_TERMS = ['Switzerland', 'Schweiz', 'Suisse', 'Svizzera'];
-
-const ZURICH_SEARCH_BASE = 'https://www.careers.zurich.com/search/';
-
-function normalizeKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-function isZurichJob(job) {
-  const key = normalizeKey(job?.companyKey || job?.company || '');
-  const company = normalize(job?.company || '');
-  const url = String(job?.url || '').toLowerCase();
-  const host = (() => {
-    try {
-      return new URL(url).hostname.toLowerCase();
-    } catch {
-      return '';
-    }
-  })();
-  return (
-    key.includes('zurich-insurance') ||
-    key === ZURICH_KEY ||
-    host.includes('careers.zurich.com') ||
-    host.includes('zurich.com') ||
-    (company.includes('zurich') && company.includes('insurance'))
-  );
-}
-
-function isTrustedZurichDomain(rawUrl = '') {
-  try {
-    const host = new URL(rawUrl).hostname.toLowerCase();
-    return host.endsWith('zurich.com') || host.endsWith('careers.zurich.com');
-  } catch {
-    return false;
-  }
-}
-
-/**
- * Build the seed URLs for the adapter JSON.
- * Uses broad region-level search terms to keep HTTP request count manageable.
- */
-function buildSeedUrls() {
-  return SEED_SEARCH_TERMS.map(
-    (term) =>
-      `${ZURICH_SEARCH_BASE}?createNewAlert=false&q=&locationsearch=${encodeURIComponent(term)}&optionsFacetsDD_shifttype=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=`
-  );
-}
-
-/**
- * Ensure the Zurich adapter JSON has the correct seed URLs.
- * Replaces all seed URLs with the current broad search terms
- * to prevent stale per-city URLs from accumulating.
- */
-function ensureAdapterSeedUrls() {
-  const adapterPath = path.join(ADAPTERS_DIR, `${ZURICH_KEY}.json`);
-  const seedUrls = buildSeedUrls();
-
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${ZURICH_KEY}.json not found — creating it.`);
-    const adapter = {
-      companyKey: ZURICH_KEY,
-      companyName: 'Zurich Insurance (sede Ticino)',
-      companyHost: 'careers.zurich.com',
-      enabled: true,
-      priority: 10,
-      crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      notes: 'SuccessFactors ATS at careers.zurich.com — region-level search across TI + GR.',
-      updatedAt: new Date().toISOString(),
-    };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    // Replace all seed URLs with the current broad search terms
-    adapter.seedUrls = seedUrls;
-    adapter.companyHost = adapter.companyHost || 'careers.zurich.com';
-    if (!adapter.crawlerModes?.includes('generic_ats')) {
-      adapter.crawlerModes = adapter.crawlerModes || [];
-      adapter.crawlerModes.unshift('generic_ats');
-    }
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.notes = 'SuccessFactors ATS at careers.zurich.com — region-level search across TI + GR.';
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${ZURICH_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
-}
-
-function runBaseCrawler() {
-  return runDedicatedBaseCrawler({
-    root: ROOT,
-    companyKeys: ZURICH_KEY,
-    localizeOnlyCompanyKeys: ZURICH_KEY,
-    forceLocalizeKeys: ZURICH_KEY,
-    disableWorkdayForce: true,
-  });
-}
-
-function ensureSourceLang() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  if (!Array.isArray(jobs)) return;
-  let changed = 0;
-  for (const job of jobs) {
-    if (!isZurichJob(job)) continue;
-    const lang = detectLang(job.description || job.title, 'en');
-    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
-  }
-  if (changed > 0) {
-    writeJsonAtomic(DATA_JOBS, jobs);
-    console.log(`📝 Set sourceLang on ${changed} Zurich job(s).`);
-  }
-}
-
-function logZurichJobStats(beforeSnapshot = new Map()) {
-  if (!fs.existsSync(DATA_JOBS)) {
-    console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
-  }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  const allJobs = Array.isArray(raw) ? raw : [];
-  const zurichJobs = allJobs.filter(isZurichJob);
-  const ticinoJobs = zurichJobs.filter((job) => normalize(job?.canton) === 'ti');
-  const grJobs = zurichJobs.filter((job) => normalize(job?.canton) === 'gr');
-  const otherJobs = zurichJobs.length - ticinoJobs.length - grJobs.length;
-
-  console.log(`\n📊 === Zurich Insurance Job Stats ===`);
-  console.log(`  🔍 Job totali trovati (Zurich Insurance): ${zurichJobs.length} (TI: ${ticinoJobs.length}, GR: ${grJobs.length})`);
-  if (otherJobs > 0) {
-    console.log(`  ℹ️ Job in altri cantoni: ${otherJobs}`);
-    const examples = zurichJobs
-      .filter((job) => !['ti', 'gr'].includes(normalize(job?.canton)))
-      .map((job) => `${job?.title || '?'} → ${job?.location || job?.canton || '?'}`)
-      .slice(0, 10);
-    for (const loc of examples) console.log(`     - ${loc}`);
-  }
-  console.log('');
-
-  // Crawl change summary (new/updated/removed)
-  const afterSnapshot = snapshotJobSlugs(zurichJobs);
-  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-  printCrawlChangeSummary(crawlDiff, 'Zurich');
-  writeCrawlChangeSummaryToGH(crawlDiff, 'Zurich');
-
-  return { total: zurichJobs.length, ticino: ticinoJobs.length, crawlDiff };
-
-}
-
-function validateZurichLocaleCoverage() {
-  validateDedicatedLocaleCoverage({
-    strictEnvVar: 'JOBS_ZURICH_STRICT',
-    label: 'Zurich',
-    dataJobsPath: DATA_JOBS,
-    isTargetJob: isZurichJob,
-    detectSourceLang: (text) => detectLang(text, 'it'),
-    deriveSlug: deriveLocalizedSlug,
-    isTrustedDomain: isTrustedZurichDomain,
-    untrustedDomainReason: 'untrusted_domain_for_zurich_job',
-    noJobsMessage: 'Nessun job Zurich Insurance trovato dopo il crawl — niente da validare.',
-  });
-}
 
 async function main() {
-  setCrawlerStartTime();
-  registerCrawlerSummaryGuard(ZURICH_KEY, 'Zurich');
-  console.log('🏛️ Running dedicated Zurich Insurance jobs crawler (with forced localization)...');
+  // Fetch the authoritative Switzerland listing before the pipeline snapshots
+  // the old slice. The returned matcher can therefore preserve identity only
+  // for legacy records that are still present on the official board.
+  const existingJobs = readExistingCrawlerJobs(ZURICH_INSURANCE_KEY);
+  const crawler = await prepareZurichInsuranceCrawler({ existingJobs });
 
-  // Ensure the adapter has all TI + GR seed URLs
-  ensureAdapterSeedUrls();
-
-  // Snapshot company jobs before crawl for diff summary
-    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(ZURICH_KEY, DATA_JOBS).filter(isZurichJob))
-
-  await runBaseCrawler();
-  ensureSourceLang();
-
-  // Log stats
-  const stats = logZurichJobStats(_beforeSnapshot);
-  const crawlDiff = stats.crawlDiff;
-  if (stats.total === 0) {
-    console.log('ℹ️ Nessun job Zurich trovato in questa esecuzione. Nessun errore — uscita OK.');
-    return;
-  }
-
-  validateZurichLocaleCoverage();
-
-  // Write per-crawler slice and reassemble global dataset
-  const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isZurichJob) : [];
-  writeJobsCrawlerSlice(ZURICH_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({
-    key: ZURICH_KEY,
-    label: 'Zurich',
-    generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
-    newCount: crawlDiff.newJobs.length,
-    updatedCount: crawlDiff.updatedJobs.length,
-    removedCount: crawlDiff.removedJobs.length,
-    unchangedCount: crawlDiff.unchangedCount,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
-    newJobs: crawlDiff.newJobs.slice(0, 30),
-    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
-    removedJobs: crawlDiff.removedJobs.slice(0, 30),
-    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+  await runStandardCrawlerPipeline({
+    companyKey: ZURICH_INSURANCE_KEY,
+    companyLabel: ZURICH_INSURANCE_COMPANY_NAME,
+    root: ROOT,
+    fetchJobs: crawler.fetchJobs,
+    isCompanyJob: crawler.isCompanyJob,
+    isTrustedDomain: crawler.isTrustedDomain,
+    defaultSourceLang: 'en',
   });
-  await assembleJobsDataset();
 }
 
 main().catch((err) => exitCrawlerOnError(err, 'Zurich Insurance'));

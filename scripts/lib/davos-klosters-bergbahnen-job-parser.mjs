@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Davos Klosters Bergbahnen AG job parser — tourism/mountain railways.
  * Source: https://www.davosklostersmountains.ch/de/mountains/stellenangebote/jobs-berge
@@ -8,12 +9,32 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { readAttr } from './html-attr.mjs';
 
 const HQ = getCompanyDefaults('davos-klosters-bergbahnen');
 
 const CAREERS_URL = 'https://www.davosklostersmountains.ch/de/mountains/stellenangebote/jobs-berge';
 const CAREERS_BASE = 'https://www.davosklostersmountains.ch';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+export function normalizeDavosKlostersBergbahnenJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    // Anchored on `_j_<id>` but tolerates one extra path segment after it
+    // (e.g. a descriptive slug rexx-systems could append) instead of
+    // rejecting the whole URL outright — mirrors the listing-side match at
+    // line ~134, which already accepts `_j_\d+` without anchoring the end.
+    // Live-verified 2026-09-01: the 9 jobs currently on the site carry no
+    // such suffix, but origin/base-path stay exact-matched either way.
+    const isJobPath = /^\/de\/mountains\/stellenangebote\/[^/]+_j_\d+(?:\/[^/]+)?\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
 
 // ── shared utilities ──────────────────────────────────────────────────
 
@@ -59,8 +80,8 @@ export function richTextToLines(html = '') {
 }
 
 export function slugify(value = '') {
-  return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-').slice(0, 180);
+  return truncateSlugAtWordBoundary(String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-'), 180);
 }
 
 export function inferEmploymentType(title = '', description = '', percentage = '') {
@@ -114,10 +135,13 @@ export function parseDavosKlostersBergbahnenListingHtml(html) {
     if (!title || title.length < 3) continue;
 
     // Extract detail link: <a href="/de/mountains/stellenangebote/Slug_j_ID">
-    const linkMatch = block.match(/<a[^>]+href=["']([^"']*?stellenangebote\/[^"']+_j_\d+[^"']*)["']/i);
-    if (!linkMatch) continue;
-    const rawUrl = linkMatch[1].trim();
-    const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+    const rawUrl = [...block.matchAll(/<a\b[^>]*>/gi)]
+      .map((match) => readAttr(match[0], 'href'))
+      .find((href) => /stellenangebote\/.*_j_\d+/i.test(href))
+      ?.trim();
+    if (!rawUrl) continue;
+    const url = normalizeDavosKlostersBergbahnenJobUrl(rawUrl);
+    if (!url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -264,11 +288,12 @@ export async function fetchDavosKlostersBergbahnenJobUrls(timeoutMs = 15_000) {
 }
 
 export async function fetchDavosKlostersBergbahnenDetailPage(url, timeoutMs = 15_000) {
-  if (!url) return null;
+  const safeUrl = normalizeDavosKlostersBergbahnenJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });

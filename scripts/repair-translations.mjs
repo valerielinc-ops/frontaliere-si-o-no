@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { execSync } from 'child_process';
 import { join } from 'path';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const OLD_COMMIT = '25027a07';
 const JOBS_DIR = 'data/jobs/by-crawler';
@@ -126,7 +127,7 @@ function repairJobs(currentJobs, oldMap) {
  * Process main job data files in data/jobs/by-crawler/
  */
 function processJobFiles() {
-  const files = readdirSync(JOBS_DIR).filter(f => f.endsWith('.json'));
+  const files = readdirSync(JOBS_DIR).filter(isSliceFile);
   console.log(`\nProcessing ${files.length} job data files in ${JOBS_DIR}/...\n`);
 
   for (const file of files) {
@@ -172,7 +173,7 @@ function processSummaryFiles() {
   let summaryRepaired = 0;
   let summaryFilesChanged = 0;
 
-  const files = readdirSync(SUMMARIES_DIR).filter(f => f.endsWith('.json'));
+  const files = readdirSync(SUMMARIES_DIR).filter(isSliceFile);
   console.log(`\nProcessing ${files.length} summary files in ${SUMMARIES_DIR}/...\n`);
 
   const JOB_LIST_KEYS = ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs'];

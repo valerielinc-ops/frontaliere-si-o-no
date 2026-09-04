@@ -23,6 +23,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 
 const WINDOW_DAYS = Number(process.env.WINDOW_DAYS || 14);
@@ -822,7 +823,7 @@ async function main() {
     const hasDeliveredPr = comments.some((c) =>
       /<!--\s*FIX_OUTCOME:\s*pr-created\s*-->/i.test(String(c.body || '')));
     for (const c of comments) {
-      const m = String(c.body || '').match(/<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i);
+      const m = FIX_OUTCOME_RE.exec(String(c.body || ''));
       if (!m) continue;
       const code = m[1].toLowerCase();
       if (code === 'pr-created') continue; // healthy

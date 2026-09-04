@@ -1,0 +1,21 @@
+{
+  "companyKey": "baeckerei-gabriel",
+  "companyName": "Gabriel",
+  "companyHost": "baeckerei-gabriel.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://baeckerei-gabriel.ch/ueber-uns/jobs"
+  ],
+  "detailTemplate": "/fileadmin/files/Downloads_PDF/Stellen-Inserat/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Köch:in (80-100%)",
+    "Raumpfleger*in mit Verkaufsflair Filiale Siebnen"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:54.330Z"
+}

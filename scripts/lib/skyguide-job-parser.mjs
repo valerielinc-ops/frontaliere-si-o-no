@@ -1,20 +1,24 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-'), 180);
 }
 
 function htmlFragmentToMarkdown(html = '') {
@@ -61,20 +65,34 @@ function htmlFragmentToMarkdown(html = '') {
 
 export function parseSkyguideListings(html = '') {
   const document = new JSDOM(html).window.document;
-  return [...document.querySelectorAll('#searchresults tr.data-row')]
-    .map((row) => {
-      const link = row.querySelector('a.jobTitle-link');
-      return {
-        href: String(link?.getAttribute('href') || '').trim(),
-        title: normalizeSpace(link?.textContent || ''),
-        location: normalizeSpace(row.querySelector('.colLocation .jobLocation, .jobdetail-phone .jobLocation')?.textContent || ''),
-        department: normalizeSpace(row.querySelector('.colDepartment .jobDepartment, .jobdetail-phone .jobFacility')?.textContent || ''),
-      };
-    })
+  const rows = [];
+  let skippedMalformedRows = 0;
+  let ignoredNonJobRows = 0;
+  for (const row of document.querySelectorAll('#searchresults tr.data-row')) {
+    const link = row.querySelector('a.jobTitle-link');
+    const parsed = {
+      href: String(link?.getAttribute('href') || '').trim(),
+      title: normalizeSpace(link?.textContent || ''),
+      // keep the visible office — see stripSuccessFactorsMoreLocations()
+      location: stripSuccessFactorsMoreLocations(
+        normalizeSpace(row.querySelector('.colLocation .jobLocation, .jobdetail-phone .jobLocation')?.textContent || ''),
+      ),
+      department: normalizeSpace(row.querySelector('.colDepartment .jobDepartment, .jobdetail-phone .jobFacility')?.textContent || ''),
+    };
     // A row whose title IS the j2w page chrome (cookie-consent widget,
-    // keyword-search box, job-alert box) is not a posting — discard the row
-    // rather than clean it, which would leave an annuncio without a name.
-    .filter((row) => row.href && row.title && !isSuccessFactorsWidgetText(row.title));
+    // keyword-search box, job-alert box) is not a posting. Count it separately
+    // so known chrome cannot inflate the structural-drift ratio.
+    if (isSuccessFactorsWidgetText(parsed.title)) {
+      ignoredNonJobRows += 1;
+      continue;
+    }
+    if (!parsed.href || !parsed.title) {
+      skippedMalformedRows += 1;
+      continue;
+    }
+    rows.push(parsed);
+  }
+  return { rows, skippedMalformedRows, ignoredNonJobRows };
 }
 
 export function isSkyguideTargetLocation(raw = '') {

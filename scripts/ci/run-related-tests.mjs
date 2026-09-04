@@ -102,9 +102,32 @@ function resolveImport(from, specifier, fileSet) {
   return null;
 }
 
+// Tracked files this process could not read while building the graph. Empty on
+// a full checkout; see importsOf() for the only case that fills it.
+const unreadable = [];
+
 function importsOf(file, fileSet) {
+  let source;
+  try {
+    source = readFileSync(file, 'utf8');
+  } catch (err) {
+    if (err.code !== 'ENOENT') throw err;
+    // A file that git tracks but the working tree cannot open. In a SPARSE
+    // worktree this is routine and not a broken repository: `services/` is
+    // checked out, but `services/blogArticleIds.ts` is a symlink into
+    // `packages/articles/content/`, which the sparse profile excludes — the
+    // link resolves to nothing, so `ls` shows it and `readFileSync` throws.
+    //
+    // Crashing here made this runner unusable outside CI, which is exactly
+    // where an agent needs it: without it the only pre-PR option is the full
+    // suite, which in a sparse worktree is 156 inherited reds and no verdict.
+    // The file is dropped from the graph, never silently: the count is
+    // reported below so an under-selection is visible instead of assumed.
+    unreadable.push(file);
+    return [];
+  }
   const deps = new Set();
-  for (const match of stripComments(readFileSync(file, 'utf8')).matchAll(importRe)) {
+  for (const match of stripComments(source).matchAll(importRe)) {
     const dep = resolveImport(file, match[2], fileSet);
     if (dep) deps.add(dep);
   }
@@ -148,6 +171,13 @@ if (candidates.length === 0 && !forceFull) {
 
 const tracked = trackedFiles();
 const graph = loadGraph(tracked);
+if (unreadable.length > 0) {
+  // Loud, and above the selection, because it is the one thing that can make
+  // the list below shorter than it should be. Zero on a full checkout.
+  console.log(`⚠️ ${unreadable.length} tracked file(s) unreadable in this working tree (sparse checkout?) — dropped from the import graph, so the selection may be incomplete:`);
+  for (const file of unreadable.slice(0, 10)) console.log(`   ${file}`);
+  if (unreadable.length > 10) console.log(`   … and ${unreadable.length - 10} more`);
+}
 const isRunnableTest = (file) => testRe.test(file) && !corpusWideTests.has(file) && !alwaysExcludedTests.has(file);
 const allTests = tracked.filter(isRunnableTest);
 const reverse = new Map();

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nant",
-  "assembledAt": "2026-08-28T05:13:18.709Z",
+  "assembledAt": "2026-09-03T23:16:57.628Z",
   "jobs": [
     {
       "id": "nant-eda937afa152",
@@ -33,7 +33,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:14.492Z",
+      "crawledAt": "2026-09-03T23:16:53.421Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -55,16 +55,14 @@
         "assistenza-comunitaria-e-assistente-sanitario-o-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
         "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
         "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant",
-        "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
-        "assistente-in-cure-e-salute-comunitaria-o-operatore-socio-sanitario-a-orario-variabile-mistral-fondation-de-nant-corsier"
+        "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenza-comunitaria-e-assistente-sanitario-o-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
           "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
           "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant",
-          "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
-          "assistente-in-cure-e-salute-comunitaria-o-operatore-socio-sanitario-a-orario-variabile-mistral-fondation-de-nant-corsier"
+          "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
         ],
         "en": [
           "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
@@ -78,6 +76,7 @@
       "firstSeenAt": "2026-08-12T10:16:10.940Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -120,7 +119,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:14.480Z",
+      "crawledAt": "2026-09-03T23:16:53.420Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -147,8 +146,7 @@
         "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
         "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
         "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -160,8 +158,7 @@
           "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
           "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
           "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-en-cdi-a-100-dmpc-nant-corsier-sur-vevey",
@@ -178,6 +175,7 @@
       "firstSeenAt": "2026-06-30T22:47:09.688Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220,7 +218,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:14.473Z",
+      "crawledAt": "2026-09-03T23:16:53.419Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -243,15 +241,13 @@
         "infermiera-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
         "nurse-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
         "krankenschwester-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
-        "infermiera-all-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "infermiera-all-80-vaudaire-fondation-de-nant-corsier-sur-vevey"
+        "infermiera-all-80-foehn-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
           "infermiera-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
-          "infermiera-all-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "infermiera-all-80-vaudaire-fondation-de-nant-corsier-sur-vevey"
+          "infermiera-all-80-foehn-fondation-de-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
@@ -265,6 +261,7 @@
       "firstSeenAt": "2026-08-18T21:32:00.438Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -308,7 +305,7 @@
       "url": "https://app.beehire.com/invite/0IEYXiSqR",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:14.471Z",
+      "crawledAt": "2026-09-03T23:16:53.403Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -327,13 +324,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
-        "responsable-de-formation-a-80-100-nant-corsier-sur-vevey",
-        "80-100-allenatore-fondation-de-nant-corsier-sur-vevey"
+        "responsable-de-formation-a-80-100-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-formation-a-80-100-nant-corsier-sur-vevey",
-          "80-100-allenatore-fondation-de-nant-corsier-sur-vevey"
+          "responsable-de-formation-a-80-100-nant-corsier-sur-vevey"
         ],
         "en": [
           "responsable-de-formation-a-80-100-nant-corsier-sur-vevey"
@@ -345,6 +340,7 @@
       "firstSeenAt": "2026-08-24T21:31:00.022Z",
       "salaryMin": 116500,
       "salaryMax": 162500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -358,11 +354,11 @@
     },
     {
       "id": "nant-fecd12c97f57",
-      "slug": "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
+      "slug": "infermiera-cdm-90-morabia-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
-        "it": "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
-        "en": "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
-        "de": "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
+        "it": "infermiera-cdm-90-morabia-fondation-de-nant-corsier-sur-vevey",
+        "en": "nurse-cdm-90-morabia-fondation-de-nant-corsier-sur-vevey",
+        "de": "krankenschwester-cdm-90-morabia-fondation-de-nant-corsier-sur-vevey",
         "fr": "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -370,9 +366,9 @@
       "companyDomain": "nant.ch",
       "title": "Infirmier·ère CDM 90% Morabia",
       "titleByLocale": {
-        "it": "Infirmier·ère CDM 90% Morabia",
-        "en": "Infirmier·ère CDM 90% Morabia",
-        "de": "Infirmier·ère CDM 90% Morabia",
+        "it": "Infermiera CDM 90% Morabia",
+        "en": "Nurse CDM 90% Morabia",
+        "de": "Krankenschwester CDM 90% Morabia",
         "fr": "Infirmier·ère CDM 90% Morabia"
       },
       "description": "La Fondation de Nant met au concours un poste dans l’ unité hospitalière de psychiatrie adulte (UH Morabia), en tant qu’\n\nInfirmier·ère CDM 90%\n LA MISSION\n Les infirmiers·ère·s de l’unité hospitalière de psychiatrie adulte ont pour mission d’assurer les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire.\n\nNOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Le service de psychiatrie et psychothérapie adulte (SPPA) est l’un des trois services de la Fondation de Nant. L’unité hospitalière de psychiatrie adulte comporte quatre divisions, dont Morabia qui peut accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère au sein de cette division, c’est évoluer dans un cadre de travail dynamique au cœur d’une équipe interdisciplinaire .\n NOUS CHERCHONS\n Un·e Infirmier·ère avec de l’expérience en psychiatrie , détenteur·trice d’un Bachelor of Science HES-SO en soins infirmier avec reconnaissance Croix-Rouge (ou titre jugé équivalent). De plus avoir la capacité à être au service du patient , de ses collègues et de l’institution est important pour travailler en tant qu’infirmier·ère au sein de Morabia. Finalement nous souhaitons engager une personne motivée par la mission de le Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\n Du 1er janvier 2027 au 31 juillet 2027\n\nDélai de postulation\n 13 septembre 2026\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\n Corsier-sur-Vevey\n\nRenseignements auprès de\n Morgane Wirthner, Infirmière Cheffe de service, tél :021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
@@ -388,7 +384,7 @@
       "url": "https://app.beehire.com/invite/fOJGPwwF3",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:14.460Z",
+      "crawledAt": "2026-09-03T13:31:58.640Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -409,6 +405,7 @@
       "firstSeenAt": "2026-08-26T09:53:13.761Z",
       "salaryMin": 77900,
       "salaryMax": 108500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -416,6 +413,285 @@
           "@type": "QuantitativeValue",
           "minValue": 77900,
           "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
+          "infermiera-cdm-70-fondation-de-nant-corsier-sur-vevey",
+          "nurse-cdm-70-fondation-de-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey"
+        ],
+        "de": [
+          "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
+        "infermiera-cdm-70-fondation-de-nant-corsier-sur-vevey",
+        "nurse-cdm-70-fondation-de-nant-corsier-sur-vevey"
+      ]
+    },
+    {
+      "id": "nant-952603fb9197",
+      "slug": "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey",
+      "slugByLocale": {
+        "it": "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey",
+        "en": "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey",
+        "de": "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey",
+        "fr": "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey"
+      },
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Infirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)",
+      "titleByLocale": {
+        "it": "Infirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)",
+        "en": "Infirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)",
+        "de": "Infirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)",
+        "fr": "Infirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)"
+      },
+      "description": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)\n NOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Adulte (SPPA) est l’un des trois services de la Fondation de Nant. Le pôle hospitalier du SPPA comprends cinq unités hospitalières, dont Morabia qui peut accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n LA MISSION DE L’ICLS\n L’infirmier·ère clinicien·ne spécialisé·e de l’unité hospitalière de psychiatrie de l’adulte a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n NOUS CHERCHONS\n Un·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n 1er janvier 2027\n\nDélai de postulation\n 30 septembre 2026\n\nType de contrat\n CDI\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\n Corsier-sur-Vevey\n\nRenseignements auprès de\n Mme Morgane Wirthner, Infirmière Cheffe, Infirmière cheffe - NAN - SPPA, Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+      "descriptionByLocale": {
+        "it": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Adulte (SPPA) est l’un des trois services de la Fondation de Nant. Le pôle hospitalier du SPPA comprends cinq unités hospitalières, dont Morabia qui peut accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e de l’unité hospitalière de psychiatrie de l’adulte a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nMme Morgane Wirthner, Infirmière Cheffe, Infirmière cheffe - NAN - SPPA, Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "en": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Adulte (SPPA) est l’un des trois services de la Fondation de Nant. Le pôle hospitalier du SPPA comprends cinq unités hospitalières, dont Morabia qui peut accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e de l’unité hospitalière de psychiatrie de l’adulte a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nMme Morgane Wirthner, Infirmière Cheffe, Infirmière cheffe - NAN - SPPA, Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "de": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Adulte (SPPA) est l’un des trois services de la Fondation de Nant. Le pôle hospitalier du SPPA comprends cinq unités hospitalières, dont Morabia qui peut accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e de l’unité hospitalière de psychiatrie de l’adulte a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nMme Morgane Wirthner, Infirmière Cheffe, Infirmière cheffe - NAN - SPPA, Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "fr": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (Morabia)\n\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Adulte (SPPA) est l’un des trois services de la Fondation de Nant. Le pôle hospitalier du SPPA comprends cinq unités hospitalières, dont Morabia qui peut accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e de l’unité hospitalière de psychiatrie de l’adulte a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nMme Morgane Wirthner, Infirmière Cheffe, Infirmière cheffe - NAN - SPPA, Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
+      },
+      "needsRetranslation": true,
+      "location": "Corsier-sur-Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/4RPhgQTMf",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:16:53.397Z",
+      "addressLocality": "Corsier-sur-Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://app.beehire.com/invite/4RPhgQTMf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "firstSeenAt": "2026-09-01T08:38:15.485Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "nant-a5ce73bd8694",
+      "slug": "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey",
+      "slugByLocale": {
+        "it": "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey",
+        "en": "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey",
+        "de": "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey",
+        "fr": "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey"
+      },
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Infirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)",
+      "titleByLocale": {
+        "it": "Infirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)",
+        "en": "Infirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)",
+        "de": "Infirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)",
+        "fr": "Infirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)"
+      },
+      "description": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)\n NOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL'équipe mobile de psychiatrie de la personne âgée (EMPA) intervient sur mandat des médecins traitants, sur demande des patients, des équipes soignantes ou des proches pour les personnes de plus de 65 ans du secteur Est vaudois souffrant de troubles psychiatriques et/ou de troubles cognitifs, et ce, afin de faciliter l’accès aux soins. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n LA MISSION DE l’ICLS\n L’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n NOUS CHERCHONS\n Un·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n 1er janvier 2027\n\nDélai de postulation\n 30 septembre 2026\n\nType de contrat\n CDI\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\n Corsier-sur-Vevey\n\nRenseignements auprès de\n Lina Tufo Andaloro, Infirmière Cheffe, SPPPA & Equipe de nuit, Tél : 021 965 70 73\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+      "descriptionByLocale": {
+        "it": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL'équipe mobile de psychiatrie de la personne âgée (EMPA) intervient sur mandat des médecins traitants, sur demande des patients, des équipes soignantes ou des proches pour les personnes de plus de 65 ans du secteur Est vaudois souffrant de troubles psychiatriques et/ou de troubles cognitifs, et ce, afin de faciliter l’accès aux soins. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nLina Tufo Andaloro, Infirmière Cheffe, SPPPA & Equipe de nuit, Tél : 021 965 70 73\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "en": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL'équipe mobile de psychiatrie de la personne âgée (EMPA) intervient sur mandat des médecins traitants, sur demande des patients, des équipes soignantes ou des proches pour les personnes de plus de 65 ans du secteur Est vaudois souffrant de troubles psychiatriques et/ou de troubles cognitifs, et ce, afin de faciliter l’accès aux soins. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nLina Tufo Andaloro, Infirmière Cheffe, SPPPA & Equipe de nuit, Tél : 021 965 70 73\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "de": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL'équipe mobile de psychiatrie de la personne âgée (EMPA) intervient sur mandat des médecins traitants, sur demande des patients, des équipes soignantes ou des proches pour les personnes de plus de 65 ans du secteur Est vaudois souffrant de troubles psychiatriques et/ou de troubles cognitifs, et ce, afin de faciliter l’accès aux soins. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nLina Tufo Andaloro, Infirmière Cheffe, SPPPA & Equipe de nuit, Tél : 021 965 70 73\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "fr": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)\n\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL'équipe mobile de psychiatrie de la personne âgée (EMPA) intervient sur mandat des médecins traitants, sur demande des patients, des équipes soignantes ou des proches pour les personnes de plus de 65 ans du secteur Est vaudois souffrant de troubles psychiatriques et/ou de troubles cognitifs, et ce, afin de faciliter l’accès aux soins. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette division, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nLina Tufo Andaloro, Infirmière Cheffe, SPPPA & Equipe de nuit, Tél : 021 965 70 73\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
+      },
+      "needsRetranslation": true,
+      "location": "Corsier-sur-Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/bIZr6lj9a",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:16:53.394Z",
+      "addressLocality": "Corsier-sur-Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://app.beehire.com/invite/bIZr6lj9a",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "firstSeenAt": "2026-09-01T08:38:15.483Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "nant-019cb11cce5c",
+      "slug": "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey",
+      "slugByLocale": {
+        "it": "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey",
+        "en": "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey",
+        "de": "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey",
+        "fr": "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey"
+      },
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Infirmier·ère clinicien·ne spécialisé·e à 100% (USMI)",
+      "titleByLocale": {
+        "it": "Infirmier·ère clinicien·ne spécialisé·e à 100% (USMI)",
+        "en": "Infirmier·ère clinicien·ne spécialisé·e à 100% (USMI)",
+        "de": "Infirmier·ère clinicien·ne spécialisé·e à 100% (USMI)",
+        "fr": "Infirmier·ère clinicien·ne spécialisé·e à 100% (USMI)"
+      },
+      "description": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (USMI)\n NOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL’Unité de Soins aux Migrants (USMI) a notamment pour mission d’assurer une consultation infirmière autonome, dans le cadre de la délégation de compétences médicales en vigueur sur le lieu de vie des bénéficiaires (foyers EVAM, appartements, etc). Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE l’ICLS\n L’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n NOUS CHERCHONS\n Un·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie. La possession d’un permis de conduire est également requise pour ce poste.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n 1er janvier 2027\n\nDélai de postulation\n 30 septembre 2026\n\nType de contrat\n CDI\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\n Vevey\n\nRenseignements auprès de\n • Mme Morgane Wirthner, Infirmière Cheffe de service\n • Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+      "descriptionByLocale": {
+        "it": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (USMI)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL’Unité de Soins aux Migrants (USMI) a notamment pour mission d’assurer une consultation infirmière autonome, dans le cadre de la délégation de compétences médicales en vigueur sur le lieu de vie des bénéficiaires (foyers EVAM, appartements, etc). Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie. La possession d’un permis de conduire est également requise pour ce poste.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nVevey\n\nRenseignements auprès de\n• Mme Morgane Wirthner, Infirmière Cheffe de service\n• Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "en": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (USMI)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL’Unité de Soins aux Migrants (USMI) a notamment pour mission d’assurer une consultation infirmière autonome, dans le cadre de la délégation de compétences médicales en vigueur sur le lieu de vie des bénéficiaires (foyers EVAM, appartements, etc). Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie. La possession d’un permis de conduire est également requise pour ce poste.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nVevey\n\nRenseignements auprès de\n• Mme Morgane Wirthner, Infirmière Cheffe de service\n• Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "de": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (USMI)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL’Unité de Soins aux Migrants (USMI) a notamment pour mission d’assurer une consultation infirmière autonome, dans le cadre de la délégation de compétences médicales en vigueur sur le lieu de vie des bénéficiaires (foyers EVAM, appartements, etc). Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie. La possession d’un permis de conduire est également requise pour ce poste.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nVevey\n\nRenseignements auprès de\n• Mme Morgane Wirthner, Infirmière Cheffe de service\n• Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "fr": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (USMI)\n\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d'intérêt public, chargée par l'Etat d'organiser et dispenser des soins psychiatriques dans la région de l'Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nL’Unité de Soins aux Migrants (USMI) a notamment pour mission d’assurer une consultation infirmière autonome, dans le cadre de la délégation de compétences médicales en vigueur sur le lieu de vie des bénéficiaires (foyers EVAM, appartements, etc). Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE l’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie. La possession d’un permis de conduire est également requise pour ce poste.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nVevey\n\nRenseignements auprès de\n• Mme Morgane Wirthner, Infirmière Cheffe de service\n• Tél : 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
+      },
+      "needsRetranslation": true,
+      "location": "Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/7MtT679t5",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:16:53.391Z",
+      "addressLocality": "Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://app.beehire.com/invite/7MtT679t5",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "firstSeenAt": "2026-09-01T08:38:15.479Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "nant-17639b08efba",
+      "slug": "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse",
+      "slugByLocale": {
+        "it": "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse",
+        "en": "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse",
+        "de": "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse",
+        "fr": "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse"
+      },
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Infirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)",
+      "titleByLocale": {
+        "it": "Infirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)",
+        "en": "Infirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)",
+        "de": "Infirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)",
+        "fr": "Infirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)"
+      },
+      "description": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)\n NOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Enfant et de l’Adolescent (SPPEA) prend en charge les jeunes de 0 à 18 ans et leurs familles dans l’Est vaudois. Il garantit des soins pédopsychiatriques accessibles, continus et adaptés aux besoins de la population. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n LA MISSION DE L’ICLS\n L’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients de la consultation ambulatoire, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n NOUS CHERCHONS\n Un·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n 1er janvier 2027\n\nDélai de postulation\n 30 septembre 2026\n\nType de contrat\n CDI\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\n Corsier-sur-Vevey et Rennaz\n\nRenseignements auprès de\n • Mme Manuela Chatagny, Infirmière Cheffe SPPEA,\n • Tél : 021 965 70 60\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+      "descriptionByLocale": {
+        "it": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Enfant et de l’Adolescent (SPPEA) prend en charge les jeunes de 0 à 18 ans et leurs familles dans l’Est vaudois. Il garantit des soins pédopsychiatriques accessibles, continus et adaptés aux besoins de la population. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients de la consultation ambulatoire, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey et Rennaz\n\nRenseignements auprès de\n• Mme Manuela Chatagny, Infirmière Cheffe SPPEA,\n• Tél : 021 965 70 60\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "en": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Enfant et de l’Adolescent (SPPEA) prend en charge les jeunes de 0 à 18 ans et leurs familles dans l’Est vaudois. Il garantit des soins pédopsychiatriques accessibles, continus et adaptés aux besoins de la population. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients de la consultation ambulatoire, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey et Rennaz\n\nRenseignements auprès de\n• Mme Manuela Chatagny, Infirmière Cheffe SPPEA,\n• Tél : 021 965 70 60\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "de": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Enfant et de l’Adolescent (SPPEA) prend en charge les jeunes de 0 à 18 ans et leurs familles dans l’Est vaudois. Il garantit des soins pédopsychiatriques accessibles, continus et adaptés aux besoins de la population. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients de la consultation ambulatoire, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey et Rennaz\n\nRenseignements auprès de\n• Mme Manuela Chatagny, Infirmière Cheffe SPPEA,\n• Tél : 021 965 70 60\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "fr": "Afin de soutenir le développement de l'expertise clinique infirmière et de renforcer la qualité des soins psychiatriques, la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère clinicien·ne spécialisé·e à 100% (SPPEA)\n\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler au sein de la Fondation, c'est évoluer dans un environnement stimulant et un cadre de travail dynamique.\n\nLe Service de Psychiatrie et Psychothérapie de l’Enfant et de l’Adolescent (SPPEA) prend en charge les jeunes de 0 à 18 ans et leurs familles dans l’Est vaudois. Il garantit des soins pédopsychiatriques accessibles, continus et adaptés aux besoins de la population. Être infirmier·ère clinicien·ne spécialisé·e au sein de cette unité, c’est évoluer dans un cadre de travail motivant au cœur d’une équipe interdisciplinaire.\n\nLA MISSION DE L’ICLS\nL’infirmier·ère clinicien·ne spécialisé·e a pour missions de renforcer la qualité, la sécurité et l'excellence des soins infirmiers en intégrant les données probantes et l'expertise clinique dans les pratiques. Il·Elle accompagne l'évolution des pratiques infirmières en favorisant l'intégration des nouvelles connaissances, l'innovation et les liens avec les milieux académiques et il·elle soutient la collaboration interprofessionnelle tout en contribuant à l'amélioration continue des pratiques au bénéfice des patients, des équipes et de l'institution. L’activité sera répartie comme suit : 40 % seront consacrés à la prise en charge clinique directe des patients de la consultation ambulatoire, tandis que les 60 % restants seront dédiés aux autres missions dévolues à l’ICLS, telles que décrites ci-dessus.\n\nNOUS CHERCHONS\nUn·e infirmier·ère titulaire d’un Bachelor HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent) et d’un Master en sciences infirmières et qui bénéficie d’une solide expérience clinique, idéalement en psychiatrie.\n\nNous cherchons une personne détenant un esprit d’analyse et une rigueur scientifique, qui sera capable d’accompagner et de faire grandir les équipes avec pragmatisme et bienveillance. Finalement nous souhaitons engager une motivée par la mission de le Fondation et aimant le travail en équipe pluridisciplinaire.\n\nEntrée en fonction\n1er janvier 2027\n\nDélai de postulation\n30 septembre 2026\n\nType de contrat\nCDI\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey et Rennaz\n\nRenseignements auprès de\n• Mme Manuela Chatagny, Infirmière Cheffe SPPEA,\n• Tél : 021 965 70 60\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
+      },
+      "needsRetranslation": true,
+      "location": "Vaud, Suisse",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/yKOL6UF3X",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:16:53.385Z",
+      "addressLocality": "Vaud, Suisse",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://app.beehire.com/invite/yKOL6UF3X",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "firstSeenAt": "2026-09-01T08:38:15.471Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }

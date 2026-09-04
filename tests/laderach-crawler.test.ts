@@ -1,8 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchLaderachDetailPage,
   parseLaderachListingHtml,
   parseLaderachNextDataJobs,
   parseLaderachDetailHtml,
+  normalizeLaderachJobUrl,
   extractNextData,
   slugify,
   stripHtml,
@@ -73,6 +75,29 @@ const SAMPLE_DETAIL_HTML_MINIMAL = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Läderach job parser', () => {
+  describe('normalizeLaderachJobUrl', () => {
+    it('allows only relative or same-origin HTTPS Läderach job routes', () => {
+      const path = '/jobs/62367409/Technical-IT-Architect/';
+      expect(normalizeLaderachJobUrl(path)).toBe(`https://laderach.career.softgarden.de${path}`);
+      expect(normalizeLaderachJobUrl(`https://laderach.career.softgarden.de${path}`))
+        .toBe(`https://laderach.career.softgarden.de${path}`);
+      expect(normalizeLaderachJobUrl(`https://attacker.example${path}`)).toBeNull();
+      expect(normalizeLaderachJobUrl(`http://laderach.career.softgarden.de${path}`)).toBeNull();
+      expect(normalizeLaderachJobUrl('https://laderach.career.softgarden.de/about-us/')).toBeNull();
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchLaderachDetailPage('https://attacker.example/jobs/62367409/Technical-IT-Architect/'))
+          .resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('extractNextData', () => {
     it('extracts __NEXT_DATA__ JSON from HTML', () => {
       const data = extractNextData(SAMPLE_LISTING_HTML);
@@ -104,8 +129,8 @@ describe('Läderach job parser', () => {
 
     it('deduplicates by URL', () => {
       const duped = [
-        { jobPostingId: 1, title: 'Job A', link: 'https://example.com/jobs/1/A/', location: 'Zug' },
-        { jobPostingId: 1, title: 'Job A', link: 'https://example.com/jobs/1/A/', location: 'Zug' },
+        { jobPostingId: 1, title: 'Job A', link: 'https://laderach.career.softgarden.de/jobs/1/A/', location: 'Zug' },
+        { jobPostingId: 1, title: 'Job A', link: 'https://laderach.career.softgarden.de/jobs/1/A/', location: 'Zug' },
       ];
       expect(parseLaderachNextDataJobs(duped)).toHaveLength(1);
     });
@@ -114,6 +139,26 @@ describe('Läderach job parser', () => {
       expect(parseLaderachNextDataJobs(null)).toEqual([]);
       expect(parseLaderachNextDataJobs([])).toEqual([]);
       expect(parseLaderachNextDataJobs('not an array')).toEqual([]);
+    });
+
+    it('falls back to a rebuilt same-origin URL when item.link is malformed', () => {
+      const jobs = parseLaderachNextDataJobs([
+        {
+          jobPostingId: 71234567,
+          title: 'Confiseur/Confiseuse (w/m/d)',
+          link: 'not a url at all',
+          location: 'Bilten',
+        },
+      ]);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].url).toBe('https://laderach.career.softgarden.de/jobs/71234567/confiseur-confiseuse-w-m-d/');
+    });
+
+    it('still drops the job when jobPostingId is missing and link is malformed', () => {
+      const jobs = parseLaderachNextDataJobs([
+        { jobPostingId: '', title: 'Bad Job', link: 'https://attacker.example/jobs/1/x/', location: 'Bilten' },
+      ]);
+      expect(jobs).toHaveLength(0);
     });
   });
 
@@ -138,6 +183,14 @@ describe('Läderach job parser', () => {
       const jobs = parseLaderachListingHtml(SAMPLE_LISTING_HTML_NO_NEXT);
       const urls = jobs.map((j) => j.url);
       expect(new Set(urls).size).toBe(urls.length);
+    });
+
+    it("keeps an apostrophe inside a double-quoted fallback href", () => {
+      const [job] = parseLaderachListingHtml(`
+        <a href="/jobs/7654321/Chef-d'equipe/">Chef d'équipe</a>
+        <small>Locations: <!-- -->Bilten</small>
+      `);
+      expect(job.url).toBe("https://laderach.career.softgarden.de/jobs/7654321/Chef-d'equipe/");
     });
 
     it('returns empty for null/empty input', () => {

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-08-28T05:39:07.538Z",
+  "assembledAt": "2026-09-03T23:22:40.509Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -94,7 +94,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported"
     },
     {
       "title": "Infermieri",
@@ -186,7 +187,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported"
     },
     {
       "title": "Operatori Sociosanitari",
@@ -273,7 +275,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported"
     },
     {
       "title": "Assistenti di cura",
@@ -367,7 +370,8 @@
         "assistenti-di-cura-lis-lugano-istituti-sociali-lugano",
         "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
         "assistente-di-cura-lis-lugano-istituti-sociali-pregassona"
-      ]
+      ],
+      "salarySource": "reported"
     },
     {
       "title": "Collaboratori sanitari",
@@ -513,7 +517,8 @@
           "collaborateurs-de-sante-lis-lugano-istituti-sociali-pregassona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:02:43.951Z"
+      "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "salarySource": "reported"
     },
     {
       "title": "Operatori settore animazione",
@@ -606,7 +611,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported"
     },
     {
       "title": "Fisioterapisti / Ergoterapisti",
@@ -699,7 +705,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported"
     },
     {
       "title": "Educatori sociali",
@@ -823,7 +830,8 @@
           "enseignants-sociaux-lis-lugano-istituti-sociali-pregassona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:02:43.951Z"
+      "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "salarySource": "reported"
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -918,7 +926,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported"
     },
     {
       "title": "Educatori dell'infanzia",
@@ -1013,7 +1022,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported"
     },
     {
       "title": "Capisquadra - chef di cucina",
@@ -1106,7 +1116,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported"
     },
     {
       "title": "Cuochi",
@@ -1208,7 +1219,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported"
     },
     {
       "title": "Addetti servizi alla casa",
@@ -1284,7 +1296,8 @@
         "it": [
           "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona"
         ]
-      }
+      },
+      "salarySource": "reported"
     }
   ]
 }

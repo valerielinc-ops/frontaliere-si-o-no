@@ -1,7 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchDavosKlostersBergbahnenDetailPage,
   parseDavosKlostersBergbahnenListingHtml,
   parseDavosKlostersBergbahnenDetailHtml,
+  normalizeDavosKlostersBergbahnenJobUrl,
   slugify,
   stripHtml,
   inferEmploymentType,
@@ -104,6 +106,39 @@ const SAMPLE_DETAIL_HTML = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Davos Klosters Bergbahnen job parser', () => {
+  describe('normalizeDavosKlostersBergbahnenJobUrl', () => {
+    it('allows only relative or same-origin HTTPS Davos job routes', () => {
+      const path = '/de/mountains/stellenangebote/Betriebselektriker-in_j_1234';
+      expect(normalizeDavosKlostersBergbahnenJobUrl(path))
+        .toBe(`https://www.davosklostersmountains.ch${path}`);
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`https://www.davosklostersmountains.ch${path}`))
+        .toBe(`https://www.davosklostersmountains.ch${path}`);
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`https://attacker.example${path}`)).toBeNull();
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`http://www.davosklostersmountains.ch${path}`)).toBeNull();
+      expect(normalizeDavosKlostersBergbahnenJobUrl('https://www.davosklostersmountains.ch/de/mountains/events/1234')).toBeNull();
+    });
+
+    it('tolerates one extra path segment after the job id (rexx-systems suffix)', () => {
+      const base = '/de/mountains/stellenangebote/Betriebselektriker-in_j_1234';
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`${base}/apply`))
+        .toBe(`https://www.davosklostersmountains.ch${base}/apply`);
+      // still rejects more than one extra segment
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`${base}/apply/extra`)).toBeNull();
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchDavosKlostersBergbahnenDetailPage(
+          'https://attacker.example/de/mountains/stellenangebote/Betriebselektriker-in_j_1234',
+        )).resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('parseDavosKlostersBergbahnenListingHtml', () => {
     it('extracts job cards from real HTML structure', () => {
       const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
@@ -120,6 +155,17 @@ describe('Davos Klosters Bergbahnen job parser', () => {
       expect(jobs[0].department).toBe('Gastro & Bar');
       expect(jobs[1].percentage).toBe('100%');
       expect(jobs[1].department).toBe('Bergbahnen');
+    });
+
+    it("keeps an apostrophe inside a double-quoted detail href", () => {
+      const [job] = parseDavosKlostersBergbahnenListingHtml(`
+        <div class="job-item">
+          <h3 class="job-item__title">Chef d'équipe</h3>
+          <a href="/de/mountains/stellenangebote/Chef-d'equipe_j_4242">Details</a>
+        </div>
+      `);
+      expect(job.url).toBe("https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-d'equipe_j_4242");
+      expect(job.jobId).toBe('4242');
     });
 
     it('sets all locations to Davos and canton to GR', () => {

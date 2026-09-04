@@ -34,6 +34,7 @@ import {
   buildDamianiLocalizedContent,
   inferDamianiCategory,
 } from './lib/damiani-job-parser.mjs';
+import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -116,7 +117,24 @@ async function fetchDamianiListings() {
   for (const startrow of [0, 25, 50]) {
     const url = startrow ? `${SEARCH_BASE}&startrow=${startrow}` : SEARCH_BASE;
     const html = await fetchText(url);
-    const rows = parseDamianiSearchPage(html);
+    const {
+      rows,
+      skippedMalformedRows,
+      ignoredNonJobRows,
+    } = parseDamianiSearchPage(html);
+    const diagnostic = classifyMalformedRowDrift(rows.length, skippedMalformedRows);
+    if (skippedMalformedRows > 0) {
+      console.warn(
+        ` Damiani search page ${startrow}: skipped ${skippedMalformedRows}/${diagnostic.total} malformed row(s)` +
+          (ignoredNonJobRows > 0 ? ` (${ignoredNonJobRows} non-job chrome row(s) ignored separately)` : ''),
+      );
+    }
+    if (diagnostic.severity === 'error') {
+      throw new Error(
+        `Damiani search structure drift at startrow=${startrow}: ` +
+          `${skippedMalformedRows}/${diagnostic.total} rows malformed`,
+      );
+    }
     if (rows.length === 0) break;
     for (const row of rows) {
       const key = row.href;

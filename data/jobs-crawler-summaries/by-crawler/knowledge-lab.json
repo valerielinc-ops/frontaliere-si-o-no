@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-08-28T05:26:27.870Z",
+  "generatedAt": "2026-09-03T23:20:07.038Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 895,
-  "avgDurationMs": 895,
+  "durationMs": 530,
+  "avgDurationMs": 530,
   "durationHistory": [
-    895
+    530
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,6 +43,7 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

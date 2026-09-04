@@ -12,6 +12,7 @@
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
@@ -33,6 +34,7 @@ import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-t
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -180,10 +182,10 @@ export function buildEocRegeneratedSlug(job, location) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (!baseSlug) return '';
-  if (!suffix) return baseSlug.slice(0, 200);
+  if (!suffix) return truncateSlugAtWordBoundary(baseSlug, 200);
   // Reserve room for the `-{suffix}` tail (7 chars) so the final slug stays ≤ 90.
   const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
-  const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+  const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
   return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
 }
 
@@ -251,16 +253,20 @@ function extractSearchToken(html) {
  * 4. Stop when a page returns 0 new vacancy IDs (all seen before or empty page).
  * 5. Return full detail page URLs as seed URLs for the base crawler.
  */
-async function fetchEocJobDetailUrls() {
+export async function fetchEocJobDetailUrls(options = {}) {
   console.log('🔍 Fetching EOC jobs from Umantis listing (paginated)...');
   const allVacancyIds = new Set();
+  const fetchPageImpl = options.fetchPageImpl || fetchPage;
+  const delayMs = options.delayMs ?? 500;
+  let pagesFetched = 0;
+  let duplicateIdentity = 0;
+  let termination = '';
 
-  // Page 1: use the full CompanyID listing URL to initialize the search session
-  const page1Html = await fetchPage(UMANTIS_LISTING_URL);
+  const page1Html = await fetchPageImpl(UMANTIS_LISTING_URL);
   if (!page1Html) {
-    console.error('❌ Failed to fetch Umantis listing page 1.');
-    return [];
+    throw new Error('EOC discovery failed: Umantis listing page 1 was unavailable.');
   }
+  pagesFetched += 1;
 
   const page1Ids = extractVacancyIds(page1Html);
   for (const id of page1Ids) allVacancyIds.add(id);
@@ -268,57 +274,76 @@ async function fetchEocJobDetailUrls() {
 
   const searchToken = extractSearchToken(page1Html);
   if (!searchToken) {
-    console.warn('⚠️ Could not extract search token — returning page 1 results only.');
-    return buildDetailUrls(allVacancyIds);
+    throw new Error('EOC discovery failed: filtered listing did not expose the pagination search token.');
   }
   console.log(`  🔑 Search token: ${searchToken}`);
 
-  // Pages 2..N: paginate using the connector table params
-  // IMPORTANT: Include lang=ita and ContentOnly= to maintain the CompanyID filter
-  // context from page 1. Without these params, the search_token expands to ALL
-  // Umantis vacancies, not just the EOC-filtered subset.
-  for (let pageNum = 2; pageNum <= MAX_PAGES; pageNum++) {
+  if (page1Ids.size === 0) {
+    return {
+      urls: [],
+      sourceZero: true,
+      termination: 'verified-zero',
+      pagesFetched,
+      duplicateIdentity,
+    };
+  }
+  if (page1Ids.size < UMANTIS_ITEMS_PER_PAGE) termination = 'partial';
+
+  for (let pageNum = 2; !termination && pageNum <= MAX_PAGES; pageNum++) {
     const pageUrl = `${UMANTIS_BASE}/Jobs/4?lang=ita&tc${UMANTIS_TABLE_ID}=p${pageNum}&_search_token${UMANTIS_TABLE_ID}=${searchToken}&ContentOnly=`;
-    const html = await fetchPage(pageUrl);
+    const html = await fetchPageImpl(pageUrl);
     if (!html) {
-      console.log(`  📄 Page ${pageNum}: fetch failed — stopping pagination.`);
-      break;
+      throw new Error(`EOC discovery failed: Umantis listing page ${pageNum} was unavailable.`);
     }
+    pagesFetched += 1;
 
     const pageIds = extractVacancyIds(html);
     if (pageIds.size === 0) {
       console.log(`  📄 Page ${pageNum}: 0 vacancies — end of listing.`);
+      termination = 'empty';
       break;
     }
 
-    // Check for wrap-around: if ALL IDs on this page were already seen, stop
     let newCount = 0;
     for (const id of pageIds) {
       if (!allVacancyIds.has(id)) {
         allVacancyIds.add(id);
         newCount++;
+      } else {
+        duplicateIdentity += 1;
       }
     }
 
     console.log(`  📄 Page ${pageNum}: ${pageIds.size} vacancies (${newCount} new)`);
-
     if (newCount === 0) {
       console.log(`  🔄 All IDs on page ${pageNum} already seen — pagination wrapped around. Stopping.`);
+      termination = 'wrap';
       break;
     }
-
-    // If page had fewer than expected items, likely the last page
     if (pageIds.size < UMANTIS_ITEMS_PER_PAGE) {
       console.log(`  📄 Page ${pageNum}: partial page (${pageIds.size} < ${UMANTIS_ITEMS_PER_PAGE}) — last page.`);
+      termination = 'partial';
       break;
     }
-
-    // Small delay to be polite to Umantis servers
-    await new Promise((r) => setTimeout(r, 500));
+    if (delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
   }
 
+  if (!termination) {
+    throw new Error(`EOC discovery incomplete: pagination reached MAX_PAGES=${MAX_PAGES} without an explicit end.`);
+  }
+  const urls = buildDetailUrls(allVacancyIds);
+  if (urls.length !== allVacancyIds.size
+      || urls.some((url) => !/^https:\/\/recruitingapp-2761\.umantis\.com\/Vacancies\/\d+\/Description\/4$/.test(url))) {
+    throw new Error(`EOC discovery invariant failed: canonical=${urls.length}, identities=${allVacancyIds.size}.`);
+  }
   console.log(`✅ Total unique EOC vacancy IDs discovered: ${allVacancyIds.size}`);
-  return buildDetailUrls(allVacancyIds);
+  return {
+    urls,
+    sourceZero: false,
+    termination,
+    pagesFetched,
+    duplicateIdentity,
+  };
 }
 
 /**
@@ -334,43 +359,46 @@ function buildDetailUrls(vacancyIds) {
  * Ensure the EOC adapter JSON has the correct seed URLs
  * (detail page URLs discovered from paginated listing).
  */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${EOC_KEY}.json`);
+export function buildEocAdapterConfig(baseAdapter, seedUrls, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    companyHost: baseAdapter?.companyHost || 'eoc.ch',
+    seedUrls,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html', 'jsonld'])),
+    notes: 'Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.',
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${EOC_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertEocAdapterParity(adapter, seedUrls) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)) {
+    throw new Error('EOC adapter parity failed: persisted seeds differ from the complete Umantis listing.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  adapterPath = path.join(ADAPTERS_DIR, `${EOC_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: EOC_KEY,
       companyName: 'EOC – Ente Ospedaliero Cantonale',
       companyHost: 'eoc.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      notes: 'Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.companyHost = adapter.companyHost || 'eoc.ch';
-    if (!adapter.crawlerModes?.includes('generic_ats')) {
-      adapter.crawlerModes = adapter.crawlerModes || [];
-      adapter.crawlerModes.unshift('generic_ats');
-    }
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.notes = 'Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.';
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${EOC_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildEocAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertEocAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${EOC_KEY} updated with ${seedUrls.length} seed URLs (Umantis parity verified).`);
+  return persisted;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -809,16 +837,16 @@ async function main() {
   console.log('🏥 Running dedicated EOC – Ente Ospedaliero Cantonale jobs crawler...');
 
   // 1. Fetch all job detail URLs from paginated Umantis listing
-  const detailUrls = await fetchEocJobDetailUrls();
+  const discovery = await fetchEocJobDetailUrls();
+  const detailUrls = discovery.urls;
 
-  if (detailUrls.length === 0) {
-    console.log('⚠️ No EOC job URLs discovered from the listing. The Umantis portal may be down.');
-    console.log('   Falling back to existing adapter seed URLs...');
-    // Don't overwrite the adapter — keep whatever seeds exist
-  } else {
-    // 2. Update the adapter with discovered detail URLs
-    ensureAdapterSeedUrls(detailUrls);
+  if (discovery.sourceZero) {
+    console.log('ℹ️ Umantis returned a verified empty EOC snapshot. Exiting OK without changing the adapter.');
+    return;
   }
+
+  // 2. Update the adapter with the complete discovered detail URLs
+  ensureAdapterSeedUrls(detailUrls);
 
   // Snapshot company jobs before crawl for diff summary
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(EOC_KEY, DATA_JOBS).filter(isEocJob))

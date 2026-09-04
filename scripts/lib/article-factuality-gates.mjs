@@ -45,6 +45,7 @@
  */
 
 import { tokenizeIt, containmentSim } from './it-text-similarity.mjs';
+import { escapeRegExpLiteral } from './escape-regexp.mjs';
 import {
   LOCALE_LEXICON,
   lexiconFor,
@@ -1375,19 +1376,46 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // citation cues» codificano le tre scelte insieme, perche' non vengano
 // «riparate» una per giro: chiudere le aperte fa passare il primo e rompe il
 // secondo, e togliere il `(?!t)` rompe il terzo.
+//
+// `Gesetz(?:es|e)?(?!t)` vive FUORI dal gruppo ancorato al `\b` iniziale, a
+// differenza delle altre alternative: e' l'unico caso in cui il composto
+// tedesco attacca `gesetz` come CODA su un prefisso che non e' `Bundes-`
+// letterale — misurato con `(LFW)` in «Nach dem Bundesarbeitsgesetz (LFW)
+// vom 13. März 1943» (stesso corpo che ha portato l'incidente #323 in
+// traduzione tedesca), dove `Bundesarbeitsgesetz` non contiene la sottostringa
+// `Bundesgesetz` (c'e' `arbeits` in mezzo) e un `\b` davanti a `Gesetz` non
+// puo' scattare a meta' parola. Applicare il context-guard a LFW/LPS senza
+// questo aggiustamento avrebbe reso invisibile esattamente la fabbricazione
+// che il test su questa frase gia' misura. Il `(?!t)` resta l'unica esclusione
+// e continua a coprire `gesetzt`/`vorausgesetzt` ovunque compaiano.
 const NORM_CITATION_CUE =
-  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?(?!t)|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]\b|articles?|Artikeln?\b|art\.|cpv\.|Abs\.|RS\s*\d)/i;
+  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]\b|articles?|Artikeln?\b|art\.|cpv\.|Abs\.|RS\s*\d)|Gesetz(?:es|e)?(?!t)/i;
+
+// LFW/LPS/LCO non hanno oggi un omonimo reale misurato (a differenza della
+// banca LCL), quindi chiedere SEMPRE un cue giuridico indebolirebbe il gate:
+// «secondo la LFW» e «la LCO disciplina» sono citazioni inequivocabili anche
+// senza la parola `legge`, `art.` o `RS`. Manteniamo il bare match storico e
+// scartiamo soltanto forme esplicitamente da nome di entita'/prodotto, che e'
+// l'intento anti-falso-positivo della meta' corpus senza aprire quel buco.
+const benignNormEntity = (acronym) => new RegExp(
+  String.raw`\b(?:gruppo|azienda|societ[aà]|associazione|banca|app|company|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen)\s+${acronym}$`,
+  'i',
+);
 
 export const FABRICATED_NORM_ACRONYMS = [
   {
     acronym: 'LFW',
     re: /(?<![A-Za-z])LFW(?![A-Za-z])/i,
     real: "la legge sul lavoro è LL (RS 822.11, 13 marzo 1964); per l'apprendistato è la LFPr (RS 412.10)",
+    benign: benignNormEntity('LFW'),
+    contextWindow: 120,
   },
   {
     acronym: 'LPS',
     re: /(?<![A-Za-z])LPS(?![A-Za-z])/i,
     real: 'non esiste: previdenza → LAVS/LAI/LPP, assicurazione malattie → LAMal/LVAMal, permesso di soggiorno → LStrI (RS 142.20)',
+    benign: benignNormEntity('LPS'),
+    contextWindow: 120,
   },
   {
     acronym: 'LCL',
@@ -1420,6 +1448,8 @@ export const FABRICATED_NORM_ACRONYMS = [
     acronym: 'LCO',
     re: /(?<![A-Za-z])LCO(?![A-Za-z])/i,
     real: 'non esiste: il contrasto alla criminalità organizzata è nel Codice penale, art. 260ter CP (RS 311.0)',
+    benign: benignNormEntity('LCO'),
+    contextWindow: 120,
   },
 ];
 
@@ -1440,7 +1470,7 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string' || !text) return issues;
   const locale = opts.locale || 'it';
-  for (const { acronym, re, real, context, contextWindow } of FABRICATED_NORM_ACRONYMS) {
+  for (const { acronym, re, real, context, benign, contextWindow } of FABRICATED_NORM_ACRONYMS) {
     // `re` is deliberately non-global: a `g` regex carries `lastIndex` across
     // calls, and this table is module-level shared state. Lo scan qui sotto
     // usa quindi un CLONE locale con flag `g`, mai la regex della tabella:
@@ -1456,10 +1486,15 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
     let m;
     while ((m = scan.exec(text)) !== null) {
       if (m[0] === '') { scan.lastIndex += 1; continue; }
-      if (context) {
+      if (context || benign) {
         const w = contextWindow ?? 80;
         const nearby = text.slice(Math.max(0, m.index - w), m.index + m[0].length + w);
-        if (!context.test(nearby)) continue;
+        // Il cue benigno deve terminare sulla occorrenza CORRENTE: cercarlo
+        // nell'intera finestra farebbe assolvere una seconda citazione legale
+        // solo perche' 80 caratteri prima compariva «il gruppo LFW».
+        const throughMatch = text.slice(Math.max(0, m.index - w), m.index + m[0].length);
+        if (benign?.test(throughMatch)) continue;
+        if (context && !context.test(nearby)) continue;
       }
       issues.push(issue(
         'fabricated-norm-acronym',
@@ -1811,9 +1846,9 @@ export function renderAnchorForPrompt(anchor) {
  */
 function anchorNeedle(anchor) {
   const [kind, value] = String(anchor).split(':');
-  if (kind === 'pct') return new RegExp(String.raw`${value.replace('.', '[.,]')}\s*%`);
+  if (kind === 'pct') return new RegExp(String.raw`${escapeRegExpLiteral(value).replace(/\\\./g, '[.,]')}\s*%`);
   if (kind === 'km') return new RegExp(String.raw`${Number(value)}\s*km`, 'i');
-  if (kind === 'org') return new RegExp(String.raw`\b${value}\b`);
+  if (kind === 'org') return new RegExp(String.raw`\b${escapeRegExpLiteral(value)}\b`);
   if (kind === 'date') {
     const [y, mo, d] = value.split('-');
     const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
@@ -2021,7 +2056,7 @@ export function matchedAnchors(articleText, anchors) {
       const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
       if (new RegExp(String.raw`${Number(d)}\s*°?\s+${monthName}\s+${y}`, 'i').test(articleText)) found.add(anchor);
     } else if (kind === 'org') {
-      if (new RegExp(String.raw`\b${value}\b`, 'i').test(articleText)) found.add(anchor);
+      if (new RegExp(String.raw`\b${escapeRegExpLiteral(value)}\b`, 'i').test(articleText)) found.add(anchor);
     }
   }
   return found;

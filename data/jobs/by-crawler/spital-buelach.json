@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-08-28T05:36:54.822Z",
+  "assembledAt": "2026-09-03T23:36:12.579Z",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -33,7 +33,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/spontanbewerbung/28759c65-784e-434f-b56c-def3ab1dc96f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.814Z",
+      "crawledAt": "2026-09-03T23:36:08.167Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -72,6 +72,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.662Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -114,7 +115,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/assistenzaerztin-assistenzarzt-chirurgie/7d1d25c0-7d69-4cbd-9a32-fd60313f40bb",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.811Z",
+      "crawledAt": "2026-09-03T23:36:08.163Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,6 +168,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.659Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -209,7 +211,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/assistenzaerztin-assistenzarzt-notfall/fa4d2757-9a07-4ae6-8059-2e115acae2ca",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.809Z",
+      "crawledAt": "2026-09-03T23:36:08.160Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -269,6 +271,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.660Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -311,7 +314,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/adc1b8d4-c700-445b-a13a-c4a55ee70224",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.808Z",
+      "crawledAt": "2026-09-03T23:36:08.157Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -364,6 +367,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.657Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -406,7 +410,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistent-in-gynaekologie-geburtshilfe/b4661826-c8f6-41fc-8790-d90f636ab14f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.806Z",
+      "crawledAt": "2026-09-03T23:36:08.155Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -459,6 +463,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.655Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -501,7 +506,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-anaesthesiologie/07b87b30-8511-431c-8b2f-497349c55c09",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.804Z",
+      "crawledAt": "2026-09-03T23:36:08.154Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -558,6 +563,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.654Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -600,7 +606,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-pflegefachperson-hf-somatik-und-kjff/739a0e95-73c9-4610-afdf-1f8844778247",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.803Z",
+      "crawledAt": "2026-09-03T23:36:08.152Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -660,6 +666,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.653Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -702,7 +709,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-innere-medizin/37683a89-70fe-48e2-a1cc-5f509847bf3c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.801Z",
+      "crawledAt": "2026-09-03T23:36:08.150Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -762,6 +769,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.651Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -804,7 +812,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/hebamme-pflegefachfrau-nachtdienst-geburtshaus/001ee020-7714-48f9-8461-e7fc22c54fcd",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.799Z",
+      "crawledAt": "2026-09-03T23:36:08.149Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -844,6 +852,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.650Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -886,7 +895,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus/a9d2ca93-8e8f-4dbb-b70a-ca642844c728",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.797Z",
+      "crawledAt": "2026-09-03T23:36:08.147Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -958,6 +967,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1000,7 +1010,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/freiwilligen-team/89ac093c-ef7c-4233-a394-4e9b99507f90",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.795Z",
+      "crawledAt": "2026-09-03T23:36:08.142Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1037,86 +1047,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.646Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-1338a8867eaf",
-      "slug": "esperto-a-anestesia-nds-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "esperto-a-anestesia-nds-spital-bulach-bulach",
-        "en": "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
-        "de": "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
-        "fr": "infirmier-ere-anesthesie-nds-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Dipl. Expert:in Anästhesiepflege NDS",
-      "titleByLocale": {
-        "it": "Esperto/a Anestesia NDS",
-        "en": "Dipl. Anesthesia Nurse Specialist",
-        "de": "Dipl. Expert:in Anästhesiepflege NDS",
-        "fr": "Infirmier/ère Anesthésie NDS"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Selbstständige Pflege und Betreuung aller zugeteilten Patientinnen und Patienten\n\n• Durchführung und Überwachung von Regional- und Vollnarkosen\n\n• Mitverantwortung für einen reibungslosen Ablauf des Operationsprogramms\n\n• Aufbereitung und Kontrolle der medizinischen Geräte und Materialien\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur Dipl. Expertin Anästhesiepflege NDS HF/ Dipl. Experten Anästhesiepflege NDS HF\n\n• Mehrjährige Berufserfahrung auf diesem Gebiet\n\n• Fähigkeit, sich auf schnell wechselnde Tätigkeiten und Situationen einzustellen\n\n• Aufgeschlossene sowie belastbare Persönlichkeit\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "La Spital Bülach cresce - crescere con voi. Compiti:\n• Cura e cura autonoma di tutti i pazienti assegnati\n• implementazione e monitoraggio dell'anestesia regionale e completa\n• Co-responsabilità per un programma di funzionamento regolare\n• Trattamento e controllo di dispositivi medici e materiali Requisiti:\n• Formazione completa per dipl. Expert Anesthesia Care NDS HF/ Dipl. Expert Anesthesia care NDS HF\n• Esperienza professionale pluriennale in questo campo\n• P2-Verpflage.svg,P3-Verguenstigungen.svg,P4-Umkleideval Ogni anno trattiamo e curiamo circa 10.000 pazienti stazionari e oltre 78'000 pazienti ambulatoriali. In totale, circa 1'400 bambini vedono la luce del mondo allo Spital Bülach ogni anno.",
-        "en": "The Spital Bülach grows - grow with you. Tasks:\n• Self-maintained care and care of all assigned patients\n• implementation and monitoring of regional and full anaesthesia\n• Co-responsibility for a smooth operation programme\n• Treatment and control of medical devices and materials Requirements:\n• Completed training for dipl. Expert Anesthesia Care NDS HF/ Dipl. Expert Anesthesia care NDS HF\n• Multiannual professional experience in this field\n• Ability to adapt to rapidly changing activities and situations\n• Open and durable Personality We offer: P1-oeV.svg,P2-Verpflage.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Social benefits.svg,P6-Health Spidering.svg,P7-Working time.svg,P11-Values Every year we treat and care for about 10,000 stationary patients and over 78'000 outpatient patients. In total, around 1'400 babies see the light of the world at the Spital Bülach annually.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Selbstständige Pflege und Betreuung aller zugeteilten Patientinnen und Patienten\n\n• Durchführung und Überwachung von Regional- und Vollnarkosen\n\n• Mitverantwortung für einen reibungslosen Ablauf des Operationsprogramms\n\n• Aufbereitung und Kontrolle der medizinischen Geräte und Materialien\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur Dipl. Expertin Anästhesiepflege NDS HF/ Dipl. Experten Anästhesiepflege NDS HF\n\n• Mehrjährige Berufserfahrung auf diesem Gebiet\n\n• Fähigkeit, sich auf schnell wechselnde Tätigkeiten und Situationen einzustellen\n\n• Aufgeschlossene sowie belastbare Persönlichkeit\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "Le Bülach Spital pousse - grandir avec vous. Tâches:\n• Soins et soins autosuffisants de tous les patients affectés\n• Mise en œuvre et suivi de l'anesthésie régionale et complète\n• Coresponsabilité pour un programme de bon fonctionnement\n• Traitement et contrôle des dispositifs et matériels médicaux Exigences:\n• Formation complète pour les dipl. Expert Anesthésie Soins NDS HF/ Dipl. Expert Anesthésie Soins NDS HF\n• Expérience professionnelle pluriannuelle dans ce domaine\n• Capacité à s'adapter à des activités et des situations en évolution rapide\n• Personnalité ouverte et durable Nous offrons: P1-oeV.svg,P2-Verpflage.svg,P3-Verguentigungen.svg,P4-Umkleidepauschale.svg,P5-Social benefits.svg,P6-Health Spidering.svg,P7-Working time.svg,P11-Values Chaque année, nous traitons et soigneons environ 10 000 patients en établissement et plus de 78'000 patients externes. Au total, environ 1'400 bébés voient la lumière du monde au Spital Bülach chaque année."
-      },
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expert-in-anaesthesiepflege-nds/41d49081-615a-4b4f-9321-02fd279d07a5",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.794Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-09-03",
-      "applyUrl": "https://jobs.spitalbuelach.ch/dipl-expertin-anaesthesiepflege-nds-40-100-de-f1196.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Trattamento e controllo di dispositivi medici e materiali Requisiti:",
-          "Esperienza professionale pluriennale in questo campo"
-        ],
-        "en": [
-          "Treatment and control of medical devices and materials Requirements:",
-          "Multiannual professional experience in this field"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:48.643Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1159,7 +1090,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-radiologiefachperson-hf/3fb5c264-b8a8-477e-ac12-f5817afa775e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.792Z",
+      "crawledAt": "2026-09-03T23:36:08.141Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1228,98 +1159,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.637Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-d26fd1ed9dcf",
-      "slug": "assistente-di-medicina-di-base-ginecologia-e-ostetricia-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "assistente-di-medicina-di-base-ginecologia-e-ostetricia-spital-bulach-bulach",
-        "en": "medical-practice-assistant-gynecology-obstetrics-spital-bulach-bulach",
-        "de": "med-praxisassistent-in-gynakologie-amp-geburtshilfe-spital-buelach-bulach",
-        "fr": "assistant-e-en-medecine-de-cabinet-gynecologie-obstetrique-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Med. Praxisassistent:in Gynäkologie & Geburtshilfe",
-      "titleByLocale": {
-        "it": "Assistente di Medicina di Base Ginecologia e Ostetricia",
-        "en": "Medical Practice Assistant Gynecology & Obstetrics",
-        "de": "Med. Praxisassistent:in Gynäkologie & Geburtshilfe",
-        "fr": "Assistant(e) en médecine de cabinet Gynécologie & Obstétrique"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Organisation und Führung der Kliniksprechstunden\n\n• Sprechstundenassistenz bei Amniozentese, Chorionzottenbiopsie (CVS), Vakuumbiopsie der Brust (Mammotom), Mamma-Punktion, HSG, Urodynamische Untersuchungen und kleinchirurgischen Eingriffen\n\n• Telefondienst (Triage / Terminierung / Auskünfte / Beratung)\n\n• Verantwortlich für die Verwaltung des Klinik E-Mail und KISIM-Postfachs\n\n• Erledigung der allgemeinen Sekretariatskorrespondenz wie Berichtswesen, Versicherungsanfragen sowie administrativen Aufgaben gegenüber Patientinnen, Krankenkassen, Versicherungen\n\n• Vertreten oder Unterstützen der anderen MPA's bei deren Abwesenheiten\n\nAnforderungen:\n• Abgeschlossenen Ausbildung als Medizinischen Praxisassistentin EFZ\n\n• Mehrjährige Berufserfahrung, von Vorteil im gynäkologischen Bereich sowie im Spitalwesen\n\n• Freundliche, zuverlässige, flexible und kompetente Persönlichkeit, die sich durch eine hohe Belastbarkeit und grosse Motivation auszeichnet\n\n• Flair für Organisation und Freude am regen Patientenkontakt\n\n• Fundierte Kenntnisse der medizinischen Terminologie, stilsicheres Deutsch und gute MS-Office-Anwenderkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "L'ospedale Bülach cresce: crescete con lui. Compiti:\n• Organizzazione e gestione delle consultazioni cliniche\n• Assistenza alla consultazione per amniocentesi, prelievo di villi coriali (CVS), biopsia mammaria sotto vuoto (mammotomo), puntura mammaria, HSG, esami urodinamici e procedure chirurgiche minori\n• Servizio telefonico (triage / programmazione / informazioni / consulenza)\n• Responsabile della gestione della posta elettronica della clinica e della casella di posta KISIM\n• Gestione della corrispondenza generale di segreteria come segnalazioni, richieste assicurative e compiti amministrativi per i pazienti, salute assicurazioni, assicurazioni\n• Rappresentare o sostenere le altre AMP in loro assenza Requisiti:\n• Formazione completata come assistente dello studio medico EFZ\n• Esperienza professionale pluriennale, un vantaggio sia nel campo ginecologico che nel sistema ospedaliero\n• Personalità amichevole, affidabile, flessibile e competente, caratterizzata da un alto livello di resilienza e grande motivazione\n• Attitudine per l'organizzazione e piacere del contatto attivo con i pazienti\n• Buona conoscenza della terminologia medica, tedesco elegante e buona conoscenza dell'uso di MS Office Offriamo: P1-oeV.svg,P2-Verpfehrung.svg,P3-Verguenstigungen.svg,P4-Schlaetzungpreis.svg,P5-Prestazioni sociali.svg,P7-Lavoro Hours.svg,P8-Fort-und-Weiterbildung.svg,P14-Birth.svg,P11-Wertschaetzung.svg L'ospedale di Bülach Con i suoi 170 letti e circa 1.200 collaboratori assicura assistenza medica a 180.000 persone nell'Unterland zurighese e nelle regioni limitrofe. Ogni anno curiamo e assistiamo circa 10.000 pazienti ricoverati e oltre 78.000 pazienti ambulatoriali. In totale, ogni anno nascono circa 1.400 bambini all'ospedale di Bülach.",
-        "en": "Bülach Hospital is growing - grow with it. Tasks:\n• Organization and management of clinic consultations\n• Consultation assistance with amniocentesis, chorionic villus sampling (CVS), vacuum biopsy of the breast (mammotome), mammary puncture, HSG, urodynamic examinations and minor surgical procedures\n• Telephone service (triage / scheduling / information / advice)\n• Responsible for managing the clinic email and KISIM mailbox\n• Handling general secretarial correspondence such as Reporting, insurance inquiries and administrative tasks for patients, health insurance companies, insurance companies\n• Representing or supporting the other MPA's in their absences Requirements:\n• Completed training as a medical practice assistant EFZ\n• Several years of professional experience, an advantage in the gynecological field as well as in the hospital system\n• Friendly, reliable, flexible and competent personality, which is characterized by a high level of resilience and great motivation\n• Flair for organization and enjoyment of active patient contact\n• Sound knowledge of medical Terminology, stylish German and good MS Office user knowledge We offer: P1-oeV.svg,P2-Verpfehrung.svg,P3-Verguenstigungen.svg,P4-Schlaetzungpreis.svg,P5-Social benefits.svg,P7-Working hours.svg,P8-Fort-und-Weiterbildung.svg,P14-Birth.svg,P11-Wertschaetzung.svg The Bülach Hospital With its 170 beds and around 1,200 employees, it ensures medical care for 180,000 people in the Zurich Unterland and the neighboring regions. Every year we treat and care for around 10,000 inpatients and over 78,000 outpatients. In total, around 1,400 babies are born at Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Organisation und Führung der Kliniksprechstunden\n\n• Sprechstundenassistenz bei Amniozentese, Chorionzottenbiopsie (CVS), Vakuumbiopsie der Brust (Mammotom), Mamma-Punktion, HSG, Urodynamische Untersuchungen und kleinchirurgischen Eingriffen\n\n• Telefondienst (Triage / Terminierung / Auskünfte / Beratung)\n\n• Verantwortlich für die Verwaltung des Klinik E-Mail und KISIM-Postfachs\n\n• Erledigung der allgemeinen Sekretariatskorrespondenz wie Berichtswesen, Versicherungsanfragen sowie administrativen Aufgaben gegenüber Patientinnen, Krankenkassen, Versicherungen\n\n• Vertreten oder Unterstützen der anderen MPA's bei deren Abwesenheiten\n\nAnforderungen:\n• Abgeschlossenen Ausbildung als Medizinischen Praxisassistentin EFZ\n\n• Mehrjährige Berufserfahrung, von Vorteil im gynäkologischen Bereich sowie im Spitalwesen\n\n• Freundliche, zuverlässige, flexible und kompetente Persönlichkeit, die sich durch eine hohe Belastbarkeit und grosse Motivation auszeichnet\n\n• Flair für Organisation und Freude am regen Patientenkontakt\n\n• Fundierte Kenntnisse der medizinischen Terminologie, stilsicheres Deutsch und gute MS-Office-Anwenderkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "L’hôpital de Bülach grandit – grandissez avec lui. Tâches :\n• Organisation et gestion des consultations cliniques\n• Assistance aux consultations pour amniocentèse, prélèvement de villosités choriales (CVS), biopsie sous vide du sein (mammotome), ponction mammaire, HSG, examens urodynamiques et interventions chirurgicales mineures\n• Service téléphonique (triage / planification / information / conseil)\n• Responsable de la gestion du courrier électronique de la clinique et de la boîte mail KISIM\n• Gérer la correspondance de secrétariat général telle que les rapports, les demandes d'assurance et les tâches administratives pour les patients, l'assurance maladie entreprises, compagnies d'assurance\n• Représenter ou soutenir les autres MPA en cas d'absence. Exigences :\n• Formation complète d'assistant de cabinet médical EFZ\n• Plusieurs années d'expérience professionnelle, un avantage dans le domaine gynécologique ainsi que dans le système hospitalier\n• Personnalité amicale, fiable, flexible et compétente, caractérisée par un haut niveau de résilience et une grande motivation\n• Sens de l'organisation et plaisir du contact actif avec le patient\n• Bonne connaissance de la terminologie médicale, bon allemand et bonne connaissance de l'utilisation de MS Office Nous proposons : P1-oeV.svg,P2-Verpfehrung.svg,P3-Verguenstigungen.svg,P4-Schlaetzungpreis.svg,P5-Prestations sociales.svg,P7-Travail hours.svg,P8-Fort-und-Weiterbildung.svg,P14-Birth.svg,P11-Wertschaetzung.svg L'hôpital de Bülach Avec ses 170 lits et environ 1'200 collaborateurs, il assure les soins médicaux de 180'000 personnes dans l'Unterland zurichois et les régions voisines. Chaque année, nous traitons et soignons environ 10 000 patients hospitalisés et plus de 78 000 patients ambulatoires. Au total, environ 1 400 bébés naissent chaque année à l'hôpital de Bülach."
-      },
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/med-praxisassistent-in-gynaekologie-geburtshilfe/da304fe1-fbef-4e7d-9987-cac7092ebd95",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.789Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-25",
-      "applyUrl": "https://jobs.spitalbuelach.ch/mpa-de-f1316.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione come Assistente di Medicina di Base EFZ",
-          "Esperienza professionale pluriennale, preferibilmente nel settore ginecologico e ospedaliero",
-          "Personalità amichevole, affidabile, flessibile e competente",
-          "Buona resistenza allo stress e motivazione elevata",
-          "Attitudine organizzativa e piacere nel contatto con i pazienti",
-          "Conoscenza della terminologia medica e del tedesco",
-          "Buona conoscenza di MS-Office",
-          "Capacità di lavorare in team e di gestire le responsabilità"
-        ],
-        "en": [
-          "Completed training as a Medical Practice Assistant EFZ",
-          "Multiple years of professional experience, preferably in gynecology and hospital care",
-          "Friendly, reliable, flexible, and competent personality",
-          "High resilience and motivation",
-          "Organizational skills and enjoyment of patient contact",
-          "Strong knowledge of medical terminology and German language",
-          "Good MS Office skills",
-          "Ability to work in a team and handle responsibilities"
-        ]
-      },
-      "previousSlugs": [
-        "med-praxisassistent-in-gynakologie-amp-geburtshilfe-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistent-in-gynakologie-amp-geburtshilfe-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:48.634Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1362,7 +1202,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-notfall/67bcbd7f-4e95-4d02-92c6-a32b14f57f8a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.788Z",
+      "crawledAt": "2026-09-03T23:36:08.139Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1418,6 +1258,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.623Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1460,7 +1301,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/nachdiplomstudium-hf-notfallpflege/bb4cf86f-eebc-4072-8c45-81bb22f72c4c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.786Z",
+      "crawledAt": "2026-09-03T23:36:08.137Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1521,162 +1362,7 @@
       "firstSeenAt": "2026-05-19T12:20:48.616Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-68a7c3bb47fa",
-      "slug": "segretario-del-dottore-in-radiologia-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "segretario-del-dottore-in-radiologia-spital-bulach-bulach",
-        "en": "doctor-s-secretary-in-radiology-spital-bulach-bulach",
-        "de": "arztsekretar-in-radiologie-spital-buelach-bulach",
-        "fr": "secretaire-du-docteur-en-radiologie-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Arztsekretär:in Radiologie",
-      "titleByLocale": {
-        "it": "Segretario del Dottore: in Radiologia",
-        "en": "Doctor's Secretary: in Radiology",
-        "de": "Arztsekretär:in Radiologie",
-        "fr": "Secrétaire du docteur: en radiologie"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Entgegennahme/Bearbeitung von Telefonanfragen inkl. Auskunftserteilung und Auftragskoordination\n\n• Planung und Vereinbarung von Untersuchungsterminen mit zuweisenden Ärztinnen und Ärzten sowie ambulanten Patientinnen und Patienten\n\n• Patientenempfang, Betreuung und Begleitung der Patientinnen und Patienten im ambulanten Ablauf\n\n• Erstellung des ambulanten Röntgenprogramms für den Folgetag inkl. administrativer Vorbereitung\n\n• Unterstützung des Teams im Tagesgeschäft sowie interdisziplinäre Zusammenarbeit und Übernahme zusätzlicher Aufgaben nach ärztlicher Anweisung\n\nAnforderungen:\n• Abgeschlossene Weiterbildung als Arztsekretär:in sowie medizinische Grundausbildung (z. B. MPA, FaGe oder RFP) mit mind. drei Jahren Berufserfahrung, idealerweise im Spital- oder Praxisumfeld\n\n• Sicherer Umgang mit medizinischer Terminologie und Verständnis für klinische Abläufe\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Rasche Auffassungsgabe sowie selbständige, sorgfältige und strukturierte Arbeitsweise\n\n• Flexibilität und Bereitschaft für Arbeitseinsätze im Rahmen von Ferien- und Abwesenheitsvertretungen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "La Spital Bülach cresce - crescere con voi. Compiti:\n• ricezione/elaborazione di richieste telefoniche incl. Coordinamento dell'informazione e dell'ordine\n• Pianificazione e accordo delle date di esame con medici e ambulatori\n• Ricezione, cura e supporto dei pazienti nel processo ambulatoriale\n• Preparazione del programma a raggi X ambulatoriale per il giorno successivo compresa la preparazione amministrativa\n• Sostenere il team nelle attività quotidiane e la cooperazione interdisciplinare e assumere compiti aggiuntivi secondo le istruzioni mediche Requisiti:\n• Formazione completa come segretaria di un medico: in e formazione medica di base (ad esempio MPA, FaGe o RFP) con almeno tre anni di esperienza professionale, idealmente nell'ambiente ospedaliero o pratica\n• Gestione sicura della terminologia medica e della comprensione per i processi clinici\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Rara comprensione e lavoro indipendente, attento e strutturato\n• Flessibilità e disponibilità a lavorare nel contesto dei rappresentanti delle vacanze e dell'assenza Offriamo: P1-oeV.svg,P2-Verpflage.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Social benefit.svg,P6-Gesundheitfoerderung.svg,P8-Fort-und-Zuitergbildung. Con i suoi 170 letti e circa 1.200 dipendenti, Spital Bülach assicura l'assistenza medica di 180'000 persone nella Zürcher Unterland e nelle regioni adiacenti. Ogni anno trattiamo e manteniamo circa 10.000 pazienti stazionari e oltre 78'000 pazienti ambulatoriali. In totale, circa 1'400 bambini vedono la luce del mondo allo Spital Bülach ogni anno.",
-        "en": "The Spital Bülach grows - grow with you. Tasks:\n• reception/processing of telephone requests incl. Information and order coordination\n• Planning and agreement of examination dates with doctors and outpatients\n• Patient reception, care and support of patients in the outpatient process\n• Preparation of the outpatient X-ray program for the following day including administrative preparation\n• Supporting the team in day-to-day business as well as interdisciplinary cooperation and taking over additional tasks according to medical instructions Requirements:\n• Complete training as a doctor's secretary:in and basic medical training (e.g. MPA, FaGe or RFP) with at least three years of professional experience, ideally in the hospital or practice environment\n• Safe handling of medical terminology and understanding for clinical processes\n• Very good knowledge of German in word and writing\n• Rare understanding and independent, careful and structured working\n• Flexibility and willingness to work in the context of holiday and absence representatives We offer: P1-oeV.svg,P2-Verpflage.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Social benefits.svg,P6-Gesundheitfoerderung.svg,P8-Fort-und-Zuiterbildung.svg,P11-Wertschaeungen.svg Svg With its 170 beds and around 1'200 employees, Spital Bülach ensures the medical care of 180'000 people in the Zürcher Unterland and the adjacent regions. Every year, we treat and maintain about 10,000 stationary patients and over 78'000 outpatient patients. In total, around 1'400 babies see the light of the world at the Spital Bülach annually.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Entgegennahme/Bearbeitung von Telefonanfragen inkl. Auskunftserteilung und Auftragskoordination\n\n• Planung und Vereinbarung von Untersuchungsterminen mit zuweisenden Ärztinnen und Ärzten sowie ambulanten Patientinnen und Patienten\n\n• Patientenempfang, Betreuung und Begleitung der Patientinnen und Patienten im ambulanten Ablauf\n\n• Erstellung des ambulanten Röntgenprogramms für den Folgetag inkl. administrativer Vorbereitung\n\n• Unterstützung des Teams im Tagesgeschäft sowie interdisziplinäre Zusammenarbeit und Übernahme zusätzlicher Aufgaben nach ärztlicher Anweisung\n\nAnforderungen:\n• Abgeschlossene Weiterbildung als Arztsekretär:in sowie medizinische Grundausbildung (z. B. MPA, FaGe oder RFP) mit mind. drei Jahren Berufserfahrung, idealerweise im Spital- oder Praxisumfeld\n\n• Sicherer Umgang mit medizinischer Terminologie und Verständnis für klinische Abläufe\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Rasche Auffassungsgabe sowie selbständige, sorgfältige und strukturierte Arbeitsweise\n\n• Flexibilität und Bereitschaft für Arbeitseinsätze im Rahmen von Ferien- und Abwesenheitsvertretungen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "Le Bülach Spital pousse - grandir avec vous. Tâches :\n• réception/traitement des demandes téléphoniques Coordination de l'information et de l'ordre\n• Planification et accord des dates d'examen avec les médecins et les ambulanciers\n• L'accueil, les soins et le soutien des patients dans le processus ambulatoire\n• Préparation du programme de radiographie externe pour le lendemain, y compris la préparation administrative\n• Soutenir l'équipe dans les affaires quotidiennes ainsi que la coopération interdisciplinaire et prendre en charge des tâches supplémentaires selon les instructions médicales Exigences:\n• Formation complète en tant que secrétaire de médecin: en formation médicale de base (par exemple MPA, FaGe ou RFP) avec au moins trois ans d'expérience professionnelle, idéalement dans l'hôpital ou l'environnement de pratique\n• Gestion sûre de la terminologie médicale et compréhension des processus cliniques\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Rare compréhension et travail indépendant, soigné et structuré\n• Flexibilité et volonté de travailler dans le contexte des représentants des vacances et des absences Nous offrons: P1-oeV.svg,P2-Verpflage.svg,P3-Verguentigungen.svg,P4-Umbleidepaschale.svg,P5-Prestations sociales.svg,P6-Gesundheitfoerderung.svg,P8-Fort-und-Zuiterbildung.svg,P11-Wertschaeungen.svg Avec ses 170 lits et environ 1'200 employés, Spital Bülach assure les soins médicaux de 180'000 personnes dans l'Unterland de Zürcher et les régions adjacentes. Chaque année, nous traitons et maintenons environ 10 000 patients en établissement et plus de 78'000 patients externes. Au total, environ 1'400 bébés voient la lumière du monde au Spital Bülach chaque année."
-      },
-      "needsRetranslation": true,
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/arztsekretaer-in-radiologie/383b03ef-b68f-448b-84cd-9b3a5403745a",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.784Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://jobs.spitalbuelach.ch/arztsekretariat-radiologie-de-f1399.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "arztsekretar-in-radiologie-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekretar-in-radiologie-spital-buelach-bulach"
-        ],
-        "en": [
-          "arztsekretar-in-radiologie-spital-buelach-bulach"
-        ],
-        "fr": [
-          "arztsekretar-in-radiologie-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-05-27T00:14:03.193Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-042a317da1ff",
-      "slug": "dipl-paramedici-in-hf-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "dipl-paramedici-in-hf-spital-bulach-bulach",
-        "en": "dipl-paramedics-in-hf-spital-bulach-bulach",
-        "de": "dipl-rettungssanitater-in-hf-spital-buelach-bulach",
-        "fr": "dipl-paramedicaux-en-hf-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Dipl. Rettungssanitäter:in HF",
-      "titleByLocale": {
-        "it": "Dipl. Paramedici: in HF",
-        "en": "Dipl. Paramedics: in HF",
-        "de": "Dipl. Rettungssanitäter:in HF",
-        "fr": "Dipl. Paramédicaux: en HF"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Durchführung von Primär- und Sekundäreinsätzen als dipl. Rettungssanitäterin/dipl. Rettungssanitäter\n\n• Professionelle Situationsbeurteilung sowie Einleitung der nötigen Massnahmen\n\n• Dokumentation während und nach den Rettungseinsätzen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäterin/Dipl. Rettungssanitäter HF oder entsprechend Schweizerisch anerkanntes Diplom\n\n• Mindestens 2 Jahre Berufserfahrung in einem Schweizer Rettungsdienst\n\n• Von Vorteil: Weiterbildungen in ACLS, PHTLS und PALS\n\nWir bieten:\nP6-Gesundheitsfoerderung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Bülach sta crescendo - crescere con esso. Compiti:\n• Attuazione delle missioni primarie e secondarie come dipl. paramedico/dipl. Paramedici\n• Valutazione della situazione professionale e avvio delle misure necessarie\n• Documentazione durante e dopo le operazioni di salvataggio Requisiti\n• Allenamento completato come Dipl. Paramedico/Dipl. Soccorso paramedico HF o equivalente diploma riconosciuto svizzero\n• Almeno 2 anni di esperienza professionale in un servizio di soccorso svizzero\n• Vantaggi: Formazione in ACLS, PHTLS e PALS Offriamo: P6 assistenza sanitaria. # Con i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "The Hospital Bülach is growing - grow with it. Tasks:\n• Implementation of primary and secondary missions as a dipl. paramedic/dipl. Paramedics\n• Professional situation assessment and initiation of the necessary measures\n• Documentation during and after rescue operations Requirements\n• Completed training as a Dipl. Paramedic/Dipl. Rescue paramedic HF or equivalent Swiss recognised diploma\n• At least 2 years of professional experience in a Swiss rescue service\n• Advantages: Training in ACLS, PHTLS and PALS We offer: P6 health care. svg With its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Durchführung von Primär- und Sekundäreinsätzen als dipl. Rettungssanitäterin/dipl. Rettungssanitäter\n\n• Professionelle Situationsbeurteilung sowie Einleitung der nötigen Massnahmen\n\n• Dokumentation während und nach den Rettungseinsätzen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäterin/Dipl. Rettungssanitäter HF oder entsprechend Schweizerisch anerkanntes Diplom\n\n• Mindestens 2 Jahre Berufserfahrung in einem Schweizer Rettungsdienst\n\n• Von Vorteil: Weiterbildungen in ACLS, PHTLS und PALS\n\nWir bieten:\nP6-Gesundheitsfoerderung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "L'hôpital Bülach est en croissance - grandir avec lui. Tâches :\n• Mise en œuvre des missions primaires et secondaires en tant que module. paramédic/dipl. Paramédicaux\n• Évaluation de la situation professionnelle et lancement des mesures nécessaires\n• Documentation pendant et après les opérations de sauvetage Exigences\n• Formation complète en tant que Dipl. Paramédic/Dipl. Sauvetage paramédic HF ou équivalent diplôme suisse reconnu\n• Au moins 2 ans d'expérience professionnelle dans un service suisse de sauvetage\n• Avantages: formation en ACLS, PHTLS et PALS Nous offrons: Soins de santé P6. svg Avec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
-      },
-      "needsRetranslation": true,
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-rettungssanitaeter-in-hf/45e6452e-8600-4b8e-8ad5-242858620dba",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.782Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://jobs.spitalbuelach.ch/dipl-rettungssanitaeterin-hf-60-100--de-f1409.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-rettungssanitater-in-hf-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-rettungssanitater-in-hf-spital-buelach-bulach"
-        ],
-        "en": [
-          "dipl-rettungssanitater-in-hf-spital-buelach-bulach"
-        ],
-        "fr": [
-          "dipl-rettungssanitater-in-hf-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T23:25:30.240Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1719,7 +1405,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/it-system-engineer-administrative-systeme-middleware/ae0a7f94-8f58-40a3-a833-839867d8e59b",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.780Z",
+      "crawledAt": "2026-09-03T23:36:08.135Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1751,6 +1437,7 @@
       "firstSeenAt": "2026-06-11T13:30:42.029Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1794,7 +1481,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-koechin-koch-efz/2c1784fa-94d0-44b2-ab53-ba4b25169daa",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.778Z",
+      "crawledAt": "2026-09-03T23:36:08.133Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1829,6 +1516,7 @@
       "firstSeenAt": "2026-06-15T15:30:39.116Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1872,7 +1560,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/nachdiplomstudium-hf-intensivpflege/da512ca3-628b-4083-8731-336ff0319283",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.777Z",
+      "crawledAt": "2026-09-03T23:36:08.130Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1907,6 +1595,7 @@
       "firstSeenAt": "2026-06-16T14:38:27.256Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1949,7 +1638,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-angiologie/f762041b-54c6-437a-8e30-b2864e41f580",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.775Z",
+      "crawledAt": "2026-09-03T23:36:08.128Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1994,6 +1683,7 @@
       "firstSeenAt": "2026-06-18T13:07:04.922Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2037,7 +1727,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-endoskopie-dipl-mpa/29514da1-46ee-4cc7-a854-1dab79c300b1",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.773Z",
+      "crawledAt": "2026-09-03T23:36:08.125Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2075,6 +1765,7 @@
       "firstSeenAt": "2026-06-26T12:11:19.513Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2117,7 +1808,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/koechin-koch/abd6af5d-5ba0-4ece-8f63-2a8d4b24062b",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.771Z",
+      "crawledAt": "2026-09-03T23:36:08.122Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2154,6 +1845,7 @@
       "firstSeenAt": "2026-07-24T22:27:34.459Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2179,7 +1871,7 @@
       "companyDomain": "spitalbuelach.ch",
       "title": "Lehrstelle Fachperson Gesundheit EFZ",
       "titleByLocale": {
-        "it": "Apprendistato Fachperson Gesundheit CFC",
+        "it": "Apprendistato Salute EFZ",
         "en": "Apprenticeship Health EFZ",
         "de": "Lehrstelle Fachperson Gesundheit EFZ",
         "fr": "Apprentissage Santé EFZ"
@@ -2191,13 +1883,12 @@
         "de": "<b>Das Spital Bülach wächst - wachse mit.</b>\n\nAufgaben:\n• Einfühlsame Betreuung, Unterstützung und Pflegen von Patientinnen und Patienten\n\n• Ausführung von hauswirtschaftlichen und administrativ-logistischen Aufgaben sowie Planung und Organisation\n\n• Messung von Blutdruck, Puls und Temperatur\n\n• Versorgung von Wunden, Vorbereitung von Infusionen\n\n• Enge Zusammenarbeit mit diplomierten Pflegepersonen, Ärzt:innen und Therapeut:innen\n\n• Umsetzung von Sauberkeit, Schutz und Sicherheit im Spitalalltag\n\nAnforderungen:\n• Mindestalter 15 Jahre\n\n• Abgeschlossene Sekundarschule A, B oder 10. Schuljahr\n\n• Bereitschaft zu unregelmässiger Arbeitszeit sowie zum Arbeitsbeginn um 6.45 Uhr, auch an Wochenenden\n\n• Freude an praktischen, pflegerischen Tätigkeiten und manuelles Geschick\n\n• Einfühlungsvermögen, gute Kommunikationsfähigkeiten sowie körperliche und psychische Belastbarkeit\n\n• Zuverlässigkeit, Verantwortungsbewusstsein, schnelle Auffassungsgabe\n\n• Interesse an digitalen Tools und erste PC-Kenntnisse (z.B. Word, E-Mail, Internet)\n\n• Empfehlung eines Arbeitsweges von maximal einer Stunde\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
         "fr": "<b>Bülach Hospital pousse - pousse avec elle.</b>\n\nTâches :\n• Soins sensibles, soutien et soins aux patients\n\n• Exécution des tâches logistiques nationales et administratives ainsi que planification et organisation\n\n• Mesure de la pression artérielle, du pouls et de la température\n\n• Traitement des plaies, préparation des perfusions\n\n• Coopération étroite avec des infirmières qualifiées, des médecins: à l'intérieur et un thérapeute: à l'intérieur\n\n• Mise en œuvre de la propreté, de la protection et de la sécurité dans la vie quotidienne des hôpitaux\n\nExigences\n• Âge minimum 15 ans\n\n• Études secondaires terminées A, B ou 10. Année scolaire\n\n• Volonté de travailler irrégulièrement et au début du travail à 6 h 45, également le week-end\n\n• Plaisir dans les activités pratiques, les soins infirmiers et les compétences manuelles\n\n• Empathie, bonnes compétences en communication et résilience physique et psychologique\n\n• Fiabilité, sens des responsabilités, compréhension rapide\n\n• Intérêt pour les outils numériques et les connaissances initiales de PC (p. ex. Word, e-mail, Internet)\n\n• Recommandation d'un itinéraire de travail d'une heure maximum\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3 avantages. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
       },
-      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-fachperson-gesundheit-efz/1e3e8320-99c4-4ab5-821e-6c3b2a6c3173",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.769Z",
+      "crawledAt": "2026-09-03T23:36:08.120Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2232,6 +1923,7 @@
       "firstSeenAt": "2026-08-03T12:52:54.341Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2275,7 +1967,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-med-praxisassistentin-med-praxisassistent-efz/205e481d-3eef-4aee-9f45-1d2aed9f6be4",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.767Z",
+      "crawledAt": "2026-09-03T23:36:08.117Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2310,6 +2002,7 @@
       "firstSeenAt": "2026-08-03T12:52:54.339Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2353,7 +2046,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/cb22da75-b8c3-4e45-9db4-7325aa60dc83",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.765Z",
+      "crawledAt": "2026-09-03T23:36:08.115Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2388,6 +2081,7 @@
       "firstSeenAt": "2026-08-03T12:52:54.336Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2413,7 +2107,7 @@
       "companyDomain": "spitalbuelach.ch",
       "title": "Lehrstelle Fachperson Betriebsunterhalt EFZ",
       "titleByLocale": {
-        "it": "Apprendistato Fachperson Betriebsunterhalt CFC",
+        "it": "Manutenzione professionale EFZ",
         "en": "Apprenticeship professional EFZ maintenance",
         "de": "Lehrstelle Fachperson Betriebsunterhalt EFZ",
         "fr": "Apprentissage professionnel EFZ maintenance"
@@ -2425,13 +2119,12 @@
         "de": "<b>Das Spital Bülach wächst - wachse mit.</b>\n\nAufgaben:\n• Unterhalt von Gebäuden und deren Umgebung (Pflege und Reinigung)\n\n• Instandhaltung der Haustechnik (Wartungen in den Bereichen Lüftung, Sanitär, Elektro, Mechanik, etc.)\n\n• Gartenarbeiten nach Saison\n\n• Kontrolle, Wartung und Ausführung von Reparaturen an Maschinen, Gebäuden und der Aussenanlage\n\nAnforderungen:\n• Abgeschlossene Sekundarschule B oder Sek C (Notendurchschnitt mindestens 4.0)\n\n• Abgeschlossenes Schnupperpraktikum als Fachfrau/Fachmann Betriebsunterhalt\n\n• Körperliche Belastbarkeit und handwerkliches Geschick sowie praktisch-technisches Verständnis\n\n• Freude an abwechslungsreicher Arbeit drinnen wie draussen\n\n• Eigeninitiative und grosse Lernbereitschaft\n\n• Gute PC-Affinität\n\n• Arbeitsbeginn um 7 Uhr ist gewährleistet\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
         "fr": "<b>Bülach Hospital pousse - pousse avec elle.</b>\n\nTâches :\n• Entretien des bâtiments et de leurs environs (entretien et nettoyage)\n\n• Entretien de la technologie du bâtiment (entretien dans les domaines de la ventilation, sanitaire, électrique, mécanique, etc.)\n\n• Jardinage par saison\n\n• Contrôle, entretien et exécution des réparations des machines, des bâtiments et des installations extérieures\n\nExigences\n• Études secondaires terminées B ou Sek C (moyenne au moins 4,0)\n\n• Stage d'essai terminé en tant que spécialiste / spécialiste en maintenance d'entreprise\n\n• Résistance physique et artisanat ainsi que compréhension pratique et technique\n\n• Joy de travail varié à l'intérieur et à l'extérieur\n\n• Initiative personnelle et grande volonté d'apprendre\n\n• Bonne affinité PC\n\n• Le début du travail à 7 heures est garanti\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-prestations.svg,P4-changement package.svg,P5-social benefits.svg,P6-health care.svg,P7 working time.svg,P11-valuation.svg,P13-café break. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
       },
-      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-fachperson-betriebsunterhalt-efz/972d2175-f0ed-4edd-8bb1-6c618bb897aa",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.763Z",
+      "crawledAt": "2026-09-03T23:36:08.112Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2466,6 +2159,7 @@
       "firstSeenAt": "2026-08-03T12:52:54.316Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2509,7 +2203,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/elektriker-in-betriebselektriker-in/616e803c-7c54-4b94-9333-917c2803709a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.761Z",
+      "crawledAt": "2026-09-03T23:36:08.109Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2544,6 +2238,7 @@
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2561,7 +2256,7 @@
       "slugByLocale": {
         "it": "dipl-cura-professionale-piscina-spital-bulach-bulach-22c708",
         "en": "dipl-care-professional-care-pool-spital-bulach-bulach-22c708",
-        "de": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
+        "de": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach-e17f5v",
         "fr": "dipl-pool-de-soins-professionnels-spital-bulach-bulach-22c708"
       },
       "company": "Spital Bülach",
@@ -2587,7 +2282,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-pflege-pool/733524ec-8ec9-40fa-bcda-23957388c134",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.759Z",
+      "crawledAt": "2026-09-03T13:49:11.585Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2617,11 +2312,15 @@
         ],
         "fr": [
           "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        ],
+        "de": [
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-08-05T11:48:24.536Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2631,7 +2330,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-buelach-87c82b4483e1",
@@ -2639,7 +2339,7 @@
       "slugByLocale": {
         "it": "stage-in-care-private-department-spital-bulach-bulach-4bb1a5",
         "en": "internship-in-care-private-department-spital-bulach-bulach-4bb1a5",
-        "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
+        "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach-xaj9tc",
         "fr": "stage-en-soins-departement-prive-spital-bulach-bulach-4bb1a5"
       },
       "company": "Spital Bülach",
@@ -2665,7 +2365,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-privatabteilung/fa307c78-bf21-46ab-a537-49bfef1d38ee",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.757Z",
+      "crawledAt": "2026-09-03T13:49:11.579Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2695,11 +2395,15 @@
         ],
         "fr": [
           "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+        ],
+        "de": [
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-08-05T11:48:24.534Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2709,7 +2413,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-buelach-af8aa8751db3",
@@ -2743,7 +2448,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/leistungsspezialist-in/b44182d4-488e-4dd5-a7c8-b9e32c7863a7",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.756Z",
+      "crawledAt": "2026-09-03T13:49:11.573Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2799,6 +2504,7 @@
       "firstSeenAt": "2026-08-05T11:48:24.533Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2808,7 +2514,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-buelach-c705805dfc0b",
@@ -2842,7 +2549,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-gastroenterologie/6d2c16ef-c39c-43c1-98b6-554bd65614b0",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.754Z",
+      "crawledAt": "2026-09-03T13:49:11.563Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2881,6 +2588,7 @@
       "firstSeenAt": "2026-08-05T11:48:24.517Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2890,7 +2598,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-buelach-72af15c8ea72",
@@ -2924,7 +2633,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-altersmedizin/97fcd896-246b-4fe3-a3b4-d95ba1e35a80",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.752Z",
+      "crawledAt": "2026-09-03T23:36:08.106Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2959,6 +2668,7 @@
       "firstSeenAt": "2026-08-07T22:05:00.359Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3002,7 +2712,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/abteilungsleitung-kardiologie-la/e6fc7f96-2b9c-4c50-a6bb-16f5a30055ee",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.750Z",
+      "crawledAt": "2026-09-03T23:36:08.103Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3037,6 +2747,7 @@
       "firstSeenAt": "2026-08-11T22:11:22.807Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3079,7 +2790,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-chirurgie/329e9bb7-6d09-4bff-bd18-1d01134142bb",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.748Z",
+      "crawledAt": "2026-09-03T23:36:08.100Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3114,6 +2825,7 @@
       "firstSeenAt": "2026-08-12T10:37:36.250Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3140,7 +2852,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege",
       "titleByLocale": {
         "it": "Dipl. Esperto in terapia intensiva",
-        "en": "Dipl. Expertin/Experte Intensivpflege",
+        "en": "Dipl. Expert in intensive care",
         "de": "Dipl. Expertin/Experte Intensivpflege",
         "fr": "Dipl. Expert en soins intensifs"
       },
@@ -3151,13 +2863,12 @@
         "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Professionelles Pflegen, Überwachen und Betreuen der intensivpflichtigen Patientinnen und Patienten\n\nAnforderungen:\n• Fachausweis in Intensivpflege oder mehrjährige Erfahrung in der Intensivpflege\n\n• Hohe Sozialkompetenz, Belastbarkeit und Freude an der Arbeit\n\n• Einfühlungsvermögen für die Patientinnen und Patienten sowie deren Angehörigen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
         "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Soins professionnels, suivi et soins des patients soumis à des soins intensifs\n\nExigences\n• Carte professionnelle en soins intensifs ou plusieurs années d'expérience en soins intensifs\n\n• Hautes compétences sociales, résilience et joie au travail\n\n• Empathie pour les patients et leurs proches\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3- benefits.svg,P4-changement package.svg,P5-social benefits.svg,P6-health care.svg,P9-operation model-care.svg,P11-valuation.svg,P10-talent program. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
       },
-      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expertin-experte-intensivpflege/b3ef609e-dda2-436b-acd0-b37bd9aed45f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.745Z",
+      "crawledAt": "2026-09-03T23:36:08.097Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3176,22 +2887,36 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+        "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
+        "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
+        "dipl-expert-in-emergency-care-spital-bulach-bulach",
+        "dipl-expert-in-notfallpflege-spital-buelach-bulach",
+        "expert-en-soins-d-urgence-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
+          "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
+          "dipl-expert-in-emergency-care-spital-bulach-bulach",
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach",
+          "expert-en-soins-d-urgence-spital-bulach-bulach"
         ],
         "en": [
-          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
+          "dipl-expert-in-emergency-care-spital-bulach-bulach"
         ],
         "fr": [
-          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
+          "expert-en-soins-d-urgence-spital-bulach-bulach"
+        ],
+        "de": [
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-08-12T10:37:36.229Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3235,7 +2960,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-akutgeriatrie/f7c6c8ad-62b1-42ab-8923-9dbf3cebb80d",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.743Z",
+      "crawledAt": "2026-09-03T23:36:08.094Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3291,6 +3016,7 @@
       "firstSeenAt": "2026-08-13T22:28:27.950Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3334,7 +3060,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/pflegeentwicklung-altersmedizin/243a9a05-c766-4c5d-890f-7fa701baa724",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.741Z",
+      "crawledAt": "2026-09-03T23:36:08.089Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3369,6 +3095,7 @@
       "firstSeenAt": "2026-08-14T10:31:06.650Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3412,7 +3139,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/stv-leiter-in-finanzbuchhaltung/5022a469-c9ea-4f89-a9c0-dfb9faea68a6",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.739Z",
+      "crawledAt": "2026-09-03T23:36:08.084Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3447,6 +3174,7 @@
       "firstSeenAt": "2026-08-14T21:49:17.803Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3454,84 +3182,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-174b32002a16",
-      "slug": "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
-        "en": "dipl-expert-in-emergency-care-spital-bulach-bulach",
-        "de": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-        "fr": "expert-en-soins-d-urgence-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Dipl. Expert:in Notfallpflege",
-      "titleByLocale": {
-        "it": "Dipl. Esperto: nella cura di emergenza",
-        "en": "Dipl. Expert: in Emergency Care",
-        "de": "Dipl. Expert:in Notfallpflege",
-        "fr": "Expert en soins d'urgence"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Professionelle Pflege und Betreuung aller Patientinnen und Patienten nach den neusten Erkenntnissen der Notfallmedizin\n\n• Erkennung der spezifischen Patientensituationen und Einleitung der notwendigen Massnahmen\n\n• Vollständige und fachgerechte Dokumentation und Leistungserfassung sowie die gezielte Weitergabe von Informationen an die internen Stellen\n\n• Triage aller Notfallpatientinnen und Notfallpatienten anhand des Manchester Triage Systems\n\n• Anfertigen von Immobilisationsverbänden aus Kunststoffgips\n\n• Instruktion und Behandlung der zugewiesenen Patientinnen und Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Expertin/Dipl. Experte Notfallpflege NDS HF\n\n• Abgeschlossene Ausbildung zur medizinischen Gipsfachperson SVmG/H+ oder gleichwertige Weiterbildungen\n\n• Belastbare Fachperson, die sich gut und schnell auf wechselnde Tätigkeiten und Situationen einstellen kann\n\n• Hohes Verantwortungsbewusstsein und eine sorgfältige Arbeitsweise\n\n• Gute mündliche und schriftliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Cura professionale e cura di tutti i pazienti secondo le ultime scoperte della medicina di emergenza\n\n• Identificazione di situazioni specifiche del paziente e avvio di misure necessarie\n\n• Documentazione completa e professionale e monitoraggio delle prestazioni, nonché divulgazione mirata delle informazioni agli organi interni\n\n• Triage di tutti i pazienti di emergenza utilizzando il sistema di triage di Manchester\n\n• Fabbricazione di unità di immobilizzazione di gesso di plastica\n\n• Istruzione e trattamento dei pazienti assegnati\n\nRequisiti\n• Allenamento completato come Dipl. Expert/Dipl. Expert Emergency Care NDS HF\n\n• Formazione completa come specialista di intonaco medico SVmG/H+ o formazione equivalente\n\n• Specialista responsabile che può adattarsi bene e rapidamente a cambiare attività e situazioni\n\n• Alto senso di responsabilità e un metodo di lavoro attento\n\n• Buona conoscenza orale e scritta del tedesco\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-appropriations.svg,P4-change kit.svg,P7-working time.svg,P8-continuato e formazione avanzata.svg,P9-engagement model-care.svg,P11-valuation.svg,P13-coffee break. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Professional care and care of all patients according to the latest findings of emergency medicine\n\n• Identification of specific patient situations and initiation of necessary measures\n\n• Complete and professional documentation and performance tracking as well as targeted disclosure of information to internal bodies\n\n• Triage of all emergency patients using the Manchester Triage System\n\n• Manufacture of plastic gypsum immobilisation units\n\n• Instruction and treatment of assigned patients\n\nRequirements\n• Completed training as a Dipl. Expert/Dipl. Expert Emergency Care NDS HF\n\n• Completed training as medical plaster specialist SVmG/H+ or equivalent training\n\n• Resilient specialist who can adapt well and quickly to changing activities and situations\n\n• High sense of responsibility and a careful working method\n\n• Good oral and written knowledge of German\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-appropriations.svg,P4-changing kit.svg,P7-working time.svg,P8-continued and advanced training.svg,P9-engagement model-care.svg,P11-valuation.svg,P13-coffee break. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Professionelle Pflege und Betreuung aller Patientinnen und Patienten nach den neusten Erkenntnissen der Notfallmedizin\n\n• Erkennung der spezifischen Patientensituationen und Einleitung der notwendigen Massnahmen\n\n• Vollständige und fachgerechte Dokumentation und Leistungserfassung sowie die gezielte Weitergabe von Informationen an die internen Stellen\n\n• Triage aller Notfallpatientinnen und Notfallpatienten anhand des Manchester Triage Systems\n\n• Anfertigen von Immobilisationsverbänden aus Kunststoffgips\n\n• Instruktion und Behandlung der zugewiesenen Patientinnen und Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Expertin/Dipl. Experte Notfallpflege NDS HF\n\n• Abgeschlossene Ausbildung zur medizinischen Gipsfachperson SVmG/H+ oder gleichwertige Weiterbildungen\n\n• Belastbare Fachperson, die sich gut und schnell auf wechselnde Tätigkeiten und Situationen einstellen kann\n\n• Hohes Verantwortungsbewusstsein und eine sorgfältige Arbeitsweise\n\n• Gute mündliche und schriftliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Soins professionnels et soins de tous les patients selon les dernières conclusions de la médecine d'urgence\n\n• Identification des situations particulières des patients et lancement des mesures nécessaires\n\n• Documentation complète et professionnelle et suivi des résultats ainsi que divulgation ciblée de l'information aux organismes internes\n\n• Triage de tous les patients d'urgence utilisant le système Manchester Triage\n\n• Fabrication d'unités d'immobilisation de gypse en plastique\n\n• Instruction et traitement des patients\n\nExigences\n• Formation terminée en tant que diplômé. Expert/Dipl. Expert Soins d'urgence NDS HF\n\n• Formation terminée en tant que spécialiste en plâtre médical SVmG/H+ ou formation équivalente\n\n• Spécialiste résilient qui peut s'adapter bien et rapidement à l'évolution des activités et des situations\n\n• Un sens élevé des responsabilités et une méthode de travail prudente\n\n• Bonne connaissance orale et écrite de l'allemand\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-appropriations.svg,P4-changement kit.svg,P7-temps de travail.svg,P8-suite et formation avancée.svg,P9-engagement modèle-care.svg,P11-évaluation.svg,P13-cafée break. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
-      },
-      "needsRetranslation": true,
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expert-in-notfallpflege/b05bd814-ab8c-4067-a92a-612c57eb9402",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.737Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-16",
-      "applyUrl": "https://jobs.spitalbuelach.ch/dipl-expertin-notfallpflege-de-f1165.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-expert-in-notfallpflege-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
-        ],
-        "en": [
-          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
-        ],
-        "fr": [
-          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-08-17T10:20:22.437Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -3568,7 +3218,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/berufsbildner-in-pflege-medizin/e70d1966-ffcc-4920-8bec-361f359448c7",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.735Z",
+      "crawledAt": "2026-09-03T23:36:08.079Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3603,6 +3253,7 @@
       "firstSeenAt": "2026-08-17T10:20:22.412Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3646,7 +3297,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-handchirurgie/a970f61e-668e-45e6-9a35-7907339416d1",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.733Z",
+      "crawledAt": "2026-09-03T23:36:08.077Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3683,84 +3334,7 @@
       "firstSeenAt": "2026-08-18T21:50:31.569Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-cc92b6953737",
-      "slug": "collaboratore-trice-kapazitatsmanagement-spital-bulach",
-      "slugByLocale": {
-        "it": "collaboratore-trice-kapazitatsmanagement-spital-bulach",
-        "en": "associate-kapazitatsmanagement-spital-bulach-bulach",
-        "de": "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-        "fr": "collaborateur-trice-kapazitatsmanagement-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Mitarbeiter:in Kapazitätsmanagement",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Kapazitätsmanagement",
-        "en": "Associate Kapazitätsmanagement",
-        "de": "Mitarbeiter:in Kapazitätsmanagement",
-        "fr": "Collaborateur/trice Kapazitätsmanagement"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Verantwortung für die Planung und Steuerung von Patientinnen und Patienten sowie Kapazitäten auf operativer Ebene\n\n• Aktives Patientenflussmanagement und Mitverantwortung für die spitalinterne Kapazitätsauslastung\n\n• Drehscheibenfunktion zwischen Pflege, Ärzteschaft und anderen Diensten\n\n• Organisatorische Planung von operativen Eingriffen und stationären Patienten\n\n• Patientenaufgebote und Bettenbelegungsbewirtschaftung\n\n• Ansprechperson für interne und externe Zuweisende und Kooperationspartner\n\nAnforderungen:\n• Medizinische Grundausbildung, HF Abschluss und Kenntnisse der medizinischen Terminologie\n\n• Planungs-, Organisations- und Kommunikationstalent\n\n• Belastbarkeit, Flexibilität, Engagement\n\n• Hohe Affinität für IT-Programme\n\n• Vernetztes Denken\n\n• Interesse zur Mitgestaltung\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Responsabilità per la pianificazione e il controllo dei pazienti e delle capacità a livello operativo\n\n• Gestione attiva del flusso dei pazienti e co-responsabilità per l'utilizzo della capacità in ospedale\n\n• Funzione girevole tra allattamento, professione medica e altri servizi\n\n• Pianificazione organizzativa delle procedure chirurgiche e degli ospedali\n\n• Servizio paziente e gestione dell'occupazione letto\n\n• Persona di contatto per incarichi interni ed esterni e partner di cooperazione\n\nRequisiti\n• Istruzione medica di base, laurea HF e conoscenza della terminologia medica\n\n• Progettazione, organizzazione e comunicazione talento\n\n• Resilienza, flessibilità, impegno\n\n• Alta affinità per i programmi IT\n\n• Pensiero in rete\n\n• Interessi in co-creazione\n\nOffriamo:\nP1-oeV.svg,P2-Food.svg,P3-Rewards.svg,P6-Health.svg,P8-Fort-and-Training.svg,P14-Birth.svg,P11-valuation.svg,P13- break. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Responsibility for planning and controlling patients and capacities at operational level\n\n• Active patient flow management and co-responsibility for in-hospital capacity utilization\n\n• Turntable function between nursing, medical profession and other services\n\n• Organizational planning of surgical procedures and inpatients\n\n• Patient service and bed occupancy management\n\n• Contact person for internal and external assignments and cooperation partners\n\nRequirements\n• Basic medical education, HF degree and knowledge of medical terminology\n\n• Planning, organizational and communication talent\n\n• Resilience, flexibility, commitment\n\n• High affinity for IT programs\n\n• Networked thinking\n\n• Interest in co-creation\n\nWe offer:\nP1-oeV.svg,P2-Food.svg,P3-Rewards.svg,P6-Health.svg,P8-Fort-and-Training.svg,P14-Birth.svg,P11-valuation.svg,P13-Coffee break. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient and over 78,000 outpatient patients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Verantwortung für die Planung und Steuerung von Patientinnen und Patienten sowie Kapazitäten auf operativer Ebene\n\n• Aktives Patientenflussmanagement und Mitverantwortung für die spitalinterne Kapazitätsauslastung\n\n• Drehscheibenfunktion zwischen Pflege, Ärzteschaft und anderen Diensten\n\n• Organisatorische Planung von operativen Eingriffen und stationären Patienten\n\n• Patientenaufgebote und Bettenbelegungsbewirtschaftung\n\n• Ansprechperson für interne und externe Zuweisende und Kooperationspartner\n\nAnforderungen:\n• Medizinische Grundausbildung, HF Abschluss und Kenntnisse der medizinischen Terminologie\n\n• Planungs-, Organisations- und Kommunikationstalent\n\n• Belastbarkeit, Flexibilität, Engagement\n\n• Hohe Affinität für IT-Programme\n\n• Vernetztes Denken\n\n• Interesse zur Mitgestaltung\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>L'hôpital de Bülach pousse - grandir avec.</b>\n\nTâches :\n• Responsabilité de la planification et du contrôle des patients et des capacités au niveau opérationnel\n\n• Gestion active du flux des patients et coresponsabilité pour l'utilisation de la capacité en établissement\n\n• Fonction tournante entre soins infirmiers, profession médicale et autres services\n\n• Planification organisationnelle des interventions chirurgicales et des hospitalisations\n\n• Service aux patients et gestion de l'occupation des lits\n\n• Personne-ressource pour les missions internes et externes et les partenaires de coopération\n\nExigences\n• Enseignement médical de base, diplôme de HF et connaissance de la terminologie médicale\n\n• Compétences en planification, organisation et communication\n\n• Résilience, flexibilité, engagement\n\n• Haute affinité pour les programmes informatiques\n\n• Réflexion en réseau\n\n• Intérêt pour la cocréation\n\nNous offrons:\nP1-oeV.svg,P2-Food.svg,P3-Rewards.svg,P6-Health.svg,P8-Fort-and-Forming.svg,P14-Birth.svg,P11-valuation.svg,P13-Cafee break. Svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
-      },
-      "needsRetranslation": true,
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/mitarbeiter-in-kapazitaetsmanagement/90355c5f-6452-4f7b-8471-58d2fa66fecd",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.730Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-20",
-      "applyUrl": "https://jobs.spitalbuelach.ch/mitarbeiterin-kapazitaetsmanagement-de-f1335.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
-        ],
-        "en": [
-          "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
-        ],
-        "fr": [
-          "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T10:07:41.292Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3804,7 +3378,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-privatstation/93599120-a484-46e2-a6c4-d0141114cd7c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.727Z",
+      "crawledAt": "2026-09-03T23:36:08.074Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3839,6 +3413,7 @@
       "firstSeenAt": "2026-08-24T10:17:55.841Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3852,9 +3427,9 @@
     },
     {
       "id": "spital-buelach-314ba8ba8cfe",
-      "slug": "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach",
+      "slug": "dipl-infermieristica-professionale-stazione-privata-con-responsabilita-professionale-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach",
+        "it": "dipl-infermieristica-professionale-stazione-privata-con-responsabilita-professionale-spital-bulach-bulach",
         "en": "dipl-nursing-professional-private-station-with-professional-responsibility-spital-bulach-bulach",
         "de": "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach",
         "fr": "dipl-station-privee-avec-responsabilite-professionnelle-spital-bulach-bulach"
@@ -3864,7 +3439,7 @@
       "companyDomain": "spitalbuelach.ch",
       "title": "Dipl. Pflegefachperson Privatstation mit Fachverantwortung",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson Privatstation con Fachverantwortung",
+        "it": "Dipl. Infermieristica professionale Stazione privata con responsabilità professionale",
         "en": "Dipl. Nursing professional Private station with professional responsibility",
         "de": "Dipl. Pflegefachperson Privatstation mit Fachverantwortung",
         "fr": "Dipl. Station privée avec responsabilité professionnelle"
@@ -3876,13 +3451,12 @@
         "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Patientenorientierte Pflege, Betreuung und Überwachung von Privat- und Halbprivat-Patientinnen und Patienten mit verschiedenen chirurgischen und medizinischen Krankheitsbildern\n\n• Durchführung medizintechnischer Interventionen\n\n• Ressourcenfördernde Pflege und Betreuung unserer Patientinnen und Patienten\n\n• Fachverantwortung für die fachlichen Anliegen der Mitarbeitenden (10%)\n\n• Aktive Mitgestaltung im Shared Leadership Team\n\nAnforderungen:\n• Diplom als Pflegefachperson HF/FH oder entsprechendes ausländisches Diplom mit SRK-Anerkennung\n\n• Erfahrung und Kompetenz in der fachlichen Führung von Mitarbeitenden\n\n• Ausgeprägte Kommunikations- und Kooperationsfähigkeit\n\n• Selbstständiges und verantwortungsbewusstes Arbeiten\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P8-Fort-und-Weiterbildung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
         "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Soins axés sur le patient, soins et surveillance des patients privés et semi-privés présentant diverses affections chirurgicales et médicales\n\n• Mise en œuvre des interventions médicales\n\n• La promotion des ressources et les soins de nos patients\n\n• Responsabilité pour les préoccupations professionnelles des employés (10 %)\n\n• Participation active à l'équipe de leadership partagée\n\nExigences\n• Diplôme d'infirmière HF/FH ou diplôme étranger équivalent avec reconnaissance SRK\n\n• Expérience et compétence dans la gestion professionnelle des salariés\n\n• Renforcement des capacités de communication et de coopération\n\n• Travail indépendant et responsable\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-bénéfices.svg,P4-changement-household.svg,P5-bénéfices sociaux.svg,P8-Fort-et-Ensuite-Formation.svg,P9-Assignment-model-care.svg,P15-annual-time-care.svg,P10-talent program. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
       },
-      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-privatstation-mit-fachverantwortung/fd570bfb-6e58-4f58-8982-bfe36f18b466",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.724Z",
+      "crawledAt": "2026-09-03T23:36:08.071Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3903,6 +3477,7 @@
       "firstSeenAt": "2026-08-24T10:17:55.837Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3912,7 +3487,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-f9c152e62c17",
@@ -3946,7 +3529,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-akutgeriatrie/a3acc987-2da2-42d1-9af4-85caf69dabc1",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.723Z",
+      "crawledAt": "2026-09-03T23:36:08.069Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3981,6 +3564,7 @@
       "firstSeenAt": "2026-08-24T10:17:55.815Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4023,7 +3607,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-fachperson-operationstechnik/6650198d-4efd-4a3a-9c35-36259dbd1982",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.720Z",
+      "crawledAt": "2026-09-03T23:36:08.066Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4058,6 +3642,7 @@
       "firstSeenAt": "2026-08-24T10:17:55.843Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4071,37 +3656,37 @@
     },
     {
       "id": "spital-buelach-ed50035cf8b0",
-      "slug": "op-lagerungsassistenz-spital-bulach-bulach",
+      "slug": "assistenza-di-stoccaggio-operativa-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "op-lagerungsassistenz-spital-bulach-bulach",
-        "en": "op-lagerungsassistenz-spital-bulach-bulach",
+        "it": "assistenza-di-stoccaggio-operativa-spital-bulach-bulach",
+        "en": "operational-storage-assistance-spital-bulach-bulach",
         "de": "op-lagerungsassistenz-spital-buelach-bulach",
-        "fr": "op-lagerungsassistenz-spital-bulach-bulach"
+        "fr": "aide-au-stockage-operationnel-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
       "companyDomain": "spitalbuelach.ch",
       "title": "OP-Lagerungsassistenz",
       "titleByLocale": {
-        "it": "OP-Lagerungsassistenz",
-        "en": "OP-Lagerungsassistenz",
+        "it": "Assistenza di stoccaggio operativa",
+        "en": "Operational storage assistance",
         "de": "OP-Lagerungsassistenz",
-        "fr": "OP-Lagerungsassistenz"
+        "fr": "Aide au stockage opérationnel"
       },
       "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Fachgerechtes Vorbereiten, Lagern und Mitbetreuen der Patientinnen und Patienten im OP-Bereich\n\n• Bereitstellen und Bedienen von medizin-technischen Geräten\n\n• Selbstständiges Vorbereiten aller benötigten Lagerungsmaterialien für jeweilige OP\n\n• Unterstützung bei prä- und postoperativen Tätigkeiten\n\n• Mitverantwortung für einen reibungslosen interdisziplinären OP-Ablauf\n\nAnforderungen:\n• Abgeschlossene OP-Lagerungskurs\n\n• Berufserfahrung als Lagerungspfleger*in\n\n• Gute Deutschkenntnisse (min. Level B2)\n\n• PC-Kenntnisse von Vorteil\n\n• Bereitschaft für Schichtarbeit\n\n• Teamfähigkeit, Eigeninitiative und hohes Engagement\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
       "descriptionByLocale": {
-        "it": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Fachgerechtes Vorbereiten, Lagern und Mitbetreuen der Patientinnen und Patienten im OP-Bereich\n\n• Bereitstellen und Bedienen von medizin-technischen Geräten\n\n• Selbstständiges Vorbereiten aller benötigten Lagerungsmaterialien für jeweilige OP\n\n• Unterstützung bei prä- und postoperativen Tätigkeiten\n\n• Mitverantwortung für einen reibungslosen interdisziplinären OP-Ablauf\n\nAnforderungen:\n• Abgeschlossene OP-Lagerungskurs\n\n• Berufserfahrung als Lagerungspfleger*in\n\n• Gute Deutschkenntnisse (min. Level B2)\n\n• PC-Kenntnisse von Vorteil\n\n• Bereitschaft für Schichtarbeit\n\n• Teamfähigkeit, Eigeninitiative und hohes Engagement\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "en": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Fachgerechtes Vorbereiten, Lagern und Mitbetreuen der Patientinnen und Patienten im OP-Bereich\n\n• Bereitstellen und Bedienen von medizin-technischen Geräten\n\n• Selbstständiges Vorbereiten aller benötigten Lagerungsmaterialien für jeweilige OP\n\n• Unterstützung bei prä- und postoperativen Tätigkeiten\n\n• Mitverantwortung für einen reibungslosen interdisziplinären OP-Ablauf\n\nAnforderungen:\n• Abgeschlossene OP-Lagerungskurs\n\n• Berufserfahrung als Lagerungspfleger*in\n\n• Gute Deutschkenntnisse (min. Level B2)\n\n• PC-Kenntnisse von Vorteil\n\n• Bereitschaft für Schichtarbeit\n\n• Teamfähigkeit, Eigeninitiative und hohes Engagement\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Preparazione professionale, stoccaggio e co-care dei pazienti nell'area chirurgica\n\n• Disposizione e funzionamento dei dispositivi medici\n\n• Preparazione indipendente di tutti i materiali di stoccaggio necessari per il rispettivo OP\n\n• Sostegno alle attività pre e post-operative\n\n• Co-responsabilità per un buon funzionamento interdisciplinare\n\nRequisiti\n• Corso di stoccaggio operativo completato\n\n• Esperienza professionale come infermiera*\n\n• Buona conoscenza del tedesco (min. livello B2)\n\n• La conoscenza del PC è un vantaggio\n\n• Prontezza per il lavoro a turni\n\n• Lavoro di squadra, iniziativa e impegno elevato\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-change package.svg,P5-social benefit.svg,P6-health care.svg,P7 orario di lavoro.svg,P8-forth e ulteriore istruzione.svg,P11-valutazione. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
+        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Professional preparation, storage and co-care of patients in the surgical area\n\n• Provision and operation of medical devices\n\n• Independent preparation of all required storage materials for the respective OP\n\n• Support for pre- and post-operative activities\n\n• Co-responsibility for a smooth interdisciplinary operation\n\nRequirements\n• Operational storage course completed\n\n• Professional experience as a storage nurse*\n\n• Good knowledge of German (min. level B2)\n\n• PC knowledge is an advantage\n\n• Readiness for shift work\n\n• Teamwork, initiative and high commitment\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-changing package.svg,P5-social benefits.svg,P6-health care.svg,P7 working time.svg,P8-forth and further education.svg,P11-valuation. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
         "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Fachgerechtes Vorbereiten, Lagern und Mitbetreuen der Patientinnen und Patienten im OP-Bereich\n\n• Bereitstellen und Bedienen von medizin-technischen Geräten\n\n• Selbstständiges Vorbereiten aller benötigten Lagerungsmaterialien für jeweilige OP\n\n• Unterstützung bei prä- und postoperativen Tätigkeiten\n\n• Mitverantwortung für einen reibungslosen interdisziplinären OP-Ablauf\n\nAnforderungen:\n• Abgeschlossene OP-Lagerungskurs\n\n• Berufserfahrung als Lagerungspfleger*in\n\n• Gute Deutschkenntnisse (min. Level B2)\n\n• PC-Kenntnisse von Vorteil\n\n• Bereitschaft für Schichtarbeit\n\n• Teamfähigkeit, Eigeninitiative und hohes Engagement\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Fachgerechtes Vorbereiten, Lagern und Mitbetreuen der Patientinnen und Patienten im OP-Bereich\n\n• Bereitstellen und Bedienen von medizin-technischen Geräten\n\n• Selbstständiges Vorbereiten aller benötigten Lagerungsmaterialien für jeweilige OP\n\n• Unterstützung bei prä- und postoperativen Tätigkeiten\n\n• Mitverantwortung für einen reibungslosen interdisziplinären OP-Ablauf\n\nAnforderungen:\n• Abgeschlossene OP-Lagerungskurs\n\n• Berufserfahrung als Lagerungspfleger*in\n\n• Gute Deutschkenntnisse (min. Level B2)\n\n• PC-Kenntnisse von Vorteil\n\n• Bereitschaft für Schichtarbeit\n\n• Teamfähigkeit, Eigeninitiative und hohes Engagement\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt."
+        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Préparation professionnelle, stockage et co-soins des patients dans la zone chirurgicale\n\n• Fourniture et exploitation de dispositifs médicaux\n\n• Préparation indépendante de tous les matériaux de stockage requis pour le PO respectif\n\n• Appui aux activités pré- et post-opératoires\n\n• Coresponsabilité pour une opération interdisciplinaire en douceur\n\nExigences\n• Cours de stockage opérationnel terminé\n\n• Expérience professionnelle en tant qu'infirmière de stockage*\n\n• Bonne connaissance de l'allemand (niveau B2)\n\n• La connaissance du PC est un avantage\n\n• Préparation au travail posté\n\n• Travail d'équipe, initiative et engagement élevé\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3- benefits.svg,P4-changement package.svg,P5-social benefits.svg,P6-health care.svg,P7 working time.svg,P8-forth and more education.svg,P11-valuation. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/op-lagerungsassistenz/77552e10-e6c8-4e2c-bc3e-8050076d7817",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.718Z",
+      "crawledAt": "2026-09-03T23:36:08.060Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4120,16 +3705,28 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "op-lagerungsassistenz-spital-buelach-bulach"
+        "op-lagerungsassistenz-spital-buelach-bulach",
+        "op-lagerungsassistenz-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "op-lagerungsassistenz-spital-buelach-bulach"
+          "op-lagerungsassistenz-spital-buelach-bulach",
+          "op-lagerungsassistenz-spital-bulach-bulach"
+        ],
+        "en": [
+          "op-lagerungsassistenz-spital-bulach-bulach"
+        ],
+        "de": [
+          "op-lagerungsassistenz-spital-bulach-bulach"
+        ],
+        "fr": [
+          "op-lagerungsassistenz-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-08-25T10:23:22.159Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4172,7 +3769,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/arztsekretaerin-mpa-sekretariat-anaesthesie/9ac77bac-fd3d-406d-aadc-cac79c185608",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.714Z",
+      "crawledAt": "2026-09-03T23:36:08.058Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4191,14 +3788,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretarin-mpa-sekretariat-anasthesie-spital-buelach-bulach"
+        "arztsekretarin-mpa-sekretariat-anasthesie-spital-buelach-bulach",
+        "arztsekretarin-mpa-sekretariat-anasthesie-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-mpa-sekretariat-anasthesie-spital-buelach-bulach"
         ],
         "en": [
-          "arztsekretarin-mpa-sekretariat-anasthesie-spital-buelach-bulach"
+          "arztsekretarin-mpa-sekretariat-anasthesie-spital-buelach-bulach",
+          "arztsekretarin-mpa-sekretariat-anasthesie-spital-bulach-bulach"
         ],
         "fr": [
           "arztsekretarin-mpa-sekretariat-anasthesie-spital-buelach-bulach"
@@ -4207,6 +3806,7 @@
       "firstSeenAt": "2026-08-25T21:55:20.044Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4250,7 +3850,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/berufsbildner-in-fage/0cbef659-0983-4962-97fe-ca74c4085bd3",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:36:51.694Z",
+      "crawledAt": "2026-09-03T23:36:08.055Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4271,6 +3871,7 @@
       "firstSeenAt": "2026-08-26T10:13:34.975Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4283,38 +3884,38 @@
       }
     },
     {
-      "id": "spital-buelach-5133d6dc3f52",
-      "slug": "specialista-in-medicina-sanitaria-spital-bulach-bulach",
+      "id": "spital-buelach-a80e2d981fe7",
+      "slug": "fachperson-gesundheit-medizin-spital-buelach-bulach",
       "slugByLocale": {
-        "it": "specialista-in-medicina-sanitaria-spital-bulach-bulach",
-        "en": "health-medicine-specialist-spital-bulach-bulach",
+        "it": "fachperson-gesundheit-medizin-spital-buelach-bulach",
+        "en": "fachperson-gesundheit-medizin-spital-buelach-bulach",
         "de": "fachperson-gesundheit-medizin-spital-buelach-bulach",
-        "fr": "specialiste-en-medecine-de-la-sante-spital-bulach-bulach"
+        "fr": "fachperson-gesundheit-medizin-spital-buelach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
       "companyDomain": "spitalbuelach.ch",
       "title": "Fachperson Gesundheit Medizin",
       "titleByLocale": {
-        "it": "Specialista in medicina sanitaria",
-        "en": "Health medicine specialist",
+        "it": "Fachperson Gesundheit Medizin",
+        "en": "Fachperson Gesundheit Medizin",
         "de": "Fachperson Gesundheit Medizin",
-        "fr": "Spécialiste en médecine de la santé"
+        "fr": "Fachperson Gesundheit Medizin"
       },
       "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen im Alltag unterstützen\n\n• Verantwortung mit Rückhalt\n\n• Pflege mit Herz und Kompetenz\n\n• Im Team etwas bewegen\n\n• Neues entdecken und lernen\n\n• Gemeinsam Erfolge feiern\n\nAnforderungen:\n• Ausbildung als FaGe EFZ\n\n• Motivation und Lernfreude\n\n• Interesse an der Akutpflege\n\n• Teamspirit und Engagement\n\n• Humor für den Arbeitsalltag\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P6-Gesundheitsfoerderung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
       "descriptionByLocale": {
-        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Sostenere le persone nella vita quotidiana\n\n• Responsabilità con supporto\n\n• Cura con cuore e competenza\n\n• Spostare qualcosa nella squadra\n\n• Scoprire e imparare cose nuove\n\n• Celebrare i successi insieme\n\nRequisiti\n• Formazione FaGe EFZ\n\n• Motivazione e piacere di apprendimento\n\n• Interessi nella cura acuta\n\n• Spirito di squadra e impegno\n\n• Humor per il lavoro quotidiano\n\n• Spitex, assistenza a lungo termine o ingresso in carriera? Benvenuto!\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-change kit.svg,P6-health care.svg,P9-assignment model-care.svg,P15-annual time-care.svg,P11-valuation.svg,P10-talent programma. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Supporting people in everyday life\n\n• Responsibility with support\n\n• Care with heart and competence\n\n• Moving something in the team\n\n• Discovering and learning new things\n\n• Celebrating successes together\n\nRequirements\n• Training as FaGe EFZ\n\n• Motivation and learning pleasure\n\n• Interest in acute care\n\n• Team spirit and commitment\n\n• Humor for everyday work\n\n• Spitex, long-term care or career entry? Welcome!\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-changing kit.svg,P6-health care.svg,P9-assignment model-care.svg,P15-annual working time-care.svg,P11-valuation.svg,P10-talent program. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
+        "it": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen im Alltag unterstützen\n\n• Verantwortung mit Rückhalt\n\n• Pflege mit Herz und Kompetenz\n\n• Im Team etwas bewegen\n\n• Neues entdecken und lernen\n\n• Gemeinsam Erfolge feiern\n\nAnforderungen:\n• Ausbildung als FaGe EFZ\n\n• Motivation und Lernfreude\n\n• Interesse an der Akutpflege\n\n• Teamspirit und Engagement\n\n• Humor für den Arbeitsalltag\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P6-Gesundheitsfoerderung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "en": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen im Alltag unterstützen\n\n• Verantwortung mit Rückhalt\n\n• Pflege mit Herz und Kompetenz\n\n• Im Team etwas bewegen\n\n• Neues entdecken und lernen\n\n• Gemeinsam Erfolge feiern\n\nAnforderungen:\n• Ausbildung als FaGe EFZ\n\n• Motivation und Lernfreude\n\n• Interesse an der Akutpflege\n\n• Teamspirit und Engagement\n\n• Humor für den Arbeitsalltag\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P6-Gesundheitsfoerderung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
         "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen im Alltag unterstützen\n\n• Verantwortung mit Rückhalt\n\n• Pflege mit Herz und Kompetenz\n\n• Im Team etwas bewegen\n\n• Neues entdecken und lernen\n\n• Gemeinsam Erfolge feiern\n\nAnforderungen:\n• Ausbildung als FaGe EFZ\n\n• Motivation und Lernfreude\n\n• Interesse an der Akutpflege\n\n• Teamspirit und Engagement\n\n• Humor für den Arbeitsalltag\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P6-Gesundheitsfoerderung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Soutenir les gens dans la vie quotidienne\n\n• Responsabilité avec appui\n\n• Soins avec cœur et compétence\n\n• Déplacement de quelque chose dans l'équipe\n\n• Découvrir et apprendre de nouvelles choses\n\n• Célébrer ensemble les succès\n\nExigences\n• Formation en tant que FaGe EFZ\n\n• Motivation et plaisir d'apprentissage\n\n• Intérêt pour les soins actifs\n\n• Esprit d'équipe et engagement\n\n• Humour pour le travail quotidien\n\n• Spitex, soins de longue durée ou entrée dans la carrière ? Bienvenue !\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-bénéfices.svg,P4-changement kit.svg,P6-health care.svg,P9-affectation model-care.svg,P15-annual working time-care.svg,P11-valuation.svg,P10-talent program. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
+        "fr": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen im Alltag unterstützen\n\n• Verantwortung mit Rückhalt\n\n• Pflege mit Herz und Kompetenz\n\n• Im Team etwas bewegen\n\n• Neues entdecken und lernen\n\n• Gemeinsam Erfolge feiern\n\nAnforderungen:\n• Ausbildung als FaGe EFZ\n\n• Motivation und Lernfreude\n\n• Interesse an der Akutpflege\n\n• Teamspirit und Engagement\n\n• Humor für den Arbeitsalltag\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P6-Gesundheitsfoerderung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt."
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-medizin/f05a5b97-ef31-4935-a2ef-7338a292a238",
+      "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-medizin/fff63037-59fe-4b34-b5ed-2d683b073297",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:07.733Z",
+      "crawledAt": "2026-09-03T23:36:08.053Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4328,27 +3929,290 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
+      "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.spitalbuelach.ch/fachperson-gesundheit-40-100-de-f1228.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-medizin-spital-buelach-bulach"
+        "specialista-in-medicina-sanitaria-spital-bulach-bulach",
+        "health-medicine-specialist-spital-bulach-bulach",
+        "specialiste-en-medecine-de-la-sante-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-medizin-spital-buelach-bulach"
+          "specialista-in-medicina-sanitaria-spital-bulach-bulach",
+          "health-medicine-specialist-spital-bulach-bulach",
+          "specialiste-en-medecine-de-la-sante-spital-bulach-bulach"
         ],
         "en": [
-          "fachperson-gesundheit-medizin-spital-buelach-bulach"
+          "health-medicine-specialist-spital-bulach-bulach"
         ],
         "fr": [
-          "fachperson-gesundheit-medizin-spital-buelach-bulach"
+          "specialiste-en-medecine-de-la-sante-spital-bulach-bulach"
         ]
       },
-      "firstSeenAt": "2026-07-29T22:39:21.370Z",
+      "firstSeenAt": "2026-08-31T17:31:37.616Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-buelach-7d31aff0107c",
+      "slug": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
+      "slugByLocale": {
+        "it": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
+        "en": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
+        "de": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
+        "fr": "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+      },
+      "company": "Spital Bülach",
+      "companyKey": "spital-buelach",
+      "companyDomain": "spitalbuelach.ch",
+      "title": "Dipl. Pflegefachperson Medizin",
+      "titleByLocale": {
+        "it": "Dipl. Pflegefachperson Medizin",
+        "en": "Dipl. Pflegefachperson Medizin",
+        "de": "Dipl. Pflegefachperson Medizin",
+        "fr": "Dipl. Pflegefachperson Medizin"
+      },
+      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen stärken und begleiten\n\n• Verantwortung mit Rückhalt\n\n• Pflege aktiv mitgestalten\n\n• Im Team Grosses bewegen\n\n• Jeden Tag Neues erleben\n\n• Gemeinsam wachsen\n\nAnforderungen:\n• Diplom HF/FH\n\n• Freude am Lernen\n\n• Interesse an der Akutpflege\n\n• Teamgeist und Eigeninitiative\n\n• Humor und Menschlichkeit\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+      "descriptionByLocale": {
+        "it": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen stärken und begleiten\n\n• Verantwortung mit Rückhalt\n\n• Pflege aktiv mitgestalten\n\n• Im Team Grosses bewegen\n\n• Jeden Tag Neues erleben\n\n• Gemeinsam wachsen\n\nAnforderungen:\n• Diplom HF/FH\n\n• Freude am Lernen\n\n• Interesse an der Akutpflege\n\n• Teamgeist und Eigeninitiative\n\n• Humor und Menschlichkeit\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "en": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen stärken und begleiten\n\n• Verantwortung mit Rückhalt\n\n• Pflege aktiv mitgestalten\n\n• Im Team Grosses bewegen\n\n• Jeden Tag Neues erleben\n\n• Gemeinsam wachsen\n\nAnforderungen:\n• Diplom HF/FH\n\n• Freude am Lernen\n\n• Interesse an der Akutpflege\n\n• Teamgeist und Eigeninitiative\n\n• Humor und Menschlichkeit\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen stärken und begleiten\n\n• Verantwortung mit Rückhalt\n\n• Pflege aktiv mitgestalten\n\n• Im Team Grosses bewegen\n\n• Jeden Tag Neues erleben\n\n• Gemeinsam wachsen\n\nAnforderungen:\n• Diplom HF/FH\n\n• Freude am Lernen\n\n• Interesse an der Akutpflege\n\n• Teamgeist und Eigeninitiative\n\n• Humor und Menschlichkeit\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "fr": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Menschen stärken und begleiten\n\n• Verantwortung mit Rückhalt\n\n• Pflege aktiv mitgestalten\n\n• Im Team Grosses bewegen\n\n• Jeden Tag Neues erleben\n\n• Gemeinsam wachsen\n\nAnforderungen:\n• Diplom HF/FH\n\n• Freude am Lernen\n\n• Interesse an der Akutpflege\n\n• Teamgeist und Eigeninitiative\n\n• Humor und Menschlichkeit\n\n• Spitex, Langzeitpflege oder Berufseinstieg? Willkommen!\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt."
+      },
+      "needsRetranslation": true,
+      "location": "Bülach",
+      "canton": "ZH",
+      "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-medizin/7943acdb-7949-482b-96b9-a4939617579a",
+      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:36:08.051Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8180",
+      "streetAddress": "Spitalstrasse 24",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://jobs.spitalbuelach.ch/dipl-pflegefachperson-medizin-20-100--de-f1407.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-31T17:31:37.598Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-buelach-b27cbcff2505",
+      "slug": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
+      "slugByLocale": {
+        "it": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
+        "en": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
+        "de": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
+        "fr": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach"
+      },
+      "company": "Spital Bülach",
+      "companyKey": "spital-buelach",
+      "companyDomain": "spitalbuelach.ch",
+      "title": "Arztsekretär:in Sekretariat Medizin",
+      "titleByLocale": {
+        "it": "Arztsekretär:in Sekretariat Medizin",
+        "en": "Arztsekretär:in Sekretariat Medizin",
+        "de": "Arztsekretär:in Sekretariat Medizin",
+        "fr": "Arztsekretär:in Sekretariat Medizin"
+      },
+      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Medizinische Austrittsberichte redigieren und versenden\n\n• Patientenakten sorgfältig führen und archivieren\n\n• Vielfältige organisatorische und administrative Aufgaben übernehmen\n\n• Versicherungsanfragen kompetent bearbeiten\n\n• Kolleginnen und Kollegen im Team gegenseitig vertreten und unterstützen\n\n• Option auf Erhöhung des Pensums Mitte 2027\n\nAnforderungen:\n• Kaufmännische Ausbildung oder abgeschlossene Ausbildung als Arztsekretärin\n\n• Mindestens 2 Jahre Berufserfahrung in einem Arztsekretariat\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Sicherer Umgang mit medizinischer Terminologie\n\n• Selbstständige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+      "descriptionByLocale": {
+        "it": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Medizinische Austrittsberichte redigieren und versenden\n\n• Patientenakten sorgfältig führen und archivieren\n\n• Vielfältige organisatorische und administrative Aufgaben übernehmen\n\n• Versicherungsanfragen kompetent bearbeiten\n\n• Kolleginnen und Kollegen im Team gegenseitig vertreten und unterstützen\n\n• Option auf Erhöhung des Pensums Mitte 2027\n\nAnforderungen:\n• Kaufmännische Ausbildung oder abgeschlossene Ausbildung als Arztsekretärin\n\n• Mindestens 2 Jahre Berufserfahrung in einem Arztsekretariat\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Sicherer Umgang mit medizinischer Terminologie\n\n• Selbstständige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "en": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Medizinische Austrittsberichte redigieren und versenden\n\n• Patientenakten sorgfältig führen und archivieren\n\n• Vielfältige organisatorische und administrative Aufgaben übernehmen\n\n• Versicherungsanfragen kompetent bearbeiten\n\n• Kolleginnen und Kollegen im Team gegenseitig vertreten und unterstützen\n\n• Option auf Erhöhung des Pensums Mitte 2027\n\nAnforderungen:\n• Kaufmännische Ausbildung oder abgeschlossene Ausbildung als Arztsekretärin\n\n• Mindestens 2 Jahre Berufserfahrung in einem Arztsekretariat\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Sicherer Umgang mit medizinischer Terminologie\n\n• Selbstständige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Medizinische Austrittsberichte redigieren und versenden\n\n• Patientenakten sorgfältig führen und archivieren\n\n• Vielfältige organisatorische und administrative Aufgaben übernehmen\n\n• Versicherungsanfragen kompetent bearbeiten\n\n• Kolleginnen und Kollegen im Team gegenseitig vertreten und unterstützen\n\n• Option auf Erhöhung des Pensums Mitte 2027\n\nAnforderungen:\n• Kaufmännische Ausbildung oder abgeschlossene Ausbildung als Arztsekretärin\n\n• Mindestens 2 Jahre Berufserfahrung in einem Arztsekretariat\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Sicherer Umgang mit medizinischer Terminologie\n\n• Selbstständige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "fr": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Medizinische Austrittsberichte redigieren und versenden\n\n• Patientenakten sorgfältig führen und archivieren\n\n• Vielfältige organisatorische und administrative Aufgaben übernehmen\n\n• Versicherungsanfragen kompetent bearbeiten\n\n• Kolleginnen und Kollegen im Team gegenseitig vertreten und unterstützen\n\n• Option auf Erhöhung des Pensums Mitte 2027\n\nAnforderungen:\n• Kaufmännische Ausbildung oder abgeschlossene Ausbildung als Arztsekretärin\n\n• Mindestens 2 Jahre Berufserfahrung in einem Arztsekretariat\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Sicherer Umgang mit medizinischer Terminologie\n\n• Selbstständige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt."
+      },
+      "needsRetranslation": true,
+      "location": "Bülach",
+      "canton": "ZH",
+      "url": "https://job.spitalbuelach.ch/offene-stellen/arztsekretaer-in-sekretariat-medizin/27fa3b9c-9bc6-4f62-bf5b-a48c7f489ed7",
+      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:36:08.048Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8180",
+      "streetAddress": "Spitalstrasse 24",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://jobs.spitalbuelach.ch/arztsekretaerin-sekretariat-medizin-60-100--de-f1482.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-01T14:25:04.570Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-buelach-be053d63748a",
+      "slug": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+      "slugByLocale": {
+        "it": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+        "en": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+        "de": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+        "fr": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+      },
+      "company": "Spital Bülach",
+      "companyKey": "spital-buelach",
+      "companyDomain": "spitalbuelach.ch",
+      "title": "Sozialarbeiter:in/Case Manager:in",
+      "titleByLocale": {
+        "it": "Sozialarbeiter:in/Case Manager:in",
+        "en": "Sozialarbeiter:in/Case Manager:in",
+        "de": "Sozialarbeiter:in/Case Manager:in",
+        "fr": "Sozialarbeiter:in/Case Manager:in"
+      },
+      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Effiziente und nachhaltige Entlassungsplanung zur Steigerung der Zufriedenheit von Patienten und Angehörigen sowie zur Reduktion von Wiedereintritten und Rehospitalisationen\n\n• Führen von interdisziplinären Gesprächen mit Patienten, Angehörigen und Fachpersonen\n\n• Planen und organisieren von Übertritten in Rehabilitationen, Kuren, Pflegeheime oder Betreuung in der gewohnten Umgebung\n\n• Beratung von stationären und ambulanten Patienten sowie deren Angehörigen bei psychosozialen, finanziellen und sozialversicherungsrechtlichen Fragestellungen\n\n• Allgemeine administrative Unterstützung und Koordination für das gesamte Team des Sozialdienstes\n\nAnforderungen:\n• Ausbildung in Sozialer Arbeit oder eine Weiterbildung im Case Management\n\n• Idealerweise einige Jahre Berufserfahrung in der Pflege\n\n• Erfahrung in der Beratung von Menschen in belastenden Lebenssituationen\n\n• Ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\n• Kenntnisse im Bereich der Sozialversicherungen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+      "descriptionByLocale": {
+        "it": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Effiziente und nachhaltige Entlassungsplanung zur Steigerung der Zufriedenheit von Patienten und Angehörigen sowie zur Reduktion von Wiedereintritten und Rehospitalisationen\n\n• Führen von interdisziplinären Gesprächen mit Patienten, Angehörigen und Fachpersonen\n\n• Planen und organisieren von Übertritten in Rehabilitationen, Kuren, Pflegeheime oder Betreuung in der gewohnten Umgebung\n\n• Beratung von stationären und ambulanten Patienten sowie deren Angehörigen bei psychosozialen, finanziellen und sozialversicherungsrechtlichen Fragestellungen\n\n• Allgemeine administrative Unterstützung und Koordination für das gesamte Team des Sozialdienstes\n\nAnforderungen:\n• Ausbildung in Sozialer Arbeit oder eine Weiterbildung im Case Management\n\n• Idealerweise einige Jahre Berufserfahrung in der Pflege\n\n• Erfahrung in der Beratung von Menschen in belastenden Lebenssituationen\n\n• Ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\n• Kenntnisse im Bereich der Sozialversicherungen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "en": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Effiziente und nachhaltige Entlassungsplanung zur Steigerung der Zufriedenheit von Patienten und Angehörigen sowie zur Reduktion von Wiedereintritten und Rehospitalisationen\n\n• Führen von interdisziplinären Gesprächen mit Patienten, Angehörigen und Fachpersonen\n\n• Planen und organisieren von Übertritten in Rehabilitationen, Kuren, Pflegeheime oder Betreuung in der gewohnten Umgebung\n\n• Beratung von stationären und ambulanten Patienten sowie deren Angehörigen bei psychosozialen, finanziellen und sozialversicherungsrechtlichen Fragestellungen\n\n• Allgemeine administrative Unterstützung und Koordination für das gesamte Team des Sozialdienstes\n\nAnforderungen:\n• Ausbildung in Sozialer Arbeit oder eine Weiterbildung im Case Management\n\n• Idealerweise einige Jahre Berufserfahrung in der Pflege\n\n• Erfahrung in der Beratung von Menschen in belastenden Lebenssituationen\n\n• Ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\n• Kenntnisse im Bereich der Sozialversicherungen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Effiziente und nachhaltige Entlassungsplanung zur Steigerung der Zufriedenheit von Patienten und Angehörigen sowie zur Reduktion von Wiedereintritten und Rehospitalisationen\n\n• Führen von interdisziplinären Gesprächen mit Patienten, Angehörigen und Fachpersonen\n\n• Planen und organisieren von Übertritten in Rehabilitationen, Kuren, Pflegeheime oder Betreuung in der gewohnten Umgebung\n\n• Beratung von stationären und ambulanten Patienten sowie deren Angehörigen bei psychosozialen, finanziellen und sozialversicherungsrechtlichen Fragestellungen\n\n• Allgemeine administrative Unterstützung und Koordination für das gesamte Team des Sozialdienstes\n\nAnforderungen:\n• Ausbildung in Sozialer Arbeit oder eine Weiterbildung im Case Management\n\n• Idealerweise einige Jahre Berufserfahrung in der Pflege\n\n• Erfahrung in der Beratung von Menschen in belastenden Lebenssituationen\n\n• Ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\n• Kenntnisse im Bereich der Sozialversicherungen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "fr": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Effiziente und nachhaltige Entlassungsplanung zur Steigerung der Zufriedenheit von Patienten und Angehörigen sowie zur Reduktion von Wiedereintritten und Rehospitalisationen\n\n• Führen von interdisziplinären Gesprächen mit Patienten, Angehörigen und Fachpersonen\n\n• Planen und organisieren von Übertritten in Rehabilitationen, Kuren, Pflegeheime oder Betreuung in der gewohnten Umgebung\n\n• Beratung von stationären und ambulanten Patienten sowie deren Angehörigen bei psychosozialen, finanziellen und sozialversicherungsrechtlichen Fragestellungen\n\n• Allgemeine administrative Unterstützung und Koordination für das gesamte Team des Sozialdienstes\n\nAnforderungen:\n• Ausbildung in Sozialer Arbeit oder eine Weiterbildung im Case Management\n\n• Idealerweise einige Jahre Berufserfahrung in der Pflege\n\n• Erfahrung in der Beratung von Menschen in belastenden Lebenssituationen\n\n• Ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\n• Kenntnisse im Bereich der Sozialversicherungen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P8-Fort-und-Weiterbildung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt."
+      },
+      "needsRetranslation": true,
+      "location": "Bülach",
+      "canton": "ZH",
+      "url": "https://job.spitalbuelach.ch/offene-stellen/sozialarbeiter-in-case-manager-in/bbee33a2-99d7-4c16-91b9-9362486a2fa7",
+      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:36:08.045Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8180",
+      "streetAddress": "Spitalstrasse 24",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://jobs.spitalbuelach.ch/sozialarbeiterincase-managerin-de-f1485.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-01T14:25:04.532Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-buelach-62297a5370b9",
+      "slug": "dipl-cura-professionale-piscina-spital-bulach-bulach",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
+        "it": "dipl-cura-professionale-piscina-spital-bulach-bulach",
+        "en": "dipl-care-professional-care-pool-spital-bulach-bulach",
+        "fr": "dipl-pool-de-soins-professionnels-spital-bulach-bulach"
+      },
+      "company": "Spital Bülach",
+      "companyKey": "spital-buelach",
+      "companyDomain": "spitalbuelach.ch",
+      "title": "Dipl. Pflegefachperson Pflege-Pool",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson Pflege-Pool",
+        "it": "Dipl. Cura professionale piscina",
+        "en": "Dipl. Care professional Care pool",
+        "fr": "Dipl. Pool de soins professionnels"
+      },
+      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Patientenorientierte Pflege, Betreuung und Überwachung von Patientinnen und Patienten aller Fachgebiete\n\n• Durchführung medizintechnischer Interventionen\n\n• Ressourcenfördernde Pflege und Betreuung unserer Patientinnen und Patienten\n\nAnforderungen:\n• Diplom als Pflegefachperson HF/FH oder entsprechendes ausländisches Diplom mit SRK-Anerkennung\n\n• Aktives Mitdenken und selbstständiges Arbeiten\n\n• Kommunikative und zuverlässige Persönlichkeit\n\n• Flexible Persönlichkeit\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+      "descriptionByLocale": {
+        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Patientenorientierte Pflege, Betreuung und Überwachung von Patientinnen und Patienten aller Fachgebiete\n\n• Durchführung medizintechnischer Interventionen\n\n• Ressourcenfördernde Pflege und Betreuung unserer Patientinnen und Patienten\n\nAnforderungen:\n• Diplom als Pflegefachperson HF/FH oder entsprechendes ausländisches Diplom mit SRK-Anerkennung\n\n• Aktives Mitdenken und selbstständiges Arbeiten\n\n• Kommunikative und zuverlässige Persönlichkeit\n\n• Flexible Persönlichkeit\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Cura, cura e monitoraggio dei pazienti in tutte le aree di competenza\n\n• Attuazione degli interventi medici\n\n• La cura e la cura dei nostri pazienti\n\nRequisiti\n• Diploma come infermiera HF/FH o equivalente diploma straniero con riconoscimento SRK\n\n• Pensiero attivo e lavoro indipendente\n\n• Personalità comunicativa e affidabile\n\n• Personalità flessibile\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-change package.svg,P5-social benefit.svg,P6-health care.svg,P7-working time.svg,P11-valuation.svg,P10-talent program. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
+        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Patient-oriented care, care and monitoring of patients in all areas of expertise\n\n• Implementation of medical interventions\n\n• Resource-promoting care and care of our patients\n\nRequirements\n• Diploma as nurse HF/FH or equivalent foreign diploma with SRK recognition\n\n• Active thinking and working independently\n\n• Communicative and reliable personality\n\n• Flexible personality\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-changing package.svg,P5-social benefits.svg,P6-health care.svg,P7-working time.svg,P11-valuation.svg,P10-talent programme. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
+        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Soins axés sur le patient, soins et suivi des patients dans tous les domaines d'expertise\n\n• Mise en œuvre des interventions médicales\n\n• La promotion des ressources et les soins de nos patients\n\nExigences\n• Diplôme d'infirmière HF/FH ou diplôme étranger équivalent avec reconnaissance SRK\n\n• Réflexion active et travail indépendant\n\n• Personnalité communicative et fiable\n\n• Personnalité flexible\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3- benefits.svg,P4-changement package.svg,P5-social benefits.svg,P6-health care.svg,P7-working time.svg,P11-valuation.svg,P10-talent program. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
+      },
+      "location": "Bülach",
+      "canton": "ZH",
+      "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-pflege-pool/723307c0-712f-4865-9bb7-cfd717d02e65",
+      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:36:08.043Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8180",
+      "streetAddress": "Spitalstrasse 24",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://jobs.spitalbuelach.ch/diplomierte-pflegefachperson-de-f1393.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4359,7 +4223,202 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-09-03T13:49:11.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+      ]
+    },
+    {
+      "id": "spital-buelach-fcd05fb8d820",
+      "slug": "stage-in-care-private-department-spital-bulach-bulach",
+      "slugByLocale": {
+        "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
+        "it": "stage-in-care-private-department-spital-bulach-bulach",
+        "en": "internship-in-care-private-department-spital-bulach-bulach",
+        "fr": "stage-en-soins-departement-prive-spital-bulach-bulach"
+      },
+      "company": "Spital Bülach",
+      "companyKey": "spital-buelach",
+      "companyDomain": "spitalbuelach.ch",
+      "title": "Praktikant:in Pflege Privatabteilung",
+      "titleByLocale": {
+        "de": "Praktikant:in Pflege Privatabteilung",
+        "it": "Stage: in Care Private Department",
+        "en": "Internship: in Care Private Department",
+        "fr": "Stage: en soins Département privé"
+      },
+      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n\n• Ausführen von Boten- und Transportgängen\n\nAnforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n\n• Bereitschaft zum Schichtdienst\n\n• Gute mündliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+      "descriptionByLocale": {
+        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n\n• Ausführen von Boten- und Transportgängen\n\nAnforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n\n• Bereitschaft zum Schichtdienst\n\n• Gute mündliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Assistenza per la cura e la cura di base dei pazienti secondo le istruzioni\n\n• Completamento delle attività domestiche nelle immediate vicinanze dei pazienti\n\n• Operazioni di trasporto e trasporto\n\nRequisiti\n• Età minima di 18 è una condizione\n\n• Desiderio per una successiva scelta di carriera nell'assistenza sanitaria\n\n• Prontezza per il lavoro a turni\n\n• Buone competenze mediche\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-rewards.svg,P4-recog.svg,P5-social benefit.svg,P6-health care.svg,P7 orario di lavoro.svg,P15-annual time-care.svg,P11-valuation. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
+        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Assistance in carrying out the basic care and care of patients according to instructions\n\n• Completion of domestic activities in the immediate vicinity of patients\n\n• Carriage and transport operations\n\nRequirements\n• Minimum age of 18 is a condition\n\n• Desire for a later career choice in health care\n\n• Readiness for shift work\n\n• Good oral German skills\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-rewards.svg,P4-recog.svg,P5-social benefits.svg,P6-health care.svg,P7 working time.svg,P15-annual working time-care.svg,P11-valuation. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
+        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Assistance pour la prestation des soins de base et des soins aux patients conformément aux instructions\n\n• Achèvement des activités domestiques à proximité immédiate des patients\n\n• Transports et opérations de transport\n\nExigences\n• L'âge minimum de 18 ans est une condition\n\n• Désir d'un choix de carrière ultérieur en soins de santé\n\n• Préparation au travail posté\n\n• Bonnes compétences orales en allemand\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-rewards.svg,P4-recog.svg,P5-social benefits.svg,P6-health care.svg,P7 working time.svg,P15-annual working time-care.svg,P11-valuation. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
+      },
+      "needsRetranslation": true,
+      "location": "Bülach",
+      "canton": "ZH",
+      "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-privatabteilung/48f0db81-cbdf-40df-a939-e9fb594b22f1",
+      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:36:08.040Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8180",
+      "streetAddress": "Spitalstrasse 24",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://jobs.spitalbuelach.ch/praktikantin-privatabteilung-de-f1263.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82000,
+          "maxValue": 114500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T13:49:11.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+        ],
+        "en": [
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+        ],
+        "fr": [
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+      ]
+    },
+    {
+      "id": "spital-buelach-ac9151274d8a",
+      "slug": "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
+      "slugByLocale": {
+        "de": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
+        "it": "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
+        "en": "dipl-expert-in-emergency-care-spital-bulach-bulach",
+        "fr": "expert-en-soins-d-urgence-spital-bulach-bulach"
+      },
+      "company": "Spital Bülach",
+      "companyKey": "spital-buelach",
+      "companyDomain": "spitalbuelach.ch",
+      "title": "Dipl. Expert:in Notfallpflege",
+      "titleByLocale": {
+        "de": "Dipl. Expert:in Notfallpflege",
+        "it": "Dipl. Esperto: nella cura di emergenza",
+        "en": "Dipl. Expert: in Emergency Care",
+        "fr": "Expert en soins d'urgence"
+      },
+      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Professionelle Pflege und Betreuung aller Patientinnen und Patienten nach den neusten Erkenntnissen der Notfallmedizin\n\n• Erkennung der spezifischen Patientensituationen und Einleitung der notwendigen Massnahmen\n\n• Vollständige und fachgerechte Dokumentation und Leistungserfassung sowie die gezielte Weitergabe von Informationen an die internen Stellen\n\n• Triage aller Notfallpatientinnen und Notfallpatienten anhand des Manchester Triage Systems\n\n• Anfertigen von Immobilisationsverbänden aus Kunststoffgips\n\n• Instruktion und Behandlung der zugewiesenen Patientinnen und Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Expertin/Dipl. Experte Notfallpflege NDS HF\n\n• Abgeschlossene Ausbildung zur medizinischen Gipsfachperson SVmG/H+ oder gleichwertige Weiterbildungen\n\n• Belastbare Fachperson, die sich gut und schnell auf wechselnde Tätigkeiten und Situationen einstellen kann\n\n• Hohes Verantwortungsbewusstsein und eine sorgfältige Arbeitsweise\n\n• Gute mündliche und schriftliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+      "descriptionByLocale": {
+        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Professionelle Pflege und Betreuung aller Patientinnen und Patienten nach den neusten Erkenntnissen der Notfallmedizin\n\n• Erkennung der spezifischen Patientensituationen und Einleitung der notwendigen Massnahmen\n\n• Vollständige und fachgerechte Dokumentation und Leistungserfassung sowie die gezielte Weitergabe von Informationen an die internen Stellen\n\n• Triage aller Notfallpatientinnen und Notfallpatienten anhand des Manchester Triage Systems\n\n• Anfertigen von Immobilisationsverbänden aus Kunststoffgips\n\n• Instruktion und Behandlung der zugewiesenen Patientinnen und Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Expertin/Dipl. Experte Notfallpflege NDS HF\n\n• Abgeschlossene Ausbildung zur medizinischen Gipsfachperson SVmG/H+ oder gleichwertige Weiterbildungen\n\n• Belastbare Fachperson, die sich gut und schnell auf wechselnde Tätigkeiten und Situationen einstellen kann\n\n• Hohes Verantwortungsbewusstsein und eine sorgfältige Arbeitsweise\n\n• Gute mündliche und schriftliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Cura professionale e cura di tutti i pazienti secondo le ultime scoperte della medicina di emergenza\n\n• Identificazione di situazioni specifiche del paziente e avvio di misure necessarie\n\n• Documentazione completa e professionale e monitoraggio delle prestazioni, nonché divulgazione mirata delle informazioni agli organi interni\n\n• Triage di tutti i pazienti di emergenza utilizzando il sistema di triage di Manchester\n\n• Fabbricazione di unità di immobilizzazione di gesso di plastica\n\n• Istruzione e trattamento dei pazienti assegnati\n\nRequisiti\n• Allenamento completato come Dipl. Expert/Dipl. Expert Emergency Care NDS HF\n\n• Formazione completa come specialista di intonaco medico SVmG/H+ o formazione equivalente\n\n• Specialista responsabile che può adattarsi bene e rapidamente a cambiare attività e situazioni\n\n• Alto senso di responsabilità e un metodo di lavoro attento\n\n• Buona conoscenza orale e scritta del tedesco\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-change package.svg,P5-social benefit.svg,P9-assignment model-care.svg,P15-annual working time-care.svg,P11-valuation.svg,P10-talent program. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
+        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Professional care and care of all patients according to the latest findings of emergency medicine\n\n• Identification of specific patient situations and initiation of necessary measures\n\n• Complete and professional documentation and performance tracking as well as targeted disclosure of information to internal bodies\n\n• Triage of all emergency patients using the Manchester Triage System\n\n• Manufacture of plastic gypsum immobilisation units\n\n• Instruction and treatment of assigned patients\n\nRequirements\n• Completed training as a Dipl. Expert/Dipl. Expert Emergency Care NDS HF\n\n• Completed training as medical plaster specialist SVmG/H+ or equivalent training\n\n• Resilient specialist who can adapt well and quickly to changing activities and situations\n\n• High sense of responsibility and a careful working method\n\n• Good oral and written knowledge of German\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-changing package.svg,P5-social benefits.svg,P9-assignment model-care.svg,P15-annual working time-care.svg,P11-valuation.svg,P10-talent programme. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
+        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Soins professionnels et soins de tous les patients selon les dernières conclusions de la médecine d'urgence\n\n• Identification des situations particulières des patients et lancement des mesures nécessaires\n\n• Documentation complète et professionnelle et suivi des résultats ainsi que divulgation ciblée de l'information aux organismes internes\n\n• Triage de tous les patients d'urgence utilisant le système Manchester Triage\n\n• Fabrication d'unités d'immobilisation de gypse en plastique\n\n• Instruction et traitement des patients\n\nExigences\n• Formation terminée en tant que diplômé. Expert/Dipl. Expert Soins d'urgence NDS HF\n\n• Formation terminée en tant que spécialiste en plâtre médical SVmG/H+ ou formation équivalente\n\n• Spécialiste résilient qui peut s'adapter bien et rapidement à l'évolution des activités et des situations\n\n• Un sens élevé des responsabilités et une méthode de travail prudente\n\n• Bonne connaissance orale et écrite de l'allemand\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3- benefits.svg,P4-changement package.svg,P5-social benefits.svg,P9-affectation model-care.svg,P15-annual working time-care.svg,P11-valuation.svg,P10-talent programme. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
+      },
+      "needsRetranslation": true,
+      "location": "Bülach",
+      "canton": "ZH",
+      "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expert-in-notfallpflege/ddb017bf-3cfe-477f-a029-098ffc80b265",
+      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:36:08.010Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8180",
+      "streetAddress": "Spitalstrasse 24",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://jobs.spitalbuelach.ch/dipl-expertin-notfallpflege-60-100--de-f1490.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:36:08.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
+          "dipl-expert-in-emergency-care-spital-bulach-bulach",
+          "expert-en-soins-d-urgence-spital-bulach-bulach",
+          "esperto-a-anestesia-nds-spital-bulach-bulach",
+          "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
+          "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
+          "infirmier-ere-anesthesie-nds-spital-bulach-bulach",
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-expert-in-emergency-care-spital-bulach-bulach",
+          "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
+        ],
+        "de": [
+          "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
+        ],
+        "fr": [
+          "expert-en-soins-d-urgence-spital-bulach-bulach",
+          "infirmier-ere-anesthesie-nds-spital-bulach-bulach",
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
+        "dipl-expert-in-emergency-care-spital-bulach-bulach",
+        "expert-en-soins-d-urgence-spital-bulach-bulach",
+        "esperto-a-anestesia-nds-spital-bulach-bulach",
+        "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
+        "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
+        "infirmier-ere-anesthesie-nds-spital-bulach-bulach",
+        "dipl-expert-in-notfallpflege-spital-buelach-bulach"
+      ]
     }
   ]
 }

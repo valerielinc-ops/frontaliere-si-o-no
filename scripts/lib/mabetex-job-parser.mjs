@@ -22,14 +22,12 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 const BASE_URL = 'https://www.mabetex.com';
 const CAREERS_URL = 'https://www.mabetex.com/career/';
-const HQ = getCompanyDefaults('mabetex');
-
 export const MABETEX_KEY = 'mabetex';
 export const MABETEX_COMPANY_NAME = 'Mabetex Group';
 export const MABETEX_COMPANY_DOMAIN = 'mabetex.com';
@@ -40,6 +38,20 @@ export const MIN_DESC_LENGTH = 100;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+function mabetexVacancyIdentity(title = '', location = '') {
+  return `${normalize(title)}\u0000${normalize(location)}`;
+}
+
+// The only previously published bare-page identity is evidenced by the
+// crawler snapshot on origin/main. Never transfer that URL/slug history to the
+// first Swiss survivor: DOM order is not identity and the historic foreign job
+// is correctly retired by the Swiss-only geography gate.
+const HISTORICAL_BARE_URL_IDENTITY = mabetexVacancyIdentity('Project Manager', 'Southwest Africa');
+
+export function isHistoricalMabetexVacancy(title = '', location = '') {
+  return mabetexVacancyIdentity(title, location) === HISTORICAL_BARE_URL_IDENTITY;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -89,10 +101,9 @@ export function isTrustedDomain(rawUrl = '') {
  * We look for the "Job offers" h2, then parse each <strong> block as a job.
  * Returns an array of { title, location, description } objects.
  */
-function parseCareerPage(html = '') {
+export function parseCareerPage(html = '') {
   if (!html) return [];
   const { document } = new JSDOM(html).window;
-  const jobs = [];
 
   // Find the "Job offers" section — typically in .subtitleCont or similar
   const allText = document.querySelectorAll('.et_pb_text_inner, .et_pb_text');
@@ -121,49 +132,47 @@ function parseCareerPage(html = '') {
 
   // Parse jobs from the section content
   // Split by <strong> or <b> elements that look like job titles (ALL CAPS pattern)
-  const strongEls = jobSection.querySelectorAll('strong, b');
-  let currentJob = null;
-
-  for (const strong of strongEls) {
+  const titleNodes = [];
+  for (const strong of jobSection.querySelectorAll('strong, b')) {
     const text = normalizeSpace(strong.textContent || '');
 
     // Job titles are typically ALL CAPS, > 5 chars, and NOT section headers like "JOB DESCRIPTION"
     const isSectionHeader = /^(JOB BREF|JOB DESCRIPTION|RESPONSIBILITIES|REQUIRED SKILLS|REQUIREMENTS|QUALIFICATIONS|BENEFITS|CONTACT)/i.test(text);
     const isJobTitle = /^[A-Z][A-Z\s&/()-]+$/.test(text) && text.length >= 5 && !isSectionHeader;
-
-    if (isJobTitle) {
-      // Save previous job if exists
-      if (currentJob && currentJob.title) {
-        jobs.push(currentJob);
-      }
-
-      // Capitalize properly
-      const title = text.split(/\s+/).map(w =>
-        w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
-      ).join(' ');
-
-      currentJob = { title, location: '', description: '' };
-    }
+    if (isJobTitle) titleNodes.push(strong);
   }
 
-  // Save last job
-  if (currentJob && currentJob.title) {
-    jobs.push(currentJob);
-  }
+  const jobs = [];
+  for (let index = 0; index < titleNodes.length; index++) {
+    const titleNode = titleNodes[index];
+    const nextTitleNode = titleNodes[index + 1];
+    const rawTitle = normalizeSpace(titleNode.textContent || '');
+    const title = rawTitle.split(/\s+/).map((word) =>
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    ).join(' ');
 
-  // Extract location and description for each job from the full section text
-  const sectionHtml = jobSection.innerHTML || '';
-  const sectionText = stripHtml(sectionHtml);
-
-  for (const job of jobs) {
-    // Try to find "Place of work:" near the job title
-    const placeMatch = sectionText.match(/place of work[:\s]+([^\n]+)/i);
-    if (placeMatch) {
-      job.location = normalizeSpace(placeMatch[1]);
-    }
-
-    // Use the full section text as description (it's typically one job per page)
-    job.description = sectionText;
+    // DOM Range preserves nested Divi paragraphs while enforcing the record
+    // boundary title→next title. The old full-section read assigned the first
+    // location and every description to every vacancy on the page.
+    const range = document.createRange();
+    range.setStartAfter(titleNode);
+    if (nextTitleNode) range.setEndBefore(nextTitleNode);
+    else range.setEndAfter(jobSection.lastChild || titleNode);
+    const wrapper = document.createElement('div');
+    wrapper.append(range.cloneContents());
+    const segmentText = stripHtml(wrapper.innerHTML || '');
+    const placeLine = segmentText.split(/\n+/)
+      .map((line) => normalizeSpace(line))
+      .find((line) => /^place of work\s*:/i.test(line));
+    const location = placeLine
+      ? normalizeSpace(placeLine.replace(/^place of work\s*:\s*/i, ''))
+      : '';
+    jobs.push({
+      title,
+      location,
+      sourceIdentity: mabetexVacancyIdentity(title, location),
+      description: normalizeSpace(`${title}. ${segmentText}`),
+    });
   }
 
   return jobs;
@@ -214,8 +223,7 @@ export async function fetchAllMabetexJobs() {
   try {
     html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new Error(`Mabetex: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
   const listings = parseCareerPage(html);
   console.log(`  Jobs found on career page: ${listings.length}`);
@@ -223,17 +231,35 @@ export async function fetchAllMabetexJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    const description = listing.description || `${listing.title} — Mabetex Group, Lugano`;
-    const location = listing.location || 'Lugano';
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
+    const description = listing.description;
+    if (!description || description.length < MIN_DESC_LENGTH) continue;
     const sourceLang = detectLang(listing.title, 'en');
-    const jobSlug = buildJobSlug(`${listing.title} Lugano`, 'mabetex');
-    const urlHash = createHash('sha1').update(`${CAREERS_URL}#${listing.title}`).digest('hex').slice(0, 12);
+    const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'mabetex');
+    // The previous parser hard-coded Lugano into every slug. Preserve that
+    // published route as an explicit alias while new identity reflects the
+    // vacancy's actual place of work.
+    const isHistoricalBareUrl = isHistoricalMabetexVacancy(listing.title, listing.location);
+    const legacyLuganoSlug = buildJobSlug(`${listing.title} Lugano`, 'mabetex');
+    const identityHash = createHash('sha1').update(listing.sourceIdentity).digest('hex').slice(0, 12);
+    const urlHash = isHistoricalBareUrl
+      ? createHash('sha1').update(`${CAREERS_URL}#${listing.title}`).digest('hex').slice(0, 12)
+      : identityHash;
     const empType = inferEmploymentType(listing.title, description);
+    const publicUrl = isHistoricalBareUrl
+      ? CAREERS_URL
+      : `${CAREERS_URL}#vacancy-${slugify(`${listing.title}-${location}`)}-${identityHash.slice(0, 8)}`;
 
     jobs.push({
       id: `${MABETEX_KEY}-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      ...(isHistoricalBareUrl && legacyLuganoSlug !== jobSlug ? {
+        previousSlugs: [legacyLuganoSlug],
+        previousSlugsByLocale: { [sourceLang]: [legacyLuganoSlug] },
+      } : {}),
       company: MABETEX_COMPANY_NAME,
       companyKey: MABETEX_KEY,
       companyDomain: MABETEX_COMPANY_DOMAIN,
@@ -242,12 +268,11 @@ export async function fetchAllMabetexJobs() {
       description,
       descriptionByLocale: { [sourceLang]: description },
       location,
-      canton: HQ.canton,
-      addressLocality: 'Lugano',
-      addressRegion: HQ.addressRegion,
+      canton,
+      addressLocality: location,
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ.postalCode,
       category: detectCategory(listing.title),
       sector: 'Edilizia / Costruzioni',
       contract: empType === 'PART_TIME' ? 'part-time' : 'full-time',
@@ -255,7 +280,7 @@ export async function fetchAllMabetexJobs() {
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
       postedDate: new Date().toISOString().slice(0, 10),
-      url: CAREERS_URL,
+      url: publicUrl,
       applyUrl: CAREERS_URL,
       source: 'Mabetex Group Dedicated Parser',
       sourceLang,

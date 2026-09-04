@@ -8,7 +8,7 @@
  * Decodes to display-correct Unicode (curly quotes, en/em dash), not
  * ASCII fallbacks — this feeds published article title/body text.
  */
-const ENTITY_MAP = {
+export const ENTITY_MAP = {
   '&amp;': '&',
   '&#038;': '&',
   '&lt;': '<',
@@ -36,7 +36,7 @@ const ENTITY_MAP = {
   '&#8230;': '…',
 };
 
-const ENTITY_PATTERN = new RegExp(
+export const ENTITY_PATTERN = new RegExp(
   Object.keys(ENTITY_MAP)
     .map((entity) => entity.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
     .join('|'),

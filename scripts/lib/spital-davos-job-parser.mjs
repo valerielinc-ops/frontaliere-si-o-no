@@ -5,7 +5,8 @@
  * Listing page: https://recruitingapp-2966.umantis.com/Jobs/All?lang=ger
  *   - Server-rendered HTML table with newer Umantis 2023 UI
  *   - Job rows: <tr class="table-as-list__contentrow1|2">
- *   - Title+link: <h3 class="table-as-list__subtitle tableaslist_element_1152488"> → <a href="/Vacancies/{ID}/Description/1">
+ *   - Title+link: numeric element ids differ by view; the stable contract is
+ *     <a href="/Vacancies/{ID}/Description/1">
  *   - Snippet:    <p class="table-as-list__subtitle tableaslist_element_1184115"> (short teaser text)
  *   - Company:    tableaslist_element_1184128 → <span class="column-value"> (always "Spital Davos AG")
  *   - Art:        tableaslist_element_1184117 → <span class="column-value"> (Vollzeit/Teilzeit)
@@ -32,6 +33,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { mergeUmantisListing } from './umantis-listing-merge.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -40,7 +42,10 @@ export const SPITAL_DAVOS_COMPANY_NAME = 'Spital Davos';
 export const SPITAL_DAVOS_COMPANY_DOMAIN = 'spitaldavos.ch';
 
 const BASE_URL = 'https://recruitingapp-2966.umantis.com';
-const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
+export const LISTING_URLS = [
+  `${BASE_URL}/Jobs/All?lang=ger`,
+  `${BASE_URL}/Jobs/1?lang=ger&ContentOnly=&message=`,
+];
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -49,6 +54,11 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+/** Merge duplicate Umantis rows without letting a sparse view erase metadata. */
+export function mergeSpitalDavosListing(existing = {}, incoming = {}) {
+  return mergeUmantisListing(existing, incoming, 'Spital Davos');
 }
 
 /**
@@ -205,14 +215,14 @@ function extractPensum(title = '') {
  *   - <li> with tableaslist_element_* classes for metadata
  *   - <span class="column-value"> for field values
  *
- * Element IDs:
- *   - 1152488: title + link (in <h3>)
- *   - 1184115: snippet/teaser (in <p>)
+ * Element IDs differ between /Jobs/All and /Jobs/1:
+ *   - 1152488 / 3473: title + link (in <h3>)
+ *   - 1184115 / 1184171: snippet/teaser (in <p>)
  *   - 1184128: company name
- *   - 1184117: Art (employment type: Vollzeit/Teilzeit)
- *   - 1184118: Befristung (contract: Unbefristet/Befristet)
- *   - 1184120: Organisationseinheit (department)
- *   - 1152500: apply link
+ *   - 1184117 / 1184174: Art (employment type: Vollzeit/Teilzeit)
+ *   - 1184118 / 1184175: Befristung (contract: Unbefristet/Befristet)
+ *   - 1184120 / 1184177: Organisationseinheit (department)
+ *   - 1152500 / 156602: apply link
  */
 export function parseSpitalDavosListingPage(html = '') {
   const results = [];
@@ -225,9 +235,10 @@ export function parseSpitalDavosListingPage(html = '') {
   while ((rowMatch = rowRegex.exec(html)) !== null) {
     const rowHtml = rowMatch[1];
 
-    // Extract title + link from element 1152488 (in <h3> with <a>)
+    // /Jobs/All and /Jobs/1 use different numeric element ids; the vacancy
+    // href remains stable and is the ownership-safe selector.
     const titleMatch = rowHtml.match(
-      /tableaslist_element_1152488[\s\S]*?<a\s+href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/
+      /<a\s+[^>]*href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/i,
     );
     if (!titleMatch) continue;
 
@@ -242,12 +253,12 @@ export function parseSpitalDavosListingPage(html = '') {
     if (/^(initiativbewerbung|spontanbewerbung|blindbewerbung)$/i.test(title.trim())) continue;
 
     // Extract snippet from element 1184115
-    const snippet = extractElementText(rowHtml, '1184115');
+    const snippet = extractElementText(rowHtml, '1184115') || extractElementText(rowHtml, '1184171');
 
     // Extract metadata fields from column-value spans
-    const artText = extractColumnValue(rowHtml, '1184117');
-    const befristung = extractColumnValue(rowHtml, '1184118');
-    const department = extractColumnValue(rowHtml, '1184120');
+    const artText = extractColumnValue(rowHtml, '1184117') || extractColumnValue(rowHtml, '1184174');
+    const befristung = extractColumnValue(rowHtml, '1184118') || extractColumnValue(rowHtml, '1184175');
+    const department = extractColumnValue(rowHtml, '1184120') || extractColumnValue(rowHtml, '1184177');
 
     results.push({
       vacancyId,
@@ -370,11 +381,29 @@ async function fetchPage(url) {
  */
 export async function fetchAllSpitalDavosJobs() {
   console.log(`🏥 Fetching Spital Davos jobs`);
-  console.log(`   Source: ${LISTING_URL}\n`);
+  console.log(`   Sources: ${LISTING_URLS.join(', ')}\n`);
 
-  // Step 1: Fetch and parse listing page
-  const listingHtml = await fetchPage(LISTING_URL);
-  const listings = parseSpitalDavosListingPage(listingHtml);
+  // The two Umantis listing routes expose different element ids and may carry
+  // partially different catalogues. Union both by vacancy id so the canonical
+  // crawler retains every row previously covered by either view.
+  // Sequential (no Promise.all) by design: mergeSpitalDavosListing relies on
+  // `existing` being the first-seen view, and this loop is what guarantees that order.
+  const listingsById = new Map();
+  for (const listingUrl of LISTING_URLS) {
+    try {
+      const listingHtml = await fetchPage(listingUrl);
+      for (const listing of parseSpitalDavosListingPage(listingHtml)) {
+        const existing = listingsById.get(listing.vacancyId);
+        listingsById.set(
+          listing.vacancyId,
+          existing ? mergeSpitalDavosListing(existing, listing) : listing,
+        );
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ Failed to fetch listing ${listingUrl}: ${err?.message}`);
+    }
+  }
+  const listings = [...listingsById.values()];
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on the page.');

@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -115,7 +116,7 @@ function main() {
   // Per-crawler slices
   const byCrawlerDir = path.join(ROOT, 'data', 'jobs', 'by-crawler');
   if (fs.existsSync(byCrawlerDir)) {
-    const files = fs.readdirSync(byCrawlerDir).filter((f) => f.endsWith('.json'));
+    const files = listSliceFileNames(byCrawlerDir);
     for (const file of files) {
       const { flagged } = processFile(path.join(byCrawlerDir, file), `by-crawler/${file}`);
       totalFlagged += flagged;

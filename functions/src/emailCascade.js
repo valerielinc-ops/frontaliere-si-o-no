@@ -61,11 +61,11 @@
  *                                — falls back to a conservative static pace when
  *                                unset (verified live 2026-07-20: the sending key
  *                                itself gets 401 against this endpoint).
- *   RESEND_API_KEY           — Resend API key (50000/mo paid plan since 2026-07-06).
+ *   RESEND_API_KEY           — Resend API key (free plan: 100/day, 3000/mo).
  *                                Last in cascade order since 2026-07-16 — now the
  *                                overflow valve once maileroo's much larger budget
- *                                is spent, dynamically capped to pace the 50k/mo
- *                                budget (never exceeded), see PROVIDERS[resend] below.
+ *                                is spent. The dynamic cap paces the monthly quota
+ *                                without ever exceeding 100/day; see PROVIDERS below.
  *   CF_API_TOKEN             — Cloudflare token used by default for Email Service:
  *                                it already carries Email Sending: Edit + Analytics
  *                                Read (verified live). 3000/mo included on the
@@ -146,37 +146,11 @@ const PROVIDERS = [
   // so raising the daily cap bought no real extra headroom — it only masked
   // the fact that resend now covers the bulk volume instead.
   { id: 'cloudflare', dailyLimit: 100, monthlyLimit: 3000 },
-  // resend: paid plan activated 2026-07-06 (50000/mo, owner request), bulk
-  // workhorse of the cascade. No self-imposed static dailyLimit (owner request
-  // 2026-07-07): the 1666/day floor (50000/30, months-average) was OUR OWN
-  // accounting, not a Resend-side cap, and it starved job-alerts on 2026-07-07
-  // — newsletter + ad-blast alone had already pushed the in-run counter to
-  // 1672/1666 by 11:06, so job-alerts found resend (and mailjet, separately
-  // maxed at its real 200/day free-tier cap) already "exhausted" for the rest
-  // of the day even though Resend's real monthly ceiling (50000) had ample
-  // room left. Real protection still stands: a genuine Resend-side 429/403
-  // still trips isRateLimitedError below and benches it for the run.
-  //
-  // Moved from 2nd to LAST in cascade order 2026-07-16: with no dailyLimit,
-  // resend used to intercept nearly all overflow before the other five
-  // providers' combined ~650/day free capacity was ever touched — the root
-  // cause of the monthly 50k quota running low well before renewal. Now the
-  // free providers absorb load first; resend only picks up what's left.
-  //
-  // Its effective daily cap is no longer this static `dailyLimit` field — it
-  // is read from `_dynamicDailyLimits.resend`, recomputed on every
-  // syncQuotasFromAPIs() run by computeResendDynamicDailyLimit() as
-  // (50000 − billing-cycle-to-date usage) ÷ days left until the next
-  // renewal (billing cycle anchored on the 6th of each month, paid plan
-  // activated 2026-07-06 — see RESEND_CYCLE_ANCHOR_DAY). `dailyLimit:
-  // Infinity` below is only the pre-sync fallback value — remainingQuota()
-  // never consults it in a real send path, since sendEmailCascade always
-  // awaits syncQuotasFromAPIs() first.
-  // 2026-07-20: no longer the bulk workhorse — maileroo's 100000/mo budget
-  // (see PROVIDERS[maileroo] above) now absorbs the volume resend used to
-  // carry. Kept last so its tightly-guarded 50k/mo (never to be exceeded,
-  // owner directive) is spent only as the true last resort.
-  { id: 'resend',   dailyLimit: Infinity, monthlyLimit: 50000,
+  // Resend returned to the free plan on 2026-08-31: 100/day and 3000/month.
+  // It stays last so the other providers absorb bulk volume first. The
+  // effective limit is recomputed by computeResendDynamicDailyLimit() to pace
+  // the monthly quota, but is always clamped to this hard 100/day ceiling.
+  { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000,
     // scheduled_at in the JSON body, ISO 8601 UTC. 30-day lookahead (verified docs).
     scheduledSend: { param: 'scheduled_at', maxLookaheadMs: 30 * DAY_MS } },
 ];
@@ -216,7 +190,7 @@ function getCounter(providerId) {
 
 function incrementCounter(providerId, count) {
   getCounter(providerId); // ensure initialized
-  _counters[providerId] = (_counters[providerId] || 0) + count;
+  _counters[providerId] = Math.max(0, (_counters[providerId] || 0) + count);
 }
 
 function recordRealSent(providerId) {
@@ -479,12 +453,10 @@ async function fetchResendEntriesSince(sinceMs, maxPages) {
 async function fetchResendDailyUsage() {
   if (!process.env.RESEND_API_KEY) return 0;
   const todayStartMs = new Date(getTodayUTC() + 'T00:00:00.000Z').getTime();
-  // Paging cap raised to 60 pages (6000 entries) 2026-07-16 — the previous
-  // 20-page/2000-entry cap was comfortably above the old self-imposed
-  // 1666/day floor, but that floor is gone (see PROVIDERS[resend]) and real
-  // single-day volume now regularly exceeds 2000 once resend absorbs the
-  // job-alert/newsletter bulk load, which was silently undercounting today's
-  // usage on busy days — the exact bug this cap exists to prevent.
+  // Keep the established paging ceiling even though the free-plan daily cap
+  // is now 100. The early exit at today's boundary makes the normal request
+  // count small, while the higher safety ceiling still avoids undercounting
+  // usage if account history and plan state temporarily disagree.
   const { count, truncated } = await fetchResendEntriesSince(todayStartMs, 60);
   if (truncated) {
     console.warn('⚠️  [resend] today-usage paging truncated at 60 pages — real count may be higher than reported');
@@ -492,13 +464,9 @@ async function fetchResendDailyUsage() {
   return count;
 }
 
-// Resend's paid plan renews on the 6th of each month (activated 2026-07-06),
-// NOT the calendar month — this anchors the dynamic-cap billing cycle.
+// This account's Resend quota cycle is anchored on the 6th of each month,
+// not the calendar month.
 const RESEND_CYCLE_ANCHOR_DAY = 6;
-// Pre-2026-07-07 self-imposed floor (50000/30, months-average). Used only
-// when cycle usage is unverifiable (API error / paging truncated) — never
-// Infinity, since an unverifiable usage lookup must fail safe, not open.
-const RESEND_CYCLE_FALLBACK_DAILY = 1666;
 
 // Pure — handles year/month rollover for the day-6-anchored billing cycle.
 function resendCycleBounds(nowMs) {
@@ -530,22 +498,21 @@ export async function fetchResendCycleUsage(nowMs = Date.now()) {
 }
 
 /**
- * Dynamic per-day Resend send budget that paces the 50k/mo quota to land
- * at/under it by the next renewal: (50000 − cycle-to-date usage) ÷ days
- * left until renewal. Falls back to the conservative 1666/day floor when
- * cycle usage can't be verified — never to Infinity (over-send risk) or to
- * an unknown-usage-assumed-zero budget (also an over-send risk).
+ * Dynamic per-day Resend send budget for the free plan. It paces the 3000/mo
+ * quota across the days left in the account cycle and clamps the result to the
+ * provider's hard 100/day ceiling. If cycle usage cannot be verified, the
+ * same 100/day ceiling is the safe fallback.
  */
 async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
   const provider = PROVIDERS.find(p => p.id === 'resend');
   const { count, truncated, cycleStart, cycleEnd } = await fetchResendCycleUsage(nowMs);
   if (truncated) {
-    console.warn(`⚠️  [resend] billing-cycle usage unverifiable — falling back to conservative ${RESEND_CYCLE_FALLBACK_DAILY}/day floor`);
-    return RESEND_CYCLE_FALLBACK_DAILY;
+    console.warn(`⚠️  [resend] quota-cycle usage unverifiable — falling back to the ${provider.dailyLimit}/day free-plan ceiling`);
+    return provider.dailyLimit;
   }
   const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS));
   const remainingBudget = Math.max(0, provider.monthlyLimit - count);
-  const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
+  const dynamicLimit = Math.min(provider.dailyLimit, Math.floor(remainingBudget / daysRemaining));
   console.log(`   [resend] cycle ${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}: used=${count}/${provider.monthlyLimit}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
   return dynamicLimit;
 }
@@ -1325,6 +1292,73 @@ function isSoftThrottleError(msg) {
   return !!msg && /code=10004\b|email\.sending\.error\.throttled/i.test(msg);
 }
 
+/**
+ * Explicit HTTP rejections that are safe to retry more slowly. Transport-level
+ * failures are deliberately excluded: fetchOrTagAmbiguous marks those as
+ * ambiguousDelivery because the provider may already have accepted the email.
+ * Cloudflare code=10004 keeps its established 30s cooldown instead of being
+ * retried inside the same run.
+ */
+function isAdaptiveThrottleRetry(error) {
+  if (!error || error.ambiguousDelivery || isSoftThrottleError(error.message)) return false;
+  // Provider errors have the stable "Provider STATUS: body" shape. Anchor the
+  // status there so a number in the response body (for example a 500-message
+  // quota described by an HTTP 403) cannot accidentally look retryable.
+  return /^[A-Za-z][A-Za-z0-9_-]* (?:408|425|429|5\d\d)\b/.test(String(error.message || ''));
+}
+
+function createAdaptiveThrottleController(config, initialDelayMs, lastSendMap) {
+  if (!config) return null;
+  const stepMs = Number(config.stepMs);
+  const maxDelayMs = Number(config.maxDelayMs);
+  if (!Number.isFinite(initialDelayMs) || initialDelayMs < 0
+      || !Number.isFinite(stepMs) || stepMs <= 0
+      || !Number.isFinite(maxDelayMs) || maxDelayMs < initialDelayMs) {
+    throw new TypeError('invalid adaptiveThrottle configuration');
+  }
+
+  const providerState = new Map();
+  const stateFor = (providerId) => {
+    if (!providerState.has(providerId)) {
+      providerState.set(providerId, { delayMs: initialDelayMs, escalations: 0 });
+    }
+    return providerState.get(providerId);
+  };
+
+  return {
+    delayFor(providerId) {
+      return stateFor(providerId).delayMs;
+    },
+    async retryAfter(providerId, error) {
+      if (!isAdaptiveThrottleRetry(error)) return false;
+      const state = stateFor(providerId);
+      const nextDelayMs = Math.min(maxDelayMs, state.delayMs + stepMs);
+      if (nextDelayMs === state.delayMs) return false;
+
+      const previousDelayMs = state.delayMs;
+      state.delayMs = nextDelayMs;
+      state.escalations += 1;
+      const now = Date.now();
+      const retryAt = Math.max(lastSendMap[providerId] || 0, now + nextDelayMs);
+      lastSendMap[providerId] = retryAt + nextDelayMs;
+      console.warn(
+        `⏱️  ${providerId} adaptive throttle ${previousDelayMs}→${nextDelayMs}ms after: ${String(error.message || error).slice(0, 120)}`,
+      );
+      const waitMs = retryAt - now;
+      if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
+      return true;
+    },
+    snapshot() {
+      return {
+        initialDelayMs,
+        maxDelayMs,
+        stepMs,
+        providers: Object.fromEntries(providerState),
+      };
+    },
+  };
+}
+
 // Short cooldown for soft-throttled providers (mirrors the AI-model
 // provider cooldown in ai-models.mjs) — provider skipped for a bit,
 // quota counter left untouched so it resumes once the burst window clears.
@@ -1348,7 +1382,7 @@ function isProviderCoolingDown(providerId) {
   return (_providerCooldownUntil[providerId] || 0) > Date.now();
 }
 
-async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
+async function sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle) {
   const errors = [];
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -1363,36 +1397,48 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
       continue;
     }
 
-    try {
-      // Optional hook: let the caller finalize the payload for the provider that
-      // is actually about to send (e.g. swap the subject to that provider's A/B
-      // winner). Must never throw — on error we send the payload unchanged.
-      if (typeof finalizeForProvider === 'function') {
-        try { finalizeForProvider(email, provider.id); } catch { /* send as-is */ }
-      }
-      // Resolved against the provider actually being tried (not the caller's
-      // preferred/first provider) — matters when the cascade falls back to a
-      // different provider with a different scheduledSend capability/lookahead.
-      const resolved = resolveScheduledAt(email, provider);
-      const result = await SEND_FNS[provider.id](email, resolved, signal);
+    // Reserve one quota slot synchronously, before the first await in the send
+    // attempt. Without this reservation, concurrent workers can all observe
+    // the same final slot and overshoot a hard daily cap (101/100 was reproduced
+    // with concurrency=3). A definite rejection releases the slot; an ambiguous
+    // delivery keeps it consumed because the provider may have accepted it.
+    while (true) {
       incrementCounter(provider.id, 1);
-      recordRealSent(provider.id);
-      return { ...result, scheduledFor: resolved ? resolved.toISOString() : null };
-    } catch (err) {
-      errors.push(`[${provider.id}] ${err.message}`);
-      if (err.ambiguousDelivery) {
-        // The provider may have already accepted/delivered this message —
-        // falling back to another provider here risks a second delivery
-        // (#4911). Stop the cascade for this email instead of guessing.
-        const ambiguousErr = new Error(`ambiguous delivery at [${provider.id}], not retried elsewhere: ${errors.join(' | ')}`);
-        ambiguousErr.ambiguousDelivery = true;
-        throw ambiguousErr;
-      }
-      if (isSoftThrottleError(err.message)) {
-        cooldownProvider(provider.id);
-      } else if (isRateLimitedError(err.message)) {
-        incrementCounter(provider.id, remainingQuota(provider.id));
-        console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${err.message.slice(0, 150)}`);
+      try {
+        // Optional hook: let the caller finalize the payload for the provider that
+        // is actually about to send (e.g. swap the subject to that provider's A/B
+        // winner). Must never throw — on error we send the payload unchanged.
+        if (typeof finalizeForProvider === 'function') {
+          try { finalizeForProvider(email, provider.id); } catch { /* send as-is */ }
+        }
+        // Resolved against the provider actually being tried (not the caller's
+        // preferred/first provider) — matters when the cascade falls back to a
+        // different provider with a different scheduledSend capability/lookahead.
+        const resolved = resolveScheduledAt(email, provider);
+        const result = await SEND_FNS[provider.id](email, resolved, signal);
+        recordRealSent(provider.id);
+        return { ...result, scheduledFor: resolved ? resolved.toISOString() : null };
+      } catch (err) {
+        if (!err.ambiguousDelivery) incrementCounter(provider.id, -1);
+        errors.push(`[${provider.id}] ${err.message}`);
+        if (err.ambiguousDelivery) {
+          // The provider may have already accepted/delivered this message —
+          // falling back to another provider here risks a second delivery
+          // (#4911). Stop the cascade for this email instead of guessing.
+          const ambiguousErr = new Error(`ambiguous delivery at [${provider.id}], not retried elsewhere: ${errors.join(' | ')}`);
+          ambiguousErr.ambiguousDelivery = true;
+          throw ambiguousErr;
+        }
+        if (adaptiveThrottle && await adaptiveThrottle.retryAfter(provider.id, err)) {
+          continue;
+        }
+        if (isSoftThrottleError(err.message)) {
+          cooldownProvider(provider.id);
+        } else if (isRateLimitedError(err.message)) {
+          incrementCounter(provider.id, remainingQuota(provider.id));
+          console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${err.message.slice(0, 150)}`);
+        }
+        break;
       }
     }
   }
@@ -1405,7 +1451,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
  * Waits until at least `delayMs` has elapsed since the last send to the same provider,
  * then delegates to the provider loop in sendSingle.
  */
-async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal) {
+async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal, adaptiveThrottle) {
   // Determine which provider will be tried first (the one with remaining quota)
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -1422,8 +1468,9 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
     // "258 Mailtrap 403s in 5s" incident, now concurrency-safe for any future
     // concurrency>1 caller (was latent at the default concurrency=1).
     const now = Date.now();
+    const providerDelayMs = adaptiveThrottle?.delayFor(nextProvider.id) ?? delayMs;
     const slot = Math.max(now, lastSendMap[nextProvider.id] || 0);
-    lastSendMap[nextProvider.id] = slot + delayMs;
+    lastSendMap[nextProvider.id] = slot + providerDelayMs;
     const wait = slot - now;
     if (wait > 0) {
       await new Promise(r => setTimeout(r, wait));
@@ -1432,11 +1479,12 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
 
   // Slot already reserved above (advances even on throw), so no post-hoc clock
   // bump is needed — the worker's try/catch handles a thrown send.
-  const result = await sendSingle(email, forceProvider, finalizeForProvider, signal);
+  const result = await sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle);
   // If a different provider ended up sending, reserve its slot too.
   if (result?.provider && result.provider !== nextProvider?.id) {
     const now = Date.now();
-    lastSendMap[result.provider] = Math.max(now, lastSendMap[result.provider] || 0) + delayMs;
+    const providerDelayMs = adaptiveThrottle?.delayFor(result.provider) ?? delayMs;
+    lastSendMap[result.provider] = Math.max(now, lastSendMap[result.provider] || 0) + providerDelayMs;
   }
   return result;
 }
@@ -1453,6 +1501,9 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @param {Object} [opts]
  * @param {number} [opts.concurrency=1] - Max parallel sends (default 1 to avoid rate limits)
  * @param {number} [opts.delayMs=1000] - Delay in ms between sends to the same provider
+ * @param {{stepMs:number,maxDelayMs:number}} [opts.adaptiveThrottle] - Opt-in
+ *   additive backoff for explicit 408/425/429/5xx responses. Starts at delayMs,
+ *   retries the rejected message and never exceeds maxDelayMs.
  * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
  * @param {Function} [opts.onSent] - Called after each successful send: (item, result) => void
  * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
@@ -1462,10 +1513,10 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  *   call so a caller with its own hang budget (e.g. a post-deploy live-check
  *   script) can bound the whole send. Omitted by default (no change for
  *   existing callers) — the cascade itself has no built-in timeout.
- * @returns {{ sent: Array, failed: Array }}
+ * @returns {{ sent: Array, failed: Array, adaptiveThrottle?: Object }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 1, delayMs = 1000, forceProvider, onSent, finalizeForProvider, signal } = opts;
+  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, forceProvider, onSent, finalizeForProvider, signal } = opts;
   const sent = [];
   const failed = [];
 
@@ -1482,10 +1533,11 @@ export async function sendEmailCascade(emails, opts = {}) {
   const totalQuota = available.reduce((sum, p) => sum + remainingQuota(p.id), 0);
   console.log(`📧 Email cascade: ${emails.length} to send, ${totalQuota} daily quota remaining`);
   console.log(`   Providers: ${available.map(p => `${p.id}(${remainingQuota(p.id)})`).join(' → ')}`);
-  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends`);
+  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends${adaptiveConfig ? `, adaptive max=${adaptiveConfig.maxDelayMs}ms step=${adaptiveConfig.stepMs}ms` : ''}`);
 
   // Per-provider last-send timestamps for throttling
   const _lastSend = {};
+  const adaptiveThrottle = createAdaptiveThrottleController(adaptiveConfig, delayMs, _lastSend);
 
   // Process sequentially (concurrency=1) with per-provider delay
   let idx = 0;
@@ -1494,7 +1546,7 @@ export async function sendEmailCascade(emails, opts = {}) {
       const i = idx++;
       const item = emails[i];
       try {
-        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal);
+        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal, adaptiveThrottle);
         sent.push({ ...item, ...result });
         if (onSent) await onSent(item, result);
       } catch (err) {
@@ -1525,7 +1577,9 @@ export async function sendEmailCascade(emails, opts = {}) {
   const immediateCount = sent.length - scheduledCount;
   console.log(`   Scheduling: scheduled=${scheduledCount}, immediate=${immediateCount}`);
 
-  return { sent, failed };
+  return adaptiveThrottle
+    ? { sent, failed, adaptiveThrottle: adaptiveThrottle.snapshot() }
+    : { sent, failed };
 }
 
 // ── Stats ────────────────────────────────────────────────────

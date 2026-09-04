@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ergolz-klinik",
-  "assembledAt": "2026-08-27T20:13:54.826Z",
+  "assembledAt": "2026-09-03T23:17:34.674Z",
   "jobs": [
     {
       "id": "ergolz-klinik-6ec9804c71a1",
@@ -34,7 +34,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/07/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026-1.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:51.612Z",
+      "crawledAt": "2026-09-03T23:17:32.120Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -70,6 +70,7 @@
       "firstSeenAt": "2026-07-17T10:56:48.617Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -112,7 +113,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:50.690Z",
+      "crawledAt": "2026-09-03T23:17:31.272Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -148,6 +149,7 @@
       "firstSeenAt": "2026-05-21T11:51:38.840Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

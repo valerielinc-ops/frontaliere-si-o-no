@@ -1,6 +1,6 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-08-27T00:57:53.528Z",
+  "assembledAt": "2026-09-03T23:36:06.417Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
@@ -34,7 +34,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:50.312Z",
+      "crawledAt": "2026-09-03T23:36:04.024Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -71,6 +71,7 @@
       "firstSeenAt": "2026-05-26T14:56:09.180Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -114,7 +115,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:49.214Z",
+      "crawledAt": "2026-09-03T23:36:02.889Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -155,6 +156,7 @@
       "firstSeenAt": "2026-05-26T14:56:08.177Z",
       "salaryMin": 54900,
       "salaryMax": 76800,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -181,7 +183,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Fachfrauen*männer Gesundheit für den Pflegepool (max. 60%)",
       "titleByLocale": {
-        "it": "Fachfrauen*männer Gesundheit per den Pflegepool (max. 60%)",
+        "it": "Salute per il pool di assistenza (max. 60%)",
         "en": "Expert in infection prevention and hospital hygiene (60-80%)",
         "de": "Fachfrauen*männer Gesundheit für den Pflegepool (max. 60%)",
         "fr": "Expert en prévention des infections et hygiène hospitalière (60-80%)"
@@ -198,8 +200,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/794/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:48.114Z",
+      "crawledAt": "2026-09-03T23:36:01.818Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -231,6 +232,7 @@
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -274,7 +276,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:46.994Z",
+      "crawledAt": "2026-09-03T23:36:00.689Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -369,6 +371,7 @@
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -412,7 +415,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:45.897Z",
+      "crawledAt": "2026-09-03T23:35:59.531Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -500,6 +503,7 @@
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -543,7 +547,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:44.802Z",
+      "crawledAt": "2026-09-03T23:35:58.403Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -594,6 +598,7 @@
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -637,7 +642,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:43.700Z",
+      "crawledAt": "2026-09-03T23:35:57.339Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -693,6 +698,7 @@
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -736,7 +742,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:42.576Z",
+      "crawledAt": "2026-09-03T23:35:56.256Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -800,6 +806,7 @@
       "firstSeenAt": "2026-05-26T14:56:02.178Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -843,7 +850,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:41.433Z",
+      "crawledAt": "2026-09-03T23:35:55.179Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -911,6 +918,7 @@
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
       "salaryMin": 95000,
       "salaryMax": 175500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -954,7 +962,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:40.286Z",
+      "crawledAt": "2026-09-03T23:35:54.056Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1011,6 +1019,7 @@
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1040,7 +1049,7 @@
         "it": "Vice Direttore di Sezione di Geriatria Acuta",
         "en": "Deputy Head of Acute Geriatrics",
         "de": "Stellvertretung Stationsleitung Akutgeriatrie - Tertianum",
-        "fr": "Vice-Directeur de la Section de Gérontologie Aigüe"
+        "fr": "Gériatriques aiguës de gestion de station - Tertianum"
       },
       "description": "Ihre Aufgaben:\n\n• Gewährleistung der Organisation, Koordination und Führung der Akutgeriatrie\n• Mitverantwortlich für die Personalführung, -entwicklung und -planung\n• Mitverantwortlich für das Weiterbildungs-, Personal- und Betriebsbudget und deren Einhaltung\n• Sie pflegen und betreuen unsere Patient*innen kompetent in einem interprofessionellen Behandlungsteam\n• Für Ihre zugeteilten Patient*innen übernehmen Sie die Verantwortung und Steuerung des Pflegeprozesses\n• Sie übernehmen die Tages- wie auch Fachverantwortung, sind aktive Bezugsperson für unsere Patient*innen\n• Sie arbeiten aktiv in der praktischen Ausbildung von Studierenden und Lernenden Pflege mit\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene und in der Schweiz anerkannte Diplomausbildung in der Pflege auf Tertiärniveau (HF / FH) sowie bereits über erste Berufserfahrungen in einem Akutspital in der Schweiz\n• Sie bringen Bereitschaft zur praktischen Anwendung der Pflegediagnostik mit Hilfe der elektronischen Patientendokumentation mit\n• Sie zeichnen sich durch eine herzliche und humorvolle Grundeinstellung sowie durch Ihre sichere Kommunikation mit unseren Patient*innen in der deutschen Sprache (Wort und Schrift) aus\n\nWas wir Ihnen bieten:\n\n• Gratis Frühstück inkl. Getränk (ohne Süssgetränke)\n• 5 Wochen Ferien, ab dem 60Lj. 6 Wochen Ferien\n• Täglich 15 Minuten bezahlte Pause und die Umkleidezeit gilt bei uns als Arbeitszeit\n• Vergünstigte Mittagessen sowie Übernachtungen in unseren Residenzen im Tessin\n• Gratis Halbtax-Abonnement sowie diverse Flottenrabatte\n• Treueprämie ab 5 Dienstjahr und 13. Monatslohn (Auszahlung Juni & Dezember) Unser Team freut sich auf tatkräftige und charismatische Mitgestalter. Erkennen Sie sich? So freuen wir uns, Sie persönlich kennenzulernen! Für Fragen steht Ihnen Tenzin Choesang Thoding, Leitung Pflege & Betreuung , unter der Telefonnummer 043 244 16 05 gerne zur Verfügung.",
       "descriptionByLocale": {
@@ -1054,8 +1063,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:39.184Z",
+      "crawledAt": "2026-09-03T23:35:52.991Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1108,6 +1116,7 @@
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1152,7 +1161,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:38.093Z",
+      "crawledAt": "2026-09-03T23:35:51.874Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1212,6 +1221,7 @@
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1255,7 +1265,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:36.990Z",
+      "crawledAt": "2026-09-03T23:35:50.698Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1318,6 +1328,7 @@
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1344,7 +1355,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Dipl. Pflegefachperson HF Medizin überwiegend für den Nachtdienst im Wechsel mit Tagdiensten",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF Medizin überwiegend per den Nachtdienst im Wechsel con Tagdiensten",
+        "it": "Dipl. Infermiera HF Medicina principalmente per servizio notturno in alternanza con servizi diurni",
         "en": "Dipl. Nurse HF Medicine mainly for night service in alternation with day services",
         "de": "Dipl. Pflegefachperson HF Medizin überwiegend für den Nachtdienst im Wechsel mit Tagdiensten",
         "fr": "Dipl. Infirmière HF Médecine principalement pour le service de nuit en alternance avec les services de jour"
@@ -1361,8 +1372,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:35.887Z",
+      "crawledAt": "2026-09-03T23:35:49.549Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1423,6 +1433,7 @@
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1452,7 +1463,7 @@
         "it": "Specialista infermieristico qualificato Medicina HF",
         "en": "Dipl. Nurse HF Medicine",
         "de": "Dipl. Pflegefachperson HF Medizin",
-        "fr": "Dipl. Pflegefachperson HF Médecine"
+        "fr": "Dipl. Infirmière HF Médecine"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Verantwortung übernehmen: Sie steuern und verantworten den Pflegeprozess für die Ihnen zugeteilten Patient*innen – Ihre Expertise macht den Unterschied.\n• Teamarbeit leben: Gemeinsam mit Kolleg*innen arbeiten Sie im Tandem mit FaGes, Pflegeassistent*innen und Pflegepraktikant*innen zusammen.\n• Wissen weitergeben: Sie sind aktiv in der praktischen Ausbildung von Studierenden und Lernenden der Pflege eingebunden und teilen Ihr Wissen und Ihre Erfahrung.\n\nIhr Profil:\n\n• Ausbildung & Erfahrung: Sie haben eine abgeschlossene und in der Schweiz anerkannte Ausbildung zur Dipl. Pflegefachperson HF oder FH und bereits erste Erfahrungen in einem Akutspital in der Schweiz gesammelt.\n• Engagement & Flexibilität: Ihre Teamfähigkeit, Flexibilität und Belastbarkeit zeichnen Sie aus. Ihre ausgeprägte Dienstleistungsorientierung zum Wohle unserer Patient*innen runden Ihr Profil ab.\n• Kompetenz & Kommunikation: Sie sind fachlich versiert und eine kommunikative Persönlichkeit, die mit klaren Worten und kompetenten Handlungen überzeugt.\n• Sie bringen mit – eine Brise Humor und Freude an der Arbeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
@@ -1466,8 +1477,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:34.817Z",
+      "crawledAt": "2026-09-03T23:35:48.447Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1530,6 +1540,7 @@
       "firstSeenAt": "2026-05-26T14:55:57.138Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1573,7 +1584,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:33.703Z",
+      "crawledAt": "2026-09-03T23:35:47.332Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1624,6 +1635,7 @@
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1667,7 +1679,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:32.534Z",
+      "crawledAt": "2026-09-03T23:35:46.216Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1731,6 +1743,7 @@
       "firstSeenAt": "2026-05-26T14:55:55.950Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1762,11 +1775,11 @@
         "de": "Studierende*r Operationstechnik HF",
         "fr": "Étudiant Technicien d'Opération"
       },
-      "description": "Ihre Ausbildung:\nDie praktische Ausbildung während des 3-jährigen Studiums absolvieren Sie in unseren top modernen OP-Sälen im See-Spital sowie in unserem Kooperationsbetrieb. Sie werden während Ihrer Ausbildung mit neusten Geräten und Equipment arbeiten. In der Zeit der Ausbildung werden Sie durch unsere Berufsbildner*innen kompetent begleitet, unterstützt und beraten. Der theoretische Teil Ihrer Ausbildung findet im Careum Bildungszentrum in Zürich statt.\n\nIhr Profil:\n\n• Abschluss einer dreijährigen Berufsausbildung mit EFZ, DMS/FMS-Abschluss oder gymnasiale Matur\n• Bestandener Multicheck HF\n• Hohe Motivation und Engagement für das Studium\n• Einfühlungsvermögen, Wertschätzung und eine hohe Sozialkompetenz\n• Kundenorientierung, Verantwortungsbewusstsein und Selbständigkeit\n• Gute Kommunikations- und Teamfähigkeit\n• Flexible und selbstständige Persönlichkeit\n\nWas wir Ihnen bieten:\n\n• Interessantes Lernumfeld mit spannenden und komplexen OP-Situationen\n• Kompetente, engagierte und motivierte Berufsbildner*innen\n• Moderne technische und räumliche Infrastruktur\n• Gute Anstellungsbedingungen und ein angenehmes Arbeitsklima\n• Studienbeginn im September 2026\n• Möglichkeit das Eignungspraktikum bei uns zu absolvieren\n• Zahlreiche Benefits Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+      "description": "Ihre Ausbildung:\nDie praktische Ausbildung während des 3-jährigen Studiums absolvieren Sie in unseren top modernen OP-Sälen im See-Spital sowie in unserem Kooperationsbetrieb. Sie werden während Ihrer Ausbildung mit neusten Geräten und Equipment arbeiten. In der Zeit der Ausbildung werden Sie durch unsere Berufsbildner*innen kompetent begleitet, unterstützt und beraten. Der theoretische Teil Ihrer Ausbildung findet im Careum Bildungszentrum in Zürich statt.\n\nIhr Profil:\n\n• Abschluss einer dreijährigen Berufsausbildung mit EFZ, DMS/FMS-Abschluss oder gymnasiale Matur\n• Bestandener Multicheck HF\n• Hohe Motivation und Engagement für das Studium\n• Einfühlungsvermögen, Wertschätzung und eine hohe Sozialkompetenz\n• Kundenorientierung, Verantwortungsbewusstsein und Selbständigkeit\n• Gute Kommunikations- und Teamfähigkeit\n• Flexible und selbstständige Persönlichkeit\n\nWas wir Ihnen bieten:\n\n• Interessantes Lernumfeld mit spannenden und komplexen OP-Situationen\n• Kompetente, engagierte und motivierte Berufsbildner*innen\n• Moderne technische und räumliche Infrastruktur\n• Gute Anstellungsbedingungen und ein angenehmes Arbeitsklima\n• Studienbeginn im September 2027\n• Möglichkeit das Eignungspraktikum bei uns zu absolvieren\n• Zahlreiche Benefits Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
         "it": "Descrizione La tua formazione: La tua formazione pratica durante il corso di studi di 3 anni la svolgerai nei nostri moderni sale operatorie del See-Spital e nel nostro impianto collaborativo. Lavorerai con le ultime attrezzature e strumentazioni. Durante il periodo di formazione, sarai supportato, accompagnato e consigliato dai nostri formatori competenti. La parte teorica della tua formazione avverrà presso il Careum Bildungszentrum di Zurigo. Profilo\n• Diploma di una formazione professionale di 3 anni con EFZ, diploma DMS/FMS o maturità classica\n• Multicheck HF superato\n• Alta motivazione e impegno per lo studio\n• Empatia, rispetto e alta competenza sociale\n• Orientamento al cliente, senso di responsabilità e autonomia\n• Buone capacità di comunicazione e di lavoro in team\n• Personalità flessibile e autonoma Cosa offriamo\n• Un ambiente di apprendimento interessante con situazioni operative stimolanti e complesse\n• Formatori competenti, impegnati e motivati\n• Infrastruttura tecnica e spaziale moderna\n• Buone condizioni di lavoro e un ambiente di lavoro piacevole\n• Inizio degli studi a settembre 2026\n• Possibilità di svolgere il tirocinio di idoneità presso di noi\n• Molti benefici Le candidature fisiche non possono essere considerate o restituite.",
         "en": "Description Your training: You will complete your practical training during the 3-year study program in our top modern operating theaters at See-Spital and in our cooperative facility. You will work with the latest equipment and tools. During the training period, you will be competently accompanied, supported, and advised by our professional trainers. The theoretical part of your training will take place at the Careum Bildungszentrum in Zurich. Profile\n• Completion of a three-year vocational training with EFZ, DMS/FMS diploma or classical maturity\n• Passed Multicheck HF\n• High motivation and commitment to the study\n• Empathy, respect, and high social competence\n• Customer orientation, sense of responsibility, and autonomy\n• Good communication and team skills\n• Flexible and independent personality What we offer\n• An interesting learning environment with exciting and complex operating situations\n• Competent, engaged, and motivated trainers\n• Modern technical and spatial infrastructure\n• Good working conditions and a pleasant work environment\n• Study start in September 2026\n• Possibility to complete the aptitude internship with us\n• Numerous benefits Physical applications cannot be considered or returned.",
-        "de": "Ihre Ausbildung:\nDie praktische Ausbildung während des 3-jährigen Studiums absolvieren Sie in unseren top modernen OP-Sälen im See-Spital sowie in unserem Kooperationsbetrieb. Sie werden während Ihrer Ausbildung mit neusten Geräten und Equipment arbeiten. In der Zeit der Ausbildung werden Sie durch unsere Berufsbildner*innen kompetent begleitet, unterstützt und beraten. Der theoretische Teil Ihrer Ausbildung findet im Careum Bildungszentrum in Zürich statt.\n\nIhr Profil:\n\n• Abschluss einer dreijährigen Berufsausbildung mit EFZ, DMS/FMS-Abschluss oder gymnasiale Matur\n• Bestandener Multicheck HF\n• Hohe Motivation und Engagement für das Studium\n• Einfühlungsvermögen, Wertschätzung und eine hohe Sozialkompetenz\n• Kundenorientierung, Verantwortungsbewusstsein und Selbständigkeit\n• Gute Kommunikations- und Teamfähigkeit\n• Flexible und selbstständige Persönlichkeit\n\nWas wir Ihnen bieten:\n\n• Interessantes Lernumfeld mit spannenden und komplexen OP-Situationen\n• Kompetente, engagierte und motivierte Berufsbildner*innen\n• Moderne technische und räumliche Infrastruktur\n• Gute Anstellungsbedingungen und ein angenehmes Arbeitsklima\n• Studienbeginn im September 2026\n• Möglichkeit das Eignungspraktikum bei uns zu absolvieren\n• Zahlreiche Benefits Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "de": "Ihre Ausbildung:\nDie praktische Ausbildung während des 3-jährigen Studiums absolvieren Sie in unseren top modernen OP-Sälen im See-Spital sowie in unserem Kooperationsbetrieb. Sie werden während Ihrer Ausbildung mit neusten Geräten und Equipment arbeiten. In der Zeit der Ausbildung werden Sie durch unsere Berufsbildner*innen kompetent begleitet, unterstützt und beraten. Der theoretische Teil Ihrer Ausbildung findet im Careum Bildungszentrum in Zürich statt.\n\nIhr Profil:\n\n• Abschluss einer dreijährigen Berufsausbildung mit EFZ, DMS/FMS-Abschluss oder gymnasiale Matur\n• Bestandener Multicheck HF\n• Hohe Motivation und Engagement für das Studium\n• Einfühlungsvermögen, Wertschätzung und eine hohe Sozialkompetenz\n• Kundenorientierung, Verantwortungsbewusstsein und Selbständigkeit\n• Gute Kommunikations- und Teamfähigkeit\n• Flexible und selbstständige Persönlichkeit\n\nWas wir Ihnen bieten:\n\n• Interessantes Lernumfeld mit spannenden und komplexen OP-Situationen\n• Kompetente, engagierte und motivierte Berufsbildner*innen\n• Moderne technische und räumliche Infrastruktur\n• Gute Anstellungsbedingungen und ein angenehmes Arbeitsklima\n• Studienbeginn im September 2027\n• Möglichkeit das Eignungspraktikum bei uns zu absolvieren\n• Zahlreiche Benefits Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
         "fr": "Description Votre formation: Vous réaliserez votre formation pratique pendant le programme d'études de 3 ans dans nos salles d'opération modernes du See-Spital ainsi que dans notre établissement collaboratif. Vous travaillerez avec les équipements et outils les plus récents. Pendant la période de formation, vous serez accompagné, soutenu et conseillé par nos formateurs compétents. La partie théorique de votre formation aura lieu au Careum Bildungszentrum à Zurich. Profil\n• Obtention d'une formation professionnelle de 3 ans avec EFZ, diplôme DMS/FMS ou maturité classique\n• Multicheck HF réussi\n• Grande motivation et engagement pour l'étude\n• Empathie, respect et grande compétence sociale\n• Orientation client, sens de la responsabilité et autonomie\n• Bonnes compétences en communication et en travail d'équipe\n• Personnalité flexible et autonome Ce que nous offrons\n• Un environnement d'apprentissage intéressant avec des situations d'opération excitantes et complexes\n• Formateurs compétents, engagés et motivés\n• Infrastructure technique et spatiale moderne\n• Bonnes conditions de travail et un environnement de travail agréable\n• Début des études en septembre 2026\n• Possibilité de réaliser le stage d'aptitude chez nous\n• Nombreux avantages Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
       },
       "location": "Horgen",
@@ -1774,7 +1787,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:31.430Z",
+      "crawledAt": "2026-09-03T23:35:45.133Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1833,6 +1846,7 @@
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1859,7 +1873,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Fachfrau*mann Gesundheit EFZ - Excellence",
       "titleByLocale": {
-        "it": "Fachfrau*mann Gesundheit CFC - Excellence",
+        "it": "Salute EFZ - Eccellenza",
         "en": "Healthcare Professional EFZ - Excellence",
         "de": "Fachfrau*mann Gesundheit EFZ - Excellence",
         "fr": "Professionnel de la santé EFZ - Excellence"
@@ -1876,8 +1890,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:30.337Z",
+      "crawledAt": "2026-09-03T23:35:44.052Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1937,6 +1950,7 @@
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1980,7 +1994,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:29.218Z",
+      "crawledAt": "2026-09-03T23:35:42.945Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2038,6 +2052,7 @@
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2081,7 +2096,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:28.086Z",
+      "crawledAt": "2026-09-03T23:35:41.891Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2138,6 +2153,7 @@
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2164,7 +2180,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Klinische*r Fachspezialist*in / Physician Associate",
       "titleByLocale": {
-        "it": "Fachspezialist*in Clinico / Physician Associate",
+        "it": "Specialista Clinico / Medico Associato",
         "en": "Clinical Specialist / Physician Associate",
         "de": "Klinische*r Fachspezialist*in / Physician Associate",
         "fr": "Spécialiste Clinique / Associé Médecin"
@@ -2181,8 +2197,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:26.974Z",
+      "crawledAt": "2026-09-03T23:35:40.759Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2242,6 +2257,7 @@
       "firstSeenAt": "2026-05-26T14:55:49.412Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2285,7 +2301,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:57:25.891Z",
+      "crawledAt": "2026-09-03T23:35:39.680Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2347,6 +2363,7 @@
       "firstSeenAt": "2026-05-26T14:55:44.131Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2373,8 +2390,8 @@
       "companyDomain": "see-spital.ch",
       "title": "Med. Praxisassistent*in / Arztsekretär*in Onkologie",
       "titleByLocale": {
-        "it": "Med. Assistente di Pratica* in Oncologia",
-        "en": "Med. Practice Assistant* in Oncology",
+        "it": "Med. Assistente di pratica / Segretario medico oncologia",
+        "en": "Med. Practice Assistant / Medical Secretary oncology",
         "de": "Med. Praxisassistent*in / Arztsekretär*in Onkologie",
         "fr": "Assistant à la pratique* en oncologie"
       },
@@ -2390,8 +2407,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1265/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:24.808Z",
+      "crawledAt": "2026-09-03T23:35:38.639Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2428,85 +2444,7 @@
       "firstSeenAt": "2026-07-02T23:15:37.713Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "see-spital-54e12daa4404",
-      "slug": "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
-      "slugByLocale": {
-        "it": "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
-        "en": "dipl-care-professional-hf-oncology-see-spital-horgen",
-        "de": "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
-        "fr": "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Dipl. Pflegefachperson HF Onkologie",
-      "titleByLocale": {
-        "it": "Dipl. Cura professionale HF Oncologia",
-        "en": "Dipl. Care professional HF Oncology",
-        "de": "Dipl. Pflegefachperson HF Onkologie",
-        "fr": "Dipl. Soins professionnels HF Oncologie"
-      },
-      "description": "Ihr Aufgabengebiet:\n\n• Selbstständige Zubereitung und Durchführung von Tumortherapien\n• Behandlung und Begleitung unserer Patient*innen mit onkologischen und hämatologischen Erkrankungen\n• Kompetente Beratung und Betreuung unserer Patient*innen\n• Aktive Unterstützung beim Aus- und Aufbau unserer Onkologie im pflegerischen Bereich\n• Erfassung und Dokumentation der Pflegeleistungen\n\nIhr Profil:\n\n• Abgeschlossene und in der Schweiz anerkannte Diplomausbildung als Pflegefachfrau*mann HF mit mehrjähriger Berufserfahrung in ambulanter Onkologie\n• Erfahrener Umgang mit der Zytostatikazubereitung und Verabreichung\n• Hohe Fach- und Sozialkompetenz sowie versierter Umgang mit Venenkathetern und Port- Systemen\n• Organisationsfähigkeit, Flexibilität und Innovationsfähigkeit\n• Belastbarkeit und Eigenverantwortung im Therapiebereich\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und familiären Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Le tue responsabilità:\n• Preparazione indipendente e prestazione di terapie tumorali\n• Trattamento e supporto dei nostri pazienti con malattie oncologiche ed ematologiche\n• Consulenza e cura dei nostri pazienti\n• Supporto attivo nello sviluppo e nello sviluppo della nostra oncologia nel settore dell'allattamento\n• Registrazione e documentazione dei servizi di assistenza Il tuo profilo:\n• Completo e riconosciuto in Svizzera formazione di diploma come infermiera*mann HF con diversi anni di esperienza professionale in oncologia ambulatoriale\n• Uso esperto della preparazione e dell'amministrazione citostatica\n• Alti livelli di competenza tecnica e sociale, nonché la gestione esperta di cateteri venosi e sistemi portuali\n• Capacità organizzativa, flessibilità e capacità di innovazione\n• Resilienza e responsabilità personale nel campo della terapia Cosa ti offriamo:\n• Lavoro auto-responsabile in un team motivato e familiare che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economicamente vantaggiosi.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a casa – vista lago incluso.\n• Vantaggi diversi – da grandi sconti per i dipendenti a ulteriori offerte di istruzione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.",
-        "en": "Your responsibilities:\n• Independent preparation and performance of tumor therapies\n• Treatment and support of our patients with oncological and hematological diseases\n• Competent advice and care of our patients\n• Active support in the development and development of our oncology in the nursing sector\n• Recording and documentation of care services Your profile:\n• Completed and recognized in Switzerland diploma training as a nurse*mann HF with several years of professional experience in outpatient oncology\n• Experienced use of the cytostatic preparation and administration\n• High level of technical and social competence as well as experienced handling of venous catheters and port systems\n• Organisational capacity, flexibility and innovation capacity\n• Resilience and personal responsibility in the field of therapy What we offer you:\n• Self-responsible work in a motivated and family team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel at home – lake views included.\n• Diverse benefits – from great employee discounts to further education offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n\n• Selbstständige Zubereitung und Durchführung von Tumortherapien\n• Behandlung und Begleitung unserer Patient*innen mit onkologischen und hämatologischen Erkrankungen\n• Kompetente Beratung und Betreuung unserer Patient*innen\n• Aktive Unterstützung beim Aus- und Aufbau unserer Onkologie im pflegerischen Bereich\n• Erfassung und Dokumentation der Pflegeleistungen\n\nIhr Profil:\n\n• Abgeschlossene und in der Schweiz anerkannte Diplomausbildung als Pflegefachfrau*mann HF mit mehrjähriger Berufserfahrung in ambulanter Onkologie\n• Erfahrener Umgang mit der Zytostatikazubereitung und Verabreichung\n• Hohe Fach- und Sozialkompetenz sowie versierter Umgang mit Venenkathetern und Port- Systemen\n• Organisationsfähigkeit, Flexibilität und Innovationsfähigkeit\n• Belastbarkeit und Eigenverantwortung im Therapiebereich\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und familiären Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Vos responsabilités :\n• Préparation indépendante et performance des thérapies tumorales\n• Traitement et soutien de nos patients atteints de maladies oncologiques et hématologiques\n• Conseils et soins compétents de nos patients\n• Soutien actif au développement de notre oncologie dans le secteur des soins infirmiers\n• Enregistrement et documentation des services de soins Votre profil:\n• Achevé et reconnu en Suisse la formation d'infirmière*mann HF avec plusieurs années d'expérience professionnelle en oncologie ambulatoire\n• Utilisation de la préparation et de l'administration cytostatiques\n• Un haut niveau de compétence technique et sociale ainsi qu'une manipulation expérimentée des cathéters veineux et des systèmes portuaires\n• Capacité organisationnelle, flexibilité et capacité d'innovation\n• La résilience et la responsabilité personnelle dans le domaine de la thérapie Ce que nous vous offrons:\n• Travail autonome dans une équipe motivée et familiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement du personnel rentable.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à la maison – vue sur le lac inclus.\n• Avantages divers – de grandes réductions pour les employés aux offres de formation continue.\n• Une atmosphère de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1266/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "needsRetranslation": false,
-      "crawledAt": "2026-08-27T00:57:23.672Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1266/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T23:15:36.735Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2551,7 +2489,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-27T00:57:22.545Z",
+      "crawledAt": "2026-09-03T23:35:37.497Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2588,6 +2526,7 @@
       "firstSeenAt": "2026-07-06T15:23:55.236Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2614,7 +2553,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Fachfrau*mann Gesundheit EFZ",
       "titleByLocale": {
-        "it": "Apprendistato come Fachfrau*mann Gesundheit CFC",
+        "it": "Apprendistato come specialista Health EFZ",
         "en": "Apprenticeship as a specialist Health EFZ",
         "de": "Lehrstelle als Fachfrau*mann Gesundheit EFZ",
         "fr": "Apprentissage en tant que spécialiste de la santé EFZ"
@@ -2631,8 +2570,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1277/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:21.428Z",
+      "crawledAt": "2026-09-03T23:35:36.353Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2667,6 +2605,7 @@
       "firstSeenAt": "2026-08-05T11:43:24.293Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2693,7 +2632,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Köchin*Koch EFZ",
       "titleByLocale": {
-        "it": "Apprendistato come Köchin*Koch CFC",
+        "it": "Apprendistato come Chef*Koch EFZ",
         "en": "Apprenticeship as Chef*Koch EFZ",
         "de": "Lehrstelle als Köchin*Koch EFZ",
         "fr": "Apprentissage en tant que Chef*Koch EFZ"
@@ -2710,8 +2649,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:20.300Z",
+      "crawledAt": "2026-09-03T23:35:35.265Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2746,6 +2684,7 @@
       "firstSeenAt": "2026-08-05T11:43:23.185Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2772,7 +2711,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Küchenangestellte*r EBA",
       "titleByLocale": {
-        "it": "Apprendistato come Küchenangestellte*r AFP",
+        "it": "Apprendistato come dipendente della cucina EBA",
         "en": "Apprenticeship as a kitchen employee EBA",
         "de": "Lehrstelle als Küchenangestellte*r EBA",
         "fr": "Apprentissage comme employé de cuisine EBA"
@@ -2789,8 +2728,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1279/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:19.152Z",
+      "crawledAt": "2026-09-03T23:35:34.142Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2825,6 +2763,7 @@
       "firstSeenAt": "2026-08-05T11:43:22.091Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2851,7 +2790,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Praktiker*in Hotellerie-Hauswirtschaft EBA",
       "titleByLocale": {
-        "it": "Apprendistato come Praktiker*in Hotellerie-Hauswirtschaft AFP",
+        "it": "Apprendistato come praticante nel settore alberghiero EBA",
         "en": "Apprenticeship as a practitioner in the hotel industry EBA",
         "de": "Lehrstelle als Praktiker*in Hotellerie-Hauswirtschaft EBA",
         "fr": "Apprentissage comme praticien dans l'hôtellerie EBA"
@@ -2868,8 +2807,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1280/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:18.009Z",
+      "crawledAt": "2026-09-03T23:35:33.002Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2904,6 +2842,7 @@
       "firstSeenAt": "2026-08-05T22:34:03.280Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2930,7 +2869,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Lehrstelle als Kaufmann*frau EFZ Gesundheitswesen",
       "titleByLocale": {
-        "it": "Apprendistato come Kaufmann*frau CFC Gesundheitswesen",
+        "it": "Apprendistato come mercante*donna EFZ Healthcare",
         "en": "Apprenticeship as a merchant*woman EFZ Healthcare",
         "de": "Lehrstelle als Kaufmann*frau EFZ Gesundheitswesen",
         "fr": "Apprentissage comme commerçante* femme EFZ Santé"
@@ -2947,8 +2886,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1281/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:16.889Z",
+      "crawledAt": "2026-09-03T23:35:31.908Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2983,6 +2921,7 @@
       "firstSeenAt": "2026-08-06T11:58:18.341Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3009,7 +2948,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Stv. Abteilungsleiter*in Chirurgie",
       "titleByLocale": {
-        "it": "Testa del dipartimento di Stv* in chirurgia",
+        "it": "Capo reparto * in chirurgia",
         "en": "Stv. department head* in surgery",
         "de": "Stv. Abteilungsleiter*in Chirurgie",
         "fr": "Stv. chef de département* en chirurgie"
@@ -3027,7 +2966,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:15.794Z",
+      "crawledAt": "2026-09-03T23:35:30.798Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3062,6 +3001,7 @@
       "firstSeenAt": "2026-08-13T10:25:38.371Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3088,10 +3028,10 @@
       "companyDomain": "see-spital.ch",
       "title": "HR Assistent*in",
       "titleByLocale": {
-        "it": "Risorse Umane Assistent*in",
+        "it": "Assistente HR*",
         "en": "HR Assistant*",
         "de": "HR Assistent*in",
-        "fr": "Ressources Humaines Assistent*in"
+        "fr": "Assistant aux ressources humaines*"
       },
       "description": "Dein Aufgabengebiet:\n\n• Unterstützung der HR-Bereichsleiterinnen in der Personaladministration von A-Z\n• Verantwortung für monatlich wiederkehrende Aufgaben (Kontrolle von Arbeits- und Aufenthaltsbewilligungen, Dienstaltersgeschenke, Pensionierungen etc.)\n• Erstellung von diversen personalrelevanten Dokumenten (Arbeitsverträge, Zeugnisse, Bestätigungen und allgemeine Korrespondenzen)\n• Pflege und Verwaltung des elektronischen Personaldossiers\n• Betreuung und Pflege der HR-Datenbanken sowie Sicherstellung der Datenqualität\n• Ansprechpartner*in bei administrativen HR-Fragen inkl. Telefondienst\n• Betreuung von Lernenden in der KV-Ausbildung\n\nDein Profil:\n\n• Eine abgeschlossene kaufmännische Ausbildung\n• Erste Erfahrungen im HR oder Weiterbildung zur*zum \"HR-Assistent*in\" von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Durch deine zuverlässige, flexible sowie hilfsbereite Art bereicherst du unser Team\n• Deine IT-Affinität sowie deine Dienstleistungsorientierung, Team- und Kommunikationsfähigkeit runden dein Profil ab\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Vielfältige Benefits inkl. tollen Mitarbeitendenrabatten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
@@ -3105,8 +3045,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:14.625Z",
+      "crawledAt": "2026-09-03T23:35:29.693Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3141,6 +3080,7 @@
       "firstSeenAt": "2026-08-24T22:03:22.733Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3155,37 +3095,36 @@
     },
     {
       "id": "see-spital-b1324a1f0146",
-      "slug": "assistenzarzt-arztin-geriatrie-see-spital-ch",
+      "slug": "assistente-medico-geriatrico-see-spital-horgen",
       "slugByLocale": {
+        "it": "assistente-medico-geriatrico-see-spital-horgen",
+        "en": "assistant-doctor-geriatrics-see-spital-horgen",
         "de": "assistenzarzt-arztin-geriatrie-see-spital-ch",
-        "it": "assistenzarzt-arztin-geriatrie-see-spital-ch",
-        "en": "assistenzarzt-arztin-geriatrie-see-spital-ch",
-        "fr": "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        "fr": "assistant-medecin-geriatrie-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
       "title": "Assistenzarzt*ärztin Geriatrie",
       "titleByLocale": {
+        "it": "Assistente medico geriatrico",
+        "en": "Assistant doctor geriatrics",
         "de": "Assistenzarzt*ärztin Geriatrie",
-        "it": "Assistenzarzt*ärztin Geriatrie",
-        "en": "Assistenzarzt*ärztin Geriatrie",
-        "fr": "Assistenzarzt*ärztin Geriatrie"
+        "fr": "Assistant médecin gériatrie"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Medizinische Betreuung und Behandlung von stationären Patient*innen der Akutgeriatrie\n• Medizinische Betreuung und Behandlung von Bewohnern des Pflegeheims Tertianum Horgen im Rahmen der Kurz- und Langzeitpflege\n\nIhr Profil:\n\n• Erfolgreich abgeschlossenes Medizinstudium mit eidgenössischem oder MEBEKO-anerkanntem Abschluss\n• Berufserfahrung als Assistenzarzt*ärztin in der Allgemeinen Inneren Medizin von Vorteil\n• Hohe Fach- und Sozialkompetenz sowie ausgeprägtes Verantwortungsbewusstsein\n• Hohe Leistungsbereitschaft und ausgeprägte Lernmotivation\n• Teamfähigkeit und Freude an interprofessioneller Zusammenarbeit\n• Ausgeprägte Empathie hinsichtlich geriatrischer Probleme\n• Versierter Umgang mit gängigen IT-Systemen\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. Niveau C1)\n\nWas wir Ihnen bieten:\n\n• 12- bis 18-monatige Ausbildung in einer Weiterbildungsstätte Schwerpunkt Geriatrie\n• Begleitete Ausbildung durch sehr erfahrene und engagierte Kaderärzte\n• Erlernen und Vertiefen eines umfangreichen geriatrischen Assessments für akutstationäre Patienten\n• Regelmässige Teilnahme an Weiterbildungen der Inneren Medizin\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit mit hohem Mass an Interprofessionalität\n• Einen äusserst abwechslungsreichen Case-Mix\n• Sehr gute interdisziplinäre Zusammenarbeit im Bereich der Gerontotraumatologie und Innerer Medizin\n• Überschaubarer und gut strukturierter Betrieb\n• Geregelte Arbeitszeiten Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
+        "it": "Le tue responsabilità:\n\n• Assistenza medica e trattamento di pazienti affetti da geriatria acuta\n• Assistenza medica e trattamento dei residenti della casa di cura Tertianum Horgen nel contesto della cura a breve e a lungo termine\n\nIl tuo profilo:\n\n• Studi medici completati con successo con un grado federale o approvato da MEBEKO\n• Esperienza professionale come medico assistente in medicina interna generale è vantaggioso\n• Alto livello di competenza tecnica e sociale e forte senso di responsabilità\n• Alto impegno e forte motivazione di apprendimento\n• Lavoro di squadra e godimento della cooperazione interprofessionale\n• Forte empatia per problemi geriatrici\n• Gestione esperta dei sistemi IT comuni\n• Conoscenza molto buona del tedesco in parola e scrittura (livello minimo C1)\n\nCosa ti offriamo:\n\n• Formazione da 12 a 18 mesi in un ulteriore centro di istruzione che si concentra sulla geriatria\n• Formazione Accompagnata da medici quadri altamente esperti e dedicati\n• Imparare e approfondire una vasta valutazione geriatrica per i pazienti affetti da cura acuta\n• Partecipazione regolare alla formazione della medicina interna\n• Un'attività interessante, versatile e impegnativa con un alto grado di interprofessionalità\n• Un mix di casi estremamente vario\n• Ottima cooperazione interdisciplinare nel campo della gerontotraumatologia e della medicina interna\n• Operazioni gestibili e ben strutturate\n• Le applicazioni fisiche non possono essere considerate o restituite.",
+        "en": "Your responsibilities:\n\n• Medical care and treatment of inpatients of acute geriatrics\n• Medical care and treatment of residents of the Tertianum Horgen nursing home in the context of short- and long-term care\n\nYour profile:\n\n• Successfully completed medical studies with a federal or MEBEKO-approved degree\n• Professional experience as an assistant physician in general internal medicine is advantageous\n• High level of technical and social competence and a strong sense of responsibility\n• High commitment and strong learning motivation\n• Teamwork and enjoyment of interprofessional cooperation\n• Strong empathy for geriatric problems\n• Experienced handling of common IT systems\n• Very good knowledge of German in word and writing (minor level C1)\n\nWhat we offer you:\n\n• 12- to 18-month training in a further education centre focusing on geriatrics\n• Accompanied training by highly experienced and dedicated cadre doctors\n• Learning and deepening an extensive geriatric assessment for acute care patients\n• Regular participation in internal medicine training\n• An interesting, versatile and demanding activity with a high degree of interprofessionality\n• An extremely varied case mix\n• Very good interdisciplinary cooperation in the field of gerontotraumatology and internal medicine\n• Manageable and well-structured operations\n• Regulated working hours Physical applications cannot be considered or returned.",
         "de": "Ihr Aufgabengebiet:\n\n• Medizinische Betreuung und Behandlung von stationären Patient*innen der Akutgeriatrie\n• Medizinische Betreuung und Behandlung von Bewohnern des Pflegeheims Tertianum Horgen im Rahmen der Kurz- und Langzeitpflege\n\nIhr Profil:\n\n• Erfolgreich abgeschlossenes Medizinstudium mit eidgenössischem oder MEBEKO-anerkanntem Abschluss\n• Berufserfahrung als Assistenzarzt*ärztin in der Allgemeinen Inneren Medizin von Vorteil\n• Hohe Fach- und Sozialkompetenz sowie ausgeprägtes Verantwortungsbewusstsein\n• Hohe Leistungsbereitschaft und ausgeprägte Lernmotivation\n• Teamfähigkeit und Freude an interprofessioneller Zusammenarbeit\n• Ausgeprägte Empathie hinsichtlich geriatrischer Probleme\n• Versierter Umgang mit gängigen IT-Systemen\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. Niveau C1)\n\nWas wir Ihnen bieten:\n\n• 12- bis 18-monatige Ausbildung in einer Weiterbildungsstätte Schwerpunkt Geriatrie\n• Begleitete Ausbildung durch sehr erfahrene und engagierte Kaderärzte\n• Erlernen und Vertiefen eines umfangreichen geriatrischen Assessments für akutstationäre Patienten\n• Regelmässige Teilnahme an Weiterbildungen der Inneren Medizin\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit mit hohem Mass an Interprofessionalität\n• Einen äusserst abwechslungsreichen Case-Mix\n• Sehr gute interdisziplinäre Zusammenarbeit im Bereich der Gerontotraumatologie und Innerer Medizin\n• Überschaubarer und gut strukturierter Betrieb\n• Geregelte Arbeitszeiten Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "it": "Ihr Aufgabengebiet:\n\n• Medizinische Betreuung und Behandlung von stationären Patient*innen der Akutgeriatrie\n• Medizinische Betreuung und Behandlung von Bewohnern des Pflegeheims Tertianum Horgen im Rahmen der Kurz- und Langzeitpflege\n\nIhr Profil:\n\n• Erfolgreich abgeschlossenes Medizinstudium mit eidgenössischem oder MEBEKO-anerkanntem Abschluss\n• Berufserfahrung als Assistenzarzt*ärztin in der Allgemeinen Inneren Medizin von Vorteil\n• Hohe Fach- und Sozialkompetenz sowie ausgeprägtes Verantwortungsbewusstsein\n• Hohe Leistungsbereitschaft und ausgeprägte Lernmotivation\n• Teamfähigkeit und Freude an interprofessioneller Zusammenarbeit\n• Ausgeprägte Empathie hinsichtlich geriatrischer Probleme\n• Versierter Umgang mit gängigen IT-Systemen\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. Niveau C1)\n\nWas wir Ihnen bieten:\n\n• 12- bis 18-monatige Ausbildung in einer Weiterbildungsstätte Schwerpunkt Geriatrie\n• Begleitete Ausbildung durch sehr erfahrene und engagierte Kaderärzte\n• Erlernen und Vertiefen eines umfangreichen geriatrischen Assessments für akutstationäre Patienten\n• Regelmässige Teilnahme an Weiterbildungen der Inneren Medizin\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit mit hohem Mass an Interprofessionalität\n• Einen äusserst abwechslungsreichen Case-Mix\n• Sehr gute interdisziplinäre Zusammenarbeit im Bereich der Gerontotraumatologie und Innerer Medizin\n• Überschaubarer und gut strukturierter Betrieb\n• Geregelte Arbeitszeiten Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "en": "Ihr Aufgabengebiet:\n\n• Medizinische Betreuung und Behandlung von stationären Patient*innen der Akutgeriatrie\n• Medizinische Betreuung und Behandlung von Bewohnern des Pflegeheims Tertianum Horgen im Rahmen der Kurz- und Langzeitpflege\n\nIhr Profil:\n\n• Erfolgreich abgeschlossenes Medizinstudium mit eidgenössischem oder MEBEKO-anerkanntem Abschluss\n• Berufserfahrung als Assistenzarzt*ärztin in der Allgemeinen Inneren Medizin von Vorteil\n• Hohe Fach- und Sozialkompetenz sowie ausgeprägtes Verantwortungsbewusstsein\n• Hohe Leistungsbereitschaft und ausgeprägte Lernmotivation\n• Teamfähigkeit und Freude an interprofessioneller Zusammenarbeit\n• Ausgeprägte Empathie hinsichtlich geriatrischer Probleme\n• Versierter Umgang mit gängigen IT-Systemen\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. Niveau C1)\n\nWas wir Ihnen bieten:\n\n• 12- bis 18-monatige Ausbildung in einer Weiterbildungsstätte Schwerpunkt Geriatrie\n• Begleitete Ausbildung durch sehr erfahrene und engagierte Kaderärzte\n• Erlernen und Vertiefen eines umfangreichen geriatrischen Assessments für akutstationäre Patienten\n• Regelmässige Teilnahme an Weiterbildungen der Inneren Medizin\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit mit hohem Mass an Interprofessionalität\n• Einen äusserst abwechslungsreichen Case-Mix\n• Sehr gute interdisziplinäre Zusammenarbeit im Bereich der Gerontotraumatologie und Innerer Medizin\n• Überschaubarer und gut strukturierter Betrieb\n• Geregelte Arbeitszeiten Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Ihr Aufgabengebiet:\n\n• Medizinische Betreuung und Behandlung von stationären Patient*innen der Akutgeriatrie\n• Medizinische Betreuung und Behandlung von Bewohnern des Pflegeheims Tertianum Horgen im Rahmen der Kurz- und Langzeitpflege\n\nIhr Profil:\n\n• Erfolgreich abgeschlossenes Medizinstudium mit eidgenössischem oder MEBEKO-anerkanntem Abschluss\n• Berufserfahrung als Assistenzarzt*ärztin in der Allgemeinen Inneren Medizin von Vorteil\n• Hohe Fach- und Sozialkompetenz sowie ausgeprägtes Verantwortungsbewusstsein\n• Hohe Leistungsbereitschaft und ausgeprägte Lernmotivation\n• Teamfähigkeit und Freude an interprofessioneller Zusammenarbeit\n• Ausgeprägte Empathie hinsichtlich geriatrischer Probleme\n• Versierter Umgang mit gängigen IT-Systemen\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. Niveau C1)\n\nWas wir Ihnen bieten:\n\n• 12- bis 18-monatige Ausbildung in einer Weiterbildungsstätte Schwerpunkt Geriatrie\n• Begleitete Ausbildung durch sehr erfahrene und engagierte Kaderärzte\n• Erlernen und Vertiefen eines umfangreichen geriatrischen Assessments für akutstationäre Patienten\n• Regelmässige Teilnahme an Weiterbildungen der Inneren Medizin\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit mit hohem Mass an Interprofessionalität\n• Einen äusserst abwechslungsreichen Case-Mix\n• Sehr gute interdisziplinäre Zusammenarbeit im Bereich der Gerontotraumatologie und Innerer Medizin\n• Überschaubarer und gut strukturierter Betrieb\n• Geregelte Arbeitszeiten Physische Bewerbungen können nicht berücksichtigt oder retourniert werden."
+        "fr": "Vos responsabilités :\n\n• Soins médicaux et traitement des malades hospitalisés de gériatrie aiguë\n• Soins médicaux et traitement des résidents de la maison de soins infirmiers Tertianum Horgen dans le contexte des soins de courte et de longue durée\n\nVotre profil:\n\n• Études médicales réussies avec un diplôme fédéral ou approuvé par MEBEKO\n• Expérience professionnelle en tant que médecin adjoint en médecine interne générale est avantageux\n• Haute compétence technique et sociale et sens des responsabilités\n• Engagement élevé et forte motivation d'apprentissage\n• Travail d'équipe et coopération interprofessionnelle\n• Une empathie forte pour les problèmes gériatriques\n• Gestion expérimentée de systèmes informatiques communs\n• Très bonne connaissance de l'allemand en paroles et en écriture (niveau mineur C1)\n\nCe que nous vous offrons:\n\n• Formation de 12 à 18 mois dans un centre de formation continue axé sur la gériatrie\n• Formation accompagnée par des médecins cadres hautement expérimentés et dévoués\n• Apprentissage et approfondissement d'une évaluation gériatrique étendue pour les patients en soins aigus\n• Participation régulière à la formation en médecine interne\n• Une activité intéressante, polyvalente et exigeante avec un haut degré d'interprofessionnalité\n• Un mélange de cas extrêmement varié\n• Très bonne coopération interdisciplinaire dans le domaine de la gérontotraumatologie et de la médecine interne\n• Opérations gérées et bien structurées\n• Heures de travail réglementées Les applications physiques ne peuvent être envisagées ou retournées."
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-08-27T00:57:13.477Z",
+      "crawledAt": "2026-09-03T23:35:28.580Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3200,13 +3139,13 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "temporary",
+      "firstSeenAt": "2026-08-27T00:57:13.477Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3218,41 +3157,120 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-27T00:57:13.477Z"
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        ],
+        "en": [
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        ],
+        "fr": [
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-arztin-geriatrie-see-spital-ch"
+      ]
     },
     {
-      "id": "see-spital-41ac4d180cae",
-      "slug": "arztsekretar-in-medizin-con-schwerpunkt-gastroenterologie-see-spital-horgen",
+      "id": "see-spital-981ac5a06760",
+      "slug": "pflegeexpert-in-see-spital-ch",
       "slugByLocale": {
-        "it": "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen",
-        "en": "doctor-s-secretary-in-medicine-with-focus-on-gastroenterology-see-spital-horgen",
-        "de": "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
-        "fr": "le-secretaire-du-docteur-en-medecine-axe-sur-la-gastroenterologie-see-spital-horgen"
+        "it": "pflegeexpert-in-see-spital-ch",
+        "en": "pflegeexpert-in-see-spital-horgen",
+        "de": "pflegeexpert-in-see-spital-ch",
+        "fr": "pflegeexpert-in-see-spital-ch"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
-      "title": "Arztsekretär*in Medizin mit Schwerpunkt Gastroenterologie",
+      "title": "Pflegeexpert*in",
       "titleByLocale": {
-        "it": "Arztsekretär*in Medizin con Schwerpunkt Gastroenterologie",
-        "en": "Doctor's Secretary*in Medicine with focus on gastroenterology",
-        "de": "Arztsekretär*in Medizin mit Schwerpunkt Gastroenterologie",
-        "fr": "Le secrétaire du docteur* en médecine, axé sur la gastroentérologie"
+        "it": "Pflegeexpert*in",
+        "en": "Pflegeexpert*in",
+        "de": "Pflegeexpert*in",
+        "fr": "Pflegeexpert*in"
       },
-      "description": "Ihr Aufgabengebiet:\n\n• Schreiben von ärztlichen Berichten ab eDiktat mit Schwerpunkt Gastroenterologie und Nephrologie\n• Korrigieren, Gestalten und Versenden von Austrittsberichten für den stationären Bereich und den Notfall\n• Verwalten des E-Mail-Postfachs vom Sekretariat\n• Organisation von konsiliarärztlichen Sprechstunden\n• Telefonischer Kontakt mit Hausärzten*innen, Versicherungen und Patienten*innen\n• Scannen von Patient*innenunterlagen\n• Korrespondenz mit Versicherungen\n• Controlling der Leistungserfassung der Notfallpatienten*innen\n• Diverse administrative Tätigkeiten\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als MPA EFZ, Kauffrau*mann EFZ im Gesundheitswesen oder Arztsekretär*in\n• Stilsicher in der deutschen Sprache sowie in der medizinischen Terminologie\n• Eigenverantwortliche und selbstständige Arbeitsweise\n• Organisations-, Kommunikations- und Teamfähigkeit\n• Dienstleistungsorientierung und freundliches Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n• Geregelte Arbeitszeiten von Montag-Freitag, Flexible Einteilung der Arbeitstage (auch halbtags möglich). Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+      "description": "Deine Aufgaben:\n\n• Entwicklung und Umsetzung von Pflege- und Behandlungskonzepten auf Basis aktueller Pflegewissenschaft und Forschung\n• Weiterentwicklung und Sicherstellung von Pflegestandards und Richtlinien\n• Unterstützung der Leitung Gruppe Fachverantwortliche Pflege (Bettenstationen, IPS, OP, Anästhesie, NF)\n• Fachliche Beratung der Pflegeteams und Unterstützung bei komplexen Pflegesituationen und Fallbesprechungen Planung und Durchführung von Fortbildungen und Schulungen\n• Initiierung und Leitung von Pflegeentwicklungs- und Qualitätsprojekten\n• Leitung der interdisziplinären Gruppe Palliativ Care\n• Mitarbeit von Fachgruppen, u. a. in den Bereichen Sturz-, Dekubitus- und Wundinfektionsprävention sowie CIRS\n• Fachliche Führung und Weiterentwicklung der Fachverantwortlichen Pflege Bettenstationen\n• Mitarbeit in relevanten Kommissionen und interprofessionellen Arbeitsgruppen\n• Enge Zusammenarbeit mit der Leitung Pflegeentwicklung\n• Direkte Pflege an der Basis (nur Frühdienst, max. 20%)\n\nDein Profil:\n\n• Du verfügst über einen Bachelor / Master im Gesundheitswesen oder äquivalente Ausbildung sowie Führungserfahrung\n• Du hast eine selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise mit hohem Qualitätsanspruch\n• Du bist eine kommunikative, aufgeschlossene, motivierte und teamorientierte Persönlichkeit\n\nDas bieten wir dir:\nEine vielseitige Schlüsselposition in einem Regionalspital mit Gestaltungsfreiheit, fachlicher Verantwortung und direktem Einfluss auf die Weiterentwicklung der Pflege. Du verbindest Pflegewissenschaft, Praxis und Führung und arbeitest eng mit verschiedenen Berufsgruppen und Führungsebenen zusammen. Du möchtest Pflege nicht nur ausüben, sondern aktiv weiterentwickeln? Dann freuen wir uns auf dich! Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
-        "it": "La vostra area di responsabilità:\n• Scrivere rapporti medici da eDiktat con un focus sulla gastroenterologia e nefrologia\n• Correggere, progettare e inviare report di uscita per l'area stazionaria e l'emergenza\n• Gestione della casella di posta elettronica dal Segretariato\n• Organizzazione di consultazione medica\n• Contatto telefonico con medici domestici, assicurazioni e pazienti\n• Scansione dei documenti del paziente\n• corrispondenza con l'assicurazione\n• Controllo delle prestazioni dei pazienti di emergenza\n• Altre attività amministrative Il tuo profilo:\n• Formazione completa come MPA EFZ, Wife*mann EFZ in assistenza sanitaria o segretaria del medico*in\n• Anti-stile in terminologia tedesca e medica\n• Lavoro indipendente e indipendente\n• Capacità organizzative, di comunicazione e di squadra\n• orientamento al servizio e aspetto amichevole Cosa ti offriamo:\n• lavoro indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, nonché un parcheggio personale economico.\n• Infrastrutture moderne e un ambiente di lavoro dove si può sentire a proprio agio – compresa la vista lago.\n• Vari vantaggi: dai grandi sconti dei dipendenti alle offerte di formazione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionale che privato.\n• Orari di lavoro regolari dal lunedì al venerdì, assegnazione flessibile dei giorni lavorativi (anche mezza giornata possibile). Le applicazioni fisiche non possono essere prese in considerazione o restituite.",
-        "en": "Your area of responsibility:\n• Writing medical reports from eDiktat with a focus on gastroenterology and nephrology\n• Correcting, designing and sending exit reports for the stationary area and emergency\n• Managing email mailbox from the Secretariat\n• Organisation of medical consultation\n• Telephone contact with domestic physicians, insurance companies and patients\n• Scanning patient documents\n• correspondence with insurance\n• Controlling the performance of emergency patients\n• Other administrative activities Your profile:\n• Completed training as MPA EFZ, Wife*mann EFZ in health care or doctor's secretary*in\n• Style-proof in German and medical terminology\n• Independent and independent working\n• Organisational, communication and team skills\n• Service orientation and friendly appearance What we offer you:\n• independent work in a motivated and collegial team that supports each other.\n• A working place with the best connection to public transport, as well as cost-effective personal parking.\n• Modern infrastructure and a working environment where you can feel comfortable – including lake view.\n• Various Benefits – from great employees' rebates to training offers.\n• A pleasant working environment in an attractive location near Zurich, which has plenty to offer both professional and private.\n• Regular working hours from Monday to Friday, flexible allocation of working days (also half-day possible). Physical applications cannot be taken into account or returned.",
-        "de": "Ihr Aufgabengebiet:\n\n• Schreiben von ärztlichen Berichten ab eDiktat mit Schwerpunkt Gastroenterologie und Nephrologie\n• Korrigieren, Gestalten und Versenden von Austrittsberichten für den stationären Bereich und den Notfall\n• Verwalten des E-Mail-Postfachs vom Sekretariat\n• Organisation von konsiliarärztlichen Sprechstunden\n• Telefonischer Kontakt mit Hausärzten*innen, Versicherungen und Patienten*innen\n• Scannen von Patient*innenunterlagen\n• Korrespondenz mit Versicherungen\n• Controlling der Leistungserfassung der Notfallpatienten*innen\n• Diverse administrative Tätigkeiten\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als MPA EFZ, Kauffrau*mann EFZ im Gesundheitswesen oder Arztsekretär*in\n• Stilsicher in der deutschen Sprache sowie in der medizinischen Terminologie\n• Eigenverantwortliche und selbstständige Arbeitsweise\n• Organisations-, Kommunikations- und Teamfähigkeit\n• Dienstleistungsorientierung und freundliches Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n• Geregelte Arbeitszeiten von Montag-Freitag, Flexible Einteilung der Arbeitstage (auch halbtags möglich). Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Votre domaine de responsabilité :\n• Rédaction de rapports médicaux d'eDiktat en mettant l'accent sur la gastroentérologie et la néphrologie\n• Correction, conception et envoi de rapports de sortie pour la zone fixe et les urgences\n• Gestion de la boîte aux lettres du Secrétariat\n• Organisation de consultations médicales\n• Contact téléphonique avec les médecins de maison, les compagnies d'assurance et les patients\n• Numériser les documents du patient\n• correspondance avec l'assurance\n• Contrôler les performances des patients d'urgence\n• Autres activités administratives Votre profil:\n• Formation terminée en tant que MPA EFZ, femme*mann EFZ en soins de santé ou secrétaire de médecin*\n• Style-proof en allemand et terminologie médicale\n• Travail indépendant et indépendant\n• Compétences organisationnelles, en communication et en équipe\n• Orientation du service et apparence amicale Ce que nous vous offrons:\n• un travail indépendant dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports publics, ainsi qu'un parking personnel rentable.\n• Infrastructure moderne et environnement de travail où vous pouvez vous sentir à l'aise – y compris vue sur le lac.\n• Divers avantages – des rabais aux offres de formation.\n• Un environnement de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à offrir à la fois professionnel et privé.\n• Heures de travail régulières du lundi au vendredi, répartition flexible des jours de travail (également demi-journée possible). Les applications physiques ne peuvent pas être prises en compte ou retournées."
+        "it": "Deine Aufgaben:\n\n• Entwicklung und Umsetzung von Pflege- und Behandlungskonzepten auf Basis aktueller Pflegewissenschaft und Forschung\n• Weiterentwicklung und Sicherstellung von Pflegestandards und Richtlinien\n• Unterstützung der Leitung Gruppe Fachverantwortliche Pflege (Bettenstationen, IPS, OP, Anästhesie, NF)\n• Fachliche Beratung der Pflegeteams und Unterstützung bei komplexen Pflegesituationen und Fallbesprechungen Planung und Durchführung von Fortbildungen und Schulungen\n• Initiierung und Leitung von Pflegeentwicklungs- und Qualitätsprojekten\n• Leitung der interdisziplinären Gruppe Palliativ Care\n• Mitarbeit von Fachgruppen, u. a. in den Bereichen Sturz-, Dekubitus- und Wundinfektionsprävention sowie CIRS\n• Fachliche Führung und Weiterentwicklung der Fachverantwortlichen Pflege Bettenstationen\n• Mitarbeit in relevanten Kommissionen und interprofessionellen Arbeitsgruppen\n• Enge Zusammenarbeit mit der Leitung Pflegeentwicklung\n• Direkte Pflege an der Basis (nur Frühdienst, max. 20%)\n\nDein Profil:\n\n• Du verfügst über einen Bachelor / Master im Gesundheitswesen oder äquivalente Ausbildung sowie Führungserfahrung\n• Du hast eine selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise mit hohem Qualitätsanspruch\n• Du bist eine kommunikative, aufgeschlossene, motivierte und teamorientierte Persönlichkeit\n\nDas bieten wir dir:\nEine vielseitige Schlüsselposition in einem Regionalspital mit Gestaltungsfreiheit, fachlicher Verantwortung und direktem Einfluss auf die Weiterentwicklung der Pflege. Du verbindest Pflegewissenschaft, Praxis und Führung und arbeitest eng mit verschiedenen Berufsgruppen und Führungsebenen zusammen. Du möchtest Pflege nicht nur ausüben, sondern aktiv weiterentwickeln? Dann freuen wir uns auf dich! Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "en": "Deine Aufgaben:\n\n• Entwicklung und Umsetzung von Pflege- und Behandlungskonzepten auf Basis aktueller Pflegewissenschaft und Forschung\n• Weiterentwicklung und Sicherstellung von Pflegestandards und Richtlinien\n• Unterstützung der Leitung Gruppe Fachverantwortliche Pflege (Bettenstationen, IPS, OP, Anästhesie, NF)\n• Fachliche Beratung der Pflegeteams und Unterstützung bei komplexen Pflegesituationen und Fallbesprechungen Planung und Durchführung von Fortbildungen und Schulungen\n• Initiierung und Leitung von Pflegeentwicklungs- und Qualitätsprojekten\n• Leitung der interdisziplinären Gruppe Palliativ Care\n• Mitarbeit von Fachgruppen, u. a. in den Bereichen Sturz-, Dekubitus- und Wundinfektionsprävention sowie CIRS\n• Fachliche Führung und Weiterentwicklung der Fachverantwortlichen Pflege Bettenstationen\n• Mitarbeit in relevanten Kommissionen und interprofessionellen Arbeitsgruppen\n• Enge Zusammenarbeit mit der Leitung Pflegeentwicklung\n• Direkte Pflege an der Basis (nur Frühdienst, max. 20%)\n\nDein Profil:\n\n• Du verfügst über einen Bachelor / Master im Gesundheitswesen oder äquivalente Ausbildung sowie Führungserfahrung\n• Du hast eine selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise mit hohem Qualitätsanspruch\n• Du bist eine kommunikative, aufgeschlossene, motivierte und teamorientierte Persönlichkeit\n\nDas bieten wir dir:\nEine vielseitige Schlüsselposition in einem Regionalspital mit Gestaltungsfreiheit, fachlicher Verantwortung und direktem Einfluss auf die Weiterentwicklung der Pflege. Du verbindest Pflegewissenschaft, Praxis und Führung und arbeitest eng mit verschiedenen Berufsgruppen und Führungsebenen zusammen. Du möchtest Pflege nicht nur ausüben, sondern aktiv weiterentwickeln? Dann freuen wir uns auf dich! Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "de": "Deine Aufgaben:\n\n• Entwicklung und Umsetzung von Pflege- und Behandlungskonzepten auf Basis aktueller Pflegewissenschaft und Forschung\n• Weiterentwicklung und Sicherstellung von Pflegestandards und Richtlinien\n• Unterstützung der Leitung Gruppe Fachverantwortliche Pflege (Bettenstationen, IPS, OP, Anästhesie, NF)\n• Fachliche Beratung der Pflegeteams und Unterstützung bei komplexen Pflegesituationen und Fallbesprechungen Planung und Durchführung von Fortbildungen und Schulungen\n• Initiierung und Leitung von Pflegeentwicklungs- und Qualitätsprojekten\n• Leitung der interdisziplinären Gruppe Palliativ Care\n• Mitarbeit von Fachgruppen, u. a. in den Bereichen Sturz-, Dekubitus- und Wundinfektionsprävention sowie CIRS\n• Fachliche Führung und Weiterentwicklung der Fachverantwortlichen Pflege Bettenstationen\n• Mitarbeit in relevanten Kommissionen und interprofessionellen Arbeitsgruppen\n• Enge Zusammenarbeit mit der Leitung Pflegeentwicklung\n• Direkte Pflege an der Basis (nur Frühdienst, max. 20%)\n\nDein Profil:\n\n• Du verfügst über einen Bachelor / Master im Gesundheitswesen oder äquivalente Ausbildung sowie Führungserfahrung\n• Du hast eine selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise mit hohem Qualitätsanspruch\n• Du bist eine kommunikative, aufgeschlossene, motivierte und teamorientierte Persönlichkeit\n\nDas bieten wir dir:\nEine vielseitige Schlüsselposition in einem Regionalspital mit Gestaltungsfreiheit, fachlicher Verantwortung und direktem Einfluss auf die Weiterentwicklung der Pflege. Du verbindest Pflegewissenschaft, Praxis und Führung und arbeitest eng mit verschiedenen Berufsgruppen und Führungsebenen zusammen. Du möchtest Pflege nicht nur ausüben, sondern aktiv weiterentwickeln? Dann freuen wir uns auf dich! Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "fr": "Deine Aufgaben:\n\n• Entwicklung und Umsetzung von Pflege- und Behandlungskonzepten auf Basis aktueller Pflegewissenschaft und Forschung\n• Weiterentwicklung und Sicherstellung von Pflegestandards und Richtlinien\n• Unterstützung der Leitung Gruppe Fachverantwortliche Pflege (Bettenstationen, IPS, OP, Anästhesie, NF)\n• Fachliche Beratung der Pflegeteams und Unterstützung bei komplexen Pflegesituationen und Fallbesprechungen Planung und Durchführung von Fortbildungen und Schulungen\n• Initiierung und Leitung von Pflegeentwicklungs- und Qualitätsprojekten\n• Leitung der interdisziplinären Gruppe Palliativ Care\n• Mitarbeit von Fachgruppen, u. a. in den Bereichen Sturz-, Dekubitus- und Wundinfektionsprävention sowie CIRS\n• Fachliche Führung und Weiterentwicklung der Fachverantwortlichen Pflege Bettenstationen\n• Mitarbeit in relevanten Kommissionen und interprofessionellen Arbeitsgruppen\n• Enge Zusammenarbeit mit der Leitung Pflegeentwicklung\n• Direkte Pflege an der Basis (nur Frühdienst, max. 20%)\n\nDein Profil:\n\n• Du verfügst über einen Bachelor / Master im Gesundheitswesen oder äquivalente Ausbildung sowie Führungserfahrung\n• Du hast eine selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise mit hohem Qualitätsanspruch\n• Du bist eine kommunikative, aufgeschlossene, motivierte und teamorientierte Persönlichkeit\n\nDas bieten wir dir:\nEine vielseitige Schlüsselposition in einem Regionalspital mit Gestaltungsfreiheit, fachlicher Verantwortung und direktem Einfluss auf die Weiterentwicklung der Pflege. Du verbindest Pflegewissenschaft, Praxis und Führung und arbeitest eng mit verschiedenen Berufsgruppen und Führungsebenen zusammen. Du möchtest Pflege nicht nur ausüben, sondern aktiv weiterentwickeln? Dann freuen wir uns auf dich! Physische Bewerbungen können nicht berücksichtigt oder retourniert werden."
       },
       "location": "Horgen",
       "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1138/Description/1",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1283/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-26T10:23:00.984Z",
+      "crawledAt": "2026-09-03T23:35:27.485Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1283/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "firstSeenAt": "2026-08-31T17:27:10.036Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-c243aec0746c",
+      "slug": "fachfrau-mann-apotheke-see-spital-horgen",
+      "slugByLocale": {
+        "it": "fachfrau-mann-apotheke-see-spital-horgen",
+        "en": "fachfrau-mann-apotheke-see-spital-ch",
+        "de": "fachfrau-mann-apotheke-see-spital-ch",
+        "fr": "fachfrau-mann-apotheke-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Fachfrau*mann Apotheke",
+      "titleByLocale": {
+        "it": "Fachfrau*mann Apotheke",
+        "en": "Fachfrau*mann Apotheke",
+        "de": "Fachfrau*mann Apotheke",
+        "fr": "Fachfrau*mann Apotheke"
+      },
+      "description": "Ihr Aufgabengebiet:\n\n• Vorbereitung und Richten von Medikamenten: Sorgfältige und patientenindividuelle Vorbereitung von Medikamenten unter Einhaltung von hygienischen und qualitätsrelevanten Standards. Diese Tätigkeit muss jeweils nachmittags durchgeführt werden, die Arbeitstage können jedoch flexibel abgesprochen werden.\n• Arbeitsplatzorganisation und Dokumentation: Kontrolle ärztlicher Verordnungen im Klinikinformationssystem (KIS), präzises Richten der Medikamente sowie lückenlose Dokumentation aller Schritte.\n• Kommunikation und Zusammenarbeit: Enge Abstimmung mit der Apotheke, mit dem ärztlichen Dienst und dem Pflegepersonal zur Klärung von Unstimmigkeiten sowie zur Sicherstellung der optimalen medikamentösen Versorgung.\n• Lagerung und Übergabe: Fachgerechte Lagerung der Medikamente sowie termingerechte Übergabe an die Pflege, inklusive Weitergabe relevanter Hinweise zur Medikation.\n• Qualitätssicherung: Durchführung regelmäßiger Selbstkontrollen, Einhaltung aktueller Richtlinien und aktive Teilnahme an internen Schulungen zur kontinuierlichen Qualitätsverbesserung.\n• Organisatorische Unterstützung: Mitwirkung an der Optimierung der Medikamentenvorratshaltung auf den Stationen in Zusammenarbeit mit der Stationssekretärin.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau*mann Apotheke EFZ.\n• Idealerweise bringen Sie Erfahrung im Umgang mit Medikamenten sowie Kenntnisse in der Medikamentenlogistik und -verteilung mit.\n• Ein verantwortungsbewusster und sorgfältiger Umgang mit Arzneimitteln ist für Sie selbstverständlich.\n• Sie arbeiten strukturiert, exakt und behalten auch in einem dynamischen Umfeld stets den Überblick.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+      "descriptionByLocale": {
+        "it": "Ihr Aufgabengebiet:\n\n• Vorbereitung und Richten von Medikamenten: Sorgfältige und patientenindividuelle Vorbereitung von Medikamenten unter Einhaltung von hygienischen und qualitätsrelevanten Standards. Diese Tätigkeit muss jeweils nachmittags durchgeführt werden, die Arbeitstage können jedoch flexibel abgesprochen werden.\n• Arbeitsplatzorganisation und Dokumentation: Kontrolle ärztlicher Verordnungen im Klinikinformationssystem (KIS), präzises Richten der Medikamente sowie lückenlose Dokumentation aller Schritte.\n• Kommunikation und Zusammenarbeit: Enge Abstimmung mit der Apotheke, mit dem ärztlichen Dienst und dem Pflegepersonal zur Klärung von Unstimmigkeiten sowie zur Sicherstellung der optimalen medikamentösen Versorgung.\n• Lagerung und Übergabe: Fachgerechte Lagerung der Medikamente sowie termingerechte Übergabe an die Pflege, inklusive Weitergabe relevanter Hinweise zur Medikation.\n• Qualitätssicherung: Durchführung regelmäßiger Selbstkontrollen, Einhaltung aktueller Richtlinien und aktive Teilnahme an internen Schulungen zur kontinuierlichen Qualitätsverbesserung.\n• Organisatorische Unterstützung: Mitwirkung an der Optimierung der Medikamentenvorratshaltung auf den Stationen in Zusammenarbeit mit der Stationssekretärin.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau*mann Apotheke EFZ.\n• Idealerweise bringen Sie Erfahrung im Umgang mit Medikamenten sowie Kenntnisse in der Medikamentenlogistik und -verteilung mit.\n• Ein verantwortungsbewusster und sorgfältiger Umgang mit Arzneimitteln ist für Sie selbstverständlich.\n• Sie arbeiten strukturiert, exakt und behalten auch in einem dynamischen Umfeld stets den Überblick.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "en": "Ihr Aufgabengebiet:\n\n• Vorbereitung und Richten von Medikamenten: Sorgfältige und patientenindividuelle Vorbereitung von Medikamenten unter Einhaltung von hygienischen und qualitätsrelevanten Standards. Diese Tätigkeit muss jeweils nachmittags durchgeführt werden, die Arbeitstage können jedoch flexibel abgesprochen werden.\n• Arbeitsplatzorganisation und Dokumentation: Kontrolle ärztlicher Verordnungen im Klinikinformationssystem (KIS), präzises Richten der Medikamente sowie lückenlose Dokumentation aller Schritte.\n• Kommunikation und Zusammenarbeit: Enge Abstimmung mit der Apotheke, mit dem ärztlichen Dienst und dem Pflegepersonal zur Klärung von Unstimmigkeiten sowie zur Sicherstellung der optimalen medikamentösen Versorgung.\n• Lagerung und Übergabe: Fachgerechte Lagerung der Medikamente sowie termingerechte Übergabe an die Pflege, inklusive Weitergabe relevanter Hinweise zur Medikation.\n• Qualitätssicherung: Durchführung regelmäßiger Selbstkontrollen, Einhaltung aktueller Richtlinien und aktive Teilnahme an internen Schulungen zur kontinuierlichen Qualitätsverbesserung.\n• Organisatorische Unterstützung: Mitwirkung an der Optimierung der Medikamentenvorratshaltung auf den Stationen in Zusammenarbeit mit der Stationssekretärin.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau*mann Apotheke EFZ.\n• Idealerweise bringen Sie Erfahrung im Umgang mit Medikamenten sowie Kenntnisse in der Medikamentenlogistik und -verteilung mit.\n• Ein verantwortungsbewusster und sorgfältiger Umgang mit Arzneimitteln ist für Sie selbstverständlich.\n• Sie arbeiten strukturiert, exakt und behalten auch in einem dynamischen Umfeld stets den Überblick.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "de": "Ihr Aufgabengebiet:\n\n• Vorbereitung und Richten von Medikamenten: Sorgfältige und patientenindividuelle Vorbereitung von Medikamenten unter Einhaltung von hygienischen und qualitätsrelevanten Standards. Diese Tätigkeit muss jeweils nachmittags durchgeführt werden, die Arbeitstage können jedoch flexibel abgesprochen werden.\n• Arbeitsplatzorganisation und Dokumentation: Kontrolle ärztlicher Verordnungen im Klinikinformationssystem (KIS), präzises Richten der Medikamente sowie lückenlose Dokumentation aller Schritte.\n• Kommunikation und Zusammenarbeit: Enge Abstimmung mit der Apotheke, mit dem ärztlichen Dienst und dem Pflegepersonal zur Klärung von Unstimmigkeiten sowie zur Sicherstellung der optimalen medikamentösen Versorgung.\n• Lagerung und Übergabe: Fachgerechte Lagerung der Medikamente sowie termingerechte Übergabe an die Pflege, inklusive Weitergabe relevanter Hinweise zur Medikation.\n• Qualitätssicherung: Durchführung regelmäßiger Selbstkontrollen, Einhaltung aktueller Richtlinien und aktive Teilnahme an internen Schulungen zur kontinuierlichen Qualitätsverbesserung.\n• Organisatorische Unterstützung: Mitwirkung an der Optimierung der Medikamentenvorratshaltung auf den Stationen in Zusammenarbeit mit der Stationssekretärin.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau*mann Apotheke EFZ.\n• Idealerweise bringen Sie Erfahrung im Umgang mit Medikamenten sowie Kenntnisse in der Medikamentenlogistik und -verteilung mit.\n• Ein verantwortungsbewusster und sorgfältiger Umgang mit Arzneimitteln ist für Sie selbstverständlich.\n• Sie arbeiten strukturiert, exakt und behalten auch in einem dynamischen Umfeld stets den Überblick.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "fr": "Ihr Aufgabengebiet:\n\n• Vorbereitung und Richten von Medikamenten: Sorgfältige und patientenindividuelle Vorbereitung von Medikamenten unter Einhaltung von hygienischen und qualitätsrelevanten Standards. Diese Tätigkeit muss jeweils nachmittags durchgeführt werden, die Arbeitstage können jedoch flexibel abgesprochen werden.\n• Arbeitsplatzorganisation und Dokumentation: Kontrolle ärztlicher Verordnungen im Klinikinformationssystem (KIS), präzises Richten der Medikamente sowie lückenlose Dokumentation aller Schritte.\n• Kommunikation und Zusammenarbeit: Enge Abstimmung mit der Apotheke, mit dem ärztlichen Dienst und dem Pflegepersonal zur Klärung von Unstimmigkeiten sowie zur Sicherstellung der optimalen medikamentösen Versorgung.\n• Lagerung und Übergabe: Fachgerechte Lagerung der Medikamente sowie termingerechte Übergabe an die Pflege, inklusive Weitergabe relevanter Hinweise zur Medikation.\n• Qualitätssicherung: Durchführung regelmäßiger Selbstkontrollen, Einhaltung aktueller Richtlinien und aktive Teilnahme an internen Schulungen zur kontinuierlichen Qualitätsverbesserung.\n• Organisatorische Unterstützung: Mitwirkung an der Optimierung der Medikamentenvorratshaltung auf den Stationen in Zusammenarbeit mit der Stationssekretärin.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau*mann Apotheke EFZ.\n• Idealerweise bringen Sie Erfahrung im Umgang mit Medikamenten sowie Kenntnisse in der Medikamentenlogistik und -verteilung mit.\n• Ein verantwortungsbewusster und sorgfältiger Umgang mit Arzneimitteln ist für Sie selbstverständlich.\n• Sie arbeiten strukturiert, exakt und behalten auch in einem dynamischen Umfeld stets den Überblick.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden."
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1276/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:26.413Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3264,29 +3282,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1138/Application/CheckLogin/1",
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1276/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+        "fachfrau-mann-apotheke-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
-        ],
-        "en": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
-        ],
-        "fr": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+          "fachfrau-mann-apotheke-see-spital-ch"
         ]
       },
-      "firstSeenAt": "2026-06-04T13:30:56.810Z",
+      "firstSeenAt": "2026-08-31T17:27:08.943Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3297,8 +3310,287 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-8b5a0b44bd3b",
+      "slug": "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen",
+      "slugByLocale": {
+        "it": "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen",
+        "en": "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch",
+        "de": "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch",
+        "fr": "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Oberarzt*ärztin Pneumologie - Jobsharing und flexible Pensumsmodelle möglich",
+      "titleByLocale": {
+        "it": "Oberarzt*ärztin Pneumologie - Jobsharing e flexible Pensumsmodelle möglich",
+        "en": "Oberarzt*ärztin Pneumologie - Jobsharing und flexible Pensumsmodelle möglich",
+        "de": "Oberarzt*ärztin Pneumologie - Jobsharing und flexible Pensumsmodelle möglich",
+        "fr": "Oberarzt*ärztin Pneumologie - Jobsharing und flexible Pensumsmodelle möglich"
+      },
+      "description": "Das erwartet Sie bei uns\nSie möchten Pneumologie auf hohem Niveau betreiben, Verantwortung übernehmen und gleichzeitig in einem persönlichen Team arbeiten, in dem man sich kennt und gegenseitig unterstützt? Dann könnten Sie gut zu uns passen. Bei uns erwartet Sie ein breites pneumologisches Spektrum mit viel Raum für selbstständiges Arbeiten und eigene fachliche Schwerpunkte.\n• Sie betreuen ambulante und stationäre pneumologische Patient*innen und führen eigene Sprechstunden.\n• Sie führen pneumologische Spezialuntersuchungen durch und entwickeln Ihre fachlichen Schwerpunkte weiter.\n• Sie arbeiten in unserem Schlafzentrum Zürichsee mit und können sich aktiv in der Schlafmedizin engagieren.\n• Sie übernehmen den pneumologischen Konsiliardienst und arbeiten eng mit der Inneren Medizin und weiteren Fachdisziplinen zusammen.\n• Sie begleiten und supervisieren unsere Assistenzärzt*innen und bringen sich in deren Weiterbildung ein.\n• Je nach Interesse und Erfahrung übernehmen Sie zusätzliche Verantwortung und gestalten die Weiterentwicklung unserer Pneumologie aktiv mit.\n\nWas Sie mitbringen\n\n• Sie verfügen über einen Facharzttitel Pneumologie oder stehen kurz vor dessen Abschluss.\n• Erfahrung als Oberarzt*ärztin ist willkommen, aber keine Voraussetzung. Viel wichtiger sind uns Freude an der Pneumologie, selbstständiges Arbeiten und der Wunsch, Teil eines kollegialen Teams zu sein.\n• Sie bringen Erfahrung in der Akutmedizin mit und schätzen die Zusammenarbeit mit anderen Fachdisziplinen.\n• Und vor allem: Sie haben Freude daran, gute Medizin zu machen, Wissen weiterzugeben und gemeinsam mit anderen etwas weiterzuentwickeln.\n\nWir bieten Ihnen\nWarum Sie gerne bei uns arbeiten könnten Wir sind ein kleines, persönliches pneumologisches Team mit kurzen Entscheidungswegen . Bei uns sind Sie nicht einfach eine weitere*r Oberarzt*ärztin, sondern können Ihre Ideen und Interessen einbringen und die Pneumologie aktiv mitgestalten.\n• ein breites und abwechslungsreiches pneumologisches Tätigkeitsspektrum\n• eigenständiges Arbeiten mit viel Gestaltungsspielraum\n• persönlichen und unkomplizierten fachlichen Austausch\n• die Möglichkeit, eigene pneumologische Schwerpunkte weiterzuentwickeln\n• Mitarbeit in einem etablierten Schlafzentrum\n• Teaching und Entwicklung von Führungskompetenzen\n• flexible Arbeitsmodelle von 60–80 %\n• Jobsharing und individuelle Lösungen je nach Lebenssituation\n• ein kollegiales Arbeitsumfeld, in dem gegenseitige Unterstützung und eine gute Zusammenarbeit im Alltag wichtig sind Vielleicht suchen Sie nicht einfach die nächste Oberarzt*ärztinstelle, sondern einen Ort, an dem Sie langfristig gerne Pneumologie machen möchten. Dann freuen wir uns darauf, Sie kennenzulernen.",
+      "descriptionByLocale": {
+        "it": "Das erwartet Sie bei uns\nSie möchten Pneumologie auf hohem Niveau betreiben, Verantwortung übernehmen und gleichzeitig in einem persönlichen Team arbeiten, in dem man sich kennt und gegenseitig unterstützt? Dann könnten Sie gut zu uns passen. Bei uns erwartet Sie ein breites pneumologisches Spektrum mit viel Raum für selbstständiges Arbeiten und eigene fachliche Schwerpunkte.\n• Sie betreuen ambulante und stationäre pneumologische Patient*innen und führen eigene Sprechstunden.\n• Sie führen pneumologische Spezialuntersuchungen durch und entwickeln Ihre fachlichen Schwerpunkte weiter.\n• Sie arbeiten in unserem Schlafzentrum Zürichsee mit und können sich aktiv in der Schlafmedizin engagieren.\n• Sie übernehmen den pneumologischen Konsiliardienst und arbeiten eng mit der Inneren Medizin und weiteren Fachdisziplinen zusammen.\n• Sie begleiten und supervisieren unsere Assistenzärzt*innen und bringen sich in deren Weiterbildung ein.\n• Je nach Interesse und Erfahrung übernehmen Sie zusätzliche Verantwortung und gestalten die Weiterentwicklung unserer Pneumologie aktiv mit.\n\nWas Sie mitbringen\n\n• Sie verfügen über einen Facharzttitel Pneumologie oder stehen kurz vor dessen Abschluss.\n• Erfahrung als Oberarzt*ärztin ist willkommen, aber keine Voraussetzung. Viel wichtiger sind uns Freude an der Pneumologie, selbstständiges Arbeiten und der Wunsch, Teil eines kollegialen Teams zu sein.\n• Sie bringen Erfahrung in der Akutmedizin mit und schätzen die Zusammenarbeit mit anderen Fachdisziplinen.\n• Und vor allem: Sie haben Freude daran, gute Medizin zu machen, Wissen weiterzugeben und gemeinsam mit anderen etwas weiterzuentwickeln.\n\nWir bieten Ihnen\nWarum Sie gerne bei uns arbeiten könnten Wir sind ein kleines, persönliches pneumologisches Team mit kurzen Entscheidungswegen . Bei uns sind Sie nicht einfach eine weitere*r Oberarzt*ärztin, sondern können Ihre Ideen und Interessen einbringen und die Pneumologie aktiv mitgestalten.\n• ein breites und abwechslungsreiches pneumologisches Tätigkeitsspektrum\n• eigenständiges Arbeiten mit viel Gestaltungsspielraum\n• persönlichen und unkomplizierten fachlichen Austausch\n• die Möglichkeit, eigene pneumologische Schwerpunkte weiterzuentwickeln\n• Mitarbeit in einem etablierten Schlafzentrum\n• Teaching und Entwicklung von Führungskompetenzen\n• flexible Arbeitsmodelle von 60–80 %\n• Jobsharing und individuelle Lösungen je nach Lebenssituation\n• ein kollegiales Arbeitsumfeld, in dem gegenseitige Unterstützung und eine gute Zusammenarbeit im Alltag wichtig sind Vielleicht suchen Sie nicht einfach die nächste Oberarzt*ärztinstelle, sondern einen Ort, an dem Sie langfristig gerne Pneumologie machen möchten. Dann freuen wir uns darauf, Sie kennenzulernen.",
+        "en": "Das erwartet Sie bei uns\nSie möchten Pneumologie auf hohem Niveau betreiben, Verantwortung übernehmen und gleichzeitig in einem persönlichen Team arbeiten, in dem man sich kennt und gegenseitig unterstützt? Dann könnten Sie gut zu uns passen. Bei uns erwartet Sie ein breites pneumologisches Spektrum mit viel Raum für selbstständiges Arbeiten und eigene fachliche Schwerpunkte.\n• Sie betreuen ambulante und stationäre pneumologische Patient*innen und führen eigene Sprechstunden.\n• Sie führen pneumologische Spezialuntersuchungen durch und entwickeln Ihre fachlichen Schwerpunkte weiter.\n• Sie arbeiten in unserem Schlafzentrum Zürichsee mit und können sich aktiv in der Schlafmedizin engagieren.\n• Sie übernehmen den pneumologischen Konsiliardienst und arbeiten eng mit der Inneren Medizin und weiteren Fachdisziplinen zusammen.\n• Sie begleiten und supervisieren unsere Assistenzärzt*innen und bringen sich in deren Weiterbildung ein.\n• Je nach Interesse und Erfahrung übernehmen Sie zusätzliche Verantwortung und gestalten die Weiterentwicklung unserer Pneumologie aktiv mit.\n\nWas Sie mitbringen\n\n• Sie verfügen über einen Facharzttitel Pneumologie oder stehen kurz vor dessen Abschluss.\n• Erfahrung als Oberarzt*ärztin ist willkommen, aber keine Voraussetzung. Viel wichtiger sind uns Freude an der Pneumologie, selbstständiges Arbeiten und der Wunsch, Teil eines kollegialen Teams zu sein.\n• Sie bringen Erfahrung in der Akutmedizin mit und schätzen die Zusammenarbeit mit anderen Fachdisziplinen.\n• Und vor allem: Sie haben Freude daran, gute Medizin zu machen, Wissen weiterzugeben und gemeinsam mit anderen etwas weiterzuentwickeln.\n\nWir bieten Ihnen\nWarum Sie gerne bei uns arbeiten könnten Wir sind ein kleines, persönliches pneumologisches Team mit kurzen Entscheidungswegen . Bei uns sind Sie nicht einfach eine weitere*r Oberarzt*ärztin, sondern können Ihre Ideen und Interessen einbringen und die Pneumologie aktiv mitgestalten.\n• ein breites und abwechslungsreiches pneumologisches Tätigkeitsspektrum\n• eigenständiges Arbeiten mit viel Gestaltungsspielraum\n• persönlichen und unkomplizierten fachlichen Austausch\n• die Möglichkeit, eigene pneumologische Schwerpunkte weiterzuentwickeln\n• Mitarbeit in einem etablierten Schlafzentrum\n• Teaching und Entwicklung von Führungskompetenzen\n• flexible Arbeitsmodelle von 60–80 %\n• Jobsharing und individuelle Lösungen je nach Lebenssituation\n• ein kollegiales Arbeitsumfeld, in dem gegenseitige Unterstützung und eine gute Zusammenarbeit im Alltag wichtig sind Vielleicht suchen Sie nicht einfach die nächste Oberarzt*ärztinstelle, sondern einen Ort, an dem Sie langfristig gerne Pneumologie machen möchten. Dann freuen wir uns darauf, Sie kennenzulernen.",
+        "de": "Das erwartet Sie bei uns\nSie möchten Pneumologie auf hohem Niveau betreiben, Verantwortung übernehmen und gleichzeitig in einem persönlichen Team arbeiten, in dem man sich kennt und gegenseitig unterstützt? Dann könnten Sie gut zu uns passen. Bei uns erwartet Sie ein breites pneumologisches Spektrum mit viel Raum für selbstständiges Arbeiten und eigene fachliche Schwerpunkte.\n• Sie betreuen ambulante und stationäre pneumologische Patient*innen und führen eigene Sprechstunden.\n• Sie führen pneumologische Spezialuntersuchungen durch und entwickeln Ihre fachlichen Schwerpunkte weiter.\n• Sie arbeiten in unserem Schlafzentrum Zürichsee mit und können sich aktiv in der Schlafmedizin engagieren.\n• Sie übernehmen den pneumologischen Konsiliardienst und arbeiten eng mit der Inneren Medizin und weiteren Fachdisziplinen zusammen.\n• Sie begleiten und supervisieren unsere Assistenzärzt*innen und bringen sich in deren Weiterbildung ein.\n• Je nach Interesse und Erfahrung übernehmen Sie zusätzliche Verantwortung und gestalten die Weiterentwicklung unserer Pneumologie aktiv mit.\n\nWas Sie mitbringen\n\n• Sie verfügen über einen Facharzttitel Pneumologie oder stehen kurz vor dessen Abschluss.\n• Erfahrung als Oberarzt*ärztin ist willkommen, aber keine Voraussetzung. Viel wichtiger sind uns Freude an der Pneumologie, selbstständiges Arbeiten und der Wunsch, Teil eines kollegialen Teams zu sein.\n• Sie bringen Erfahrung in der Akutmedizin mit und schätzen die Zusammenarbeit mit anderen Fachdisziplinen.\n• Und vor allem: Sie haben Freude daran, gute Medizin zu machen, Wissen weiterzugeben und gemeinsam mit anderen etwas weiterzuentwickeln.\n\nWir bieten Ihnen\nWarum Sie gerne bei uns arbeiten könnten Wir sind ein kleines, persönliches pneumologisches Team mit kurzen Entscheidungswegen . Bei uns sind Sie nicht einfach eine weitere*r Oberarzt*ärztin, sondern können Ihre Ideen und Interessen einbringen und die Pneumologie aktiv mitgestalten.\n• ein breites und abwechslungsreiches pneumologisches Tätigkeitsspektrum\n• eigenständiges Arbeiten mit viel Gestaltungsspielraum\n• persönlichen und unkomplizierten fachlichen Austausch\n• die Möglichkeit, eigene pneumologische Schwerpunkte weiterzuentwickeln\n• Mitarbeit in einem etablierten Schlafzentrum\n• Teaching und Entwicklung von Führungskompetenzen\n• flexible Arbeitsmodelle von 60–80 %\n• Jobsharing und individuelle Lösungen je nach Lebenssituation\n• ein kollegiales Arbeitsumfeld, in dem gegenseitige Unterstützung und eine gute Zusammenarbeit im Alltag wichtig sind Vielleicht suchen Sie nicht einfach die nächste Oberarzt*ärztinstelle, sondern einen Ort, an dem Sie langfristig gerne Pneumologie machen möchten. Dann freuen wir uns darauf, Sie kennenzulernen.",
+        "fr": "Das erwartet Sie bei uns\nSie möchten Pneumologie auf hohem Niveau betreiben, Verantwortung übernehmen und gleichzeitig in einem persönlichen Team arbeiten, in dem man sich kennt und gegenseitig unterstützt? Dann könnten Sie gut zu uns passen. Bei uns erwartet Sie ein breites pneumologisches Spektrum mit viel Raum für selbstständiges Arbeiten und eigene fachliche Schwerpunkte.\n• Sie betreuen ambulante und stationäre pneumologische Patient*innen und führen eigene Sprechstunden.\n• Sie führen pneumologische Spezialuntersuchungen durch und entwickeln Ihre fachlichen Schwerpunkte weiter.\n• Sie arbeiten in unserem Schlafzentrum Zürichsee mit und können sich aktiv in der Schlafmedizin engagieren.\n• Sie übernehmen den pneumologischen Konsiliardienst und arbeiten eng mit der Inneren Medizin und weiteren Fachdisziplinen zusammen.\n• Sie begleiten und supervisieren unsere Assistenzärzt*innen und bringen sich in deren Weiterbildung ein.\n• Je nach Interesse und Erfahrung übernehmen Sie zusätzliche Verantwortung und gestalten die Weiterentwicklung unserer Pneumologie aktiv mit.\n\nWas Sie mitbringen\n\n• Sie verfügen über einen Facharzttitel Pneumologie oder stehen kurz vor dessen Abschluss.\n• Erfahrung als Oberarzt*ärztin ist willkommen, aber keine Voraussetzung. Viel wichtiger sind uns Freude an der Pneumologie, selbstständiges Arbeiten und der Wunsch, Teil eines kollegialen Teams zu sein.\n• Sie bringen Erfahrung in der Akutmedizin mit und schätzen die Zusammenarbeit mit anderen Fachdisziplinen.\n• Und vor allem: Sie haben Freude daran, gute Medizin zu machen, Wissen weiterzugeben und gemeinsam mit anderen etwas weiterzuentwickeln.\n\nWir bieten Ihnen\nWarum Sie gerne bei uns arbeiten könnten Wir sind ein kleines, persönliches pneumologisches Team mit kurzen Entscheidungswegen . Bei uns sind Sie nicht einfach eine weitere*r Oberarzt*ärztin, sondern können Ihre Ideen und Interessen einbringen und die Pneumologie aktiv mitgestalten.\n• ein breites und abwechslungsreiches pneumologisches Tätigkeitsspektrum\n• eigenständiges Arbeiten mit viel Gestaltungsspielraum\n• persönlichen und unkomplizierten fachlichen Austausch\n• die Möglichkeit, eigene pneumologische Schwerpunkte weiterzuentwickeln\n• Mitarbeit in einem etablierten Schlafzentrum\n• Teaching und Entwicklung von Führungskompetenzen\n• flexible Arbeitsmodelle von 60–80 %\n• Jobsharing und individuelle Lösungen je nach Lebenssituation\n• ein kollegiales Arbeitsumfeld, in dem gegenseitige Unterstützung und eine gute Zusammenarbeit im Alltag wichtig sind Vielleicht suchen Sie nicht einfach die nächste Oberarzt*ärztinstelle, sondern einen Ort, an dem Sie langfristig gerne Pneumologie machen möchten. Dann freuen wir uns darauf, Sie kennenzulernen."
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1087/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:25.353Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1087/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "previousSlugs": [
+        "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T13:53:43.195Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-8f8f102ed05a",
+      "slug": "fachfrau-mann-gesundheit-cfc-interdisziplinar-see-spital-horgen",
+      "slugByLocale": {
+        "it": "fachfrau-mann-gesundheit-cfc-interdisziplinar-see-spital-horgen",
+        "en": "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch",
+        "de": "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch",
+        "fr": "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Fachfrau*mann Gesundheit EFZ - interdisziplinär",
+      "titleByLocale": {
+        "it": "Fachfrau*mann Gesundheit CFC - interdisziplinär",
+        "en": "Fachfrau*mann Gesundheit EFZ - interdisziplinär",
+        "de": "Fachfrau*mann Gesundheit EFZ - interdisziplinär",
+        "fr": "Fachfrau*mann Gesundheit EFZ - interdisziplinär"
+      },
+      "description": "Ihr Aufgabengebiet:\n\n• Vielfalt in der Pflege: Sie betreuen Patient*innen in den chirurgischen Bereichen.\n• Mitgestalten statt nur Mitwirken: Sie unterstützen unser Pflegefachpersonal bei diagnostischen und therapeutischen Maßnahmen und tragen aktiv zur Planung und Dokumentation der Pflege bei.\n• Patient*innenorientierung im Fokus: Sie sorgen für eine einfühlsame Betreuung, die die Selbstständigkeit und Lebensqualität unserer Patient*innen fördert.\n• Teamgeist erleben: In enger interdisziplinärer Zusammenarbeit mit Ärzt*innen , Therapeut*innen und anderen Fachpersonen sorgen Sie für eine ganzheitliche Betreuung.\n\nIhr Profil:\n\n• Eine abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ und eine Berufsanerkennung in der Schweiz.\n• Berufserfahrung in einem Akutspital von Vorteil.\n• Teamspirit und Freude an der interdisziplinären Zusammenarbeit .\n• Einfühlungsvermögen und Kommunikationsstärke , um unsere Patient*innen und deren Angehörige einfühlsam zu begleiten.\n• Die Motivation, sich ständig weiterzuentwickeln und Neues zu lernen.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+      "descriptionByLocale": {
+        "it": "Ihr Aufgabengebiet:\n\n• Vielfalt in der Pflege: Sie betreuen Patient*innen in den chirurgischen Bereichen.\n• Mitgestalten statt nur Mitwirken: Sie unterstützen unser Pflegefachpersonal bei diagnostischen und therapeutischen Maßnahmen und tragen aktiv zur Planung und Dokumentation der Pflege bei.\n• Patient*innenorientierung im Fokus: Sie sorgen für eine einfühlsame Betreuung, die die Selbstständigkeit und Lebensqualität unserer Patient*innen fördert.\n• Teamgeist erleben: In enger interdisziplinärer Zusammenarbeit mit Ärzt*innen , Therapeut*innen und anderen Fachpersonen sorgen Sie für eine ganzheitliche Betreuung.\n\nIhr Profil:\n\n• Eine abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ und eine Berufsanerkennung in der Schweiz.\n• Berufserfahrung in einem Akutspital von Vorteil.\n• Teamspirit und Freude an der interdisziplinären Zusammenarbeit .\n• Einfühlungsvermögen und Kommunikationsstärke , um unsere Patient*innen und deren Angehörige einfühlsam zu begleiten.\n• Die Motivation, sich ständig weiterzuentwickeln und Neues zu lernen.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "en": "Ihr Aufgabengebiet:\n\n• Vielfalt in der Pflege: Sie betreuen Patient*innen in den chirurgischen Bereichen.\n• Mitgestalten statt nur Mitwirken: Sie unterstützen unser Pflegefachpersonal bei diagnostischen und therapeutischen Maßnahmen und tragen aktiv zur Planung und Dokumentation der Pflege bei.\n• Patient*innenorientierung im Fokus: Sie sorgen für eine einfühlsame Betreuung, die die Selbstständigkeit und Lebensqualität unserer Patient*innen fördert.\n• Teamgeist erleben: In enger interdisziplinärer Zusammenarbeit mit Ärzt*innen , Therapeut*innen und anderen Fachpersonen sorgen Sie für eine ganzheitliche Betreuung.\n\nIhr Profil:\n\n• Eine abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ und eine Berufsanerkennung in der Schweiz.\n• Berufserfahrung in einem Akutspital von Vorteil.\n• Teamspirit und Freude an der interdisziplinären Zusammenarbeit .\n• Einfühlungsvermögen und Kommunikationsstärke , um unsere Patient*innen und deren Angehörige einfühlsam zu begleiten.\n• Die Motivation, sich ständig weiterzuentwickeln und Neues zu lernen.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "de": "Ihr Aufgabengebiet:\n\n• Vielfalt in der Pflege: Sie betreuen Patient*innen in den chirurgischen Bereichen.\n• Mitgestalten statt nur Mitwirken: Sie unterstützen unser Pflegefachpersonal bei diagnostischen und therapeutischen Maßnahmen und tragen aktiv zur Planung und Dokumentation der Pflege bei.\n• Patient*innenorientierung im Fokus: Sie sorgen für eine einfühlsame Betreuung, die die Selbstständigkeit und Lebensqualität unserer Patient*innen fördert.\n• Teamgeist erleben: In enger interdisziplinärer Zusammenarbeit mit Ärzt*innen , Therapeut*innen und anderen Fachpersonen sorgen Sie für eine ganzheitliche Betreuung.\n\nIhr Profil:\n\n• Eine abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ und eine Berufsanerkennung in der Schweiz.\n• Berufserfahrung in einem Akutspital von Vorteil.\n• Teamspirit und Freude an der interdisziplinären Zusammenarbeit .\n• Einfühlungsvermögen und Kommunikationsstärke , um unsere Patient*innen und deren Angehörige einfühlsam zu begleiten.\n• Die Motivation, sich ständig weiterzuentwickeln und Neues zu lernen.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "fr": "Ihr Aufgabengebiet:\n\n• Vielfalt in der Pflege: Sie betreuen Patient*innen in den chirurgischen Bereichen.\n• Mitgestalten statt nur Mitwirken: Sie unterstützen unser Pflegefachpersonal bei diagnostischen und therapeutischen Maßnahmen und tragen aktiv zur Planung und Dokumentation der Pflege bei.\n• Patient*innenorientierung im Fokus: Sie sorgen für eine einfühlsame Betreuung, die die Selbstständigkeit und Lebensqualität unserer Patient*innen fördert.\n• Teamgeist erleben: In enger interdisziplinärer Zusammenarbeit mit Ärzt*innen , Therapeut*innen und anderen Fachpersonen sorgen Sie für eine ganzheitliche Betreuung.\n\nIhr Profil:\n\n• Eine abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ und eine Berufsanerkennung in der Schweiz.\n• Berufserfahrung in einem Akutspital von Vorteil.\n• Teamspirit und Freude an der interdisziplinären Zusammenarbeit .\n• Einfühlungsvermögen und Kommunikationsstärke , um unsere Patient*innen und deren Angehörige einfühlsam zu begleiten.\n• Die Motivation, sich ständig weiterzuentwickeln und Neues zu lernen.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat."
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:24.241Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T13:53:42.146Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-99b4074f7140",
+      "slug": "stationssekretar-in-interdisziplinar-see-spital-ch",
+      "slugByLocale": {
+        "it": "stationssekretar-in-interdisziplinar-see-spital-ch",
+        "en": "stationssekretar-in-interdisziplinar-see-spital-ch",
+        "de": "stationssekretar-in-interdisziplinar-see-spital-ch",
+        "fr": "stationssekretar-in-interdisziplinar-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Stationssekretär*in interdisziplinär",
+      "titleByLocale": {
+        "it": "Stationssekretär*in interdisziplinär",
+        "en": "Stationssekretär*in interdisziplinär",
+        "de": "Stationssekretär*in interdisziplinär",
+        "fr": "Stationssekretär*in interdisziplinär"
+      },
+      "description": "Ihr Aufgabengebiet:\n\n• Verantwortung für das Abteilungstelefon, inklusive der schnellen und präzisen Weiterleitung von Informationen an die zuständigen Stellen.\n• Organisation und Führung des Bestellwesens für verschiedene Bereiche wie Apotheke, Pflegematerial und Büromaterial.\n• Übernahme diverser administrativer Aufgaben.\n• Richten von Medikamenten, sowie Protokollführung bei Sitzungen.\n• Übernahme weiterer Aufgaben nach Absprache.\n• Bereitschaft, bei Bedarf in der direkten Pflege am Bett mitzuarbeiten und das Team auch in pflegerischen Tätigkeiten zu unterstützen.\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachfrau*mann Gesundheit EFZ oder Med. Praxisassistent*in, idealerweise mit Berufserfahrung in einem Akutspital.\n• Sehr gute PC-Anwenderkenntnisse und Kenntnisse in der Patient*innendokumentation.\n• Eine ausgeprägte Kundenorientierung und sehr gute Umgangsformen.\n• Zuverlässigkeit und ein hohes Verantwortungsbewusstsein.\n• Ein hohes Maß an Selbstständigkeit und Eigeninitiative.\n• Sehr gute Koordinations- und Organisationsfähigkeiten sowie hohe Belastbarkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+      "descriptionByLocale": {
+        "it": "Ihr Aufgabengebiet:\n\n• Verantwortung für das Abteilungstelefon, inklusive der schnellen und präzisen Weiterleitung von Informationen an die zuständigen Stellen.\n• Organisation und Führung des Bestellwesens für verschiedene Bereiche wie Apotheke, Pflegematerial und Büromaterial.\n• Übernahme diverser administrativer Aufgaben.\n• Richten von Medikamenten, sowie Protokollführung bei Sitzungen.\n• Übernahme weiterer Aufgaben nach Absprache.\n• Bereitschaft, bei Bedarf in der direkten Pflege am Bett mitzuarbeiten und das Team auch in pflegerischen Tätigkeiten zu unterstützen.\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachfrau*mann Gesundheit EFZ oder Med. Praxisassistent*in, idealerweise mit Berufserfahrung in einem Akutspital.\n• Sehr gute PC-Anwenderkenntnisse und Kenntnisse in der Patient*innendokumentation.\n• Eine ausgeprägte Kundenorientierung und sehr gute Umgangsformen.\n• Zuverlässigkeit und ein hohes Verantwortungsbewusstsein.\n• Ein hohes Maß an Selbstständigkeit und Eigeninitiative.\n• Sehr gute Koordinations- und Organisationsfähigkeiten sowie hohe Belastbarkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "en": "Ihr Aufgabengebiet:\n\n• Verantwortung für das Abteilungstelefon, inklusive der schnellen und präzisen Weiterleitung von Informationen an die zuständigen Stellen.\n• Organisation und Führung des Bestellwesens für verschiedene Bereiche wie Apotheke, Pflegematerial und Büromaterial.\n• Übernahme diverser administrativer Aufgaben.\n• Richten von Medikamenten, sowie Protokollführung bei Sitzungen.\n• Übernahme weiterer Aufgaben nach Absprache.\n• Bereitschaft, bei Bedarf in der direkten Pflege am Bett mitzuarbeiten und das Team auch in pflegerischen Tätigkeiten zu unterstützen.\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachfrau*mann Gesundheit EFZ oder Med. Praxisassistent*in, idealerweise mit Berufserfahrung in einem Akutspital.\n• Sehr gute PC-Anwenderkenntnisse und Kenntnisse in der Patient*innendokumentation.\n• Eine ausgeprägte Kundenorientierung und sehr gute Umgangsformen.\n• Zuverlässigkeit und ein hohes Verantwortungsbewusstsein.\n• Ein hohes Maß an Selbstständigkeit und Eigeninitiative.\n• Sehr gute Koordinations- und Organisationsfähigkeiten sowie hohe Belastbarkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "de": "Ihr Aufgabengebiet:\n\n• Verantwortung für das Abteilungstelefon, inklusive der schnellen und präzisen Weiterleitung von Informationen an die zuständigen Stellen.\n• Organisation und Führung des Bestellwesens für verschiedene Bereiche wie Apotheke, Pflegematerial und Büromaterial.\n• Übernahme diverser administrativer Aufgaben.\n• Richten von Medikamenten, sowie Protokollführung bei Sitzungen.\n• Übernahme weiterer Aufgaben nach Absprache.\n• Bereitschaft, bei Bedarf in der direkten Pflege am Bett mitzuarbeiten und das Team auch in pflegerischen Tätigkeiten zu unterstützen.\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachfrau*mann Gesundheit EFZ oder Med. Praxisassistent*in, idealerweise mit Berufserfahrung in einem Akutspital.\n• Sehr gute PC-Anwenderkenntnisse und Kenntnisse in der Patient*innendokumentation.\n• Eine ausgeprägte Kundenorientierung und sehr gute Umgangsformen.\n• Zuverlässigkeit und ein hohes Verantwortungsbewusstsein.\n• Ein hohes Maß an Selbstständigkeit und Eigeninitiative.\n• Sehr gute Koordinations- und Organisationsfähigkeiten sowie hohe Belastbarkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "fr": "Ihr Aufgabengebiet:\n\n• Verantwortung für das Abteilungstelefon, inklusive der schnellen und präzisen Weiterleitung von Informationen an die zuständigen Stellen.\n• Organisation und Führung des Bestellwesens für verschiedene Bereiche wie Apotheke, Pflegematerial und Büromaterial.\n• Übernahme diverser administrativer Aufgaben.\n• Richten von Medikamenten, sowie Protokollführung bei Sitzungen.\n• Übernahme weiterer Aufgaben nach Absprache.\n• Bereitschaft, bei Bedarf in der direkten Pflege am Bett mitzuarbeiten und das Team auch in pflegerischen Tätigkeiten zu unterstützen.\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachfrau*mann Gesundheit EFZ oder Med. Praxisassistent*in, idealerweise mit Berufserfahrung in einem Akutspital.\n• Sehr gute PC-Anwenderkenntnisse und Kenntnisse in der Patient*innendokumentation.\n• Eine ausgeprägte Kundenorientierung und sehr gute Umgangsformen.\n• Zuverlässigkeit und ein hohes Verantwortungsbewusstsein.\n• Ein hohes Maß an Selbstständigkeit und Eigeninitiative.\n• Sehr gute Koordinations- und Organisationsfähigkeiten sowie hohe Belastbarkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat."
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1293/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:23.139Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1293/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "firstSeenAt": "2026-09-02T13:54:21.467Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-4ffacbb58628",
+      "slug": "oberarztin-arzt-innere-medizin-see-spital-ch",
+      "slugByLocale": {
+        "it": "oberarztin-arzt-innere-medizin-see-spital-ch",
+        "en": "oberarztin-arzt-innere-medizin-see-spital-ch",
+        "de": "oberarztin-arzt-innere-medizin-see-spital-ch",
+        "fr": "oberarztin-arzt-innere-medizin-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Oberärztin*arzt Innere Medizin",
+      "titleByLocale": {
+        "it": "Oberärztin*arzt Innere Medizin",
+        "en": "Oberärztin*arzt Innere Medizin",
+        "de": "Oberärztin*arzt Innere Medizin",
+        "fr": "Oberärztin*arzt Innere Medizin"
+      },
+      "description": "Ihr Aufgabengebiet:\n\n• Sie stellen in einem Team von 7 Oberärzt*innen zusammen mit dem Chefarzt und den 12 Leitenden Ärzt*innen die ärztliche Versorgung unserer Patient*innen sicher\n• Ihr Einsatzgebiet umfasst die Bettenstationen, die interdisziplinäre Notfallstation im Schichtsystem, Intensivstation sowie unsere Tagesklinik\n• Sie betreuen und supervisieren unsere Assistenzärzt*innen und wirken aktiv an deren Weiterbildungen mit\n• Sie beteiligen sich am internistischen Notfalldienst sowie an unserem internistischen Konsiliardienst\n\nIhr Profil:\n\n• Sie verfügen über einen Facharzttitel Innere Medizin oder sind kurz vor dessen Abschluss\n• Erste Erfahrungen als Oberärzt*in sind erwünscht, aber nicht Bedingung\n• Sie verfügen über Erfahrung auf einem internistischem Notfall- und einer Intensivstation\n• Sie zeichnen sich durch hohes Engagement, Einsatzbereitschaft und Sozialkompetenz aus\n• Die Freude an interdisziplinärer Zusammenarbeit und am Teaching von Assistenzärzt*innen runden Ihr Profil ab\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Breite und spannende Innere Medizin\n• Weiterentwicklung Ihrer internistischen Fähigkeiten (u.a. Ultraschall)\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+      "descriptionByLocale": {
+        "it": "Ihr Aufgabengebiet:\n\n• Sie stellen in einem Team von 7 Oberärzt*innen zusammen mit dem Chefarzt und den 12 Leitenden Ärzt*innen die ärztliche Versorgung unserer Patient*innen sicher\n• Ihr Einsatzgebiet umfasst die Bettenstationen, die interdisziplinäre Notfallstation im Schichtsystem, Intensivstation sowie unsere Tagesklinik\n• Sie betreuen und supervisieren unsere Assistenzärzt*innen und wirken aktiv an deren Weiterbildungen mit\n• Sie beteiligen sich am internistischen Notfalldienst sowie an unserem internistischen Konsiliardienst\n\nIhr Profil:\n\n• Sie verfügen über einen Facharzttitel Innere Medizin oder sind kurz vor dessen Abschluss\n• Erste Erfahrungen als Oberärzt*in sind erwünscht, aber nicht Bedingung\n• Sie verfügen über Erfahrung auf einem internistischem Notfall- und einer Intensivstation\n• Sie zeichnen sich durch hohes Engagement, Einsatzbereitschaft und Sozialkompetenz aus\n• Die Freude an interdisziplinärer Zusammenarbeit und am Teaching von Assistenzärzt*innen runden Ihr Profil ab\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Breite und spannende Innere Medizin\n• Weiterentwicklung Ihrer internistischen Fähigkeiten (u.a. Ultraschall)\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "en": "Ihr Aufgabengebiet:\n\n• Sie stellen in einem Team von 7 Oberärzt*innen zusammen mit dem Chefarzt und den 12 Leitenden Ärzt*innen die ärztliche Versorgung unserer Patient*innen sicher\n• Ihr Einsatzgebiet umfasst die Bettenstationen, die interdisziplinäre Notfallstation im Schichtsystem, Intensivstation sowie unsere Tagesklinik\n• Sie betreuen und supervisieren unsere Assistenzärzt*innen und wirken aktiv an deren Weiterbildungen mit\n• Sie beteiligen sich am internistischen Notfalldienst sowie an unserem internistischen Konsiliardienst\n\nIhr Profil:\n\n• Sie verfügen über einen Facharzttitel Innere Medizin oder sind kurz vor dessen Abschluss\n• Erste Erfahrungen als Oberärzt*in sind erwünscht, aber nicht Bedingung\n• Sie verfügen über Erfahrung auf einem internistischem Notfall- und einer Intensivstation\n• Sie zeichnen sich durch hohes Engagement, Einsatzbereitschaft und Sozialkompetenz aus\n• Die Freude an interdisziplinärer Zusammenarbeit und am Teaching von Assistenzärzt*innen runden Ihr Profil ab\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Breite und spannende Innere Medizin\n• Weiterentwicklung Ihrer internistischen Fähigkeiten (u.a. Ultraschall)\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "de": "Ihr Aufgabengebiet:\n\n• Sie stellen in einem Team von 7 Oberärzt*innen zusammen mit dem Chefarzt und den 12 Leitenden Ärzt*innen die ärztliche Versorgung unserer Patient*innen sicher\n• Ihr Einsatzgebiet umfasst die Bettenstationen, die interdisziplinäre Notfallstation im Schichtsystem, Intensivstation sowie unsere Tagesklinik\n• Sie betreuen und supervisieren unsere Assistenzärzt*innen und wirken aktiv an deren Weiterbildungen mit\n• Sie beteiligen sich am internistischen Notfalldienst sowie an unserem internistischen Konsiliardienst\n\nIhr Profil:\n\n• Sie verfügen über einen Facharzttitel Innere Medizin oder sind kurz vor dessen Abschluss\n• Erste Erfahrungen als Oberärzt*in sind erwünscht, aber nicht Bedingung\n• Sie verfügen über Erfahrung auf einem internistischem Notfall- und einer Intensivstation\n• Sie zeichnen sich durch hohes Engagement, Einsatzbereitschaft und Sozialkompetenz aus\n• Die Freude an interdisziplinärer Zusammenarbeit und am Teaching von Assistenzärzt*innen runden Ihr Profil ab\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Breite und spannende Innere Medizin\n• Weiterentwicklung Ihrer internistischen Fähigkeiten (u.a. Ultraschall)\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "fr": "Ihr Aufgabengebiet:\n\n• Sie stellen in einem Team von 7 Oberärzt*innen zusammen mit dem Chefarzt und den 12 Leitenden Ärzt*innen die ärztliche Versorgung unserer Patient*innen sicher\n• Ihr Einsatzgebiet umfasst die Bettenstationen, die interdisziplinäre Notfallstation im Schichtsystem, Intensivstation sowie unsere Tagesklinik\n• Sie betreuen und supervisieren unsere Assistenzärzt*innen und wirken aktiv an deren Weiterbildungen mit\n• Sie beteiligen sich am internistischen Notfalldienst sowie an unserem internistischen Konsiliardienst\n\nIhr Profil:\n\n• Sie verfügen über einen Facharzttitel Innere Medizin oder sind kurz vor dessen Abschluss\n• Erste Erfahrungen als Oberärzt*in sind erwünscht, aber nicht Bedingung\n• Sie verfügen über Erfahrung auf einem internistischem Notfall- und einer Intensivstation\n• Sie zeichnen sich durch hohes Engagement, Einsatzbereitschaft und Sozialkompetenz aus\n• Die Freude an interdisziplinärer Zusammenarbeit und am Teaching von Assistenzärzt*innen runden Ihr Profil ab\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Breite und spannende Innere Medizin\n• Weiterentwicklung Ihrer internistischen Fähigkeiten (u.a. Ultraschall)\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat."
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1286/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:35:22.007Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1286/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "See-Spital",
+      "contractDuration": "temporary",
+      "firstSeenAt": "2026-09-02T23:23:37.213Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     }
   ]
 }

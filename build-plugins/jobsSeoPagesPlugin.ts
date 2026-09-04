@@ -11565,7 +11565,7 @@ ${staticAnalyticsHtml}
  let sliceAugmentCapped = false;
  // Predicato condiviso (scripts/lib/crawler-slice-files.mjs): e' lo stesso che
  // assemble-jobs-dataset.mjs applica gia' a EXPIRED_SLICES_DIR. `.json` da solo
- // raccoglieva anche i companion `-cache` e gli orfani `.cleanup-tmp`.
+ // raccoglieva anche i companion `-locale-cache` e gli orfani `.cleanup-tmp`.
  for (const sliceFile of fs.readdirSync(expiredSlicesDir)) {
  if (sliceAugmentCapped) break;
  if (!isSliceFile(sliceFile)) continue;

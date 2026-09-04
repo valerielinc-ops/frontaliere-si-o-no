@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-08-28T05:34:03.799Z",
+  "assembledAt": "2026-09-03T23:24:17.177Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -16,7 +16,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Fachfrau / Fachmann Betreuung EFZ",
       "titleByLocale": {
-        "it": "Fachfrau / Fachmann Betreuung CFC",
+        "it": "Specialista / Supporto professionale EFZ",
         "en": "Specialist / Professional Support EFZ",
         "de": "Fachfrau / Fachmann Betreuung EFZ",
         "fr": "Spécialiste / Soutien professionnel EFZ"
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:01.142Z",
+      "crawledAt": "2026-09-03T23:24:14.336Z",
       "addressLocality": "Igis / Landquart / Untervaz",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -61,10 +61,10 @@
           "fachfrau-fachmann-betreuung-efz-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:30.468Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -91,7 +91,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Fachfrau / Fachmann Hotellerie-Hauswirtschaft EFZ",
       "titleByLocale": {
-        "it": "Fachfrau / Fachmann Hotellerie-Hauswirtschaft CFC",
+        "it": "Professionista / specialista dell'industria alberghiera EFZ",
         "en": "Professional / specialist hotel industry-housekeeping EFZ",
         "de": "Fachfrau / Fachmann Hotellerie-Hauswirtschaft EFZ",
         "fr": "Professionnel / spécialisé de l'hôtellerie-ménagement EFZ"
@@ -108,7 +108,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:00.097Z",
+      "crawledAt": "2026-09-03T23:24:13.191Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -136,10 +136,10 @@
           "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:29.315Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -166,7 +166,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Fachfrau / Fachmann Gesundheit EFZ",
       "titleByLocale": {
-        "it": "Fachfrau / Fachmann Gesundheit CFC",
+        "it": "Salute specialistica EFZ",
         "en": "Specialist Health EFZ",
         "de": "Fachfrau / Fachmann Gesundheit EFZ",
         "fr": "Spécialiste de la santé EFZ"
@@ -183,7 +183,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:59.028Z",
+      "crawledAt": "2026-09-03T23:24:12.074Z",
       "addressLocality": "Cazis / Chur / Ilanz / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -211,10 +211,10 @@
           "fachfrau-fachmann-gesundheit-efz-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:28.178Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -258,7 +258,7 @@
       "url": "https://www.pdgr.ch/jobs/kauffrau-kaufmann/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:57.908Z",
+      "crawledAt": "2026-09-03T23:24:10.962Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -289,6 +289,7 @@
       "firstSeenAt": "2026-07-29T22:40:27.021Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -315,7 +316,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Köchin / Koch EFZ",
       "titleByLocale": {
-        "it": "Köchin / Koch CFC",
+        "it": "Chef / Koch EFZ",
         "en": "Chef / Koch EFZ",
         "de": "Köchin / Koch EFZ",
         "fr": "Chef / Koch EFZ"
@@ -332,7 +333,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:56.838Z",
+      "crawledAt": "2026-09-03T23:24:09.839Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -363,10 +364,10 @@
       "previousSlugs": [
         "kochin-koch-efz-pdgr-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:25.836Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -410,7 +411,7 @@
       "url": "https://www.pdgr.ch/jobs/floristin-florist-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:55.758Z",
+      "crawledAt": "2026-09-03T23:24:08.700Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -447,6 +448,7 @@
       "firstSeenAt": "2026-07-29T22:40:23.540Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -490,7 +492,7 @@
       "url": "https://www.pdgr.ch/jobs/informatikerin-informatiker/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:54.684Z",
+      "crawledAt": "2026-09-03T23:24:07.591Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -527,6 +529,7 @@
       "firstSeenAt": "2026-07-29T22:40:22.371Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -570,7 +573,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:53.619Z",
+      "crawledAt": "2026-09-03T23:24:06.475Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -618,6 +621,7 @@
       "firstSeenAt": "2026-05-17T10:52:11.554Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -661,7 +665,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:52.528Z",
+      "crawledAt": "2026-09-03T23:24:05.313Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -726,6 +730,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -769,7 +774,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:51.459Z",
+      "crawledAt": "2026-09-03T23:24:04.205Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -814,6 +819,7 @@
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -857,7 +863,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:50.370Z",
+      "crawledAt": "2026-09-03T23:24:03.078Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -895,6 +901,7 @@
       "firstSeenAt": "2026-05-17T10:52:07.219Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -921,7 +928,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Fachfrau / Fachmann Betriebsunterhalt EFZ",
       "titleByLocale": {
-        "it": "Fachfrau / Fachmann Betriebsunterhalt CFC",
+        "it": "Manutenzione operativa professionale / specialistica EFZ",
         "en": "Professional / Specialist Operational maintenance EFZ",
         "de": "Fachfrau / Fachmann Betriebsunterhalt EFZ",
         "fr": "Professionnel / Spécialiste Entretien opérationnel EFZ"
@@ -938,7 +945,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:49.299Z",
+      "crawledAt": "2026-09-03T23:24:01.827Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -966,10 +973,10 @@
           "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:16.507Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1013,7 +1020,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:48.200Z",
+      "crawledAt": "2026-09-03T23:24:00.723Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1098,6 +1105,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1141,7 +1149,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:47.133Z",
+      "crawledAt": "2026-09-03T23:23:59.597Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1207,6 +1215,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1250,7 +1259,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:46.075Z",
+      "crawledAt": "2026-09-03T23:23:58.500Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1306,6 +1315,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1349,7 +1359,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:45.006Z",
+      "crawledAt": "2026-09-03T23:23:57.372Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1408,6 +1418,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1451,7 +1462,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:43.948Z",
+      "crawledAt": "2026-09-03T23:23:56.274Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1506,6 +1517,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1549,7 +1561,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:41.810Z",
+      "crawledAt": "2026-09-03T23:23:54.018Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1616,6 +1628,7 @@
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1659,7 +1672,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:40.692Z",
+      "crawledAt": "2026-09-03T23:23:52.877Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1715,6 +1728,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1758,7 +1772,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:39.636Z",
+      "crawledAt": "2026-09-03T23:23:51.738Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1818,6 +1832,7 @@
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1844,10 +1859,10 @@
       "companyDomain": "pdgr.ch",
       "title": "Assistenz- oder Fachpsychologe/in",
       "titleByLocale": {
-        "it": "Assistenz- o Fachpsychologe/in",
-        "en": "Assistant/Fachpsychologist",
+        "it": "Assistente o psicologo specializzato",
+        "en": "Assistant or specialist psychologist",
         "de": "Assistenz- oder Fachpsychologe/in",
-        "fr": "Assistante/Fachpsychologue"
+        "fr": "Assistant ou psychologue spécialisé"
       },
       "description": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin am Standort Samedan in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie arbeiten weitgehend selbständig in unserem Psychiatrie-Zentrum Engadin\n\n- Sie sind in der Lage, die in der Kinder- und Jugendpsychiatrie gängigen psychodiagnostischen Testverfahren einzusetzen\n\n- Sie führen neben den psychotherapeutischen Abklärungen und Behandlungen auch Kriseninterventionen durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie und haben bereits berufliche Erfahrung im Bereich Diagnostik und Psychotherapie bei Kindern und Jugendlichen\n\n- Sie haben die Psychotherapieausbildung mit eidg. Anerkennung abgeschlossen oder befinden sich in fortgeschrittener Ausbildung (Assistenzpsychologe)\n\n- Sie arbeiten regelmässig mit verschiedenen involvierten Personen im Umfeld der Familie z.B. Lehrpersonen, Sozialarbeiter, Jugendanwaltschaft, KESB etc. zusammen\n\n- Sie verfügen über vertiefte Kompetenzen im Bereich Kindertherapie sowie über hohe Sozial- und Handlungskompetenz\n\nWir bieten Ihnen:\n- Integration in ein erfahrenes interprofessionelles Team mit einer angenehmen und unterstützenden Arbeitsatmosphäre\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
       "descriptionByLocale": {
@@ -1861,7 +1876,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:38.576Z",
+      "crawledAt": "2026-09-03T23:23:50.607Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1914,10 +1929,10 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch",
         "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1952,7 +1967,7 @@
       "description": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
       "descriptionByLocale": {
         "it": "I dintorni: bassa percentuale, principalmente fine settimana (durante il giorno) Una funzione per specialisti (esperti) che sono alla ricerca di un compito clinico chiaramente strutturato e pianificabile con un alto livello di responsabilità personale – ben compatibile con una pratica o altri obblighi professionali. AKI è strettamente in rete con servizi stazionari e ambulatoriali e fa parte di una moderna struttura di approvvigionamento integrata. I loro compiti: - Voi assumete valutazioni psichiatriche acute e interventi di crisi nell'ambientazione ambulatoria - Trattano pazienti che camminano - Esse effettuano valutazioni consiliari, comprese, ove necessario, la visita all'intervento di crisi; - Sei coinvolto nell'educazione e nella formazione dei colleghi più giovani e supervisiona medici e psicologi assistenti / psicologi - Lavori con infermieri esperti nel triage e prendi il controllo della gestione dei casi - Sviluppare insieme piani di trattamento pragmatici e realizzabili Il nostro profilo di requisito: - Hai completato gli studi in medicina umana e hai completato la formazione specialistica in psichiatria e psicoterapia - Essi portano la sicurezza nella valutazione di situazioni psichiatriche acute - Ti piace lavorare in modo indipendente con una stretta coordinazione del team allo stesso tempo - Hai un processo decisionale chiaro e uno stile di comunicazione collegiale Vi offriamo: - Un'attività di fine settimana programmata durante il giorno senza obbligo di notte - Alta flessibilità e opzioni di progettazione individuale nella pianificazione dei servizi - Un carico di lavoro che può essere combinato bene con un'attività pratica o altri obblighi - Un'aggiunta mirata a un team consolidato e consolidato - Brevi percorsi decisionali e collaborazione diretta con la cura e la gestione medica - Integrazione nella moderna struttura di fornitura del PDGR",
-        "en": "Your surroundings:\nlow percentage, mainly weekend (during the day)\n\nA function for (experienced) specialists who are looking for a clearly structured, plannable clinical task with a high level of personal responsibility – well compatible with a practice or other professional obligations. AKI is closely networked with stationary and ambulatory services and is part of a modern, integrated care structure.\n\nTheir tasks:\n- You take on acute psychiatric assessments and crisis interventions in the ambulatory setting\n\n- They treat walk-in patients\n\n- They carry out consiliar assessments, including, where necessary, visiting crisis intervention\n\n- You are involved in the education and training of younger colleagues and supervise assistant doctors and psychologists / psychologists\n\n- You work with experienced care professionals in the triage and take over the case management\n\n- Develop pragmatic and viable treatment plans together\n\nOur requirement profile:\n- You have completed studies in human medicine and have completed specialist training in psychiatry and psychotherapy\n\n- They bring security in the assessment of acute psychiatric situations\n\n- You enjoy working independently with close team coordination\n\n- You have clear decision-making and a collegial communication style\n\nWe offer you:\n- A scheduled weekend activity during the day without a night obligation\n\n- High flexibility and individual design options in service planning\n\n- A workload that can be combined well with a practical activity or other obligations\n\n- A targeted addition to an established, well-established team\n\n- Short decision paths and direct cooperation with care and medical management\n\n- Embedding in the modern PDGR supply structure",
+        "en": "Your surroundings:\nlow percentage, mainly weekend (during the day)\n\nA function for (experienced) specialists who are looking for a clearly structured, plannable clinical task with a high level of personal responsibility – well compatible with a practice or other professional obligations. AKI is closely networked with stationary and ambulatory services and is part of a modern, integrated supply structure.\n\nTheir tasks:\n- You take on acute psychiatric assessments and crisis interventions in the ambulatory setting\n\n- They treat walk-in patients\n\n- They shall carry out consiliar assessments, including, where necessary, visiting crisis intervention;\n\n- You are involved in the education and training of younger colleagues and supervise assistant doctors and psychologists / psychologists\n\n- You work with experienced nurses in the triage and take over the case management\n\n- Develop pragmatic and viable treatment plans together\n\nOur requirement profile:\n- You have completed studies in human medicine and have completed specialist training in psychiatry and psychotherapy\n\n- They bring security in the assessment of acute psychiatric situations\n\n- You enjoy working independently with close team coordination at the same time\n\n- You have clear decision-making and a collegial communication style\n\nWe offer you:\n- A scheduled weekend activity during the day without a night obligation\n\n- High flexibility and individual design options in service planning\n\n- A workload that can be combined well with a practical activity or other obligations\n\n- A targeted addition to an established, well-established team\n\n- Short decision paths and direct cooperation with care and medical management\n\n- Embedding in the modern supply structure of the PDGR",
         "de": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
         "fr": "Votre environnement: faible pourcentage, principalement le week-end (pendant la journée) Une fonction pour les spécialistes (expérimentés) qui recherchent une tâche clinique clairement structurée et planifiable avec un haut niveau de responsabilité personnelle – bien compatible avec une pratique ou d'autres obligations professionnelles. AKI est étroitement en réseau avec les services fixes et ambulatoires et fait partie d'une structure d'approvisionnement moderne et intégrée. Leurs tâches: - Vous prenez des évaluations psychiatriques aiguës et des interventions de crise dans le cadre ambulatoire - Ils traitent les patients ambulants - Ils procèdent à des évaluations consulaires, y compris, le cas échéant, à des visites d'intervention en cas de crise; - Vous participez à l'éducation et à la formation de jeunes collègues et supervisez des médecins adjoints et des psychologues / psychologues - Vous travaillez avec des infirmières expérimentées dans le triage et prenez en charge la gestion de cas - Élaborer ensemble des plans de traitement pragmatiques et viables Notre profil d'exigence: - Vous avez terminé des études en médecine humaine et une formation spécialisée en psychiatrie et en psychothérapie - Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës - Vous aimez travailler de manière indépendante avec une étroite coordination d'équipe en même temps - Vous avez une prise de décision claire et un style de communication collégiale Nous vous offrons: - Une activité prévue le week-end pendant la journée sans obligation de nuit - Une grande flexibilité et des options de conception individuelles dans la planification des services - Une charge de travail qui peut être bien combinée à une activité pratique ou à d'autres obligations - Un ajout ciblé à une équipe bien établie - Moyens de décision courts et coopération directe avec les soins et la gestion médicale - Intégrer la structure d'approvisionnement moderne du PDGR"
       },
@@ -1961,7 +1976,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:36.469Z",
+      "crawledAt": "2026-09-03T23:23:48.356Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2004,6 +2019,7 @@
       "firstSeenAt": "2026-07-08T22:06:39.494Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2047,7 +2063,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:35.391Z",
+      "crawledAt": "2026-09-03T23:23:47.192Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2094,6 +2110,7 @@
       "firstSeenAt": "2026-07-11T11:06:03.797Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2137,7 +2154,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:34.281Z",
+      "crawledAt": "2026-09-03T23:23:46.059Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2183,6 +2200,7 @@
       "firstSeenAt": "2026-05-21T12:55:50.615Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2226,7 +2244,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:32.159Z",
+      "crawledAt": "2026-09-03T23:23:43.791Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2271,96 +2289,7 @@
       "firstSeenAt": "2026-05-28T13:42:07.525Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "pdgr-5bf1de714961",
-      "slug": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-      "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-        "en": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-        "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-        "fr": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagogen/in HF",
-        "en": "Certified Nursing Professional HF or Certified Social Educator HF",
-        "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
-        "fr": "Infirmier(e) diplômé(e) HF ou Educateur(trice) social(e) diplômé(e) HF"
-      },
-      "description": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
-      "descriptionByLocale": {
-        "it": "Il vostro ambiente: Il reparto di psicoterapia Salvorta è un reparto aperto con 30 posti letto. Al centro del nostro concetto terapeutico c’è la terapia basata sulla mentalizzazione (MBT). Trattiamo donne e uomini affetti da depressione, ansia, disturbo ossessivo-compulsivo, disturbi alimentari, disturbi legati a traumi e disturbi della personalità. Un altro obiettivo del trattamento è il trattamento dei disturbi del dolore e dell'acufene scompensato. Il reparto di psicoterapia dispone inoltre di sei posti letto per il trattamento madre/padre-bambino. I vostri compiti: - Accompagnate e sostenete i pazienti nell'ambito di un processo di trattamento psicoterapeutico individuale - Siete responsabili della pianificazione, attuazione e valutazione dell'assistenza e del trattamento in qualità di persona infermieristica di riferimento - Consigliate, accompagnate e coinvolgete i familiari in modo orientato alle risorse nel processo di trattamento - Contribuite attivamente con le vostre osservazioni e valutazioni professionali alla collaborazione interprofessionale - Pianificate, dirigete e valutate terapie infermieristiche di gruppo - Collaborate con reparti specialistici interni ed esterni e contribuite alla qualità continua del trattamento - Creare un ambiente terapeutico riconoscente e promuovere la sviluppo individuale e stabilizzazione dei nostri pazienti - Mantieni una comunicazione aperta, rispettosa e orientata alla persona Il nostro profilo dei requisiti: - Possiedi una laurea come specialista infermieristico qualificato HF o Dipl. Educatore sociale HF - Idealmente, hai esperienza nel campo psichiatrico o psicoterapeutico - Ti avvicini alle persone con malattie mentali in modo empatico, professionale e riconoscente - Lavori in modo indipendente, responsabile e hai un alto livello di capacità di riflessione - Apprezzi la collaborazione interprofessionale e hai forti capacità sociali e personali - Sei interessato ai concetti di trattamento psicoterapeutico e possibilmente conosci gli approcci basati sulla mentalizzazione Ti offriamo: - Svolgi un lavoro vario e un lavoro responsabile in un team motivato e interprofessionale - Hai l'opportunità di contribuire a definire e implementare gli approcci terapeutici e assistenziali sia a livello professionale che organizzativo - Approfitta delle nostre offerte di formazione interna e formazione continua - supportiamo anche le tue esigenze di formazione esterna - Un equilibrio ottimale tra lavoro e vita privata con modelli di lavoro part-time, 6 settimane di ferie e ferie non retribuite",
-        "en": "Your environment: The Salvorta psychotherapy ward is an open ward with 30 beds. At the center of our therapeutic concept is mentalization-based therapy (MBT). We treat women and men with depression, anxiety, obsessive-compulsive disorder, eating disorders, trauma-related disorders and personality disorders. Another focus of treatment is the treatment of pain disorders and decompensated tinnitus. The psychotherapy ward also offers six beds for mother/father-child treatment.\n• Your tasks: - You accompany and support patients as part of an individual psychotherapeutic treatment process - As a nursing reference person, you take responsibility for the planning, implementation and evaluation of care and treatment - You advise and accompany relatives and involve them in the treatment process in a resource-oriented manner - You actively contribute your professional observations and assessments to interprofessional collaboration - You plan, lead and evaluate nursing group therapies - You network with internal and external specialist departments and contribute to continuous treatment quality - You create an appreciative, therapeutic environment and promote the individual development and stabilization of our patients - You maintain open, respectful and person-oriented communication Our requirements profile: - You have a degree as a qualified nursing specialist HF or Dipl. Social educator HF - Ideally, you have experience in the psychiatric or psychotherapeutic field - You approach people with mental illnesses empathetically, professionally and appreciatively - You work independently, responsibly and have a high level of reflection ability - You value interprofessional collaboration and have strong social and personal skills - You are interested in psychotherapeutic treatment concepts and ideally have knowledge of mentalization-based approaches\n• We offer you: - You take on a varied job and responsible work in a motivated, interprofessional team - You have the opportunity to help shape and implement the treatment and care approaches both professionally and organizationally - Take advantage of our internal training and continuing education offerings - we also support your external training needs - An optimal work-life balance with part-time work models, 6 weeks of vacation and unpaid vacation",
-        "de": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
-        "fr": "Votre environnement : Le service de psychothérapie Salvorta est un service ouvert de 30 lits. Au centre de notre concept thérapeutique se trouve la thérapie basée sur la mentalisation (MBT). Nous traitons les femmes et les hommes souffrant de dépression, d'anxiété, de troubles obsessionnels compulsifs, de troubles de l'alimentation, de troubles liés à un traumatisme et de troubles de la personnalité. Un autre axe de traitement est le traitement des troubles de la douleur et des acouphènes décompensés. Le service de psychothérapie propose également six lits pour le traitement mère/père-enfant.\n• Vos tâches : - Vous accompagnez et soutenez les patients dans le cadre d'un processus de traitement psychothérapeutique individuel - En tant que personne de référence en soins infirmiers, vous assumez la responsabilité de la planification, de la mise en œuvre et de l'évaluation des soins et des traitements - Vous conseillez, accompagnez les proches et les impliquez dans le processus de traitement de manière axée sur les ressources - Vous contribuez activement à la collaboration interprofessionnelle par vos observations et évaluations professionnelles - Vous planifiez, dirigez et évaluez des thérapies de groupe infirmières - Vous travaillez en réseau avec des services spécialisés internes et externes et contribuez à la qualité continue du traitement - Vous créez un environnement thérapeutique valorisant et favoriser le développement individuel et la stabilisation de nos patients - Vous maintenez une communication ouverte, respectueuse et axée sur la personne. Notre profil d'exigences : - Vous êtes titulaire d'un diplôme d'infirmière spécialisée qualifiée HF ou Dipl. Éducateur social HF - Idéalement, vous avez une expérience dans le domaine psychiatrique ou psychothérapeutique - Vous abordez les personnes atteintes de maladies mentales avec empathie, professionnalisme et appréciation - Vous travaillez de manière indépendante, responsable et avez un haut niveau de réflexion - Vous valorisez la collaboration interprofessionnelle et possédez de solides compétences sociales et personnelles - Vous êtes intéressé par les concepts de traitement psychothérapeutique et avez idéalement une connaissance des approches basées sur la mentalisation Nous vous proposons : - Vous occupez un emploi varié et un travail responsable dans un équipe interprofessionnelle motivée - Vous avez la possibilité de contribuer à façonner et à mettre en œuvre les approches de traitement et de soins tant sur le plan professionnel qu'organisationnel - Profitez de nos offres de formation interne et de formation continue - nous accompagnons également vos besoins de formation externe - Un équilibre optimal entre travail et vie privée avec des modèles de travail à temps partiel, 6 semaines de vacances et des congés sans solde"
-      },
-      "location": "Cazis",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:29.986Z",
-      "addressLocality": "Cazis",
-      "postalCode": "7408",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Erwachsenenpsychiatrie",
-      "facility": "Affektive Erkrankungen",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-        "certified-nursing-professional-hf-or-certified-social-educator-hf-psychiatrische-dienste-graubunden-cazis",
-        "infirmier-e-diplome-e-hf-ou-educateur-trice-social-e-diplome-e-hf-psychiatrische-dienste-graubunden-cazis",
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-        "pflegfachperson-hf-certificata-o-educatore-sociale-hf-certificato-psychiatrische-dienste-graubunden-cazis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-          "pflegfachperson-hf-certificata-o-educatore-sociale-hf-certificato-psychiatrische-dienste-graubunden-cazis"
-        ],
-        "en": [
-          "certified-nursing-professional-hf-or-certified-social-educator-hf-psychiatrische-dienste-graubunden-cazis"
-        ],
-        "de": [
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
-        ],
-        "fr": [
-          "infirmier-e-diplome-e-hf-ou-educateur-trice-social-e-diplome-e-hf-psychiatrische-dienste-graubunden-cazis"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-15T15:02:58.368Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2404,7 +2333,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:28.902Z",
+      "crawledAt": "2026-09-03T23:23:41.567Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2446,6 +2375,7 @@
       "firstSeenAt": "2026-07-01T22:59:55.957Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2489,7 +2419,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:27.841Z",
+      "crawledAt": "2026-09-03T23:23:40.436Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2530,6 +2460,7 @@
       "firstSeenAt": "2026-07-13T23:01:45.684Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2556,7 +2487,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF für die Nachtwache",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF per la Nachtwache",
+        "it": "Dipl. Infermiera HF per la guardia notturna",
         "en": "Dipl. Nurse HF for the Night Watch",
         "de": "Dipl. Pflegefachperson HF für die Nachtwache",
         "fr": "Dipl. Infirmière HF pour la veille nocturne"
@@ -2573,7 +2504,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-3-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:26.809Z",
+      "crawledAt": "2026-09-03T23:23:39.323Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2609,10 +2540,10 @@
           "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:38:11.706Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2656,7 +2587,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:25.735Z",
+      "crawledAt": "2026-09-03T23:23:38.150Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2694,6 +2625,7 @@
       "firstSeenAt": "2026-07-29T22:39:40.020Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2720,7 +2652,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Florist/in",
       "titleByLocale": {
-        "it": "Florist/in",
+        "it": "Fiorista/in",
         "en": "Florist/in",
         "de": "Florist/in",
         "fr": "Fleuriste/in"
@@ -2737,7 +2669,7 @@
       "url": "https://www.pdgr.ch/jobs/florist-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:24.649Z",
+      "crawledAt": "2026-09-03T23:23:37.040Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2774,6 +2706,7 @@
       "firstSeenAt": "2026-08-03T12:53:23.893Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2800,7 +2733,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Fachperson Gesundheit für die Nachtwache",
       "titleByLocale": {
-        "it": "Fachperson Gesundheit per la Nachtwache",
+        "it": "Professionista della Salute per la guardia notturna",
         "en": "Health Professional for the Night Watch",
         "de": "Fachperson Gesundheit für die Nachtwache",
         "fr": "Professionnels de la santé pour la veille nocturne"
@@ -2817,7 +2750,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:23.573Z",
+      "crawledAt": "2026-09-03T23:23:35.907Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2869,10 +2802,10 @@
           "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:28:46.940Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2916,7 +2849,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:22.513Z",
+      "crawledAt": "2026-09-03T23:23:34.772Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2962,6 +2895,7 @@
       "firstSeenAt": "2026-08-11T10:32:30.191Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2988,7 +2922,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF für den Tag- und/oder Nachtdienst",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF per den Tag- e/o Nachtdienst",
+        "it": "Dipl. Infermiera HF per giorno e/o notte",
         "en": "Dipl. Nurse HF for day and/or night duty",
         "de": "Dipl. Pflegefachperson HF für den Tag- und/oder Nachtdienst",
         "fr": "Dipl. Infirmière HF pour le travail de jour et/ou de nuit"
@@ -3005,7 +2939,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-oder-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:21.451Z",
+      "crawledAt": "2026-09-03T23:23:33.638Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3041,10 +2975,10 @@
           "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:32:29.028Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3052,87 +2986,6 @@
           "@type": "QuantitativeValue",
           "minValue": 81500,
           "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "pdgr-c4564f6211da",
-      "slug": "controllori-senior-psychiatrische-dienste-graubunden-chur",
-      "slugByLocale": {
-        "it": "controllori-senior-psychiatrische-dienste-graubunden-chur",
-        "en": "senior-controllers-psychiatrische-dienste-graubunden-chur",
-        "de": "senior-controller-pdgr-ch",
-        "fr": "senior-controller-psychiatrische-dienste-graubunden-chur"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Senior Controller",
-      "titleByLocale": {
-        "it": "Controllori senior",
-        "en": "Senior controllers",
-        "de": "Senior Controller",
-        "fr": "Contrôleurs supérieurs"
-      },
-      "description": "Ihre Umgebung:\nSie arbeiten in einem kleinen Team am Standort der Klinik Waldhaus in Chur. Kooperative Strukturen, motivierte Arbeitskollegen und ein fachlicher Austausch auf Augenhöhe prägen unsere Zusammenarbeit.\n\nIhre Aufgaben:\n- Sie sind verantwortlich für die Kostenrechnung für den Gesundheits-, Behinderten- sowie Sonderschulbereich und sind an deren Weiterentwicklung nach in- und externen Vorgaben (REKOLE & CURAVIVA) beteiligt\n\n- Sie sind verantwortlich für die Erstellung der monatlichen Kosten- und Leistungsberichte und sind Ansprechperson sowie Know-how-Träger bei sämtlichen Fragenstellungen in diesem Zusammenhang\n\n- Sie erarbeiten und beurteilen Ad-hoc Analysen für die Unternehmenseinheiten und die Geschäftsleitung\n\n- Sie übernehmen eine aktive und engagierte Rolle in der stetigen Verbesserung der Controlling-Dienstleistungen und Prozesse\n\n- Sie arbeiten in verschiedenen bereichsübergreifenden Projekten mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium (FH/Uni) mit Schwerpunkt Controlling/Accounting/Finance oder eine vergleichbare Ausbildung\n\n- Sie bringen mehrjährige Berufserfahrung als Controller mit, idealerweise im Gesundheitswesen\n\n- Sie sind versiert im Aufbau und in der Ausgestaltung einer Kostenrechnung\n\n- Sie besitzen sehr gute Anwenderkenntnisse im SAP in den Modulen CO & FI\n\n- Sie agieren analytisch, proaktiv und mit unternehmerischer Denkweise\n\nWir bieten Ihnen:\n- Dynamische und unterstützende Teamkultur, auch bereichsübergreifend in Zusammenarbeit mit den Finanzen, der Kundenadministration und Human Resources\n\n- Eine sinnstiftende Arbeit, denn die von Ihnen betreuten Mitarbeitenden leisten einen wichtigen Beitrag für die psychische Gesundheit der Bündner Bevölkerung\n\n- Ein interessantes und vielseitiges Tätigkeitsfeld mit guten persönlichen Entwicklungs- und Entfaltungsmöglichkeiten\n\n- Selbständige Gestaltung Ihrer Aufgaben als Teil eines motivierten Teams\n\n- Unterstützung in Ihrer persönlichen sowie beruflichen Entwicklung durch Fort- und Weiterbildungen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen",
-      "descriptionByLocale": {
-        "it": "I dintorni:\nLavori in una piccola squadra alla clinica Waldhaus di Chur. Le strutture cooperative, i colleghi motivati e uno scambio professionale a livello degli occhi modellano la nostra cooperazione.\n\nI loro compiti:\n- Essi sono responsabili della contabilità dei costi per il settore sanitario, dei disabili e dell'istruzione speciale e sono coinvolti nel loro ulteriore sviluppo secondo le esigenze interne ed esterne (REKOLE & CURAVIVA).\n\n- Sei responsabile della preparazione dei report mensili sui costi e sulle prestazioni e sei la persona di contatto e il fornitore di know-how per tutte le domande in questo contesto.\n\n- Sviluppa e valuta analisi ad-hoc per le unità aziendali e la gestione\n\n- Si assume un ruolo attivo e impegnato nel miglioramento continuo del controllo dei servizi e dei processi\n\n- Lavori in vari progetti intersettoriali\n\nIl nostro profilo di requisito:\n- Hai completato gli studi (FH/uni) con un focus sul controllo/conto/finanza o un'educazione comparabile\n\n- Hai diversi anni di esperienza professionale come controller, idealmente nel settore sanitario\n\n- Essi sono ben diversificati nella costruzione e nella progettazione di una contabilità dei costi\n\n- Hai una buona conoscenza degli utenti in SAP nei moduli CO & FI\n\n- Agisci analiticamente, proattivamente e con una mentalità imprenditoriale\n\nVi offriamo:\n- Cultura di team dinamica e solidale, anche trasversalmente in collaborazione con la finanza, l'amministrazione dei clienti e le risorse umane\n\n- Un lavoro significativo, perché i dipendenti che servite danno un contributo importante alla salute mentale della popolazione tedesca\n\n- Un campo di attività interessante e versatile con buone opportunità di sviluppo e sviluppo personale\n\n- Progettazione indipendente dei vostri compiti come parte di un team motivato\n\n- Sostegno allo sviluppo personale e professionale attraverso un'ulteriore formazione e formazione\n\n- I vantaggi delle condizioni di lavoro avanzate",
-        "en": "Your surroundings:\nYou work in a small team at the Waldhaus clinic in Chur. Cooperative structures, motivated colleagues and a professional exchange at eye level shape our cooperation.\n\nTheir tasks:\n- They are responsible for the cost accounting for the health, disabled and special education sector and are involved in their further development according to internal and external requirements (REKOLE & CURAVIVA).\n\n- You are responsible for preparing the monthly cost and performance reports and are the contact person and know-how provider for all questions in this context.\n\n- You develop and assess ad-hoc analyses for the company units and the management\n\n- You take an active and committed role in the continuous improvement of controlling services and processes\n\n- You work in various cross-sectoral projects\n\nOur requirement profile:\n- You have completed your studies (FH/uni) with a focus on controlling/accounting/finance or a comparable education\n\n- You have several years of professional experience as a controller, ideally in the healthcare sector\n\n- They are well-versed in the construction and design of a cost accounting\n\n- You have very good user knowledge in SAP in the modules CO & FI\n\n- You act analytically, proactively and with an entrepreneurial mindset\n\nWe offer you:\n- Dynamic and supportive team culture, also cross-divisionally in cooperation with finance, customer administration and human resources\n\n- A meaningful job, because the employees you serve make an important contribution to the mental health of the German population\n\n- An interesting and versatile field of activity with good personal development and development opportunities\n\n- Independent design of your tasks as part of a motivated team\n\n- Support in your personal and professional development through further education and training\n\n- You benefit from advanced working conditions",
-        "de": "Ihre Umgebung:\nSie arbeiten in einem kleinen Team am Standort der Klinik Waldhaus in Chur. Kooperative Strukturen, motivierte Arbeitskollegen und ein fachlicher Austausch auf Augenhöhe prägen unsere Zusammenarbeit.\n\nIhre Aufgaben:\n- Sie sind verantwortlich für die Kostenrechnung für den Gesundheits-, Behinderten- sowie Sonderschulbereich und sind an deren Weiterentwicklung nach in- und externen Vorgaben (REKOLE & CURAVIVA) beteiligt\n\n- Sie sind verantwortlich für die Erstellung der monatlichen Kosten- und Leistungsberichte und sind Ansprechperson sowie Know-how-Träger bei sämtlichen Fragenstellungen in diesem Zusammenhang\n\n- Sie erarbeiten und beurteilen Ad-hoc Analysen für die Unternehmenseinheiten und die Geschäftsleitung\n\n- Sie übernehmen eine aktive und engagierte Rolle in der stetigen Verbesserung der Controlling-Dienstleistungen und Prozesse\n\n- Sie arbeiten in verschiedenen bereichsübergreifenden Projekten mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium (FH/Uni) mit Schwerpunkt Controlling/Accounting/Finance oder eine vergleichbare Ausbildung\n\n- Sie bringen mehrjährige Berufserfahrung als Controller mit, idealerweise im Gesundheitswesen\n\n- Sie sind versiert im Aufbau und in der Ausgestaltung einer Kostenrechnung\n\n- Sie besitzen sehr gute Anwenderkenntnisse im SAP in den Modulen CO & FI\n\n- Sie agieren analytisch, proaktiv und mit unternehmerischer Denkweise\n\nWir bieten Ihnen:\n- Dynamische und unterstützende Teamkultur, auch bereichsübergreifend in Zusammenarbeit mit den Finanzen, der Kundenadministration und Human Resources\n\n- Eine sinnstiftende Arbeit, denn die von Ihnen betreuten Mitarbeitenden leisten einen wichtigen Beitrag für die psychische Gesundheit der Bündner Bevölkerung\n\n- Ein interessantes und vielseitiges Tätigkeitsfeld mit guten persönlichen Entwicklungs- und Entfaltungsmöglichkeiten\n\n- Selbständige Gestaltung Ihrer Aufgaben als Teil eines motivierten Teams\n\n- Unterstützung in Ihrer persönlichen sowie beruflichen Entwicklung durch Fort- und Weiterbildungen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen",
-        "fr": "Votre environnement:\nVous travaillez dans une petite équipe à la clinique Waldhaus à Chur. Des structures coopératives, des collègues motivés et un échange professionnel au niveau des yeux façonnent notre coopération.\n\nLeurs tâches:\n- Ils sont responsables de la comptabilité des coûts du secteur de la santé, des handicapés et de l'éducation spécialisée et participent à leur développement en fonction des besoins internes et externes (REKOLE & CURAVIVA).\n\n- Vous êtes responsable de la préparation des rapports mensuels sur les coûts et les performances et êtes la personne-ressource et le fournisseur de savoir-faire pour toutes les questions dans ce contexte.\n\n- Vous développez et évaluez des analyses ad hoc pour les unités de l'entreprise et la direction\n\n- Vous jouez un rôle actif et engagé dans l'amélioration continue des services et des processus de contrôle\n\n- Vous travaillez dans divers projets intersectoriels\n\nNotre profil d'exigence:\n- Vous avez terminé vos études (FH/uni) en mettant l'accent sur le contrôle/comptabilité/finance ou une éducation comparable\n\n- Vous avez plusieurs années d'expérience professionnelle en tant que contrôleur, idéalement dans le secteur de la santé\n\n- Ils sont bien orientés dans la construction et la conception d'une comptabilité des coûts\n\n- Vous avez de très bonnes connaissances utilisateur dans SAP dans les modules CO & FI\n\n- Vous agissez de façon analytique, proactive et avec un esprit d'entreprise\n\nNous vous offrons:\n- Une culture d'équipe dynamique et solidaire, en coopération avec les finances, l'administration des clients et les ressources humaines\n\n- Un travail significatif, parce que les employés que vous servez apportent une contribution importante à la santé mentale de la population allemande\n\n- Un domaine d'activité intéressant et polyvalent avec de bonnes possibilités de développement personnel\n\n- Conception indépendante de vos tâches dans le cadre d'une équipe motivée\n\n- Soutenir votre perfectionnement personnel et professionnel par la formation continue\n\n- Vous bénéficiez de conditions de travail avancées"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/senior-controller-2/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:20.373Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://www.pdgr.ch/jobs/senior-controller-2/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "facility": "Finanzen und Betrieb",
-      "pensumMin": 60,
-      "pensumMax": 100,
-      "pensum": "60 - 100%",
-      "previousSlugs": [
-        "senior-controller-pdgr-ch",
-        "controleurs-superieurs-psychiatrische-dienste-graubunden-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-controller-pdgr-ch"
-        ],
-        "en": [
-          "senior-controller-pdgr-ch"
-        ],
-        "fr": [
-          "controleurs-superieurs-psychiatrische-dienste-graubunden-chur"
-        ]
-      },
-      "firstSeenAt": "2026-08-13T22:28:52.224Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -3150,11 +3003,11 @@
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
       "companyDomain": "pdgr.ch",
-      "title": "Mitarbeiter/in Gastronomie",
+      "title": "Mitarbeiter/-in Gastronomie",
       "titleByLocale": {
         "it": "Collaboratore/trice Gastronomie",
         "en": "Employee/Gastronomy",
-        "de": "Mitarbeiter/in Gastronomie",
+        "de": "Mitarbeiter/-in Gastronomie",
         "fr": "Employé/Gastronomie"
       },
       "description": "Ihre Umgebung:\nSie arbeiten in der Hotellerie der Privatklinik MENTALVA in einem modernen, professionellen Umfeld. In einem engagierten Team gestalten Sie den täglichen Service für unsere Patientinnen und Patienten aktiv mit und profitieren von einem kollegialen, unterstützenden Arbeitsumfeld, in dem hohe Qualitäts- und Servicestandards grossgeschrieben werden.\n\nIhre Aufgaben:\n- Sie führen den Service und die dazugehörigen “mise en place” Arbeiten selbständig und fachgerecht aus\n\n- Sie sind im Frühstück,- Mittags,- und Abendservice eingeteilt und für ca. +/- 15 Patienten/innen verantwortlich\n\n- Sie sind vollumfänglich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Hotellerie, Sauberkeit und Ordnungssinn verantwortlich\n\n- Sie führen regelmässige Reinigungsarbeiten im Speisesaal, gemäss Checkliste, durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung und / oder bringen Erfahrung in der gepflegten Hotellerie und Gastronomie mit\n\n- Sie haben gute Umgangsformen, ein gepflegtes Erscheinungsbild sowie sehr gute Deutschkenntnisse\n\n- Sie schätzen den Umgang mit anspruchsvollen Menschen, haben Geduld und Verständnis\n\n- Hohe Einsatzbereitschaft in einem 7-Tage Betrieb und somit auch am Wochenende sind für Sie selbstverständlich\n\n- Sie sind eine belastbare Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\n- Sie sind zuverlässig, pflichtbewusst und verfügen über eine hohe Kundenorientierung\n\n- Sie besitzen ausgezeichnete Deutschkenntnisse und können sich idealerweise auch auf Englisch verständigen\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betrieb\n\n- Fortschrittlichen Arbeitsbedingungen\n\n- Vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen\n\n- Internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Vereinbarkeit von Berufs- und Privatleben\n\n- Motiviertes und kollegiales Team",
@@ -3169,7 +3022,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-gastronomie/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:19.297Z",
+      "crawledAt": "2026-09-03T23:23:32.504Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3209,6 +3062,7 @@
       "firstSeenAt": "2026-08-14T10:31:32.052Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3235,7 +3089,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagoge/in HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagoge/in HF",
+        "it": "Dipl. Professionista HF o Dipl. Social Pedagogue/HF",
         "en": "Dipl. Care professional HF or Dipl. Social Pedagogue/HF",
         "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagoge/in HF",
         "fr": "Dipl. Soins professionnels HF ou Dipl. Pédagogue sociale/HF"
@@ -3252,7 +3106,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagoge-in-hf-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:18.191Z",
+      "crawledAt": "2026-09-03T23:23:31.325Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3281,10 +3135,10 @@
           "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T21:57:10.095Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3328,7 +3182,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagoge-in-hf-fh/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:17.077Z",
+      "crawledAt": "2026-09-03T23:23:30.178Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3360,6 +3214,7 @@
       "firstSeenAt": "2026-08-21T21:57:08.873Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3371,6 +3226,608 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-d5ccef7be67b",
+      "slug": "hilfskochin-hilfskoch-pdgr-ch",
+      "slugByLocale": {
+        "it": "hilfskochin-hilfskoch-pdgr-ch",
+        "en": "hilfskochin-hilfskoch-psychiatrische-dienste-graubunden-chur",
+        "de": "hilfskochin-hilfskoch-pdgr-ch",
+        "fr": "hilfskochin-hilfskoch-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Hilfsköchin / Hilfskoch",
+      "titleByLocale": {
+        "it": "Hilfsköchin / Hilfskoch",
+        "en": "Hilfsköchin / Hilfskoch",
+        "de": "Hilfsköchin / Hilfskoch",
+        "fr": "Hilfsköchin / Hilfskoch"
+      },
+      "description": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\n- Ihre Arbeitszeiten sind von Montag bis Freitag von 07.00 – 13.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+      "descriptionByLocale": {
+        "it": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\n- Ihre Arbeitszeiten sind von Montag bis Freitag von 07.00 – 13.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "en": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\n- Ihre Arbeitszeiten sind von Montag bis Freitag von 07.00 – 13.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "de": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\n- Ihre Arbeitszeiten sind von Montag bis Freitag von 07.00 – 13.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "fr": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\n- Ihre Arbeitszeiten sind von Montag bis Freitag von 07.00 – 13.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/hilfskoechin-hilfskoch/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:29.030Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.pdgr.ch/jobs/hilfskoechin-hilfskoch/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "facility": "Küche",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:24:54.636Z",
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-e99eac9c824d",
+      "slug": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+      "slugByLocale": {
+        "it": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "en": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "de": "betreuer-in-pdgr-ch",
+        "fr": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Betreuer/-in",
+      "titleByLocale": {
+        "it": "Betreuer/in",
+        "en": "Betreuer/in",
+        "de": "Betreuer/-in",
+        "fr": "Betreuer/in"
+      },
+      "description": "Ihre Umgebung:\n- Verteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in\n\nRoveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an.\n\n- Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung\n\n- Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen\n\nIhre Aufgaben:\n- Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen\n\n- Sie begleiten Klienten im alltagspraktischen und sozialen Leben\n\n- Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen\n\nUnser Anforderungsprofil:\n- Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Dipl. Sozialpädagogin / Dipl. Sozialpädagoge HF/FH resp. als Fachfrau / Fachmann Gesundheit oder Fachfrau / Fachmann Betreuung\n\n- Sie bringen Berufserfahrung im psychiatrischen Bereich mit\n\n- Sie sind eine herzliche und integre Persönlichkeit\n\n- Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten\n\n- Sie sind flexibel und haben ein hohes Verantwortungsgefühl\n\nWir bieten Ihnen:\n- Arbeitsplan ca. 6 Wochen im Voraus\n\n- Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Sie arbeiten in einem dynamischen und aufgestellten Team\n\n- Sie bilden sich in Ihrem Kompetenzbereich weiter\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+      "descriptionByLocale": {
+        "it": "Ihre Umgebung:\n- Verteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in\n\nRoveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an.\n\n- Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung\n\n- Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen\n\nIhre Aufgaben:\n- Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen\n\n- Sie begleiten Klienten im alltagspraktischen und sozialen Leben\n\n- Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen\n\nUnser Anforderungsprofil:\n- Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Dipl. Sozialpädagogin / Dipl. Sozialpädagoge HF/FH resp. als Fachfrau / Fachmann Gesundheit oder Fachfrau / Fachmann Betreuung\n\n- Sie bringen Berufserfahrung im psychiatrischen Bereich mit\n\n- Sie sind eine herzliche und integre Persönlichkeit\n\n- Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten\n\n- Sie sind flexibel und haben ein hohes Verantwortungsgefühl\n\nWir bieten Ihnen:\n- Arbeitsplan ca. 6 Wochen im Voraus\n\n- Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Sie arbeiten in einem dynamischen und aufgestellten Team\n\n- Sie bilden sich in Ihrem Kompetenzbereich weiter\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+        "en": "Ihre Umgebung:\n- Verteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in\n\nRoveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an.\n\n- Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung\n\n- Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen\n\nIhre Aufgaben:\n- Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen\n\n- Sie begleiten Klienten im alltagspraktischen und sozialen Leben\n\n- Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen\n\nUnser Anforderungsprofil:\n- Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Dipl. Sozialpädagogin / Dipl. Sozialpädagoge HF/FH resp. als Fachfrau / Fachmann Gesundheit oder Fachfrau / Fachmann Betreuung\n\n- Sie bringen Berufserfahrung im psychiatrischen Bereich mit\n\n- Sie sind eine herzliche und integre Persönlichkeit\n\n- Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten\n\n- Sie sind flexibel und haben ein hohes Verantwortungsgefühl\n\nWir bieten Ihnen:\n- Arbeitsplan ca. 6 Wochen im Voraus\n\n- Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Sie arbeiten in einem dynamischen und aufgestellten Team\n\n- Sie bilden sich in Ihrem Kompetenzbereich weiter\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+        "de": "Ihre Umgebung:\n- Verteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in\n\nRoveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an.\n\n- Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung\n\n- Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen\n\nIhre Aufgaben:\n- Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen\n\n- Sie begleiten Klienten im alltagspraktischen und sozialen Leben\n\n- Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen\n\nUnser Anforderungsprofil:\n- Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Dipl. Sozialpädagogin / Dipl. Sozialpädagoge HF/FH resp. als Fachfrau / Fachmann Gesundheit oder Fachfrau / Fachmann Betreuung\n\n- Sie bringen Berufserfahrung im psychiatrischen Bereich mit\n\n- Sie sind eine herzliche und integre Persönlichkeit\n\n- Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten\n\n- Sie sind flexibel und haben ein hohes Verantwortungsgefühl\n\nWir bieten Ihnen:\n- Arbeitsplan ca. 6 Wochen im Voraus\n\n- Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Sie arbeiten in einem dynamischen und aufgestellten Team\n\n- Sie bilden sich in Ihrem Kompetenzbereich weiter\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+        "fr": "Ihre Umgebung:\n- Verteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in\n\nRoveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an.\n\n- Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung\n\n- Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen\n\nIhre Aufgaben:\n- Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen\n\n- Sie begleiten Klienten im alltagspraktischen und sozialen Leben\n\n- Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen\n\nUnser Anforderungsprofil:\n- Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Dipl. Sozialpädagogin / Dipl. Sozialpädagoge HF/FH resp. als Fachfrau / Fachmann Gesundheit oder Fachfrau / Fachmann Betreuung\n\n- Sie bringen Berufserfahrung im psychiatrischen Bereich mit\n\n- Sie sind eine herzliche und integre Persönlichkeit\n\n- Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten\n\n- Sie sind flexibel und haben ein hohes Verantwortungsgefühl\n\nWir bieten Ihnen:\n- Arbeitsplan ca. 6 Wochen im Voraus\n\n- Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Sie arbeiten in einem dynamischen und aufgestellten Team\n\n- Sie bilden sich in Ihrem Kompetenzbereich weiter\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen"
+      },
+      "location": "Rothenbrunnen",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/betreuer-in-2-9/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:27.902Z",
+      "addressLocality": "Rothenbrunnen",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://www.pdgr.ch/jobs/betreuer-in-2-9/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "facility": "Heimzentrum Rothenbrunnen",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T07:28:32.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuer-in-pdgr-ch"
+        ],
+        "en": [
+          "betreuer-in-pdgr-ch"
+        ],
+        "fr": [
+          "betreuer-in-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betreuer-in-pdgr-ch"
+      ],
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-6d8acb259a82",
+      "slug": "stv-pflege-standortleiter-in-pdgr-ch",
+      "slugByLocale": {
+        "it": "stv-pflege-standortleiter-in-pdgr-ch",
+        "en": "stv-pflege-standortleiter-in-pdgr-ch",
+        "de": "stv-pflege-standortleiter-in-pdgr-ch",
+        "fr": "stv-pflege-standortleiter-in-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Stv. Pflege- / Standortleiter/in",
+      "titleByLocale": {
+        "it": "Stv. Pflege- / Standortleiter/in",
+        "en": "Stv. Pflege- / Standortleiter/in",
+        "de": "Stv. Pflege- / Standortleiter/in",
+        "fr": "Stv. Pflege- / Standortleiter/in"
+      },
+      "description": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie übernehmen die Stellvertretung der Pflege-/Standortleitung und leiten das Team der Alterspsychiatrischen Tagesklinik\n\n- Sie unterstützen die Pflege- und Standortleitung in der fachlichen, personellen und organisatorischen Führung des Psychiatrie-Zentrums\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende und interprofessionelle Zusammenarbeit und vernetzten sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität, Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH / Dipl. Pflegefachmann HF/FH und haben Berufserfahrung in der alterspsychiatrischen Pflege\n\n- Sie verfügen idealerweise über Führungserfahrung sowie über eine abgeschlossene Führungsausbildung oder sind bereit, diese zu absolvieren\n\n- Sie sind zuverlässig, handeln ziel- sowie lösungsorientiert und zeichnen sich durch organisatorisches Geschick aus\n\n- Sie haben eine hohe Fach- sowie Sozialkompetenz und besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+      "descriptionByLocale": {
+        "it": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie übernehmen die Stellvertretung der Pflege-/Standortleitung und leiten das Team der Alterspsychiatrischen Tagesklinik\n\n- Sie unterstützen die Pflege- und Standortleitung in der fachlichen, personellen und organisatorischen Führung des Psychiatrie-Zentrums\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende und interprofessionelle Zusammenarbeit und vernetzten sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität, Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH / Dipl. Pflegefachmann HF/FH und haben Berufserfahrung in der alterspsychiatrischen Pflege\n\n- Sie verfügen idealerweise über Führungserfahrung sowie über eine abgeschlossene Führungsausbildung oder sind bereit, diese zu absolvieren\n\n- Sie sind zuverlässig, handeln ziel- sowie lösungsorientiert und zeichnen sich durch organisatorisches Geschick aus\n\n- Sie haben eine hohe Fach- sowie Sozialkompetenz und besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+        "en": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie übernehmen die Stellvertretung der Pflege-/Standortleitung und leiten das Team der Alterspsychiatrischen Tagesklinik\n\n- Sie unterstützen die Pflege- und Standortleitung in der fachlichen, personellen und organisatorischen Führung des Psychiatrie-Zentrums\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende und interprofessionelle Zusammenarbeit und vernetzten sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität, Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH / Dipl. Pflegefachmann HF/FH und haben Berufserfahrung in der alterspsychiatrischen Pflege\n\n- Sie verfügen idealerweise über Führungserfahrung sowie über eine abgeschlossene Führungsausbildung oder sind bereit, diese zu absolvieren\n\n- Sie sind zuverlässig, handeln ziel- sowie lösungsorientiert und zeichnen sich durch organisatorisches Geschick aus\n\n- Sie haben eine hohe Fach- sowie Sozialkompetenz und besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+        "de": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie übernehmen die Stellvertretung der Pflege-/Standortleitung und leiten das Team der Alterspsychiatrischen Tagesklinik\n\n- Sie unterstützen die Pflege- und Standortleitung in der fachlichen, personellen und organisatorischen Führung des Psychiatrie-Zentrums\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende und interprofessionelle Zusammenarbeit und vernetzten sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität, Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH / Dipl. Pflegefachmann HF/FH und haben Berufserfahrung in der alterspsychiatrischen Pflege\n\n- Sie verfügen idealerweise über Führungserfahrung sowie über eine abgeschlossene Führungsausbildung oder sind bereit, diese zu absolvieren\n\n- Sie sind zuverlässig, handeln ziel- sowie lösungsorientiert und zeichnen sich durch organisatorisches Geschick aus\n\n- Sie haben eine hohe Fach- sowie Sozialkompetenz und besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+        "fr": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie übernehmen die Stellvertretung der Pflege-/Standortleitung und leiten das Team der Alterspsychiatrischen Tagesklinik\n\n- Sie unterstützen die Pflege- und Standortleitung in der fachlichen, personellen und organisatorischen Führung des Psychiatrie-Zentrums\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende und interprofessionelle Zusammenarbeit und vernetzten sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität, Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH / Dipl. Pflegefachmann HF/FH und haben Berufserfahrung in der alterspsychiatrischen Pflege\n\n- Sie verfügen idealerweise über Führungserfahrung sowie über eine abgeschlossene Führungsausbildung oder sind bereit, diese zu absolvieren\n\n- Sie sind zuverlässig, handeln ziel- sowie lösungsorientiert und zeichnen sich durch organisatorisches Geschick aus\n\n- Sie haben eine hohe Fach- sowie Sozialkompetenz und besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen"
+      },
+      "location": "Ilanz",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:26.708Z",
+      "addressLocality": "Ilanz",
+      "postalCode": "7130",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Erwachsenenpsychiatrie",
+      "facility": "Psychiatrie-Zentrum Surselva",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T08:43:56.703Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-9e79256dc3fc",
+      "slug": "dipl-cura-professionale-hf-o-dipl-educatori-sociali-hf-psychiatrische-dienste-graubunden-cazis",
+      "slugByLocale": {
+        "it": "dipl-cura-professionale-hf-o-dipl-educatori-sociali-hf-psychiatrische-dienste-graubunden-cazis",
+        "en": "dipl-care-professional-hf-or-dipl-social-educators-hf-psychiatrische-dienste-graubunden-cazis",
+        "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
+        "fr": "dipl-soins-professionnels-hf-ou-dipl-enseignants-sociaux-hf-psychiatrische-dienste-graubunden-cazis"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+      "titleByLocale": {
+        "it": "Dipl. Cura professionale HF o Dipl. Educatori sociali/HF",
+        "en": "Dipl. Care professional HF or Dipl. Social educators/HF",
+        "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+        "fr": "Dipl. Soins professionnels HF ou Dipl. Enseignants sociaux/HF"
+      },
+      "description": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "it": "I dintorni:\nLa stazione di psicoterapia Salvorta è una stazione aperta con 30 posti letto. Al centro del nostro concetto terapeutico è la terapia basata sulla mentalizzazione (MBT). Trattiamo donne e uomini con depressione, ansia, compulsivo, mangiare, trauma e disturbi della personalità. Un altro focus del trattamento è il trattamento di disturbi del dolore e tinnito decompensato. Inoltre, l'unità di psicoterapia offre sei letti per il trattamento di madre/padre.\n\nI loro compiti:\n- Essi accompagnano e sostengono i pazienti come parte di un singolo processo di trattamento psicoterapeutico\n\n- In qualità di fornitore di assistenza alla cura, si assume la responsabilità di pianificare, implementare e valutare la cura e il trattamento\n\n- Essi consigliano e accompagnano i parenti e li coinvolgono nel processo di trattamento in modo orientato alle risorse\n\n- Contribuisci attivamente le tue osservazioni e valutazioni professionali alla cooperazione interprofessionale\n\n- Pianifica, guida e valuta le terapie del gruppo di cura\n\n- Si collegano con specialisti interni ed esterni e contribuiscono a una qualità di trattamento continua\n\n- Formano un ambiente apprezzativo e terapeutico e promuovono lo sviluppo e la stabilizzazione individuale dei nostri pazienti.\n\n- Mantengono una comunicazione aperta, rispettosa e orientata alla persona\n\nIl nostro profilo di requisito:\n- Hai una laurea in dipl. Professionista HF o Dipl. Social Pedagogue / Social Pedagogue HF\n\n- Idealmente, si porterà esperienza nel campo psichiatrico o psicoterapeutico\n\n- Incontri persone con malattie mentali empaticamente, professionalmente e con apprezzamento\n\n- Lavori in modo indipendente, responsabile e hai un'alta capacità di riflettere\n\n- Essi apprezzano la cooperazione interprofessionale e hanno forti competenze sociali e autonome\n\n- Siete interessati a concetti di trattamento psicoterapeutico e idealmente avere conoscenza di approcci basati sulla mentalizzazione.\n\nVi offriamo:\n- Si assume un lavoro vario e responsabile in un team motivato e interprofessionale\n\n- Hai la possibilità di modellare e implementare il trattamento e la cura si avvicina professionalmente e organizzativamente\n\n- Approfittate della nostra offerta di formazione interna e di ulteriore formazione – supportiamo anche le vostre esigenze di formazione esterna\n\n- Con modelli di lavoro part-time, 6 settimane di vacanza e congedo non retribuito, un equilibrio ottimale della vita lavorativa",
+        "en": "Your surroundings:\nThe Salvorta psychotherapy station is an open-guided station with 30 beds. At the heart of our therapeutic concept is mentalization-based therapy (MBT). We treat women and men with depression, anxiety, compulsive, eating, trauma and personality disorders. Another focus of treatment is the treatment of pain disorders and decompensated tinnitus. In addition, the psychotherapy unit offers six beds for mother/father child treatment.\n\nTheir tasks:\n- They accompany and support patients as part of an individual psychotherapeutic treatment process\n\n- As a nursing care provider, you take responsibility for planning, implementing and evaluating care and treatment\n\n- They advise and accompany relatives and involve them in the treatment process in a resource-oriented manner\n\n- You actively contribute your professional observations and assessments to interprofessional cooperation\n\n- You plan, guide and evaluate nursing group therapies\n\n- They network with internal and external specialists and contribute to a continuous treatment quality\n\n- They shape an appreciative, therapeutic environment and promote the individual development and stabilization of our patients.\n\n- They maintain an open, respectful and person-oriented communication\n\nOur requirement profile:\n- You have a degree as a dipl. Care professional HF or Dipl. Social Pedagogue / Social Pedagogue HF\n\n- Ideally, you will bring experience in the psychiatric or psychotherapeutic field\n\n- You meet people with mental illnesses empathetically, professionally and appreciatively\n\n- You work independently, responsibly and have a high ability to reflect\n\n- They value interprofessional cooperation and have strong social and self-competences\n\n- You are interested in psychotherapeutic treatment concepts and ideally have knowledge of mentalization-based approaches.\n\nWe offer you:\n- You take on a varied and responsible job in a motivated, interprofessional team\n\n- You have the opportunity to shape and implement the treatment and care approaches professionally and organizationally\n\n- Take advantage of our internal training and further education offer – we also support your external training needs\n\n- With part-time work models, 6 weeks of vacation and unpaid leave, an optimal work-life balance",
+        "de": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "fr": "Votre environnement:\nLa station de psychothérapie Salvorta est une station ouverte avec 30 lits. Au cœur de notre concept thérapeutique se trouve la thérapie à base de mentalisation (MBT). Nous traitons les femmes et les hommes avec dépression, anxiété, compulsive, alimentation, traumatisme et troubles de la personnalité. Un autre objectif du traitement est le traitement des troubles de la douleur et des acouphènes décompensés. En outre, l'unité de psychothérapie offre six lits pour le traitement de l'enfant mère/père.\n\nLeurs tâches:\n- Ils accompagnent et soutiennent les patients dans le cadre d'un traitement psychothérapeutique individuel\n\n- En tant que fournisseur de soins infirmiers, vous assumez la responsabilité de la planification, de la mise en oeuvre et de l'évaluation des soins et des traitements.\n\n- Ils conseillent et accompagnent les parents et les associent au processus de traitement de manière axée sur les ressources.\n\n- Vous contribuez activement vos observations et évaluations professionnelles à la coopération interprofessionnelle\n\n- Vous planifiez, guidez et évaluez les thérapies de groupe\n\n- Ils travaillent en réseau avec des spécialistes internes et externes et contribuent à une qualité de traitement continue\n\n- Ils façonnent un environnement appréciatif et thérapeutique et favorisent le développement individuel et la stabilisation de nos patients.\n\n- Ils maintiennent une communication ouverte, respectueuse et orientée vers la personne\n\nNotre profil d'exigence:\n- Vous avez un diplôme en dipl. Soins professionnels HF ou Dipl. Pédagogue Social / Pédagogue Social HF\n\n- Idéalement, vous apporterez une expérience dans le domaine psychiatrique ou psychothérapeutique\n\n- Vous rencontrez des personnes souffrant de maladies mentales avec empathie, professionnalisme et reconnaissance\n\n- Vous travaillez de manière indépendante, responsable et avez une grande capacité de réflexion\n\n- Ils valorisent la coopération interprofessionnelle et ont des compétences sociales et personnelles fortes.\n\n- Vous êtes intéressé par les concepts de traitement psychothérapeutique et idéalement avoir une connaissance des approches basées sur la mentalisation.\n\nNous vous offrons:\n- Vous prenez un emploi varié et responsable dans une équipe motivée et interprofessionnelle\n\n- Vous avez la possibilité de façonner et de mettre en oeuvre les approches de traitement et de soins professionnellement et organisationnellement\n\n- Profitez de notre offre de formation interne et de formation continue – nous soutenons également vos besoins de formation externe\n\n- Avec des modèles de travail à temps partiel, 6 semaines de congé annuel et de congé non rémunéré, un équilibre optimal entre le travail et la vie personnelle"
+      },
+      "location": "Cazis",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:24.345Z",
+      "addressLocality": "Cazis",
+      "postalCode": "7408",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-2/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Erwachsenenpsychiatrie",
+      "facility": "Affektive Erkrankungen",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
+        "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-poh184",
+        "certified-nursing-professional-hf-or-certified-social-educator-hf-psychiatrische-dienste-graubunden-cazis",
+        "infirmier-e-diplome-e-hf-ou-educateur-trice-social-e-diplome-e-hf-psychiatrische-dienste-graubunden-cazis",
+        "pflegfachperson-hf-certificata-o-educatore-sociale-hf-certificato-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
+          "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-poh184",
+          "certified-nursing-professional-hf-or-certified-social-educator-hf-psychiatrische-dienste-graubunden-cazis",
+          "infirmier-e-diplome-e-hf-ou-educateur-trice-social-e-diplome-e-hf-psychiatrische-dienste-graubunden-cazis",
+          "pflegfachperson-hf-certificata-o-educatore-sociale-hf-certificato-psychiatrische-dienste-graubunden-cazis",
+          "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T13:48:22.174Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-88d8c245896e",
+      "slug": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+      "slugByLocale": {
+        "it": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+        "en": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+        "de": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+        "fr": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Lehrperson schulische Heilpädagogik (SHP)",
+      "titleByLocale": {
+        "it": "Lehrperson schulische Heilpädagogik (SHP)",
+        "en": "Lehrperson schulische Heilpädagogik (SHP)",
+        "de": "Lehrperson schulische Heilpädagogik (SHP)",
+        "fr": "Lehrperson schulische Heilpädagogik (SHP)"
+      },
+      "description": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist die Ganzjahres-Klinikschule für 28 Schülerinnen und Schüler der Kinder- und Jugendpsychiatrischen Klinik, welche im Frühling 2026 in Chur eröffnet wurde.\n\nIhre Aufgaben:\n- Sie unterrichten in den Grundfächern (Deutsch, Mathematik, Englisch) und weitere Fremdsprachen und gestalten auch thematische Unterrichtseinheiten\n\n- Sie stehen im engen Austausch mit den Heimatschulen der Jugendlichen\n\n- Sie tauschen sich regelmässig mit dem Behandlungsteam aus\n\nUnser Anforderungsprofil:\n- Sie haben das Lehrdiplom für (Primar- oder Oberstufe) sowie den Abschluss in schulischer Heilpädagogik (oder die Bereitschaft, diesen Abschluss zeitnah zu absolvieren)\n\n- Sie sind flexibel im Einsatz auf der Ober- und Primarstufe\n\n- Sie arbeiten gerne in einem motivierten Lehrpersonenteam und zeichnen sich durch sehr gute Kontakt- und Kommunikationsfähigkeit aus\n\n- Sie sind erfahren in der interdisziplinären Zusammenarbeit\n\nWir bieten Ihnen:\n- Einen aussergewöhnlichen und spannenden Arbeitsplatz an der Schnittstelle zwischen Schule und Kinder- und Jugendpsychiatrie\n\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team, bestehend aus Fachpersonen aus der Kinder- und Jugendpsychiatrie, Psychotherapie, Fachtherapien, Sozialpädagogik und Pflege\n\n- Eine sinnstiftende Arbeit, denn Sie leisten einen wichtigen Beitrag für die psychische Gesundheit von Kindern und Jugendlichen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot und Teamsupervisionen – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "it": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist die Ganzjahres-Klinikschule für 28 Schülerinnen und Schüler der Kinder- und Jugendpsychiatrischen Klinik, welche im Frühling 2026 in Chur eröffnet wurde.\n\nIhre Aufgaben:\n- Sie unterrichten in den Grundfächern (Deutsch, Mathematik, Englisch) und weitere Fremdsprachen und gestalten auch thematische Unterrichtseinheiten\n\n- Sie stehen im engen Austausch mit den Heimatschulen der Jugendlichen\n\n- Sie tauschen sich regelmässig mit dem Behandlungsteam aus\n\nUnser Anforderungsprofil:\n- Sie haben das Lehrdiplom für (Primar- oder Oberstufe) sowie den Abschluss in schulischer Heilpädagogik (oder die Bereitschaft, diesen Abschluss zeitnah zu absolvieren)\n\n- Sie sind flexibel im Einsatz auf der Ober- und Primarstufe\n\n- Sie arbeiten gerne in einem motivierten Lehrpersonenteam und zeichnen sich durch sehr gute Kontakt- und Kommunikationsfähigkeit aus\n\n- Sie sind erfahren in der interdisziplinären Zusammenarbeit\n\nWir bieten Ihnen:\n- Einen aussergewöhnlichen und spannenden Arbeitsplatz an der Schnittstelle zwischen Schule und Kinder- und Jugendpsychiatrie\n\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team, bestehend aus Fachpersonen aus der Kinder- und Jugendpsychiatrie, Psychotherapie, Fachtherapien, Sozialpädagogik und Pflege\n\n- Eine sinnstiftende Arbeit, denn Sie leisten einen wichtigen Beitrag für die psychische Gesundheit von Kindern und Jugendlichen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot und Teamsupervisionen – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist die Ganzjahres-Klinikschule für 28 Schülerinnen und Schüler der Kinder- und Jugendpsychiatrischen Klinik, welche im Frühling 2026 in Chur eröffnet wurde.\n\nIhre Aufgaben:\n- Sie unterrichten in den Grundfächern (Deutsch, Mathematik, Englisch) und weitere Fremdsprachen und gestalten auch thematische Unterrichtseinheiten\n\n- Sie stehen im engen Austausch mit den Heimatschulen der Jugendlichen\n\n- Sie tauschen sich regelmässig mit dem Behandlungsteam aus\n\nUnser Anforderungsprofil:\n- Sie haben das Lehrdiplom für (Primar- oder Oberstufe) sowie den Abschluss in schulischer Heilpädagogik (oder die Bereitschaft, diesen Abschluss zeitnah zu absolvieren)\n\n- Sie sind flexibel im Einsatz auf der Ober- und Primarstufe\n\n- Sie arbeiten gerne in einem motivierten Lehrpersonenteam und zeichnen sich durch sehr gute Kontakt- und Kommunikationsfähigkeit aus\n\n- Sie sind erfahren in der interdisziplinären Zusammenarbeit\n\nWir bieten Ihnen:\n- Einen aussergewöhnlichen und spannenden Arbeitsplatz an der Schnittstelle zwischen Schule und Kinder- und Jugendpsychiatrie\n\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team, bestehend aus Fachpersonen aus der Kinder- und Jugendpsychiatrie, Psychotherapie, Fachtherapien, Sozialpädagogik und Pflege\n\n- Eine sinnstiftende Arbeit, denn Sie leisten einen wichtigen Beitrag für die psychische Gesundheit von Kindern und Jugendlichen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot und Teamsupervisionen – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "de": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist die Ganzjahres-Klinikschule für 28 Schülerinnen und Schüler der Kinder- und Jugendpsychiatrischen Klinik, welche im Frühling 2026 in Chur eröffnet wurde.\n\nIhre Aufgaben:\n- Sie unterrichten in den Grundfächern (Deutsch, Mathematik, Englisch) und weitere Fremdsprachen und gestalten auch thematische Unterrichtseinheiten\n\n- Sie stehen im engen Austausch mit den Heimatschulen der Jugendlichen\n\n- Sie tauschen sich regelmässig mit dem Behandlungsteam aus\n\nUnser Anforderungsprofil:\n- Sie haben das Lehrdiplom für (Primar- oder Oberstufe) sowie den Abschluss in schulischer Heilpädagogik (oder die Bereitschaft, diesen Abschluss zeitnah zu absolvieren)\n\n- Sie sind flexibel im Einsatz auf der Ober- und Primarstufe\n\n- Sie arbeiten gerne in einem motivierten Lehrpersonenteam und zeichnen sich durch sehr gute Kontakt- und Kommunikationsfähigkeit aus\n\n- Sie sind erfahren in der interdisziplinären Zusammenarbeit\n\nWir bieten Ihnen:\n- Einen aussergewöhnlichen und spannenden Arbeitsplatz an der Schnittstelle zwischen Schule und Kinder- und Jugendpsychiatrie\n\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team, bestehend aus Fachpersonen aus der Kinder- und Jugendpsychiatrie, Psychotherapie, Fachtherapien, Sozialpädagogik und Pflege\n\n- Eine sinnstiftende Arbeit, denn Sie leisten einen wichtigen Beitrag für die psychische Gesundheit von Kindern und Jugendlichen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot und Teamsupervisionen – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist die Ganzjahres-Klinikschule für 28 Schülerinnen und Schüler der Kinder- und Jugendpsychiatrischen Klinik, welche im Frühling 2026 in Chur eröffnet wurde.\n\nIhre Aufgaben:\n- Sie unterrichten in den Grundfächern (Deutsch, Mathematik, Englisch) und weitere Fremdsprachen und gestalten auch thematische Unterrichtseinheiten\n\n- Sie stehen im engen Austausch mit den Heimatschulen der Jugendlichen\n\n- Sie tauschen sich regelmässig mit dem Behandlungsteam aus\n\nUnser Anforderungsprofil:\n- Sie haben das Lehrdiplom für (Primar- oder Oberstufe) sowie den Abschluss in schulischer Heilpädagogik (oder die Bereitschaft, diesen Abschluss zeitnah zu absolvieren)\n\n- Sie sind flexibel im Einsatz auf der Ober- und Primarstufe\n\n- Sie arbeiten gerne in einem motivierten Lehrpersonenteam und zeichnen sich durch sehr gute Kontakt- und Kommunikationsfähigkeit aus\n\n- Sie sind erfahren in der interdisziplinären Zusammenarbeit\n\nWir bieten Ihnen:\n- Einen aussergewöhnlichen und spannenden Arbeitsplatz an der Schnittstelle zwischen Schule und Kinder- und Jugendpsychiatrie\n\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team, bestehend aus Fachpersonen aus der Kinder- und Jugendpsychiatrie, Psychotherapie, Fachtherapien, Sozialpädagogik und Pflege\n\n- Eine sinnstiftende Arbeit, denn Sie leisten einen wichtigen Beitrag für die psychische Gesundheit von Kindern und Jugendlichen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot und Teamsupervisionen – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:23.237Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Kinder- und Jugendpsychiatrie",
+      "facility": "Klinikschule",
+      "pensumMin": 70,
+      "pensumMax": 70,
+      "pensum": "70%",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:43:54.452Z",
+      "salaryMin": 48500,
+      "salaryMax": 89500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48500,
+          "maxValue": 89500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-30b20a9db75a",
+      "slug": "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+      "slugByLocale": {
+        "de": "assistenz-oder-fachpsychologe-in-pdgr-ch",
+        "it": "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+        "en": "assistenz-oder-fachpsychologe-in-pdgr-ch",
+        "fr": "assistenz-oder-fachpsychologe-in-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Assistenz- oder Fachpsychologe/-in",
+      "titleByLocale": {
+        "de": "Assistenz- oder Fachpsychologe/-in",
+        "it": "Assistenz- o Fachpsychologe/-in",
+        "en": "Assistenz- oder Fachpsychologe/-in",
+        "fr": "Assistenz- oder Fachpsychologe/-in"
+      },
+      "description": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie arbeiten weitgehend selbständig in unserem Psychiatrie-Zentrum Surselva in Ilanz\n\n- Sie sind in der Lage, die in der Kinder- und Jugendpsychiatrie gängigen psychodiagnostischen Testverfahren einzusetzen\n\n- Sie führen neben den psychotherapeutischen Abklärungen und Behandlungen auch Kriseninterventionen durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie und haben bereits berufliche Erfahrung im Bereich Diagnostik und Psychotherapie bei Kindern und Jugendlichen\n\n- Sie haben die Psychotherapieausbildung mit eidg. Anerkennung abgeschlossen oder befinden sich in fortgeschrittener Ausbildung\n\n- Sie arbeiten regelmässig mit verschiedenen involvierten Personen im Umfeld der Familie z.B. Lehrpersonen, Sozialarbeiter, Jugendanwaltschaft, KESB etc. zusammen\n\n- Sie verfügen über vertiefte Kompetenzen im Bereich Kindertherapie sowie über hohe Sozial- und Handlungskompetenz\n\n- Sie sind kreativ, flexibel und kommunikativ\n\n- Romanische Sprache von Vorteil\n\nWir bieten Ihnen:\n- Integration in ein erfahrenes interprofessionelles Team mit einer angenehmen und unterstützenden\n\nArbeitsatmosphäre\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen\n\nFortbildungsanliegen\n\n- Mit Teilzeit- und Jobsharing-Modellen, regelmässigen Arbeitszeiten sowie der Möglichkeit für unbezahlten Urlaub schaffen wir eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie arbeiten weitgehend selbständig in unserem Psychiatrie-Zentrum Surselva in Ilanz\n\n- Sie sind in der Lage, die in der Kinder- und Jugendpsychiatrie gängigen psychodiagnostischen Testverfahren einzusetzen\n\n- Sie führen neben den psychotherapeutischen Abklärungen und Behandlungen auch Kriseninterventionen durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie und haben bereits berufliche Erfahrung im Bereich Diagnostik und Psychotherapie bei Kindern und Jugendlichen\n\n- Sie haben die Psychotherapieausbildung mit eidg. Anerkennung abgeschlossen oder befinden sich in fortgeschrittener Ausbildung\n\n- Sie arbeiten regelmässig mit verschiedenen involvierten Personen im Umfeld der Familie z.B. Lehrpersonen, Sozialarbeiter, Jugendanwaltschaft, KESB etc. zusammen\n\n- Sie verfügen über vertiefte Kompetenzen im Bereich Kindertherapie sowie über hohe Sozial- und Handlungskompetenz\n\n- Sie sind kreativ, flexibel und kommunikativ\n\n- Romanische Sprache von Vorteil\n\nWir bieten Ihnen:\n- Integration in ein erfahrenes interprofessionelles Team mit einer angenehmen und unterstützenden\n\nArbeitsatmosphäre\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen\n\nFortbildungsanliegen\n\n- Mit Teilzeit- und Jobsharing-Modellen, regelmässigen Arbeitszeiten sowie der Möglichkeit für unbezahlten Urlaub schaffen wir eine optimale Work-Life-Balance",
+        "it": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie arbeiten weitgehend selbständig in unserem Psychiatrie-Zentrum Surselva in Ilanz\n\n- Sie sind in der Lage, die in der Kinder- und Jugendpsychiatrie gängigen psychodiagnostischen Testverfahren einzusetzen\n\n- Sie führen neben den psychotherapeutischen Abklärungen und Behandlungen auch Kriseninterventionen durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie und haben bereits berufliche Erfahrung im Bereich Diagnostik und Psychotherapie bei Kindern und Jugendlichen\n\n- Sie haben die Psychotherapieausbildung mit eidg. Anerkennung abgeschlossen oder befinden sich in fortgeschrittener Ausbildung\n\n- Sie arbeiten regelmässig mit verschiedenen involvierten Personen im Umfeld der Familie z.B. Lehrpersonen, Sozialarbeiter, Jugendanwaltschaft, KESB etc. zusammen\n\n- Sie verfügen über vertiefte Kompetenzen im Bereich Kindertherapie sowie über hohe Sozial- und Handlungskompetenz\n\n- Sie sind kreativ, flexibel und kommunikativ\n\n- Romanische Sprache von Vorteil\n\nWir bieten Ihnen:\n- Integration in ein erfahrenes interprofessionelles Team mit einer angenehmen und unterstützenden\n\nArbeitsatmosphäre\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen\n\nFortbildungsanliegen\n\n- Mit Teilzeit- und Jobsharing-Modellen, regelmässigen Arbeitszeiten sowie der Möglichkeit für unbezahlten Urlaub schaffen wir eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie arbeiten weitgehend selbständig in unserem Psychiatrie-Zentrum Surselva in Ilanz\n\n- Sie sind in der Lage, die in der Kinder- und Jugendpsychiatrie gängigen psychodiagnostischen Testverfahren einzusetzen\n\n- Sie führen neben den psychotherapeutischen Abklärungen und Behandlungen auch Kriseninterventionen durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie und haben bereits berufliche Erfahrung im Bereich Diagnostik und Psychotherapie bei Kindern und Jugendlichen\n\n- Sie haben die Psychotherapieausbildung mit eidg. Anerkennung abgeschlossen oder befinden sich in fortgeschrittener Ausbildung\n\n- Sie arbeiten regelmässig mit verschiedenen involvierten Personen im Umfeld der Familie z.B. Lehrpersonen, Sozialarbeiter, Jugendanwaltschaft, KESB etc. zusammen\n\n- Sie verfügen über vertiefte Kompetenzen im Bereich Kindertherapie sowie über hohe Sozial- und Handlungskompetenz\n\n- Sie sind kreativ, flexibel und kommunikativ\n\n- Romanische Sprache von Vorteil\n\nWir bieten Ihnen:\n- Integration in ein erfahrenes interprofessionelles Team mit einer angenehmen und unterstützenden\n\nArbeitsatmosphäre\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen\n\nFortbildungsanliegen\n\n- Mit Teilzeit- und Jobsharing-Modellen, regelmässigen Arbeitszeiten sowie der Möglichkeit für unbezahlten Urlaub schaffen wir eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie arbeiten weitgehend selbständig in unserem Psychiatrie-Zentrum Surselva in Ilanz\n\n- Sie sind in der Lage, die in der Kinder- und Jugendpsychiatrie gängigen psychodiagnostischen Testverfahren einzusetzen\n\n- Sie führen neben den psychotherapeutischen Abklärungen und Behandlungen auch Kriseninterventionen durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie und haben bereits berufliche Erfahrung im Bereich Diagnostik und Psychotherapie bei Kindern und Jugendlichen\n\n- Sie haben die Psychotherapieausbildung mit eidg. Anerkennung abgeschlossen oder befinden sich in fortgeschrittener Ausbildung\n\n- Sie arbeiten regelmässig mit verschiedenen involvierten Personen im Umfeld der Familie z.B. Lehrpersonen, Sozialarbeiter, Jugendanwaltschaft, KESB etc. zusammen\n\n- Sie verfügen über vertiefte Kompetenzen im Bereich Kindertherapie sowie über hohe Sozial- und Handlungskompetenz\n\n- Sie sind kreativ, flexibel und kommunikativ\n\n- Romanische Sprache von Vorteil\n\nWir bieten Ihnen:\n- Integration in ein erfahrenes interprofessionelles Team mit einer angenehmen und unterstützenden\n\nArbeitsatmosphäre\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen\n\nFortbildungsanliegen\n\n- Mit Teilzeit- und Jobsharing-Modellen, regelmässigen Arbeitszeiten sowie der Möglichkeit für unbezahlten Urlaub schaffen wir eine optimale Work-Life-Balance"
+      },
+      "location": "Ilanz",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:22.027Z",
+      "addressLocality": "Ilanz",
+      "postalCode": "7130",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Psicologia",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Kinder- und Jugendpsychiatrie",
+      "facility": "Psychiatrie-Zentrum Surselva",
+      "pensumMin": 40,
+      "pensumMax": 100,
+      "pensum": "40 - 100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-oder-fachpsychologe-in-pdgr-ch",
+          "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-oder-fachpsychologe-in-pdgr-ch",
+        "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
+      ],
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-09-03T23:23:22.027Z"
+    },
+    {
+      "id": "pdgr-16daeae2e7ac",
+      "slug": "gartner-in-pdgr-ch",
+      "slugByLocale": {
+        "de": "gartner-in-pdgr-ch",
+        "it": "gartner-in-pdgr-ch",
+        "en": "gartner-in-pdgr-ch",
+        "fr": "gartner-in-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Gärtner/-in",
+      "titleByLocale": {
+        "de": "Gärtner/-in",
+        "it": "Gärtner/-in",
+        "en": "Gärtner/-in",
+        "fr": "Gärtner/-in"
+      },
+      "description": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie führen selbständig die Ihnen zugeteilten Kultur- und Arbeitsplanungen\n\n- Sie leiten die betreuten Mitarbeiter im Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in verschiedenen gärtnerischen Bereichen mit\n\n- Sie wirken bei der Entwicklung der Produkte und der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Gärtnerin / Gärtner EFZ und bringen vorzugsweise einige Jahre Berufserfahrung mit\n\n- Sie besitzen fundierte Kenntnisse im Gemüseanbau und/oder in der Topf- und Zierpflanzenpflege\n\n- Sie haben grosse Freude am Umgang mit Menschen und bringen idealerweise bereits Erfahrung im agogischen Bereich mit\n\n- Sie zeichnen sich durch eine selbstständige Arbeitsweise aus und sind eine belastbare Persönlichkeit\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie führen selbständig die Ihnen zugeteilten Kultur- und Arbeitsplanungen\n\n- Sie leiten die betreuten Mitarbeiter im Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in verschiedenen gärtnerischen Bereichen mit\n\n- Sie wirken bei der Entwicklung der Produkte und der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Gärtnerin / Gärtner EFZ und bringen vorzugsweise einige Jahre Berufserfahrung mit\n\n- Sie besitzen fundierte Kenntnisse im Gemüseanbau und/oder in der Topf- und Zierpflanzenpflege\n\n- Sie haben grosse Freude am Umgang mit Menschen und bringen idealerweise bereits Erfahrung im agogischen Bereich mit\n\n- Sie zeichnen sich durch eine selbstständige Arbeitsweise aus und sind eine belastbare Persönlichkeit\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+        "it": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie führen selbständig die Ihnen zugeteilten Kultur- und Arbeitsplanungen\n\n- Sie leiten die betreuten Mitarbeiter im Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in verschiedenen gärtnerischen Bereichen mit\n\n- Sie wirken bei der Entwicklung der Produkte und der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Gärtnerin / Gärtner EFZ und bringen vorzugsweise einige Jahre Berufserfahrung mit\n\n- Sie besitzen fundierte Kenntnisse im Gemüseanbau und/oder in der Topf- und Zierpflanzenpflege\n\n- Sie haben grosse Freude am Umgang mit Menschen und bringen idealerweise bereits Erfahrung im agogischen Bereich mit\n\n- Sie zeichnen sich durch eine selbstständige Arbeitsweise aus und sind eine belastbare Persönlichkeit\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+        "en": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie führen selbständig die Ihnen zugeteilten Kultur- und Arbeitsplanungen\n\n- Sie leiten die betreuten Mitarbeiter im Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in verschiedenen gärtnerischen Bereichen mit\n\n- Sie wirken bei der Entwicklung der Produkte und der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Gärtnerin / Gärtner EFZ und bringen vorzugsweise einige Jahre Berufserfahrung mit\n\n- Sie besitzen fundierte Kenntnisse im Gemüseanbau und/oder in der Topf- und Zierpflanzenpflege\n\n- Sie haben grosse Freude am Umgang mit Menschen und bringen idealerweise bereits Erfahrung im agogischen Bereich mit\n\n- Sie zeichnen sich durch eine selbstständige Arbeitsweise aus und sind eine belastbare Persönlichkeit\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+        "fr": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie führen selbständig die Ihnen zugeteilten Kultur- und Arbeitsplanungen\n\n- Sie leiten die betreuten Mitarbeiter im Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in verschiedenen gärtnerischen Bereichen mit\n\n- Sie wirken bei der Entwicklung der Produkte und der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Gärtnerin / Gärtner EFZ und bringen vorzugsweise einige Jahre Berufserfahrung mit\n\n- Sie besitzen fundierte Kenntnisse im Gemüseanbau und/oder in der Topf- und Zierpflanzenpflege\n\n- Sie haben grosse Freude am Umgang mit Menschen und bringen idealerweise bereits Erfahrung im agogischen Bereich mit\n\n- Sie zeichnen sich durch eine selbstständige Arbeitsweise aus und sind eine belastbare Persönlichkeit\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/gaertner-in-3/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:20.801Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://www.pdgr.ch/jobs/gaertner-in-3/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "facility": "ARBES Gärtnerei",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-09-03T23:23:20.801Z"
+    },
+    {
+      "id": "pdgr-d6e4f98002d7",
+      "slug": "arbeitsagoge-in-pdgr-ch",
+      "slugByLocale": {
+        "de": "arbeitsagoge-in-pdgr-ch",
+        "it": "arbeitsagoge-in-pdgr-ch",
+        "en": "arbeitsagoge-in-pdgr-ch",
+        "fr": "arbeitsagoge-in-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Arbeitsagoge/-in",
+      "titleByLocale": {
+        "de": "Arbeitsagoge/-in",
+        "it": "Arbeitsagoge/-in",
+        "en": "Arbeitsagoge/-in",
+        "fr": "Arbeitsagoge/-in"
+      },
+      "description": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie leiten die betreuten Mitarbeitenden im täglichen Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in den verschiedenen gärtnerischen Bereichen mit\n\n- Sie führen die Ihnen zugeteilten Kultur- und Arbeitsplanungen selbstständig aus\n\n- Sie wirken aktiv bei der Weiterentwicklung der Produkte sowie der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Arbeitsagoge / Arbeitsagogin\n\n- Sie besitzen vorzugsweise eine Grundausbildung im gärtnerischen Bereich oder bringen fundierte Kenntnisse im Gemüseanbau sowie der Topf- und Zierpflanzenpflege mit\n\n- Sie haben grosse Freude am Umgang mit Menschen, sind kommunikativ und zeichnen sich als echter Teamplayer aus\n\n- Sie arbeiten selbstständig, bewahren auch in lebhaften Situationen den Überblick und sind belastbar\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie leiten die betreuten Mitarbeitenden im täglichen Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in den verschiedenen gärtnerischen Bereichen mit\n\n- Sie führen die Ihnen zugeteilten Kultur- und Arbeitsplanungen selbstständig aus\n\n- Sie wirken aktiv bei der Weiterentwicklung der Produkte sowie der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Arbeitsagoge / Arbeitsagogin\n\n- Sie besitzen vorzugsweise eine Grundausbildung im gärtnerischen Bereich oder bringen fundierte Kenntnisse im Gemüseanbau sowie der Topf- und Zierpflanzenpflege mit\n\n- Sie haben grosse Freude am Umgang mit Menschen, sind kommunikativ und zeichnen sich als echter Teamplayer aus\n\n- Sie arbeiten selbstständig, bewahren auch in lebhaften Situationen den Überblick und sind belastbar\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+        "it": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie leiten die betreuten Mitarbeitenden im täglichen Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in den verschiedenen gärtnerischen Bereichen mit\n\n- Sie führen die Ihnen zugeteilten Kultur- und Arbeitsplanungen selbstständig aus\n\n- Sie wirken aktiv bei der Weiterentwicklung der Produkte sowie der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Arbeitsagoge / Arbeitsagogin\n\n- Sie besitzen vorzugsweise eine Grundausbildung im gärtnerischen Bereich oder bringen fundierte Kenntnisse im Gemüseanbau sowie der Topf- und Zierpflanzenpflege mit\n\n- Sie haben grosse Freude am Umgang mit Menschen, sind kommunikativ und zeichnen sich als echter Teamplayer aus\n\n- Sie arbeiten selbstständig, bewahren auch in lebhaften Situationen den Überblick und sind belastbar\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+        "en": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie leiten die betreuten Mitarbeitenden im täglichen Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in den verschiedenen gärtnerischen Bereichen mit\n\n- Sie führen die Ihnen zugeteilten Kultur- und Arbeitsplanungen selbstständig aus\n\n- Sie wirken aktiv bei der Weiterentwicklung der Produkte sowie der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Arbeitsagoge / Arbeitsagogin\n\n- Sie besitzen vorzugsweise eine Grundausbildung im gärtnerischen Bereich oder bringen fundierte Kenntnisse im Gemüseanbau sowie der Topf- und Zierpflanzenpflege mit\n\n- Sie haben grosse Freude am Umgang mit Menschen, sind kommunikativ und zeichnen sich als echter Teamplayer aus\n\n- Sie arbeiten selbstständig, bewahren auch in lebhaften Situationen den Überblick und sind belastbar\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
+        "fr": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie leiten die betreuten Mitarbeitenden im täglichen Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in den verschiedenen gärtnerischen Bereichen mit\n\n- Sie führen die Ihnen zugeteilten Kultur- und Arbeitsplanungen selbstständig aus\n\n- Sie wirken aktiv bei der Weiterentwicklung der Produkte sowie der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Arbeitsagoge / Arbeitsagogin\n\n- Sie besitzen vorzugsweise eine Grundausbildung im gärtnerischen Bereich oder bringen fundierte Kenntnisse im Gemüseanbau sowie der Topf- und Zierpflanzenpflege mit\n\n- Sie haben grosse Freude am Umgang mit Menschen, sind kommunikativ und zeichnen sich als echter Teamplayer aus\n\n- Sie arbeiten selbstständig, bewahren auch in lebhaften Situationen den Überblick und sind belastbar\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/arbeitsagoge-in-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:23:19.650Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://www.pdgr.ch/jobs/arbeitsagoge-in-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "facility": "ARBES Gärtnerei",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-09-03T23:23:19.650Z"
     }
   ]
 }

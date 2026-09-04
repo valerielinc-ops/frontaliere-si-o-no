@@ -1,37 +1,34 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-28T05:14:16.932Z",
-  "total": 7,
+  "generatedAt": "2026-09-03T23:09:42.169Z",
+  "total": 8,
   "discovered": null,
-  "written": 7,
+  "written": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 37550,
-  "avgDurationMs": 37550,
+  "unchangedCount": 0,
+  "durationMs": 36214,
+  "avgDurationMs": 36214,
   "durationHistory": [
-    37550
+    36214
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-5049e05f5ea4",
-      "slug": "formazione-professionale-formazione-professionale-stazione-chirurgia-ginecologia-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-d65a1b68849a",
+      "slug": "senior-physician-senior-physician-interdisciplinare-centro-di-emergenza-medical-area-spital-zollikerberg-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Berufsbildnerin / Berufsbildner Station Chirurgie & Gynäkologie",
-      "needsRetranslation": false,
+      "title": "Oberarzt / Oberärztin Interdisziplinäres Notfallzentrum Arztbereich",
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=32ede97b-f0f5-43b0-a772-c42da344beb7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=93987490-eb7c-4305-b964-8ce6c70b8b61,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:52:40.919Z",
+      "crawledAt": "2026-09-02T23:05:29.883Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -40,15 +37,17 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=32ede97b-f0f5-43b0-a772-c42da344beb7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=93987490-eb7c-4305-b964-8ce6c70b8b61,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "needsRetranslation": false,
       "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -58,5 +57,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

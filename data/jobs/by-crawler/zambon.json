@@ -1,7 +1,57 @@
 {
   "crawlerKey": "zambon",
-  "assembledAt": "2026-05-19T23:57:33.170Z",
+  "assembledAt": "2026-09-03T23:39:25.969Z",
   "jobs": [
+    {
+      "id": "zambon-810317",
+      "url": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
+      "title": "Stagista in Chimica e Tecnologia Farmaceutica",
+      "company": "Zambon Svizzera SA",
+      "companyKey": "zambon",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6814",
+      "streetAddress": "Via Industria 13",
+      "description": "Stagista in Chimica e Tecnologia Farmaceutica: opportunità professionale presso Zambon Svizzera SA, azienda farmaceutica internazionale con sede a Cadempino, Canton Ticino (Svizzera). Zambon è un gruppo farmaceutico fondato nel 1906, leader nel settore delle malattie respiratorie, del dolore e delle malattie rare, con oltre 2.800 dipendenti e presenza in più di 20 paesi. Area funzionale: Open R&D. Contratto a tempo determinato, full time. Posizione per candidati con meno di 1 anno di esperienza. Sede di lavoro: Cadempino (TI), Svizzera — zona frontaliera con l'Italia, facilmente raggiungibile dal confine di Chiasso/Como. Zambon offre un ambiente di lavoro dinamico e innovativo, con opportunità di crescita professionale nel settore farmaceutico. L'azienda investe costantemente in ricerca, sviluppo e qualità. Per candidarsi, visitare il portale carriere Zambon. La candidatura può essere inviata online tramite il sistema NcorePlat.",
+      "titleByLocale": {
+        "it": "Stagista in Chimica e Tecnologia Farmaceutica"
+      },
+      "descriptionByLocale": {},
+      "slug": "stagista-in-chimica-e-tecnologia-farmaceutica-zambon",
+      "slugByLocale": {
+        "it": "stagista-in-chimica-e-tecnologia-farmaceutica-zambon"
+      },
+      "category": "general",
+      "datePosted": "2026-09-03",
+      "source": "zambon-ncoreplat-api",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "department": "Open R&D",
+      "seniority": "< 1 year",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-09-03T13:49:02.200Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "zambon-786111",
       "url": "https://app.ncoreplat.com/jobposition/786111/stagista-laboratorio-chimico-controllo-qualita-ch/hr-switzerland",
@@ -22,7 +72,7 @@
         "it": "Tirocinante Laboratorio Chimico Controllo Qualità",
         "en": "Intern - Quality Control Chemical Laboratory",
         "de": "Praktikant - Qualitätskontrolle Chemielabor",
-        "fr": "Stagista Laboratorio Chimico Controllo Qualità"
+        "fr": "Stagist Chemical Laboratory Quality Control"
       },
       "descriptionByLocale": {
         "it": "Descrizione - Stagista Laboratorio Chimico Controllo Qualità: opportunità professionale presso Zambon Svizzera SA, azienda farmaceutica internazionale con sede a Cadempino, Canton Ticino (Svizzera). - Zambon è un gruppo farmaceutico fondato nel 1906, leader nel settore delle malattie respiratorie, del dolore e delle malattie rare, con oltre 2.800 dipendenti e presenza in più di 20 paesi. - Area funzionale: Quality Management. - Contratto a tempo determinato, full time. - Posizione per candidati con meno di 1 anno di esperienza. - Sede di lavoro: Cadempino (TI), Svizzera — zona frontaliera con l'Italia, facilmente raggiungibile dal confine di Chiasso/Como. - Zambon offre un ambiente di lavoro dinamico e innovativo, con opportunità di crescita professionale nel settore farmaceutico. - L'azienda investe costantemente in ricerca, sviluppo e qualità. - Per candidarsi, visitare il portale carriere Zambon. - La candidatura può essere inviata online tramite il sistema NcorePlat.",
@@ -35,7 +85,7 @@
         "it": "stagista-laboratorio-chimico-controllo-qualita-zambon",
         "en": "intern-chemical-laboratory-quality-control-zambon-svizzera-sa-cadempino",
         "de": "praktikant-chemielabor-qualitatskontrolle-zambon-svizzera-sa-cadempino",
-        "fr": "stagista-laboratorio-chimico-controllo-qualita-zambon"
+        "fr": "stagist-chemical-laboratory-quality-control-zambon-svizzera-sa-cadempino"
       },
       "category": "technology",
       "datePosted": "2026-03-10",
@@ -63,7 +113,9 @@
       "firstSeenAt": "2026-04-14T10:54:06.797Z",
       "previousSlugs": [
         "tirocinante-laboratorio-chimico-controllo-qualita-zambon-svizzera-sa-cadempino"
-      ]
+      ],
+      "crawlerMissStreak": 2,
+      "salarySource": "reported"
     }
   ]
 }

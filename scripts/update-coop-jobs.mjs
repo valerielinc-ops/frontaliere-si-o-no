@@ -17,7 +17,7 @@
  *      no canton facet, so all 26 cantons are covered in one pass), to
  *      discover every Coop (not-subsidiary) job detail URL, paginating
  *      through the full result set (API returns up to `limit` jobs per page).
- *   2. Sets those SSR detail URLs as adapter seed URLs.
+ *   2. Sets those SSR detail URLs as explicit adapter detail seeds.
  *   3. Runs the base crawler which fetches each detail page and parses
  *      the JSON-LD JobPosting structured data embedded in it.
  *
@@ -39,6 +39,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -49,7 +50,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasCorrectLocaleCoverage, normalizeSpace, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasCorrectLocaleCoverage, normalizeSpace, mergeLocaleTextMap, fingerprintJob } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
   fetchCoopJsonLd,
@@ -69,6 +70,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const COOP_KEY = 'coop-ticino';
+const COOP_LIFECYCLE_DOMAINS = ['jobs.coopjobs.ch'];
 // Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
 // defaults to internally for a single-key run, so this script's own
 // pre/post-crawl reads see the shared engine's actual output instead of the
@@ -213,6 +215,60 @@ export function isCoopJob(job) {
 }
 
 /**
+ * Find distinct company names among jobs scoped to this crawler's own
+ * companyKey that isCoopJob() nonetheless rejects (#6945 item 1).
+ * COOP_DIVISION_COMPANY_NAMES is a hand-maintained allowlist and may not be
+ * exhaustive against every Coop division Prospective.ch exposes; a job stamped
+ * with this crawler's companyKey (so it was discovered/scraped as Coop) but
+ * whose scraped company text isn't in the allowlist silently drops out of
+ * stats/postprocessing/translation-cache with no signal. Callers surface the
+ * result instead of letting an incomplete allowlist fail closed unnoticed.
+ */
+export function findUnrecognizedCoopDivisions(allJobs) {
+  const unrecognized = new Set();
+  for (const job of Array.isArray(allJobs) ? allJobs : []) {
+    if (isCoopJob(job)) continue;
+    if (normalizeKey(job?.companyKey || '') !== COOP_KEY) continue;
+    const company = String(job?.company || '').trim();
+    if (company) unrecognized.add(company);
+  }
+  return [...unrecognized];
+}
+
+/**
+ * Fail-closed guard for #6945 item 2: pruneStaleCrawlerJobs's legacy-alias
+ * fallback (shared-jobs-crawler.mjs) only resolves a bare company-name match
+ * to this crawler's companyKey when it is scoped to exactly ONE company key
+ * (`scopeCompanyKeys.size === 1`). That invariant held only by construction —
+ * update-coop-jobs.mjs always passed the literal `COOP_KEY` — never
+ * verified. If any pre-existing `JOBS_CRAWLER_COMPANY_KEYS`/
+ * `JOBS_CRAWLER_COMPANY_KEY` env value ever leaked into this process before
+ * runDedicatedBaseCrawler merges it with COOP_KEY (env pollution from a
+ * misconfigured caller, a future refactor, or a shared-shell CI step), the
+ * scope would silently widen past one key, the alias fallback would go
+ * silently inert, and legitimate Coop jobs with only a legacy `company` text
+ * match would fail-closed out of the lifecycle with no signal — precisely
+ * the failure mode this crawler is supposed to fail LOUDLY against instead.
+ * This caller-side assertion is the enforcement point, not a second
+ * implementation of the shared legacy-alias fallback.
+ */
+export function assertCoopSingleCompanyKeyScope(env = process.env) {
+  const preExisting = String(env.JOBS_CRAWLER_COMPANY_KEYS || env.JOBS_CRAWLER_COMPANY_KEY || '')
+    .split(',')
+    .map((key) => normalizeKey(key))
+    .filter(Boolean);
+  const scope = new Set([...preExisting, COOP_KEY]);
+  if (scope.size !== 1) {
+    throw new Error(
+      `Coop crawler invariant failed: expected sole company-key scope ['${COOP_KEY}'], got [${[...scope].join(', ')}] — `
+      + 'JOBS_CRAWLER_COMPANY_KEYS/JOBS_CRAWLER_COMPANY_KEY already held extraneous key(s) before this crawler ran. '
+      + "The legacy-alias fallback in pruneStaleCrawlerJobs assumes a single scoped company key; a wider scope would "
+      + 'silently disable it and could fail-closed-drop legitimate Coop jobs.'
+    );
+  }
+}
+
+/**
  * Check whether a URL belongs to one of Coop's trusted domains.
  */
 function isTrustedCoopDomain(rawUrl = '') {
@@ -306,16 +362,22 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
  *
  * Returns unique detail URLs + metadata indexed by URL.
  */
-async function fetchCoopJobDetailUrls() {
+export async function fetchCoopJobDetailUrls(options = {}) {
   const allUrls = new Set();
+  const allFingerprints = new Set();
   const seedMetaByUrl = {};
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
 
   /** Canton distribution for logging (2-letter code → count). */
   const cantonCounts = {};
+  const apiTotals = new Set();
   let apiTotal = null;
   let fetched = 0;
   let droppedNonCh = 0;
+  let droppedMalformedUrl = 0;
+  let droppedDuplicateUrl = 0;
+  let droppedDuplicateIdentity = 0;
 
   for (let page = 0; page < API_MAX_PAGES; page += 1) {
     const offset = page * API_LIMIT;
@@ -338,7 +400,7 @@ async function fetchCoopJobDetailUrls() {
       let res;
       let data;
       try {
-        res = await fetch(apiUrl, {
+        res = await fetchImpl(apiUrl, {
           signal: controller.signal,
           headers: {
             Accept: 'application/json',
@@ -358,7 +420,10 @@ async function fetchCoopJobDetailUrls() {
       }
 
       jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
-      if (apiTotal === null && typeof data?.total === 'number') apiTotal = data.total;
+      if (typeof data?.total === 'number') {
+        apiTotals.add(data.total);
+        if (apiTotal === null) apiTotal = data.total;
+      }
     } catch (err) {
       console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
       break;
@@ -369,19 +434,44 @@ async function fetchCoopJobDetailUrls() {
 
     for (const job of jobs) {
       const directLink = String(job?.links?.directlink || '').trim();
-      if (directLink && directLink.startsWith('http') && !allUrls.has(directLink)) {
-        const meta = buildSeedMetaFromApiJob(job);
-        // CH-only gate: drop foreign postings (e.g. "Principato del Liechtenstein")
-        // whose label doesn't resolve to a Swiss canton — mirrors confederazione's
-        // Boolean(job.canton) filter. Keeps JobPosting structured data complete
-        // (addressRegion present) and the dataset on-target for a CH site.
-        if (!meta.canton) { droppedNonCh += 1; continue; }
-        const discoveredHost = hostOf(directLink);
-        if (discoveredHost) DISCOVERED_COOP_HOSTS.add(discoveredHost);
-        allUrls.add(directLink);
-        seedMetaByUrl[directLink] = meta;
-        cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
+      let parsedUrl;
+      try {
+        parsedUrl = new URL(directLink);
+      } catch {
+        droppedMalformedUrl += 1;
+        continue;
       }
+      const discoveredHost = parsedUrl.hostname.toLowerCase();
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)
+          || !COOP_LIFECYCLE_DOMAINS.includes(discoveredHost)) {
+        droppedMalformedUrl += 1;
+        continue;
+      }
+      if (allUrls.has(directLink)) {
+        droppedDuplicateUrl += 1;
+        continue;
+      }
+      const fingerprint = fingerprintJob({ url: directLink });
+      if (!fingerprint) {
+        droppedMalformedUrl += 1;
+        continue;
+      }
+      if (allFingerprints.has(fingerprint)) {
+        droppedDuplicateIdentity += 1;
+        continue;
+      }
+
+      const meta = buildSeedMetaFromApiJob(job);
+      // CH-only gate: drop foreign postings (e.g. "Principato del Liechtenstein")
+      // whose label doesn't resolve to a Swiss canton — mirrors confederazione's
+      // Boolean(job.canton) filter. Keeps JobPosting structured data complete
+      // (addressRegion present) and the dataset on-target for a CH site.
+      if (!meta.canton) { droppedNonCh += 1; continue; }
+      DISCOVERED_COOP_HOSTS.add(discoveredHost);
+      allUrls.add(directLink);
+      allFingerprints.add(fingerprint);
+      seedMetaByUrl[directLink] = meta;
+      cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
     }
 
     console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
@@ -398,14 +488,24 @@ async function fetchCoopJobDetailUrls() {
 
   // Summary log
   console.log(`\n📋 Coop API Discovery Summary (CH-wide):`);
-  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-CH (e.g. Liechtenstein): ${droppedNonCh} · unique detail URLs: ${allUrls.size}`);
+  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
   const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
   console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   if (DISCOVERED_COOP_HOSTS.size > 0) {
     console.log(`  Trusted hosts from Coop API: ${[...DISCOVERED_COOP_HOSTS].sort().join(', ')}`);
   }
   console.log(`✅ Total unique Coop detail URLs discovered: ${allUrls.size}\n`);
-  return { urls: [...allUrls], seedMetaByUrl };
+  return {
+    urls: [...allUrls],
+    seedMetaByUrl,
+    apiTotal,
+    fetched,
+    droppedNonCh,
+    droppedMalformedUrl,
+    droppedDuplicateUrl,
+    droppedDuplicateIdentity,
+    apiTotals: [...apiTotals],
+  };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -413,35 +513,117 @@ async function fetchCoopJobDetailUrls() {
 // ──────────────────────────────────────────────────────────────
 
 /**
- * Ensure the Coop adapter JSON has the correct seed URLs
+ * Build the Coop adapter from the authoritative Prospective detail allowlist.
+ * Generic seeds are deliberately removed: the feed already proves that each
+ * canonical UUID is a vacancy detail, including localized URL families that
+ * the shared listing heuristic must continue to reject by default.
+ */
+export function buildCoopAdapterConfig(
+  baseAdapter,
+  seedDetailUrls,
+  seedMetaByUrl = {},
+  updatedAt = new Date().toISOString(),
+) {
+  const adapter = {
+    ...(baseAdapter || {}),
+    seedDetailUrls,
+    seedMetaByUrl,
+    authoritativeDetailSnapshot: true,
+    authoritativeLifecycleDomains: COOP_LIFECYCLE_DOMAINS,
+    authoritativeLegacyCompanyAliases: [...COOP_DIVISION_COMPANY_NAMES],
+    updatedAt,
+  };
+  delete adapter.seedUrls;
+  return adapter;
+}
+
+export function assertCoopAdapterParity(adapter, seedDetailUrls, seedMetaByUrl = {}) {
+  if (JSON.stringify(adapter?.seedDetailUrls) !== JSON.stringify(seedDetailUrls)) {
+    throw new Error('Coop adapter parity failed: seedDetailUrls differ from the authoritative feed.');
+  }
+  if (!isDeepStrictEqual(adapter?.seedMetaByUrl, seedMetaByUrl)) {
+    throw new Error('Coop adapter parity failed: seedMetaByUrl differs from the authoritative feed.');
+  }
+  if (adapter?.authoritativeDetailSnapshot !== true
+      || JSON.stringify(adapter?.authoritativeLifecycleDomains) !== JSON.stringify(COOP_LIFECYCLE_DOMAINS)
+      || !isDeepStrictEqual(adapter?.authoritativeLegacyCompanyAliases, [...COOP_DIVISION_COMPANY_NAMES])) {
+    throw new Error('Coop adapter parity failed: authoritative lifecycle scope is missing or invalid.');
+  }
+  return true;
+}
+
+export function assertCompleteCoopDiscovery(discovery) {
+  const apiTotal = Number(discovery?.apiTotal);
+  const fetched = Number(discovery?.fetched);
+  const droppedNonCh = Number(discovery?.droppedNonCh);
+  const droppedMalformedUrl = Number(discovery?.droppedMalformedUrl || 0);
+  const droppedDuplicateUrl = Number(discovery?.droppedDuplicateUrl || 0);
+  const droppedDuplicateIdentity = Number(discovery?.droppedDuplicateIdentity || 0);
+  const apiTotals = Array.isArray(discovery?.apiTotals) ? discovery.apiTotals : [discovery?.apiTotal];
+  const urls = Array.isArray(discovery?.urls) ? discovery.urls : [];
+  const seedMetaByUrl = discovery?.seedMetaByUrl && typeof discovery.seedMetaByUrl === 'object'
+    ? discovery.seedMetaByUrl
+    : {};
+  if (typeof discovery?.apiTotal !== 'number' || !Number.isInteger(apiTotal) || apiTotal < 0) {
+    throw new Error('Coop discovery invariant failed: API response did not expose a non-negative integer total.');
+  }
+  if (!Number.isInteger(fetched) || fetched < 0 || fetched !== apiTotal) {
+    throw new Error(`Coop discovery incomplete: fetched ${fetched}/${apiTotal} API jobs.`);
+  }
+  const feedFingerprints = new Set(urls.map((url) => fingerprintJob({ url })).filter(Boolean));
+  const trustedHostsOnly = urls.every((url) => {
+    try {
+      return COOP_LIFECYCLE_DOMAINS.includes(new URL(url).hostname.toLowerCase());
+    } catch {
+      return false;
+    }
+  });
+  const droppedCounts = [droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
+  const accounted = urls.length + droppedCounts.reduce((sum, count) => sum + count, 0);
+  if (droppedCounts.some((count) => !Number.isInteger(count) || count < 0)
+      || accounted !== fetched
+      || apiTotals.length !== 1
+      || apiTotals[0] !== apiTotal
+      || (apiTotal > 0 && urls.length === 0)
+      || Object.keys(seedMetaByUrl).length !== urls.length
+      || feedFingerprints.size !== urls.length
+      || !trustedHostsOnly) {
+    throw new Error(
+      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accounted=${accounted}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
+    );
+  }
+  return true;
+}
+
+/**
+ * Ensure the Coop adapter JSON has the correct detail seed URLs
  * (detail page URLs discovered from the API).
  */
-function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${COOP_KEY}.json`);
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  seedMetaByUrl = {},
+  adapterPath = path.join(ADAPTERS_DIR, `${COOP_KEY}.json`),
+) {
+  let adapter;
 
   if (!fs.existsSync(adapterPath)) {
     console.log(`⚠️ Adapter ${COOP_KEY}.json not found — creating it.`);
-    const adapter = {
+    adapter = buildCoopAdapterConfig({
       companyKey: COOP_KEY,
       companyName: 'Coop Ticino',
       companyHost: 'coopjobs.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
+      notes: 'Prospective.ch JobBooster platform — detail URLs from JSON API covering Offerte di lavoro + Posti di apprendistato + Tirocini di prova. Each page has JSON-LD JobPosting.',
+    }, seedUrls, seedMetaByUrl);
+    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
+  } else {
+    adapter = buildCoopAdapterConfig(
+      JSON.parse(fs.readFileSync(adapterPath, 'utf-8')),
       seedUrls,
       seedMetaByUrl,
-      notes: 'Prospective.ch JobBooster platform — detail URLs from JSON API covering Offerte di lavoro + Posti di apprendistato + Tirocini di prova. Each page has JSON-LD JobPosting.',
-      updatedAt: new Date().toISOString(),
-    };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.seedMetaByUrl = seedMetaByUrl;
+    );
     adapter.companyHost = 'coopjobs.ch';
     if (!adapter.crawlerModes?.includes('generic_ats')) {
       adapter.crawlerModes = adapter.crawlerModes || [];
@@ -449,12 +631,12 @@ function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
     }
     adapter.priority = Math.max(adapter.priority || 0, 10);
     adapter.notes = 'Prospective.ch JobBooster platform — detail URLs from JSON API covering Offerte di lavoro + Posti di apprendistato + Tirocini di prova. Each page has JSON-LD JobPosting.';
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${COOP_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
   }
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertCoopAdapterParity(persisted, seedUrls, seedMetaByUrl);
+  console.log(`📝 Adapter ${COOP_KEY} updated with ${seedUrls.length} detail seed URLs (feed parity verified).`);
+  return persisted;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -529,6 +711,7 @@ function saveCoopTranslationsCache() {
 }
 
 function runBaseCrawler() {
+  assertCoopSingleCompanyKeyScope();
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: COOP_KEY,
@@ -813,6 +996,14 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   const coopJobs = allJobs.filter(isCoopJob);
   const ticinoJobs = coopJobs.filter((job) => normalize(job?.canton) === 'ti');
 
+  const unrecognizedDivisions = findUnrecognizedCoopDivisions(allJobs);
+  if (unrecognizedDivisions.length > 0) {
+    console.warn(
+      `⚠️ ${unrecognizedDivisions.length} Coop-scoped job(s) have a company name not in COOP_DIVISION_COMPANY_NAMES ` +
+      `(excluded from Coop stats/postprocessing/translation-cache) — verify the allowlist: ${unrecognizedDivisions.join(', ')}`
+    );
+  }
+
   // CH-wide canton distribution (2-letter code → count).
   const byCanton = {};
   for (const job of coopJobs) {
@@ -864,13 +1055,14 @@ async function main() {
 
   // Step 1: Fetch job detail URLs from the Prospective.ch JSON API
   const discovery = await fetchCoopJobDetailUrls();
+  assertCompleteCoopDiscovery(discovery);
   const detailUrls = discovery.urls;
   if (detailUrls.length === 0) {
     console.log('ℹ️ Nessun URL di dettaglio Coop trovato dall\'API. Uscita OK.');
     return;
   }
 
-  // Step 2: Update the adapter with the discovered detail URLs as seed URLs
+  // Step 2: Update the adapter with the discovered URLs as explicit detail seeds
   ensureAdapterSeedUrls(detailUrls, discovery.seedMetaByUrl);
 
   // Step 2b: Inject cached translations into jobs.json BEFORE the crawler runs.

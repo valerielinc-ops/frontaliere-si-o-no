@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rsbj",
-  "assembledAt": "2026-08-28T05:34:48.582Z",
+  "assembledAt": "2026-09-03T23:29:39.398Z",
   "jobs": [
     {
       "id": "rsbj-eb567f86bbdd",
@@ -34,7 +34,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:34:45.496Z",
+      "crawledAt": "2026-09-03T23:29:35.384Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,6 +64,7 @@
       "firstSeenAt": "2026-06-22T14:59:53.389Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -106,7 +107,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54003/fr/un-e-assistant-e-medical-e-60-a-70-en-cdi",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:34:44.643Z",
+      "crawledAt": "2026-09-03T23:29:34.022Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -143,6 +144,7 @@
       "firstSeenAt": "2026-06-22T14:59:52.685Z",
       "salaryMin": 60500,
       "salaryMax": 84400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -185,7 +187,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54314/fr/un-e-assistant-e-socio-educatif-ve-a-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:34:43.330Z",
+      "crawledAt": "2026-09-03T23:29:32.864Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -218,6 +220,7 @@
       "firstSeenAt": "2026-06-02T14:30:16.849Z",
       "salaryMin": 43300,
       "salaryMax": 60300,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -261,7 +264,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54316/fr/un-e-technicien-ne-en-salle-d-operation-tso",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:34:42.236Z",
+      "crawledAt": "2026-09-03T23:29:31.998Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -297,6 +300,7 @@
       "firstSeenAt": "2026-06-02T14:30:16.112Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -339,7 +343,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:34:41.114Z",
+      "crawledAt": "2026-09-03T23:29:30.648Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -375,6 +379,7 @@
       "firstSeenAt": "2026-06-02T14:30:15.489Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -418,7 +423,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_56423/fr/directeur-trice-general-e",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:34:40.041Z",
+      "crawledAt": "2026-09-03T23:29:29.437Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -454,6 +459,7 @@
       "firstSeenAt": "2026-08-03T22:26:07.192Z",
       "salaryMin": 116500,
       "salaryMax": 162500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

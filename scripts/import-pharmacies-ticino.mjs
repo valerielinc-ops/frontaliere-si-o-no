@@ -24,15 +24,20 @@
 //     outside-world failure).
 //   - Native fetch (Node >= 18; project requires Node 22+), regex-based HTML
 //     parsing (scripts/lib/pharmacy-ticino-parser.mjs) — no new dependency.
-//   - Locarnese is out of scope: separate domain/template, not covered by
-//     the #6398 verification (see the doc's "Verdetto").
+//   - Locarnese is out of scope: separate domain/template, network access
+//     verified (#6740) but no dedicated parser exists yet — no anagraphic
+//     table published there (see the verification doc's "Verdetto").
+//   - Write guard: if every region fetch fails, the result is empty and the
+//     write is skipped (existing dataset preserved) rather than overwriting
+//     a good dataset with `pharmacies: []` (#6739).
 // =============================================================================
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { OFCT_REGIONS, buildPharmacyRecords } from './lib/pharmacy-ticino-parser.mjs';
+import { OFCT_REGIONS, buildPharmacyRecords, dedupePharmaciesById } from './lib/pharmacy-ticino-parser.mjs';
+import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -74,10 +79,26 @@ async function fetchHtml(url, { timeoutMs = 15_000 } = {}) {
   }
 }
 
+/**
+ * Reads the pharmacy count from a previously-written output file, if any.
+ * Returns 0 when the file is missing or unreadable (nothing to preserve).
+ */
+async function readPreviousPharmacyCount() {
+  try {
+    const raw = await readFile(OUTPUT_PATH, 'utf8');
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed?.pharmacies) ? parsed.pharmacies.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 async function main() {
   const fetchedAt = new Date().toISOString();
   const pharmacies = [];
   const errors = [];
+  const warnings = [];
+  let skippedMalformedRows = 0;
 
   for (let i = 0; i < OFCT_REGIONS.length; i += 1) {
     const region = OFCT_REGIONS[i];
@@ -90,7 +111,17 @@ async function main() {
       continue;
     }
 
-    const records = buildPharmacyRecords(html, region, fetchedAt);
+    const { records, skipped } = buildPharmacyRecords(html, region, fetchedAt);
+    if (skipped > 0) {
+      skippedMalformedRows += skipped;
+      const diagnostic = classifyMalformedRowDrift(records.length, skipped);
+      const warning = `${region.key}: skipped ${skipped}/${diagnostic.total} malformed row(s)`;
+      console.warn(`[import-pharmacies-ticino] ${warning}`);
+      warnings.push(warning);
+      if (records.length > 0 && diagnostic.severity === 'error') {
+        errors.push(`${region.key}: malformed-row drift ${skipped}/${diagnostic.total}`);
+      }
+    }
     if (records.length === 0) {
       console.warn(`[import-pharmacies-ticino] ${region.key}: no pharmacies found, structure may have changed`);
       errors.push(`${region.key}: zero pharmacies parsed`);
@@ -101,11 +132,21 @@ async function main() {
 
   // Dedupe by id (a pharmacy chain entry could in theory repeat across
   // region pages if OFCT ever overlaps boundaries).
-  const byId = new Map();
-  for (const p of pharmacies) {
-    if (!byId.has(p.id)) byId.set(p.id, p);
+  const { deduped: dedupedUnsorted, collisions: dedupCollisions } = dedupePharmaciesById(pharmacies);
+  const deduped = dedupedUnsorted.sort((a, b) => a.name.localeCompare(b.name, 'it'));
+
+  if (deduped.length === 0) {
+    const previousCount = await readPreviousPharmacyCount();
+    if (previousCount > 0) {
+      console.error(
+        `[import-pharmacies-ticino] All ${OFCT_REGIONS.length} regions failed (${errors.join('; ')}) — ` +
+          `refusing to overwrite the existing ${previousCount}-pharmacy dataset with an empty one. Skipping write.`,
+      );
+      // exitCode stays 0: per the "Behaviour" note above, an all-regions
+      // transient failure must not crash the autonomous orchestrator.
+      return;
+    }
   }
-  const deduped = [...byId.values()].sort((a, b) => a.name.localeCompare(b.name, 'it'));
 
   const output = {
     _source: 'https://www.ofct.ch/',
@@ -114,6 +155,9 @@ async function main() {
     _userAgent: USER_AGENT,
     _pharmacyCount: deduped.length,
     _errors: errors,
+    _warnings: warnings,
+    _dedupCollisions: dedupCollisions,
+    _skippedMalformedRows: skippedMalformedRows,
     pharmacies: deduped,
   };
 

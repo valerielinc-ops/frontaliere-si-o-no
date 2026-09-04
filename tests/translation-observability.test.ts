@@ -1,0 +1,416 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { runTranslationObservabilityCollector } from '../scripts/collect-translation-observability.mjs';
+import { digestDocument } from '../scripts/lib/canonical-json-digest.mjs';
+import {
+  advanceTranslationObservabilityState,
+  buildTranslationObservabilityReport,
+  createTranslationObservabilitySnapshot,
+  finalizeTranslationObservabilityReport,
+  packTranslationObservabilityRows,
+  unpackTranslationObservabilityRows,
+  unpackTranslationObservabilityState,
+} from '../scripts/lib/translation-observability.mjs';
+import { rollupTranslationObservability } from '../scripts/rollup-translation-observability.mjs';
+import { buildAssembledJobIdentity, buildStableJobIdentity } from '../scripts/lib/job-identity.mjs';
+
+const NOW = Date.parse('2026-08-31T00:00:00Z');
+const DESCRIPTION = 'Questa descrizione italiana dettagliata contiene tutte le informazioni necessarie per il ruolo professionale proposto a Lugano. '.repeat(2);
+const ENGLISH = 'This detailed English job description contains all information needed for the professional role offered in Lugano. '.repeat(2);
+const GERMAN = 'Eine deutsche Stellenbeschreibung ist ebenfalls ausreichend lang und enthält alle notwendigen Einzelheiten für diese Teststelle. '.repeat(2);
+const FRENCH = 'Cette description française détaillée contient toutes les informations nécessaires pour le poste professionnel proposé à Lugano. '.repeat(2);
+
+function job(overrides: Record<string, unknown> = {}) {
+  return {
+    id: 'internal-private-id',
+    url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123?utm=private',
+    title: 'Ingegnere software',
+    description: DESCRIPTION,
+    companyKey: 'acme-private',
+    sourceLang: 'it',
+    firstSeenAt: '2026-08-01T00:00:00Z',
+    titleByLocale: { it: 'Ingegnere software', en: 'Software engineer', de: 'Softwareingenieur', fr: 'Ingénieur logiciel' },
+    descriptionByLocale: { it: DESCRIPTION, en: ENGLISH, de: GERMAN, fr: FRENCH },
+    ...overrides,
+  };
+}
+
+function snapshot(jobs: unknown[], options: Record<string, unknown> = {}) {
+  return createTranslationObservabilitySnapshot(jobs, { now: NOW, ...options });
+}
+
+function generation(previousState: any, jobs: unknown[], options: Record<string, unknown> = {}) {
+  return advanceTranslationObservabilityState({ previousState, final: snapshot(jobs), ...options });
+}
+
+function report(observation: any, beforeJobs: unknown[] = [], finalJobs: unknown[] = []) {
+  return finalizeTranslationObservabilityReport(buildTranslationObservabilityReport({
+    before: snapshot(beforeJobs),
+    final: snapshot(finalJobs, { measureLanguageQuality: true }),
+    runId: '7',
+    startedAt: '2026-08-31T00:00:00Z',
+    finishedAt: '2026-08-31T00:01:00Z',
+    sourceCommit: 'abc',
+    outcome: 'success',
+    generationObservation: observation,
+  }), 'def');
+}
+
+function redigest<T extends Record<string, any>>(value: T): T {
+  const copy = structuredClone(value);
+  delete copy.digest;
+  copy.digest = digestDocument(copy);
+  return copy;
+}
+
+describe('translation observability', () => {
+  it('keeps hash-fragment siblings distinct and proves delete-to-readd only for the removed sibling', () => {
+    const firstJob = job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123#before' });
+    const siblingJob = job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123#after' });
+    expect(snapshot([firstJob]).rows[0].identityHash).not.toBe(snapshot([siblingJob]).rows[0].identityHash);
+
+    const n = generation(null, [firstJob, siblingJob]);
+    expect(unpackTranslationObservabilityState(n.state).activeRows).toHaveLength(2);
+    expect(n.continuity.deleteReaddEvidence).toMatchObject({ observable: false, complete: false, proven: 0, reason: 'bootstrap_first_valid_generation' });
+    const n1 = generation(n.state, [firstJob]);
+    expect(n1.continuity).toMatchObject({ retired: 1, deleteReaddEvidence: { observable: true, complete: true, proven: 0 } });
+    const nk = generation(n1.state, [firstJob, siblingJob]);
+    expect(nk.continuity).toMatchObject({ ambiguous: 0, perfectReuseCandidates: 1, retired: 0, deleteReaddEvidence: { proven: 1 } });
+
+    const replay = generation(nk.state, [firstJob, siblingJob]);
+    expect(replay.continuity).toMatchObject({ activePersisted: 2, perfectReuseCandidates: 0, deleteReaddEvidence: { proven: 0 } });
+  });
+
+  it('requires identical content for a same-URL complete perfect-reuse candidate', () => {
+    const firstJob = job();
+    const changedJob = job({ description: `${DESCRIPTION} Aggiornata.` });
+    const n = generation(null, [firstJob]);
+    const n1 = generation(n.state, []);
+    const nk = generation(n1.state, [changedJob]);
+    expect(nk.continuity).toMatchObject({
+      ambiguous: 0,
+      perfectReuseCandidates: 0,
+      deleteReaddEvidence: { proven: 1 },
+    });
+  });
+
+  it('uses assembled URL normalization and stable fallbacks for population identities', () => {
+    expect(buildAssembledJobIdentity(job({ url: 'HTTPS://EXAMPLE.INVALID/Jobs/Role/' }))).toBe('url:https://example.invalid/jobs/role');
+    const withoutUrl = job({ url: '', id: ' External-ID ' });
+    expect(buildAssembledJobIdentity(withoutUrl)).toBe(buildStableJobIdentity(withoutUrl));
+  });
+
+  it('labels equal source content under a different identity as ambiguous, never proven', () => {
+    const oldJob = job({ url: 'https://example.invalid/jobs/old-private-identity' });
+    const newJob = job({ id: 'other-private-id', url: 'https://example.invalid/jobs/new-private-identity' });
+    const n = generation(null, [oldJob]);
+    const n1 = generation(n.state, []);
+    const nk = generation(n1.state, [newJob]);
+    expect(nk.continuity).toMatchObject({
+      newIdentities: 0,
+      ambiguous: 1,
+      perfectReuseCandidates: 1,
+      deleteReaddEvidence: { observable: true, proven: 0 },
+    });
+  });
+
+  it('does not advance active population or tombstones for failure, dry-run or invalid true-final', () => {
+    const n = generation(null, [job()]);
+    const failure = generation(n.state, [], { validFinal: false, skipReason: 'true_final_outcome_not_success' });
+    const dryRun = generation(n.state, [], { validFinal: false, skipReason: 'state_advance_not_requested' });
+    const duplicate = generation(n.state, [job(), job({ id: 'other-private-id' })], { validFinal: true });
+    expect(failure).toMatchObject({ advanced: false, state: n.state, continuity: { deleteReaddEvidence: { observable: false, reason: 'true_final_outcome_not_success' } } });
+    expect(dryRun).toMatchObject({ advanced: false, state: n.state, continuity: { deleteReaddEvidence: { observable: false, reason: 'state_advance_not_requested' } } });
+    expect(duplicate).toMatchObject({ advanced: false, state: n.state, continuity: { deleteReaddEvidence: { observable: false, reason: 'invalid_true_final_population' } } });
+    expect(unpackTranslationObservabilityState(n.state)).toMatchObject({ generation: 1, activeRows: { length: 1 }, retiredRows: { length: 0 } });
+  });
+
+  it('persists collector state only for a successful requested true-final', () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'translation-observability-'));
+    try {
+      const jobsPath = path.join(directory, 'jobs.json');
+      const beforePath = path.join(directory, 'before.json');
+      const reportPath = path.join(directory, 'report.json');
+      const statePath = path.join(directory, 'state.json');
+      fs.writeFileSync(jobsPath, JSON.stringify([job()]));
+      fs.writeFileSync(beforePath, JSON.stringify(snapshot([job()])));
+      const baseArgs = [
+        '--mode', 'finish', '--jobs', jobsPath, '--before', beforePath, '--output', reportPath,
+        '--run-id', '1', '--started-at', '2026-08-31T00:00:00Z', '--source-commit', 'abc',
+        '--state', statePath, '--state-output', statePath,
+      ];
+      runTranslationObservabilityCollector([...baseArgs, '--outcome', 'success', '--advance-state', 'true']);
+      const persisted = fs.readFileSync(statePath, 'utf8');
+      expect(JSON.parse(persisted)).toMatchObject({ generation: 1, active: { count: 1 }, retired: { count: 0 } });
+
+      fs.writeFileSync(beforePath, JSON.stringify(snapshot([job(), job({ url: 'https://example.invalid/jobs/second' })])));
+      fs.writeFileSync(jobsPath, JSON.stringify([job()]));
+      const truncated = runTranslationObservabilityCollector([...baseArgs, '--outcome', 'success', '--advance-state', 'true']);
+      expect(fs.readFileSync(statePath, 'utf8')).toBe(persisted);
+      expect(truncated).toMatchObject({ stateTransition: { advanced: false }, continuity: { deleteReaddEvidence: { observable: false, reason: 'same_run_population_changed' } } });
+
+      const failure = runTranslationObservabilityCollector([...baseArgs, '--outcome', 'failure', '--advance-state', 'true']);
+      expect(fs.readFileSync(statePath, 'utf8')).toBe(persisted);
+      expect(failure).toMatchObject({ stateTransition: { advanced: false }, continuity: { deleteReaddEvidence: { observable: false, reason: 'true_final_outcome_not_success' } } });
+
+      const dryRun = runTranslationObservabilityCollector([...baseArgs, '--outcome', 'success', '--advance-state', 'false']);
+      expect(fs.readFileSync(statePath, 'utf8')).toBe(persisted);
+      expect(dryRun).toMatchObject({ stateTransition: { advanced: false }, continuity: { deleteReaddEvidence: { observable: false, reason: 'state_advance_not_requested' } } });
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('rebootstraps corrupt persisted state and keeps subsequent evidence observably incomplete', () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'translation-observability-reset-'));
+    try {
+      const jobsPath = path.join(directory, 'jobs.json');
+      const beforePath = path.join(directory, 'before.json');
+      const reportPath = path.join(directory, 'report.json');
+      const statePath = path.join(directory, 'state.json');
+      fs.writeFileSync(jobsPath, JSON.stringify([job()]));
+      fs.writeFileSync(beforePath, JSON.stringify(snapshot([job()])));
+      fs.writeFileSync(statePath, JSON.stringify({ schemaVersion: 2, digest: 'sha256:corrupt' }));
+      const args = [
+        '--mode', 'finish', '--jobs', jobsPath, '--before', beforePath, '--output', reportPath,
+        '--run-id', '2', '--started-at', '2026-08-31T00:00:00Z', '--finished-at', '2026-08-31T00:01:00Z',
+        '--source-commit', 'abc', '--state', statePath, '--state-output', statePath,
+        '--outcome', 'success', '--advance-state', 'true',
+      ];
+      const reset = runTranslationObservabilityCollector(args);
+      expect(reset).toMatchObject({
+        stateTransition: { advanced: true, reason: 'persisted_state_invalid_rebootstrap' },
+        continuity: { deleteReaddEvidence: { observable: false, complete: false, proven: 0, reason: 'persisted_state_invalid_rebootstrap' } },
+      });
+      expect(unpackTranslationObservabilityState(JSON.parse(fs.readFileSync(statePath, 'utf8')))).toMatchObject({ evidenceLoss: { stateResets: 1 } });
+
+      const next = runTranslationObservabilityCollector([...args, '--run-id', '3']);
+      expect(next).toMatchObject({
+        stateTransition: { advanced: true, reason: 'valid_true_final' },
+        continuity: { deleteReaddEvidence: { observable: true, complete: false, proven: 0, reason: 'prior_persisted_state_was_reset' } },
+      });
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('round-trips packed rows and rejects corrupt bytes or state digests', () => {
+    const rows = snapshot([job(), job({ url: 'https://example.invalid/jobs/second' })]).rows;
+    const packed = packTranslationObservabilityRows(rows);
+    expect(unpackTranslationObservabilityRows(packed, rows.length)).toEqual([...rows].sort((left, right) => left.identityHash.localeCompare(right.identityHash)));
+    expect(() => unpackTranslationObservabilityRows(`${packed}x`, rows.length)).toThrow(/packed row bytes/);
+
+    const state = generation(null, [job()]).state;
+    expect(unpackTranslationObservabilityState(state).activeRows).toHaveLength(1);
+    expect(() => unpackTranslationObservabilityState({ ...state, digest: 'sha256:corrupt' })).toThrow(/digest mismatch/);
+    const corruptPacked = structuredClone(state);
+    corruptPacked.active.packed = `${corruptPacked.active.packed.slice(0, -4)}AAAA`;
+    const withoutDigest = structuredClone(corruptPacked);
+    delete withoutDigest.digest;
+    corruptPacked.digest = digestDocument(withoutDigest);
+    expect(() => unpackTranslationObservabilityState(corruptPacked)).toThrow(/packed row bytes|translation state/);
+  });
+
+  it('accepts the maximum safe generation and blocks before overflowing it', () => {
+    const initial = generation(null, [job()], { now: NOW }).state;
+    const maximum = redigest({ ...initial, generation: Number.MAX_SAFE_INTEGER });
+    expect(unpackTranslationObservabilityState(maximum).generation).toBe(Number.MAX_SAFE_INTEGER);
+    const blocked = generation(maximum, [job()], { now: NOW });
+    expect(blocked).toMatchObject({
+      advanced: false,
+      state: maximum,
+      continuity: { deleteReaddEvidence: { observable: false, reason: 'state_generation_overflow' } },
+    });
+    const unsafe = redigest({ ...initial, generation: Number.MAX_SAFE_INTEGER + 1 });
+    expect(() => unpackTranslationObservabilityState(unsafe)).toThrow(/state generation/);
+  });
+
+  it('caps retired evidence and expires it with explicit incomplete-evidence reasons', () => {
+    const jobs = [job({ url: 'https://example.invalid/jobs/a' }), job({ url: 'https://example.invalid/jobs/b' })];
+    const cappedN = generation(null, jobs, { policy: { retiredCap: 1, retentionDays: 2 }, now: NOW });
+    const cappedN1 = generation(cappedN.state, [], { now: NOW });
+    expect(cappedN1.continuity).toMatchObject({
+      retired: 1,
+      deleteReaddEvidence: { complete: false, reason: 'retired_evidence_evicted_by_cap', evictedThisGeneration: { cap: 1 } },
+    });
+
+    const retainedN = generation(null, [jobs[0]], { policy: { retiredCap: 5, retentionDays: 1 }, now: NOW });
+    const retainedN1 = generation(retainedN.state, [], { now: NOW });
+    const expired = generation(retainedN1.state, [], { now: NOW + (2 * 86_400_000) });
+    expect(expired.continuity).toMatchObject({
+      retired: 0,
+      deleteReaddEvidence: { observable: true, complete: false, reason: 'retired_evidence_evicted_by_retention', evictedThisGeneration: { retention: 1 } },
+    });
+  });
+
+  it('keeps state and report hash-only, bounded, and free of raw private values', () => {
+    const jobs = Array.from({ length: 140 }, (_, index) => job({
+      id: `private-id-${index}`,
+      url: `https://example.invalid/private-url-${index}`,
+      companyKey: `private-company-${index}`,
+      titleByLocale: { it: '', en: '', de: '', fr: '' },
+    }));
+    const observation = generation(null, jobs);
+    const value = report(observation, [], jobs);
+    const serialized = JSON.stringify({ state: observation.state, report: value });
+    expect(value.continuity.fingerprints).toHaveLength(100);
+    expect(value.cohorts.topCompanies).toHaveLength(20);
+    expect(Buffer.byteLength(JSON.stringify(value))).toBeLessThanOrEqual(1_048_576);
+    expect(serialized).not.toContain('Ingegnere software');
+    expect(serialized).not.toContain('private-url');
+    expect(serialized).not.toContain('private-id');
+    expect(serialized).not.toContain('private-company');
+    expect(serialized).not.toContain('acme-private');
+    expect(serialized).not.toContain('example.invalid');
+  });
+
+  it('measures wrong-language slots only on the true-final, with the canonical populations and no offenders', () => {
+    const wrongLanguage = job({
+      titleByLocale: { it: 'Ingegnere software', en: 'Ingegnere software', de: 'Softwareingenieur', fr: 'Ingénieur logiciel' },
+      descriptionByLocale: { it: DESCRIPTION, en: GERMAN, de: GERMAN, fr: FRENCH },
+    });
+    const baseline = snapshot([wrongLanguage]);
+    const trueFinal = snapshot([wrongLanguage], { measureLanguageQuality: true });
+    const value = finalizeTranslationObservabilityReport(buildTranslationObservabilityReport({
+      before: baseline,
+      final: trueFinal,
+      runId: 'language-quality',
+      startedAt: '2026-08-31T00:00:00Z',
+      finishedAt: '2026-08-31T00:01:00Z',
+      sourceCommit: 'abc',
+      outcome: 'success',
+    }), 'def');
+
+    expect(value.languageQuality).toEqual({
+      baseline: { measured: false, titles: null, descriptions: null },
+      trueFinal: {
+        measured: true,
+        titles: { populationSlots: 3, suspectedUntranslatedCount: 1, suspectedUntranslatedRate: 1 / 3 },
+        descriptions: {
+          populationSlots: 4,
+          servedPopulationSlots: 4,
+          servedShare: 1,
+          detectedWrongLanguageCount: 1,
+          detectedWrongLanguageRate: 1 / 4,
+        },
+      },
+    });
+    expect(JSON.stringify(value.languageQuality)).not.toContain('Ingegnere software');
+    expect(JSON.stringify(value.languageQuality)).not.toContain('acme-private');
+  });
+
+  it('keeps the description population stable while queued slots reduce the served population and detector numerator', () => {
+    const wrongLanguage = job({
+      titleByLocale: { it: 'Ingegnere software', en: 'Ingegnere software', de: 'Softwareingenieur', fr: 'Ingénieur logiciel' },
+      descriptionByLocale: { it: DESCRIPTION, en: GERMAN, de: GERMAN, fr: FRENCH },
+    });
+    const unqueued = snapshot([wrongLanguage], { measureLanguageQuality: true });
+    const queued = snapshot([{ ...wrongLanguage, needsRetranslation: true }], { measureLanguageQuality: true });
+
+    expect(queued.languageQuality.titles).toEqual(unqueued.languageQuality.titles);
+    expect(queued.languageQuality.descriptions).toEqual({
+      populationSlots: 4,
+      servedPopulationSlots: 0,
+      servedShare: 0,
+      detectedWrongLanguageCount: 0,
+      detectedWrongLanguageRate: 0,
+    });
+    expect(unqueued.languageQuality.descriptions.populationSlots).toBe(queued.languageQuality.descriptions.populationSlots);
+  });
+
+  it('keeps the collector start snapshot unmeasured and measures only its finish snapshot', () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'translation-observability-language-quality-'));
+    try {
+      const jobsPath = path.join(directory, 'jobs.json');
+      const beforePath = path.join(directory, 'before.json');
+      const reportPath = path.join(directory, 'report.json');
+      fs.writeFileSync(jobsPath, JSON.stringify([job()]));
+      const start = runTranslationObservabilityCollector(['--mode', 'start', '--jobs', jobsPath, '--output', beforePath]);
+      const finish = runTranslationObservabilityCollector([
+        '--mode', 'finish', '--jobs', jobsPath, '--before', beforePath, '--output', reportPath,
+        '--run-id', 'language-quality', '--started-at', '2026-08-31T00:00:00Z', '--source-commit', 'abc', '--outcome', 'success',
+      ]);
+      expect(start.languageQuality).toEqual({ measured: false, titles: null, descriptions: null });
+      expect(finish.languageQuality.baseline.measured).toBe(false);
+      expect(finish.languageQuality.trueFinal.measured).toBe(true);
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('finalizes byte-stably, validates digest before rollup, and rolls up idempotently', () => {
+    const observation = generation(null, [job()]);
+    const value = report(observation, [job({ needsRetranslation: true })], [job()]);
+    const one = finalizeTranslationObservabilityReport(value, 'def');
+    const two = finalizeTranslationObservabilityReport(one, 'def');
+    expect(JSON.stringify(one)).toBe(JSON.stringify(two));
+
+    const history = rollupTranslationObservability(null, one);
+    expect(rollupTranslationObservability(history, one)).toEqual(history);
+    expect(() => rollupTranslationObservability(history, { ...one, outcome: 'failure' })).toThrow(/digest mismatch/);
+    expect(history.weeks[0].latest.languageQuality).toEqual(one.languageQuality);
+    expect(history.months[0].latest.languageQuality).toEqual(one.languageQuality);
+    expect(history.baselineReports[0].languageQuality).toEqual(one.languageQuality);
+
+    let cappedHistory: any = null;
+    for (let index = 0; index < 110; index++) {
+      const next = redigest({ ...one, runId: String(index), finishedAt: new Date(Date.UTC(2016 + index, 0, 1)).toISOString(), stateTransition: { ...one.stateTransition, generation: index + 1 } });
+      cappedHistory = rollupTranslationObservability(cappedHistory, next);
+    }
+    expect(cappedHistory.weeks.length).toBeLessThanOrEqual(104);
+    expect(cappedHistory.months.length).toBeLessThanOrEqual(36);
+    expect(cappedHistory.baselineReports).toHaveLength(14);
+    expect(cappedHistory.seenReports.length).toBeLessThanOrEqual(500);
+    expect(cappedHistory.weeks[0].latest.stateTransition).toBeDefined();
+    expect(JSON.stringify(cappedHistory)).not.toContain('fingerprints');
+  });
+
+  it('uses only measured advanced true-final generations for the baseline while retaining operational evidence', () => {
+    const eligible = report(generation(null, [job()]), [], [job()]);
+    const cases = [
+      redigest({ ...eligible, runId: 'failure', outcome: 'failure' }),
+      redigest({ ...eligible, runId: 'unadvanced', stateTransition: { ...eligible.stateTransition, advanced: false } }),
+      redigest({ ...eligible, runId: 'unmeasured', languageQuality: { ...eligible.languageQuality, trueFinal: { ...eligible.languageQuality.trueFinal, measured: false } } }),
+    ];
+    let history = rollupTranslationObservability(null, eligible);
+    for (const next of cases) history = rollupTranslationObservability(history, next);
+
+    expect(history.baselineReports).toHaveLength(1);
+    expect(history.baselineReports[0].digest).toBe(eligible.digest);
+    expect(history.weeks[0].runs).toBe(4);
+    expect(history.months[0].runs).toBe(4);
+    expect(history.seenReports).toHaveLength(4);
+    expect(history.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 1, ready: false });
+    expect(rollupTranslationObservability(history, eligible).baselineStatus).toEqual(history.baselineStatus);
+  });
+
+  it('purges ineligible legacy baselines before adding and capping eligible generations', () => {
+    const eligible = report(generation(null, [job()]), [], [job()]);
+    const legacy = rollupTranslationObservability(null, eligible);
+    legacy.baselineReports = [
+      { ...legacy.baselineReports[0], outcome: 'failure' },
+      legacy.baselineReports[0],
+    ];
+    const next = redigest({ ...eligible, runId: 'next', finishedAt: '2026-09-01T00:01:00Z', stateTransition: { ...eligible.stateTransition, generation: 2 } });
+    const result = rollupTranslationObservability(legacy, next);
+
+    expect(result.baselineReports).toHaveLength(2);
+    expect(result.baselineReports.every((entry) => entry.outcome === 'success' && entry.stateTransition.advanced && entry.languageQuality.trueFinal.measured)).toBe(true);
+    expect(result.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 2, ready: false });
+  });
+
+  it('counts each eligible generation once while retaining duplicate-generation operational evidence', () => {
+    const eligible = report(generation(null, [job()]), [], [job()]);
+    const replay = redigest({ ...eligible, runId: 'replay', finishedAt: '2026-08-31T00:02:00Z' });
+    const history = rollupTranslationObservability(rollupTranslationObservability(null, eligible), replay);
+
+    expect(history.baselineReports).toHaveLength(1);
+    expect(history.baselineReports[0].digest).toBe(eligible.digest);
+    expect(history.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 1, ready: false });
+    expect(history.weeks[0].runs).toBe(2);
+    expect(history.months[0].runs).toBe(2);
+    expect(history.seenReports).toHaveLength(2);
+  });
+});

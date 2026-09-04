@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-08-27T20:23:15.090Z",
+  "assembledAt": "2026-09-03T23:34:43.467Z",
   "jobs": [
     {
       "id": "corner-banca-bb79fcc27fb5",
@@ -64,14 +64,15 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.206Z",
+      "crawledAt": "2026-09-03T23:34:40.101Z",
       "previousSlugsByLocale": {
         "it": [
           "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
           "risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
           "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano",
           "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-          "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano"
+          "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano",
+          "risk-manager-gestione-della-responsabilita-patrimoniale-alm-e-rischio-di-liquidita-rif-1086-corner-banca-lugano"
         ],
         "en": [
           "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
@@ -90,12 +91,14 @@
         "risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
         "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano"
+        "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano",
+        "risk-manager-gestione-della-responsabilita-patrimoniale-alm-e-rischio-di-liquidita-rif-1086-corner-banca-lugano"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:12:28.239Z",
       "salaryMin": 142000,
       "salaryMax": 249500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -164,7 +167,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.206Z",
+      "crawledAt": "2026-09-03T23:34:40.102Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -176,6 +179,7 @@
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -205,7 +209,7 @@
       "titleByLocale": {
         "it": "Team di Raccolta Dipendenti Zürich - ref. 1068",
         "en": "Employee Collection Team Zürich - ref. 1068",
-        "de": "Team di Raccolta Dipendenti Zürich - ref. 1068",
+        "de": "Employee Collection Team Zürich - ref. 1068",
         "fr": "Équipe de recouvrement des employés Zürich - réf. 1068"
       },
       "description": "Stiamo cercando un professionista motivato e orientato al cliente per unirsi al nostro team in un ambiente dinamico e in crescita. Il candidato ideale è desideroso di sviluppare le proprie competenze nella gestione delle relazioni con i clienti e nel recupero crediti, combinando forti capacità comunicative con empatia e un approccio orientato alla soluzione. Questo ruolo offre l'opportunità di lavorare a stretto contatto con i clienti, negoziare soluzioni di pagamento sostenibili e contribuire a mantenere relazioni positive e professionali anche in situazioni sensibili.\n\nResponsabilità principali:\n\n• Contatto telefonico con i clienti per la gestione del credito e il recupero dei debiti\n\n• Ascolto attivo delle situazioni dei clienti e identificazione di soluzioni di pagamento sostenibili\n\n• Negoziazione di piani di rimborso e monitoraggio degli accordi concordati\n\n• Gestione e aggiornamento dei casi nei sistemi interni\n\n• Collaborazione con il team per monitorare le posizioni aperte\n\n• Mantenimento di un approccio professionale ed empatico anche in situazioni sensibili\n\n• Formazione commerciale (apprendistato commerciale o qualifica equivalente)\n\n• Tedesco madrelingua e buona conoscenza dell'inglese\n\n• Eccellenti capacità comunicative e forti capacità di ascolto del cliente\n\n• Aptitudine a gestire le relazioni con i clienti per telefono\n\n• Empatia, capacità di mediazione e mentalità orientata alla soluzione\n\n• Attenzione ai dettagli e capacità organizzative\n\n• Spirito di squadra e affidabilità\n\nProfilo ideale\n\n• Persona giovane e motivata desiderosa di crescere professionalmente\n\n• Capacità di rimanere calmi e professionali anche in conversazioni difficili\n\n• Attitudine orientata al team e mentalità collaborativa",
@@ -261,7 +265,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.205Z",
+      "crawledAt": "2026-09-03T23:34:40.100Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
@@ -278,10 +282,10 @@
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -310,7 +314,7 @@
       "title": "Legal Collection case Manager  - ref. 1095",
       "titleByLocale": {
         "it": "Legal Collection case Manager - ref. 1095",
-        "en": "Legal Collection case Manager  - ref. 1095",
+        "en": "Legal Collection case Manager - ref. 1095",
         "de": "Fallmanager für Legal Collection – Ref. 1095",
         "fr": "Gestionnaire de dossier de recouvrement juridique - réf. 1095"
       },
@@ -361,7 +365,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.205Z",
+      "crawledAt": "2026-09-03T23:34:40.099Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -391,6 +395,7 @@
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -402,6 +407,100 @@
         }
       },
       "addressRegion": "ZH",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-2fd5dbfa7f6e",
+      "slug": "information-security-specialista-ref-1108-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "information-security-specialista-ref-1108-corner-banca-lugano",
+        "en": "information-security-specialist-ref-1108-corner-banca-lugano",
+        "de": "information-security-specialist-ref-1108-corner-banca-lugano",
+        "fr": "information-security-specialist-ref-1108-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Information Security Specialista  -  ref. 1108",
+      "titleByLocale": {
+        "it": "Information Security Specialista - ref. 1108",
+        "en": "Information Security Specialist - ref. 1108",
+        "de": "Information Security Spezialist - ref. 1108",
+        "fr": "Information Security Spécialiste - ref. 1108"
+      },
+      "description": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
+        "en": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
+        "de": "Hauptzuständigkeiten:\n\n• Handeln Sie als Sicherheitspartner für Projekte und Initiativen und gewährleisten Sie Secure-by-Design-Prinzipien\n\n• Durchführung von Risiko- und Kontrollbewertungen in IT- und Geschäftsprozessen\n\n• Definieren und Validieren von Sicherheitsanforderungen für neue Systeme und Änderungen\n\n• Gewährleistung der Umsetzung und Wirksamkeit von Sicherheitskontrollen (ausgerichtet auf FINMA, LPD, ISO 27001 / NIST)\n\n• Verwalten von Sicherheitsausnahmen und Risikoakzeptanzen, Gewährleistung einer ordnungsgemäßen Governance und Rückverfolgbarkeit\n\n• Beitrag zu Sicherheitsrichtlinien, Standards und Second Line of Defense Aktivitäten\n\n• Unterstützung interner und externer Audits zu Sicherheits- und IT-Risikothemen\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\n• 3-7+ Jahre in Informationssicherheit, IT-Risiko oder Security Governance\n\n• Erfahrung in Projektsicherheit / Security Assurance / Control Frameworks\n\n• Starkes Verständnis von Risikomanagement und regulatorischen Erwartungen (FINMA ist ein Plus)\n\n• Zertifizierungen wie CISSP, CISM, CISA sind von Vorteil\n\n• Fließend Englisch und Italienisch (obligatorisch). Deutsch und/oder Französisch ist ein Plus\n\n• Wohnen im Tessin oder bereit zu verlagern",
+        "fr": "Principales responsabilités :\n\n• Agir en tant que partenaire de sécurité pour les projets et les initiatives, en veillant à ce que les principes de sécurité par conception soient respectés\n\n• Effectuer des évaluations des risques et des contrôles dans l'ensemble des TI et des processus opérationnels\n\n• Définir et valider les exigences de sécurité pour les nouveaux systèmes et changements\n\n• Assurer la mise en œuvre et l'efficacité des contrôles de sécurité (alignés avec FINMA, LPD, ISO 27001 / NIST)\n\n• Gérer les exceptions en matière de sécurité et les acceptations des risques, en assurant une gouvernance et une traçabilité appropriées\n\n• Contribuer aux politiques de sécurité, aux normes et aux activités de défense de deuxième ligne\n\n• Soutenir les audits internes et externes sur les questions de sécurité et de risque informatique\n\nQu'est-ce qu'on offre ?\n\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\n• 3 à 7 ans et plus en sécurité de l'information, risque de TI ou gouvernance de la sécurité\n\n• Expérience dans les cadres de sécurité / sécurité / contrôle du projet\n\n• Connaissance approfondie de la gestion des risques et des attentes réglementaires (la FINMA est un plus)\n\n• Des certifications telles que CISSP, CISM, CISA sont un avantage\n\n• Anglais et italien (obligatoire). L'allemand et/ou le français est un plus\n\n• Résident au Tessin ou désireux de déménager"
+      },
+      "requirements": [
+        "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
+        "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo",
+        "Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)",
+        "Le certificazioni come CISSP, CISM, CISA sono un vantaggio",
+        "Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus",
+        "Residente in Ticino o disposto a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "3–7+ years in Information Security, IT Risk, or Security Governance",
+          "Experience in project security / security assurance / control frameworks",
+          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
+          "Certifications such as CISSP, CISM, CISA are an advantage",
+          "Fluent English and Italian (mandatory). German and/or French is a plus",
+          "Resident in Ticino or willing to relocate",
+          "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
+          "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo"
+        ],
+        "en": [
+          "3–7+ years in Information Security, IT Risk, or Security Governance",
+          "Experience in project security / security assurance / control frameworks",
+          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
+          "Certifications such as CISSP, CISM, CISA are an advantage",
+          "Fluent English and Italian (mandatory). German and/or French is a plus",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-03T23:34:40.098Z",
+      "previousSlugs": [
+        "information-security-specialist-ref-1108-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "information-security-specialist-ref-1108-corner-banca-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-08-14T10:12:28.230Z",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
       "employmentType": "FULL_TIME"
     },
     {
@@ -468,7 +567,7 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.204Z",
+      "crawledAt": "2026-09-03T23:34:40.096Z",
       "previousSlugs": [
         "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
       ],
@@ -480,6 +579,7 @@
       "firstSeenAt": "2026-08-14T10:12:28.211Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -562,7 +662,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.204Z",
+      "crawledAt": "2026-09-03T23:34:40.097Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano"
       ],
@@ -575,6 +675,7 @@
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -582,99 +683,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-2fd5dbfa7f6e",
-      "slug": "information-security-specialista-ref-1108-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "information-security-specialista-ref-1108-corner-banca-lugano",
-        "en": "information-security-specialist-ref-1108-corner-banca-lugano",
-        "de": "information-security-specialist-ref-1108-corner-banca-lugano",
-        "fr": "information-security-specialist-ref-1108-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Information Security Specialista  -  ref. 1108",
-      "titleByLocale": {
-        "it": "Information Security Specialista - ref. 1108",
-        "en": "Information Security Specialist - ref. 1108",
-        "de": "Information Security Spezialist - ref. 1108",
-        "fr": "Information Security Spécialiste - ref. 1108"
-      },
-      "description": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
-        "en": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
-        "de": "Hauptzuständigkeiten:\n\n• Handeln Sie als Sicherheitspartner für Projekte und Initiativen und gewährleisten Sie Secure-by-Design-Prinzipien\n\n• Durchführung von Risiko- und Kontrollbewertungen in IT- und Geschäftsprozessen\n\n• Definieren und Validieren von Sicherheitsanforderungen für neue Systeme und Änderungen\n\n• Gewährleistung der Umsetzung und Wirksamkeit von Sicherheitskontrollen (ausgerichtet auf FINMA, LPD, ISO 27001 / NIST)\n\n• Verwalten von Sicherheitsausnahmen und Risikoakzeptanzen, Gewährleistung einer ordnungsgemäßen Governance und Rückverfolgbarkeit\n\n• Beitrag zu Sicherheitsrichtlinien, Standards und Second Line of Defense Aktivitäten\n\n• Unterstützung interner und externer Audits zu Sicherheits- und IT-Risikothemen\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\n• 3-7+ Jahre in Informationssicherheit, IT-Risiko oder Security Governance\n\n• Erfahrung in Projektsicherheit / Security Assurance / Control Frameworks\n\n• Starkes Verständnis von Risikomanagement und regulatorischen Erwartungen (FINMA ist ein Plus)\n\n• Zertifizierungen wie CISSP, CISM, CISA sind von Vorteil\n\n• Fließend Englisch und Italienisch (obligatorisch). Deutsch und/oder Französisch ist ein Plus\n\n• Wohnen im Tessin oder bereit zu verlagern",
-        "fr": "Principales responsabilités :\n\n• Agir en tant que partenaire de sécurité pour les projets et les initiatives, en veillant à ce que les principes de sécurité par conception soient respectés\n\n• Effectuer des évaluations des risques et des contrôles dans l'ensemble des TI et des processus opérationnels\n\n• Définir et valider les exigences de sécurité pour les nouveaux systèmes et changements\n\n• Assurer la mise en œuvre et l'efficacité des contrôles de sécurité (alignés avec FINMA, LPD, ISO 27001 / NIST)\n\n• Gérer les exceptions en matière de sécurité et les acceptations des risques, en assurant une gouvernance et une traçabilité appropriées\n\n• Contribuer aux politiques de sécurité, aux normes et aux activités de défense de deuxième ligne\n\n• Soutenir les audits internes et externes sur les questions de sécurité et de risque informatique\n\nQu'est-ce qu'on offre ?\n\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\n• 3 à 7 ans et plus en sécurité de l'information, risque de TI ou gouvernance de la sécurité\n\n• Expérience dans les cadres de sécurité / sécurité / contrôle du projet\n\n• Connaissance approfondie de la gestion des risques et des attentes réglementaires (la FINMA est un plus)\n\n• Des certifications telles que CISSP, CISM, CISA sont un avantage\n\n• Anglais et italien (obligatoire). L'allemand et/ou le français est un plus\n\n• Résident au Tessin ou désireux de déménager"
-      },
-      "requirements": [
-        "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
-        "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo",
-        "Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)",
-        "Le certificazioni come CISSP, CISM, CISA sono un vantaggio",
-        "Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus",
-        "Residente in Ticino o disposto a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "3–7+ years in Information Security, IT Risk, or Security Governance",
-          "Experience in project security / security assurance / control frameworks",
-          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
-          "Certifications such as CISSP, CISM, CISA are an advantage",
-          "Fluent English and Italian (mandatory). German and/or French is a plus",
-          "Resident in Ticino or willing to relocate",
-          "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
-          "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo"
-        ],
-        "en": [
-          "3–7+ years in Information Security, IT Risk, or Security Governance",
-          "Experience in project security / security assurance / control frameworks",
-          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
-          "Certifications such as CISSP, CISM, CISA are an advantage",
-          "Fluent English and Italian (mandatory). German and/or French is a plus",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.204Z",
-      "previousSlugs": [
-        "information-security-specialist-ref-1108-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "information-security-specialist-ref-1108-corner-banca-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T10:12:28.230Z",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
           "unitText": "YEAR"
         }
       },
@@ -748,7 +756,7 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice-ref-1110",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.203Z",
+      "crawledAt": "2026-09-03T23:34:40.095Z",
       "previousSlugs": [
         "employee-backoffice-ref-1110-corner-banca-lugano"
       ],
@@ -760,6 +768,7 @@
       "firstSeenAt": "2026-08-14T10:12:28.210Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -840,7 +849,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-ref-1113",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.203Z",
+      "crawledAt": "2026-09-03T23:34:40.094Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
       ],
@@ -852,6 +861,7 @@
       "firstSeenAt": "2026-08-14T10:12:28.201Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -859,101 +869,6 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-9edf9a711b5c",
-      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Senior Compliance Officer  - ref. 1111",
-      "titleByLocale": {
-        "it": "Senior Compliance Officer - ref. 1111",
-        "en": "Senior Compliance Officer - ref. 1111",
-        "de": "Senior Compliance Officer - ref. 1111",
-        "fr": "Agent de conformité principal - réf. 1111"
-      },
-      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-        "en": "We are looking for an experienced Senior Compliance Officer to join our Compliance team. The ideal candidate has solid experience in the banking sector and a comprehensive understanding of compliance processes beyond Anti-Money Laundering (AML), including cross-border, sanctions, regulatory reporting, compliance risk assessment, and oversight of Compliance-related projects.\n\nKey Responsibilities\n\n• Collaborate effectively with colleagues across different departments, including IT;\n\n• Adopt a proactive and critical approach when identifying and implementing new solutions;\n\n• Work independently and manage priorities autonomously;\n\n• Handle a high volume of complex cases efficiently and accurately.\n\n• Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.\n\n• Proven expertise not only in AML Compliance, but also in:\n\no Cross-border, sanctions and consolidated supervision on affiliates;\n\no Compliance reporting, training and regulatory monitoring;\n\no Compliance Risk Assessment;\n\no Coordination and supervision of Compliance-related projects.\n\n• University degree in Law, Economics, or a related discipline.\n\n• CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.\n\n• Advanced proficiency in Microsoft Office, particularly Microsoft Excel.\n\n• Strong team-oriented mindset and excellent problem-solving skills.\n\n• Resident in Ticino or willing to relocate",
-        "de": "Wir suchen einen erfahrenen Senior Compliance Officer, der unserem Compliance-Team beitritt. Der ideale Kandidat verfügt über fundierte Erfahrung im Bankensektor und ein umfassendes Verständnis der Compliance-Prozesse jenseits der Geldwäschebekämpfung (AML), einschließlich grenzüberschreitender, Sanktionen, regulatorischer Berichterstattung, Compliance-Risikobewertung und Aufsicht über Compliance-bezogene Projekte.\n\nHauptzuständigkeiten\n\n• Zusammenarbeit mit Kollegen aus verschiedenen Abteilungen, einschließlich IT;\n\n• Annahme eines proaktiven und kritischen Ansatzes bei der Identifizierung und Umsetzung neuer Lösungen;\n\n• unabhängig arbeiten und Prioritäten autonom verwalten;\n\n• Behandeln Sie ein hohes Volumen komplexer Fälle effizient und genau.\n\n• Mindestens 3-5 Jahre Erfahrung in der Bankenbranche in einer ähnlichen Rolle als Compliance Officer.\n\n• Bewährte Expertise nicht nur in AML Compliance, sondern auch in:\n\nGrenzüberschreitende, Sanktionen und konsolidierte Beaufsichtigung von verbundenen Unternehmen;\n\nCompliance-Berichterstattung, Schulung und regulatorische Überwachung;\n\no Compliance-Risikobewertung;\n\no Koordination und Überwachung von Compliance-bezogenen Projekten.\n\n• Universitätsabschluss in Recht, Wirtschaft oder einer verwandten Disziplin.\n\n• CAS in Compliance (Certificate of Advanced Studies) oder einer gleichwertigen beruflichen Qualifikation.\n\n• Erweiterte Kenntnisse in Microsoft Office, insbesondere Microsoft Excel.\n\n• Starke teamorientierte Denkweise und ausgezeichnete Problemlösungsfähigkeiten.\n\n• Wohnen im Tessin oder bereit zu verlagern",
-        "fr": "Nous cherchons un agent supérieur de conformité expérimenté pour rejoindre notre équipe de conformité. Le candidat idéal a une solide expérience dans le secteur bancaire et une compréhension complète des processus de conformité au-delà de la lutte contre le blanchiment de capitaux (LAM), y compris transfrontalier, les sanctions, les rapports réglementaires, l'évaluation des risques liés à la conformité et la surveillance des projets liés à la conformité.\n\nPrincipales responsabilités\n\n• Collaborer efficacement avec des collègues de différents ministères, y compris les TI;\n\n• Adopter une approche proactive et critique lors de l ' identification et de la mise en œuvre de nouvelles solutions;\n\n• Travailler de manière indépendante et gérer les priorités de manière autonome;\n\n• Gérer un volume élevé de cas complexes efficacement et avec précision.\n\n• Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui d'agent de conformité.\n\n• Expertise éprouvée non seulement dans la conformité à la LMA, mais aussi dans:\n\no les sanctions et la surveillance consolidée des filiales;\n\no les rapports sur la conformité, la formation et la surveillance réglementaire;\n\no Évaluation des risques liés à la conformité;\n\no Coordination et supervision des projets liés à la conformité.\n\n• Diplôme universitaire en droit, économie ou discipline connexe.\n\n• Le CAS en conformité (certificat d'études supérieures) ou une qualification professionnelle équivalente.\n\n• Compétence avancée dans Microsoft Office, en particulier Microsoft Excel.\n\n• Une bonne attitude d'équipe et d'excellentes compétences en résolution de problèmes.\n\n• Résident au Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
-        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
-        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
-        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
-        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
-        "Residente in Ticino o disponibile a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate",
-          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
-        ],
-        "en": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.202Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:46:42.895Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1040,11 +955,12 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:23:13.202Z",
+      "crawledAt": "2026-09-03T23:34:40.093Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1052,6 +968,104 @@
           "@type": "QuantitativeValue",
           "minValue": 79500,
           "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-9edf9a711b5c",
+      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Senior Compliance Officer  - ref. 1111",
+      "titleByLocale": {
+        "it": "Senior Compliance Officer - ref. 1111",
+        "en": "Senior Compliance Officer - ref. 1111",
+        "de": "Senior Compliance Officer - ref. 1111",
+        "fr": "Agent de conformité principal - réf. 1111"
+      },
+      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+        "en": "We are looking for an experienced Senior Compliance Officer to join our Compliance team. The ideal candidate has solid experience in the banking sector and a comprehensive understanding of compliance processes beyond Anti-Money Laundering (AML), including cross-border, sanctions, regulatory reporting, compliance risk assessment, and oversight of Compliance-related projects.\n\nKey Responsibilities\n\n• Collaborate effectively with colleagues across different departments, including IT;\n\n• Adopt a proactive and critical approach when identifying and implementing new solutions;\n\n• Work independently and manage priorities autonomously;\n\n• Handle a high volume of complex cases efficiently and accurately.\n\n• Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.\n\n• Proven expertise not only in AML Compliance, but also in:\n\no Cross-border, sanctions and consolidated supervision on affiliates;\n\no Compliance reporting, training and regulatory monitoring;\n\no Compliance Risk Assessment;\n\no Coordination and supervision of Compliance-related projects.\n\n• University degree in Law, Economics, or a related discipline.\n\n• CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.\n\n• Advanced proficiency in Microsoft Office, particularly Microsoft Excel.\n\n• Strong team-oriented mindset and excellent problem-solving skills.\n\n• Resident in Ticino or willing to relocate",
+        "de": "Wir suchen einen erfahrenen Senior Compliance Officer, der unserem Compliance-Team beitritt. Der ideale Kandidat verfügt über fundierte Erfahrung im Bankensektor und ein umfassendes Verständnis der Compliance-Prozesse jenseits der Geldwäschebekämpfung (AML), einschließlich grenzüberschreitender, Sanktionen, regulatorischer Berichterstattung, Compliance-Risikobewertung und Aufsicht über Compliance-bezogene Projekte.\n\nHauptzuständigkeiten\n\n• Zusammenarbeit mit Kollegen aus verschiedenen Abteilungen, einschließlich IT;\n\n• Annahme eines proaktiven und kritischen Ansatzes bei der Identifizierung und Umsetzung neuer Lösungen;\n\n• unabhängig arbeiten und Prioritäten autonom verwalten;\n\n• Behandeln Sie ein hohes Volumen komplexer Fälle effizient und genau.\n\n• Mindestens 3-5 Jahre Erfahrung in der Bankenbranche in einer ähnlichen Rolle als Compliance Officer.\n\n• Bewährte Expertise nicht nur in AML Compliance, sondern auch in:\n\nGrenzüberschreitende, Sanktionen und konsolidierte Beaufsichtigung von verbundenen Unternehmen;\n\nCompliance-Berichterstattung, Schulung und regulatorische Überwachung;\n\no Compliance-Risikobewertung;\n\no Koordination und Überwachung von Compliance-bezogenen Projekten.\n\n• Universitätsabschluss in Recht, Wirtschaft oder einer verwandten Disziplin.\n\n• CAS in Compliance (Certificate of Advanced Studies) oder einer gleichwertigen beruflichen Qualifikation.\n\n• Erweiterte Kenntnisse in Microsoft Office, insbesondere Microsoft Excel.\n\n• Starke teamorientierte Denkweise und ausgezeichnete Problemlösungsfähigkeiten.\n\n• Wohnen im Tessin oder bereit zu verlagern",
+        "fr": "Nous cherchons un agent supérieur de conformité expérimenté pour rejoindre notre équipe de conformité. Le candidat idéal a une solide expérience dans le secteur bancaire et une compréhension complète des processus de conformité au-delà de la lutte contre le blanchiment de capitaux (LAM), y compris transfrontalier, les sanctions, les rapports réglementaires, l'évaluation des risques liés à la conformité et la surveillance des projets liés à la conformité.\n\nPrincipales responsabilités\n\n• Collaborer efficacement avec des collègues de différents ministères, y compris les TI;\n\n• Adopter une approche proactive et critique lors de l ' identification et de la mise en œuvre de nouvelles solutions;\n\n• Travailler de manière indépendante et gérer les priorités de manière autonome;\n\n• Gérer un volume élevé de cas complexes efficacement et avec précision.\n\n• Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui d'agent de conformité.\n\n• Expertise éprouvée non seulement dans la conformité à la LMA, mais aussi dans:\n\no les sanctions et la surveillance consolidée des filiales;\n\no les rapports sur la conformité, la formation et la surveillance réglementaire;\n\no Évaluation des risques liés à la conformité;\n\no Coordination et supervision des projets liés à la conformité.\n\n• Diplôme universitaire en droit, économie ou discipline connexe.\n\n• Le CAS en conformité (certificat d'études supérieures) ou une qualification professionnelle équivalente.\n\n• Compétence avancée dans Microsoft Office, en particulier Microsoft Excel.\n\n• Une bonne attitude d'équipe et d'excellentes compétences en résolution de problèmes.\n\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
+        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
+        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
+        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
+        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
+        "Residente in Ticino o disponibile a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate",
+          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
+        ],
+        "en": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-03T23:34:40.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-ref-1111-corner-banca-lugano",
+          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-10T21:46:42.895Z",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1127,7 +1141,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.201Z",
+      "crawledAt": "2026-09-03T23:34:40.091Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -1139,6 +1153,7 @@
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1153,6 +1168,153 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-333d7573e186",
+      "slug": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "en": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "de": "kundenbindung-wachstum-ref-1118-corner-banca-lugano",
+        "fr": "conservation-et-croissance-du-client-ref-1118-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Retention & Growth - ref. 1118",
+      "titleByLocale": {
+        "it": "Customer Retention & Growth - ref. 1118",
+        "en": "Customer Retention & Growth - ref. 1118",
+        "de": "Kundenbindung & Wachstum - Ref. 1118",
+        "fr": "Conservation et croissance du client - réf. 1118"
+      },
+      "description": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue).\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue).\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
+        "en": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate",
+        "de": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate",
+        "fr": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Esperienza in ruoli simili",
+        "Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)",
+        "Residenza in Ticino o disponibilità a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Esperienza in ruoli simili",
+          "Residenza in Ticino o disponibilità a trasferirsi"
+        ],
+        "en": [
+          "Experience in similar positions",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-03T23:34:40.090Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T20:12:11.446Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-e77e18a8741a",
+      "slug": "consumer-loan-advisor-ref-1129-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "consumer-loan-advisor-ref-1129-corner-banca-lugano",
+        "en": "consumer-loan-advisor-ref-1129-corner-banca-lugano",
+        "de": "consumer-loan-advisor-ref-1129-corner-banca-lugano",
+        "fr": "consumer-loan-advisor-ref-1129-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Consumer Loan Advisor  - ref. 1129",
+      "titleByLocale": {
+        "it": "Consumer Loan Consulente - ref. 1129",
+        "en": "Consumer Loan Advisor  - ref. 1129",
+        "de": "Consumer Loan Berater - ref. 1129",
+        "fr": "Consumer Loan Conseiller - ref. 1129"
+      },
+      "description": "Per rafforzare il nostro team, siamo alla ricerca di una persona dinamica e orientata al cliente, in grado di offrire un supporto professionale e personalizzato durante tutte le fasi della relazione con la nostra clientela.\n\nLa persona selezionata sarà il punto di riferimento per i nostri clienti, fornendo consulenza qualificata e sviluppando soluzioni in linea con le loro esigenze. Il ruolo combina consulenza, capacità comunicative e orientamento commerciale, con l'obiettivo di creare relazioni durature e contribuire alla crescita del portafoglio clienti.\n\nÈ richiesta un'eccellente conoscenza dell'italiano, del tedesco/svizzero tedesco, del francese e dell'inglese (livello minimo C1 in tutte e quattro le lingue).\n\n• Simulazione e valutazione delle proposte dei piani di finanziamento\n\n• Consulenza tramite tecniche di comunicazione mirate alla proposizione e alla vendita\n\n• Consulenza post vendita per eventuali controproposte\n\n• Attività di cross e upselling\n\n• Fidelizzazione della nostra clientela\n\n• Attività di recupero credito\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Proposizione e vendita di piani di credito al consumo alla nostra customer base e prospect in\n\n4 lingue italiano, tedesco e svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Per rafforzare il nostro team, siamo alla ricerca di una persona dinamica e orientata al cliente, in grado di offrire un supporto professionale e personalizzato durante tutte le fasi della relazione con la nostra clientela.\n\nLa persona selezionata sarà il punto di riferimento per i nostri clienti, fornendo consulenza qualificata e sviluppando soluzioni in linea con le loro esigenze. Il ruolo combina consulenza, capacità comunicative e orientamento commerciale, con l'obiettivo di creare relazioni durature e contribuire alla crescita del portafoglio clienti.\n\nÈ richiesta un'eccellente conoscenza dell'italiano, del tedesco/svizzero tedesco, del francese e dell'inglese (livello minimo C1 in tutte e quattro le lingue).\n\n• Simulazione e valutazione delle proposte dei piani di finanziamento\n\n• Consulenza tramite tecniche di comunicazione mirate alla proposizione e alla vendita\n\n• Consulenza post vendita per eventuali controproposte\n\n• Attività di cross e upselling\n\n• Fidelizzazione della nostra clientela\n\n• Attività di recupero credito\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Proposizione e vendita di piani di credito al consumo alla nostra customer base e prospect in\n\n4 lingue italiano, tedesco e svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
+        "en": "To strengthen our team, we are looking for a dynamic, customer-oriented professional who can provide professional and personalized support throughout all stages of the customer relationship.\n\nThe successful candidate will act as a key point of contact for our customers, providing expert advice and developing solutions tailored to their needs. The role combines consulting, strong communication skills and a commercial mindset, with the aim of building long-term customer relationships and contributing to the growth of our customer portfolio.\n\nAn excellent command of Italian, German/Swiss German, French and English (minimum C1 level in all four languages) is required.\n\nKey Responsibilities\n\n• Simulate and assess consumer financing proposals\n\n• Provide advice using targeted communication techniques focused on presenting and selling financing solutions\n\n• Provide post-sales support and advice regarding potential counteroffers\n\n• Drive cross-selling and upselling activities\n\n• Build and maintain long-term customer relationships\n\n• Carry out debt collection activities\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Previous experience in a similar role\n\n• Experience in presenting and selling consumer credit plans to our customer base and prospects in four languages Italian, German and Swiss German, French and English (minimum C1 level in all four languages)\n\n• Resident in Ticino or willing to relocate",
+        "de": "To strengthen our team, we are looking for a dynamic, customer-oriented professional who can provide professional and personalized support throughout all stages of the customer relationship.\n\nThe successful candidate will act as a key point of contact for our customers, providing expert advice and developing solutions tailored to their needs. The role combines consulting, strong communication skills and a commercial mindset, with the aim of building long-term customer relationships and contributing to the growth of our customer portfolio.\n\nAn excellent command of Italian, German/Swiss German, French and English (minimum C1 level in all four languages) is required.\n\nKey Responsibilities\n\n• Simulate and assess consumer financing proposals\n\n• Provide advice using targeted communication techniques focused on presenting and selling financing solutions\n\n• Provide post-sales support and advice regarding potential counteroffers\n\n• Drive cross-selling and upselling activities\n\n• Build and maintain long-term customer relationships\n\n• Carry out debt collection activities\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Previous experience in a similar role\n\n• Experience in presenting and selling consumer credit plans to our customer base and prospects in four languages Italian, German and Swiss German, French and English (minimum C1 level in all four languages)\n\n• Resident in Ticino or willing to relocate",
+        "fr": "To strengthen our team, we are looking for a dynamic, customer-oriented professional who can provide professional and personalized support throughout all stages of the customer relationship.\n\nThe successful candidate will act as a key point of contact for our customers, providing expert advice and developing solutions tailored to their needs. The role combines consulting, strong communication skills and a commercial mindset, with the aim of building long-term customer relationships and contributing to the growth of our customer portfolio.\n\nAn excellent command of Italian, German/Swiss German, French and English (minimum C1 level in all four languages) is required.\n\nKey Responsibilities\n\n• Simulate and assess consumer financing proposals\n\n• Provide advice using targeted communication techniques focused on presenting and selling financing solutions\n\n• Provide post-sales support and advice regarding potential counteroffers\n\n• Drive cross-selling and upselling activities\n\n• Build and maintain long-term customer relationships\n\n• Carry out debt collection activities\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Previous experience in a similar role\n\n• Experience in presenting and selling consumer credit plans to our customer base and prospects in four languages Italian, German and Swiss German, French and English (minimum C1 level in all four languages)\n\n• Resident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Esperienza in ruoli simili",
+        "Proposizione e vendita di piani di credito al consumo alla nostra customer base e prospect in\n\n4 lingue italiano, tedesco e svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)",
+        "Residenza in Ticino o disponibilità a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Esperienza in ruoli simili",
+          "Residenza in Ticino o disponibilità a trasferirsi"
+        ],
+        "en": [
+          "Previous experience in a similar role",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-03T23:34:40.087Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-03T13:49:26.508Z"
     },
     {
       "id": "corner-banca-d340d5737202",
@@ -1220,11 +1382,12 @@
       "url": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.199Z",
+      "crawledAt": "2026-09-03T23:34:40.089Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:51:32.218Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1241,44 +1404,63 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "id": "corner-banca-333d7573e186",
-      "slug": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+      "id": "corner-banca-e13869b20e59",
+      "slug": "credit-e-client-advisor-m-f-ref-1128-corner-banca-lugano",
       "slugByLocale": {
-        "it": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-        "en": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-        "de": "kundenbindung-wachstum-ref-1118-corner-banca-lugano",
-        "fr": "conservation-et-croissance-du-client-ref-1118-corner-banca-lugano"
+        "it": "credit-e-client-advisor-m-f-ref-1128-corner-banca-lugano",
+        "en": "credit-e-client-advisor-m-f-ref-1128-corner-banca-lugano",
+        "de": "credit-e-client-advisor-m-f-ref-1128-corner-banca-lugano",
+        "fr": "credit-e-client-advisor-m-f-ref-1128-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Customer Retention & Growth - ref. 1118",
+      "title": "Credit & Client Advisor (m/f) - ref. 1128",
       "titleByLocale": {
-        "it": "Customer Retention & Growth - ref. 1118",
-        "en": "Customer Retention & Growth - ref. 1118",
-        "de": "Kundenbindung & Wachstum - Ref. 1118",
-        "fr": "Conservation et croissance du client - réf. 1118"
+        "it": "Credit & Client Consulente (m/f) - ref. 1128",
+        "en": "Credit & Client Advisor (m/f) - ref. 1128",
+        "de": "Credit & Client Berater (m/f) - ref. 1128",
+        "fr": "Credit & Client Conseiller (m/f) - ref. 1128"
       },
-      "description": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• Residenza in Ticino o disponibilità a trasferirsi",
+      "description": "Siamo alla ricerca di un professionista motivato e preciso da inserire nel nostro team, all’interno di un ambiente dinamico e orientato alla soddisfazione del cliente.\n\nIl ruolo combina l’interazione con i clienti con l’analisi finanziaria, offrendo l’opportunità di supportare i clienti nell’individuazione delle soluzioni più adatte alle loro esigenze, garantendo al contempo una valutazione accurata della loro capacità finanziaria e del profilo di rischio.\n\n• Gestione dei contatti con la clientela telefonicamente e via e-mail\n\n• Ascolto attivo delle esigenze dei clienti e supporto nella ricerca di soluzioni adeguate\n\n• Analisi di documentazione finanziaria, in particolare fogli stipendio e bilanci\n\n• Valutazione preliminare del rischio creditizio e della capacità finanziaria del cliente\n\n• Collaborazione con il team per l’elaborazione e il monitoraggio delle pratiche\n\n•  Aggiornamento e gestione dei dati nei sistemi interni\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Ottima conoscenza di almeno tre lingue tra: italiano, tedesco (C1) e inglese\n\n• Formazione commerciale o equivalente\n\n• Spiccate capacità comunicative e di ascolto attivo\n\n• Interesse e capacità di analisi finanziaria (fogli stipendio, bilanci, documentazione economica)\n\n• Attitudine analitica e precisione nella valutazione del rischio\n\n• Spirito di squadra, affidabilità e senso di responsabilità\n\n• Buona dimestichezza con strumenti informatici e fogli di calcolo\n\nProfilo ideale\n\n• Persona giovane, curiosa e desiderosa di imparare\n\n• Approccio professionale con il cliente\n\n• Capacità di lavorare in modo strutturato e organizzato",
       "descriptionByLocale": {
-        "it": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• Residenza in Ticino o disponibilità a trasferirsi",
-        "en": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate",
-        "de": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate",
-        "fr": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate"
+        "it": "Siamo alla ricerca di un professionista motivato e preciso da inserire nel nostro team, all’interno di un ambiente dinamico e orientato alla soddisfazione del cliente.\n\nIl ruolo combina l’interazione con i clienti con l’analisi finanziaria, offrendo l’opportunità di supportare i clienti nell’individuazione delle soluzioni più adatte alle loro esigenze, garantendo al contempo una valutazione accurata della loro capacità finanziaria e del profilo di rischio.\n\n• Gestione dei contatti con la clientela telefonicamente e via e-mail\n\n• Ascolto attivo delle esigenze dei clienti e supporto nella ricerca di soluzioni adeguate\n\n• Analisi di documentazione finanziaria, in particolare fogli stipendio e bilanci\n\n• Valutazione preliminare del rischio creditizio e della capacità finanziaria del cliente\n\n• Collaborazione con il team per l’elaborazione e il monitoraggio delle pratiche\n\n• Aggiornamento e gestione dei dati nei sistemi interni\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Ottima conoscenza di almeno tre lingue tra: italiano, tedesco (C1) e inglese\n\n• Formazione commerciale o equivalente\n\n• Spiccate capacità comunicative e di ascolto attivo\n\n• Interesse e capacità di analisi finanziaria (fogli stipendio, bilanci, documentazione economica)\n\n• Attitudine analitica e precisione nella valutazione del rischio\n\n• Spirito di squadra, affidabilità e senso di responsabilità\n\n• Buona dimestichezza con strumenti informatici e fogli di calcolo\n\nProfilo ideale\n\n• Persona giovane, curiosa e desiderosa di imparare\n\n• Approccio professionale con il cliente\n\n• Capacità di lavorare in modo strutturato e organizzato",
+        "en": "We are looking for a motivated and detail-oriented professional to join our team in a dynamic and customer-focused environment. This role combines client interaction with financial analysis, offering the opportunity to support customers in identifying suitable solutions while ensuring accurate assessment of their financial capacity and risk profile.\n\nKey Responsibilities:\n\n• Managing customer interactions via phone and email\n\n• Actively listening to client needs and supporting the identification of suitable solutions\n\n• Analyzing financial documentation, including salary slips and financial statements\n\n• Conducting preliminary assessments of credit risk and clients’ financial capacity\n\n• Collaborating with the team on case processing and monitoring\n\n• Maintaining and updating data in internal systems\n\n• Excellent knowledge of at least three of the following languages: Italian, German, French, and English\n\n• Commercial training or equivalent qualification\n\n• Strong communication skills and active listening abilities\n\n• Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\n• Analytical mindset and accuracy in risk assessment\n\n• Team spirit, reliability, and sense of responsibility\n\n• Good IT skills, including proficiency with spreadsheets\n\n• Resident in Ticino or willing to relocate\n\nIdeal Profile:\n\n• Young, curious individual with a strong willingness to learn\n\n• Professional and customer-oriented approach\n\n• Ability to work in a structured and organized manner",
+        "de": "We are looking for a motivated and detail-oriented professional to join our team in a dynamic and customer-focused environment. This role combines client interaction with financial analysis, offering the opportunity to support customers in identifying suitable solutions while ensuring accurate assessment of their financial capacity and risk profile.\n\nKey Responsibilities:\n\n• Managing customer interactions via phone and email\n\n• Actively listening to client needs and supporting the identification of suitable solutions\n\n• Analyzing financial documentation, including salary slips and financial statements\n\n• Conducting preliminary assessments of credit risk and clients’ financial capacity\n\n• Collaborating with the team on case processing and monitoring\n\n• Maintaining and updating data in internal systems\n\n• Excellent knowledge of at least three of the following languages: Italian, German, French, and English\n\n• Commercial training or equivalent qualification\n\n• Strong communication skills and active listening abilities\n\n• Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\n• Analytical mindset and accuracy in risk assessment\n\n• Team spirit, reliability, and sense of responsibility\n\n• Good IT skills, including proficiency with spreadsheets\n\n• Resident in Ticino or willing to relocate\n\nIdeal Profile:\n\n• Young, curious individual with a strong willingness to learn\n\n• Professional and customer-oriented approach\n\n• Ability to work in a structured and organized manner",
+        "fr": "We are looking for a motivated and detail-oriented professional to join our team in a dynamic and customer-focused environment. This role combines client interaction with financial analysis, offering the opportunity to support customers in identifying suitable solutions while ensuring accurate assessment of their financial capacity and risk profile.\n\nKey Responsibilities:\n\n• Managing customer interactions via phone and email\n\n• Actively listening to client needs and supporting the identification of suitable solutions\n\n• Analyzing financial documentation, including salary slips and financial statements\n\n• Conducting preliminary assessments of credit risk and clients’ financial capacity\n\n• Collaborating with the team on case processing and monitoring\n\n• Maintaining and updating data in internal systems\n\n• Excellent knowledge of at least three of the following languages: Italian, German, French, and English\n\n• Commercial training or equivalent qualification\n\n• Strong communication skills and active listening abilities\n\n• Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\n• Analytical mindset and accuracy in risk assessment\n\n• Team spirit, reliability, and sense of responsibility\n\n• Good IT skills, including proficiency with spreadsheets\n\n• Resident in Ticino or willing to relocate\n\nIdeal Profile:\n\n• Young, curious individual with a strong willingness to learn\n\n• Professional and customer-oriented approach\n\n• Ability to work in a structured and organized manner"
       },
       "requirements": [
-        "Esperienza in ruoli simili",
-        "Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue: italiano, tedesco/svizzero tedesco, francese e inglese",
-        "Residenza in Ticino o disponibilità a trasferirsi"
+        "Ottima conoscenza di almeno tre lingue tra: italiano, tedesco (C1) e inglese",
+        "Formazione commerciale o equivalente",
+        "Spiccate capacità comunicative e di ascolto attivo",
+        "Interesse e capacità di analisi finanziaria (fogli stipendio, bilanci, documentazione economica)",
+        "Attitudine analitica e precisione nella valutazione del rischio",
+        "Spirito di squadra, affidabilità e senso di responsabilità",
+        "Buona dimestichezza con strumenti informatici e fogli di calcolo",
+        "Persona giovane, curiosa e desiderosa di imparare",
+        "Approccio professionale con il cliente",
+        "Capacità di lavorare in modo strutturato e organizzato"
       ],
       "requirementsByLocale": {
         "it": [
-          "Esperienza in ruoli simili",
-          "Residenza in Ticino o disponibilità a trasferirsi"
+          "Ottima conoscenza di almeno tre lingue tra: italiano, tedesco (C1) e inglese",
+          "Formazione commerciale o equivalente",
+          "Spiccate capacità comunicative e di ascolto attivo",
+          "Interesse e capacità di analisi finanziaria (fogli stipendio, bilanci, documentazione economica)",
+          "Attitudine analitica e precisione nella valutazione del rischio",
+          "Spirito di squadra, affidabilità e senso di responsabilità",
+          "Buona dimestichezza con strumenti informatici e fogli di calcolo",
+          "Persona giovane, curiosa e desiderosa di imparare"
         ],
         "en": [
-          "Experience in similar positions",
-          "Resident in Ticino or willing to relocate"
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets",
+          "Resident in Ticino or willing to relocate Ideal Profile:"
         ]
       },
       "location": "Lugano",
@@ -1289,87 +1471,14 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
-      "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
+      "postedDate": "2026-09-03",
+      "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:23:13.199Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T20:12:11.446Z",
+      "crawledAt": "2026-09-03T23:34:40.086Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-2d2e3ed2c0ca",
-      "slug": "impiegato-a-s-e-s-retention-e-outbound-ref-1118-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "impiegato-a-s-e-s-retention-e-outbound-ref-1118-corner-banca-lugano",
-        "en": "employee-s-e-s-retention-e-outbound-ref-1118-corner-banca-lugano",
-        "de": "employee-s-e-s-retention-e-outbound-ref-1118-corner-banca-lugano",
-        "fr": "employee-s-e-s-retention-e-outbound-ref-1118-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Impiegato/a S&S Retention & Outbound - ref. 1118",
-      "titleByLocale": {
-        "it": "Impiegato/a S&S Retention & Outbound - ref. 1118",
-        "en": "Employee S&S Retention & Outbound - ref. 1118",
-        "de": "Employee S&S Retention & Outbound - ref. 1118",
-        "fr": "Employee S&S Retention & Outbound - ref. 1118"
-      },
-      "description": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• Residenza in Ticino o disponibilità a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• Residenza in Ticino o disponibilità a trasferirsi",
-        "en": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate",
-        "de": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate",
-        "fr": "italiano We are looking for a motivated and customer-oriented Outbound Customer Consultant to join our team. The role focuses primarily on outbound telephone consulting with our existing customer base and prospects, providing professional and personalized support in Italian, German/Swiss German, French, and English.\n\n• Re-engagement and win-back of existing customers\n\n• Customer retention and loyalty activities\n\n• Encouraging the use of our products and services\n\n• Conducting inbound and outbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Supporting marketing campaign projects aimed at:\n\n• defining targeted and tailored communication for specific customer segments;\n\n• assessing customer interest in new products or services;\n\n• planning strategies and identifying the most appropriate customer approaches.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in similar positions\n\n• Telephone-based consulting, primarily outbound, with our existing customer base and prospects in four languages (Italian, German/Swiss German, French and English).\n\n• Resident in Ticino or willing to relocate"
-      },
-      "requirements": [
-        "Esperienza in ruoli simili",
-        "Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue: italiano, tedesco/svizzero tedesco, francese e inglese",
-        "Residenza in Ticino o disponibilità a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza in ruoli simili",
-          "Residenza in Ticino o disponibilità a trasferirsi"
-        ],
-        "en": [
-          "Experience in similar positions",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "url": "https://jobs.corner.ch/o/employee-ss-retention-outbound-ref-1118",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-27T00:56:22.616Z",
-      "firstSeenAt": "2026-08-18T21:32:39.030Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1384,7 +1493,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-09-03T13:49:26.507Z"
     }
   ]
 }

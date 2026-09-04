@@ -53,14 +53,14 @@ env:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    # #6105: the job budget was 5, and Checkout alone routinely takes ~3m45s-4m
-    # on this repo (4.4GB+ .git, growing — fetch-depth: 50 below) while the
-    # audit script itself runs in ~10-15s. That left ~1min of slack for normal
-    # runner/network jitter, and a single slow checkout (run 32244889738,
-    # 2026-08-19) blew the whole 5min budget before the audit step even
-    # started — Checkout was still "in progress" when the job got cancelled.
-    # 15min gives real headroom over the ~4min baseline as the repo keeps growing.
-    timeout-minutes: 15
+    # #6105: Checkout alone routinely takes ~3m45s-4m on this repo (4.4GB+
+    # .git, growing — fetch-depth: 50 below). The earlier 10-15s audit figure
+    # covered only the static pass; the strict source-detail pass now checks
+    # 1,090 details at concurrency 3. On run 33525971231 it was still running
+    # after 12m10s and GitHub cancelled the 15-minute job before it could write
+    # the JSON report. Sixty minutes bounds the complete fail-closed pass while
+    # retaining strict/source-detail semantics and an artifact for real findings.
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -101,8 +101,26 @@ jobs:
         with:
           node-version: 22
 
+      # The strict audit imports the public-fetch policy, which imports the
+      # declared `undici` dependency. Keep this install before the audit so a
+      # bootstrap failure cannot hide parser findings or suppress its report.
+      - name: Install audit dependencies
+        run: npm ci
+
       - name: Run parser quality audit (strict)
-        run: node scripts/audit-parser-quality.mjs --strict --check-source-details
+        id: parser-audit
+        run: |
+          rm -f data/parser-quality-report.json
+          node scripts/audit-parser-quality.mjs --strict --check-source-details
+
+      - name: Upload parser quality report
+        if: always() && steps.parser-audit.outcome != 'skipped'
+        uses: actions/upload-artifact@v7
+        with:
+          name: parser-quality-report-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/parser-quality-report.json
+          if-no-files-found: error
+          retention-days: 30
 
       # Reporter diagnostico (#5437): il body dice QUALE step è fallito, con
       # quale comando, come si riproduce in locale e quali script guardare
@@ -112,7 +130,11 @@ jobs:
       # successivo. Il titolo resta `Workflow Failure: <name:>` proprio perché è
       # quello il pattern che quel reconciler riconosce — non cambiarlo.
       - name: Report failure to GitHub Issues
-        if: failure()
+        # A job timeout marks the interrupted audit cancelled, not failed. The
+        # report upload above deliberately still runs and fails if no JSON was
+        # finalized; include cancelled() so that exact fail-closed path also
+        # reaches the durable issue reporter (run 33525971231 skipped it).
+        if: failure() || cancelled()
         uses: ./.github/actions/report-failure
         with:
           title: 'Workflow Failure: ${{ github.workflow }}'

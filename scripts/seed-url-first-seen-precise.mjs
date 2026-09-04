@@ -30,10 +30,11 @@
 //     [--fallback-date=YYYY-MM-DD]   default 2026-04-01
 //     [--dry-run]
 
-import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
+import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { dirname, join, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT, DEFAULT_LIVE_CHECK_TIMEOUT_MS } from './lib/live-link-check.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -94,8 +95,7 @@ function loadSlugIndex(rootDir) {
     return index;
   }
   let files = 0, jobs = 0, withFs = 0;
-  for (const f of readdirSync(dir)) {
-    if (!f.endsWith('.json')) continue;
+  for (const f of listSliceFileNames(dir)) {
     files++;
     try {
       const d = JSON.parse(readFileSync(join(dir, f), 'utf8'));
@@ -134,7 +134,13 @@ function loadSlugIndex(rootDir) {
 }
 
 async function fetchSitemap(url) {
-  const r = await fetch(url, { headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT } });
+  // Same sibling fix as scripts/build-search-cluster-301-map.mjs (issue
+  // #6774): this fetch had no bound at all, so one slow/hanging shard could
+  // stall the whole sequential collectLiveUrls() loop indefinitely.
+  const r = await fetch(url, {
+    headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+    signal: AbortSignal.timeout(DEFAULT_LIVE_CHECK_TIMEOUT_MS),
+  });
   if (!r.ok) throw new Error(`${url} → ${r.status}`);
   return await r.text();
 }

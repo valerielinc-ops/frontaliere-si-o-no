@@ -183,6 +183,16 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       // naive class truncated 1065 of 2986 entries — a third of the corpus.
       const ogDescription = unescapeQuoted(block.match(/ogDescription:\s*'((?:[^'\\]|\\.)*)'/)?.[1], "'");
 
+      // Per-article byline, from the same `"author"` object the page's JSON-LD
+      // and visible byline are built from. Only a Person is carried over: an
+      // Organization author is the Redazione, which the channel title already
+      // states, and repeating it as <dc:creator> would say nothing.
+      const authorBlock = block.match(/"author":\s*\{[^}]*\}/)?.[0];
+      const authorName =
+        authorBlock && /"@type":\s*"Person"/.test(authorBlock)
+          ? unescapeQuoted(authorBlock.match(/"name":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"')
+          : '';
+
       if (!headline || !datePublished) continue;
 
       articles.set(articleId, {
@@ -192,6 +202,7 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
         dateModified: dateModified || datePublished,
         articleSection: articleSection || 'Notizie',
         excerpt: ogDescription || description || headline,
+        authorName,
       });
     }
   }
@@ -335,6 +346,15 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       excerpts.get(articleId) || article.excerpt || article.description,
     );
 
+    // Per-item byline. Without it a feed reader has nothing but the channel
+    // title to attribute the piece to, so every article — guest-authored
+    // ones included — syndicates as written by the Redazione, the same
+    // defect `article:author` had in ogPagesPlugin.ts. The Person here is
+    // the one content/seo/** already declares, i.e. the one the page byline
+    // and the JSON-LD show; an Organization author yields no <dc:creator>
+    // because the channel already says that.
+    const creator = article.authorName || '';
+
     items.push({
       title,
       slug,
@@ -343,6 +363,7 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       category: article.articleSection,
       imageUrl: images.get(articleId) || FALLBACK_IMAGE,
       articleId,
+      creator,
     });
   }
 
@@ -370,7 +391,7 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       <title>${escapeXml(item.title)}</title>
       <link>${BASE_URL}${meta.articlePrefix}${escapeXml(item.slug)}/</link>
       <description><![CDATA[${escapeCData(item.excerpt)}]]></description>${contentEncoded}
-      <pubDate>${toRfc822(item.pubDate)}</pubDate>
+      <pubDate>${toRfc822(item.pubDate)}</pubDate>${item.creator ? `\n      <dc:creator><![CDATA[${escapeCData(item.creator)}]]></dc:creator>` : ''}
       <guid isPermaLink="false">${BASE_URL}${meta.articlePrefix}${escapeXml(item.articleId)}</guid>
       <category>${escapeXml(item.category)}</category>
       <media:content url="${escapeXml(item.imageUrl)}" medium="image"/>
@@ -382,6 +403,7 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(meta.title)}</title>

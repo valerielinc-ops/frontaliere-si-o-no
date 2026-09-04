@@ -321,16 +321,16 @@ jobs:
 
           # Tier (mirror di pr-review-loop / issue-fix): high se la PR
           # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
-          # services/seo*), normal altrimenti. Modello UNIFICATO claude-sonnet-5
-          # su entrambi i tier (owner 2026-07-17: mai claude-sonnet-4-6); i tier
+          # services/seo*), normal altrimenti. Modello UNIFICATO claude-opus-5
+          # su entrambi i tier (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6); i tier
           # restano distinti solo per telemetria/prompt.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
           if [ -n "$crit" ] || [ "$files_complete" != "1" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5"   >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
           fi
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
@@ -524,7 +524,7 @@ jobs:
           # fix, evita drift tra copie duplicate).
           # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
           # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
-          claude_args: "--max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
 
@@ -535,7 +535,7 @@ jobs:
             **Obiettivo:** applica un fix CLASS-COMPLETE ai SOLI findings `🔴 Important` della review più recente su QUESTO branch. NON mergiare.
 
             **Regole:**
-            - **PRIMA di applicare qualunque fix, leggi gli STATI GIÀ DICHIARATI nel body della PR — sono già calcolati nel bundle** (sezione "Stati già dichiarati...", `closing-states.json`): stessa logica `extractSection`/`sectionBullets`/`bulletState`/`NON_IMPL_ANCORA_RE` di `scripts/lib/pr-body-sections-check.mjs`, risolta da `main` (non dalla HEAD di questa PR, che può essere un branch nato PRIMA di #5916, dove `bulletState` non è esportato o il file non c'è affatto — la tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body). **NON ricalcolarli con un fetch/parse tuo, e NON scrivere un secondo parser** né una regex tua: se il bundle mostra `[]` ma il body ha davvero una sezione `## Non implementato` non vuota, quello è un segnale che il prefetch è fallito (fetch di `main` non riuscito) — solo in quel caso rifai a mano `gh pr view $PR_NUMBER --json body -q .body`, poi `git fetch --no-tags --depth=1 origin main` e recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` mantenendo la stessa struttura relativa (il primo importa il secondo con un percorso relativo, risolto dalla posizione del file — appiattirlo in un unico file isolato rompe l'import con `ERR_MODULE_NOT_FOUND`), e l'import delle stesse quattro funzioni (`extractSection`, `sectionBullets`, `bulletState`, `NON_IMPL_ANCORA_RE` — è `extractSection` che applica `stripNonContent`, senza il quale gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati). `scripts/ci/followup-has-candidates.mjs` importa le stesse funzioni: una tassonomia riscritta a mano diverge in silenzio dal gate che poi giudica lo stesso body.
+            - **PRIMA di applicare qualunque fix, leggi gli STATI GIÀ DICHIARATI nel body della PR — sono già calcolati nel bundle** (sezione "Stati già dichiarati...", `closing-states.json`): stessa logica `extractSection`/`sectionBullets`/`bulletState`/`NON_IMPL_ANCORA_RE` di `scripts/lib/pr-body-sections-check.mjs`, risolta da `main` (non dalla HEAD di questa PR, che può essere un branch nato PRIMA di #5916, dove `bulletState` non è esportato o il file non c'è affatto — la tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body). **NON ricalcolarli con un fetch/parse tuo, e NON scrivere un secondo parser** né una regex tua: se il bundle mostra `[]` ma il body ha davvero una sezione `## Non implementato` non vuota, quello è un segnale che il prefetch è fallito (fetch di `main` non riuscito) — solo in quel caso rifai a mano `gh pr view $PR_NUMBER --json body -q .body`, poi `git fetch --no-tags --depth=1 origin main` e recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` con `git show FETCH_HEAD:...` (`mkdir -p /tmp/scripts/lib /tmp/scripts/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/scripts/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/scripts/ci/lib/false-positive-declaration.mjs`), mantenendo la stessa struttura relativa (il primo importa il secondo con un percorso relativo, risolto dalla posizione del file — appiattirlo in un unico file isolato rompe l'import con `ERR_MODULE_NOT_FOUND`), e l'import delle stesse quattro funzioni (`extractSection`, `sectionBullets`, `bulletState`, `NON_IMPL_ANCORA_RE` — è `extractSection` che applica `stripNonContent`, senza il quale gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati). `scripts/ci/followup-has-candidates.mjs` importa le stesse funzioni: una tassonomia riscritta a mano diverge in silenzio dal gate che poi giudica lo stesso body.
             - **Quali stati CHIUDONO un finding e quali no — `blocked:` NON è monolitico.** Chiudono: `by-choice` (`per scelta`), `by-construction` (`by construction`) e `blocked-owner` (`blocked: decisione del proprietario` / `owner decision`), che è un NO di chi decide e non lavoro sospeso — sono i tre che stanno nei `CLOSING_STATES` di `scripts/ci/followup-has-candidates.mjs`. NON chiudono: `in-this-pr`, `chained-pr` e `blocked-technical`, cioè ogni altro `blocked: <causa>`, che è lavoro aperto su una causa esterna e il cui 🔴 va comunque fixato. Leggi la CAUSA, non il prefisso.
             - **Due controlli prima di onorare un veto.** `bulletState` vince sull'occorrenza più a SINISTRA, e questo si presta a un falso veto: verifica sul testo del bullet che (a) le parole dello stato non stiano dentro una NEGAZIONE — «il floor non è a 3 per scelta ma per un limite dell'API, il fix vero arriva in questa PR» viene classificato `by-choice` mentre dichiara l'opposto — e che (b) il MOTIVO venga DOPO lo stato, non prima e non altrove. Se uno dei due controlli non regge, lo stato NON copre il finding: fixa il 🔴 normalmente e scrivi nel commento che il bullet è ambiguo. E il veto vale solo per il bullet che copre il TEMA del finding, mai per uno che gli somiglia.
             - **Quando il veto regge:** quel punto è chiuso per decisione, non rinviato — NON toccarlo, non implementarlo, non riscriverlo sotto `## Implementato`. Commenta sulla PR citando il bullet verbatim e lo stato letto (`🔴 non applicato: il body dichiara «<bullet>» → stato <per scelta|by construction|blocked: decisione del proprietario> con un motivo; lo stato dichiarato copre il finding`) e passa al finding successivo. Un fixer che riapre di iniziativa una voce chiusa contraddice una decisione già presa e ri-arma il round successivo su lavoro che nessuno vuole.

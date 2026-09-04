@@ -42,7 +42,7 @@ export const SLIM_INDEX_FIELDS: ReadonlySet<string> = new Set([
   // it region-specific subscriber matching silently degrades.
   'addressLocality', 'addressRegion', 'sector',
   'category', 'contract', 'department',
-  'salaryMin', 'salaryMax', 'currency',
+  'salaryMin', 'salaryMax', 'currency', 'salarySource',
   'postedDate', 'crawledAt', 'firstSeenAt',
   'featured', 'source', 'qualityScore',
   // Publisher-ad fields: card logo + the apply-mode trio the detail view needs

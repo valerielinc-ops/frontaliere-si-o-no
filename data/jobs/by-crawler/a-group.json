@@ -1,10 +1,10 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-08-28T05:26:25.994Z",
+  "assembledAt": "2026-09-03T23:17:17.362Z",
   "jobs": [
     {
       "title": "Booking & Revenue Specialist – Luxury Hospitality",
-      "slug": "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno",
+      "slug": "booking-revenue-specialista-luxury-hospitality-a-group-massagno",
       "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
       "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
       "company": "A++ Group",
@@ -38,10 +38,10 @@
         "en": "Booking & Revenue Specialist – Luxury Hospitality"
       },
       "slugByLocale": {
-        "it": "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno",
+        "it": "booking-revenue-specialista-luxury-hospitality-a-group-massagno",
         "en": "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno",
-        "de": "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno",
-        "fr": "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno"
+        "de": "booking-revenue-spezialist-luxury-hospitality-a-group-massagno",
+        "fr": "booking-revenue-specialiste-luxury-hospitality-a-group-massagno"
       },
       "id": "a-group-3ed7b9973902",
       "salaryMin": 49500,
@@ -57,8 +57,23 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:26:25.994Z"
+      "firstSeenAt": "2026-08-28T05:26:25.994Z",
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno"
+        ],
+        "de": [
+          "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno"
+        ],
+        "fr": [
+          "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno"
+        ]
+      },
+      "previousSlugs": [
+        "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hospitality Manager – Luxury Hospitality",
@@ -96,12 +111,11 @@
       },
       "slugByLocale": {
         "it": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
-        "en": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
+        "en": "hospitality-manager-luxury-hospitality-a-group-massagno",
         "de": "hospitality-manager-luxus-hospitality-a-group-massagno",
         "fr": "responsable-de-l-accueil-luxury-hospitality-a-group-massagno"
       },
       "id": "a-group-555f4c55dbc7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -115,7 +129,17 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-28T05:26:25.994Z"
+      "firstSeenAt": "2026-08-28T05:26:25.994Z",
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "en": [
+          "hospitalit-manager-a-group-massagno"
+        ]
+      },
+      "previousSlugs": [
+        "hospitalit-manager-a-group-massagno"
+      ],
+      "needsRetranslation": true
     }
   ]
 }

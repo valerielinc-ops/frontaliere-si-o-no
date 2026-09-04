@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bps-suisse",
-  "assembledAt": "2026-08-28T05:37:21.949Z",
+  "assembledAt": "2026-09-03T23:37:16.879Z",
   "jobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
@@ -45,9 +45,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-28T05:37:19.808Z",
+      "crawledAt": "2026-09-03T23:37:12.883Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -65,7 +65,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-07T11:59:13.173Z"
+      "firstSeenAt": "2026-07-07T11:59:13.173Z",
+      "salarySource": "estimated"
     },
     {
       "id": "bps-suisse-cf081dc653a5",
@@ -110,9 +111,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-28T05:37:19.521Z",
+      "crawledAt": "2026-09-03T23:37:12.513Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -130,7 +131,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T22:34:05.339Z"
+      "firstSeenAt": "2026-07-14T22:34:05.339Z",
+      "salarySource": "estimated"
     },
     {
       "id": "bps-suisse-ca3147dfc767",
@@ -175,9 +177,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-28T05:37:19.104Z",
+      "crawledAt": "2026-09-03T23:37:12.091Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -203,7 +205,8 @@
       },
       "previousSlugs": [
         "specialiste-du-respect-des-dispositions-bps-banca-popolare-di-sondrio-suisse-lugano"
-      ]
+      ],
+      "salarySource": "estimated"
     },
     {
       "id": "bps-suisse-7e40eb648fab",
@@ -248,9 +251,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-09-03",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-28T05:37:18.199Z",
+      "crawledAt": "2026-09-03T23:37:11.354Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -268,7 +271,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T11:46:31.059Z"
+      "firstSeenAt": "2026-07-31T11:46:31.059Z",
+      "salarySource": "estimated"
     }
   ]
 }

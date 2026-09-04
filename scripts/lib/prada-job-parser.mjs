@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Prada Group — jobs.pradagroup.com job parser
  *
@@ -23,7 +24,12 @@
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const HQ = getCompanyDefaults('prada');
 
@@ -31,6 +37,59 @@ const SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=switze
 const TICINO_SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location';
 const CAREERS_BASE = 'https://jobs.pradagroup.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+export function normalizePradaJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/job\/[^/]+\/\d+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
+// SuccessFactors detail pages sometimes prefix the city with a Swiss postal
+// code ("6850 Mendrisio", "CH-6850 Mendrisio, Ticino") — the same convention
+// already stripped for other crawlers, e.g. `agroscope-job-parser.mjs`. The
+// separator between the postal code and the city is a space or a hyphen
+// ("6850-Mendrisio"): a space-only strip left that variant unstripped and
+// still fail-closed, same bug class as the one this stripper exists to fix.
+// Only the leading digits (+ separator) are stripped for the ownership
+// check. A proven match is returned as the canonical city name so the
+// downstream BFS-backed JobPosting locality validator does not reject a
+// display-formatted value and fall back to the canton capital.
+function stripLeadingSwissPostalCode(value = '') {
+  return value.replace(/^(?:CH[-\s])?\d{4}(?:\s+|-(?=\p{L}))(?=\p{L})/iu, '');
+}
+
+/**
+ * Resolve a Prada listing to the only location owned by this Ticino crawler.
+ * The upstream `locationsearch` parameters are currently ignored by the
+ * SuccessFactors tenant, so the listing location plus the canonical route are
+ * the source of truth. When the listing location is absent, the route alone
+ * may prove Mendrisio; unknown and conflicting evidence fails closed.
+ *
+ * @param {{location?: string, url?: string}} job
+ * @returns {string|null}
+ */
+export function resolvePradaTicinoLocation(job = {}) {
+  const location = normalizeSpace(job?.location || '');
+  const safeUrl = normalizePradaJobUrl(job?.url || '');
+  if (!safeUrl) return null;
+  try {
+    const path = decodeURIComponent(new URL(safeUrl).pathname);
+    const routeIsMendrisio = /^\/job\/Mendrisio(?:-|\/)/i.test(path);
+    if (!routeIsMendrisio) return null;
+    if (!location) return 'Mendrisio';
+    const candidate = stripLeadingSwissPostalCode(location);
+    return /^mendrisio(?:\b|\s*[,(/-])/i.test(candidate) ? 'Mendrisio' : null;
+  } catch {
+    return null;
+  }
+}
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -60,14 +119,13 @@ export function stripHtml(html = '') {
 }
 
 export function slugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-'), 180);
 }
 
 /**
@@ -101,19 +159,22 @@ export function parsePradaListingHtml(html) {
     const relUrl = match[1];
     const jobId = match[3];
     const rawTitle = normalizeSpace(stripHtml(match[4]));
-    if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+    if (!rawTitle || rawTitle.length < 3) continue;
     // Anchor text that IS the j2w page chrome (cookie-consent widget,
     // keyword-search box, job-alert box) is not a posting — discard the row
     // rather than clean it, which would leave an annuncio without a name.
     if (isSuccessFactorsWidgetText(rawTitle)) continue;
+    const fullUrl = normalizePradaJobUrl(relUrl);
+    if (!fullUrl || seen.has(jobId)) continue;
     seen.add(jobId);
-
-    const fullUrl = relUrl.startsWith('http') ? relUrl : `${CAREERS_BASE}${relUrl}`;
 
     // Extract location from the next colLocation cell
     const afterMatch = html.slice(match.index, match.index + 1000);
     const locMatch = afterMatch.match(/class="[^"]*colLocation[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
-    const location = locMatch ? normalizeSpace(stripHtml(locMatch[1])) : '';
+    // keep the visible office — see stripSuccessFactorsMoreLocations()
+    const location = locMatch
+      ? stripSuccessFactorsMoreLocations(normalizeSpace(stripHtml(locMatch[1])))
+      : '';
 
     // Extract department from colDepartment cell if present
     const deptMatch = afterMatch.match(/class="[^"]*colDepartment[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
@@ -147,7 +208,7 @@ export function parsePradaListingHtml(html) {
       id: `prada-${jobId}`,
       title: rawTitle,
       url: fullUrl,
-      location: resolvedLocation || 'Mendrisio',
+      location: resolvedLocation,
       canton: HQ.canton,
       department,
       jobId,
@@ -162,18 +223,23 @@ export function parsePradaListingHtml(html) {
       const relUrl = fMatch[1];
       const jobId = fMatch[2];
       const rawTitle = normalizeSpace(stripHtml(fMatch[3]));
-      if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+      if (!rawTitle || rawTitle.length < 3) continue;
       // Same guard as pattern 1 above — this fallback anchor is even more
       // generic (any /job/.../{id}/ link), so it's just as exposed to
       // picking up widget chrome instead of a job tile.
       if (isSuccessFactorsWidgetText(rawTitle)) continue;
+      const fullUrl = normalizePradaJobUrl(relUrl);
+      if (!fullUrl || seen.has(jobId)) continue;
       seen.add(jobId);
 
       jobs.push({
         id: `prada-${jobId}`,
         title: rawTitle,
-        url: `${CAREERS_BASE}${relUrl}`,
-        location: 'Mendrisio',
+        url: fullUrl,
+        // Do not invent the Ticino HQ for a row whose source exposes no
+        // location. resolvePradaTicinoLocation may still prove Mendrisio from
+        // the canonical route, while every other unknown fails closed.
+        location: '',
         canton: HQ.canton,
         department: '',
         jobId,
@@ -306,20 +372,56 @@ export function parsePradaDetailHtml(html) {
  * Searches for both "switzerland" and "ticino" to maximize coverage.
  */
 export async function fetchPradaJobUrls(timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const allJobs = [];
     const seenIds = new Set();
 
     for (const searchUrl of [SEARCH_URL, TICINO_SEARCH_URL]) {
-      const res = await fetch(searchUrl, {
-        signal: controller.signal,
-        headers: { Accept: 'text/html', 'User-Agent': UA },
-        redirect: 'follow',
+      const html = await fetchWithRetry(async () => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          // Manual redirect handling distinguishes a structural 3xx from a
+          // transient network TypeError. Redirects are never followed or
+          // retried: the two authoritative search routes are fixed.
+          const res = await fetch(searchUrl, {
+            signal: controller.signal,
+            headers: { Accept: 'text/html', 'User-Agent': UA },
+            redirect: 'manual',
+          });
+          if (res.status >= 300 && res.status < 400) {
+            throw new Error(`Prada search returned structural redirect HTTP ${res.status}`);
+          }
+          if (!res.ok) {
+            const err = new Error(`Prada search returned HTTP ${res.status}`);
+            err.status = res.status;
+            err.retryable = RETRYABLE_STATUS.has(res.status);
+            throw err;
+          }
+
+          const expectedUrl = new URL(searchUrl);
+          const effectiveUrl = new URL(res.url || searchUrl);
+          if (
+            effectiveUrl.protocol !== 'https:'
+            || effectiveUrl.origin !== CAREERS_BASE
+            || effectiveUrl.pathname !== expectedUrl.pathname
+          ) {
+            throw new Error('Prada search resolved to an untrusted origin or path');
+          }
+
+          const body = await res.text();
+          if (!/class=["'][^"']*searchResults\b/i.test(body)) {
+            throw new Error('Prada search response did not contain the authoritative results table');
+          }
+          return body;
+        } finally {
+          clearTimeout(timer);
+        }
+      }, {
+        retries: 2,
+        label: `Prada search ${new URL(searchUrl).searchParams.get('locationsearch')}`,
       });
-      if (!res.ok) continue;
-      const html = await res.text();
+
       const jobs = parsePradaListingHtml(html);
       for (const job of jobs) {
         if (!seenIds.has(job.jobId)) {
@@ -329,13 +431,10 @@ export async function fetchPradaJobUrls(timeoutMs = 15000) {
       }
     }
 
-    clearTimeout(timer);
     return allJobs;
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Prada Group careers page: ${err.message}`);
     return [];
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -343,10 +442,12 @@ export async function fetchPradaJobUrls(timeoutMs = 15000) {
  * Fetch and parse a single Prada Group detail page.
  */
 export async function fetchPradaDetailPage(url, timeoutMs = 15000) {
+  const safeUrl = normalizePradaJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       signal: controller.signal,
       headers: { Accept: 'text/html', 'User-Agent': UA },
       redirect: 'follow',

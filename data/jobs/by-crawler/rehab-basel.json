@@ -1,192 +1,7 @@
 {
   "crawlerKey": "rehab-basel",
-  "assembledAt": "2026-08-28T05:24:20.240Z",
+  "assembledAt": "2026-09-03T23:16:39.933Z",
   "jobs": [
-    {
-      "id": "rehab-basel-4a143774111b",
-      "slug": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
-      "slugByLocale": {
-        "it": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
-        "en": "internship-in-nursing-100-m-f-d-rehab-basel-basel",
-        "de": "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
-        "fr": "stage-en-soins-infirmiers-100-h-f-d-rehab-basel-basel"
-      },
-      "company": "REHAB Basel",
-      "companyKey": "rehab-basel",
-      "companyDomain": "rehab.ch",
-      "title": "Praktikum in der Pflege 100% m/w/d",
-      "titleByLocale": {
-        "it": "Stage in Assistenza Sanitaria 100% m/w/e",
-        "en": "100% Internship in Healthcare Assistance",
-        "de": "Praktikum in der Pflege 100% m/w/d",
-        "fr": "Stage en Soins de Santé 100% m/f/d"
-      },
-      "description": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-      "descriptionByLocale": {
-        "it": "Descrizione Stage in Assistenza Sanitaria 100% m/w/e presso REHAB Basel – Clinica per la Riabilitazione Neuroreologica e la Paraplegia, Basel (4055, BS), Svizzera. - Referenza: 2022-132 - Luogo: Basel (BS) - Settore: Riabilitazione Neuroreologica e Paraplegia - Invio della candidatura tramite il portale di carriera Talentsoft di REHAB Basel",
-        "en": "Description 100% Internship in Healthcare Assistance at REHAB Basel – Clinic for Neurorehabilitation and Paraplegia, Basel (4055, BS), Switzerland. - Reference: 2022-132 - Location: Basel (BS) - Field: Neurorehabilitation and Paraplegia - Apply via REHAB Basel’s Talentsoft Career Portal",
-        "de": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-        "fr": "Description Stage en soins de santé 100% m/f/d chez REHAB Basel – Clinique de neuroréadaptation et paraplégie, Bâle (4055, BS), Suisse. - Référence : 2022-132 - Lieu : Bâle (BS) - Domaine : Neuroréadaptation et paraplégie - Candidature à envoyer via le portail de carrière Talentsoft de REHAB Basel"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
-      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:24:14.072Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4055",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-28",
-      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Studente/i in campo infermieristico o terapeutico",
-          "Conoscenza della lingua tedesca (almeno livello B1)",
-          "Disponibilità per un periodo di almeno 3 mesi"
-        ],
-        "en": [
-          "Students in the field of nursing or therapy",
-          "Knowledge of the German language (at least level B1)",
-          "Availability for a period of at least 3 months"
-        ],
-        "fr": [
-          "Étudiants en soins infirmiers ou en thérapie",
-          "Connaissance de la langue allemande (au moins niveau B1)",
-          "Disponibilité pour une période d'au moins 3 mois"
-        ]
-      },
-      "previousSlugs": [
-        "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
-        "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel",
-        "100-internship-in-healthcare-assistance-rehab-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
-          "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel"
-        ],
-        "en": [
-          "100-internship-in-healthcare-assistance-rehab-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T10:00:47.508Z",
-      "salaryMin": 79000,
-      "salaryMax": 110500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "rehab-basel-df8651885ba3",
-      "slug": "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-sowie-praktiker-in-afp-m-w-d-rehab-basel",
-      "slugByLocale": {
-        "it": "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-sowie-praktiker-in-afp-m-w-d-rehab-basel",
-        "en": "2027-hotel-and-household-management-efz-trainee-rehab-basel-basel",
-        "de": "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
-        "fr": "stage-2027-en-hotellerie-hauswirtschaft-efz-rehab-basel-basel"
-      },
-      "company": "REHAB Basel",
-      "companyKey": "rehab-basel",
-      "companyDomain": "rehab.ch",
-      "title": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d",
-      "titleByLocale": {
-        "it": "Borsa di apprendistato 2027 per Esperto/Esperta Servizi Alberghieri e Gestione Domestica EFZ, e Operatore/Operatrice EBA m/w/e",
-        "en": "Apprenticeship 2027 as Hotel & Housekeeping Specialist EFZ, and EBA Practitioner m/w/e",
-        "de": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d",
-        "fr": "Apprentissage 2027 en gestion hôtelière et ménagère EFZ, et opérateur/trice EBA m/w/e"
-      },
-      "description": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-284\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-      "descriptionByLocale": {
-        "it": "Borsa di apprendistato 2027 per Esperto/Esperta Servizi Alberghieri e Gestione Domestica EFZ, e Operatore/Operatrice EBA m/w/e presso REHAB Basel — Clinica per la Riabilitazione Neurorica e la Paraplegia, Basel (4055, BS), Svizzera Referenza 2026-284 Luogo Basel (BS) Settore Riabilitazione Neurorica e Paraplegia Candidatura Inviare la candidatura tramite il portale di carriere di REHAB Basel (Talentsoft).",
-        "en": "Apprenticeship 2027 as Hotel & Housekeeping Specialist EFZ, and EBA Practitioner m/w/e at REHAB Basel — Neurorehabilitation and Paraplegia Clinic, Basel (4055, BS), Switzerland Reference 2026-284 Location Basel (BS) Field Neurorehabilitation and Paraplegia Application Submit your application via REHAB Basel’s Talentsoft Career Portal.",
-        "de": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-284\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-        "fr": "Apprentissage 2027 en gestion hôtelière et ménagère EFZ, et opérateur/trice EBA m/w/e chez REHAB Basel — Clinique de neuroréadaptation et paraplégie, Bâle (4055, BS), Suisse Référence 2026-284 Lieu Bâle (BS) Domaine Neuroréadaptation et paraplégie Candidature Envoyer votre candidature via le portail de carrières de REHAB Basel (Talentsoft)."
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba-m-w-d_284.aspx",
-      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:24:14.071Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4055",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba-m-w-d_284.aspx",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ",
-          "Praktiker*in EBA m/w/d"
-        ],
-        "en": [
-          "Hotel and Household Management EFZ Professional",
-          "EBA Practitioner m/f/d"
-        ],
-        "fr": [
-          "Professionnel*le en Hôtellerie-Hauswirtschaft EFZ",
-          "Praticien*ne EBA m/f/d"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
-        "borsa-di-apprendistato-2027-per-esperto-esperta-servizi-alberghieri-e-gestione-domestica-efz-e-operatore-operatrice-eba",
-        "apprenticeship-2027-as-hotel-housekeeping-specialist-efz-and-eba-practitioner-m-w-e-rehab-basel-basel",
-        "apprentissage-2027-en-gestion-hoteliere-et-menagere-efz-et-operateur-trice-eba-m-w-e-rehab-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
-          "borsa-di-apprendistato-2027-per-esperto-esperta-servizi-alberghieri-e-gestione-domestica-efz-e-operatore-operatrice-eba"
-        ],
-        "en": [
-          "apprenticeship-2027-as-hotel-housekeeping-specialist-efz-and-eba-practitioner-m-w-e-rehab-basel-basel"
-        ],
-        "fr": [
-          "apprentissage-2027-en-gestion-hoteliere-et-menagere-efz-et-operateur-trice-eba-m-w-e-rehab-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T10:00:47.505Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "rehab-basel-af1fb99cf471",
       "slug": "cuoco-dietetico-al-100-m-f-d-rehab-basel-basel",
@@ -218,7 +33,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-diatkoch-in-100-m-w-d_201.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:24:14.071Z",
+      "crawledAt": "2026-09-03T23:16:34.097Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -270,6 +85,7 @@
       "firstSeenAt": "2026-05-19T10:00:47.507Z",
       "salaryMin": 67500,
       "salaryMax": 84500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -277,6 +93,99 @@
           "@type": "QuantitativeValue",
           "minValue": 67500,
           "maxValue": 84500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "rehab-basel-4a143774111b",
+      "slug": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
+      "slugByLocale": {
+        "it": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
+        "en": "internship-in-nursing-100-m-f-d-rehab-basel-basel",
+        "de": "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
+        "fr": "stage-en-soins-infirmiers-100-h-f-d-rehab-basel-basel"
+      },
+      "company": "REHAB Basel",
+      "companyKey": "rehab-basel",
+      "companyDomain": "rehab.ch",
+      "title": "Praktikum in der Pflege 100% m/w/d",
+      "titleByLocale": {
+        "it": "Stage in Assistenza Sanitaria 100% m/w/e",
+        "en": "100% Internship in Healthcare Assistance",
+        "de": "Praktikum in der Pflege 100% m/w/d",
+        "fr": "Stage en Soins de Santé 100% m/f/d"
+      },
+      "description": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+      "descriptionByLocale": {
+        "it": "Descrizione Stage in Assistenza Sanitaria 100% m/w/e presso REHAB Basel – Clinica per la Riabilitazione Neuroreologica e la Paraplegia, Basel (4055, BS), Svizzera. - Referenza: 2022-132 - Luogo: Basel (BS) - Settore: Riabilitazione Neuroreologica e Paraplegia - Invio della candidatura tramite il portale di carriera Talentsoft di REHAB Basel",
+        "en": "Description 100% Internship in Healthcare Assistance at REHAB Basel – Clinic for Neurorehabilitation and Paraplegia, Basel (4055, BS), Switzerland. - Reference: 2022-132 - Location: Basel (BS) - Field: Neurorehabilitation and Paraplegia - Apply via REHAB Basel’s Talentsoft Career Portal",
+        "de": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+        "fr": "Description Stage en soins de santé 100% m/f/d chez REHAB Basel – Clinique de neuroréadaptation et paraplégie, Bâle (4055, BS), Suisse. - Référence : 2022-132 - Lieu : Bâle (BS) - Domaine : Neuroréadaptation et paraplégie - Candidature à envoyer via le portail de carrière Talentsoft de REHAB Basel"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
+      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:16:34.098Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4055",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-28",
+      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Studente/i in campo infermieristico o terapeutico",
+          "Conoscenza della lingua tedesca (almeno livello B1)",
+          "Disponibilità per un periodo di almeno 3 mesi"
+        ],
+        "en": [
+          "Students in the field of nursing or therapy",
+          "Knowledge of the German language (at least level B1)",
+          "Availability for a period of at least 3 months"
+        ],
+        "fr": [
+          "Étudiants en soins infirmiers ou en thérapie",
+          "Connaissance de la langue allemande (au moins niveau B1)",
+          "Disponibilité pour une période d'au moins 3 mois"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
+        "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel",
+        "100-internship-in-healthcare-assistance-rehab-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
+          "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel"
+        ],
+        "en": [
+          "100-internship-in-healthcare-assistance-rehab-basel-basel"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T10:00:47.508Z",
+      "salaryMin": 79000,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 110500,
           "unitText": "YEAR"
         }
       }
@@ -312,7 +221,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d_133.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:24:14.070Z",
+      "crawledAt": "2026-09-03T23:16:34.094Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -346,6 +255,7 @@
       "firstSeenAt": "2026-06-02T14:25:33.656Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -389,7 +299,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d_282.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.070Z",
+      "crawledAt": "2026-09-03T23:16:34.093Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -423,6 +333,7 @@
       "firstSeenAt": "2026-05-19T10:00:47.504Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -430,6 +341,100 @@
           "@type": "QuantitativeValue",
           "minValue": 88000,
           "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "rehab-basel-df8651885ba3",
+      "slug": "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-sowie-praktiker-in-afp-m-w-d-rehab-basel",
+      "slugByLocale": {
+        "it": "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-sowie-praktiker-in-afp-m-w-d-rehab-basel",
+        "en": "2027-hotel-and-household-management-efz-trainee-rehab-basel-basel",
+        "de": "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
+        "fr": "stage-2027-en-hotellerie-hauswirtschaft-efz-rehab-basel-basel"
+      },
+      "company": "REHAB Basel",
+      "companyKey": "rehab-basel",
+      "companyDomain": "rehab.ch",
+      "title": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d",
+      "titleByLocale": {
+        "it": "Borsa di apprendistato 2027 per Esperto/Esperta Servizi Alberghieri e Gestione Domestica EFZ, e Operatore/Operatrice EBA m/w/e",
+        "en": "Apprenticeship 2027 as Hotel & Housekeeping Specialist EFZ, and EBA Practitioner m/w/e",
+        "de": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d",
+        "fr": "Apprentissage 2027 en gestion hôtelière et ménagère EFZ, et opérateur/trice EBA m/w/e"
+      },
+      "description": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-284\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+      "descriptionByLocale": {
+        "it": "Borsa di apprendistato 2027 per Esperto/Esperta Servizi Alberghieri e Gestione Domestica EFZ, e Operatore/Operatrice EBA m/w/e presso REHAB Basel — Clinica per la Riabilitazione Neurorica e la Paraplegia, Basel (4055, BS), Svizzera Referenza 2026-284 Luogo Basel (BS) Settore Riabilitazione Neurorica e Paraplegia Candidatura Inviare la candidatura tramite il portale di carriere di REHAB Basel (Talentsoft).",
+        "en": "Apprenticeship 2027 as Hotel & Housekeeping Specialist EFZ, and EBA Practitioner m/w/e at REHAB Basel — Neurorehabilitation and Paraplegia Clinic, Basel (4055, BS), Switzerland Reference 2026-284 Location Basel (BS) Field Neurorehabilitation and Paraplegia Application Submit your application via REHAB Basel’s Talentsoft Career Portal.",
+        "de": "Lehrstelle 2027 als Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ, sowie Praktiker*in EBA m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-284\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+        "fr": "Apprentissage 2027 en gestion hôtelière et ménagère EFZ, et opérateur/trice EBA m/w/e chez REHAB Basel — Clinique de neuroréadaptation et paraplégie, Bâle (4055, BS), Suisse Référence 2026-284 Lieu Bâle (BS) Domaine Neuroréadaptation et paraplégie Candidature Envoyer votre candidature via le portail de carrières de REHAB Basel (Talentsoft)."
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba-m-w-d_284.aspx",
+      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:16:34.094Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4055",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-20",
+      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba-m-w-d_284.aspx",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ",
+          "Praktiker*in EBA m/w/d"
+        ],
+        "en": [
+          "Hotel and Household Management EFZ Professional",
+          "EBA Practitioner m/f/d"
+        ],
+        "fr": [
+          "Professionnel*le en Hôtellerie-Hauswirtschaft EFZ",
+          "Praticien*ne EBA m/f/d"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
+        "borsa-di-apprendistato-2027-per-esperto-esperta-servizi-alberghieri-e-gestione-domestica-efz-e-operatore-operatrice-eba",
+        "apprenticeship-2027-as-hotel-housekeeping-specialist-efz-and-eba-practitioner-m-w-e-rehab-basel-basel",
+        "apprentissage-2027-en-gestion-hoteliere-et-menagere-efz-et-operateur-trice-eba-m-w-e-rehab-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
+          "borsa-di-apprendistato-2027-per-esperto-esperta-servizi-alberghieri-e-gestione-domestica-efz-e-operatore-operatrice-eba"
+        ],
+        "en": [
+          "apprenticeship-2027-as-hotel-housekeeping-specialist-efz-and-eba-practitioner-m-w-e-rehab-basel-basel"
+        ],
+        "fr": [
+          "apprentissage-2027-en-gestion-hoteliere-et-menagere-efz-et-operateur-trice-eba-m-w-e-rehab-basel-basel"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T10:00:47.505Z",
+      "salaryMin": 52000,
+      "salaryMax": 78500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 52000,
+          "maxValue": 78500,
           "unitText": "YEAR"
         }
       }
@@ -466,7 +471,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-_289.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.066Z",
+      "crawledAt": "2026-09-03T23:16:34.093Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -500,6 +505,7 @@
       "firstSeenAt": "2026-06-24T22:52:05.793Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -543,7 +549,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d_290.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.066Z",
+      "crawledAt": "2026-09-03T23:16:34.093Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -574,6 +580,7 @@
       "firstSeenAt": "2026-06-24T12:18:04.354Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -617,7 +624,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-fruhrehabilitation-80-100-m-w-d_137.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.066Z",
+      "crawledAt": "2026-09-03T23:16:34.093Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -647,6 +654,71 @@
       "firstSeenAt": "2026-05-19T10:00:47.506Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "rehab-basel-3f6f9a0523ed",
+      "slug": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
+      "slugByLocale": {
+        "it": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
+        "en": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
+        "de": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
+        "fr": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel"
+      },
+      "company": "REHAB Basel",
+      "companyKey": "rehab-basel",
+      "companyDomain": "rehab.ch",
+      "title": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d",
+      "titleByLocale": {
+        "it": "Dipl. Infermiere IMCU 80%-100% m/w/d",
+        "en": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d",
+        "de": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d",
+        "fr": "Dipl. Infirmier IMCU 80%-100% m/w/d"
+      },
+      "description": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-291\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+      "descriptionByLocale": {
+        "it": "Dipl. Pflegefachperson IMCU 80%-100% m/p/d bei REHAB Basel. Klinik für Neuroreabilitation und Paraplegiologie, Basel (4055, BS), Schweiz. - Refererenz: 2026-291 - Baset: Basel (BS) - Fachgebiet: Neuroreabilitation und Paraplegiologie - Bewerbung über das Totalntoft-Karriereportal von REHAB Basel",
+        "en": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-291\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+        "de": "Dipl.Hydrich-Henne-M.-Henne-M.-Henne-M.-Henne-M.-Henne-M.-Henne-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M------M-M--------",
+        "fr": "Dipl. Pflegefachperson ICU 80-100% m/w/d bei REHAB Basel — Klinik für Neurrere PSE und Paraplégiologie, Basel (4055, BS), Schweiz. - Référentiel: 2026-291 - Standort: Basel (BS) - Fachgebiet: Neurrere PSE und Paraplégiologie - Bewerbung über das Talentsoft-Karriereportal von REHAB Basel"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-imcu-80-100-m-w-d_291.aspx",
+      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-03T23:16:34.092Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4055",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-imcu-80-100-m-w-d_291.aspx",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-24T12:18:04.353Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -690,7 +762,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-_136.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.065Z",
+      "crawledAt": "2026-09-03T23:16:34.092Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -728,6 +800,7 @@
       "firstSeenAt": "2026-05-19T10:00:47.506Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -770,7 +843,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-paraplegiologie-80-100-m-w-d_258.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:24:14.065Z",
+      "crawledAt": "2026-09-03T23:16:34.092Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -830,132 +903,7 @@
       "firstSeenAt": "2026-05-19T10:00:47.508Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "rehab-basel-3f6f9a0523ed",
-      "slug": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
-      "slugByLocale": {
-        "it": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
-        "en": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
-        "de": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
-        "fr": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel"
-      },
-      "company": "REHAB Basel",
-      "companyKey": "rehab-basel",
-      "companyDomain": "rehab.ch",
-      "title": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d",
-      "titleByLocale": {
-        "it": "Dipl. Infermiere IMCU 80%-100% m/w/d",
-        "en": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d",
-        "de": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d",
-        "fr": "Dipl. Infirmier IMCU 80%-100% m/w/d"
-      },
-      "description": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-291\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-      "descriptionByLocale": {
-        "it": "Dipl. Pflegefachperson IMCU 80%-100% m/p/d bei REHAB Basel. Klinik für Neuroreabilitation und Paraplegiologie, Basel (4055, BS), Schweiz. - Refererenz: 2026-291 - Baset: Basel (BS) - Fachgebiet: Neuroreabilitation und Paraplegiologie - Bewerbung über das Totalntoft-Karriereportal von REHAB Basel",
-        "en": "Dipl. Pflegefachperson IMCU 80%-100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-291\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-        "de": "Dipl.Hydrich-Henne-M.-Henne-M.-Henne-M.-Henne-M.-Henne-M.-Henne-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M.-M------M-M--------",
-        "fr": "Dipl. Pflegefachperson ICU 80-100% m/w/d bei REHAB Basel — Klinik für Neurrere PSE und Paraplégiologie, Basel (4055, BS), Schweiz. - Référentiel: 2026-291 - Standort: Basel (BS) - Fachgebiet: Neurrere PSE und Paraplégiologie - Bewerbung über das Talentsoft-Karriereportal von REHAB Basel"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-imcu-80-100-m-w-d_291.aspx",
-      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.064Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4055",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-imcu-80-100-m-w-d_291.aspx",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-24T12:18:04.353Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "rehab-basel-b19dfa5661eb",
-      "slug": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
-      "slugByLocale": {
-        "it": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
-        "en": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
-        "de": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
-        "fr": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel"
-      },
-      "company": "REHAB Basel",
-      "companyKey": "rehab-basel",
-      "companyDomain": "rehab.ch",
-      "title": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d",
-      "titleByLocale": {
-        "it": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station lunedì/mercoledì/giorno",
-        "en": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d",
-        "de": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d",
-        "fr": "Fachperson Gesundheit (FAGE) 80 % - 100 % / Station SAP lundi et mercredi, j."
-      },
-      "description": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2023-166\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-      "descriptionByLocale": {
-        "it": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel. Klinik für Neuroreabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Refererenz: 2023-166\n• Landarit: Basel (BS)\n• Fachgebiet: Neuroreabilitation und Paraplegiologie\n• Bewerbung über das Tantsoft-Karriereportal von REHAB Basel",
-        "en": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2023-166\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-        "de": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d für REHAB Basel — Klinik für Neuroreh-Moderation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2023-166\n• Standort: Basel (BS) •120: Neuroreh-Moderation und Paraplegiologie •Benchance über das Talentsoft-Karriereportal von REHAB Basel",
-        "fr": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel — Klinik für Neurrehabilitation und Paraplégiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2023-166\n• Standort: Basel (BS)\n• Fachgebiet: Neurrehabilitation und Paraplégiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-80-100-sap-station-m-w-d_166.aspx",
-      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.064Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4055",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-80-100-sap-station-m-w-d_166.aspx",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-23T12:11:32.795Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -999,7 +947,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-80-100-sap-station-m-w-d_167.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.063Z",
+      "crawledAt": "2026-09-03T23:16:34.088Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1030,6 +978,71 @@
       "firstSeenAt": "2026-06-23T12:11:32.793Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "rehab-basel-b19dfa5661eb",
+      "slug": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
+      "slugByLocale": {
+        "it": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
+        "en": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
+        "de": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
+        "fr": "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel"
+      },
+      "company": "REHAB Basel",
+      "companyKey": "rehab-basel",
+      "companyDomain": "rehab.ch",
+      "title": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d",
+      "titleByLocale": {
+        "it": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station lunedì/mercoledì/giorno",
+        "en": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d",
+        "de": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d",
+        "fr": "Fachperson Gesundheit (FAGE) 80 % - 100 % / Station SAP lundi et mercredi, j."
+      },
+      "description": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2023-166\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+      "descriptionByLocale": {
+        "it": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel. Klinik für Neuroreabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Refererenz: 2023-166\n• Landarit: Basel (BS)\n• Fachgebiet: Neuroreabilitation und Paraplegiologie\n• Bewerbung über das Tantsoft-Karriereportal von REHAB Basel",
+        "en": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2023-166\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+        "de": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d für REHAB Basel — Klinik für Neuroreh-Moderation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2023-166\n• Standort: Basel (BS) •120: Neuroreh-Moderation und Paraplegiologie •Benchance über das Talentsoft-Karriereportal von REHAB Basel",
+        "fr": "Fachperson Gesundheit (FAGE) 80% - 100% / SAP-Station m/w/d bei REHAB Basel — Klinik für Neurrehabilitation und Paraplégiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2023-166\n• Standort: Basel (BS)\n• Fachgebiet: Neurrehabilitation und Paraplégiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-80-100-sap-station-m-w-d_166.aspx",
+      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-03T23:16:34.091Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4055",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-80-100-sap-station-m-w-d_166.aspx",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-23T12:11:32.795Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1055,7 +1068,7 @@
       "companyDomain": "rehab.ch",
       "title": "Mitarbeiter*in Arztsekretariat 40-50% m/w/d",
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Arztsekretariat 40-50% m/w/d",
+        "it": "Segreteria medica 40-50% m/f/d",
         "en": "Medical secretariat 40-50% m/f/d",
         "de": "Mitarbeiter*in Arztsekretariat 40-50% m/w/d",
         "fr": "Secrétariat médical 40-50% h/f/d"
@@ -1067,13 +1080,12 @@
         "de": "Mitarbeiter*in Arztsekretariat 40-50% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2026-293\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
         "fr": "Secrétariat médical 40-50% h/f/d au REHAB Basel — Clinique de neuroréadaptation et de paraplégiologie, Bâle (4055, BS), Suisse.\n\n• Référence: 2026-293\n• Lieu: Bâle (BS)\n• Domaine d'expertise: neuroréadaptation et paraplégiologie\n• Application via le portail de carrière Talentsoft de REHAB Basel"
       },
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-mitarbeiter-in-arztsekretariat-40-50-m-w-d_293.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:24:14.062Z",
+      "crawledAt": "2026-09-03T23:16:34.087Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1107,6 +1119,7 @@
       "firstSeenAt": "2026-08-19T10:08:31.744Z",
       "salaryMin": 44000,
       "salaryMax": 61500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1149,7 +1162,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-psychotherapeut-in-60-80-m-w-d_292.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.062Z",
+      "crawledAt": "2026-09-03T23:16:34.087Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1185,6 +1198,7 @@
       "firstSeenAt": "2026-07-09T12:16:45.753Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1228,7 +1242,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-stationshilfe-abteilung-neurorehabilitation-60-100-m-w-d_294.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:24:14.059Z",
+      "crawledAt": "2026-09-03T23:16:34.079Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1256,6 +1270,7 @@
       "firstSeenAt": "2026-08-19T21:31:19.080Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
