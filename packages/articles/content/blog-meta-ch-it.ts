@@ -5401,6 +5401,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-lacune-contributive-san-gallo.title': 'AVS e prestazioni complementari: guida San Gallo',
     'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'Come funziona il primo pilastro nel Canton San Gallo. Scopri il ruolo della cassa di compensazione cantonale, il calcolo della rendita, le lacune contributive e le prestazioni complementari per il minimo vitale.',
     'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'Edificio della cassa di compensazione cantonale nel San Gallo: punto di riferimento per pratiche AVS e prestazioni complementari',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Permesso di dimora B canton Vaud: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'Come rinnovare il permesso B nel Vaud? Quali sono i requisiti? Guida pratica alle procedure, documenti necessari e scadenze per il rinnovo della dimora.',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Ufficio migrazione svizzero con persone che presentano documenti per il rinnovo del permesso di dimora B',
 };
 
 export default blogMetaChIt;
