@@ -59,7 +59,12 @@ export function classifyDirtyPaths(paths, { isCronManaged = isCronManagedPath, i
 
 function statusPorcelain(wtPath) {
   try {
-    return execSync(`git -C "${wtPath}" status --porcelain`, {
+    // `core.quotePath=false`: senza, git cita in stile C i path non-ASCII
+    // (`"data/jobs/by-crawler/caf\303\251.json"`) e lo strip dei soli apici
+    // esterni lascia gli escape, quindi `isCronManagedPath()` non matcha e il
+    // file torna a contare come lavoro — il worktree resta immortale proprio
+    // sul path che si voleva ignorare.
+    return execSync(`git -C "${wtPath}" -c core.quotePath=false status --porcelain`, {
       encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
     });
   } catch { return ''; }

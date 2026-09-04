@@ -205,11 +205,27 @@ if (ghOk) {
   }
 }
 
+const resolvedViaHead = new Set();
 const resolvePrState = makePrStateResolver({
   cache: prState,
   runQuery: (cmd) => sh(cmd, { allowFail: true }),
   enabled: ghOk,
+  viaHead: resolvedViaHead,
 });
+
+// Un `CLOSED` che la finestra non conosceva puo' venire da qualunque punto
+// della storia del repo, e `CLOSED` non e' `MERGED`: quel contenuto NON e' su
+// main. Prima di questa query un branch cosi' cadeva nel ramo no-PR e restava
+// report-only; allargare il delete a tutta la storia senza guardare `ahead`
+// distruggerebbe l'unica copia di lavoro chiuso per un guasto invece che per
+// una decisione (il gemello remoto lo protegge con la label
+// `autorebase-reopen-failed` dopo l'incidente #5269/#5275; qui quella rete non
+// c'e'). `MERGED` resta cancellabile a prescindere: e' il caso che questo
+// script esiste per riparare, e lo squash rende `ahead>0` permanente.
+function safeToDeleteClosed(branch) {
+  if (!resolvedViaHead.has(branch)) return true; // dalla finestra: comportamento invariato
+  return aheadOfMain(branch) === 0; // niente di unico da perdere
+}
 
 // Ritorna il numero di commit unici di `ref` su origin/main, o `null` se git
 // fallisce (ref mancante, origin/main non risolto). null = SCONOSCIUTO, MAI
@@ -272,6 +288,13 @@ for (const wt of worktrees) {
   const dirty = significant.length > 0;
   const state = wt.branch ? resolvePrState(wt.branch) : undefined;
   if (state === 'OPEN') continue; // PR aperta → lavoro vivo
+  if (state === 'CLOSED' && wt.branch && !safeToDeleteClosed(wt.branch)) {
+    reportWt.push({
+      ...wt,
+      reason: `PR CLOSED (non mergiata) trovata fuori finestra e ahead=${aheadOfMain(wt.branch) ?? 'unknown'} — i commit unici sono l'unica copia, REPORT-ONLY`,
+    });
+    continue;
+  }
   if (state === 'MERGED' || state === 'CLOSED') {
     if (dirty) {
       reportWt.push({
@@ -312,6 +335,13 @@ for (const b of allLocal) {
   const state = resolvePrState(b);
   if (state === 'OPEN') continue;
   if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) { delBranch.push(b); continue; }
+  if (state === 'CLOSED' && !safeToDeleteClosed(b)) {
+    reportBranch.push({
+      name: b,
+      reason: `PR CLOSED (non mergiata) trovata fuori finestra e ahead=${aheadOfMain(b) ?? 'unknown'} — i commit unici sono l'unica copia, REPORT-ONLY`,
+    });
+    continue;
+  }
   if (state === 'MERGED' || state === 'CLOSED') { delBranch.push(b); continue; }
   if (issueClosed(b)) { delBranch.push(b); continue; } // fix/issue-N, issue CLOSED, no PR → leftover
   const ahead = aheadOfMain(b);

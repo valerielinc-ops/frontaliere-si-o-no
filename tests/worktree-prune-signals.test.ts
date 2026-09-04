@@ -151,6 +151,28 @@ describe('stato PR oltre la finestra', () => {
     expect(pickBestPrState([])).toBeUndefined();
   });
 
+  it('segnala quali branch vengono dalla query mirata e non dalla finestra', () => {
+    // Il chiamante deve poter distinguere i due casi: un CLOSED risolto qui
+    // puo' venire da qualunque punto della storia, e CLOSED non e' MERGED —
+    // il contenuto NON e' su main, quindi i commit unici del branch sono
+    // l'unica copia. Senza questa distinzione la query allargherebbe il raggio
+    // del delete a tutta la storia del repo.
+    const viaHead = new Set<string>();
+    const cache = new Map<string, string | undefined>([['dalla-finestra', 'CLOSED']]);
+    const resolve = makePrStateResolver({ cache, viaHead, runQuery: () => '[{"state":"CLOSED"}]' });
+
+    expect(resolve('dalla-finestra')).toBe('CLOSED');
+    expect(resolve('fuori-finestra')).toBe('CLOSED');
+    expect([...viaHead]).toEqual(['fuori-finestra']);
+  });
+
+  it('un branch senza PR non entra in viaHead', () => {
+    const viaHead = new Set<string>();
+    const resolve = makePrStateResolver({ cache: new Map(), viaHead, runQuery: () => '[]' });
+    expect(resolve('mai-in-pr')).toBeUndefined();
+    expect(viaHead.size).toBe(0);
+  });
+
   it('gh assente: nessuna query e nessuna cancellazione decisa al buio', () => {
     const resolve = makePrStateResolver({
       cache: new Map(),

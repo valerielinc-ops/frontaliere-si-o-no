@@ -111,6 +111,7 @@ jobs:
             # rende ahead>0 per sempre: report-only a vita. Stesso difetto
             # trovato e riparato lato locale in prune-merged-worktrees.mjs.
             # La query mirata --head non ha finestra e si paga solo sui residui.
+            VIA_HEAD=false
             if [ "$STATE" = "NONE" ]; then
               STATE=$(gh pr list --repo "$REPO" --head "$NAME" --state all --limit 10 \
                 --json state --jq '[.[].state]
@@ -118,7 +119,24 @@ jobs:
                      elif index("MERGED") then "MERGED"
                      elif index("CLOSED") then "CLOSED"
                      else "NONE" end)' 2>/dev/null || echo NONE)
-              [ "$STATE" != "NONE" ] && echo "  $NAME: PR $STATE trovata fuori finestra (query --head)"
+              [ -z "$STATE" ] && STATE=NONE
+              if [ "$STATE" != "NONE" ]; then
+                VIA_HEAD=true
+                echo "  $NAME: PR $STATE trovata fuori finestra (query --head)"
+              fi
+            fi
+
+            # Un CLOSED che la finestra non conosceva puo' venire da qualunque
+            # punto della storia, e CLOSED non e' MERGED: quel contenuto NON e'
+            # su main. Prima della query mirata un branch cosi' cadeva nel ramo
+            # no-PR e passava dall'ahead-check; cancellarlo ora senza guardare
+            # ahead distruggerebbe l'unica copia di lavoro chiuso per un guasto
+            # invece che per una decisione — l'incidente #5269/#5275 che la
+            # label autorebase-reopen-failed esiste per evitare. MERGED resta
+            # cancellabile: e' il caso che questa riparazione serve a sbloccare.
+            if [ "$VIA_HEAD" = "true" ] && [ "$STATE" = "CLOSED" ]; then
+              echo "  $NAME: CLOSED non mergiata fuori finestra — passa dall'ahead-check"
+              STATE=NONE
             fi
 
             if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi

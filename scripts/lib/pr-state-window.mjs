@@ -43,7 +43,16 @@ export function headQueryCommand(branch) {
 // `cache` è la mappa branch → stato già popolata dalla finestra. Il miss viene
 // memorizzato come qualunque altro esito: un branch senza PR non deve essere
 // interrogato due volte (i loop worktree e branch lo incontrano entrambi).
-export function makePrStateResolver({ cache, runQuery, enabled = true }) {
+// `viaHead` raccoglie i branch il cui stato viene DALLA QUERY MIRATA e non
+// dalla finestra. Serve al chiamante per non allargare il raggio del delete: un
+// `CLOSED` risolto qui puo' venire da qualunque punto della storia del repo, e
+// `CLOSED` non e' `MERGED` — il contenuto NON e' su main, quindi i commit unici
+// del branch sono l'unica copia rimasta. E' la classe di incidente che il
+// gemello remoto protegge esplicitamente (label `autorebase-reopen-failed`,
+// #5269 chiusa da un guasto e non da una decisione, branch cancellato e con
+// esso #5275). Lato locale quella protezione non c'e': finora era la finestra
+// di nove giorni a limitare il danno per caso, non per progetto.
+export function makePrStateResolver({ cache, runQuery, enabled = true, viaHead = new Set() }) {
   return function resolvePrState(branch) {
     if (!branch) return undefined;
     if (cache.has(branch)) return cache.get(branch);
@@ -54,6 +63,7 @@ export function makePrStateResolver({ cache, runQuery, enabled = true }) {
       try { best = pickBestPrState(JSON.parse(raw)); } catch { /* non-JSON = nessuna PR trovata */ }
     }
     cache.set(branch, best);
+    if (best) viaHead.add(branch);
     return best;
   };
 }
