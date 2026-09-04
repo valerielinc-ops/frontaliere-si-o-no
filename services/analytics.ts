@@ -2084,6 +2084,14 @@ export const Analytics = {
  alert_location: location || '(none)',
  alert_frequency: frequency || 'daily',
  alert_surface: surface,
+ // Same value under the name the OTHER two funnel events use
+ // (`job_alert_cta_shown`/`job_alert_cta_click`). `alert_surface` is not a
+ // registered GA4 custom dimension, so on the GA4 fallback path — the only
+ // path there is since PostHog went dark on 2026-07-23 — every creation
+ // reported `(not set)` and the alert_funnel_conversion goal (#4298/#7311)
+ // could not be attributed to the surface that produced it. `cta_surface`
+ // IS registered; `alert_surface` stays for the PostHog queries that read it.
+ cta_surface: surface,
  });
  },
 
