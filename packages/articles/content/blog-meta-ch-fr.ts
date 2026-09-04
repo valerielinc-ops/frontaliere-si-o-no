@@ -5446,6 +5446,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.domanda-permesso-c-glarona-guida.title': 'Permis C Glaris : exigences et comment postuler',
     'blog.article.domanda-permesso-c-glarona-guida.excerpt': 'Guide complet du permis de séjour C dans le canton de Glaris : années de résidence requises, intégration, procédures de demande et passage vers la naturalisation.',
     'blog.article.domanda-permesso-c-glarona-guida.imageAlt': 'Bâtiment administratif suisse avec drapeaux et signalétique officielle pour les services de résidence.',
+    'blog.article.permesso-c-glarona-come-richiederlo.title': 'Permis C Glaris : exigences, procédures et demande',
+    'blog.article.permesso-c-glarona-come-richiederlo.excerpt': 'Résidence permanente dans le canton de Glaris : guide des exigences du permis C, des connaissances linguistiques, de l\'intégration et de la procédure de demande auprès des autorités cantonales.',
+    'blog.article.permesso-c-glarona-come-richiederlo.imageAlt': 'Bureau d\'administration cantonale suisse avec documents de permis de résidence C et carte d\'identité',
 };
 
 export default blogMetaChFr;

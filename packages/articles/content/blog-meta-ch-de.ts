@@ -5446,6 +5446,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.domanda-permesso-c-glarona-guida.title': 'Führerschein C Glarus: Voraussetzungen und Beantragung',
     'blog.article.domanda-permesso-c-glarona-guida.excerpt': 'Vollständiger Leitfaden zur Niederlassungsbewilligung C im Kanton Glarus: erforderliche Aufenthaltsjahre, Integration, Antragsverfahren und Übergang zur Einbürgerung.',
     'blog.article.domanda-permesso-c-glarona-guida.imageAlt': 'Schweizer Verwaltungsgebäude mit offiziellen Beschilderungen und Flaggen für Einwanderungsbehörden.',
+    'blog.article.permesso-c-glarona-come-richiederlo.title': 'Genehmigung C Glarus: Anforderungen, Verfahren und Antrag',
+    'blog.article.permesso-c-glarona-come-richiederlo.excerpt': 'Ständiger Wohnsitz im Kanton Glarus: Leitfaden zu den Anforderungen der C-Bewilligung, Sprachkenntnisse, Integration und Antragsverfahren bei den kantonalen Behörden.',
+    'blog.article.permesso-c-glarona-come-richiederlo.imageAlt': 'Schweizer Kantonsamt mit Aufenthaltsgenehmigungsdokumenten und Ausweisen auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;

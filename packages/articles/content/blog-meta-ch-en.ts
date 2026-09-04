@@ -5446,6 +5446,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.domanda-permesso-c-glarona-guida.title': 'Glarus C Permit: Requirements and How to Apply',
     'blog.article.domanda-permesso-c-glarona-guida.excerpt': 'Complete guide to residence permit C in the canton of Glarus: years of residence required, integration, application procedures and transition to naturalization.',
     'blog.article.domanda-permesso-c-glarona-guida.imageAlt': 'Swiss administrative building with official signage, representing immigration and residency services offices.',
+    'blog.article.permesso-c-glarona-come-richiederlo.title': 'Glarus C Permit: Requirements, Procedures and Application',
+    'blog.article.permesso-c-glarona-come-richiederlo.excerpt': 'Permanent residence in Canton Glarus: guide to C permit requirements, language skills, integration and application procedure with cantonal authorities.',
+    'blog.article.permesso-c-glarona-come-richiederlo.imageAlt': 'Swiss cantonal administration office with residency permit C documents and identity card on desk',
 };
 
 export default blogMetaChEn;
