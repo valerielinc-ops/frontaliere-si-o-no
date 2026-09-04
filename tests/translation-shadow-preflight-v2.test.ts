@@ -1640,6 +1640,18 @@ describe('translation shadow preflight v2 mapping and run observation', () => {
     expect(serializeTranslationShadowArtifactV2(observation)).not.toContain(marker);
     expect(fs.readFileSync(observationPath, 'utf8')).toBe(serializeTranslationShadowArtifactV2(observation));
 
+    // Forma `schedule`: il workflow passa comunque i flag booleani, ma
+    // `inputs.<nome>` e' vuoto. La stringa vuota deve ricadere sul default
+    // `false` del workflow, non far esplodere l'osservazione.
+    const scheduleArgs = observeArgs.map((value, index) => (
+      index > 0
+      && value === 'false'
+      && ['--default-skip-housekeeping', '--default-skip-translate', '--default-dry-run']
+        .includes(observeArgs[index - 1])
+        ? '' : value));
+    const scheduleObservation = runTranslationShadowObservationCli(scheduleArgs, { runnerTemp });
+    expect(scheduleObservation.defaultInputs).toEqual(observation.defaultInputs);
+
     const commonObservationInput = {
       decision,
       sourceCommit: BASELINE,
