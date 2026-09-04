@@ -103,6 +103,42 @@ jobs:
                  elif index("CLOSED") then "CLOSED"
                  else "NONE" end)')
 
+            # "NONE" dalla finestra NON significa "nessuna PR": le liste sopra
+            # sono recency-sorted, e su questo repo 400 PR coprono NOVE giorni
+            # (misurato il 2026-09-04: la piu' vecchia in finestra era #6571 del
+            # 26-08, la piu' recente #7332). Un branch di una PR piu' vecchia
+            # cadeva in NONE e finiva nell'ahead-check, dove lo squash-merge lo
+            # rende ahead>0 per sempre: report-only a vita. Stesso difetto
+            # trovato e riparato lato locale in prune-merged-worktrees.mjs.
+            # La query mirata --head non ha finestra e si paga solo sui residui.
+            VIA_HEAD=false
+            if [ "$STATE" = "NONE" ]; then
+              STATE=$(gh pr list --repo "$REPO" --head "$NAME" --state all --limit 10 \
+                --json state --jq '[.[].state]
+                  | (if index("OPEN") then "OPEN"
+                     elif index("MERGED") then "MERGED"
+                     elif index("CLOSED") then "CLOSED"
+                     else "NONE" end)' 2>/dev/null || echo NONE)
+              [ -z "$STATE" ] && STATE=NONE
+              if [ "$STATE" != "NONE" ]; then
+                VIA_HEAD=true
+                echo "  $NAME: PR $STATE trovata fuori finestra (query --head)"
+              fi
+            fi
+
+            # Un CLOSED che la finestra non conosceva puo' venire da qualunque
+            # punto della storia, e CLOSED non e' MERGED: quel contenuto NON e'
+            # su main. Prima della query mirata un branch cosi' cadeva nel ramo
+            # no-PR e passava dall'ahead-check; cancellarlo ora senza guardare
+            # ahead distruggerebbe l'unica copia di lavoro chiuso per un guasto
+            # invece che per una decisione — l'incidente #5269/#5275 che la
+            # label autorebase-reopen-failed esiste per evitare. MERGED resta
+            # cancellabile: e' il caso che questa riparazione serve a sbloccare.
+            if [ "$VIA_HEAD" = "true" ] && [ "$STATE" = "CLOSED" ]; then
+              echo "  $NAME: CLOSED non mergiata fuori finestra — passa dall'ahead-check"
+              STATE=NONE
+            fi
+
             if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi
 
             if [ "$STATE" = "MERGED" ] || [ "$STATE" = "CLOSED" ]; then
