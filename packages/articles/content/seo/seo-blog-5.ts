@@ -85052,6 +85052,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bally-caslano-79-licenziamenti': {
+    title: 'Bally Caslano: 79 licenziamenti in una sola mossa',
+    description: 'Bally annuncia licenziamento collettivo di 79 dipendenti a Caslano (25 amministrativi, 54 operativi). Scopri i diritti dei frontalieri e come accedere',
+    keywords: 'frontalieri, ticino, svizzera, italia, bally, caslano, licenziamenti, sola',
+    ogTitle: 'Bally Caslano: 79 licenziamenti in una sola mossa',
+    ogDescription: '79 dipendenti di Bally Caslano ricevono notifica di licenziamento collettivo. Scopri i diritti dei frontalieri italiani, come accedere alla CAD svizzera e i passi da seguire immediatamente.',
+    canonicalPath: '/articoli-frontaliere/bally-caslano-79-licenziamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bally Caslano: 79 licenziamenti in una sola mossa",
+      "description": "Bally annuncia licenziamento collettivo di 79 dipendenti a Caslano (25 amministrativi, 54 operativi). Scopri i diritti dei frontalieri e come accedere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bally-caslano-79-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento aziendale presso Caslano, Ticino, con vista sul lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-04T08:11:02+00:00",
+      "dateModified": "2026-09-04T08:11:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bally-caslano-79-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

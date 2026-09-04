@@ -33780,6 +33780,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bally-caslano-79-licenziamenti',
+ category: 'pratico',
+ date: '2026-09-04T08:11:02.025Z',
+ image: '/images/blog/bally-caslano-79-licenziamenti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11305,6 +11305,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-orino-lavorare-ticino.title': 'Wohnen in Orino und Arbeiten im Tessin als Grenzgänger',
     'blog.article.trasferirsi-orino-lavorare-ticino.excerpt': 'Umzug nach Orino als Grenzgänger: Genehmigung G, Quellensteuer und Verwaltungsverfahren für die Arbeit im Tessin.',
     'blog.article.trasferirsi-orino-lavorare-ticino.imageAlt': 'Panoramablick auf Lugano bei Sonnenuntergang, mit modernen Gebaeuden und dem Grenzsee zwischen Tessin und Italien.',
+    'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano: 79 Entlassungen in einem Zug',
+    'blog.article.bally-caslano-79-licenziamenti.excerpt': 'Das multinationale Unternehmen kündigt den Abbau von 25 Verwaltungs- und 54 Betriebsmitarbeitern an. Proteste des Staatsrates gegen den freien Markt. Was muss der Grenzgänger wissen?',
+    'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Unternehmenssitz in Caslano, Tessin mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

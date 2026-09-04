@@ -11306,6 +11306,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-orino-lavorare-ticino.title': 'Living in Orino and working in Ticino as a border worker',
     'blog.article.trasferirsi-orino-lavorare-ticino.excerpt': 'Moving to Orino as a border worker: G Permit, tax at source and administrative procedure for work in Ticino.',
     'blog.article.trasferirsi-orino-lavorare-ticino.imageAlt': 'Panoramic view of Lugano at sunset, with modern buildings and the border lake between Ticino and Italy.',
+    'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano: 79 layoffs in one move',
+    'blog.article.bally-caslano-79-licenziamenti.excerpt': 'The multinational announces the cutting of 25 administrative staff and 54 operational staff. Protests of the Council of State on the free market. What does the cross-border commuters need to know?',
+    'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Corporate building in Caslano, Ticino with Lake Lugano visible in background',
 };
 
 export default blogMetaEn;
