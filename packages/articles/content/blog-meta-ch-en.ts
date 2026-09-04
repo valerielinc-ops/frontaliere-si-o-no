@@ -5392,6 +5392,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ricerca-medicina-ticino-innovazione.title': 'Medical research in Ticino: from the laboratory to the patient',
     'blog.article.ricerca-medicina-ticino-innovazione.excerpt': 'The USI Research Day in Lugano: 200 scientific contributions on how innovation accelerates the path from discovery to treatment.',
     'blog.article.ricerca-medicina-ticino-innovazione.imageAlt': 'Swiss biomedical research laboratory with scientists working on biological samples and medical innovation',
+    'blog.article.bally-caslano-licenziamenti-2025.title': 'Bally, in Caslano the umpteenth cut of staff',
+    'blog.article.bally-caslano-licenziamenti-2025.excerpt': 'Regent LP cuts 25 administrative posts at Bally Caslano. Employees drop from ~100 to 54. Agreed in progress, 60.5M losses in 2024.',
+    'blog.article.bally-caslano-licenziamenti-2025.imageAlt': 'View of Lake Lugano and Ticino landscape at Caslano, site of the struggling Bally manufacturing facility',
 };
 
 export default blogMetaChEn;

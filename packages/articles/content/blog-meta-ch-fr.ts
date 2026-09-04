@@ -5392,6 +5392,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ricerca-medicina-ticino-innovazione.title': 'Recherche médicale au Tessin : du laboratoire au patient',
     'blog.article.ricerca-medicina-ticino-innovazione.excerpt': 'La Journée de la recherche aux USAGES de Lugano : 200 contributions scientifiques sur la façon dont l\'innovation accélère le parcours des découvertes aux soins.',
     'blog.article.ricerca-medicina-ticino-innovazione.imageAlt': 'Laboratoire de recherche biomédicale suisse avec scientifiques travaillant sur échantillons biologiques et innovation',
+    'blog.article.bally-caslano-licenziamenti-2025.title': 'Bally, à Caslano, une autre réduction du personnel',
+    'blog.article.bally-caslano-licenziamenti-2025.excerpt': 'Regent LP coupe 25 postes administratifs à Bally Caslano. Employés tombent de ~100 à 54. Accordé en cours, pertes 60,5M en 2024.',
+    'blog.article.bally-caslano-licenziamenti-2025.imageAlt': 'Vue du lac de Lugano et paysage du Tessin à Caslano, siège de l\'usine Bally en crise',
 };
 
 export default blogMetaChFr;

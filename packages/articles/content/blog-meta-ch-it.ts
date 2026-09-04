@@ -5392,6 +5392,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ricerca-medicina-ticino-innovazione.title': 'Ricerca medica in Ticino: dal laboratorio al paziente',
     'blog.article.ricerca-medicina-ticino-innovazione.excerpt': 'La Giornata della ricerca all\'USI di Lugano: 200 contributi scientifici su come l\'innovazione accelera il percorso dalle scoperte alle cure.',
     'blog.article.ricerca-medicina-ticino-innovazione.imageAlt': 'Laboratorio di ricerca biomedica in Ticino con scienziati al lavoro su campioni e innovazione medica',
+    'blog.article.bally-caslano-licenziamenti-2025.title': 'Bally, a Caslano l\'ennesimo taglio del personale',
+    'blog.article.bally-caslano-licenziamenti-2025.excerpt': 'Regent LP taglia 25 posti amministrativi a Bally Caslano. Dipendenti calano da ~100 a 54. Concordata in corso, perdite 60,5M nel 2024.',
+    'blog.article.bally-caslano-licenziamenti-2025.imageAlt': 'Panorama del lago di Lugano e paesaggio ticinese a Caslano, sede dello stabilimento Bally in crisi occupazionale',
 };
 
 export default blogMetaChIt;
