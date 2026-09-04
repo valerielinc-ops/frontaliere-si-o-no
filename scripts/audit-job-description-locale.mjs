@@ -78,8 +78,12 @@
  * number safe to put in an issue that opens work.
  *
  * Report-only: always exits 0 on a successful measurement. The repair path is
- * mark-locale-mismatched-jobs.mjs inside translate-pending.yml; the regression
- * gate is the vitest ratchet.
+ * mark-locale-mismatched-jobs.mjs inside .github/workflows/translate-pending-logic.yml
+ * — the SOURCE that scripts/generate-crawler-group-workflows.mjs renders into
+ * .github/corpus-workflows/translate-pending.yml, which is what the corpus pool
+ * actually runs. Edit the -logic.yml one and regenerate; the site's own
+ * .github/workflows/translate-pending.yml is dormant (last run 2026-08-25) and
+ * editing it changes nothing. The regression gate is the vitest ratchet.
  *
  * Usage:
  *   node scripts/audit-job-description-locale.mjs [--min-headroom-pp N] [--out PATH]
@@ -93,6 +97,12 @@ import {
   DESCRIPTION_POPULATION,
   MIN_SERVED_SHARE,
 } from './lib/job-locale-population.mjs';
+
+// L'allarme sulla coda vive in un modulo SENZA import: lo carica anche lo
+// script inline di job-description-locale-audit.yml, che non deve tirarsi
+// dietro il rilevatore di lingua per confrontare due numeri. Ri-esportato qui
+// perche' resti raggiungibile da chi legge questo script.
+export { evaluateQueueAlarm, parseNonNegativeInteger } from './lib/queue-alarm.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');

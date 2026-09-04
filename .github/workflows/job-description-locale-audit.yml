@@ -124,6 +124,7 @@ jobs:
 
           node --input-type=module - <<'NODE'
           import { readFileSync, writeFileSync } from 'node:fs';
+          import { evaluateQueueAlarm } from './scripts/lib/queue-alarm.mjs';
           const r = JSON.parse(readFileSync('data/job-description-locale-audit.json', 'utf8'));
           const p3 = (v) => `${(v * 100).toFixed(3)}%`;
 
@@ -150,8 +151,14 @@ jobs:
             // order of magnitude above that and well under the 376 tail, so it
             // is red today, opens work, and can actually go green again.
             const q = r.queue || {};
-            const queueStaleAlert = Number(process.env.QUEUE_STALE_ALERT || '100');
-            const queueStuck = Number(q.staleSourceCopyJobs || 0) > queueStaleAlert;
+            // `Number(x || 0) > soglia` diceva «coda a posto» anche quando il
+            // campo mancava o era illeggibile: 0 > 100 e' false, e l'allarme
+            // taceva proprio sull'unico input che esiste per sorvegliare.
+            // evaluateQueueAlarm distingue «misurato e sotto soglia» da «non
+            // misurabile», e il secondo caso torna queueStuck: true.
+            const queueAlarm = evaluateQueueAlarm(q.staleSourceCopyJobs, process.env.QUEUE_STALE_ALERT || '100');
+            const queueStaleAlert = queueAlarm.threshold;
+            const queueStuck = queueAlarm.queueStuck;
             const unhealthy = r.breached || r.thinMargin || r.gateBlind || queueStuck;
             let md = `## Descrizioni in lingua sbagliata — snapshot\n\n`;
             md += r.gateBlind
@@ -179,7 +186,9 @@ jobs:
               md += `\n### La coda di traduzione — la popolazione che il tasso qui sopra NON vede\n\n`;
               md += `**${q.queuedJobs}** job sono in coda (\`needsRetranslation\`). Di questi, **${q.sourceCopyJobs}** servono ancora una descrizione byte-identica al sorgente, e **${q.staleSourceCopyJobs}** lo fanno da piu' di ${q.staleDays} giorni (il piu' vecchio: ${q.oldestStaleDays}g).\n\n`;
               md += queueStuck
-                ? `🔴 **La coda non drena per ${q.staleSourceCopyJobs} job** (soglia ${queueStaleAlert}). Ognuno serve testo ${'`'}sourceLang${'`'} su una pagina di un'altra lingua, ogni giorno, e **nessuna delle metriche qui sopra lo conta**: il ratchet salta i job in coda nel numeratore per scelta, \`MIN_SERVED_SHARE\` e' un floor da catastrofe, e \`QUEUE_AGE_ALERT_DAYS\` (150) guarda l'eta' del singolo job piu' vecchio, non quanti sono.\n\n`
+                ? !queueAlarm.valid
+                ? `🔴 **Conteggio della coda non leggibile** (\`staleSourceCopyJobs\`=${JSON.stringify(q.staleSourceCopyJobs)}, soglia=${JSON.stringify(process.env.QUEUE_STALE_ALERT || '100')}). Non e' una coda sana: e' una misura mancante, e finche' manca l'allarme non puo' dire niente.\n\n`
+                : `🔴 **La coda non drena per ${q.staleSourceCopyJobs} job** (soglia ${queueStaleAlert}). Ognuno serve testo ${'`'}sourceLang${'`'} su una pagina di un'altra lingua, ogni giorno, e **nessuna delle metriche qui sopra lo conta**: il ratchet salta i job in coda nel numeratore per scelta, \`MIN_SERVED_SHARE\` e' un floor da catastrofe, e \`QUEUE_AGE_ALERT_DAYS\` (150) guarda l'eta' del singolo job piu' vecchio, non quanti sono.\n\n`
                 : `✅ Sotto la soglia di ${queueStaleAlert}: la coda sta drenando.\n\n`;
               md += `| eta' in coda | job che servono il sorgente |\n|---|---:|\n`;
               for (const [bucket, n] of Object.entries(q.byAge || {})) md += `| ${bucket} | ${n} |\n`;
