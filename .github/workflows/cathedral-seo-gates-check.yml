@@ -28,7 +28,7 @@ on:
         description: >-
           Deploy run whose already-built dist/ to audit. Leave empty to use the
           most recent successful deploy.yml run on main that still has its
-          artifacts (they expire after 1 day).
+          artifacts (they expire after 8 days).
         required: false
         type: string
   push:
@@ -214,7 +214,9 @@ jobs:
           if [ -n "$RID" ]; then
             echo "Operator-pinned deploy run: $RID"
           else
-            # Artifacts carry retention-days: 1, so the newest successful deploy
+            # The github-pages artifact carries retention-days: 8 — deliberately
+            # longer than the 1 day of every other artifact in deploy.yml, so a
+            # weekly cron always finds one. The newest successful deploy
             # is not necessarily the newest one that still HAS its dist. Walk
             # back until an artifact set is actually present rather than failing
             # on the first miss.
@@ -232,7 +234,7 @@ jobs:
             done
           fi
           if [ -z "$RID" ]; then
-            echo "::error::No successful deploy.yml run on main still has a 'github-pages' artifact (retention is 1 day). Re-run this gate after the next deploy, or pass deploy_run_id explicitly."
+            echo "::error::No successful deploy.yml run on main still has a 'github-pages' artifact (retention is 8 days, so this means no deploy succeeded in over a week). Re-run this gate after the next deploy, or pass deploy_run_id explicitly."
             exit 1
           fi
           echo "deploy_run_id=$RID" >> "$GITHUB_OUTPUT"
