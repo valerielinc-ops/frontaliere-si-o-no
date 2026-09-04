@@ -214,10 +214,16 @@ export function hasSuccessFactorsMoreLocations(value) {
  * `hasSuccessFactorsMoreLocationsInRow()` for why the probe must not fail
  * closed on a skin that renders the `<small>` outside that cell.
  */
-const SF_J2W_LOCATION_LIKE_NODES = Object.freeze([
-  /<td[^>]*class="[^"]*location[^"]*"[^>]*>([\s\S]*?)<\/td>/gi,
-  /<span[^>]*class="[^"]*jobLocation[^"]*"[^>]*>([\s\S]*?)<\/span>/gi,
-  /<small[^>]*>([\s\S]*?)<\/small>/gi,
+/**
+ * Sources, not RegExp objects: `matchAll` needs the `g` flag, and a shared `g`
+ * regex carries `lastIndex` between calls — an early `return true` below would
+ * leave it dirty for the next row. Compiling per call keeps the probe
+ * stateless.
+ */
+const SF_J2W_LOCATION_LIKE_NODE_SOURCES = Object.freeze([
+  '<td[^>]*class="[^"]*location[^"]*"[^>]*>([\\s\\S]*?)</td>',
+  '<span[^>]*class="[^"]*jobLocation[^"]*"[^>]*>([\\s\\S]*?)</span>',
+  '<small[^>]*>([\\s\\S]*?)</small>',
 ]);
 
 /**
@@ -245,10 +251,8 @@ const SF_J2W_LOCATION_LIKE_NODES = Object.freeze([
 export function hasSuccessFactorsMoreLocationsInRow(rowHtml) {
   if (typeof rowHtml !== 'string') return false;
   let sawLocationLikeNode = false;
-  for (const re of SF_J2W_LOCATION_LIKE_NODES) {
-    re.lastIndex = 0;
-    let match;
-    while ((match = re.exec(rowHtml)) !== null) {
+  for (const source of SF_J2W_LOCATION_LIKE_NODE_SOURCES) {
+    for (const match of rowHtml.matchAll(new RegExp(source, 'gi'))) {
       sawLocationLikeNode = true;
       if (hasSuccessFactorsMoreLocations(match[1])) return true;
     }
