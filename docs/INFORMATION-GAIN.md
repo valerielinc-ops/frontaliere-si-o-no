@@ -125,6 +125,45 @@ Le famiglie comunali erano mail-merge: `irpefAddizionale` prende **nove** valori
 distinti su 518 comuni (346 righe condividono 0,55 %), quindi nemmeno i numeri
 differenziavano le pagine.
 
+## I 37 offender del 2026-09-01, scomposti (issue #6975)
+
+La run `33460354951` ha misurato **37 coorti sotto floor su 159 gated**
+(9817 pagine in coorte, `sampleRate` 0,25, nessuna baseline: soglia assoluta).
+Trentasette sembra un cluster nuovo rispetto alle 3 righe dell'inventario.
+Non lo è: sono **cinque famiglie**, ognuna spezzata in più coorti perché ogni
+variante di `h1` è una coorte a sé. 22 + 4 + 4 + 4 + 3 = 37: le famiglie
+coprono tutti gli offender, nessuno resta fuori.
+
+| Famiglia | Coorti | Mediana | Cos'è la pagina |
+|---|---|---|---|
+| Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) | 22 | 0–4 % | una combinazione RAL × figli × stato civile × regime frontaliero |
+| Tempi di attesa alla dogana (`/tempi-attesa-dogana/` e traduzioni) | 4 | 0 % | un valico, 13–18 segmenti in tutto |
+| Premi cassa malati (`/premi-cassa-malati/` e traduzioni) | 4 | 2,6–2,7 % | un cantone × una fascia d'età |
+| Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) | 4 | 2,8–4,9 % | una città × una settimana |
+| Landing professione × cantone flat-slug (`it:/lavoro-`, e le sue traduzioni) | 3 | 2,9–4,3 % | una professione in un cantone |
+
+Tutte e cinque hanno la stessa forma: **il payload per pagina è numerico**
+(stipendio netto calcolato, minuti di coda, premio mensile, conteggio di
+posizioni aperte), e i numeri sono mascherati a `#` per costruzione — è la
+maschera n. 1, quella senza la quale la metrica premierebbe il mail-merge.
+Non sono quindi «nuove istanze di #6328», che è un problema di **prosa** a
+template fisso attorno a una riga BFS: sono famiglie in cui la prosa è
+davvero una sola e il dato è tutto. Alzarle significa dare a ogni pagina una
+frase che le sorelle non hanno, non riscrivere quella che c'è.
+
+Perché non sono già inventariate: fino a questa correzione **l'etichetta di
+coorte non era una chiave affidabile**. `KNOWN_LOW_GAIN_COHORTS` è indicizzato
+per etichetta, ma l'etichetta si ricava dal prefisso comune dei path
+**campionati** e il passo sui caratteri scattava solo quando nessun segmento
+intero era comune. Risultato: la stessa famiglia flat-slug si chiamava
+`it:/lavoro-` in italiano e `en:/en/~896cea` in inglese — leggibile da una
+parte, un hash di disambiguazione dall'altra, perché `/en/` collideva con ogni
+altra famiglia flat inglese. Inventariare `de:/de/` avrebbe significato
+registrare un valore per famiglie diverse insieme. Ora il prefisso di caratteri
+si applica anche **dopo** i segmenti comuni (`/en/jobs-`, `/de/arbeit-`), e il
+report stampa lo `skeletonHash` di ogni coorte gated, che è l'identità del
+template e non dipende da quali pagine il run ha campionato.
+
 ## Cosa è cambiato con #5002
 
 Le sei famiglie comunali hanno preso

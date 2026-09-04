@@ -234,6 +234,16 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
           // on data. Capped so the report file stays small on a full corpus.
           cohorts: gated.slice(0, 60).map((c) => ({
             label: c.label,
+            // The cohort's template identity, independent of which pages the
+            // run happened to sample. The label is derived from the sampled
+            // paths, so two runs can name the same family differently; without
+            // this field a report cannot be used to inventory a cohort in
+            // KNOWN_LOW_GAIN_COHORTS without guessing which label will come
+            // back next run (issue #6975).
+            // Same 6 hex chars as the `~` anti-collision suffix that `scoreCohorts`
+        // appends to a colliding label, so `en:/en/~896cea` can be matched
+        // against this field literally instead of by prefix.
+        skeletonHash: c.skeletonHash.toString(16).slice(0, 6),
             pages: c.pages,
             medianIgs: Number(c.medianIgs.toFixed(2)),
             meanIgs: Number(c.meanIgs.toFixed(2)),
