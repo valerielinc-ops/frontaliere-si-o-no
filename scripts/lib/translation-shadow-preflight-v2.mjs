@@ -3,7 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
-import { QUEUE_AGE_BUCKET_KEYS, QUEUE_AGE_DISJOINT_BUCKET_KEYS } from './job-traffic-priority.mjs';
+import {
+  QUEUE_AGE_BUCKET_KEYS,
+  QUEUE_AGE_DISJOINT_BUCKET_KEYS,
+  TRAFFIC_STATS_KEYS,
+} from './job-traffic-priority.mjs';
 
 export const TRANSLATION_SHADOW_PREFLIGHT_V2_SCHEMA_VERSION = 2;
 export const TRANSLATION_SHADOW_PREFLIGHT_V2_MAX_BYTES = 8 * 1024 * 1024;
@@ -513,12 +517,19 @@ function validLegacyInput(legacy, deadlineMs, now) {
 }
 
 function validTrafficStats(stats, deadlineMs = Number.POSITIVE_INFINITY, now = Date.now) {
-  if (!exactKeys(stats, [
-    'age', 'matchRate', 'matched', 'queued', 'reserveForOldest', 'totalViews', 'trafficEntries',
-  ]) || !boundedInteger(stats.queued) || !boundedInteger(stats.trafficEntries)
+  // Importate, mai ritipate: vedi TRAFFIC_STATS_KEYS nel produttore.
+  if (!exactKeys(stats, TRAFFIC_STATS_KEYS)
+      || !boundedInteger(stats.queued) || !boundedInteger(stats.trafficEntries)
       || !boundedInteger(stats.matched) || !boundedInteger(stats.totalViews)
       || typeof stats.matchRate !== 'number' || !Number.isFinite(stats.matchRate)
       || stats.matchRate < 0 || stats.matchRate > 1
+      || typeof stats.freshFirst !== 'boolean'
+      || !boundedInteger(stats.freshHead) || !boundedInteger(stats.freshWindowMs)
+      // La testa fresca e' un sottoinsieme della coda, mai piu' grande; e a
+      // corsia spenta deve essere vuota, altrimenti un consumatore la sta
+      // accendendo senza dirlo.
+      || stats.freshHead > stats.queued
+      || (!stats.freshFirst && (stats.freshHead !== 0 || stats.freshWindowMs !== 0))
       || typeof stats.reserveForOldest !== 'number' || !Number.isFinite(stats.reserveForOldest)
       || stats.reserveForOldest < 0 || stats.reserveForOldest > 1) return false;
   const age = stats.age;
