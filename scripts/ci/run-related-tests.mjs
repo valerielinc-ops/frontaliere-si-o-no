@@ -31,6 +31,18 @@ const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]s
 // with ECONNREFUSED, so it stays out of the blocking related-tests gate (#6377).
 const alwaysExcludedTests = new Set(['tests/checkout-sparse-profiles.test.ts', 'tests/firestore-rules-consent-write.test.ts']);
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
+// Workflow e artefatti portabili sotto `.github/`. Non sono sorgenti e non
+// hanno nessun edge di import, ma i test che ne congelano il contenuto li
+// aprono per path LETTERALE (`fs.readFileSync('.github/…')`,
+// `git show origin/main:.github/…`). Senza questo indice un diff di soli
+// workflow non seleziona NIENTE: e' la strada da cui #7355 ha spezzato
+// l'adiacenza della terna shadow in
+// `.github/corpus-workflows/translate-pending.yml` senza far girare
+// `tests/crawler-generation-dispatch-workflow.test.ts`, e siccome `tests.yml`
+// gira solo su `pull_request` il rosso e' rimasto invisibile su `main`
+// finche' non l'ha ereditato una PR estranea (#7514, #7580).
+const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
+const githubLiteralRe = /\.github\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
@@ -86,6 +98,11 @@ function trackedFiles() {
         || /^packages\/[^/]+\/[^/]+$/.test(file)));
 }
 
+function trackedGithubAssets() {
+  return execFileSync('git', ['ls-files', '-z', '--', '.github'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    .split('\0').filter(Boolean).map(normalize).filter((file) => githubAssetRe.test(file));
+}
+
 function signature(file) {
   try { return createHash('sha1').update(readFileSync(file)).digest('hex'); } catch { return null; }
 }
@@ -106,7 +123,7 @@ function resolveImport(from, specifier, fileSet) {
 // a full checkout; see importsOf() for the only case that fills it.
 const unreadable = [];
 
-function importsOf(file, fileSet) {
+function importsOf(file, fileSet, githubAssets) {
   let source;
   try {
     source = readFileSync(file, 'utf8');
@@ -127,14 +144,27 @@ function importsOf(file, fileSet) {
     return [];
   }
   const deps = new Set();
-  for (const match of stripComments(source).matchAll(importRe)) {
+  const code = stripComments(source);
+  for (const match of code.matchAll(importRe)) {
     const dep = resolveImport(file, match[2], fileSet);
     if (dep) deps.add(dep);
+  }
+  // Il letterale vale come dipendenza quando nomina il file (`'.github/x.yml'`)
+  // o la directory che lo contiene (`'.github/workflows'`, usato dai test che
+  // scandiscono l'intera cartella). Solo dentro il CODICE: un path citato in un
+  // commento non e' una dipendenza. Niente prefissi parziali — un template
+  // letterale come `` `.github/…/crawler-group-${g}.yml` `` non produce arco, e
+  // non serve: quei file non cambiano mai senza `contract.json`, che ne porta
+  // gli sha256 ed e' nominato per esteso.
+  for (const [literal] of code.matchAll(githubLiteralRe)) {
+    for (const asset of githubAssets) {
+      if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
+    }
   }
   return [...deps].sort();
 }
 
-function loadGraph(files) {
+function loadGraph(files, githubAssets) {
   let previous = {};
   let previousVersion = 0;
   try {
@@ -151,18 +181,18 @@ function loadGraph(files) {
   for (const file of files) {
     const sig = signature(file);
     const old = previous[file];
-    graph[file] = previousVersion === 5 && old?.signature === sig
+    graph[file] = previousVersion === 6 && old?.signature === sig
       ? old
-      : { signature: sig, deps: importsOf(file, fileSet) };
+      : { signature: sig, deps: importsOf(file, fileSet, githubAssets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 5, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 6, files: graph }));
   return graph;
 }
 
 const candidates = [...new Set(changed.filter((file) =>
   file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
-    && sourceRe.test(file) && !alwaysExcludedTests.has(file)))];
+    && (sourceRe.test(file) || githubAssetRe.test(file)) && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
@@ -170,7 +200,7 @@ if (candidates.length === 0 && !forceFull) {
 }
 
 const tracked = trackedFiles();
-const graph = loadGraph(tracked);
+const graph = loadGraph(tracked, trackedGithubAssets());
 if (unreadable.length > 0) {
   // Loud, and above the selection, because it is the one thing that can make
   // the list below shorter than it should be. Zero on a full checkout.
@@ -208,8 +238,15 @@ while (queue.length) {
 // changed file is a genuine leaf (zero importers anywhere in the repo, not
 // just no test importer), in which case nothing could ever reach it through
 // an import and the full run protects nothing (see lib/orphan-fallback.mjs).
-if (related.size === 0 && candidates.length > 0) {
-  if (shouldSkipFullSuiteFallback(candidates, reverse)) {
+// Il fallback si decide sui soli candidati SORGENTE. Un asset `.github/**` che
+// nessun test nomina non ha blind spot da coprire — non e' importabile, quindi
+// non esiste l'import mancato che il fallback esiste per proteggere — e farlo
+// ricadere sulla suite intera farebbe pagare ~1900 file a ogni PR di soli
+// workflow, che oggi ne paga zero. La politica related-only di `tests.yml`
+// resta invariata.
+const sourceCandidates = candidates.filter((file) => sourceRe.test(file));
+if (related.size === 0 && sourceCandidates.length > 0) {
+  if (shouldSkipFullSuiteFallback(sourceCandidates, reverse)) {
     console.log('No static related edge found, and every changed file has zero importers anywhere in the repo (standalone CLI script) → nothing to run, as expected.');
   } else {
     for (const test of allTests) related.add(test);
@@ -221,6 +258,10 @@ const tests = [...related].filter((file) => existsSync(file)).sort();
 console.log(`Running Vitest related to ${candidates.length} changed source/test file(s): ${tests.length} test file(s)`);
 console.log(tests.join('\n'));
 if (tests.length === 0) process.exit(0);
+// Seam per ispezionare la SELEZIONE senza pagare la corsa: stampa l'elenco qui
+// sopra ed esce. Usato da tests/run-related-tests-github-assets.test.ts e utile
+// a mano per capire perche' un file seleziona (o non seleziona) un test.
+if (process.env.VITEST_RELATED_DRY_RUN === 'true') process.exit(0);
 
 const args = ['node_modules/vitest/vitest.mjs', 'run', '--passWithNoTests'];
 const maxWorkers = selectMaxWorkers({
