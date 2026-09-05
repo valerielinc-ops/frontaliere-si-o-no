@@ -26,6 +26,7 @@ import type { ProfessionJobsSnapshot, FeaturedJob } from './professionJobsAggreg
 import { resolveJobCanton } from './shared/cantonSection';
 import { realSalaryMedianChf } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
 // Re-export the snapshot/featured types so the plugin imports a single
 // canonical shape — different alias keeps grep-ability without forking the
@@ -260,12 +261,7 @@ export function _resetNursingJobsAggregateCache(): void {
 
 // ── Job-board URL builder ────────────────────────────────────────────────────
 
-const JOB_BOARD_BASE_PATH: Record<NursingLocale, string> = {
-  it: '/cerca-lavoro-ticino',
-  en: '/en/find-jobs-ticino',
-  de: '/de/jobs-im-tessin',
-  fr: '/fr/trouver-emploi-tessin',
-};
+const JOB_BOARD_BASE_PATH: Record<NursingLocale, string> = SECTION_LEGACY_TI_ROOT;
 
 /**
  * Build the canonical detail-page URL for a featured job in the target locale.

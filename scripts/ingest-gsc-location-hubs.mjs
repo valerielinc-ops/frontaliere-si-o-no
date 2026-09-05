@@ -32,6 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import cantonSlugFile from '../data/canton-url-slugs.json' with { type: 'json' };
+import { SECTION_LEGACY_TI as LEGACY_TI_SECTIONS } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -44,12 +45,6 @@ const DRY_RUN = process.argv.includes('--dry-run');
 const LOCALE_SEGMENTS = new Set(['en', 'de', 'fr']);
 const LOCATION_PREFIXES = new Set(['localita', 'location', 'standort', 'ort', 'stadt', 'localite', 'ville', 'lieu']);
 const SECTION_PREFIX_BY_LOCALE = { it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi' };
-const LEGACY_TI_SECTIONS = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
 
 function buildJobSectionSlugs() {
   const out = new Set(Object.values(LEGACY_TI_SECTIONS));

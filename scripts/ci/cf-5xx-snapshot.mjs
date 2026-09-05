@@ -37,11 +37,14 @@
  *   CF_API_TOKEN             required for collection (not for --report)
  *   CF_ZONE_ID               optional, else resolved from the zone name
  *   CF_5XX_HISTORY_FILE      optional, default data/cf-5xx-history.jsonl
+ *                        (in CI richiede CF_5XX_HISTORY_FILE_ALLOW_CI=1)
  *   CF_5XX_SNAPSHOT_HOURS    optional, default 23
  */
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { resolveOutputPath } from '../lib/resolve-output-path.mjs';
 import {
   resolveZoneId,
   fetchErrorDiagnostics,
@@ -245,7 +248,14 @@ export function renderReport(history) {
 
 async function main() {
   const args = new Set(process.argv.slice(2));
-  const historyFile = process.env.CF_5XX_HISTORY_FILE || DEFAULT_HISTORY_FILE;
+  // Stessa classe di GSC_ORPHAN_CLUSTERS_OUT (issue #7291): default tracciato,
+  // override d'ambiente altrimenti invisibile.
+  const historyFile = resolveOutputPath({
+    label: 'cf-5xx-snapshot',
+    envVar: 'CF_5XX_HISTORY_FILE',
+    canonicalPath: DEFAULT_HISTORY_FILE,
+    root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'),
+  });
 
   if (args.has('--report')) {
     const history = loadHistory(historyFile);

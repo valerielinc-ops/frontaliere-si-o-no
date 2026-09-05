@@ -84,7 +84,7 @@ function createStaticServer() {
 
 // ── Page discovery ──────────────────────────────────────────
 function discoverPages() {
-  const jobDir = join(DIST, 'cerca-lavoro-ticino');
+  const jobDir = join(DIST, 'cerca-lavoro-ticino'); // cathedral-allow: IT dist directory this validator walks; it renders the IT tree only
   if (!existsSync(jobDir)) {
     console.error('❌ dist/cerca-lavoro-ticino/ not found — run vite build first');
     process.exit(1);
@@ -238,8 +238,8 @@ async function main() {
     try {
       // Count JobPostings in static HTML before SPA hydration
       const staticHtmlPath = test.slug
-        ? join(DIST, 'cerca-lavoro-ticino', test.slug, 'index.html')
-        : join(DIST, 'cerca-lavoro-ticino', 'index.html');
+        ? join(DIST, 'cerca-lavoro-ticino', test.slug, 'index.html') // cathedral-allow: IT dist directory this validator walks; it renders the IT tree only
+        : join(DIST, 'cerca-lavoro-ticino', 'index.html'); // cathedral-allow: IT dist directory this validator walks; it renders the IT tree only
       let staticJpCount = 0;
       if (existsSync(staticHtmlPath)) {
         const html = readFileSync(staticHtmlPath, 'utf8');

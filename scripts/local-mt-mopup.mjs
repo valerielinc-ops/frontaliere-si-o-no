@@ -59,7 +59,7 @@ import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { readRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
-import { buildTrafficPriority, formatPriorityReport, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
+import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -314,6 +314,72 @@ export function orderMopupJobsByTraffic(jobs, popularity, cap) {
   return buildTrafficPriority(jobs, popularity, { cap, lane: MOPUP_TRAFFIC_LANE });
 }
 
+/**
+ * Quanta della coorte fresca (<24h) la corsia freschezza vede davvero.
+ *
+ * PERCHE' ESISTE (issue #7362). La corsia mette in testa i job piu' giovani di
+ * FRESH_WINDOW_MS, ma li ordina DENTRO `candidates`, e `candidates` non e' la
+ * coda pending: e' `needsWork(job) && missingSlots(job).length > 0`. Un annuncio
+ * nuovo che e' pending ma non ricade in quel predicato — flaggato ma senza uno
+ * slot che questa corsia sappia riempire, oppure zittito da
+ * `localeMismatchSuppressed` — non entra nell'insieme, quindi la testa non lo
+ * tocca: il numero che la corsia promette di muovere (quota di job <24h ancora
+ * pending) si sposta MENO di quanto la testa suggerisce. La copertura non era
+ * mai stata misurata, e senza un numero nel log resta invisibile.
+ *
+ * Un contatore e non una seconda passata: `main()` calcola gia' `needsWork()` e
+ * `missingSlots()` per ogni job scansionato, e `missingSlots()` gira
+ * `titleLooksUntranslated()` per locale — rifarlo su tutto il corpus per contare
+ * costerebbe quanto la scansione stessa. Il meter osserva quello che la
+ * scansione ha gia' deciso; se il chiamante non glielo passa (un test, per
+ * esempio) se lo calcola da se' con gli STESSI predicati, mai con una copia.
+ *
+ * `isFreshJob()` arriva dalla libreria della corsia apposta: la coorte misurata
+ * qui deve essere la stessa che l'ordinamento mette in testa, futuro-datati
+ * esclusi compresi.
+ *
+ * @param {{ now?: number }} [opts]
+ */
+export function createFreshCoverageMeter({ now = Date.now() } = {}) {
+  const counts = {
+    scanned: 0, fresh: 0, pending: 0, covered: 0,
+    // I due motivi per cui un job fresco PENDING resta fuori dai candidates.
+    // Separati perche' dicono cose opposte su cosa farci: il primo e' una
+    // sorgente rotta a monte (nessuna corsia di traduzione puo' ripararla), il
+    // secondo e' un flag che nessuno ha riconciliato. Un solo numero
+    // aggregato li confonderebbe e la copertura parziale resterebbe
+    // inspiegata — misurato sulla coda del 2026-09-05: 195/260, 23 + 42.
+    sourceIncomplete: 0,
+    flagOnly: 0,
+    suppressed: 0,
+  };
+  return {
+    /**
+     * @param {object} job
+     * @param {{ inScope?: boolean, slotCount?: number }} [observed] quanto la
+     *   scansione ha gia' calcolato per questo job; omesso = ricalcolato qui.
+     */
+    observe(job, observed = {}) {
+      counts.scanned++;
+      if (!isFreshJob(job, now)) return;
+      counts.fresh++;
+      if (job?.localeMismatchSuppressed) counts.suppressed++;
+      const inScope = observed.inScope ?? needsWork(job);
+      if (!inScope) return;
+      counts.pending++;
+      const slotCount = observed.slotCount ?? missingSlots(job).length;
+      if (slotCount > 0) { counts.covered++; return; }
+      // `isIncomplete()` costa, ma qui gira solo sui freschi gia' pending e
+      // gia' senza slot — decine di job, non il corpus.
+      if (isIncomplete(job)) counts.sourceIncomplete++;
+      else counts.flagOnly++;
+    },
+    stats() {
+      return { ...counts };
+    },
+  };
+}
+
 export function classifyMopupWrite({
   job,
   locale,
@@ -473,6 +539,11 @@ async function main() {
   // tier too, at the cost of reading every slice instead of stopping early.
   const candidates = []; // { file, jobIdx, job, slots }
   let scannedJobs = 0;
+  // Misura la copertura della coorte <24h nella scansione che stiamo gia'
+  // facendo — la corsia freschezza ordina `candidates`, non la coda pending
+  // (issue #7362). Stesso `now` per tutta la passata, cosi' la finestra non
+  // scivola sotto i contatori mentre la scansione dura.
+  const freshMeter = createFreshCoverageMeter({ now: Date.now() });
 
   for (const file of sliceFiles) {
     const filePath = path.join(BY_CRAWLER_DIR, file);
@@ -482,9 +553,13 @@ async function main() {
     for (let jobIdx = 0; jobIdx < data.jobs.length; jobIdx++) {
       scannedJobs++;
       const job = data.jobs[jobIdx];
-      if (!needsWork(job)) continue;
+      if (!needsWork(job)) {
+        freshMeter.observe(job, { inScope: false });
+        continue;
+      }
 
       const slots = missingSlots(job);
+      freshMeter.observe(job, { inScope: true, slotCount: slots.length });
       if (slots.length === 0) continue;
 
       candidates.push({ file, jobIdx, job, slots });
@@ -497,7 +572,7 @@ async function main() {
     popularity = {};
   }
   const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(candidates.map((c) => c.job), popularity, MAX_JOBS);
-  for (const line of formatPriorityReport(stats)) console.log(line);
+  for (const line of formatPriorityReport(stats, { freshCoverage: freshMeter.stats() })) console.log(line);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
   const selected = selectedJobs.map((job) => byJob.get(job)).filter(Boolean);

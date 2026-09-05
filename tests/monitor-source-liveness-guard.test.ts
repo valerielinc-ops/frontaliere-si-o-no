@@ -244,6 +244,7 @@ describe('cwv-monitor-check abstains on a dead source', () => {
     // meaningful rather than a tautology.
     mockPostHog(DEAD_PER_DAY, [[3.0, 5000, 4000, 5000]]);
     process.env.CWV_MONITOR_HISTORY_FILE = '/tmp/cwv-guard-should-never-be-written.json';
+    process.env.CWV_MONITOR_HISTORY_FILE_ALLOW_CI = '1';
 
     const { main } = await import('../scripts/cwv-monitor-check.mjs');
     await main();
@@ -257,6 +258,7 @@ describe('cwv-monitor-check abstains on a dead source', () => {
   it('positive control: with a live source the same rows DO reach the issue sync', async () => {
     mockPostHog(ALIVE_PER_DAY, [[3.0, 5000, 4000, 5000]]);
     process.env.CWV_MONITOR_HISTORY_FILE = '/tmp/cwv-guard-live-control.json';
+    process.env.CWV_MONITOR_HISTORY_FILE_ALLOW_CI = '1';
 
     const { main } = await import('../scripts/cwv-monitor-check.mjs');
     await main();

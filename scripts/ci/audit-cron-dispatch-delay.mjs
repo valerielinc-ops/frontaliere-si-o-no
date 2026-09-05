@@ -46,6 +46,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveOutputPath } from '../lib/resolve-output-path.mjs';
 import { DEFAULT_HISTORY_FILE } from './probe-cron-dispatch-delay.mjs';
 
 const MINUTES_PER_DAY = 1440;
@@ -273,7 +274,16 @@ async function main() {
   const argv = process.argv.slice(2);
   if (argv.includes('--scan')) return runScan(argv);
 
-  const file = argValue(argv, '--file') || process.env.CRON_DISPATCH_HISTORY_FILE || DEFAULT_HISTORY_FILE;
+  // `--file` resta esplicito e prevale. L'override d'ambiente passa dallo
+  // STESSO resolver del suo scrittore (scripts/ci/probe-cron-dispatch-delay.mjs,
+  // issue #7291): senza, lettore e scrittore potrebbero risolvere due percorsi
+  // diversi in silenzio — l'audit leggerebbe un file che il probe non scrive.
+  const file = argValue(argv, '--file') || resolveOutputPath({
+    label: 'audit-cron-dispatch-delay',
+    envVar: 'CRON_DISPATCH_HISTORY_FILE',
+    canonicalPath: DEFAULT_HISTORY_FILE,
+    root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'),
+  });
   const records = readHistory(file);
 
   const histPath = argValue(argv, '--hour-histogram');

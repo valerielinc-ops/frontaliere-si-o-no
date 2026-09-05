@@ -22,6 +22,7 @@ import type { JobBoardLocale } from './jobBoardSeo';
 import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoContentTokens';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { assertLocaleTablesComplete, findMissingLocaleTableEntries } from './shared/localeTableCompleteness';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 export type SectorHubKey =
   | 'infermieri'
@@ -335,12 +336,7 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
 };
 
 /** Section root slug per locale (mirror of CITY_HUB_SECTION). */
-export const SECTOR_HUB_SECTION: Record<JobBoardLocale, string> = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
-  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
-  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
-  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
-};
+export const SECTOR_HUB_SECTION: Record<JobBoardLocale, string> = SECTION_LEGACY_TI;
 
 export const SECTOR_HUB_LOCALE_PREFIX: Record<JobBoardLocale, string> = {
   it: '',

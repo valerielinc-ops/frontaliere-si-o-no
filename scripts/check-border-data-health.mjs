@@ -262,8 +262,18 @@ export function collectWebcamUrls(crossings) {
 // unobservable. The only recovery signal was the aggregate one (the canonical
 // issue closes when EVERYTHING is healthy), which stays silent while another
 // feed is still broken — exactly the window in which "this camera is back"
-// is the useful news. Persisting `{status, lastCheckedAt, lastOnlineAt}` per
-// URL makes the transition computable on the next run.
+// is the useful news. Persisting `{status, offlineSince}` per URL makes the
+// transition computable on the next run.
+//
+// The persisted entry carries NO per-run bookkeeping timestamp. The first
+// version wrote `lastCheckedAt: now` for every URL and refreshed
+// `lastOnlineAt: now` on every healthy read, so the file changed on EVERY run
+// even when no feed had changed state: `git diff --cached --quiet` in
+// `border-live-data-watchdog.yml` was never true and the watchdog pushed to
+// `main` 4x/day carrying no information, inside a push convoy whose cost is
+// already documented (#4557 in the header of `scripts/lib/git-push-with-retry.sh`).
+// Now an entry only changes when the STATUS changes, so the workflow's
+// diff-guard means what its comment says.
 const WEBCAM_STATUS_FILE = 'data/webcam-status.json';
 
 /**
@@ -273,13 +283,21 @@ const WEBCAM_STATUS_FILE = 'data/webcam-status.json';
  *
  * INDETERMINATE verdicts (cloud-IP block, unreachable from the monitor — see
  * `evaluateWebcamResult`) are NOT evidence about the feed: they carry the
- * previous status forward untouched. Treating them as offline would fabricate
+ * previous entry forward untouched. Treating them as offline would fabricate
  * a downtime, and treating them as online would fabricate a recovery.
  *
- * @param {Record<string, {status?: string, lastCheckedAt?: string, lastOnlineAt?: string|null}>} previous
+ * `offlineSince` is written ONCE, on the run that first sees a feed broken,
+ * and frozen while it stays broken — so the reported downtime is the OBSERVED
+ * one (from the first failed check), understating the real outage by at most
+ * one check interval. The alternative — refreshing a `lastOnlineAt` on every
+ * healthy read to keep that last interval — is precisely what made the state
+ * file change on every run; on a 6h poller the recovered figure is coarse to
+ * within one interval either way, and the write-volume is not.
+ *
+ * @param {Record<string, {status?: string, offlineSince?: string|null, lastOnlineAt?: string|null}>} previous
  * @param {Array<{url: string, label?: string|null, served?: string[], verdict: {broken?: boolean, indeterminate?: boolean}}>} observations
  * @param {number} nowMs
- * @returns {{state: Record<string, {status: string, lastCheckedAt: string, lastOnlineAt: string|null}>, recovered: Array<{url: string, label: string|null, served: string[], offlineForMs: number|null}>}}
+ * @returns {{state: Record<string, {status: string, offlineSince?: string|null}>, recovered: Array<{url: string, label: string|null, served: string[], offlineForMs: number|null}>}}
  */
 export function applyWebcamStatus(previous, observations, nowMs) {
   const nowIso = new Date(nowMs).toISOString();
@@ -288,22 +306,26 @@ export function applyWebcamStatus(previous, observations, nowMs) {
   for (const obs of observations || []) {
     if (!obs?.url) continue;
     const prev = previous?.[obs.url] ?? null;
-    const prevOnlineAt = prev?.lastOnlineAt ?? null;
+    // `lastOnlineAt` is the field the first version of this file used: a state
+    // file written by a run older than this change still reads correctly.
+    const prevOfflineSince = prev?.offlineSince ?? prev?.lastOnlineAt ?? null;
     const verdict = obs.verdict ?? {};
     if (verdict.indeterminate === true) {
-      state[obs.url] = {
-        status: prev?.status ?? 'unknown',
-        lastCheckedAt: nowIso,
-        lastOnlineAt: prevOnlineAt,
-      };
+      const status = prev?.status ?? 'unknown';
+      state[obs.url] = status === 'offline' ? { status, offlineSince: prevOfflineSince } : { status };
       continue;
     }
     if (verdict.broken === true) {
-      state[obs.url] = { status: 'offline', lastCheckedAt: nowIso, lastOnlineAt: prevOnlineAt };
+      state[obs.url] = {
+        status: 'offline',
+        // Already offline → keep the start of the window; this is the run that
+        // opens it → stamp it now, and never again until it recovers.
+        offlineSince: prev?.status === 'offline' ? prevOfflineSince : nowIso,
+      };
       continue;
     }
     if (prev?.status === 'offline') {
-      const since = prevOnlineAt ? Date.parse(prevOnlineAt) : NaN;
+      const since = prevOfflineSince ? Date.parse(prevOfflineSince) : NaN;
       recovered.push({
         url: obs.url,
         label: obs.label ?? null,
@@ -311,7 +333,7 @@ export function applyWebcamStatus(previous, observations, nowMs) {
         offlineForMs: Number.isFinite(since) ? Math.max(0, nowMs - since) : null,
       });
     }
-    state[obs.url] = { status: 'online', lastCheckedAt: nowIso, lastOnlineAt: nowIso };
+    state[obs.url] = { status: 'online' };
   }
   // Rebuilt from THIS run's observations only, so a URL dropped from the
   // registry disappears from the file instead of accumulating forever.
@@ -319,9 +341,10 @@ export function applyWebcamStatus(previous, observations, nowMs) {
 }
 
 /**
- * Human-readable downtime for a recovery alert. `null` (no `lastOnlineAt` ever
- * recorded — first run after the feed was already down) reads as unknown
- * rather than as zero, which would understate a real outage.
+ * Human-readable downtime for a recovery alert. `null` (no `offlineSince` ever
+ * recorded — a state file carried over from before the downtime window was
+ * stamped) reads as unknown rather than as zero, which would understate a real
+ * outage.
  * @param {number|null} ms
  * @returns {string}
  */

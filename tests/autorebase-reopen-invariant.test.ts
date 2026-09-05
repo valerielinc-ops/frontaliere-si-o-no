@@ -22,7 +22,14 @@ const LABEL = 'autorebase-reopen-failed';
 
 describe('pr-autorebase: la PR non resta chiusa in silenzio', () => {
   it('ritenta la riapertura più di una volta, e con una pausa in mezzo', () => {
-    expect(script).toMatch(/REOPEN_ATTEMPTS\s*=\s*Number\([^)]*\|\|\s*([4-9]|\d{2,})\)/);
+    // Due forme accettate, stessa soglia: il vecchio `Number(process.env.X || N)`
+    // e `intFromEnv('X', N)` (scripts/lib/int-from-env.mjs), in cui il default e'
+    // il SECONDO argomento. Il pin resta sul valore — almeno 4 tentativi — non
+    // sulla forma sintattica: fissare solo `Number(` rendeva il test rosso per un
+    // refactor che non tocca il comportamento difeso.
+    expect(script).toMatch(
+      /REOPEN_ATTEMPTS\s*=\s*(?:Number\([^)]*\|\|\s*(?:[4-9]|\d{2,})\s*\)|intFromEnv\(\s*[^,]+,\s*(?:[4-9]|\d{2,})\s*[,)])/,
+    );
     const fn = script.slice(script.indexOf('function reopenToRetrigger'), script.indexOf('function reopenToRetrigger') + 2600);
     expect(fn).toContain('REOPEN_RETRY_SLEEP_S');
     expect(fn).toContain('REOPEN_ATTEMPTS');
@@ -38,7 +45,7 @@ describe('pr-autorebase: la PR non resta chiusa in silenzio', () => {
   it('riserva un budget DERIVATO dai tentativi, non un numero fisso', () => {
     // Un costo fisso diventa silenziosamente insufficiente appena si alzano i
     // tentativi — ed è così che il job muore a metà sezione critica.
-    const m = /const REOPEN_COST_MS = Number\(([\s\S]{0,400}?)\);/.exec(script);
+    const m = /const REOPEN_COST_MS = (?:Number|intFromEnv)\(([\s\S]{0,400}?)\);/.exec(script);
     expect(m).not.toBeNull();
     expect(m![1]).toContain('REOPEN_ATTEMPTS');
     expect(m![1]).toContain('REOPEN_RETRY_SLEEP_S');
