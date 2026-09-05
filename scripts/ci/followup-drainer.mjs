@@ -2248,13 +2248,17 @@ export function runDrain() {
       // `fu-attempt:*` applicate per tentativi che non sono avvenuti. Quelle
       // issue erano in uno stato terminale per un addebito falso.
       //
-      // Il numero che questo passo tocca e' PIU' PICCOLO di quelle 88, ed e' la
-      // sola cifra da confrontare col log per sapere se ha drenato: **71 su 88
-      // nel pool** al dry-run del 2026-09-05 (17 con un verdetto vero, che
-      // restano parked). Le 88 della riga sopra sono la popolazione totale, che
-      // include chi il pool esclude per costruzione — `needs-human`, stadio
-      // decompose, `maybe-resolved`. Entrambe scendono man mano che il passo
-      // gira: sono una fotografia, non un bersaglio.
+      // ATTENZIONE ai due `88`: sono grandezze DIVERSE che al 2026-09-05
+      // valevano lo stesso numero, e la coincidenza ha gia' prodotto una frase
+      // sbagliata (review #7499, 🟡 L2252 — diceva che il pool era «piu'
+      // stretto» di 88 mentre ne contava 88).
+      //   • 88 su 167 = le parked SENZA verdetto sull'insieme NON filtrato,
+      //     cioe' la cifra della diagnosi (riga sopra);
+      //   • 88 = la dimensione del POOL di questo stadio dopo i filtri, di cui
+      //     71 senza verdetto e 17 con un verdetto vero, che restano parked.
+      // L'unica cifra da confrontare col log per sapere se il passo ha drenato
+      // e' **71**. Scende man mano che il passo gira: e' una fotografia, non un
+      // bersaglio.
       //
       // Il predicato è «nessun verdetto», e deve restare quello: non «nessuna
       // PR», non «pending», non «nessun commento». Un verdetto è la sola prova

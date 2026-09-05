@@ -33,6 +33,7 @@ import {
   detectCloseBundleOrdering,
   detectPersistTimeCountryStamp,
   PATTERN_CLASSES,
+  candidateStrength,
 } from '../scripts/ci/check-sibling-patterns.mjs';
 
 describe('extractTokens — SCREAMING_SNAKE_CASE constants', () => {
@@ -446,5 +447,38 @@ describe('detectPersistTimeCountryStamp (worked example: escalation #5426, PR se
       '}',
     ].join('\n');
     expect(detectPersistTimeCountryStamp(clean)).toEqual([]);
+  });
+});
+
+
+/**
+ * candidateStrength (2026-09-05): quanto e' forte l'aggancio che ha portato
+ * dentro un candidato. Misurato su 22 commit recenti di questo repository, il
+ * 76% dei candidati e' agganciato a UN SOLO identificatore nudo — nome di
+ * variabile o di campo reimplementato in file scorrelati. Ma il leave-one-out
+ * sugli stessi commit ha trovato veri positivi anche in quel secchio, quindi
+ * l'etichetta ORDINA e SPIEGA, non filtra: chi legge parte dai forte, ma i
+ * deboli continuano a bloccare il gate (AGENTS.md #6).
+ */
+describe('candidateStrength', () => {
+  it('un solo identificatore nudo → debole', () => {
+    expect(candidateStrength(['rawDescription'])).toBe('debole');
+  });
+
+  it('due o piu costrutti condivisi → forte', () => {
+    expect(candidateStrength(['rawDescription', 'completedAt'])).toBe('forte');
+  });
+
+  it('una forma strutturale del registro → forte anche da sola', () => {
+    expect(candidateStrength(['class:"cap-before-mutation"'])).toBe('forte');
+  });
+
+  it('una espressione verbatim rimossa → forte anche da sola', () => {
+    expect(candidateStrength(['removed:"if (isSufficientVacancyDescription(x))"'])).toBe('forte');
+  });
+
+  it('input degeneri non lanciano', () => {
+    expect(candidateStrength([])).toBe('debole');
+    expect(candidateStrength(undefined as unknown as string[])).toBe('debole');
   });
 });

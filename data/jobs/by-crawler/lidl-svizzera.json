@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-09-05T12:38:40.993Z",
+  "assembledAt": "2026-09-05T12:09:17.697Z",
   "jobs": [
     {
       "id": "company-kc9uax",
@@ -1451,10 +1451,14 @@
         ],
         "de": [
           "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut"
+        ],
+        "it": [
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut"
+        "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut",
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
       ],
       "salaryMin": 36300,
       "salaryMax": 54900
@@ -13055,7 +13059,26 @@
         "ch-venditore-venditrice-m-f-d-40-lidl-svizzera-zurich",
         "venditore-m-f-d-20-80-1-1-1-lidl-svizzera-zurich-98d7dd",
         "venditore-venditore-m-f-d-40-lidl-svizzera-zurich-db1835",
-        "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich"
+        "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich",
+        "ch-seller-m-p-d-40-lidl-svizzera-zurich",
+        "ch-seller-m-w-d-40-lidl-svizzera-zurich",
+        "ch-seller-seller-m-f-d-20-80-lidl-svizzera-zurich",
+        "ch-seller-seller-m-f-d-40-lidl-svizzera-zurich-db1835",
+        "ch-vendeur-m-p-j-40-lidl-svizzera-zurich",
+        "ch-vendeur-vendeur-m-f-d-20-80-lidl-svizzera-zurich",
+        "ch-vendeur-vendeur-m-f-d-20-80-zurich-lidl-svizzera-zurich-163fce",
+        "seller-m-f-d-20-80-1-1-lidl-svizzera-zurich-98d7dd",
+        "seller-m-f-d-20-80-1-zurich-lidl-svizzera-zurich-1263ee",
+        "seller-m-p-d-20-802-1-1-lidl-svizzera-zurich",
+        "seller-m-w-d-20-802-1-1-lidl-svizzera-zurich",
+        "vendeur-m-f-j-20-80-1-1-lidl-svizzera-zurich-98d7dd",
+        "vendeur-m-f-j-20-80-1-zurich-lidl-svizzera-zurich-1263ee",
+        "vendeur-m-m-j-20-802-1-1-lidl-svizzera-zurich",
+        "venditore-venditore-m-f-d-60-80-zurigo-lidl-svizzera-zurich",
+        "seller-seller-m-f-d-60-80-zurich-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj",
+        "vendeur-vendeur-h-f-d-60-80-zurich-lidl-svizzera-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13078,10 +13101,33 @@
           "venditore-m-f-d-20-80-1-1-1-lidl-svizzera-zurich-98d7dd",
           "venditore-venditore-m-f-d-40-lidl-svizzera-zurich-db1835",
           "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich",
-          "ch-venditore-venditrice-m-f-d-20-80-zurigo-lidl-svizzera-zurich"
+          "ch-venditore-venditrice-m-f-d-20-80-zurigo-lidl-svizzera-zurich",
+          "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich",
+          "ch-seller-m-p-d-40-lidl-svizzera-zurich",
+          "ch-seller-m-w-d-40-lidl-svizzera-zurich",
+          "ch-seller-seller-m-f-d-20-80-lidl-svizzera-zurich",
+          "ch-seller-seller-m-f-d-40-lidl-svizzera-zurich-db1835",
+          "ch-vendeur-m-p-j-40-lidl-svizzera-zurich",
+          "ch-vendeur-vendeur-m-f-d-20-80-lidl-svizzera-zurich",
+          "ch-vendeur-vendeur-m-f-d-20-80-zurich-lidl-svizzera-zurich-163fce",
+          "seller-m-f-d-20-80-1-1-lidl-svizzera-zurich-98d7dd",
+          "seller-m-f-d-20-80-1-zurich-lidl-svizzera-zurich-1263ee",
+          "seller-m-p-d-20-802-1-1-lidl-svizzera-zurich",
+          "seller-m-w-d-20-802-1-1-lidl-svizzera-zurich",
+          "vendeur-m-f-j-20-80-1-1-lidl-svizzera-zurich-98d7dd",
+          "vendeur-m-f-j-20-80-1-zurich-lidl-svizzera-zurich-1263ee",
+          "vendeur-m-m-j-20-802-1-1-lidl-svizzera-zurich",
+          "venditore-venditore-m-f-d-60-80-zurigo-lidl-svizzera-zurich"
         ],
         "de": [
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar",
+          "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj"
+        ],
+        "en": [
+          "seller-seller-m-f-d-60-80-zurich-lidl-svizzera-zurich"
+        ],
+        "fr": [
+          "vendeur-vendeur-h-f-d-60-80-zurich-lidl-svizzera-zurich"
         ]
       },
       "salaryMin": 58800,
@@ -21594,18 +21640,61 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
+          "seller-with-shift-responsibility-m-f-d-80-zurich-lidl-svizzera-zurich",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
+          "vendeur-avec-responsabilite-de-quart-h-f-d-80-zurich-lidl-svizzera-zurich",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich",
+          "addetto-a-alle-vendite-con-responsabilita-di-turno-m-f-d-60-80-lidl-svizzera-st",
+          "addetto-a-alle-vendite-con-responsabilita-di-turno-m-f-d-60-80-lidl-svizzera-st-moritz",
+          "addetto-a-vendite-con-responsabilita-di-turno-60-80-lidl-svizzera-bioggio",
+          "addetto-a-vendite-con-responsabilita-di-turno-60-80-lidl-svizzera-st-moritz",
+          "addetto-a-vendite-con-responsabilita-di-turno-m-f-d-60-80-lidl-svizzera-st-moritz",
+          "sales-assistant-with-shift-responsibility-60-80-1-schlieren-lidl-svizzera-schlieren",
+          "sales-assistant-with-shift-responsibility-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren",
+          "sales-assistant-with-shift-responsibility-m-f-d-60-80-chur-lidl-svizzera-chur",
+          "sales-assistant-with-shift-responsibility-m-f-d-60-80-horw-lidl-svizzera-horw",
+          "sales-assistant-with-shift-responsibility-m-f-d-60-80-lidl-svizzera-st",
+          "sales-assistant-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen",
+          "sales-assistant-with-shift-responsibility-m-f-d-60-80-stans-lidl-svizzera-stans",
+          "sales-assistant-with-shift-responsibility-m-f-d-60-90-lidl-svizzera-ostermundigen",
+          "sales-assistant-with-shift-responsibility-m-f-d-80-100-pratteln-lidl-svizzera-pratteln"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2",
+          "seller-with-shift-responsibility-m-f-d-80-zurich-lidl-svizzera-zurich"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2",
+          "vendeur-avec-responsabilite-de-quart-h-f-d-80-zurich-lidl-svizzera-zurich"
+        ],
+        "de": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
+        "seller-with-shift-responsibility-m-f-d-80-zurich-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
+        "vendeur-avec-responsabilite-de-quart-h-f-d-80-zurich-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich",
+        "addetto-a-alle-vendite-con-responsabilita-di-turno-m-f-d-60-80-lidl-svizzera-st",
+        "addetto-a-alle-vendite-con-responsabilita-di-turno-m-f-d-60-80-lidl-svizzera-st-moritz",
+        "addetto-a-vendite-con-responsabilita-di-turno-60-80-lidl-svizzera-bioggio",
+        "addetto-a-vendite-con-responsabilita-di-turno-60-80-lidl-svizzera-st-moritz",
+        "addetto-a-vendite-con-responsabilita-di-turno-m-f-d-60-80-lidl-svizzera-st-moritz",
+        "sales-assistant-with-shift-responsibility-60-80-1-schlieren-lidl-svizzera-schlieren",
+        "sales-assistant-with-shift-responsibility-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren",
+        "sales-assistant-with-shift-responsibility-m-f-d-60-80-chur-lidl-svizzera-chur",
+        "sales-assistant-with-shift-responsibility-m-f-d-60-80-horw-lidl-svizzera-horw",
+        "sales-assistant-with-shift-responsibility-m-f-d-60-80-lidl-svizzera-st",
+        "sales-assistant-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen",
+        "sales-assistant-with-shift-responsibility-m-f-d-60-80-stans-lidl-svizzera-stans",
+        "sales-assistant-with-shift-responsibility-m-f-d-60-90-lidl-svizzera-ostermundigen",
+        "sales-assistant-with-shift-responsibility-m-f-d-80-100-pratteln-lidl-svizzera-pratteln"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
