@@ -11404,6 +11404,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.title': 'Cristina Zanini moves from the great advice to the board of directors',
     'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.excerpt': 'The socialist deputy and former mayor of Lugano, Cristina Zanini, has decided to leave the Grand Council to join the board of directors of Aet, the Ticino electricity company.',
     'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.imageAlt': 'Cristina Zanini leaves the Grand Council to join the board of Azienda elettrica ticinese',
+    'blog.article.via-industria-caslano-iniziativa-popolare.title': 'Via Industria in Caslano, the popular initiative was successful',
+    'blog.article.via-industria-caslano-iniziativa-popolare.excerpt': 'Delivered 530 signatures not to enlarge Via Industria in Caslano, 458 certificates to the Registry.',
+    'blog.article.via-industria-caslano-iniziativa-popolare.imageAlt': 'Aerial view of Via Industria in Caslano',
 };
 
 export default blogMetaEn;

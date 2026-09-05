@@ -86300,6 +86300,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-via-industria-caslano-iniziativa-popolare': {
+    title: 'Via Industria a Caslano, riuscita l\'iniziativa popolare',
+    description: 'L\'iniziativa popolare per non allargare Via Industria a Caslano ha raccolto 530 firme, di cui 458 certificate dalla Cancelleria. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, industria, caslano, riuscita, iniziativa',
+    ogTitle: 'Via Industria a Caslano, riuscita l\'iniziativa popolare',
+    ogDescription: 'L\'iniziativa popolare per non allargare Via Industria a Caslano ha raccolto 530 firme, di cui 458 certificate dalla Cancelleria. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/via-industria-caslano-iniziativa-popolare',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Via Industria a Caslano, riuscita l'iniziativa popolare",
+      "description": "L'iniziativa popolare per non allargare Via Industria a Caslano ha raccolto 530 firme, di cui 458 certificate dalla Cancelleria. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/via-industria-caslano-iniziativa-popolare.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via Industria a Caslano vista dall'alto"
+      },
+      "datePublished": "2026-09-05T11:01:29+00:00",
+      "dateModified": "2026-09-05T11:01:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/via-industria-caslano-iniziativa-popolare/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
