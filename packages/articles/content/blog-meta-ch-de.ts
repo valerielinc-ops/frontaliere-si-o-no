@@ -5497,6 +5497,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritto-locazione-canton-vaud.title': 'Vermietungen: das Mietrecht in der Schweiz',
     'blog.article.diritto-locazione-canton-vaud.excerpt': 'Kaution, Kündigung und Anfechtung: Die eidgenössischen Regeln für sichere Mieten in der Schweiz, die in jedem Kanton, einschliesslich Waadt, identisch sind.',
     'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Schweizer Wohnstraße mit gepflegten Gebäuden, Symbole für Wohnqualität und Mietstandards in der Schweiz',
+    'blog.article.affitti-vaud-deposito-cauzionale.title': 'Mieten Kanton Waadt: Mietrecht und Kaution',
+    'blog.article.affitti-vaud-deposito-cauzionale.excerpt': 'Mietrecht im Kanton Waadt: Kaution max. 3 Monate, gesetzliche Kündigung auf amtlichem Formular und Anfechtung bei der Schlichtungsbehörde.',
+    'blog.article.affitti-vaud-deposito-cauzionale.imageAlt': 'Innenraum einer modernen Schweizer Wohnung mit Seeblick, Symbol des Schweizer Mietmarktes',
 };
 
 export default blogMetaChDe;
