@@ -39,6 +39,7 @@ import { promises as fs, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { auditReportPath } from './lib/auditReport.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -69,6 +70,11 @@ const VERDICT_PATH = path.join(PROJECT_ROOT, 'data', 'cathedral-seo-gates-verdic
  *   emits no JSON to stdout at all and extractCurrent instead reads a report
  *   file directly (see the `orphan-sitemap-pages` gate spec below) —
  *   evaluateGate() must not bail out on a failed stdout JSON parse for these.
+ * @property {string} [bundledAs] name this gate's audit is registered under in
+ *   scripts/audit-all.mjs. Set it and the gate stops spawning `cmd`: it rides
+ *   the single shared dist/ walk that {@link runBundle} performs once for all
+ *   bundled gates, and reads its verdict from that run instead. See the
+ *   "one walk, not six" comment on {@link runBundle}.
  * @property {string} notes
  */
 
@@ -133,7 +139,9 @@ export const GATES = [
     auditCmd: 'npm run audit:text-html-ratio',
     rebaselineCmd: 'npm run audit:text-html-ratio:rebaseline',
     baselineFile: 'data/text-html-ratio-baseline.json',
-    extractCurrent: currentOffenders,
+    bundledAs: 'text-html-ratio',
+    readsOwnReport: true,
+    extractCurrent: reportOffenders('text-html-ratio'),
     extractBaseline: baselineOffenders,
     // See the `usesOwnRatchet` doc comment on the `title-length` gate below —
     // this audit shares the exact same mixAdjustedRateGate.mjs machinery.
@@ -207,10 +215,9 @@ export const GATES = [
     auditCmd: 'npm run audit:image-object-license',
     rebaselineCmd: 'N/A - zero-tolerance gate (target: 0)',
     baselineFile: null,
-    extractCurrent: (parsed) => {
-      const p = /** @type {Record<string, unknown>} */ (parsed);
-      return Number(p.total ?? 0);
-    },
+    bundledAs: 'image-object-license',
+    readsOwnReport: true,
+    extractCurrent: reportOffenders('image-object-license'),
     extractBaseline: () => 0,
     notes: 'Must be 0. Every ImageObject must have license/creator fields.',
   },
@@ -278,7 +285,12 @@ export const GATES = [
     auditCmd: 'npm run audit:title-length',
     rebaselineCmd: 'npm run audit:title-length:rebaseline',
     baselineFile: 'data/title-length-baseline.json',
-    extractCurrent: currentOffenders,
+    // The registered auditor's factory() hard-codes the same `threshold: 66`
+    // this gate's `cmd` passes (scripts/audit-title-length.mjs, factory()), so
+    // riding the shared walk measures the same thing.
+    bundledAs: 'title-length',
+    readsOwnReport: true,
+    extractCurrent: reportOffenders('title-length'),
     extractBaseline: baselineOffenders,
     // Issue #5528: audit-title-length.mjs, audit-text-html-ratio.mjs and
     // audit-title-no-disambig-hash.mjs all run
@@ -319,7 +331,9 @@ export const GATES = [
     auditCmd: 'npm run audit:title-no-disambig-hash',
     rebaselineCmd: 'npm run audit:title-no-disambig-hash:rebaseline',
     baselineFile: 'data/title-no-disambig-hash-baseline.json',
-    extractCurrent: currentOffenders,
+    bundledAs: 'title-no-disambig-hash',
+    readsOwnReport: true,
+    extractCurrent: reportOffenders('title-no-disambig-hash'),
     extractBaseline: baselineOffenders,
     // See the `usesOwnRatchet` doc comment on the `title-length` gate above —
     // this audit shares the exact same mixAdjustedRateGate.mjs machinery.
@@ -357,6 +371,100 @@ function run(argv) {
       resolve({ code: -1, stdout, stderr: stderr + String(err) });
     });
   });
+}
+
+/**
+ * One walk, not six.
+ * ------------------
+ * Measured on run 33853154762, the last green run of this workflow, from the
+ * `[seo-gates-check] running <name>...` lines it prints itself:
+ *
+ *   text-html-ratio        11:21:29 -> 12:01:59   40m 29s
+ *   orphan-sitemap-pages   12:01:59 -> 12:11:17    9m 18s
+ *   image-object-license   12:11:17 -> 12:43:56   32m 39s
+ *   max-bfs-depth          12:43:56 -> 12:53:03    9m 07s
+ *   title-length           12:53:03 -> 13:27:01   33m 58s
+ *   title-no-disambig-hash 13:27:01 -> 13:58:08   31m 07s
+ *   ------------------------------------------- 2h 36m 39s
+ *
+ * against a `timeout-minutes: 180` cap, i.e. 23 minutes of margin on a dist/
+ * that grows daily. Three of the last four runs were then cancelled at 3h
+ * (issue #7421); on run 33922555269 this step ran 00:23:10 -> 03:03:59.
+ *
+ * The two BFS gates are 18 of those 156 minutes. The other 138 belong to the
+ * four gates above that are plain per-file scans -- and all four are already
+ * registered in scripts/audit-all.mjs, whose runner walks dist/ ONCE and hands
+ * every registered auditor the same file contents (scripts/lib/audit-runner.mjs).
+ * Spawning them separately re-walks 4,380,688 HTML files four times over to
+ * compute four numbers from the same bytes.
+ *
+ * So they now ride one spawn. Nothing about the gates themselves changes:
+ * `runAudits()` runs the same auditor objects against the same baselines with
+ * the same thresholds, writes each one's `dist/audit-reports/<name>.json`
+ * exactly as the standalone scripts do, and prints the per-audit verdict line
+ * `audit-all: failed-audits=<name>,<name>` that this function parses -- so a
+ * bundled gate keeps its OWN pass/fail, it does not inherit the bundle's.
+ *
+ * @param {GateSpec[]} gates
+ * @returns {Promise<{ failed: Set<string>, error?: string } | null>}
+ */
+export async function runBundle(gates) {
+  const names = gates.map((g) => g.bundledAs).filter((n) => typeof n === 'string');
+  if (names.length === 0) return null;
+  process.stderr.write(
+    `[seo-gates-check] one shared dist/ walk for ${names.length} gate(s): ${names.join(', ')}\n`,
+  );
+  const result = await run(['node', 'scripts/audit-all.mjs', `--audits=${names.join(',')}`]);
+  // Exit 2 is "dist/ missing or fatal error": no audit produced a verdict, so
+  // every bundled gate must report `error`, never a fabricated pass.
+  if (result.code === 2) {
+    return {
+      failed: new Set(),
+      error: `audit-all exited 2 (dist missing / fatal): ${result.stderr.split('\n').slice(-5).join(' ')}`,
+    };
+  }
+  // The line is printed unconditionally on every completed run (issue #4828).
+  // Its ABSENCE means the runner died before reporting, which is not the same
+  // thing as "nothing failed" -- fail closed rather than read a green bundle
+  // out of a truncated log.
+  const m = /^audit-all: failed-audits=(.*)$/m.exec(`${result.stdout}\n${result.stderr}`);
+  if (!m) {
+    return {
+      failed: new Set(),
+      error: 'audit-all printed no `failed-audits=` line -- the shared walk did not complete',
+    };
+  }
+  return { failed: new Set(m[1].split(',').map((s) => s.trim()).filter(Boolean)) };
+}
+
+/**
+ * Read a bundled gate's offender count out of the report the shared walk wrote.
+ * Same freshness contract as the `orphan-sitemap-pages` extractor below: the
+ * reports live under dist/, so a run that died before writing would otherwise
+ * be scored against whatever the previous run left on disk.
+ * @param {string} name
+ * @returns {() => number}
+ */
+export function reportOffenders(name) {
+  return () => {
+    // auditReportPath(), not a hand-built path: it is the same resolver the
+    // writer uses, so an AUDIT_REPORTS_DIR override moves reader and writer
+    // together instead of leaving this one reading a stale committed copy.
+    const reportPath = auditReportPath(name);
+    const report = JSON.parse(readFileSync(reportPath, 'utf8'));
+    const ranAt = Date.parse(report?.ranAt ?? '');
+    if (!Number.isFinite(ranAt) || ranAt < PROCESS_STARTED_AT) {
+      throw new Error(
+        `${reportPath} is stale (ranAt=${report?.ranAt ?? 'missing'}, ` +
+          `this run started ${new Date(PROCESS_STARTED_AT).toISOString()}) -- the shared walk did not write a fresh report`,
+      );
+    }
+    const v = report?.offendersTotal;
+    if (typeof v !== 'number' || !Number.isFinite(v)) {
+      throw new Error(`${reportPath} carries no numeric offendersTotal`);
+    }
+    return v;
+  };
 }
 
 /**
@@ -416,8 +524,22 @@ async function readBaselineFile(relPath) {
  * @param {GateSpec} gate
  * @returns {Promise<Record<string, unknown>>}
  */
-export async function evaluateGate(gate) {
-  const result = await run(gate.cmd);
+export async function evaluateGate(gate, bundle = null) {
+  /** @type {Record<string, unknown>} */
+  const entry0 = { name: gate.name };
+  // A bundled gate does not spawn: its audit already ran inside the single
+  // shared dist/ walk. Synthesise the same `{code, stdout, stderr}` shape the
+  // rest of this function reads, with the per-audit exit code recovered from
+  // `audit-all: failed-audits=` — see runBundle().
+  let result;
+  if (gate.bundledAs && bundle) {
+    if (bundle.error) {
+      return { ...entry0, auditCmd: gate.auditCmd, rebaselineCmd: gate.rebaselineCmd, notes: gate.notes, status: 'error', error: bundle.error };
+    }
+    result = { code: bundle.failed.has(gate.bundledAs) ? 1 : 0, stdout: '', stderr: '' };
+  } else {
+    result = await run(gate.cmd);
+  }
   const parsed = tryParseJson(result.stdout) ?? tryParseJson(result.stderr);
 
   /** @type {Record<string, unknown>} */
@@ -489,9 +611,10 @@ async function main() {
   const checkedAt = new Date().toISOString();
   /** @type {Array<Record<string, unknown>>} */
   const results = [];
+  const bundle = await runBundle(GATES);
   for (const gate of GATES) {
     process.stderr.write(`[seo-gates-check] running ${gate.name}...\n`);
-    const r = await evaluateGate(gate);
+    const r = await evaluateGate(gate, bundle);
     results.push(r);
     process.stderr.write(
       `[seo-gates-check]   ${gate.name}: status=${r.status} current=${r.current ?? '?'} baseline=${r.baseline ?? '?'}\n`,
