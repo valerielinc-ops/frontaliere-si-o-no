@@ -493,7 +493,12 @@ function sharedPreconditionNotice(slug, { propagate = false } = {}) {
   return [
     `if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
     `  echo "::error::${slug}: crawl OK but the crawler group's shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT}). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."`,
-    `  echo "❌ ${slug}: shared group precondition failure (exit ${GROUP_SHARED_PRECONDITION_EXIT}) — crawl was fine, no per-crawler issue filed" >> "$GITHUB_STEP_SUMMARY"`,
+    // `:-/dev/null`: il preambolo di questi body e' `set -uo pipefail`, e sotto
+    // `set -u` un `$GITHUB_STEP_SUMMARY` non definito e' un errore FATALE che
+    // uccide la shell prima della riga successiva — anche con `set +e`, che non
+    // copre gli unbound. Fuori da Actions (test, `bash -c` a mano) la variabile
+    // non c'e': senza il default questo ramo non arriverebbe mai al suo `exit`.
+    `  echo "❌ ${slug}: shared group precondition failure (exit ${GROUP_SHARED_PRECONDITION_EXIT}) — crawl was fine, no per-crawler issue filed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
     ...(propagate ? [`  exit ${GROUP_SHARED_PRECONDITION_EXIT}`] : []),
     'fi',
   ];

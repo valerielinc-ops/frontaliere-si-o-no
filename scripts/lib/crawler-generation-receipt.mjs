@@ -269,7 +269,8 @@ export function validateCrawlerGenerationReceipt(receipt, { allowLegacyV1 = true
 export function createCrawlerGroupCommitDescriptor(input) {
   if (!CRAWLER_ID_RE.test(input.crawlerId ?? '')) throw new TypeError('Invalid crawler commit descriptor identity');
   if (!isCrawlerGenerationToken(input.generationToken)) {
-    throw new TypeError('Invalid crawler commit descriptor generation token');
+    // Token del JOB, non del crawler: shared precondition (vedi markGroupSharedPrecondition).
+    throw markGroupSharedPrecondition(new TypeError('Invalid crawler commit descriptor generation token'));
   }
   if (typeof input.commitMessage !== 'string' || input.commitMessage.trim().length === 0 ||
       Buffer.byteLength(input.commitMessage) > MAX_COMMIT_MESSAGE_BYTES) {
@@ -429,8 +430,24 @@ function requiredEnv(name) {
   return value;
 }
 
+// GROUP_SHARED_PRECONDITION — vedi gli exit code di scripts/lib/git-commit-data.sh.
+// Il generation token e' un input del JOB, identico per tutti i ~27 crawler di
+// un gruppo: se manca o e' malformato, falliscono TUTTI nella stessa run
+// (misurato 27/27 sulla run corpus 33585044260). Marcare l'errore qui e' cio'
+// che permette alla CLI in fondo al file di uscire 43 invece di 1, e ai
+// workflow generati di non aprire una `Crawler Failure: Run <slug>` a testa.
+// Ogni ALTRO errore di validazione del descrittore (identita', messaggio,
+// path, conteggio) e' input del SINGOLO crawler e resta exit 1: quelle issue
+// per-crawler sono corrette e non vanno soppresse.
+export function markGroupSharedPrecondition(error) {
+  error.groupSharedPrecondition = true;
+  return error;
+}
+
 function requiredGenerationToken() {
-  return resolveCrawlerGenerationToken() ?? requiredEnv('CRAWLER_GENERATION_TOKEN');
+  const resolved = resolveCrawlerGenerationToken();
+  if (resolved) return resolved;
+  throw markGroupSharedPrecondition(new TypeError('Missing CRAWLER_GENERATION_TOKEN'));
 }
 
 export function runCrawlerGenerationReceiptCli(paths = process.argv.slice(2)) {
@@ -525,7 +542,8 @@ export function readCrawlerGroupCommitDescriptors({
   generationToken = requiredGenerationToken(),
 } = {}) {
   if (!isCrawlerGenerationToken(generationToken)) {
-    throw new TypeError('Invalid crawler commit descriptor generation token');
+    // Token del JOB, non del crawler: shared precondition (vedi markGroupSharedPrecondition).
+    throw markGroupSharedPrecondition(new TypeError('Invalid crawler commit descriptor generation token'));
   }
   const root = safeBatchDescriptorRoot(cwd, descriptorDir, runnerTemp);
   if (!fs.existsSync(root)) return [];
@@ -683,6 +701,10 @@ if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
     }
   } catch (error) {
     process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
-    process.exitCode = 1;
+    // 43 = GROUP_SHARED_PRECONDITION: solo per gli errori marcati come input
+    // del job condiviso (il generation token). Tutto il resto resta 1, cioe'
+    // il comportamento di sempre — il fail-open e' verso il RUMORE, non verso
+    // il silenzio: se un marker sparisce si torna a una issue per-crawler.
+    process.exitCode = error?.groupSharedPrecondition ? 43 : 1;
   }
 }

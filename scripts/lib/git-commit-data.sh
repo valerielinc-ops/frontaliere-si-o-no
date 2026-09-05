@@ -560,10 +560,17 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
     echo "❌ crawler group defer mode requires one --slice-only crawler invocation"
     exit 43
   fi
-  if ! CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
-    node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}"; then
+  # Il codice di uscita del receipt si INOLTRA, non si schiaccia a 1: solo lui
+  # sa distinguere un input del job condiviso (generation token → 43) da un
+  # input del singolo crawler (identita', messaggio, path → 1). Schiacciare
+  # qui rimetterebbe le due classi nello stesso secchio, che e' il difetto.
+  descriptor_exit=0
+  CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}" \
+    || descriptor_exit=$?
+  if [ "$descriptor_exit" -ne 0 ]; then
     echo "❌ crawler group defer mode could not persist its commit descriptor"
-    exit 43
+    exit "$descriptor_exit"
   fi
   echo "ℹ️ Deferred ${JOBS_HOUSEKEEPING_SCOPE} data for the atomic crawler-group commit"
   [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
