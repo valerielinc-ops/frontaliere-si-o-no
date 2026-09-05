@@ -48,8 +48,14 @@ import {
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const readRepoFile = (rel: string) => fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8');
 
-/** The pipeline's own verdict, with the options the runners declare. */
-function pipelineVerdict(jobs: unknown, label: string) {
+/**
+ * The pipeline's own verdict, with the options the runners declare.
+ *
+ * `jobs` is `any` because the parsers are untyped `.mjs` and
+ * `evaluateAuthoritativeSnapshot` declares `object[] | undefined | null` in
+ * JSDoc: `unknown` is not assignable to that.
+ */
+function pipelineVerdict(jobs: any, label: string) {
   return evaluateAuthoritativeSnapshot(jobs, {
     validateAuthoritativeSnapshot: (batch: unknown) => {
       if (!isAuthoritativeEmptySnapshot(batch)) throw new Error('not proven');
@@ -62,7 +68,7 @@ function pipelineVerdict(jobs: unknown, label: string) {
 }
 
 /** `evaluateAuthoritativeSnapshot` throws on an unproven zero; that is the "keep the slice" path. */
-function publishesProvenZero(jobs: unknown, label: string): boolean {
+function publishesProvenZero(jobs: any, label: string): boolean {
   try {
     return pipelineVerdict(jobs, label).authoritativeEmptySnapshot === true;
   } catch {
