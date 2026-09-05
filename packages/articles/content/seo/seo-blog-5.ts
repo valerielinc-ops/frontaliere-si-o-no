@@ -86573,6 +86573,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-figino-serenza-frontaliere-ticino': {
+    title: 'Figino Serenza: guida per frontalieri in Ticino',
+    description: 'Vivere a Figino Serenza e lavorare in Ticino: permesso G, tassazione frontalieri, LAMal, AVS, costi e procedura step-by-step per trasferirsi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, figino, serenza, permesso, tassazione',
+    ogTitle: 'Figino Serenza: guida per frontalieri in Ticino',
+    ogDescription: 'Trasferirsi a Figino Serenza e lavorare nel Ticino: scopri permesso G, tassazione frontalieri, LAMal obbligatoria, AVS/LPP, costi pendolarismo e valichi da usare. Guida completa.',
+    canonicalPath: '/articoli-frontaliere/figino-serenza-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Figino Serenza: guida per frontalieri in Ticino",
+      "description": "Vivere a Figino Serenza e lavorare in Ticino: permesso G, tassazione frontalieri, LAMal, AVS, costi e procedura step-by-step per trasferirsi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/figino-serenza-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con il lago al tramonto, destinazione lavorativa tipica di frontalieri residenti in Lombardia."
+      },
+      "datePublished": "2026-09-05T16:55:44+00:00",
+      "dateModified": "2026-09-05T16:55:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/figino-serenza-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

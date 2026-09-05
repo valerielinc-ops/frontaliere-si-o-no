@@ -11426,6 +11426,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'Vivere a Venegono Inferiore e lavorare in Ticino da frontaliere',
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Guida completa per pendolari: collegamenti, imposte, nuovo accordo fiscale e gestione della vita tra Venegono Inferiore e il Canton Ticino.',
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Vista panoramica della regione di confine tra Italia e Svizzera vicino a Mendrisio.',
+    'blog.article.figino-serenza-frontaliere-ticino.title': 'Figino Serenza: guida per frontalieri in Ticino',
+    'blog.article.figino-serenza-frontaliere-ticino.excerpt': 'Permesso G, tassazione, LAMal e costi: tutto quello che cambia se vivi a Figino Serenza e lavori nel Canton Ticino da frontaliere.',
+    'blog.article.figino-serenza-frontaliere-ticino.imageAlt': 'Veduta di Lugano con il lago al tramonto, destinazione lavorativa tipica di frontalieri residenti in Lombardia.',
 };
 
 export default blogMetaIt;
