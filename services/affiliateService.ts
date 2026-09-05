@@ -132,18 +132,56 @@ export function partnerRelAttr(partner: Pick<AffiliatePartner, 'sponsored'>): st
 }
 
 /**
- * Build the full affiliate URL with optional tracking params.
+ * Characters a Partnerize `pubref` may NOT contain. The value travels through
+ * the `prf.hn` redirect and lands verbatim in the dashboard reports, so it is
+ * normalised to a lowercase slug — anything else is collapsed to `-`.
+ * Exported because the /go/ redirect page has to apply the same rule inline in
+ * the browser (build-plugins/affiliateRedirectPlugin.ts): one definition.
  */
-export function buildAffiliateUrl(partner: AffiliatePartner, source: string): string {
+export const PUBREF_INVALID_RE = /[^a-z0-9_-]+/g;
+/** Partnerize truncates long publisher references; keep them short by design. */
+export const PUBREF_MAX_LEN = 48;
+
+/** True for Partnerize tracking deeplinks (the paid destination is the redirect). */
+export function isPartnerizeUrl(url: string): boolean {
+ return url.includes('prf.hn');
+}
+
+/** Normalise an arbitrary placement label into a Partnerize-safe `pubref`. */
+export function sanitizePubref(raw: string): string {
+ return String(raw ?? '')
+ .toLowerCase()
+ .replace(PUBREF_INVALID_RE, '-')
+ .replace(/^-+|-+$/g, '')
+ .slice(0, PUBREF_MAX_LEN)
+ .replace(/-+$/, '');
+}
+
+/**
+ * Build the full affiliate URL with optional tracking params.
+ *
+ * `placement` identifies WHICH slot produced the click (newsletter row 2,
+ * article body, comparator card…). On Partnerize deeplinks it becomes the
+ * `pubref` parameter — the only per-position signal the dashboard reports on,
+ * without which every surface collapses into one undifferentiated click count.
+ * UTMs stay off those links: extra query params would rewrite the paid
+ * destination, while `pubref` is the parameter Partnerize itself expects.
+ */
+export function buildAffiliateUrl(
+ partner: AffiliatePartner,
+ source: string,
+ placement?: string,
+): string {
  try {
  const url = new URL(partner.url);
- // Add UTM tracking only to regular URLs (not invite/referral/Partnerize
- // tracking links — extra query params rewrite the paid destination).
- if (
-   !partner.url.includes('invite') &&
-   !partner.url.includes('referral') &&
-   !partner.url.includes('prf.hn')
- ) {
+ if (isPartnerizeUrl(partner.url)) {
+ const pubref = sanitizePubref(placement || source);
+ if (pubref) url.searchParams.set('pubref', pubref);
+ return url.toString();
+ }
+ // Add UTM tracking only to regular URLs (not invite/referral links —
+ // extra query params rewrite the paid destination).
+ if (!partner.url.includes('invite') && !partner.url.includes('referral')) {
  url.searchParams.set('utm_source', 'frontaliereticino');
  url.searchParams.set('utm_medium', 'partner');
  url.searchParams.set('utm_campaign', source);
