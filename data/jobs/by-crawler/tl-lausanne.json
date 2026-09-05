@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
-        "internship-portavoce-e-comunicazione-istituzionale-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
-          "internship-portavoce-e-comunicazione-istituzionale-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
         ],
         "en": [
           "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
@@ -85,11 +83,11 @@
     },
     {
       "id": "tl-lausanne-c25bb5b6f690",
-      "slug": "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne",
+      "slug": "apprendistato-customer-relations-officer-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne",
-        "en": "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne",
-        "de": "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne",
+        "it": "apprendistato-customer-relations-officer-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprenticeship-customer-relations-officer-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "lehrling-customer-relations-officer-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -146,15 +144,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-884cd0625590",
-      "slug": "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne",
+      "slug": "apparecchiature-per-la-manutenzione-dei-veicoli-a-motore-veicoli-commerciali-tl-transports-publics-de-la-region",
       "slugByLocale": {
-        "it": "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne",
-        "en": "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne",
-        "de": "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne",
+        "it": "apparecchiature-per-la-manutenzione-dei-veicoli-a-motore-veicoli-commerciali-tl-transports-publics-de-la-region",
+        "en": "apprentices-in-motor-vehicle-maintenance-commercial-vehicles-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildende-in-der-instandhaltung-von-kraftfahrzeugen-nutzfahrzeuge-tl-transports-publics-de-la-region-lausannoise",
         "fr": "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -211,15 +223,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
+        ],
+        "en": [
+          "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
+        ],
+        "de": [
+          "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-4a4e6837ba9c",
-      "slug": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne",
+      "slug": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne",
-        "en": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne",
-        "de": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne",
+        "it": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -276,15 +302,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-fd345cc7ecfa",
-      "slug": "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl",
+      "slug": "meccatronica-automobilistica-veicoli-commerciali-anche-car-3rd-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl",
-        "en": "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl",
-        "de": "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl",
+        "it": "meccatronica-automobilistica-veicoli-commerciali-anche-car-3rd-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "automotive-mechatronics-commercial-vehicles-also-car-3rd-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "automotive-mechatronik-nutzfahrzeuge-auch-car-3rd-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -341,15 +381,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl"
+        ],
+        "en": [
+          "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl"
+        ],
+        "de": [
+          "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-es-mecatronicien-nes-d-automobiles-vehicules-utilitaires-egalement-rac-3eme-tl"
+      ]
     },
     {
       "id": "tl-lausanne-f3513380a950",
-      "slug": "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
+      "slug": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
-        "en": "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
-        "de": "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
+        "it": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "logistician-apprenticeship-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -394,11 +448,21 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        ],
+        "it": [
+          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:28.735Z",
@@ -418,11 +482,11 @@
     },
     {
       "id": "tl-lausanne-035401abf960",
-      "slug": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
+      "slug": "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
-        "en": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
-        "de": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
+        "it": "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentice-industrial-varnisher-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -479,15 +543,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-016b346ccecb",
-      "slug": "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
+      "slug": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
-        "en": "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
-        "de": "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
+        "it": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -544,15 +622,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-f252db52daa2",
-      "slug": "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne",
+      "slug": "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne",
-        "en": "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne",
-        "de": "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne",
+        "it": "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentices-employed-in-trade-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildende-im-handel-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -609,15 +701,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-81f45347a232",
-      "slug": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
+      "slug": "apprendisti-nei-trasporti-pubblici-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
-        "en": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
-        "de": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
+        "it": "apprendisti-nei-trasporti-pubblici-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentices-in-public-transport-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -674,7 +780,21 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-cfbb9bce415b",
@@ -727,13 +847,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
-        "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
-          "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
         ],
         "en": [
           "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
@@ -895,8 +1013,7 @@
         "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -908,8 +1025,7 @@
           "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
         ],
         "en": [
           "railway-constructors-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -999,8 +1115,7 @@
         "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-        "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1016,8 +1131,7 @@
           "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-          "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
         ],
         "en": [
           "rail-project-manager-security-installations-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -1162,14 +1276,12 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
-        "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "gestione-delle-pulci-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
-          "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "gestione-delle-pulci-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "gestionnaire-parc-vehicules-tl-lausanne-lausanne"

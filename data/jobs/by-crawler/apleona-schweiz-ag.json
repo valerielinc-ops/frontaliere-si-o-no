@@ -543,12 +543,12 @@
     },
     {
       "id": "apleona-schweiz-ag-969c9fa88bf4",
-      "slug": "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-lugano",
+      "slug": "servizio-tecnico-ventilazione-m-f-d-apleona-schweiz-ag-bischofszell",
       "slugByLocale": {
         "de": "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch",
-        "it": "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-lugano",
-        "en": "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch",
-        "fr": "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch"
+        "it": "servizio-tecnico-ventilazione-m-f-d-apleona-schweiz-ag-bischofszell",
+        "en": "service-technician-ventilation-m-f-d-apleona-schweiz-ag-bischofszell",
+        "fr": "technicien-de-service-ventilation-h-f-d-apleona-schweiz-ag-bischofszell"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -589,10 +589,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch"
+        "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch",
+        "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch",
+          "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-lugano"
+        ],
+        "en": [
+          "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch"
+        ],
+        "fr": [
           "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch"
         ]
       },

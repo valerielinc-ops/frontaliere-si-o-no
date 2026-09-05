@@ -787,7 +787,7 @@
       },
       "slugByLocale": {
         "it": "associate-career-entry-tax-consulting-pwc-switzerland-bern-2a2133",
-        "en": "associate-karriereeinstieg-steuerberatung-pwc-switzerland-bern",
+        "en": "associate-career-entry-tax-consulting-pwc-switzerland-bern",
         "de": "associate-karriereeinstieg-steuerberatung-pwc-bern",
         "fr": "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-pwc-switzerland-bern-2a2133"
       },
@@ -810,7 +810,6 @@
       "previousSlugsByLocale": {
         "en": [
           "associate-career-entry-tax-consulting-pwc-switzerland-bern-rrpcwx",
-          "associate-career-entry-tax-consulting-pwc-switzerland-bern",
           "associate-karriereeinstieg-steuerberatung-pwc-bern",
           "associate-karriereeinstieg-steuerberatung-pwc-switzerland-bern"
         ],
@@ -824,7 +823,6 @@
       "previousSlugs": [
         "associate-career-entry-tax-consulting-pwc-switzerland-bern-rrpcwx",
         "associate-karriereeinstieg-steuerberatung-pwc-bern",
-        "associate-career-entry-tax-consulting-pwc-switzerland-bern",
         "associate-karriereeinstieg-steuerberatung-pwc-switzerland-bern"
       ]
     },
@@ -7362,7 +7360,7 @@
         "it": "gestione-dei-mercati-finanziari-pwc-switzerland-zurich",
         "en": "manager-capital-markets-pwc-switzerland-zurich",
         "de": "manager-capital-markets-pwc-zurich",
-        "fr": "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
+        "fr": "manager-capital-markets-pwc-zurich"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -7383,7 +7381,6 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "fr": [
-          "manager-capital-markets-pwc-zurich",
           "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
         ],
         "it": [

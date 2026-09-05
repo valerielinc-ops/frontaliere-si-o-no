@@ -673,12 +673,12 @@
     },
     {
       "id": "company-q0avct",
-      "slug": "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct",
+      "slug": "gruppo-leader-assistenza-clienti-vita-individuale-m-f-d-zurich-insurance-sede-ticino-zurich",
       "slugByLocale": {
-        "it": "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct",
-        "en": "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct",
+        "it": "gruppo-leader-assistenza-clienti-vita-individuale-m-f-d-zurich-insurance-sede-ticino-zurich",
+        "en": "group-leader-customer-support-individual-life-m-f-d-zurich-insurance-sede-ticino-zurich",
         "de": "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct",
-        "fr": "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct"
+        "fr": "groupe-leader-service-a-la-clientele-vie-individuelle-h-f-d-zurich-insurance-sede-ticino-zurich"
       },
       "company": "Zurich Insurance (sede Ticino)",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -721,11 +721,19 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+        "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
+        "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+          "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
+          "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct"
+        ],
+        "en": [
+          "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct"
+        ],
+        "fr": [
+          "gruppenleiter-kundensupport-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-q0avct"
         ]
       },
       "firstSeenAt": "2026-08-31T17:34:52.224Z",

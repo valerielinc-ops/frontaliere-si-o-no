@@ -90,7 +90,7 @@
     },
     {
       "id": "company-pt8y8b",
-      "slug": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
+      "slug": "responsabile-della-categoria-it-ibsa-institut-biochimique-grancia",
       "company": "IBSA Institut Biochimique",
       "title": "IT Category Manager",
       "location": "Grancia",
@@ -144,10 +144,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
+        "it": "responsabile-della-categoria-it-ibsa-institut-biochimique-grancia",
         "en": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
         "de": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
-        "fr": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b"
+        "fr": "gestionnaire-de-categorie-informatique-ibsa-institut-biochimique-grancia"
       },
       "sourceLang": "en",
       "addressLocality": "Grancia",
@@ -157,11 +157,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "it-category-manager-ibsa-institut-biochimique-grancia-ti"
+          "it-category-manager-ibsa-institut-biochimique-grancia-ti",
+          "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b"
+        ],
+        "fr": [
+          "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b"
         ]
       },
       "previousSlugs": [
-        "it-category-manager-ibsa-institut-biochimique-grancia-ti"
+        "it-category-manager-ibsa-institut-biochimique-grancia-ti",
+        "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
