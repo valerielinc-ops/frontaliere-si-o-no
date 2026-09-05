@@ -563,7 +563,9 @@ function wordSet(value) {
 export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   const normalizedLocation = normalizePlace(publishedLocation);
   if (normalizedLocation.length < 3) return false;
-  if (SWISS_REGION_NAMES.has(normalizedLocation)) return false;
+  // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
+  // canton, and only one of the two spellings is in the region set.
+  if (SWISS_REGION_NAMES.has(canonicalLocationTokens(publishedLocation).join(' '))) return false;
   const haystack = normalizePlace(`${detail?.title || ''} ${detail?.description || ''}`);
   if (!haystack) return false;
   return ` ${haystack} `.includes(` ${normalizedLocation} `);
