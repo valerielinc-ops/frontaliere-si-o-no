@@ -73,7 +73,13 @@ export async function runUmantisSpecWithEmptyProof(companyKey, runtime = {}) {
       ? String(input)
       : String(input?.url || '');
     const response = await sourceFetch(input, init);
-    if (isListingSeedUrl(rawUrl) && response?.ok && typeof response.clone === 'function') {
+    // Match on the requested URL OR the one the response settled on: a platform
+    // redirect that lands the board on another path would otherwise leave
+    // `listingPageSeen` false forever, and the proof would silently never fire —
+    // indistinguishable in the logs from a board that does not declare itself
+    // empty.
+    const seen = isListingSeedUrl(rawUrl) || isListingSeedUrl(String(response?.url || ''));
+    if (seen && response?.ok && typeof response.clone === 'function') {
       const html = await response.clone().text();
       evidence.listingPageSeen = true;
       if (umantisListingStatesEmpty(html)) evidence.explicitEmptyState = true;

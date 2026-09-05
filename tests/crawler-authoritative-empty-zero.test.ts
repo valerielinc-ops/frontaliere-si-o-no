@@ -78,11 +78,25 @@ function publishesProvenZero(jobs: any, label: string): boolean {
 
 /* ── jobs.ch company profile (gim-architekten, #7458) ──────────────────── */
 
-// Shape measured on the live profile 2026-09-05: the vacancy tab carries the
+// Shape measured on the live profiles 2026-09-05: the vacancy tab carries the
 // server-rendered count, independent of the detail-link markup the parser walks.
-const jobsChProfile = (employer: string, count: number, links: string[] = []) => `<!doctype html><html><body>
+//
+// Every fixture also carries jobs.ch's own `867-jobcloud-ag` "Join our team"
+// footer WITH a `Jobs (0)` counter. That foreign counter is on both real GIM
+// profiles, and it is what an unscoped regex would pick up first: with it in
+// the fixture, a counter reader that is not scoped to the page's canonical
+// company cannot pass these tests.
+const jobsChProfile = (
+  employer: string,
+  count: number,
+  links: string[] = [],
+  { canonicalSlug = `${employer.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-profile` } = {},
+) => `<!doctype html><html><head>
+  <link rel="canonical" href="https://www.jobs.ch/en/companies/${canonicalSlug}/"/>
+</head><body>
+  <ul><li><a class="d_flex" href="/en/companies/867-jobcloud-ag/vacancies/" data-discover="true">Jobs (0)</a></li></ul>
   <h1>${employer}</h1>
-  <ul><li><a class="d_flex" href="/en/companies/49929-some-company/vacancies/" data-discover="true">Jobs (${count})</a></li></ul>
+  <ul><li><a class="d_flex" href="/en/companies/${canonicalSlug}/vacancies/" data-discover="true">Jobs (${count})</a></li></ul>
   ${links.map((id) => `<a href="/en/vacancies/detail/${id}/">a job</a>`).join('')}
 </body></html>`;
 const gimProfile = (count: number, links: string[] = []) => jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, count, links);
@@ -189,17 +203,51 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
 
   /* ── 3. "Never got to look" must NOT be published as a proven zero ──── */
 
-  it('gim-architekten refuses the proof when a profile page could not be fetched', async () => {
+  it('gim-architekten never turns an unreachable profile into a proven zero', async () => {
+    // The fetch error propagates instead of being swallowed, so
+    // `runStandardCrawlerPipeline` classifies it: connection-level soft-exits
+    // and keeps the slice, a real HTTP status surfaces as a break. Either way
+    // the one outcome that must never happen is a zero that claims to be
+    // source-proven.
     let call = 0;
-    const jobs = await fetchAllGimArchitektenJobs({
+    await expect(fetchAllGimArchitektenJobs({
       fetchPage: async () => {
         call += 1;
         if (call === 1) throw new Error('HTTP 503 from jobs.ch');
         return gimProfile(0);
       },
-    });
-    expect(jobs).toEqual([]);
+    })).rejects.toThrow(/503/);
+    expect(call).toBe(1);
+  });
+
+  it('reads the counter of the page\'s own company, not the first one in the document', async () => {
+    // Both live GIM profiles carry jobs.ch's `867-jobcloud-ag` footer link. Here
+    // that foreign counter says 0 while GIM's own says 2: an unscoped reader
+    // takes the foreign 0 and retires two live vacancies.
+    const foreignZeroOwnTwo = gimProfile(2);
+    expect(foreignZeroOwnTwo).toContain('867-jobcloud-ag/vacancies/"');
+    expect(parseVacancyCountTab(foreignZeroOwnTwo)).toBe(2);
+    const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => foreignZeroOwnTwo });
     expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(false);
+  });
+
+  it('refuses the proof when the page has no canonical to scope the counter to', async () => {
+    const noCanonical = gimProfile(0).replace(/<link rel="canonical"[^>]*>/, '');
+    expect(parseVacancyCountTab(noCanonical)).toBeNull();
+    const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => noCanonical });
+    expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(false);
+  });
+
+  it('still proves a zero when the profile 301s to a different canonical slug', async () => {
+    // `70650-gim-architekten-ag` answers 200 but canonicalises to
+    // `d7896bfc-…-gim-architekten-ag` (measured live 2026-09-05). Scoping on the
+    // REQUESTED slug would make the proof unreachable for every such profile.
+    const redirected = jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, 0, [], {
+      canonicalSlug: 'd7896bfc-a2ec-4eda-a48b-d9eeeb8191e5-gim-architekten-ag',
+    });
+    expect(parseVacancyCountTab(redirected)).toBe(0);
+    const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => redirected });
+    expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(true);
   });
 
   it('gim-architekten refuses the proof when the counter contradicts the (drifted) link markup', async () => {
