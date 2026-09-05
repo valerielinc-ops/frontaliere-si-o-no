@@ -1169,6 +1169,17 @@ export async function runStandardCrawlerPipeline(config) {
     total: sliceJobs.length,
     discovered: counts.discovered,
     written: sliceJobs.length,
+    // Per-run proof, not a per-slug guess: true only when this run's parser
+    // returned zero jobs AND its own `validateAuthoritativeSnapshot` proved
+    // the source explicitly says so (e.g. an "attualmente non ci sono
+    // posizioni aperte" marker inside the crawler's article boundary). The
+    // crawler-health monitor consumes it to tell "source is genuinely empty"
+    // apart from "selector died", exactly like the `discovered > 0 &&
+    // written === 0` filtered-empty signal (#5945) — without an
+    // `EMPTY_OK_CRAWLERS` allowlist entry that would keep masking the source
+    // long after it actually dies. A crawler whose proof stops holding throws
+    // before reaching here, so the field can never go stale as `true`.
+    authoritativeEmptySnapshot,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
