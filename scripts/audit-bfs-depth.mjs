@@ -761,3 +761,19 @@ if (invokedDirectly) {
     process.exit(2);
   });
 }
+
+// ---------------------------------------------------------------------------
+// Internal exports for tests. (Node ignores these when invoked as a script;
+// they're only reachable via dynamic import(), which the `invokedDirectly`
+// guard above keeps side-effect-free.) Mirrors the `__test` surface of
+// audit-orphan-pages-in-sitemaps.mjs, the sibling walking the same graph.
+// ---------------------------------------------------------------------------
+
+export const __test = {
+  bfsWithDepth,
+  extractAnchorHrefs,
+  extractLocs,
+  htmlHasNoindex,
+  normaliseInternalPath,
+  resolvePathToDistFile,
+};

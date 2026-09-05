@@ -21,10 +21,28 @@
  * 79.8 MB retained without flattening, 3.9 MB with — a 20× reduction that
  * scales with the corpus, because the retained bytes are the corpus.
  *
- * `Buffer.from(s, 'utf8').toString('utf8')` is used rather than a
- * `(' ' + s).slice(1)` style trick because it is an explicit round-trip
- * through a copy: no dependence on which shape V8 happens to pick for a cons
- * string. The cost is O(length of the *substring*), not of the parent.
+ * Why the Buffer round-trip and not something prettier
+ * ----------------------------------------------------
+ * The "obvious" flatteners do not flatten. Measured (in
+ * audit-duplicate-meta-description.mjs, which hit this same OOM first and
+ * carried a private copy of this helper until issue #7419 made it shared) on
+ * 40'000 samples taken out of ~10 KB parents:
+ *
+ *     desc.slice(0, 100)                    10'115 B/entry
+ *     `${desc.slice(0, 100)}`               10'114 B/entry   ← no-op
+ *     s.normalize() / s.repeat(1) / padEnd  ~10'100 B/entry  ← also no-ops
+ *     Buffer.from(s,'utf8').toString()         131 B/entry
+ *     s.split('').join('')                     130 B/entry
+ *
+ * A single-substitution template literal is optimised away, as are the other
+ * candidates; only routing the bytes outside the JS heap and back builds a
+ * fresh SeqString. Buffer is also the fastest of the two that work (120 ms vs
+ * 405 ms per 40'000 on the same measurement). The cost is O(length of the
+ * *substring*), not of the parent.
+ *
+ * The round-trip is content-exact for every caller here: the parents were read
+ * with utf8 encoding, so they cannot contain lone surrogates for the encoder to
+ * replace.
  *
  * @param {string} s
  * @returns {string} a flat, parent-free copy (`''` and short strings are
