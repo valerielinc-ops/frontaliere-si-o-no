@@ -11364,6 +11364,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcolo-trattenute-stipendio-frontalieri.title': 'Busta paga svizzera frontalieri: AVS, LPP e netto reale',
     'blog.article.calcolo-trattenute-stipendio-frontalieri.excerpt': 'Dal Nuovo Accordo Frontalieri vigente dal 2024: come calcolare le trattenute AVS, LPP, LAMal e l\'imposta alla fonte nella busta paga svizzera.',
     'blog.article.calcolo-trattenute-stipendio-frontalieri.imageAlt': 'Consulente finanziario analizza busta paga svizzera con calcolatrice e documenti',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.title': 'Busta paga frontalieri 2026: simulazione pratica',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.excerpt': 'Calcola il netto svizzero 2026: aliquote AVS 5.3%, imposta alla fonte, Nuovo Accordo, esenzioni €7.500-€10.000 e credito d\'imposta italiano.',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.imageAlt': 'Simulazione busta paga svizzera 2026 con calcolatore, franchi svizzeri e euro italiani su scrivania in ufficio ticinese',
 };
 
 export default blogMetaIt;

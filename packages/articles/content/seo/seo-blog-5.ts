@@ -85793,6 +85793,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-busta-paga-2026-simulazione': {
+    title: 'Busta paga frontalieri 2026: simulazione pratica',
+    description: 'Calcola il netto svizzero 2026: aliquote AVS 5.3%, imposta alla fonte, Nuovo Accordo, esenzioni €7.500-€10.000, credito d\'imposta italiano. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, simulazione, pratica',
+    ogTitle: 'Busta paga frontalieri 2026: simulazione pratica',
+    ogDescription: 'Scopri come si compone la busta paga svizzera 2026. Aliquote AVS 5.3%, imposta alla fonte, esenzione €7.500 (vecchi) o €10.000 (nuovi frontalieri), credito d\'imposta italiano, step-by-step.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-busta-paga-2026-simulazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busta paga frontalieri 2026: simulazione pratica",
+      "description": "Calcola il netto svizzero 2026: aliquote AVS 5.3%, imposta alla fonte, Nuovo Accordo, esenzioni €7.500-€10.000, credito d'imposta italiano. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-busta-paga-2026-simulazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Simulazione busta paga svizzera 2026 con calcolatore, franchi svizzeri e euro italiani su scrivania in ufficio ticinese"
+      },
+      "datePublished": "2026-09-05T04:48:13+00:00",
+      "dateModified": "2026-09-05T04:48:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-busta-paga-2026-simulazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
