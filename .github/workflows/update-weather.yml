@@ -86,7 +86,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run weather snapshot updater
-        run: npx tsx scripts/update-weather.ts
+        run: npx --no-install tsx scripts/update-weather.ts
         env:
           NODE_ENV: production
 

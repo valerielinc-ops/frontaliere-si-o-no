@@ -120,7 +120,7 @@ jobs:
         # resolver can't map BEFORE commit, so main never goes red on a raw
         # data dump (observed 2026-06-02: a sync commit froze the drain ~83min).
         # Needs data/jobs.json (assembled above); self-skips if missing.
-        run: npx tsx scripts/prune-404-compat-paths.ts
+        run: npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       # #4248: the workflow was red for three weeks and the badge said so, but
       # what the failure COST was invisible — the pipeline kept computing soft

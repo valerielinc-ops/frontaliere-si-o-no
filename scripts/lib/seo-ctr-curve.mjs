@@ -372,9 +372,21 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // job-board sopra, non un listing editoriale come `vita-in-ticino`. Non era
     // censita, cosi` `discoverUnregisteredFamilies` rialzava lo slug IT e quello
     // EN come DUE famiglie separate sopra soglia (issue #6704, thread #7170).
-    // Misurata live via GSC 90gg (finestra chiusa il 2026-09-04): 140.213 imp
-    // (71.480 IT + 49.633 EN + 14.852 DE + 4.248 FR), 1.718 click, CTR 1,23%,
-    // posizione media ponderata 7,47.
+    // Misurata live via GSC 90gg (finestra chiusa il 2026-09-05) passando a
+    // `fetchGscByPage` ESATTAMENTE i quattro prefissi che `familyPathPrefixes()`
+    // costruisce qui sotto: 139.514 imp (71.157 IT + 49.367 EN + 14.762 DE +
+    // 4.228 FR), 1.710 click, CTR 1,226%, posizione media ponderata 7,46.
+    // POPOLAZIONE MISURATA = POPOLAZIONE MONITORATA (issue #7412 item 2). Il
+    // dubbio era che `pathContains` sia una substring, quindi che il campione
+    // su cui i due target sono tarati escludesse gli archivi mensili
+    // `/prezzi-benzina/<zona>/YYYY-MM/` che invece il monitor aggrega. La
+    // misura ripetuta con gli stessi prefissi scompone le 139.514 imp in:
+    // pagine "oggi" 118.055 (84,6%), per-stazione 16.941 (12,1%), indici di
+    // stazione 4.134 (3,0%), archivi mensili 384 (0,28%). Escludere gli
+    // archivi porta il CTR da 1,226% a 1,225% e lascia la posizione a 7,46:
+    // non diluiscono nulla di misurabile, quindi nessun prefisso da
+    // restringere. Il test `familyPathPrefixes copre l'INTERA famiglia fuel`
+    // in tests/seo-ctr-curve.test.ts pinna questa identita` per il futuro.
     id: 'prezzi-benzina',
     label: 'Prezzi benzina',
     pathContains: '/prezzi-benzina/',
@@ -385,22 +397,24 @@ const MANUAL_SEO_CTR_FAMILIES = [
     kind: 'template',
     monitored: true,
     // Stessa metodologia "curva propria" delle famiglie sopra, con un segno
-    // opposto da annotare: a posizione 7,47 il benchmark generico attende 3,7%
-    // e questa famiglia rende 1,23%, cioe` 0,33× la sua posizione — SOTTO la
-    // curva, non sopra come le job-board. Il target resta pero` 80% del
-    // rapporto dimostrato (0,8 × 0,33 → 0,27), perche` questo monitor chiede
+    // opposto da annotare: a posizione 7,46 il benchmark generico attende
+    // 3,469% (valore INTERPOLATO — il 3,7% citato prima era il bucket
+    // arrotondato che #7426 ha sostituito) e questa famiglia rende 1,226%,
+    // cioe` 0,353× la sua posizione — SOTTO la curva, non sopra come le
+    // job-board. Il target resta pero` 80% del
+    // rapporto dimostrato (0,8 × 0,353 → 0,283), perche` questo monitor chiede
     // "lo snippet sta ancora rendendo quanto rendeva", ed e` l'unica domanda a
     // cui il suo consiglio di rimedio (generator di title/description) sa
-    // rispondere: un target fissato sulla curva generica (3,7%) scatterebbe a
+    // rispondere: un target fissato sulla curva generica (3,47%) scatterebbe a
     // ogni run dal primo giorno, e un allarme sempre acceso non e` un allarme.
-    // Il divario 0,33× resta visibile lo stesso, nel breakdown belowCurvePages
+    // Il divario 0,353× resta visibile lo stesso, nel breakdown belowCurvePages
     // di aggregateFamilyRows, che e` dove va letto.
-    targetCtrCurveMultiple: 0.27,
-    // Floor assoluto quando GSC non da` una posizione usabile: 80% dell'1,23%
+    targetCtrCurveMultiple: 0.283,
+    // Floor assoluto quando GSC non da` una posizione usabile: 80% dell'1,226%
     // misurato, la stessa soglia di regressione ~20% espressa in assoluto.
     targetCtr: 0.0098,
-    impressions90d: 140213,
-    measuredOn: '2026-09-04',
+    impressions90d: 139514,
+    measuredOn: '2026-09-05',
   },
   {
     // Il gemello diesel dello stesso generator fuel (`FUEL_SECTION_SLUG.diesel`).
@@ -408,25 +422,31 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // sia sotto soglia, ma perche` la scoperta somma per SEGMENTO e nessuno dei
     // quattro slug di locale supera 50.000 da solo (39.017 IT il piu` alto). La
     // FAMIGLIA invece li supera: misurata live via GSC 90gg (finestra chiusa il
-    // 2026-09-04), 86.458 imp (39.017 IT + 27.370 EN + 16.968 DE + 3.103 FR),
-    // 894 click, CTR 1,03%, posizione media ponderata 7,05. Registrarla qui
+    // 2026-09-05) con gli stessi quattro prefissi di `familyPathPrefixes()`,
+    // 85.934 imp (38.844 IT + 27.123 EN + 16.878 DE + 3.089 FR),
+    // 891 click, CTR 1,037%, posizione media ponderata 7,04. Registrarla qui
     // insieme a `prezzi-benzina` e` il fix della CLASSE, non di una istanza
     // (AGENTS.md #6): lasciarla fuori la terrebbe invisibile al monitor finche`
     // un singolo slug non cresce abbastanza da farsi notare.
+    // Stessa verifica di popolazione del gemello benzina (issue #7412 item 2):
+    // pagine "oggi" 69.202 (80,5%), per-stazione 11.777 (13,7%), indici di
+    // stazione 4.723 (5,5%), archivi mensili 232 (0,27%). Senza archivi il CTR
+    // passa da 1,037% a 1,036% e la posizione resta 7,04 — nessuna diluizione,
+    // il prefisso resta quello.
     id: 'prezzi-diesel',
     label: 'Prezzi diesel',
     pathContains: '/prezzi-diesel/',
     pathAliases: ['/diesel-price-switzerland/', '/dieselpreis-schweiz/', '/prix-gasoil-suisse/'],
     kind: 'template',
     monitored: true,
-    // Stessa lettura di `prezzi-benzina` sopra: a posizione 7,05 il benchmark
-    // attende 3,7% e la famiglia rende 1,03%, cioe` 0,28× la sua posizione.
-    // Target = 80% del rapporto dimostrato (0,8 × 0,28 → 0,22).
-    targetCtrCurveMultiple: 0.22,
-    // Floor assoluto senza posizione usabile: 80% dell'1,03% misurato.
+    // Stessa lettura di `prezzi-benzina` sopra: a posizione 7,04 il benchmark
+    // interpolato attende 3,679% e la famiglia rende 1,037%, cioe` 0,282× la
+    // sua posizione. Target = 80% del rapporto dimostrato (0,8 × 0,282 → 0,225).
+    targetCtrCurveMultiple: 0.225,
+    // Floor assoluto senza posizione usabile: 80% dell'1,037% misurato.
     targetCtr: 0.0083,
-    impressions90d: 86458,
-    measuredOn: '2026-09-04',
+    impressions90d: 85934,
+    measuredOn: '2026-09-05',
   },
   {
     id: 'de',

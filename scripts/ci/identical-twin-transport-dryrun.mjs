@@ -63,7 +63,10 @@
  *    `blocked-import-hazard`, MAI trasportato in silenzio.
  *
  * `both-moved` non e' mai `ready`: due modifiche indipendenti dalla baseline
- * vanno riconciliate a mano (`classify()` lo marca gia' cosi').
+ * vanno riconciliate a mano (`classify()` lo marca gia' cosi'). Nemmeno
+ * `both-moved-converged` lo e', per la ragione opposta: i due contenuti sono
+ * gia' identici, quindi non c'e' niente da trasportare — resta un `no-op`, e
+ * si chiude con un `--init` sul corpus.
  *
  * Uso:
  *   node scripts/ci/identical-twin-transport-dryrun.mjs            # report leggibile, exit 0
@@ -120,8 +123,11 @@ export function classifyForTransport(entry, now, base) {
       detail: 'Modificato su entrambi i lati dalla baseline: la riconciliazione e\' manuale, mai automatica.',
     };
   }
-  // stable, corpus-ahead, no-baseline, absent-here, check-failed, corpus-only:
-  // niente da trasportare da questo lato in nessuno di questi stati.
+  // stable, corpus-ahead, both-moved-converged, no-baseline, absent-here,
+  // check-failed, corpus-only: niente da trasportare da questo lato in nessuno
+  // di questi stati. `both-moved-converged` in particolare e' un no-op per
+  // costruzione — trasportare un file che di la' e' gia' byte-identico non
+  // cambia niente.
   return { ...verdict, transport: 'no-op' };
 }
 

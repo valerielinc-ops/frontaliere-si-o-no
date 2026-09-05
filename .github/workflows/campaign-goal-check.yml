@@ -86,10 +86,10 @@ jobs:
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-        # `npx tsx`: this script imports scripts/lib/seo-ctr-curve.mjs, which
+        # `npx --no-install tsx`: this script imports scripts/lib/seo-ctr-curve.mjs, which
         # now reaches into services/router.ts / build-plugins/fuelDailyData.ts
         # (issue #7174). Bare node cannot resolve those TS specifiers.
-        run: npx tsx scripts/campaign-goal-check.mjs
+        run: npx --no-install tsx scripts/campaign-goal-check.mjs
 
       - name: Cleanup credentials
         if: always()
@@ -113,10 +113,15 @@ jobs:
           fi
 
           git commit -m "chore(seo): update campaign goal status [skip ci]"
+          # Pin the SHA of the commit we just made: the regenerate-cmd below
+          # runs inside the helper AFTER `git rebase --abort` + `git reset --hard`,
+          # both of which push new reflog entries, so a reflog position is not a stable
+          # handle on this commit (issue #7389).
+          COMMIT_SHA="$(git rev-parse HEAD)"
 
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --regenerate-cmd "git checkout HEAD@{1} -- data/campaign-goal-status.json 2>/dev/null || true; git add data/campaign-goal-status.json"
+            --regenerate-cmd "git checkout $COMMIT_SHA -- data/campaign-goal-status.json; git add data/campaign-goal-status.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -89,7 +89,7 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           if [ -n "$ONLY" ]; then ARGS+=("--only=$ONLY"); fi
           if [ -n "$REPORT_DATE" ]; then ARGS+=("--date=$REPORT_DATE"); fi
-          npx tsx scripts/post-to-tiktok.mjs ${ARGS[@]+"${ARGS[@]}"}
+          npx --no-install tsx scripts/post-to-tiktok.mjs ${ARGS[@]+"${ARGS[@]}"}
 
       - name: Commit posted ledger
         if: success() && env.DRY_RUN != 'true'
