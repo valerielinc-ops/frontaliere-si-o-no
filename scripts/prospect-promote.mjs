@@ -64,6 +64,17 @@ import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
 // `main()` del drainer — che scrive su issue e PR reali — non puo' partire
 // dentro il job del prospector. Il contrario NON vale — questo file il guard
 // non ce l'ha e un `import()` lo esegue davvero.
+//
+// Quell'argomento pero' copre il drainer e basta, non i moduli che si porta
+// dietro (`claude-rate-limit.mjs`, `close-recovered-failure-issues.mjs`,
+// `lib/run-budget.mjs`, ...): un `process.exit`/throw a load-time in uno di
+// loro ucciderebbe la promozione PRIMA dello scaffolding, sotto un argv e un
+// env che nessuno di quei moduli si aspetta. La catena e' stata ispezionata
+// modulo per modulo — nessun side-effect a load-time — e da #7292 la proprieta'
+// non e' piu' un'ispezione una-tantum: `tests/prospect-promote-import-side-
+// effects.test.ts` ricalcola la chiusura transitiva di QUESTO file a ogni run e
+// importa ogni modulo sotto l'argv del prospector, cosi' il primo modulo nuovo
+// che sporca il load-time si ferma li' e non nel job.
 import { canPushWorkflows } from './ci/followup-drainer.mjs';
 
 const argv = process.argv.slice(2);
