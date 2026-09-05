@@ -5530,6 +5530,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.title': 'Kantonale Steuern im Wallis: Sätze und Abzüge',
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.excerpt': 'Entdecken Sie die Steuersätze und Steuerabzüge im Kanton Wallis, mit Details zu Fälligkeiten und dem Online-Portal der Steuerverwaltung.',
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.imageAlt': 'Panoramablick auf den Lago Maggiore mit den Schweizer Bergen im Hintergrund',
+    'blog.article.osce-conferenza-berna.title': 'OSZE-Konferenz in Bern: von Genf nach Helsinki',
+    'blog.article.osce-conferenza-berna.excerpt': 'Bundesrat Ignazio Cassis sprach am 3. September 2026 in Bern über die Fähigkeit zur diplomatischen Zusammenarbeit trotz Meinungsverschiedenheiten.',
+    'blog.article.osce-conferenza-berna.imageAlt': 'Luftaufnahme von Bern, Schweiz, mit dem Bundeshaus und der Aare.',
 };
 
 export default blogMetaChDe;
