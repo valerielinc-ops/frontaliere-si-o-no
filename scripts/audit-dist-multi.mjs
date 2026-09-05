@@ -614,12 +614,18 @@ class TitleUniqAudit {
     const locale = inferDupLocale(distRel);
     const fsCanonical = canonicalizeDistPath(distRel);
 
-    const title = extractHeadTitle(html);
+    // flatString: both keys of `titlesByLocale` are slices that would outlive
+    // the scan. Here the parent is the *whole* `html`, not just the head —
+    // `extractHeadTitle` scopes via a capture into `html` — so one retained
+    // page per distinct title/canonical is a full document each. Same
+    // boundary as the original in audit-title-uniqueness.mjs, which this
+    // block mirrors verbatim.
+    const title = flatString(extractHeadTitle(html));
     this.totalPages += 1;
     if (!title) { this.missingTitles += 1; return; }
     if (hasNoindexDup(html)) return;
 
-    const canonicalUrl = extractCanonical(html);
+    const canonicalUrl = flatString(extractCanonical(html));
     const canonicalKey = canonicalUrl ?? fsCanonical;
 
     if (!this.titlesByLocale.has(locale)) {

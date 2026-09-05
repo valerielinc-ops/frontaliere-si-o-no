@@ -203,7 +203,14 @@ function main() {
     // Extract <head> once; pass to all helpers to avoid repeated large-string regex captures.
     const head = extractHead(html);
 
-    const title = extractHeadTitle(head);
+    // flatString: `title` is a slice into `head` and becomes a Map key in
+    // `titlesByLocale` (`bucket.set(title, …)` below), which spans the whole
+    // corpus scan — one retained document per distinct *title*, a hotter
+    // boundary than the canonical one right under it. `extractHeadTitle()`
+    // rebuilds the string only incidentally: a title with no whitespace
+    // leaves both `replace(/\s+/g, ' ')` and `trim()` no-ops and the slice
+    // survives. Same reading as the twin in audit-h1-title-duplicates.mjs.
+    const title = flatString(extractHeadTitle(head));
     totalPages += 1;
     if (!title) {
       missingTitles += 1;

@@ -173,3 +173,61 @@ describe('audit-h1-title-duplicates — offender retention', () => {
     ).toBeLessThan(FILLER_BYTES / 4);
   });
 });
+
+/**
+ * The Map-KEY boundary, which the `push()` assertion above cannot see.
+ *
+ * `audit-title-uniqueness.mjs` and the verbatim clone of it inside
+ * `audit-dist-multi.mjs` never push the extracted strings anywhere: they use
+ * them as the KEYS of `titlesByLocale`, a Map that spans the whole corpus
+ * scan. That retains one document per distinct <title> — strictly hotter than
+ * the canonical arm, since a corpus has more distinct titles than canonical
+ * regressions — and it is invisible to a guard that only inspects `push(`.
+ *
+ * `extractHeadTitle()` rebuilds the string only incidentally: its trailing
+ * `replace(/\s+/g, ' ')` and `trim()` are both no-ops for a title that
+ * contains no whitespace, so the slice into the parent survives. That is the
+ * same reading already written down for the title/h1 boundary in
+ * audit-h1-title-duplicates.mjs, which is why this file's clone matters: in
+ * `audit-dist-multi.mjs` the parent is the WHOLE document, not just the head.
+ */
+const TITLE_KEY_GATES = [
+  'scripts/audit-title-uniqueness.mjs',
+  'scripts/audit-dist-multi.mjs',
+] as const;
+
+describe('title-uniqueness gates — a Map key must not retain the page it was extracted from', () => {
+  for (const rel of TITLE_KEY_GATES) {
+    it(`${rel} flattens every capture it uses as a long-lived Map key`, () => {
+      const src = sourceWithoutLineComments(rel);
+
+      // Anti-vacuity: the boundary must still exist. A rename or a rewrite of
+      // the bucket has to break this test, not quietly empty it.
+      expect(
+        /\bbucket\.set\(\s*title\s*,/.test(src),
+        `${rel} no longer keys a corpus-spanning Map by title — this guard has stopped guarding anything`,
+      ).toBe(true);
+
+      // Every binding that feeds one of those keys must be flattened at the
+      // point it is bound, because there is no push() to flatten at.
+      for (const name of ['title', 'canonicalUrl']) {
+        const decl = new RegExp(`\\b(?:const|let)\\s+${name}\\s*=\\s*([^;]+);`, 'g');
+        let m: RegExpExecArray | null;
+        let seen = 0;
+        while ((m = decl.exec(src)) !== null) {
+          const rhs = codeOnly(m[1]);
+          if (!/\bextract[A-Za-z]*\(/.test(rhs)) continue;
+          seen += 1;
+          expect(
+            rhs.includes('flatString('),
+            `${rel} binds \`${name}\` to a raw capture that becomes a corpus-spanning Map key, pinning the page it was scraped from:\n  ${m[0].trim()}`,
+          ).toBe(true);
+        }
+        expect(
+          seen,
+          `${rel} no longer extracts \`${name}\` — this guard has stopped guarding anything`,
+        ).toBeGreaterThan(0);
+      }
+    });
+  }
+});
