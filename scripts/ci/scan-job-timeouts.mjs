@@ -78,6 +78,19 @@
  *      emission for a title in each scan. Title dedup alone cannot distinguish
  *      "same run seen twice" from "a later run really recurred"; this layer can.
  *
+ * ATTRIBUZIONE DEL TEMPO (#7421). Il body diceva CHE un job era andato in timeout e
+ * mai DOVE fossero finite le ore, benché `steps[]` — con `name`, `conclusion`,
+ * `started_at` e `completed_at` — arrivi già dentro la stessa risposta di
+ * `actions/runs/{id}/jobs` che questo scanner sta leggendo. Su #7421 il timeout fu
+ * imputato a occhio al download dell'artifact `github-pages` e la issue finì nel
+ * cluster sbagliato; le due misure indipendenti che servirono per correggere il tiro
+ * dissero 10 secondi per quel download e 2h24m per lo step `Run gates check`, cioè
+ * l'80% della vita del job. `stepTimingLines()` mette quella tabella nel body,
+ * ordinata per durata e con lo step tagliato dal cap marcato ✂️. È best-effort per
+ * costruzione: niente `steps[]` utilizzabili ⇒ nessuna riga aggiunta e il body torna
+ * identico a quello di prima. Nessun log viene scaricato: il log di un job ancora in
+ * corso non è ottenibile via API, e gli step bastano.
+ *
  * BRANCH-SCOPED TITLE (#6036): `close-recovered-failure-issues.mjs` measures
  * recurrence/chronic-escalation on `gh run list -w <workflow> -b main` — a population
  * that by construction never contains a `pull_request` (or any non-`main`) run. This
@@ -101,6 +114,12 @@ import {
   commentOnGithubIssue,
   searchSafePrefix,
 } from '../lib/github-issue-creator.mjs';
+// Il body di queste issue non deve MAI citare un path `.github/workflows/**`:
+// `check-workflows-scope.mjs` (Mode 1) terminerebbe `issue-fix.yml` a zero token.
+// Il nome di uno step arriva dal `name:` scritto a mano nel workflow e può
+// contenerlo (`Run .github/workflows/foo.yml`), quindi la redazione è applicata
+// al body INTERO — stessa regola e stessa funzione di `report-workflow-failure.mjs`.
+import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -126,6 +145,104 @@ const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum numb
 // hourly cron, so the next scan still sees it. Cheap insurance against a false
 // host-kill issue on an ordinary red build.
 const HOST_KILL_SETTLE_MS = Number(process.env.HOST_KILL_SETTLE_MS || 120_000);
+
+// Quanti step mostrare nell'attribuzione del tempo. Il body di una issue che
+// nessuno legge è inutile quanto uno vuoto: un job lungo ha decine di step e
+// la coda è fatta di secondi. Gli omessi vengono comunque dichiarati.
+const MAX_TIMED_STEPS = 8;
+
+/** `2h24m` / `32m33s` / `6s`. Una durata che si legge a colpo d'occhio. */
+export function formatDurationMs(ms) {
+  if (!Number.isFinite(ms) || ms < 0) return '?';
+  const total = Math.round(ms / 1000);
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60);
+  const s = total % 60;
+  if (h > 0) return `${h}h${String(m).padStart(2, '0')}m`;
+  if (m > 0) return `${m}m${String(s).padStart(2, '0')}s`;
+  return `${s}s`;
+}
+
+/**
+ * DOVE è finito il tempo, non solo CHE il tempo è finito.
+ *
+ * `repos/{repo}/actions/runs/{id}/jobs` spedisce già `steps[]` con `name`,
+ * `conclusion`, `started_at` e `completed_at`: bastano per attribuire le ore a
+ * uno step invece di lasciare che chi legge la issue le attribuisca a occhio.
+ * Il costo di non farlo è misurato su #7421: il timeout era stato imputato al
+ * download dell'artifact `github-pages` (durato 10 secondi su 10.818) e la issue
+ * era finita nel cluster sbagliato; ci sono volute due misure indipendenti per
+ * spostarlo sullo step `Run gates check`, che da solo valeva 2h24m.
+ *
+ * Nessun log: uno step `if: failure()` gira mentre il suo job è ancora in corso
+ * e il log di un job in corso non è scaricabile via API. Qui bastano gli step.
+ *
+ * Best-effort per costruzione: `steps[]` assente, vuoto o senza timestamp
+ * utilizzabili ⇒ `[]`, e il body degrada esattamente a quello di prima. Un
+ * reporter che fallisce non deve aggiungere un fallimento.
+ *
+ * @returns {string[]} righe markdown, già ordinate per durata decrescente.
+ */
+export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.now() } = {}) {
+  const steps = Array.isArray(job?.steps) ? job.steps : [];
+  if (steps.length === 0) return [];
+
+  const jobEndMs = Number.isFinite(Date.parse(job?.completed_at || ''))
+    ? Date.parse(job.completed_at)
+    : nowMs;
+
+  const timed = [];
+  for (const step of steps) {
+    const startedAt = Date.parse(step?.started_at || '');
+    if (!Number.isFinite(startedAt)) continue;
+    const completedAt = Date.parse(step?.completed_at || '');
+    // Uno step senza `completed_at` è quello che stava girando quando il cap ha
+    // tagliato: la sua durata arriva dalla fine del JOB, altrimenti sparirebbe
+    // proprio lo step che ha consumato le ore.
+    const endMs = Number.isFinite(completedAt) ? completedAt : jobEndMs;
+    const durationMs = endMs - startedAt;
+    if (!Number.isFinite(durationMs) || durationMs < 0) continue;
+    timed.push({
+      name: String(step?.name ?? '(senza nome)'),
+      durationMs,
+      startedAt,
+      open: !Number.isFinite(completedAt),
+      cancelled: step?.conclusion === 'cancelled',
+    });
+  }
+  if (timed.length === 0) return [];
+
+  // Lo step tagliato dal cap. GitHub non è coerente: sulla run 33919268604 lo
+  // step troncato ha `completed_at` valorizzato e `conclusion: cancelled`,
+  // altrove resta senza `completed_at`. Ultimo fallback: l'ultimo iniziato.
+  const cut = timed.find((s) => s.open)
+    || timed.find((s) => s.cancelled)
+    || timed.reduce((a, b) => (b.startedAt >= a.startedAt ? b : a));
+
+  const totalMs = timed.reduce((acc, s) => acc + s.durationMs, 0);
+  const ranked = [...timed].sort((a, b) => b.durationMs - a.durationMs);
+  const shown = ranked.slice(0, maxSteps);
+  const omitted = ranked.slice(maxSteps);
+
+  const lines = [
+    '',
+    `**Dove è finito il tempo** (${formatDurationMs(totalMs)} misurati sugli step, `
+      + 'ordinati per durata; ✂️ = lo step in corso quando il cap ha tagliato):',
+  ];
+  for (const step of shown) {
+    const share = totalMs > 0 ? Math.round((step.durationMs / totalMs) * 100) : 0;
+    lines.push(
+      `- ${step === cut ? '✂️ ' : ''}\`${step.name}\` — **${formatDurationMs(step.durationMs)}** (${share}%)`,
+    );
+  }
+  if (omitted.length > 0) {
+    lines.push(
+      `- _…e altri ${omitted.length} step, nessuno oltre `
+        + `${formatDurationMs(omitted[0].durationMs)}._`,
+    );
+  }
+  return lines;
+}
 
 function repoPath(suffix) {
   return REPO ? `repos/${REPO}/${suffix}` : `repos/{owner}/{repo}/${suffix}`;
@@ -439,9 +556,10 @@ export async function main() {
     const jobBlocks = hits.flatMap(({ job, hit }, index) => [
       `### Job ${index + 1}: ${job.name}`,
       `**Motivo:** ${hit.message}`,
+      ...stepTimingLines(job, { nowMs }),
       '',
     ]);
-    const description = [
+    const rawDescription = [
         '## Job cancellati per timeout',
         '',
         `**Run:** ${run.html_url}`,
@@ -452,6 +570,8 @@ export async function main() {
         'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico, non dal workflow stesso — '
           + 'un job cancellato per timeout non passa mai `if: failure()`).',
       ].join('\n');
+    // vedi la nota sull'import: nessun path `.github/workflows/**` nel body.
+    const description = redactWorkflowPaths(rawDescription);
     await emit({
       title: scopedTitle(run),
       description,
@@ -481,7 +601,7 @@ export async function main() {
         '',
       ];
     });
-    const description = [
+    const rawDescription = [
         '## Job uccisi dall’host (runner morto a metà step)',
         '',
         `**Run:** ${run.html_url}`,
@@ -505,6 +625,8 @@ export async function main() {
         '',
         'Rilevato da `scripts/ci/scan-job-timeouts.mjs`.',
       ].join('\n');
+    // vedi la nota sull'import: nessun path `.github/workflows/**` nel body.
+    const description = redactWorkflowPaths(rawDescription);
     await emit({
       title: scopedTitle(run),
       description,
