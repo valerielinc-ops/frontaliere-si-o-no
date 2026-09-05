@@ -51,6 +51,7 @@ import {
   buildSalaryStatsPath,
 } from './salaryStatsData';
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from './professionCantonData';
+import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 import { isSalaryEligibleProfessionId, buildSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { resolveProfessionCantonsFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -92,6 +93,15 @@ interface Copy {
   perYear: string;
   /** Cross-link to the salary-intent page (#4461), when the pair is eligible. */
   salaryLink: (role: string, canton: string) => string;
+  /**
+   * Labels for the cross-canton peer block (#7386). The figures on this page
+   * are masked to `#` by the Information Gain metric, so the only thing that
+   * can tell it apart from its 25 sibling cantons is WHICH cantons sit next to
+   * it in the ranking for THIS profession — and those are named here.
+   */
+  peerHeading: (role: string) => string;
+  peerMetric: string;
+  peerNoun: string;
 }
 
 const COPY: Record<ProfessionLocale, Copy> = {
@@ -111,6 +121,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaDesc: (n, r, c) => `${n} offerte per ${r} nel Canton ${c}: datori reali, stipendio mediano e candidatura diretta. Aggiornato ogni 12 ore.`,
     perYear: '/anno',
     salaryLink: (r, c) => `Stipendio ${r} nel Canton ${c}: lordo, netto e confronto`,
+    peerHeading: (r) => `Dove sta questo cantone per ${r}`,
+    peerMetric: 'offerte attive',
+    peerNoun: 'cantoni',
   },
   en: {
     eyebrow: 'Jobs by profession',
@@ -128,6 +141,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaDesc: (n, r, c) => `${n} ${r} openings in Canton ${c}: real employers, median salary and direct apply. Updated every 12 hours.`,
     perYear: '/yr',
     salaryLink: (r, c) => `${r} salary in Canton ${c}: gross, net and comparison`,
+    peerHeading: (r) => `Where this canton stands for ${r}`,
+    peerMetric: 'active openings',
+    peerNoun: 'cantons',
   },
   de: {
     eyebrow: 'Stellen nach Beruf',
@@ -145,6 +161,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaDesc: (n, r, c) => `${n} ${r}-Stellen im Kanton ${c}: echte Arbeitgeber, Medianlohn und Direktbewerbung. Alle 12 Stunden aktualisiert.`,
     perYear: '/Jahr',
     salaryLink: (r, c) => `${r}-Lohn im Kanton ${c}: brutto, netto und Vergleich`,
+    peerHeading: (r) => `Wo dieser Kanton bei ${r} steht`,
+    peerMetric: 'aktive Stellen',
+    peerNoun: 'Kantonen',
   },
   fr: {
     eyebrow: 'Emplois par profession',
@@ -162,6 +181,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaDesc: (n, r, c) => `${n} offres ${r} dans le canton ${c} : employeurs réels, salaire médian et candidature directe. Mis à jour toutes les 12 heures.`,
     perYear: '/an',
     salaryLink: (r, c) => `Salaire ${r} dans le canton ${c} : brut, net et comparaison`,
+    peerHeading: (r) => `Où se situe ce canton pour ${r}`,
+    peerMetric: 'offres actives',
+    peerNoun: 'cantons',
   },
 };
 
@@ -180,8 +202,15 @@ export function renderProfessionCantonPage(opts: {
   id: AnyProfessionId;
   snapshot: ProfessionJobsSnapshot;
   distDir: string;
+  /**
+   * Every canton that ships a page for THIS profession, with its live count
+   * (#7386). Optional so the renderer stays callable from a unit test with a
+   * single pair; when it is absent the peer block is simply not emitted, which
+   * is the same outcome as a cohort too small to rank.
+   */
+  cohort?: ReadonlyArray<{ cantonKey: string; liveCount: number }>;
 }): { html: string; words: number } {
-  const { locale, cantonKey, id, snapshot, distDir } = opts;
+  const { locale, cantonKey, id, snapshot, distDir, cohort } = opts;
   const c = COPY[locale];
   const cantonName = getCantonDisplayName(cantonKey, locale as CantonDisplayLocale);
   const role = professionLabel(locale, id);
@@ -218,6 +247,25 @@ export function renderProfessionCantonPage(opts: {
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
         .join('')}</ul>`
     : '';
+
+  // Where this canton sits among the cantons that ship a page for this same
+  // profession, with the neighbours NAMED — the one element of the page the
+  // Information Gain masks leave standing (see shared/peerCohortComparison.ts
+  // and docs/INFORMATION-GAIN.md, «I 37 offender del 2026-09-01»).
+  const peerRows: PeerRow[] = (cohort ?? []).map((entry) => ({
+    key: entry.cantonKey,
+    name: getCantonDisplayName(entry.cantonKey, locale as CantonDisplayLocale),
+    href: buildProfessionCantonPath(locale, entry.cantonKey, id),
+    value: entry.liveCount,
+  }));
+  const peerBlock = renderPeerComparison({
+    locale,
+    currentKey: cantonKey,
+    rows: peerRows,
+    labels: { heading: c.peerHeading(role), metricLabel: c.peerMetric, peerNoun: c.peerNoun },
+    formatValue: (value) => String(Math.round(value)),
+    higherIsBetter: true,
+  });
 
   const roleKw = professionRoleKeywordAny(locale, id);
   const cantonSlug = SALARY_STATS_CANTON_SLUGS[cantonKey][locale];
@@ -290,6 +338,7 @@ export function renderProfessionCantonPage(opts: {
 ${header}
 ${tiles}
 ${employers}
+${peerBlock}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
 ${salaryLink}
 ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
@@ -400,6 +449,23 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
   const byCanton = aggregateProfessionJobsByCanton(opts.rootDir);
   const collector = new WriteCollector({ distDir: opts.distDir, pluginName: 'professionCantonLandings' });
 
+  // Cohort per profession: only the cantons that actually SHIP a page for it.
+  // Built before the emit loop because every page of a profession needs the
+  // whole column, and rebuilding it per (canton, locale) would recompute the
+  // same array 26 x 4 times. Below-floor cantons are excluded on purpose — the
+  // block links its peers, and a bridge page is not a peer.
+  const cohortByProfession = new Map<AnyProfessionId, Array<{ cantonKey: string; liveCount: number }>>();
+  for (const id of ALL_CANTON_PROFESSION_IDS) {
+    const rows: Array<{ cantonKey: string; liveCount: number }> = [];
+    for (const cantonKey of PROFESSION_CANTON_KEYS) {
+      const snap = byCanton[cantonKey]?.[id];
+      if (snap && meetsJobsFloor({ liveCount: snap.liveCount }).meetsFloor) {
+        rows.push({ cantonKey, liveCount: snap.liveCount });
+      }
+    }
+    cohortByProfession.set(id, rows);
+  }
+
   for (const cantonKey of PROFESSION_CANTON_KEYS) {
     // No early `continue` on a missing canton bucket: a canton with zero
     // matched jobs this build (data gap, not just one profession dipping
@@ -431,7 +497,14 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
       // every locale in practice; this guard makes it safe regardless.
       const rendered = PROFESSION_LOCALES.map((locale) => ({
         locale,
-        ...renderProfessionCantonPage({ locale, cantonKey, id, snapshot, distDir: opts.distDir }),
+        ...renderProfessionCantonPage({
+          locale,
+          cantonKey,
+          id,
+          snapshot,
+          distDir: opts.distDir,
+          cohort: cohortByProfession.get(id),
+        }),
       }));
       if (rendered.some((r) => r.words < MIN_INDEXABLE_WORDS)) {
         result.pagesSkippedForWordCount += PROFESSION_LOCALES.length;
