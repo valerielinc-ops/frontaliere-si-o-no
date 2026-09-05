@@ -2104,12 +2104,16 @@ jobs:
       # validate-dist side untars it straight into dist/ (no extra cp copy).
       - name: Pack locale shard dist (tar) for post-deploy validation
         if: matrix.locale != 'it'
+        id: pack-locale-shard
         # continue-on-error for the same reason as the upload+push steps: a pack
         # failure must degrade to validate-dist's git-clone fallback, never flip
         # build-locale.result→failure (which would block the Pages publish).
         continue-on-error: true
         run: |
           set -euo pipefail
+          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
+          # per il perche' del trap EXIT invece di un echo finale.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           members=( "${{ matrix.locale }}" )
           # dist/<loc>.html (= the /{loc} homepage) is normally present; guard so
           # a future strip that drops it can't make tar exit non-zero. NB: use a
@@ -2283,7 +2287,12 @@ jobs:
           SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
           SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
-        run: bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+        run: |
+          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
+          # per il perche' del trap EXIT. Il trap non altera l'exit code dello
+          # script, che resta quello dello step.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
 
       # ── Purge the ORIGIN key, because that is where the bytes just changed ─
       #
@@ -2655,26 +2664,35 @@ jobs:
           ROW_PUSH_SHARDS_NONIT: ${{ steps.push-section-shards-nonit.outputs.wall_seconds }}
           ROW_PACK_TAR_IT: ${{ steps.pack-section-shards-it.outputs.wall_seconds }}
           ROW_PACK_TAR_NONIT: ${{ steps.pack-section-shards-nonit.outputs.wall_seconds }}
+          # Le due fasi post-build dello shard di LOCALE: girano solo sui leg
+          # non-IT (l'apex IT pubblica via Pages), quindi sono chiavi proprie e
+          # non un `pick` sopra le due di sezione. Stessa classe di buco —
+          # fase post-build senza wall-time committato — quindi stesso fix.
+          ROW_PUSH_LOCALE_SHARD: ${{ steps.push-shard.outputs.wall_seconds }}
+          ROW_PACK_LOCALE_TAR: ${{ steps.pack-locale-shard.outputs.wall_seconds }}
         run: |
           set -o pipefail
           node -e '
-            const pick = (a, b) => {
-              const v = process.env[a] || process.env[b];
-              return v === undefined || v === "" ? null : Number(v);
+            const pick = (...names) => {
+              const v = names.map((n) => process.env[n]).find((x) => x);
+              return v === undefined ? null : Number(v);
             };
-            const push_shards_seconds = pick("ROW_PUSH_SHARDS_IT", "ROW_PUSH_SHARDS_NONIT");
-            const pack_tar_seconds = pick("ROW_PACK_TAR_IT", "ROW_PACK_TAR_NONIT");
-            // Entrambe assenti = nessuna fase post-build ha girato su questo
-            // leg (shard non provisionati, o job morto prima). Riga vuota =
-            // rumore nella storia: meglio niente.
-            if (push_shards_seconds === null && pack_tar_seconds === null) process.exit(0);
+            const phases = {
+              push_shards_seconds: pick("ROW_PUSH_SHARDS_IT", "ROW_PUSH_SHARDS_NONIT"),
+              pack_tar_seconds: pick("ROW_PACK_TAR_IT", "ROW_PACK_TAR_NONIT"),
+              push_locale_shard_seconds: pick("ROW_PUSH_LOCALE_SHARD"),
+              pack_locale_tar_seconds: pick("ROW_PACK_LOCALE_TAR"),
+            };
+            // Tutte assenti = nessuna fase post-build ha girato su questo leg
+            // (shard non provisionati, o job morto prima). Riga vuota = rumore
+            // nella storia: meglio niente.
+            if (Object.values(phases).every((v) => v === null)) process.exit(0);
             process.stdout.write(JSON.stringify({
               ts: new Date().toISOString(),
               locale: process.env.ROW_LOCALE,
               run_id: process.env.ROW_RUN_ID,
               sha: process.env.ROW_SHA,
-              push_shards_seconds,
-              pack_tar_seconds,
+              ...phases,
             }));
           ' | HISTORY_LABEL=build-history-phases \
               HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} post-build phase timings run ${ROW_RUN_ID}" \
