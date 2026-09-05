@@ -25,6 +25,7 @@ function compactReport(report) {
     finalCommit: report.finalCommit, stateTransition: report.stateTransition,
     before: report.before, final: report.final, delta: report.delta,
     cohorts: report.cohorts, quality: report.quality, languageQuality: report.languageQuality, continuity,
+    runPhases: report.runPhases,
   };
 }
 function validDigest(report) {

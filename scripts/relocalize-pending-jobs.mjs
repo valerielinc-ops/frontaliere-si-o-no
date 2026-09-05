@@ -53,7 +53,7 @@ import {
   TRAFFIC_SOURCE_PATH,
 } from './lib/job-traffic-priority.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
-import { markRunStart, readRunStartMs } from './lib/translate-run-clock.mjs';
+import { markRunStart, readRunStartMs, recordRunPhase } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import {
@@ -1371,6 +1371,10 @@ async function main() {
   let totalProcessed = 0;
   let consecutiveFailures = 0;
   const startTime = LEGACY_CLOCK.now();
+  // Why the stop reason is hoisted: it is the difference between "the cascade ran
+  // out of companies" and "the cascade was never given a window", and only the
+  // second is a problem with the run rather than with the queue.
+  let cascadeStop = 'queue exhausted';
 
   // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con
   // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs per il perche'
@@ -1401,6 +1405,7 @@ async function main() {
       timeBudgetFraction: 1,
     });
     if (companyStopReason) {
+      cascadeStop = companyStopReason;
       const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);
       console.log(`\n⏰ ${companyStopReason === 'cascade deadline' ? 'Cascade deadline' : 'Time budget'} reached (${elapsedMin}min run-wide elapsed) — stopping to leave room for mop-up + commit.`);
       console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining (deferred to next run).`);
@@ -1712,6 +1717,24 @@ async function main() {
   console.log(`   🔍 ${categories.contaminated} contamination-detected\n`);
 
   logCascadeSummary();
+
+  // The cascade's deadline is measured from RUN_START_MS — the marker published by
+  // the FIRST translation step of the job, normally the Argos bulk pass — so what
+  // the cascade actually gets is the REMAINDER the earlier phases left, not a
+  // budget of its own. A run where they left nothing looks, in the committed
+  // history, exactly like a run where the cascade found little to do. Recording
+  // the window tells the two apart.
+  const cascadeStartedAtMs = startTime - RUN_START_MS;
+  recordRunPhase({
+    name: 'cascade',
+    startedAtMs: cascadeStartedAtMs,
+    endedAtMs: LEGACY_CLOCK.now() - RUN_START_MS,
+    deadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    windowMs: CASCADE_LOCALIZATION_DEADLINE_MS - cascadeStartedAtMs,
+    jobsCleared: totalFixed,
+    companiesQueued: companyKeys.length,
+    stopReason: cascadeStop,
+  });
 
   if (thinkingAb && thinkingRows.length > 0) {
     const summary = summarizeThinkingAb(thinkingRows);
