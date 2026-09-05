@@ -282,6 +282,28 @@ describe('source-detail fidelity checks', () => {
     expect(sourceLocationMatches('Appenzell', 'Appenzell Ausserrhoden')).toBe(false);
   });
 
+  it('resolves both sides against the BFS municipality list instead of containment', () => {
+    // Same commune, wrapped in a street, a site code or a canton prefix. A bare
+    // containment predicate was tried and reverted because it also accepted the
+    // counter-examples below; resolving each side to a municipality does not.
+    expect(sourceLocationMatches('Selzach', 'Solothurn, Selzach Bohnackerweg 1')).toBe(true);
+    expect(sourceLocationMatches('Baden', 'Baden 48 (Ärzte GAV & UA)')).toBe(true);
+    expect(sourceLocationMatches('Schaffhausen', 'Schaffhausen IIFS')).toBe(true);
+    expect(sourceLocationMatches('Winterthur', 'Winterthur Neuwiesen (MC)')).toBe(true);
+    expect(sourceLocationMatches('Eglisau', 'Eglisau (MC)')).toBe(true);
+    expect(sourceLocationMatches('Sion', 'AG Sion-Valais romand')).toBe(true);
+    // A canton name in a middle component is the locality itself when no
+    // earlier component named another commune: `CHE` is a country code.
+    expect(sourceLocationMatches('Zurich', 'CHE - Zurich - Bahnhofstrasse 20')).toBe(true);
+    // …and stays a trailing region when one did.
+    expect(sourceLocationMatches('Genève', 'Carouge, Genève')).toBe(false);
+    expect(sourceLocationMatches('Zürich', 'Uster, Zürich')).toBe(false);
+    // Neither side resolves: no municipality, no match.
+    expect(sourceLocationMatches('Madrid', 'Madrid Shared Services')).toBe(false);
+    expect(sourceLocationMatches('Campus', 'Zürich, Region Zürich')).toBe(false);
+    expect(sourceLocationMatches('CH', 'CH - Visp')).toBe(false);
+  });
+
   it('matches certain Swiss multilingual locality aliases bidirectionally', () => {
     for (const aliases of [
       ['Genève', 'Genf', 'Ginevra', 'Geneva'],
@@ -672,16 +694,31 @@ describe('source-detail fidelity checks', () => {
       'scripts/audit-parser-quality.mjs',
       'scripts/lib/parser-quality-source-detail-replay.mjs',
       'scripts/lib/stable-stringify.mjs',
+      'scripts/lib/target-swiss-locations.mjs',
+      'data/canton-municipalities.json',
+    ]);
+    // The BFS municipality snapshot and its reader are inputs of BOTH closures:
+    // the extractor resolves the source geography with them and, since the
+    // location predicate resolves both sides against the same list, so does the
+    // normalizer. A shared input must move both fingerprints; an exclusive one
+    // must move only its own.
+    const shared = SOURCE_DETAIL_EXTRACTOR_VERSION_FILES
+      .filter((input) => SOURCE_DETAIL_NORMALIZER_VERSION_FILES.includes(input));
+    expect(shared).toEqual([
+      'scripts/lib/target-swiss-locations.mjs',
+      'data/canton-municipalities.json',
     ]);
     for (const input of SOURCE_DETAIL_EXTRACTOR_VERSION_FILES) {
       const changed = getSourceDetailImplementationVersions({ readFile: readFixture(input) });
       expect(changed.extractor, input).not.toBe(baseline.extractor);
-      expect(changed.normalizer, input).toBe(baseline.normalizer);
+      if (shared.includes(input)) expect(changed.normalizer, input).not.toBe(baseline.normalizer);
+      else expect(changed.normalizer, input).toBe(baseline.normalizer);
     }
     for (const input of SOURCE_DETAIL_NORMALIZER_VERSION_FILES) {
       const changed = getSourceDetailImplementationVersions({ readFile: readFixture(input) });
       expect(changed.normalizer, input).not.toBe(baseline.normalizer);
-      expect(changed.extractor, input).toBe(baseline.extractor);
+      if (shared.includes(input)) expect(changed.extractor, input).not.toBe(baseline.extractor);
+      else expect(changed.extractor, input).toBe(baseline.extractor);
     }
   });
 
