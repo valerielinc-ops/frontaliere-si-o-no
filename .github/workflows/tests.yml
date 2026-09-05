@@ -507,6 +507,13 @@ jobs:
             // A PAST-TENSE report ("già chiusa da #66", "was fixed by #66") states
             // something ELSE already closed the ref — not this PR's intent.
             const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
+            // A NEGATED report ("non chiusi: #849 resta aperta") states the ref
+            // stays OPEN — the opposite of an intent. Without it this check tells
+            // the author to close an issue the same sentence declares open.
+            // `\p{L}` with `u`, not `\w`: `\w` is ASCII and `non è chiusa #849`
+            // broke the chain at the accent. The lookahead keeps `Non solo
+            // chiude #12` reportable — that phrasing concedes the closure.
+            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
             const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
             const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
 
@@ -523,6 +530,7 @@ jobs:
                 const ref = m[2];
                 const before = mline.slice(Math.max(0, m.index - 24), m.index);
                 if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
+                if (NEG_REPORT_RE.test(before)) continue; // "non chiusi: #849" ≠ intent
                 if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
                 if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
                 intentReported.add(ref.toLowerCase());
