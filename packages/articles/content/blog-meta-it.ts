@@ -9664,9 +9664,6 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.allacasadicomunitalavenosegnala.title': 'Lavoro a 37 gradi a Laveno, il sindacato segnala',
     'blog.article.allacasadicomunitalavenosegnala.excerpt': 'Il sindacato segnala il caso di una casa di comunità in Laveno dove si lavora con temperature elevate',
     'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'Una casa di comunità in Ticino con temperature elevate',
-    'blog.article.vivere-tovo-lavorare-grigioni.title': 'Vivere a Tovo di Sant\'Agata e lavorare in Grigioni',
-    'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Guida pratica per frontalieri: fiscalità, nuovo accordo, franchigie e contributi previdenziali per chi risiede in Valtellina e lavora nel Cantone dei Grigioni.',
-    'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Vista panoramica di una strada montana vicino al confine tra Italia e Svizzera',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Vivere a Saint-Rhémy-En-Bosses e lavorare in Vallese da frontaliere',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Permessi G, lavoro in Vallese, pendolarismo e costo della vita per frontalieri residenti in Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontaliere con bambino all\'uscita di un valico',
@@ -9700,9 +9697,6 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontaliere in Vallese: regole e fiscalità',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Guida operativa sul nuovo accordo fiscale, gestione del reddito e obblighi previdenziali per i lavoratori frontalieri in Svizzera.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Paesaggio montano alpino con villaggio',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Vivere a Courmayeur e lavorare in Vallese da frontaliere',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Impostazione fiscale e permessi per i frontalieri che vivono a Courmayeur e lavorano in Vallese',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Una vista di Courmayeur, città italiana situata sul confine con la Svizzera',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Vivere a Gignod e lavorare in Vallese da frontaliere',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analisi dei vincoli fiscali e operativi per il pendolarismo transfrontaliero tra Italia e Svizzera secondo gli accordi vigenti.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Paesaggio alpino svizzero al confine',
@@ -11429,6 +11423,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.figino-serenza-frontaliere-ticino.title': 'Figino Serenza: guida per frontalieri in Ticino',
     'blog.article.figino-serenza-frontaliere-ticino.excerpt': 'Permesso G, tassazione, LAMal e costi: tutto quello che cambia se vivi a Figino Serenza e lavori nel Canton Ticino da frontaliere.',
     'blog.article.figino-serenza-frontaliere-ticino.imageAlt': 'Veduta di Lugano con il lago al tramonto, destinazione lavorativa tipica di frontalieri residenti in Lombardia.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.title': 'Vivere a Bellagio, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.excerpt': 'Trasferirsi a Bellagio e lavorare in Ticino come frontaliere: scopri il regime fiscale, i contributi AVS, la LAMal e come pianificare il trasferimento.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.imageAlt': 'Veduta di Lugano e il suo lago, con montagne, area di lavoro ticinese per frontalieri',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.title': 'Vivere a Griante e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.excerpt': 'Vantaggi, procedure, costi e normativa per chi sceglie di vivere a Griante lavorando nel Canton Ticino come frontaliere',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.imageAlt': 'Vista del lago di Como a Griante con edifici residenziali e paesaggio montano',
 };
 
 export default blogMetaIt;

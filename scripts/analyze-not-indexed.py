@@ -16,7 +16,7 @@ blog, jobs, tools = [], [], []
 for u in urls:
     if any(s in u for s in ['articoli-frontaliere', 'cross-border-articles', 'grenzgaenger-artikel', 'articles-frontalier']):
         blog.append(u)
-    elif any(s in u for s in ['cerca-lavoro-ticino', 'find-jobs-ticino', 'jobs-im-tessin', 'trouver-emploi-tessin']):
+    elif any(s in u for s in ['cerca-lavoro-ticino', 'find-jobs-ticino', 'jobs-im-tessin', 'trouver-emploi-tessin']): # cathedral-allow: URL classifier alternation; a Python script cannot import the JS canonical
         jobs.append(u)
     else:
         tools.append(u)

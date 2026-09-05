@@ -196,7 +196,7 @@ import { buildCurrentWeekPath, WEEKLY_EMPLOYERS_LOCALE_PREFIX, WEEKLY_EMPLOYERS_
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
 import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, hubSlugFor as seoHubSlugFor, svizzeraArticlesArchiveBasePaths as seoSvizzeraArticlesArchiveBasePaths, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
-import { resolveCantonSection as resolveSeoCantonSection } from '@/build-plugins/shared/cantonSection';
+import { resolveCantonSection as resolveSeoCantonSection, legacyTiSectionRoot } from '@/build-plugins/shared/cantonSection';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/jobSectorLanding';
 import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
@@ -3218,15 +3218,12 @@ const App: React.FC = () => {
  {!killSwitches.orphanLandings && (
  <li>
  <a
- href={
- locale === 'it'
- ? '/cerca-lavoro-ticino/da-ieri/'
- : locale === 'en'
- ? '/en/find-jobs-ticino/since-yesterday/'
- : locale === 'de'
- ? '/de/jobs-im-tessin/seit-gestern/'
- : '/fr/trouver-emploi-tessin/depuis-hier/'
- }
+ href={`${legacyTiSectionRoot(locale as SeoHubLocale)}/${
+ locale === 'en' ? 'since-yesterday'
+ : locale === 'de' ? 'seit-gestern'
+ : locale === 'fr' ? 'depuis-hier'
+ : 'da-ieri'
+ }/`}
  className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
  >
  <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
@@ -3326,9 +3323,7 @@ const App: React.FC = () => {
      : SEO_HUB_SLUGS[hubLoc];
    const sectionRoot = isCantonScoped
      ? `${locale === 'it' ? '' : `/${locale}`}/${resolveSeoCantonSection(hubLoc, routeCanton as string)}`
-     : (locale === 'it'
-       ? '/cerca-lavoro-ticino'
-       : `/${locale}/${locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'}`);
+     : legacyTiSectionRoot(hubLoc);
    return (
      <nav
        aria-label={t('seoHubs.footer.title') || 'SEO hub navigation'}

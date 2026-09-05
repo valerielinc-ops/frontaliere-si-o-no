@@ -442,7 +442,7 @@ const SLUG_SKELETON_MAP: Record<string, React.FC> = {
  'vivere-in-ticino': SkeletonVita,
  'statistiche': SkeletonStats,
  'articoli-frontaliere': SkeletonBlog,
- 'cerca-lavoro-ticino': SkeletonJobBoard,
+ 'cerca-lavoro-ticino': SkeletonJobBoard, // cathedral-allow: route-slug KEY of the per-locale skeleton registry (sits beside guida-frontaliere, vivere-in-ticino) — not the section table
  // EN slugs
  'calculate-salary': SkeletonInputCard,
  'compare-services': SkeletonComparator,
@@ -451,7 +451,7 @@ const SLUG_SKELETON_MAP: Record<string, React.FC> = {
  'living-in-ticino': SkeletonVita,
  'statistics': SkeletonStats,
  'frontier-articles': SkeletonBlog,
- 'find-jobs-ticino': SkeletonJobBoard,
+ 'find-jobs-ticino': SkeletonJobBoard, // cathedral-allow: route-slug KEY of the per-locale skeleton registry (sits beside guida-frontaliere, vivere-in-ticino) — not the section table
  // DE slugs
  'gehalt-berechnen': SkeletonInputCard,
  'dienste-vergleichen': SkeletonComparator,
@@ -460,7 +460,7 @@ const SLUG_SKELETON_MAP: Record<string, React.FC> = {
  'leben-im-tessin': SkeletonVita,
  'statistiken': SkeletonStats,
  'grenzgaenger-artikel': SkeletonBlog,
- 'jobs-im-tessin': SkeletonJobBoard,
+ 'jobs-im-tessin': SkeletonJobBoard, // cathedral-allow: route-slug KEY of the per-locale skeleton registry (sits beside guida-frontaliere, vivere-in-ticino) — not the section table
  // FR slugs
  'calculer-salaire': SkeletonInputCard,
  'comparer-services': SkeletonComparator,
@@ -469,7 +469,7 @@ const SLUG_SKELETON_MAP: Record<string, React.FC> = {
  'vivre-au-tessin': SkeletonVita,
  'statistiques': SkeletonStats,
  'articles-frontalier': SkeletonBlog,
- 'trouver-emploi-tessin': SkeletonJobBoard,
+ 'trouver-emploi-tessin': SkeletonJobBoard, // cathedral-allow: route-slug KEY of the per-locale skeleton registry (sits beside guida-frontaliere, vivere-in-ticino) — not the section table
  // Shared / common
  'glossario-frontaliere': SkeletonGuide,
  'domande-frequenti-frontalieri': SkeletonGuide,
