@@ -129,7 +129,9 @@ differenziavano le pagine.
 
 La run `33460354951` ha misurato **37 coorti sotto floor su 159 gated**
 (9817 pagine in coorte, `sampleRate` 0,25, nessuna baseline: soglia assoluta).
-Trentasette sembra un cluster nuovo rispetto alle 3 righe dell'inventario.
+Trentasette sembrava un cluster nuovo rispetto alle 3 righe dell'inventario, e
+oggi sono tutte e 37 inventariate con la mediana misurata (inventario a 40 voci,
+vedi «E allora come si inventaria una coorte che porta il `~`» più sotto).
 Non lo è: sono **cinque famiglie**, ognuna spezzata in più coorti perché ogni
 variante di `h1` è una coorte a sé. 22 + 4 + 4 + 4 + 3 = 37: le famiglie
 coprono tutti gli offender, nessuno resta fuori.
@@ -204,6 +206,62 @@ Il suffisso `~<skeletonHash>` resta fuori dalla relazione: viene aggiunto solo
 quando **due template distinti** si riducono alla stessa etichetta, e farli
 risolvere entrambi alla chiave nuda condividerebbe la baseline che quel
 suffisso esiste per tenere separata.
+
+### E allora come si inventaria una coorte che porta il `~` (issue #7382)
+
+Le due conseguenze qui sopra, messe insieme, lasciavano queste 37 coorti in un
+buco: il tronco di famiglia non le risolve (la relazione di prefisso è rifiutata
+di proposito su un'etichetta col `~`), e l'uguaglianza pretende una stringa la
+cui prima metà — il prefisso comune dei path **campionati** — cambia col bucket.
+Misurato sulla stessa famiglia immutata: la run `33460354951` chiamava una
+coorte di calcolatori `it:/calcola-stipendio/~2b6ed2`, il campione live del
+2026-09-05 la chiama `it:/calcola-stipendio/stipendio-netto-~2b6ed2`. Nessuna
+delle due forme di chiave copre entrambe. Non erano fuori dall'inventario per
+scelta: erano **non-inventariabili**.
+
+Esiste però un'identità che non si muove, e il report la stampa già per questo
+motivo: lo **`skeletonHash`**, cioè l'hash dell'`h1` mascherato — il template.
+Verificato identico nelle due misure su tutte e 22 le coorti dei calcolatori e
+su quelle di premi, aziende-settimanali e landing professione, **a cavallo del
+cambio di etichetta di #7332**. Da #7382 `KNOWN_LOW_GAIN_COHORTS` accetta quindi
+una terza forma di chiave:
+
+| Forma | Esempio | Risolve |
+|---|---|---|
+| tronco di famiglia | `it:/stipendio-medio-svizzera-` | ogni etichetta che lo **estende**, senza `~` |
+| etichetta esatta | `it:/lavoro-ticino-` | solo se stampata identica |
+| **identità di template** | `it:~2b6ed2` | ogni etichetta di **quel** template in **quel** locale, qualunque prefisso abbia prodotto il bucket |
+
+È più stretta della relazione di prefisso, non più larga: lo hash è
+**per-template** dove il tronco copre una famiglia intera, quindi non può dare a
+una coorte la baseline di un'altra — che è il caso che il `~` esiste per
+impedire. L'ordine di risoluzione segue la specificità: etichetta esatta,
+identità di template, tronco di famiglia.
+
+Le 37 righe sono entrate con la mediana **misurata** dalla run `33460354951`
+(`topOffenders[].metric` dell'artifact `audit-reports-33460354951-1`), non con
+un valore stimato: l'inventario è passato da 3 a 40 voci e le cinque famiglie
+non producono più offender `below-floor`. Il floor resta 5 % e la tolleranza
+1,5 punti, quindi una discesa di una di queste coorti resta rossa — e ognuna
+esce dall'inventario quando `recoveredCohorts` dice che è risalita.
+
+Due dettagli che si vedono solo guardando i dati:
+
+- i tempi di attesa alla dogana erano stati misurati sotto
+  `/guida-frontaliere/tempi-attesa-dogana/`, mentre le sitemap oggi servono
+  `/traffico-dogane/`. La chiave sopravvive al rename **di proposito**: è
+  l'identità del template, non il path;
+- `de:/de/unternehmen-einstellen/` e `en:/en/companies-hiring/` non collidevano
+  ancora nella run del 2026-09-01, quindi il report non ne stampava il suffisso.
+  Il loro `skeletonHash` (`3b9ffd`, `a17e23`) viene dalla misura del 2026-09-05;
+  la mediana registrata resta quella del 2026-09-01, che è la popolazione che il
+  gate giudica.
+
+La prova per riga sta in `tests/fixtures/information-gain-emitted-slugs.json`,
+sezione `templates`: per ogni chiave le etichette **osservate** nelle due run, e
+`tests/information-gain-metric.test.ts` verifica che tutte risolvano a quella
+riga e che **nessuna** risolva senza lo hash — cioè che la chiave di
+identità-template non sia decorativa.
 
 ## Cosa è cambiato con #5002
 

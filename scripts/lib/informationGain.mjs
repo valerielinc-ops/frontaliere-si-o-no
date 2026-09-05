@@ -478,11 +478,18 @@ export const INFORMATION_GAIN_TUNABLES = {
  * drift waiting to happen (AGENTS.md #6), and the drift would look like a gate
  * that stopped recognising its own inventory.
  *
- * @param {number} skeletonHash
- * @returns {string}
+ * Un `skeletonHash` assente non è un errore da far esplodere qui: significa
+ * soltanto «questa coorte non ha un'identità di template», ed è il caso delle
+ * coorti sintetiche dei test del loop. Chi chiama tratta `undefined` come
+ * «nessuna identità» — `resolveInventoryEntry` semplicemente salta il passo
+ * per chiave-template e ricade sulla relazione di prefisso, cioè il
+ * comportamento che c'era prima di #7382.
+ *
+ * @param {number} [skeletonHash]
+ * @returns {string | undefined}
  */
 export function skeletonHashHex(skeletonHash) {
-  return skeletonHash.toString(16).slice(0, 6);
+  return Number.isFinite(skeletonHash) ? skeletonHash.toString(16).slice(0, 6) : undefined;
 }
 
 /**

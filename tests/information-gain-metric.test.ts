@@ -457,15 +457,31 @@ describe("information-gain: ogni chiave d'inventario coincide con l'etichetta em
     readFileSync(new URL('./fixtures/information-gain-emitted-slugs.json', import.meta.url), 'utf8'),
   ) as {
     families: Array<{ inventoryKey: string; sitemap: string; urlPaths: string[] }>;
+    templates: Array<{
+      inventoryKey: string;
+      sitemap: string;
+      observedMedianIgsPct: number;
+      observedLabels: Array<{ run: string; label: string }>;
+    }>;
   };
   const inventoryKeys = [...INFORMATION_GAIN_GATE.KNOWN_LOW_GAIN_COHORTS.keys()];
+  const TEMPLATE_KEY_RE = /^[a-z]{2}:~[0-9a-f]{6}$/;
 
   it('la fixture copre esattamente le chiavi inventariate', () => {
     // Aggiungere una riga a `KNOWN_LOW_GAIN_COHORTS` senza gli slug emessi che
     // la giustificano rompe qui: è l'unico modo per impedire che la prossima
     // chiave torni a essere non verificata, che è esattamente il difetto di
     // questa issue.
-    expect(fixture.families.map((f) => f.inventoryKey).sort()).toEqual([...inventoryKeys].sort());
+    // Le due liste sono disgiunte per costruzione: `families` sono tronchi di
+    // path, `templates` identità di template `<locale>:~<hash>` — una chiave
+    // non può essere entrambe, ed è la sua forma a dirlo.
+    const covered = [
+      ...fixture.families.map((f) => f.inventoryKey),
+      ...fixture.templates.map((t) => t.inventoryKey),
+    ];
+    expect(covered.sort()).toEqual([...inventoryKeys].sort());
+    expect(fixture.families.every((f) => !f.inventoryKey.includes('~'))).toBe(true);
+    expect(fixture.templates.every((t) => TEMPLATE_KEY_RE.test(t.inventoryKey))).toBe(true);
   });
 
   for (const family of fixture.families) {
@@ -507,6 +523,60 @@ describe("information-gain: ogni chiave d'inventario coincide con l'etichetta em
           `${locale}:${commonPathPrefix(family.urlPaths)}`,
         );
         expect(resolved?.key).toBe(family.inventoryKey);
+      });
+    });
+  }
+});
+
+describe("information-gain: le chiavi di identità-template risolvono ogni etichetta osservata (issue #7382)", () => {
+  // Le 37 coorti di #6975 non sono inventariabili per tronco di path: la loro
+  // etichetta porta il suffisso `~`, `resolveInventoryEntry` rifiuta di
+  // proposito la relazione di prefisso su quelle, e la parte prima del `~` è il
+  // prefisso comune dei path CAMPIONATI, che cambia col bucket. La fixture
+  // registra le etichette realmente osservate in due run diverse della stessa
+  // famiglia immutata — è la prova che il tronco non basta e che lo
+  // skeletonHash sì.
+  const fixture = JSON.parse(
+    readFileSync(new URL('./fixtures/information-gain-emitted-slugs.json', import.meta.url), 'utf8'),
+  ) as {
+    templates: Array<{
+      inventoryKey: string;
+      observedMedianIgsPct: number;
+      observedLabels: Array<{ run: string; label: string }>;
+    }>;
+  };
+  const inventory = INFORMATION_GAIN_GATE.KNOWN_LOW_GAIN_COHORTS;
+
+  it('le 37 coorti della run 33460354951 sono tutte inventariate', () => {
+    expect(fixture.templates).toHaveLength(37);
+  });
+
+  for (const template of fixture.templates) {
+    const hash = template.inventoryKey.slice(template.inventoryKey.indexOf('~') + 1);
+
+    describe(template.inventoryKey, () => {
+      it('registra la mediana misurata, non un valore stimato', () => {
+        // Il floor non si tocca (AGENTS.md #1): la riga registra ciò che la run
+        // ha misurato, e resta sotto il floor — se ci arrivasse sopra la riga
+        // andrebbe tolta, non alzata.
+        expect(inventory.get(template.inventoryKey)).toBe(template.observedMedianIgsPct);
+        expect(template.observedMedianIgsPct).toBeLessThan(INFORMATION_GAIN_GATE.MEDIAN_IGS_FLOOR_PCT);
+      });
+
+      it('ogni etichetta osservata risolve a questa riga', () => {
+        expect(template.observedLabels.length).toBeGreaterThanOrEqual(1);
+        for (const { label } of template.observedLabels) {
+          expect(resolveInventoryEntry(inventory, label, hash)?.key).toBe(template.inventoryKey);
+        }
+      });
+
+      it('senza lo skeletonHash nessuna etichetta risolve — è il motivo della chiave', () => {
+        // Se una di queste risolvesse anche senza lo hash, la chiave di
+        // identità-template sarebbe superflua per quella coorte e il tronco
+        // basterebbe. Nessuna lo fa: è la misura del difetto che #7382 chiude.
+        for (const { label } of template.observedLabels) {
+          expect(resolveInventoryEntry(inventory, label)).toBeNull();
+        }
       });
     });
   }
