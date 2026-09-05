@@ -330,7 +330,9 @@ async function fetchFachkraftPage(url, transport, urlPolicy, signal, label) {
   if (result.ok) return result;
   const reason = result.policyBlocked
     ? result.error || 'public URL policy rejected the request'
-    : result.blockedByRobots ? 'robots.txt denied the request' : `HTTP ${result.status || 0}`;
+    : result.blockedByRobots ? 'robots.txt denied the request'
+      : result.status ? `HTTP ${result.status}`
+        : `transport ${result.transportError || 'other'}`;
   const error = new Error(
     `fachkraft ${label} failed after <=${transport.retries + 1} attempt(s) in ${Date.now() - startedAt}ms: ${reason}`,
   );

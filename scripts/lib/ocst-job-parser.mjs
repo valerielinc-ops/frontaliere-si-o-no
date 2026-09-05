@@ -172,7 +172,8 @@ export async function fetchAllOcstJobs({ fetchPage = politeFetch } = {}) {
   if (!page?.ok) {
     const reason = page?.policyBlocked
       ? (page.error || 'public URL policy rejected the request')
-      : `HTTP ${page?.status || 0}`;
+      : page?.status ? `HTTP ${page.status}`
+        : `transport ${page?.transportError || 'other'}`;
     const error = Object.assign(
       new Error(`OCST careers fetch failed for ${page?.url || OCST_CAREER_URL}: ${reason}`),
       { status: page?.status || undefined },

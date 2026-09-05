@@ -53,7 +53,7 @@ const rate = Number(getArg('rate'));
 const runId = getArg('run');
 
 if (!family || !runId || !Number.isFinite(rate)) {
-  console.error('usage: node scripts/seo-families-tighten.mjs --family=<name> --rate=<pct> --run=<run-id> [--allow-raise]');
+  console.error('usage: node scripts/seo-families-tighten.mjs --family=<name> --rate=<pct> --run=<run-id> [--note=<text>] [--allow-raise]');
   console.error('       node scripts/seo-families-tighten.mjs --list');
   process.exit(2);
 }
@@ -72,6 +72,9 @@ try {
       filesScanned: Number(getArg('files')) || undefined,
       sampleRate: Number(getArg('sample-rate')) || undefined,
       observedOffenders: Number(getArg('offenders')) || undefined,
+      // `--note=` (empty) is not nullish, so without this it would overwrite the
+      // carried prose with '' — erasing exactly what the carry-forward saves.
+      note: getArg('note') || undefined,
     },
   });
 } catch (err) {

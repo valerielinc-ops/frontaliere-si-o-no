@@ -12,10 +12,30 @@
     "sampleRate": 0.25,
     "note": "AUDIT_SAMPLE_RATE=0.25 walks a rotating quarter of dist/ per run; four consecutive runs cover the corpus. Every ceiling below was sealed from the WORST (highest) of the four buckets listed in `buckets`, so the ratchet starts green on any of them rather than on the lucky one.",
     "buckets": [
-      { "runId": "32805180708", "ranAt": "2026-08-25T03:26Z", "bucket": "1/4", "filesScanned": 1006183 },
-      { "runId": "32814834232", "ranAt": "2026-08-25T05:56Z", "bucket": "2/4", "filesScanned": 1006669 },
-      { "runId": "32796049139", "ranAt": "2026-08-25T01:03Z", "bucket": "3/4", "filesScanned": 1006879 },
-      { "runId": "32826787615", "ranAt": "2026-08-25T08:28Z", "bucket": "4/4", "filesScanned": 1007060 }
+      {
+        "runId": "32805180708",
+        "ranAt": "2026-08-25T03:26Z",
+        "bucket": "1/4",
+        "filesScanned": 1006183
+      },
+      {
+        "runId": "32814834232",
+        "ranAt": "2026-08-25T05:56Z",
+        "bucket": "2/4",
+        "filesScanned": 1006669
+      },
+      {
+        "runId": "32796049139",
+        "ranAt": "2026-08-25T01:03Z",
+        "bucket": "3/4",
+        "filesScanned": 1006879
+      },
+      {
+        "runId": "32826787615",
+        "ranAt": "2026-08-25T08:28Z",
+        "bucket": "4/4",
+        "filesScanned": 1007060
+      }
     ]
   },
   "families": {
@@ -27,7 +47,12 @@
       "ceilingRatePct": 0,
       "status": "at zero",
       "measurement": {
-        "observedOffenders": [0, 0, 0, 0],
+        "observedOffenders": [
+          0,
+          0,
+          0,
+          0
+        ],
         "acrossBuckets": "1/4..4/4",
         "measuredAt": "2026-08-25",
         "note": "0 offenders on all four buckets, i.e. 0 across the whole ~4.03M-file dist/. The 12 pages the issue cites no longer exist in the corpus; the bullet is closable on this measurement."
@@ -38,17 +63,22 @@
       "gate": "audit:all/link-anchor-text",
       "script": "scripts/audit-link-anchor-text.mjs",
       "enforcement": "ratchet",
-      "ceilingRatePct": 0.0016896,
-      "tolerance": { "relPct": 20, "absPp": 0, "minAbsDelta": 12 },
+      "ceilingRatePct": 0.0015463,
+      "tolerance": {
+        "relPct": 20,
+        "absPp": 0,
+        "minAbsDelta": 12
+      },
       "status": "red before this ledger — the auditor's `nonDescriptiveTotal === 0` clause is a hard zero next to a carefully-built rate gate for its own sibling half (`unnamedAnchors`, which passes)",
       "measurement": {
-        "observedOffenders": [17, 9, 11, 11],
-        "acrossBuckets": "1/4..4/4",
-        "worstBucket": { "runId": "32805180708", "offenders": 17, "filesScanned": 1006183, "ratePct": 0.0016896 },
-        "corpusEstimate": 48,
-        "measuredAt": "2026-08-25",
-        "note": "Sealed from the worst bucket. THE NOISE FLOOR IS WIDE AND THAT IS NOT HIDDEN: at ~12 offenders per draw the Poisson sigma is ~3.5, so `minAbsDelta: 12` (~3 sigma) means the gate fires around 30 in a bucket, i.e. it catches a doubling of the population and not a drift of five. That is the honest limit of ratcheting a small count on a 25 % sample. The real close for this family is not a tighter ceiling: all offenders are enumerated in the failure message and in dist/audit-reports/link-anchor-text.json, and they are two templates — `/cerca-lavoro-ticino/ricerca/page-N/` pagination ('scopri'/'continua'/'mehr') plus one article using 'qui'."
-      }
+        "runId": "33968798583",
+        "measuredAt": "2026-09-05",
+        "filesScanned": 1099387,
+        "sampleRate": 0.25,
+        "observedOffenders": 17,
+        "note": "Sealed from run 33968798583 (post-deploy-validate-dist, 2026-09-05T14:19Z), the first audit-reports artifact published after the junk-terms fix (#7315/#7475) reached main at 12:21Z. THE NOISE FLOOR IS WIDE AND THAT IS NOT HIDDEN: at ~12 offenders per draw the Poisson sigma is ~3.5, so 'minAbsDelta: 12' (~3 sigma) means the gate fires around 30 in a bucket — it catches a doubling of the population, not a drift of five. That is the honest limit of ratcheting a small count on a 25 % sample. The 17 offenders of this run are still the two pre-fix templates: '/cerca-lavoro-ticino/ricerca/page-N/' pagination ('scopri'/'continua'/'leggi'/'here'/'continue') plus one article using 'here'. They are NOT evidence the fix failed: the dist this run audits was assembled at 13:2xZ, and the live hub pages re-emitted at 15:55Z carry zero junk anchors. The next post-deploy artifact measures the re-emitted hub and this ceiling descends again from it."
+      },
+      "previousCeilingRatePct": 0.0016896
     },
     "cluster-canonical-hreflang": {
       "issue": "#5845 item 3 — 347 non-conforming canonical/hreflang lines (cluster-contract)",
@@ -69,7 +99,12 @@
       "ceilingRatePct": null,
       "status": "already ratcheted before this ledger",
       "measurement": {
-        "observedOffenders": [1346, 1400, 1412, 1357],
+        "observedOffenders": [
+          1346,
+          1400,
+          1412,
+          1357
+        ],
         "acrossBuckets": "1/4..4/4",
         "measuredAt": "2026-08-25",
         "note": "Passing, with baselineDelta.regression = 0. The per-feature rate ratchet in data/title-length-baseline.json already does what this ledger would do; duplicating the ceiling here would create two sources of truth for one family."
@@ -83,7 +118,12 @@
       "ceilingRatePct": 0,
       "status": "at zero",
       "measurement": {
-        "observedOffenders": [0, 0, 0, 0],
+        "observedOffenders": [
+          0,
+          0,
+          0,
+          0
+        ],
         "acrossBuckets": "1/4..4/4",
         "measuredAt": "2026-08-25",
         "note": "0 offenders on all four buckets. The 53 pages the issue cites are gone; the bullet is closable on this measurement."
@@ -95,12 +135,26 @@
       "script": "scripts/audit-duplicate-meta-description.mjs",
       "enforcement": "ratchet",
       "ceilingRatePct": 4.9043,
-      "tolerance": { "relPct": 0, "absPp": 0.1, "minAbsDelta": 500 },
+      "tolerance": {
+        "relPct": 0,
+        "absPp": 0.1,
+        "minAbsDelta": 500
+      },
       "status": "red before this ledger — zero tolerance over ~197'000 historical offender pages",
       "measurement": {
-        "observedOffenders": [49228, 49141, 49379, 49372],
+        "observedOffenders": [
+          49228,
+          49141,
+          49379,
+          49372
+        ],
         "acrossBuckets": "1/4..4/4",
-        "worstBucket": { "runId": "32796049139", "offenders": 49379, "filesScanned": 1006879, "ratePct": 4.904164 },
+        "worstBucket": {
+          "runId": "32796049139",
+          "offenders": 49379,
+          "filesScanned": 1006879,
+          "ratePct": 4.904164
+        },
         "corpusEstimate": 197120,
         "measuredAt": "2026-08-25",
         "note": "The offender unit is a DESCRIPTION GROUP over 2 pages, not a page. Bucket-to-bucket the rate moves only 4.8815..4.9042 %, so unlike the anchor family this one ratchets tightly: relPct 0 with absPp 0.10 caps at 5.0043 %, ~3 sigma on n=49k. Concentrated, not diffuse: the top group alone is 11'179 pages sharing one expired-job boilerplate ('This position has been updated or removed' and its three locale twins), so a single template fix moves the rate by a visible amount and the ceiling descends with it."
@@ -114,7 +168,12 @@
       "ceilingRatePct": 0,
       "status": "at zero",
       "measurement": {
-        "observedOffenders": [0, 0, 0, 0],
+        "observedOffenders": [
+          0,
+          0,
+          0,
+          0
+        ],
         "acrossBuckets": "1/4..4/4",
         "measuredAt": "2026-08-25"
       }

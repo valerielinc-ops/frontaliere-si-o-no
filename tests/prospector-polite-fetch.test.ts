@@ -362,3 +362,19 @@ describe('prospector polite fetch retry cooldown', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('politeFetch — a failure with no status still names its cause', () => {
+  // #7351. The kind itself is pinned in tests/transient-fetch.test.ts, next to
+  // the function; what this case pins is that politeFetch actually attaches it
+  // to the result it was already returning.
+  it('attaches the transport kind to the result it already returned', async () => {
+    const fetchImpl = vi.fn(async () => {
+      throw Object.assign(new TypeError('fetch failed'), {
+        cause: Object.assign(new Error('ENOTFOUND'), { code: 'ENOTFOUND' }),
+      });
+    });
+    await expect(politeFetch('https://gone.invalid/x', {
+      fetchImpl, retries: 0, sleepImpl: async () => {}, lookupImpl: async () => '93.184.216.34',
+    })).resolves.toMatchObject({ ok: false, status: 0, transportError: 'dns' });
+  });
+});

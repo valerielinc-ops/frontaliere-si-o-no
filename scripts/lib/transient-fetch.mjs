@@ -45,6 +45,59 @@ export const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
  */
 export const WAF_IP_BLOCK_STATUS = new Set([403, 406, 415, 451]);
 
+/**
+ * Node/undici error codes that mean "TLS refused this certificate".
+ *
+ * One copy, because two would drift: `mcdonalds-job-parser.mjs` downgrades to
+ * http exactly on this set (#5393, the careers sub-domain served an Infomaniak
+ * certificate that did not cover it) and `transportErrorKind()` below names the
+ * same class `tls`.
+ */
+export const TLS_ERROR_CODES = new Set([
+  'ERR_TLS_CERT_ALTNAME_INVALID',
+  'CERT_HAS_EXPIRED',
+  'DEPTH_ZERO_SELF_SIGNED_CERT',
+  'SELF_SIGNED_CERT_IN_CHAIN',
+  'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+  'ERR_SSL_WRONG_VERSION_NUMBER',
+]);
+
+/**
+ * WHY a request never produced an HTTP status.
+ *
+ * `isTransientFetchError()` above answers «should we try again?»; this answers
+ * «what happened?», and the two are not the same question — a dead host and a
+ * slow one are both worth one retry and demand opposite follow-ups. Callers
+ * that only ever reported `status: 0` could name the layer and never the cause,
+ * which is how 65 of 120 source-detail failures ended up in a bucket called
+ * «transport» that nobody could act on (#7351).
+ *
+ * `fetch()` hides the real code one or more `.cause` links down, so the chain
+ * is walked rather than the surface read.
+ *
+ * @param {unknown} error
+ * @returns {'timeout'|'dns'|'tls'|'reset'|'refused'|'unreachable-network'|'other'}
+ */
+export function transportErrorKind(error) {
+  const seen = new Set();
+  for (let e = error; e && (typeof e === 'object' || typeof e === 'function') && !seen.has(e); e = e.cause) {
+    seen.add(e);
+    const code = String(e.code || '');
+    const name = String(e.name || '');
+    if (name === 'AbortError' || name === 'TimeoutError' || code === 'ETIMEDOUT' || code.includes('TIMEOUT')) return 'timeout';
+    // ENETUNREACH stays OUT of `dns`: «the host does not exist any more» (drop
+    // the crawler) and «this runner has no route» (nothing to do, it is ours)
+    // are the two answers this split exists to keep apart.
+    if (code === 'ENOTFOUND' || code === 'EAI_AGAIN') return 'dns';
+    if (code === 'ENETUNREACH' || code === 'EHOSTUNREACH') return 'unreachable-network';
+    if (code === 'ECONNREFUSED') return 'refused';
+    if (code === 'ECONNRESET' || code === 'EPIPE' || code === 'UND_ERR_SOCKET') return 'reset';
+    if (TLS_ERROR_CODES.has(code) || code.startsWith('ERR_TLS') || code.startsWith('ERR_SSL')
+      || code.includes('CERT') || code === 'EPROTO') return 'tls';
+  }
+  return 'other';
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
