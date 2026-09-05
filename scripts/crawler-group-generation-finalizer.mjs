@@ -14,7 +14,7 @@ import {
   assertSafeRunnerReportOutput,
   validateCrawlerGenerationReceipt,
 } from './lib/crawler-generation-receipt.mjs';
-import { isCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
+import { isCrawlerGenerationToken, resolveCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const GIT_TIMEOUT_MS = 30_000;
@@ -203,7 +203,7 @@ export function runCrawlerGroupGenerationFinalizerCli() {
   const manifest = finalizeCrawlerGroup({
     cwd: process.cwd(),
     group,
-    generationToken: process.env.CRAWLER_GENERATION_TOKEN || null,
+    generationToken: resolveCrawlerGenerationToken(),
     callerRepository: requiredEnv('CRAWLER_GENERATION_CALLER_REPOSITORY'),
     callerRunId: requiredEnv('CRAWLER_GENERATION_CALLER_RUN_ID'),
     callerRunAttempt: Number(requiredEnv('CRAWLER_GENERATION_CALLER_RUN_ATTEMPT')),

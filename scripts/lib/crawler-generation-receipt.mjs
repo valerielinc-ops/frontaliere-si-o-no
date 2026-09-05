@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
-import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
+import { isCrawlerGenerationToken, resolveCrawlerGenerationToken } from './crawler-generation-token.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const OUTCOMES = Object.freeze(['noop', 'pushed', 'push_contention', 'failed']);
@@ -429,12 +429,16 @@ function requiredEnv(name) {
   return value;
 }
 
+function requiredGenerationToken() {
+  return resolveCrawlerGenerationToken() ?? requiredEnv('CRAWLER_GENERATION_TOKEN');
+}
+
 export function runCrawlerGenerationReceiptCli(paths = process.argv.slice(2)) {
   const cwd = process.cwd();
   const crawlerId = requiredEnv('JOBS_HOUSEKEEPING_SCOPE');
   const receipt = createCrawlerGenerationReceipt({
     cwd,
-    generationToken: requiredEnv('CRAWLER_GENERATION_TOKEN'),
+    generationToken: requiredGenerationToken(),
     crawlerId,
     outcome: requiredEnv('CRAWLER_GENERATION_RECEIPT_OUTCOME'),
     commit: requiredEnv('CRAWLER_GENERATION_RECEIPT_COMMIT'),
@@ -456,7 +460,7 @@ export function runCrawlerGroupCommitDescriptorCli(paths = process.argv.slice(3)
   const crawlerId = requiredEnv('JOBS_HOUSEKEEPING_SCOPE');
   const descriptor = createCrawlerGroupCommitDescriptor({
     cwd,
-    generationToken: requiredEnv('CRAWLER_GENERATION_TOKEN'),
+    generationToken: requiredGenerationToken(),
     crawlerId,
     commitMessage: requiredEnv('CRAWLER_GROUP_COMMIT_MESSAGE'),
     paths,
@@ -518,7 +522,7 @@ export function readCrawlerGroupCommitDescriptors({
   cwd = process.cwd(),
   descriptorDir = requiredEnv('CRAWLER_GROUP_COMMIT_DIR'),
   runnerTemp = requiredEnv('RUNNER_TEMP'),
-  generationToken = requiredEnv('CRAWLER_GENERATION_TOKEN'),
+  generationToken = requiredGenerationToken(),
 } = {}) {
   if (!isCrawlerGenerationToken(generationToken)) {
     throw new TypeError('Invalid crawler commit descriptor generation token');
