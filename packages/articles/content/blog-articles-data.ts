@@ -34014,6 +34014,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'mezzo-in-fiamme-vergiate-besnate',
+ category: 'pratico',
+ date: '2026-09-05T09:46:47.593Z',
+ image: '/images/blog/mezzo-in-fiamme-vergiate-besnate.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

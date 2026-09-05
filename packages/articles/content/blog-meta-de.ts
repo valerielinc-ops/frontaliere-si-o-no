@@ -11385,6 +11385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autonomia-differenziata-lombardia-2026.title': 'Autonomie Lombardei: OK für Gesundheit und Berufe',
     'blog.article.autonomia-differenziata-lombardia-2026.excerpt': 'Die Gemeinsame Kommission hat die Entschließung zur differenzierten Autonomie für die Lombardei angenommen, die erhebliche Auswirkungen auf die Grenzgänger hat.',
     'blog.article.autonomia-differenziata-lombardia-2026.imageAlt': 'Luftaufnahme von Bellinzona, Tessin, Schweiz, mit den umliegenden Bergen und den historischen Burgen der Stadt.',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.title': 'Fahrzeug in Flammen auf der Autobahn zwischen Vergiate und Besnate',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.excerpt': 'Ein brennendes Fahrzeug blockierte den Autobahnverkehr zwischen Vergiate und Besnate und verursachte schwere Verkehrsstörungen.',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.imageAlt': 'Brennendes Fahrzeug auf der Autobahn zwischen Vergiate und Besnate',
 };
 
 export default blogMetaDe;

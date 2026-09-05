@@ -86066,6 +86066,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mezzo-in-fiamme-vergiate-besnate': {
+    title: 'Mezzo in fiamme sull\'autostrada tra Vergiate e Besnate',
+    description: 'Un mezzo in fiamme ha bloccato il traffico autostradale tra Vergiate e Besnate, causando gravi disagi alla circolazione. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, mezzo, fiamme, sull, autostrada',
+    ogTitle: 'Mezzo in fiamme sull\'autostrada tra Vergiate e Besnate',
+    ogDescription: 'Un mezzo in fiamme ha bloccato il traffico autostradale tra Vergiate e Besnate, causando gravi disagi alla circolazione. La colonna di fumo nero ha reso la situazione ancora più critica, con il traffico bloccato e code in aumento.',
+    canonicalPath: '/articoli-frontaliere/mezzo-in-fiamme-vergiate-besnate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mezzo in fiamme sull'autostrada tra Vergiate e Besnate",
+      "description": "Un mezzo in fiamme ha bloccato il traffico autostradale tra Vergiate e Besnate, causando gravi disagi alla circolazione. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mezzo-in-fiamme-vergiate-besnate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veicolo in fiamme sull'autostrada tra Vergiate e Besnate"
+      },
+      "datePublished": "2026-09-05T09:46:47+00:00",
+      "dateModified": "2026-09-05T09:46:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mezzo-in-fiamme-vergiate-besnate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

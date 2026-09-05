@@ -11386,6 +11386,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autonomia-differenziata-lombardia-2026.title': 'Autonomy Lombardy: ok on health and professions',
     'blog.article.autonomia-differenziata-lombardia-2026.excerpt': 'The Joint Commission approved the Resolution on differentiated autonomy for Lombardy, with significant implications for frontier workers.',
     'blog.article.autonomia-differenziata-lombardia-2026.imageAlt': 'Aerial view of Bellinzona, Ticino, Switzerland, with the surrounding mountains and the city\'s historic castles.',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.title': 'A vehicle caught fire on the highway between Vergiate and Besnate.',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.excerpt': 'A burning vehicle blocked motorway traffic between Vergiate and Besnate, causing serious inconvenience to traffic.',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.imageAlt': 'Burning vehicle on the highway between Vergiate and Besnate',
 };
 
 export default blogMetaEn;
