@@ -1,18 +1,19 @@
 {
   "key": "bucher-suter",
   "label": "Bucher + Suter AG",
-  "generatedAt": "2026-09-05T12:56:52.080Z",
+  "generatedAt": "2026-09-05T23:00:20.148Z",
   "total": 2,
   "discovered": null,
   "written": 2,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10700,
-  "avgDurationMs": 10700,
+  "durationMs": 7129,
+  "avgDurationMs": 7129,
   "durationHistory": [
-    10700
+    7129
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +30,7 @@
       "url": "https://www.bucher-suter.com/jobs/team-leader-operations-people-process-business-applications/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:56:44.949Z",
+      "crawledAt": "2026-09-05T23:00:12.394Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -67,7 +68,7 @@
       "url": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:56:48.224Z",
+      "crawledAt": "2026-09-05T23:00:14.157Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
