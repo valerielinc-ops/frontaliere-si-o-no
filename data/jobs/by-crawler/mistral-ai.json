@@ -1,13 +1,13 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-09-04T23:12:51.552Z",
+  "assembledAt": "2026-09-05T12:59:29.569Z",
   "jobs": [
     {
       "id": "mistral-ai-482e51677b31",
       "slug": "ricerca-ingegnere-forge-mistral-ai-zurich",
       "slugByLocale": {
-        "en": "research-engineer-forge-mistral-ai-ch",
         "it": "ricerca-ingegnere-forge-mistral-ai-zurich",
+        "en": "research-engineer-forge-mistral-ai-ch",
         "de": "forschung-ingenieur-forge-mistral-ai-zurich",
         "fr": "recherche-ingenieur-forge-mistral-ai-zurich"
       },
@@ -16,24 +16,24 @@
       "companyDomain": "mistral.ai",
       "title": "Research Engineer, Forge",
       "titleByLocale": {
-        "en": "Research Engineer, Forge",
         "it": "Ricerca Ingegnere, Forge",
+        "en": "Research Engineer, Forge",
         "de": "Forschung Ingenieur, Forge",
         "fr": "Recherche Ingénieur, Forge"
       },
       "description": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nRole summary\n As a Research Engineer on Forge, you will turn real customer requirements into reliable training and deployment workflows. You’ll work end‑to‑end across model adaptation and post‑training (CPT/SFT/RL/distillation), evaluation, data, and infrastructure. The role bridges research experimentation and production constraints.\n This role sits in Applied Science, with direct impact on client outcomes. You’ll collaborate closely with scientists, engineers, product, and customer‑facing teams to ensure Forge projects ship, are maintainable, and can be trusted by others.\n Interview focus can vary (algorithms, infrastructure, evals, or data). You don’t need to match every bullet below to apply.\n\nWhat you will do\n\n• Build and improve post‑training and evaluation workflows (CPT/SFT/RL/distillation), turning prototypes into repeatable Forge “recipes”.\n\n• Develop tools and pipelines for synthetic data generation, data curation, training, evaluation, and deployment.\n\n• Debug and harden large‑scale ML systems: distributed training, scheduling/execution, checkpointing, observability, and reproducibility.\n\n• Improve the Forge codebase via clear APIs, tests, documentation, and maintainable abstractions.\n\n• Push the frontier of our RL training stack (e.g., high-throughput async rollout and scalable post‑training systems at frontier-model scale)\n\n• Make sure Forge deployment is seamless and adaptable to a diversity of clients (hardware access, software stack, cloud and on-premises, …)\n\n• Partner with researchers and infrastructure engineers to translate bottlenecks into concrete system improvements.\n\nAbout you\n\n• Strong Python engineering skills and experience working in large codebases (testing, code review, CI, operational ownership).\n\n• Hands‑on experience with PyTorch, JAX, or similar.\n\n• Strong systems and infrastructure fundamentals.\n\n• Experience with LLM training or post‑training: fine‑tuning, RL, distillation, evaluation, and/or data pipelines.\n\n• Excellent debugging skills in ambiguous systems (distributed jobs, data issues, quality regressions, infra failures).\n\n• Clear communication with technical and non‑technical stakeholders.\n\n• High agency, low ego, and comfort in fast‑moving, under‑specified environments.\n\nNice to have\n\n• Distributed training experience (FSDP, DeepSpeed, Megatron, etc.).\n\n• Cluster/orchestration experience (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot, etc.).\n\n• Experience building reliable ML infrastructure, evaluation systems, or large‑scale data processing pipelines.\n\n• Research experience in LLMs, agents, multimodal models, reasoning, code, or domain adaptation.\n\n• Open‑source contributions, publications, or widely used internal tooling.\n\n• Experience training multi‑billion‑parameter models (pre‑training or RL). Experience training on petabyte- and exabyte-scale datasets.\n\n• Ability to identify bottlenecks across the stack and drive improvements from first principles.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
       "descriptionByLocale": {
-        "en": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nRole summary\n As a Research Engineer on Forge, you will turn real customer requirements into reliable training and deployment workflows. You’ll work end‑to‑end across model adaptation and post‑training (CPT/SFT/RL/distillation), evaluation, data, and infrastructure. The role bridges research experimentation and production constraints.\n This role sits in Applied Science, with direct impact on client outcomes. You’ll collaborate closely with scientists, engineers, product, and customer‑facing teams to ensure Forge projects ship, are maintainable, and can be trusted by others.\n Interview focus can vary (algorithms, infrastructure, evals, or data). You don’t need to match every bullet below to apply.\n\nWhat you will do\n\n• Build and improve post‑training and evaluation workflows (CPT/SFT/RL/distillation), turning prototypes into repeatable Forge “recipes”.\n\n• Develop tools and pipelines for synthetic data generation, data curation, training, evaluation, and deployment.\n\n• Debug and harden large‑scale ML systems: distributed training, scheduling/execution, checkpointing, observability, and reproducibility.\n\n• Improve the Forge codebase via clear APIs, tests, documentation, and maintainable abstractions.\n\n• Push the frontier of our RL training stack (e.g., high-throughput async rollout and scalable post‑training systems at frontier-model scale)\n\n• Make sure Forge deployment is seamless and adaptable to a diversity of clients (hardware access, software stack, cloud and on-premises, …)\n\n• Partner with researchers and infrastructure engineers to translate bottlenecks into concrete system improvements.\n\nAbout you\n\n• Strong Python engineering skills and experience working in large codebases (testing, code review, CI, operational ownership).\n\n• Hands‑on experience with PyTorch, JAX, or similar.\n\n• Strong systems and infrastructure fundamentals.\n\n• Experience with LLM training or post‑training: fine‑tuning, RL, distillation, evaluation, and/or data pipelines.\n\n• Excellent debugging skills in ambiguous systems (distributed jobs, data issues, quality regressions, infra failures).\n\n• Clear communication with technical and non‑technical stakeholders.\n\n• High agency, low ego, and comfort in fast‑moving, under‑specified environments.\n\nNice to have\n\n• Distributed training experience (FSDP, DeepSpeed, Megatron, etc.).\n\n• Cluster/orchestration experience (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot, etc.).\n\n• Experience building reliable ML infrastructure, evaluation systems, or large‑scale data processing pipelines.\n\n• Research experience in LLMs, agents, multimodal models, reasoning, code, or domain adaptation.\n\n• Open‑source contributions, publications, or widely used internal tooling.\n\n• Experience training multi‑billion‑parameter models (pre‑training or RL). Experience training on petabyte- and exabyte-scale datasets.\n\n• Ability to identify bottlenecks across the stack and drive improvements from first principles.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
-        "it": "Informazioni su Mistral\n Mistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\n Siamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nRiepilogo del ruolo\n In qualità di Ingegnere di Ricerca su Forge, trasformerai i reali requisiti dei clienti in flussi di lavoro di formazione e distribuzione affidabili. Potrai lavorare end-to-end tra adattamento del modello e post-training (CPT/SFT/RL/distillazione), valutazione, dati e infrastrutture. Il ruolo collega la sperimentazione e i vincoli di produzione.\n Questo ruolo si trova in Scienze Applicate, con impatto diretto sui risultati del cliente. Collaborerai a stretto contatto con scienziati, ingegneri, prodotti e team di assistenza clienti per garantire che i progetti Forge siano mantenuti e possano essere fidati da altri.\n L'attenzione dell'intervista può variare (algoritmi, infrastrutture, evali o dati). Non è necessario abbinare ogni proiettile qui sotto per applicare.\n\nCosa farai\n\n• Costruire e migliorare i flussi di lavoro post-formazione e di valutazione (CPT/SFT/RL/distillazione), trasformando i prototipi in “recipes” di forgia ripetibile.\n\n• Sviluppare strumenti e pipeline per la generazione di dati sintetici, la cura dei dati, la formazione, la valutazione e la distribuzione.\n\n• Debug e indurire sistemi ML su larga scala: formazione distribuita, pianificazione/esecuzione, checkpointing, osservabilità e riproducibilità.\n\n• Migliorare la base di codice Forge tramite API chiare, test, documentazione e astrazioni manutenbili.\n\n• Spingere la frontiera del nostro stack di formazione RL (ad esempio, rollout asinc ad alto rendimento e sistemi di post-training scalabili a scala mobile)\n\n• Assicurarsi che Forge distribuzione è senza soluzione di continuità e adattabile a una diversità di client (accesso hardware, stack software, cloud e on-premises, ...)\n\n• Partner con i ricercatori e gli ingegneri delle infrastrutture per tradurre strozzature in miglioramenti concreti del sistema.\n\nSu di te\n\n• Forte capacità di ingegneria Python e esperienza di lavoro in grandi codebases (testing, recensione del codice, CI, proprietà operativa).\n\n• Esperienza pratica con PyTorch, JAX o simile.\n\n• Sistemi forti e fondamenti infrastrutturali.\n\n• Esperienza con formazione LLM o post-training: perfezionamento, RL, distillazione, valutazione e/o datadotti.\n\n• Eccellente capacità di debug in sistemi ambigui (lavori distribuiti, problemi di dati, regressioni di qualità, fallimenti infra).\n\n• Comunicazione chiara con gli stakeholder tecnici e non tecnici.\n\n• Elevata agenzia, basso ego e comfort in ambienti veloci, sotto specificati.\n\nChe bello avere\n\n• Esperienza di formazione distribuito (FSDP, DeepSpeed, Megatron, ecc.).\n\n• Esperienza di cluster/orchestrazione (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot, ecc.).\n\n• Provate a costruire infrastrutture ML affidabili, sistemi di valutazione o pipeline di elaborazione dati su larga scala.\n\n• Esperienza di ricerca in LLM, agenti, modelli multimodali, ragionamento, codice o adattamento di dominio.\n\n• Contributi open source, pubblicazioni o strumenti interni ampiamente utilizzati.\n\n• Esperienza di formazione modelli multi-milioni-parametri (pre-formazione o RL). Esperienza di formazione sui set di dati di petabyte e exabyte.\n\n• Capacità di identificare i colli di bottiglia attraverso lo stack e guidare miglioramenti dai primi principi.\n\nCosa offriamo\n Offriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\n Per i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\n La tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
-        "de": "Über Mistral\n Mistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\n Wir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nRollenzusammenfassung\n Als Research Engineer bei Forge verwandeln Sie echte Kundenanforderungen in zuverlässige Schulungs- und Bereitstellungsworkflows. Sie arbeiten Ende-zu-Ende über Modellanpassung und Post-Training (CPT / SFT / RL / Destillation), Auswertung, Daten und Infrastruktur. Die Rolle überbrückt Forschungsexperimente und Produktionsbeschränkungen.\n Diese Rolle sitzt in Applied Science, mit direkten Auswirkungen auf die Kundenergebnisse. Sie arbeiten eng mit Wissenschaftlern, Ingenieuren, Produkt- und Kundenteams zusammen, um sicherzustellen, dass Forge-Projekte ausgeliefert werden, warten können und anderen vertrauen können.\n Der Interviewfokus kann variieren (Algorithmen, Infrastruktur, evals oder Daten). Sie müssen nicht jede Kugel unten passen, um anzuwenden.\n\nWas du tun wirst\n\n• Aufbau und Verbesserung von Post-Trainings- und Evaluations-Workflows (CPT/SFT/RL/Destillation) und Umwandlung von Prototypen in wiederholbare Schmiede-„Rezepte.\n\n• Entwicklung von Tools und Pipelines für die Erzeugung synthetischer Daten, Datenkuration, Schulung, Auswertung und Bereitstellung.\n\n• Debug und Harden von ML-Großsystemen: verteiltes Training, Planung/Ausführung, Checkpointing, Beobachtbarkeit und Reproduzierbarkeit.\n\n• Verbessern Sie die Forge-Codebasis durch klare APIs, Tests, Dokumentation und wartbare Abstraktionen.\n\n• Verschieben Sie die Grenze unseres RL-Trainingsstacks (z. B. Hochdurchsatz-Async-Rollout und skalierbare Post-Training-Systeme im Grenzmodellmaßstab)\n\n• Stellen Sie sicher, dass die Forge-Bereitstellung nahtlos und an eine Vielzahl von Clients anpassbar ist (Hardwarezugriff, Software-Stack, Cloud und On-Premises, ...)\n\n• Zusammenarbeit mit Forschern und Infrastrukturingenieuren, um Engpässe in konkrete Systemverbesserungen umzusetzen.\n\nÜber dich\n\n• Starke Python-Engineering-Fähigkeiten und Erfahrung in großen Codebasen (Testing, Code-Review, CI, operatives Eigentum).\n\n• Praktische Erfahrung mit PyTorch, JAX oder ähnlichem.\n\n• Starke Systeme und Infrastrukturgrundlagen.\n\n• Erfahrung mit LLM-Training oder Post-Training: Feintuning, RL, Destillation, Evaluation und/oder Datenpipelines.\n\n• Hervorragende Debugging-Fähigkeiten in mehrdeutigen Systemen (verteilte Jobs, Datenprobleme, Qualitätsregressionen, Infra-Ausfälle).\n\n• Klare Kommunikation mit technischen und nichttechnischen Stakeholdern.\n\n• Hohe Handlungsfähigkeit, niedriges Ego und Komfort in schnelllebigen, unterspezifizierten Umgebungen.\n\nNizza zu haben\n\n• Verteilte Trainingserfahrung (FSDP, DeepSpeed, Megatron usw.).\n\n• Cluster-/Orchestrierungserfahrung (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot usw.).\n\n• Erleben Sie den Aufbau zuverlässiger ML-Infrastrukturen, Auswertungssysteme oder groß angelegter Datenverarbeitungspipelines.\n\n• Forschungserfahrung in LLMs, Agenten, multimodalen Modellen, Argumentation, Code oder Domänenanpassung.\n\n• Open-Source-Beiträge, Publikationen oder weit verbreitete interne Tools.\n\n• Erleben Sie Trainingsmodelle mit mehreren Milliarden Parametern (Pre-Training oder RL). Erfahren Sie Schulungen zu Petabyte- und Exabyte-Datensätzen.\n\n• Fähigkeit, Engpässe über den Stapel zu identifizieren und Verbesserungen von den ersten Prinzipien voranzutreiben.\n\nWas wir anbieten\n Wir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\n Für die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\n Ihre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
-        "fr": "À propos de Mistral\n Mistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\n Nous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nRésumé des rôles\n En tant qu'ingénieur de recherche sur Forge, vous transformerez les besoins réels de la clientèle en flux de travail de formation et de déploiement fiables. Vous travaillerez de bout en bout à travers l'adaptation du modèle et la post-formation (CPT/SFT/RL/distillement), l'évaluation, les données et l'infrastructure. Le rôle est de combler les contraintes liées à l'expérimentation et à la production.\n Ce rôle repose sur les sciences appliquées, avec une incidence directe sur les résultats des clients. Vous collaborerez étroitement avec des scientifiques, des ingénieurs, des produits et des équipes orientées vers le client afin de s'assurer que les projets Forge sont viables et fiables.\n L'orientation de l'entrevue peut varier (algorithmes, infrastructure, évaluations ou données). Vous n'avez pas besoin de correspondre à chaque balle ci-dessous pour appliquer.\n\nCe que vous ferez\n\n• Construire et améliorer les workflows de post-formation et d'évaluation (CPT/SFT/RL/distillement), transformer les prototypes en Forge répétable.\n\n• Élaborer des outils et des pipelines pour la production de données synthétiques, la curation des données, la formation, l'évaluation et le déploiement.\n\n• Déboguer et durcir les systèmes ML à grande échelle : formation distribuée, planification/exécution, contrôle, observabilité et reproductibilité.\n\n• Améliorer la base de codes Forge via des API claires, des tests, de la documentation et des abstractions maintenables.\n\n• Poussez la frontière de notre pile d'entraînement RL (p. ex. déploiement d'async à haut débit et systèmes de post-formation évolutives à l'échelle du modèle frontière)\n\n• Assurez-vous que le déploiement de Forge est fluide et adaptable à une diversité de clients (accès au matériel, pile logicielle, cloud et sur site, ...)\n\n• Partenariat avec les chercheurs et les ingénieurs en infrastructure pour traduire les goulets d'étranglement en améliorations concrètes du système.\n\nSur toi\n\n• Fortes compétences en ingénierie Python et expérience de travail dans les grandes bases de code (test, révision de code, IC, propriété opérationnelle).\n\n• Expérience pratique avec PyTorch, JAX ou similaire.\n\n• Des systèmes et des infrastructures solides.\n\n• Expérience de la formation LLM ou post-formation : réglage fin, RL, distillation, évaluation et/ou pipelines de données.\n\n• Excellentes compétences de débogage dans les systèmes ambigus (emplois répartis, problèmes de données, régressions de qualité, défaillances infra).\n\n• Communication claire avec les intervenants techniques et non techniques.\n\n• Haute agence, faible ego, et confort dans des environnements rapides et mal spécifiés.\n\nSympa d'avoir\n\n• Expérience de formation répartie (FSDP, DeepSpeed, Megatron, etc.).\n\n• Expérience de cluster/orchestration (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot, etc.).\n\n• Expérience de la construction d'infrastructures ML fiables, de systèmes d'évaluation ou de pipelines de traitement de données à grande échelle.\n\n• Expérience de recherche en LLM, agents, modèles multimodals, raisonnement, code ou adaptation de domaine.\n\n• Contributions, publications ou outils internes largement utilisés.\n\n• Expérience de la formation de modèles multi-milliards de paramètres (préformation ou RL). Expérience de la formation sur les ensembles de données à l'échelle des pétaoctets et des exaoctets.\n\n• Capacité d'identifier les goulets d'étranglement à travers la pile et d'entraîner des améliorations par rapport aux premiers principes.\n\nCe que nous offrons\n Nous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\n Pour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\n Votre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
+        "it": "Informazioni su Mistral\nMistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\nSiamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nRiepilogo del ruolo\nIn qualità di Ingegnere di Ricerca su Forge, trasformerai i reali requisiti dei clienti in flussi di lavoro di formazione e distribuzione affidabili. Potrai lavorare end-to-end tra adattamento del modello e post-training (CPT/SFT/RL/distillazione), valutazione, dati e infrastrutture. Il ruolo collega la sperimentazione e i vincoli di produzione.\nQuesto ruolo si trova in Scienze Applicate, con impatto diretto sui risultati del cliente. Collaborerai a stretto contatto con scienziati, ingegneri, prodotti e team di assistenza clienti per garantire che i progetti Forge siano mantenuti e possano essere fidati da altri.\nL'attenzione dell'intervista può variare (algoritmi, infrastrutture, evali o dati). Non è necessario abbinare ogni proiettile qui sotto per applicare.\n\nCosa farai\n\n• Costruire e migliorare i flussi di lavoro post-formazione e di valutazione (CPT/SFT/RL/distillazione), trasformando i prototipi in “recipes” di forgia ripetibile.\n\n• Sviluppare strumenti e pipeline per la generazione di dati sintetici, la cura dei dati, la formazione, la valutazione e la distribuzione.\n\n• Debug e indurire sistemi ML su larga scala: formazione distribuita, pianificazione/esecuzione, checkpointing, osservabilità e riproducibilità.\n\n• Migliorare la base di codice Forge tramite API chiare, test, documentazione e astrazioni manutenbili.\n\n• Spingere la frontiera del nostro stack di formazione RL (ad esempio, rollout asinc ad alto rendimento e sistemi di post-training scalabili a scala mobile)\n\n• Assicurarsi che Forge distribuzione è senza soluzione di continuità e adattabile a una diversità di client (accesso hardware, stack software, cloud e on-premises, ...)\n\n• Partner con i ricercatori e gli ingegneri delle infrastrutture per tradurre strozzature in miglioramenti concreti del sistema.\n\nSu di te\n\n• Forte capacità di ingegneria Python e esperienza di lavoro in grandi codebases (testing, recensione del codice, CI, proprietà operativa).\n\n• Esperienza pratica con PyTorch, JAX o simile.\n\n• Sistemi forti e fondamenti infrastrutturali.\n\n• Esperienza con formazione LLM o post-training: perfezionamento, RL, distillazione, valutazione e/o datadotti.\n\n• Eccellente capacità di debug in sistemi ambigui (lavori distribuiti, problemi di dati, regressioni di qualità, fallimenti infra).\n\n• Comunicazione chiara con gli stakeholder tecnici e non tecnici.\n\n• Elevata agenzia, basso ego e comfort in ambienti veloci, sotto specificati.\n\nChe bello avere\n\n• Esperienza di formazione distribuito (FSDP, DeepSpeed, Megatron, ecc.).\n\n• Esperienza di cluster/orchestrazione (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot, ecc.).\n\n• Provate a costruire infrastrutture ML affidabili, sistemi di valutazione o pipeline di elaborazione dati su larga scala.\n\n• Esperienza di ricerca in LLM, agenti, modelli multimodali, ragionamento, codice o adattamento di dominio.\n\n• Contributi open source, pubblicazioni o strumenti interni ampiamente utilizzati.\n\n• Esperienza di formazione modelli multi-milioni-parametri (pre-formazione o RL). Esperienza di formazione sui set di dati di petabyte e exabyte.\n\n• Capacità di identificare i colli di bottiglia attraverso lo stack e guidare miglioramenti dai primi principi.\n\nCosa offriamo\nOffriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\nPer i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\nLa tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
+        "en": "About Mistral\nMistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\nWe are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nRole summary\nAs a Research Engineer on Forge, you will turn real customer requirements into reliable training and deployment workflows. You’ll work end‑to‑end across model adaptation and post‑training (CPT/SFT/RL/distillation), evaluation, data, and infrastructure. The role bridges research experimentation and production constraints.\nThis role sits in Applied Science, with direct impact on client outcomes. You’ll collaborate closely with scientists, engineers, product, and customer‑facing teams to ensure Forge projects ship, are maintainable, and can be trusted by others.\nInterview focus can vary (algorithms, infrastructure, evals, or data). You don’t need to match every bullet below to apply.\n\nWhat you will do\n\n• Build and improve post‑training and evaluation workflows (CPT/SFT/RL/distillation), turning prototypes into repeatable Forge “recipes”.\n\n• Develop tools and pipelines for synthetic data generation, data curation, training, evaluation, and deployment.\n\n• Debug and harden large‑scale ML systems: distributed training, scheduling/execution, checkpointing, observability, and reproducibility.\n\n• Improve the Forge codebase via clear APIs, tests, documentation, and maintainable abstractions.\n\n• Push the frontier of our RL training stack (e.g., high-throughput async rollout and scalable post‑training systems at frontier-model scale)\n\n• Make sure Forge deployment is seamless and adaptable to a diversity of clients (hardware access, software stack, cloud and on-premises, …)\n\n• Partner with researchers and infrastructure engineers to translate bottlenecks into concrete system improvements.\n\nAbout you\n\n• Strong Python engineering skills and experience working in large codebases (testing, code review, CI, operational ownership).\n\n• Hands‑on experience with PyTorch, JAX, or similar.\n\n• Strong systems and infrastructure fundamentals.\n\n• Experience with LLM training or post‑training: fine‑tuning, RL, distillation, evaluation, and/or data pipelines.\n\n• Excellent debugging skills in ambiguous systems (distributed jobs, data issues, quality regressions, infra failures).\n\n• Clear communication with technical and non‑technical stakeholders.\n\n• High agency, low ego, and comfort in fast‑moving, under‑specified environments.\n\nNice to have\n\n• Distributed training experience (FSDP, DeepSpeed, Megatron, etc.).\n\n• Cluster/orchestration experience (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot, etc.).\n\n• Experience building reliable ML infrastructure, evaluation systems, or large‑scale data processing pipelines.\n\n• Research experience in LLMs, agents, multimodal models, reasoning, code, or domain adaptation.\n\n• Open‑source contributions, publications, or widely used internal tooling.\n\n• Experience training multi‑billion‑parameter models (pre‑training or RL). Experience training on petabyte- and exabyte-scale datasets.\n\n• Ability to identify bottlenecks across the stack and drive improvements from first principles.\n\nWhat We Offer\nWe offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\nFor the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\nYour privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+        "de": "Über Mistral\nMistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\nWir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nRollenzusammenfassung\nAls Research Engineer bei Forge verwandeln Sie echte Kundenanforderungen in zuverlässige Schulungs- und Bereitstellungsworkflows. Sie arbeiten Ende-zu-Ende über Modellanpassung und Post-Training (CPT / SFT / RL / Destillation), Auswertung, Daten und Infrastruktur. Die Rolle überbrückt Forschungsexperimente und Produktionsbeschränkungen.\nDiese Rolle sitzt in Applied Science, mit direkten Auswirkungen auf die Kundenergebnisse. Sie arbeiten eng mit Wissenschaftlern, Ingenieuren, Produkt- und Kundenteams zusammen, um sicherzustellen, dass Forge-Projekte ausgeliefert werden, warten können und anderen vertrauen können.\nDer Interviewfokus kann variieren (Algorithmen, Infrastruktur, evals oder Daten). Sie müssen nicht jede Kugel unten passen, um anzuwenden.\n\nWas du tun wirst\n\n• Aufbau und Verbesserung von Post-Trainings- und Evaluations-Workflows (CPT/SFT/RL/Destillation) und Umwandlung von Prototypen in wiederholbare Schmiede-„Rezepte.\n\n• Entwicklung von Tools und Pipelines für die Erzeugung synthetischer Daten, Datenkuration, Schulung, Auswertung und Bereitstellung.\n\n• Debug und Harden von ML-Großsystemen: verteiltes Training, Planung/Ausführung, Checkpointing, Beobachtbarkeit und Reproduzierbarkeit.\n\n• Verbessern Sie die Forge-Codebasis durch klare APIs, Tests, Dokumentation und wartbare Abstraktionen.\n\n• Verschieben Sie die Grenze unseres RL-Trainingsstacks (z. B. Hochdurchsatz-Async-Rollout und skalierbare Post-Training-Systeme im Grenzmodellmaßstab)\n\n• Stellen Sie sicher, dass die Forge-Bereitstellung nahtlos und an eine Vielzahl von Clients anpassbar ist (Hardwarezugriff, Software-Stack, Cloud und On-Premises, ...)\n\n• Zusammenarbeit mit Forschern und Infrastrukturingenieuren, um Engpässe in konkrete Systemverbesserungen umzusetzen.\n\nÜber dich\n\n• Starke Python-Engineering-Fähigkeiten und Erfahrung in großen Codebasen (Testing, Code-Review, CI, operatives Eigentum).\n\n• Praktische Erfahrung mit PyTorch, JAX oder ähnlichem.\n\n• Starke Systeme und Infrastrukturgrundlagen.\n\n• Erfahrung mit LLM-Training oder Post-Training: Feintuning, RL, Destillation, Evaluation und/oder Datenpipelines.\n\n• Hervorragende Debugging-Fähigkeiten in mehrdeutigen Systemen (verteilte Jobs, Datenprobleme, Qualitätsregressionen, Infra-Ausfälle).\n\n• Klare Kommunikation mit technischen und nichttechnischen Stakeholdern.\n\n• Hohe Handlungsfähigkeit, niedriges Ego und Komfort in schnelllebigen, unterspezifizierten Umgebungen.\n\nNizza zu haben\n\n• Verteilte Trainingserfahrung (FSDP, DeepSpeed, Megatron usw.).\n\n• Cluster-/Orchestrierungserfahrung (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot usw.).\n\n• Erleben Sie den Aufbau zuverlässiger ML-Infrastrukturen, Auswertungssysteme oder groß angelegter Datenverarbeitungspipelines.\n\n• Forschungserfahrung in LLMs, Agenten, multimodalen Modellen, Argumentation, Code oder Domänenanpassung.\n\n• Open-Source-Beiträge, Publikationen oder weit verbreitete interne Tools.\n\n• Erleben Sie Trainingsmodelle mit mehreren Milliarden Parametern (Pre-Training oder RL). Erfahren Sie Schulungen zu Petabyte- und Exabyte-Datensätzen.\n\n• Fähigkeit, Engpässe über den Stapel zu identifizieren und Verbesserungen von den ersten Prinzipien voranzutreiben.\n\nWas wir anbieten\nWir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\nFür die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\nIhre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
+        "fr": "À propos de Mistral\nMistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\nNous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nRésumé des rôles\nEn tant qu'ingénieur de recherche sur Forge, vous transformerez les besoins réels de la clientèle en flux de travail de formation et de déploiement fiables. Vous travaillerez de bout en bout à travers l'adaptation du modèle et la post-formation (CPT/SFT/RL/distillement), l'évaluation, les données et l'infrastructure. Le rôle est de combler les contraintes liées à l'expérimentation et à la production.\nCe rôle repose sur les sciences appliquées, avec une incidence directe sur les résultats des clients. Vous collaborerez étroitement avec des scientifiques, des ingénieurs, des produits et des équipes orientées vers le client afin de s'assurer que les projets Forge sont viables et fiables.\nL'orientation de l'entrevue peut varier (algorithmes, infrastructure, évaluations ou données). Vous n'avez pas besoin de correspondre à chaque balle ci-dessous pour appliquer.\n\nCe que vous ferez\n\n• Construire et améliorer les workflows de post-formation et d'évaluation (CPT/SFT/RL/distillement), transformer les prototypes en Forge répétable.\n\n• Élaborer des outils et des pipelines pour la production de données synthétiques, la curation des données, la formation, l'évaluation et le déploiement.\n\n• Déboguer et durcir les systèmes ML à grande échelle : formation distribuée, planification/exécution, contrôle, observabilité et reproductibilité.\n\n• Améliorer la base de codes Forge via des API claires, des tests, de la documentation et des abstractions maintenables.\n\n• Poussez la frontière de notre pile d'entraînement RL (p. ex. déploiement d'async à haut débit et systèmes de post-formation évolutives à l'échelle du modèle frontière)\n\n• Assurez-vous que le déploiement de Forge est fluide et adaptable à une diversité de clients (accès au matériel, pile logicielle, cloud et sur site, ...)\n\n• Partenariat avec les chercheurs et les ingénieurs en infrastructure pour traduire les goulets d'étranglement en améliorations concrètes du système.\n\nSur toi\n\n• Fortes compétences en ingénierie Python et expérience de travail dans les grandes bases de code (test, révision de code, IC, propriété opérationnelle).\n\n• Expérience pratique avec PyTorch, JAX ou similaire.\n\n• Des systèmes et des infrastructures solides.\n\n• Expérience de la formation LLM ou post-formation : réglage fin, RL, distillation, évaluation et/ou pipelines de données.\n\n• Excellentes compétences de débogage dans les systèmes ambigus (emplois répartis, problèmes de données, régressions de qualité, défaillances infra).\n\n• Communication claire avec les intervenants techniques et non techniques.\n\n• Haute agence, faible ego, et confort dans des environnements rapides et mal spécifiés.\n\nSympa d'avoir\n\n• Expérience de formation répartie (FSDP, DeepSpeed, Megatron, etc.).\n\n• Expérience de cluster/orchestration (SLURM, Ray, Kubernetes, Kueue, Karpenter, Skypilot, etc.).\n\n• Expérience de la construction d'infrastructures ML fiables, de systèmes d'évaluation ou de pipelines de traitement de données à grande échelle.\n\n• Expérience de recherche en LLM, agents, modèles multimodals, raisonnement, code ou adaptation de domaine.\n\n• Contributions, publications ou outils internes largement utilisés.\n\n• Expérience de la formation de modèles multi-milliards de paramètres (préformation ou RL). Expérience de la formation sur les ensembles de données à l'échelle des pétaoctets et des exaoctets.\n\n• Capacité d'identifier les goulets d'étranglement à travers la pile et d'entraîner des améliorations par rapport aux premiers principes.\n\nCe que nous offrons\nNous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\nPour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\nVotre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.ashbyhq.com/mistral.ai/1808c0af-7352-4d0b-9e35-d3d6704e4759",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.693Z",
+      "crawledAt": "2026-09-05T12:59:24.666Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,9 +47,24 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/1808c0af-7352-4d0b-9e35-d3d6704e4759",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "research-engineer-forge-mistral-ai-ch",
+        "ricerca-ingegnere-forge-mistral-ai-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "research-engineer-forge-mistral-ai-ch",
+          "ricerca-ingegnere-forge-mistral-ai-zurich"
+        ],
+        "de": [
+          "research-engineer-forge-mistral-ai-ch"
+        ],
+        "fr": [
+          "research-engineer-forge-mistral-ai-ch"
+        ]
       },
+      "firstSeenAt": "2026-09-04T23:12:47.693Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -63,22 +78,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-04T23:12:47.693Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "research-engineer-forge-mistral-ai-ch"
-        ],
-        "de": [
-          "research-engineer-forge-mistral-ai-ch"
-        ],
-        "fr": [
-          "research-engineer-forge-mistral-ai-ch"
-        ]
-      },
-      "previousSlugs": [
-        "research-engineer-forge-mistral-ai-ch"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -111,7 +111,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.692Z",
+      "crawledAt": "2026-09-05T12:59:24.664Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -190,7 +190,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.690Z",
+      "crawledAt": "2026-09-05T12:59:24.663Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,14 +209,16 @@
         "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
         "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
         "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
-        "research-engineer-data-infrastructure-mistral-ai-ch"
+        "research-engineer-data-infrastructure-mistral-ai-ch",
+        "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
           "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
           "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
-          "research-engineer-data-infrastructure-mistral-ai-ch"
+          "research-engineer-data-infrastructure-mistral-ai-ch",
+          "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich"
         ],
         "de": [
           "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
@@ -274,7 +276,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.688Z",
+      "crawledAt": "2026-09-05T12:59:24.661Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -291,18 +293,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch",
-        "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch"
+        "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch",
+        "applied-ai-technical-lead-forward-deployed-ai-ingegnere-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch",
-          "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch"
+          "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch",
+          "applied-ai-technical-lead-forward-deployed-ai-ingegnere-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch"
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:20.994Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -349,7 +354,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.684Z",
+      "crawledAt": "2026-09-05T12:59:24.658Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -365,11 +370,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
+        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
+        "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
+          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
+          "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
@@ -392,7 +399,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -425,7 +433,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.682Z",
+      "crawledAt": "2026-09-05T12:59:24.657Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -441,11 +449,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
+        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
+        "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
+          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
+          "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
@@ -468,7 +478,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -501,7 +512,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.680Z",
+      "crawledAt": "2026-09-05T12:59:24.651Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -517,11 +528,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-engineer-machine-learning-mistral-ai-ch"
+        "research-engineer-machine-learning-mistral-ai-ch",
+        "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-engineer-machine-learning-mistral-ai-ch"
+          "research-engineer-machine-learning-mistral-ai-ch",
+          "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
         ],
         "de": [
           "research-engineer-machine-learning-mistral-ai-ch"
@@ -577,7 +590,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.676Z",
+      "crawledAt": "2026-09-05T12:59:24.650Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,7 +675,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.673Z",
+      "crawledAt": "2026-09-05T12:59:24.647Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -738,7 +751,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:12:47.667Z",
+      "crawledAt": "2026-09-05T12:59:24.643Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -754,11 +767,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-software-engineer-mistral-ai-ch"
+        "research-software-engineer-mistral-ai-ch",
+        "ricerca-software-ingegnere-mistral-ai-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-software-engineer-mistral-ai-ch"
+          "research-software-engineer-mistral-ai-ch",
+          "ricerca-software-ingegnere-mistral-ai-zurich"
         ],
         "de": [
           "research-software-engineer-mistral-ai-ch"
