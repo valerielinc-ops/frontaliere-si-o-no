@@ -1,18 +1,19 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-09-05T12:36:29.822Z",
-  "total": 4,
+  "generatedAt": "2026-09-05T22:44:22.369Z",
+  "total": 3,
   "discovered": null,
-  "written": 4,
+  "written": 3,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6576,
-  "avgDurationMs": 6576,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6513,
+  "avgDurationMs": 6513,
   "durationHistory": [
-    6576
+    6513
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +29,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:36:24.587Z",
+      "crawledAt": "2026-09-05T22:44:10.465Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -70,7 +71,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:36:24.694Z",
+      "crawledAt": "2026-09-05T22:44:10.519Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,7 +112,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:36:24.612Z",
+      "crawledAt": "2026-09-05T22:44:10.471Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -141,8 +142,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "vaxcyte-5ccbbb2c0520",
       "slug": "senior-project-manager-cmc-vaxcyte-ch",
@@ -189,5 +189,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
