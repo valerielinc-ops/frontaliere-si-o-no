@@ -85871,6 +85871,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quando-cambiare-euro-frontaliere-single': {
+    title: 'Come proteggere lo stipendio dal cambio | Frontaliere Ticino',
+    description: 'Il nuovo accordo frontalieri 2024 e le aliquote IRPEF 2026 rendono critica la strategia di cambio. Guida pratica per single: timing, procedure, strumenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, proteggere, stipendio, cambio, nuovo',
+    ogTitle: 'Cambio CHF-EUR 2026: proteggere lo stipendio frontaliere',
+    ogDescription: 'Volatilità valuta impatta il netto reale. Impara timing di cambio, aliquote IRPEF/AVS 2026, credito d\'imposta e gestione rischi per frontaliere single. Checklist operativa + strumenti.',
+    canonicalPath: '/articoli-frontaliere/quando-cambiare-euro-frontaliere-single',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come proteggere lo stipendio dal cambio",
+      "description": "Il nuovo accordo frontalieri 2024 e le aliquote IRPEF 2026 rendono critica la strategia di cambio. Guida pratica per single: timing, procedure, strumenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quando-cambiare-euro-frontaliere-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Calcolatrice e franchi su scrivania con vista Lago Lugano. Ambiente di pianificazione finanziaria nel Ticino."
+      },
+      "datePublished": "2026-09-05T06:00:41+00:00",
+      "dateModified": "2026-09-05T06:00:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quando-cambiare-euro-frontaliere-single/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

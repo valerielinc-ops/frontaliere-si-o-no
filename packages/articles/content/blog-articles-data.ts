@@ -33969,6 +33969,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'quando-cambiare-euro-frontaliere-single',
+ category: 'fiscale',
+ date: '2026-09-05T06:00:40.985Z',
+ image: '/images/blog/quando-cambiare-euro-frontaliere-single.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
