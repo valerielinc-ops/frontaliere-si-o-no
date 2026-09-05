@@ -5575,6 +5575,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-controlli-minori.title': 'Kindertagesstätte: die Lücken bei den Kontrollen von Minderjährigen',
     'blog.article.asilo-nido-controlli-minori.excerpt': 'Ein wegen Kinderpornografie gemeldeter Erzieher arbeitete zwei Jahre in einer Kindertagesstätte. Wie und warum die institutionellen Kontrollen in der Schweiz gescheitert sind.',
     'blog.article.asilo-nido-controlli-minori.imageAlt': 'Außenansicht eines Schweizer Kindergartens mit Spielplatz, moderne Architektur, dokumentarische Fotografie',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B Freiburg: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Bewilligung B in Freiburg: Anforderungen für EU/EFTA und Drittländer, Erneuerungsverfahren, erforderliche Dokumente und Rollen des sem und der kantonalen Verwaltung.',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Kantonales Verwaltungsbüro für die Bearbeitung von Aufenthaltserlaubnissen.',
 };
 
 export default blogMetaChDe;
