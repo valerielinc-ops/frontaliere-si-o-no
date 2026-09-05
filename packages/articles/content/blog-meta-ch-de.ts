@@ -5560,6 +5560,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.medici-specialisti-fatturazioni-svizzera.title': 'Einige Fachärzte übertreiben mit den Abrechnungen',
     'blog.article.medici-specialisti-fatturazioni-svizzera.excerpt': 'Laut Saskia Schenker, Geschäftsführerin von Prioswiss, übertreiben einige Fachärzte bei der Abrechnung ihrer Leistungen.',
     'blog.article.medici-specialisti-fatturazioni-svizzera.imageAlt': 'Arztpraxis in Lugano mit medizinischer Ausrüstung und Diagrammen',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.title': 'Prio.swiss: Einige Fachärzte übertreiben mit Tardoc',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.excerpt': 'Der Verband der Schweizerischen Krankenversicherer stellt fest, dass einige medizinische Fachgebiete die Grenzen des neuen Tardoc-Tarifmodells überschreiten.',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.imageAlt': 'Ein Facharzt in einer professionellen Schweizer Umgebung.',
 };
 
 export default blogMetaChDe;
