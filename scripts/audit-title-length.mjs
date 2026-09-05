@@ -32,6 +32,7 @@ import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { join, relative, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
+import { flatString } from './lib/flat-string.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
@@ -155,7 +156,12 @@ export function createAuditor(opts = {}) {
       if (title.length <= threshold) return;
       if (featureFilter && feature !== featureFilter) return;
       const locale = inferLocale(rel);
-      offenders.push({ path: rel, file: rel, feature, locale, title, metric: title.length });
+      // `title` comes out of a regex over the whole document, so it is a V8
+      // SlicedString pointing into that page: pushed as-is into a list that
+      // lives for the entire walk, every offender pins its source page
+      // (measured at 40,359 B/entry in #7441). Flatten at the boundary where
+      // the value becomes long-lived — same fix, same helper, as #7419.
+      offenders.push({ path: rel, file: rel, feature, locale, title: flatString(title), metric: title.length });
     },
     async report() {
       offenders.sort((a, b) => b.metric - a.metric);

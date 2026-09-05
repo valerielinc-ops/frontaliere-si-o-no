@@ -110,12 +110,49 @@ jobs:
     # in the frontier (see the comments in scripts/audit-bfs-depth.mjs and
     # scripts/audit-orphan-pages-in-sitemaps.mjs); the offender lists they build
     # are small — 26,398 offenders over 255,347 sitemap URLs in
-    # data/bfs-depth-baseline.json, a few MB. The heap goes into the BFS
-    # visited-set itself, which is inherent: one Map/Set entry per reachable
-    # path over the whole rehydrated dist/.
+    # data/bfs-depth-baseline.json, a few MB.
     #
-    # What was actually missing is the heap, and the asymmetry was invisible
-    # because it lives in a DIFFERENT file from the audits: the very same two
+    # CORRECTION (2026-09-05, issues #7419/#7420). The next sentence used to
+    # read "The heap goes into the BFS visited-set itself, which is inherent:
+    # one Map/Set entry per reachable path over the whole rehydrated dist/."
+    # That was inferred from a single V8 death-rattle line — a process that
+    # aborts inside the walk writes no report and no offender list, so the heap
+    # SIZE was the only surviving evidence and nothing said what was in it.
+    # It is wrong in both halves, and it is why three autonomous fix attempts
+    # on these issues went nowhere: they were following a false explanation
+    # written in-house.
+    #
+    # Measured, by putting a probe inside the walk and replaying the same
+    # corpus (replay 33949494806 over deploy 33936935725, 4,389,672 files):
+    #
+    #   dequeued=250000   discovered=936931   existing=248011  heap=4490MB
+    #   dequeued=1000000  discovered=1202200  existing=875363  heap=7689MB
+    #   → FATAL ERROR: Reached heap limit, rc=134, at 673 s
+    #
+    # So the sentence was wrong TWICE, and each half mattered.
+    #
+    # Wrong on the ORDER OF MAGNITUDE: the visited set peaks at 1,202,200 paths
+    # averaging 44 characters — ~180 MB of the 7,712 MB that died, about 2%.
+    #
+    # Wrong on the MECHANISM, which is where the other 98% is: an href produced
+    # by the anchor regex is a V8 SlicedString pointing into the whole HTML
+    # document it was scraped from, so every path kept in the visited set pins
+    # its entire source page. That is emphatically streamable-away. PR #7441
+    # measured it directly — 40,359 bytes retained per path before its fix,
+    # under 5,000 after — and flattened at that boundary
+    # (scripts/lib/flat-string.mjs, merged as 11d4f1ef695). The identical bug
+    # had already been found and documented in
+    # scripts/audit-duplicate-meta-description.mjs on run 32261742920.
+    #
+    # Both halves are recorded because this comment is what three autonomous
+    # fix attempts on #7419/#7420 read and believed: a heap you are told is
+    # inherent is a heap you only ever raise.
+    #
+    # The heap floor below therefore stays as a CEILING, not as the remedy.
+    #
+    # A REAL asymmetry was also missing, and it is worth keeping even though it
+    # was never the whole story: it lives in a DIFFERENT file from the audits,
+    # so nobody saw it. The very same two
     # audits are given `--max-old-space-size=8192` by their seed workflows
     # (seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml), and this
     # gate — which runs them over a dist/ that is larger, because it is
@@ -123,7 +160,8 @@ jobs:
     # heap instead. Same binary, same corpus, a quarter of the memory.
     #
     # 8192 matches those two seed workflows deliberately: it is the value
-    # already proven on this runner for these audits, and it stays well under
+    # already proven on this runner for these audits — a ceiling, not a fix, as
+    # the CORRECTION above records — and it stays well under
     # the 16 GB of `ubuntu-latest` so a raised V8 ceiling cannot turn a clean
     # heap OOM into a KERNEL OOM-kill — the failure mode #5169 removed.
     #
