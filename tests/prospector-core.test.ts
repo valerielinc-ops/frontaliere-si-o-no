@@ -21,7 +21,8 @@ import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
 import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
-import { tokenOverlap, gradeExtraction, isReadableText } from '../scripts/lib/prospector/validate.mjs';
+import { tokenOverlap, gradeExtraction, isReadableText, bodySignature } from '../scripts/lib/prospector/validate.mjs';
+import { extractRuntimeDetailFields, listingEvidenceFields } from '../scripts/lib/prospector/detail-extract.mjs';
 import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
@@ -940,9 +941,9 @@ describe('promotion gate', () => {
     expect(res.reasons.join(' ')).toMatch(/nuova validazione/);
   });
 
-  it('rifiuta un template senza localita source-backed sull\'intero campione', () => {
+  it('rifiuta un template la cui localita source-backed non regge il campione', () => {
     const missingLocation = graded(2);
-    missingLocation.validationHistory.at(-1).locationSourceRate = 0.75;
+    missingLocation.validationHistory.at(-1).locationSourceRate = 0.5;
     const res = evaluatePromotion(missingLocation);
     expect(res.passed).toBe(false);
     expect(res.checks.sourceBackedLocation).toBe(false);
@@ -964,6 +965,79 @@ describe('promotion gate', () => {
 
     structured.validationHistory.at(-1).locationSourceRate = 1;
     expect(evaluatePromotion(structured).passed).toBe(true);
+  });
+
+  it('promuove un datore che espone la localita su tre pagine campionate su quattro', () => {
+    // La soglia misura la RESA, non la perfezione: il runtime SCARTA la riga
+    // senza geografia source-backed invece di inventarne una, quindi la quarta
+    // pagina costa un annuncio, non un dato falso. anker-swiss.ch, 2026-09-05:
+    // 279 annunci pubblicabili fermi su questa singola pagina.
+    const partial = graded(2);
+    partial.validationHistory.at(-1).locationSourceRate = 0.75;
+    const res = evaluatePromotion(partial);
+    expect(res.checks.sourceBackedLocation).toBe(true);
+    expect(res.passed).toBe(true);
+  });
+
+  it('non punisce i titoli ripetuti quando le pagine di dettaglio sono diverse', () => {
+    // Agenzia interinale: lo stesso ruolo per sedi diverse. Il selettore rotto
+    // e quello sano hanno gli stessi titoli — solo le pagine li separano.
+    const agency = graded(2);
+    agency.validationHistory.at(-1).distinctRate = 0.23;
+    agency.validationHistory.at(-1).detailDistinctRate = 1;
+    expect(evaluatePromotion(agency).checks.distinct).toBe(true);
+
+    // Stessi titoli, ma le pagine campionate sono la stessa pagina: resta un
+    // selettore che ha agganciato un elemento ricorrente.
+    agency.validationHistory.at(-1).detailDistinctRate = 0.25;
+    expect(evaluatePromotion(agency).checks.distinct).toBe(false);
+  });
+
+  it('ignora il flag detailEnrichment su una spec template', () => {
+    // `needsDetailEnrichment()` arricchisce OGNI spec template, flag o non
+    // flag: un check sul flag bloccherebbe per una condizione che il runtime
+    // soddisfa per costruzione.
+    const legacyTemplate = graded(2, { mode: 'template', detailEnrichment: false });
+    expect(evaluatePromotion(legacyTemplate).passed).toBe(true);
+    delete legacyTemplate.detailEnrichment;
+    expect(evaluatePromotion(legacyTemplate).passed).toBe(true);
+  });
+
+  it('applica il merge Umantis in modo idempotente', () => {
+    // `runSpecInProduction` passa un `detailExtractor` custom e poi applica la
+    // stessa catena sopra il suo output: i parser tenant (recruitingapp-2649)
+    // finiscono percio' per attraversarla due volte, come gia' accadeva prima
+    // che l'estrazione fosse condivisa. Il secondo giro non deve cambiare
+    // nulla, altrimenti ri-deriva campi che il primo aveva deciso.
+    const html = '<html><body><h1>Posto</h1></body></html>';
+    const once = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, 'https://x.umantis.com/Vacancies/1/Description/1');
+    const twice = extractRuntimeDetailFields(
+      { platform: 'umantis.com' },
+      html,
+      'https://x.umantis.com/Vacancies/1/Description/1',
+      { detailExtractor: () => once },
+    );
+    expect(twice).toEqual(once);
+  });
+
+  it('lascia vincere la riga sull\'evidenza di listing', () => {
+    const merged = listingEvidenceFields(
+      { location: 'Bellinzona', locationCandidates: [{ location: 'Bellinzona' }] },
+      { location: 'Lugano', addressLocality: 'Lugano', postalCode: '6900' },
+    );
+    expect(merged.location).toBe('Bellinzona');
+    expect(merged.addressLocality).toBe('Lugano');
+    expect(merged.postalCode).toBe('6900');
+    expect(merged.locationCandidates).toHaveLength(2);
+    expect(listingEvidenceFields({ location: 'Bellinzona' }, undefined)).toEqual({});
+  });
+
+  it('firma le pagine sul testo intero, non su un prefisso condiviso', () => {
+    // Chrome lungo e identico, coda diversa: due annunci veri devono restare
+    // due firme diverse, o `detailDistinctRate` li legge come una pagina sola.
+    const chrome = 'menu contatti privacy cookie '.repeat(300);
+    expect(bodySignature(`${chrome} posto uno`)).not.toBe(bodySignature(`${chrome} posto due`));
+    expect(bodySignature(`${chrome} posto uno`)).toBe(bodySignature(`${chrome} posto uno`));
   });
 
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
