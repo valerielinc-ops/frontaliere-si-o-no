@@ -26,6 +26,18 @@
  * non descrive nulla. `REVIEW_GATE_STEP_NAME` resta invece importato da
  * `vitestCheck.mjs`: il nome dello step del review gate ha UNA sola sorgente.
  *
+ * ── UNO STEP ROSSO NON È UN JOB ROSSO ────────────────────────────────────
+ * Sette step di questo job portano `continue-on-error: true` — fra cui
+ * `Run Claude review`, i due `Mint … token` e i due commenti advisory. Il loro
+ * fallimento NON tinge di rosso il job. Classificare per sola `conclusion`
+ * degli step scriverebbe quindi un `❌` in cima alla pagina di una run VERDE,
+ * cioè la stessa classe di bugia che questo modulo esiste per chiudere,
+ * girata un'altra volta. Il verdetto del job arriva dal contesto
+ * (`job.status`, che l'ultimo step legge mentre il job è ancora in corso) e
+ * `classifyJobFailure` non spiega niente quando quel verdetto non è `failure`.
+ * Filtrare invece i nomi degli step `continue-on-error` sarebbe una seconda
+ * lista da tenere allineata a mano, cioè lo stesso drift con più superficie.
+ *
  * ── L'INVARIANTE CHE CONTA ───────────────────────────────────────────────
  * La frase non deve MAI affermare «i test sono passati» senza prova positiva.
  * L'esito dei test si legge dalla `conclusion` del loro step, mai per assenza:
@@ -115,10 +127,16 @@ function capitalize(text) {
  * consumata da `vitestFailureIsReviewGate`).
  *
  * @param {Array<{name?: string, conclusion?: string}>} steps
- * @returns {{category: string, headline: string, failedSteps: string[], testsVerdict: 'passed'|'failed'|'not-run'|'unknown'}|null}
- *   `null` quando nessuno step e' rosso (niente da spiegare).
+ * @param {{jobStatus?: string}} [options] `job.status` del job in corso. Un
+ *   valore diverso da `'failure'` significa che il job NON è rosso — gli step
+ *   `continue-on-error` falliti non lo tingono — e allora non c'è niente da
+ *   spiegare. Assente o vuoto: si classifica comunque, che è il caso dell'uso
+ *   a mano su una run già conclusa, dove il contesto del job non esiste.
+ * @returns {{category: string, headline: string, failedSteps: string[], testsVerdict: 'passed'|'failed'|'not-run'|'partial'|'unknown'}|null}
+ *   `null` quando il job non è rosso, o quando nessuno step è rosso.
  */
-export function classifyJobFailure(steps) {
+export function classifyJobFailure(steps, { jobStatus = '' } = {}) {
+  if (jobStatus && jobStatus !== 'failure') return null;
   if (!Array.isArray(steps)) return null;
   const failedSteps = steps
     .filter((s) => s && s.conclusion === 'failure' && typeof s.name === 'string' && s.name)
@@ -131,8 +149,13 @@ export function classifyJobFailure(steps) {
   const testStep = steps.find((s) => s && s.name === TEST_STEP_NAME);
   let testsVerdict;
   if (category.id === 'tests') testsVerdict = 'failed';
-  else if (category.ambiguous) testsVerdict = 'unknown';
-  else if (testStep?.conclusion === 'success') testsVerdict = 'passed';
+  // Categoria ambigua con lo step di test verde: la prova positiva esiste ma
+  // copre solo META' della domanda, e buttarla via darebbe al lettore la frase
+  // meno utile delle due nel caso piu' frequente. `partial` la conserva e ne
+  // dichiara il confine invece di generalizzarla a «i test sono passati».
+  else if (category.ambiguous) {
+    testsVerdict = testStep?.conclusion === 'success' ? 'partial' : 'unknown';
+  } else if (testStep?.conclusion === 'success') testsVerdict = 'passed';
   else if (testStep?.conclusion === 'skipped') testsVerdict = 'not-run';
   else testsVerdict = 'unknown';
 
@@ -141,6 +164,8 @@ export function classifyJobFailure(steps) {
     headline = `${capitalize(category.tail)}.`;
   } else if (testsVerdict === 'passed') {
     headline = `I test sono passati: ${category.tail}.`;
+  } else if (testsVerdict === 'partial') {
+    headline = `${capitalize(category.tail)}. Lo step «${TEST_STEP_NAME}» è verde: se sono test, sono quelli del gruppo indipendente, non quelli scelti dal diff della PR.`;
   } else if (testsVerdict === 'not-run') {
     headline = `${capitalize(category.tail)}. I test non sono stati eseguiti: lo step «${TEST_STEP_NAME}» è stato saltato da un cancello a monte.`;
   } else {

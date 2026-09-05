@@ -2261,4 +2261,12 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Il verdetto del JOB, non degli step. Sette step qui dentro sono
+          # `continue-on-error: true` (i due commenti advisory, i due `Mint …
+          # token`, `Run Claude review`, le metriche e questo stesso step): il
+          # loro rosso NON tinge il job, e senza questa variabile il summary
+          # scriverebbe un ❌ in cima alla pagina di una run verde. `job.status`
+          # è leggibile mentre il job gira e vale `success` proprio quando a
+          # fallire è stato solo uno step `continue-on-error`.
+          JOB_STATUS: ${{ job.status }}
         run: node scripts/ci/explain-job-verdict.mjs

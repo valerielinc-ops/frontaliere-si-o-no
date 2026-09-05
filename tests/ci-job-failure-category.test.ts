@@ -7,6 +7,7 @@ import {
   classifyJobFailure,
   formatJobFailureSummary,
 } from '../scripts/ci/lib/jobFailureCategory.mjs';
+import { REVIEW_GATE_STEP_NAME } from '../scripts/ci/lib/vitestCheck.mjs';
 
 /**
  * Il check richiesto dal ruleset si chiama `vitest (unit + integration)` e
@@ -18,9 +19,13 @@ import {
  */
 const ROOT = resolve(import.meta.dirname, '..');
 const TESTS_YML = readFileSync(resolve(ROOT, '.github/workflows/tests.yml'), 'utf-8');
-const REVIEW_GATE = 'Require approving Claude review';
+// Importato, non ricopiato: il nome dello step del review gate ha UNA sola
+// sorgente (`vitestCheck.mjs`) ed è esattamente il motivo per cui il modulo
+// sotto test lo importa invece di dichiararlo.
+const REVIEW_GATE = REVIEW_GATE_STEP_NAME;
 const PR_BODY_GATE = 'PR-body completeness + multi-issue Closes (no checkout, all events)';
 const SUMMARY_STEP = 'Explain the job verdict in the run summary';
+const BACKGROUND_JOIN = 'Wait for background gates and independent vitest';
 
 const step = (name: string, conclusion: string) => ({ name, conclusion });
 
@@ -71,14 +76,36 @@ describe('classifyJobFailure — di che cosa è fatto il rosso', () => {
     expect(verdict?.headline).toContain('non è determinabile');
   });
 
-  it('join dei gate in background: ambiguo per costruzione, non assolve i test', () => {
+  it('join dei gate in background: ambiguo per costruzione, non assolve i test in blocco', () => {
     const verdict = classifyJobFailure([
       step(TEST_STEP_NAME, 'success'),
-      step('Wait for background gates and independent vitest', 'failure'),
+      step(BACKGROUND_JOIN, 'failure'),
     ]);
     expect(verdict?.category).toBe('background-join');
+    // La prova positiva che ESISTE non si butta via, ma vale solo per il run
+    // related: il join copre anche il gruppo vitest indipendente.
+    expect(verdict?.testsVerdict).toBe('partial');
+    expect(verdict?.headline).not.toContain('I test sono passati');
+    expect(verdict?.headline).toContain('gruppo indipendente');
+  });
+
+  it('join rosso e run related non concluso: nessuna affermazione sui test', () => {
+    const verdict = classifyJobFailure([step(BACKGROUND_JOIN, 'failure')]);
     expect(verdict?.testsVerdict).toBe('unknown');
     expect(verdict?.headline).not.toContain('I test sono passati');
+  });
+
+  it('job NON rosso: uno step continue-on-error fallito non produce un ❌ su una run verde', () => {
+    // Sette step del job sono `continue-on-error: true`. Su `job.status`
+    // diverso da `failure` non c'è niente da spiegare: classificare per sola
+    // `conclusion` degli step scriverebbe un ❌ in cima a una run verde.
+    const steps = [step(TEST_STEP_NAME, 'success'), step('Run Claude review', 'failure')];
+    expect(classifyJobFailure(steps, { jobStatus: 'success' })).toBeNull();
+    expect(classifyJobFailure(steps, { jobStatus: 'cancelled' })).toBeNull();
+    // Job davvero rosso, o contesto assente (uso a mano su una run conclusa):
+    // si classifica.
+    expect(classifyJobFailure(steps, { jobStatus: 'failure' })?.category).toBe('review-run');
+    expect(classifyJobFailure(steps)?.category).toBe('review-run');
   });
 
   it('step rosso fuori dalle categorie note: lo nomina comunque', () => {
@@ -108,7 +135,21 @@ describe('classifyJobFailure — di che cosa è fatto il rosso', () => {
  * la prova dell'esito dei test. Questo blocco è la verifica che morde.
  */
 describe('i nomi di step classificati esistono davvero in tests.yml', () => {
-  const declaredStepNames = [...TESTS_YML.matchAll(/^ {6}- name: (.+)$/gm)].map((m) => m[1].trim());
+  // Slice del SOLO job `vitest`, non del file intero: oggi coincidono perché
+  // `tests.yml` ha un job solo, ma il giorno che ne compare un secondo
+  // l'asserzione «lo step del summary è ULTIMO» inizierebbe a parlare in
+  // silenzio dell'ultimo step di un altro job.
+  const jobStart = TESTS_YML.indexOf('\n  vitest:\n');
+  const after = TESTS_YML.slice(jobStart + 1);
+  const nextJob = after.slice(1).search(/^ {2}[A-Za-z0-9_-]+:$/m);
+  const JOB_BODY = nextJob === -1 ? after : after.slice(0, nextJob + 1);
+  const declaredStepNames = [...JOB_BODY.matchAll(/^ {6}- name: (.+)$/gm)].map((m) => m[1].trim());
+
+  it('lo slice isola davvero il job `vitest` e ne trova gli step', () => {
+    expect(jobStart).toBeGreaterThan(-1);
+    expect(JOB_BODY).toContain('name: vitest (unit + integration)');
+    expect(declaredStepNames.length).toBeGreaterThan(30);
+  });
 
   it('ogni nome della tabella è uno step del workflow', () => {
     const known = new Set(declaredStepNames);
@@ -131,6 +172,10 @@ describe('i nomi di step classificati esistono davvero in tests.yml', () => {
     expect(block).toMatch(/if:\s*\$\{\{\s*always\(\)\s*\}\}/);
     expect(block).toMatch(/continue-on-error:\s*true/);
     expect(block).toContain('node scripts/ci/explain-job-verdict.mjs');
+    // Senza `JOB_STATUS` lo script classificherebbe per sola `conclusion`
+    // degli step e scriverebbe un ❌ su una run verde in cui a fallire è stato
+    // solo uno dei sette step `continue-on-error`.
+    expect(block).toMatch(/JOB_STATUS:\s*\$\{\{\s*job\.status\s*\}\}/);
   });
 
   it('il workflow ha il permesso di sola lettura che la jobs API richiede', () => {

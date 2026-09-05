@@ -67,15 +67,24 @@ function currentJobSteps() {
 }
 
 function main() {
-  const verdict = classifyJobFailure(currentJobSteps());
-  const md = formatJobFailureSummary(verdict, VITEST_CHECK_NAME);
+  // `job.status` del job in corso, passato dal workflow. Sette step di questo
+  // job sono `continue-on-error: true`: il loro rosso non tinge il job, e
+  // scrivere un ❌ in cima alla pagina di una run verde sarebbe la stessa
+  // bugia che questo step esiste per chiudere. Su una run cancellata non c'è
+  // niente da spiegare e nemmeno un verde da dichiarare: si tace.
+  const jobStatus = process.env.JOB_STATUS || '';
+  if (jobStatus && jobStatus !== 'failure' && jobStatus !== 'success') {
+    console.log(`JOB_VERDICT category=none job_status=${jobStatus} (nessun summary)`);
+    return;
+  }
+  const verdict = classifyJobFailure(currentJobSteps(), { jobStatus });
   console.log(
     verdict
       ? `JOB_VERDICT category=${verdict.category} tests=${verdict.testsVerdict} failed_steps=${JSON.stringify(verdict.failedSteps)}`
-      : 'JOB_VERDICT category=none tests=green',
+      : `JOB_VERDICT category=none job_status=${jobStatus || 'n/d'}`,
   );
   const summary = process.env.GITHUB_STEP_SUMMARY;
-  if (summary) fs.appendFileSync(summary, `${md}\n`);
+  if (summary) fs.appendFileSync(summary, `${formatJobFailureSummary(verdict, VITEST_CHECK_NAME)}\n`);
 }
 
 try {
