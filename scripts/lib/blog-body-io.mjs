@@ -177,3 +177,49 @@ export function changedArticleIdsWorktree() {
   }
   return articleIdsFromPaths(out);
 }
+
+/**
+ * Sottoinsieme di `changedArticleIdsWorktree()`: gli articoli **nuovi** in
+ * questo sync, cioe' i soli file di body ancora untracked.
+ *
+ * ── Perche' serve distinguerli (issue #5661, riapertura del 2026-09-05) ─────
+ *
+ * `changedArticleIdsWorktree()` unisce di proposito modificati e nuovi, ed e'
+ * l'insieme giusto per DIRE cosa e' successo in un sync. Non e' l'insieme
+ * giusto per decidere che una condizione si e' RIPRESENTATA: un articolo
+ * vecchio riscritto per un motivo qualunque — un fix mirato, un backfill, un
+ * riformat — rientra nel diff e diventa indistinguibile da uno appena ammesso.
+ *
+ * Misurato sul caso che ha riaperto #5661 trentaquattro minuti dopo la
+ * chiusura: l'unico articolo segnalato,
+ * `vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere`, era stato
+ * generato il 2026-08-11T08:43:30Z — venticinque giorni prima della guardia di
+ * ammissione (corpus #951, 2026-09-05T21:29:43Z) — ed era entrato nel diff
+ * solo perche' la PR corpus #915 gli aveva corretto un errore geografico alle
+ * 17:41Z dello stesso giorno. Nessuno dei due rilievi era nuovo, e nessuna
+ * guardia di ammissione puo' riguardare un testo scritto prima che esistesse.
+ *
+ * Uno stock storico non e' una ricorrenza: e' un residuo noto e dichiarato.
+ * Confonderli rende la issue immortale, perche' basta toccare uno qualunque
+ * dei ~2.400 articoli con rilievi preesistenti per farla riaprire — e ogni
+ * riapertura consuma un tentativo del ciclo, per sempre.
+ *
+ * `'unavailable'` (mai un insieme vuoto) quando git non risponde: un chiamante
+ * che non riesce a distinguere flusso e stock deve poter scegliere di NON
+ * filtrare, invece di smettere silenziosamente di segnalare — che e'
+ * esattamente la forma di no-op silenzioso che questi script esistono per
+ * evitare.
+ *
+ * @returns {Set<string>|'unavailable'}
+ */
+export function newArticleIdsWorktree() {
+  try {
+    return articleIdsFromPaths(
+      execFileSync('git', ['ls-files', '--others', '--exclude-standard'], GIT_OPTS),
+    );
+  } catch {
+    console.error('⚠️  git ls-files sul working tree non riuscito.');
+    console.error('   Flusso e stock NON distinguibili — nessun filtro applicato.');
+    return 'unavailable';
+  }
+}
