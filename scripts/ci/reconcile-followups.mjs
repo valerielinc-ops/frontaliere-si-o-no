@@ -43,7 +43,11 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { detectAlreadyResolved } from './followup-resolution-match.mjs';
+import {
+  detectAlreadyResolved,
+  hasFalsifiableAcceptance,
+  splitFollowupItems,
+} from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
@@ -108,6 +112,42 @@ export function isStrongAutoCloseEvidence(matchedTokens) {
   if (uniq.length >= 2) return true;
   if (uniq.length === 1) return punctCount(uniq[0]) >= 2;
   return false;
+}
+
+/**
+ * Il veto dell'aggregata, per CONTENUTO invece che per titolo.
+ *
+ * Prima bastava «il titolo dice K≥2 item» per non chiudere mai. Il motivo
+ * dichiarato era corretto — «a prose-only sub-item contributes no gating
+ * token, so "all tokens present" can't prove every item is done» — ma la
+ * conseguenza era che l'aggregata non si chiudeva MAI, perché nessuno arriva a
+ * chiuderla a mano. Misurato il 2026-09-05: il detector marcava
+ * `maybe-resolved` su 21 issue e ne chiudeva 2; le altre 19 erano aggregate.
+ *
+ * La riclassificazione NON abbassa la barra di chiusura, la sposta su ciò che
+ * era davvero un item: un rischio in prosa senza condizione di accettazione
+ * falsificabile non era un item valido, quindi non fa da gate. Gli item validi
+ * che restano devono essere TUTTI token-confermati, uno per uno — bar più alta
+ * del vecchio controllo issue-wide, che leggeva i token di tutto il corpo
+ * insieme.
+ *
+ * Il guardrail contro l'incidente #5849 (aggregata chiusa con due item ancora
+ * deferiti) è il ramo `no-valid-item`: se dopo la riclassificazione NON resta
+ * nessun item valido, non si chiude. Chiudere lì sarebbe chiudere su evidenza
+ * assente, che è esattamente il caso vietato. Misurate 5 issue su 17 in questo
+ * ramo.
+ *
+ * @returns {{blocks: boolean, reason: string|null}}
+ */
+export function aggregateCloseGate(body, io) {
+  const items = splitFollowupItems(body);
+  // Corpo senza struttura a item: non abbiamo riclassificato nulla, quindi
+  // resta il veto storico. Mai interpretare «non so leggerlo» come «vuoto».
+  if (!items.length) return { blocks: true, reason: 'aggregate-unparsed' };
+  const valid = items.filter(hasFalsifiableAcceptance);
+  if (!valid.length) return { blocks: true, reason: 'no-valid-item' };
+  const allConfirmed = valid.every((s) => detectAlreadyResolved(s, io).resolved);
+  return allConfirmed ? { blocks: false, reason: null } : { blocks: true, reason: 'valid-item-unconfirmed' };
 }
 
 /**
@@ -217,7 +257,10 @@ function main() {
     const labelNames = (iss.labels || []).map((l) => l.name);
     const hasMaybeResolved = labelNames.includes(LABEL);
     const blocked = labelNames.some((n) => KEEP_OPEN_LABELS.has(n));
-    const isAggregate = isAggregateTitle(iss.title);
+    const aggGate = isAggregateTitle(iss.title)
+      ? aggregateCloseGate(iss.body || '', diskIo)
+      : { blocks: false, reason: null };
+    const isAggregate = aggGate.blocks;
     const hasPriorFlag = alreadyCommented(iss.number);
     const strongEvidence = isStrongAutoCloseEvidence(evidence.map((e) => e.tok));
     const action = decideReconcileAction({
@@ -228,7 +271,7 @@ function main() {
       closed.push({ number: iss.number, title: iss.title, evidence });
     } else if (action === 'flag') {
       const reason = blocked ? 'keep-open'
-        : isAggregate ? 'aggregate'
+        : isAggregate ? aggGate.reason
         : NO_AUTOCLOSE ? 'no-autoclose'
         : !strongEvidence ? 'weak-evidence'
         : 'first-seen';
@@ -240,8 +283,12 @@ function main() {
 
   // Tier 1 — flag (grace window): comment + maybe-resolved label.
   for (const f of flagged) {
-    const note = f.reason === 'aggregate'
-      ? '\n\n⚠️ Multi-item: l\'auto-close non scatta (un sub-item prose-only potrebbe non essere coperto) — **chiusura umana**.'
+    const note = f.reason === 'no-valid-item'
+      ? '\n\n⚠️ Nessun item con condizione di accettazione falsificabile: l\'auto-close **non** scatta (chiuderla qui sarebbe chiudere su evidenza assente) — **chiusura umana**.'
+      : f.reason === 'valid-item-unconfirmed'
+      ? '\n\n⚠️ Restano item validi non ancora token-confermati: l\'auto-close non scatta finché ognuno non è confermato — **chiusura umana**.'
+      : f.reason === 'aggregate-unparsed'
+      ? '\n\n⚠️ Multi-item non riclassificabile (corpo senza struttura a item): l\'auto-close non scatta — **chiusura umana**.'
       : f.reason === 'keep-open'
       ? '\n\n📌 Label keep-open/strategica: resta aperta per revisione umana, niente auto-close.'
       : f.reason === 'weak-evidence'
