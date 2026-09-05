@@ -199,7 +199,19 @@ runs:
           uzrc=0
           unzip -q -o "$WORK/pages.zip" -d "$OUTDIR" 2> "$WORK/unzip.err" || uzrc=$?
           rm -f "$WORK/pages.zip"
-          if [ "$uzrc" -ne 0 ]; then
+          # #7503: unzip reserves exit 1 for NON-fatal warnings — the archive
+          # WAS extracted, it just had something to say about it (extra bytes
+          # before the central directory, an odd attribute). Real failures are
+          # >= 2 (2 generic, 3 severe, 4-9 memory/IO, 11 nothing matched).
+          # Treating 1 as "not readable" discarded a VALID >1 GB artifact and
+          # audited an older deploy instead — the exact silent-wrong-answer
+          # class the download branch above is deliberately fatal about. The
+          # `artifact.tar` check below stays the contract, so a warning that
+          # HAD cost us the file still fails loudly here.
+          if [ "$uzrc" -eq 1 ]; then
+            echo "::warning::github-pages zip of artifact $ARTIFACT_ID (run $cand, $created) extracted with unzip warnings (exit 1) — proceeding; the artifact.tar check below is the contract"
+            sed 's/^/      /' "$WORK/unzip.err" || true
+          elif [ "$uzrc" -ge 2 ]; then
             echo "  run $cand ($created): github-pages zip of artifact $ARTIFACT_ID is not readable (unzip exit $uzrc) — trying older"
             sed 's/^/      /' "$WORK/unzip.err" || true
             # A half-extracted tree would be mistaken for the next candidate's.
