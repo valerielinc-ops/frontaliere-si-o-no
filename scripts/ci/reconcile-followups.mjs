@@ -115,22 +115,6 @@ export function isStrongAutoCloseEvidence(matchedTokens) {
 }
 
 /**
- * Pure tier decision. Returns 'close' | 'flag' | 'none'.
- *   - not resolved                                          → 'none'  (leave alone)
- *   - human objection (we flagged before, label since gone) → 'none'  (respect, don't re-flag)
- *   - eligible + strong + flagged-before + still labelled   → 'close' (second confirmation)
- *   - resolved but not close-eligible, already flagged      → 'none'  (held, no dup comment)
- *   - resolved but not close-eligible, first seen           → 'flag'  (grace / explain)
- *
- * Close-eligible = single-item, unblocked, auto-close on, AND strong evidence. `hasPriorFlag`
- * = THIS bot already left its advisory comment on a prior run; auto-close requires BOTH that
- * prior flag AND the `maybe-resolved` label still present (two confirmations across time +
- * an un-rescinded grace window). Removing the label after a flag = human objection → quiet.
- * @param {{resolved:boolean, hasMaybeResolved:boolean, hasPriorFlag:boolean,
- *          isAggregate:boolean, blocked:boolean, noAutoclose?:boolean, strongEvidence?:boolean}} s
- * @returns {'close'|'flag'|'none'}
- */
-/**
  * Il veto dell'aggregata, per CONTENUTO invece che per titolo.
  *
  * Prima bastava «il titolo dice K≥2 item» per non chiudere mai. Il motivo
@@ -166,6 +150,22 @@ export function aggregateCloseGate(body, io) {
   return allConfirmed ? { blocks: false, reason: null } : { blocks: true, reason: 'valid-item-unconfirmed' };
 }
 
+/**
+ * Pure tier decision. Returns 'close' | 'flag' | 'none'.
+ *   - not resolved                                          → 'none'  (leave alone)
+ *   - human objection (we flagged before, label since gone) → 'none'  (respect, don't re-flag)
+ *   - eligible + strong + flagged-before + still labelled   → 'close' (second confirmation)
+ *   - resolved but not close-eligible, already flagged      → 'none'  (held, no dup comment)
+ *   - resolved but not close-eligible, first seen           → 'flag'  (grace / explain)
+ *
+ * Close-eligible = single-item, unblocked, auto-close on, AND strong evidence. `hasPriorFlag`
+ * = THIS bot already left its advisory comment on a prior run; auto-close requires BOTH that
+ * prior flag AND the `maybe-resolved` label still present (two confirmations across time +
+ * an un-rescinded grace window). Removing the label after a flag = human objection → quiet.
+ * @param {{resolved:boolean, hasMaybeResolved:boolean, hasPriorFlag:boolean,
+ *          isAggregate:boolean, blocked:boolean, noAutoclose?:boolean, strongEvidence?:boolean}} s
+ * @returns {'close'|'flag'|'none'}
+ */
 export function decideReconcileAction({ resolved, hasMaybeResolved, hasPriorFlag, isAggregate, blocked, noAutoclose, strongEvidence }) {
   if (!resolved) return 'none';
   if (hasPriorFlag && !hasMaybeResolved) return 'none'; // label rescinded after our flag = objection
@@ -271,7 +271,7 @@ function main() {
       closed.push({ number: iss.number, title: iss.title, evidence });
     } else if (action === 'flag') {
       const reason = blocked ? 'keep-open'
-        : isAggregate ? (aggGate.reason || 'aggregate')
+        : isAggregate ? aggGate.reason
         : NO_AUTOCLOSE ? 'no-autoclose'
         : !strongEvidence ? 'weak-evidence'
         : 'first-seen';
@@ -287,7 +287,7 @@ function main() {
       ? '\n\n⚠️ Nessun item con condizione di accettazione falsificabile: l\'auto-close **non** scatta (chiuderla qui sarebbe chiudere su evidenza assente) — **chiusura umana**.'
       : f.reason === 'valid-item-unconfirmed'
       ? '\n\n⚠️ Restano item validi non ancora token-confermati: l\'auto-close non scatta finché ognuno non è confermato — **chiusura umana**.'
-      : f.reason === 'aggregate' || f.reason === 'aggregate-unparsed'
+      : f.reason === 'aggregate-unparsed'
       ? '\n\n⚠️ Multi-item non riclassificabile (corpo senza struttura a item): l\'auto-close non scatta — **chiusura umana**.'
       : f.reason === 'keep-open'
       ? '\n\n📌 Label keep-open/strategica: resta aperta per revisione umana, niente auto-close.'
