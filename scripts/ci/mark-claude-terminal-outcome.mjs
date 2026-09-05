@@ -124,6 +124,51 @@ export function recoverableBranchWork(issue) {
   return Number.isFinite(aheadBy) && aheadBy > 0 ? { branch, aheadBy } : null;
 }
 
+// --- Consegna avvenuta nonostante il cap dei turni --------------------------
+// `error_max_turns` è il subtype della CLI, non l'esito del lavoro: la morte al
+// cap arriva spessissimo DOPO `gh pr create`, perché la coda del flusso (gate
+// sibling, riscrittura del body, watch della PR) è proprio dove i turni si
+// esauriscono. Misurato sul sito il 2026-09-05, finestra 5 giorni: 124 issue
+// distinte con marker `max-turns`, di cui **74 avevano una PR da
+// `fix/issue-<N>` e tutte e 74 erano già MERGED**; 10 di quelle risultano
+// comunque parcheggiate `needs-human`/`agent:decompose`.
+//
+// Il danno non è il marker sbagliato in sé, è dove finisce: `max-turns` sta in
+// `PREPASS_VERDICT_BEATS_FAMILY` di `followup-drainer.mjs`, quindi al primo
+// tentativo manda la issue in `fu-parked` + `needs-human` (stato assorbente) o
+// nella coda di decomposizione — su una issue il cui fix è già in `main`.
+//
+// Il predicato è quello che lo step «Classify outcome» di `issue-fix.yml` usa
+// già per decidere il colore del job («colore = work-done, non CLI exit»); qui
+// arriva prima, così il verdetto letto dal drainer dice la stessa cosa del
+// verdetto letto dall'umano che guarda il run.
+
+/**
+ * Numero della PR consegnata per la issue (`fix/issue-<N>`, stato OPEN o
+ * MERGED), o null. Impura (gh) e FAIL-SAFE: qualunque errore → null, cioè il
+ * comportamento di prima (marker `max-turns`).
+ * @param {string|number} issue
+ */
+export function deliveredPrNumber(issue) {
+  const raw = gh(['pr', 'list', '--head', `fix/issue-${issue}`, '--state', 'all', ...repoArgs,
+    '--json', 'number,state',
+    '--jq', '[.[] | select(.state=="OPEN" or .state=="MERGED")] | .[0].number // empty']).trim();
+  const n = Number(raw);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+/**
+ * Corpo del marker da postare quando la CLI è morta al cap DOPO aver
+ * consegnato. Puro → testabile.
+ * @param {number} prNumber
+ */
+export function formatDeliveredDespiteMaxTurnsComment(prNumber) {
+  return '<!-- FIX_OUTCOME: pr-created -->\n' +
+    `_La CLI è uscita \`error_max_turns\`, ma la PR #${prNumber} per questa issue esiste (open/merged): il lavoro è stato consegnato._\n` +
+    '_Il verdetto segue il lavoro, non l\'exit della CLI — stessa regola dello step «Classify outcome» di `issue-fix.yml`. ' +
+    'Senza questa riga il drainer leggerebbe `max-turns` e parcheggerebbe in `needs-human` una issue già risolta._';
+}
+
 function main() {
   if (!ISSUE) {
     console.log('ISSUE non impostata → niente telemetria da postare.');
@@ -140,6 +185,14 @@ function main() {
 
   // --- max-turns (precedenza, vedi docstring) --------------------------------
   if (subtype === 'error_max_turns') {
+    const deliveredPr = deliveredPrNumber(ISSUE);
+    if (deliveredPr) {
+      console.log(`Terminal outcome: error_max_turns MA la PR #${deliveredPr} esiste (open/merged) → marker \`pr-created\`, non \`max-turns\`.`);
+      if (DRY_RUN) return;
+      gh(['issue', 'comment', ISSUE, ...repoArgs, '--body',
+        formatDeliveredDespiteMaxTurnsComment(deliveredPr)]);
+      return;
+    }
     console.log('Terminal outcome: error_max_turns → marker granulare `max-turns`.');
     const work = recoverableBranchWork(ISSUE);
     if (work) console.log(`Lavoro recuperabile: ${work.branch} è ${work.aheadBy} commit avanti a main (PR mai aperta).`);

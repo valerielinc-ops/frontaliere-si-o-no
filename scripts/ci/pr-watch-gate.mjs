@@ -80,6 +80,34 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
 const GH_TIMEOUT_MS = 12_000;
 
+/**
+ * Il gate vale per una SESSIONE (interattiva o cloud), non per un run di
+ * GitHub Actions. Dentro `issue-fix.yml` l'agent ha un budget di turni finito
+ * (`--max-turns` 55/70) e la PR che ha appena aperto diventa terminale solo
+ * dopo ~22 min di `tests` + `pr-review-loop` + `auto-merge-on-lgtm`: bloccare
+ * lo Stop qui non fa tornare nessuno a leggere un 🔴, spende i turni residui a
+ * pollare una PR che è già seguita da tre workflow (`pr-review-loop`,
+ * `pr-redflag-fixer`, `pr-autorebase`) e fa morire il run `error_max_turns`.
+ *
+ * Misurato il 2026-09-05 su 26 run `issue-fix` del sito: Stop hook feedback in
+ * 21 run su 26, 34% dei tool call DOPO il primo `gh pr create` (di cui 9% puro
+ * polling PR/CI), 15 run su 29 morte al valore ESATTO del cap dei turni. Il
+ * controllo naturale è il corpus, che non ha `.claude/settings.json` e quindi
+ * nessuno di questi hook: stesso fixer, stesso modello, cap più BASSI (45/60
+ * contro 55/70), e sta al 6% di call dopo la PR con 0 blocchi — quota
+ * `max-turns` 14% contro il 46% del sito. Lo stacco sul sito è del 2026-08-24,
+ * il giorno in cui questo gate è entrato (#6340).
+ *
+ * Non è un rilassamento della regola di AGENTS.md («Attesa PR = watch ATTIVO
+ * nel turno»): quella regola parla di una sessione che può tornare a leggere
+ * la review. Un run CI non torna — finisce.
+ *
+ * @param {NodeJS.ProcessEnv} env
+ */
+export function enforcesInThisEnvironment(env = process.env) {
+  return env.GITHUB_ACTIONS !== 'true';
+}
+
 // Deve stare sotto il timeout dell'hook Stop in settings.json (930s) con
 // margine per i controlli `gh` che seguono (auth-status + checkOne per
 // entry). 900s scelto sui tempi reali misurati (vedi commento sopra): sotto
@@ -180,6 +208,11 @@ function readSessionId() {
 }
 
 function main() {
+  if (!enforcesInThisEnvironment()) {
+    // Silenzioso: gira su OGNI Stop di ogni run Claude in CI, e un log per
+    // turno non aggiunge niente a chi legge quei log.
+    return;
+  }
   let allEntries;
   try {
     allEntries = readEntries(REPO_ROOT);
