@@ -145,8 +145,34 @@ export function citedTokens(body) {
 export const ACCEPTANCE_CONDITION = Object.freeze({
   id: 'cited-code-token',
   describe: 'almeno un token-codice distintivo citato in `Suggested action`',
-  /** @param {string} itemText @returns {boolean} */
-  holds: (itemText) => citedTokens(itemText).length > 0,
+  /**
+   * La regione `Suggested action` va richiesta ESPLICITAMENTE, non dedotta dai
+   * token: `suggestedActionText()` ricade sull'INTERO testo quando non trova la
+   * regione, e quel fallback qui sarebbe una trappola che apre esattamente il
+   * buco che questo modulo esiste per chiudere.
+   *
+   * Su un corpo intero il fallback non scattava quasi mai — basta un item ben
+   * formato perché la regione esista. Applicato PER-ITEM scatta su ogni item
+   * che non riporta la riga `- Suggested action:` del template, e gli item li
+   * scrive un LLM, non un emettitore deterministico. Per quell'item i token
+   * verrebbero raccolti da `- Original text: > …`, cioè dallo **status quo che
+   * la issue vuole cambiato**: `detectAlreadyResolved()` lo troverebbe verbatim
+   * nel file citato PROPRIO PERCHE' il lavoro non è fatto, e l'aggregata si
+   * auto-chiuderebbe su lavoro pendente. Il ramo `no-valid-item` non la copre:
+   * quell'item risulterebbe valido, non prosa.
+   *
+   * Un item senza `Suggested action` non è falsificabile per definizione — non
+   * prescrive nulla da verificare — quindi cade nel guardrail. Trovato dalla
+   * review su questa stessa PR, non da un incidente: il costo di sbagliarlo
+   * sarebbe stato una chiusura silenziosa di lavoro vero.
+   *
+   * @param {string} itemText @returns {boolean}
+   */
+  holds: (itemText) => {
+    const s = String(itemText || '');
+    if (!/suggested action/i.test(s)) return false;
+    return citedTokens(s).length > 0;
+  },
 });
 
 /** True se l'item porta una condizione di accettazione falsificabile. */

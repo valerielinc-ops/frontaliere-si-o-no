@@ -49,6 +49,30 @@ describe('la condizione di accettazione', () => {
     expect(hasFalsifiableAcceptance(withToken)).toBe(true);
   });
 
+  it('LA TRAPPOLA: un item senza `Suggested action` non è falsificabile, anche se cita codice', () => {
+    // `suggestedActionText()` ricade sull'INTERO testo quando non trova la
+    // regione. Per-item quel fallback raccoglierebbe i token da `Original
+    // text`, cioè dallo status quo che la issue vuole CAMBIATO — e
+    // `detectAlreadyResolved` li troverebbe nel file proprio perché il lavoro
+    // NON è fatto, auto-chiudendo un'aggregata ancora pendente.
+    const statusQuoOnly = `
+- Source: reviewer \`## Adversarial check\`
+- Original text: > il chiamante usa ancora \`legacyResolve()\` invece del nuovo path.
+`;
+    expect(hasFalsifiableAcceptance(statusQuoOnly)).toBe(false);
+  });
+
+  it('la trappola non si chiude scartando i token: è la REGIONE che deve esistere', () => {
+    // Stesso token, stessa forma — cambia solo che qui è PRESCRITTO invece che
+    // citato come status quo. Se il predicato guardasse solo i token, i due
+    // casi sarebbero indistinguibili.
+    const prescribed = `
+- Source: reviewer \`## Adversarial check\`
+- Suggested action: sostituire il chiamante con \`legacyResolve()\`.
+`;
+    expect(hasFalsifiableAcceptance(prescribed)).toBe(true);
+  });
+
   it('è lo STESSO oracolo che poi chiude l\'item', () => {
     // Se aprire e chiudere usassero oracoli diversi, un item potrebbe entrare
     // in coda e non esserne mai estraibile: è il difetto, non un dettaglio.
