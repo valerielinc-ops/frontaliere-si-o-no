@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import YAML from 'yaml';
 
 /**
  * Guards for the parallel SEO audit-gate block in
@@ -335,6 +336,97 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
         text,
         `${name}: a bare directory-existence-only accept branch survived post-tar-extract (regression of #2761 item 2)`,
       ).not.toMatch(/\|\| true\n\s*rm -rf "\$dl"\n\s*if \[ -d "dist\/\$(?:loc|sub)" \]; then\n\s*echo "rehydrated/);
+    }
+  });
+});
+
+describe('deploy.yml — wall-time delle fasi post-build nella storia committata (#7301)', () => {
+  // La storia in data/build-history/memory-peaks.jsonl portava un solo campo
+  // temporale, `wall_seconds`, alimentato dallo step `Build`: le fasi
+  // post-build del leg (push degli shard di sezione, pack tar) — 23 min + 5
+  // min dei 130 min totali del leg IT sul run 33833300860 — non lasciavano
+  // traccia, e l'unica fonte restava l'API Actions run-per-run, soggetta a
+  // retention e ai run cancellati.
+  //
+  // Questi test valgono sullo SCHEMA DELLO STEP, non sulle righe storiche: le
+  // 294 righe gia' committate non avranno mai le chiavi nuove.
+  const BUILD_LOCALE_STEPS: Array<Record<string, any>> =
+    (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].steps;
+  const stepById = (id: string) => {
+    const step = BUILD_LOCALE_STEPS.find((s) => s.id === id);
+    expect(step, `deploy.yml: nessuno step con id "${id}" nel job build-locale`).toBeDefined();
+    return step!;
+  };
+  // Tutte le fasi post-build del job, non solo le due nominate dalla issue:
+  // e' la stessa classe di buco (fase lunga, nessun wall-time committato) e
+  // lasciarne meta' strumentata la riapre al primo che tocca lo step gemello.
+  const PHASE_STEP_IDS = [
+    'push-section-shards-it',
+    'push-section-shards-nonit',
+    'pack-section-shards-it',
+    'pack-section-shards-nonit',
+    'push-shard',
+    'pack-locale-shard',
+  ];
+
+  it.each(PHASE_STEP_IDS)('lo step "%s" emette wall_seconds su ogni uscita', (id) => {
+    const run: string = stepById(id).run;
+    // Trap EXIT, non un echo prima dell'`exit` finale: gli step di push hanno
+    // anche un'uscita fatale sull'ordering, e la fase serve misurata proprio
+    // quando e' andata storta.
+    expect(run, `step "${id}": la fase non emette il proprio wall-time`).toMatch(
+      /trap 'echo "wall_seconds=\$SECONDS" >> "\$GITHUB_OUTPUT"' EXIT/,
+    );
+  });
+
+  it('lo step di append delle fasi propaga gli output di TUTTI e quattro gli step di fase', () => {
+    const step = BUILD_LOCALE_STEPS.find((s) => s.name === 'Append post-build phase timings row');
+    expect(step, 'deploy.yml: manca lo step "Append post-build phase timings row"').toBeDefined();
+    const env: Record<string, string> = step!.env ?? {};
+    // Ogni step di fase dev'essere cablato: senza, la sua colonna resta a null
+    // per sempre e il buco e' invisibile (lo step ha continue-on-error).
+    for (const id of PHASE_STEP_IDS) {
+      expect(
+        Object.values(env),
+        `"Append post-build phase timings row": nessuna env legge steps.${id}.outputs.wall_seconds`,
+      ).toContainEqual(expect.stringContaining(`steps.${id}.outputs.wall_seconds`));
+    }
+    // if: always() — una fase lenta e' spesso quella di un leg finito rosso.
+    expect(step!.if, 'lo step di append deve girare anche sui leg falliti').toBe('always()');
+    // Le chiavi che la riga deve portare: sono LORO il contratto verso chi
+    // interroga la storia (`jq 'has("push_shards_seconds")'`).
+    for (const key of [
+      'push_shards_seconds',
+      'pack_tar_seconds',
+      'push_locale_shard_seconds',
+      'pack_locale_tar_seconds',
+    ]) {
+      expect(step!.run, `la riga appesa non porta la chiave "${key}"`).toContain(key);
+    }
+  });
+
+  it('entrambi i produttori di righe passano dallo stesso script di append+push', () => {
+    // Il retry-con-rebase (5 tentativi, backoff 5/10/15/25/40s) ha un solo
+    // posto in cui cambiare: 4 leg concorrenti + gli altri produttori su main
+    // out-race regolarmente una finestra piu' corta, e due copie divergenti
+    // sarebbero una di quelle finestre corte in attesa di succedere.
+    const producers = BUILD_LOCALE_STEPS.filter((s) =>
+      typeof s.run === 'string' && s.run.includes('scripts/lib/append-build-history-row.sh'),
+    );
+    expect(
+      producers.map((s) => s.name),
+      'attesi due produttori di righe di build-history (memoria + fasi post-build)',
+    ).toEqual(['Append build memory history row', 'Append post-build phase timings row']);
+    for (const s of producers) {
+      expect(s.run, `"${s.name}": commit message non passato allo script condiviso`).toContain(
+        'HISTORY_COMMIT_MSG=',
+      );
+    }
+    // Nessuno dei due deve essersi riportato in casa il loop di retry.
+    for (const s of producers) {
+      expect(s.run, `"${s.name}": loop di retry duplicato invece di delegato`).not.toContain(
+        'git push origin HEAD:main',
+      );
     }
   });
 });
