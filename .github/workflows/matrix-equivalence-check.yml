@@ -41,6 +41,17 @@ jobs:
       SEQUENTIAL_PROFILE: '1'
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
     steps:
+      # I due checkout sotto vanno in sottocartella (`tooling`, `build`), quindi
+      # la radice del workspace resterebbe vuota e `uses: ./.github/actions/...`
+      # morirebbe con "Can't find action.yml". Questo terzo checkout esiste solo
+      # per materializzare l'action composita: sparse su quella singola
+      # directory, e PRIMO di tutti perché `actions/checkout` fa `git clean` sul
+      # proprio path — alla radice, dopo, cancellerebbe `tooling/` e `build/`.
+      - name: Checkout the composite action only (workspace root)
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: .github/actions/fetch-pages-artifact
+          sparse-checkout-cone-mode: false
       - name: Checkout the equivalence tooling (this branch)
         uses: actions/checkout@v5
         with:
@@ -101,26 +112,32 @@ jobs:
       # breakdown of run 27749079114.
       - name: Manifest the matrix it-shard
         run: node tooling/scripts/ci/dist-hash-manifest.mjs build/dist /tmp/matrix-it.txt --deploy-artifact-perimeter
+      # Scaricare l'artifact `github-pages` a mano non produce in modo
+      # affidabile artifact.tar sopra 1 GB (docstring dell'action, PR #3101 /
+      # issue #3104 item 2). L'action composita è l'UNICA implementazione del
+      # resolve+download (e del walk-back, #7392-#7397): questo era l'ultimo
+      # consumatore di `github-pages` fuori da essa.
       - name: Download the live github-pages artifact (monolith it + shared)
+        id: pages
+        uses: ./.github/actions/fetch-pages-artifact
+        with:
+          # La run del deploy è un input obbligatorio del dispatch e deve
+          # combaciare col commit di `sha`: l'action la PINNA e non cammina
+          # all'indietro, perché un artifact di un altro commit renderebbe il
+          # confronto byte-for-byte una domanda diversa.
+          run-id: ${{ github.event.inputs.deploy_run_id }}
+          output-dir: /tmp/live
+          github-token: ${{ github.token }}
+      - name: Extract the live artifact into the tooling checkout as ./dist
         env:
-          GH_TOKEN: ${{ github.token }}
-          # Dispatch inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ github.event.inputs.deploy_run_id }}
+          TAR_PATH: ${{ steps.pages.outputs.tar-path }}
         run: |
-          set -eo pipefail
-          mkdir -p /tmp/live
-          gh run download "$INPUT_DEPLOY_RUN_ID" \
-            -R "${{ github.repository }}" -n github-pages -D /tmp/live
-          # The github-pages artifact is a single artifact.tar inside. Extract it
-          # into the TOOLING checkout as ./dist: rehydrate-section-shards.sh reads
-          # scripts/lib/section-shard-*.json by relative path and writes into
-          # ./dist, so it must run with the repo root as cwd.
+          set -euo pipefail
+          # rehydrate-section-shards.sh legge scripts/lib/section-shard-*.json
+          # per path relativo e scrive in ./dist, quindi gira con la radice del
+          # checkout `tooling` come cwd: l'artifact va estratto lì.
           mkdir -p tooling/dist
-          if [ -f /tmp/live/artifact.tar ]; then
-            tar -xf /tmp/live/artifact.tar -C tooling/dist
-          else
-            cp -a /tmp/live/. tooling/dist/
-          fi
+          tar -xf "$TAR_PATH" -C tooling/dist
           find tooling/dist -maxdepth 1 -type d 2>/dev/null | head -20 || true
       # With <SECTION>_SHARD_LIVE=true the deploy STRIPS that section's subtree
       # from the artifact before upload (deploy.yml → strip-section-subtree.sh),
