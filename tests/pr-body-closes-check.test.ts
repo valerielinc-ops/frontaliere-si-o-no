@@ -105,6 +105,10 @@ describe('checkClosesLines — ineffective closing keyword', () => {
       // a real intent in a later clause is still caught: without this case the
       // guard could be widened until any `non` on the line silenced the check.
       { body: 'Questo non è un problema, chiude #12', ref: '#12' },
+      // "non solo" CONCEDES the closure instead of denying it, so the negation
+      // guard must not swallow it — otherwise widening the guard would turn a
+      // false positive into a missed closure, the worse direction.
+      { body: 'Non solo chiude #12, ma anche altro', ref: '#12' },
     ];
     for (const c of bad) {
       it(JSON.stringify(c.body.slice(0, 40)), () => {
@@ -138,6 +142,11 @@ describe('checkClosesLines — ineffective closing keyword', () => {
       'Sono difetti reali, non coperti qui e non chiusi: #849 resta aperta.',
       '#849 non è ancora chiusa da questa PR.',
       'Landed without resolving #77 — the cap stays.',
+      // Accented forms: `\w` is ASCII, so the first round of this guard broke
+      // the chain at the `è` and left the commonest Italian negation reported.
+      'Non è chiusa #849.',
+      'Il bug non è chiuso: #849 resta aperta.',
+      'Non più risolto da #12 dopo il revert.',
       // Connective verbs that deliberately do NOT close.
       'Addresses #12',
       'See #42 and #43 for background',

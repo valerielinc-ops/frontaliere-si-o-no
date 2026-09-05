@@ -510,7 +510,10 @@ jobs:
             // A NEGATED report ("non chiusi: #849 resta aperta") states the ref
             // stays OPEN — the opposite of an intent. Without it this check tells
             // the author to close an issue the same sentence declares open.
-            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?:\s+\w+){0,2}\s*$/i;
+            // `\p{L}` with `u`, not `\w`: `\w` is ASCII and `non è chiusa #849`
+            // broke the chain at the accent. The lookahead keeps `Non solo
+            // chiude #12` reportable — that phrasing concedes the closure.
+            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
             const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
             const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
 

@@ -112,7 +112,12 @@ const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\
 // check exists to prevent, inverted. Bounded to two intervening words and
 // stopped by any punctuation (`\w` never matches a comma), so a real intent a
 // clause later — "questo non è un problema, chiude #12" — is still reported.
-const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?:\s+\w+){0,2}\s*$/i;
+// `\p{L}` with the `u` flag, NOT `\w`: `\w` is ASCII, so `non è chiusa #849` —
+// the commonest negated form in Italian — broke the chain at the accent and the
+// guard never reached `\s*$`. The lookahead keeps `Non solo chiude #12`
+// reportable: "non solo" concedes the closure, it does not deny it.
+const NEG_REPORT_RE =
+  /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
 // Filler tolerated between the verb and the ref: `Chiusa da #12`, `Risolve
 // definitivamente #12`, `Closing the #12`. Bounded to a known word list so a
 // sentence boundary or real prose can never bridge verb and ref.
