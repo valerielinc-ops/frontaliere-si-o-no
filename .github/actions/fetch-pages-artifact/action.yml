@@ -1,16 +1,29 @@
 name: "Fetch GitHub Pages artifact"
 description: >-
-  Resolves the `github-pages` artifact for a workflow run and downloads it
-  via the REST API (zip), producing `<output-dir>/artifact.tar`.
+  Resolves a deploy.yml run that still HAS a downloadable, non-expired
+  `github-pages` artifact and downloads it via the REST API (zip), producing
+  `<output-dir>/artifact.tar`.
   `gh run download --name github-pages` does not reliably yield artifact.tar
   for the large (>1 GB) GitHub Pages artifact — this is the proven gh-api-zip
   download path fixed in PR #3101 (issue #3104 item 2), extracted here so the
-  seed/audit/measure workflows that all need the same deployed dist/ don't
+  seed/audit/measure/gate workflows that all need the same deployed dist/ don't
   each carry their own copy (drift risk — see AGENTS.md sibling-pattern rule).
+  Since issues #7392-#7397 this action also owns the WALK-BACK: client-side
+  `created_at` ordering, the `.expired==false` filter, capped pagination, the
+  410-between-resolve-and-download retry and the raw candidate log. Callers
+  must not reimplement any of it — see tests/pages-artifact-resolve.test.ts,
+  which fails when a second implementation appears.
 inputs:
   run-id:
-    description: "Workflow run id that produced the github-pages artifact."
-    required: true
+    description: >-
+      Pin a specific workflow run whose github-pages artifact to download.
+      Leave EMPTY (the normal case) to walk back over the most recent
+      successful deploy.yml runs on main until one still has a live artifact.
+      A pinned run is never walked back from: if its artifact is gone the
+      step fails, because silently auditing a different run than the operator
+      asked for is worse than failing.
+    required: false
+    default: ""
   output-dir:
     description: "Directory to unzip the artifact into (will contain artifact.tar)."
     required: true
@@ -21,6 +34,12 @@ outputs:
   tar-path:
     description: "Path to the downloaded artifact.tar inside output-dir."
     value: ${{ steps.fetch.outputs.tar-path }}
+  run-id:
+    description: "The deploy run the artifact was actually taken from."
+    value: ${{ steps.fetch.outputs.run-id }}
+  created-at:
+    description: "created_at of the run the artifact was taken from (ISO 8601)."
+    value: ${{ steps.fetch.outputs.created-at }}
 runs:
   using: "composite"
   steps:
@@ -29,24 +48,153 @@ runs:
       shell: bash
       env:
         GH_TOKEN: ${{ inputs.github-token }}
+        GH_REPO: ${{ github.repository }}
+        # Inputs reach the shell as DATA, never as script text.
+        INPUT_RUN_ID: ${{ inputs.run-id }}
+        INPUT_OUTPUT_DIR: ${{ inputs.output-dir }}
       run: |
-        set -e
-        RID="${{ inputs.run-id }}"
-        OUTDIR="${{ inputs.output-dir }}"
-        ARTIFACT_ID=$(gh api "repos/${{ github.repository }}/actions/runs/$RID/artifacts" \
-          --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
-        if [ -z "$ARTIFACT_ID" ]; then
-          echo "::error::No 'github-pages' artifact on run $RID."
-          exit 1
+        set -euo pipefail
+
+        OUTDIR="$INPUT_OUTPUT_DIR"
+        PINNED="${INPUT_RUN_ID:-}"
+        WORK="$(mktemp -d)"
+        CANDS="$WORK/candidates.tsv"
+
+        # Walk-back depth. `github-pages` carries retention-days: 8 —
+        # deliberately longer than the 1 day of every other artifact in
+        # deploy.yml — but deploy cadence is high, so a fixed 12-run window
+        # (the pre-#7395 constant) can cover well under those 8 days once
+        # `.expired==false` removes most of it. The cap below is explicit and
+        # named so "we ran out of window" is distinguishable in the log from
+        # "no deploy ever succeeded": 3 pages x 50 = 150 successful runs.
+        MAX_PAGES=3
+        PER_PAGE=50
+
+        if [ -n "$PINNED" ]; then
+          printf '%s\t%s\t%s\n' "$PINNED" "(pinned)" "(pinned)" > "$CANDS"
+          echo "Operator-pinned deploy run: $PINNED"
+        else
+          page=1
+          while [ "$page" -le "$MAX_PAGES" ]; do
+            if ! gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?branch=main&status=success&per_page=$PER_PAGE&page=$page" \
+                 > "$WORK/page-$page.json"; then
+              # #7393: the listing used to sit in a `gh api` command
+              # substitution consumed directly by a for-LIST, whose exit code
+              # `set -e` does NOT see there. An API/network error became an empty list,
+              # an empty loop, and the wrong diagnosis. It is materialised and
+              # checked here instead.
+              echo "::error::gh api failed while listing deploy.yml runs (page $page). This is an API/token failure, NOT 'no deploy has an artifact'."
+              exit 1
+            fi
+            got=$(jq '.workflow_runs | length' "$WORK/page-$page.json")
+            [ "$got" -lt "$PER_PAGE" ] && break
+            page=$((page + 1))
+          done
+
+          # #7394: the REST endpoint does not CONTRACT created_at desc — the
+          # old code relied on an empirical observation. Order client-side.
+          jq -rs '[.[].workflow_runs[]]
+                  | sort_by(.created_at) | reverse
+                  | .[] | [(.id|tostring), .created_at, (.head_sha[0:8])] | @tsv' \
+            "$WORK"/page-*.json > "$CANDS"
+
+          TOTAL=$(wc -l < "$CANDS" | tr -d ' ')
+          if [ "$TOTAL" -eq 0 ]; then
+            echo "::error::No successful deploy.yml run on main at all. Nothing to audit."
+            exit 1
+          fi
+          # #7397: the raw candidate list, WITH created_at, so a wrong pick is
+          # diagnosable after the fact instead of leaving only a bare run id.
+          echo "Candidates (id / created_at / head_sha), $TOTAL successful deploy.yml runs on main, client-sorted by created_at desc:"
+          sed 's/^/  /' "$CANDS"
         fi
+
         mkdir -p "$OUTDIR"
-        ZIPDIR=$(mktemp -d)
-        gh api -H "Accept: application/vnd.github+json" \
-          "repos/${{ github.repository }}/actions/artifacts/$ARTIFACT_ID/zip" \
-          > "$ZIPDIR/pages.zip"
-        unzip -q "$ZIPDIR/pages.zip" -d "$OUTDIR"
-        if [ ! -f "$OUTDIR/artifact.tar" ]; then
-          echo "::error::Expected $OUTDIR/artifact.tar — saw $(ls "$OUTDIR")"
+        FOUND=""
+        FOUND_AT=""
+        while IFS=$'\t' read -r cand created sha; do
+          [ -n "$cand" ] || continue
+          rc=0
+          gh api "repos/$GH_REPO/actions/runs/$cand/artifacts" \
+            --jq '.artifacts[] | select(.name=="github-pages" and .expired==false) | .id' \
+            > "$WORK/art.txt" || rc=$?
+          if [ "$rc" -ne 0 ]; then
+            echo "::error::gh api failed while listing artifacts of run $cand (exit $rc)."
+            exit 1
+          fi
+          ARTIFACT_ID=$(head -1 "$WORK/art.txt")
+          if [ -z "$ARTIFACT_ID" ]; then
+            # #7392: `.expired==false` above. An expired artifact stays LISTED
+            # by the REST API for a while; without the filter it gets picked,
+            # the walk-back stops, and the failure moves to the download as a
+            # 410 with the wrong diagnosis ("no artifact") instead of trying
+            # the previous run.
+            echo "  run $cand ($created): no live github-pages artifact — trying older"
+            continue
+          fi
+
+          dlrc=0
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
+            > "$WORK/pages.zip" 2> "$WORK/dl.err" || dlrc=$?
+          if [ "$dlrc" -ne 0 ]; then
+            # #7396: an artifact can expire BETWEEN the resolve above and this
+            # download (real time passes: other steps, other candidates). The
+            # zip then answers 410. That is a walk-back condition, not a job
+            # failure — so is any other broken download, since a candidate we
+            # cannot read is a candidate we cannot audit.
+            if grep -qi 'HTTP 410' "$WORK/dl.err"; then
+              echo "  run $cand ($created): artifact $ARTIFACT_ID expired between resolve and download (HTTP 410) — trying older"
+            else
+              echo "  run $cand ($created): download of artifact $ARTIFACT_ID failed (exit $dlrc) — trying older"
+              sed 's/^/      /' "$WORK/dl.err" || true
+            fi
+            rm -f "$WORK/pages.zip"
+            continue
+          fi
+
+          # The extraction IS the integrity check. A separate `unzip -t` would
+          # CRC the whole >1 GB archive and then decompress it again — minutes
+          # per run, in eight workflows, one of which already dies at a 3h cap.
+          # A truncated or non-zip body fails here just the same, and a failed
+          # extraction is the same walk-back condition as a failed download.
+          uzrc=0
+          unzip -q -o "$WORK/pages.zip" -d "$OUTDIR" 2> "$WORK/unzip.err" || uzrc=$?
+          rm -f "$WORK/pages.zip"
+          if [ "$uzrc" -ne 0 ]; then
+            echo "  run $cand ($created): github-pages zip of artifact $ARTIFACT_ID is not readable (unzip exit $uzrc) — trying older"
+            sed 's/^/      /' "$WORK/unzip.err" || true
+            # A half-extracted tree would be mistaken for the next candidate's.
+            rm -rf "${OUTDIR:?}"
+            mkdir -p "$OUTDIR"
+            continue
+          fi
+          if [ ! -f "$OUTDIR/artifact.tar" ]; then
+            # Not a walk-back case: the zip downloaded fine but does not hold
+            # what every caller extracts. That is a deploy.yml contract change.
+            echo "::error::Expected $OUTDIR/artifact.tar in the github-pages zip of run $cand — saw $(ls "$OUTDIR")"
+            exit 1
+          fi
+          FOUND="$cand"
+          FOUND_AT="$created"
+          echo "Using deploy run $cand (created_at $created, sha $sha), github-pages artifact $ARTIFACT_ID"
+          break
+        done < "$CANDS"
+
+        if [ -z "$FOUND" ]; then
+          if [ -n "$PINNED" ]; then
+            echo "::error::Pinned deploy run $PINNED has no downloadable non-expired 'github-pages' artifact (retention is 8 days). Pick a newer run, or leave run-id empty to walk back automatically."
+          elif [ "$TOTAL" -ge "$((MAX_PAGES * PER_PAGE))" ]; then
+            echo "::error::Walk-back cap reached: examined all $TOTAL successful deploy.yml runs on main ($MAX_PAGES pages x $PER_PAGE) and none still has a downloadable 'github-pages' artifact. Raise MAX_PAGES in .github/actions/fetch-pages-artifact/action.yml, or pass run-id explicitly."
+          else
+            echo "::error::No successful deploy.yml run on main still has a 'github-pages' artifact ($TOTAL runs examined; retention is 8 days, so this means no deploy succeeded in over a week). Re-run after the next deploy, or pass run-id explicitly."
+          fi
           exit 1
         fi
-        echo "tar-path=$OUTDIR/artifact.tar" >> "$GITHUB_OUTPUT"
+
+        rm -rf "$WORK"
+        {
+          echo "tar-path=$OUTDIR/artifact.tar"
+          echo "run-id=$FOUND"
+          echo "created-at=$FOUND_AT"
+        } >> "$GITHUB_OUTPUT"

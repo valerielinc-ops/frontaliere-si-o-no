@@ -71,42 +71,29 @@ jobs:
       - name: Install minimal deps (no build)
         run: npm ci --no-audit --no-fund --ignore-scripts
 
-      - name: Resolve github-pages artifact for run ${{ inputs.deploy_run_id }}
-        id: art
-        env:
-          GH_TOKEN: ${{ github.token }}
-          # Dispatch inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-        run: |
-          set -e
-          RID="$INPUT_DEPLOY_RUN_ID"
-          ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts --jq '.artifacts[] | select(.name=="github-pages" and .expired==false) | .id' | head -1)
-          if [ -z "$ARTIFACT_ID" ]; then
-            echo "::error::No 'github-pages' artifact on run $RID."
-            exit 1
-          fi
-          echo "artifact_id=$ARTIFACT_ID" >> "$GITHUB_OUTPUT"
-          echo "Found github-pages artifact id=$ARTIFACT_ID on run $RID"
+      # Resolve + download are the composite action's job, not this workflow's.
+      # Every inline copy of them in the repo drifted apart (#7392-#7397); this
+      # one still had the `.expired==false` filter but no 410 retry, no
+      # created_at in the log and its own error strings.
+      - name: Fetch the deployed dist (github-pages artifact)
+        id: pages
+        uses: ./.github/actions/fetch-pages-artifact
+        with:
+          # Required input of this workflow: an operator names the run to
+          # replay, so the action pins it and does NOT walk back to another.
+          run-id: ${{ inputs.deploy_run_id }}
+          output-dir: /tmp/pages
+          github-token: ${{ github.token }}
 
-      - name: Download github-pages artifact (the deployed dist tarball)
+      - name: Extract dist/ from the artifact tarball
         env:
-          GH_TOKEN: ${{ github.token }}
+          TAR_PATH: ${{ steps.pages.outputs.tar-path }}
         run: |
-          set -e
-          mkdir -p /tmp/pages
-          gh api -H "Accept: application/vnd.github+json" \
-            repos/${{ github.repository }}/actions/artifacts/${{ steps.art.outputs.artifact_id }}/zip \
-            > /tmp/pages.zip
-          unzip -q /tmp/pages.zip -d /tmp/pages
-          # github-pages artifact ships a single artifact.tar inside the zip
-          if [ -f /tmp/pages/artifact.tar ]; then
-            mkdir -p dist
-            tar -xf /tmp/pages/artifact.tar -C dist
-            echo "Restored $(find dist -type f | wc -l) files into dist/"
-          else
-            echo "::error::Expected /tmp/pages/artifact.tar — saw $(ls /tmp/pages)"
-            exit 1
-          fi
+          set -euo pipefail
+          mkdir -p dist
+          tar -xf "$TAR_PATH" -C dist
+          rm -f "$TAR_PATH"
+          echo "Restored $(find dist -type f | wc -l) files into dist/"
 
       # The `github-pages` artifact is the TRUNK only. With LOCALE_SHARDS_LIVE /
       # <SECTION>_SHARD_LIVE on, deploy.yml strips the en/de/fr subtrees and the
