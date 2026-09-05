@@ -394,7 +394,7 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
-  it('prefers a corroborated Kanton Zürich listing workplace over administrative JSON-LD', () => {
+  it('prefers the published workplace when the source page itself names it', () => {
     const result = compareSourceDetail(
       {
         addressLocality: 'Dietikon',
@@ -406,17 +406,14 @@ describe('source-detail fidelity checks', () => {
         location: 'Horgen',
         description: 'Ausführliche Stellenbeschreibung '.repeat(20),
       },
-      {
-        locationEvidence: 'jsonld',
-        locationPolicy: 'listing-workplace-over-admin-jsonld',
-      },
+      { locationEvidence: 'jsonld' },
     );
 
     expect(result.locationMismatch).toBe(false);
-    expect(result.locationAuthority).toBe('listing-workplace');
+    expect(result.locationAuthority).toBe('source-corroborated');
   });
 
-  it('keeps a Kanton Zürich mismatch when the detail title does not corroborate the listing', () => {
+  it('keeps the mismatch when the source page never names the published place', () => {
     const result = compareSourceDetail(
       {
         addressLocality: 'Dietikon',
@@ -428,17 +425,14 @@ describe('source-detail fidelity checks', () => {
         location: 'Horgen',
         description: 'Ausführliche Stellenbeschreibung '.repeat(20),
       },
-      {
-        locationEvidence: 'jsonld',
-        locationPolicy: 'listing-workplace-over-admin-jsonld',
-      },
+      { locationEvidence: 'jsonld' },
     );
 
     expect(result.locationMismatch).toBe(true);
     expect(result.locationAuthority).toBe('source-detail');
   });
 
-  it('applies the listing-workplace contract only to kanton-zuerich source checks', async () => {
+  it('corroborates the published workplace on every crawler with the same JSON-LD behaviour', async () => {
     const html = fs.readFileSync(
       path.join(process.cwd(), 'tests/fixtures/kanton-zuerich-source-detail-admin-location.html'),
       'utf8',
@@ -459,18 +453,74 @@ describe('source-detail fidelity checks', () => {
       }),
     });
 
-    expect(results[0]).toMatchObject({
-      crawlerKey: 'kanton-zuerich',
-      sourceLocation: 'Horgen, ZH',
-      locationMismatch: false,
-      locationAuthority: 'listing-workplace',
-    });
-    expect(results[1]).toMatchObject({
-      crawlerKey: 'another-solique-crawler',
-      sourceLocation: 'Horgen, ZH',
-      locationMismatch: true,
-      locationAuthority: 'source-detail',
-    });
+    for (const result of results) {
+      expect(result).toMatchObject({
+        sourceLocation: 'Horgen, ZH',
+        locationMismatch: false,
+        locationAuthority: 'source-corroborated',
+      });
+    }
+  });
+
+  // volg-fenaco / jumbo, issue #7348: the ATS serves the posting company's own
+  // seat in `jobLocation`, while the vacancy text names the branch that is
+  // actually worked in. The published branch is right and must not be reported
+  // as a parser defect.
+  it('accepts a branch published against a tenant seat named in the JSON-LD', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Wetzikon',
+        sourceLang: 'de',
+        description: 'Die LANDI Wetzikon-Seegräben sucht Verstärkung im Volg-Laden. '.repeat(6),
+      },
+      {
+        title: 'Verkäufer*in Volg-Laden 80% - fenaco Genossenschaft',
+        location: 'Bern, Bern',
+        description: 'Die LANDI Wetzikon-Seegräben sucht Verstärkung im Volg-Laden. '.repeat(6),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('source-corroborated');
+  });
+
+  it('never corroborates a bare canton name, the generic-fallback shape', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Argovia',
+        sourceLang: 'de',
+        description: 'Standorte in Argovia und weiteren Kantonen. '.repeat(10),
+      },
+      {
+        title: 'Servicetechniker*in',
+        location: 'Bern, Bern',
+        description: 'Standorte in Argovia und weiteren Kantonen. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
+  it('never corroborates against rendered job-scoped location markup', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Lugano',
+        sourceLang: 'de',
+        description: 'Unser Standort Lugano sucht Verstärkung. '.repeat(10),
+      },
+      {
+        title: 'Polymechaniker*in',
+        location: 'Zug',
+        description: 'Unser Standort Lugano sucht Verstärkung. '.repeat(10),
+      },
+      { locationEvidence: 'strong-markup' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
   });
 
   it('flags a wrong published location and a thin published description', () => {
