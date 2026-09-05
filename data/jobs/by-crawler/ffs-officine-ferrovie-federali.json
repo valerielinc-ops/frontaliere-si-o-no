@@ -340,7 +340,7 @@
       "title": "Product Manager Cloud Foundation (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile prodotto Cloud Foundation (m/f/d)",
-        "en": "Product Manager Cloud Foundation (m/w/d)",
+        "en": "Product Manager Cloud Foundation (m/f/d)",
         "de": "Product Manager Cloud Foundation (m/w/d)",
         "fr": "Chef de produit Cloud Foundation (h/f/d)"
       },
@@ -1643,11 +1643,18 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-04T23:09:38.721Z",
       "previousSlugs": [
-        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+        "tecnico-specializzato-nell-industria-ffs-officine-ferrovie-federali-biel-bienne",
+        "specialist-technician-industrial-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+          "tecnico-specializzato-nell-industria-ffs-officine-ferrovie-federali-biel-bienne",
+          "specialist-technician-industrial-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "specialist-technician-industrial-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-02T13:50:44.705Z",
@@ -3413,7 +3420,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1d16ed8babd2",
@@ -3606,7 +3614,8 @@
         }
       },
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -3781,7 +3790,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9602863d2dd1",
@@ -4201,7 +4211,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-d2904208229d",
@@ -6752,7 +6763,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -8565,7 +8576,7 @@
       "title": "Security Engineer (m/w/d) - Netzleitsystem Energie",
       "titleByLocale": {
         "it": "Security Engineer (m/f/d) - Sistema di gestione dell'energia",
-        "en": "Security Engineer (m/w/d) - Netzleitsystem Energie",
+        "en": "Security Engineer (m/f/d) - Power grid control system",
         "de": "Security Ingenieur (m/w/d) - Netzleitsystem Energie",
         "fr": "Ingénieur en sécurité (h/f/d) - Système de contrôle des réseaux énergétiques"
       },
@@ -8886,7 +8897,15 @@
         "responsabile-del-personale-in-carreggiata-ffs-officine-ferrovie-federali-olten",
         "personnel-dispatcher-roadway-ffs-officine-ferrovie-federali-olten",
         "personaldisponent-in-fahrbahn-ffs-officine-ferrovie-federali-olten",
-        "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten"
+        "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten",
+        "responsabile-nella-pianificazione-a-breve-termine-ffs-officine-ferrovie-federali-olten",
+        "short-term-planning-manager-ffs-officine-ferrovie-federali-olten",
+        "leiter-in-kurzfristplanung-ffs-officine-ferrovie-federali-olten",
+        "responsable-en-planification-a-court-terme-ffs-officine-ferrovie-federali-olten",
+        "responsabile-della-pianificazione-a-breve-termine-m-f-d-ffs-officine-ferrovie-federali-olten",
+        "short-term-planning-manager-m-f-d-ffs-officine-ferrovie-federali-olten",
+        "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten",
+        "responsable-de-la-planification-a-court-terme-h-f-d-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8894,16 +8913,30 @@
           "responsabile-del-personale-in-carreggiata-ffs-officine-ferrovie-federali-olten",
           "personnel-dispatcher-roadway-ffs-officine-ferrovie-federali-olten",
           "personaldisponent-in-fahrbahn-ffs-officine-ferrovie-federali-olten",
-          "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten"
+          "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten",
+          "responsabile-nella-pianificazione-a-breve-termine-ffs-officine-ferrovie-federali-olten",
+          "short-term-planning-manager-ffs-officine-ferrovie-federali-olten",
+          "leiter-in-kurzfristplanung-ffs-officine-ferrovie-federali-olten",
+          "responsable-en-planification-a-court-terme-ffs-officine-ferrovie-federali-olten",
+          "responsabile-della-pianificazione-a-breve-termine-m-f-d-ffs-officine-ferrovie-federali-olten",
+          "short-term-planning-manager-m-f-d-ffs-officine-ferrovie-federali-olten",
+          "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten",
+          "responsable-de-la-planification-a-court-terme-h-f-d-ffs-officine-ferrovie-federali-olten"
         ],
         "en": [
-          "personnel-dispatcher-roadway-ffs-officine-ferrovie-federali-olten"
+          "personnel-dispatcher-roadway-ffs-officine-ferrovie-federali-olten",
+          "short-term-planning-manager-ffs-officine-ferrovie-federali-olten",
+          "short-term-planning-manager-m-f-d-ffs-officine-ferrovie-federali-olten"
         ],
         "de": [
-          "personaldisponent-in-fahrbahn-ffs-officine-ferrovie-federali-olten"
+          "personaldisponent-in-fahrbahn-ffs-officine-ferrovie-federali-olten",
+          "leiter-in-kurzfristplanung-ffs-officine-ferrovie-federali-olten",
+          "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
-          "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten"
+          "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten",
+          "responsable-en-planification-a-court-terme-ffs-officine-ferrovie-federali-olten",
+          "responsable-de-la-planification-a-court-terme-h-f-d-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-08-14T21:31:31.317Z",

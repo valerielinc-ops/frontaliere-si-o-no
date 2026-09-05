@@ -9120,7 +9120,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:58:20.656Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -9212,7 +9211,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:58:20.957Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -11534,16 +11532,16 @@
       "title": "Storenmonteur/in – Storenmontagen und Reparatur",
       "titleByLocale": {
         "de": "Storenmonteur/in – Storenmontagen und Reparatur",
-        "it": "Storenmonteur/in – Storenmontagen e Reparatur",
-        "en": "Storenmonteur/in – Storenmontagen und Reparatur",
-        "fr": "Storenmonteur/in – Storenmontagen und Reparatur"
+        "it": "Fitter negozio – montaggio negozio e riparazione",
+        "en": "Store fitter – store assembly and repair",
+        "fr": "installateur de magasin – assemblage et réparation de magasin"
       },
       "description": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Abgeschlossene Lehre als Storenmonteur oder fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
       "descriptionByLocale": {
         "de": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Abgeschlossene Lehre als Storenmonteur oder fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
-        "it": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Abgeschlossene Lehre als Storenmonteur oder fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
-        "en": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Abgeschlossene Lehre als Storenmonteur oder fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
-        "fr": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Abgeschlossene Lehre als Storenmonteur oder fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung."
+        "it": "Attività nuova installazione di cancelli solari, tapparelle e cancelli di raffinazione nel settore interno e all'aperto riparazioni installazione schermi di insetti\n• Requisiti Completato l'apprendistato come un negozio di fitter o la pratica professionale sonora nel settore L'aspetto amichevole e ben tenuto Pulito e avanti la patente di guida di lavoro Cat. B Offerta Si può aspettare un ambiente dinamico, un campo di attività versatile, un salario orario molto buono e la possibilità di un impiego permanente.",
+        "en": "Activities new installation of sun gates, shutters and refining gates in the indoor and outdoor sector repairs installation insect screens\n• Requirements Completed apprenticeship as a store fitter or sound professional practice in the industry Customer-friendly and well-kept appearance Clean and forward working driving license Cat. B Offer You can expect a dynamic environment, a versatile field of activity, a very good hourly wage and the chance of permanent employment.",
+        "fr": "Activités nouvelle installation de portes solaires, volets roulants et portes de raffinage dans le secteur intérieur et extérieur réparation d'insectifuges d'installation\n• Exigences Apprentissage complété en tant qu'installateur de magasin ou pratique professionnelle saine dans l'industrie Aspect convivial et bien gardé du client Permis de conduire propre et avancé Cat. B Offre Vous pouvez vous attendre à un environnement dynamique, un champ d'activité polyvalent, un très bon salaire horaire et les chances d'emploi permanent."
       },
       "location": "Winterthur, Zürich",
       "canton": "ZH",
@@ -11568,7 +11566,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "storenmonteur-in-8211-storenmontagen-und-reparatur-winterthur-zurich-fachkraft-ch"
@@ -12606,7 +12603,7 @@
       "companyDomain": "fachkraft.ch",
       "title": "Solarinstallateur/in mit Montageexpertise",
       "titleByLocale": {
-        "it": "Solarinstallateur/in mit Montageexpertise",
+        "it": "Installatore solare con competenze di montaggio",
         "en": "Solar installer with assembly expertise",
         "de": "Solarinstallateur/in mit Montageexpertise",
         "fr": "Installation solaire avec une expertise de montage"
@@ -12664,8 +12661,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-99e72c75078f",
@@ -14047,7 +14043,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -23791,7 +23786,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.322Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -37999,7 +37993,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.297Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -38391,7 +38384,6 @@
         "schreiner-in-per-innenausbau-fachkraft-ch-gmbh-lugano"
       ],
       "firstSeenAt": "2026-08-27T00:56:19.932Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -40262,16 +40254,16 @@
       "title": "Schreiner/in für Fensterbau",
       "titleByLocale": {
         "de": "Schreiner/in für Fensterbau",
-        "it": "Schreiner/in per Fensterbau",
-        "en": "Schreiner/in für Fensterbau",
-        "fr": "Schreiner/in für Fensterbau"
+        "it": "Carpenter per la costruzione di finestre",
+        "en": "Carpenter for window construction",
+        "fr": "Charpentier pour la construction de fenêtres"
       },
       "description": "Tätigkeiten Fenster nach Plan in der Produktion fertigen Bauelemente in der Werkstatt passgenau montieren Fenster auf der Baustelle fachgerecht einbauen \n• Anforderungen Lehre als Schreinerin oder Schreiner Erfahrung im Fensterbau oder in der Fensterproduktion Saubere und genaue Arbeitsweise Angebot Abwechslungsreiche Einsätze zwischen Werkstatt und Montage Zeitgemässe Infrastruktur für die tägliche Arbeit",
       "descriptionByLocale": {
         "de": "Tätigkeiten Fenster nach Plan in der Produktion fertigen Bauelemente in der Werkstatt passgenau montieren Fenster auf der Baustelle fachgerecht einbauen \n• Anforderungen Lehre als Schreinerin oder Schreiner Erfahrung im Fensterbau oder in der Fensterproduktion Saubere und genaue Arbeitsweise Angebot Abwechslungsreiche Einsätze zwischen Werkstatt und Montage Zeitgemässe Infrastruktur für die tägliche Arbeit",
-        "it": "Tätigkeiten Fenster nach Plan in der Produktion fertigen Bauelemente in der Werkstatt passgenau montieren Fenster auf der Baustelle fachgerecht einbauen \n• Anforderungen Lehre als Schreinerin oder Schreiner Erfahrung im Fensterbau oder in der Fensterproduktion Saubere und genaue Arbeitsweise Angebot Abwechslungsreiche Einsätze zwischen Werkstatt und Montage Zeitgemässe Infrastruktur für die tägliche Arbeit",
-        "en": "Tätigkeiten Fenster nach Plan in der Produktion fertigen Bauelemente in der Werkstatt passgenau montieren Fenster auf der Baustelle fachgerecht einbauen \n• Anforderungen Lehre als Schreinerin oder Schreiner Erfahrung im Fensterbau oder in der Fensterproduktion Saubere und genaue Arbeitsweise Angebot Abwechslungsreiche Einsätze zwischen Werkstatt und Montage Zeitgemässe Infrastruktur für die tägliche Arbeit",
-        "fr": "Tätigkeiten Fenster nach Plan in der Produktion fertigen Bauelemente in der Werkstatt passgenau montieren Fenster auf der Baustelle fachgerecht einbauen \n• Anforderungen Lehre als Schreinerin oder Schreiner Erfahrung im Fensterbau oder in der Fensterproduktion Saubere und genaue Arbeitsweise Angebot Abwechslungsreiche Einsätze zwischen Werkstatt und Montage Zeitgemässe Infrastruktur für die tägliche Arbeit"
+        "it": "AttivitÃ Finestra secondo il piano in produzione componenti finiti nel workshop installazione fit-accurately finestra sul cantiere professionalmente\n• Requisiti Insegnamento come falegname o falegname Esperienza nella costruzione di finestre o nella produzione di finestre Metodi di lavoro puliti e precisi Offerta variegata assegnazioni tra officina e assemblaggio Infrastruttura contemporanea per il lavoro quotidiano",
+        "en": "Activities Window according to plan in production finished components in the workshop fit-accurately install window on the construction site professionally\n• Requirements Teaching as a carpenter or carpenter Experience in window construction or in window production Clean and precise working methods Offer varied assignments between workshop and assembly Contemporary infrastructure for daily work",
+        "fr": "Activités Fenêtre selon le plan de production fini composants dans l'atelier installer correctement fenêtre sur le chantier professionnellement\n• Exigences Enseignement en tant que menuisier ou menuisier Expérience dans la construction de fenêtres ou dans la production de fenêtres Méthodes de travail propres et précises Offrez des affectations variées entre atelier et assemblage Infrastructure contemporaine pour le travail quotidien"
       },
       "location": "Rorschach, St. Gallen",
       "canton": "SG",
@@ -40296,7 +40288,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-fensterbau-rorschach-st-gallen-fachkraft-ch"
@@ -42884,7 +42875,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.289Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -42975,7 +42965,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:56:00.917Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -43067,7 +43056,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:56:01.219Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -43159,7 +43147,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:56:01.521Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -43516,7 +43503,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.287Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -43610,7 +43596,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.287Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -43978,7 +43963,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:56:00.011Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -44062,7 +44046,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:56:00.313Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -57081,7 +57064,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:55:06.295Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -59045,7 +59027,7 @@
         "it": "Meccanico di produzione con focus su idraulica e pneumatica",
         "en": "Production mechanic with focus on hydraulics and pneumatics",
         "de": "Produktionsmechaniker/in mit Schwerpunkt Hydraulik und Pneumatik",
-        "fr": "Produktionsmechaniker/in mit Schwerpunkt Hydraulik und Pneumatik"
+        "fr": "Mécanicien de production axé sur l'hydraulique et les pneumatiques"
       },
       "description": "Tätigkeiten Führen von Wartungs-, Reparatur- und Servicearbeiten an Produktionsmaschinen durch Mechanische, hydraulische und pneumatische Systeme effizient analysieren und instand setzen Technische Abläufe und Anlagen kontinuierlich optimieren und weiterentwickeln Beim Formenbau durch aktive Mitwirkung an Konstruktionsprojekten unterstützen Jährliche Grossrevisionen planen und erfolgreich umsetzen\n• Anforderungen Abgeschlossene Ausbildung als Industrie- oder Produktionsmechaniker oder eine vergleichbare technische Qualifikation Selbständige und präzise Arbeitsweise mit ausgeprägtem lösungsorientiertem Denken Teamfähige Persönlichkeit mit Durchhaltevermögen und ausgeprägter Hilfsbereitschaft Fundierte Kenntnisse in Pneumatik und Hydraulik Hohe Motivation für technische Herausforderungen und ein vielfältiges Aufgabenspektrum Angebot Möglichkeiten zur aktiven Mitgestaltung der eigenen Karriere und persönlichen Zukunft Arbeiten in einem unabhängigen Familienunternehmen mit werteorientierter Unternehmenskultur Ein abwechslungsreiches Arbeitsumfeld mit langfristiger Perspektive und gemeinschaftlichem Erfolg",
       "descriptionByLocale": {
@@ -59102,8 +59084,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-544f98f54043",
@@ -59205,7 +59186,7 @@
         "it": "Meccanico di produzione con assemblaggio idraulico ed elettrico",
         "en": "Production mechanic with hydraulic and electrical assembly knowledge",
         "de": "Produktionsmechaniker/in mit Hydraulik- und Elektromontagekenntnissen",
-        "fr": "Produktionsmechaniker/in mit Hydraulik- und Elektromontagekenntnissen"
+        "fr": "Mécanicien de production avec des connaissances d'assemblage hydraulique et électrique"
       },
       "description": "Tätigkeiten Hydraulische Baugruppen und Aggregate fachgerecht montieren Probeläufe auf firmeneigenen Prüfständen selbstständig durchführen und kontrollieren Montagen und Inbetriebnahmen direkt bei Kunden vor Ort ausführen Prototypenbau sowie Elektromontage unterstützen Hydraulikbaugruppen für Revisionen vorbereiten und instand setzen\n• Anforderungen Abgeschlossene Ausbildung als Produktionsmechaniker Fundierte Kenntnisse in der Elektromontage und grundlegendes Verständnis hydraulischer Systeme Sicherer Umgang mit Betriebs- und MS-Office-Programmen Führerausweis der Kategorie B ist Pflicht, Staplerausweis ist von Vorteil Deutschkenntnisse mindestens auf B2-Niveau, Englischkenntnisse sind von Vorteil Angebot Vielfältige Tätigkeiten mit grossem Gestaltungsspielraum in einem dynamischen Umfeld Attraktive Arbeitsbedingungen mit 5 Wochen Ferien, 42-Stunden-Woche, Gleitzeit und kostenlosen Parkplätzen Flache Hierarchien sowie ein familiäres Betriebsklima mit regelmässigen Firmenevents",
       "descriptionByLocale": {
@@ -59268,8 +59249,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-bfc94c9a8717",
@@ -61368,7 +61348,7 @@
         "it": "Meccanico di produzione (operatore impianti)",
         "en": "Production mechanic (plant operator)",
         "de": "Produktionsmechaniker/in (Anlagenbediener/in)",
-        "fr": "Produktionsmechaniker/in (Anlagenbediener/in)"
+        "fr": "Mécanicien de production (exploitant d'usine)"
       },
       "description": "Tätigkeiten Montageautomatenanlagen einrichten, beschicken und bedienen Den einwandfreien Betrieb der Montageanlagen überwachen und sicherstellen Gefertigte Produkte auf Qualität prüfen Störungen an den Anlagen eigenständig beheben und First-Level-Support leisten Wartungsarbeiten an den Montageanlagen durchführen\n• Anforderungen Abgeschlossene Berufsausbildung, idealerweise Produktionsmechaniker oder vergleichbar Fundiertes mechanisches und technisches Verständnis mit gutem Prozessbewusstsein Mehrjährige Erfahrung in der Maschinenfertigung, bevorzugt als Maschinenführer:in komplexer Montageautomaten Sehr gutes Sehvermögen zur Durchführung mikroskopischer Qualitätskontrollen Selbstständige, ausdauernde und verantwortungsbewusste Arbeitsweise mit sehr guten Deutschkenntnissen Angebot Abwechslungsreiche Tätigkeit in einem modern geführten Unternehmen Herausforderndes Arbeitsumfeld mit Raum für eigene Ideen und Verbesserungen Ein engagiertes Team und flexible, unterstützende Unternehmenskultur",
       "descriptionByLocale": {
@@ -61428,8 +61408,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-72a4713e2161",
@@ -61808,7 +61787,7 @@
         "it": "Meccanico di produzione - versatili impianti interni",
         "en": "Production mechanic - versatile in-house installations",
         "de": "Produktionsmechaniker/in – vielseitige Inhouse Montagen",
-        "fr": "Produktionsmechaniker/in – vielseitige Inhouse Montagen"
+        "fr": "Mécanicien de production – installations internes polyvalentes"
       },
       "description": "Tätigkeiten Montieren nach Zeichnung von Standard- und diversen Spezial-Elektromagneten Ausführen von Vormontage-Arbeiten (Lager einpressen/verkeilen und Anker mit Achsen verkleben) Einrichten der pneumatischen und hydraulischen Pressen Ausführen von Endmontage-Arbeiten (Stecker montieren, löten und Endprüfungen durchführen) \n• Anforderungen Lehre als Produktionsmechaniker/in EFZ abgeschlossen Fundierte Branchenerfahrung in der Montage Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Abwechslungsreiche \n• Aufgaben Gleitende Arbeitszeit ohne Schichtbetrieb Flexibles Ferienmodell Selbstständiges Arbeiten in einem kleinen Team",
       "descriptionByLocale": {
@@ -61871,8 +61850,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-b1ac1b33954a",
@@ -62506,7 +62484,7 @@
         "it": "Meccanico di produzione – assemblaggio (assemblaggi) – grande squadra – Obiettivo impiego permanente",
         "en": "Production mechanic – assembly (assemblies) – great team – Target permanent employment",
         "de": "Produktionsmechaniker/in – Montage (Baugruppen) – tolles Team – Ziel Festanstellung",
-        "fr": "Produktionsmechaniker/in – Montage (Baugruppen) – tolles Team – Ziel Festanstellung"
+        "fr": "Mécanicien de production – assemblage (ensembles) – grande équipe – Objectif emploi permanent"
       },
       "description": "Tätigkeiten Baugruppen und Fertigprodukten gemäss Arbeitsauftrag und Zeichnung montieren und prüfen Fertigprodukte selbständig prüfen Endkontrolle resp. prüfen der Produkte auf Bestellkonformität gemäss Prüfprotokollen Mechanische Anpassungen an Einzelteilen (sofern nötig) Aktives und flexibles Handeln, damit Aufträge terminlich und qualitativ richtig abgeliefert resp. ausgeliefert werden Beim Optimieren von Prozessen und Vorrichtungen für ein rationelleres Arbeiten unterstützen Fertigungsaufträge bereitstellen (teilweise selbständiges Zurüsten) Mitarbeiten in Qualitäts- und Leanprojekten Aktive Unterstützung sowie selbständige Umsetzung von KVP-\n• Aufgaben \n• Anforderungen Abgeschlossene Lehre als Polymechaniker mit Fachrichtung Montage oder langjährige Erfahrung im industriellen Umfeld im Zusammenbau von komplexeren Baugruppen Erfahrung in der Montage von Baugruppen Teamfähig, initiativ, kommunikativ Gelegentlich weltweite Serviceeinsätze Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
       "descriptionByLocale": {
@@ -64006,7 +63984,7 @@
         "it": "Meccanico di produzione – produzione CNC con tecnologia CNC",
         "en": "Production mechanic – CNC manufacturing with CNC technology",
         "de": "Produktionsmechaniker/in – CNC Fertigung mit CNC-Technologie",
-        "fr": "Produktionsmechaniker/in – CNC Fertigung mit CNC-Technologie"
+        "fr": "Mécanicien de production – Fabrication CNC avec technologie CNC"
       },
       "description": "Tätigkeiten CNC-Rundschleifmaschinen bedienen und überwachen Maschinen nach Fertigungsauftrag einrichten und rüsten Qualitäts- und Masskontrollen durchführen Bearbeitungsprozesse verbessern und optimieren \n• Anforderungen Technische Ausbildung, z. B. als Produktionsmechaniker Erfahrung in der mechanischen Fertigung, idealerweise Schleifen Technisches Verständnis und handwerkliches Geschick Interesse an CNC-Technologie Präzise, zuverlässige und selbstständige Arbeitsweise Teamfähigkeit und Eigeninitiative Deutschkenntnisse mindestens Niveau B1 Bereitschaft zur Schichtarbeit Angebot spannender Aufgabenbereich Zeitgemässe Anstellungsbedingungen",
       "descriptionByLocale": {
@@ -64067,8 +64045,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-8e280bbc8aa1",
@@ -65013,7 +64990,7 @@
         "it": "Meccanico di produzione – produzione CNC come girante",
         "en": "Production mechanic – CNC production as a turner",
         "de": "Produktionsmechaniker/in – CNC Fertigung als Dreher/in",
-        "fr": "Produktionsmechaniker/in – CNC Fertigung als Dreher/in"
+        "fr": "Mécanicien de production – Production CNC comme touriste"
       },
       "description": "Tätigkeiten Programmieren und Einrichten von Kurz- und Langdrehautomaten mit Fanuc- und Siemens-Steuerungen Bedienen der Drehmaschinen unter Einhaltung der technischen Vorgaben Überwachen und selbstständiges Abarbeiten eingehender Drehaufträge \n• Anforderungen Abgeschlossene Ausbildung als Polymechaniker/in oder Produktionsmechaniker/in mit Schwerpunkt Drehen Ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit im Team Hohes Qualitätsbewusstsein sowie selbständige und verantwortungsvolle Arbeitsweise Angebot Flexible und attraktive Arbeitszeitmodelle Arbeiten an modernsten Maschinen und Produktionsanlagen Moderne Arbeitsumgebung in neuen Räumlichkeiten",
       "descriptionByLocale": {
@@ -68023,15 +68000,15 @@
       "titleByLocale": {
         "de": "Polymechaniker/in mit Pikettdienst",
         "it": "Polymechaniker/in con Pikettdienst",
-        "en": "Polymechaniker/in mit Pikettdienst",
-        "fr": "Polymechaniker/in mit Pikettdienst"
+        "en": "Polymechanic with Picettdienst",
+        "fr": "Polymécanique avec Picettdienst"
       },
       "description": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
       "descriptionByLocale": {
         "de": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
-        "it": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
-        "en": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
-        "fr": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten"
+        "it": "Attività Disturbi presso impianti di produzione e impianti operativi risolvono lavori di manutenzione effettuati secondo il piano di manutenzione Nuovi impianti da approvvigionamento a commissionare processi di accompagnamento, impianti e parti di ricambio gestione attivamente ottimizzare il servizio turnaround nei fine settimana\n• Formazione completa nel settore meccanico o nella professione HLKS con EFZ Self-Employed, affidabile e metodo di lavoro orientato al team Forte orientamento del servizio e buona resilienza fisica Molto buona conoscenza del tedesco per via orale e per iscritto Conoscenza approfondita nel trattare le applicazioni MS Office Varie sfide in un ambiente di lavoro moderno e altamente automatizzato Cultura aziendale innovativa con gerarchie piatte e brevi processi decisionali",
+        "en": "Activities Disruptions at production plants and operational facilities resolve maintenance work carried out according to the maintenance plan New plants from procurement to commissioning accompanying processes, plants and spare parts management actively optimize turnaround service on weekends\n• Requirements Completed training in the mechanical sector or HLKS profession with EFZ Self-Employed, reliable and team-oriented working method Strong service orientation and good physical resilience Very good knowledge of German orally and in writing In-depth knowledge in dealing with MS Office applications Various challenges in a modern, highly automated working environment Innovative corporate culture with flat hierarchies and short decision-making Attractive internal and external training opportunities",
+        "fr": "Activités Les perturbations dans les usines de production et les installations opérationnelles résolvent les travaux d'entretien effectués conformément au plan d'entretien Les nouvelles usines, depuis l'approvisionnement jusqu'à la mise en service des procédés d'accompagnement, des usines et de la gestion des pièces détachées, optimisent activement le service de redressement le week-end\n• Exigences Formation complète dans le secteur mécanique ou la profession HLKS avec EFZ Méthode de travail indépendante, fiable et axée sur l'équipe Orientation forte du service et bonne résilience physique Très bonne connaissance de l'allemand oralement et par écrit Connaissance approfondie dans le traitement des applications MS Office Divers défis dans un environnement de travail moderne et hautement automatisé Culture d'entreprise innovante avec hiérarchies plates et courte prise de décision Possibilités de formation internes et externes attractives"
       },
       "location": "Hochdorf, Luzern",
       "canton": "LU",
@@ -74676,16 +74653,16 @@
       "title": "Polymechaniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
       "titleByLocale": {
         "de": "Polymechaniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
-        "it": "Polymechaniker/in per Bahnverkehr con Zusatzfunktion come Lokführer",
-        "en": "Polymechaniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
-        "fr": "Polymechaniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer"
+        "it": "Trasporto ferroviario polimeccanico con una funzione aggiuntiva come driver treno",
+        "en": "Rail transport polymechanic with an additional function as train driver",
+        "fr": "Polymécanique de transport ferroviaire avec une fonction supplémentaire en tant que conducteur de train"
       },
       "description": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
       "descriptionByLocale": {
         "de": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
-        "it": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
-        "en": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
-        "fr": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse"
+        "it": "Attività Manutenzione e riparazione di veicoli storici e moderni effettuano regolarmente i veicoli ispezionare e mantenere gli ospiti in servizio come autista del treno accompagnano\n• Requisiti Complezione nel campo meccanico o elettromeccanico come tecnico della funivia meccatronica, macchine agricole o macchinari per la costruzione meccanica o macchinari per la costruzione meccanica, tecnico della meccatronica automobilistica o tecnico della meccatronica automobilistica, polimeccanica o polimeccanica Prontezza per l'uso se richiesto in Goldau Molto buone competenze tedesche Metodi di lavoro di base con un alto livello di responsabilità personale Offri un campo versatile di responsabilità in una società turistica Supporto nello sviluppo professionale Free GA 2. Categoria",
+        "en": "Activities Maintenance and repair work on historic and modern vehicles carry out vehicles regularly inspect and maintain guests on duty as train driver accompany\n• Requirements Completion in the mechanical or electromechanical field such as ropeway mechatronics technician, agricultural machinery or construction machinery mechanic or construction machinery mechanic, automotive mechatronics technician or automotive mechatronics technician, polymechanic or polymechanic Readiness for use if required in Goldau Very good German skills Basic working methods with a high level of personal responsibility Offer versatile field of responsibility in a tourist company Support in the professional development Free GA 2. Category",
+        "fr": "Activités Entretien et réparation de véhicules historiques et modernes\n• Exigences Achèvement dans le domaine mécanique ou électromécanique tel que technicien en mécatronique à câbles, machines agricoles ou machines de construction mécanicien ou mécanicien de machines de construction, technicien en mécatronique automobile ou technicien en mécatronique automobile, polymécanique ou polymécanique Préparation à l'emploi si requis en Goldau Très bonnes compétences allemandes Méthodes de travail de base avec un haut niveau de responsabilité personnelle Offrir un champ de responsabilité polyvalent dans une entreprise touristique Soutien dans le développement professionnel Free GA 2. Catégorie"
       },
       "location": "Küssnacht am Rigi, Schwyz",
       "canton": "SZ",
@@ -74710,7 +74687,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-fur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-kussnacht-am-rigi"
@@ -74963,7 +74939,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:54:03.516Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -75860,7 +75835,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:54:00.799Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -76359,7 +76333,6 @@
         "polymechaniker-in-come-schleifer-fachkraft-ch-gmbh-lugano"
       ],
       "firstSeenAt": "2026-08-27T00:53:59.290Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -77065,7 +77038,7 @@
       "title": "Polymechaniker/in als Allrounder/in",
       "titleByLocale": {
         "it": "Polimeccanica come un tuttofare",
-        "en": "Polymechaniker/in als Allrounder/in",
+        "en": "Polymechanic as an all-rounder",
         "de": "Polymechaniker/in als Allrounder/in",
         "fr": "Polymécanique comme un tout-terrain"
       },
@@ -77151,8 +77124,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-b85f6e6088b1",
@@ -99752,7 +99724,7 @@
       "title": "Polymechaniker/in – CNC Fertigung mit CAM-Software",
       "titleByLocale": {
         "it": "Polimeccanica – Produzione CNC con software CAM",
-        "en": "Polymechaniker/in – CNC Fertigung mit CAM-Software",
+        "en": "Polymechanic – CNC manufacturing with CAM software",
         "de": "Polymechaniker/in – CNC Fertigung mit CAM-Software",
         "fr": "Polymécanique – fabrication CNC avec logiciel CAM"
       },
@@ -107942,7 +107914,7 @@
       "companyDomain": "fachkraft.ch",
       "title": "Montage-Elektriker/in mit Erfahrung in Glasfaserinstallationen",
       "titleByLocale": {
-        "it": "Montage-Elektriker/in mit Erfahrung in Glasfaserinstallationen",
+        "it": "Elettricista di assemblaggio con esperienza nelle installazioni in fibra ottica",
         "en": "Assembly electrician with experience in fiber optic installations",
         "de": "Montage-Elektriker/in mit Erfahrung in Glasfaserinstallationen",
         "fr": "Électricien d'assemblage avec expérience dans les installations de fibre optique"
@@ -107996,8 +107968,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-6d74863d979a",
@@ -112873,7 +112844,7 @@
         "it": "Montaggio elettrico come tecnico di servizio",
         "en": "Assembly electrician as service technician",
         "de": "Montage-Elektriker/in als Servicetechniker",
-        "fr": "Montage-Elektriker/in als Servicetechniker"
+        "fr": "Électricien d'assemblage comme technicien de service"
       },
       "description": "Tätigkeiten Elektrotechnische und elektronische Anlagen prüfen sowie warten Reparatur-, Installations- und Montagearbeiten intern und extern ausführen Unterhalts-, Reparatur- und Serviceaufträge an Anlagesteuerungen termingerecht und qualitativ hochwertig durchführen Anlagen in Betrieb nehmen und auftretende Störungen analysieren und beheben \n• Anforderungen Abgeschlossene Ausbildung als Elektroinstallateur, Montageelektriker oder vergleichbare Qualifikation Ausgeprägte Kundenorientierung und hohe Servicebereitschaft Eigenständige, präzise und kundenorientierte Arbeitsweise Besitz eines Führerscheins der Kategorie B Gute Deutschkenntnisse in Wort und Schrift Angebot Verantwortungsvolle \n• Aufgaben in einem motivierten Team Vielfältige Tätigkeiten mit direktem Kundenzugang Moderne Arbeitsumgebung mit Möglichkeiten zur persönlichen Weiterentwicklung",
       "descriptionByLocale": {
@@ -117173,7 +117144,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:51:23.254Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -123591,7 +123561,7 @@
       "companyDomain": "fachkraft.ch",
       "title": "Metallbauer/in mit Erfahrung in Metallbaukonstruktionen",
       "titleByLocale": {
-        "it": "Metallbauer/in mit Erfahrung in Metallbaukonstruktionen",
+        "it": "Metalworker con esperienza nelle costruzioni metalliche",
         "en": "Metalworker with experience in metal constructions",
         "de": "Metallbauer/in mit Erfahrung in Metallbaukonstruktionen",
         "fr": "Travailleur de métaux avec expérience dans les constructions métalliques"
@@ -123645,8 +123615,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-795b37747c7c",
@@ -124774,7 +124743,7 @@
       "title": "Metallbauer/in mit Entwicklungsperspektive",
       "titleByLocale": {
         "it": "Metalworker con una prospettiva di sviluppo",
-        "en": "Metallbauer/in mit Entwicklungsperspektive",
+        "en": "Metalworker with a development perspective",
         "de": "Metallbauer/in mit Entwicklungsperspektive",
         "fr": "Métaux avec une perspective de développement"
       },
@@ -124842,8 +124811,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-325bc4b32269",
@@ -125522,7 +125490,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:54:58.758Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -125683,7 +125650,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.128Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -125767,7 +125733,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:20:05.272Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -125930,7 +125895,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:50:52.461Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -126565,7 +126529,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:50:50.347Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -128748,10 +128711,10 @@
       "previousSlugsByLocale": {
         "de": [
           "metallbauer-in-fur-montagearbeiten-pfaffikon-zurich-fachkraft-ch",
-          "metallbauer-in-fur-montagearbeiten-fachkraft-ch"
+          "metallbauer-in-fur-montagearbeiten-fachkraft-ch",
+          "metallbauer-in-fur-montagearbeiten-egerkingen-solothurn-fachkraft-ch"
         ],
         "it": [
-          "metallbauer-in-hilfsarbeiter-in-fur-gelander-fachkraft-ch",
           "metallbauer-in-hilfsarbeiter-in-fur-gelander-kulm-aargau-fachkraft-ch",
           "metallbauer-in-hilfsarbeiter-in-per-gelander-fachkraft-ch-gmbh-lugano-tzsaju",
           "metalworkers-auxiliary-workers-for-railings-fachkraft-ch-gmbh-lugano",
@@ -128770,7 +128733,8 @@
           "metallbauer-in-fur-schweissarbeiten-kleinere-montagearbeiten-frauenfeld-thurgau-fachkraft",
           "metallbauer-in-fur-montagearbeiten-pfaffikon-zurich-fachkraft-ch",
           "metaux-ouvriers-auxiliaires-pour-travaux-de-montage-fachkraft-ch-gmbh-lugano",
-          "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-lugano"
+          "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-lugano",
+          "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-egerkingen-solothurn"
         ],
         "en": [
           "metalworker-for-assembly-work-fachkraft-ch-gmbh-lugano"
@@ -128779,7 +128743,8 @@
           "metaux-pour-travaux-de-montage-fachkraft-ch-gmbh-lugano",
           "metallbauer-in-fur-schweissarbeiten-kleinere-montagearbeiten-fachkraft-ch",
           "metallbauer-in-hilfsarbeiter-in-fur-montagearbeiten-im-treppenschacht-fachkraft-ch",
-          "metallbauer-in-hilfsarbeiter-in-fur-montagearbeiten-fachkraft-ch"
+          "metallbauer-in-hilfsarbeiter-in-fur-montagearbeiten-fachkraft-ch",
+          "metallbauer-in-fur-montagearbeiten-fachkraft-ch-gmbh-egerkingen"
         ]
       },
       "previousSlugs": [
@@ -128813,7 +128778,10 @@
         "metallbauer-in-per-schweissarbeiten-kleinere-montagearbeiten-fachkraft-ch-gmbh-lugano",
         "metallbauer-in-fur-schweissarbeiten-kleinere-montagearbeiten-frauenfeld-thurgau-fachkraft",
         "metallbauer-in-fur-montagearbeiten-fachkraft-ch",
-        "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-lugano"
+        "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-lugano",
+        "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-egerkingen-solothurn",
+        "metallbauer-in-fur-montagearbeiten-egerkingen-solothurn-fachkraft-ch",
+        "metallbauer-in-fur-montagearbeiten-fachkraft-ch-gmbh-egerkingen"
       ],
       "firstSeenAt": "2026-08-27T00:50:43.400Z",
       "salaryMin": 73500,
@@ -133261,7 +133229,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.116Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -133515,7 +133482,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:50:28.901Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -134055,7 +134021,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:50:25.882Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -137205,16 +137170,16 @@
       "title": "Metallbauer/in – Storenmontagen und Reparatur",
       "titleByLocale": {
         "de": "Metallbauer/in – Storenmontagen und Reparatur",
-        "it": "Metallbauer/in – Storenmontagen e Reparatur",
-        "en": "Metallbauer/in – Storenmontagen und Reparatur",
-        "fr": "Metallbauer/in – Storenmontagen und Reparatur"
+        "it": "Lavoratori di metallo – assemblaggio e riparazione dei negozi",
+        "en": "Metalworkers – Store assembly and repair",
+        "fr": "Métaux – Assemblage et réparation de magasins"
       },
       "description": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
       "descriptionByLocale": {
         "de": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "it": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "en": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "fr": "Tätigkeiten Neumontagen von Sonnenstoren, Rollläden und Raffstoren im In- und Outdoorbereich Reparaturen Montage Insektenschutzgitter \n• Anforderungen Fundierte Berufspraxis in der Branche Kundenfreundliches und gepflegtes Auftreten Saubere und speditive Arbeitsweise Führerschein Kat. B Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn."
+        "it": "Attività nuova installazione di cancelli solari, tapparelle e cancelli di raffinazione nel settore interno e all'aperto riparazioni installazione schermi di insetti\n• Pratica professionale sana nel settore Aspetto amichevole e ben tenuto Aspetto pulito e avanzato patente di guida Cat. B Offerta Attendere con ansia un'attività versatile e impegnativa. Essi godono di un ottimo salario orario.",
+        "en": "Activities new installation of sun gates, shutters and refining gates in the indoor and outdoor sector repairs installation insect screens\n• Sound professional practice in the industry Customer-friendly and well-kept appearance Clean and forward working driving license Cat. B Offer Look forward to a versatile and challenging activity. They enjoy a very good hourly wage.",
+        "fr": "Activités nouvelle installation de portes solaires, volets roulants et portes de raffinage dans le secteur intérieur et extérieur réparation d'insectifuges d'installation\n• Une saine pratique professionnelle dans l'industrie Aspect convivial et bien entretenu Permis de conduire propre et avant-gardiste Cat. B Offre Réjouissez-vous d'une activité polyvalente et stimulante. Ils bénéficient d'un très bon salaire horaire."
       },
       "location": "Andelfingen, Zürich",
       "canton": "ZH",
@@ -137239,7 +137204,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-8211-storenmontagen-und-reparatur-andelfingen-zurich-fachkraft-ch"
@@ -137907,7 +137871,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:54:58.735Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -144068,7 +144031,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:39.096Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -144382,12 +144344,18 @@
       "previousSlugs": [
         "maler-in-mit-vielseitigen-fachkenntnissen-munchwilen-tg-thurgau-fachkraft-ch",
         "maler-in-con-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-munchwilen-tg",
-        "maler-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-munchwilen-tg"
+        "maler-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-munchwilen-tg",
+        "schreiner-in-per-diverse-schreinermontagen-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+        "schreiner-in-fur-diverse-schreinermontagen-munchwilen-tg-thurgau-fachkraft-ch",
+        "schreiner-in-fur-8211-diverse-schreinermontagen-munchwilen-tg-thurgau-fachkraft-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-mit-vielseitigen-fachkenntnissen-munchwilen-tg-thurgau-fachkraft-ch",
-          "maler-in-con-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-munchwilen-tg"
+          "maler-in-con-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-munchwilen-tg",
+          "schreiner-in-per-diverse-schreinermontagen-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+          "schreiner-in-fur-diverse-schreinermontagen-munchwilen-tg-thurgau-fachkraft-ch",
+          "schreiner-in-fur-8211-diverse-schreinermontagen-munchwilen-tg-thurgau-fachkraft-ch"
         ],
         "en": [
           "maler-in-mit-vielseitigen-fachkenntnissen-munchwilen-tg-thurgau-fachkraft-ch",
@@ -144395,7 +144363,11 @@
         ],
         "fr": [
           "maler-in-mit-vielseitigen-fachkenntnissen-munchwilen-tg-thurgau-fachkraft-ch",
-          "maler-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-munchwilen-tg"
+          "maler-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-munchwilen-tg",
+          "schreiner-in-fur-diverse-schreinermontagen-munchwilen-tg-thurgau-fachkraft-ch"
+        ],
+        "de": [
+          "schreiner-in-fur-8211-diverse-schreinermontagen-munchwilen-tg-thurgau-fachkraft-ch"
         ]
       },
       "firstSeenAt": "2026-08-27T20:05:40.312Z",
@@ -146028,7 +146000,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:49:31.799Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -159139,7 +159110,7 @@
       "companyDomain": "fachkraft.ch",
       "title": "Maler/in Attraktiver Lohn + Spesen",
       "titleByLocale": {
-        "it": "Maler/in Attraktiver Lohn + Spesen",
+        "it": "Pittore/in Attraente Wage + Spese",
         "en": "Painter/in Attractive Wage + Expenses",
         "de": "Maler/in Attraktiver Lohn + Spesen",
         "fr": "Peintre/en salaire attractif + dépenses"
@@ -162624,7 +162595,7 @@
         "it": "Logisticista con funzione responsabile",
         "en": "Logistician with a responsible function",
         "de": "Logistiker/in mit verantwortungsvoller Funktion",
-        "fr": "Logistiker/in mit verantwortungsvoller Funktion"
+        "fr": "Logisticien ayant une fonction responsable"
       },
       "description": "Tätigkeiten Warenannahme im Lager bearbeiten Warenausgänge termingerecht bereitstellen Eintreffende Ware sorgfältig prüfen Aufträge für den Versand kommissionieren Bestandsänderungen im IT-System erfassen\n• Anforderungen Abgeschlossene Grundbildung als Logistikerin oder Logistiker EFZ Mehrjährige praktische Erfahrung in der Logistik Selbständige Arbeitsweise im Tagesgeschäft Hohe Genauigkeit bei der Aufgabenerledigung Freude am Kontakt mit anspruchsvollen Kundinnen und Kunden Angebot Verantwortungsvolle Funktion mit viel Handlungsspielraum Überdurchschnittliche Verdienstmöglichkeiten Option auf eine spätere Festanstellung",
       "descriptionByLocale": {
@@ -162687,8 +162658,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-9d116a36951e",
@@ -169550,7 +169520,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:48:06.303Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -171178,7 +171147,6 @@
         "landmaschinenmechaniker-in-come-betriebsmechaniker-fachkraft-ch-gmbh-lugano"
       ],
       "firstSeenAt": "2026-08-27T00:48:03.584Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -171666,7 +171634,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:48:02.073Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -171861,7 +171828,7 @@
         "it": "Ingegnere di progettazione con progettazione CAD 3D",
         "en": "Design engineer with CAD 3D design",
         "de": "Konstrukteur/in mit CAD 3D Konstruktion",
-        "fr": "Konstrukteur/in mit CAD 3D Konstruktion"
+        "fr": "Ingénieur de conception au design CAD 3D"
       },
       "description": "Tätigkeiten Technische Bauteile in 2D entwerfen und ausarbeiten Modelle und Baugruppen in 3D konstruieren CAD Zeichnungen für die Fertigung erstellen und aufbereiten Konstruktionsunterlagen prüfen und laufend aktualisieren \n• Anforderungen Abgeschlossene Ausbildung als Konstrukteur/in EFZ Praxis im Umgang mit SolidWorks Sicherer Einsatz von CAD im Konstruktionsalltag Präzise, strukturierte und selbstständige Arbeitsweise Angebot Spannende Konstruktionsaufgaben in einem technischen Umfeld Abwechslungsreiche Tätigkeit mit modernen CAD Anwendungen Eigenverantwortliches Arbeiten bei vielseitigen Projekten Gute Möglichkeiten zur fachlichen Weiterentwicklung",
       "descriptionByLocale": {
@@ -171920,8 +171887,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-dc54df81a94c",
@@ -172090,7 +172056,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:47:57.542Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -172777,7 +172742,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:47:56.636Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -173487,7 +173451,7 @@
       "title": "Industrielackierer/in als Sandstrahler",
       "titleByLocale": {
         "it": "Pittore industriale come sabbia",
-        "en": "Industrielackierer/in als Sandstrahler",
+        "en": "Industrial painter as sandblast",
         "de": "Industrielackierer/in als Sandstrahler",
         "fr": "Peintre industriel comme sable"
       },
@@ -173551,8 +173515,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-a57b2d7d4fa3",
@@ -186768,7 +186731,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:47:02.259Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -190996,7 +190958,9 @@
         "gartner-in-fur-gartenunterhalt-und-neuanlagen-zurich-zurich-fachkraft-ch",
         "gartner-in-per-gartenunterhalt-e-neuanlagen-fachkraft-ch-gmbh-lugano-5xsy80",
         "gardeners-for-garden-maintenance-and-new-plants-fachkraft-ch-gmbh-lugano",
-        "jardiniers-pour-l-entretien-du-jardin-et-les-nouvelles-plantes-fachkraft-ch-gmbh-lugano"
+        "jardiniers-pour-l-entretien-du-jardin-et-les-nouvelles-plantes-fachkraft-ch-gmbh-lugano",
+        "gartner-in-hilfsarbeiter-in-per-gartenpflege-fachkraft-ch-gmbh-zurich",
+        "gartner-in-hilfsarbeiter-in-fur-gartenpflege-zurich-zurich-fachkraft-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -191006,10 +190970,13 @@
           "gartner-in-fur-gartenunterhalt-und-neuanlagen-zurich-zurich-fachkraft-ch",
           "gartner-in-per-gartenunterhalt-e-neuanlagen-fachkraft-ch-gmbh-lugano-5xsy80",
           "gardeners-for-garden-maintenance-and-new-plants-fachkraft-ch-gmbh-lugano",
-          "jardiniers-pour-l-entretien-du-jardin-et-les-nouvelles-plantes-fachkraft-ch-gmbh-lugano"
+          "jardiniers-pour-l-entretien-du-jardin-et-les-nouvelles-plantes-fachkraft-ch-gmbh-lugano",
+          "gartner-in-hilfsarbeiter-in-per-gartenpflege-fachkraft-ch-gmbh-zurich",
+          "gartner-in-hilfsarbeiter-in-fur-gartenpflege-zurich-zurich-fachkraft-ch"
         ],
         "fr": [
-          "gartner-in-fur-gartenunterhalt-und-neuanlagen-fachkraft-ch"
+          "gartner-in-fur-gartenunterhalt-und-neuanlagen-fachkraft-ch",
+          "gartner-in-hilfsarbeiter-in-fur-gartenpflege-zurich-zurich-fachkraft-ch"
         ]
       },
       "needsRetranslation": true,
@@ -193108,16 +193075,16 @@
       "title": "Gärtner/in – Vorarbeiter/in mit Führungsverantwortung",
       "titleByLocale": {
         "de": "Gärtner/in – Vorarbeiter/in mit Führungsverantwortung",
-        "it": "Gärtner/in – Vorarbeiter/in con Führungsverantwortung",
-        "en": "Gärtner/in – Vorarbeiter/in mit Führungsverantwortung",
-        "fr": "Gärtner/in – Vorarbeiter/in mit Führungsverantwortung"
+        "it": "Gardener – caposquadra",
+        "en": "Gardener – foreman with leadership responsibility",
+        "fr": "Jardinier – contremaître responsable du leadership"
       },
       "description": "Tätigkeiten Baustellen eigenverantwortlich planen und Termine direkt mit Kundschaft koordinieren Ein motiviertes Team führen und den reibungslosen Ablauf der Projekte sicherstellen Eng mit Kunden zusammenarbeiten und deren Anliegen in der Umsetzung berücksichtigen Die Baustellen vor Ort selbstständig leiten und Entscheidungen treffen Die Projektfortschritte überwachen und aktiv zur erfolgreichen Fertigstellung beitragen \n• Anforderungen Abgeschlossene Ausbildung als Landschaftsgärtner EFZ Weiterbildung mit eidgenössischem Fachausweis als Gärtner Gültiger Führerausweis der Kategorie B Nachweisbare Führungserfahrung im Garten- oder Landschaftsbau Angebot Zusammenarbeit im kollegialen Team mit starker Eigeninitiative Hoher Qualitätsanspruch und leidenschaftliches Engagement für ästhetische Gartenprojekte Verlässliche Rahmenbedingungen und Unterstützung durch klar strukturierte Prozesse",
       "descriptionByLocale": {
         "de": "Tätigkeiten Baustellen eigenverantwortlich planen und Termine direkt mit Kundschaft koordinieren Ein motiviertes Team führen und den reibungslosen Ablauf der Projekte sicherstellen Eng mit Kunden zusammenarbeiten und deren Anliegen in der Umsetzung berücksichtigen Die Baustellen vor Ort selbstständig leiten und Entscheidungen treffen Die Projektfortschritte überwachen und aktiv zur erfolgreichen Fertigstellung beitragen \n• Anforderungen Abgeschlossene Ausbildung als Landschaftsgärtner EFZ Weiterbildung mit eidgenössischem Fachausweis als Gärtner Gültiger Führerausweis der Kategorie B Nachweisbare Führungserfahrung im Garten- oder Landschaftsbau Angebot Zusammenarbeit im kollegialen Team mit starker Eigeninitiative Hoher Qualitätsanspruch und leidenschaftliches Engagement für ästhetische Gartenprojekte Verlässliche Rahmenbedingungen und Unterstützung durch klar strukturierte Prozesse",
-        "it": "Tätigkeiten Baustellen eigenverantwortlich planen und Termine direkt mit Kundschaft koordinieren Ein motiviertes Team führen und den reibungslosen Ablauf der Projekte sicherstellen Eng mit Kunden zusammenarbeiten und deren Anliegen in der Umsetzung berücksichtigen Die Baustellen vor Ort selbstständig leiten und Entscheidungen treffen Die Projektfortschritte überwachen und aktiv zur erfolgreichen Fertigstellung beitragen \n• Anforderungen Abgeschlossene Ausbildung als Landschaftsgärtner EFZ Weiterbildung mit eidgenössischem Fachausweis als Gärtner Gültiger Führerausweis der Kategorie B Nachweisbare Führungserfahrung im Garten- oder Landschaftsbau Angebot Zusammenarbeit im kollegialen Team mit starker Eigeninitiative Hoher Qualitätsanspruch und leidenschaftliches Engagement für ästhetische Gartenprojekte Verlässliche Rahmenbedingungen und Unterstützung durch klar strukturierte Prozesse",
-        "en": "Tätigkeiten Baustellen eigenverantwortlich planen und Termine direkt mit Kundschaft koordinieren Ein motiviertes Team führen und den reibungslosen Ablauf der Projekte sicherstellen Eng mit Kunden zusammenarbeiten und deren Anliegen in der Umsetzung berücksichtigen Die Baustellen vor Ort selbstständig leiten und Entscheidungen treffen Die Projektfortschritte überwachen und aktiv zur erfolgreichen Fertigstellung beitragen \n• Anforderungen Abgeschlossene Ausbildung als Landschaftsgärtner EFZ Weiterbildung mit eidgenössischem Fachausweis als Gärtner Gültiger Führerausweis der Kategorie B Nachweisbare Führungserfahrung im Garten- oder Landschaftsbau Angebot Zusammenarbeit im kollegialen Team mit starker Eigeninitiative Hoher Qualitätsanspruch und leidenschaftliches Engagement für ästhetische Gartenprojekte Verlässliche Rahmenbedingungen und Unterstützung durch klar strukturierte Prozesse",
-        "fr": "Tätigkeiten Baustellen eigenverantwortlich planen und Termine direkt mit Kundschaft koordinieren Ein motiviertes Team führen und den reibungslosen Ablauf der Projekte sicherstellen Eng mit Kunden zusammenarbeiten und deren Anliegen in der Umsetzung berücksichtigen Die Baustellen vor Ort selbstständig leiten und Entscheidungen treffen Die Projektfortschritte überwachen und aktiv zur erfolgreichen Fertigstellung beitragen \n• Anforderungen Abgeschlossene Ausbildung als Landschaftsgärtner EFZ Weiterbildung mit eidgenössischem Fachausweis als Gärtner Gültiger Führerausweis der Kategorie B Nachweisbare Führungserfahrung im Garten- oder Landschaftsbau Angebot Zusammenarbeit im kollegialen Team mit starker Eigeninitiative Hoher Qualitätsanspruch und leidenschaftliches Engagement für ästhetische Gartenprojekte Verlässliche Rahmenbedingungen und Unterstützung durch klar strukturierte Prozesse"
+        "it": "Pianificare i siti di costruzione in modo indipendente e coordinare gli appuntamenti direttamente con i clienti Conducendo un team motivato e garantendo il buon funzionamento dei progetti Lavorare a stretto contatto con i clienti e tenendo conto delle loro preoccupazioni nell'implementazione Gestire i siti di costruzione in loco in modo indipendente e prendere decisioni Monitorare i progressi del progetto e contribuire attivamente al completamento di successo\n• Formazione completa come giardiniere di paesaggio EFZ Formazione continua con certificato specializzato federale come un giardiniere Certificato di driver valido di categoria B Esperienza di leadership dimostrabile in giardinaggio o paesaggistica Cooperazione offerta in un team collegiale con forte iniziativa Standard di alta qualità e impegno appassionato per progetti di giardino estetici Condizioni di quadro affidabili e supporto attraverso processi chiaramente strutturati",
+        "en": "Activities Plan construction sites independently and coordinate appointments directly with customers Leading a motivated team and ensuring the smooth running of projects Working closely with customers and taking their concerns into account in the implementation Manage the construction sites on site independently and make decisions Monitor project progress and actively contribute to successful completion\n• Requirements Completed training as a landscape gardener EFZ Continuing education with federal specialist certificate as a gardener Valid driver’s certificate of category B Demonstrable leadership experience in gardening or landscaping Offer cooperation in a collegial team with strong initiative High quality standards and passionate commitment to aesthetic garden projects Reliable framework conditions and support through clearly structured processes",
+        "fr": "Activités Planifier les chantiers de construction en toute indépendance et coordonner les rendez-vous directement avec les clients Diriger une équipe motivée et assurer le bon déroulement des projets Travailler en étroite collaboration avec les clients et tenir compte de leurs préoccupations lors de la mise en oeuvre Gérer les chantiers de construction en toute indépendance et prendre des décisions Surveiller l'avancement des projets et contribuer activement à leur achèvement\n• Exigences Formation complète en tant que jardinier EFZ Formation continue avec certificat fédéral de spécialiste en tant que jardinier Certificat valide de conducteur de catégorie B Expérience de leadership démontrable en jardinage ou en aménagement paysager Offrez une coopération dans une équipe collégiale à forte initiative Normes de qualité élevées et engagement passionné envers les projets de jardin esthétique Conditions-cadres fiables et soutien grâce à des processus clairement structurés"
       },
       "location": "Zug, Zug",
       "canton": "ZG",
@@ -193158,7 +193125,6 @@
           "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-zug-zug-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -193515,16 +193481,16 @@
       "title": "Gärtner/in – Vorarbeiter/in mit Führungserfahrung",
       "titleByLocale": {
         "de": "Gärtner/in – Vorarbeiter/in mit Führungserfahrung",
-        "it": "Gärtner/in – Vorarbeiter/in con Führungserfahrung",
-        "en": "Gärtner/in – Vorarbeiter/in mit Führungserfahrung",
-        "fr": "Gärtner/in – Vorarbeiter/in mit Führungserfahrung"
+        "it": "Gardener – avanzi con esperienza di leadership",
+        "en": "Gardener – foremen with leadership experience",
+        "fr": "Jardinier – contremaîtres ayant une expérience de leadership"
       },
       "description": "Tätigkeiten Neu- und Umbauprojekte planen und koordinieren Ein kleines Team fachlich anleiten Ausmasse sauber und exakt erfassen Rapporte digital dokumentieren Kundschaft kompetent beraten und betreuen \n• Anforderungen Lehrabschluss als Gärtnerin oder Gärtner EFZ Mehrjährige Praxis im Gartenbau oder Tiefbau Führerausweis der Kategorien B und BE Kenntnisse im Umgang mit Maschinen und Geräten M1/M2 Baumaschinenführer/in rundet das Profil ab Angebot Gute Sozialleistungen Raum für berufliche Weiterbildung Eigenes Tablet für die tägliche Arbeit",
       "descriptionByLocale": {
         "de": "Tätigkeiten Neu- und Umbauprojekte planen und koordinieren Ein kleines Team fachlich anleiten Ausmasse sauber und exakt erfassen Rapporte digital dokumentieren Kundschaft kompetent beraten und betreuen \n• Anforderungen Lehrabschluss als Gärtnerin oder Gärtner EFZ Mehrjährige Praxis im Gartenbau oder Tiefbau Führerausweis der Kategorien B und BE Kenntnisse im Umgang mit Maschinen und Geräten M1/M2 Baumaschinenführer/in rundet das Profil ab Angebot Gute Sozialleistungen Raum für berufliche Weiterbildung Eigenes Tablet für die tägliche Arbeit",
-        "it": "Tätigkeiten Neu- und Umbauprojekte planen und koordinieren Ein kleines Team fachlich anleiten Ausmasse sauber und exakt erfassen Rapporte digital dokumentieren Kundschaft kompetent beraten und betreuen \n• Anforderungen Lehrabschluss als Gärtnerin oder Gärtner EFZ Mehrjährige Praxis im Gartenbau oder Tiefbau Führerausweis der Kategorien B und BE Kenntnisse im Umgang mit Maschinen und Geräten M1/M2 Baumaschinenführer/in rundet das Profil ab Angebot Gute Sozialleistungen Raum für berufliche Weiterbildung Eigenes Tablet für die tägliche Arbeit",
-        "en": "Tätigkeiten Neu- und Umbauprojekte planen und koordinieren Ein kleines Team fachlich anleiten Ausmasse sauber und exakt erfassen Rapporte digital dokumentieren Kundschaft kompetent beraten und betreuen \n• Anforderungen Lehrabschluss als Gärtnerin oder Gärtner EFZ Mehrjährige Praxis im Gartenbau oder Tiefbau Führerausweis der Kategorien B und BE Kenntnisse im Umgang mit Maschinen und Geräten M1/M2 Baumaschinenführer/in rundet das Profil ab Angebot Gute Sozialleistungen Raum für berufliche Weiterbildung Eigenes Tablet für die tägliche Arbeit",
-        "fr": "Tätigkeiten Neu- und Umbauprojekte planen und koordinieren Ein kleines Team fachlich anleiten Ausmasse sauber und exakt erfassen Rapporte digital dokumentieren Kundschaft kompetent beraten und betreuen \n• Anforderungen Lehrabschluss als Gärtnerin oder Gärtner EFZ Mehrjährige Praxis im Gartenbau oder Tiefbau Führerausweis der Kategorien B und BE Kenntnisse im Umgang mit Maschinen und Geräten M1/M2 Baumaschinenführer/in rundet das Profil ab Angebot Gute Sozialleistungen Raum für berufliche Weiterbildung Eigenes Tablet für die tägliche Arbeit"
+        "it": "Pianificazione e coordinamento di nuovi progetti di costruzione e conversione Un piccolo team guida professionalmente l'entità dei rapporti puliti e accuratamente registrati documentando digitalmente i clienti con competenza consigliare e sostenere\n• Requisiti per l'apprendistato come giardiniere EFZ Diversi anni di pratica nell'orticoltura o nell'ingegneria civile patente di guida di categorie B e BE Conoscenza nel trattare con macchine e attrezzature M1/M2 Operatore di macchine da costruzione / in giri fuori del profilo Offrire Buone prestazioni sociali Spazio per l'ulteriore formazione professionale Tablet proprio per il lavoro quotidiano",
+        "en": "Activities Planning and coordinating new construction and conversion projects A small team professionally guide the extent of clean and accurately recorded reports digitally documenting customers competently advise and support\n• Requirements for apprenticeship as a gardener EFZ Several years of practice in horticulture or civil engineering driving licence of categories B and BE Knowledge in dealing with machines and equipment M1/M2 Construction machine operator/in rounds off the profile Offer Good social benefits Space for professional further education Own tablet for daily work",
+        "fr": "Activités Planification et coordination de nouveaux projets de construction et de conversion Une petite équipe guide professionnellement l'étendue des rapports propres et correctement enregistrés documentant numériquement les clients avec compétence conseiller et soutenir\n• Exigences d'apprentissage en tant que jardinier EFZ Plusieurs années d'exercice en horticulture ou en génie civil permis de conduire des catégories B et BE Connaissances dans le traitement des machines et des équipements M1/M2 Constructeur de machines/in arrondit le profil Offre Bons avantages sociaux Espace pour la formation continue professionnelle"
       },
       "location": "Muri AG, Aargau",
       "canton": "AG",
@@ -193571,7 +193537,6 @@
           "jardinier-contremaitres-ayant-une-experience-de-leadership-fachkraft-ch-gmbh-muri-ag-aargau"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -205401,7 +205366,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:41:03.051Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -208720,15 +208684,15 @@
       "titleByLocale": {
         "de": "Elektroinstallateur/inf ür Bahnverkehr mit Zusatzfunktion als Lokführer",
         "it": "Installatore/trice elettrico/a/inf ür Bahnverkehr con Zusatzfunktion come Lokführer",
-        "en": "Elektroinstallateur/inf ür Bahnverkehr mit Zusatzfunktion als Lokführer",
-        "fr": "Elektroinstallateur/inf ür Bahnverkehr mit Zusatzfunktion als Lokführer"
+        "en": "Electrical installer/inf ür rail transport with additional function as train driver",
+        "fr": "Installateur électrique/transport ferroviaire Inf ür avec fonction supplémentaire de conducteur de train"
       },
       "description": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
       "descriptionByLocale": {
         "de": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
-        "it": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
-        "en": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
-        "fr": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse"
+        "it": "Manutenzione e riparazione di veicoli storici e moderni Ispezione e manutenzione regolare dei veicoli I piccoli progetti implementano in modo indipendente le assegnazioni degli ospiti come driver di treno\n• Requisiti Completato l'apprendistato come tecnico automatico, elettricista, installatore elettrico o formazione equivalente La disponibilità per il lavoro se richiesto in Vitznau Molto buone competenze tedesche Conoscenza di base in inglese Metodo di lavoro esatto e auto-responsabile Offrire un'area versatile di responsabilità in una società turistica Supporto nello sviluppo professionale Free GA 2. Categoria",
+        "en": "Maintenance and repair work on historic and modern vehicles Inspecting and regularly maintaining vehicles Smaller projects independently implement guest assignments as train driver\n• Requirements Completed apprenticeship as an automatic technician, electrician, electric installer or equivalent training Readiness for work if required in Vitznau Very good German skills Basic knowledge in English Exact and self-responsible working method Offer versatile area of responsibility in a tourist company Support in professional development Free GA 2. Category",
+        "fr": "Travaux d'entretien et de réparation de véhicules historiques et modernes Inspection et entretien régulier de véhicules Projets de moindre envergure\n• Exigences Apprentissage terminé en tant que technicien automatique, électricien, installateur électrique ou formation équivalente Préparation au travail si nécessaire en Vitznau Très bonne compétence allemande Connaissance de base en anglais Méthode de travail exacte et auto-responsable Offrez une zone de responsabilité polyvalente dans une entreprise touristique Soutien au développement professionnel Gratuit GA 2. Catégorie"
       },
       "location": "Schwyz, Schwyz",
       "canton": "SZ",
@@ -210320,8 +210284,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-15a73e75d0ce",
@@ -225734,16 +225697,16 @@
       "title": "Elektroinstallateur/in für Stark- und Schwachstrominstallationen",
       "titleByLocale": {
         "de": "Elektroinstallateur/in für Stark- und Schwachstrominstallationen",
-        "it": "Installatore/trice elettrico/a/in per Stark- e Schwachstrominstallationen",
-        "en": "Electrical Installer für Stark- und Schwachstrominstallationen",
-        "fr": "Installateur/trice électricien/ne für Stark- und Schwachstrominstallationen"
+        "it": "Installatore elettrico per installazioni ad alta e bassa corrente",
+        "en": "Electrical installer for high and low current installations",
+        "fr": "Installateur électrique pour installations à haut et à bas courant"
       },
       "description": "Tätigkeiten Stark- und Schwachstrominstallationen bei Privat- Industriekunden Neubau und Umbauten Service- und Unterhaltsarbeiten \n• Anforderungen Lehre als Elektroinstallateur abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
       "descriptionByLocale": {
         "de": "Tätigkeiten Stark- und Schwachstrominstallationen bei Privat- Industriekunden Neubau und Umbauten Service- und Unterhaltsarbeiten \n• Anforderungen Lehre als Elektroinstallateur abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "it": "Tätigkeiten Stark- und Schwachstrominstallationen bei Privat- Industriekunden Neubau und Umbauten Service- und Unterhaltsarbeiten \n• Anforderungen Lehre als Elektroinstallateur abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "en": "Tätigkeiten Stark- und Schwachstrominstallationen bei Privat- Industriekunden Neubau und Umbauten Service- und Unterhaltsarbeiten \n• Anforderungen Lehre als Elektroinstallateur abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "fr": "Tätigkeiten Stark- und Schwachstrominstallationen bei Privat- Industriekunden Neubau und Umbauten Service- und Unterhaltsarbeiten \n• Anforderungen Lehre als Elektroinstallateur abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn."
+        "it": "Impianti ad alta e bassa corrente per clienti privati-industriali di nuovi edifici e conversioni Lavori di manutenzione\n• Requisiti di insegnamento completati come installatore elettrico Esperienza di settore approfondita Metodo di lavoro Esatto e inoltro L'aspetto amichevole del cliente Gioia e l'interesse per la professione Offerta Attendere con ansia un'attività versatile e impegnativa. Essi godono di un ottimo salario orario.",
+        "en": "High- and low-current installations for private-industrial customers of new buildings and conversions Service and maintenance work\n• Teaching requirements completed as an electrical installer In-depth industry experience Exact and forwarding work method Customer-friendly appearance Joy and interest in the profession Offer Look forward to a versatile and challenging activity. They enjoy a very good hourly wage.",
+        "fr": "Installations à courant élevé et à courant faible pour les clients privés et industriels de nouveaux bâtiments et conversions Travaux de service et d'entretien\n• Besoins d'enseignement complétés en tant qu'installateur électrique Expérience industrielle approfondie Méthode de travail exacte et d'envoi Aspect convivial pour la clientèle Joy et intérêt pour la profession Offre Vous avez envie d'une activité polyvalente et stimulante. Ils bénéficient d'un très bon salaire horaire."
       },
       "location": "Winterthur, Zürich",
       "canton": "ZH",
@@ -225794,7 +225757,6 @@
           "installation-electrique-pour-installations-a-haut-et-a-faible-courant-fachkraft-ch-gmbh-winterthur-zurich"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -228040,16 +228002,16 @@
       "title": "Elektroinstallateur/in für Produktionsanlagen und Instandhaltung",
       "titleByLocale": {
         "de": "Elektroinstallateur/in für Produktionsanlagen und Instandhaltung",
-        "it": "Installatore/trice elettrico/a/in per Produktionsanlagen e Instandhaltung",
-        "en": "Electrical Installer für Produktionsanlagen und Instandhaltung",
-        "fr": "Installateur/trice électricien/ne für Produktionsanlagen und Instandhaltung"
+        "it": "Installatore elettrico per impianti di produzione e manutenzione",
+        "en": "Electrical installer for production facilities and maintenance",
+        "fr": "Installation électrique pour installations de production et entretien"
       },
       "description": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
       "descriptionByLocale": {
         "de": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
-        "it": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
-        "en": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten",
-        "fr": "Tätigkeiten Störungen an Produktionsanlagen und betrieblichen Einrichtungen beheben Instandhaltungsarbeiten entsprechend dem Wartungsplan ausführen Neue Anlagen von der Beschaffung bis zur Inbetriebnahme begleiten Prozesse, Anlagen und Ersatzteilverwaltung aktiv optimieren Turnusgemässen Pikettdienst an Wochenenden leisten \n• Anforderungen Abgeschlossene Ausbildung im mechanischen Bereich oder HLKS-Beruf mit EFZ Selbständige, verlässliche und teamorientierte Arbeitsweise Ausgeprägte Dienstleistungsorientierung und gute körperliche Belastbarkeit Sehr gute Deutschkenntnisse mündlich und schriftlich Fundierte Kenntnisse im Umgang mit MS Office Anwendungen Angebot Vielfältige Herausforderungen in einem modernen, hochautomatisierten Arbeitsumfeld Innovative Unternehmenskultur mit flachen Hierarchien und kurzen Entscheidungswegen Attraktive interne und externe Weiterbildungsmöglichkeiten"
+        "it": "Attività Disturbi presso impianti di produzione e impianti operativi risolvono lavori di manutenzione effettuati secondo il piano di manutenzione Nuovi impianti da approvvigionamento a commissionare processi di accompagnamento, impianti e parti di ricambio gestione attivamente ottimizzare il servizio turnaround nei fine settimana\n• Formazione completa nel settore meccanico o nella professione HLKS con EFZ Self-Employed, affidabile e metodo di lavoro orientato al team Forte orientamento del servizio e buona resilienza fisica Molto buona conoscenza del tedesco per via orale e per iscritto Conoscenza approfondita nel trattare le applicazioni MS Office Varie sfide in un ambiente di lavoro moderno e altamente automatizzato Cultura aziendale innovativa con gerarchie piatte e brevi processi decisionali",
+        "en": "Activities Disruptions at production plants and operational facilities resolve maintenance work carried out according to the maintenance plan New plants from procurement to commissioning accompanying processes, plants and spare parts management actively optimize turnaround service on weekends\n• Requirements Completed training in the mechanical sector or HLKS profession with EFZ Self-Employed, reliable and team-oriented working method Strong service orientation and good physical resilience Very good knowledge of German orally and in writing In-depth knowledge in dealing with MS Office applications Various challenges in a modern, highly automated working environment Innovative corporate culture with flat hierarchies and short decision-making Attractive internal and external training opportunities",
+        "fr": "Activités Les perturbations dans les usines de production et les installations opérationnelles résolvent les travaux d'entretien effectués conformément au plan d'entretien Les nouvelles usines, depuis l'approvisionnement jusqu'à la mise en service des procédés d'accompagnement, des usines et de la gestion des pièces détachées, optimisent activement le service de redressement le week-end\n• Exigences Formation complète dans le secteur mécanique ou la profession HLKS avec EFZ Méthode de travail indépendante, fiable et axée sur l'équipe Orientation forte du service et bonne résilience physique Très bonne connaissance de l'allemand oralement et par écrit Connaissance approfondie dans le traitement des applications MS Office Divers défis dans un environnement de travail moderne et hautement automatisé Culture d'entreprise innovante avec hiérarchies plates et courte prise de décision Possibilités de formation internes et externes attractives"
       },
       "location": "Hochdorf, Luzern",
       "canton": "LU",
@@ -228074,7 +228036,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-produktionsanlagen-und-instandhaltung-hochdorf-luzern-fachkraft"
@@ -229723,15 +229684,15 @@
       "titleByLocale": {
         "de": "Elektroinstallateur/in für Neu- und Umbauten",
         "it": "Installatore/trice elettrico/a/in per Neu- e Umbauten",
-        "en": "Electrical Installer für Neu- und Umbauten",
-        "fr": "Installateur/trice électricien/ne für Neu- und Umbauten"
+        "en": "Electrical installer for new and altered buildings",
+        "fr": "Installation électrique pour bâtiments neufs ou modifiés"
       },
       "description": "Tätigkeiten Elektrische Klein- und Niederspannungsinstallationen in Neu- und Umbauten umsetzen Arbeiten in Wohn-, Gewerbe- und Industriebauten ausführen Telekommunikationsinstallationen fachgerecht montieren Reparatur- und Serviceeinsätze inklusive AVOR und Rapportierung übernehmen \n• Anforderungen Lehrabschluss als Elektroinstallateur/in Einige Jahre Berufserfahrung zählen als Pluspunkt Ausgeprägtes Organisationstalent im Arbeitsalltag Ordnung und Sauberkeit auf der Baustelle sind wichtig Sehr selbständige, pflichtbewusste und verlässliche Arbeitsweise Angebot Kurze Entscheidungswege im Betrieb Möglichkeiten zur fachlichen Weiterentwicklung Vergünstigungen bei verschiedenen Unternehmen",
       "descriptionByLocale": {
         "de": "Tätigkeiten Elektrische Klein- und Niederspannungsinstallationen in Neu- und Umbauten umsetzen Arbeiten in Wohn-, Gewerbe- und Industriebauten ausführen Telekommunikationsinstallationen fachgerecht montieren Reparatur- und Serviceeinsätze inklusive AVOR und Rapportierung übernehmen \n• Anforderungen Lehrabschluss als Elektroinstallateur/in Einige Jahre Berufserfahrung zählen als Pluspunkt Ausgeprägtes Organisationstalent im Arbeitsalltag Ordnung und Sauberkeit auf der Baustelle sind wichtig Sehr selbständige, pflichtbewusste und verlässliche Arbeitsweise Angebot Kurze Entscheidungswege im Betrieb Möglichkeiten zur fachlichen Weiterentwicklung Vergünstigungen bei verschiedenen Unternehmen",
-        "it": "Tätigkeiten Elektrische Klein- und Niederspannungsinstallationen in Neu- und Umbauten umsetzen Arbeiten in Wohn-, Gewerbe- und Industriebauten ausführen Telekommunikationsinstallationen fachgerecht montieren Reparatur- und Serviceeinsätze inklusive AVOR und Rapportierung übernehmen \n• Anforderungen Lehrabschluss als Elektroinstallateur/in Einige Jahre Berufserfahrung zählen als Pluspunkt Ausgeprägtes Organisationstalent im Arbeitsalltag Ordnung und Sauberkeit auf der Baustelle sind wichtig Sehr selbständige, pflichtbewusste und verlässliche Arbeitsweise Angebot Kurze Entscheidungswege im Betrieb Möglichkeiten zur fachlichen Weiterentwicklung Vergünstigungen bei verschiedenen Unternehmen",
-        "en": "Tätigkeiten Elektrische Klein- und Niederspannungsinstallationen in Neu- und Umbauten umsetzen Arbeiten in Wohn-, Gewerbe- und Industriebauten ausführen Telekommunikationsinstallationen fachgerecht montieren Reparatur- und Serviceeinsätze inklusive AVOR und Rapportierung übernehmen \n• Anforderungen Lehrabschluss als Elektroinstallateur/in Einige Jahre Berufserfahrung zählen als Pluspunkt Ausgeprägtes Organisationstalent im Arbeitsalltag Ordnung und Sauberkeit auf der Baustelle sind wichtig Sehr selbständige, pflichtbewusste und verlässliche Arbeitsweise Angebot Kurze Entscheidungswege im Betrieb Möglichkeiten zur fachlichen Weiterentwicklung Vergünstigungen bei verschiedenen Unternehmen",
-        "fr": "Tätigkeiten Elektrische Klein- und Niederspannungsinstallationen in Neu- und Umbauten umsetzen Arbeiten in Wohn-, Gewerbe- und Industriebauten ausführen Telekommunikationsinstallationen fachgerecht montieren Reparatur- und Serviceeinsätze inklusive AVOR und Rapportierung übernehmen \n• Anforderungen Lehrabschluss als Elektroinstallateur/in Einige Jahre Berufserfahrung zählen als Pluspunkt Ausgeprägtes Organisationstalent im Arbeitsalltag Ordnung und Sauberkeit auf der Baustelle sind wichtig Sehr selbständige, pflichtbewusste und verlässliche Arbeitsweise Angebot Kurze Entscheidungswege im Betrieb Möglichkeiten zur fachlichen Weiterentwicklung Vergünstigungen bei verschiedenen Unternehmen"
+        "it": "AttivitÃ Impianti elettrici di piccole e basse tensioni in nuovi e conversioni implementano opere in edifici residenziali, commerciali e industriali realizzano impianti di telecomunicazione assemblano professionalmente missioni di riparazione e di servizio, tra cui AVOR e report\n• Requisiti Grado di apprendistato come installatore elettrico / Alcuni anni di esperienza professionale contare come un punto più Forte talento organizzativo nell'ordine di lavoro quotidiano e pulizia sul cantiere sono importanti Molto indipendente, dutioso e affidabile metodo di lavoro Offrire percorsi decisionali brevi nella società Opportunità per lo sviluppo professionale Vantaggi a varie aziende",
+        "en": "Activities Electrical small and low-voltage installations in new and conversions implement works in residential, commercial and industrial buildings carry out telecommunications installations professionally assemble repair and service missions including AVOR and report\n• Requirements Apprenticeship degree as an electrical installer / Some years of professional experience count as a plus point Strong organizational talent in everyday work order and cleanliness on the construction site are important Very independent, dutiful and reliable working method Offer Short decision paths in the company Opportunities for professional development Benefits at various companies",
+        "fr": "Activités Installations électriques de petite et basse tension dans les nouveaux bâtiments et conversions\n• Exigences Diplôme d'apprentissage en tant qu'installateur électrique / Certaines années d'expérience professionnelle comptent comme un point plus Fort talent organisationnel dans l'ordre de travail quotidien et la propreté sur le chantier sont importantes Très indépendante, digne et fiable méthode de travail Offre Courts chemins de décision dans l'entreprise Possibilités de développement professionnel Avantages dans diverses entreprises"
       },
       "location": "Zürich, Zürich",
       "canton": "ZH",
@@ -229821,7 +229782,6 @@
           "installation-electrique-pour-batiments-neufs-ou-modifies-fachkraft-ch-gmbh-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -235740,16 +235700,16 @@
       "title": "Elektroinstallateur/in (Servicemonteur/in)",
       "titleByLocale": {
         "de": "Elektroinstallateur/in (Servicemonteur/in)",
-        "it": "Installatore/trice elettrico/a/in (Servicemonteur/in)",
-        "en": "Electrical Installer (Servicemonteur/in)",
-        "fr": "Installateur/trice électricien/ne (Servicemonteur/in)"
+        "it": "Installatore elettrico (installatore di servizio)",
+        "en": "Electrical installer (service installer)",
+        "fr": "Installateur électrique (installateur de service)"
       },
       "description": "Tätigkeiten Wartungsarbeiten an bestehenden Elektroinstallationen ausführen Defekte Anlagen und Installationen fachgerecht instand setzen Geräte, Anlagen und Beleuchtungssysteme montieren und in Betrieb nehmen Störungen direkt vor Ort eingrenzen und beheben \n• Anforderungen Abgeschlossene Lehre als Elektroinstallateurin oder Elektroinstallateur Freude an direktem Kontakt mit der Kundschaft Selbstständige Arbeitsweise im Berufsalltag Führerausweis Kategorie B vorhanden Zuverlässiges und gut organisiertes Arbeiten Angebot Vielseitiges Aufgabengebiet im Service und in der Installation Raum für persönliche und fachliche Entwicklung Einsatz in zukunftsorientierten Elektro und Energielösungen",
       "descriptionByLocale": {
         "de": "Tätigkeiten Wartungsarbeiten an bestehenden Elektroinstallationen ausführen Defekte Anlagen und Installationen fachgerecht instand setzen Geräte, Anlagen und Beleuchtungssysteme montieren und in Betrieb nehmen Störungen direkt vor Ort eingrenzen und beheben \n• Anforderungen Abgeschlossene Lehre als Elektroinstallateurin oder Elektroinstallateur Freude an direktem Kontakt mit der Kundschaft Selbstständige Arbeitsweise im Berufsalltag Führerausweis Kategorie B vorhanden Zuverlässiges und gut organisiertes Arbeiten Angebot Vielseitiges Aufgabengebiet im Service und in der Installation Raum für persönliche und fachliche Entwicklung Einsatz in zukunftsorientierten Elektro und Energielösungen",
-        "it": "Tätigkeiten Wartungsarbeiten an bestehenden Elektroinstallationen ausführen Defekte Anlagen und Installationen fachgerecht instand setzen Geräte, Anlagen und Beleuchtungssysteme montieren und in Betrieb nehmen Störungen direkt vor Ort eingrenzen und beheben \n• Anforderungen Abgeschlossene Lehre als Elektroinstallateurin oder Elektroinstallateur Freude an direktem Kontakt mit der Kundschaft Selbstständige Arbeitsweise im Berufsalltag Führerausweis Kategorie B vorhanden Zuverlässiges und gut organisiertes Arbeiten Angebot Vielseitiges Aufgabengebiet im Service und in der Installation Raum für persönliche und fachliche Entwicklung Einsatz in zukunftsorientierten Elektro und Energielösungen",
-        "en": "Tätigkeiten Wartungsarbeiten an bestehenden Elektroinstallationen ausführen Defekte Anlagen und Installationen fachgerecht instand setzen Geräte, Anlagen und Beleuchtungssysteme montieren und in Betrieb nehmen Störungen direkt vor Ort eingrenzen und beheben \n• Anforderungen Abgeschlossene Lehre als Elektroinstallateurin oder Elektroinstallateur Freude an direktem Kontakt mit der Kundschaft Selbstständige Arbeitsweise im Berufsalltag Führerausweis Kategorie B vorhanden Zuverlässiges und gut organisiertes Arbeiten Angebot Vielseitiges Aufgabengebiet im Service und in der Installation Raum für persönliche und fachliche Entwicklung Einsatz in zukunftsorientierten Elektro und Energielösungen",
-        "fr": "Tätigkeiten Wartungsarbeiten an bestehenden Elektroinstallationen ausführen Defekte Anlagen und Installationen fachgerecht instand setzen Geräte, Anlagen und Beleuchtungssysteme montieren und in Betrieb nehmen Störungen direkt vor Ort eingrenzen und beheben \n• Anforderungen Abgeschlossene Lehre als Elektroinstallateurin oder Elektroinstallateur Freude an direktem Kontakt mit der Kundschaft Selbstständige Arbeitsweise im Berufsalltag Führerausweis Kategorie B vorhanden Zuverlässiges und gut organisiertes Arbeiten Angebot Vielseitiges Aufgabengebiet im Service und in der Installation Raum für persönliche und fachliche Entwicklung Einsatz in zukunftsorientierten Elektro und Energielösungen"
+        "it": "I lavori di manutenzione sugli impianti elettrici esistenti effettuano apparecchiature e impianti difettosi professionalmente riparano attrezzature, attrezzature e sistemi di illuminazione assemblano e mettono in funzione malfunzionamenti direttamente sul sito\n• Requisiti Apprendistato completo come installatore elettrico Delight in contatto diretto con il cliente Metodo di lavoro autonomo nella categoria di patente di guida di lavoro di tutti i giorni B disponibile Offerta di lavoro affidabile e ben organizzato Vari compiti in servizio e spazio di installazione per uso personale e professionale di sviluppo in soluzioni elettriche ed energetiche orientate al futuro",
+        "en": "Activities Maintenance work on existing electrical installations carry out defective equipment and installations professionally repair equipment, equipment and lighting systems assemble and put into operation malfunctions directly on site\n• Requirements Completed apprenticeship as an electrical installer Delight in direct contact with the customer Self-employed working method in everyday work driving licence category B available Reliable and well-organized working offer Various tasks in service and installation space for personal and professional development use in future-oriented electrical and energy solutions",
+        "fr": "Activités Travaux d'entretien d'installations électriques existantes effectuent des réparations professionnelles de l'équipement, de l'équipement et des systèmes d'éclairage défectueux assemblent et mettent en service des dysfonctionnements directement sur place\n• Exigences Apprentissage terminé en tant qu'installateur électrique Delight en contact direct avec le client Méthode de travail indépendante dans la catégorie B du permis de travail de tous les jours disponible Offre de travail fiable et bien organisée Diverses tâches dans l'espace de service et d'installation pour un développement personnel et professionnel dans des solutions électriques et énergétiques orientées vers l'avenir"
       },
       "location": "Zürich, Zürich",
       "canton": "ZH",
@@ -235817,7 +235777,6 @@
           "installateur-electrique-installateur-de-service-fachkraft-ch-gmbh-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -235891,7 +235850,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:44:01.008Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -237235,7 +237193,6 @@
         "installatore-trice-elettrico-a-in-teamleiter-in-per-industrieanlagen-con-fuhrungskompetenz-fachkraft-ch-gmbh-lugano"
       ],
       "firstSeenAt": "2026-08-27T00:43:56.475Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -242543,16 +242500,16 @@
       "title": "Automobil-Mechatroniker/in für Reparatur und Wartung",
       "titleByLocale": {
         "de": "Automobil-Mechatroniker/in für Reparatur und Wartung",
-        "it": "Automobil-Mechatroniker/in per Reparatur e Wartung",
-        "en": "Automobil-Mechatroniker/in für Reparatur und Wartung",
-        "fr": "Automobil-Mechatroniker/in für Reparatur und Wartung"
+        "it": "Automotive meccatronica specialista per la riparazione e la manutenzione",
+        "en": "Automotive mechatronics specialist for repair and maintenance",
+        "fr": "Spécialiste mécatronique automobile pour la réparation et l'entretien"
       },
       "description": "Tätigkeiten Durchführung von Reparatur- und Wartungsarbeiten an Fahrzeugen unterschiedlichster Marken und Modelle, Diagnose und Fehlerbehebung, Installation und Konfiguration von Zubehör und Zusatzausrüstungen, MFK-Bereitstellung, Radwechsel usw. \n• Anforderungen Ausbildung als Automobil-Mechatroniker Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot \n• Wir bieten Ihnen eine interessante, abwechslungsreiche Aufgabe in einem dynamischen Betrieb. Hohe Selbständigkeit, Eigenverantwortung und attraktive Anstellungsbedingungen gehören dazu.",
       "descriptionByLocale": {
         "de": "Tätigkeiten Durchführung von Reparatur- und Wartungsarbeiten an Fahrzeugen unterschiedlichster Marken und Modelle, Diagnose und Fehlerbehebung, Installation und Konfiguration von Zubehör und Zusatzausrüstungen, MFK-Bereitstellung, Radwechsel usw. \n• Anforderungen Ausbildung als Automobil-Mechatroniker Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot \n• Wir bieten Ihnen eine interessante, abwechslungsreiche Aufgabe in einem dynamischen Betrieb. Hohe Selbständigkeit, Eigenverantwortung und attraktive Anstellungsbedingungen gehören dazu.",
-        "it": "Tätigkeiten Durchführung von Reparatur- und Wartungsarbeiten an Fahrzeugen unterschiedlichster Marken und Modelle, Diagnose und Fehlerbehebung, Installation und Konfiguration von Zubehör und Zusatzausrüstungen, MFK-Bereitstellung, Radwechsel usw. \n• Anforderungen Ausbildung als Automobil-Mechatroniker Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot \n• Wir bieten Ihnen eine interessante, abwechslungsreiche Aufgabe in einem dynamischen Betrieb. Hohe Selbständigkeit, Eigenverantwortung und attraktive Anstellungsbedingungen gehören dazu.",
-        "en": "Tätigkeiten Durchführung von Reparatur- und Wartungsarbeiten an Fahrzeugen unterschiedlichster Marken und Modelle, Diagnose und Fehlerbehebung, Installation und Konfiguration von Zubehör und Zusatzausrüstungen, MFK-Bereitstellung, Radwechsel usw. \n• Anforderungen Ausbildung als Automobil-Mechatroniker Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot \n• Wir bieten Ihnen eine interessante, abwechslungsreiche Aufgabe in einem dynamischen Betrieb. Hohe Selbständigkeit, Eigenverantwortung und attraktive Anstellungsbedingungen gehören dazu.",
-        "fr": "Tätigkeiten Durchführung von Reparatur- und Wartungsarbeiten an Fahrzeugen unterschiedlichster Marken und Modelle, Diagnose und Fehlerbehebung, Installation und Konfiguration von Zubehör und Zusatzausrüstungen, MFK-Bereitstellung, Radwechsel usw. \n• Anforderungen Ausbildung als Automobil-Mechatroniker Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot \n• Wir bieten Ihnen eine interessante, abwechslungsreiche Aufgabe in einem dynamischen Betrieb. Hohe Selbständigkeit, Eigenverantwortung und attraktive Anstellungsbedingungen gehören dazu."
+        "it": "Attività che effettuano lavori di riparazione e manutenzione su veicoli di diverse marche e modelli, diagnosi e risoluzione dei problemi, installazione e configurazione di accessori e attrezzature accessorie, fornitura MFRP, modifiche della ruota, ecc.\n• Requisiti Formazione come meccatronica automobilistica pratica professionale versatile e di lunga durata Metodi di lavoro efficienti e indipendenti\n• Vi offriamo un compito interessante e vario in un'operazione dinamica. Ciò include alti livelli di lavoro autonomo, responsabilità personale e condizioni di lavoro attraenti.",
+        "en": "Activities carrying out repair and maintenance work on vehicles of different brands and models, diagnosis and troubleshooting, installation and configuration of accessories and ancillary equipment, MFRP provision, wheel changes, etc.\n• Requirements Training as automotive mechatronics versatile and long-standing professional practice Efficient and independent working methods Personality Teamplayer Offer\n• We offer you an interesting, varied task in a dynamic operation. This includes high levels of self-employment, personal responsibility and attractive employment conditions.",
+        "fr": "Activités de réparation et d'entretien de véhicules de différentes marques et modèles, diagnostic et dépannage, installation et configuration d'accessoires et d'équipements auxiliaires, fourniture de MFRP, changement de roue, etc.\n• Exigences Formation en mécatronique automobile pratique professionnelle polyvalente et de longue date Méthodes de travail efficaces et indépendantes Personnalité Teamplayer Offre\n• Nous vous proposons une tâche intéressante et variée dans une opération dynamique. Cela comprend des niveaux élevés de travail indépendant, de responsabilité personnelle et de conditions d'emploi attrayantes."
       },
       "location": "Luzern, Luzern",
       "canton": "LU",
@@ -242577,7 +242534,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobil-mechatroniker-in-fur-reparatur-und-wartung-luzern-luzern-fachkraft-ch"
@@ -243135,16 +243091,16 @@
       "title": "Automobil-Mechatroniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
       "titleByLocale": {
         "de": "Automobil-Mechatroniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
-        "it": "Automobil-Mechatroniker/in per Bahnverkehr con Zusatzfunktion come Lokführer",
-        "en": "Automobil-Mechatroniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
-        "fr": "Automobil-Mechatroniker/in für Bahnverkehr mit Zusatzfunktion als Lokführer"
+        "it": "Meccatronica automobilistica ingegnere per il trasporto ferroviario con una funzione aggiuntiva come driver del treno",
+        "en": "Automotive mechatronics engineer for rail transport with an additional function as train driver",
+        "fr": "Ingénieur mécatronique automobile pour le transport ferroviaire avec une fonction supplémentaire comme conducteur de train"
       },
       "description": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
       "descriptionByLocale": {
         "de": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
-        "it": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
-        "en": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse",
-        "fr": "Tätigkeiten Wartungs- und Reparaturarbeiten an historischen und modernen Fahrzeugen ausführen Fahrzeuge regelmässig prüfen und instand halten Gäste im Einsatz als Lokführerin oder Lokführer begleiten \n• Anforderungen Abschluss im mechanischen oder elektromechanischen Bereich wie Seilbahnmechatronikerin oder Seilbahnmechatroniker, Landmaschinen- oder Baumaschinenmechanikerin oder Baumaschinenmechaniker, Automobil-Mechatronikerin oder Automobil-Mechatroniker, Polymechanikerin oder Polymechaniker Bereitschaft für Einsätze bei Bedarf in Goldau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Selbstständige Arbeitsweise mit hoher Eigenverantwortung Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Gratis GA 2. Klasse"
+        "it": "Attività Manutenzione e riparazione di veicoli storici e moderni effettuano regolarmente i veicoli ispezionare e mantenere gli ospiti in servizio come autista del treno accompagnano\n• Requisiti Complezione nel campo meccanico o elettromeccanico come tecnico della funivia meccatronica, macchine agricole o macchinari per la costruzione meccanica o macchinari per la costruzione meccanica, tecnico della meccatronica automobilistica o tecnico della meccatronica automobilistica, polimeccanica o polimeccanica Prontezza per l'uso se richiesto in Goldau Molto buone competenze tedesche Metodi di lavoro di base con un alto livello di responsabilità personale Offri un campo versatile di responsabilità in una società turistica Supporto nello sviluppo professionale Free GA 2. Categoria",
+        "en": "Activities Maintenance and repair work on historic and modern vehicles carry out vehicles regularly inspect and maintain guests on duty as train driver accompany\n• Requirements Completion in the mechanical or electromechanical field such as ropeway mechatronics technician, agricultural machinery or construction machinery mechanic or construction machinery mechanic, automotive mechatronics technician or automotive mechatronics technician, polymechanic or polymechanic Readiness for use if required in Goldau Very good German skills Basic working methods with a high level of personal responsibility Offer versatile field of responsibility in a tourist company Support in the professional development Free GA 2. Category",
+        "fr": "Activités Entretien et réparation de véhicules historiques et modernes\n• Exigences Achèvement dans le domaine mécanique ou électromécanique tel que technicien en mécatronique à câbles, machines agricoles ou machines de construction mécanicien ou mécanicien de machines de construction, technicien en mécatronique automobile ou technicien en mécatronique automobile, polymécanique ou polymécanique Préparation à l'emploi si requis en Goldau Très bonnes compétences allemandes Méthodes de travail de base avec un haut niveau de responsabilité personnelle Offrir un champ de responsabilité polyvalent dans une entreprise touristique Soutien dans le développement professionnel Free GA 2. Catégorie"
       },
       "location": "Küssnacht am Rigi, Schwyz",
       "canton": "SZ",
@@ -243169,7 +243125,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobil-mechatroniker-in-fur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-kussnacht-am"
@@ -244282,7 +244237,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:43:27.474Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -245366,7 +245320,7 @@
       "title": "Automatikmonteur/in mit Elektrotechnik und Software-Kompetenz",
       "titleByLocale": {
         "it": "Fitter automatico con ingegneria elettrica e competenze software",
-        "en": "Automatikmonteur/in mit Elektrotechnik und Software-Kompetenz",
+        "en": "Automatic fitter with electrical engineering and software expertise",
         "de": "Automatikmonteur/in mit Elektrotechnik und Software-Kompetenz",
         "fr": "Installation automatique avec génie électrique et expertise logicielle"
       },
@@ -245428,7 +245382,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:43:22.940Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -247926,7 +247879,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:43:15.690Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -248354,7 +248306,6 @@
         "automatiker-in-con-softwareunterstutzung-e-schnittstellenintegration-fachkraft-ch-gmbh-lugano"
       ],
       "firstSeenAt": "2026-08-27T00:43:13.878Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -251168,7 +251119,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T14:06:38.907Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -256833,16 +256783,16 @@
       "title": "Automatiker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
       "titleByLocale": {
         "de": "Automatiker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
-        "it": "Automatiker/in per Bahnverkehr con Zusatzfunktion come Lokführer",
-        "en": "Automatiker/in für Bahnverkehr mit Zusatzfunktion als Lokführer",
-        "fr": "Automatiker/in für Bahnverkehr mit Zusatzfunktion als Lokführer"
+        "it": "Operatore automatico del treno con una funzione aggiuntiva come driver del treno",
+        "en": "Automatic train operator with an additional function as train driver",
+        "fr": "Opérateur automatique de train avec une fonction supplémentaire en tant que conducteur de train"
       },
       "description": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
       "descriptionByLocale": {
         "de": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
-        "it": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
-        "en": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse",
-        "fr": "Tätigkeiten Unterhalts- und Instandsetzungsarbeiten an historischen und modernen Fahrzeugen Fahrzeuge prüfen und regelmässig warten Bei umfangreichen Vorhaben mitarbeiten Kleinere Projekte eigenständig umsetzen Gästeeinsätze als Lokführerin oder Lokführer begleiten \n• Anforderungen Abgeschlossene Lehre als Automatiker, Elektriker, Elektromonteur oder gleichwertige Ausbildung Einsatzbereitschaft für Arbeiten bei Bedarf in Vitznau Sehr gute Deutschkenntnisse Grundkenntnisse in Englisch Exakte und eigenverantwortliche Arbeitsweise Angebot Vielseitiges Aufgabengebiet in einem touristischen Betrieb Unterstützung bei der fachlichen Weiterentwicklung Kostenloses GA 2. Klasse"
+        "it": "Manutenzione e riparazione di veicoli storici e moderni Ispezione e manutenzione regolare dei veicoli I piccoli progetti implementano in modo indipendente le assegnazioni degli ospiti come driver di treno\n• Requisiti Completato l'apprendistato come tecnico automatico, elettricista, installatore elettrico o formazione equivalente La disponibilità per il lavoro se richiesto in Vitznau Molto buone competenze tedesche Conoscenza di base in inglese Metodo di lavoro esatto e auto-responsabile Offrire un'area versatile di responsabilità in una società turistica Supporto nello sviluppo professionale Free GA 2. Categoria",
+        "en": "Maintenance and repair work on historic and modern vehicles Inspecting and regularly maintaining vehicles Smaller projects independently implement guest assignments as train driver\n• Requirements Completed apprenticeship as an automatic technician, electrician, electric installer or equivalent training Readiness for work if required in Vitznau Very good German skills Basic knowledge in English Exact and self-responsible working method Offer versatile area of responsibility in a tourist company Support in professional development Free GA 2. Category",
+        "fr": "Travaux d'entretien et de réparation de véhicules historiques et modernes Inspection et entretien régulier de véhicules Projets de moindre envergure\n• Exigences Apprentissage terminé en tant que technicien automatique, électricien, installateur électrique ou formation équivalente Préparation au travail si nécessaire en Vitznau Très bonne compétence allemande Connaissance de base en anglais Méthode de travail exacte et auto-responsable Offrez une zone de responsabilité polyvalente dans une entreprise touristique Soutien au développement professionnel Gratuit GA 2. Catégorie"
       },
       "location": "Schwyz, Schwyz",
       "canton": "SZ",
@@ -256867,7 +256817,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-fur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-schwyz-schwyz-fachkraft-ch"
@@ -258689,7 +258638,6 @@
         "automatico-wiring-fachkraft-ch-gmbh-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-27T00:42:39.129Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -258986,7 +258934,7 @@
       "title": "Automatiker/in (Betriebsunterhalt)",
       "titleByLocale": {
         "it": "Operatore automatico (manutenzione operativa)",
-        "en": "Automatiker/in (Betriebsunterhalt)",
+        "en": "Automatic operator (operating maintenance)",
         "de": "Automatiker/in (Betriebsunterhalt)",
         "fr": "Opérateur automatique (entretien d'exploitation)"
       },
@@ -259053,8 +259001,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-3e9092ea6676",
@@ -259228,7 +259175,7 @@
       "title": "Automatiker/in (Instandhaltung)",
       "titleByLocale": {
         "it": "Automatico (manutenzione)",
-        "en": "Automatiker/in (Instandhaltung)",
+        "en": "Automatic (maintenance)",
         "de": "Automatiker/in (Instandhaltung)",
         "fr": "Automatique (entretien)"
       },
@@ -259288,8 +259235,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "fachkraft-06adf86f85b0",
