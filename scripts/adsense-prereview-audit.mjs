@@ -92,6 +92,7 @@ import { readFileSync, existsSync, readdirSync, statSync, mkdirSync, writeFileSy
 import path from 'node:path';
 import { isJobBoardSectionPath } from './lib/jobBoardSections.mjs';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.resolve(ROOT, 'dist');
@@ -188,7 +189,7 @@ export function extractLocs(xml) {
   let m;
   RE.loc.lastIndex = 0;
   while ((m = RE.loc.exec(String(xml || ''))) !== null) {
-    const url = String(m[1] || '').trim();
+    const url = flatString(String(m[1] || '').trim());
     if (url) out.push(url);
   }
   return out;

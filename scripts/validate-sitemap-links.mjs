@@ -15,6 +15,7 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -28,7 +29,10 @@ function extractLocs(xml) {
   const re = /<loc>\s*(https?:\/\/[^<]+?)\s*<\/loc>/gi;
   const urls = [];
   let m;
-  while ((m = re.exec(xml)) !== null) urls.push(m[1].trim());
+  // flatString: a `<loc>` capture slices INTO the whole sitemap XML, and the
+  // derived URLs outlive it in a cross-sitemap accumulator — see
+  // scripts/lib/flat-string.mjs (issue #7419).
+  while ((m = re.exec(xml)) !== null) urls.push(flatString(m[1].trim()));
   return urls;
 }
 
@@ -37,7 +41,7 @@ function extractHreflangs(xml) {
   const re = /<xhtml:link[^>]*href="(https?:\/\/[^"]+)"[^>]*\/?\s*>/gi;
   const urls = new Set();
   let m;
-  while ((m = re.exec(xml)) !== null) urls.add(m[1].trim());
+  while ((m = re.exec(xml)) !== null) urls.add(flatString(m[1].trim()));
   return [...urls];
 }
 
