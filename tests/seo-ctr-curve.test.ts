@@ -219,7 +219,8 @@ describe('seo-ctr-curve (issue #4300)', () => {
 
     it('registers the diesel twin of the same fuel generator (issue #6704, AGENTS.md #6)', () => {
       // Il gemello che la scoperta non rialza: la famiglia supera la soglia
-      // (86.458 imp/90gg) ma nessuno dei suoi quattro slug la supera da solo,
+      // (85.934 imp/90gg, misura 2026-09-05) ma nessuno dei suoi quattro slug la
+      // supera da solo,
       // quindi senza questa entry resterebbe invisibile al monitor.
       const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'prezzi-diesel')!;
       expect(fam).toBeDefined();
