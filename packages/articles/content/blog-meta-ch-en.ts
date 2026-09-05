@@ -5572,6 +5572,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.falso-allarme-goldach.title': 'False alarm for alleged shootings during a school party',
     'blog.article.falso-allarme-goldach.excerpt': 'About 300 people evacuated in Goldach, in the canton of St. Gallen, after reports of alleged gunfire.',
     'blog.article.falso-allarme-goldach.imageAlt': 'School party with police and rescue services',
+    'blog.article.asilo-nido-controlli-minori.title': 'Nursery: gaps in controls on minors',
+    'blog.article.asilo-nido-controlli-minori.excerpt': 'An educator reported for child pornography worked in a kindergarten for two years. How and why institutional controls failed in Switzerland.',
+    'blog.article.asilo-nido-controlli-minori.imageAlt': 'Exterior of a Swiss daycare facility with playground area, modern architecture, documentary photography',
 };
 
 export default blogMetaChEn;

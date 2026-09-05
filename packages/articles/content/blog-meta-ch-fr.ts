@@ -5572,6 +5572,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.falso-allarme-goldach.title': 'Fausse alarme pour des coups de feu présumés lors d\'une fête scolaire',
     'blog.article.falso-allarme-goldach.excerpt': 'Environ 300 personnes ont été évacuées à Goldach, dans le canton de Saint-Gall, après des informations faisant état de tirs présumés.',
     'blog.article.falso-allarme-goldach.imageAlt': 'Fête scolaire avec police et services de secours',
+    'blog.article.asilo-nido-controlli-minori.title': 'Garderie : les lacunes dans les contrôles sur les mineurs',
+    'blog.article.asilo-nido-controlli-minori.excerpt': 'Un éducateur signalé pour pédopornographie a travaillé dans une crèche pendant deux ans. Comment et pourquoi les contrôles institutionnels ont échoué en Suisse.',
+    'blog.article.asilo-nido-controlli-minori.imageAlt': 'Extérieur d\'une crèche suisse avec aire de jeu, architecture moderne, photographie documentaire',
 };
 
 export default blogMetaChFr;
