@@ -11374,6 +11374,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quando-cambiare-euro-frontaliere-single.title': 'Comment protéger votre salaire contre les échanges',
     'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'Le nouvel accord transfrontalier de 2024 et les taux IRPEF de 2026 rendent la stratégie de taux de change essentielle. Guide pratique pour les célibataires : calendrier, procédures, outils opérationnels.',
     'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Calculatrice et francs suisses sur bureau avec vue sur le lac de Lugano. Espace de planification financière au Tessin.',
+    'blog.article.coordinamento-avs-inps-2026.title': 'Coordination AVS-INPS 2026 : famille avec enfants',
+    'blog.article.coordinamento-avs-inps-2026.excerpt': 'Totalisation des cotisations AVS-INPS pour les frontaliers avec enfants : comment coordonner la retraite entre la Suisse et l\'Italie d\'ici 2026.',
+    'blog.article.coordinamento-avs-inps-2026.imageAlt': 'Document de coordination AVS-INPS pour travailleurs frontaliers vue Tessin',
 };
 
 export default blogMetaFr;

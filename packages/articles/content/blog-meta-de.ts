@@ -11371,6 +11371,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quando-cambiare-euro-frontaliere-single.title': 'Wie man sein Gehalt vor Austausch schützt',
     'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'Das neue grenzüberschreitende Abkommen von 2024 und die IRPEF-Kurse 2026 machen die Wechselkursstrategie entscheidend. Praktischer Leitfaden für Einzelpersonen: Zeitplan, Verfahren, operative Werkzeuge.',
     'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Taschenrechner und Schweizer Franken auf Schreibtisch mit Blick auf den Luganer See. Finanzplanung im Tessin.',
+    'blog.article.coordinamento-avs-inps-2026.title': 'Koordination AHV-INPS 2026: Familie mit Kindern',
+    'blog.article.coordinamento-avs-inps-2026.excerpt': 'Summe AHV-INPS-Beiträge für Grenzgänger mit Kindern: Wie kann die Rente zwischen der Schweiz und Italien bis 2026 koordiniert werden?',
+    'blog.article.coordinamento-avs-inps-2026.imageAlt': 'AVS-INPS-Koordinationsdokument für Grenzgänger mit Tessiner Landschaftsblick',
 };
 
 export default blogMetaDe;

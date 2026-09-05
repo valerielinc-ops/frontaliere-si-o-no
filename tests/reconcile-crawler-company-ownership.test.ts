@@ -117,6 +117,13 @@ describe('issue #6759 reconciliation', () => {
     const KNOWN_CONTAMINATED_ROUTES = new Set([
       'hoch-health:it:praktikum-zusatzmodul-a-hebamme-80-100-kssg-ch',
       'hoch-health:de:praktikum-zusatzmodul-a-hebamme-80-100-kssg-ch',
+      // Aggiunte 2026-09-05: stessa classe, stesso crawler, stesso slug `-kssg-ch`
+      // non tradotto condiviso fra due voci di hoch-health (indici 3 e 74 di
+      // data/jobs/expired/by-crawler/hoch-health.json). Contaminazione
+      // preesistente di previousSlugs, non introdotta da nessuna PR: si
+      // riproduce su main pulito. Sempre #7232.
+      'hoch-health:it:case-manager-in-zentrales-patientenmanagement-80-100-kssg-ch',
+      'hoch-health:de:case-manager-in-zentrales-patientenmanagement-80-100-kssg-ch',
       'paraplegie:it:collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-zentrum-spz-nottwil',
       'paraplegie:it:collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil',
       'paraplegie:de:mitarbeiter-in-hauswirtschaft-spz-nottwil',

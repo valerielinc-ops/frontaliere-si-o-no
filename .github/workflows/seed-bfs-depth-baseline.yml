@@ -115,25 +115,19 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund --prefer-offline
 
-      - name: Find latest successful deploy
-        id: latest
-        run: |
-          run_id=$(gh run list \
-            --workflow=deploy.yml \
-            --status=success \
-            --limit=1 \
-            --json databaseId \
-            --jq '.[0].databaseId')
-          echo "Latest successful deploy: $run_id"
-          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
-        env:
-          GH_TOKEN: ${{ github.token }}
-
       - name: Fetch github-pages artifact
         id: pages
         uses: ./.github/actions/fetch-pages-artifact
         with:
-          run-id: ${{ steps.latest.outputs.run_id }}
+          # No `run-id`: the action walks back over the successful deploy.yml
+          # runs ON MAIN, client-sorted by created_at, skipping any whose
+          # github-pages artifact is expired or un-downloadable, and logs the
+          # raw candidate list with timestamps. This step used to be preceded
+          # by a `gh run list --limit=1 --json databaseId` that took the newest
+          # run BLINDLY: no branch filter, no `.expired` check, no walk-back,
+          # and no created_at in the log — so the 2026-08-31 incident, where
+          # that same command shape returned runs from a month earlier, left
+          # nothing to diagnose it with (#7394, #7395, #7396, #7397).
           output-dir: /tmp/pages
           github-token: ${{ github.token }}
 
@@ -159,7 +153,7 @@ jobs:
         if: ${{ vars.LOCALE_SHARDS_LIVE == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
-          DEPLOY_RUN_ID: ${{ steps.latest.outputs.run_id }}
+          DEPLOY_RUN_ID: ${{ steps.pages.outputs.run-id }}
           LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
         run: bash scripts/lib/rehydrate-locale-shards.sh
 
@@ -171,7 +165,7 @@ jobs:
         if: ${{ vars.TICINO_SHARD_LIVE == 'true' || vars.SVIZZERA_SHARD_LIVE == 'true' || vars.ZURIGO_SHARD_LIVE == 'true' || vars.ARGOVIA_SHARD_LIVE == 'true' || vars.APPENZELLO_SHARD_LIVE == 'true' || vars.BASILEA_SHARD_LIVE == 'true' || vars.BERNA_SHARD_LIVE == 'true' || vars.FRIBURGO_SHARD_LIVE == 'true' || vars.GINEVRA_SHARD_LIVE == 'true' || vars.GLARONA_SHARD_LIVE == 'true' || vars.GRIGIONI_SHARD_LIVE == 'true' || vars.GIURA_SHARD_LIVE == 'true' || vars.LUCERNA_SHARD_LIVE == 'true' || vars.NEUCHATEL_SHARD_LIVE == 'true' || vars.NIDVALDO_SHARD_LIVE == 'true' || vars.OBVALDO_SHARD_LIVE == 'true' || vars.SCIAFFUSA_SHARD_LIVE == 'true' || vars.SOLETTA_SHARD_LIVE == 'true' || vars.SVITTO_SHARD_LIVE == 'true' || vars.TURGOVIA_SHARD_LIVE == 'true' || vars.URI_SHARD_LIVE == 'true' || vars.VAUD_SHARD_LIVE == 'true' || vars.VALLESE_SHARD_LIVE == 'true' || vars.ZUGO_SHARD_LIVE == 'true' || vars.SANGALLO_SHARD_LIVE == 'true' || vars.ARTICOLIFRONTALIERE_SHARD_LIVE == 'true' || vars.ARTICOLISVIZZERA_SHARD_LIVE == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
-          DEPLOY_RUN_ID: ${{ steps.latest.outputs.run_id }}
+          DEPLOY_RUN_ID: ${{ steps.pages.outputs.run-id }}
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
