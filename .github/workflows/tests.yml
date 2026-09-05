@@ -840,8 +840,12 @@ jobs:
             }
 
             const TOP = 10;
+            // I candidati arrivano gia' ordinati forte-prima (check-sibling-patterns,
+            // 2026-09-05), quindi questi TOP 10 sono i piu' agganciati e non i primi
+            // in ordine alfabetico. `[debole]` = un solo identificatore nudo condiviso:
+            // resta da guardare, ma e' il secchio dove sta quasi tutto il rumore.
             const rows = report.candidates.slice(0, TOP).map(c =>
-              `- \`${c.file}\` — costrutti condivisi: ${c.tokens.slice(0, 5).map(t => '\`' + t + '\`').join(', ')}`
+              `- ${c.strength ? '**[' + c.strength + ']** ' : ''}\`${c.file}\` — costrutti condivisi: ${c.tokens.slice(0, 5).map(t => '\`' + t + '\`').join(', ')}`
             ).join('\n');
             const more = report.candidates.length > TOP
               ? `\n…e altri ${report.candidates.length - TOP} candidati (run locale: \`node scripts/ci/check-sibling-patterns.mjs\`).`

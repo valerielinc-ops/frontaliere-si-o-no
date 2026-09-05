@@ -25,14 +25,70 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
-import { resolveHookTargetCwd } from './lib/hook-target-cwd.mjs';
+import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd.mjs';
 // La tassonomia degli stati vive in UN posto solo: riscriverla qui produrrebbe
 // due copie che divergono al primo stato nuovo, in silenzio.
 import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
 
+// Il repo a cui questo gate appartiene: l'unica directory sempre giusta quando
+// `payload.cwd` e' inchiodato altrove (sub-agente — vedi lib/hook-target-cwd.mjs).
+const gateRepo = resolve(fileURLToPath(import.meta.url), '..', '..', '..');
+
 const HEADER_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
 const HEADER_NON_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
 const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/im;
+
+const BODY_FILE_RE = /--body-file[= ]+(?:"([^"]+)"|'([^']+)'|(\S+))/;
+
+/**
+ * Perche' `extractPrBody` non ha restituito un body — la stessa analisi, ma
+ * con la CAUSA invece di un `undefined` muto.
+ *
+ * `extractPrBody` collassa tre situazioni diverse in un solo `undefined`:
+ * il flag non c'e' affatto, il `--body-file` c'e' ma il path non e' leggibile,
+ * oppure c'e' un `--body` in una forma che le sue regex non riconoscono. I
+ * chiamanti sono gate: quando non leggono il body ricadono (giustamente) sul
+ * comportamento conservativo, ma il messaggio che stampano parla d'altro — e
+ * chi lo legge insegue candidati invece del path sbagliato. Questa funzione
+ * sta ACCANTO a `extractPrBody` invece di cambiarne la firma proprio perche'
+ * quella e' esportata e usata altrove: la diagnosi e' additiva.
+ *
+ * @param {string} command la command line di `gh pr create`
+ * @param {string} [cwd] directory contro cui risolvere un `--body-file` relativo
+ * @returns {{ kind: 'body-file'|'body-inline'|'assente', ok: boolean, cwd: string,
+ *   path?: string, resolved?: string, reason?: string }}
+ */
+export function describePrBodySource(command, cwd = process.cwd()) {
+  const cmd = String(command ?? '');
+  const fileMatch = cmd.match(BODY_FILE_RE);
+  if (fileMatch) {
+    const path = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
+    const resolved = resolve(cwd, path);
+    try {
+      readFileSync(resolved, 'utf8');
+      return { kind: 'body-file', ok: true, cwd, path, resolved };
+    } catch (err) {
+      return {
+        kind: 'body-file',
+        ok: false,
+        cwd,
+        path,
+        resolved,
+        reason: `path non leggibile (${err?.code ?? err?.message ?? 'errore sconosciuto'})`,
+      };
+    }
+  }
+  if (/--body[= ]/.test(cmd)) {
+    const ok = extractPrBody(cmd, cwd) !== undefined;
+    return {
+      kind: 'body-inline',
+      ok,
+      cwd,
+      reason: ok ? undefined : 'forma di --body non riconosciuta dalle regex del parser',
+    };
+  }
+  return { kind: 'assente', ok: false, cwd, reason: 'nessun --body / --body-file nel comando' };
+}
 
 /**
  * Best-effort extraction of the PR body text from a `gh pr create` shell
@@ -43,12 +99,13 @@ const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/i
  * gated `gh pr create` is actually running in (see lib/hook-target-cwd.mjs);
  * defaults to `process.cwd()` — this hook subprocess's own ambient
  * directory — matching the previous behaviour when no better signal exists.
+ *
+ * Quando ritorna `undefined` e ti serve sapere PERCHE', usa
+ * `describePrBodySource` qui sopra: questa firma non lo distingue.
  */
 export function extractPrBody(command, cwd = process.cwd()) {
   // --body-file <path> | --body-file=<path> (quoted or bare)
-  const fileMatch = command.match(
-    /--body-file[= ]+(?:"([^"]+)"|'([^']+)'|(\S+))/,
-  );
+  const fileMatch = command.match(BODY_FILE_RE);
   if (fileMatch) {
     const path = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
     try {
@@ -112,18 +169,25 @@ export function warnAboutStatelessBullets(body) {
  * `[]` on any git failure (no `origin/main` locally, detached checkout, etc.) — this
  * feeds an advisory-only check, never worth blocking `gh pr create` over.
  *
- * `cwd` (see lib/hook-target-cwd.mjs) makes `git diff` run against the
- * worktree the gated command is actually in, not this hook's own ambient
- * directory — defaults to `process.cwd()` when no better signal exists.
+ * `cwd` (see lib/hook-target-cwd.mjs) picks WHICH REPO git runs in; `headRef`
+ * picks WHICH BRANCH is compared. Il secondo parametro e' arrivato il
+ * 2026-09-05 con la stessa fix di `sibling-check-gate.mjs` (AGENTS.md #6,
+ * classe intera): `origin/main...HEAD` legge l'HEAD della directory TRACCIATA
+ * della sessione, che in una flotta e' spesso il checkout principale condiviso
+ * — li' l'avviso «file non citati nel body» elencava i file di un'altra
+ * sessione, o taceva del tutto perche' quel checkout e' fermo su main. Il
+ * chiamante passa il ref del branch che sta proponendo, risolto da
+ * `resolveGatedHeadRef`.
  *
  * @param {string} [cwd]
+ * @param {string} [headRef]
  * @returns {string[]}
  */
-export function localDiffPaths(cwd = process.cwd()) {
+export function localDiffPaths(cwd = process.cwd(), headRef = 'HEAD') {
   try {
     const out = execFileSync(
       'git',
-      ['diff', '--name-only', 'origin/main...HEAD'],
+      ['diff', '--name-only', `origin/main...${headRef}`],
       { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], cwd },
     );
     return out.split('\n').map((l) => l.trim()).filter(Boolean);
@@ -139,10 +203,11 @@ export function localDiffPaths(cwd = process.cwd()) {
  *
  * @param {string} body corpo della PR
  * @param {string} [cwd] vedi localDiffPaths
+ * @param {string} [headRef] vedi localDiffPaths
  * @returns {string[]} i path segnalati
  */
-export function warnAboutUncitedFiles(body, cwd) {
-  const diffPaths = localDiffPaths(cwd);
+export function warnAboutUncitedFiles(body, cwd, headRef = 'HEAD') {
+  const diffPaths = localDiffPaths(cwd, headRef);
   if (diffPaths.length === 0) return [];
   const uncited = filesUncitedInBody(diffPaths, body);
   if (uncited.length === 0) return [];
@@ -210,7 +275,10 @@ async function main() {
     warnAboutStatelessBullets(body);
   } catch { /* advisory: non blocca mai */ }
   try {
-    warnAboutUncitedFiles(body, targetCwd);
+    // Stesso ref del sibling-gate: il branch proposto, non l'HEAD della
+    // directory tracciata (2026-09-05, AGENTS.md #6 — la classe intera).
+    const head = resolveGatedHeadRef(command, targetCwd, gateRepo);
+    warnAboutUncitedFiles(body, head.cwd, head.ref);
   } catch { /* advisory: non blocca mai */ }
 
   // BLOCKING (issue #6300 / recidiva #6289): un bullet «PR concatenata»
