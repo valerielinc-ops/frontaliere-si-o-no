@@ -5581,6 +5581,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-vallese-riduzione.title': 'KVG-Prämien im Wallis: Zeitabschnitte und Kürzungen 2026',
     'blog.article.premi-lamal-vallese-riduzione.excerpt': 'Leitfaden zu den obligatorischen Krankenkassenprämien im Kanton Wallis: verfügbare Franchisen, Versicherungsmodelle, Prämienverbilligung und Verfahren zur Erlangung kantonaler Beiträge.',
     'blog.article.premi-lamal-vallese-riduzione.imageAlt': 'Walliser Kantonsamt mit Informationen zu LAMal-Prämien, Franchisen und Reduktionsprogrammen',
+    'blog.article.permesso-vallese-b-procedure.title': 'B-Bewilligung Wallis: Voraussetzungen und Erneuerung',
+    'blog.article.permesso-vallese-b-procedure.excerpt': 'So erneuern Sie die Aufenthaltsbewilligung B im Wallis: Voraussetzungen, erforderliche Unterlagen und Verfahren beim kantonalen Migrationsamt.',
+    'blog.article.permesso-vallese-b-procedure.imageAlt': 'Dokumente für Aufenthaltsbewilligung B in einem Schweizer Kantonsamtssitz',
 };
 
 export default blogMetaChDe;
