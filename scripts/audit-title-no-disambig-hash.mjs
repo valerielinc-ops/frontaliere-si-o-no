@@ -19,6 +19,7 @@
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import { join, relative, isAbsolute } from 'node:path';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
+import { flatString } from './lib/flat-string.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { classifyFeature, inferLocale } from './audit-title-length.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
@@ -87,7 +88,9 @@ export function createAuditor(opts = {}) {
       if (!m) return;
       if (featureFilter && feature !== featureFilter) return;
       const locale = inferLocale(rel);
-      offenders.push({ path: rel, file: rel, feature, locale, title, hash: m[0], metric: 1 });
+      // Both `title` and `hash` are regex slices into the page. Retained in a
+      // walk-long list they pin the whole document — see #7419/#7441.
+      offenders.push({ path: rel, file: rel, feature, locale, title: flatString(title), hash: flatString(m[0]), metric: 1 });
     },
     async report() {
       offenders.sort((a, b) => a.feature.localeCompare(b.feature) || a.file.localeCompare(b.file));

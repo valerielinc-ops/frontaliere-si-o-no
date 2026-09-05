@@ -127,6 +127,9 @@ export async function writeAuditReport(params) {
     offenders = [],
     byFeature: byFeatureOverride,
     extra = {},
+    // The rate the walk actually used. Optional: omitted, this falls back to
+    // AUDIT_SAMPLE_RATE exactly as before.
+    sampleRate: effectiveSampleRate,
   } = params || {};
 
   if (!audit || typeof audit !== 'string') {
@@ -185,7 +188,18 @@ export async function writeAuditReport(params) {
   // to already have. `byFeature` and `offendersTotal` keep their raw sampled
   // meaning — changing them would break every existing consumer — and the
   // scale is named alongside.
-  const rawRate = Number.parseFloat(String(process.env.AUDIT_SAMPLE_RATE ?? ''));
+  // The rate the caller ACTUALLY walked at, when it tells us. Reading the
+  // environment was right while every audit derived its own rate from it, but
+  // a caller can now pin the rate on the CLI (`audit-all --sample-rate=1`,
+  // which cathedral-seo-gates-check passes so a bundled gate can never be
+  // scored on a slice) and still spawn with `env: process.env`. In that case
+  // the env var and the real rate disagree, and this file would declare a
+  // sampling that did not happen — with `offendersTotalExtrapolated`
+  // multiplying a full count as if it were a sample. The ratchets are tuned on
+  // these numbers, so a wrongly declared rate is worse than no field at all.
+  const rawRate = Number.parseFloat(
+    String(effectiveSampleRate ?? process.env.AUDIT_SAMPLE_RATE ?? ''),
+  );
   const sampleRate = Number.isFinite(rawRate) && rawRate > 0 && rawRate <= 1 ? rawRate : 1;
 
   const report = {

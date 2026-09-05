@@ -427,6 +427,10 @@ export async function runAudits({ distDir, auditors, verbose = true, writeReport
         offenders: result.offenders ?? [],
         byFeature: result.byFeature,
         extra: result.extra ?? {},
+        // The rate THIS run walked at, not whatever the environment says: a
+        // caller can pin it on the CLI while still inheriting AUDIT_SAMPLE_RATE
+        // in `env` (see cathedral-seo-gates-check's runBundle).
+        sampleRate,
       });
     }
 
