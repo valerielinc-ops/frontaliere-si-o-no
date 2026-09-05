@@ -11423,6 +11423,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giardino-cure-intense-clinica-moncucco.title': 'La ripresa dei pazienti passa dal Giardino delle cure intense',
     'blog.article.giardino-cure-intense-clinica-moncucco.excerpt': 'La Clinica Moncucco inaugura un nuovo spazio terapeutico e riabilitativo, unico nel panorama sanitario svizzero.',
     'blog.article.giardino-cure-intense-clinica-moncucco.imageAlt': 'Giardino terapeutico alla Clinica Moncucco a Lugano',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'Vivere a Venegono Inferiore e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Guida completa per pendolari: collegamenti, imposte, nuovo accordo fiscale e gestione della vita tra Venegono Inferiore e il Canton Ticino.',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Vista panoramica della regione di confine tra Italia e Svizzera vicino a Mendrisio.',
 };
 
 export default blogMetaIt;

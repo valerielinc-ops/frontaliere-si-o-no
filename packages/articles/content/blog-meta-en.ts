@@ -11422,6 +11422,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giardino-cure-intense-clinica-moncucco.title': 'Patient recovery moves from the Garden of Intense Care',
     'blog.article.giardino-cure-intense-clinica-moncucco.excerpt': 'Clinica Moncucco inaugurates a new therapeutic and rehabilitation space, unique in the Swiss healthcare landscape.',
     'blog.article.giardino-cure-intense-clinica-moncucco.imageAlt': 'Therapeutic garden at Clinica Moncucco in Lugano',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'Living in Venegono Inferiore and working in Ticino as a border worker',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Complete guide for commuters: connections, taxes, new tax agreement and life management between Venegono Inferiore and the Canton of Ticino.',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Panoramic view of the border region between Italy and Switzerland near Mendrisio.',
 };
 
 export default blogMetaEn;

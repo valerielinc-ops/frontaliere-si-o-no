@@ -11421,6 +11421,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giardino-cure-intense-clinica-moncucco.title': 'Die Genesung der Patienten erfolgt aus dem Garten der Intensivpflege',
     'blog.article.giardino-cure-intense-clinica-moncucco.excerpt': 'Die Klinik Moncucco eröffnet einen neuen therapeutischen und rehabilitativen Raum, der in der Schweizer Gesundheitslandschaft einzigartig ist.',
     'blog.article.giardino-cure-intense-clinica-moncucco.imageAlt': 'Therapeutischer Garten in der Klinik Moncucco in Lugano',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'In Venegono Inferiore leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für Pendler: Verbindungen, Steuern, neues Steuerabkommen und Lebensmanagement zwischen Venegono Inferiore und dem Kanton Tessin.',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Panoramablick auf die Grenzregion zwischen Italien und der Schweiz bei Mendrisio.',
 };
 
 export default blogMetaDe;
