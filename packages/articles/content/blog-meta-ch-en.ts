@@ -5521,6 +5521,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-estero-vaud-conversione.title': 'Foreign driver\'s license in Vaud: conversion and exams',
     'blog.article.patente-estero-vaud-conversione.excerpt': 'Cantonal procedure for converting a foreign driver\'s license into Vaud: theoretical and practical exams, compulsory courses, required documents and contacts with the Traffic Office.',
     'blog.article.patente-estero-vaud-conversione.imageAlt': 'Swiss mountain road with traffic signs, car driving and alpine landscape in the background.',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.title': 'Driver\'s license in the Canton of Vaud: conversion, exams and compulsory courses',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.excerpt': 'Practical guide to the conversion of the foreign driver\'s license in the Canton of Vaud, including theoretical and practical exams, compulsory courses and the competent traffic office.',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.imageAlt': 'Swiss road with car approaching traffic office',
 };
 
 export default blogMetaChEn;

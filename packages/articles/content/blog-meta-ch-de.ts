@@ -5521,6 +5521,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-estero-vaud-conversione.title': 'Ausländischer Führerschein im Waadtland: Umschulung und Prüfungen',
     'blog.article.patente-estero-vaud-conversione.excerpt': 'Kantonales Verfahren zur Umwandlung eines ausländischen Führerscheins im Waadtland: theoretische und praktische Prüfungen, Pflichtkurse, erforderliche Unterlagen und Kontakte Strassenverkehrsamt.',
     'blog.article.patente-estero-vaud-conversione.imageAlt': 'Schweizer Bergstraße mit Verkehrsschildern, Auto und Berglandschaft im Hintergrund.',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.title': 'Führerschein im Kanton Waadt: Umschulung, Prüfungen und Pflichtkurse',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.excerpt': 'Praktischer Leitfaden für den Umtausch des ausländischen Führerscheins im Kanton Waadt, einschliesslich theoretischer und praktischer Prüfungen, Pflichtkurse und des zuständigen Strassenverkehrsamtes.',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.imageAlt': 'Schweizer Straße mit Auto, das sich dem Verkehrsbüro nähert',
 };
 
 export default blogMetaChDe;
