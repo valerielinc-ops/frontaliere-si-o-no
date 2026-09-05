@@ -21,9 +21,9 @@
  * `classify-issue.mjs` fa da campione della famiglia: è un modulo con un CLI
  * corto e deterministico (stampa JSON su stdout), importato in produzione da
  * `triage-sweep.mjs` e da `followup-drainer.mjs`. Il terzo test tiene la
- * famiglia allineata: la stessa forma di guard nei moduli con un secondo
- * consumatore in-repo, così il prossimo che ne aggiunge uno col suffisso viene
- * fermato qui invece che da un `main()` partito per sbaglio in CI.
+ * famiglia allineata su tutti i moduli che portavano un guard a suffisso, così
+ * il prossimo che ne scrive uno viene fermato qui invece che da un `main()`
+ * partito per sbaglio in CI.
  */
 import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
@@ -63,11 +63,17 @@ describe('guard di entrypoint canonico (#7292)', () => {
     expect(JSON.parse(out)).toHaveProperty('category');
   });
 
-  it('nessun modulo con un secondo consumatore in-repo guarda il suffisso di argv[1]', () => {
-    // Moduli con un importatore di produzione: lì il guard non è teorico.
+  it('nessun modulo della famiglia guarda il suffisso di argv[1]', () => {
+    // Ogni modulo che portava un guard di entrypoint a suffisso. I primi sono
+    // quelli con un secondo consumatore in-repo — lì il difetto è attivo oggi;
+    // gli altri sono i gemelli con lo stesso idioma, portati nello stesso giro
+    // perché la classe si chiude intera o non si chiude (AGENTS.md #6).
     const family = [
       'scripts/analyze-webcam-frame.mjs',
+      'scripts/audit-article-corpus-drift.mjs',
+      'scripts/audit-bfs-depth.mjs',
       'scripts/audit-breadcrumb-coverage.mjs',
+      'scripts/audit-dist-multi.mjs',
       'scripts/audit-duplicate-meta-description.mjs',
       'scripts/audit-duplicate-structured-data.mjs',
       'scripts/audit-faqpage-validity.mjs',
@@ -83,12 +89,23 @@ describe('guard di entrypoint canonico (#7292)', () => {
       'scripts/audit-text-html-ratio.mjs',
       'scripts/audit-title-length.mjs',
       'scripts/audit-title-no-disambig-hash.mjs',
+      'scripts/build-austrian-border-municipalities.mjs',
+      'scripts/build-fiscal-municipalities.mjs',
+      'scripts/build-french-border-municipalities.mjs',
+      'scripts/build-german-border-municipalities.mjs',
+      'scripts/build-liechtenstein-municipalities.mjs',
+      'scripts/ci/assert-dist-complete.mjs',
       'scripts/ci/auto-merge-eval.mjs',
       'scripts/ci/followup-drainer.mjs',
       'scripts/lib/classify-issue.mjs',
       'scripts/lib/github-issue-creator.mjs',
       'scripts/lib/pr-body-closes-check.mjs',
       'scripts/lib/shared-jobs-crawler.mjs',
+      'scripts/notify-article-search-engines.mjs',
+      'scripts/publish-edge-files.mjs',
+      'scripts/reconcile-duplicate-stable-id-jobs.mjs',
+      'scripts/rerender-article-corpus.mjs',
+      'scripts/submit-indexnow-batch.mjs',
     ];
 
     const offenders = family.filter((rel) => {
