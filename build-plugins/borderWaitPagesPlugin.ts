@@ -75,6 +75,7 @@ import {
   type BorderWaitLocale,
 } from './borderWaitData';
 import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
+import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 import {
   BORDER_WAIT_HYDRATION_JS,
   BORDER_WAIT_HYDRATION_ASSET_PATH,
@@ -1619,6 +1620,24 @@ function renderAdviceBanner(
   </aside>`;
 }
 
+/**
+ * Midpoint of the published typical-wait band ("15-30 min" → 22,5), in minutes.
+ *
+ * The peer block (#7386) ranks crossings on a figure that must NOT move between
+ * deploys: it emits internal links, and a ranking driven by the live Firestore
+ * reading would reshuffle the link graph of every crossing page several times a
+ * day — churn a crawler reads as a site restructuring itself. `avgWaitMorning`
+ * is checked into `data/borderCrossings.ts`, so it changes only when a human
+ * edits the dataset. Crossings whose band is a placeholder (`'---'`) carry no
+ * digits and drop out of the ranking rather than ranking as zero.
+ */
+function avgWaitMidpointMinutes(slug: BorderCrossingSlug): number | null {
+  const raw = crossingRegistry(slug)?.avgWaitMorning;
+  const digits = raw?.match(/\d+/g);
+  if (!digits || digits.length === 0) return null;
+  return digits.reduce((sum, n) => sum + Number(n), 0) / digits.length;
+}
+
 function renderLeafPage(inp: LeafInputs): string {
   const { locale, crossing, current, history, today, alternates, distDir, ogImageUrl } = inp;
   const copy = COPY[locale];
@@ -2062,6 +2081,44 @@ function renderLeafPage(inp: LeafInputs): string {
   // handed it a string already broken mid-word. Let it do the clause-aware cut.
   const description = intro;
 
+  // Where this crossing sits among the OTHER crossings of the same corridor,
+  // with the neighbours named — the one element of the page that survives both
+  // Information Gain masks (shared/peerCohortComparison.ts; this family is the
+  // worst of the five in docs/INFORMATION-GAIN.md, «I 37 offender del
+  // 2026-09-01»: median IGS 0 %, 13-18 segments per page, not one of them its
+  // own). The corridor, not the whole country, is the comparison a reader can
+  // act on: a driver at Gaggiolo can reroute to Brogeda, not to Geneva.
+  const peerRows: PeerRow[] = BORDER_WAIT_CROSSINGS.filter(
+    (slug) => CROSSING_TO_REGION[slug] === region,
+  ).map((slug) => ({
+    key: slug,
+    name: BORDER_CROSSING_DISPLAY[slug],
+    href: buildOggiPath(locale, slug),
+    value: avgWaitMidpointMinutes(slug),
+  }));
+  const peerCopy: Record<BorderWaitLocale, { heading: string; metricLabel: string; peerNoun: string }> = {
+    it: { heading: `${crossingDisplay} rispetto agli altri valichi di ${regionDisplay}`, metricLabel: 'attesa tipica del mattino', peerNoun: 'valichi' },
+    en: { heading: `${crossingDisplay} against the other ${regionDisplay} crossings`, metricLabel: 'typical morning wait', peerNoun: 'crossings' },
+    de: { heading: `${crossingDisplay} im Vergleich zu den anderen Übergängen in ${regionDisplay}`, metricLabel: 'typische Wartezeit am Morgen', peerNoun: 'Übergängen' },
+    fr: { heading: `${crossingDisplay} face aux autres passages de ${regionDisplay}`, metricLabel: 'attente typique du matin', peerNoun: 'passages' },
+  };
+  const peerSourceNote: Record<BorderWaitLocale, string> = {
+    it: 'Valore centrale della fascia tipica pubblicata per ogni valico, non la lettura live in cima alla pagina.',
+    en: 'Midpoint of the typical band published for each crossing, not the live reading at the top of the page.',
+    de: 'Mittelwert der für jeden Übergang veröffentlichten typischen Bandbreite, nicht die Live-Messung oben auf der Seite.',
+    fr: 'Valeur centrale de la fourchette typique publiée pour chaque passage, et non la lecture en direct en haut de page.',
+  };
+  const peerBlock = renderPeerComparison({
+    locale,
+    currentKey: crossing,
+    rows: peerRows,
+    labels: peerCopy[locale] ?? peerCopy.it,
+    formatValue: (value) => `${new Intl.NumberFormat(locale === 'en' ? 'en-US' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'it-CH', { maximumFractionDigits: 0 }).format(value)} min`,
+    // Rank 1 is the shortest queue.
+    higherIsBetter: false,
+    sourceNote: peerSourceNote[locale] ?? peerSourceNote.it,
+  });
+
   // Related-links helper context
   const relatedCtx = {
     borderCrossing: crossing,
@@ -2101,6 +2158,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${weeklyHtml}
   ${infoHtml}
   ${alternativeRoutesHtml}
+  ${peerBlock}
   ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
   ${renderCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}

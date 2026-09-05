@@ -63,6 +63,7 @@ import {
   type BracketTrend,
 } from './healthPremiumsData';
 import { generateRelatedLinksBlock, SWITZERLAND_JOB_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
+import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -2194,22 +2195,35 @@ function renderLeafPage(inp: LeafInputs): string {
     if (b.price === null) return -1;
     return a.price - b.price;
   });
-  const rankingHtml = `<table class="s-tbl" style="font-size:14px">
-    <thead><tr>
-      <th class="s-thd">#</th>
-      <th class="s-thd">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
-      <th class="s-thd" style="text-align:right">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
-    </tr></thead>
-    <tbody>${rankingRows
-      .map(
-        (r, i) => `<tr class="s-UGbkWC"${r.canton === canton ? '' : ''}>
-        <td class="s-tcl" style="font-variant-numeric:tabular-nums">${i + 1}</td>
-        <td class="s-tcl"${r.canton === canton ? ' style="font-weight:700"' : ''}>${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
-        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
-      </tr>`,
-      )
-      .join('')}</tbody>
-  </table>`;
+  // The 26-canton table this replaces was byte-identical on all 26 canton
+  // pages of a bracket — the biggest block on the page and worth zero
+  // Information Gain, the same `RELATED.slice(0, N)` defect #5002 removed from
+  // four municipality families and #5107 from the articles. A window around
+  // THIS canton, with the neighbours named, moves with the page instead
+  // (shared/peerCohortComparison.ts; docs/INFORMATION-GAIN.md, «I 37 offender
+  // del 2026-09-01», median IGS 2,6-2,7 % on this family). The full ranking
+  // stays one click away on the canton hub, which is the page whose job it is.
+  const peerRows: PeerRow[] = rankingRows.map((r) => ({
+    key: r.canton,
+    name: HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton],
+    href: buildHealthPremiumsLeafPath(locale, r.canton, age),
+    value: r.price,
+  }));
+  const peerCopy: Record<HealthPremiumLocale, { heading: string; metricLabel: string; peerNoun: string }> = {
+    it: { heading: `${cantonLabel} nel confronto fra cantoni (${ageLabel})`, metricLabel: 'premio mediano', peerNoun: 'cantoni' },
+    en: { heading: `${cantonLabel} against the other cantons (${ageLabel})`, metricLabel: 'median premium', peerNoun: 'cantons' },
+    de: { heading: `${cantonLabel} im Kantonsvergleich (${ageLabel})`, metricLabel: 'Medianprämie', peerNoun: 'Kantonen' },
+    fr: { heading: `${cantonLabel} face aux autres cantons (${ageLabel})`, metricLabel: 'prime médiane', peerNoun: 'cantons' },
+  };
+  const rankingHtml = renderPeerComparison({
+    locale,
+    currentKey: canton,
+    rows: peerRows,
+    labels: peerCopy[locale] ?? peerCopy.it,
+    formatValue: (value) => `${formatCHF(value, locale)} ${copy.priceUnit}`,
+    // Cheapest first: on a premium, rank 1 is the lowest figure.
+    higherIsBetter: false,
+  });
 
   // Stats cards — when YoY data is available for the current bracket we
   // append a fifth tile showing the median delta. Only rendered when the
@@ -2432,11 +2446,7 @@ function renderLeafPage(inp: LeafInputs): string {
     ${tableHtml}
     ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p class="s-iFFsKs">${esc(copy.derivationNote)}</p>` : ''}
   </section>
-  <section class="s-ziawP1" aria-labelledby="ranking">
-    <h2 id="ranking" style="${H2_STYLE}">${esc(copy.rankingTitle)}</h2>
-    <p class="s-1j3K91">${esc(copy.rankingIntro(cantonLabel))}</p>
-    ${rankingHtml}
-  </section>
+  ${rankingHtml}
   ${yoyHtml}
   ${triYearHtml}
   ${DRIVEBY_AD_SNIPPET}
