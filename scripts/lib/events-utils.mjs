@@ -891,6 +891,161 @@ export async function geocodeVenue(query, cache, fetchImpl = fetch) {
     return null; // network/timeout — don't cache, retry next run
   }
 }
+// ── Reverse geocoding: geo → comune/canton (issue #7328) ──────
+// `resolveComuneNationwide` attributes an event by TEXT-MATCHING venue/title
+// against the current BFS comune list, plus the source's canton hint. That
+// misses a whole class of perfectly real Swiss locations: comuni fused after
+// the names in the list were minted ("Schwende" → Schwende-Rüte, AI, 2022),
+// frazioni that are not comuni themselves ("Bichwil" → Oberuzwil, SG) and
+// plain non-municipal toponyms ("Gondelbahn Rothorn 1"). Measured on
+// data/events.json (2026-09-04): 1235 future events had neither comune nor
+// canton — and 1234 of them carried perfectly good `geo.lat/lng`. They all
+// land in the UNRESOLVED_CANTON_KEY bucket, whose page is today the heaviest
+// of the whole site (`audit:page-weight` top offender), instead of on the
+// cantonal/comunal hub they belong to.
+//
+// So: when text-matching finds nothing, ASK THE COORDINATES. The free
+// OpenStreetMap Nominatim REVERSE endpoint at `zoom=10` answers at exactly
+// the Swiss municipality admin level (the Schwende point above resolves to
+// "Schwende-Rüte" with `ISO3166-2-lvl4: CH-AI`), and the result is kept ONLY
+// when the canton is a real canton code and the returned name is a real BFS
+// comune of that canton — otherwise just the canton survives, which is still
+// the difference between a cantonal hub and the junk bucket.
+//
+// Cached on disk in the SAME file as `geocodeVenue` (crawl-events.yml already
+// commits `data/events-geocode-cache.json` after both nationwide crawlers),
+// namespaced by the `#revgeo@` key prefix so the two lookup directions cannot
+// collide: forward keys are `normalizeText(query)` output, which never starts
+// with that prefix. Never fabricates anything — a non-CH point, an unknown
+// canton, no match or any network failure leaves the event exactly as it is
+// today.
+const REVERSE_GEOCODE_KEY_PREFIX = '#revgeo@';
+
+/** Nominatim usage policy caps free/anonymous use at ~1 request/second. */
+export const REVERSE_GEOCODE_DELAY_MS = 1100;
+
+/**
+ * Cache key for a coordinate pair, rounded to 4 decimals (~11 m): two events
+ * in the same building must share one lookup, or the cache never converges.
+ */
+export function reverseGeocodeCacheKey(lat, lng) {
+  return `${REVERSE_GEOCODE_KEY_PREFIX}${lat.toFixed(4)},${lng.toFixed(4)}`;
+}
+
+let _comuneByCantonIndex = null;
+
+/**
+ * Map a free-text municipality name (as OSM spells it) to the canonical BFS
+ * comune name of `canton`, or null when that canton has no such comune —
+ * the guard that keeps a Nominatim answer from inventing a municipality.
+ */
+function bfsComuneName(canton, name) {
+  if (!_comuneByCantonIndex) {
+    _comuneByCantonIndex = new Map();
+    for (const entry of loadAllComuni()) {
+      _comuneByCantonIndex.set(`${entry.canton}|${normalizeText(entry.name)}`, entry.name);
+    }
+  }
+  const key = normalizeText(name);
+  return key ? _comuneByCantonIndex.get(`${canton}|${key}`) ?? null : null;
+}
+
+/**
+ * Resolve `{lat, lng}` to `{ comune, canton }` via Nominatim reverse geocoding,
+ * cached in `cache` (the object returned by `loadGeocodeCache`, mutated in
+ * place — the caller saves it once after a run, not per-call). `comune` is
+ * null when the point is inside a known canton but its municipality does not
+ * match any BFS comune name; the whole result is null when nothing usable
+ * came back. A cached null is honoured without a repeat network call.
+ */
+export async function reverseGeocodeComune(geo, cache, fetchImpl = fetch) {
+  const lat = geo?.lat;
+  const lng = geo?.lng;
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+  const key = reverseGeocodeCacheKey(lat, lng);
+  if (Object.prototype.hasOwnProperty.call(cache, key)) return cache[key];
+
+  try {
+    const params = new URLSearchParams({
+      lat: String(lat),
+      lon: String(lng),
+      format: 'jsonv2',
+      addressdetails: '1',
+      zoom: '10',
+    });
+    const res = await fetchImpl(`https://nominatim.openstreetmap.org/reverse?${params.toString()}`, {
+      headers: { 'User-Agent': NOMINATIM_USER_AGENT },
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) return null; // transient failure — don't cache, retry next run
+    const data = await res.json();
+    const address = data?.address ?? {};
+    // Events abroad exist in these feeds (guidle indexes border regions): a
+    // non-CH point has no canton, and must never be forced into one.
+    if (String(address.country_code || '').toLowerCase() !== 'ch') {
+      cache[key] = null;
+      return null;
+    }
+    const canton = String(address['ISO3166-2-lvl4'] || '').replace(/^CH-/i, '').toUpperCase();
+    if (!canton || !isValidCantonCode(canton)) {
+      cache[key] = null;
+      return null;
+    }
+    const osmName =
+      address.municipality || address.city || address.town || address.village || address.hamlet || data?.name || '';
+    const hit = { comune: bfsComuneName(canton, osmName), canton };
+    cache[key] = hit;
+    return hit;
+  } catch {
+    return null; // network/timeout — don't cache, retry next run
+  }
+}
+
+/**
+ * Fill `comune`/`canton` from `geo` on every event the text-matching stage
+ * left with neither (see the section header above). MUTATES `events` in
+ * place and returns `{ lookups, comuneFilled, cantonFilled }` for the crawler
+ * log line.
+ *
+ * Paced and budgeted, because at ≤1 req/s the first-ever pass over a backlog
+ * of ~1200 coordinates would eat the crawl workflow's whole wall clock:
+ * `maxLookups`/`deadline` bound the NETWORK calls of a single run (cached
+ * coordinates are free and never counted), and whatever is left over is
+ * picked up by the next run against a warmer cache. Events that already have
+ * an attribution, or no usable coordinates, are never touched.
+ *
+ * `reverseFn` is injectable so tests verify the enrichment without network.
+ */
+export async function enrichEventsWithGeoComune(
+  events,
+  cache,
+  { reverseFn = reverseGeocodeComune, deadline = Infinity, maxLookups = Infinity, delayMs = REVERSE_GEOCODE_DELAY_MS } = {},
+) {
+  let lookups = 0;
+  let comuneFilled = 0;
+  let cantonFilled = 0;
+  for (const ev of events) {
+    if (ev.comune || ev.canton) continue;
+    const lat = ev.geo?.lat;
+    const lng = ev.geo?.lng;
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+    const cached = Object.prototype.hasOwnProperty.call(cache, reverseGeocodeCacheKey(lat, lng));
+    if (!cached && (lookups >= maxLookups || Date.now() >= deadline)) continue; // resumes next run
+    const hit = await reverseFn(ev.geo, cache);
+    if (!cached) {
+      lookups += 1;
+      if (delayMs > 0) await sleep(delayMs);
+    }
+    if (!hit?.canton) continue;
+    ev.canton = hit.canton;
+    cantonFilled += 1;
+    if (hit.comune) {
+      ev.comune = hit.comune;
+      comuneFilled += 1;
+    }
+  }
+  return { lookups, comuneFilled, cantonFilled };
+}
 
 // ── Title translation cache ────────────────────────────────────
 // tio-agenda cards carry no `titleByLocale` at all (unlike guidle/
