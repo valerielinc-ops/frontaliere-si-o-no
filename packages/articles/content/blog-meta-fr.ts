@@ -11368,6 +11368,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-busta-paga-2026-simulazione.title': 'Bulletin de paie frontalier 2026 : simulation pratique',
     'blog.article.frontalieri-busta-paga-2026-simulazione.excerpt': 'Calcule le net suisse 2026 : taux AVS 5.3%, impôt à la source, Nouvel Accord, exonérations € 7.500-€ 10.000 et crédit d\'impôt italien.',
     'blog.article.frontalieri-busta-paga-2026-simulazione.imageAlt': 'Simulation de fiche de paie suisse 2026 avec calculatrice, francs suisses et euros italiens sur bureau, Tessin',
+    'blog.article.frontalieri-imposta-calcolo-2026.title': 'Crédit d\'impôt frontalier 2026 : calcul avec enfants',
+    'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'Comment récupérer les impôts excédentaires en Italie : le guide pratique pour les frontaliers avec enfants, du calcul de la franchise à l\'utilisation du modèle 730.',
+    'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Famille examinant des documents fiscaux avec la vue du Lac de Lugano',
 };
 
 export default blogMetaFr;

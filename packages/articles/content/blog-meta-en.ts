@@ -11366,6 +11366,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-busta-paga-2026-simulazione.title': 'Border payroll 2026: practical simulation',
     'blog.article.frontalieri-busta-paga-2026-simulazione.excerpt': 'Calculate the Swiss net 2026: AVS rates 5.3%, tax at source, New Agreement, exemptions €7,500-€10,000 and Italian tax credit.',
     'blog.article.frontalieri-busta-paga-2026-simulazione.imageAlt': 'Swiss payslip simulation 2026 with calculator, Swiss francs and Italian euros on office desk, Ticino',
+    'blog.article.frontalieri-imposta-calcolo-2026.title': 'Border tax credit 2026: calculation with children',
+    'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'How to recover excess taxes in Italy: the practical guide for border workers with children, from the calculation of the deductible to the use of the 730 model.',
+    'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Family reviewing financial documents with Lake Lugano view in background',
 };
 
 export default blogMetaEn;

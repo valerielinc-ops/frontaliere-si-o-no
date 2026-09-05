@@ -11365,6 +11365,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-busta-paga-2026-simulazione.title': 'Lohnabrechnung Grenzgänger 2026: Praxissimulation',
     'blog.article.frontalieri-busta-paga-2026-simulazione.excerpt': 'Berechnen Sie das Schweizer Netto 2026: AHV-Sätze 5,3%, Quellensteuer, Neues Abkommen, Befreiungen €7.500- € 10.000 und italienische Steuergutschrift.',
     'blog.article.frontalieri-busta-paga-2026-simulazione.imageAlt': 'Schweizer Gehaltsabrechnung 2026 mit Taschenrechner, Schweizer Franken und italienische Euro auf Schreibtisch, Tessin',
+    'blog.article.frontalieri-imposta-calcolo-2026.title': 'Grenzsteuergutschrift 2026: Berechnung mit Kindern',
+    'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'So können Sie in Italien überhöhte Steuern zurückfordern: Der praktische Leitfaden für Grenzgänger mit Kindern, von der Berechnung der Franchise bis zur Verwendung des Modells 730.',
+    'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Familie überprüft Steuerdokumente mit Blick auf den Luganosee im Hintergrund',
 };
 
 export default blogMetaDe;
