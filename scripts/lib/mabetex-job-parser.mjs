@@ -44,15 +44,15 @@ function mabetexVacancyIdentity(title = '', location = '') {
   return `${normalize(title)}\u0000${normalize(location)}`;
 }
 
-// The only previously published bare-page identity is evidenced by the
-// crawler snapshot on origin/main. Never transfer that URL/slug history to the
-// first Swiss survivor: DOM order is not identity and the historic foreign job
-// is correctly retired by the Swiss-only geography gate.
-const HISTORICAL_BARE_URL_IDENTITY = mabetexVacancyIdentity('Project Manager', 'Southwest Africa');
-
-export function isHistoricalMabetexVacancy(title = '', location = '') {
-  return mabetexVacancyIdentity(title, location) === HISTORICAL_BARE_URL_IDENTITY;
-}
+// The only previously published bare-page vacancy ("Project Manager" /
+// "Southwest Africa") used to get a legacy `jobs-...-lugano` alias grafted onto
+// it here. That branch was dead (issue #6816): its identity test reads the RAW
+// `listing.location`, the same string the Swiss-only geography gate above it
+// already rejected, so `isHistoricalBareUrl` was a compile-time-constant false.
+// The retirement of that URL is the geography gate's job and the gate does it —
+// pinned by `tests/prospector-location-contract.test.ts`. Do not reintroduce an
+// alias branch keyed on a foreign location: it can only fire if the gate is
+// weakened, and then it would publish a foreign vacancy as Swiss.
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -238,28 +238,14 @@ export async function fetchAllMabetexJobs() {
     if (!description || description.length < MIN_DESC_LENGTH) continue;
     const sourceLang = detectLang(listing.title, 'en');
     const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'mabetex');
-    // The previous parser hard-coded Lugano into every slug. Preserve that
-    // published route as an explicit alias while new identity reflects the
-    // vacancy's actual place of work.
-    const isHistoricalBareUrl = isHistoricalMabetexVacancy(listing.title, listing.location);
-    const legacyLuganoSlug = buildJobSlug(`${listing.title} Lugano`, 'mabetex');
     const identityHash = createHash('sha1').update(listing.sourceIdentity).digest('hex').slice(0, 12);
-    const urlHash = isHistoricalBareUrl
-      ? createHash('sha1').update(`${CAREERS_URL}#${listing.title}`).digest('hex').slice(0, 12)
-      : identityHash;
     const empType = inferEmploymentType(listing.title, description);
-    const publicUrl = isHistoricalBareUrl
-      ? CAREERS_URL
-      : `${CAREERS_URL}#vacancy-${slugify(`${listing.title}-${location}`)}-${identityHash.slice(0, 8)}`;
+    const publicUrl = `${CAREERS_URL}#vacancy-${slugify(`${listing.title}-${location}`)}-${identityHash.slice(0, 8)}`;
 
     jobs.push({
-      id: `${MABETEX_KEY}-${urlHash}`,
+      id: `${MABETEX_KEY}-${identityHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      ...(isHistoricalBareUrl && legacyLuganoSlug !== jobSlug ? {
-        previousSlugs: [legacyLuganoSlug],
-        previousSlugsByLocale: { [sourceLang]: [legacyLuganoSlug] },
-      } : {}),
       company: MABETEX_COMPANY_NAME,
       companyKey: MABETEX_KEY,
       companyDomain: MABETEX_COMPANY_DOMAIN,
