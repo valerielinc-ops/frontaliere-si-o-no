@@ -1373,12 +1373,12 @@
     },
     {
       "id": "ete-f8c27dc9648c",
-      "slug": "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen",
+      "slug": "personale-in-ordinazione-logistica-di-trasporto-100-emil-egger-ag-harkingen",
       "slugByLocale": {
         "de": "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen",
-        "it": "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
-        "en": "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
-        "fr": "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen"
+        "it": "personale-in-ordinazione-logistica-di-trasporto-100-emil-egger-ag-harkingen",
+        "en": "personnel-in-order-entry-transport-logistics-100-emil-egger-ag-harkingen",
+        "fr": "personnel-en-commande-logistique-de-transport-100-emil-egger-ag-harkingen"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -1433,7 +1433,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T23:01:38.513Z"
+      "firstSeenAt": "2026-09-04T23:01:38.513Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
+          "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen"
+        ],
+        "en": [
+          "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen"
+        ],
+        "fr": [
+          "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen"
+      ]
     },
     {
       "id": "ete-2d4d449cf0c5",

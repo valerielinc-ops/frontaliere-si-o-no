@@ -1146,8 +1146,7 @@
         ],
         "en": [
           "operational-asset-manager-data-ffs-officine-ferrovie-federali-bern",
-          "operational-r-asset-manager-in-data-ffs-officine-ferrovie-federali-bern",
-          "operative-r-asset-manager-in-daten-ffs-officine-ferrovie-federali-bern"
+          "operational-r-asset-manager-in-data-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "firstSeenAt": "2026-09-03T23:23:43.146Z",
@@ -5483,7 +5482,7 @@
       "slugByLocale": {
         "it": "caposquadra-ferrovie-m-f-d-ffs-officine-ferrovie-federali-allaman",
         "en": "railway-foreman-m-f-d-ffs-officine-ferrovie-federali-allaman",
-        "de": "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman",
+        "de": "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
         "fr": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -5542,7 +5541,6 @@
         "caposquadra-ferroviario-m-f-d-ffs-officine-ferrovie-federali-allaman",
         "contremaitre-voies-ferrees-f-m-d-ffs-officine-ferrovie-federali-allaman",
         "eisenbahnvorsteher-m-f-d-ffs-officine-ferrovie-federali-allaman",
-        "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
         "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman"
       ],
       "previousSlugsByLocale": {
@@ -5554,7 +5552,6 @@
         ],
         "de": [
           "eisenbahnvorsteher-m-f-d-ffs-officine-ferrovie-federali-allaman",
-          "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
           "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman"
         ]
       },
@@ -12371,9 +12368,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12434,8 +12431,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -12445,12 +12440,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
