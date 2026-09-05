@@ -5617,6 +5617,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reddito-risparmio-svizzeri-record.title': 'Svizzeri non hanno mai guadagnato e risparmiato come oggi',
     'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'Per la prima volta il reddito disponibile supera i 65mila franchi e il tasso di risparmio volontario il 19,3%. I dati dell\'UST confermano il record storico.',
     'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Famiglia svizzera esamina documenti finanziari e grafici di investimento su laptop in salotto luminoso',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Naturalizzazione nel canton Soletta: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Canton Soletta, inclusi anni di residenza, test di integrazione e tasse.',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Vista panoramica di Bellinzona, Svizzera, con il castello in primo piano.',
 };
 
 export default blogMetaChIt;

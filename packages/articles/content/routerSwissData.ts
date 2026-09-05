@@ -1898,6 +1898,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pacifismo-neutralita-buzzi': { it: 'pacifismo-neutralita-buzzi', en: 'pacifism-armed-neutrality-buzzi', de: 'pazifismus-bewaffnete-neutralitaet-buzzi', fr: 'pacifisme-neutralite-armee-buzzi' },
  'soletta-naturalizzazione-procedura': { it: 'soletta-naturalizzazione-procedura', en: 'soletta-naturalization-requirements-procedure', de: 'soletta-einbuergerung-anforderungen-verfahren', fr: 'soletta-naturalisation-conditions-procedure' },
  'reddito-risparmio-svizzeri-record': { it: 'reddito-risparmio-svizzeri-record', en: 'income-savings-swiss-record', de: 'einkommen-ersparnisse-schweizer-rekord', fr: 'revenu-epargne-suisses-record' },
+ 'naturalizzazione-canton-soletta-requisiti-procedura': { it: 'naturalizzazione-canton-soletta-requisiti-procedura', en: 'naturalization-canton-solothurn-requirements-procedure', de: 'einburgerung-kanton-solothurn-anforderungen-verfahren', fr: 'naturalisation-canton-de-soletta-requis-et-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

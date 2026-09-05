@@ -5617,6 +5617,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reddito-risparmio-svizzeri-record.title': 'The Swiss have never earned and saved as much as they do today',
     'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'For the first time, disposable income exceeds CHF 65,000 and the voluntary savings rate is 19.3%. The UST data confirms the historical record.',
     'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Swiss family examines financial documents and investment charts on laptop in a bright living room',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Naturalization in the canton of Solothurn: requirements and procedure',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Learn about the requirements and procedure for ordinary naturalization in the Canton of Solothurn, including years of residence, integration tests, and taxes.',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Panoramic view of Bellinzona, Switzerland, with the castle in the foreground.',
 };
 
 export default blogMetaChEn;
