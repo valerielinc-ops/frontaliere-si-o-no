@@ -12,6 +12,7 @@ import {
   resetOpenRouterBudget,
   resetRetryBudget,
   RETRY_BUDGET_MS,
+  UNMEASURED_BUDGET_CAP,
 } from '../scripts/check-ai-visibility.mjs';
 
 /**
@@ -357,5 +358,72 @@ describe('OpenRouter spend cap and response shape', () => {
     const entry = applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
 
     expect(entry).toMatchObject({ checked: true, cited: true });
+  });
+});
+
+/**
+ * Issue #7489 item 2. A query the spend cap stopped before it was sent used to
+ * return the same `null` as a failed call, and the run recorded a visibility
+ * outcome for a query nobody had asked. The two must stay distinguishable, both
+ * in the per-platform entry and in the rendered report.
+ */
+describe('cap-skipped queries are not measured, not zero', () => {
+  const exhaustBudget = async () => {
+    for (let i = 0; i < OPENROUTER_MAX_REQUESTS; i++) await queryOpenRouter(`q${i}`);
+  };
+
+  it('returns the unmeasured sentinel once the cap is reached, not a plain null', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => openRouterAnswer('https://comparis.ch/x'));
+
+    await exhaustBudget();
+
+    expect(await queryOpenRouter('costo vita Ticino')).toEqual(UNMEASURED_BUDGET_CAP);
+  });
+
+  it('records it as unchecked with its own reason, never as a measured miss', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => openRouterAnswer('https://comparis.ch/x'));
+
+    await exhaustBudget();
+
+    const result = { platforms: {} as Record<string, unknown>, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    const entry = applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(entry).toEqual({
+      checked: false,
+      unmeasured: 'openrouter-per-run-cap',
+      error: 'not measured: per-run request cap reached',
+    });
+    // Same score accounting as an unreachable platform: excluded, not a zero.
+    expect(entry.cited).toBeUndefined();
+    expect(result.citedByAny).toBe(false);
+  });
+
+  it('is distinguishable from a real API failure', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response('no credits', { status: 402 }));
+
+    const result = { platforms: {} as Record<string, unknown>, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(result.platforms.openrouter).toEqual({ checked: false, error: 'API call failed' });
+  });
+
+  it('renders the two unchecked reasons with different glyphs', () => {
+    const md = generateMarkdown({
+      meta: meta({ platformsChecked: ['openrouter'], totalQueries: 2, queriesChecked: 0, scoreMax: 0 }),
+      results: [
+        query({ query: 'skipped by cap', platforms: { openrouter: { checked: false, unmeasured: 'openrouter-per-run-cap' } } }),
+        query({ query: 'platform down', platforms: { openrouter: { checked: false, error: 'API call failed' } } }),
+      ],
+      competitorSummary: [],
+    });
+
+    expect(md).toMatch(/\| 1 \| skipped by cap \|[^|]*\|\s*⏸\s*\|/);
+    expect(md).toMatch(/\| 2 \| platform down \|[^|]*\|\s*⚪\s*\|/);
+    expect(md).toContain('⏸ not measured');
   });
 });
