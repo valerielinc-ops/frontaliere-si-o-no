@@ -454,19 +454,6 @@ jobs:
             --final-translation-commit "$SHADOW_FINAL_TRANSLATION_COMMIT" \
             --observed-job-status "$SHADOW_OBSERVED_JOB_STATUS"
 
-      - name: Upload thinking A/B rows
-        if: always() && inputs.skip_translate != true
-        continue-on-error: true
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-        with:
-          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/translation-thinking-ab.json
-          retention-days: 30
-          # `warn` e non `error`: l'esperimento e' opt-in e una run con la repo
-          # var a '0' non produce il file. Un upload rosso direbbe che qualcosa
-          # si e' rotto quando invece l'esperimento e' semplicemente spento.
-          if-no-files-found: warn
-
       - name: Upload translation shadow preflight v2 artifacts
         if: always() && steps.translation_shadow_preflight_v2_finalize.outcome != 'skipped'
         continue-on-error: true
@@ -482,6 +469,19 @@ jobs:
       - name: Roll up translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
         run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
+
+      - name: Upload thinking A/B rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          # `warn` e non `error`: l'esperimento e' opt-in e una run con la repo
+          # var a '0' non produce il file. Un upload rosso direbbe che qualcosa
+          # si e' rotto quando invece l'esperimento e' semplicemente spento.
+          if-no-files-found: warn
 
       - name: Commit translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
