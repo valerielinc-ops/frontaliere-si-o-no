@@ -204,12 +204,18 @@ export function detectAnagraficaConflicts(key, doc) {
     const label = p?.name ?? '?';
     if (p?.id) dup('id', p.id, label);
     if (p?.slug) dup('slug', p.slug, label);
-    if (p?.name && p?.postalCode && p?.address) {
-      dup(
-        'identity',
-        `${normalizeIdentityField(p.name)}|${normalizeIdentityField(p.postalCode)}|${normalizeIdentityField(p.address)}`,
-        `${label} (${p.sourceUrl ?? '?'})`,
-      );
+    // La chiave va valutata sui campi NORMALIZZATI, non su quelli grezzi: un
+    // `address` fatto di soli spazi è truthy ma normalizza a stringa vuota, e
+    // due farmacie realmente distinte dello stesso CAP collasserebbero su una
+    // chiave degenere — un `duplicate-identity` che nessuna correzione al dato
+    // può togliere, cioè il monitor rosso senza via d'uscita. Componente vuoto
+    // dopo la normalizzazione → nessuna chiave di identità per quel record.
+    // Verificato sulle 119 farmacie reali di `data/pharmacies-ticino.json`:
+    // zero conflitti, il monitor nasce verde (test di regressione in
+    // `tests/pharmacy-data-health.test.ts`).
+    const identity = [p?.name, p?.postalCode, p?.address].map(normalizeIdentityField);
+    if (identity.every(Boolean)) {
+      dup('identity', identity.join('|'), `${label} (${p.sourceUrl ?? '?'})`);
     }
   }
   return conflicts;
