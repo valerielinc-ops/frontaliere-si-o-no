@@ -129,6 +129,7 @@ import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
 import { withProfile, profileSummaryPlugin } from './build-plugins/profilePlugin';
+import { withPhaseTiming, buildPhaseTimingPlugin } from './build-plugins/buildPhaseTimingPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -624,7 +625,12 @@ export default defineConfig(({ mode }) => {
  // the invariant this comment protects is unchanged. Also configures the
  // per-build content dump dir from WRITE_COLLISION_DUMP env var.
  writeRegistryResetPlugin({ rootDir: __dirname }),
- ...allPlugins.map(withProfile),
+ // #7303 — `withPhaseTiming` sits INSIDE `withProfile` so it measures the
+ // plugin's own hook, not the hook plus the forced GC + logging that
+ // `withProfile` adds around closeBundle. It also reaches the hooks
+ // `withProfile` never saw (transform/load/resolveId/renderChunk), which is
+ // where the Rollup half of the ~80-min IT leg was hiding.
+ ...allPlugins.map((p) => withProfile(withPhaseTiming(p))),
  // #5001 punto 2 — genera le hero card richieste dalle famiglie SEO statiche.
  // DEVE stare dopo `allPlugins`: legge il registry che `renderSeoHeroImage`
  // riempie mentre gli emettitori scrivono il markup, quindi se girasse prima
@@ -638,6 +644,10 @@ export default defineConfig(({ mode }) => {
  // Emits `[profile-total] ...` after every wrapped plugin's closeBundle has
  // resolved. No-op when BUILD_PROFILE=0.
  profileSummaryPlugin(),
+ // #7303 — per-hook attribution + ordered top-N recap. Last in the array so
+ // its `closeBundle` (enforce post, order post, sequential) runs after every
+ // measured hook, profileSummaryPlugin's own included.
+ buildPhaseTimingPlugin(),
  ],
  // No build-time `define`: nothing volatile is injected into the bundle.
  // Build id / commit hash are emitted as dist/build-id.txt + commit-hash.txt
