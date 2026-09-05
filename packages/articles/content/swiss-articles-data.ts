@@ -16498,6 +16498,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'locazione-vaud-deposito-cauzionale',
+    category: 'pratico',
+    date: '2026-09-05T04:39:25.710Z',
+    image: '/images/blog/locazione-vaud-deposito-cauzionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

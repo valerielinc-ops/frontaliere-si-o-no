@@ -5500,6 +5500,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-vaud-deposito-cauzionale.title': 'Mieten Kanton Waadt: Mietrecht und Kaution',
     'blog.article.affitti-vaud-deposito-cauzionale.excerpt': 'Mietrecht im Kanton Waadt: Kaution max. 3 Monate, gesetzliche Kündigung auf amtlichem Formular und Anfechtung bei der Schlichtungsbehörde.',
     'blog.article.affitti-vaud-deposito-cauzionale.imageAlt': 'Innenraum einer modernen Schweizer Wohnung mit Seeblick, Symbol des Schweizer Mietmarktes',
+    'blog.article.locazione-vaud-deposito-cauzionale.title': 'Vermietung Waadt: Hinterlegung, Kündigung und Schlichtung',
+    'blog.article.locazione-vaud-deposito-cauzionale.excerpt': 'Mietrechte im Waadtland: Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsstelle nach schweizerischem Bundesrecht.',
+    'blog.article.locazione-vaud-deposito-cauzionale.imageAlt': 'Mietvertrag mit Hausschlüsseln auf Schweizer Schreibtisch, fotorealistischer DSLR-Stil.',
 };
 
 export default blogMetaChDe;
