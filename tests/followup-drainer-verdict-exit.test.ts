@@ -134,3 +134,46 @@ describe('latestFixOutcomeFromComments — accetta anche la forma REST', () => {
     expect(latestFixOutcomeFromComments(rest)).toBe('blocked-secrets');
   });
 });
+
+describe('UNPARK-NO-VERDICT — una parked senza verdetto non ha mai avuto un tentativo', () => {
+  // Il difetto, misurato il 2026-09-05: `issue-fix.yml` serializzava su un
+  // `concurrency` group costante, quindi ogni promozione oltre la prima moriva
+  // `cancelled` prima di eseguire uno step. Il RESCUE la ritrovava `agent:fix`
+  // orfana e le addebitava un `fu-attempt`; tre giri e la issue era `fu-parked`
+  // + `fu-attempt:3` con ZERO commenti `FIX_OUTCOME`. 88 delle 167 parked
+  // aperte erano così, 84 parcheggiate il solo 09-04, con 276 label
+  // `fu-attempt:*` applicate per tentativi mai avvenuti. Il dry-run di questo
+  // passo ne ha contate 72 da ri-accodare (89 nel pool, 17 con un verdetto
+  // vero, che restano dove sono).
+  const src = readFileSync(DRAINER_SRC, 'utf8');
+
+  it('il predicato è «nessun verdetto», non «nessuna PR» né uno stato', () => {
+    // Leggere uno stato al posto della prova è l'errore che qui ha già
+    // cancellato 848 iscritti («pending» letto come «non confermato»). Un
+    // verdetto è la sola prova che una run ha eseguito.
+    expect(src).toContain('if (outcome === null && !has(iss, LBL_UNPARKED)) {');
+  });
+
+  it('una lettura commenti fallita non ri-accoda al buio', () => {
+    // `issueComments` rende `null` sul glitch e `[]` sull'assenza:
+    // `latestFixOutcome` le confonde entrambe in `null`, e su quella confusione
+    // un errore di rete diventerebbe un ri-accodo di massa.
+    const glitchGuard = src.indexOf('if (comments === null) continue;');
+    const decision = src.indexOf('if (outcome === null && !has(iss, LBL_UNPARKED)) {');
+    expect(glitchGuard, 'guardia sul glitch gh assente').toBeGreaterThan(-1);
+    expect(glitchGuard, 'la guardia deve precedere la decisione').toBeLessThan(decision);
+  });
+
+  it('azzera il contatore falso e rimette in coda, marcando il giro', () => {
+    // Senza `fu-unparked:1` una issue che tornasse parked-senza-verdetto
+    // rientrerebbe in coda a ogni tick per sempre: un livelock al posto di un
+    // backlog, cioè un guasto più difficile da vedere e non meno grave.
+    const branch = src.slice(
+      src.indexOf('if (outcome === null && !has(iss, LBL_UNPARKED)) {'),
+      src.indexOf('const d = verdictExitDecision(outcome, {'),
+    );
+    expect(branch).toContain('add: [LBL_QUEUED, LBL_UNPARKED]');
+    expect(branch).toContain('remove: [LBL_PARKED,');
+    expect(branch).toContain('/^fu-attempt:\\d+$/');
+  });
+});

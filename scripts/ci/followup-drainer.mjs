@@ -194,13 +194,31 @@ const REQUESTED_MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
  * @returns {number} 1 se il gruppo e' costante, Infinity se non serializza
  */
 export function fixQueueDepth(workflowYaml) {
-  const lines = String(workflowYaml || '').split('\n');
-  const start = lines.findIndex((l) => /^concurrency:/.test(l));
+  const text = String(workflowYaml || '');
+  // Vuoto o solo spazi non e' «un workflow senza concurrency», e' una lettura
+  // che non ha reso niente: `readFileSync` su uno 0-byte non lancia, quindi il
+  // `catch` del chiamante non scatta e senza questa riga un file troncato
+  // varrebbe `Infinity`, cioe' il verso insicuro (review #7482, 🟡 L199).
+  if (!text.trim()) return 1;
+  const lines = text.split('\n');
+  const indentOf = (l) => /^[ \t]*/.exec(l)[0].length;
+  const isComment = (l) => /^\s*#/.test(l);
+  // `^\s*concurrency:` e non `^concurrency:`: il blocco puo' stare a livello di
+  // job (`jobs.<id>.concurrency`), forma equivalente e comune. Cercarlo solo in
+  // colonna 0 rendeva `Infinity` su quella forma, e spostare il blocco dentro
+  // il job — una refactor innocua — avrebbe riaperto gli sfratti in silenzio
+  // (review #7482, 🟡 L198).
+  const start = lines.findIndex((l) => /^\s*concurrency:/.test(l) && !isComment(l));
   if (start < 0) return Number.POSITIVE_INFINITY; // nessun gruppo → nessuna serializzazione
-  // Il blocco sono le righe indentate che seguono (le vuote non lo chiudono).
-  for (let j = start; j < lines.length; j += 1) {
-    if (j > start && lines[j] !== '' && !/^\s/.test(lines[j])) break;
-    const g = /group:\s*(.+?)\s*$/.exec(lines[j]);
+  const baseIndent = indentOf(lines[start]);
+  for (let j = start + 1; j < lines.length; j += 1) {
+    const l = lines[j];
+    if (l.trim() === '') continue; // una riga vuota non chiude il blocco
+    if (indentOf(l) <= baseIndent) break; // rientro: il blocco e' finito
+    if (isComment(l)) continue; // un `# group: ...` commentato non decide (review #7482, 🟡 L203)
+    // Ancorata a inizio riga: senza, una `group:` dentro un commento o dentro
+    // un valore piu' avanti nella riga vinceva il `return`.
+    const g = /^\s*group:\s*(.+?)\s*$/.exec(l);
     if (g) return /\$\{\{/.test(g[1]) ? Number.POSITIVE_INFINITY : 1;
   }
   return 1; // `concurrency:` c'e' ma il gruppo non si legge → verso sicuro
@@ -365,6 +383,12 @@ const VERDICT_EXIT_MAX_PER_RUN = Number(process.env.FOLLOWUP_VERDICT_EXIT_MAX_PE
 // chiusura di `already-fixed` a `maybe-resolved` + commento.
 const VERDICT_EXIT_NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO_AUTOCLOSE === '1';
 const LBL_RESOLVED_AUTO = 'fu-resolved-auto';
+// Marker dell'UNPARK-NO-VERDICT (vedi lo stadio VERDICT-EXIT): dice «questa
+// issue è già stata ri-accodata una volta perché non aveva alcun verdetto».
+// Serve a rendere quel passo idempotente — senza, una issue che tornasse
+// parked-senza-verdetto rientrerebbe in coda a ogni tick, per sempre.
+const LBL_UNPARKED = 'fu-unparked:1';
+let unparkLabelEnsured = false;
 // Quante candidate all'age-out possono essere rivalutate sull'ultimo evento
 // significativo in una run. Stesso modello del cap del PARKED-RETRY, e stesso
 // motivo: la lettura commenti è l'unica parte cara del passo.
@@ -2195,7 +2219,64 @@ export function runDrain() {
       // che al tick dopo viene ri-commentata.
       if (!budget.take(`#${iss.number} (verdict-exit)`, ITEM_COST_MS)) break;
       scanned++;
-      const outcome = latestFixOutcome(iss.number);
+      // I commenti si leggono UNA volta e si usano due: qui distinguere
+      // «lettura fallita» da «nessun verdetto» è la differenza fra un
+      // ri-accodo giusto e uno al buio, e `latestFixOutcome` le confonde
+      // entrambe in `null` (`issueComments(...) || []`).
+      const comments = issueComments(iss.number);
+      if (comments === null) continue; // glitch gh → nessuna decisione, si rivaluta al tick dopo
+      const outcome = latestFixOutcomeFromComments(comments);
+
+      // UNPARK-NO-VERDICT: una parked che non ha MAI avuto un verdetto non ha
+      // mai avuto un tentativo.
+      //
+      // `fu-attempt:N` dovrebbe contare i giri del fixer, ma il RESCUE lo alza
+      // ogni volta che trova un `agent:fix` orfano — e una run sfrattata dalla
+      // coda di concorrenza è orfana pur non essendo mai partita. Fino al
+      // 2026-09-05 `issue-fix.yml` serializzava su un `concurrency` group
+      // costante: 88 delle 167 parked aperte non avevano NESSUN commento
+      // `FIX_OUTCOME`, 84 parcheggiate il solo 09-04, con 276 label
+      // `fu-attempt:*` applicate per tentativi che non sono avvenuti. Quelle
+      // issue erano in uno stato terminale per un addebito falso.
+      //
+      // Il predicato è «nessun verdetto», e deve restare quello: non «nessuna
+      // PR», non «pending», non «nessun commento». Un verdetto è la sola prova
+      // che una run ha eseguito; leggere uno stato al posto della prova è
+      // l'errore che qui ha già fatto danni altrove (848 iscritti cancellati
+      // per aver letto «pending» come «non confermato»).
+      //
+      // Il pool è già filtrato sopra: queue-managed, non in coda né in lavoro,
+      // non nello stadio decompose, non `needs-human`, non `maybe-resolved`,
+      // non tracker permanente. Chi ha una decisione umana addosso non viene
+      // toccato.
+      //
+      // `fu-unparked:1` rende il passo idempotente e non ciclico: una issue
+      // ri-accodata da qui che tornasse parked senza verdetto non verrebbe
+      // ri-accodata una seconda volta. Senza il marker, un giorno in cui gli
+      // sfratti tornassero produrrebbe un livelock invece di un backlog — un
+      // guasto più difficile da vedere, non meno grave.
+      if (outcome === null && !has(iss, LBL_UNPARKED)) {
+        acted++;
+        if (DRY) {
+          console.log(`[dry] unpark #${iss.number} (parked senza alcun FIX_OUTCOME: nessun tentativo reale) — "${iss.title?.slice(0, 60)}"`);
+          continue;
+        }
+        if (!unparkLabelEnsured) {
+          ensureLabel(LBL_UNPARKED, '0e8a16', 'Ri-accodata dal drainer: era parked senza alcun verdetto del fixer');
+          unparkLabelEnsured = true;
+        }
+        try {
+          gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body',
+            `♻️ **Ri-accodata dal followup-drainer (zero-Claude): era parcheggiata senza un solo tentativo.**\n\nQuesta issue portava \`${LBL_PARKED}\` e \`fu-attempt:${attemptOf(iss) || '?'}\`, ma nei suoi commenti non c'è **nessun** \`FIX_OUTCOME\`: nessuna run del fixer l'ha mai lavorata. Il contatore dei tentativi è stato alzato dal RESCUE su promozioni che la coda di concorrenza di \`issue-fix.yml\` aveva sfrattato (\`cancelled\` prima di eseguire uno step), non su fix falliti.\n\nTolgo \`${LBL_PARKED}\` e il contatore e la rimetto in coda con \`${LBL_QUEUED}\`. Il primo giro vero comincia adesso.`], { json: false });
+        } catch { /* il commento spiega, non è il meccanismo */ }
+        edit(iss.number, {
+          add: [LBL_QUEUED, LBL_UNPARKED],
+          remove: [LBL_PARKED, ...names(iss).filter((n) => /^fu-attempt:\d+$/.test(n))],
+        });
+        console.log(`UNPARK #${iss.number} (parked senza verdetto) → ${LBL_QUEUED} — "${iss.title?.slice(0, 50)}"`);
+        continue;
+      }
+
       const d = verdictExitDecision(outcome, {
         hasPR: hasFixPR(iss.number),
         noAutoclose: VERDICT_EXIT_NO_AUTOCLOSE,

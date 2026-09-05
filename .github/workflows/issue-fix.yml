@@ -4,30 +4,63 @@ on:
   issues:
     types: [labeled]
 
-# Serializza i fixer: un agent alla volta evita N PR concorrenti sullo stesso
-# data file (crawler config) + rispetta il cap OOM (max parallel agent).
+# Il gruppo di concorrenza è PER-ISSUE, e la storia del perché è la parte utile.
 #
-# ATTENZIONE — questa NON è una coda (#5514). `cancel-in-progress: false`
-# protegge la run IN CORSO, non le pending: GitHub tiene **una sola** run pending
-# per gruppo, e ogni nuova pending SFRATTA (`cancelled`) la precedente. La
-# profondità della coda è 1, non N. Due `agent:fix` applicati a due issue nello
-# stesso minuto producono quindi una run lavorata e una cancellata prima di
-# partire — e poiché `on: issues:[labeled]` è one-shot, l'evento della run
-# sfrattata è consumato: la label resta sulla issue e NIENTE la ri-arma.
-# Misurato: 13 run `cancelled` su 100; il 2026-08-08 alle 09:02 cinque
-# `[crawler-health]` etichettate insieme → 1 riuscita, 4 issue ferme due giorni
-# (#5392 #5393 #5394 #5395). Il commento che stava qui prima diceva l'opposto
-# («le issue in coda vengono processate appena lo slot si libera») ed è ciò che
-# rendeva il difetto invisibile a chi leggeva il workflow.
+# Era `group: issue-fix`, costante per ogni issue. Con `cancel-in-progress: false`
+# quel gruppo non è una coda (#5514): protegge la run IN CORSO, non le pending.
+# GitHub tiene **una sola** run pending per gruppo, e ogni nuova pending SFRATTA
+# (`cancelled`) la precedente. La profondità era 1, non N. Due `agent:fix`
+# applicati a due issue nello stesso minuto producevano una run lavorata e una
+# cancellata prima di partire — e poiché `on: issues:[labeled]` è one-shot,
+# l'evento della run sfrattata è consumato: la label resta sulla issue e NIENTE
+# la ri-arma. Misurato: 13 run `cancelled` su 100; il 2026-08-08 alle 09:02
+# cinque `[crawler-health]` etichettate insieme → 1 riuscita, 4 issue ferme due
+# giorni (#5392 #5393 #5394 #5395).
 #
-# Chi garantisce davvero che una sola pending esista alla volta sta FUORI da
-# questo file: `scripts/ci/followup-drainer.mjs` promuove UNA issue a `agent:fix`
-# per tick e solo a slot libero, e `scripts/ci/triage-sweep.mjs` applica al più
-# un `agent:fix` diretto per run (`crawlerDirectFixBudget`). Se aggiungi un altro
-# punto che applica `agent:fix`, deve rispettare la stessa regola o reintroduce
-# gli sfratti.
+# Il costo vero è arrivato dopo, quando lo sfratto ha smesso di essere raro. Il
+# 2026-09-04 il cap del drainer è passato da 1 a 3 e le run sfrattate sono
+# passate da 31 (09-03) a 823 (09-04) mentre i success calavano da 55 a 36; una
+# run sfrattata non posa nessun `FIX_OUTCOME`, il RESCUE del drainer la ritrova
+# `agent:fix` orfana e le addebita un `fu-attempt`, e tre giri così la
+# parcheggiano `fu-parked` + `fu-attempt:3` senza che un solo tentativo sia mai
+# avvenuto: 88 issue in 36 ore, su un backlog cresciuto di 82 nette in 15 giorni.
+#
+# Il cap del drainer, mergiato da solo in #7482, era necessario e NON è
+# sufficiente, e la misura post-merge lo dice senza ambiguità. Le quattro run
+# `issue-fix` create nei 48 secondi dopo il merge (12:36:45Z): tre `cancelled`
+# su quattro, cioè volume crollato (il 09-04 stava a ~71 run/ora) e tasso di
+# sfratto invariato. Due di quelle tre sono la STESSA issue — «Sezione TI
+# legacy 'cerca-lavoro-ticino' ridichiarata», entrambe create alle 12:37:15Z —
+# cioè un doppio evento sullo stesso numero, che nessun cap sulle promozioni
+# può vedere per costruzione. E tutte e quattro hanno `event: issues`: con una
+# chiave costante si sfrattano a vicenda due issue QUALUNQUE, comprese quelle
+# che il drainer non ha promosso (il triage che etichetta, il RESCUE che
+# ri-etichetta). Il cap governa una sola sorgente di eventi; la chiave le
+# governa tutte.
+#
+# La chiave per-issue toglie la causa invece di limitarne l'effetto: due issue
+# DIVERSE non si sfrattano più, due eventi sulla STESSA issue continuano a
+# serializzare — che è l'unica mutua esclusione di cui questo workflow avesse
+# davvero bisogno. Il fallback `|| github.run_id` non serve oggi (`issues` è
+# l'unico trigger, quindi `github.event.issue.number` è sempre definito) ed esiste
+# perché un trigger senza issue nel payload, aggiunto un domani, renderebbe la
+# chiave di nuovo costante e riporterebbe gli sfratti in silenzio; con `run_id`
+# ogni run avrebbe invece una chiave propria.
+#
+# A limitare la parallelizzazione torna a essere un numero tarabile da un umano:
+# `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 3),
+# che conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
+# a `fixQueueDepth()`, che legge il `group:` qui sotto: finché la chiave è
+# per-issue il clamp non morde, e se qualcuno la rende di nuovo costante il cap
+# torna automaticamente a 1 invece di ricreare gli sfratti.
+#
+# Restano fuori da questo gruppo le due protezioni che il gruppo costante dava
+# per effetto collaterale: le PR concorrenti sullo stesso data file dei crawler
+# — coperte da `crawlerDirectFixBudget` in `scripts/ci/triage-sweep.mjs`, che
+# resta 1 alla volta e ritorna 0 appena un `agent:fix` è aperto o una run è in
+# volo — e il cap OOM sugli agent paralleli, che ora è il cap del drainer.
 concurrency:
-  group: issue-fix
+  group: issue-fix-${{ github.event.issue.number || github.run_id }}
   cancel-in-progress: false
 
 permissions:
