@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 04:48:13 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 05:15:14 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,72 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Border tax credit 2026: calculation with children</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-workers-tax-2026/</link>
+      <description><![CDATA[How to recover excess taxes in Italy: the practical guide for border workers with children, from the calculation of the deductible to the use of the 730 model.]]></description>
+      <content:encoded><![CDATA[## In brief
+- Tax credit recoverable via 730 from January 1, 2024
+- Exemption €7,500 (pre-2023 commuters), €10,000 (new)
+- Tax withheld only in Switzerland, compensated in Italy
+- Family with children: increased exemption
+
+## Key facts
+- **What**: Tax credit for double taxation Switzerland-Italy
+- When: Effective from January 1, 2024 (New Cross-Border Workers Agreement)
+- Where: Cross-border workers residing in Italy, working in Switzerland
+- Who: INPS and Agenzia delle Entrate manage the mechanism
+- Exemption: €7,500 (previous cross-border workers transitional regime 2024–2033)
+- New exemption: €10,000 for new cross-border workers
+
+The New Cross-Border Workers Agreement, signed on December 23, 2020 and effective from January 1, 2024, has transformed the tax system for those working in Switzerland and residing in Italy. Before this date, the regime was significantly different; today cross-border workers benefit from a tax credit in the CE section of the Italian declaration, compensating for the taxes withheld at source by the Swiss employer.
+
+For cross-border workers who have a family with children, the implications are significant. The withholding tax is levied exclusively in Switzerland (not in both countries), and the recovery occurs through the Italian 730 model by attaching Swiss documentation. The exemption, i.e., the amount of tax-free income, depends on the status: cross-border workers who were already such before July 17, 2023, benefit from an exemption of €7,500, applicable in the transitional regime covering the years 2024–2033. New cross-border workers, on the other hand, are entitled to an exemption of €10,000.
+
+### Calculation of double taxation
+The calculation mechanism is based on the Italy-Switzerland Double Taxation Convention (signed on December 9, 1976), which establishes when one State has the right to tax the income. In the case of cross-border workers, Switzerland applies the withholding tax rate (single taxation), and Italy recognizes the credit through the 730, avoiding double taxation. For a family with children, the Swiss pay slips already report the withholding calculated according to the applicable federal and cantonal rates (for example, the Italian IRPEF could be 23% up to €28,000, 35% between €28,001–50,000, 43% over €50,000, but the Swiss withholding follows different criteria). It is essential to keep all Swiss documents (income source certificate, pay slips) to prove the tax paid in Switzerland during the compilation of the Italian declaration.
+### Practical scenarios for a family with children
+Consider a couple of cross-border workers with a dependent child. If both work in Switzerland and live in bordering Italy, each applies their own allowance: those who were already cross-border workers before July 2023 benefit from €7,500, while newcomers benefit from €10,000 (if hired afterward). Swiss pay slips will record the withholding according to local rates (e.g., Canton Ticino or Graubünden), while Italy will recognize the credit in the CE section of the 730 declaration.
+The family's total income is the sum of individual incomes, net of Swiss withholding. In the Italian 730, each cross-border worker submits their own form with the certificate of taxable income from a foreign source (equivalent Swiss CUD) and calculates the credit as the difference between the Italian tax due and that already paid at source in Switzerland. If the Swiss withholding exceeds the Italian tax due for that income bracket, the credit is positive and generates a refund (rebate). If the withholding is lower, the cross-border worker will have to complete the payment in Italy.
+For a family with children, the situation may change: the allowance increases if the spouse also has cross-border worker status, and deductions for dependent children (if resident in Italy) are applied in the Italian declaration. It is necessary to verify whether the children have been declared in the Swiss pay slip (with corresponding Swiss deductions) or if they are only declared in Italy: this influences the final calculation.
+### Required documentation
+To complete the 730 and claim the credit, the cross-border worker must provide:
+- Certificate of income from a Swiss source (equivalent to CUD, issued by the Swiss employer or the Swiss database)
+- Copy of the final pay slip of the year (to verify withholdings)
+- [Work permit (Permit G)](nav:permits) and proof of residence in Italy
+- If necessary, the Swiss declaration sent to the Swiss tax administration (not mandatory for many cross-border workers if the withholding is final, but useful as proof)
+Filling out the CE section of the Italian declaration requires attention: the income must be declared gross of Swiss withholding, the credit must be calculated accurately, and supporting documentation must be attached. A common mistake is confusing the withholding at source with the credit: the former is the amount withheld in the pay slip (already paid in Switzerland), the latter is the recognition in Italy of that taxation.
+### Step-by-step procedure for tax credit recovery
+The process begins during the working year: the cross-border worker regularly receives Swiss pay slips, which show the withholding tax. At the end of the working year, they request the income certificate from the Swiss employer or download it from the Federal Tax Administration (FTA) portal. This document is essential as it shows the gross annual income and the total tax paid at source.
+
+Next, the cross-border worker completes the [Italian 730 form](nav:tax-return) (or relies on a tax intermediary). In section CE (foreign income), they enter the income declared in Switzerland before withholding tax, specify the foreign country (Switzerland), and calculate the credit using the formula: credit = (Italian tax due on foreign income) – (tax already paid in Switzerland). If the family's total income is included in the Swiss pay slips and there are no other Italian income sources, the 730 will be the only declaration tool in Italy.
+
+Once the 730 is submitted (through a tax intermediary, online via the Revenue Agency portal, or at the CAF/patronato), the Agency processes the declaration. If the credit exceeds the tax due, the cross-border worker is entitled to a refund. If it is lower, they must pay the difference. Refund times vary, but they are generally credited within a few months of submission and subsequent formal review.
+
+### Deadlines and checklist
+The main deadlines are:
+- **By February 28** (or the next legal deadline): submission of the 730 to the Revenue Agency
+- Throughout the year: keep all Swiss pay slips and documentation related to dependents to supplement the Italian declaration
+- G permit: ensure it is valid for the entire tax year (the credit is valid only if the cross-border worker was regularly employed and resident)
+
+Operational checklist for cross-border workers with children:
+- [ ] Request the income certificate from the Swiss employer
+- [ ] Collect all pay slips of the year (original or digital)
+- [ ] Verify status (old or new cross-border worker) to apply the correct exemption
+- [ ] Document dependents and their country of residence (Italy or Switzerland)
+- [ ] If the spouse is also a cross-border worker, collect the spouse's income documentation
+- [ ] Complete the 730 or delegate to a tax intermediary (CAF, accountant)
+- [ ] Attach the Swiss certificate and copies of pay slips to the 730
+- [ ] Submit by the February deadline
+- [ ] Monitor the refund in the restricted area of the Revenue Agency
+
+To simplify this process and estimate the expected withholding tax, a [pay slip calculator](nav:calculator) allows you to verify the tax credit amount before submitting the 730.]]></content:encoded>
+      <pubDate>Sat, 05 Sep 2026 05:15:14 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/frontalieri-imposta-calcolo-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontalieri-imposta-calcolo-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Border payroll 2026: practical simulation</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-workers-payslip-2026-simulation/</link>
@@ -3828,50 +3894,6 @@ If you are a cross-border worker interested in evaluating your mortgage capacity
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/mutuo-frontaliere-procedura-completa</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/mutuo-frontaliere-procedura-completa.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Home loan in Switzerland for frontier workers</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-mortgage-swiss-banks/</link>
-      <description><![CDATA[Buying a house in Switzerland from a border agent is possible. Here are requirements, banks and procedures to obtain a mortgage loan in Ticino and border regions.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Cross-border workers can buy a house in Switzerland by applying for a mortgage
-- Requirements: income stability, work permit, tax documentation
-- Procedures: consult cantonal banks, verify financial capacity
-
-## Key facts
-- **What**: Mortgage for property purchase in Switzerland by cross-border workers
-- Where: Ticino Channel, Italian-Swiss border regions (Chiasso, Mendrisio, Lugano)
-- Who: Cross-border workers with permit G, residents in Italy
-- When: Continuous evaluation by cantonal banks
-- Requirement: Documented income stability, verified financial capacity
-
-Today, an increasing number of Ticino cross-border workers are considering buying property in Switzerland. The proximity to the workplace, the right to a cantonal residence for the future, and access to Swiss services make this option attractive for many commuting families. However, obtaining a mortgage in Switzerland requires meeting specific criteria that banks evaluate rigorously.
-
-For a cross-border worker, the mortgage application starts from a solid base: the income from work in Switzerland is tracked, documented, and subject to withholding tax in the country of work. This represents an advantage over those working in Italy, as the continuity and stability of income are already verifiable through Swiss pay slips. However, banks operating in Ticino and border cantons apply common standards at the federal level for access to mortgage credit, and residing in Italy is not an automatic obstacle if the work permit is current.
-
-### The issue of documentation and financial capacity
-
-Financial capacity is the first criterion that a bank evaluates. This means that your gross annual income, your savings, and your credit history will be analyzed to determine if you can afford the monthly mortgage payments, as well as manage the expenses associated with the property (cantonal property taxes, insurance, maintenance). Banks require complete documentation: work certificates, last three pay slips, income statements (both Italian and Swiss for previous years), bank statements, and proof of own funds for the initial payment.
-
-A cross-border worker residing in Italy must also provide a copy of the valid work permit, as it demonstrates the legitimacy of staying in Switzerland and the continuity of the employment relationship. Although the permit is not a block, its validity reassures the bank about income stability. Initial procedures require patience but represent protection for both the bank and the borrower.
-Access to the mortgage for a border worker also depends on a number of economic and administrative factors that deserve a closer look. Understanding these obstacles is essential so as not to be surprised during the assessment.
-
-### What are the most common obstacles
-
-Banks are cautious when assessing loans to non-residents of Ticino. One of the recurring doubts concerns long-term employment stability: what happens if the frontier worker loses his job in Switzerland? Unemployment insurance covers part of the income for a limited period, but it is not enough for banks. For this reason, many institutions require a guarantee from a family member residing in Switzerland or additional insurance coverage from the borrower.
-
-A second critical aspect is the tax issue and the [ristorni](nav:ristorni). A border worker who buys a house in Switzerland will have to face two tax systems: the Swiss one (cantonal and municipal) and the Italian one. The income tax at source is only withheld in Switzerland, but the tax refunds — annual refunds according to the agreements between Italy and Switzerland — depend on the Italian tax return (EC framework of 730). This double system does not involve double taxation thanks to the Italian-Swiss convention, but the documentation required by banks to verify the tax transparency of the applicant is often more complex for a border crossing.
-
-A third point is the evaluation of the
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-The concrete path to a mortgage involves a series of ordered steps that should be approached calmly and with planning.\n\n### Step-by-step: from consultation to approval\n\n**1. Initial documentation collection**\nBefore submitting the application, gather all the necessary material: the last three Swiss pay slips, income tax returns (IT and CH) for the past three years, bank statements for the last 3-6 months, a copy of a valid work permit, identity document, and a copy of the [health insurance policy](nav:health) (LAMal, if already subscribed in Switzerland). If you are married or cohabiting, obtain the same documentation for your spouse/partner.\n\n2. Pre-consultation with the bank\nContact the bank for a preliminary consultation (often free). During this meeting, the bank estimates your financing capacity based on a hypothetical mortgage scenario. It is not binding, but it gives you a realistic idea of how much you can request.\n\n3. Property search and evaluation\nOnce you know your maximum budget, you can start looking for properties. When you find the house, have its value estimated by an independent appraiser (or ask the bank for an estimate), and verify the cadastral conditions and any existing mortgages or encumbrances with the cantonal land registry.\n\n4. Mortgage application submission\nWith the documents and the identified property, submit the mortgage application to the bank. The bank will initiate a formal credit evaluation, which includes: analysis of your income tax return, verification of employment stability, property appraisal, and search for any pre-existing mortgage burdens. The timeframe is variable, but typically 4-6 weeks.\n\n5. Approval and signing\nIf approved, you will receive an official mortgage offer with the rates, duration, installments, and all clauses. You will have time to evaluate and, if accepted, proceed to the contractual signing in front of a notary. The notary formalizes the mortgage on the property.\n\n### Practical tools for comparing offers\nNot all banks offer the same rates or conditions. Use a [mortgage calculator](nav:calculator) to estimate monthly installments based on the amount, duration, and interest rate. Request quotes from 2-3 different banks: the total cost of a mortgage (rate + mandatory insurance + fees) varies significantly.\n\nFinally, remember that the own funds required by banks (your initial contribution) typically range from 10% to 20% of the estimated property value. If you have saved less, you can negotiate with the bank or ask a family member for a guarantee. This final step is crucial: do not rush to sign if you are not fully convinced of the offered conditions.]]></content:encoded>
-      <pubDate>Thu, 03 Sep 2026 09:47:47 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/frontaliere-mutuo-banche-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontaliere-mutuo-banche-svizzera.webp" medium="image"/>
     </item>
   </channel>
 </rss>

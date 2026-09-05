@@ -85832,6 +85832,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-imposta-calcolo-2026': {
+    title: 'Credito imposta frontalieri 2026: calcolo con figli',
+    description: 'Come recuperare le imposte in eccesso per frontalieri con figli dal 2024: franchigia €7.500–€10.000, compilazione 730 e procedure pratiche. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, figli',
+    ogTitle: 'Credito imposta frontalieri 2026: calcolo con figli',
+    ogDescription: 'Guida completa per frontalieri con figli: come sfruttare il nuovo accordo 2024 per recuperare imposte via 730 italiano. Franchigia €7.500–€10.000, procedura e scadenze pratiche.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-imposta-calcolo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito imposta frontalieri 2026: calcolo con figli",
+      "description": "Come recuperare le imposte in eccesso per frontalieri con figli dal 2024: franchigia €7.500–€10.000, compilazione 730 e procedure pratiche. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-imposta-calcolo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia che esamina documenti fiscali con vista sul Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-05T05:15:14+00:00",
+      "dateModified": "2026-09-05T05:15:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-imposta-calcolo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

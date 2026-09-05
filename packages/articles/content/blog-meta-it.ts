@@ -11367,6 +11367,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-busta-paga-2026-simulazione.title': 'Busta paga frontalieri 2026: simulazione pratica',
     'blog.article.frontalieri-busta-paga-2026-simulazione.excerpt': 'Calcola il netto svizzero 2026: aliquote AVS 5.3%, imposta alla fonte, Nuovo Accordo, esenzioni €7.500-€10.000 e credito d\'imposta italiano.',
     'blog.article.frontalieri-busta-paga-2026-simulazione.imageAlt': 'Simulazione busta paga svizzera 2026 con calcolatore, franchi svizzeri e euro italiani su scrivania in ufficio ticinese',
+    'blog.article.frontalieri-imposta-calcolo-2026.title': 'Credito imposta frontalieri 2026: calcolo con figli',
+    'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'Come recuperare le imposte in eccesso in Italia: la guida pratica per frontalieri con figli, dal calcolo della franchigia all\'utilizzo del modello 730.',
+    'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Famiglia che esamina documenti fiscali con vista sul Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
