@@ -19,7 +19,10 @@ import {
   isSufficientVacancyDescription,
 } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  runUmantisSpecWithEmptyProof,
+  umantisAuthoritativeEmptyOrNull,
+} from './umantis-empty-listing.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -288,8 +291,7 @@ function detectEmploymentType(text = '') {
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 async function fetchJobListings(runtime = {}) {
-  const spec = loadSpec(APLEONA_SCHWEIZ_AG_KEY);
-  return runSpecInProduction(spec, {
+  return runUmantisSpecWithEmptyProof(APLEONA_SCHWEIZ_AG_KEY, {
     ...runtime,
     detailExtractor: extractApleonaDetailFields,
   });
@@ -309,7 +311,7 @@ export async function fetchAllApleonaSchweizAgJobs(runtime = {}) {
   const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return umantisAuthoritativeEmptyOrNull(listings, APLEONA_SCHWEIZ_AG_COMPANY_NAME) || [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);

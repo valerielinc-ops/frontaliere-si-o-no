@@ -52,6 +52,7 @@ import {
   type InjectionOutcome,
 } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
 /** Idempotency marker for the sector-hub-links block (distinct from AE-3). */
 const SECTOR_LINKS_MARKER = 'data-sector-hub-links';
@@ -66,12 +67,9 @@ interface InjectionTarget {
 }
 
 /** Per-locale relative path of each job-board root hub (`dist/<…>/index.html`). */
-const HUB_REL: Record<JobBoardLocale, string> = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI hub injection target
-  en: 'en/find-jobs-ticino', // cathedral-allow: TI hub injection target
-  de: 'de/jobs-im-tessin', // cathedral-allow: TI hub injection target
-  fr: 'fr/trouver-emploi-tessin', // cathedral-allow: TI hub injection target
-};
+const HUB_REL: Record<JobBoardLocale, string> = Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI_ROOT).map(([loc, root]) => [loc, root.slice(1)]),
+) as Record<JobBoardLocale, string>;
 
 const HUB_COPY: Record<JobBoardLocale, { title: string; intro: string }> = {
   it: {

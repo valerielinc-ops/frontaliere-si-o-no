@@ -43,7 +43,7 @@ print(f"Expired slugs: {len(expired_slugs)}")
 # Build the tracking structure: map of slug -> locale slugs
 # This will be used by the build plugin to generate redirect pages
 locale_prefixes = {'it': '', 'en': '/en', 'de': '/de', 'fr': '/fr'}
-section_by_locale = {'it': 'cerca-lavoro-ticino', 'en': 'find-jobs-ticino', 'de': 'jobs-im-tessin', 'fr': 'trouver-emploi-tessin'}
+section_by_locale = {'it': 'cerca-lavoro-ticino', 'en': 'find-jobs-ticino', 'de': 'jobs-im-tessin', 'fr': 'trouver-emploi-tessin'} # cathedral-allow: hand-kept Python port of SECTION_LEGACY_TI (no JS import possible) — pinned by tests/job-board-prefix-parity.test.ts
 
 tracking = {}
 for slug, info in all_jobs.items():

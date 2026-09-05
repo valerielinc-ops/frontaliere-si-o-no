@@ -36,6 +36,7 @@ import { isLiechtensteinBorderMunicipalityPath } from './liechtensteinBorderMuni
 import { isAustrianBorderMunicipalityPath } from './austrianBorderMunicipalityData';
 import { isBorderMunicipalityPath, isBorderMunicipalityHubPath } from './borderMunicipalityData';
 import { isBorderWaitPath } from './borderWaitData';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 type SupportedLocale = CantonLocale;
 
@@ -144,12 +145,7 @@ function isEmployerProfilePath(path: string): boolean {
 // canonicalize to the canton section already present in the URL (see the
 // `expired-job` branch in resolveSearchConsoleCompatTarget), so they never
 // fall back to TI.
-const JOB_BOARD_SECTION_BY_LOCALE: Record<SupportedLocale, string> = {
- it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
- en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
- de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
- fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
-};
+const JOB_BOARD_SECTION_BY_LOCALE: Record<SupportedLocale, string> = SECTION_LEGACY_TI;
 
 const JOB_BOARD_PREFIX_BY_LOCALE: Record<SupportedLocale, string> = {
  it: '',

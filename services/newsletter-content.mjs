@@ -13,6 +13,7 @@ import { locTokenHit, normalizeLocToken } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
 import { nlNormLocale } from './newsletter-template.mjs';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -509,12 +510,11 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subsc
  * @returns {object[]} — Matched jobs with title, url, company, location, contract
  */
 /** Locale-specific job board URL path prefix */
-const JOB_BOARD_PATH = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
-  en: 'en/find-jobs-ticino',
-  de: 'de/jobs-im-tessin',
-  fr: 'fr/trouver-emploi-tessin',
-};
+// Relative form of the canonical TI legacy section table (issue #7491).
+const JOB_BOARD_PATH = Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI)
+    .map(([loc, segment]) => [loc, loc === 'it' ? segment : `${loc}/${segment}`]),
+);
 
 // Company-hub URL prefix per locale — MUST mirror build-plugins/
 // jobsSeoPagesPlugin.ts `companyRoutePrefix`. The build emits each hub at

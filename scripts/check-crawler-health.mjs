@@ -914,6 +914,17 @@ async function inspectCrawler(slug) {
   // absent for crawlers without an authoritative-snapshot validator.
   const authoritativeEmpty =
     summary && typeof summary === 'object' && summary.authoritativeEmptySnapshot === true;
+  // Issue #7461 & al.: this slice was written by the process-exit guard
+  // (`registerCrawlerSummaryGuard`, assemble-jobs-dataset.mjs), not by the
+  // pipeline — the run RETURNED BEFORE PUBLISHING and kept the previous slice
+  // live. Its `total: 0` is the guard's placeholder, NOT an observation that
+  // the source is empty.
+  const earlyExit = summary && typeof summary === 'object' && summary.earlyExit === true;
+  // Separates a deliberate bail-out (0) from a crash (non-zero) — different
+  // triage, and the guard already records it. `null` when absent: "unknown" is
+  // not "clean exit".
+  const exitCode =
+    earlyExit && Number.isFinite(Number(summary.exitCode)) ? Number(summary.exitCode) : null;
   // For crawler health, count what the crawler found, not what later
   // housekeeping kept in the active slice. URL cleanup has its own failure
   // surface; otherwise a cleanup false positive is mislabeled as a parser
@@ -949,6 +960,8 @@ async function inspectCrawler(slug) {
     discovered,
     written,
     authoritativeEmpty,
+    earlyExit,
+    exitCode,
   };
 }
 
@@ -1019,6 +1032,14 @@ function corpusObservationFromPayloads(slug, data, summary) {
       ? summary.written
       : null;
   const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
+  // Same guard-slice marker as `inspectCrawler` above: the corpus republishes
+  // whatever slice the crawler wrote, exit-guard placeholders included — and
+  // for cross-repo crawlers the corpus observation is usually the one that
+  // wins `selectNewestCrawlerObservation`, so it has to carry `exitCode` too
+  // or the reason would report a crash as a deliberate bail-out.
+  const earlyExit = summary.earlyExit === true;
+  const exitCode =
+    earlyExit && Number.isFinite(Number(summary.exitCode)) ? Number(summary.exitCode) : null;
 
   return {
     slug,
@@ -1031,6 +1052,8 @@ function corpusObservationFromPayloads(slug, data, summary) {
     discovered,
     written,
     authoritativeEmpty,
+    earlyExit,
+    exitCode,
   };
 }
 
@@ -1167,6 +1190,12 @@ function selectNewestCrawlerObservation(
  * `crawler-template` only when the parser matched the source's explicit "no
  * open positions" marker). The latter two need no allowlist entry: the run's
  * own evidence already distinguishes "legitimately empty" from "broken".
+ *
+ * A zero can also mean neither: `observation.earlyExit` marks a slice written
+ * by the process-exit guard, i.e. a run that returned BEFORE publishing. That
+ * does not make the crawler healthy (it stays broken and keeps its streak) —
+ * it only changes the reason we report, because "returned 0 jobs" is a claim
+ * about the source that an aborted run never made.
  */
 function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const previous = prev && typeof prev === 'object' ? prev : {};
@@ -1193,6 +1222,19 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 
   const emptyOk =
     EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty || authoritativeEmpty;
+
+  // The run aborted before publishing (exit-guard slice). This deliberately
+  // does NOT feed `emptyOk`: an aborting crawler is broken and must keep its
+  // streak. It only changes the failure we NAME, because "returned 0 jobs"
+  // asserts something about the source that the run never established.
+  //
+  // It is the exact complement of the #7324 proof above. That one carries a
+  // proof the source IS empty and can only ride on a slice the pipeline wrote
+  // itself; this one marks the slices the pipeline never reached, which is why
+  // the #7324 mechanism can never classify them however many validators are
+  // added. Together they cover both halves of a zero: proven-empty, and
+  // never-observed.
+  const abortedRun = observation.earlyExit === true && lastObservedJobs === 0;
 
   // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
   // directly. Resolve a freshness timestamp from whichever field is present.
@@ -1297,7 +1339,19 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     reason = null;
   } else if (consecutiveEmptyRuns >= BROKEN_AFTER_EMPTY_RUNS) {
     status = 'broken';
-    reason = `${consecutiveEmptyRuns} consecutive runs returned 0 jobs`;
+    // Still broken — an aborting crawler IS broken and must stay flagged. What
+    // changes is WHICH failure we name. "Returned 0 jobs" is a claim about the
+    // SOURCE and it sends triage to the parser selectors or to retiring the
+    // crawler; when the run aborted, both are the wrong place to look and the
+    // source is usually still full. Say what actually happened instead.
+    reason = abortedRun
+      // `?? 'unknown'` and never `?? 0`: 0 means "deliberate bail-out" and
+      // non-zero means "crash", which is different triage. An absent field is
+      // neither, and defaulting it to 0 would assert a clean bail-out on a
+      // crash — the same substitution of a placeholder for evidence this whole
+      // change exists to stop.
+      ? `${consecutiveEmptyRuns} consecutive runs aborted before publishing a result (exit guard, last exitCode=${observation.exitCode ?? 'unknown'}) — the source was NOT observed empty and the previous slice is still live; look for the crawler's own bail-out, not for a dead selector`
+      : `${consecutiveEmptyRuns} consecutive runs returned 0 jobs`;
   } else if (lastObservedJobs === 0 && !lastSuccessfulRunAt && !hadPriorState) {
     // First time we see this crawler AND it's empty AND we have no history.
     // We can't tell yet if this is a legitimately-empty source (BancaStato)
@@ -1328,6 +1382,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedWrittenCount: observation.written ?? null,
       _autoFilteredEmpty: autoFilteredEmpty,
       _authoritativeEmptySnapshot: authoritativeEmpty,
+      _abortedRun: abortedRun,
     },
     reason,
     status,

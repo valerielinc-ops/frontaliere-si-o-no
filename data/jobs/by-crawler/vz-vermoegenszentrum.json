@@ -4009,7 +4009,7 @@
       "slug": "analista-del-mercato-finanziario-in-editor-in-vz-vermogenszentrum-zug-zug",
       "slugByLocale": {
         "it": "analista-del-mercato-finanziario-in-editor-in-vz-vermogenszentrum-zug-zug",
-        "en": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
+        "en": "financial-market-analyst-in-editor-in-vz-vermogenszentrum-zug-zug",
         "de": "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
         "fr": "analyste-des-marches-financiers-dans-editeur-dans-vz-vermogenszentrum-zug-zug"
       },
@@ -4019,7 +4019,7 @@
       "title": "Finanzmarktanalyst/-in & Redaktor/-in",
       "titleByLocale": {
         "it": "Analista del mercato finanziario/in & editor/in",
-        "en": "Finanzmarktanalyst/-in & Redaktor/-in",
+        "en": "Financial market analyst/-in & editor/in",
         "de": "Finanzmarktanalyst/-in & Redaktor/-in",
         "fr": "Analyste des marchés financiers/dans & éditeur/dans"
       },
@@ -4072,8 +4072,7 @@
       },
       "previousSlugs": [
         "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
-        "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
-        "financial-market-analyst-in-editor-in-vz-vermogenszentrum-zug-zug"
+        "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4081,7 +4080,7 @@
           "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ],
         "en": [
-          "financial-market-analyst-in-editor-in-vz-vermogenszentrum-zug-zug"
+          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ],
         "fr": [
           "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
@@ -4565,7 +4564,7 @@
       "title": "Professional Software Engineer .NET und Web",
       "titleByLocale": {
         "it": "Professional Software Ingegnere .NET e Web",
-        "en": "Professional Software Engineer .NET und Web",
+        "en": "Professional Software Engineer .NET and Web",
         "de": "Professional Software Ingenieur .NET und Web",
         "fr": "Ingénieur logiciel professionnel .NET et Web"
       },
@@ -4622,7 +4621,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.042Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",

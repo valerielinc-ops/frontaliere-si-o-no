@@ -48,8 +48,23 @@ function findUniqueStep(steps: any[], name: string) {
   return { index, step: steps[index] };
 }
 
-function expectCurrentShadowContract(currentDocument: any, baseDocument: any, sourceDocument: any) {
-  expect(currentDocument).toEqual(baseDocument);
+// Il portable NON e' piu' congelato su `origin/main`. Quel confronto
+// (`expect(currentDocument).toEqual(baseDocument)`) rendeva rossa QUALUNQUE PR
+// che lo cambiasse, quindi era soddisfacibile solo da un commit diretto su
+// `main` — cioe' dall'unico percorso che salta questo gate, visto che
+// `tests.yml` gira solo `on: pull_request`. #7355 ha rigenerato il portable
+// correttamente dalla sorgente e ha comunque potuto rompere l'adiacenza della
+// terna shadow, perche' il test non era nemmeno selezionabile (#7514, #7580).
+//
+// L'invariante che quel congelamento proteggeva — nessun drift non rivisto
+// sull'artefatto AUTO-GENERATED — e' coperto in forma piu' forte e
+// soddisfacibile da `portable == render(sorgente)`, che verificano
+// tests/crawler-generation-barrier-workflows.test.ts e
+// tests/generate-crawler-group-workflows.test.ts: vietano la modifica a mano e
+// permettono la rigenerazione corretta, dove l'uguaglianza con `main` vietava
+// entrambe. Qui restano il contratto shadow e l'equivalenza step-per-step con
+// la sorgente in albero, che e' il confronto giusto per una PR.
+function expectCurrentShadowContract(currentDocument: any, sourceDocument: any) {
   expect(currentDocument.concurrency).toEqual({
     group: 'jobs-data-pipeline',
     'cancel-in-progress': false,
@@ -108,9 +123,6 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(translateStep(current)).toEqual(translateStep(base));
     const portableTranslate = '.github/corpus-workflows/translate-pending.yml';
     const portableCurrent = YAML.parse(fs.readFileSync(portableTranslate, 'utf8'));
-    const portableBase = YAML.parse(execFileSync(
-      'git', ['show', `origin/main:${portableTranslate}`], { encoding: 'utf8' },
-    ));
     expect(portableCurrent.concurrency).toEqual({
       group: 'jobs-data-pipeline',
       'cancel-in-progress': false,
@@ -120,10 +132,21 @@ describe('crawler generation PR B workflow wiring', () => {
       '.github/workflows/translate-pending-logic.yml',
       'utf8',
     ));
-    expectCurrentShadowContract(portableCurrent, portableBase, sourceTranslate);
-    const baselineMutation = cloneDocument(portableCurrent);
-    baselineMutation.jobs.translate['timeout-minutes'] += 1;
-    expect(() => expectCurrentShadowContract(baselineMutation, portableBase, sourceTranslate))
+    expectCurrentShadowContract(portableCurrent, sourceTranslate);
+    // La sonda che tiene onesto il contratto qui sopra. Prima mutava
+    // `timeout-minutes`, che veniva intercettato SOLO dall'uguaglianza con
+    // `origin/main`: tolta quella, la stessa mutazione non proverebbe piu'
+    // niente. Ora la sonda infila uno step estraneo dentro la terna shadow —
+    // esattamente la rottura di #7355, `Upload thinking A/B rows` fra finalize
+    // e upload — e pretende il rosso. Se qualcuno indebolisce o cancella
+    // l'adiacenza invece di ripararla, e' questa riga a cadere.
+    const adjacencyProbe = cloneDocument(portableCurrent);
+    const probeSteps = adjacencyProbe.jobs.translate.steps;
+    probeSteps.splice(findUniqueStep(probeSteps, shadowFinalizeName).index + 1, 0, {
+      name: 'Intruder step wedged into the shadow triple',
+      run: 'true',
+    });
+    expect(() => expectCurrentShadowContract(adjacencyProbe, sourceTranslate))
       .toThrowError();
     const currentTriggerDeploy = portableCurrent.jobs.translate.steps
       .find((step: any) => step.name === 'Trigger deploy');
@@ -137,14 +160,19 @@ describe('crawler generation PR B workflow wiring', () => {
       const workflowPath = `.github/corpus-workflows/crawler-group-${group}.yml`;
       const workflowSource = fs.readFileSync(workflowPath, 'utf8');
       const crawler = YAML.parse(workflowSource);
-      // No-unreviewed-drift baseline (#7135) kept at full strength: the ONLY
-      // delta this comparison tolerates is the reviewed generation-token
-      // fallback (#7471), applied to the baseline before parsing. Once merged
-      // the substitution finds nothing and the check is a plain equality again.
-      const baseline = execFileSync(
-        'git', ['show', `origin/main:${workflowPath}`], { encoding: 'utf8' },
-      ).split('${{ inputs.generation_token }}').join(GENERATION_TOKEN_EXPR);
-      expect(crawler).toEqual(YAML.parse(baseline));
+      // Il baseline no-unreviewed-drift (#7135) NON e' piu' `origin/main`, per
+      // la stessa ragione della terna shadow qui sopra: pretendere l'uguaglianza
+      // con `main` rende rossa ogni PR che rigenera un gruppo, quindi era
+      // soddisfacibile solo dal commit diretto su `main`. Il suo stesso commento
+      // lo ammetteva, dovendo sottrarre a mano il delta rivisto di #7471 «finche'
+      // non e' mergiato». Misurato: #7570 ha cambiato due `-logic.yml` senza
+      // rigenerare, e la riparazione era immergiabile proprio per questa riga.
+      //
+      // Il drift che quel confronto inseguiva resta chiuso, e piu' stretto: le
+      // due uguaglianze sha256 qui sotto legano OGNI artefatto alla sua sorgente
+      // attraverso `contract.json`, e tests/generate-crawler-group-workflows.test.ts
+      // rigenera i 23 gruppi e li confronta byte a byte. Una modifica a mano
+      // dell'artefatto resta rossa; una rigenerazione corretta ora passa.
       expect(crawler.concurrency).toEqual({
         group: `jobs-crawler-group-${group}`,
         'cancel-in-progress': false,

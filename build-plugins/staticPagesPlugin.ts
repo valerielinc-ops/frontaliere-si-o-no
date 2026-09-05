@@ -121,6 +121,7 @@ import {
   isLocaleVariantSitemapFile,
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
+import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 function capTitle70(s: string): string {
  if (!s) return s;
@@ -1232,12 +1233,7 @@ const CALCULATOR_LANDING_PATHS: Record<HpSeoLocale, string> = {
  de: '/gehalt-berechnen/',
  fr: '/calculer-salaire/',
 };
-const JOBBOARD_LANDING_PATHS: Record<HpSeoLocale, string> = {
- it: '/cerca-lavoro-ticino/',
- en: '/en/find-jobs-ticino/',
- de: '/de/jobs-im-tessin/',
- fr: '/fr/trouver-emploi-tessin/',
-};
+const JOBBOARD_LANDING_PATHS: Record<HpSeoLocale, string> = SECTION_LEGACY_TI_PATH;
 const CALCULATOR_PATH_TO_LOCALE = new Map<string, HpSeoLocale>(
  Object.entries(CALCULATOR_LANDING_PATHS).map(([loc, p]) => [p, loc as HpSeoLocale]),
 );

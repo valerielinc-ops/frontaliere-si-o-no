@@ -2043,7 +2043,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
-        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
+        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-adliswil"
       },
@@ -2053,7 +2053,7 @@
       "title": "Hilfsköchin / Hilfskoch: (80%)",
       "titleByLocale": {
         "it": "Assistente cuoco / assistente cuoco: (80%)",
-        "en": "Hilfsköchin / Hilfskoch: (80%)",
+        "en": "Assistant cook / assistant cook: (80%)",
         "de": "Hilfsköchin / Hilfskoch: (80%)",
         "fr": "Cuisinier adjoint / Cuisinier adjoint: (80%)"
       },
@@ -2070,7 +2070,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-05T12:46:17.761Z",
-      "needsRetranslation": true,
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -2088,15 +2087,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
-        "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "en": [
-          "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "fr": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
@@ -3528,7 +3526,7 @@
       "title": "Köchin / Koch: (80-100%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (80-100%)",
-        "en": "Köchin / Koch: (80-100%)",
+        "en": "Cook / cook: (80-100%)",
         "de": "Köchin / Koch: (80-100%)",
         "fr": "Cuisinière: (80-100%)"
       },
@@ -3545,7 +3543,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-05T12:46:06.684Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Pfingstweidstrasse 96",

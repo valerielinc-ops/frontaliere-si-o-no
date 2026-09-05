@@ -34,6 +34,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
 import { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
+import { SECTION_LEGACY_TI as SECTION_SLUG } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
@@ -49,12 +50,6 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // ── Editorial-landing constants (mirror build-plugins/jobEditorialLanding.ts) ──
 
 const SEARCH_PREFIX = { it: 'ricerca', en: 'search', de: 'suche', fr: 'recherche' };
-const SECTION_SLUG = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
 
 const EDITORIAL_LOCATIONS = [
   'Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso',

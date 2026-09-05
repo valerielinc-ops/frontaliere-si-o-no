@@ -22,6 +22,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { buildListingHubTitle } from '../services/seo/job-board-titles'
 import { buildListingHubMeta } from '../services/seo/meta-descriptions'
+import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 
 export type JobBoardLocale = 'it' | 'en' | 'de' | 'fr'
 
@@ -36,12 +37,7 @@ export const FIRE_EMOJI_THRESHOLD = 500
 
 // Per-locale legacy TI landing paths — kept as exports for callers that need
 // the explicit TI URL string (e.g. canonical builders, redirect maps).
-export const JOB_BOARD_LANDING_PATHS: Record<JobBoardLocale, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-}
+export const JOB_BOARD_LANDING_PATHS: Record<JobBoardLocale, string> = SECTION_LEGACY_TI_PATH;
 
 /**
  * Predicate: does this URL path match a job-board landing for any canton
