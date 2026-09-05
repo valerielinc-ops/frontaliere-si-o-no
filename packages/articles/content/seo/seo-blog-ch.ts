@@ -71546,6 +71546,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-euro-analisi-cambio-dati': {
+    title: 'Franco-euro: cosa dicono i dati | Frontaliere Ticino',
+    description: 'Analisi cambio franco-euro 2026: BNS mantiene tassi bassi (inflazione 0,4%), BCE restrittiva (inflazione 2,9%). Implicazioni per frontalieri, imprese, famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco-euro, cosa, dicono, dati',
+    ogTitle: 'Franco-euro: i dati sulla situazione cambio',
+    ogDescription: 'Inflazione svizzera 0,4% vs Eurozona 2,9%: la divergenza tra BNS e BCE guida il cambio franco-euro. Scopri come impatta frontalieri, imprese, famiglie e le prospettive nei prossimi mesi secondo Currency Watch.',
+    canonicalPath: '/articoli-svizzera/franco-euro-analisi-cambio-dati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco-euro: cosa dicono i dati",
+      "description": "Analisi cambio franco-euro 2026: BNS mantiene tassi bassi (inflazione 0,4%), BCE restrittiva (inflazione 2,9%). Implicazioni per frontalieri, imprese, famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franco-euro-analisi-cambio-dati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banconote di franco svizzero ed euro con vista sul lago Lugano al tramonto"
+      },
+      "datePublished": "2026-09-05T06:06:30+00:00",
+      "dateModified": "2026-09-05T06:06:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-euro-analisi-cambio-dati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
