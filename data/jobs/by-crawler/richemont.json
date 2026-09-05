@@ -918,11 +918,11 @@
     },
     {
       "id": "richemont-19084f19ef35",
-      "slug": "bijoutier-m-w-d-jaeger-lecoultre-le-sentier",
+      "slug": "gioielli-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "bijoutier-m-w-d-jaeger-lecoultre-le-sentier",
-        "en": "bijoutier-m-w-d-jaeger-lecoultre-le-sentier",
-        "de": "bijoutier-h-f-richemont-le-sentier",
+        "it": "gioielli-m-f-jaeger-lecoultre-le-sentier",
+        "en": "jewellery-m-f-jaeger-lecoultre-le-sentier",
+        "de": "schmuck-m-w-jaeger-lecoultre-le-sentier",
         "fr": "bijoutier-h-f-richemont-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
@@ -966,22 +966,20 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "schmuck-m-w-jaeger-lecoultre-le-sentier"
+          "bijoutier-h-f-richemont-le-sentier"
         ],
         "it": [
           "bijoutier-h-f-richemont-le-sentier",
-          "gioielli-m-f-jaeger-lecoultre-le-sentier"
+          "bijoutier-m-w-d-jaeger-lecoultre-le-sentier"
         ],
         "en": [
           "bijoutier-h-f-richemont-le-sentier",
-          "jewellery-m-f-jaeger-lecoultre-le-sentier"
+          "bijoutier-m-w-d-jaeger-lecoultre-le-sentier"
         ]
       },
       "previousSlugs": [
         "bijoutier-h-f-richemont-le-sentier",
-        "schmuck-m-w-jaeger-lecoultre-le-sentier",
-        "gioielli-m-f-jaeger-lecoultre-le-sentier",
-        "jewellery-m-f-jaeger-lecoultre-le-sentier"
+        "bijoutier-m-w-d-jaeger-lecoultre-le-sentier"
       ],
       "firstSeenAt": "2026-08-31T17:15:49.665Z",
       "salaryMin": 60500,
@@ -13144,7 +13142,7 @@
         "it": "manager-di-boutique-iwc-zurich",
         "en": "boutique-manager-iwc-zurich",
         "de": "boutique-manager-richemont-zurich",
-        "fr": "boutique-manager-richemont-zurich"
+        "fr": "directeur-de-la-boutique-iwc-zurich"
       },
       "company": "IWC",
       "companyKey": "richemont",
@@ -13187,14 +13185,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-de-la-boutique-iwc-zurich"
+          "boutique-manager-richemont-zurich"
         ],
         "it": [
           "boutique-manager-richemont-zurich"
         ]
       },
       "previousSlugs": [
-        "directeur-de-la-boutique-iwc-zurich",
         "boutique-manager-richemont-zurich"
       ],
       "needsRetranslation": true,
