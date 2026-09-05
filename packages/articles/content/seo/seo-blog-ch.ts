@@ -72872,6 +72872,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reddito-risparmio-svizzeri-record': {
+    title: 'Svizzeri non hanno mai guadagnato e risparmiato come oggi',
+    description: 'Per la prima volta il reddito disponibile supera i 65mila franchi e il tasso di risparmio volontario il 19,3%. I dati dell\'UST confermano il record storico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, hanno, guadagnato, risparmiato',
+    ogTitle: 'Svizzeri non hanno mai guadagnato e risparmiato come oggi',
+    ogDescription: 'Per la prima volta il reddito disponibile supera i 65mila franchi e il tasso di risparmio volontario il 19,3%. I dati dell\'UST confermano il record storico.',
+    canonicalPath: '/articoli-svizzera/reddito-risparmio-svizzeri-record/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri non hanno mai guadagnato e risparmiato come oggi",
+      "description": "Per la prima volta il reddito disponibile supera i 65mila franchi e il tasso di risparmio volontario il 19,3%. I dati dell'UST confermano il record storico.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reddito-risparmio-svizzeri-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia svizzera esamina documenti finanziari e grafici di investimento su laptop in salotto luminoso"
+      },
+      "datePublished": "2026-09-05T23:02:52+00:00",
+      "dateModified": "2026-09-05T23:02:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reddito-risparmio-svizzeri-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

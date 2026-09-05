@@ -5614,6 +5614,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-naturalizzazione-procedura.title': 'Slab Naturalization: requirements and procedure',
     'blog.article.soletta-naturalizzazione-procedura.excerpt': 'How to become a Swiss citizen in Solothurn: years of residence, language and integration tests, municipal taxes and process times.',
     'blog.article.soletta-naturalizzazione-procedura.imageAlt': 'Official Swiss naturalization documents and passport on a desk in a cantonal administration office.',
+    'blog.article.reddito-risparmio-svizzeri-record.title': 'The Swiss have never earned and saved as much as they do today',
+    'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'For the first time, disposable income exceeds CHF 65,000 and the voluntary savings rate is 19.3%. The UST data confirms the historical record.',
+    'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Swiss family examines financial documents and investment charts on laptop in a bright living room',
 };
 
 export default blogMetaChEn;

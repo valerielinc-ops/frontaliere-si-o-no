@@ -5614,6 +5614,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soletta-naturalizzazione-procedura.title': 'Einbürgerung Solothurn: Anforderungen und Verfahren',
     'blog.article.soletta-naturalizzazione-procedura.excerpt': 'Wie man Schweizer Bürger in Solothurn wird: Jahre des Wohnsitzes, Sprach- und Integrationstests, Gemeindesteuern und Prozesszeiten.',
     'blog.article.soletta-naturalizzazione-procedura.imageAlt': 'Offizielle Schweizer Einbürgerungsdokumente und Pass auf einem Schreibtisch in einem Kantonsamt.',
+    'blog.article.reddito-risparmio-svizzeri-record.title': 'Noch nie haben Schweizer so viel verdient und gespart wie heute',
+    'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'Erstmals übersteigt das verfügbare Einkommen 65 \'000 Franken und die freiwillige Sparquote 19,3 Prozent. Die Daten des BfS bestätigen den historischen Rekord.',
+    'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Schweizer Familie untersucht Finanzdokumente und Investmentdiagramme auf Laptop in hellem Wohnzimmer',
 };
 
 export default blogMetaChDe;

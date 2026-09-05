@@ -5614,6 +5614,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soletta-naturalizzazione-procedura.title': 'Naturalisation Soleure : exigences et procédure',
     'blog.article.soletta-naturalizzazione-procedura.excerpt': 'Comment devenir citoyen suisse à Soleure : années de résidence, tests de langue et d\'intégration, taxes municipales et temps du procès.',
     'blog.article.soletta-naturalizzazione-procedura.imageAlt': 'Documents officiels de naturalisation suisse et passeport sur un bureau dans une administration cantonale.',
+    'blog.article.reddito-risparmio-svizzeri-record.title': 'Les Suisses n\'ont jamais gagné et économisé comme aujourd\'hui',
+    'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'Pour la première fois, le revenu disponible dépasse 65 000 francs et le taux d\'épargne volontaire 19,3 %. Les données DE l\'OFS confirment le record historique.',
+    'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Famille suisse examine des documents financiers et des graphiques d\'investissement sur ordinateur portable dans un salon lumineux',
 };
 
 export default blogMetaChFr;
