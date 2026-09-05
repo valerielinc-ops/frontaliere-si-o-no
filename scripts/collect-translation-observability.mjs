@@ -68,7 +68,11 @@ function run(argv) {
       before, final, runId: value.runId,
       startedAt: value.startedAt, finishedAt, sourceCommit: value.sourceCommit, outcome: value.outcome,
       generationObservation: observation,
-      // Written by the translate steps into RUNNER_TEMP; empty on a local run.
+      // Written by the translate steps into RUNNER_TEMP, which a GitHub-hosted
+      // runner gives each job fresh. Locally the sidecar lands in the system temp
+      // dir and survives between invocations, so a local read can return the
+      // previous invocation's phases — the collector is a workflow step, and this
+      // is a debugging caveat, not a production path.
       runPhases: readRunPhases(),
     });
     const finalized = finalizeTranslationObservabilityReport(report, null);

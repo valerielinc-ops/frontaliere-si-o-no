@@ -1096,7 +1096,35 @@ export function filterPendingForCompany(pendingJobs, companyKeyFilter) {
   ));
 }
 
+/**
+ * Wrap the pass so the cascade phase is recorded however it ends. Five branches
+ * return early — no data/jobs.json, an empty one, coverage already complete,
+ * nothing pending, no valid company key — and on those the cascade DID run, it
+ * simply found nothing to do. Recording only at the bottom made those branches
+ * indistinguishable from "never instrumented", which is exactly the confusion
+ * summarizeRunPhases exists to prevent. Mirrors the local-MT pass, which records
+ * even when it fails.
+ */
 async function main() {
+  const phase = {
+    name: 'cascade',
+    startedAtMs: null,
+    endedAtMs: null,
+    deadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    windowMs: null,
+    jobsCleared: 0,
+    companiesQueued: 0,
+    stopReason: 'nothing to relocalize',
+  };
+  try {
+    await runRelocalization(phase);
+  } finally {
+    phase.endedAtMs = LEGACY_CLOCK.now() - RUN_START_MS;
+    recordRunPhase(phase);
+  }
+}
+
+async function runRelocalization(phase) {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
   if (!fs.existsSync(DATA_JOBS_PATH)) {
@@ -1724,17 +1752,11 @@ async function main() {
   // budget of its own. A run where they left nothing looks, in the committed
   // history, exactly like a run where the cascade found little to do. Recording
   // the window tells the two apart.
-  const cascadeStartedAtMs = startTime - RUN_START_MS;
-  recordRunPhase({
-    name: 'cascade',
-    startedAtMs: cascadeStartedAtMs,
-    endedAtMs: LEGACY_CLOCK.now() - RUN_START_MS,
-    deadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
-    windowMs: CASCADE_LOCALIZATION_DEADLINE_MS - cascadeStartedAtMs,
-    jobsCleared: totalFixed,
-    companiesQueued: companyKeys.length,
-    stopReason: cascadeStop,
-  });
+  phase.startedAtMs = startTime - RUN_START_MS;
+  phase.windowMs = CASCADE_LOCALIZATION_DEADLINE_MS - phase.startedAtMs;
+  phase.jobsCleared = totalFixed;
+  phase.companiesQueued = companyKeys.length;
+  phase.stopReason = cascadeStop;
 
   if (thinkingAb && thinkingRows.length > 0) {
     const summary = summarizeThinkingAb(thinkingRows);
