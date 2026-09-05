@@ -310,12 +310,13 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       expect(resolveGatedHeadRef('gh pr create --head feature-x', repo)).toEqual({
         ref: 'feature-x',
         source: 'head-flag',
+        cwd: repo,
       });
     });
 
     it('resolveGatedHeadRef: sostituzione di shell non espansa → fallback su HEAD', () => {
       const r = resolveGatedHeadRef('gh pr create --head "$(git rev-parse --abbrev-ref HEAD)"', repo);
-      expect(r).toEqual({ ref: 'HEAD', source: 'cwd-head' });
+      expect(r).toEqual({ ref: 'HEAD', source: 'cwd-head', cwd: repo });
     });
 
     it('resolveGatedHeadRef: branch inesistente → fallback su HEAD invece di un ref rotto', () => {
@@ -334,6 +335,28 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       expect(resolveGatedHeadRef('gh pr create --head someone:feature-x', repo)).toEqual({
         ref: 'feature-x',
         source: 'head-flag',
+        cwd: repo,
+      });
+
+      // Quinto difetto (2026-09-05): in un thread di sub-agente `payload.cwd`
+      // resta inchiodato alla directory di lancio e nessun `cd` la muove. Un
+      // `--head` LETTERALE deve comunque risolvere, cercandolo nel repo a cui
+      // il gate appartiene — i worktree condividono `.git`, quindi il nome del
+      // branch e' un segnale indipendente dalla directory.
+      const elsewhere = mkdtempSync(join(tmpdir(), 'sibling-gate-launchdir-'));
+      dirs.push(elsewhere);
+      expect(resolveGatedHeadRef('gh pr create --head feature-x', elsewhere, repo)).toEqual({
+        ref: 'feature-x',
+        source: 'head-flag-fallback',
+        cwd: repo,
+      });
+      // Senza un branch leggibile NON ricadiamo sul repo del gate: l'HEAD di un
+      // altro checkout non e' un'ipotesi migliore, e' un albero altrettanto
+      // arbitrario. Resta la directory tracciata, e il diff vuoto lo dira'.
+      expect(resolveGatedHeadRef('gh pr create --title x', elsewhere, repo)).toEqual({
+        ref: 'HEAD',
+        source: 'cwd-head',
+        cwd: elsewhere,
       });
     });
 

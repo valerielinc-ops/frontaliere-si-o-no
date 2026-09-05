@@ -30,6 +30,10 @@ import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd
 // due copie che divergono al primo stato nuovo, in silenzio.
 import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
 
+// Il repo a cui questo gate appartiene: l'unica directory sempre giusta quando
+// `payload.cwd` e' inchiodato altrove (sub-agente — vedi lib/hook-target-cwd.mjs).
+const gateRepo = resolve(fileURLToPath(import.meta.url), '..', '..', '..');
+
 const HEADER_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
 const HEADER_NON_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
 const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/im;
@@ -273,7 +277,8 @@ async function main() {
   try {
     // Stesso ref del sibling-gate: il branch proposto, non l'HEAD della
     // directory tracciata (2026-09-05, AGENTS.md #6 — la classe intera).
-    warnAboutUncitedFiles(body, targetCwd, resolveGatedHeadRef(command, targetCwd).ref);
+    const head = resolveGatedHeadRef(command, targetCwd, gateRepo);
+    warnAboutUncitedFiles(body, head.cwd, head.ref);
   } catch { /* advisory: non blocca mai */ }
 
   // BLOCKING (issue #6300 / recidiva #6289): un bullet «PR concatenata»

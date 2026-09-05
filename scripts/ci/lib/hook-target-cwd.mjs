@@ -71,27 +71,64 @@ export function resolveHookTargetCwd(payload) {
  * Il ref da analizzare: il BRANCH che il comando sta proponendo, non la
  * directory da cui l'hook crede di girare.
  *
- * `--head` puo' arrivare come sostituzione di shell non espansa (la ricetta
- * `--head "$(git rev-parse --abbrev-ref HEAD)"` e' quella raccomandata altrove),
- * e l'hook gira PRIMA del comando, quindi non c'e' niente da espandere: in quel
- * caso ricadiamo su `HEAD` della directory tracciata. E' comunque meglio del
- * working tree — un diff commit-a-commit non vede il lavoro non committato di
- * un'altra sessione, che era la causa del blocco impossibile del 2026-09-05.
+ * DA UN SUB-AGENTE `payload.cwd` NON SI MUOVE AFFATTO (misurato 2026-09-05, il
+ * quinto difetto della stessa giornata). In un thread di sub-agente la cwd viene
+ * resettata a ogni chiamata Bash, quindi il campo resta inchiodato alla
+ * directory di lancio e `resolveHookTargetCwd` restituisce sempre quella: la
+ * ricetta «entra nel worktree in una chiamata isolata, apri la PR in quella dopo»
+ * funziona solo dalla sessione principale. Un agente si e' visto 44 candidati
+ * calcolati sul checkout principale — quel giorno 57 commit dietro `origin/main`
+ * e sporco del lavoro di un'altra sessione — che non poteva ne' dichiarare
+ * onestamente ne' ripulire. Non e' un caso limite: rende il gate strutturalmente
+ * inaffidabile per l'intera flotta, perche' ogni agente riceve un verdetto
+ * calcolato su un albero che non e' il suo.
+ *
+ * Per questo un `--head <branch>` LETTERALE viene cercato anche in `fallbackCwd`
+ * — il repo a cui appartiene il gate stesso, ricavato dal proprio path e quindi
+ * sempre giusto — e la funzione restituisce ANCHE la directory in cui il ref ha
+ * risolto, che e' quella in cui il chiamante deve far girare git. I worktree
+ * condividono `.git`: un nome di branch risolve identico dal checkout principale
+ * e da qualunque worktree, quindi con un `--head` letterale il verdetto non
+ * dipende piu' da `payload.cwd` in nessun modo. E' una fix sola per il difetto 1
+ * e per questo quinto.
+ *
+ * Resta un caso che nessuna directory puo' salvare: `--head` come sostituzione
+ * di shell non espansa. `--head "$(git rev-parse --abbrev-ref HEAD)"` e' la
+ * ricetta raccomandata altrove, e l'hook gira PRIMA che bash la espanda, quindi
+ * non c'e' niente da leggere. Li' si ricade su `HEAD` della directory tracciata:
+ * comunque meglio del working tree, perche' un diff commit-a-commit non vede il
+ * lavoro non committato altrui, ma da un sub-agente sara' l'HEAD sbagliato — e
+ * allora il gate se ne accorge (diff vuoto) e lo dice, invece di accusare file
+ * estranei. L'uscita e' passare il nome letterale del branch.
+ *
+ * COROLLARIO PER CHI DEBUGGA QUESTI GATE: un probe senza `--body-file` non
+ * distingue i casi. `extractPrBody` ritorna `undefined`, il gate entra
+ * (giustamente) in modalita' conservativa e blocca comunque — quindi un blocco
+ * osservato in quelle condizioni non prova che l'albero analizzato sia sbagliato.
+ * Simula sempre col body vero.
  *
  * @param {string} command la command line di `gh pr create`
- * @param {string|undefined} cwd directory in cui risolvere il ref
- * @returns {{ ref: string, source: 'head-flag'|'cwd-head' }}
+ * @param {string|undefined} cwd directory tracciata dalla sessione (`payload.cwd`)
+ * @param {string|undefined} [fallbackCwd] repo di cui il gate fa parte, usato solo
+ *   per un `--head` letterale che `cwd` non sa risolvere
+ * @returns {{ ref: string, source: 'head-flag'|'head-flag-fallback'|'cwd-head', cwd: string|undefined }}
  */
-export function resolveGatedHeadRef(command, cwd, run = defaultRevParse) {
+export function resolveGatedHeadRef(command, cwd, fallbackCwd, run = defaultRevParse) {
   const m = String(command ?? '').match(/--head[= ]+(?:"([^"]*)"|'([^']*)'|(\S+))/);
   const raw = (m?.[1] ?? m?.[2] ?? m?.[3] ?? '').trim();
   // `owner:branch` è la forma cross-fork accettata da gh; a noi serve il branch.
   const branch = raw.includes(':') ? raw.slice(raw.indexOf(':') + 1) : raw;
   const unexpanded = /[$`]/.test(branch);
-  if (branch && !unexpanded && run(branch, cwd)) {
-    return { ref: branch, source: 'head-flag' };
+  if (branch && !unexpanded) {
+    if (run(branch, cwd)) return { ref: branch, source: 'head-flag', cwd };
+    if (fallbackCwd && fallbackCwd !== cwd && run(branch, fallbackCwd)) {
+      return { ref: branch, source: 'head-flag-fallback', cwd: fallbackCwd };
+    }
   }
-  return { ref: 'HEAD', source: 'cwd-head' };
+  // Nessun branch leggibile: `HEAD` della directory tracciata, esattamente come
+  // prima. Non ricadiamo su `fallbackCwd` qui — l'HEAD di un altro checkout non
+  // e' un'ipotesi migliore, e' solo un albero diverso e altrettanto arbitrario.
+  return { ref: 'HEAD', source: 'cwd-head', cwd };
 }
 
 function defaultRevParse(ref, cwd) {

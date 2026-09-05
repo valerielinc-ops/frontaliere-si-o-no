@@ -57,6 +57,10 @@ import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
+// Il repo a cui questo gate appartiene, ricavato dal proprio path: e' l'unica
+// directory sempre giusta, anche quando `payload.cwd` e' inchiodato altrove
+// (thread di sub-agente — vedi lib/hook-target-cwd.mjs).
+const gateRepo = resolve(__dirname, '..', '..');
 
 /**
  * Extract the text under `## Non implementato` from a PR body (up to the next
@@ -162,7 +166,7 @@ async function main() {
   // module docstring): a commit-to-commit diff, identical from any directory of
   // the repo, blind to other sessions' uncommitted files. `cwd: targetCwd` now
   // only picks WHICH REPO to run git in.
-  const head = resolveGatedHeadRef(command, targetCwd);
+  const head = resolveGatedHeadRef(command, targetCwd, gateRepo);
   let jsonOutput;
   try {
     jsonOutput = execFileSync('node', [checkScript, '--json', '--head', head.ref], {
@@ -170,7 +174,7 @@ async function main() {
       maxBuffer: 8 * 1024 * 1024,
       // Capture stdout (parsed as JSON); let stderr propagate for progress messages.
       stdio: ['pipe', 'pipe', 'inherit'],
-      cwd: targetCwd,
+      cwd: head.cwd,
     });
   } catch {
     process.exit(0); // check script error → fail-safe
@@ -214,8 +218,8 @@ async function main() {
   if (result?.changedFiles === 0) {
     process.stderr.write(
       '\n\u{1F6AB} sibling-check-gate: BRANCH NON IDENTIFICATO — nessuna verifica sibling eseguita.\n' +
-        `Ref analizzato: ${head.ref} (${head.source === 'head-flag' ? 'da --head' : 'HEAD della directory tracciata'})` +
-        `${targetCwd ? ` in ${targetCwd}` : ''}\n` +
+        `Ref analizzato: ${head.ref} (${head.source === 'cwd-head' ? 'HEAD della directory tracciata' : 'da --head'})` +
+        `${head.cwd ? ` in ${head.cwd}` : ''}\n` +
         `Quel ref non differisce da ${result.base ?? 'origin/main'}: non puo' essere il branch che stai proponendo.\n` +
         'Cause tipiche, in ordine di frequenza:\n' +
         '  1. la directory tracciata è il checkout principale, non il tuo worktree.\n' +
@@ -223,7 +227,10 @@ async function main() {
         '     gira PRIMA del comando, quindi un `cd` nella stessa riga non conta.\n' +
         '  2. il branch non è ancora committato. Committa (e pusha) prima di aprire la PR.\n' +
         '  3. `--head` porta una sostituzione di shell non espansa: passa il nome\n' +
-        '     letterale del branch, che questo hook sa risolvere da qualunque directory.\n\n',
+        '     letterale del branch, che questo hook sa risolvere da qualunque directory.\n' +
+        '     Da un SUB-AGENTE questa è la causa quasi certa: lì `payload.cwd` resta\n' +
+        '     inchiodato alla directory di lancio e nessun `cd` la muove, quindi il nome\n' +
+        '     letterale del branch è l\'unico segnale che ti identifica.\n\n',
     );
     process.exit(EXIT_BLOCK);
   }
