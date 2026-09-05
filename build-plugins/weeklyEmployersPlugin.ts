@@ -78,6 +78,7 @@ import {
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 // «Segui questa azienda» island (#5012). These per-employer hubs are the last
 // SSG surface that names ONE employer and had no follow CTA — and they are
 // reached by visitors browsing employers, not one ad, which is exactly when
@@ -2014,6 +2015,14 @@ export interface WeeklyEmployersPageInputs {
   today: Date;
   /** Whether this page should be `index,follow` (current & last 12 archives) */
   indexable: boolean;
+  /**
+   * The other cities in the SAME week, with their active-openings count
+   * (#7386). Without it the page carries nothing that its six sibling cities
+   * do not also carry once figures are masked to `#` by the Information Gain
+   * metric — median IGS 2,8-4,9 %. Optional: a caller that omits it (unit
+   * tests, the regional aggregate) simply gets no peer block.
+   */
+  cohort?: ReadonlyArray<{ city: WeeklyEmployersCity; activeJobsCount: number }>;
   /** Enable the auto-employer-stub attribute markers (default false). */
   enableAutoStubs?: boolean;
   /** dist directory for entry-asset resolution (omit in tests). */
@@ -2822,6 +2831,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     knownSlugs,
     rootDir,
     cityLeaves,
+    cohort,
   } = inp;
 
   const copy = COPY[locale];
@@ -2844,6 +2854,41 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   const intro = copy.intro(cityDisplay);
   const editorial = copy.editorialBlock(cityDisplay);
   const methodology = copy.methodologyBlock;
+
+  // Where this city sits among the other cities in the SAME week, with the
+  // neighbours NAMED — the element the Information Gain masks leave standing
+  // (shared/peerCohortComparison.ts; docs/INFORMATION-GAIN.md, «I 37 offender
+  // del 2026-09-01»). The regional aggregate is not a peer of a city: it is the
+  // union of all of them, so it would rank first on every week by construction
+  // and say nothing. It therefore neither appears in the cohort nor carries the
+  // block on its own page.
+  const peerCopy: Record<WeeklyEmployersLocale, { heading: string; metricLabel: string; peerNoun: string }> = {
+    it: { heading: `Come si colloca ${cityDisplay} questa settimana`, metricLabel: 'posizioni aperte', peerNoun: 'città ticinesi' },
+    en: { heading: `Where ${cityDisplay} stands this week`, metricLabel: 'open positions', peerNoun: 'Ticino cities' },
+    de: { heading: `Wo ${cityDisplay} diese Woche steht`, metricLabel: 'offene Stellen', peerNoun: 'Tessiner Städte' },
+    fr: { heading: `Où se situe ${cityDisplay} cette semaine`, metricLabel: 'postes ouverts', peerNoun: 'villes tessinoises' },
+  };
+  const peerRows: PeerRow[] = isRegional
+    ? []
+    : (cohort ?? [])
+        .filter((entry) => entry.city !== 'ticino')
+        .map((entry) => ({
+          key: entry.city,
+          name: WEEKLY_EMPLOYERS_CITY_DISPLAY[entry.city],
+          href:
+            variant === 'current'
+              ? buildCurrentWeekPath(locale, entry.city)
+              : buildArchiveWeekPath(locale, entry.city, weekNum, year),
+          value: entry.activeJobsCount,
+        }));
+  const peerBlock = renderPeerComparison({
+    locale,
+    currentKey: city,
+    rows: peerRows,
+    labels: peerCopy[locale] ?? peerCopy.it,
+    formatValue: (value) => String(Math.round(value)),
+    higherIsBetter: true,
+  });
 
   // Alternates to other locales for the same (city, variant). Shared helper
   // emits 4 locales + x-default on the canonical host.
@@ -3216,6 +3261,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     <h2 id="roles" style="${H2_STYLE}"><span aria-hidden="true">💼</span> ${esc(copy.rolesTitle)}</h2>
     ${rolesHtml}
   </section>
+  ${peerBlock}
   ${renderWeeklyEmployersFrontalierContext({ locale, cityDisplay, isRegional, jobsCount, companiesCount })}
   <section class="s-GCEyQg" aria-labelledby="editorial">
     <h2 id="editorial" style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(cityDisplay)}</h2>
@@ -4092,16 +4138,29 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
 
   // Current week (always emit regardless of snapshot history — degraded mode)
   for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    // Stats for every city of this locale FIRST, then render: the peer block
+    // (#7386) needs the whole week's column to rank a city inside it, and a
+    // page cannot be written before its siblings' counts exist. Same number of
+    // `buildCityWeeklyStats` calls as before — only the order changes, and at
+    // most seven stats objects are alive at once.
+    const statsByCity = new Map<WeeklyEmployersCity, CityWeeklyStats>();
+    for (const city of WEEKLY_EMPLOYERS_CITIES) {
+      statsByCity.set(
+        city,
+        buildCityWeeklyStats({
+          city,
+          locale,
+          jobs: opts.jobs,
+          previousSnapshot,
+          historicalSnapshots: olderSnapshots,
+          partition: jobPartition,
+        }),
+      );
+    }
+    const weekCohort = [...statsByCity.values()].map((s) => ({ city: s.city, activeJobsCount: s.activeJobsCount }));
     for (const city of WEEKLY_EMPLOYERS_CITIES) {
       const __tCur = __weProfStart();
-      const stats = buildCityWeeklyStats({
-        city,
-        locale,
-        jobs: opts.jobs,
-        previousSnapshot,
-        historicalSnapshots: olderSnapshots,
-        partition: jobPartition,
-      });
+      const stats = statsByCity.get(city)!;
       const canonicalPath = buildCurrentWeekPath(locale, city);
       const cityLeaves =
         city === 'ticino' ? [] : leavesByCity.get(city as WeeklyEmployersCompanyCity) ?? [];
@@ -4122,6 +4181,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         rootDir: opts.rootDir,
         cityLeaves,
         availableArchives,
+        cohort: weekCohort,
       });
       pages.push({ path: canonicalPath, html, indexable: true });
       __weProfRecord('render-current-week', __tCur);
@@ -4172,15 +4232,28 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
       }));
 
       for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+        // Same two-pass shape as the current week: the archived page ranks the
+        // city inside the week it archives, not inside today's week.
+        const archiveStatsByCity = new Map<WeeklyEmployersCity, CityWeeklyStats>();
+        for (const city of WEEKLY_EMPLOYERS_CITIES) {
+          archiveStatsByCity.set(
+            city,
+            buildCityWeeklyStats({
+              city,
+              locale,
+              jobs: virtualJobs,
+              previousSnapshot: prevForArchive,
+              historicalSnapshots: sortedDesc.slice(i + 2),
+            }),
+          );
+        }
+        const archiveCohort = [...archiveStatsByCity.values()].map((s) => ({
+          city: s.city,
+          activeJobsCount: s.activeJobsCount,
+        }));
         for (const city of WEEKLY_EMPLOYERS_CITIES) {
           const __tArc = __weProfStart();
-          const stats = buildCityWeeklyStats({
-            city,
-            locale,
-            jobs: virtualJobs,
-            previousSnapshot: prevForArchive,
-            historicalSnapshots: sortedDesc.slice(i + 2),
-          });
+          const stats = archiveStatsByCity.get(city)!;
           const canonicalPath = buildArchiveWeekPath(locale, city, weekNum, year);
           const html = renderWeeklyEmployersPage({
             locale,
@@ -4198,6 +4271,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
             knownSlugs,
             rootDir: opts.rootDir,
             availableArchives,
+            cohort: archiveCohort,
           });
           pages.push({ path: canonicalPath, html, indexable });
           __weProfRecord('render-archive-week', __tArc);
