@@ -11417,6 +11417,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lungolago-como-chiusura-traffico.title': 'Lungolago di Como chiuso: code infinite e attese fino a 150 minuti',
     'blog.article.lungolago-como-chiusura-traffico.excerpt': 'La chiusura del lungolago di Como ha causato enormi disagi per il traffico, con code infinite e attese fino a 150 minuti.',
     'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Vista aerea del lungolago chiuso a Como con traffico congestionato e lunghe code',
+    'blog.article.forum-teha-cernobbio-2026.title': 'Cernobbio capitale del mondo: a Villa d’Este il Forum Teha',
+    'blog.article.forum-teha-cernobbio-2026.excerpt': 'Dal 4 al 6 settembre 2026, Villa d’Este ospiterà il 52esimo Forum TEHA con leader politici e economisti internazionali.',
+    'blog.article.forum-teha-cernobbio-2026.imageAlt': 'Villa d’Este a Cernobbio, Italia',
 };
 
 export default blogMetaIt;

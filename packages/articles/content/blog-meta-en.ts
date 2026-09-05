@@ -11416,6 +11416,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lungolago-como-chiusura-traffico.title': 'Como lakefront closed: infinite queues and waits up to 150 minutes',
     'blog.article.lungolago-como-chiusura-traffico.excerpt': 'The closure of the Como lakefront caused huge inconvenience for traffic, with endless queues and waits of up to 150 minutes.',
     'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Aerial view of the closed lungolago in Como with traffic congestion and long queues',
+    'blog.article.forum-teha-cernobbio-2026.title': 'Cernobbio, capital of the world: the Teha Forum in Villa d \'Este',
+    'blog.article.forum-teha-cernobbio-2026.excerpt': 'From 4 to 6 September 2026, Villa d \'Este will host the 52nd TEHA Forum with international political leaders and economists.',
+    'blog.article.forum-teha-cernobbio-2026.imageAlt': 'Villa d’Este in Cernobbio, Italy',
 };
 
 export default blogMetaEn;

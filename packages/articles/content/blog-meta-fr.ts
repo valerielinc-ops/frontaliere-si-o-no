@@ -11418,6 +11418,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lungolago-como-chiusura-traffico.title': 'Lungolago de Côme fermé : files et attente jusqu\'à 150 min',
     'blog.article.lungolago-como-chiusura-traffico.excerpt': 'La fermeture du bord du lac de Côme a causé d\'énormes désagréments pour la circulation, avec des files d\'attente interminables et des attentes allant jusqu\'à 150 minutes.',
     'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Vue aérienne du lungolago fermé à Côme avec embouteillages et longues files d\'attente',
+    'blog.article.forum-teha-cernobbio-2026.title': 'Cernobbio capitale du monde : à Villa d’Este, le Forum Teha',
+    'blog.article.forum-teha-cernobbio-2026.excerpt': 'Du 4 au 6 septembre 2026, la Villa d’Este accueillera le 52ème Forum TEHA avec des dirigeants politiques et des économistes internationaux.',
+    'blog.article.forum-teha-cernobbio-2026.imageAlt': 'Villa d’Este à Cernobbio, Italie',
 };
 
 export default blogMetaFr;
