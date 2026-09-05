@@ -406,6 +406,20 @@ export function applyCoopSourceDetailToJob(job, jsonLd) {
   return updated;
 }
 
+// Statuses where the detail page — the authority for this vacancy — says the
+// vacancy no longer exists: withdrawn or expired, not a failed fetch. Those are
+// dropped from the enriched batch (the reconcile/archive path downstream then
+// retires them) instead of aborting the crawl: a single expired posting used to
+// throw `HTTP 410` and kill the whole run with the other ~97 vacancies already
+// parsed, which is what made `Run fust` a chronic failure (#6659). Every other
+// non-ok status still fails the batch closed.
+const GONE_STATUS = new Set([404, 410]);
+// Past this share of the batch "the vacancies expired" stops being a credible
+// reading — that is source drift (host migration, ATS switch), and publishing a
+// gutted slice would be exactly the partial batch this enricher exists to
+// prevent. Fail closed instead.
+const GONE_ABORT_RATIO = 0.5;
+
 /** Fetch and strictly apply all detail payloads with bounded concurrency. */
 export async function enrichCoopSourceBackedJobs(jobs, {
   fetchImpl = undiciFetch,
@@ -415,6 +429,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
   const output = new Array(input.length);
+  const gone = [];
   const validateUrl = createSpecUrlPolicy({
     seedUrls: allowedHosts.map((hostname) => `https://${hostname}`),
   });
@@ -451,13 +466,26 @@ export async function enrichCoopSourceBackedJobs(jobs, {
           clearTimeout(timer);
         }
       }, { label: `coop-detail:${url.hostname}` });
-      if (!response?.ok) throw new Error(`HTTP ${response?.status || 'unknown'}`);
+      if (!response?.ok) {
+        if (GONE_STATUS.has(response?.status)) {
+          gone.push(`${url.toString()} (HTTP ${response.status})`);
+          continue;
+        }
+        throw new Error(`HTTP ${response?.status || 'unknown'}`);
+      }
       const jsonLd = extractJsonLd(await response.text());
       output[index] = applyCoopSourceDetailToJob(job, jsonLd);
     }
   });
   await Promise.all(workers);
-  return output;
+  if (gone.length === 0) return output;
+  if (gone.length > input.length * GONE_ABORT_RATIO) {
+    throw new Error(
+      `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410) — source drift, not vacancy expiry`,
+    );
+  }
+  console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${gone.join(', ')}`);
+  return output.filter((job) => job !== undefined);
 }
 
 // ─────────────────────────────────────────────────────────────
