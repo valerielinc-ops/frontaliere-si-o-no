@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-09-05T12:46:30.443Z",
+  "assembledAt": "2026-09-05T12:35:14.965Z",
   "jobs": [
     {
       "id": "unispital-basel-cb61e43a1183",
@@ -9588,28 +9588,37 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27654",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
-        "praktikantin-praktikant-wms-servicecenter-med-dokumentation-universitatsspital-basel-basel",
-        "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel-46db41"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
-          "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel-46db41"
-        ],
-        "en": [
-          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch"
-        ],
         "de": [
           "praktikantin-praktikant-wms-servicecenter-med-dokumentation-universitatsspital-basel-basel"
         ],
+        "it": [
+          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
+          "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel-46db41",
+          "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel",
+          "intern-intern-wms-servicecenter-med-documentation-universitatsspital-basel-basel",
+          "centre-de-service-interne-interne-wms-documentation-universitatsspital-basel-basel",
+          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch-e1h2lk"
+        ],
+        "en": [
+          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
+          "intern-intern-wms-servicecenter-med-documentation-universitatsspital-basel-basel"
+        ],
         "fr": [
-          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch"
+          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
+          "centre-de-service-interne-interne-wms-documentation-universitatsspital-basel-basel"
         ]
       },
+      "previousSlugs": [
+        "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
+        "praktikantin-praktikant-wms-servicecenter-med-dokumentation-universitatsspital-basel-basel",
+        "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel-46db41",
+        "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel",
+        "intern-intern-wms-servicecenter-med-documentation-universitatsspital-basel-basel",
+        "centre-de-service-interne-interne-wms-documentation-universitatsspital-basel-basel",
+        "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch-e1h2lk"
+      ],
       "firstSeenAt": "2026-09-04T13:38:57.514Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -9622,7 +9631,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-804fa89ea43b",
@@ -9933,26 +9943,36 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27670",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikantin-praktikant-wms-time-management-unispital-basel-ch",
-        "praktikantin-praktikant-wms-time-management-universitatsspital-basel-basel",
-        "interno-interno-wms-gestione-del-tempo-universitatsspital-basel-basel-69f655"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-praktikant-wms-time-management-unispital-basel-ch",
-          "interno-interno-wms-gestione-del-tempo-universitatsspital-basel-basel-69f655"
-        ],
-        "en": [
-          "praktikantin-praktikant-wms-time-management-unispital-basel-ch"
-        ],
         "de": [
           "praktikantin-praktikant-wms-time-management-universitatsspital-basel-basel"
         ],
+        "it": [
+          "praktikantin-praktikant-wms-time-management-unispital-basel-ch",
+          "interno-interno-wms-gestione-del-tempo-universitatsspital-basel-basel-69f655",
+          "interno-interno-wms-gestione-del-tempo-universitatsspital-basel-basel",
+          "intern-intern-wms-time-management-universitatsspital-basel-basel",
+          "stagiaire-stagiaire-wms-gestion-du-temps-universitatsspital-basel-basel",
+          "praktikantin-praktikant-wms-time-management-unispital-basel-ch-63n8yr"
+        ],
+        "en": [
+          "praktikantin-praktikant-wms-time-management-unispital-basel-ch",
+          "intern-intern-wms-time-management-universitatsspital-basel-basel"
+        ],
         "fr": [
-          "praktikantin-praktikant-wms-time-management-unispital-basel-ch"
+          "praktikantin-praktikant-wms-time-management-unispital-basel-ch",
+          "stagiaire-stagiaire-wms-gestion-du-temps-universitatsspital-basel-basel"
         ]
       },
+      "previousSlugs": [
+        "praktikantin-praktikant-wms-time-management-unispital-basel-ch",
+        "praktikantin-praktikant-wms-time-management-universitatsspital-basel-basel",
+        "interno-interno-wms-gestione-del-tempo-universitatsspital-basel-basel-69f655",
+        "interno-interno-wms-gestione-del-tempo-universitatsspital-basel-basel",
+        "intern-intern-wms-time-management-universitatsspital-basel-basel",
+        "stagiaire-stagiaire-wms-gestion-du-temps-universitatsspital-basel-basel",
+        "praktikantin-praktikant-wms-time-management-unispital-basel-ch-63n8yr"
+      ],
       "firstSeenAt": "2026-09-04T13:38:57.511Z",
       "salaryMin": 52000,
       "salaryMax": 78500,

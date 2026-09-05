@@ -107,6 +107,42 @@ describe('bounded-parallel.sh — bp_run_bounded', () => {
     }
   });
 
+  // Issue #7302 — with a sliding window the STEP's wall is only the tail of
+  // the window, so "Push section shards (IT)" measuring 23 / 36 / 43 min on
+  // three consecutive runs attributed nothing to any section. The driver that
+  // calls the worker is the one place where "ran but untimed" cannot happen.
+  it('attributes a wall time to every item, failures included, and recaps slowest-first', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'bp-timing-'));
+    try {
+      const out = runBash(`
+        set -uo pipefail
+        source '${DRIVER}'
+        w() { case "$1" in slow) sleep 2;; boom) return 7;; esac; return 0; }
+        export BP_FAILED_FILE='${dir}/failed'
+        rc=0
+        bp_run_bounded 2 w slow quick boom || rc=$?
+        echo "rc=$rc"
+      `);
+      const timed = out
+        .split('\n')
+        .filter((l) => l.startsWith('[shard-timing] '))
+        .map((l) => l.slice('[shard-timing] '.length).split(' '));
+      // One line per item, no more: the issue's metric is a grep count.
+      expect(timed.map(([item]) => item).sort()).toEqual(['boom', 'quick', 'slow']);
+      expect(Number(timed.find(([item]) => item === 'slow')?.[1])).toBeGreaterThanOrEqual(2);
+      // The recap must not inflate that grep — hence its own prefix.
+      expect(out).toContain('[shard-timing-summary]');
+      const recap = out.split('\n').filter((l) => /^\[shard-timing-summary\]\s{3}/.test(l));
+      expect(recap[0]).toMatch(/slow \d+s$/); // slowest first
+      expect(recap).toHaveLength(3);
+      // Measurement only: the fan-out's own contract is unchanged.
+      expect(out).toContain('rc=1');
+      expect(readFileSync(join(dir, 'failed'), 'utf-8').trim()).toBe('boom');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('reports success and an empty failure file when nothing fails', () => {
     const dir = mkdtempSync(join(tmpdir(), 'bp-ok-'));
     try {

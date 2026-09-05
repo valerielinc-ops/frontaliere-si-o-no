@@ -68,10 +68,17 @@ function gitText(args) {
 
 /**
  * @param {string} base ref to diff against (e.g. `origin/main`)
+ * @param {string} [head] ref whose divergence from `base` we want (default
+ *   `HEAD`, the checked-out commit of the invoking directory). A caller that
+ *   knows WHICH BRANCH it is analysing — e.g. `sibling-check-gate.mjs`, which
+ *   reads `--head` off the gated `gh pr create` — passes that branch instead,
+ *   so the answer no longer depends on which working tree the process happens
+ *   to run in. Worktrees share `.git`, so a branch ref resolves identically
+ *   from any of them.
  * @returns {{ mergeBase: string|null, deepened: boolean, shallow: boolean, fetchFailed: boolean }}
  */
-export function resolveMergeBase(base) {
-  let mergeBase = gitText(['merge-base', base, 'HEAD']).trim();
+export function resolveMergeBase(base, head = 'HEAD') {
+  let mergeBase = gitText(['merge-base', base, head]).trim();
   if (mergeBase) return { mergeBase, deepened: false, shallow: false, fetchFailed: false };
 
   const shallow = gitText(['rev-parse', '--is-shallow-repository']).trim() === 'true';
@@ -83,7 +90,7 @@ export function resolveMergeBase(base) {
   let fetchFailed = false;
   for (const step of DEEPEN_STEPS) {
     if (git(['fetch', `--deepen=${step}`, 'origin']) === null) fetchFailed = true;
-    mergeBase = gitText(['merge-base', base, 'HEAD']).trim();
+    mergeBase = gitText(['merge-base', base, head]).trim();
     if (mergeBase) return { mergeBase, deepened: true, shallow: true, fetchFailed };
   }
   return { mergeBase: null, deepened: true, shallow: true, fetchFailed };

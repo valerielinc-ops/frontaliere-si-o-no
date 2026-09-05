@@ -1878,6 +1878,14 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zugo-salari-occupazione-guida': { it: 'zugo-salari-occupazione-guida', en: 'zugo-salary-occupation-guide', de: 'zugo-loehne-arbeitsmarkt-leitfaden', fr: 'zugo-salaires-marche-travail-guide' },
  'salari-canton-zugo-contratti': { it: 'salari-canton-zugo-contratti', en: 'salary-zug-canton-employment', de: 'lohn-kanton-zug-collective', fr: 'salaires-canton-zug-collective' },
  'imposta-successione-zugo-aliquote': { it: 'imposta-successione-zugo-aliquote', en: 'inheritance-tax-canton-zug-rates', de: 'erbschaftssteuer-kanton-zug-saetze', fr: 'impot-succession-canton-zoug-taux' },
+ 'medici-specialisti-fatturazioni-svizzera': { it: 'medici-specialisti-fatturazioni-svizzera', en: 'specialist-doctors-billing-switzerland', de: 'facharzt-abrechnungen-schweiz', fr: 'facturation-medecins-specialistes-suisse' },
+ 'prio-swiss-medici-specialisti-tardoc': { it: 'prio-swiss-medici-specialisti-tardoc', en: 'prio-swiss-specialist-doctors-tardoc', de: 'prio-swiss-facharzte-tardoc', fr: 'prio-swiss-medecins-specialistes-tardoc' },
+ 'morte-mongolfiera-ticino': { it: 'morte-mongolfiera-ticino', en: 'hot-air-balloon-tragedy-ticino', de: 'tragodie-mit-heissluftballon-tessin', fr: 'tragedie-ballon-a-air-chaud-tessin' },
+ 'incendio-notturno-scuola-professionale-biasca': { it: 'incendio-notturno-scuola-professionale-biasca', en: 'nighttime-fire-at-upsa-professional-school-biasca', de: 'nachtsbrand-an-der-berufsschule-upsa-in-biasca', fr: 'incendie-nocturne-a-l-ecole-professionnelle-upsa-de-biasca' },
+ 'falso-allarme-goldach': { it: 'falso-allarme-goldach', en: 'false-alarm-goldach', de: 'falscher-alarm-goldach', fr: 'faux-alarme-goldach' },
+ 'asilo-nido-controlli-minori': { it: 'asilo-nido-controlli-minori', en: 'daycare-controls-children-safety', de: 'kindergarten-kontrollen-kinderschutz', fr: 'garderie-controles-protection-enfants' },
+ 'permesso-b-friburgo-requisiti-rinnovo': { it: 'permesso-b-friburgo-requisiti-rinnovo', en: 'residence-permit-b-fribourg-requirements-renewal', de: 'aufenthaltserlaubnis-b-freiburg-verlaengerung', fr: 'permis-sejour-b-fribourg-renouvellement' },
+ 'premi-lamal-vallese-riduzione': { it: 'premi-lamal-vallese-riduzione', en: 'valais-lamal-premiums-reduction', de: 'vallese-lamal-praemien-reduktion', fr: 'valais-lamal-cotisazioni-riduzione' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
