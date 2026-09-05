@@ -39,6 +39,7 @@
  * queue-managed: vedi `crawlerFixDecision`.
  */
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { classifyIssue } from '../lib/classify-issue.mjs';
 import {
   CODE_PATH_RE,
@@ -119,6 +120,13 @@ const SETTLE_MIN = Number(process.env.FOLLOWUP_SETTLE_MIN || 3);
 // sopra ~5 PR aperte insieme: con 3 run vive le PR aperte restano nella banda
 // sicura.
 //
+// Quelle due misure guardavano a VALLE (PR aperte, quota) e nessuna guardava a
+// MONTE: `issue-fix.yml` non ha 3 slot da riempire, ne ha 1 — vedi
+// `fixQueueDepth()` qui sotto, che ora clampa questo numero alla profondita'
+// vera della coda invece di lasciarlo libero. Il valore richiesto resta 3: il
+// giorno in cui il `concurrency` di `issue-fix.yml` diventa per-issue, i 3 slot
+// diventano reali e il cap li usa senza altre modifiche qui.
+//
 // KILL-SWITCH: `FOLLOWUP_MAX_INFLIGHT_FIX=1` ripristina esattamente il
 // comportamento precedente, senza toccare il codice (VISION.md D4: ogni
 // consumer di quota nasce con cap, kill-switch e telemetria — la telemetria e'
@@ -139,9 +147,80 @@ const SETTLE_MIN = Number(process.env.FOLLOWUP_SETTLE_MIN || 3);
 //    default: dare 3 a chi ha scritto 0 per frenare sarebbe il contrario di
 //    quello che ha chiesto.
 const RAW_MAX_INFLIGHT_FIX = Number(process.env.FOLLOWUP_MAX_INFLIGHT_FIX);
-const MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
+const REQUESTED_MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
   ? Math.max(1, Math.floor(RAW_MAX_INFLIGHT_FIX))
   : 3;
+
+/**
+ * Quante promozioni `agent:fix` puo' reggere DAVVERO la coda di `issue-fix.yml`.
+ *
+ * Il cap sopra conta le run che *vorremmo* vive insieme; questa funzione conta
+ * quelle che GitHub accetta di tenere. Le due cose sono diverse e il 2026-09-04
+ * ha misurato quanto costa confonderle.
+ *
+ * `issue-fix.yml` ha `concurrency: { group: issue-fix, cancel-in-progress:
+ * false }` — un gruppo COSTANTE, uguale per ogni issue. L'header di quel file
+ * lo dice per esteso: «GitHub tiene **una sola** run pending per gruppo, e ogni
+ * nuova pending SFRATTA (`cancelled`) la precedente. La profondita' della coda
+ * e' 1, non N». E poiche' `on: issues:[labeled]` e' one-shot, l'evento della
+ * run sfrattata e' consumato: la label `agent:fix` resta sulla issue e NIENTE
+ * la ri-arma. Il RESCUE piu' sotto la ritrova orfana e le addebita un
+ * `fu-attempt` — per una run che non e' mai partita.
+ *
+ * Misurato sul sito (2026-09-05), dopo che il cap era passato da 1 a 3 il
+ * 2026-09-04 alle 09:05Z:
+ *  - run `issue-fix` del 09-03 (cap 1): 195 totali, 31 `cancelled`, 55 success;
+ *  - run `issue-fix` del 09-04 (cap 3): 1704 totali, 823 `cancelled`, 36 success;
+ *  - 88 delle 167 issue `fu-parked` aperte non hanno NESSUN commento
+ *    `FIX_OUTCOME`, cioe' nessuna run le ha mai lavorate; di quelle 88, 84
+ *    hanno preso `fu-parked` il 09-04 e 4 il 09-05, con 276 label
+ *    `fu-attempt:*` applicate in totale.
+ * Il backlog aperto e' cresciuto di 82 issue nette in 15 giorni: quelle 88
+ * parcheggiate senza un solo tentativo reale lo spiegano per intero.
+ *
+ * Percio' il cap non e' piu' un numero libero: viene CLAMPATO alla profondita'
+ * dichiarata dal workflow. Con un `group:` costante la profondita' e' 1 —
+ * promuovere una seconda issue nello stesso tick non riempie uno slot, ne
+ * distrugge una. Con un `group:` che contiene un'espressione per-issue
+ * (`${{ github.event.issue.number }}`) le run sono davvero indipendenti e il
+ * cap torna a valere per quello che e': quello, e non un numero piu' alto qui,
+ * e' il modo di alzare la parallelizzazione.
+ *
+ * File illeggibile o `concurrency:` assente → si sceglie il verso sicuro
+ * (1 e Infinity rispettivamente): mai promuovere piu' di quanto si sappia
+ * reggere. Pura → testabile.
+ *
+ * @param {string} workflowYaml contenuto di `.github/workflows/issue-fix.yml`
+ * @returns {number} 1 se il gruppo e' costante, Infinity se non serializza
+ */
+export function fixQueueDepth(workflowYaml) {
+  const lines = String(workflowYaml || '').split('\n');
+  const start = lines.findIndex((l) => /^concurrency:/.test(l));
+  if (start < 0) return Number.POSITIVE_INFINITY; // nessun gruppo → nessuna serializzazione
+  // Il blocco sono le righe indentate che seguono (le vuote non lo chiudono).
+  for (let j = start; j < lines.length; j += 1) {
+    if (j > start && lines[j] !== '' && !/^\s/.test(lines[j])) break;
+    const g = /group:\s*(.+?)\s*$/.exec(lines[j]);
+    if (g) return /\$\{\{/.test(g[1]) ? Number.POSITIVE_INFINITY : 1;
+  }
+  return 1; // `concurrency:` c'e' ma il gruppo non si legge → verso sicuro
+}
+
+const FIX_WORKFLOW_URL = new URL('../../.github/workflows/issue-fix.yml', import.meta.url);
+const FIX_QUEUE_DEPTH = (() => {
+  try {
+    return fixQueueDepth(readFileSync(FIX_WORKFLOW_URL, 'utf8'));
+  } catch {
+    return 1; // workflow illeggibile → il verso sicuro, non il default alto
+  }
+})();
+const MAX_INFLIGHT_FIX = Math.min(REQUESTED_MAX_INFLIGHT_FIX, FIX_QUEUE_DEPTH);
+if (MAX_INFLIGHT_FIX < REQUESTED_MAX_INFLIGHT_FIX) {
+  // Telemetria: senza questa riga il clamp e' invisibile e chi ha alzato il cap
+  // crede di avere 3 slot mentre ne ha 1 — che e' esattamente come e' nato il
+  // difetto del 2026-09-04.
+  console.log(`cap issue-fix richiesto ${REQUESTED_MAX_INFLIGHT_FIX} → clampato a ${FIX_QUEUE_DEPTH}: la profondita' della coda di issue-fix.yml (concurrency group costante) e' ${FIX_QUEUE_DEPTH}; promuoverne di piu' sfratterebbe le pending invece di riempire slot. Per alzarlo davvero, rendi il gruppo per-issue in issue-fix.yml.`);
+}
 
 const LBL_QUEUED = 'agent:fix-queued';
 const LBL_FIX = 'agent:fix';
