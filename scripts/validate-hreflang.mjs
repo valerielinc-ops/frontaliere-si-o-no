@@ -73,7 +73,12 @@ for (const page of pages) {
   if (!href.startsWith(BASE_URL)) continue;
   const target = urlToFile(href);
   if (!existsSync(target)) {
-   failures.push(`${page.relPath} — hreflang ${hreflang} target missing: ${href}`);
+   // flatString: `href` is a capture out of the page HTML (a SlicedString
+   // pointing INTO the whole document) and this ConsString keeps it alive
+   // inside `failures`, which spans the entire corpus scan. Same second
+   // boundary as audit-hreflang.mjs — #7488 item 3, class of #7419. Paid per
+   // FAILURE, so a healthy run pays nothing.
+   failures.push(flatString(`${page.relPath} — hreflang ${hreflang} target missing: ${href}`));
   }
  }
 }
