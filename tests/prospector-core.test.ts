@@ -172,6 +172,62 @@ describe('vacancy extraction', () => {
     expect(detail.description).toContain('Work with the warehouse team');
   });
 
+  // Regressione arsante.ch/gmo (#7322). Il JobPosting reale non ha alcun
+  // jobLocation: la sede della vacancy sta solo nel blocco indirizzo renderizzato
+  // in fondo alla pagina, e nessun nome di classe della cascata dice "location"
+  // → il gate source-backed scartava tutti e 10 gli annunci e il crawler
+  // riportava 0 job da una pagina sana.
+  it('reads the vacancy geography from a rendered postal address block', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Assistant·e médical·e</h1>`
+      + `<div itemprop="description"><p>Le Centre Médical du Léman recrute un·e assistant·e médical·e.</p></div>`
+      + `<div class="contact-info text-white"><h3>Centre Médical du Léman / Arsanté</h3>`
+      + `<p>17 Rue Dr-Alfred-VINCENT</p><p>1201 Genève</p>`
+      + `<div class="pt-3"><p><strong>Postuler</strong></p></div></div>`
+      + `</article></main>`
+      + `<footer><address itemscope itemtype="http://schema.org/PostalAddress">`
+      + `<div itemprop="streetAddress">Route de Chancy 59C</div>`
+      + `<div itemprop="postalCode">CH-1213 Petit-Lancy</div></address></footer>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/assistant-e-medical-e-100');
+    // Il codice postale rende la coppia un indirizzo, e il municipio non deve
+    // inglobare le parole del <p> successivo ("Postuler").
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: '1201 Genève', addressLocality: 'Genève', postalCode: '1201' }),
+    ]);
+    expect(resolveDetailOrListingSwissGeography(detail, {}).geography)
+      .toMatchObject({ location: '1201 Genève', canton: 'GE' });
+  });
+
+  // L'indirizzo dell'azienda nel chrome del sito è ripetuto identico su ogni
+  // pagina: leggerlo come luogo di lavoro pubblicherebbe un default del datore
+  // di lavoro inventato, che è esattamente ciò che il gate source-backed vieta.
+  it('ignores an employer address that only appears in the page chrome', () => {
+    const html = `<header><address><p>CH-1213 Petit-Lancy</p></address></header>`
+      + `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
+      + `<div class="contact-info"><div class="pt-3"><p><strong>Postuler</strong></p></div></div>`
+      + `</article></main>`
+      + `<footer><address><div itemprop="postalCode">CH-1213 Petit-Lancy</div></address></footer>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96');
+    expect(detail.locationCandidates).toEqual([]);
+    expect(resolveDetailOrListingSwissGeography(detail, {}).geography).toBeNull();
+  });
+
+  // Una via senza codice postale né municipio non è una localita: la pagina
+  // psychologue-psychotherapeute-fsp-94 di arsante.ch pubblica solo "2 Place du
+  // Lignon", e dedurne Vernier sarebbe geografia inventata, non source-backed.
+  it('does not invent a municipality from a street-only address block', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Psychologue psychothérapeute FSP</h1>`
+      + `<div itemprop="description"><p>Poste de psychologue à pourvoir.</p></div>`
+      + `<div class="contact-info"><h3>Centre Médical du Lignon / Arsanté</h3>`
+      + `<p>2 Place du Lignon</p></div>`
+      + `</article></main>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94');
+    expect(detail.locationCandidates).toEqual([]);
+  });
+
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la
   // copia dentro un <p> nidificato, non come nodo di testo diretto del div
   // itemprop: `readItempropBody` deve leggere fino alla chiusura bilanciata
