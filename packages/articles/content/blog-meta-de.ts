@@ -11394,6 +11394,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.title': 'Leben in Ponte Lambro und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Ponte Lambro zu leben und im Tessin zu arbeiten.',
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.export-varese-record-2026.title': 'Export Varese: Lombardischer Rekord im ersten Quartal 2026',
+    'blog.article.export-varese-record-2026.excerpt': 'Varese regionaler Marktführer mit +23% im Export. Die Schweiz ist gut (+21,2%), aber die CIGS (+14,9%) ist ein Zeichen für laufende Unternehmensumstrukturierungen.',
+    'blog.article.export-varese-record-2026.imageAlt': 'Wirtschaftsanalyse und Exportdaten in der Region Varese.',
 };
 
 export default blogMetaDe;

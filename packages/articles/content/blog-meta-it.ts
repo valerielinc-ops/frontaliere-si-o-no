@@ -11396,6 +11396,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.title': 'Vivere a Ponte Lambro e lavorare in Ticino da frontaliere',
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Ponte Lambro e lavorare in Ticino.',
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
+    'blog.article.export-varese-record-2026.title': 'Export Varese: record lombardo nel primo trimestre 2026',
+    'blog.article.export-varese-record-2026.excerpt': 'Varese leader regionale con +23% nell\'export. Bene la Svizzera (+21,2%), ma cresce la CIGS (+14,9%) segnale di riorganizzazioni aziendali in corso.',
+    'blog.article.export-varese-record-2026.imageAlt': 'Analisi economica e dati export nel contesto varesino.',
 };
 
 export default blogMetaIt;
