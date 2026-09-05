@@ -482,7 +482,14 @@ function runAuditSitemapCanonicals() {
         okCount++;
         continue;
       }
-      offenders.push({ category: 'mismatch', sitemap, loc, canonical });
+      // flatString: `canonical` is a capture out of `html`, i.e. a
+      // SlicedString pointing INTO the whole page, and `offenders` spans the
+      // entire scan. One offender is harmless; a category-wide canonical
+      // regression is thousands, each pinning its own document, and the gate
+      // OOMs instead of printing the diagnosis it exists to print — precisely
+      // when that diagnosis is needed. Paid per OFFENDER (normally zero), not
+      // per URL, so a healthy run costs nothing.
+      offenders.push({ category: 'mismatch', sitemap, loc, canonical: flatString(canonical) });
       continue;
     }
     okCount++;
@@ -598,7 +605,11 @@ function runValidateCanonical() {
         if (isLegitJobConsolidation(url, canonical)) {
           bridgeSkipped++;
         } else {
-          errors.push({ url, issue: `Canonical mismatch: canonical → ${canonical} (different page)` });
+          // flatString: a multi-substitution template literal is a ConsString
+        // that keeps `canonical` — a capture into the page HTML — alive, so
+        // `errors` would pin one full document per mismatch, at the same
+        // boundary and for the same reason as check 1's `offenders` above.
+        errors.push({ url, issue: flatString(`Canonical mismatch: canonical → ${canonical} (different page)`) });
         }
       }
     }

@@ -20,6 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatString } from './lib/flat-string.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -202,7 +203,14 @@ function main() {
     // Extract <head> once; pass to all helpers to avoid repeated large-string regex captures.
     const head = extractHead(html);
 
-    const title = extractHeadTitle(head);
+    // flatString: `title` is a slice into `head` and becomes a Map key in
+    // `titlesByLocale` (`bucket.set(title, …)` below), which spans the whole
+    // corpus scan — one retained document per distinct *title*, a hotter
+    // boundary than the canonical one right under it. `extractHeadTitle()`
+    // rebuilds the string only incidentally: a title with no whitespace
+    // leaves both `replace(/\s+/g, ' ')` and `trim()` no-ops and the slice
+    // survives. Same reading as the twin in audit-h1-title-duplicates.mjs.
+    const title = flatString(extractHeadTitle(head));
     totalPages += 1;
     if (!title) {
       missingTitles += 1;
@@ -214,7 +222,11 @@ function main() {
     // archival stubs, brand-alias bridges all ship with noindex,follow).
     if (hasNoindex(head)) continue;
 
-    const canonicalUrl = extractCanonical(head);
+    // flatString: `canonicalUrl` is a capture into `head` and `canonicalKey`
+    // becomes a Map key in `titlesByLocale`, which spans the whole corpus
+    // scan — one retained document per distinct canonical. Same boundary as
+    // the canonical gates (#7488, class of #7419).
+    const canonicalUrl = flatString(extractCanonical(head));
     const canonicalKey = canonicalUrl ?? fsCanonical;
 
     if (!titlesByLocale.has(locale)) {
