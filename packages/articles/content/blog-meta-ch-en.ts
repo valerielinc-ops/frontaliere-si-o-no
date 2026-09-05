@@ -5515,6 +5515,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-euro-analisi-cambio-dati.title': 'Franco-euro: what the data says',
     'blog.article.franco-euro-analisi-cambio-dati.excerpt': 'Swiss inflation 0.4%, Eurozone 2.9%: economic divergence between SNB and ECB exchange rate guide. Implications for border workers, businesses, and families.',
     'blog.article.franco-euro-analisi-cambio-dati.imageAlt': 'Swiss franc and euro banknotes with Lake Lugano sunset view',
+    'blog.article.aprire-attivita-vaud-registro-costi.title': 'Opening a business in the Canton of Vaud: registration and costs',
+    'blog.article.aprire-attivita-vaud-registro-costi.excerpt': 'Practical guide to registration and costs to start a business in the Canton of Vaud: legal forms, Trade Register, three-tier taxation and insurance obligations.',
+    'blog.article.aprire-attivita-vaud-registro-costi.imageAlt': 'Cantonal administration building in Lausanne, canton Vaud',
 };
 
 export default blogMetaChEn;

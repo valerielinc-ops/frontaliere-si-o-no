@@ -5515,6 +5515,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-euro-analisi-cambio-dati.title': 'Franc euro : ce que disent les données',
     'blog.article.franco-euro-analisi-cambio-dati.excerpt': 'Inflation Suisse 0,4 %, zone euro 2,9 % : divergence économique entre la BNS et la BCE guide le taux de change. Implications pour les frontaliers, les entreprises, les familles.',
     'blog.article.franco-euro-analisi-cambio-dati.imageAlt': 'Billets de francs suisses et d\'euros avec vue sur le coucher de soleil du lac Lugano',
+    'blog.article.aprire-attivita-vaud-registro-costi.title': 'Ouvrir une entreprise dans le canton de Vaud : registre et coûts',
+    'blog.article.aprire-attivita-vaud-registro-costi.excerpt': 'Guide pratique de l\'enregistrement et des coûts de démarrage d\'une entreprise dans le canton de Vaud : formes juridiques, registre du commerce, fiscalité à trois niveaux et obligations d\'assurance.',
+    'blog.article.aprire-attivita-vaud-registro-costi.imageAlt': 'Bâtiment cantonal à Lausanne, canton de Vaud',
 };
 
 export default blogMetaChFr;

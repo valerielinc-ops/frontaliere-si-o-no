@@ -16543,6 +16543,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-vaud-registro-costi',
+    category: 'pratico',
+    date: '2026-09-05T06:51:02.369Z',
+    image: '/images/blog/aprire-attivita-vaud-registro-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
