@@ -1,18 +1,18 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-09-04T23:01:12.441Z",
-  "total": 2,
+  "generatedAt": "2026-09-05T12:46:07.044Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 26495,
-  "avgDurationMs": 26495,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 29184,
+  "avgDurationMs": 29184,
   "durationHistory": [
-    26495
+    29184
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:09.705Z",
+      "crawledAt": "2026-09-05T12:46:02.016Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "recruitingapp-2677-4923473206ff",
       "slug": "responsabile-legale-e-compliance-e-recruiting-llb-gruppe-stellen-lugano",
@@ -94,5 +93,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
