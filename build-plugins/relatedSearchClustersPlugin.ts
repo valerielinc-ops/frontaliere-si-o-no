@@ -478,6 +478,17 @@ interface CacheManifest {
   // landing without re-deriving matchingJobs counts. Optional for back-compat
   // with pre-this-change caches (cache-hit path treats missing as empty).
   svizzeraLinks?: { locale: Locale; links: { label: string; path: string }[] }[];
+  // Subset of `files` that holds junk-doorway WITHDRAWAL documents (issue
+  // #7316), not landings this build advertises. They must be restored as
+  // files — the withdrawal is the point — but must stay OUT of the
+  // keyword-landing plan, exactly as the emit path keeps them out of
+  // `plannedPaths`. Without this split the cache-hit path would register a
+  // `noindex` page as a PLANNED landing and `transformHreflang` would keep
+  // the alternates pointing at it, giving the two build paths opposite
+  // hreflang signals for the same URL. Optional for back-compat; every
+  // manifest this build can read is written by this same file (it is a
+  // `CACHE_KEY_INPUTS` entry, so an older manifest can never match the key).
+  retiredFiles?: string[];
   emittedCount: number;
 }
 
@@ -590,6 +601,7 @@ function saveToCache(
   sitemapLocs: ReadonlyArray<string>,
   crossSectionMirrorLocs: ReadonlyArray<string>,
   svizzeraLinks: ReadonlyArray<{ locale: Locale; links: { label: string; path: string }[] }>,
+  retiredFiles: ReadonlyArray<string> = [],
 ): number {
   const cacheDir = cacheDirFor(rootDir, cacheKey);
   // Wipe stale entries for the same key (defensive — should never collide).
@@ -617,6 +629,10 @@ function saveToCache(
     sitemapLocs: sitemapLocs.slice(),
     crossSectionMirrorLocs: crossSectionMirrorLocs.slice(),
     svizzeraLinks: svizzeraLinks.slice(),
+    // Only the ones that actually made it into `files`: a retirement whose
+    // source was missing at copy time is not restored either, so recording it
+    // would exclude a path that is never registered in the first place.
+    retiredFiles: retiredFiles.filter((rel) => seen.has(rel)),
     emittedCount: copied,
   };
   fs.writeFileSync(
@@ -1664,6 +1680,26 @@ export function enumerateJunkRetirements(
     });
   }
   return Array.from(byKey.values());
+}
+
+/**
+ * The keyword-landing plan a cache-HIT build must register: every restored
+ * file EXCEPT the junk-doorway withdrawals (issue #7316).
+ *
+ * The emit path deliberately keeps retirement paths out of `plannedPaths`,
+ * and that absence is what makes `isStaleKeywordLanding` / `hasUnplannedTarget`
+ * in `packages/articles/engine/hreflangPostprocess.ts` strip the alternates
+ * still pointing at a withdrawn URL. The cache-hit path rebuilds the plan from
+ * the manifest instead, so it has to reproduce the same absence — otherwise a
+ * `noindex` withdrawal would be registered as a PLANNED landing and the two
+ * build paths would emit opposite hreflang for the same URL.
+ */
+export function restoredKeywordLandingPaths(
+  files: ReadonlyArray<string>,
+  retiredFiles: ReadonlyArray<string> = [],
+): string[] {
+  const retired = new Set(retiredFiles);
+  return files.filter((rel) => !retired.has(rel)).map(landingPathFromDistRelative);
 }
 
 const JUNK_RETIREMENT_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
@@ -3319,9 +3355,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // from the restored manifest instead. Without this the plan would
           // be missing its cluster half and every live cluster page would
           // look stale to transformHreflang — see keywordLandingPlan.ts.
+          // Retirement paths are restored as FILES (the withdrawal must
+          // survive a cache hit) but excluded from the plan, mirroring the
+          // emit path's own omission — see `restoredKeywordLandingPaths`.
           registerKeywordLandingPaths(
             'related-search-clusters',
-            (restored.files ?? []).map(landingPathFromDistRelative),
+            restoredKeywordLandingPaths(restored.files ?? [], restored.retiredFiles ?? []),
           );
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
@@ -3596,6 +3635,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const collector = new WriteCollector({ distDir, pluginName: 'relatedSearchClustersPlugin' });
       const sitemapLocs: string[] = [];
       const emittedFiles: string[] = []; // dist-relative paths for cache save
+      // Subset of `emittedFiles` that are junk-doorway withdrawals: cached and
+      // restored like any other file, but never part of the keyword-landing
+      // plan on either build path (issue #7316).
+      const retiredFiles: string[] = [];
       // Legacy per-canton mirror loc URLs (canonical → Svizzera) we overwrite in
       // dist/. Collected during the emit loop, persisted to the cache manifest,
       // and dropped from sitemap-jobs.xml after jobs flush (issue #911).
@@ -3636,7 +3679,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         for (const retiredPath of retirement.paths) {
           const outFile = path.join(distDir, retiredPath, 'index.html');
           collector.add(outFile, html);
-          emittedFiles.push(path.relative(distDir, outFile));
+          const rel = path.relative(distDir, outFile);
+          emittedFiles.push(rel);
+          // Tagged so the cache-hit path can restore the file WITHOUT
+          // registering it as a planned keyword landing (issue #7316).
+          retiredFiles.push(rel);
           // Same backpressure cadence as the per-cluster loop: bound the
           // in-flight write closures instead of queueing tens of thousands.
           if (++retiredPathCount % 2000 === 0) await collector.awaitDrainSlot(2);
@@ -3989,7 +4036,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       if (cacheEnabled) {
         try {
           const __tCacheSave = profileStart();
-          const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs, crossSectionMirrorLocs, svizzeraLinksByLocale);
+          const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs, crossSectionMirrorLocs, svizzeraLinksByLocale, retiredFiles);
           profileRecord('cache-save', __tCacheSave);
           console.log(`\x1b[36m[related-search-clusters]\x1b[0m saved ${cached} files to cache (${cacheKey})`);
         } catch (err) {

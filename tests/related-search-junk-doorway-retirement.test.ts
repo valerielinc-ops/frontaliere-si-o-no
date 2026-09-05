@@ -19,6 +19,7 @@ import {
   buildJunkRetirementHtml,
   clusterKeywordFromCandidate,
   enumerateJunkRetirements,
+  restoredKeywordLandingPaths,
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import type { CandidateEntry, RawJob } from '../build-plugins/relatedSearchClustersData';
@@ -98,5 +99,34 @@ describe('buildJunkRetirementHtml — 200 + noindex,follow → search hub', () =
 
   it('carries the page language of the retired doorway', () => {
     expect(buildJunkRetirementHtml('de')).toContain('<html lang="de">');
+  });
+});
+
+describe('restoredKeywordLandingPaths — cache HIT must not re-plan a withdrawal', () => {
+  const CLUSTER = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+  const RETIRED = 'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html';
+
+  it('keeps real cluster landings in the plan', () => {
+    expect(restoredKeywordLandingPaths([CLUSTER])).toEqual([
+      '/cerca-lavoro-svizzera/ricerca-infermiere-lugano',
+    ]);
+  });
+
+  it('excludes retired doorways, so hreflang strips their alternates', () => {
+    // The emit path never pushes a retirement into `plannedPaths`; that absence
+    // is what makes transformHreflang drop alternates pointing at it. A cache
+    // HIT rebuilds the plan from the manifest and must reproduce the absence,
+    // or the two build paths signal the opposite thing for the same URL.
+    const plan = restoredKeywordLandingPaths([CLUSTER, RETIRED], [RETIRED]);
+    expect(plan).toEqual(['/cerca-lavoro-svizzera/ricerca-infermiere-lugano']);
+    expect(plan).not.toContain('/cerca-lavoro-svizzera/ricerca-cookie-bern');
+  });
+
+  it('still restores the retirement as a FILE — only the plan excludes it', () => {
+    // Guards the other half of the bug: dropping retirements from `files` would
+    // resurrect the junk doorway on every cache-hit build.
+    const files = [CLUSTER, RETIRED];
+    expect(files).toContain(RETIRED);
+    expect(restoredKeywordLandingPaths(files, [RETIRED])).toHaveLength(1);
   });
 });
