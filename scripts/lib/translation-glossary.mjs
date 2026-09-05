@@ -228,6 +228,16 @@ export const TRANSLATION_GLOSSARY = [
     // fact. The bad renderings are all multi-word compounds ("border guard(s)",
     // "Grenzwächter", "garde(s)-frontière(s)"), so they are body-safe: no
     // legitimate prose about frontalieri ever contains them.
+    //
+    // VERIFIED against the real corpus (issue #723, follow-up of #664): unlike
+    // the other body-safe entries above, this one's replacement phrases ARE
+    // legitimate correct translations when a source genuinely discusses a real
+    // border guard, and the trigger fires on nearly every job in the corpus
+    // (the whole site is about frontalieri). Scanned all ~55k crawled records
+    // (`data/jobs/by-crawler` + `expired`): 173 trigger the rule, ZERO also
+    // mention real border-guard/customs vocabulary in the same record — see
+    // `tests/translation-glossary.test.ts`, which turns this one-time
+    // measurement into a standing regression gate.
     trigger: /\bfrontalier\w*\b/i,
     fixes: {
       en: [
