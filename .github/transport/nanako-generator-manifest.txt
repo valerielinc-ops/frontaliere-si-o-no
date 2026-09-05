@@ -101,6 +101,13 @@ scripts/lib/translation-glossary.mjs
 # the "threw before main() on every invocation" failure documented at the bottom
 # of this manifest, repeated verbatim. It is pure and imports nothing.
 scripts/lib/unescape-ts-string.mjs
+# Added 2026-09-05, stessa classe della riga qui sopra. #7121
+# (`refactor(factuality): reuse regex escape helper`) ha fatto importare
+# `./escape-regexp.mjs` da `scripts/lib/article-factuality-gates.mjs` — che e'
+# gia' in questo manifest (riga 63) — senza aggiungere il file estratto. E' un
+# `import` di primo livello: sul corpus diventa ERR_MODULE_NOT_FOUND prima di
+# main(). Il file e' puro e non importa nulla.
+scripts/lib/escape-regexp.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------
 #

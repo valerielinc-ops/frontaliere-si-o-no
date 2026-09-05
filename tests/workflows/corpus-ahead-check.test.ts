@@ -3,7 +3,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 // @ts-expect-error — .mjs senza tipi, come gli altri script di scripts/ci.
-import { classify, localHash, SITE_ACTIONABLE_STATES } from '../../scripts/ci/corpus-ahead-check.mjs';
+import {
+  classify,
+  localHash,
+  needsDecisionHere,
+  renderIssueBody,
+  SITE_ACTIONABLE_STATES,
+} from '../../scripts/ci/corpus-ahead-check.mjs';
 
 /**
  * Il ciclo gira in DUE direzioni, e questo repo aveva un ricevitore solo.
@@ -148,6 +154,40 @@ describe('il confronto a tre vie riporta solo la meta\' su cui questo repo puo\'
     const v = classify(twin(), { site: 'dddddddddddddddd', corpus: 'cccccccccccccccc' }, BASE);
     expect(v.state).toBe('both-moved');
     expect(v.actionable).toBe(true);
+  });
+
+  it('mossi entrambi ma gia\' allo STESSO contenuto → `both-moved-converged`, non `both-moved`', () => {
+    // Il gemello del corpus ha questa classe dalla sua issue #680; qui mancava,
+    // e il bucket «riconciliazione manuale» assorbiva anche i casi gia' risolti
+    // da soli — 27 righe indistinguibili (issue #7368).
+    const v = classify(twin({ mode: 'identical' }), { site: 'eeeeeeeeeeeeeeee', corpus: 'eeeeeeeeeeeeeeee' }, BASE);
+    expect(v.state).toBe('both-moved-converged');
+    expect(v.actionable).toBe(true);
+    expect(v.detail).toMatch(/--init/);
+  });
+
+  it('un convergente non e\' una DECISIONE di questo lato', () => {
+    // La proprieta' che tiene pulito il bucket manuale: comparire nel report
+    // non basta a chiedere una lettura umana qui.
+    const converged = classify(twin({ mode: 'identical' }), { site: 'eeeeeeeeeeeeeeee', corpus: 'eeeeeeeeeeeeeeee' }, BASE);
+    const moved = classify(twin(), { site: 'dddddddddddddddd', corpus: 'cccccccccccccccc' }, BASE);
+    expect(needsDecisionHere(converged)).toBe(false);
+    expect(needsDecisionHere(moved)).toBe(true);
+    expect(SITE_ACTIONABLE_STATES).toContain('both-moved-converged');
+  });
+
+  it('il report separa i convergenti dal bucket manuale', () => {
+    const rows = [
+      { path: 'generator/a.mjs', sitePath: 'a.mjs', state: 'both-moved', actionable: true, headline: 'modificato su entrambi i lati' },
+      { path: 'generator/b.mjs', sitePath: 'b.mjs', state: 'both-moved-converged', actionable: true, headline: 'gia\' identici' },
+    ];
+    const body = renderIssueBody({ alignedAt: '2026-09-01' }, rows, rows);
+    // Una sola riga chiede davvero una decisione, e l'altra ha una sezione sua.
+    expect(body).toMatch(/\*\*1\*\* richiedono una decisione \*\*qui\*\*/);
+    expect(body).toMatch(/gia' convergenti/);
+    const manualSection = body.slice(body.indexOf('🔴'), body.indexOf('🟢'));
+    expect(manualSection).toContain('generator/a.mjs');
+    expect(manualSection).not.toContain('generator/b.mjs');
   });
 
   it('fermi entrambi sulla baseline → `stable`, silenzio', () => {

@@ -72,6 +72,7 @@
  *
  *   `corpus-ahead`  il corpus si e' mosso, noi no  → da valutare e portare qui
  *   `both-moved`    mossi entrambi                 → riconciliazione manuale
+ *   `both-moved-converged`  mossi entrambi, stesso contenuto → solo `--init` di la'
  *
  * `site-ahead`, `removed-on-site`, `undeclared-drift` e `corpus-only` sono la
  * meta' del corpus e vengono deliberatamente ignorati: il corpus li riporta
@@ -95,6 +96,8 @@
  *   node scripts/ci/corpus-ahead-check.mjs            # report leggibile, exit 0
  *   node scripts/ci/corpus-ahead-check.mjs --json     # report JSON su stdout
  *   node scripts/ci/corpus-ahead-check.mjs --strict   # exit 1 se c'e' da decidere
+ *                                                     (i convergenti non contano:
+ *                                                      non c'e' nessuna decisione)
  *   node scripts/ci/corpus-ahead-check.mjs --issue    # apre/commenta la issue
  *
  * Env:
@@ -122,7 +125,19 @@ export const MANIFEST_PATH_IN_CORPUS = 'scripts/ci/loop-sync-manifest.json';
  * esportata, e non come letterale sparso nel codice, e' cio' che permette al
  * test di affermare che `site-ahead` non finisce mai nel report di qua.
  */
-export const SITE_ACTIONABLE_STATES = ['corpus-ahead', 'both-moved', 'import-not-declared'];
+export const SITE_ACTIONABLE_STATES = ['corpus-ahead', 'both-moved', 'both-moved-converged', 'import-not-declared'];
+
+/**
+ * Il sottoinsieme delle classi azionabili che NON chiede una lettura umana qui:
+ * comparire nel report serve solo a dire di la' quale baseline riallineare.
+ * Tenerlo separato e' cio' che impedisce al bucket «riconciliazione manuale» di
+ * riassorbire i casi gia' risolti da soli (issue #7368: 27 righe presentate come
+ * manuali senza che nessuna fosse distinguibile da quelle convergenti).
+ */
+export const SITE_REBASELINE_ONLY_STATES = ['both-moved-converged'];
+
+/** Una riga che richiede davvero una DECISIONE in questo repo. */
+export const needsDecisionHere = (r) => r.actionable && !SITE_REBASELINE_ONLY_STATES.includes(r.state);
 
 /** Stesso digest del checker del corpus: sha256 del contenuto, primi 16 hex. */
 export const sha256 = (buf) => crypto.createHash('sha256').update(buf).digest('hex').slice(0, 16);
@@ -187,6 +202,21 @@ export function classify(entry, now, base) {
         mode === 'adapted'
           ? `Il gemello e' ADATTATO di la' (${clip(entry.reason, 200) || 'ragione non dichiarata'}). Non e' copiabile: la modifica va letta e riapplicata sopra la nostra versione.`
           : 'Il file e\' dichiarato identico ai due lati: la modifica del corpus e\' copiabile qui cosi\' com\'e\'.',
+    };
+  }
+
+  // Entrambi mossi dalla baseline, ma arrivati allo STESSO contenuto (corpus
+  // issue #680, gemello `loop-drift-check.mjs`): non c'e' niente da
+  // riconciliare, perche' nessuno dei due lati deve "vincere" sull'altro.
+  // Senza questo controllo il bucket `both-moved` presenta come lettura umana
+  // anche i casi gia' risolti da soli, e da qui non sono distinguibili.
+  if (now.site === now.corpus) {
+    return {
+      state: 'both-moved-converged',
+      actionable: true,
+      headline: 'modificato su entrambi i lati, ma i due contenuti sono gia\' identici',
+      detail:
+        'Le due modifiche indipendenti sono arrivate allo stesso risultato: non c\'e\' niente da leggere ne\' da riconciliare qui, basta registrare la nuova baseline sul corpus con `scripts/ci/loop-drift-check.mjs --init`.',
     };
   }
 
@@ -449,6 +479,8 @@ export async function mapPool(items, limit, fn) {
 }
 
 export function renderIssueBody(manifest, results, actionable) {
+  const decisions = actionable.filter(needsDecisionHere);
+  const rebaselineOnly = actionable.length - decisions.length;
   const section = (state, title) => {
     const rows = actionable.filter((r) => r.state === state);
     if (!rows.length) return '';
@@ -463,10 +495,11 @@ export function renderIssueBody(manifest, results, actionable) {
   return [
     `Confronto con \`${CORPUS_REPO}@${CORPUS_REF}\`, baseline dell'ultimo allineamento registrata la': **${manifest.alignedAt || '(mai)'}**.`,
     '',
-    `${results.length} gemelli dichiarati nel manifest del corpus, **${actionable.length}** richiedono una decisione **qui**.`,
+    `${results.length} gemelli dichiarati nel manifest del corpus, **${decisions.length}** richiedono una decisione **qui**${rebaselineOnly ? `; altri **${rebaselineOnly}** sono gia' convergenti e si chiudono con un \`--init\` sul corpus, senza leggere niente` : ''}.`,
     '',
     section('corpus-ahead', '⬆️ Il corpus e\' andato avanti — da valutare e portare qui'),
     section('both-moved', '🔴 Modificato su entrambi i lati'),
+    section('both-moved-converged', '🟢 Modificato su entrambi i lati, ma gia\' convergente — basta `--init` di la\''),
     section('import-not-declared', '💥 Un file `identical` importa un modulo assente dal corpus'),
     '---',
     '',
@@ -571,9 +604,12 @@ async function main() {
   results.push(...importHazards);
 
   const actionable = results.filter((r) => r.actionable);
+  // I convergenti sono azionabili — vanno detti — ma non sono una DECISIONE:
+  // separarli e' cio' che tiene il bucket manuale pulito (issue #7368).
+  const decisions = actionable.filter(needsDecisionHere);
 
   if (AS_JSON) {
-    console.log(JSON.stringify({ corpusRepo: CORPUS_REPO, corpusRef: CORPUS_REF, alignedAt: manifest.alignedAt || null, results, actionable: actionable.length }, null, 2));
+    console.log(JSON.stringify({ corpusRepo: CORPUS_REPO, corpusRef: CORPUS_REF, alignedAt: manifest.alignedAt || null, results, actionable: actionable.length, decisions: decisions.length }, null, 2));
   } else {
     const byState = results.reduce((acc, r) => ((acc[r.state] = (acc[r.state] || 0) + 1), acc), {});
     console.log(`Gemelli del generatore — divergenza vs ${CORPUS_REPO}@${CORPUS_REF}`);
@@ -581,6 +617,9 @@ async function main() {
     console.log(`${results.length} file sorvegliati — ${Object.entries(byState).map(([k, v]) => `${k}:${v}`).join('  ')}\n`);
     if (!actionable.length) {
       console.log('Niente da decidere qui: il corpus non si e\' mosso su nessun gemello dichiarato.');
+    } else if (!decisions.length) {
+      console.log(`Niente da decidere qui: ${actionable.length} gemelli sono gia' convergenti, basta un \`--init\` sul corpus.\n`);
+      for (const r of actionable) console.log(`  [${r.state}] ${r.path} → ${r.sitePath}`);
     } else {
       for (const r of actionable) {
         console.log(`  [${r.state}] ${r.path} → ${r.sitePath}`);
@@ -606,7 +645,9 @@ async function main() {
     });
   }
 
-  return STRICT && actionable.length ? 1 : 0;
+  // I convergenti non rendono rosso `--strict`: non c'e' niente da decidere qui,
+  // e la baseline si riallinea sul corpus.
+  return STRICT && decisions.length ? 1 : 0;
 }
 
 // `import.meta.main` non esiste su Node 20; il confronto sul path e' la forma
