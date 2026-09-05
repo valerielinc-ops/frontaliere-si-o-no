@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-09-04T23:11:09.880Z",
-  "total": 13,
+  "generatedAt": "2026-09-05T12:56:05.159Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 16928,
-  "avgDurationMs": 16928,
+  "removedCount": 5,
+  "unchangedCount": 0,
+  "durationMs": 18762,
+  "avgDurationMs": 18762,
   "durationHistory": [
-    16928
+    18762
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -287,8 +287,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://www.mikron.com/en/product-conformity-specialist-mfd",
       "applyUrl": "https://www.mikron.com/en/product-conformity-specialist-mfd",
@@ -484,5 +483,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

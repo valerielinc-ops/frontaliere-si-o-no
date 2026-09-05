@@ -310,7 +310,15 @@ export const LOCALE_LEXICON = {
 
 /** The lexicon for `locale`, falling back to Italian for anything unknown. */
 export function lexiconFor(locale) {
-  return LOCALE_LEXICON[locale] || LOCALE_LEXICON.it;
+  // Base language, lowercased, before the lookup. The fallback is the ITALIAN
+  // lexicon, so an unmatched tag does not degrade gracefully — it hands English
+  // text a table of Italian month names, every date reads as absent, and the
+  // pre-publication guard in article-free-mt.mjs then refuses a field whose
+  // dates are all present. `en-GB`, `EN` and `fr_CH` are one `split` away from
+  // matching, and nothing upstream promises a bare lowercase code: the guard
+  // passes through whatever `targetLang` it was handed.
+  const base = String(locale ?? '').toLowerCase().split(/[-_]/)[0];
+  return LOCALE_LEXICON[base] || LOCALE_LEXICON.it;
 }
 
 // ─── Numeric facts, for the Italian↔translation comparison ────────────
@@ -326,6 +334,39 @@ export function lexiconFor(locale) {
  * spelt-out form looked like it had dropped all of its amounts.
  */
 const ANY_CURRENCY = String.raw`(?:franchi\s+svizzeri|francs?\s+suisses?|Schweizer\s+Franken|Swiss\s+francs?|franchi|Franken|francs?|CHF|euros?|EUR|€)`;
+
+/**
+ * What may NOT follow a currency name, replacing the `\b` that used to close
+ * `ANY_CURRENCY`.
+ *
+ * `\b` is a transition between a word char and a non-word char, and `€` is not
+ * a word char — so `€\b` only matched when a letter or digit came straight
+ * after the symbol, which in prose it never does. Every amount the corpus
+ * writes as "10 000 €" (the French house style: the symbol trails the number
+ * and a space or punctuation follows it) therefore extracted as NO amount at
+ * all, in the source and in the translation alike.
+ *
+ * Measured on the 3'754-article corpus at 1f4f9b441: of the 1'291 French body
+ * fields the numeric comparison flagged as having lost an amount, 422 (32,7%)
+ * were this bug and not a real loss — the figure was written right there in the
+ * French text. The English side, which spells "euros"/"francs" out and so kept
+ * its word boundary, sat at 6,0%.
+ *
+ * A negative lookahead does what `\b` was meant to do without depending on the
+ * last character's class: "euro" still cannot match inside "european", and the
+ * symbol form now closes on a space, a comma or a parenthesis like it should.
+ */
+const CURRENCY_END = String.raw`(?![A-Za-zÀ-ÖØ-öø-ÿ0-9])`;
+
+/**
+ * Ordinal suffix on a day number, so the day is read in every locale's spelling.
+ *
+ * English writes "March 4th, 2026" and French writes "1er janvier 2024"; the
+ * day-then-month branch only tolerated the Italian "1°" and the German "1.", so
+ * both of those dates read as no date. That is the same failure mode as the
+ * currency boundary above — a date present on both sides, reported as dropped.
+ */
+const DAY_ORDINAL = String.raw`(?:st|nd|rd|th|er|ère|re)?`;
 
 /**
  * Paragraphs the Italian body carries and the translations never do.
@@ -363,7 +404,7 @@ export function extractNumericFacts(text, locale = 'it') {
   // style write "CHF 60,000". Matching only one of them made every article
   // using the other convention look like it had lost all of its amounts.
   const amountRe = new RegExp(
-    String.raw`(?:(${NUMBER_TOKEN})\s*(?:(${SCALE_WORD})\s*)?(?:di\s+|de\s+|of\s+)?${ANY_CURRENCY}\b`
+    String.raw`(?:(${NUMBER_TOKEN})\s*(?:(${SCALE_WORD})\s*)?(?:di\s+|d['’]\s*|de\s+|of\s+)?${ANY_CURRENCY}${CURRENCY_END}`
     + String.raw`|${ANY_CURRENCY}\s*(${NUMBER_TOKEN})\s*(?:(${SCALE_WORD})\b)?)`,
     'gi',
   );
@@ -382,7 +423,8 @@ export function extractNumericFacts(text, locale = 'it') {
   const months = lexiconFor(locale).months;
   const names = Object.keys(months).join('|');
   const dateRe = new RegExp(
-    String.raw`(\d{1,2})\s*[°.]?\s+(${names})\s+(\d{4})|(${names})\s+(\d{1,2}),?\s+(\d{4})`,
+    String.raw`(\d{1,2})\s*${DAY_ORDINAL}\s*[°.]?\s+(${names})\s+(\d{4})`
+    + String.raw`|(${names})\s+(\d{1,2})\s*${DAY_ORDINAL},?\s+(\d{4})`,
     'gi',
   );
   for (const m of t.matchAll(dateRe)) {
@@ -394,6 +436,73 @@ export function extractNumericFacts(text, locale = 'it') {
     }
   }
 
+  return out;
+}
+
+// ─── Numeric divergence ───────────────────────────────────────────────
+//
+// One definition of "this translation lost figures", shared by the two places
+// that need it: the post-hoc audit gate (`checkTranslationNumericConsistency`
+// in article-factuality-gates.mjs, which REPORTS on published articles) and the
+// pre-publication guard in article-free-mt.mjs, which REFUSES the field so the
+// caller retranslates it. They must agree — a guard that is stricter than the
+// gate rejects prose the gate would have passed, and a guard that is looser
+// ships exactly what the gate then complains about.
+
+/**
+ * Below this, a set difference is noise rather than signal.
+ *
+ * Measured, not guessed. A single missing number is dominated by artefacts the
+ * comparison cannot see through: ranges name only one endpoint next to the
+ * currency ("da 60.000 a 100.000 franchi" yields 100000, "from CHF 60,000 to
+ * 100,000" yields 60000), and translations legitimately merge or reorder
+ * clauses. Requiring at least two values AND a quarter of the kind's set
+ * concentrates the report on translations that actually lost figures.
+ */
+export const MIN_NUMERIC_DIVERGENCE = 2;
+export const MIN_NUMERIC_DIVERGENCE_SHARE = 0.25;
+
+/** The four kinds `extractNumericFacts` returns, in report order. */
+export const NUMERIC_FACT_KINDS = ['pct', 'amt', 'km', 'date'];
+
+/**
+ * Whether a divergence of `divergedCount` values out of `total` is worth acting on.
+ *
+ * @param {number} divergedCount
+ * @param {number} total
+ * @returns {boolean}
+ */
+export function numericDivergenceWorthReporting(divergedCount, total) {
+  return divergedCount >= MIN_NUMERIC_DIVERGENCE
+    && divergedCount >= total * MIN_NUMERIC_DIVERGENCE_SHARE;
+}
+
+/**
+ * Figures present in `sourceText` and missing from `translatedText`, per kind,
+ * already filtered through the divergence threshold.
+ *
+ * Returns [] when the two texts agree well enough to act as if nothing was
+ * lost, so a caller can treat a non-empty result as "this translation dropped
+ * numbers" without re-deriving the threshold.
+ *
+ * @param {string} sourceText
+ * @param {string} translatedText
+ * @param {string} sourceLocale
+ * @param {string} targetLocale
+ * @returns {Array<{kind: string, dropped: Array<number|string>, total: number}>}
+ */
+export function droppedNumericFacts(sourceText, translatedText, sourceLocale, targetLocale) {
+  if (typeof sourceText !== 'string' || typeof translatedText !== 'string') return [];
+  if (!sourceText.trim() || !translatedText.trim()) return [];
+  const source = extractNumericFacts(sourceText, sourceLocale);
+  const translated = extractNumericFacts(translatedText, targetLocale);
+  const out = [];
+  for (const kind of NUMERIC_FACT_KINDS) {
+    const dropped = [...source[kind]].filter((value) => !translated[kind].has(value));
+    if (numericDivergenceWorthReporting(dropped.length, source[kind].size)) {
+      out.push({ kind, dropped, total: source[kind].size });
+    }
+  }
   return out;
 }
 

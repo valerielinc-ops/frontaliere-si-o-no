@@ -4812,6 +4812,37 @@ export function qualityScore(job) {
   return score;
 }
 
+function normalizeForRestatement(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[\p{P}\p{S}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * A description that only restates the record's own title — alone or with the
+ * company appended — carries no source content whatsoever. It is the
+ * placeholder several parser families synthesise when the detail body is
+ * missing (`descriptionText || `${title} — ${companyName}``, e.g.
+ * `scripts/lib/prospective-ch-job-parser-common.mjs`), and a character floor
+ * can never catch it: a long enough title clears any floor. Measured on the
+ * published corpus of 2026-09-05 (dataset 44187f6), 14 rows across SIX
+ * unrelated crawler families ship one — ikea 5, kantonsspital-uri 3,
+ * recruitingapp-2563 3, a-group 1, hopital-du-valais 1, spital-schwyz 1 — and
+ * `recruitingapp-2563` proves the point: its placeholder is 148 chars, well
+ * over the 120-char floor. So the invariant is provenance, not length, and it
+ * lives in this shared gate because every dedicated crawler publishes through
+ * it: no single adapter can reintroduce the defect on its own.
+ */
+export function descriptionRestatesTitle(job) {
+  const description = normalizeForRestatement(job?.description);
+  const title = normalizeForRestatement(job?.title);
+  if (!description || !title) return false;
+  const company = normalizeForRestatement(job?.company);
+  return description === title || (Boolean(company) && description === `${title} ${company}`);
+}
+
 /**
  * Evaluate whether a job meets the minimum quality threshold.
  * Returns { accepted, score, reasons }.
@@ -4821,6 +4852,7 @@ export function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }
   const score = qualityScore(job);
   const descLen = (job.description || '').length;
   if (descLen < minDescriptionChars) reasons.push(`thin_description_lt_${minDescriptionChars}`);
+  if (descriptionRestatesTitle(job)) reasons.push('description_restates_title');
   if (score < minQualityScore) reasons.push(`quality_score_lt_${minQualityScore}`);
   return { accepted: reasons.length === 0, score, reasons };
 }

@@ -5,6 +5,15 @@ export const SOURCE_DETAIL_EVIDENCE_FORMAT = 'frontaliere.source-detail-observat
 export const SOURCE_DETAIL_EVIDENCE_BUNDLE_FORMAT = 'frontaliere.source-detail-observation-bundle/v1';
 export const SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT = 'frontaliere.source-detail-observation-bundle-error/v1';
 
+/**
+ * Below this, a fetched detail page carries no body a published description
+ * can be contradicted by: `descriptionMismatch` is then false for every
+ * possible published value, so the comparison is structurally unable to fail.
+ * Exported so the audit scores that case as its own outcome using the very
+ * same number instead of a second copy that can drift away from this one.
+ */
+export const COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS = 200;
+
 function sha256(value) {
   return createHash('sha256').update(String(value)).digest('hex');
 }
@@ -76,7 +85,7 @@ export function classifySourceDetailObservation(observation) {
     throw new SourceDetailEvidenceError('invalid-observation', 'description overlap exceeds the published word set');
   }
   const overlapRatio = publishedWordCount ? overlapWordCount / publishedWordCount : 0;
-  const descriptionMismatch = sourceDescriptionLength >= 200
+  const descriptionMismatch = sourceDescriptionLength >= COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS
     && (publishedDescriptionLength < 100
       || publishedDescriptionLength < sourceDescriptionLength * 0.45
       || overlapRatio < 0.35);

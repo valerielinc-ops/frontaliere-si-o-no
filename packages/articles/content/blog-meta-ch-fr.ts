@@ -5548,6 +5548,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Un demi-milliard aux paysans pour sauver l’entente avec le Mercosur',
     'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'La Commission de la politique étrangère du Conseil des Etats propose 517 millions de francs pour les paysans suisses.',
     'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Agriculteurs suisses en réunion pour discuter d\'un accord de libre-échange.',
+    'blog.article.zugo-salari-occupazione-guida.title': 'Marché du travail Zoug : salaires, secteurs et formation',
+    'blog.article.zugo-salari-occupazione-guida.excerpt': 'Guide pratique sur les salaires et les opportunités d\'emploi dans le canton de Zoug : niveaux de salaire pour la formation, droits des travailleurs et calcul du salaire net en Suisse.',
+    'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Immeubles de bureaux suisses et espaces de travail représentant le marché du travail et les opportunités d\'emploi',
+    'blog.article.salari-canton-zugo-contratti.title': 'Salaires et marché du travail canton de Zoug : secteurs et niveaux',
+    'blog.article.salari-canton-zugo-contratti.excerpt': 'Marché du travail suisse : comment fonctionne la détermination des salaires entre conventions collectives, fiscalité cantonale et niveaux de formation.',
+    'blog.article.salari-canton-zugo-contratti.imageAlt': 'Bureau moderne suisse avec des professionnels de différents secteurs au travail, grandes fenêtres avec vue sur le paysage alpin',
+    'blog.article.imposta-successione-zugo-aliquote.title': 'Impôt succession Zoug : taux et exonérations',
+    'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Dans le canton de Zoug, les droits de succession et de donation sont cantonaux. Exemptions pour conjoint et descendants, taux par degré de parenté : comment fonctionne la déclaration.',
+    'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Bureau d\'impôts cantonal: documents de succession et formulaires fiscaux sur un bureau suisse.',
 };
 
 export default blogMetaChFr;

@@ -564,6 +564,35 @@ export function loadAutoRegisteredFamilies(path = AUTO_FAMILIES_PATH) {
  * @param {Array<Record<string, any>>} [auto] auto-registered families.
  * @returns {Array<Record<string, any>>} merged registry.
  */
+/**
+ * The manual-registry prefixes an auto-classified family would collide with —
+ * `[]` when it can be registered.
+ *
+ * THE AUTHORITY ON COLLISIONS, SHARED WITH THE WRITER. `mergeRegisteredFamilies`
+ * below silently drops any auto entry colliding with a hand-curated prefix,
+ * which is right on the read side and disastrous on the write side: the weekly
+ * monitor built its `claimed` set from the AUTO registry only, so a colliding
+ * entry was written to disk, dropped at the next import, and — being present —
+ * never retried. The segment stayed out of `SEO_CTR_FAMILIES` forever with no
+ * signal at all (#7387). Asking one function means the writer cannot disagree
+ * with the reader about what "already claimed" means; a test pins the two
+ * together rather than trusting them to stay in step.
+ *
+ * Typical shape of a real collision: discovery finds the EN slug
+ * `/find-jobs-valais/`, the resolver canonicalises it onto the IT
+ * `/cerca-lavoro-vallese/` which a human already registered WITHOUT that alias.
+ * Silently dropping the entry leaves the EN slug unmonitored; the caller turns
+ * a non-empty return into the human-triage issue instead.
+ *
+ * @param {Record<string, any>} family auto-classified candidate.
+ * @param {Array<Record<string, any>>} [manual] hand-curated registry.
+ * @returns {string[]} colliding prefixes, empty when the entry is registrable.
+ */
+export function shadowingManualPrefixes(family, manual = MANUAL_SEO_CTR_FAMILIES) {
+  const prefixes = familyPathPrefixes(family);
+  return manual.flatMap((f) => familyPathPrefixes(f)).filter((p) => prefixes.includes(p));
+}
+
 export function mergeRegisteredFamilies(manual = MANUAL_SEO_CTR_FAMILIES, auto = loadAutoRegisteredFamilies()) {
   const claimed = new Set(manual.flatMap((f) => familyPathPrefixes(f)));
   const extra = [];
@@ -671,6 +700,59 @@ function isLocaleRootSegment(segment) {
  * manual one (`cerca-lavoro-zurigo`, `cerca-lavoro-vallese`), so the dedup in
  * `mergeRegisteredFamilies` can actually see the collision.
  */
+/**
+ * Build the `pathContains` / `pathAliases` pair of an auto-registered family
+ * from a locale→slug lookup, refusing to interpolate a missing slug.
+ *
+ * THE ONE PLACE A SLUG BECOMES A PATH. Both resolvers below (job-board and
+ * fuel) used to interpolate their lookups straight into a template literal, so
+ * a locale or a fuel type present on one side of the map and absent on the
+ * other produced the literal string `/undefined/`. That entry is not a crash:
+ * it is written to `seo-ctr-auto-families.json`, matches no URL ever, and the
+ * segment then counts as "registered" while producing zero data forever —
+ * exactly the silent blind spot the discovery pass exists to close (#7388).
+ *
+ * Today `ROUTER_LOCALES` and the slug maps agree, so the defect is latent; it
+ * arms itself the first time a new fuel type or a new router locale is added on
+ * one side only. Hence the guard lives HERE and not at either call site: a
+ * third resolver added tomorrow inherits it by construction.
+ *
+ * Contract, deliberately asymmetric between the two halves:
+ *   - the IT canonical is the family's IDENTITY — missing it means the family
+ *     cannot be named at all, so we THROW rather than register a broken entry.
+ *     The caller in scripts/monitor-seo-ctr-by-template.mjs turns the throw
+ *     into the human-triage issue that `reportUnregisteredFamily` already opens.
+ *   - a missing non-IT alias only means one locale is not covered yet, which
+ *     the family survives; those are FILTERED OUT, never interpolated.
+ *
+ * @param {(locale: string) => string|undefined} slugFor lookup, one locale in.
+ * @param {string} what human-readable subject, quoted in the error message.
+ * @returns {{ canonical: string, pathContains: string, pathAliases: string[] }}
+ */
+function familyPathsFromSlugLookup(slugFor, what) {
+  const canonical = slugFor('it');
+  if (typeof canonical !== 'string' || !canonical.trim()) {
+    throw new Error(
+      `seo-ctr-curve: slug IT mancante per ${what} (ricevuto ${JSON.stringify(canonical)}) — `
+      + 'registrare la famiglia produrrebbe un pathContains "/undefined/" che non matcha nessuna URL',
+    );
+  }
+  const pathAliases = uniqueSorted(
+    ROUTER_LOCALES
+      .filter((l) => l !== 'it')
+      .map((l) => slugFor(l))
+      .filter((slug) => typeof slug === 'string' && slug.trim())
+      .map((slug) => `/${slug}/`),
+  ).filter((alias) => alias !== `/${canonical}/`);
+  return { canonical, pathContains: `/${canonical}/`, pathAliases };
+}
+
+/**
+ * Exported for tests only: the guard above is the invariant, and a test that
+ * re-implemented it would pin prose instead of behaviour.
+ */
+export const __familyPathsFromSlugLookup = familyPathsFromSlugLookup;
+
 function resolveJobBoardFamilyFromSegment(segment) {
   for (const locale of ROUTER_LOCALES) {
     const match = parseJobBoardSlug(segment, locale);
@@ -678,12 +760,12 @@ function resolveJobBoardFamilyFromSegment(segment) {
 
     const { cantonCode, isAggregator } = match;
     const slugFor = (l) => (isAggregator ? getAggregatorJobBoardSlug(l) : getJobBoardSlugForCanton(cantonCode, l));
-    const canonical = slugFor('it');
-    const pathAliases = uniqueSorted(
-      ROUTER_LOCALES.filter((l) => l !== 'it').map((l) => `/${slugFor(l)}/`),
-    ).filter((alias) => alias !== `/${canonical}/`);
+    const { canonical, pathContains, pathAliases } = familyPathsFromSlugLookup(
+      slugFor,
+      isAggregator ? 'job board aggregatore' : `job board cantonCode=${cantonCode}`,
+    );
     return {
-      pathContains: `/${canonical}/`,
+      pathContains,
       pathAliases,
       id: canonical,
       label: `Cerca lavoro ${toTitleCase(canonical.replace(/^cerca-lavoro-/, ''))}`,
@@ -712,12 +794,12 @@ function resolveFuelFamilyFromSegment(segment) {
   }
   if (!fuel) return null;
 
-  const canonical = FUEL_SECTION_SLUG.it[fuel];
-  const pathAliases = uniqueSorted(
-    ROUTER_LOCALES.filter((l) => l !== 'it').map((l) => `/${FUEL_SECTION_SLUG[l][fuel]}/`),
-  ).filter((alias) => alias !== `/${canonical}/`);
+  const { canonical, pathContains, pathAliases } = familyPathsFromSlugLookup(
+    (l) => FUEL_SECTION_SLUG[l]?.[fuel],
+    `sezione carburante fuel=${fuel}`,
+  );
   return {
-    pathContains: `/${canonical}/`,
+    pathContains,
     pathAliases,
     id: canonical,
     label: `Prezzi ${fuel === 'diesel' ? 'diesel' : 'benzina'}`,
