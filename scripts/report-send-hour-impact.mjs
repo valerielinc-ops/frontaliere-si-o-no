@@ -92,7 +92,12 @@
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
+import {
+  twoProportionTest,
+  hasEnoughPowerForTest,
+  MIN_COMPARISON_SENDS,
+  MIN_EXPECTED_PER_CELL,
+} from '../services/newsletter-ab-stats.mjs';
 import { MissingIndexError } from './lib/missing-index-error.mjs';
 import { PREFERRED_SEND_MIN_EVENTS, PREFERRED_SEND_WINDOW_DAYS } from '../functions/src/lib/preferredSendHour.js';
 
@@ -140,36 +145,12 @@ export const MAX_SCHEDULE_LOOKAHEAD_MS = 3 * DAY_MS;
 export const LOW_COVERAGE_WARN_RATIO = 0.8;
 
 /**
- * Minimum deliveries PER GROUP below which a comparison prints no p-value at
- * all (#7342 item 3). The z-test itself stays the arbiter of "is this real"
- * (see comparisonLine) — this is a validity floor, not a second significance
- * heuristic: on a handful of deliveries the two-proportion normal
- * approximation has no basis and the printed p-value invites a decision
- * (keep or drop the 90-180 day tail of #6469) it cannot support.
+ * Minimum deliveries PER GROUP below which a comparison prints no p-value
+ * (#7342 item 3). Alias of the shared arm-level floor: a delivery here is a
+ * send there, and the decision the number drives — keep or drop the 90-180
+ * day tail of #6469 — needs the same validity condition as the A/B readout.
  */
-export const MIN_COMPARISON_DELIVERIES = 30;
-
-/**
- * Companion validity condition of the normal approximation: with the POOLED
- * rate, each group must expect at least this many opens and non-opens. A
- * 40-vs-40 comparison where one side has 1 open clears
- * MIN_COMPARISON_DELIVERIES but still has no usable sampling distribution.
- */
-export const MIN_EXPECTED_PER_CELL = 5;
-
-/**
- * True when a two-proportion z-test on these two cells is worth printing.
- * @param {{deliveries:number, opens:number}} cellA
- * @param {{deliveries:number, opens:number}} cellB
- * @returns {boolean}
- */
-export function hasEnoughPowerForTest(cellA, cellB) {
-  const nA = cellA?.deliveries ?? 0;
-  const nB = cellB?.deliveries ?? 0;
-  if (nA < MIN_COMPARISON_DELIVERIES || nB < MIN_COMPARISON_DELIVERIES) return false;
-  const pPool = ((cellA.opens ?? 0) + (cellB.opens ?? 0)) / (nA + nB);
-  return [nA, nB].every((n) => n * pPool >= MIN_EXPECTED_PER_CELL && n * (1 - pPool) >= MIN_EXPECTED_PER_CELL);
-}
+export const MIN_COMPARISON_DELIVERIES = MIN_COMPARISON_SENDS;
 
 export function argValue(args, flag) {
   const i = args.indexOf(flag);
@@ -940,12 +921,9 @@ export function comparisonLine(label, cellA, cellB, nameA, nameB) {
   // insufficiente" instead of a p-value nobody should act on. Applies to
   // EVERY comparison line, not just the `personal_tail_90_180 vs global` one
   // that surfaced it.
-  const test = hasEnoughPowerForTest(cellA, cellB)
-    ? twoProportionTest(
-        { sends: cellA.deliveries, opens: cellA.opens },
-        { sends: cellB.deliveries, opens: cellB.opens },
-      )
-    : null;
+  const armA = { sends: cellA.deliveries, opens: cellA.opens };
+  const armB = { sends: cellB.deliveries, opens: cellB.opens };
+  const test = hasEnoughPowerForTest(armA, armB) ? twoProportionTest(armA, armB) : null;
   const sigFlag = test
     ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]`
     : ` [n insufficiente (${nameA}=${cellA.deliveries}, ${nameB}=${cellB.deliveries}) — no p-value below ${MIN_COMPARISON_DELIVERIES} deliveries/group or ${MIN_EXPECTED_PER_CELL} expected opens]`;
