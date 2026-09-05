@@ -52,7 +52,6 @@ jobs:
           sparse-checkout: |
             /*
             !/public/images/
-            !/data/jobs/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/data/all-known-job-slugs/
