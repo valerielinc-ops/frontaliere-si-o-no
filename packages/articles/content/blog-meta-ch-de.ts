@@ -5515,6 +5515,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franco-euro-analisi-cambio-dati.title': 'Franco-Euro: Was die Daten sagen',
     'blog.article.franco-euro-analisi-cambio-dati.excerpt': 'Inflation Schweiz 0,4%, Eurozone 2,9%: Wirtschaftliche Divergenz zwischen SNB und EZB führt den Wechselkurs an. Auswirkungen für Grenzgänger, Unternehmen, Familien.',
     'blog.article.franco-euro-analisi-cambio-dati.imageAlt': 'Schweizer Franken und Euro Banknoten mit Lugano-See Sonnenuntergang Blick',
+    'blog.article.aprire-attivita-vaud-registro-costi.title': 'Geschäft im Kanton Waadt eröffnen: Register und Kosten',
+    'blog.article.aprire-attivita-vaud-registro-costi.excerpt': 'Praktischer Leitfaden zur Registrierung und zu den Kosten für die Unternehmensgründung im Kanton Waadt: Rechtsformen, Handelsregister, dreistufige Besteuerung und Versicherungspflichten.',
+    'blog.article.aprire-attivita-vaud-registro-costi.imageAlt': 'Kantonsgebäude in Lausanne, Kanton Waadt',
 };
 
 export default blogMetaChDe;

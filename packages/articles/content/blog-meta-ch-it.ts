@@ -5515,6 +5515,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franco-euro-analisi-cambio-dati.title': 'Franco-euro: cosa dicono i dati',
     'blog.article.franco-euro-analisi-cambio-dati.excerpt': 'Inflazione Svizzera 0,4%, Eurozona 2,9%: divergenza economica tra BNS e BCE guida cambio. Implicazioni per frontalieri, imprese, famiglie.',
     'blog.article.franco-euro-analisi-cambio-dati.imageAlt': 'Banconote di franco svizzero ed euro con vista sul lago Lugano al tramonto',
+    'blog.article.aprire-attivita-vaud-registro-costi.title': 'Aprire un\'attività nel Canton Vaud: registro e costi',
+    'blog.article.aprire-attivita-vaud-registro-costi.excerpt': 'Guida pratica alla registrazione e ai costi per avviare un\'attività nel Canton Vaud: forme giuridiche, Registro di Commercio, tassazione a tre livelli e obblighi assicurativi.',
+    'blog.article.aprire-attivita-vaud-registro-costi.imageAlt': 'Edificio dell\'amministrazione cantonale a Losanna nel canton Vaud',
 };
 
 export default blogMetaChIt;
