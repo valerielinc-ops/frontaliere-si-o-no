@@ -24,8 +24,13 @@ import {
   formatRateLimitComment,
   RATE_LIMITED_OUTCOME,
 } from '../scripts/ci/claude-rate-limit.mjs';
-import { formatRecoverableBranchStamp, resultSubtype } from '../scripts/ci/mark-claude-terminal-outcome.mjs';
+import {
+  formatDeliveredDespiteMaxTurnsComment,
+  formatRecoverableBranchStamp,
+  resultSubtype,
+} from '../scripts/ci/mark-claude-terminal-outcome.mjs';
 import { parseRecoverableBranchStamp } from '../scripts/ci/harvest-agent-lessons.mjs';
+import { latestFixOutcomeFromComments } from '../scripts/ci/followup-drainer.mjs';
 
 // Epoch relativo: mai date assolute nelle fixture (AGENTS.md → test fixture).
 const nowSec = () => Math.floor(Date.now() / 1000);
@@ -211,5 +216,29 @@ describe('stamp del lavoro recuperabile: chi scrive e chi legge parlano la stess
     expect(formatRecoverableBranchStamp({ branch: 'fix/issue-1', aheadBy: 0 })).toBe('');
     expect(formatRecoverableBranchStamp({ branch: '', aheadBy: 4 })).toBe('');
     expect(formatRecoverableBranchStamp({ branch: 'fix/issue-1' } as { branch: string })).toBe('');
+  });
+});
+
+describe('morte al cap DOPO la consegna: il verdetto segue il lavoro, non l\'exit della CLI', () => {
+  // Su 124 issue con marker `max-turns` in 5 giorni (sito, 2026-09-05) 74 avevano una PR
+  // e tutte e 74 erano MERGED. Il marker sbagliato non è un dettaglio cosmetico: `max-turns`
+  // sta in `PREPASS_VERDICT_BEATS_FAMILY` del drainer e manda la issue in `needs-human`.
+  it('il marker della consegna è `pr-created` e porta il numero della PR', () => {
+    const body = formatDeliveredDespiteMaxTurnsComment(7441);
+    expect(body).toContain('<!-- FIX_OUTCOME: pr-created -->');
+    expect(body).toContain('#7441');
+    expect(body).not.toContain('<!-- FIX_OUTCOME: max-turns -->');
+  });
+
+  it('il drainer lo legge come verdetto vero, non come fallback del backstop', () => {
+    // `latestFixOutcomeFromComments` scarta i commenti che contengono la stringa
+    // 'post-step deterministico' (BACKSTOP_MARKER): un marker che la contenesse
+    // sarebbe invisibile e la issue tornerebbe «run morta, ri-tentabile».
+    const body = formatDeliveredDespiteMaxTurnsComment(7441);
+    expect(body).not.toContain('post-step deterministico');
+    expect(latestFixOutcomeFromComments([
+      { body: '<!-- FIX_OUTCOME: max-turns -->', createdAt: '2026-09-05T07:00:00Z' },
+      { body, createdAt: '2026-09-05T07:12:00Z' },
+    ])).toBe('pr-created');
   });
 });
