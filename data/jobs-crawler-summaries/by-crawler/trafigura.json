@@ -1,18 +1,18 @@
 {
   "key": "trafigura",
   "label": "Trafigura",
-  "generatedAt": "2026-09-04T22:56:14.263Z",
-  "total": 8,
+  "generatedAt": "2026-09-05T12:38:12.880Z",
+  "total": 6,
   "discovered": null,
-  "written": 8,
+  "written": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 12702,
-  "avgDurationMs": 12702,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 13203,
+  "avgDurationMs": 13203,
   "durationHistory": [
-    12702
+    13203
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Manager--Credit-Portfolio-Management_R-018655",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:56:03.332Z",
+      "crawledAt": "2026-09-05T12:38:01.559Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Compliance-Manager_R-018600",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:56:04.204Z",
+      "crawledAt": "2026-09-05T12:38:02.529Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Risk-Quant-Analyst_R-017471",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:56:04.883Z",
+      "crawledAt": "2026-09-05T12:38:03.269Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:56:05.564Z",
+      "crawledAt": "2026-09-05T12:38:04.142Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -177,7 +177,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:56:06.239Z",
+      "crawledAt": "2026-09-05T12:38:05.010Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:56:06.909Z",
+      "crawledAt": "2026-09-05T12:38:05.935Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -239,8 +239,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "trafigura-59a322f4603d",
       "slug": "programma-olio-qa-lead-trafigura-geneve-209ada",
@@ -321,5 +320,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
