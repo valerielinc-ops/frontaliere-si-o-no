@@ -238,9 +238,89 @@ export function isGenuineSiblingClassViolation(text) {
   return true;
 }
 
+// ---- NEGATED-IMPACT recap clauses (DETERMINISTIC, cross-bucket) ------------
+// REVIEW.md fa della «correttezza della superficie pubblicata» la priorita' 1 e
+// chiede di promuovere a 🔴 qualunque ❓ che, se vero, impatterebbe `dist/api/`,
+// gli slug, le sitemap o i feed. La conseguenza e' che quasi ogni review chiude
+// il proprio verdetto con una frase di RICOGNIZIONE NEGATA — «nessun impatto su
+// `dist/api/`, sulle sitemap o sui feed», «nessuno tocca gli slug, le sitemap, i
+// canonical» — che dice l'esatto contrario di un difetto: la superficie NON e'
+// toccata.
+//
+// Quella frase vive sulla stessa riga del verdetto, che porta il glifo di
+// severita', quindi `detectSeverity` la conta come finding confermato e la
+// taxonomy la butta nel bucket il cui vocabolario compare nell'ELENCO DELLE COSE
+// NON TOCCATE. Su questo repo l'elenco nomina sempre sitemap/canonical, quindi il
+// bucket `canonical-sitemap` si gonfia a ogni PR pulita e ri-escala per sempre:
+// issue #901, 10 hit su 14gg di cui 4 dei 5 esempi (#896, #882, #881, #879) sono
+// esattamente questa ricognizione — solo #878 era un difetto vero (`/de/blog/null`
+// nel canonical e nella sitemap).
+//
+// Stessa classe di falso positivo gia' chiusa altrove, ogni volta su un bucket
+// solo: `auto-ads` a livello di regex (#2114, «non SEO/AdSense»), `i18n-naming`
+// restringendo la regex (#2122), `pr-body-contract` (#3332) e `sibling-class-fix`
+// (#3325) con un guard di affermazione, `NEGATED_SEVERITY_RE` a livello di
+// severita' (#4342). Qui il rimedio e' UNO e vale per TUTTI i bucket topic: la
+// clausola negata viene tolta dal testo PRIMA di scegliere il bucket, quindi il
+// vocabolario che compare solo li' dentro non fa piu' punteggio.
+//
+// Deliberatamente stretto sui verbi. Solo verbi di IMPATTO/PORTATA (impattare,
+// toccare, raggiungere, coinvolgere, ricadere) piu' i loro equivalenti inglesi:
+// sono quelli della ricognizione. Verbi di COMPORTAMENTO («non aggiorna la
+// sitemap», «non emette il canonical») restano fuori, perche' li' la negazione E'
+// il difetto. La clausola si chiude al primo confine di frase (`.`/`;`/`—`/a
+// capo), cosi' non mangia il resto della riga.
+const IMPACT_VERB = String.raw`impatt\w*|impact\b|ricadut\w*|tocca\w*|toccano|toccat\w*|toccare|touch\w*|raggiung\w*|reach\w*|coinvolg\w*|affect\w*`;
+// Il corpo di una clausola si chiude al primo confine di frase, ma un punto e'
+// confine SOLO se seguito da spazio o da fine riga: dentro un code span
+// (`articles.json`, `create-article.mjs`, `publish-api.yml`) non lo e'. Senza
+// questa distinzione la ricognizione negata resta mezza in piedi appena nomina un
+// file, cioe' nel caso DOMINANTE su questo repo, dove l'elenco delle cose non
+// toccate e' fatto di nomi di file: «nessun impatto su `articles.json`, sulle
+// sitemap o sui feed» si troncava a «nessun impatto su `articles» e lasciava
+// scansionabile «.json`, sulle sitemap o sui feed» — bucket `canonical-sitemap`.
+const CLAUSE_BODY = String.raw`(?:[^.;—\n]|\.(?!\s|$))`;
+// (C) La negazione E' il difetto quando la riga afferma uno SWEEP incompleto: «lo
+//     stesso anti-pattern in `cf-purge-cache.mjs` non e' toccato». E' la
+//     formulazione che REVIEW.md prescrive per un finding di classe, ed e' anche
+//     il tell `non toccat` della TAXONOMY `sibling-class-fix`, che collide per
+//     costruzione con `toccat\w*` di IMPACT_VERB. Su una riga cosi' lo strip non
+//     deve girare, altrimenti il bucket process piu' canonico perde la sua entrata
+//     piu' tipica: misurato sulle ultime 114 PR mergiate, 6 righe su 50 con
+//     «negazione + participio» sono findings di sweep veri (#880 e #822 su tutte).
+//     I tell sono quelli della TAXONOMY meno la negazione, cosi' le due
+//     definizioni di «riga di sweep» non possono divergere.
+const SWEEP_ASSERTION_RE = /stesso anti-?pattern|file gemello|stesso costrutto|sibling|class-complete|ramo (?:equivalente|gemello)/iu;
+// (A) negazione PRIMA del verbo: «nessun impatto su …», «nulla tocca …»,
+//     «nessun articolo nuovo raggiunge …», «no impact on …».
+const NEGATED_IMPACT_CLAUSE_RE =
+  new RegExp(String.raw`\b(?:nessun\w*|nulla|niente|zero|senza|non|not|no)\b(?:\s+\S+){0,3}?\s+(?:${IMPACT_VERB})${CLAUSE_BODY}*`, 'giu');
+// (B) negazione DOPO il verbo, in forma contrastiva: «il ramo tocca l'automazione
+//     delle issue di CI, non `dist/api/`, le sitemap, i feed o gli slug». Qui il
+//     vocabolario del bucket sta nella coda negata, quindi si toglie SOLO quella
+//     (lookbehind a lunghezza variabile: cio' che precede la virgola resta
+//     scansionabile e un finding vero non viene mangiato). La virgola e la
+//     contrastivita' sono obbligatorie: sono cio' che distingue questa coda da un
+//     «non» qualsiasi piu' avanti nella frase.
+const CONTRASTIVE_NEGATED_TAIL_RE =
+  new RegExp(String.raw`(?<=\b(?:${IMPACT_VERB})\b${CLAUSE_BODY}{0,120}),\s*(?:e\s+|ma\s+)?(?:non|not)\b${CLAUSE_BODY}*`, 'giu');
+export function stripNegatedImpactClauses(text) {
+  const s = String(text ?? '');
+  if (SWEEP_ASSERTION_RE.test(s)) return s;
+  return s
+    .replace(NEGATED_IMPACT_CLAUSE_RE, ' ')
+    .replace(CONTRASTIVE_NEGATED_TAIL_RE, ' ');
+}
+
 export function bucketFinding(text) {
+  // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
+  // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
+  // I guard per-bucket sotto ricevono invece il testo INTERO, perche' la loro
+  // discriminante e' la frase completa (affermazioni, location label, falsi
+  // positivi dichiarati), non il solo vocabolario del topic.
+  const scannable = stripNegatedImpactClauses(text);
   for (const t of TAXONOMY) {
-    if (!t.re.test(text)) continue;
+    if (!t.re.test(scannable)) continue;
     // pr-body-contract: drop affirmations / location-label false positives so the
     // bucket counts only genuine contract violations (the deterministic gate
     // pr-body-contract.yml already blocks missing sections). Falls through to the
@@ -253,7 +333,7 @@ export function bucketFinding(text) {
     if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
     return t.key;
   }
-  return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
+  return fingerprintFinding(scannable); // unbucketed → fingerprint safety net (or null)
 }
 
 // Severities that count as a CONFIRMED recurring mistake. `❓` is an
