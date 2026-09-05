@@ -98,6 +98,50 @@ describe('regola di escalation', () => {
     expect(issueScope({})).toBe('it-or-critical');
     expect(issueScope({ FACTUALITY_ISSUE_SCOPE: 'all' })).toBe('all');
   });
+
+  /**
+   * ── Flusso, non stock (#5661, riapertura del 2026-09-05) ──────────────────
+   *
+   * #5661 e' stata chiusa alle 21:31:13Z e riaperta alle 22:05:00Z: 34 minuti.
+   * L'unico articolo segnalato in quel sync,
+   * `vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere`, era
+   * stato GENERATO il 2026-08-11T08:43:30Z — 25 giorni prima della guardia di
+   * ammissione (corpus #951, 2026-09-05T21:29:43Z) — ed era entrato nel diff
+   * del sync solo perche' la PR corpus #915 gli aveva corretto un errore
+   * geografico alle 17:41Z. Il suo `translation-false-friend` non e'
+   * «ricomparso»: non se n'e' mai andato, e nessuna guardia di ammissione puo'
+   * riguardare un testo scritto prima che esistesse.
+   *
+   * Senza questo filtro la issue e' immortale per costruzione: basta toccare
+   * uno qualunque dei ~2.400 articoli con rilievi preesistenti per riaprirla,
+   * e ogni riapertura consuma un tentativo del ciclo. Uno stock storico non e'
+   * una ricorrenza, e' un residuo noto e dichiarato.
+   */
+  it('non escala un articolo gia\' pubblicato che il sync ha solo modificato', () => {
+    const vecchio = finding({ locale: 'de', criticalCount: 2, id: 'articolo-di-agosto' });
+    const nuoviDiQuestoSync = new Set(['articolo-appena-ammesso']);
+    // `critical` in de: senza il filtro flusso/stock questo escalerebbe.
+    expect(isEscalatable(vecchio, 'it-or-critical')).toBe(true);
+    expect(isEscalatable(vecchio, 'it-or-critical', nuoviDiQuestoSync)).toBe(false);
+    // Nemmeno `all` deve poter riscalare lo stock: lo scope allarga le
+    // severita', non riapre il corpus gia' pubblicato.
+    expect(isEscalatable(vecchio, 'all', nuoviDiQuestoSync)).toBe(false);
+  });
+
+  it('escala un articolo ammesso in questo sync', () => {
+    const nuovo = finding({ locale: 'de', criticalCount: 2, id: 'articolo-appena-ammesso' });
+    const nuoviDiQuestoSync = new Set(['articolo-appena-ammesso']);
+    expect(isEscalatable(nuovo, 'it-or-critical', nuoviDiQuestoSync)).toBe(true);
+  });
+
+  it('se flusso e stock non sono distinguibili NON smette di segnalare', () => {
+    // Fail-open deliberato: git muto non deve trasformare il reporter in un
+    // no-op silenzioso — la forma di difetto che questi script esistono per
+    // evitare. Meglio una issue di troppo che una condizione vera persa.
+    const f = finding({ locale: 'de', criticalCount: 2, id: 'articolo-di-agosto' });
+    expect(isEscalatable(f, 'it-or-critical', 'unavailable')).toBe(true);
+    expect(isEscalatable(f, 'it-or-critical', null)).toBe(true);
+  });
 });
 
 describe('corpo della issue', () => {

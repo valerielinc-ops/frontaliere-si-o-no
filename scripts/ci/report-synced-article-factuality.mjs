@@ -86,6 +86,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { newArticleIdsWorktree } from '../lib/blog-body-io.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const AUDIT = path.join(ROOT, 'scripts', 'audit-article-factuality.mjs');
@@ -120,7 +121,21 @@ export function issueScope(env = process.env) {
  * @param {{ locale: string, criticalCount: number }} finding
  * @param {string} scope
  */
-export function isEscalatable(finding, scope = 'it-or-critical') {
+export function isEscalatable(finding, scope = 'it-or-critical', newIds = null) {
+  // Filtro FLUSSO/STOCK, prima di ogni altra cosa (#5661, riapertura 2026-09-05).
+  //
+  // Una issue di ricorrenza dice «questa condizione si e' RIpresentata». Puo'
+  // dirlo solo di un articolo appena ammesso: su uno gia' pubblicato il rilievo
+  // non e' ricomparso, non se n'e' mai andato. Senza questa riga bastava che
+  // una PR di riparazione toccasse un articolo vecchio — corpus #915 sul
+  // geografico di Tovo di Sant'Agata, alle 17:41Z — perche' il suo
+  // `translation-false-friend` del 2026-08-11 venisse riscalato come nuovo e
+  // riaprisse #5661 trentaquattro minuti dopo che era stata chiusa.
+  //
+  // `null`/`'unavailable'` = distinzione non calcolabile: non si filtra, si
+  // escala come prima. Meglio una issue di troppo che una condizione vera che
+  // sparisce in silenzio (stessa scelta di `diffUnavailable` in main()).
+  if (newIds && newIds !== 'unavailable' && !newIds.has(finding.id)) return false;
   if (scope === 'all') return true;
   if (finding.criticalCount > 0) return true;
   if (scope === 'critical') return false;
@@ -275,9 +290,13 @@ function writeStepSummary(text) {
 async function main() {
   const report = runAudit();
   const scope = issueScope();
+  // Gli articoli NUOVI di questo sync. Il report resta su tutto cio' che il
+  // sync ha toccato (la step summary non costa nulla e serve a vedere); solo
+  // l'escalation a issue si restringe al flusso — vedi isEscalatable().
+  const newIds = newArticleIdsWorktree();
   const escalated = report.diffUnavailable
     ? []
-    : (report.findings || []).filter((f) => isEscalatable(f, scope));
+    : (report.findings || []).filter((f) => isEscalatable(f, scope, newIds));
 
   writeStepSummary(buildStepSummary(report, escalated));
 
