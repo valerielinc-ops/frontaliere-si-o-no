@@ -12,6 +12,8 @@
  * runs `main()` on import, so its internals can't be imported directly.
  */
 
+import { droppedNumericFacts } from './article-locale-lexicon.mjs';
+
 const NAV_LINK_RE = /\[[^\]]+\]\(nav:[^)]+\)/g;
 const NAV_SENTINEL_RE = /0NAV(\d+)0/g;
 
@@ -109,11 +111,54 @@ export function maskNavLinks(text) {
 }
 
 /**
+ * Human-readable summary of the figures a translation lost, for the warning.
+ *
+ * @param {Array<{kind: string, dropped: Array<number|string>, total: number}>} losses
+ * @returns {string}
+ */
+function describeNumericLoss(losses) {
+  return losses
+    .map(({ kind, dropped, total }) => `${kind} ${dropped.length}/${total} (${dropped.slice(0, 4).join(', ')})`)
+    .join('; ');
+}
+
+/**
  * Translate a single article text field via the injected free MT translator,
  * preserving internal nav-links. Returns '' on any failure (empty input, MT
- * error, empty output, or a mangled nav-link sentinel) so the caller's per-field
- * recovery (LLM retry → IT fallback) takes over — free MT can only IMPROVE
- * coverage, never produce broken output.
+ * error, empty output, a mangled nav-link sentinel, or a translation that
+ * dropped the source's figures) so the caller's per-field recovery (LLM retry →
+ * IT fallback) takes over — free MT can only IMPROVE coverage, never produce
+ * broken output.
+ *
+ * ── Numeric parity ───────────────────────────────────────────────────────
+ *
+ * Nothing used to compare the numbers on the two sides of the MT call, so an
+ * engine was free to summarise a clause and take its figures with it: an amount,
+ * a percentage or a date present in the Italian simply was not in the English or
+ * French body, and the loss surfaced only later, in the sync report, on an
+ * article already published. A reader in EN/FR has no way to recover a figure
+ * that is not on the page.
+ *
+ * The check is the same one the post-hoc audit gate applies
+ * (`droppedNumericFacts`, shared from article-locale-lexicon.mjs), so this guard
+ * refuses exactly what that gate would have reported and nothing more. Its
+ * threshold — at least two values of a kind AND a quarter of that kind's set —
+ * is what keeps ranges and merged clauses from firing it.
+ *
+ * Measured before being made blocking, over the 3'754-article corpus at
+ * 1f4f9b441, comparing every IT body field against its EN and FR twin
+ * (30'160 field pairs): the guard refuses 1'147/15'080 EN fields (7,6%) and
+ * 1'157/15'080 FR fields (7,7%). Of those refusals at most 6,5% (EN) and 7,2%
+ * (FR) are false — an upper bound, since the check that classified them counts
+ * a field left untranslated in Italian as a false alarm too. A false refusal
+ * costs one LLM retry, or the Italian text for that one field; a missed one
+ * ships a figure that no longer exists in the translation.
+ *
+ * This is deliberately NOT a repair: nothing here rewrites the translated text
+ * to put a number back. A detector good enough to flag a field is not good
+ * enough to edit it — the 2026-07 headline repair heuristic was withdrawn at a
+ * 33% false-positive rate for exactly that reason. Refusing and retranslating
+ * has no such failure mode.
  *
  * @param {object} args
  * @param {string} args.text                source text
@@ -155,5 +200,11 @@ export async function translateFieldFreeMt({
     }
     restored = r.text;
   }
-  return balanceMarkdown(restored);
+  const balanced = balanceMarkdown(restored);
+  const lost = droppedNumericFacts(src, balanced, sourceLang, targetLang);
+  if (lost.length > 0) {
+    onWarn(`free-MT ${targetLang}:${fieldType} ha perso cifre dell'originale — ${describeNumericLoss(lost)}`);
+    return '';
+  }
+  return balanced;
 }
