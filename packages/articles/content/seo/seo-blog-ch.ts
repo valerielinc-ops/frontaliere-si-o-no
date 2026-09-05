@@ -72365,6 +72365,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-b-friburgo-requisiti-rinnovo': {
+    title: 'Permesso di dimora B Friburgo: requisiti e rinnovo',
+    description: 'Guida al permesso B a Friburgo: requisiti per UE/AELS e Paesi terzi, procedure di rinnovo, documenti necessari e ruoli della SEM e amministrazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, friburgo, requisiti',
+    ogTitle: 'Permesso di dimora B Friburgo: requisiti e rinnovo',
+    ogDescription: 'Scopri come funziona il permesso B a Friburgo: criteri della SEM, ruolo dell\'amministrazione cantonale, modalità di rinnovo e checklist completa dei documenti per stranieri UE/AELS e Paesi terzi.',
+    canonicalPath: '/articoli-svizzera/permesso-b-friburgo-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B Friburgo: requisiti e rinnovo",
+      "description": "Guida al permesso B a Friburgo: requisiti per UE/AELS e Paesi terzi, procedure di rinnovo, documenti necessari e ruoli della SEM e amministrazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-friburgo-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio dell'amministrazione cantonale: sportello per il rilascio e rinnovo di permessi di dimora."
+      },
+      "datePublished": "2026-09-05T16:17:35+00:00",
+      "dateModified": "2026-09-05T16:17:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-friburgo-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
