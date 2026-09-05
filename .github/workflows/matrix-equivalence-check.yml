@@ -112,8 +112,8 @@ jobs:
       # breakdown of run 27749079114.
       - name: Manifest the matrix it-shard
         run: node tooling/scripts/ci/dist-hash-manifest.mjs build/dist /tmp/matrix-it.txt --deploy-artifact-perimeter
-      # `gh run download -n github-pages` non produce in modo affidabile
-      # artifact.tar per un artifact >1 GB (docstring dell'action, PR #3101 /
+      # Scaricare l'artifact `github-pages` a mano non produce in modo
+      # affidabile artifact.tar sopra 1 GB (docstring dell'action, PR #3101 /
       # issue #3104 item 2). L'action composita è l'UNICA implementazione del
       # resolve+download (e del walk-back, #7392-#7397): questo era l'ultimo
       # consumatore di `github-pages` fuori da essa.
