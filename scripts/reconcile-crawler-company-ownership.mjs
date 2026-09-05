@@ -32,6 +32,13 @@ import {
 } from './lib/crawler-company-ownership.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+// Route identity and history transfer now live with the archive WRITERS, which
+// need the same two primitives to stop emitting duplicate routes in the first
+// place. Re-exported here because this module is their historical home and the
+// callers (tests included) import them from it.
+import { localeRouteKeys, transferSlugHistory } from './lib/expired-jobs-archive.mjs';
+
+export { localeRouteKeys, transferSlugHistory };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -135,23 +142,6 @@ function createRollbackJournal() {
   };
 }
 
-/** Every locale-qualified URL token served by an active or expired record. */
-export function localeRouteKeys(job = {}) {
-  const routes = new Set();
-  for (const locale of LOCALES) {
-    const localeSlug = job.slugByLocale?.[locale];
-    const current = localeSlug || (locale === 'it' ? job.slug : '');
-    if (current) routes.add(`${locale}:${current}`);
-    if (locale === 'it' && job.slug && (!localeSlug || localeSlug === job.slug)) {
-      routes.add(`${locale}:${job.slug}`);
-    }
-    for (const slug of getPreviousSlugsForLocale(job, locale)) {
-      if (slug) routes.add(`${locale}:${slug}`);
-    }
-  }
-  return routes;
-}
-
 function assertRoutesPreserved(requiredJobs, actualJobs, label) {
   const required = new Set(requiredJobs.flatMap((job) => [...localeRouteKeys(job)]));
   const actual = new Set(actualJobs.flatMap((job) => [...localeRouteKeys(job)]));
@@ -238,82 +228,6 @@ function ownershipIdentity(job = {}) {
     throw new Error(`ownership identity reached unsafe slug fallback: ${job.slug}`);
   }
   return null;
-}
-
-/** Preserve every route known by `removed` on `survivor`. */
-export function transferSlugHistory(survivor, removed) {
-  let transferred = 0;
-  const requiredRoutes = new Map(LOCALES.map((locale) => [
-    locale,
-    new Set([
-      ...getPreviousSlugsForLocale(survivor, locale),
-      ...getPreviousSlugsForLocale(removed, locale),
-      ...(removed.slugByLocale?.[locale] ? [removed.slugByLocale[locale]] : []),
-      ...(locale === 'it' && removed.slug ? [removed.slug] : []),
-    ]),
-  ]));
-  const add = (locale, slug) => {
-    if (!slug || slug === survivor.slugByLocale?.[locale]) return;
-    const before = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
-    addPreviousSlugForLocale(
-      survivor,
-      locale,
-      slug,
-      DEFAULT_PREV_SLUG_CAP,
-      'reconcile-crawler-company-ownership',
-    );
-    const after = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
-    if (after > before) transferred += 1;
-  };
-
-  for (const locale of LOCALES) {
-    add(locale, removed.slugByLocale?.[locale]);
-    for (const slug of removed.previousSlugsByLocale?.[locale] || []) add(locale, slug);
-  }
-  add('it', removed.slug);
-
-  // A flat-only legacy slug has no locale provenance. The SEO bridge contract
-  // deliberately serves it under every locale prefix. Attributing it to `it`
-  // would silently remove the existing EN/DE/FR routes. Keep those entries
-  // flat while locale-attributed history stays in its exact bucket.
-  const attributed = new Set();
-  for (const slugs of Object.values(removed.previousSlugsByLocale || {})) {
-    if (Array.isArray(slugs)) for (const slug of slugs) attributed.add(slug);
-  }
-  const flatOnly = new Set(
-    (removed.previousSlugs || []).filter((slug) => slug && !attributed.has(slug)),
-  );
-  for (const slug of flatOnly) {
-    if (promotePreviousSlugToLegacy(
-      survivor,
-      slug,
-      undefined,
-      'reconcile-crawler-company-ownership/flat-history',
-    )) transferred += 1;
-  }
-
-  // Merging two histories can overflow a 20-entry locale bucket. Promote an
-  // evicted route to unattributed legacy history: that bucket remains capped,
-  // while the old URL is still served (conservatively under every locale).
-  for (const [locale, required] of requiredRoutes) {
-    const served = new Set(getPreviousSlugsForLocale({
-      ...survivor,
-    }, locale));
-    const activeSlug = survivor.slugByLocale?.[locale] || survivor.slug;
-    if (activeSlug) served.add(activeSlug);
-    for (const slug of required) {
-      if (!slug || served.has(slug)) continue;
-      promotePreviousSlugToLegacy(
-        survivor,
-        slug,
-        undefined,
-        'reconcile-crawler-company-ownership/cap-overflow',
-      );
-      served.add(slug);
-      transferred += 1;
-    }
-  }
-  return transferred;
 }
 
 /** Merge one retired company slice into its canonical survivor. */

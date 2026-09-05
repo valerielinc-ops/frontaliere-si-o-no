@@ -21,6 +21,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { compareExpiredAt } from './compare-expired-at.mjs';
+import {
+  addPreviousSlugForLocale,
+  DEFAULT_PREV_SLUG_CAP,
+  getPreviousSlugsForLocale,
+  LOCALES,
+  promotePreviousSlugToLegacy,
+} from './dedicated-crawler-common.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -126,9 +133,198 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
 
   if (added === 0 && bySlug.size === sizeBefore) return 0;
 
-  const archived = [...bySlug.values()].sort((a, b) =>
-    compareExpiredAt(b.expiredAt, a.expiredAt),
-  );
+  const archived = collapseDuplicateRouteEntries(
+    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    { source: 'archive-removed-jobs-to-slice' },
+  ).entries;
   writeJsonAtomic(slicePath, archived);
   return added;
+}
+
+/** Every locale-qualified URL token served by an active or expired record. */
+export function localeRouteKeys(job = {}) {
+  const routes = new Set();
+  for (const locale of LOCALES) {
+    const localeSlug = job.slugByLocale?.[locale];
+    const current = localeSlug || (locale === 'it' ? job.slug : '');
+    if (current) routes.add(`${locale}:${current}`);
+    if (locale === 'it' && job.slug && (!localeSlug || localeSlug === job.slug)) {
+      routes.add(`${locale}:${job.slug}`);
+    }
+    for (const slug of getPreviousSlugsForLocale(job, locale)) {
+      if (slug) routes.add(`${locale}:${slug}`);
+    }
+  }
+  return routes;
+}
+
+/** Preserve every route known by `removed` on `survivor`. */
+export function transferSlugHistory(survivor, removed, source = 'reconcile-crawler-company-ownership') {
+  let transferred = 0;
+  const requiredRoutes = new Map(LOCALES.map((locale) => [
+    locale,
+    new Set([
+      ...getPreviousSlugsForLocale(survivor, locale),
+      ...getPreviousSlugsForLocale(removed, locale),
+      ...(removed.slugByLocale?.[locale] ? [removed.slugByLocale[locale]] : []),
+      ...(locale === 'it' && removed.slug ? [removed.slug] : []),
+    ]),
+  ]));
+  const add = (locale, slug) => {
+    if (!slug || slug === survivor.slugByLocale?.[locale]) return;
+    const before = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
+    addPreviousSlugForLocale(
+      survivor,
+      locale,
+      slug,
+      DEFAULT_PREV_SLUG_CAP,
+      source,
+    );
+    const after = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
+    if (after > before) transferred += 1;
+  };
+
+  for (const locale of LOCALES) {
+    add(locale, removed.slugByLocale?.[locale]);
+    for (const slug of removed.previousSlugsByLocale?.[locale] || []) add(locale, slug);
+  }
+  add('it', removed.slug);
+
+  // A flat-only legacy slug has no locale provenance. The SEO bridge contract
+  // deliberately serves it under every locale prefix. Attributing it to `it`
+  // would silently remove the existing EN/DE/FR routes. Keep those entries
+  // flat while locale-attributed history stays in its exact bucket.
+  const attributed = new Set();
+  for (const slugs of Object.values(removed.previousSlugsByLocale || {})) {
+    if (Array.isArray(slugs)) for (const slug of slugs) attributed.add(slug);
+  }
+  const flatOnly = new Set(
+    (removed.previousSlugs || []).filter((slug) => slug && !attributed.has(slug)),
+  );
+  for (const slug of flatOnly) {
+    if (promotePreviousSlugToLegacy(
+      survivor,
+      slug,
+      undefined,
+      `${source}/flat-history`,
+    )) transferred += 1;
+  }
+
+  // Merging two histories can overflow a 20-entry locale bucket. Promote an
+  // evicted route to unattributed legacy history: that bucket remains capped,
+  // while the old URL is still served (conservatively under every locale).
+  for (const [locale, required] of requiredRoutes) {
+    const served = new Set(getPreviousSlugsForLocale({
+      ...survivor,
+    }, locale));
+    const activeSlug = survivor.slugByLocale?.[locale] || survivor.slug;
+    if (activeSlug) served.add(activeSlug);
+    for (const slug of required) {
+      if (!slug || served.has(slug)) continue;
+      promotePreviousSlugToLegacy(
+        survivor,
+        slug,
+        undefined,
+        `${source}/cap-overflow`,
+      );
+      served.add(slug);
+      transferred += 1;
+    }
+  }
+  return transferred;
+}
+
+/**
+ * Collapse archive entries that already share a locale route.
+ *
+ * The writers above key an archive by `slug` — the entry's CURRENT slug — but
+ * the invariant the site actually needs is that every locale-qualified URL is
+ * served by exactly one record. Two entries whose current slugs differ while
+ * their `previousSlugs` overlap (a retired crawler alias surviving inside the
+ * history of two vacancies) both pass a slug-keyed dedup and then own the same
+ * route, which is what `assertNoDuplicateRoutesWithin` refuses.
+ *
+ * Routes are namespaced by `companyKey`: two companies may legitimately compute
+ * the same slug (the collision class of issue #3734), and an entry without a
+ * companyKey claims no route at all rather than merging across companies.
+ *
+ * A merge is applied only when it provably preserves the component's whole
+ * route union. Two histories can be too deep to fit the legacy previousSlugs
+ * cap, and `promotePreviousSlugToLegacy` correctly refuses to drop the
+ * overflow; measured on 2026-09-05, 9 of the 547 committed slices hit that
+ * wall. Such a component is left exactly as it was: a duplicated route is an
+ * ambiguity, a lost route is a 404 on an indexed URL, and this runs inside the
+ * crawler cron where a throw would abort the whole archival step. The residual
+ * duplicates stay visible to `assertNoDuplicateRoutesWithin`.
+ */
+export function collapseDuplicateRouteEntries(entries, { source = 'expired-archive-dedup' } = {}) {
+  const namespaced = (entry) => (entry?.companyKey
+    ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
+    : []);
+  const out = [];
+  // Entries whose merge was refused stay in `out` but claim no route, so a
+  // later entry cannot try (and fail) to collapse onto them again.
+  const indexable = new Set();
+  const owners = new Map();
+  let collapsed = 0;
+  let slugsTransferred = 0;
+  let unmergeable = 0;
+  const reindex = () => {
+    owners.clear();
+    for (const entry of out) {
+      if (!indexable.has(entry)) continue;
+      for (const route of namespaced(entry)) owners.set(route, entry);
+    }
+  };
+  const keep = (entry, { claimsRoutes = true } = {}) => {
+    out.push(entry);
+    if (claimsRoutes) indexable.add(entry);
+    reindex();
+  };
+
+  for (const entry of entries) {
+    const claimed = new Set(namespaced(entry).map((route) => owners.get(route)).filter(Boolean));
+    if (claimed.size === 0) {
+      keep(entry);
+      continue;
+    }
+    // One entry can bridge several previously separate records through
+    // different locale/history routes: collapse the whole connected component
+    // onto the most recently expired payload.
+    const component = [...claimed, entry].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
+    const required = new Set(component.flatMap(namespaced));
+    const survivor = structuredClone(component[0]);
+    let transferred = 0;
+    let merged = true;
+    try {
+      for (const removed of component) {
+        if (removed === component[0]) continue;
+        transferred += transferSlugHistory(survivor, removed, source);
+      }
+    } catch {
+      merged = false;
+    }
+    if (merged) {
+      const served = new Set(namespaced(survivor));
+      merged = [...required].every((route) => served.has(route));
+    }
+    if (!merged) {
+      unmergeable += 1;
+      keep(entry, { claimsRoutes: false });
+      continue;
+    }
+    for (let index = out.length - 1; index >= 0; index -= 1) {
+      if (claimed.has(out[index])) {
+        indexable.delete(out[index]);
+        out.splice(index, 1);
+      }
+    }
+    slugsTransferred += transferred;
+    collapsed += component.length - 1;
+    keep(survivor);
+  }
+
+  return {
+    entries: out, collapsed, slugsTransferred, unmergeable,
+  };
 }

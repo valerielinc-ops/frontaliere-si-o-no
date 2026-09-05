@@ -26,6 +26,7 @@ import {
   withFileRollback,
 } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import { getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
 
@@ -111,24 +112,14 @@ describe('issue #6759 reconciliation', () => {
   });
 
   it('keeps retired expired archives absent and canonical archives route-unique', () => {
-    // Pre-existing cross-job previousSlugs contamination (same class as #6784/#6909,
-    // not #7166's it-locale collapse); scripts/decontaminate-prev-slugs.mjs only
-    // covers data/jobs/by-crawler, not the expired archive consumed here. Tracked in #7232.
-    const KNOWN_CONTAMINATED_ROUTES = new Set([
-      'hoch-health:it:praktikum-zusatzmodul-a-hebamme-80-100-kssg-ch',
-      'hoch-health:de:praktikum-zusatzmodul-a-hebamme-80-100-kssg-ch',
-      // Aggiunte 2026-09-05: stessa classe, stesso crawler, stesso slug `-kssg-ch`
-      // non tradotto condiviso fra due voci di hoch-health (indici 3 e 74 di
-      // data/jobs/expired/by-crawler/hoch-health.json). Contaminazione
-      // preesistente di previousSlugs, non introdotta da nessuna PR: si
-      // riproduce su main pulito. Sempre #7232.
-      'hoch-health:it:case-manager-in-zentrales-patientenmanagement-80-100-kssg-ch',
-      'hoch-health:de:case-manager-in-zentrales-patientenmanagement-80-100-kssg-ch',
-      'paraplegie:it:collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-zentrum-spz-nottwil',
-      'paraplegie:it:collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil',
-      'paraplegie:de:mitarbeiter-in-hauswirtschaft-spz-nottwil',
-      'paraplegie:de:mitarbeiter-in-hauswirtschaft-paraplegie-nottwil',
-    ]);
+    // Nessuna eccezione. La lista `KNOWN_CONTAMINATED_ROUTES` che stava qui era
+    // cresciuta due volte in un giorno: l'invariante non tornava verde perché il
+    // difetto spariva, ma perché l'elenco degli offender si allungava. La causa
+    // stava nello SCRITTORE — `archiveRemovedJobsToSlice` dedupava per `slug`
+    // corrente, quindi due voci con `previousSlugs` sovrapposti passavano
+    // entrambe e finivano a possedere la stessa rotta. Ora il collasso è per
+    // rotta di locale (`collapseDuplicateRouteEntries`) e i dieci archivi
+    // canonici sono stati riscritti una volta con `--apply`.
     for (const { retired, canonical } of RETIREMENTS) {
       expect(existsSync(`data/jobs/expired/by-crawler/${retired}.json`)).toBe(false);
       const canonicalJobs = JSON.parse(
@@ -138,12 +129,71 @@ describe('issue #6759 reconciliation', () => {
       canonicalJobs.forEach((entry: FixtureJob, index: number) => {
         expect(entry.companyKey).toBe(canonical);
         for (const route of localeRouteKeys(entry)) {
-          if (KNOWN_CONTAMINATED_ROUTES.has(`${canonical}:${route}`)) continue;
-          expect(routeOwners.has(route)).toBe(false);
+          expect(routeOwners.has(route), `${canonical}:${route}`).toBe(false);
           routeOwners.set(route, index);
         }
       });
     }
+  });
+
+  it('collapses archive entries that share a locale route, and never loses one', () => {
+    const entry = (slug: string, expiredAt: string, previousSlugs: string[] = []) => ({
+      slug,
+      companyKey: 'acme',
+      expiredAt,
+      slugByLocale: { it: slug, de: `${slug}-de` },
+      previousSlugs,
+      previousSlugsByLocale: {} as Record<string, string[]>,
+    });
+
+    // Two DIFFERENT current slugs sharing one historical slug: the exact shape
+    // a slug-keyed dedup lets through.
+    const collapsed = collapseDuplicateRouteEntries([
+      entry('fachfrau-gesundheit-hoch', '2026-08-01T00:00:00.000Z', ['fachfrau-gesundheit-kssg-ch']),
+      entry('fachfrau-gesundheit-80-100', '2026-09-01T00:00:00.000Z', ['fachfrau-gesundheit-kssg-ch']),
+    ]);
+    expect(collapsed.entries).toHaveLength(1);
+    expect(collapsed.collapsed).toBe(1);
+    // The most recently expired payload survives…
+    expect(collapsed.entries[0].slug).toBe('fachfrau-gesundheit-80-100');
+    // …and still serves the route of the record it absorbed.
+    const served = new Set(collapsed.entries[0] ? [...localeRouteKeys(collapsed.entries[0])] : []);
+    expect(served.has('it:fachfrau-gesundheit-hoch')).toBe(true);
+    expect(served.has('de:fachfrau-gesundheit-hoch-de')).toBe(true);
+    expect(served.has('it:fachfrau-gesundheit-kssg-ch')).toBe(true);
+
+    // Distinct routes are never merged, and a different company is never
+    // collapsed into this one even when the slug collides (issue #3734 class).
+    const untouched = collapseDuplicateRouteEntries([
+      entry('a', '2026-09-01T00:00:00.000Z'),
+      entry('b', '2026-09-02T00:00:00.000Z'),
+      { ...entry('a', '2026-09-03T00:00:00.000Z'), companyKey: 'other' },
+    ]);
+    expect(untouched.entries).toHaveLength(3);
+    expect(untouched.collapsed).toBe(0);
+  });
+
+  it('refuses a merge that would drop a route instead of throwing inside the cron', () => {
+    // `promotePreviousSlugToLegacy` caps the unattributed legacy bucket, so a
+    // pair of very deep histories cannot be merged without losing routes. The
+    // writer must leave those entries alone — a duplicated route is ambiguous,
+    // a lost one is a 404 on an indexed URL — and never abort the archival step.
+    const deep = (slug: string, expiredAt: string, from: number) => ({
+      slug,
+      companyKey: 'acme',
+      expiredAt,
+      slugByLocale: { it: slug },
+      previousSlugs: ['shared-history-slug', ...Array.from({ length: 90 }, (_, i) => `legacy-${from + i}`)],
+      previousSlugsByLocale: {} as Record<string, string[]>,
+    });
+    const before = [deep('deep-a', '2026-08-01T00:00:00.000Z', 0), deep('deep-b', '2026-09-01T00:00:00.000Z', 500)];
+    const requiredRoutes = new Set(before.flatMap((e) => [...localeRouteKeys(e)]));
+
+    const result = collapseDuplicateRouteEntries(before);
+    expect(result.unmergeable).toBe(1);
+    expect(result.entries).toHaveLength(2);
+    const served = new Set(result.entries.flatMap((e) => [...localeRouteKeys(e)]));
+    for (const route of requiredRoutes) expect(served.has(route), route).toBe(true);
   });
 
   it('observes a zero-change dry run after repairing the SOH stale-writer resurrection', () => {
