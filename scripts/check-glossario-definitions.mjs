@@ -23,6 +23,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatString } from './lib/flat-string.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '..');
@@ -61,7 +62,10 @@ async function politeFetch(url) {
 }
 
 function extractLocs(xml) {
-  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+  // flatString: la capture affetta DENTRO l'intero XML. Qui il padre è uno
+  // solo e piccolo, ma il costrutto è quello che ha fatto OOM la catena BFS
+  // — vedi scripts/lib/flat-string.mjs (issue #7419).
+  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => flatString(m[1].trim()));
 }
 
 /** Extract every `DefinedTerm.description` found in a page's JSON-LD blocks. */
