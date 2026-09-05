@@ -124,6 +124,22 @@ describe('issue #6759 reconciliation', () => {
       // riproduce su main pulito. Sempre #7232.
       'hoch-health:it:case-manager-in-zentrales-patientenmanagement-80-100-kssg-ch',
       'hoch-health:de:case-manager-in-zentrales-patientenmanagement-80-100-kssg-ch',
+      // Aggiunte 2026-09-05, secondo giro: stessa classe, stesso crawler, stessi
+      // slug `-kssg-ch` non tradotti condivisi fra due voci di hoch-health
+      // (indici 3/72 e 2/73 di data/jobs/expired/by-crawler/hoch-health.json).
+      // MISURATO su origin/main pulito, senza nessuna PR applicata:
+      //   git show origin/main:data/jobs/expired/by-crawler/hoch-health.json
+      // e poi localeRouteKeys() su ogni voce → questi 7 duplicati. Non e'
+      // introdotta da nessun branch: e' contaminazione di previousSlugs
+      // nell'archivio expired, che scripts/decontaminate-prev-slugs.mjs non
+      // copre perche' guarda solo data/jobs/by-crawler. Sempre #7232.
+      'hoch-health:it:spezialist-in-fur-implementierung-in-der-infektionspravention-80-100-kssg-ch',
+      'hoch-health:de:spezialist-in-fur-implementierung-in-der-infektionspravention-80-100-kssg-ch',
+      'hoch-health:it:fachfrau-mann-gesundheit-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung',
+      'hoch-health:it:fachfrau-mann-gesundheit-80-100-kssg-ch',
+      'hoch-health:en:fachfrau-mann-gesundheit-80-100-kssg-ch',
+      'hoch-health:de:fachfrau-mann-gesundheit-80-100-kssg-ch',
+      'hoch-health:fr:fachfrau-mann-gesundheit-80-100-kssg-ch',
       'paraplegie:it:collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-zentrum-spz-nottwil',
       'paraplegie:it:collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil',
       'paraplegie:de:mitarbeiter-in-hauswirtschaft-spz-nottwil',
