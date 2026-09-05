@@ -22,6 +22,7 @@ import { execSync } from 'node:child_process';
 import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
 import {
   COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS,
@@ -571,7 +572,15 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     try {
       fetched = await fetchPage(item.url, { timeoutMs: 10000, retries: 1 });
     } catch (error) {
-      return { ...item, fetchFailed: true, status: 0, fetchError: sanitizeProcessingError(error) };
+      // A fetcher that THROWS instead of returning `{ ok: false }` used to land
+      // in the same nameless bucket #7351 removes; it carries the kind too.
+      return {
+        ...item,
+        fetchFailed: true,
+        status: 0,
+        fetchError: sanitizeProcessingError(error),
+        transportError: transportErrorKind(error),
+      };
     }
     if (!fetched.ok || !fetched.body) {
       return {
@@ -709,6 +718,12 @@ export function fetchFailureCause(status, result = null) {
  */
 export function fetchFailureFamily(cause) {
   if (cause === 'expired-vacancy') return 'expired-vacancy';
+  // `blocked-by-policy` is OUR public-URL policy rejecting the request, not the
+  // source rejecting us: a crawler emitting non-public or non-canonical URLs
+  // would otherwise have its own bug promoted to «that source declines», be
+  // subtracted from the unexplained count and go invisible to --strict. It gets
+  // a family of its own so it can never be read as a statement by the source.
+  if (cause === 'blocked-by-policy') return 'refused-by-us';
   if (String(cause).startsWith('blocked-')) return 'refused-by-source';
   if (String(cause).startsWith('transport-')) return 'source-unreachable';
   return String(cause);
@@ -726,7 +741,7 @@ export const SOURCE_LEVEL_FAILURE_MIN_SAMPLES = 2;
  * The share of the source-detail sample that may fail for a reason nothing
  * explains. Above it the audit's own coverage claim is unproven: the run says
  * «checked 1075» while some of those samples proved nothing and nobody can say
- * why. Set at the 5 % the ticket asks for, against a measured 0,19 % — the
+ * why. Set at the 5 % the ticket asks for, against a measured 0,93 % — the
  * headroom is deliberate, it is a floor under a regression, not a target.
  */
 export const SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT = 5;
@@ -741,10 +756,11 @@ export const SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT = 5;
  * scattered failure: one sample of two, on a source that answered the other —
  * that one is ours, stays unexplained, and is the number the gate watches.
  *
- * Measured on artifact parser-quality-report-33969036485-1 (2026-09-05):
- * 120/1075 failures = 6 expired + 49 refusals over 26 sources that refused
- * 2 of 2 + 63 unreachable over 34 sources unreachable 2 of 2 + 2 scattered.
- * Unexplained goes 10,60 % → 0,19 %.
+ * Measured by replaying the 1075 sealed samples of artifact
+ * parser-quality-report-33969036485-1 (2026-09-05) through this function:
+ * 120/1075 failures = 6 expired vacancies + 104 samples over 52 sources that
+ * lost every detail they were sampled on + 10 scattered.
+ * Unexplained goes 10,60 % → 0,93 %.
  */
 export function classifySourceLevelFailures(byKey) {
   const sources = {};
@@ -755,7 +771,10 @@ export function classifySourceLevelFailures(byKey) {
     const families = Object.keys(info.failureFamilies || {});
     if (families.length !== 1) continue;
     const [family] = families;
-    if (family === 'expired-vacancy') continue;
+    // Neither an expiry nor a refusal of ours explains a coverage loss on the
+    // source's behalf: both stay out of the source-level bucket, and
+    // `refused-by-us` therefore stays counted as unexplained.
+    if (family === 'expired-vacancy' || family === 'refused-by-us') continue;
     sources[key] = { family, samples: info.checked };
     samples += info.checked;
   }

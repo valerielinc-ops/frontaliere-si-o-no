@@ -72,7 +72,9 @@ try {
       filesScanned: Number(getArg('files')) || undefined,
       sampleRate: Number(getArg('sample-rate')) || undefined,
       observedOffenders: Number(getArg('offenders')) || undefined,
-      note: getArg('note'),
+      // `--note=` (empty) is not nullish, so without this it would overwrite the
+      // carried prose with '' — erasing exactly what the carry-forward saves.
+      note: getArg('note') || undefined,
     },
   });
 } catch (err) {

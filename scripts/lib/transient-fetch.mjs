@@ -76,7 +76,7 @@ export const TLS_ERROR_CODES = new Set([
  * is walked rather than the surface read.
  *
  * @param {unknown} error
- * @returns {'timeout'|'dns'|'tls'|'reset'|'refused'|'other'}
+ * @returns {'timeout'|'dns'|'tls'|'reset'|'refused'|'unreachable-network'|'other'}
  */
 export function transportErrorKind(error) {
   const seen = new Set();
@@ -85,7 +85,11 @@ export function transportErrorKind(error) {
     const code = String(e.code || '');
     const name = String(e.name || '');
     if (name === 'AbortError' || name === 'TimeoutError' || code === 'ETIMEDOUT' || code.includes('TIMEOUT')) return 'timeout';
-    if (code === 'ENOTFOUND' || code === 'EAI_AGAIN' || code === 'ENETUNREACH') return 'dns';
+    // ENETUNREACH stays OUT of `dns`: «the host does not exist any more» (drop
+    // the crawler) and «this runner has no route» (nothing to do, it is ours)
+    // are the two answers this split exists to keep apart.
+    if (code === 'ENOTFOUND' || code === 'EAI_AGAIN') return 'dns';
+    if (code === 'ENETUNREACH' || code === 'EHOSTUNREACH') return 'unreachable-network';
     if (code === 'ECONNREFUSED') return 'refused';
     if (code === 'ECONNRESET' || code === 'EPIPE' || code === 'UND_ERR_SOCKET') return 'reset';
     if (TLS_ERROR_CODES.has(code) || code.startsWith('ERR_TLS') || code.startsWith('ERR_SSL')

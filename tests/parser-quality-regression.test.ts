@@ -511,6 +511,30 @@ describe('parser-quality regression — a source that refuses everything is not 
     expect(summary.unexplainedFetchFailureRatePct).toBeCloseTo(12.5, 4);
   });
 
+  it('never promotes OUR OWN url-policy refusal to a source policy', () => {
+    // The failure mode this whole reclassification could have introduced: a
+    // crawler emitting non-public or non-canonical URLs has every sample
+    // rejected by our `public-fetch-policy` — a bug of ours — and, if
+    // `blocked-by-policy` were read as «the source declined», it would be
+    // subtracted from the unexplained count and vanish from the --strict gate.
+    // `blocked-by-robots` stays a statement by the source and is promoted.
+    const results = [
+      sample('our-url-bug', 1, { status: 0, policyBlocked: true }),
+      sample('our-url-bug', 2, { status: 0, policyBlocked: true }),
+      sample('robots-says-no', 1, { status: 0, blockedByRobots: true }),
+      sample('robots-says-no', 2, { status: 0, blockedByRobots: true }),
+    ];
+    const report: Record<string, any> = {
+      'our-url-bug': { total: 2, issues: [] }, 'robots-says-no': { total: 2, issues: [] },
+    };
+    const summary = applySourceDetailResults(report, results, results.length);
+
+    expect(summary.fetchFailureCauses).toEqual({ 'blocked-by-policy': 2, 'blocked-by-robots': 2 });
+    expect(Object.keys(summary.sourceLevelFailures.sources)).toEqual(['robots-says-no']);
+    expect(summary.unexplainedFetchFailures).toBe(2);
+    expect(summary.unexplainedFetchFailureRatePct).toBeCloseTo(50, 4);
+  });
+
   it('refuses to call a single loss a source policy', () => {
     // The reclassification must not become a way to make the number go away:
     // one failure on a source that answered its other sample is a per-vacancy
