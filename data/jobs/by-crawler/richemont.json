@@ -1149,11 +1149,11 @@
     },
     {
       "id": "richemont-19084f19ef35",
-      "slug": "bijoutier-h-f-richemont-le-sentier",
+      "slug": "gioielli-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "bijoutier-h-f-richemont-le-sentier",
-        "en": "bijoutier-h-f-richemont-le-sentier",
-        "de": "bijoutier-h-f-richemont-le-sentier",
+        "it": "gioielli-m-f-jaeger-lecoultre-le-sentier",
+        "en": "jewellery-m-f-jaeger-lecoultre-le-sentier",
+        "de": "schmuck-m-w-jaeger-lecoultre-le-sentier",
         "fr": "bijoutier-h-f-richemont-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
@@ -1208,7 +1208,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bijoutier-h-f-richemont-le-sentier"
+        ],
+        "en": [
+          "bijoutier-h-f-richemont-le-sentier"
+        ],
+        "de": [
+          "bijoutier-h-f-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "bijoutier-h-f-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-b318f95be58a",
@@ -1358,7 +1372,7 @@
         "it": "addetto-alle-vendite-senior-cartier-geneva",
         "en": "senior-sales-associate-cartier-geneva",
         "de": "leitender-vertriebsmitarbeiter-cartier-geneva",
-        "fr": "senior-sales-associate-richemont-geneva-n74jn7"
+        "fr": "senior-sales-associate-richemont-geneva"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -1477,8 +1491,7 @@
           "associe-de-vente-senior-cartier-geneva",
           "avocat-principal-cartier-geneva",
           "grand-vendeur-senior-sales-associate-richemont-geneva",
-          "senior-sales-associate-richemont-geneva-n74jn7",
-          "senior-sales-associate-richemont-geneva"
+          "senior-sales-associate-richemont-geneva-n74jn7"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.473Z",
@@ -3177,10 +3190,10 @@
     },
     {
       "id": "richemont-240275003f60",
-      "slug": "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva",
+      "slug": "stage-assistente-di-architettura-istituzionale-van-cleef-arpels-geneva",
       "slugByLocale": {
-        "it": "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva",
-        "en": "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva",
+        "it": "stage-assistente-di-architettura-istituzionale-van-cleef-arpels-geneva",
+        "en": "internship-institutional-architecture-assistant-van-cleef-arpels-geneva",
         "de": "stage-assistant-e-architecture-institutionnelle-richemont-geneva",
         "fr": "stage-assistant-e-architecture-institutionnelle-richemont-geneva"
       },
@@ -3226,19 +3239,24 @@
       "previousSlugs": [
         "stage-assistant-e-architecture-institutionnelle-richemont-geneva",
         "stage-assistant-e-institutional-architecture-richemont-geneva",
-        "stage-assistant-e-institutional-architecture-van-cleef-arpels-geneva"
+        "stage-assistant-e-institutional-architecture-van-cleef-arpels-geneva",
+        "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stage-assistant-e-architecture-institutionnelle-richemont-geneva",
           "stage-assistant-e-institutional-architecture-richemont-geneva",
-          "stage-assistant-e-institutional-architecture-van-cleef-arpels-geneva"
+          "stage-assistant-e-institutional-architecture-van-cleef-arpels-geneva",
+          "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
         ],
         "de": [
           "stage-assistant-e-institutional-architecture-richemont-geneva"
         ],
         "fr": [
           "stage-assistant-e-institutional-architecture-van-cleef-arpels-geneva"
+        ],
+        "en": [
+          "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
         ]
       },
       "firstSeenAt": "2026-08-31T17:15:49.649Z",
@@ -12958,11 +12976,11 @@
     },
     {
       "id": "richemont-56ec1fe24418",
-      "slug": "constructeur-mouvement-richemont-le-cret-du-locle",
+      "slug": "movimento-del-produttore-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "constructeur-mouvement-richemont-le-cret-du-locle",
-        "en": "constructeur-mouvement-richemont-le-cret-du-locle",
-        "de": "constructeur-mouvement-richemont-le-cret-du-locle",
+        "it": "movimento-del-produttore-cartier-manufacture-le-cret-du-locle",
+        "en": "manufacturer-movement-cartier-manufacture-le-cret-du-locle",
+        "de": "uhrwerk-des-herstellers-cartier-manufacture-le-cret-du-locle",
         "fr": "constructeur-mouvement-richemont-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
@@ -13017,7 +13035,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-mouvement-richemont-le-cret-du-locle"
+        ],
+        "en": [
+          "constructeur-mouvement-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "constructeur-mouvement-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-mouvement-richemont-le-cret-du-locle"
+      ]
     },
     {
       "id": "richemont-20c197406626",
@@ -13103,7 +13135,7 @@
         "it": "boutique-manager-richemont-zurich",
         "en": "boutique-manager-iwc-zurich",
         "de": "boutique-manager-richemont-zurich",
-        "fr": "boutique-manager-richemont-zurich"
+        "fr": "directeur-de-la-boutique-iwc-zurich"
       },
       "company": "IWC",
       "companyKey": "richemont",

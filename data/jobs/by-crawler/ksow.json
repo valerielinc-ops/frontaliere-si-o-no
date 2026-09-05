@@ -911,12 +911,12 @@
     },
     {
       "id": "ksow-593ff8c2ff22",
-      "slug": "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen",
+      "slug": "dipl-soccorso-paramedico-con-responsabilita-professionale-a-80-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen",
-        "en": "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen",
+        "it": "dipl-soccorso-paramedico-con-responsabilita-professionale-a-80-100-kantonsspital-obwalden-sarnen",
+        "en": "dipl-rescue-paramedic-with-professional-responsibility-a-80-100-kantonsspital-obwalden-sarnen",
         "de": "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen",
-        "fr": "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
+        "fr": "dipl-paramedic-de-secours-avec-responsabilite-professionnelle-a-80-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -959,11 +959,19 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen"
+        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen",
+        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen"
+          "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen",
+          "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
+        ],
+        "en": [
+          "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
+        ],
+        "fr": [
+          "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:16:34.187Z",

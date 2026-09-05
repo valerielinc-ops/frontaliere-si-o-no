@@ -795,12 +795,12 @@
     },
     {
       "id": "georg-fischer-99110c518118",
-      "slug": "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch",
+      "slug": "operatore-di-sistema-in-funzionamento-a-4-turni-100-m-f-d-georg-fischer-graubunden",
       "slugByLocale": {
-        "it": "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch",
-        "en": "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch",
+        "it": "operatore-di-sistema-in-funzionamento-a-4-turni-100-m-f-d-georg-fischer-graubunden",
+        "en": "system-operator-in-4-shift-operation-100-m-f-d-georg-fischer-graubunden",
         "de": "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch",
-        "fr": "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch"
+        "fr": "operateur-de-reseau-en-4-equipes-100-h-f-d-georg-fischer-graubunden"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -854,7 +854,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-im-4-schichtbetrieb-100-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-98771d99f3bf",

@@ -2165,7 +2165,7 @@
         "it": "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis",
         "en": "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
         "de": "senior-engineering-maintenance-expert-ibex-readiness-operations-direktor-m-f-d-coopers-group-ag-wallis",
-        "fr": "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis"
+        "fr": "expert-principal-en-genie-et-maintenance-ibex-readyness-operations-director-h-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -2221,7 +2221,8 @@
         ]
       },
       "previousSlugs": [
-        "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2231,7 +2232,8 @@
           "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
         ],
         "fr": [
-          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis"
         ]
       },
       "needsRetranslation": true,
@@ -3839,12 +3841,12 @@
     },
     {
       "id": "coopers-99a408ba1bdf",
-      "slug": "senior-category-manager-capex-project-m-f-d-coopers-wallis",
+      "slug": "senior-categoria-manager-progetto-capex-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
-        "it": "senior-category-manager-capex-project-m-f-d-coopers-wallis",
+        "it": "senior-categoria-manager-progetto-capex-m-f-d-coopers-group-ag-wallis",
         "en": "senior-category-manager-capex-project-m-f-d-coopers-wallis",
         "de": "senior-category-manager-capex-project-m-f-d-coopers-wallis",
-        "fr": "senior-category-manager-capex-project-m-f-d-coopers-wallis"
+        "fr": "gestionnaire-de-categorie-principal-projet-capex-h-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3913,7 +3915,18 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-category-manager-capex-project-m-f-d-coopers-wallis"
+        ],
+        "fr": [
+          "senior-category-manager-capex-project-m-f-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "senior-category-manager-capex-project-m-f-d-coopers-wallis"
+      ]
     },
     {
       "id": "coopers-696ffdce7076",

@@ -1629,12 +1629,12 @@
     },
     {
       "id": "vontobel-988b4bc835d1",
-      "slug": "working-student-client-portfolio-manager-team-60-100-vontobel-ch",
+      "slug": "studente-di-lavoro-customer-portfolio-manager-team-60-100-vontobel-zurich-genferstrasse-27",
       "slugByLocale": {
-        "it": "working-student-client-portfolio-manager-team-60-100-vontobel-ch",
+        "it": "studente-di-lavoro-customer-portfolio-manager-team-60-100-vontobel-zurich-genferstrasse-27",
         "en": "working-student-client-portfolio-manager-team-60-100-vontobel-ch",
         "de": "working-student-client-portfolio-manager-team-60-100-vontobel-ch",
-        "fr": "working-student-client-portfolio-manager-team-60-100-vontobel-ch"
+        "fr": "etudiants-en-travail-equipe-de-gestionnaire-de-portefeuille-de-la-clientele-60-100-vontobel-zurich-genferstrasse-27"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -1689,7 +1689,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-client-portfolio-manager-team-60-100-vontobel-ch"
+        ],
+        "fr": [
+          "working-student-client-portfolio-manager-team-60-100-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-client-portfolio-manager-team-60-100-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-453e72151fc5",
@@ -1775,7 +1786,7 @@
         "it": "senior-investor-protection-manager-80-100-vontobel-ch",
         "en": "senior-investor-protection-manager-80-100-vontobel-ch",
         "de": "senior-investor-protection-manager-80-100-vontobel-ch",
-        "fr": "senior-investor-protection-manager-80-100-vontobel-ch"
+        "fr": "gestionnaire-principal-de-la-protection-des-investisseurs-80-100-vontobel-zurich-gotthardstrasse-43"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",

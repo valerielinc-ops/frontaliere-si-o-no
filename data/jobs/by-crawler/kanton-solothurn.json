@@ -1596,12 +1596,12 @@
     },
     {
       "id": "kanton-solothurn-f361651dce62",
-      "slug": "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn",
+      "slug": "veterinario-ufficiale-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn",
-        "en": "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn",
+        "it": "veterinario-ufficiale-80-100-kanton-solothurn-solothurn",
+        "en": "official-veterinarian-80-100-kanton-solothurn-solothurn",
         "de": "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn",
-        "fr": "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
+        "fr": "veterinaire-officiel-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1656,7 +1656,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-2dfea22d506e",

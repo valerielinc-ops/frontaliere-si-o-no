@@ -83,10 +83,10 @@
     },
     {
       "id": "epfl-7bcfc9745670",
-      "slug": "assistant-e-administratif-ve-30-epfl-lausanne",
+      "slug": "assistente-amministrativo-ve-30-epfl-lausanne",
       "slugByLocale": {
-        "it": "assistant-e-administratif-ve-30-epfl-lausanne",
-        "en": "assistant-e-administratif-ve-30-epfl-lausanne",
+        "it": "assistente-amministrativo-ve-30-epfl-lausanne",
+        "en": "administrative-assistant-ve-30-epfl-lausanne",
         "de": "assistent-e-administratif-ve-30-epfl-lausanne",
         "fr": "assistant-e-administratif-ve-30-epfl-lausanne"
       },
@@ -144,7 +144,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-30-epfl-lausanne"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-30-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-30-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-7ea8e4ecfa83",

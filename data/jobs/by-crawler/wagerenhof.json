@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "wagerenhof-2981c897a451",
-      "slug": "aushilfe-wascherei-100-wagerenhof-uster",
+      "slug": "servizio-lavanderia-100-stiftung-wagerenhof-uster",
       "slugByLocale": {
-        "it": "aushilfe-wascherei-100-wagerenhof-uster",
-        "en": "aushilfe-wascherei-100-wagerenhof-uster",
+        "it": "servizio-lavanderia-100-stiftung-wagerenhof-uster",
+        "en": "help-laundry-100-stiftung-wagerenhof-uster",
         "de": "aushilfe-wascherei-100-wagerenhof-uster",
-        "fr": "aushilfe-wascherei-100-wagerenhof-uster"
+        "fr": "aide-blanchisserie-100-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -51,14 +51,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-reinigung-100-wagerenhof-uster"
+        "aushilfe-reinigung-100-wagerenhof-uster",
+        "aushilfe-wascherei-100-wagerenhof-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-reinigung-100-wagerenhof-uster"
+          "aushilfe-reinigung-100-wagerenhof-uster",
+          "aushilfe-wascherei-100-wagerenhof-uster"
         ],
         "fr": [
-          "aushilfe-reinigung-100-wagerenhof-uster"
+          "aushilfe-reinigung-100-wagerenhof-uster",
+          "aushilfe-wascherei-100-wagerenhof-uster"
+        ],
+        "en": [
+          "aushilfe-wascherei-100-wagerenhof-uster"
         ]
       },
       "firstSeenAt": "2026-08-31T17:12:39.086Z",
@@ -135,8 +141,7 @@
         "mitarbeiter-in-technischer-dienst-wagerenhof-uster",
         "service-technique-employe-stiftung-wagerenhof-uster",
         "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster",
-        "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster",
-        "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster"
+        "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -150,8 +155,7 @@
           "mitarbeiter-in-technischer-dienst-wagerenhof-uster",
           "service-technique-employe-stiftung-wagerenhof-uster",
           "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster",
-          "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster",
-          "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster"
+          "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
         ],
         "en": [
           "employees-in-studios-60-stiftung-wagerenhof-uster",
@@ -232,13 +236,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster",
-        "specialista-supporto-professionale-fabe-70-100-stiftung-wagerenhof-uster"
+        "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster",
-          "specialista-supporto-professionale-fabe-70-100-stiftung-wagerenhof-uster"
+          "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster"
         ]
       },
       "firstSeenAt": "2026-09-01T14:18:06.648Z",
@@ -306,13 +308,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studierende-r-aktivierung-hf-ateliers-100-wagerenhof-uster",
-        "studenti-r-attivazione-hf-ateliers-100-stiftung-wagerenhof-uster"
+        "studierende-r-aktivierung-hf-ateliers-100-wagerenhof-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-aktivierung-hf-ateliers-100-wagerenhof-uster",
-          "studenti-r-attivazione-hf-ateliers-100-stiftung-wagerenhof-uster"
+          "studierende-r-aktivierung-hf-ateliers-100-wagerenhof-uster"
         ]
       },
       "firstSeenAt": "2026-09-01T14:18:05.770Z",
@@ -380,13 +380,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-bauernhof-90-wagerenhof-uster",
-        "team-leader-in-azienda-agricola-90-stiftung-wagerenhof-uster"
+        "teamleiter-in-bauernhof-90-wagerenhof-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-bauernhof-90-wagerenhof-uster",
-          "team-leader-in-azienda-agricola-90-stiftung-wagerenhof-uster"
+          "teamleiter-in-bauernhof-90-wagerenhof-uster"
         ],
         "en": [
           "teamleiter-in-bauernhof-90-wagerenhof-uster"

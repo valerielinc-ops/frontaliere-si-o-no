@@ -4811,12 +4811,12 @@
     },
     {
       "id": "ottos-9bc815a8fda5",
-      "slug": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau",
+      "slug": "aiuto-del-venditore-nella-lavorazione-tessile-spazio-otto-s-ag-littau",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau",
-        "en": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau",
+        "it": "aiuto-del-venditore-nella-lavorazione-tessile-spazio-otto-s-ag-littau",
+        "en": "seller-s-help-in-textile-sports-processing-otto-s-ag-littau",
         "de": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau",
-        "fr": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau"
+        "fr": "aide-du-vendeur-en-textile-sport-otto-s-ag-littau"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4876,7 +4876,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-littau"
+      ]
     },
     {
       "id": "ottos-fff77a6c1b17",
@@ -11158,12 +11172,12 @@
     },
     {
       "id": "ottos-ff9fcad5dd1c",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil",
+      "slug": "personale-di-vendita-in-mobili-otto-s-ag-wattwil",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil",
+        "it": "personale-di-vendita-in-mobili-otto-s-ag-wattwil",
+        "en": "sales-staff-in-furniture-otto-s-ag-wattwil",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-wattwil",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
+        "fr": "personnel-de-vente-en-mobilier-otto-s-ag-wattwil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -11211,11 +11225,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-wattwil"
+        "verkaufsmitarbeiter-in-mobel-ottos-wattwil",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-wattwil"
+          "verkaufsmitarbeiter-in-mobel-ottos-wattwil",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
         ]
       },
       "firstSeenAt": "2026-08-31T17:20:01.581Z",
