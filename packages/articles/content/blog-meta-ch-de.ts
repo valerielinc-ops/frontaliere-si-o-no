@@ -5503,6 +5503,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.locazione-vaud-deposito-cauzionale.title': 'Vermietung Waadt: Hinterlegung, Kündigung und Schlichtung',
     'blog.article.locazione-vaud-deposito-cauzionale.excerpt': 'Mietrechte im Waadtland: Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsstelle nach schweizerischem Bundesrecht.',
     'blog.article.locazione-vaud-deposito-cauzionale.imageAlt': 'Mietvertrag mit Hausschlüsseln auf Schweizer Schreibtisch, fotorealistischer DSLR-Stil.',
+    'blog.article.affitti-vaud-diritti-locatari.title': 'Vermietung Waadt: Mietrechte und Kaution',
+    'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Mietrecht in der Waadt: Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsbehörde gemäss Bundesobligationenrecht.',
+    'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Wohnstrasse mit Mehrfamilienhäusern, typisch für Schweizer Mietmarkte',
 };
 
 export default blogMetaChDe;

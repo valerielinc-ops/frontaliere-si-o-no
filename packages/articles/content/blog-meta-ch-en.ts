@@ -5503,6 +5503,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.locazione-vaud-deposito-cauzionale.title': 'Vaud lease: deposit, cancellation and conciliation',
     'blog.article.locazione-vaud-deposito-cauzionale.excerpt': 'Lease rights in Vaud: security deposit, cancellation, dispute fee and conciliation authority under Swiss federal law.',
     'blog.article.locazione-vaud-deposito-cauzionale.imageAlt': 'Rental lease agreement with house keys on Swiss office desk, photorealistic DSLR style.',
+    'blog.article.affitti-vaud-diritti-locatari.title': 'Vaud rentals: tenant rights and security deposit',
+    'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Right of lease in Vaud: security deposit, cancellation, dispute fee and conciliation authority according to the Federal Code of Obligations.',
+    'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Residential street with apartment buildings typical of Swiss rental markets',
 };
 
 export default blogMetaChEn;
