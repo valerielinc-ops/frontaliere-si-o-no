@@ -51,6 +51,7 @@
  * new failure mode.
  */
 import { statSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 
 /**
  * @param {{ cwd?: unknown }} payload parsed PreToolUse stdin JSON
@@ -63,5 +64,45 @@ export function resolveHookTargetCwd(payload) {
     return statSync(candidate).isDirectory() ? candidate : undefined;
   } catch {
     return undefined;
+  }
+}
+
+/**
+ * Il ref da analizzare: il BRANCH che il comando sta proponendo, non la
+ * directory da cui l'hook crede di girare.
+ *
+ * `--head` puo' arrivare come sostituzione di shell non espansa (la ricetta
+ * `--head "$(git rev-parse --abbrev-ref HEAD)"` e' quella raccomandata altrove),
+ * e l'hook gira PRIMA del comando, quindi non c'e' niente da espandere: in quel
+ * caso ricadiamo su `HEAD` della directory tracciata. E' comunque meglio del
+ * working tree — un diff commit-a-commit non vede il lavoro non committato di
+ * un'altra sessione, che era la causa del blocco impossibile del 2026-09-05.
+ *
+ * @param {string} command la command line di `gh pr create`
+ * @param {string|undefined} cwd directory in cui risolvere il ref
+ * @returns {{ ref: string, source: 'head-flag'|'cwd-head' }}
+ */
+export function resolveGatedHeadRef(command, cwd, run = defaultRevParse) {
+  const m = String(command ?? '').match(/--head[= ]+(?:"([^"]*)"|'([^']*)'|(\S+))/);
+  const raw = (m?.[1] ?? m?.[2] ?? m?.[3] ?? '').trim();
+  // `owner:branch` è la forma cross-fork accettata da gh; a noi serve il branch.
+  const branch = raw.includes(':') ? raw.slice(raw.indexOf(':') + 1) : raw;
+  const unexpanded = /[$`]/.test(branch);
+  if (branch && !unexpanded && run(branch, cwd)) {
+    return { ref: branch, source: 'head-flag' };
+  }
+  return { ref: 'HEAD', source: 'cwd-head' };
+}
+
+function defaultRevParse(ref, cwd) {
+  try {
+    execFileSync('git', ['rev-parse', '--verify', '--quiet', `${ref}^{commit}`], {
+      cwd,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore'],
+    });
+    return true;
+  } catch {
+    return false;
   }
 }

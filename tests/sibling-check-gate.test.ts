@@ -12,12 +12,9 @@ import { spawnSync, execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import {
-  isDeclaredFalsePositive,
-  resolveGatedHeadRef,
-  DECLARATION_HOWTO,
-} from '../scripts/ci/sibling-check-gate.mjs';
-import { describePrBodySource } from '../scripts/ci/pr-body-check-gate.mjs';
+import { isDeclaredFalsePositive, DECLARATION_HOWTO } from '../scripts/ci/sibling-check-gate.mjs';
+import { resolveGatedHeadRef } from '../scripts/ci/lib/hook-target-cwd.mjs';
+import { describePrBodySource, localDiffPaths } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -323,6 +320,14 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
 
     it('resolveGatedHeadRef: branch inesistente → fallback su HEAD invece di un ref rotto', () => {
       expect(resolveGatedHeadRef('gh pr create --head mai-esistito', repo).ref).toBe('HEAD');
+    });
+
+    it('il gemello pr-body-check-gate aveva la STESSA forma e la stessa fix (AGENTS.md #6)', () => {
+      // localDiffPaths leggeva `origin/main...HEAD`: dal checkout sporco quello
+      // e' l'HEAD di un'altra sessione, non il branch in apertura. Col ref
+      // esplicito i due path divergono esattamente come nel gate sibling.
+      expect(localDiffPaths(repo, 'feature-x')).toEqual(['scripts/alpha.mjs']);
+      expect(localDiffPaths(repo, 'HEAD')).not.toContain('scripts/alpha.mjs');
     });
 
     it('resolveGatedHeadRef: forma cross-fork owner:branch → tiene il branch', () => {

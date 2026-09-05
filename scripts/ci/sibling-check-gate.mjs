@@ -53,7 +53,7 @@ import {
   unresolvedBaseOverrideActive,
 } from './lib/resolve-merge-base.mjs';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
-import { resolveHookTargetCwd } from './lib/hook-target-cwd.mjs';
+import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
@@ -127,46 +127,6 @@ export const DECLARATION_HOWTO =
   'Una riga che nomina un ALTRO path con lo stesso basename non copre il candidato.\n' +
   'Formule valide: «falso positivo» / «false positive» / «solo lessicalmente simile\n' +
   'ma semanticamente diverso» / «not the same bug class». Un rinvio a follow-up NO.';
-
-/**
- * Il ref da analizzare: il BRANCH che il comando sta proponendo, non la
- * directory da cui l'hook crede di girare.
- *
- * `--head` puo' arrivare come sostituzione di shell non espansa (la ricetta
- * `--head "$(git rev-parse --abbrev-ref HEAD)"` e' quella raccomandata altrove),
- * e l'hook gira PRIMA del comando, quindi non c'e' niente da espandere: in quel
- * caso ricadiamo su `HEAD` della directory tracciata. E' comunque meglio del
- * working tree — un diff commit-a-commit non vede il lavoro non committato di
- * un'altra sessione, che era la causa del blocco impossibile del 2026-09-05.
- *
- * @param {string} command la command line di `gh pr create`
- * @param {string|undefined} cwd directory in cui risolvere il ref
- * @returns {{ ref: string, source: 'head-flag'|'cwd-head' }}
- */
-export function resolveGatedHeadRef(command, cwd, run = defaultRevParse) {
-  const m = String(command ?? '').match(/--head[= ]+(?:"([^"]*)"|'([^']*)'|(\S+))/);
-  const raw = (m?.[1] ?? m?.[2] ?? m?.[3] ?? '').trim();
-  // `owner:branch` è la forma cross-fork accettata da gh; a noi serve il branch.
-  const branch = raw.includes(':') ? raw.slice(raw.indexOf(':') + 1) : raw;
-  const unexpanded = /[$`]/.test(branch);
-  if (branch && !unexpanded && run(branch, cwd)) {
-    return { ref: branch, source: 'head-flag' };
-  }
-  return { ref: 'HEAD', source: 'cwd-head' };
-}
-
-function defaultRevParse(ref, cwd) {
-  try {
-    execFileSync('git', ['rev-parse', '--verify', '--quiet', `${ref}^{commit}`], {
-      cwd,
-      encoding: 'utf8',
-      stdio: ['pipe', 'pipe', 'ignore'],
-    });
-    return true;
-  } catch {
-    return false;
-  }
-}
 
 async function main() {
   let command = '';
