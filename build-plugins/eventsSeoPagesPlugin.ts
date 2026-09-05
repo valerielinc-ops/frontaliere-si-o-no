@@ -1365,6 +1365,25 @@ const EVENT_CARD_CAP = 80;
 const OTHER_EVENTS_CARD_CAP = 24;
 
 /**
+ * How many overflow ROWS one page carries before the remainder continues on
+ * `<bucket>/page-N/` — the bound that makes page weight O(1) in the size of the
+ * bucket instead of O(bucket) (issue #7329).
+ *
+ * 300 at ~150 B a row is ~45 KB of index, which leaves the heaviest possible
+ * base page (a comune hub: 80 cards ≈ 111 KB + chrome) comfortably inside
+ * `scripts/audit-page-weight.mjs`'s 260 KB budget, and a ladder page (index +
+ * chrome only) at ~55 KB. Lower would be safer on bytes but buys nothing and
+ * costs nav width: the number of ladder pages is what the canton hub has to
+ * link (see `renderHubLadderIndex`), so it must stay small — 1155 rows is 4
+ * pages at 300, 12 at 100.
+ *
+ * NOT a reachability cap. Every row still exists, just on a numbered page that
+ * the hub links directly; changing this number changes only how the same rows
+ * are split, never how many are rendered.
+ */
+const OVERFLOW_ROWS_PER_PAGE = 300;
+
+/**
  * The event's own summary, shown on every card in every listing (canton hub,
  * comune page, digest, and the "more events" grid on a detail page).
  *
@@ -1463,11 +1482,68 @@ function renderEventList(events: SiteEvent[], locale: Locale, detailHref?: Detai
  * it would only ever ride `copyFor()`'s `...base` spread untouched — same
  * reasoning as `OTHER_EVENTS_TITLE_FALLBACK` above.
  */
-const OVERFLOW_INDEX_COPY: Record<Locale, { title: string; text: (n: number) => string }> = {
-  it: { title: 'Tutti gli altri eventi', text: (n) => `Altri ${n} eventi in programma, in ordine di data.` },
-  en: { title: 'All the other events', text: (n) => `${n} more scheduled events, in date order.` },
-  de: { title: 'Alle weiteren Veranstaltungen', text: (n) => `${n} weitere geplante Veranstaltungen, nach Datum.` },
-  fr: { title: 'Tous les autres événements', text: (n) => `${n} autres événements programmés, par date.` },
+const OVERFLOW_INDEX_COPY: Record<
+  Locale,
+  {
+    title: string;
+    text: (n: number) => string;
+    /** "Pagina 2 di 4" — appended to `text` only when the ladder exists. */
+    pageOf: (page: number, total: number) => string;
+    /** Label of a single ladder pill; the number is appended by the caller. */
+    pageLabel: string;
+    /** `aria-label` of the ladder `<nav>`. */
+    navLabel: string;
+    /** `<title>`/H1 of a ladder page, `label` = comune or bucket name. */
+    ladderTitle: (label: string, page: number, total: number) => string;
+    ladderDesc: (label: string, page: number, total: number) => string;
+    ladderLede: (label: string, n: number) => string;
+    backTo: (label: string) => string;
+  }
+> = {
+  it: {
+    title: 'Tutti gli altri eventi',
+    text: (n) => `Altri ${n} eventi in programma, in ordine di data.`,
+    pageOf: (page, total) => `Pagina ${page} di ${total}.`,
+    pageLabel: 'Pagina',
+    navLabel: 'Pagine dell\u2019indice eventi',
+    ladderTitle: (label, page, total) => `${label}: tutti gli eventi (pagina ${page} di ${total})`,
+    ladderDesc: (label, page, total) => `Indice completo degli eventi in programma a ${label}, pagina ${page} di ${total}, in ordine di data.`,
+    ladderLede: (label, n) => `Continuazione dell\u2019indice degli eventi a ${label}: ${n} eventi in programma, in ordine di data.`,
+    backTo: (label) => `Torna a ${label}`,
+  },
+  en: {
+    title: 'All the other events',
+    text: (n) => `${n} more scheduled events, in date order.`,
+    pageOf: (page, total) => `Page ${page} of ${total}.`,
+    pageLabel: 'Page',
+    navLabel: 'Event index pages',
+    ladderTitle: (label, page, total) => `${label}: all events (page ${page} of ${total})`,
+    ladderDesc: (label, page, total) => `Full index of scheduled events in ${label}, page ${page} of ${total}, in date order.`,
+    ladderLede: (label, n) => `Continuation of the event index for ${label}: ${n} scheduled events, in date order.`,
+    backTo: (label) => `Back to ${label}`,
+  },
+  de: {
+    title: 'Alle weiteren Veranstaltungen',
+    text: (n) => `${n} weitere geplante Veranstaltungen, nach Datum.`,
+    pageOf: (page, total) => `Seite ${page} von ${total}.`,
+    pageLabel: 'Seite',
+    navLabel: 'Seiten des Veranstaltungsindex',
+    ladderTitle: (label, page, total) => `${label}: alle Veranstaltungen (Seite ${page} von ${total})`,
+    ladderDesc: (label, page, total) => `Vollst\u00e4ndiger Index der geplanten Veranstaltungen in ${label}, Seite ${page} von ${total}, nach Datum.`,
+    ladderLede: (label, n) => `Fortsetzung des Veranstaltungsindex f\u00fcr ${label}: ${n} geplante Veranstaltungen, nach Datum.`,
+    backTo: (label) => `Zur\u00fcck zu ${label}`,
+  },
+  fr: {
+    title: 'Tous les autres événements',
+    text: (n) => `${n} autres événements programmés, par date.`,
+    pageOf: (page, total) => `Page ${page} sur ${total}.`,
+    pageLabel: 'Page',
+    navLabel: 'Pages de l\u2019index des \u00e9v\u00e9nements',
+    ladderTitle: (label, page, total) => `${label}\u00a0: tous les \u00e9v\u00e9nements (page ${page} sur ${total})`,
+    ladderDesc: (label, page, total) => `Index complet des \u00e9v\u00e9nements programm\u00e9s \u00e0 ${label}, page ${page} sur ${total}, par date.`,
+    ladderLede: (label, n) => `Suite de l\u2019index des \u00e9v\u00e9nements de ${label}\u00a0: ${n} \u00e9v\u00e9nements programm\u00e9s, par date.`,
+    backTo: (label) => `Retour \u00e0 ${label}`,
+  },
 };
 
 /**
@@ -1490,36 +1566,103 @@ const OVERFLOW_INDEX_COPY: Record<Locale, { title: string; text: (n: number) => 
  * in the whole dataset are over the cap, so only two pages per locale grow:
  *   /eventi/altri-cantoni/altri-eventi/  76.4 KB + 90.1 KB (603 rows) = 167 KB
  *   /eventi/ginevra/geneve/             115.2 KB + 16.3 KB (111 rows) = 132 KB
- * Both inside the 260 KB budget. That headroom is not unbounded: at ~150 B per
- * row the largest bucket has room for roughly 600 more events before it needs a
- * real pagination ladder. If `audit:page-weight` ever flags an `/eventi/` path,
- * this is the block to bound — do NOT fix it by dropping rows, that silently
- * re-orphans them.
+ * Both inside the 260 KB budget. That headroom was NOT unbounded and it ran
+ * out: the sentinel bucket reached 1235 events on 2026-09-04 (1155 rows,
+ * ~190 KB of rows alone) and the `fr` page measured 311.8 KB — over budget
+ * (issue #7329). The bound is now structural, not a bigger number: a page
+ * carries at most `OVERFLOW_ROWS_PER_PAGE` rows and the rest continue on
+ * `<bucket>/page-N/` (`renderOverflowLadderPage`), so the weight of any single
+ * page is O(1) in the size of the bucket. Rows are still never DROPPED — that
+ * would silently re-orphan them, which is the #5434 bug this block exists to
+ * prevent.
  *
  * Only events WITH a detail page are listed: `detailHref` returns null for an
  * event that has none, and linking its external source URL instead would add a
  * `nofollow` outbound without making our page reachable.
  */
+type OverflowRow = { event: SiteEvent; href: string };
+
+/** The linkable overflow rows of a bucket: every event past `cap` that has a
+ * detail page. Single source of truth for the ladder — page count, emission
+ * loop and hub nav all count rows through here, so they cannot drift. */
+function overflowRows(events: SiteEvent[], cap: number, detailHref?: DetailHref): OverflowRow[] {
+  if (!detailHref || events.length <= cap) return [];
+  return events
+    .slice(cap)
+    .map((event) => ({ event, href: detailHref(event) }))
+    .filter((row): row is OverflowRow => Boolean(row.href));
+}
+
+/**
+ * How many pages the overflow index of a bucket spans, base page included
+ * (so `1` = no ladder at all). Exported because the emit loop and the tests
+ * both need the exact same number the renderers slice against.
+ */
+export function overflowLadderPageCount(events: SiteEvent[], cap: number, detailHref?: DetailHref): number {
+  const n = overflowRows(events, cap, detailHref).length;
+  return n === 0 ? 1 : Math.ceil(n / OVERFLOW_ROWS_PER_PAGE);
+}
+
+/**
+ * URL of ladder page `page` (≥2) of a bucket: `<bucket-path>page-N/`.
+ *
+ * No collision with an event detail page under the same bucket:
+ * `slugifyEvent()` always appends the ISO start date (`titolo-2026-07-04`),
+ * so no assigned slug can ever be the literal `page-2`.
+ */
+export function overflowLadderPath(locale: Locale, canton: string, comune: string | undefined, page: number): string {
+  return `${pathFor(locale, canton, comune)}page-${page}/`;
+}
+
+/** Ladder pills, rendered on the base page AND on every ladder page so the
+ * whole ladder is one hop from any of them (BFS: a chain of prev/next links
+ * would push the last pages past `maxDepth`). */
+function renderOverflowLadderNav(
+  locale: Locale,
+  canton: string,
+  comune: string | undefined,
+  pageCount: number,
+  current: number,
+): string {
+  if (pageCount <= 1) return '';
+  const copy = OVERFLOW_INDEX_COPY[locale];
+  const pills = Array.from({ length: pageCount }, (_, i) => i + 1)
+    .map((n) => {
+      const label = `${copy.pageLabel} ${n}`;
+      if (n === current) {
+        return `<span aria-current="page" class="rounded-full border border-accent-border bg-accent-subtle px-3 py-1 text-xs font-semibold text-heading">${esc(label)}</span>`;
+      }
+      const href = n === 1 ? pathFor(locale, canton, comune) : overflowLadderPath(locale, canton, comune, n);
+      return `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${href}">${esc(label)}</a>`;
+    })
+    .join('');
+  return `<nav data-events-overflow-ladder="1" class="mt-4 flex flex-wrap gap-2" aria-label="${esc(copy.navLabel)}">${pills}</nav>`;
+}
+
 function renderOverflowIndex(
   events: SiteEvent[],
   cap: number,
   locale: Locale,
   detailHref?: DetailHref,
+  ladder?: { canton: string; comune?: string; page?: number },
 ): string {
-  if (!detailHref || events.length <= cap) return '';
-  const rows = events
-    .slice(cap)
-    .map((event) => ({ event, href: detailHref(event) }))
-    .filter((row): row is { event: SiteEvent; href: string } => Boolean(row.href));
+  const rows = overflowRows(events, cap, detailHref);
   if (rows.length === 0) return '';
+  const pageCount = Math.ceil(rows.length / OVERFLOW_ROWS_PER_PAGE);
+  const page = ladder?.page ?? 1;
+  const pageRows = rows.slice((page - 1) * OVERFLOW_ROWS_PER_PAGE, page * OVERFLOW_ROWS_PER_PAGE);
+  if (pageRows.length === 0) return '';
   const copy = OVERFLOW_INDEX_COPY[locale];
-  const items = rows
+  const items = pageRows
     .map(({ event, href }) => `<li><a class="ev-lnk" href="${esc(href)}">${esc(localizedTitle(event, locale))}</a></li>`)
     .join('');
+  const nav = ladder ? renderOverflowLadderNav(locale, ladder.canton, ladder.comune, pageCount, page) : '';
+  const intro = pageCount > 1 ? `${copy.text(rows.length)} ${copy.pageOf(page, pageCount)}` : copy.text(rows.length);
   return `<section data-events-overflow-index="1" class="ev-panel">
       <h2 class="ev-h2">${esc(copy.title)}</h2>
-      <p class="mt-2 text-sm leading-6 text-body">${esc(copy.text(rows.length))}</p>
+      <p class="mt-2 text-sm leading-6 text-body">${esc(intro)}</p>
       <ul class="mt-3 columns-1 gap-6 text-sm leading-7 sm:columns-2 lg:columns-3">${items}</ul>
+      ${nav}
     </section>`;
 }
 
@@ -1624,6 +1767,57 @@ function markupEligibleEvents(events: SiteEvent[], dateStamp: string): SiteEvent
   cutoff.setUTCDate(cutoff.getUTCDate() - 1);
   const cutoffIso = cutoff.toISOString().slice(0, 10);
   return events.filter((e) => e.startDate >= cutoffIso).slice(0, EVENT_JSONLD_ITEM_CAP);
+}
+
+/**
+ * The canton hub's index of overflow LADDER pages (issue #7329).
+ *
+ * Load-bearing for `audit:max-bfs-depth`, not decoration: page 1 of a bucket's
+ * overflow index lives on the bucket page itself, which the comune grid above
+ * already links, but pages 2..N are new URLs. Hanging them off the bucket page
+ * alone would put them one hop deeper and their rows one hop deeper still —
+ * exactly the orphan-tail regression (#5434) the overflow index exists to
+ * prevent, re-introduced by the fix for page weight. Linked from here they sit
+ * at the same depth as the bucket pages, so the rows keep the depth they had
+ * when they were all on one page.
+ *
+ * Renders nothing in the common case: only buckets past
+ * `OVERFLOW_ROWS_PER_PAGE` rows contribute, which today is one bucket in the
+ * whole corpus (4 pills).
+ */
+function renderHubLadderIndex(
+  locale: Locale,
+  canton: string,
+  byComune: Map<string, SiteEvent[]>,
+  otherEvents: SiteEvent[],
+  detailHref?: DetailHref,
+): string {
+  const copy = OVERFLOW_INDEX_COPY[locale];
+  const buckets: Array<{ label: string; comune?: string; pageCount: number }> = [];
+  for (const [comune, list] of byComune) {
+    const pageCount = overflowLadderPageCount(list, EVENT_CARD_CAP, detailHref);
+    if (pageCount > 1) buckets.push({ label: comune, comune, pageCount });
+  }
+  const otherPageCount = overflowLadderPageCount(otherEvents, OTHER_EVENTS_CARD_CAP, detailHref);
+  if (otherPageCount > 1) {
+    buckets.push({ label: bucketLabel(locale, canton, OTHER_EVENTS_COMUNE_KEY), comune: OTHER_EVENTS_COMUNE_KEY, pageCount: otherPageCount });
+  }
+  if (buckets.length === 0) return '';
+  const rows = buckets
+    .map(({ label, comune, pageCount }) => {
+      const pills = Array.from({ length: pageCount - 1 }, (_, i) => i + 2)
+        .map(
+          (n) =>
+            `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${overflowLadderPath(locale, canton, comune, n)}">${esc(`${copy.pageLabel} ${n}`)}</a>`,
+        )
+        .join('');
+      return `<div class="flex flex-wrap items-center gap-2"><span class="text-sm font-semibold text-heading">${esc(label)}</span>${pills}</div>`;
+    })
+    .join('');
+  return `<section data-events-overflow-ladder-index="1" class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-xl font-bold text-heading">${esc(copy.title)}</h2>
+      <div class="mt-3 grid gap-2">${rows}</div>
+    </section>`;
 }
 
 export function renderHubPage(params: {
@@ -1736,6 +1930,8 @@ export function renderHubPage(params: {
       <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.byComuneText)}</p>
       <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">${comuneGrid}</div>
     </section>
+
+    ${renderHubLadderIndex(locale, canton, byComune, otherEvents, detailHref)}
 
     ${renderCrosslinks(locale)}
 
@@ -1987,7 +2183,7 @@ export function renderComunePage(params: {
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
-    ${renderOverflowIndex(events, EVENT_CARD_CAP, locale, detailHref)}
+    ${renderOverflowIndex(events, EVENT_CARD_CAP, locale, detailHref, { canton, comune })}
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
@@ -2250,7 +2446,7 @@ export function renderOtherEventsPage(params: {
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
-    ${renderOverflowIndex(events, OTHER_EVENTS_CARD_CAP, locale, detailHref)}
+    ${renderOverflowIndex(events, OTHER_EVENTS_CARD_CAP, locale, detailHref, { canton, comune: OTHER_EVENTS_COMUNE_KEY })}
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
@@ -2313,6 +2509,118 @@ export function renderOtherEventsPage(params: {
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
+  return { urlPath: canonicalPath, html, wordCount };
+}
+
+/** Human label of a bucket (comune name, or the canton's "other events"
+ * wording for the comune-less sentinel) — shared by the ladder pages and the
+ * hub's ladder index so the two never name the same bucket differently. */
+function bucketLabel(locale: Locale, canton: string, comune: string | undefined): string {
+  return comune && comune !== OTHER_EVENTS_COMUNE_KEY ? comune : otherEventsCopyFor(canton, locale).breadcrumbLabel;
+}
+
+function buildLadderAlternates(canton: string, comune: string | undefined, page: number): string {
+  return LOCALES.map(
+    (locale) => ` <link rel="alternate" hreflang="${locale}" href="${BASE_URL}${overflowLadderPath(locale, canton, comune, page)}">`,
+  )
+    .concat(` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${overflowLadderPath('it', canton, comune, page)}">`)
+    .join('\n');
+}
+
+/**
+ * Page `page` (≥2) of a bucket's overflow index — the ladder that bounds page
+ * weight (issue #7329). Carries ONLY the index rows for its slice plus the
+ * ladder nav; the cards, stats, FAQ and methodology stay on the base page.
+ *
+ * `noindex,follow` by construction, not by word count: this is a crawl surface
+ * for events that already have their own indexable detail page, so indexing it
+ * would publish a near-contentless list — while `follow` is exactly what makes
+ * every row reachable, which is the #5434 invariant. Being noindex it is also
+ * deliberately absent from `sitemap-eventi.xml` (same treatment as the
+ * recently-ended bridge pages).
+ *
+ * BFS: linked from the CANTON HUB (`renderHubLadderIndex`), not only from the
+ * base page, so a ladder page sits at the same depth as the base page and its
+ * rows at the same depth as the base page's rows — `audit:max-bfs-depth`
+ * measures the identical graph it did before the ladder existed.
+ */
+export function renderOverflowLadderPage(params: {
+  locale: Locale;
+  canton: string;
+  /** `undefined`/`OTHER_EVENTS_COMUNE_KEY` = the comune-less sentinel bucket. */
+  comune?: string;
+  events: SiteEvent[];
+  cap: number;
+  page: number;
+  dateStamp: string;
+  distDir: string;
+  detailHref?: DetailHref;
+}): { urlPath: string; html: string; wordCount: number } {
+  const { locale, canton, comune, events, cap, page, dateStamp, distDir, detailHref } = params;
+  const copy = copyFor(canton, locale);
+  const oCopy = OVERFLOW_INDEX_COPY[locale];
+  const label = bucketLabel(locale, canton, comune);
+  const basePath = pathFor(locale, canton, comune);
+  const canonicalPath = overflowLadderPath(locale, canton, comune, page);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const pageCount = overflowLadderPageCount(events, cap, detailHref);
+  const rowCount = overflowRows(events, cap, detailHref).length;
+
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
+      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${basePath}">${esc(label)}</a>
+      <span class="mx-2">/</span>
+      <span>${esc(`${oCopy.pageLabel} ${page}`)}</span>
+    </nav>
+
+    <header class="ev-in rounded-lg border border-edge bg-surface p-5 shadow-stripe-sm sm:p-8">
+      <h1 class="max-w-4xl font-display text-2xl font-bold leading-tight text-heading sm:text-3xl">${esc(oCopy.ladderTitle(label, page, pageCount))}</h1>
+      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(oCopy.ladderLede(label, rowCount))}</p>
+      <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
+    </header>
+
+    ${renderOverflowIndex(events, cap, locale, detailHref, { canton, comune, page })}
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${basePath}">${esc(oCopy.backTo(label))} \u2192</a>
+    </section>
+
+    ${renderCrosslinks(locale)}
+  </div>`;
+
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: NATIONAL_COPY[locale].breadcrumbLabel, item: `${BASE_URL}${nationalIndexPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
+      { '@type': 'ListItem', position: 4, name: label, item: `${BASE_URL}${basePath}` },
+      { '@type': 'ListItem', position: 5, name: `${oCopy.pageLabel} ${page}`, item: canonicalUrl },
+    ],
+  });
+
+  const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: false })}`;
+  const html = buildSeoPageHtml({
+    locale,
+    title: oCopy.ladderTitle(label, page, pageCount),
+    description: oCopy.ladderDesc(label, page, pageCount),
+    canonicalUrl,
+    hreflangHtml: buildLadderAlternates(canton, comune, page),
+    robots: 'noindex,follow',
+    ogLocale: LOCALE_OG[locale],
+    bodyHtml,
+    jsonLdScripts: [breadcrumbLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
@@ -3426,6 +3734,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           for (const comune of comuni) {
             const list = byComune.get(comune)!;
             emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref }));
+            // Overflow index past page 1 (issue #7329) — same rows, bounded
+            // pages. Not sitemapped: every ladder page is noindex,follow.
+            for (let page = 2; page <= overflowLadderPageCount(list, EVENT_CARD_CAP, detailHref); page += 1) {
+              emit(renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref }));
+            }
             // One indexable detail page per event under its comune.
             for (const ev of list) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
@@ -3448,6 +3761,21 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           // bucket page above / detailSlugs population above).
           if (otherEvents.length > 0) {
             emit(renderOtherEventsPage({ locale, canton, events: otherEvents, dateStamp, weekendDays, distDir, detailHref }));
+            for (let page = 2; page <= overflowLadderPageCount(otherEvents, OTHER_EVENTS_CARD_CAP, detailHref); page += 1) {
+              emit(
+                renderOverflowLadderPage({
+                  locale,
+                  canton,
+                  comune: OTHER_EVENTS_COMUNE_KEY,
+                  events: otherEvents,
+                  cap: OTHER_EVENTS_CARD_CAP,
+                  page,
+                  dateStamp,
+                  distDir,
+                  detailHref,
+                }),
+              );
+            }
             for (const ev of otherEvents) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
               emit(
