@@ -11393,6 +11393,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.treno-dei-bambini-gallarate-piombino.title': 'Quando il "treno dei bambini" portò a Gallarate i figli degli operai in sciopero',
     'blog.article.treno-dei-bambini-gallarate-piombino.excerpt': 'Nell\'estate del 1911, i figli degli operai in sciopero a Piombino furono accolti a Gallarate come forma di solidarietà.',
     'blog.article.treno-dei-bambini-gallarate-piombino.imageAlt': 'Stazione di Gallarate con l\'arrivo del treno dei bambini',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.title': 'Vivere a Ponte Lambro e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Ponte Lambro e lavorare in Ticino.',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

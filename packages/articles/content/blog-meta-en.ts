@@ -11392,6 +11392,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.treno-dei-bambini-gallarate-piombino.title': 'When the \'children\'s train\' brought striking workers\' kids to Gallarate',
     'blog.article.treno-dei-bambini-gallarate-piombino.excerpt': 'In the summer of 1911, the children of the striking workers in Piombino were welcomed in Gallarate as a form of solidarity.',
     'blog.article.treno-dei-bambini-gallarate-piombino.imageAlt': 'Gallarate train station with the arrival of the children\'s train',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.title': 'Living in Ponte Lambro and working in Ticino as a border worker',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of living in Ponte Lambro and working in Ticino.',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

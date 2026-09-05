@@ -11391,6 +11391,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.treno-dei-bambini-gallarate-piombino.title': 'Als der „Kinderzug“ die streikenden Arbeiterkinder nach Gallarate brachte',
     'blog.article.treno-dei-bambini-gallarate-piombino.excerpt': 'Im Sommer 1911 wurden die Kinder der streikenden Arbeiter in Piombino aus Solidarität in Gallarate aufgenommen.',
     'blog.article.treno-dei-bambini-gallarate-piombino.imageAlt': 'Bahnhof Gallarate mit der Ankunft des Kinderzugs',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.title': 'Leben in Ponte Lambro und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Ponte Lambro zu leben und im Tessin zu arbeiten.',
+    'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;
