@@ -1,18 +1,18 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-09-04T23:08:35.756Z",
-  "total": 3,
+  "generatedAt": "2026-09-05T12:52:04.277Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 6198,
-  "avgDurationMs": 6198,
+  "unchangedCount": 0,
+  "durationMs": 5512,
+  "avgDurationMs": 5512,
   "durationHistory": [
-    6198
+    5512
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/TOI-L-112/Medical-Physicist--f-m-d----Proton-Therapy_R-25505-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:31.506Z",
+      "crawledAt": "2026-09-05T12:52:00.468Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/LPN-BO/Senior-Strategic-Accounts-Manager-EMEA_R-29705-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.272Z",
+      "crawledAt": "2026-09-05T12:52:01.181Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -92,49 +92,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "siemens-healthineers-f0d6a464ad2c",
-      "slug": "qa-ingegnere-siemens-healthineers-dwl-t",
-      "company": "Siemens Healthineers",
-      "companyKey": "siemens-healthineers",
-      "companyDomain": "siemens-healthineers.com",
-      "title": "QA Engineer",
-      "needsRetranslation": false,
-      "location": "DWL T",
-      "canton": "ZH",
-      "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
-      "source": "Siemens Healthineers Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:43:41.628Z",
-      "addressLocality": "DWL T",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità / Compliance",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Medicale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
-      "jobReqId": "R-28619",
-      "firstSeenAt": "2026-07-08T22:12:19.122Z",
-      "salaryMin": 85000,
-      "salaryMax": 145000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "siemens-healthineers-50bb33ddba45",
       "slug": "network-ingegnere-cloud-operations-siemens-healthineers-zurich",
@@ -176,5 +133,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

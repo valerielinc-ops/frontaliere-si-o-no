@@ -11409,6 +11409,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.via-industria-caslano-iniziativa-popolare.title': 'Via Industria à Caslano, l\'initiative populaire a réussi',
     'blog.article.via-industria-caslano-iniziativa-popolare.excerpt': 'Remettez 530 signatures pour ne pas étendre Via Industria à Caslano, 458 certifiées à la Chancellerie.',
     'blog.article.via-industria-caslano-iniziativa-popolare.imageAlt': 'Vue aérienne de Via Industria à Caslano',
+    'blog.article.assemblea-centro-iva-avs.title': 'Assemblée du Centre approuve le financement de l\'AVS avec TVA',
+    'blog.article.assemblea-centro-iva-avs.excerpt': 'Le Centre soutient le financement de la 13ème rente AVS par une augmentation de TVA de 0,4%. Je vote le 29 novembre. Qu\'est-ce qui change pour les frontaliers ?',
+    'blog.article.assemblea-centro-iva-avs.imageAlt': 'Vue aérienne de Lugano, cœur du Tessin et destination des travailleurs frontaliers',
+    'blog.article.como-cantiere-corsie-ztl.title': 'Côme, catastrophe routière : voies ouvertes et ZTL',
+    'blog.article.como-cantiere-corsie-ztl.excerpt': 'La municipalité de Côme a ouvert des voies préférentielles et des zones de ZTL pour les véhicules vers la Suisse. Voici les itinéraires autorisés et comment se déplacer sur le chantier.',
+    'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Trafic intense sur la route près de Como avec chantier et panneaux d\'avertissement orange',
 };
 
 export default blogMetaFr;

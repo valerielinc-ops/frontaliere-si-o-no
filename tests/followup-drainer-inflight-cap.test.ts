@@ -12,6 +12,16 @@
  * Dal 2026-09-04 il tetto è `FOLLOWUP_MAX_INFLIGHT_FIX` (default 3) e il drain
  * riempie gli slot liberi invece di promuovere sempre uno solo.
  *
+ * Quel tetto è rimasto nominale fino al 2026-09-05: `issue-fix.yml` serializzava
+ * su un `concurrency` group COSTANTE, che tiene una sola pending e sfratta ogni
+ * altra, quindi le promozioni 2 e 3 di ogni tick morivano `cancelled` a 0 min
+ * senza posare un `FIX_OUTCOME` e il RESCUE le contava come tentativi falliti
+ * (823 run sfrattate il 09-04 contro 31 il 09-03; 88 issue `fu-parked` senza un
+ * solo verdetto). Ora la chiave di quel gruppo è per-issue e i 3 slot sono
+ * reali: le attese qui sotto tornano a essere quelle del cap, ed è
+ * `followup-drainer-fix-queue-depth.test.ts` a sorvegliare che la chiave resti
+ * per-issue — se torna costante, il clamp riporta il cap a 1.
+ *
  * `followup-drainer-dry-run-preview.test.ts` prova il GUARD (cosa succede a slot
  * pieni) e fissa il cap a 1 per farlo; questo file prova il CAP — che il numero
  * di promozioni segua gli slot liberi, in entrambe le direzioni.
@@ -102,6 +112,15 @@ describe('cap delle run issue-fix in volo', () => {
     execFileSync.mockImplementation(makeDispatch(1, 5));
     const lines = await runDrainCapturingLogs();
     expect(promotions(lines)).toHaveLength(2);
+  });
+
+  it('col gruppo per-issue il clamp non morde: nessuna riga di clamp nei log', async () => {
+    // Il clamp è la rete: deve restare silenzioso finché `issue-fix.yml` non
+    // serializza. Se questa riga comincia a comparire, qualcuno ha rimesso una
+    // chiave di concorrenza costante e il cap è tornato a 1 senza dirlo altrove.
+    execFileSync.mockImplementation(makeDispatch(0, 5));
+    const lines = await runDrainCapturingLogs();
+    expect(lines.some((l) => l.includes('cap issue-fix richiesto'))).toBe(false);
   });
 
   it('a cap raggiunto non promuove niente e lo dice col numero', async () => {

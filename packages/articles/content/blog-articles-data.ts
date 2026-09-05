@@ -34077,6 +34077,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'assemblea-centro-iva-avs',
+ category: 'pensione',
+ date: '2026-09-05T11:17:38.396Z',
+ image: '/images/blog/assemblea-centro-iva-avs.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'como-cantiere-corsie-ztl',
+ category: 'pratico',
+ date: '2026-09-05T12:43:23.315Z',
+ image: '/images/blog/como-cantiere-corsie-ztl.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

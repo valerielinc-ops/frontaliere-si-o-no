@@ -24,6 +24,7 @@ import { readAttr } from './lib/html-attr.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
 import {
+  COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS,
   classifySourceDetailObservation,
   createSourceDetailEvidence,
   createSourceDetailEvidenceBundle,
@@ -601,25 +602,110 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     ?? processingFailureResult(items[index], new Error('worker returned no result')));
 }
 
+/**
+ * A fetched detail page is evidence only if something was actually observed on
+ * it. With no usable source location AND no comparable source description,
+ * `locationMismatch` and `descriptionMismatch` are both false for every
+ * possible published value: the sample cannot contradict anything, yet the
+ * counters below used to swallow it and the crawler read as clean. That is how
+ * a green `--check-source-details` run can prove nothing — measured 208/924
+ * fetched samples on run 33953283741 (2026-09-05), plus 366/924 with no
+ * location verdict at all. Scored as its own outcome, never as a pass.
+ */
+export function sourceDetailUnobserved(result) {
+  return !result.sourceLocation
+    && Number(result.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS;
+}
+
+/**
+ * A source location repeated identically on distinct vacancies of one crawler
+ * whose PUBLISHED locations differ cannot be describing either of them: two
+ * different workplaces do not share one address, so at most one reading can be
+ * right and the value carries no per-vacancy information. In practice it is
+ * the ATS tenant's own address, served unchanged on every posting — measured
+ * on run 33953283741: `jobs.coopjobs.ch` declares `Reservatstrasse 1-3, 8953
+ * Dietikon` (Coop's own site) for a Bern store and a Baden-Dättwil store
+ * alike, `jobs.fenaco.com` declares fenaco's `Erlachstrasse 5, 3001 Bern` for
+ * a Volg shop in Wetzikon, and Livit, Mistral and Interdiscount do the same
+ * with their head offices.
+ *
+ * The rule is the constancy, never a list of tenant names, so it holds for
+ * every ATS that starts doing this tomorrow. It is deliberately the strict
+ * form — identical source AND differing published values — because two
+ * vacancies genuinely in the same town legitimately share a source location,
+ * and treating that as non-evidence would blind the check on exactly the
+ * single-site employers it protects best.
+ *
+ * @param {Array<Record<string, any>>} sourceResults
+ * @returns {Set<string>} keys `${crawlerKey}\u0000${normalized source location}`
+ */
+export function tenantConstantSourceLocations(sourceResults) {
+  const seen = new Map();
+  for (const result of sourceResults) {
+    if (!result?.locationChecked || !result.sourceLocation) continue;
+    const key = `${result.crawlerKey}\u0000${normalizePlace(result.sourceLocation)}`;
+    if (!seen.has(key)) seen.set(key, { published: new Set(), everMatched: false });
+    const bucket = seen.get(key);
+    bucket.published.add(normalizePlace(result.publishedLocation || ''));
+    if (!result.locationMismatch) bucket.everMatched = true;
+  }
+  const constant = new Set();
+  for (const [key, bucket] of seen) {
+    // `everMatched` is the guard that keeps this from eating a real defect. If
+    // one vacancy carrying this source location DOES agree with it, the value
+    // is a genuine workplace and the disagreement of the other one is a
+    // finding, not noise. Without it the rule silenced agroscope, where the
+    // source says Wädenswil, one record publishes Wädenswil correctly and the
+    // other publishes Zürich — measured on run 33953283741, and exactly the
+    // kind of red this check exists to raise.
+    if (bucket.published.size >= 2 && !bucket.everMatched) constant.add(key);
+  }
+  return constant;
+}
+
+/**
+ * Why a source detail page could not be read. `fetchFailed` alone cannot tell
+ * «the vacancy is gone, the sample is stale» from «the site refuses our
+ * fetcher», and those two demand opposite responses: the first is expected
+ * churn, the second is coverage we have lost and can win back. Measured on run
+ * 33953283741, the aggregate 155/1079 splits into 102 transport failures, 47
+ * 401/403 refusals and only 6 genuinely expired vacancies — i.e. 13,8% of the
+ * sample is missing for reasons that are ours to fix, not the source's.
+ */
+export function fetchFailureCause(status) {
+  const code = Number(status || 0);
+  if (code === 404 || code === 410) return 'expired-vacancy';
+  if (code === 401 || code === 403) return 'blocked-by-source';
+  if (code === 429) return 'rate-limited';
+  if (code >= 500) return 'source-server-error';
+  if (code === 0) return 'transport';
+  return `http-${code}`;
+}
+
 export function applySourceDetailResults(report, sourceResults, requested = sourceResults.length) {
   const sourceDetailSummary = {
     requested,
     fetched: 0,
     fetchFailed: 0,
+    fetchFailureCauses: {},
     processingFailed: 0,
+    unobserved: 0,
+    tenantConstantLocationObservations: 0,
     authoritativeLocationChecks: 0,
     locationMatches: 0,
     locationMismatches: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
   };
+  const tenantConstant = tenantConstantSourceLocations(sourceResults);
   const byKey = {};
   for (const result of sourceResults) {
     const key = result.crawlerKey;
     if (!byKey[key]) byKey[key] = {
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
-      descriptionMismatches: 0, details: [],
+      descriptionMismatches: 0, unobserved: 0, tenantConstantObservations: 0,
+      unobservedDetails: [], details: [],
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
@@ -627,6 +713,8 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.fetchFailed) {
       info.fetchFailed++;
       sourceDetailSummary.fetchFailed++;
+      const cause = fetchFailureCause(result.status);
+      sourceDetailSummary.fetchFailureCauses[cause] = (sourceDetailSummary.fetchFailureCauses[cause] || 0) + 1;
       continue;
     }
     if (result.processingFailed) {
@@ -636,7 +724,22 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       continue;
     }
     sourceDetailSummary.fetched++;
-    if (result.locationChecked) {
+    if (sourceDetailUnobserved(result)) {
+      info.unobserved++;
+      sourceDetailSummary.unobserved++;
+      info.unobservedDetails.push(`${sourceReference}: fetched, but no source location was readable and only ${result.sourceDescriptionLength} chars of source description (< ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS}) — this sample can contradict nothing`);
+    }
+    const isTenantConstant = result.locationChecked
+      && tenantConstant.has(`${result.crawlerKey}\u0000${normalizePlace(result.sourceLocation || '')}`);
+    if (isTenantConstant) {
+      // Not authoritative and not a match: an observation that cannot
+      // discriminate is inconclusive, and stays visible as such.
+      info.locationInconclusive++;
+      info.tenantConstantObservations++;
+      sourceDetailSummary.inconclusiveLocationObservations++;
+      sourceDetailSummary.tenantConstantLocationObservations++;
+      info.unobservedDetails.push(`${sourceReference}: source location "${result.sourceLocation}" is repeated across vacancies published at different places — it is the tenant address, not this vacancy's`);
+    } else if (result.locationChecked) {
       info.locationChecked++;
       sourceDetailSummary.authoritativeLocationChecks++;
       if (result.locationMismatch) sourceDetailSummary.locationMismatches++;
@@ -645,7 +748,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       info.locationInconclusive++;
       sourceDetailSummary.inconclusiveLocationObservations++;
     }
-    if (result.locationMismatch) {
+    if (result.locationMismatch && !isTenantConstant) {
       info.locationMismatches++;
       info.details.push(`${sourceReference}: published "${result.publishedLocation || 'empty'}", source "${result.sourceLocation}" [${result.locationEvidence}]`);
     }
@@ -664,6 +767,19 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
         message: `${info.processingFailed}/${info.checked} source detail pages failed during local processing`,
       });
       entry.severity = 'CRITICAL';
+    }
+    if (info.unobserved > 0 || info.tenantConstantObservations > 0) {
+      const parts = [];
+      if (info.unobserved > 0) parts.push(`${info.unobserved}/${info.checked} fetched but observable in neither location nor description`);
+      if (info.tenantConstantObservations > 0) parts.push(`${info.tenantConstantObservations}/${info.checked} carrying the tenant address instead of the vacancy's`);
+      entry.issues.push({
+        type: 'source-detail-unobserved',
+        count: info.unobserved + info.tenantConstantObservations, total: info.checked,
+        unobserved: info.unobserved,
+        tenantConstantObservations: info.tenantConstantObservations,
+        details: info.unobservedDetails,
+        message: `${parts.join(', ')} — those samples score as a pass without proving anything`,
+      });
     }
     const findings = info.locationMismatches + info.descriptionMismatches;
     if (findings > 0) {
@@ -1205,6 +1321,18 @@ async function main() {
       sourceDetailsToCheck,
       { provenance },
     ));
+    // Print the observability rate on every run: without it, a source-detail
+    // pass is indistinguishable from a source-detail no-op, and the next
+    // threshold gets tightened on an intuition instead of on this number.
+    if (sourceDetailSummary.fetched > 0) {
+      const rate = (sourceDetailSummary.unobserved / sourceDetailSummary.fetched * 100).toFixed(1);
+      console.log(`Source detail observability: ${sourceDetailSummary.fetched - sourceDetailSummary.unobserved}/${sourceDetailSummary.fetched} fetched pages yielded an observable field (${rate}% proved nothing)`);
+    }
+    const causes = Object.entries(sourceDetailSummary.fetchFailureCauses).sort((a, b) => b[1] - a[1]);
+    if (causes.length > 0) {
+      console.log(`Source detail fetch failures: ${sourceDetailSummary.fetchFailed}/${sourceDetailSummary.requested} — ${causes.map(([cause, count]) => `${count} ${cause}`).join(', ')}`);
+    }
+    console.log('');
   }
 
   // Run URL checks

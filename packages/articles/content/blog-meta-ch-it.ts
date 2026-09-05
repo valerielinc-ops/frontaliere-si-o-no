@@ -5545,6 +5545,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.processo-junge-tat-zurigo.title': 'Processo Junge Tat: Procura chiede condanna, difesa assoluzione',
     'blog.article.processo-junge-tat-zurigo.excerpt': 'Sei membri del gruppo di estrema destra \'Junge Tat\' sono comparsi davanti alla giustizia zurighese con l\'accusa di discriminazione e incitamento all\'odio.',
     'blog.article.processo-junge-tat-zurigo.imageAlt': 'Aula di tribunale affollata con giornalisti e manifestanti antifascisti all\'esterno.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur',
+    'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Agricoltori svizzeri in una riunione di discussione su un accordo di libero scambio.',
+    'blog.article.zugo-salari-occupazione-guida.title': 'Mercato del lavoro Zugo: salari, settori e formazione',
+    'blog.article.zugo-salari-occupazione-guida.excerpt': 'Guida pratica ai salari e alle opportunità di occupazione nel cantone di Zugo: livelli salariali per formazione, diritti dei lavoratori e calcolo dello stipendio netto in Svizzera.',
+    'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Uffici svizzeri e spazi di lavoro che rappresentano il mercato occupazionale e le opportunità nel settore privato',
+    'blog.article.salari-canton-zugo-contratti.title': 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    'blog.article.salari-canton-zugo-contratti.excerpt': 'Mercato del lavoro svizzero: come funziona la determinazione dei salari tra contratti collettivi, tassazione cantonale e livelli di formazione.',
+    'blog.article.salari-canton-zugo-contratti.imageAlt': 'Ufficio svizzero moderno con professionisti di diverse discipline al lavoro, finestre ampie con vista sul paesaggio alpino',
+    'blog.article.imposta-successione-zugo-aliquote.title': 'Imposta successione Zugo: aliquote e esenzioni',
+    'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Nel Cantone Zugo, le imposte di successione e donazione sono materia cantonale. Esenzioni per coniuge e discendenti, aliquote per grado di parentela: come funziona la dichiarazione.',
+    'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Ufficio tributario cantonale: documenti di successione e moduli fiscali su una scrivania amministrativa svizzera.',
 };
 
 export default blogMetaChIt;

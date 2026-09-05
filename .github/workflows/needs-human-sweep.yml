@@ -77,9 +77,18 @@ jobs:
           # `tests/needs-human-prepass-sparse-closure.test.ts` ricalcola la
           # chiusura dal sorgente e fallisce se questo blocco non la copre: la
           # lista qui sotto non va tenuta aggiornata a memoria.
+          #
+          # `/VISION.md` non e' un import: e' il DATO che il pre-pass legge dal
+          # 2026-09-05 (registro delle decisioni gia' prese). Non lo vede il
+          # test sulla chiusura degli import, che cammina i soli `from '...'`,
+          # e la sua assenza non uccide il modulo: `readVisionRegistry()` e'
+          # fail-open e il pre-pass tornerebbe al comportamento precedente
+          # SENZA dirlo forte. Cioe' il modo peggiore di rompersi — verde e
+          # inerte — ed e' per questo che sta scritto qui e non altrove.
           sparse-checkout: |
             /scripts/ci/
             /scripts/lib/
+            /VISION.md
           sparse-checkout-cone-mode: false
         timeout-minutes: 10
 

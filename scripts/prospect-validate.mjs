@@ -69,6 +69,23 @@ specs = specs.filter((s) => {
   return !c || !DONE_STATUSES.has(c.status);
 });
 
+// Il filtro qui sopra toglie chi non puo' piu' avanzare, ma fra chi resta
+// l'ordine e' ancora quello di `readdir`: con 64 spec in gara e 40 slot, le
+// stesse 24 di coda alfabetica (`recruitingapp-2861` … `walo`, misurate il
+// 2026-09-05) non vengono rivalidate MAI. Ogni check aggiunto al gate dopo la
+// loro ultima validazione resta percio' «mai misurato» per sempre, che il gate
+// tratta — giustamente — come bloccante: 14 delle 34 candidate `promoted`
+// erano ferme li', con l'ultima validazione al 2026-08-21. Ordina per
+// validazione piu' vecchia: chi non e' mai stato validato passa per primo,
+// l'alfabeto resta solo come spareggio a parita' di data.
+specs.sort((a, b) => {
+  const lastAt = (spec) => {
+    const history = byCrawlerKey.get(spec.companyKey)?.validationHistory;
+    return Array.isArray(history) && history.length ? String(history[history.length - 1].at || '') : '';
+  };
+  return lastAt(a).localeCompare(lastAt(b)) || String(a.companyKey).localeCompare(String(b.companyKey));
+});
+
 specs = specs.slice(0, limit);
 
 console.log('═══ Prospector · VALIDATE ═══');
@@ -171,6 +188,9 @@ for (const spec of specs) {
       contentfulRate: report.contentfulRate,
       locationSourceRate: report.locationSourceRate,
       distinctRate: report.distinctRate,
+      // Letto dal gate insieme a `distinctRate`: titoli ripetuti su pagine
+      // diverse sono un fatto del datore, non un selettore rotto.
+      detailDistinctRate: report.detailDistinctRate,
       // The promotion gate reads this key and treats ABSENT as "never
       // measured" (blocking) while `null` means "measured, unreadable bytes"
       // (not blocking) — so it must be written on every entry, including null.

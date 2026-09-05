@@ -86339,6 +86339,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assemblea-centro-iva-avs': {
+    title: 'Assemblea Centro approva finanziamento AVS con IVA',
+    description: 'Il Centro sostiene il finanziamento della 13esima rendita AVS mediante aumento IVA dello 0,4%. Voto il 29 novembre. Cosa cambia per i frontalieri?',
+    keywords: 'frontalieri, ticino, svizzera, italia, assemblea, centro, approva, finanziamento',
+    ogTitle: 'Assemblea Centro approva finanziamento AVS con IVA',
+    ogDescription: 'Il Centro sostiene il finanziamento della 13esima rendita AVS mediante aumento IVA dello 0,4%. Voto il 29 novembre. Cosa cambia per i frontalieri?',
+    canonicalPath: '/articoli-frontaliere/assemblea-centro-iva-avs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assemblea Centro approva finanziamento AVS con IVA",
+      "description": "Il Centro sostiene il finanziamento della 13esima rendita AVS mediante aumento IVA dello 0,4%. Voto il 29 novembre. Cosa cambia per i frontalieri?",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assemblea-centro-iva-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano, cuore del Ticino e meta dei frontalieri svizzeri"
+      },
+      "datePublished": "2026-09-05T11:17:38+00:00",
+      "dateModified": "2026-09-05T11:17:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assemblea-centro-iva-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-como-cantiere-corsie-ztl': {
+    title: 'Como, disastro traffico: aperte corsie e ZTL | Frontaliere Ticino',
+    description: 'Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, disastro, traffico, aperte',
+    ogTitle: 'Como, disastro traffico: aperte corsie e ZTL',
+    ogDescription: 'Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.',
+    canonicalPath: '/articoli-frontaliere/como-cantiere-corsie-ztl',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, disastro traffico: aperte corsie e ZTL",
+      "description": "Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-cantiere-corsie-ztl.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico intenso sulla strada verso Como con cantiere e segnali di avvertimento arancioni"
+      },
+      "datePublished": "2026-09-05T12:43:23+00:00",
+      "dateModified": "2026-09-05T12:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-cantiere-corsie-ztl/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

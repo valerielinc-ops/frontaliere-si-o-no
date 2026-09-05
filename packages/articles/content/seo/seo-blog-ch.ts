@@ -71975,6 +71975,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mezzo-miliardo-contadini-mercosur': {
+    title: 'Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur',
+    description: 'La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, mezzo, miliardo, contadini, salvare',
+    ogTitle: 'Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur',
+    ogDescription: 'La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri, con l\'obiettivo di salvare l\'accordo di libero scambio con il Mercosur.',
+    canonicalPath: '/articoli-svizzera/mezzo-miliardo-contadini-mercosur/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur",
+      "description": "La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mezzo-miliardo-contadini-mercosur.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agricoltori svizzeri in una riunione di discussione su un accordo di libero scambio."
+      },
+      "datePublished": "2026-09-05T11:11:31+00:00",
+      "dateModified": "2026-09-05T11:11:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mezzo-miliardo-contadini-mercosur/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zugo-salari-occupazione-guida': {
+    title: 'Mercato del lavoro Zugo: salari, settori e formazione',
+    description: 'Guida pratica ai salari nel canton Zugo: livelli salariali per grado di formazione, settori occupazionali, diritti dei lavoratori, contributi AVS/LPP',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, zugo, salari',
+    ogTitle: 'Mercato del lavoro Zugo: salari, settori e formazione',
+    ogDescription: 'Conosci il mercato del lavoro nel canton Zugo: salari per livello di formazione, settori che assumono, diritti dei lavoratori (vacanze, orario, licenziamento), contributi AVS/LPP e come calcolare lo stipendio netto in Svizzera. Guida completa 2026.',
+    canonicalPath: '/articoli-svizzera/zugo-salari-occupazione-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro Zugo: salari, settori e formazione",
+      "description": "Guida pratica ai salari nel canton Zugo: livelli salariali per grado di formazione, settori occupazionali, diritti dei lavoratori, contributi AVS/LPP",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zugo-salari-occupazione-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici svizzeri e spazi di lavoro che rappresentano il mercato occupazionale e le opportunità nel settore privato"
+      },
+      "datePublished": "2026-09-05T11:49:46+00:00",
+      "dateModified": "2026-09-05T11:49:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zugo-salari-occupazione-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-canton-zugo-contratti': {
+    title: 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    description: 'Come funziona il mercato del lavoro svizzero: contratti collettivi, tassazione cantonale, salari per livello di formazione. Guida pratica per il Canton Zugo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    ogDescription: 'Scopri come funziona il mercato del lavoro nel Canton Zugo: quali contratti collettivi vigono, come la tassazione cantonale e il livello di formazione influenzano i salari, e quali strumenti usare per calcolare il tuo stipendio netto in Svizzera.',
+    canonicalPath: '/articoli-svizzera/salari-canton-zugo-contratti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro canton Zugo: settori e livelli",
+      "description": "Come funziona il mercato del lavoro svizzero: contratti collettivi, tassazione cantonale, salari per livello di formazione. Guida pratica per il Canton Zugo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-canton-zugo-contratti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero moderno con professionisti di diverse discipline al lavoro, finestre ampie con vista sul paesaggio alpino"
+      },
+      "datePublished": "2026-09-05T12:52:10+00:00",
+      "dateModified": "2026-09-05T12:52:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-canton-zugo-contratti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-zugo-aliquote': {
+    title: 'Imposta successione Zugo: aliquote e esenzioni',
+    description: 'Imposta di successione e donazione nel Zugo: aliquote per parentela, esenzioni coniuge e figli, dichiarazione e termini di versamento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, zugo, aliquote',
+    ogTitle: 'Imposta successione Zugo: aliquote e esenzioni',
+    ogDescription: 'Nel Cantone Zugo, l\'imposta di successione e donazione è materia cantonale. Scopri le aliquote per grado di parentela, le esenzioni per coniuge e discendenti, e come presentare la dichiarazione di successione all\'ufficio tributario.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-zugo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione Zugo: aliquote e esenzioni",
+      "description": "Imposta di successione e donazione nel Zugo: aliquote per parentela, esenzioni coniuge e figli, dichiarazione e termini di versamento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-zugo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio tributario cantonale: documenti di successione e moduli fiscali su una scrivania amministrativa svizzera."
+      },
+      "datePublished": "2026-09-05T13:12:53+00:00",
+      "dateModified": "2026-09-05T13:12:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-zugo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

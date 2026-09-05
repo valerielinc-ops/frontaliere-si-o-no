@@ -20,6 +20,8 @@ import { extractLinks } from './careers-trail.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
+import { listingEvidenceFields } from './detail-extract.mjs';
 
 /**
  * @typedef {Object} CrawlerSpec
@@ -30,7 +32,7 @@ import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
  * @property {'jsonld'|'microdata'|'template'} mode
  * @property {string[]} seedUrls
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
- * @property {string} [detailTemplate]    URL template shared by the vacancy links
+ * @property {string | string[]} [detailTemplate]    URL template(s) shared by the vacancy links
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
  * @property {number} sampleVacancyCount
@@ -204,6 +206,16 @@ export async function runSpec(spec, runtime = {}) {
         sleepImpl: runtime.sleepImpl,
       });
       if (!res.ok) { errors.push(`${seed}: HTTP ${res.status}`); continue; }
+      // Stessa evidenza di listing che allega `runSpecInProduction()`: su
+      // Umantis la localita' dell'annuncio sta nella riga del listing, non
+      // nella pagina di dettaglio. Senza, il validatore grada righe piu'
+      // povere di quelle che il runtime pubblichera' e boccia il candidato per
+      // «nessuna localita' source-backed» — misurato il 2026-09-05 su
+      // recruitingapp-2924, che pubblica 6 annunci con geografia Rheinfelden AG
+      // mentre la validazione ne misurava 0%.
+      const listingEvidence = spec.platform === 'umantis.com'
+        ? extractUmantisListingEvidence(res.body, res.url)
+        : new Map();
       const links = extractLinks(res.body, res.url);
       const { vacancies } = extractVacancies(res.body, res.url, links);
       for (const v of vacancies) {
@@ -211,8 +223,10 @@ export async function runSpec(spec, runtime = {}) {
           errors.push(`${v.url}: origine dettaglio non autorizzata`);
           continue;
         }
+        const evidence = listingEvidence.get(umantisVacancyIdentity(v.url));
         all.push({
           ...v,
+          ...listingEvidenceFields(v, evidence),
           company: v.company || spec.companyName,
           companyKey: spec.companyKey,
           companyDomain: spec.companyHost,

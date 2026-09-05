@@ -13,20 +13,15 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {
-  extractDetailFields,
-  isSufficientVacancyDescription,
-} from './prospector/extract.mjs';
+import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import {
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
 } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractLinks } from './prospector/careers-trail.mjs';
-import {
-  extractUmantisDetailFields,
-  umantisVacancyIdentity,
-} from './prospector/umantis-detail.mjs';
+import { umantisVacancyIdentity } from './prospector/umantis-detail.mjs';
+import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -193,17 +188,10 @@ async function fetchJobListings(runtime = {}) {
   };
 
   const observingDetailExtractor = (html, pageUrl) => {
-    const detail = extractDetailFields(html, pageUrl);
-    const umantisDetail = extractUmantisDetailFields(html);
-    if (isSufficientVacancyDescription(umantisDetail.description)) {
-      detail.description = umantisDetail.description;
-    }
-    if (!detail.locationCandidates.length && umantisDetail.locationCandidates.length) {
-      detail.locationCandidates = umantisDetail.locationCandidates;
-      const [candidate] = umantisDetail.locationCandidates;
-      detail.location = candidate.location;
-      detail.addressCountry = candidate.addressCountry;
-    }
+    // Stessa catena del runtime sintetizzato e del validatore, da un modulo
+    // solo: qui la copia locale aveva perso per strada il guard su
+    // `locationGateRejected` che il runtime applica.
+    const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl);
 
     const vacancyId = umantisVacancyIdentity(pageUrl);
     if (vacancyId) {

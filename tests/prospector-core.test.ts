@@ -21,7 +21,8 @@ import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
 import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
-import { tokenOverlap, gradeExtraction, isReadableText } from '../scripts/lib/prospector/validate.mjs';
+import { tokenOverlap, gradeExtraction, isReadableText, bodySignature } from '../scripts/lib/prospector/validate.mjs';
+import { extractRuntimeDetailFields, listingEvidenceFields } from '../scripts/lib/prospector/detail-extract.mjs';
 import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
@@ -169,6 +170,62 @@ describe('vacancy extraction', () => {
     expect(detail.location).toBe('Winterthur');
     expect(detail.description).toContain('Coordinate inbound logistics');
     expect(detail.description).toContain('Work with the warehouse team');
+  });
+
+  // Regressione arsante.ch/gmo (#7322). Il JobPosting reale non ha alcun
+  // jobLocation: la sede della vacancy sta solo nel blocco indirizzo renderizzato
+  // in fondo alla pagina, e nessun nome di classe della cascata dice "location"
+  // → il gate source-backed scartava tutti e 10 gli annunci e il crawler
+  // riportava 0 job da una pagina sana.
+  it('reads the vacancy geography from a rendered postal address block', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Assistant·e médical·e</h1>`
+      + `<div itemprop="description"><p>Le Centre Médical du Léman recrute un·e assistant·e médical·e.</p></div>`
+      + `<div class="contact-info text-white"><h3>Centre Médical du Léman / Arsanté</h3>`
+      + `<p>17 Rue Dr-Alfred-VINCENT</p><p>1201 Genève</p>`
+      + `<div class="pt-3"><p><strong>Postuler</strong></p></div></div>`
+      + `</article></main>`
+      + `<footer><address itemscope itemtype="http://schema.org/PostalAddress">`
+      + `<div itemprop="streetAddress">Route de Chancy 59C</div>`
+      + `<div itemprop="postalCode">CH-1213 Petit-Lancy</div></address></footer>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/assistant-e-medical-e-100');
+    // Il codice postale rende la coppia un indirizzo, e il municipio non deve
+    // inglobare le parole del <p> successivo ("Postuler").
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: '1201 Genève', addressLocality: 'Genève', postalCode: '1201' }),
+    ]);
+    expect(resolveDetailOrListingSwissGeography(detail, {}).geography)
+      .toMatchObject({ location: '1201 Genève', canton: 'GE' });
+  });
+
+  // L'indirizzo dell'azienda nel chrome del sito è ripetuto identico su ogni
+  // pagina: leggerlo come luogo di lavoro pubblicherebbe un default del datore
+  // di lavoro inventato, che è esattamente ciò che il gate source-backed vieta.
+  it('ignores an employer address that only appears in the page chrome', () => {
+    const html = `<header><address><p>CH-1213 Petit-Lancy</p></address></header>`
+      + `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
+      + `<div class="contact-info"><div class="pt-3"><p><strong>Postuler</strong></p></div></div>`
+      + `</article></main>`
+      + `<footer><address><div itemprop="postalCode">CH-1213 Petit-Lancy</div></address></footer>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96');
+    expect(detail.locationCandidates).toEqual([]);
+    expect(resolveDetailOrListingSwissGeography(detail, {}).geography).toBeNull();
+  });
+
+  // Una via senza codice postale né municipio non è una localita: la pagina
+  // psychologue-psychotherapeute-fsp-94 di arsante.ch pubblica solo "2 Place du
+  // Lignon", e dedurne Vernier sarebbe geografia inventata, non source-backed.
+  it('does not invent a municipality from a street-only address block', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Psychologue psychothérapeute FSP</h1>`
+      + `<div itemprop="description"><p>Poste de psychologue à pourvoir.</p></div>`
+      + `<div class="contact-info"><h3>Centre Médical du Lignon / Arsanté</h3>`
+      + `<p>2 Place du Lignon</p></div>`
+      + `</article></main>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94');
+    expect(detail.locationCandidates).toEqual([]);
   });
 
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la
@@ -940,9 +997,9 @@ describe('promotion gate', () => {
     expect(res.reasons.join(' ')).toMatch(/nuova validazione/);
   });
 
-  it('rifiuta un template senza localita source-backed sull\'intero campione', () => {
+  it('rifiuta un template la cui localita source-backed non regge il campione', () => {
     const missingLocation = graded(2);
-    missingLocation.validationHistory.at(-1).locationSourceRate = 0.75;
+    missingLocation.validationHistory.at(-1).locationSourceRate = 0.5;
     const res = evaluatePromotion(missingLocation);
     expect(res.passed).toBe(false);
     expect(res.checks.sourceBackedLocation).toBe(false);
@@ -964,6 +1021,79 @@ describe('promotion gate', () => {
 
     structured.validationHistory.at(-1).locationSourceRate = 1;
     expect(evaluatePromotion(structured).passed).toBe(true);
+  });
+
+  it('promuove un datore che espone la localita su tre pagine campionate su quattro', () => {
+    // La soglia misura la RESA, non la perfezione: il runtime SCARTA la riga
+    // senza geografia source-backed invece di inventarne una, quindi la quarta
+    // pagina costa un annuncio, non un dato falso. anker-swiss.ch, 2026-09-05:
+    // 279 annunci pubblicabili fermi su questa singola pagina.
+    const partial = graded(2);
+    partial.validationHistory.at(-1).locationSourceRate = 0.75;
+    const res = evaluatePromotion(partial);
+    expect(res.checks.sourceBackedLocation).toBe(true);
+    expect(res.passed).toBe(true);
+  });
+
+  it('non punisce i titoli ripetuti quando le pagine di dettaglio sono diverse', () => {
+    // Agenzia interinale: lo stesso ruolo per sedi diverse. Il selettore rotto
+    // e quello sano hanno gli stessi titoli — solo le pagine li separano.
+    const agency = graded(2);
+    agency.validationHistory.at(-1).distinctRate = 0.23;
+    agency.validationHistory.at(-1).detailDistinctRate = 1;
+    expect(evaluatePromotion(agency).checks.distinct).toBe(true);
+
+    // Stessi titoli, ma le pagine campionate sono la stessa pagina: resta un
+    // selettore che ha agganciato un elemento ricorrente.
+    agency.validationHistory.at(-1).detailDistinctRate = 0.25;
+    expect(evaluatePromotion(agency).checks.distinct).toBe(false);
+  });
+
+  it('ignora il flag detailEnrichment su una spec template', () => {
+    // `needsDetailEnrichment()` arricchisce OGNI spec template, flag o non
+    // flag: un check sul flag bloccherebbe per una condizione che il runtime
+    // soddisfa per costruzione.
+    const legacyTemplate = graded(2, { mode: 'template', detailEnrichment: false });
+    expect(evaluatePromotion(legacyTemplate).passed).toBe(true);
+    delete legacyTemplate.detailEnrichment;
+    expect(evaluatePromotion(legacyTemplate).passed).toBe(true);
+  });
+
+  it('applica il merge Umantis in modo idempotente', () => {
+    // `runSpecInProduction` passa un `detailExtractor` custom e poi applica la
+    // stessa catena sopra il suo output: i parser tenant (recruitingapp-2649)
+    // finiscono percio' per attraversarla due volte, come gia' accadeva prima
+    // che l'estrazione fosse condivisa. Il secondo giro non deve cambiare
+    // nulla, altrimenti ri-deriva campi che il primo aveva deciso.
+    const html = '<html><body><h1>Posto</h1></body></html>';
+    const once = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, 'https://x.umantis.com/Vacancies/1/Description/1');
+    const twice = extractRuntimeDetailFields(
+      { platform: 'umantis.com' },
+      html,
+      'https://x.umantis.com/Vacancies/1/Description/1',
+      { detailExtractor: () => once },
+    );
+    expect(twice).toEqual(once);
+  });
+
+  it('lascia vincere la riga sull\'evidenza di listing', () => {
+    const merged = listingEvidenceFields(
+      { location: 'Bellinzona', locationCandidates: [{ location: 'Bellinzona' }] },
+      { location: 'Lugano', addressLocality: 'Lugano', postalCode: '6900' },
+    );
+    expect(merged.location).toBe('Bellinzona');
+    expect(merged.addressLocality).toBe('Lugano');
+    expect(merged.postalCode).toBe('6900');
+    expect(merged.locationCandidates).toHaveLength(2);
+    expect(listingEvidenceFields({ location: 'Bellinzona' }, undefined)).toEqual({});
+  });
+
+  it('firma le pagine sul testo intero, non su un prefisso condiviso', () => {
+    // Chrome lungo e identico, coda diversa: due annunci veri devono restare
+    // due firme diverse, o `detailDistinctRate` li legge come una pagina sola.
+    const chrome = 'menu contatti privacy cookie '.repeat(300);
+    expect(bodySignature(`${chrome} posto uno`)).not.toBe(bodySignature(`${chrome} posto due`));
+    expect(bodySignature(`${chrome} posto uno`)).toBe(bodySignature(`${chrome} posto uno`));
   });
 
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
@@ -1613,6 +1743,19 @@ describe('production spec runtime', () => {
   it('honours a numeric placeholder', () => {
     expect(templateToRegex('/job/#').test('/job/12345')).toBe(true);
     expect(templateToRegex('/job/#').test('/job/about')).toBe(false);
+  });
+
+  it('accepts every shape of a multilingual template list', () => {
+    // Un sito multilingue pubblica lo stesso annuncio sotto una forma di URL
+    // per lingua: con una forma sola le altre lingue sparivano in silenzio e
+    // il crawler pubblicava zero annunci (okjob, issue #6638).
+    const rx = templateToRegex(['/offres-demplois/*/', '/de/jobangebote/*/']);
+    expect(rx.test('/offres-demplois/mecatronicien-automobile-yverdon-les-bains/')).toBe(true);
+    expect(rx.test('/de/jobangebote/leitung-pflege-zuerich/')).toBe(true);
+    // La lista allarga le forme ammesse, non allenta il filtro: la chrome del
+    // sito resta fuori.
+    expect(rx.test('/contact')).toBe(false);
+    expect(rx.test('/de/jobangebote/a/b/')).toBe(false);
   });
 });
 

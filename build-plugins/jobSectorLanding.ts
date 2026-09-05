@@ -714,7 +714,18 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   fisioterapisti: /fisioterapist|physiotherap|physioth[eé]rap|kinesith[eé]rap|\bphysio\b/i,
   farmacisti: /farmacist|pharmazeut|apotheker|pharmacist|pharmacien|\bfarmacia\b|\bpharmacy\b/i,
   'data-scientist': /data[ -]scientist|data[ -]analyst|machine[ -]learning|\bml[ -]engineer|data[ -]engineer|analista[ -]dati|datenanalyst|\bbig[ -]data\b/i,
-  cybersecurity: /cybersecurity|cyber[ -]security|sicurezza[ -]informatic|security[ -]engineer|security[ -]analyst|informationssicherheit|s[eé]curit[eé][ -]informatique|penetration[ -]test|\bsoc[ -]analyst/i,
+  // Il lessico enumerava DUE suffissi di ruolo (`engineer`, `analyst`) e
+  // nessuna delle collocazioni con cui il mestiere si chiama davvero negli
+  // annunci svizzeri. Misurato su data/jobs.json del 2026-09-05 (25.593
+  // job): 8 titoli TI contenevano una radice `security`/`sicurezza` e non
+  // matchavano NESSUNO dei due settori — fra cui `IT SECURITY ARCHITECT`,
+  // `Cloud Security Architect`, `Information Security Specialista`. La
+  // pagina risultava a 0 match reali per assenza di lessico, non di
+  // annunci (#5321). `security officer` resta fuori di proposito: e' il
+  // guardiano fisico e vive in `sicurezza` — l'unica eccezione e'
+  // `information security officer`, che e' cyber e che `sicurezza` esclude
+  // con un lookbehind simmetrico a questo.
+  cybersecurity: /cybersecurity|cyber[ -]security|sicurezza[ -]informatic|security[ -](?:engineer|analyst|architect|specialist|consultant)|information[ -]security|\bit[ -]security|cloud[ -]security|network[ -]security|informationssicherheit|sicherheitsarchitekt|s[eé]curit[eé][ -]informatique|penetration[ -]test|\bpentester\b|\bsoc[ -]analyst/i,
   'project-manager': /project[ -]manager|projektleiter|projektmanager|chef[ -]de[ -]projet|capo[ -]progetto|program[ -]manager|scrum[ -]master|\bpmo\b/i,
   contabili: /contabil|buchhalter|\baccountant\b|comptable|\bbookkeep|fiduciar|treuhand|revisore[ -]contabil|\bcontroller\b/i,
   banca: /\bbanca\b|\bbancar|\bbank\b|\bbanking\b|finanz|wealth[ -]management|asset[ -]management|private[ -]bank|gestione[ -]patrimonial|\btrader\b|relationship[ -]manager/i,
@@ -752,7 +763,12 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
-  sicurezza: /\bsicurezza[ -](?:privata|fisica)|\bsecurity[ -](?:guard|officer)|\bsicherheitsdienst|\bwachmann|\bvigilanz|\bguardia[ -]giurat|\bagent[ -]de[ -]s[eé]curit|\bsorvegli/i,
+  // Sicurezza FISICA. Il lookbehind tiene fuori l'`Information Security
+  // Officer` / `IT Security Officer`, che non e' un guardiano ma un ruolo
+  // cyber: senza, l'allargamento del lessico `cybersecurity` sopra lo
+  // farebbe comparire su ENTRAMBE le landing (2 job misurati sul dataset
+  // del 2026-09-05).
+  sicurezza: /\bsicurezza[ -](?:privata|fisica)|(?<!information[ -])(?<!\bit[ -])(?<!cloud[ -])(?<!network[ -])\bsecurity[ -](?:guard|officer)|\bsicherheitsdienst|\bwachmann|\bvigilanz|\bguardia[ -]giurat|\bagent[ -]de[ -]s[eé]curit|\bsorvegli/i,
   scuola: /\bscuola\b|\bscolastic|\binsegnant|\bdocente\b|\blehrer|\bteacher\b|\benseignant|\bma[iî]tre[ -]d|\bprofessore\b|\bschule\b|\bkindergarten\b|\bdoposcuola/i,
   designer: /\bdesigner\b|\bgrafico\b|\bgraphic[ -]design|\bgrafik|\bux[ -]|\bui[ -]design|\bgraphiste|\bweb[ -]design|\bproduct[ -]design|\bgestalter/i,
   architetti: /\barchitet|\barchitect\b|\barchitekt|\barchitecte\b|\bbauzeichner|\bdisegnatore[ -]edil|\bdessinateur/i,
