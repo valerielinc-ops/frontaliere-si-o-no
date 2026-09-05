@@ -34131,6 +34131,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'figino-serenza-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-09-05T16:55:44.227Z',
+ image: '/images/blog/figino-serenza-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

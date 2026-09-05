@@ -21,6 +21,11 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
 import { readAttr } from './lib/html-attr.mjs';
+import {
+  findSwissCityInText,
+  isCantonOnlyLabel,
+  isKnownSwissMunicipality,
+} from './lib/target-swiss-locations.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
@@ -54,6 +59,11 @@ export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
   'scripts/audit-parser-quality.mjs',
   'scripts/lib/parser-quality-source-detail-replay.mjs',
   'scripts/lib/stable-stringify.mjs',
+  // `sourceLocationMatches` resolves both sides against the BFS municipality
+  // snapshot, so the list and its reader are normalizer inputs too — a replay
+  // recorded before a municipality merge must not silently compare differently.
+  'scripts/lib/target-swiss-locations.mjs',
+  'data/canton-municipalities.json',
 ]);
 
 function filesSha256(filePaths, readFile) {
@@ -336,6 +346,46 @@ function isUsableSourceLocation(value) {
 }
 
 /**
+ * Name of the BFS municipality a free-text location resolves to, or `''`.
+ *
+ * This is the difference between "one value contains the other" — a predicate
+ * that was tried, measured and reverted because it also accepted
+ * `Fribourg` ⊂ `Freiburg im Breisgau` — and "both values name the same
+ * commune". `findSwissCityInText` scans 3-, 2- and 1-word windows against the
+ * 2'110 BFS municipalities plus their aliases, so `Selzach Bohnackerweg 1`
+ * and `Baden 48 (Ärzte GAV & UA)` resolve to `selzach`/`baden` while a street,
+ * a site code or a German city resolves to nothing. Canton labels are rejected
+ * first, so `Basel-Landschaft` and `Appenzell Ausserrhoden` never collapse onto
+ * the municipality whose name they begin with.
+ */
+function swissMunicipalityKey(value) {
+  const text = plainText(value);
+  if (!text || isCantonOnlyLabel(text)) return '';
+  return findSwissCityInText(text);
+}
+
+/**
+ * A source candidate that repeats the published locality is the trailing
+ * region component — not the workplace — when an earlier candidate already
+ * named a different commune: `Winterthur, Zürich` and `Lyss, Bern Grossraum`
+ * are jobs in Winterthur and Lyss. A canton name in that earlier position is
+ * not such a commune even though BFS also lists it as one, because Workday
+ * writes the site group first: `Solothurn, Selzach Bohnackerweg 1` is Selzach.
+ */
+function precededByOtherLocality(sourceCandidates, sourceIndex, ownKey) {
+  return sourceCandidates.slice(0, sourceIndex).some((earlier) => {
+    const text = plainText(earlier);
+    if (!text || SWISS_REGION_NAMES.has(canonicalLocationTokens(earlier).join(' '))) return false;
+    const key = swissMunicipalityKey(earlier);
+    // `isKnownSwissMunicipality` also answers for the 161 BFS names that exist
+    // only in the disambiguated `<City> (XX)` form, whose bare spelling
+    // `swissMunicipalityKey` cannot resolve. An earlier `Carouge` must still
+    // demote a trailing `Genève`.
+    return key ? key !== ownKey : isKnownSwissMunicipality(text);
+  });
+}
+
+/**
  * Compare locality semantics rather than raw labels. Country/vendor prefixes,
  * postal addresses and the four Swiss language spellings are equivalent, but
  * a city is not allowed to match only the trailing canton component.
@@ -348,6 +398,7 @@ export function sourceLocationMatches(published, source) {
 
   const publishedCandidates = plainText(published).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
   const sourceCandidates = plainText(source).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
+  const publishedMunicipality = swissMunicipalityKey(published);
   for (const publishedCandidate of publishedCandidates) {
     const publishedTokens = canonicalLocationTokens(publishedCandidate);
     if (!publishedTokens.length) continue;
@@ -357,10 +408,18 @@ export function sourceLocationMatches(published, source) {
       if (!sourceTokens.length) continue;
       const publishedHasPostalCode = /\b\d{4,5}\b/.test(publishedCandidate);
       const candidateHasPostalCode = /\b\d{4,5}\b/.test(rawSourceCandidate);
+      const sourceMunicipality = swissMunicipalityKey(rawSourceCandidate);
+      const trailingRegion = sourceIndex > 0 && !candidateHasPostalCode
+        && precededByOtherLocality(sourceCandidates, sourceIndex, sourceMunicipality);
       // In structured `city, canton` values, a published city must not pass only
       // because it equals the trailing canton (Zürich vs Winterthur, Zürich).
+      // A canton name that no earlier candidate contradicts is the locality
+      // itself, so `CHE, Zürich, Bahnhofstrasse 20` still matches `Zürich`.
       if (sourceIndex > 0 && tokensEqual(sourceTokens, publishedTokens)
-        && !candidateHasPostalCode && SWISS_REGION_NAMES.has(publishedTokens.join(' '))) continue;
+        && !candidateHasPostalCode && SWISS_REGION_NAMES.has(publishedTokens.join(' '))
+        && trailingRegion) continue;
+      if (publishedMunicipality && publishedMunicipality === sourceMunicipality
+        && !trailingRegion) return true;
       if (tokensEqual(sourceTokens, publishedTokens)) return true;
       if (candidateHasPostalCode && endsWithTokens(sourceTokens, publishedTokens)) return true;
       if (publishedHasPostalCode && endsWithTokens(publishedTokens, sourceTokens)) return true;

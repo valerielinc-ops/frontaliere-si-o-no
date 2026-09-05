@@ -5575,6 +5575,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-controlli-minori.title': 'Nursery: gaps in controls on minors',
     'blog.article.asilo-nido-controlli-minori.excerpt': 'An educator reported for child pornography worked in a kindergarten for two years. How and why institutional controls failed in Switzerland.',
     'blog.article.asilo-nido-controlli-minori.imageAlt': 'Exterior of a Swiss daycare facility with playground area, modern architecture, documentary photography',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Residence Permit B Freiburg: Requirements and Renewal',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Permit B in Freiburg: requirements for EU/EFTA and third countries, renewal procedures, necessary documents and roles of the SEM and cantonal administration.',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Cantonal administrative office counter for residence permit processing.',
+    'blog.article.premi-lamal-vallese-riduzione.title': 'LAMal awards in Valais: bands and reductions 2026',
+    'blog.article.premi-lamal-vallese-riduzione.excerpt': 'Guide to compulsory sick pay premiums in the canton of Valais: deductibles available, insurance models, premium reduction and procedure for obtaining cantonal subsidies.',
+    'blog.article.premi-lamal-vallese-riduzione.imageAlt': 'Valais cantonal office with information on LAMal premiums, deductibles and reduction programs',
+    'blog.article.permesso-vallese-b-procedure.title': 'Permit B Valais: requirements and renewal',
+    'blog.article.permesso-vallese-b-procedure.excerpt': 'How to renew the residence permit B in Valais: the requirements, the necessary documents and the procedures at the Cantonal Office of Migration.',
+    'blog.article.permesso-vallese-b-procedure.imageAlt': 'Residence permit B documents and forms at a Swiss cantonal migration office',
 };
 
 export default blogMetaChEn;
