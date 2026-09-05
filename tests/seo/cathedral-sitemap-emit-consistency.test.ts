@@ -1,11 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
 describe('sitemap-emit consistency — every sitemap URL has a dist file', () => {
-  it('canton sitemap URLs all resolve to a dist HTML file', { timeout: 120_000 }, () => {
+  it('canton sitemap URLs all resolve to a dist HTML file', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return; // skip in offline test runs
     const sitemapDir = DIST;
     const cantonShards = fs.readdirSync(sitemapDir)
