@@ -11370,6 +11370,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-imposta-calcolo-2026.title': 'Credito imposta frontalieri 2026: calcolo con figli',
     'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'Come recuperare le imposte in eccesso in Italia: la guida pratica per frontalieri con figli, dal calcolo della franchigia all\'utilizzo del modello 730.',
     'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Famiglia che esamina documenti fiscali con vista sul Lago di Lugano sullo sfondo',
+    'blog.article.quando-cambiare-euro-frontaliere-single.title': 'Come proteggere lo stipendio dal cambio',
+    'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'Il nuovo accordo frontalieri 2024 e le aliquote IRPEF 2026 rendono critica la strategia di cambio. Guida pratica per single: timing, procedure, strumenti operativi.',
+    'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Calcolatrice e franchi su scrivania con vista Lago Lugano. Ambiente di pianificazione finanziaria nel Ticino.',
 };
 
 export default blogMetaIt;

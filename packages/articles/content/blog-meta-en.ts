@@ -11369,6 +11369,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-imposta-calcolo-2026.title': 'Border tax credit 2026: calculation with children',
     'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'How to recover excess taxes in Italy: the practical guide for border workers with children, from the calculation of the deductible to the use of the 730 model.',
     'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Family reviewing financial documents with Lake Lugano view in background',
+    'blog.article.quando-cambiare-euro-frontaliere-single.title': 'How to protect your salary from exchange',
+    'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'The new 2024 cross-border agreement and the 2026 IRPEF rates make the exchange rate strategy critical. Practical guide for singles: timing, procedures, operational tools.',
+    'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Calculator and Swiss francs on desk with Lake Lugano view. Financial planning workspace in Ticino.',
 };
 
 export default blogMetaEn;

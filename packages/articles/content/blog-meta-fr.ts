@@ -11371,6 +11371,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-imposta-calcolo-2026.title': 'Crédit d\'impôt frontalier 2026 : calcul avec enfants',
     'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'Comment récupérer les impôts excédentaires en Italie : le guide pratique pour les frontaliers avec enfants, du calcul de la franchise à l\'utilisation du modèle 730.',
     'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Famille examinant des documents fiscaux avec la vue du Lac de Lugano',
+    'blog.article.quando-cambiare-euro-frontaliere-single.title': 'Comment protéger votre salaire contre les échanges',
+    'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'Le nouvel accord transfrontalier de 2024 et les taux IRPEF de 2026 rendent la stratégie de taux de change essentielle. Guide pratique pour les célibataires : calendrier, procédures, outils opérationnels.',
+    'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Calculatrice et francs suisses sur bureau avec vue sur le lac de Lugano. Espace de planification financière au Tessin.',
 };
 
 export default blogMetaFr;

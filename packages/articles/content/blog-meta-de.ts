@@ -11368,6 +11368,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-imposta-calcolo-2026.title': 'Grenzsteuergutschrift 2026: Berechnung mit Kindern',
     'blog.article.frontalieri-imposta-calcolo-2026.excerpt': 'So können Sie in Italien überhöhte Steuern zurückfordern: Der praktische Leitfaden für Grenzgänger mit Kindern, von der Berechnung der Franchise bis zur Verwendung des Modells 730.',
     'blog.article.frontalieri-imposta-calcolo-2026.imageAlt': 'Familie überprüft Steuerdokumente mit Blick auf den Luganosee im Hintergrund',
+    'blog.article.quando-cambiare-euro-frontaliere-single.title': 'Wie man sein Gehalt vor Austausch schützt',
+    'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'Das neue grenzüberschreitende Abkommen von 2024 und die IRPEF-Kurse 2026 machen die Wechselkursstrategie entscheidend. Praktischer Leitfaden für Einzelpersonen: Zeitplan, Verfahren, operative Werkzeuge.',
+    'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Taschenrechner und Schweizer Franken auf Schreibtisch mit Blick auf den Luganer See. Finanzplanung im Tessin.',
 };
 
 export default blogMetaDe;
