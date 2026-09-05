@@ -1270,12 +1270,12 @@
     },
     {
       "id": "kanton-solothurn-98ae0ac3c70a",
-      "slug": "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn",
+      "slug": "registratore-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn",
-        "en": "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn",
+        "it": "registratore-80-100-kanton-solothurn-solothurn",
+        "en": "registrar-80-100-kanton-solothurn-solothurn",
         "de": "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn",
-        "fr": "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn"
+        "fr": "greffier-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1336,23 +1336,27 @@
           "personale-in-registro-di-terra-100-kanton-solothurn-solothurn",
           "personnel-in-land-registry-100-kanton-solothurn-solothurn",
           "sachbearbeiter-in-grundbuchamt-100-kanton-solothurn-solothurn",
-          "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn"
+          "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn",
+          "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
-          "personnel-in-land-registry-100-kanton-solothurn-solothurn"
+          "personnel-in-land-registry-100-kanton-solothurn-solothurn",
+          "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn"
         ],
         "de": [
           "sachbearbeiter-in-grundbuchamt-100-kanton-solothurn-solothurn"
         ],
         "fr": [
-          "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn"
+          "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn",
+          "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
         "personale-in-registro-di-terra-100-kanton-solothurn-solothurn",
         "personnel-in-land-registry-100-kanton-solothurn-solothurn",
         "sachbearbeiter-in-grundbuchamt-100-kanton-solothurn-solothurn",
-        "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn"
+        "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn",
+        "sachbearbeiter-in-grundbuchamt-80-100-kanton-solothurn-solothurn"
       ]
     },
     {
@@ -1360,9 +1364,9 @@
       "slug": "apprendistato-come-uhrmacher-in-cfc-kanton-solothurn-grenchen",
       "slugByLocale": {
         "it": "apprendistato-come-uhrmacher-in-cfc-kanton-solothurn-grenchen",
-        "en": "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen",
+        "en": "apprenticeship-as-watchmaker-in-efz-kanton-solothurn-grenchen",
         "de": "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen",
-        "fr": "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen"
+        "fr": "apprentissage-en-tant-qu-horloger-en-efz-kanton-solothurn-grenchen"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1411,6 +1415,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen"
+        ],
+        "en": [
+          "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen"
+        ],
+        "fr": [
+          "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen"
         ]
       },
       "firstSeenAt": "2026-08-28T05:30:19.728Z",
@@ -1430,12 +1440,12 @@
     },
     {
       "id": "kanton-solothurn-36fd3c3c5716",
-      "slug": "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten",
+      "slug": "insegnante-curativo-scolastico-34-kanton-solothurn-olten",
       "slugByLocale": {
-        "it": "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten",
-        "en": "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten",
+        "it": "insegnante-curativo-scolastico-34-kanton-solothurn-olten",
+        "en": "school-curative-teacher-34-kanton-solothurn-olten",
         "de": "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten",
-        "fr": "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
+        "fr": "professeur-a-l-ecole-34-kanton-solothurn-olten"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1490,16 +1500,30 @@
           "maxValue": 36900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
+        ],
+        "en": [
+          "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
+        ],
+        "fr": [
+          "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
+        ]
+      },
+      "previousSlugs": [
+        "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
+      ]
     },
     {
       "id": "kanton-solothurn-f0d46fd5baea",
-      "slug": "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten",
+      "slug": "insegnante-curativo-scolastico-13-kanton-solothurn-olten",
       "slugByLocale": {
-        "it": "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten",
-        "en": "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten",
+        "it": "insegnante-curativo-scolastico-13-kanton-solothurn-olten",
+        "en": "school-curative-teacher-13-kanton-solothurn-olten",
         "de": "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten",
-        "fr": "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten"
+        "fr": "professeur-de-soins-a-l-ecole-13-kanton-solothurn-olten"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1554,7 +1578,21 @@
           "maxValue": 14100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten"
+        ],
+        "en": [
+          "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten"
+        ],
+        "fr": [
+          "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten"
+        ]
+      },
+      "previousSlugs": [
+        "schulische-r-heilpadagoge-heilpadagogin-13-kanton-solothurn-olten"
+      ]
     },
     {
       "id": "kanton-solothurn-f361651dce62",

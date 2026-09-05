@@ -3092,7 +3092,7 @@
       "slug": "informatico-a-cfc-gestione-e-infrastrutture-etat-de-fribourg-givisiez",
       "slugByLocale": {
         "it": "informatico-a-cfc-gestione-e-infrastrutture-etat-de-fribourg-givisiez",
-        "en": "informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch",
+        "en": "information-technology-learning-cfc-operation-and-infrastructure-etat-de-fribourg-givisiez",
         "de": "informatiker-in-cfc-betrieb-und-infrastruktur-etat-de-fribourg-givisiez",
         "fr": "informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch"
       },
@@ -3179,6 +3179,9 @@
           "apprenti-e-informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch"
         ],
         "de": [
+          "informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch"
+        ],
+        "en": [
           "informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch"
         ]
       },
@@ -3580,12 +3583,12 @@
     },
     {
       "id": "etat-de-fribourg-53610b3f58fb",
-      "slug": "ufficiale-della-sicurezza-della-conoscenza-e-della-conformita-nagoya-etat-de-fribourg-fribourg",
+      "slug": "sicurezza-della-conoscenza-nagoya-compliance-officer-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "ufficiale-della-sicurezza-della-conoscenza-e-della-conformita-nagoya-etat-de-fribourg-fribourg",
+        "it": "sicurezza-della-conoscenza-nagoya-compliance-officer-etat-de-fribourg-fribourg",
         "en": "knowledge-security-nagoya-compliance-officer-etat-de-fribourg-ch",
         "de": "wissensschutz-und-nagoya-compliance-officer-etat-de-fribourg-fribourg",
-        "fr": "knowledge-security-nagoya-compliance-officer-etat-de-fribourg-ch"
+        "fr": "agent-de-la-securite-des-connaissances-et-de-la-conformite-de-nagoya-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -3656,17 +3659,20 @@
       "pensum": "70-100%",
       "previousSlugs": [
         "knowledge-security-nagoya-compliance-officer-etat-de-fribourg-ch",
-        "officier-de-conformite-securite-de-la-connaissance-et-protocole-de-nagoya-etat-de-fribourg-fribourg"
+        "officier-de-conformite-securite-de-la-connaissance-et-protocole-de-nagoya-etat-de-fribourg-fribourg",
+        "ufficiale-della-sicurezza-della-conoscenza-e-della-conformita-nagoya-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "knowledge-security-nagoya-compliance-officer-etat-de-fribourg-ch"
+          "knowledge-security-nagoya-compliance-officer-etat-de-fribourg-ch",
+          "ufficiale-della-sicurezza-della-conoscenza-e-della-conformita-nagoya-etat-de-fribourg-fribourg"
         ],
         "de": [
           "knowledge-security-nagoya-compliance-officer-etat-de-fribourg-ch"
         ],
         "fr": [
-          "officier-de-conformite-securite-de-la-connaissance-et-protocole-de-nagoya-etat-de-fribourg-fribourg"
+          "officier-de-conformite-securite-de-la-connaissance-et-protocole-de-nagoya-etat-de-fribourg-fribourg",
+          "knowledge-security-nagoya-compliance-officer-etat-de-fribourg-ch"
         ]
       },
       "needsRetranslation": true,

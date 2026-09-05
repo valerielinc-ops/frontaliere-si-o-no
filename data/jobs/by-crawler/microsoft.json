@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "microsoft-200052774",
-      "slug": "partner-development-manager-microsoft-zurich",
+      "slug": "responsabile-sviluppo-partner-microsoft-zurich",
       "slugByLocale": {
-        "it": "partner-development-manager-microsoft-zurich",
+        "it": "responsabile-sviluppo-partner-microsoft-zurich",
         "en": "partner-development-manager-microsoft-zurich",
-        "de": "partner-development-manager-microsoft-zurich",
-        "fr": "partner-development-manager-microsoft-zurich"
+        "de": "partnerentwicklungsmanager-microsoft-zurich",
+        "fr": "gestionnaire-du-developpement-des-partenaires-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -65,7 +65,21 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "previousSlugsByLocale": {
+        "it": [
+          "partner-development-manager-microsoft-zurich"
+        ],
+        "de": [
+          "partner-development-manager-microsoft-zurich"
+        ],
+        "fr": [
+          "partner-development-manager-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "partner-development-manager-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200045205",
@@ -446,12 +460,12 @@
     },
     {
       "id": "microsoft-200050527",
-      "slug": "senior-technical-program-manager-microsoft-zurich",
+      "slug": "responsabile-del-programma-tecnico-senior-microsoft-zurich",
       "slugByLocale": {
-        "it": "senior-technical-program-manager-microsoft-zurich",
+        "it": "responsabile-del-programma-tecnico-senior-microsoft-zurich",
         "en": "senior-technical-program-manager-microsoft-zurich",
         "de": "senior-technical-program-manager-microsoft-zurich",
-        "fr": "senior-technical-program-manager-microsoft-zurich"
+        "fr": "gestionnaire-principal-de-programme-technique-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -507,7 +521,18 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-technical-program-manager-microsoft-zurich"
+        ],
+        "fr": [
+          "senior-technical-program-manager-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-technical-program-manager-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200050322",

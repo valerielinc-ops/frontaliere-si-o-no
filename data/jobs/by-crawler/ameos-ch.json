@@ -85,9 +85,9 @@
       "slug": "collaboratore-trice-m-w-d-personalmanagement-80-ameos-schweiz-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-personalmanagement-80-ameos-schweiz-zurich",
-        "en": "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich",
+        "en": "employee-m-f-d-personnel-management-80-ameos-schweiz-zurich",
         "de": "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich",
-        "fr": "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich"
+        "fr": "employe-h-f-d-gestion-du-personnel-80-ameos-schweiz-zurich"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -133,6 +133,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich"
+        ],
+        "en": [
+          "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich"
+        ],
+        "fr": [
           "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich"
         ]
       },

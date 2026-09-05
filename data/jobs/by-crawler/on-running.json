@@ -3443,7 +3443,7 @@
         "it": "lead-sample-maker-on-running-ch",
         "en": "lead-sample-maker-on-running-ch",
         "de": "lead-sample-maker-on-running-ch",
-        "fr": "lead-sample-maker-on-running-ch"
+        "fr": "le-plomb-fabricant-d-echantillons-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4222,12 +4222,12 @@
     },
     {
       "id": "on-running-d6d12b76836a",
-      "slug": "lead-distribution-center-operational-excellence-on-running-ch",
+      "slug": "lead-centro-di-distribuzione-eccellenza-operativa-on-running-zurich",
       "slugByLocale": {
-        "it": "lead-distribution-center-operational-excellence-on-running-ch",
+        "it": "lead-centro-di-distribuzione-eccellenza-operativa-on-running-zurich",
         "en": "lead-distribution-center-operational-excellence-on-running-ch",
         "de": "lead-distribution-center-operational-excellence-on-running-ch",
-        "fr": "lead-distribution-center-operational-excellence-on-running-ch"
+        "fr": "responsable-centre-de-distribution-excellence-operationnelle-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4288,7 +4288,18 @@
           "maxValue": 180500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-distribution-center-operational-excellence-on-running-ch"
+        ],
+        "fr": [
+          "lead-distribution-center-operational-excellence-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-distribution-center-operational-excellence-on-running-ch"
+      ]
     },
     {
       "id": "on-running-5fe96c26fe5a",

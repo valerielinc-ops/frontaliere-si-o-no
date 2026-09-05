@@ -13067,7 +13067,6 @@
         "payroll-tax-analyst-roche-ch",
         "lohnsteueranalyst-roche-basel",
         "payroll-tax-analyste-roche-basel",
-        "roche-basel",
         "partner-di-apprendimento-roche-basel",
         "learning-partner-roche-ch",
         "lernpartner-roche-basel",
@@ -13093,7 +13092,6 @@
           "roche-ch-56",
           "veterinarian-roche-basel",
           "payroll-tax-analista-roche-basel",
-          "roche-basel",
           "partner-di-apprendimento-roche-basel"
         ],
         "en": [
@@ -58208,7 +58206,7 @@
         "it": "affari-medici-partner-emofilia-roche-welwyn",
         "en": "medical-affairs-partner-haemophilia-roche-ch",
         "de": "medical-affairs-partner-haemophilia-roche-ch",
-        "fr": "medical-affairs-partner-haemophilia-roche-welwyn"
+        "fr": "partenaire-des-affaires-medicales-hemophilie-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -58249,7 +58247,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medical-affairs-partner-haemophilia-roche-ch",
-        "partenaire-des-affaires-medicales-hemophilie-roche-welwyn"
+        "medical-affairs-partner-haemophilia-roche-welwyn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -58257,7 +58255,7 @@
         ],
         "fr": [
           "medical-affairs-partner-haemophilia-roche-ch",
-          "partenaire-des-affaires-medicales-hemophilie-roche-welwyn"
+          "medical-affairs-partner-haemophilia-roche-welwyn"
         ]
       },
       "firstSeenAt": "2026-08-25T21:32:10.297Z",
@@ -61285,7 +61283,7 @@
         "it": "treasury-contabile-temporary-fixed-term-roche-san-jose-costa-rica",
         "en": "treasury-accountant-temporary-fixed-term-roche-ch",
         "de": "treasury-buchhalter-temporary-fixed-term-roche-san-jose-costa-rica",
-        "fr": "treasury-accountant-temporary-fixed-term-roche-san-jose-costa-rica"
+        "fr": "comptable-du-tresor-a-duree-determinee-temporaire-roche-san-jose-costa-rica"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -61326,7 +61324,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "treasury-accountant-temporary-fixed-term-roche-ch",
-        "comptable-du-tresor-a-duree-determinee-temporaire-roche-san-jose-costa-rica"
+        "treasury-accountant-temporary-fixed-term-roche-san-jose-costa-rica"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61337,7 +61335,7 @@
         ],
         "fr": [
           "treasury-accountant-temporary-fixed-term-roche-ch",
-          "comptable-du-tresor-a-duree-determinee-temporaire-roche-san-jose-costa-rica"
+          "treasury-accountant-temporary-fixed-term-roche-san-jose-costa-rica"
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:01.508Z",
@@ -62117,7 +62115,7 @@
       "slugByLocale": {
         "it": "copiatore-medico-roche-riga",
         "en": "medical-copywriter-roche-ch",
-        "de": "medizinischer-copywriter-roche-riga",
+        "de": "medizinischer-texter-roche-riga",
         "fr": "redacteur-medical-roche-riga"
       },
       "company": "Roche",
@@ -62159,16 +62157,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medical-copywriter-roche-ch",
-        "medizinischer-texter-roche-riga",
-        "medical-copywriter-roche-riga"
+        "medical-copywriter-roche-riga",
+        "medizinischer-copywriter-roche-riga"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medical-copywriter-roche-ch"
         ],
         "de": [
-          "medizinischer-texter-roche-riga",
-          "medical-copywriter-roche-riga"
+          "medical-copywriter-roche-riga",
+          "medizinischer-copywriter-roche-riga"
         ],
         "fr": [
           "medical-copywriter-roche-ch"
@@ -64124,7 +64122,7 @@
       "slugByLocale": {
         "it": "formulation-operatore-roche-shanghai",
         "en": "formulation-operator-roche-ch",
-        "de": "formulation-operator-roche-ch",
+        "de": "formulierung-operator-roche-shanghai",
         "fr": "formulation-operateur-roche-shanghai"
       },
       "company": "Roche",
@@ -64172,6 +64170,9 @@
           "formulation-operator-roche-ch"
         ],
         "fr": [
+          "formulation-operator-roche-ch"
+        ],
+        "de": [
           "formulation-operator-roche-ch"
         ]
       },
@@ -64269,12 +64270,12 @@
     },
     {
       "id": "roche-dc6d95494f3c",
-      "slug": "praktikum-im-bereich-controlling-m-w-d-roche-ch",
+      "slug": "stage-di-controllo-m-f-d-roche-grenzach",
       "slugByLocale": {
-        "it": "praktikum-im-bereich-controlling-m-w-d-roche-ch",
-        "en": "praktikum-im-bereich-controlling-m-w-d-roche-ch",
+        "it": "stage-di-controllo-m-f-d-roche-grenzach",
+        "en": "internship-in-controlling-m-f-d-roche-grenzach",
         "de": "praktikum-im-bereich-controlling-m-w-d-roche-ch",
-        "fr": "praktikum-im-bereich-controlling-m-w-d-roche-ch"
+        "fr": "stage-dans-le-controle-h-f-d-roche-grenzach"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -64327,7 +64328,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-bereich-controlling-m-w-d-roche-ch"
+        ],
+        "en": [
+          "praktikum-im-bereich-controlling-m-w-d-roche-ch"
+        ],
+        "fr": [
+          "praktikum-im-bereich-controlling-m-w-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-bereich-controlling-m-w-d-roche-ch"
+      ]
     },
     {
       "id": "roche-3e3a6f202228",
@@ -64633,12 +64648,12 @@
     },
     {
       "id": "roche-4de58fcb6017",
-      "slug": "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch",
+      "slug": "stage-in-progetti-e-digitalizzazione-m-f-d-roche-penzberg",
       "slugByLocale": {
-        "it": "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch",
-        "en": "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch",
+        "it": "stage-in-progetti-e-digitalizzazione-m-f-d-roche-penzberg",
+        "en": "internship-in-projects-digitalization-m-f-d-roche-penzberg",
         "de": "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch",
-        "fr": "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch"
+        "fr": "stage-dans-les-projets-et-la-numerisation-h-f-d-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -64691,7 +64706,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch"
+        ],
+        "en": [
+          "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch"
+        ],
+        "fr": [
+          "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-bereich-projects-digitalization-m-w-d-roche-ch"
+      ]
     },
     {
       "id": "roche-b97b7dcb5d59",
@@ -64846,7 +64875,7 @@
         "it": "insights-performance-subchapter-lead-roche-ch",
         "en": "insights-performance-subchapter-lead-roche-ch",
         "de": "insights-performance-subchapter-lead-roche-ch",
-        "fr": "insights-performance-subchapter-lead-roche-ch"
+        "fr": "insights-performance-sous-chapitre-responsable-roche-riga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65059,12 +65088,12 @@
     },
     {
       "id": "roche-db4280c51ca5",
-      "slug": "access-evidence-lead-12-months-contract-roche-ch",
+      "slug": "access-evidence-lead-contratto-di-12-mesi-roche-basel",
       "slugByLocale": {
-        "it": "access-evidence-lead-12-months-contract-roche-ch",
+        "it": "access-evidence-lead-contratto-di-12-mesi-roche-basel",
         "en": "access-evidence-lead-12-months-contract-roche-ch",
-        "de": "access-evidence-lead-12-months-contract-roche-ch",
-        "fr": "access-evidence-lead-12-months-contract-roche-ch"
+        "de": "access-evidence-lead-12-monate-vertrag-roche-basel",
+        "fr": "acces-aux-preuves-contrat-de-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65117,7 +65146,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "access-evidence-lead-12-months-contract-roche-ch"
+        ],
+        "de": [
+          "access-evidence-lead-12-months-contract-roche-ch"
+        ],
+        "fr": [
+          "access-evidence-lead-12-months-contract-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "access-evidence-lead-12-months-contract-roche-ch"
+      ]
     },
     {
       "id": "roche-0d7ad1e3db79",
@@ -65270,12 +65313,12 @@
     },
     {
       "id": "roche-357ac8898c82",
-      "slug": "senior-medical-writer-roche-ch",
+      "slug": "scrittore-medico-senior-roche-hyderabad",
       "slugByLocale": {
-        "it": "senior-medical-writer-roche-ch",
+        "it": "scrittore-medico-senior-roche-hyderabad",
         "en": "senior-medical-writer-roche-ch",
         "de": "senior-medical-writer-roche-ch",
-        "fr": "senior-medical-writer-roche-ch"
+        "fr": "redacteur-medical-principal-roche-hyderabad"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65329,7 +65372,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-medical-writer-roche-ch"
+        ],
+        "fr": [
+          "senior-medical-writer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-medical-writer-roche-ch"
+      ]
     },
     {
       "id": "roche-1f09f14c2fde",
@@ -65485,12 +65539,12 @@
     },
     {
       "id": "roche-95e9e5c786c3",
-      "slug": "specialista-process-operations-auf-2-jahre-befristet-roche-penzberg",
+      "slug": "operazioni-di-processo-specialistiche-limitate-a-2-anni-roche-penzberg",
       "slugByLocale": {
-        "it": "specialista-process-operations-auf-2-jahre-befristet-roche-penzberg",
-        "en": "specialist-process-operations-auf-2-jahre-befristet-roche-ch",
+        "it": "operazioni-di-processo-specialistiche-limitate-a-2-anni-roche-penzberg",
+        "en": "specialist-process-operations-limited-to-2-years-roche-penzberg",
         "de": "specialist-process-operations-auf-2-jahre-befristet-roche-ch",
-        "fr": "specialist-process-operations-auf-2-jahre-befristet-roche-ch"
+        "fr": "operations-des-processus-specialises-limite-a-2-ans-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65530,10 +65584,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-process-operations-auf-2-jahre-befristet-roche-ch"
+        "specialist-process-operations-auf-2-jahre-befristet-roche-ch",
+        "specialista-process-operations-auf-2-jahre-befristet-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "specialist-process-operations-auf-2-jahre-befristet-roche-ch",
+          "specialista-process-operations-auf-2-jahre-befristet-roche-penzberg"
+        ],
+        "en": [
+          "specialist-process-operations-auf-2-jahre-befristet-roche-ch"
+        ],
+        "fr": [
           "specialist-process-operations-auf-2-jahre-befristet-roche-ch"
         ]
       },
@@ -65800,7 +65862,7 @@
       "slugByLocale": {
         "it": "senior-analista-data-strategy-acquisition-roche-basel",
         "en": "senior-analyst-data-strategy-acquisition-roche-ch",
-        "de": "senior-analyst-data-strategy-acquisition-roche-ch",
+        "de": "senior-analyst-datenstrategie-akquisition-roche-basel",
         "fr": "senior-analyste-data-strategy-acquisition-roche-basel"
       },
       "company": "Roche",
@@ -65848,6 +65910,9 @@
           "senior-analyst-data-strategy-acquisition-roche-ch"
         ],
         "fr": [
+          "senior-analyst-data-strategy-acquisition-roche-ch"
+        ],
+        "de": [
           "senior-analyst-data-strategy-acquisition-roche-ch"
         ]
       },
@@ -65943,12 +66008,12 @@
     },
     {
       "id": "roche-1ae4938c600e",
-      "slug": "solutions-owner-customer-engagement-crm-roche-ch",
+      "slug": "proprietario-soluzioni-customer-engagement-crm-roche-welwyn",
       "slugByLocale": {
-        "it": "solutions-owner-customer-engagement-crm-roche-ch",
+        "it": "proprietario-soluzioni-customer-engagement-crm-roche-welwyn",
         "en": "solutions-owner-customer-engagement-crm-roche-ch",
         "de": "solutions-owner-customer-engagement-crm-roche-ch",
-        "fr": "solutions-owner-customer-engagement-crm-roche-ch"
+        "fr": "proprietaire-de-solutions-engagement-client-crm-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -66002,16 +66067,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "solutions-owner-customer-engagement-crm-roche-ch"
+        ],
+        "fr": [
+          "solutions-owner-customer-engagement-crm-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "solutions-owner-customer-engagement-crm-roche-ch"
+      ]
     },
     {
       "id": "roche-db70e790f0fd",
-      "slug": "solutions-owner-content-digital-roche-ch",
+      "slug": "proprietario-di-soluzioni-contenuto-digital-roche-welwyn",
       "slugByLocale": {
-        "it": "solutions-owner-content-digital-roche-ch",
+        "it": "proprietario-di-soluzioni-contenuto-digital-roche-welwyn",
         "en": "solutions-owner-content-digital-roche-ch",
         "de": "solutions-owner-content-digital-roche-ch",
-        "fr": "solutions-owner-content-digital-roche-ch"
+        "fr": "proprietaire-contenu-et-numerique-des-solutions-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -66065,16 +66141,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "solutions-owner-content-digital-roche-ch"
+        ],
+        "fr": [
+          "solutions-owner-content-digital-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "solutions-owner-content-digital-roche-ch"
+      ]
     },
     {
       "id": "roche-6343ffe57e52",
-      "slug": "journey-orchestrator-roche-welwyn",
+      "slug": "orchestratore-di-viaggio-roche-welwyn",
       "slugByLocale": {
-        "it": "journey-orchestrator-roche-welwyn",
+        "it": "orchestratore-di-viaggio-roche-welwyn",
         "en": "journey-orchestrator-roche-ch",
         "de": "journey-orchestrator-roche-ch",
-        "fr": "journey-orchestrator-roche-ch"
+        "fr": "orchestra-de-voyage-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -66114,10 +66201,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "journey-orchestrator-roche-ch"
+        "journey-orchestrator-roche-ch",
+        "journey-orchestrator-roche-welwyn"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "journey-orchestrator-roche-ch",
+          "journey-orchestrator-roche-welwyn"
+        ],
+        "fr": [
           "journey-orchestrator-roche-ch"
         ]
       },
@@ -66140,12 +66232,12 @@
     },
     {
       "id": "roche-7919028d17d4",
-      "slug": "solutions-owner-commercial-analytics-roche-ch",
+      "slug": "proprietario-di-soluzioni-analytics-commerciale-roche-welwyn",
       "slugByLocale": {
-        "it": "solutions-owner-commercial-analytics-roche-ch",
+        "it": "proprietario-di-soluzioni-analytics-commerciale-roche-welwyn",
         "en": "solutions-owner-commercial-analytics-roche-ch",
-        "de": "solutions-owner-commercial-analytics-roche-ch",
-        "fr": "solutions-owner-commercial-analytics-roche-ch"
+        "de": "eigentumer-von-losungen-commercial-analytics-roche-welwyn",
+        "fr": "proprietaire-de-solutions-analyse-commerciale-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -66198,16 +66290,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "solutions-owner-commercial-analytics-roche-ch"
+        ],
+        "de": [
+          "solutions-owner-commercial-analytics-roche-ch"
+        ],
+        "fr": [
+          "solutions-owner-commercial-analytics-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "solutions-owner-commercial-analytics-roche-ch"
+      ]
     },
     {
       "id": "roche-18aefffd4a7a",
-      "slug": "commercial-solutions-lead-roche-ch",
+      "slug": "soluzioni-commerciali-piombo-roche-welwyn",
       "slugByLocale": {
-        "it": "commercial-solutions-lead-roche-ch",
+        "it": "soluzioni-commerciali-piombo-roche-welwyn",
         "en": "commercial-solutions-lead-roche-ch",
-        "de": "commercial-solutions-lead-roche-ch",
-        "fr": "commercial-solutions-lead-roche-ch"
+        "de": "kommerzielle-losungen-lead-roche-welwyn",
+        "fr": "responsable-des-solutions-commerciales-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -66260,16 +66366,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-solutions-lead-roche-ch"
+        ],
+        "de": [
+          "commercial-solutions-lead-roche-ch"
+        ],
+        "fr": [
+          "commercial-solutions-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-solutions-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-ecb6ee705e13",
-      "slug": "events-lead-roche-ch",
+      "slug": "eventi-roche-welwyn",
       "slugByLocale": {
-        "it": "events-lead-roche-ch",
+        "it": "eventi-roche-welwyn",
         "en": "events-lead-roche-ch",
-        "de": "events-lead-roche-ch",
-        "fr": "events-lead-roche-ch"
+        "de": "veranstaltungsleitung-roche-welwyn",
+        "fr": "evenements-plomb-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -66322,7 +66442,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "events-lead-roche-ch"
+        ],
+        "de": [
+          "events-lead-roche-ch"
+        ],
+        "fr": [
+          "events-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "events-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-67e7dd66ef9a",
@@ -66592,11 +66726,11 @@
     },
     {
       "id": "roche-db9deb21cb9f",
-      "slug": "practicante-de-consultoria-business-innovation-roche-ch",
+      "slug": "consulenza-commerciale-innovazione-aziendale-roche-bogota",
       "slugByLocale": {
-        "it": "practicante-de-consultoria-business-innovation-roche-ch",
-        "en": "practicante-de-consultoria-business-innovation-roche-ch",
-        "de": "practicante-de-consultoria-business-innovation-roche-ch",
+        "it": "consulenza-commerciale-innovazione-aziendale-roche-bogota",
+        "en": "practising-consultantia-business-innovation-roche-bogota",
+        "de": "praxis-consultantia-business-innovation-roche-bogota",
         "fr": "practicante-de-consultoria-business-innovation-roche-ch"
       },
       "company": "Roche",
@@ -66650,7 +66784,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "practicante-de-consultoria-business-innovation-roche-ch"
+        ],
+        "en": [
+          "practicante-de-consultoria-business-innovation-roche-ch"
+        ],
+        "de": [
+          "practicante-de-consultoria-business-innovation-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "practicante-de-consultoria-business-innovation-roche-ch"
+      ]
     },
     {
       "id": "roche-3acb32043801",
@@ -67074,7 +67222,7 @@
         "it": "it-project-manager-pharma-medicines-techops-roche-ch",
         "en": "it-project-manager-pharma-medicines-techops-roche-ch",
         "de": "it-project-manager-pharma-medicines-techops-roche-ch",
-        "fr": "it-project-manager-pharma-medicines-techops-roche-ch"
+        "fr": "gestionnaire-de-projet-ti-pharma-medicines-techops-roche-hyderabad"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -80182,12 +80330,12 @@
     },
     {
       "id": "roche-12d5bfb5df88",
-      "slug": "principal-bioinformatics-scientist-i-roche-ch-2",
+      "slug": "principale-bioinformatica-scienziato-i-roche-mississauga-5be912",
       "slugByLocale": {
-        "it": "principal-bioinformatics-scientist-i-roche-ch-2",
+        "it": "principale-bioinformatica-scienziato-i-roche-mississauga-5be912",
         "en": "principal-bioinformatics-scientist-i-roche-ch",
-        "de": "principal-bioinformatics-scientist-i-roche-ch-2",
-        "fr": "principal-bioinformatics-scientist-i-roche-ch-2"
+        "de": "haupt-bioinformatiker-i-roche-mississauga-5be912",
+        "fr": "chercheur-principal-en-bioinformatique-i-roche-mississauga-5be912"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -80227,11 +80375,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "principal-bioinformatics-scientist-i-roche-ch"
+        "principal-bioinformatics-scientist-i-roche-ch",
+        "principal-bioinformatics-scientist-i-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-bioinformatics-scientist-i-roche-ch"
+          "principal-bioinformatics-scientist-i-roche-ch",
+          "principal-bioinformatics-scientist-i-roche-ch-2"
+        ],
+        "de": [
+          "principal-bioinformatics-scientist-i-roche-ch-2"
+        ],
+        "fr": [
+          "principal-bioinformatics-scientist-i-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-08-28T05:16:33.870Z",
@@ -82997,7 +83153,6 @@
         "erp-business-analyst-tax-management-roche-ch",
         "erp-business-analyst-steuerverwaltung-roche-basel",
         "erp-business-analyste-tax-management-roche-basel",
-        "erp-business-analista-roche-basel",
         "erp-business-analista-management-accounting-roche-hyderabad",
         "erp-business-analyst-management-accounting-roche-ch",
         "erp-business-analyste-management-accounting-roche-hyderabad"
@@ -83022,7 +83177,6 @@
           "erp-business-analyste-tax-management-roche-basel",
           "erp-business-analyst-roche-ch",
           "erp-business-analista-finanza-roche-shanghai",
-          "erp-business-analista-roche-basel",
           "erp-business-analista-management-accounting-roche-hyderabad"
         ],
         "en": [

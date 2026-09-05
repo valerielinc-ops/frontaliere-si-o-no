@@ -3157,12 +3157,12 @@
     },
     {
       "id": "hopital-du-valais-e9c81829c8cf",
-      "slug": "ingenieur-in-per-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais-visp",
+      "slug": "ingegnere-per-la-tecnologia-medica-specializza-in-dispositivi-medici-hopital-du-valais-visp",
       "slugByLocale": {
-        "it": "ingenieur-in-per-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais-visp",
-        "en": "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais",
+        "it": "ingegnere-per-la-tecnologia-medica-specializza-in-dispositivi-medici-hopital-du-valais-visp",
+        "en": "engineer-for-medical-technology-specializes-in-medical-devices-hopital-du-valais-visp",
         "de": "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais",
-        "fr": "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais"
+        "fr": "ingenieur-en-technologie-medicale-specialise-dans-les-dispositifs-medicaux-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3203,10 +3203,18 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais"
+        "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais",
+        "ingenieur-in-per-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais",
+          "ingenieur-in-per-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais-visp"
+        ],
+        "en": [
+          "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais"
+        ],
+        "fr": [
           "ingenieur-in-fur-medizintechnik-spezialisiert-auf-medizinische-gerate-hopital-du-valais"
         ]
       },
@@ -3230,12 +3238,12 @@
     },
     {
       "id": "hopital-du-valais-cf77f2a28bb6",
-      "slug": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
+      "slug": "psicologo-40-60-pain-clinic-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
-        "en": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
+        "it": "psicologo-40-60-pain-clinic-hopital-du-valais-brig",
+        "en": "psychologist-40-60-pain-clinic-hopital-du-valais-brig",
         "de": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
-        "fr": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        "fr": "psychologue-40-60-clinique-de-la-douleur-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3293,15 +3301,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        ],
+        "en": [
+          "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-6e4536ac40e1",
-      "slug": "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos",
+      "slug": "assistenti-sanitari-comunitari-chs-tra-il-50-e-l-80-in-cdi-e-cdd-per-i-nostri-servizi-chirurgici-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos",
-        "en": "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos",
-        "de": "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos",
+        "it": "assistenti-sanitari-comunitari-chs-tra-il-50-e-l-80-in-cdi-e-cdd-per-i-nostri-servizi-chirurgici-hopital-du-valais-sion",
+        "en": "community-health-care-assistants-chs-between-50-and-80-in-cdi-and-cdd-for-our-surgical-services-hopital-du-valais-sion",
+        "de": "community-health-care-assistants-chs-zwischen-50-und-80-in-cdi-und-cdd-fur-unsere-chirurgischen-dienstleistungen-hopital",
         "fr": "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos"
       },
       "company": "Hôpital du Valais",
@@ -3360,7 +3382,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos"
+        ],
+        "en": [
+          "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos"
+        ],
+        "de": [
+          "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos"
+        ]
+      },
+      "previousSlugs": [
+        "assistants-es-en-soins-et-sante-communautaire-assc-entre-50-et-80-en-cdi-et-cdd-pour-nos"
+      ]
     },
     {
       "id": "hopital-du-valais-2a9e1f457405",

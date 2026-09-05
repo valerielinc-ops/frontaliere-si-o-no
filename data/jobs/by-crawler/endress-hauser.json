@@ -642,12 +642,12 @@
     },
     {
       "id": "endress-hauser-7c3176ece1d3",
-      "slug": "maschinenfuhrer-w-m-d-endress-hauser-reinach",
+      "slug": "operatore-macchina-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "maschinenfuhrer-w-m-d-endress-hauser-reinach",
-        "en": "maschinenfuhrer-w-m-d-endress-hauser-reinach",
+        "it": "operatore-macchina-m-f-d-endress-hauser-reinach",
+        "en": "machine-operator-m-f-d-endress-hauser-reinach",
         "de": "maschinenfuhrer-w-m-d-endress-hauser-reinach",
-        "fr": "maschinenfuhrer-w-m-d-endress-hauser-reinach"
+        "fr": "operateur-de-machine-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -702,7 +702,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "maschinenfuhrer-w-m-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "maschinenfuhrer-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "maschinenfuhrer-w-m-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-5933ceb0200c",

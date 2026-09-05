@@ -56,21 +56,18 @@
         "sportphysiotherapeut-in-privatklinik-obach",
         "fisioterapista-in-swiss-medical-network-solothurn",
         "pflegeassistenz-50-60-privatklinik-obach-solothurn",
-        "pflegeassistenz-50-60-privatklinik-obach",
-        "fisioterapista-in-privatklinik-obach-solothurn"
+        "pflegeassistenz-50-60-privatklinik-obach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportphysiotherapeut-in-privatklinik-obach",
           "fisioterapista-in-swiss-medical-network-solothurn",
           "pflegeassistenz-50-60-privatklinik-obach-solothurn",
-          "pflegeassistenz-50-60-privatklinik-obach",
-          "fisioterapista-in-privatklinik-obach-solothurn"
+          "pflegeassistenz-50-60-privatklinik-obach"
         ],
         "de": [
           "fisioterapista-in-swiss-medical-network-solothurn",
-          "pflegeassistenz-50-60-privatklinik-obach",
-          "sportphysiotherapeut-in-privatklinik-obach"
+          "pflegeassistenz-50-60-privatklinik-obach"
         ]
       },
       "firstSeenAt": "2026-07-10T12:01:40.453Z",
@@ -140,18 +137,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-physiotherapeut-in-privatklinik-obach",
-        "dipl-fisioterapista-in-swiss-medical-network-solothurn",
-        "dipl-fisioterapista-in-privatklinik-obach-solothurn"
+        "dipl-fisioterapista-in-swiss-medical-network-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-privatklinik-obach",
-          "dipl-fisioterapista-in-swiss-medical-network-solothurn",
-          "dipl-fisioterapista-in-privatklinik-obach-solothurn"
+          "dipl-fisioterapista-in-swiss-medical-network-solothurn"
         ],
         "de": [
-          "dipl-fisioterapista-in-swiss-medical-network-solothurn",
-          "dipl-physiotherapeut-in-privatklinik-obach"
+          "dipl-fisioterapista-in-swiss-medical-network-solothurn"
         ]
       },
       "firstSeenAt": "2026-07-10T12:01:40.447Z",
@@ -220,18 +214,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-privatklinik-obach",
-          "dipl-specialist-operations-engineering-pool-region-mittelland-in-salari-orali-swiss-medical-network-solothurn"
+          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-privatklinik-obach"
         ],
         "it": [
-          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-privatklinik-obach",
-          "dipl-tecnico-di-sala-operatoria-pool-regione-mittelland-a-ore-swiss-medical-network-solothurn"
+          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-privatklinik-obach"
         ]
       },
       "previousSlugs": [
-        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-privatklinik-obach",
-        "dipl-specialist-operations-engineering-pool-region-mittelland-in-salari-orali-swiss-medical-network-solothurn",
-        "dipl-tecnico-di-sala-operatoria-pool-regione-mittelland-a-ore-swiss-medical-network-solothurn"
+        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-privatklinik-obach"
       ],
       "firstSeenAt": "2026-07-10T12:01:40.457Z",
       "salaryMin": 85000,
@@ -299,13 +289,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lagerungspfleger-in-60-100-privatklinik-obach",
-        "responsabile-stoccaggio-60-100-privatklinik-obach-solothurn"
+        "lagerungspfleger-in-60-100-privatklinik-obach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lagerungspfleger-in-60-100-privatklinik-obach",
-          "responsabile-stoccaggio-60-100-privatklinik-obach-solothurn"
+          "lagerungspfleger-in-60-100-privatklinik-obach"
         ],
         "en": [
           "lagerungspfleger-in-60-100-privatklinik-obach"
@@ -331,12 +319,12 @@
     },
     {
       "id": "privatklinik-obach-4ce9f3213ad1",
-      "slug": "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach",
+      "slug": "formazione-dipl-professionista-hf-privatklinik-obach-solothurn",
       "slugByLocale": {
-        "it": "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach",
-        "en": "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach",
+        "it": "formazione-dipl-professionista-hf-privatklinik-obach-solothurn",
+        "en": "training-dipl-care-professional-hf-privatklinik-obach-solothurn",
         "de": "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach",
-        "fr": "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach"
+        "fr": "formation-dipl-soins-professionnels-hf-privatklinik-obach-solothurn"
       },
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
@@ -380,14 +368,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-dipl-pflegefachperson-hf-swiss-medical-network"
+        "ausbildung-dipl-pflegefachperson-hf-swiss-medical-network",
+        "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-dipl-pflegefachperson-hf-swiss-medical-network"
+          "ausbildung-dipl-pflegefachperson-hf-swiss-medical-network",
+          "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach"
         ],
         "en": [
-          "ausbildung-dipl-pflegefachperson-hf-swiss-medical-network"
+          "ausbildung-dipl-pflegefachperson-hf-swiss-medical-network",
+          "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach"
+        ],
+        "fr": [
+          "ausbildung-dipl-pflegefachperson-hf-privatklinik-obach"
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:03.378Z",

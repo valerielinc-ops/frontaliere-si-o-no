@@ -376,12 +376,12 @@
     },
     {
       "id": "totalenergies-b5f7014a85b1",
-      "slug": "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve",
+      "slug": "apprendimento-della-macchina-per-l-internamento-di-stima-del-patrimonio-eolico-e-solare-totalenergies-geneve",
       "slugByLocale": {
-        "it": "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve",
+        "it": "apprendimento-della-macchina-per-l-internamento-di-stima-del-patrimonio-eolico-e-solare-totalenergies-geneve",
         "en": "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve",
         "de": "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve",
-        "fr": "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve"
+        "fr": "apprentissage-automatique-pour-l-estimation-du-rendement-de-l-energie-eolienne-et-solaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -439,7 +439,18 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve"
+        ],
+        "fr": [
+          "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-f4eab1d20aca",

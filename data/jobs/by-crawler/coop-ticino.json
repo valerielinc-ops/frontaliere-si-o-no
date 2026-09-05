@@ -4815,7 +4815,6 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-meggen",
           "verkaufer-in-food-coop-meggen-luzern-j90fet",
           "verkaufer-in-food-coop-meggen-luzern",
-          "venditore-in-food-coop-genossenschaft-meggen",
           "verkaufer-in-food-coop-meggen-luzern-1iazli",
           "verkaufer-in-food-coop-genossenschaft-meggen-1iazli",
           "verkaufer-in-food-coop-genossenschaft-meggen"
@@ -4844,7 +4843,6 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-meggen",
         "verkaufer-in-food-coop-meggen-luzern-j90fet",
         "verkaufer-in-food-coop-meggen-luzern",
-        "venditore-in-food-coop-genossenschaft-meggen",
         "verkaufer-in-food-coop-meggen-luzern-1iazli",
         "verkaufer-in-food-coop-genossenschaft-meggen-1iazli",
         "verkaufer-in-food-coop-genossenschaft-meggen"
@@ -35946,7 +35944,7 @@
     },
     {
       "id": "company-m1rtu8",
-      "slug": "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen",
+      "slug": "2-stv-amministratore-delegato-in-coop-genossenschaft-jona-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "2. Stv. Geschäftsführer:in",
       "location": "Jona, Sankt Gallen",
@@ -35992,10 +35990,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8",
-        "en": "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8",
+        "it": "2-stv-amministratore-delegato-in-coop-genossenschaft-jona-sankt-gallen",
+        "en": "2-stv-managing-director-in-coop-genossenschaft-jona-sankt-gallen",
         "de": "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8",
-        "fr": "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8"
+        "fr": "2-stv-administrateur-delegue-in-coop-genossenschaft-jona-sankt-gallen"
       },
       "addressLocality": "Jona",
       "sourceLang": "de",
@@ -36013,7 +36011,23 @@
       },
       "salarySource": "estimated",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "previousSlugsByLocale": {
+        "it": [
+          "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8",
+          "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen"
+        ],
+        "en": [
+          "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8"
+        ],
+        "fr": [
+          "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8"
+        ]
+      },
+      "previousSlugs": [
+        "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen-m1rtu8",
+        "2-stv-geschaftsfuhrer-in-coop-jona-sankt-gallen"
+      ]
     },
     {
       "id": "company-hvelsn",

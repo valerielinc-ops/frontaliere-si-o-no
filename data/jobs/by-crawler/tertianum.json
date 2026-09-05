@@ -14906,9 +14906,9 @@
     },
     {
       "id": "tertianum-b91b7f4a0eaf",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-gampelen",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-gampelen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-gampelen",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-gampelen",
         "en": "registered-nurse-dipl-hf-fh-dnii-80-100-tertianum-gampelen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-gampelen",
         "fr": "infirmier-ere-dipl-es-hes-dsii-80-100-tertianum-gampelen"
@@ -14993,7 +14993,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-gampelen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-gampelen"
+      ]
     },
     {
       "id": "tertianum-30ad6e19f37b",
@@ -25180,9 +25188,9 @@
     },
     {
       "id": "tertianum-38809bd59b1f",
-      "slug": "pflegehelferin-pflegehelfer-srk-70-100-tertianum-gampelen",
+      "slug": "assistente-infermieristico-srk-70-100-tertianum-gampelen",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-70-100-tertianum-gampelen",
+        "it": "assistente-infermieristico-srk-70-100-tertianum-gampelen",
         "en": "care-assistant-srk-70-100-tertianum-gampelen",
         "de": "pflegehelferin-pflegehelfer-srk-70-100-tertianum-gampelen",
         "fr": "aide-soignant-e-srk-70-100-tertianum-gampelen"
@@ -25266,7 +25274,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-pflegehelfer-srk-70-100-tertianum-gampelen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-srk-70-100-tertianum-gampelen"
+      ]
     },
     {
       "id": "tertianum-86cacfe9661f",

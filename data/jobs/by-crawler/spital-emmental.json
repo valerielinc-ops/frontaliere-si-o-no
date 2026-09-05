@@ -3246,12 +3246,12 @@
     },
     {
       "id": "spital-emmental-333b1211e952",
-      "slug": "teamleitung-patientenadministration-a-spital-emmental-burgdorf",
+      "slug": "gestione-del-team-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "teamleitung-patientenadministration-a-spital-emmental-burgdorf",
-        "en": "teamleitung-patientenadministration-a-spital-emmental-burgdorf",
+        "it": "gestione-del-team-a-spital-emmental-burgdorf-langnau",
+        "en": "team-management-patient-administration-a-spital-emmental-burgdorf-langnau",
         "de": "teamleitung-patientenadministration-a-spital-emmental-burgdorf",
-        "fr": "teamleitung-patientenadministration-a-spital-emmental-burgdorf"
+        "fr": "gestion-d-equipe-administration-du-patient-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3311,16 +3311,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-patientenadministration-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "teamleitung-patientenadministration-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "teamleitung-patientenadministration-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-patientenadministration-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-7b80d87f29a4",
-      "slug": "pflegeassistent-in-a-spital-emmental-burgdorf",
+      "slug": "assistente-infermieristico-in-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "pflegeassistent-in-a-spital-emmental-burgdorf",
-        "en": "pflegeassistent-in-a-spital-emmental-burgdorf",
+        "it": "assistente-infermieristico-in-a-spital-emmental-burgdorf",
+        "en": "nursing-assistant-in-a-spital-emmental-burgdorf",
         "de": "pflegeassistent-in-a-spital-emmental-burgdorf",
-        "fr": "pflegeassistent-in-a-spital-emmental-burgdorf"
+        "fr": "assistante-infirmiere-en-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3381,7 +3395,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistent-in-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-b39f1aaeef6c",

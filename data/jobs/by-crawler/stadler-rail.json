@@ -8543,12 +8543,12 @@
     },
     {
       "id": "stadler-rail-e96f700d465f",
-      "slug": "projektingenieur-in-elektro-stadler-rail-ch",
+      "slug": "ingegnere-del-progetto-in-elettrico-stadler-rail-st-margrethen",
       "slugByLocale": {
-        "it": "projektingenieur-in-elektro-stadler-rail-ch",
-        "en": "projektingenieur-in-elektro-stadler-rail-ch",
+        "it": "ingegnere-del-progetto-in-elettrico-stadler-rail-st-margrethen",
+        "en": "project-engineer-in-electric-stadler-rail-st-margrethen",
         "de": "projektingenieur-in-elektro-stadler-rail-ch",
-        "fr": "projektingenieur-in-elektro-stadler-rail-ch"
+        "fr": "ingenieur-de-projet-en-electrique-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -8603,16 +8603,30 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektingenieur-in-elektro-stadler-rail-ch"
+        ],
+        "en": [
+          "projektingenieur-in-elektro-stadler-rail-ch"
+        ],
+        "fr": [
+          "projektingenieur-in-elektro-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektingenieur-in-elektro-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-adf35bc48e7d",
-      "slug": "sandstrahler-in-stadler-rail-ch",
+      "slug": "sandblazer-in-stadler-rail-st-margrethen",
       "slugByLocale": {
-        "it": "sandstrahler-in-stadler-rail-ch",
+        "it": "sandblazer-in-stadler-rail-st-margrethen",
         "en": "sandstrahler-in-stadler-rail-ch",
         "de": "sandstrahler-in-stadler-rail-ch",
-        "fr": "sandstrahler-in-stadler-rail-ch"
+        "fr": "blazer-dans-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -8667,7 +8681,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sandstrahler-in-stadler-rail-ch"
+        ],
+        "fr": [
+          "sandstrahler-in-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sandstrahler-in-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-28299c08a7a2",

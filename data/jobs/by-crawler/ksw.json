@@ -160,12 +160,12 @@
     },
     {
       "id": "ksw-1ff4e15327eb",
-      "slug": "leiterin-leiter-biomedizinische-analytik-klinische-chemie-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "responsabile-responsabile-della-chimica-clinica-di-analisi-biomedicale-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "leiterin-leiter-biomedizinische-analytik-klinische-chemie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch",
+        "it": "responsabile-responsabile-della-chimica-clinica-di-analisi-biomedicale-kantonsspital-winterthur-ksw-winterthur",
+        "en": "head-head-of-biomedical-analytics-clinical-chemistry-kantonsspital-winterthur-ksw-winterthur",
         "de": "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch",
-        "fr": "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch"
+        "fr": "chef-responsable-de-l-analyse-biomedicale-chimie-clinique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -208,10 +208,18 @@
       "requirementsByLocale": {},
       "department": "Institut für Labormedizin",
       "previousSlugs": [
-        "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch"
+        "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch",
+        "leiterin-leiter-biomedizinische-analytik-klinische-chemie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch",
+          "leiterin-leiter-biomedizinische-analytik-klinische-chemie-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch"
+        ],
+        "fr": [
           "leiterin-leiter-biomedizinische-analytik-klinische-chemie-ksw-ch"
         ]
       },
@@ -404,12 +412,12 @@
     },
     {
       "id": "ksw-f1e52d8e72a1",
-      "slug": "oberarztin-oberarzt-ksw-ch",
+      "slug": "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur-020a80",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-ksw-ch",
-        "en": "oberarztin-oberarzt-ksw-ch",
+        "it": "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur-020a80",
+        "en": "senior-physician-senior-physician-kantonsspital-winterthur-ksw-winterthur-020a80",
         "de": "oberarztin-oberarzt-ksw-ch",
-        "fr": "oberarztin-oberarzt-ksw-ch"
+        "fr": "medecin-superieur-medecin-superieur-kantonsspital-winterthur-ksw-winterthur-020a80"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -464,7 +472,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-ksw-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ksw-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-ksw-ch"
+      ]
     },
     {
       "id": "ksw-f552fc79c232",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "croix-rouge-fribourgeoise-f3bd4ad3c1df",
-      "slug": "pflegefachmann-frau-o-fachperson-betreuung-cfc-fabe-croix-rouge-fribourgeoise-fribourg",
+      "slug": "infermieristica-professionale-o-professionale-efz-fabe-croix-rouge-fribourgeoise-fribourg",
       "slugByLocale": {
-        "it": "pflegefachmann-frau-o-fachperson-betreuung-cfc-fabe-croix-rouge-fribourgeoise-fribourg",
-        "en": "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg",
+        "it": "infermieristica-professionale-o-professionale-efz-fabe-croix-rouge-fribourgeoise-fribourg",
+        "en": "nursing-professional-or-professional-care-efz-fabe-croix-rouge-fribourgeoise-fribourg",
         "de": "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg",
-        "fr": "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg"
+        "fr": "soins-professionnels-ou-infirmiers-efz-fabe-croix-rouge-fribourgeoise-fribourg"
       },
       "company": "Croix-Rouge fribourgeoise",
       "companyKey": "croix-rouge-fribourgeoise",
@@ -60,10 +60,18 @@
         "location": "Fribourg"
       },
       "previousSlugs": [
-        "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg"
+        "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg",
+        "pflegefachmann-frau-o-fachperson-betreuung-cfc-fabe-croix-rouge-fribourgeoise-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg",
+          "pflegefachmann-frau-o-fachperson-betreuung-cfc-fabe-croix-rouge-fribourgeoise-fribourg"
+        ],
+        "en": [
+          "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg"
+        ],
+        "fr": [
           "pflegefachmann-frau-oder-fachperson-betreuung-efz-fabe-croix-rouge-fribourgeoise-fribourg"
         ]
       },
@@ -85,11 +93,11 @@
     },
     {
       "id": "croix-rouge-fribourgeoise-6fd3142daa68",
-      "slug": "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise",
+      "slug": "infermiere-o-assistente-socio-educativo-esa-croix-rouge-fribourgeoise-fribourg",
       "slugByLocale": {
-        "it": "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise",
-        "en": "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise",
-        "de": "infirmier-ere-diplome-e-ou-assistent-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise-fribourg",
+        "it": "infermiere-o-assistente-socio-educativo-esa-croix-rouge-fribourgeoise-fribourg",
+        "en": "graduated-nurse-or-socio-educational-assistant-esa-croix-rouge-fribourgeoise-fribourg",
+        "de": "graduierte-krankenschwester-oder-sozialpadagogische-assistentin-esa-croix-rouge-fribourgeoise-fribourg",
         "fr": "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise"
       },
       "company": "Croix-Rouge fribourgeoise",
@@ -154,7 +162,22 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise"
+        ],
+        "en": [
+          "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise"
+        ],
+        "de": [
+          "infirmier-ere-diplome-e-ou-assistent-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise",
+        "infirmier-ere-diplome-e-ou-assistent-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise-fribourg"
+      ]
     },
     {
       "id": "croix-rouge-fribourgeoise-0f131c815b85",

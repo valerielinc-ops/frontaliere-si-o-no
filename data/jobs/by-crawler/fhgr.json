@@ -81,18 +81,14 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch",
-          "bauingenieur-in-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch",
-          "ingegnere-civile-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch",
-        "bauingenieur-in-fachhochschule-graubunden-chur",
-        "ingegnere-civile-fachhochschule-graubunden-chur"
+        "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "salaryMin": 48500,
@@ -112,12 +108,12 @@
     },
     {
       "id": "fhgr-b052f8397abe",
-      "slug": "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+      "slug": "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur",
       "slugByLocale": {
-        "it": "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-        "en": "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
+        "it": "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur",
+        "en": "project-manager-administrative-directorate-fachhochschule-graubunden-chur",
         "de": "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-        "fr": "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+        "fr": "gestionnaire-de-projet-direction-administrative-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -166,6 +162,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-verwaltungsdirektion-fhgr-ch",
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+        ],
+        "en": [
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ]
       },

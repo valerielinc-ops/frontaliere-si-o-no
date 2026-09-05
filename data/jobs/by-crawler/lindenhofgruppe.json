@@ -3360,9 +3360,9 @@
       "slug": "collaboratore-trice-disposition-e-empfang-lindenhofgruppe-sonnenhofspital",
       "slugByLocale": {
         "it": "collaboratore-trice-disposition-e-empfang-lindenhofgruppe-sonnenhofspital",
-        "en": "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch",
+        "en": "employee-disposition-and-reception-lindenhofgruppe-sonnenhofspital",
         "de": "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch",
-        "fr": "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
+        "fr": "disposition-et-accueil-des-employes-lindenhofgruppe-sonnenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3409,6 +3409,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3432,9 +3438,9 @@
       "slug": "dipl-pflegefachfrau-mann-con-fachverantwortung-berufsbildung-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-con-fachverantwortung-berufsbildung-lindenhofgruppe-lindenhofspital",
-        "en": "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch",
+        "en": "dipl-nurse-with-professional-responsibility-vocational-training-lindenhofgruppe-lindenhofspital",
         "de": "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
+        "fr": "dipl-infirmiere-responsable-formation-professionnelle-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3480,6 +3486,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
         ]
       },

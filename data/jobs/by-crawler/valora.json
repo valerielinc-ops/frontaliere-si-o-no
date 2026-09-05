@@ -3574,12 +3574,12 @@
     },
     {
       "id": "valora-2487b2cd50ae",
-      "slug": "operativer-einkaufer-w-m-d-valora-muttenz",
+      "slug": "acquirente-operativo-m-f-d-valora-group-muttenz",
       "slugByLocale": {
-        "it": "operativer-einkaufer-w-m-d-valora-muttenz",
-        "en": "operativer-einkaufer-w-m-d-valora-muttenz",
+        "it": "acquirente-operativo-m-f-d-valora-group-muttenz",
+        "en": "operational-buyer-m-f-d-valora-group-muttenz",
         "de": "operativer-einkaufer-w-m-d-valora-muttenz",
-        "fr": "operativer-einkaufer-w-m-d-valora-muttenz"
+        "fr": "acquereur-operationnel-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3635,7 +3635,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "operativer-einkaufer-w-m-d-valora-muttenz"
+        ],
+        "en": [
+          "operativer-einkaufer-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "operativer-einkaufer-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "operativer-einkaufer-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-cbcaf73abb03",

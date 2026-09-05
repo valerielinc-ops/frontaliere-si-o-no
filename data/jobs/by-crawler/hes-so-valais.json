@@ -25,11 +25,11 @@
         "de": "2 Verwaltungspersonal",
         "fr": "2 collaboratrices administratives ou collaborateurs"
       },
-      "slug": "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais",
+      "slug": "2-personale-amministrativo-hes-so-valais-wallis-sion",
       "slugByLocale": {
-        "it": "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais",
-        "en": "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais",
-        "de": "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais",
+        "it": "2-personale-amministrativo-hes-so-valais-wallis-sion",
+        "en": "2-administrative-staff-hes-so-valais-wallis-sion",
+        "de": "2-verwaltungspersonal-hes-so-valais-wallis-sion",
         "fr": "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais"
       },
       "category": "administration",
@@ -66,7 +66,21 @@
         }
       },
       "addressLocality": "Sion",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais"
+        ],
+        "en": [
+          "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais"
+        ],
+        "de": [
+          "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais"
+        ]
+      },
+      "previousSlugs": [
+        "2-collaboratrices-administratives-ou-collaborateurs-hes-so-valais"
+      ]
     }
   ]
 }

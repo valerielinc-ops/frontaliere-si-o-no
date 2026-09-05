@@ -3662,7 +3662,6 @@
       "previousSlugs": [
         "staff-mass-spectrometrist-universitat-zurich-zurich",
         "staff-mass-spectrometrist-uzh-zurich",
-        "spettrometria-di-massa-personale-universitat-zurich-zurich",
         "tecnico-in-spettrometria-di-massa-universitat-zurich-zurich",
         "technician-in-mass-spectrometry-universitat-zurich-zurich",
         "techniker-in-massenspektrometrie-uzh-zurich",
@@ -3677,7 +3676,6 @@
         "it": [
           "staff-mass-spectrometrist-universitat-zurich-zurich",
           "staff-mass-spectrometrist-uzh-zurich",
-          "spettrometria-di-massa-personale-universitat-zurich-zurich",
           "tecnico-in-spettrometria-di-massa-universitat-zurich-zurich",
           "technician-in-mass-spectrometry-universitat-zurich-zurich",
           "techniker-in-massenspektrometrie-uzh-zurich",
@@ -9016,12 +9014,12 @@
     },
     {
       "id": "uzh-c2d4f2bc8c2f",
-      "slug": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
+      "slug": "professore-aggiunto-supporto-per-junior-group-leader-position-in-virologia-e-o-interazioni-host-pathogen-universitat",
       "slugByLocale": {
-        "it": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
+        "it": "professore-aggiunto-supporto-per-junior-group-leader-position-in-virologia-e-o-interazioni-host-pathogen-universitat",
         "en": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
-        "de": "assistent-professorship-support-for-junior-group-leader-position-in-virology-and-or-host-pathogen-interactions",
-        "fr": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+        "de": "assistenzprofessur-unterstutzung-fur-junior-group-leader-position-in-virologie-und-oder-host-pathogen-interaktionen",
+        "fr": "professeur-adjoint-soutien-au-poste-de-chef-de-groupe-junior-en-virologie-et-ou-en-interaction-hote-pathogene"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9076,7 +9074,22 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+        ],
+        "de": [
+          "assistent-professorship-support-for-junior-group-leader-position-in-virology-and-or-host-pathogen-interactions"
+        ],
+        "fr": [
+          "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
+        "assistent-professorship-support-for-junior-group-leader-position-in-virology-and-or-host-pathogen-interactions"
+      ]
     },
     {
       "id": "uzh-2872d4c23e19",
@@ -9170,7 +9183,7 @@
         "it": "assistant-professorship-in-finanza-with-tenure-track-universitat-zurich-zurich",
         "en": "assistant-professorship-in-finance-with-tenure-track-uzh-zurich",
         "de": "assistent-professorship-in-finanzen-with-tenure-track-universitat-zurich-zurich",
-        "fr": "assistant-professorship-in-finance-with-tenure-track-uzh-zurich"
+        "fr": "professeur-adjoint-en-finance-avec-filiere-de-duree-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9228,7 +9241,8 @@
           "assistent-professorship-tenure-track-for-climate-forschung-universitat-zurich-universitat-zurich-irchel"
         ],
         "fr": [
-          "assistant-professorship-tenure-track-for-climate-research-uzh-universitat-zurich-irchel"
+          "assistant-professorship-tenure-track-for-climate-research-uzh-universitat-zurich-irchel",
+          "assistant-professorship-in-finance-with-tenure-track-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:58.374Z",
@@ -9248,12 +9262,12 @@
     },
     {
       "id": "uzh-000cff57d9da",
-      "slug": "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon",
+      "slug": "ricercatore-post-dottorato-in-psico-neurolinguistica-trasversale-universitat-zurich-zurich-oerlikon",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon",
+        "it": "ricercatore-post-dottorato-in-psico-neurolinguistica-trasversale-universitat-zurich-zurich-oerlikon",
         "en": "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon",
-        "de": "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon",
-        "fr": "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon"
+        "de": "postdoktorandin-in-cross-cultural-psycho-neurolinguistik-universitat-zurich-zurich-oerlikon",
+        "fr": "chercheur-postdoctoral-en-psycho-neurolinguistique-transculturelle-universitat-zurich-zurich-oerlikon"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9308,7 +9322,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-cross-cultural-psycho-neurolinguistics-uzh-zurich-oerlikon"
+      ]
     },
     {
       "id": "uzh-2d273cf48087",

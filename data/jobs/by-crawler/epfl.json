@@ -3209,12 +3209,12 @@
     },
     {
       "id": "epfl-6583f2fd6774",
-      "slug": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-e-docente-in-imprenditoria-100-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
+        "it": "ricercatore-post-dottorato-e-docente-in-imprenditoria-100-epfl-lausanne",
         "en": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
-        "de": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
-        "fr": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+        "de": "postdoktorand-und-dozent-fur-unternehmertum-100-epfl-lausanne",
+        "fr": "chercheur-postdoctoral-et-conferencier-en-entrepreneuriat-100-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3270,7 +3270,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+        ],
+        "de": [
+          "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+        ],
+        "fr": [
+          "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-09d95276d981",

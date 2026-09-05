@@ -13593,12 +13593,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-291bbe0d658d",
-      "slug": "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-ag-soh-olten",
+      "slug": "dipendente-dipendente-aemp-zsva-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-ag-soh-olten",
-        "en": "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-solothurner-spitaeler-olten",
+        "it": "dipendente-dipendente-aemp-zsva-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "employee-employee-aemp-zsva-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-solothurner-spitaeler-olten"
+        "fr": "employe-employe-aemp-zsva-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13641,12 +13641,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-solothurner-spitaeler-olten",
-        "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten-5wt7bs"
+        "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten-5wt7bs",
+        "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-solothurner-spitaeler-olten",
-          "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten-5wt7bs"
+          "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten-5wt7bs",
+          "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-ag-soh-olten"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-solothurner-spitaeler-olten"
         ]
       },
       "firstSeenAt": "2026-08-31T17:06:33.686Z",
@@ -13666,12 +13674,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-09631ce7739b",
-      "slug": "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "expert-expert-care-i-station-c0-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "expert-expert-care-i-station-c0-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn",
         "de": "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "fr": "expert-expert-care-i-station-c0-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13714,11 +13722,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch"
+        "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch",
+        "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch"
+          "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch",
+          "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "en": [
           "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch"
@@ -13727,7 +13737,8 @@
           "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch"
         ],
         "fr": [
-          "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch"
+          "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-ch",
+          "fachexpertin-fachexperte-pflege-i-station-c0-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-31T17:06:33.246Z",
@@ -13747,12 +13758,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-981b6c4de81d",
-      "slug": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh",
+      "slug": "formazione-professionale-formazione-professionale-professionale-health-station-c0-m-f-d-solothurner-spitaler-ag-soh",
       "slugByLocale": {
-        "it": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh",
-        "en": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh",
+        "it": "formazione-professionale-formazione-professionale-professionale-health-station-c0-m-f-d-solothurner-spitaler-ag-soh",
+        "en": "vocational-trainer-vocational-trainer-professional-health-station-c0-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh",
-        "fr": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh"
+        "fr": "entraineur-professionnel-entraineur-professionnel-professionnel-poste-de-sante-c0-h-f-d-solothurner-spitaler-ag-soh"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13795,20 +13806,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch"
+        "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch",
+        "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch"
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch",
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh"
         ],
         "en": [
-          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch"
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch",
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh"
         ],
         "de": [
           "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch"
         ],
         "fr": [
-          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch"
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh-ch",
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d-soh"
         ]
       },
       "firstSeenAt": "2026-08-31T17:06:32.664Z",
@@ -13828,12 +13843,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-e63273e03232",
-      "slug": "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten",
+      "slug": "pratica-di-emergenza-mpa-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten",
+        "it": "pratica-di-emergenza-mpa-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "mpa-emergency-practice-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten"
+        "fr": "mpa-pratique-d-urgence-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13876,21 +13891,25 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mpa-notfallpraxis-w-m-d-solothurner-spitaler-soh-olten",
-        "mpa-notfallpraxis-w-m-d-soh-ch"
+        "mpa-notfallpraxis-w-m-d-soh-ch",
+        "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-notfallpraxis-w-m-d-solothurner-spitaler-soh-olten",
-          "mpa-notfallpraxis-w-m-d-soh-ch"
+          "mpa-notfallpraxis-w-m-d-soh-ch",
+          "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten"
         ],
         "en": [
-          "mpa-notfallpraxis-w-m-d-soh-ch"
+          "mpa-notfallpraxis-w-m-d-soh-ch",
+          "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten"
         ],
         "de": [
           "mpa-notfallpraxis-w-m-d-soh-ch"
         ],
         "fr": [
-          "mpa-notfallpraxis-w-m-d-soh-ch"
+          "mpa-notfallpraxis-w-m-d-soh-ch",
+          "mpa-notfallpraxis-w-m-d-soh-solothurner-spitaeler-olten"
         ]
       },
       "firstSeenAt": "2026-08-31T17:06:32.220Z",

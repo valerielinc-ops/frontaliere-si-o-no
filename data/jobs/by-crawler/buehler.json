@@ -9898,7 +9898,7 @@
       "slug": "capo-del-qehs-quality-management-officer-m-f-d-buhler-group-beilngries",
       "slugByLocale": {
         "it": "capo-del-qehs-quality-management-officer-m-f-d-buhler-group-beilngries",
-        "en": "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries",
+        "en": "head-of-qehs-quality-management-officer-m-f-d-buhler-group-beilngries",
         "de": "head-of-qehs-amp-qualitatsmanagementbeauftragter-m-w-d-buehler-beilngries",
         "fr": "chef-du-qehs-et-agent-de-gestion-de-la-qualite-h-f-d-buhler-group-beilngries"
       },
@@ -9944,8 +9944,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-qehs-amp-qualitatsmanagementbeauftragter-m-w-d-buehler-beilngries",
-        "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries",
-        "head-of-qehs-quality-management-officer-m-f-d-buhler-group-beilngries"
+        "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9953,7 +9952,7 @@
           "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
         ],
         "en": [
-          "head-of-qehs-quality-management-officer-m-f-d-buhler-group-beilngries"
+          "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
         ],
         "fr": [
           "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
@@ -10388,12 +10387,12 @@
     },
     {
       "id": "buehler-2c0ab954d523",
-      "slug": "lagerist-m-w-d-buhler-group-hasselroth",
+      "slug": "operatore-di-magazzino-m-f-d-buhler-group-hasselroth",
       "slugByLocale": {
-        "it": "lagerist-m-w-d-buhler-group-hasselroth",
-        "en": "lagerist-m-w-d-buehler-hasselroth",
+        "it": "operatore-di-magazzino-m-f-d-buhler-group-hasselroth",
+        "en": "warehouse-operator-m-f-d-buhler-group-hasselroth",
         "de": "lagerist-m-w-d-buehler-hasselroth",
-        "fr": "lagerist-m-w-d-buehler-hasselroth"
+        "fr": "operateur-d-entrepot-h-f-d-buhler-group-hasselroth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -10436,10 +10435,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lagerist-m-w-d-buehler-hasselroth"
+        "lagerist-m-w-d-buehler-hasselroth",
+        "lagerist-m-w-d-buhler-group-hasselroth"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lagerist-m-w-d-buehler-hasselroth",
+          "lagerist-m-w-d-buhler-group-hasselroth"
+        ],
+        "en": [
+          "lagerist-m-w-d-buehler-hasselroth"
+        ],
+        "fr": [
           "lagerist-m-w-d-buehler-hasselroth"
         ]
       },
@@ -10465,7 +10472,7 @@
         "it": "junior-project-manager-m-w-d-buehler-alzenau",
         "en": "junior-project-manager-m-w-d-buhler-group-alzenau",
         "de": "junior-project-manager-m-w-d-buehler-alzenau",
-        "fr": "junior-project-manager-m-w-d-buehler-alzenau"
+        "fr": "gestionnaire-de-projet-junior-h-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -10529,7 +10536,7 @@
         "it": "area-sales-manager-milling-buehler-ikeja",
         "en": "area-sales-manager-milling-buehler-ikeja",
         "de": "area-sales-manager-milling-buehler-ikeja",
-        "fr": "area-sales-manager-milling-buehler-ikeja"
+        "fr": "gestionnaire-des-ventes-fraisage-buhler-group-ikeja"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",

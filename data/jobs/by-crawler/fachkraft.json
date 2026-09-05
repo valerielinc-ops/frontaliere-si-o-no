@@ -109,12 +109,12 @@
     },
     {
       "id": "fachkraft-5dc427e31679",
-      "slug": "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch",
+      "slug": "zimmermann-camera-con-versatile-lavoro-di-costruzione-in-legno-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch",
-        "en": "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch",
+        "it": "zimmermann-camera-con-versatile-lavoro-di-costruzione-in-legno-fachkraft-ch-gmbh-zurich-zurich",
+        "en": "zimmermann-room-with-versatile-wood-construction-work-fachkraft-ch-gmbh-zurich-zurich",
         "de": "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch"
+        "fr": "zimmermann-chambre-avec-travail-de-construction-en-bois-polyvalent-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -167,7 +167,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
+          "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-zimmerin-mit-vielseitigen-holzbauarbeiten-zurich-zurich-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-c4076f89581a",
@@ -257,12 +271,12 @@
     },
     {
       "id": "fachkraft-95e6a3d46ba8",
-      "slug": "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch",
+      "slug": "zimmermann-camera-con-compiti-di-costruzione-in-legno-versatili-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch",
-        "en": "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch",
+        "it": "zimmermann-camera-con-compiti-di-costruzione-in-legno-versatili-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "zimmermann-room-with-versatile-timber-construction-tasks-fachkraft-ch-gmbh-luzern-luzern",
         "de": "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch"
+        "fr": "zimmermann-salle-avec-des-taches-de-construction-de-bois-polyvalent-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -315,7 +329,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
+          "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-zimmerin-mit-vielseitigen-holzbauaufgaben-luzern-luzern-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-4ee9ff5d96fa",
@@ -5540,12 +5568,12 @@
     },
     {
       "id": "fachkraft-ed7045636691",
-      "slug": "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
+      "slug": "zimmermann-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
-        "en": "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft",
+        "it": "zimmermann-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
+        "en": "zimmermann-for-new-constructions-and-renovations-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
         "de": "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft",
-        "fr": "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft"
+        "fr": "zimmermann-pour-les-nouvelles-constructions-et-renovations-fachkraft-ch-gmbh-affoltern-am-albis-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -5586,10 +5614,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft"
+        "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft",
+        "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-affoltern-am-albis-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft",
+          "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-affoltern-am-albis-zurich"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-affoltern-am-albis-zurich-fachkraft"
         ]
       },
@@ -7470,12 +7506,12 @@
     },
     {
       "id": "fachkraft-573e603be11c",
-      "slug": "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-willisau-luzern",
+      "slug": "zimmermann-camera-per-la-costruzione-della-facciata-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-willisau-luzern",
-        "en": "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch",
+        "it": "zimmermann-camera-per-la-costruzione-della-facciata-fachkraft-ch-gmbh-willisau-luzern",
+        "en": "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-willisau-luzern",
         "de": "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch"
+        "fr": "zimmermann-salle-pour-la-construction-de-facade-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -7516,10 +7552,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch"
+        "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch",
+        "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-willisau-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch",
+          "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-willisau-luzern"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-fassadenbau-willisau-luzern-fachkraft-ch"
         ]
       },
@@ -8156,9 +8200,9 @@
       "slug": "zimmermann-zimmerin-per-aussendienst-kundenservice-fachkraft-ch-gmbh-zurich",
       "slugByLocale": {
         "it": "zimmermann-zimmerin-per-aussendienst-kundenservice-fachkraft-ch-gmbh-zurich",
-        "en": "zimmermann-zimmerin-fur-aussendienst-kundenservice-zurich-zurich-fachkraft-ch",
+        "en": "zimmermann-room-for-field-service-customer-service-fachkraft-ch-gmbh-zurich-zurich",
         "de": "zimmermann-zimmerin-fur-aussendienst-kundenservice-zurich-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-aussendienst-kundenservice-zurich-zurich-fachkraft-ch"
+        "fr": "zimmermann-salle-pour-service-a-la-clientele-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -8203,6 +8247,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-aussendienst-kundenservice-zurich-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-aussendienst-kundenservice-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-aussendienst-kundenservice-zurich-zurich-fachkraft-ch"
         ]
       },
@@ -9572,12 +9622,12 @@
     },
     {
       "id": "fachkraft-4ac2e58b3cf9",
-      "slug": "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
+      "slug": "zimmermann-zimmerin-lavoratore-ausiliario-per-progetti-di-interior-design-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
-        "en": "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis",
+        "it": "zimmermann-zimmerin-lavoratore-ausiliario-per-progetti-di-interior-design-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
+        "en": "zimmermann-zimmerin-auxiliary-worker-for-interior-design-projects-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
         "de": "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich",
-        "fr": "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis"
+        "fr": "zimmermann-zimmerin-travailleur-auxiliaire-pour-des-projets-de-design-d-interieur-fachkraft-ch-gmbh-affoltern-am-albis"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -9618,17 +9668,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich"
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich",
+        "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich"
+          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich",
+          "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis-zurich"
         ],
         "en": [
-          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich"
+          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich",
+          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis"
         ],
         "fr": [
-          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich"
+          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-affoltern-am-albis-zurich",
+          "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauprojekte-fachkraft-ch-gmbh-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-08-27T20:14:26.069Z",
@@ -110367,7 +110422,7 @@
         "it": "montage-elektriker-in-tecnico-a-di-servizio-fachkraft-ch-gmbh-lugano",
         "en": "assembly-electrician-service-technician-fachkraft-ch-gmbh-zurich-zurich",
         "de": "montage-elektriker-in-servicetechniker-in-fachkraft-ch",
-        "fr": "montage-elektriker-in-servicetechniker-in-fachkraft-ch-gmbh-zurich"
+        "fr": "electricien-d-assemblage-technicien-de-service-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -110414,7 +110469,7 @@
         "montage-elektriker-in-service-technician-fachkraft-ch-gmbh-lugano",
         "electricien-d-assemblage-technicien-de-service-fachkraft-ch-gmbh-lugano",
         "montage-elektriker-in-service-technician-fachkraft-ch-gmbh-zurich-zurich",
-        "electricien-d-assemblage-technicien-de-service-fachkraft-ch-gmbh-zurich-zurich"
+        "montage-elektriker-in-servicetechniker-in-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -110434,7 +110489,7 @@
         ],
         "fr": [
           "montage-elektriker-in-servicetechniker-in-fachkraft-ch",
-          "electricien-d-assemblage-technicien-de-service-fachkraft-ch-gmbh-zurich-zurich"
+          "montage-elektriker-in-servicetechniker-in-fachkraft-ch-gmbh-zurich"
         ]
       },
       "firstSeenAt": "2026-08-27T00:51:42.264Z",
@@ -125985,7 +126040,6 @@
       "previousSlugsByLocale": {
         "de": [
           "metallbauer-in-fur-montagearbeiten-pfaffikon-zurich-fachkraft-ch",
-          "metallbauer-in-fur-montagearbeiten-fachkraft-ch",
           "metallbauer-in-fur-montagearbeiten-egerkingen-solothurn-fachkraft-ch"
         ],
         "it": [
@@ -126007,7 +126061,6 @@
           "metallbauer-in-fur-schweissarbeiten-kleinere-montagearbeiten-frauenfeld-thurgau-fachkraft",
           "metallbauer-in-fur-montagearbeiten-pfaffikon-zurich-fachkraft-ch",
           "metaux-ouvriers-auxiliaires-pour-travaux-de-montage-fachkraft-ch-gmbh-lugano",
-          "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-lugano",
           "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-egerkingen-solothurn"
         ],
         "en": [
@@ -126051,8 +126104,6 @@
         "metallbauer-in-hilfsarbeiter-in-fur-montagearbeiten-fachkraft-ch",
         "metallbauer-in-per-schweissarbeiten-kleinere-montagearbeiten-fachkraft-ch-gmbh-lugano",
         "metallbauer-in-fur-schweissarbeiten-kleinere-montagearbeiten-frauenfeld-thurgau-fachkraft",
-        "metallbauer-in-fur-montagearbeiten-fachkraft-ch",
-        "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-lugano",
         "metallbauer-in-per-montagearbeiten-fachkraft-ch-gmbh-egerkingen-solothurn",
         "metallbauer-in-fur-montagearbeiten-egerkingen-solothurn-fachkraft-ch",
         "metallbauer-in-fur-montagearbeiten-fachkraft-ch-gmbh-egerkingen"
@@ -139286,12 +139337,12 @@
     },
     {
       "id": "fachkraft-f7b16a7dd681",
-      "slug": "malerpraktiker-in-per-innen-e-aussenbereich-fachkraft-ch-gmbh-weinfelden-thurgau",
+      "slug": "pittura-per-interni-ed-esterni-fachkraft-ch-gmbh-weinfelden-thurgau",
       "slugByLocale": {
-        "it": "malerpraktiker-in-per-innen-e-aussenbereich-fachkraft-ch-gmbh-weinfelden-thurgau",
-        "en": "malerpraktiker-in-fur-innen-und-aussenbereich-weinfelden-thurgau-fachkraft-ch",
+        "it": "pittura-per-interni-ed-esterni-fachkraft-ch-gmbh-weinfelden-thurgau",
+        "en": "painting-practitioner-for-interior-and-exterior-fachkraft-ch-gmbh-weinfelden-thurgau",
         "de": "malerpraktiker-in-fur-innen-und-aussenbereich-weinfelden-thurgau-fachkraft-ch",
-        "fr": "malerpraktiker-in-fur-innen-und-aussenbereich-weinfelden-thurgau-fachkraft-ch"
+        "fr": "peintre-pour-interieur-et-exterieur-fachkraft-ch-gmbh-weinfelden-thurgau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -139334,16 +139385,22 @@
       "previousSlugs": [
         "malerpraktiker-in-fur-innen-und-aussenbereich-weinfelden-thurgau-fachkraft-ch",
         "malerpraktiker-in-per-neubau-e-renovationen-fachkraft-ch-gmbh-weinfelden-thurgau",
-        "malerpraktiker-in-fur-neubau-und-renovationen-weinfelden-thurgau-fachkraft-ch"
+        "malerpraktiker-in-fur-neubau-und-renovationen-weinfelden-thurgau-fachkraft-ch",
+        "malerpraktiker-in-per-innen-e-aussenbereich-fachkraft-ch-gmbh-weinfelden-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-innen-und-aussenbereich-weinfelden-thurgau-fachkraft-ch",
           "malerpraktiker-in-per-neubau-e-renovationen-fachkraft-ch-gmbh-weinfelden-thurgau",
-          "malerpraktiker-in-fur-neubau-und-renovationen-weinfelden-thurgau-fachkraft-ch"
+          "malerpraktiker-in-fur-neubau-und-renovationen-weinfelden-thurgau-fachkraft-ch",
+          "malerpraktiker-in-per-innen-e-aussenbereich-fachkraft-ch-gmbh-weinfelden-thurgau"
         ],
         "fr": [
-          "malerpraktiker-in-fur-neubau-und-renovationen-weinfelden-thurgau-fachkraft-ch"
+          "malerpraktiker-in-fur-neubau-und-renovationen-weinfelden-thurgau-fachkraft-ch",
+          "malerpraktiker-in-fur-innen-und-aussenbereich-weinfelden-thurgau-fachkraft-ch"
+        ],
+        "en": [
+          "malerpraktiker-in-fur-innen-und-aussenbereich-weinfelden-thurgau-fachkraft-ch"
         ]
       },
       "firstSeenAt": "2026-08-28T06:17:51.761Z",
@@ -139363,12 +139420,12 @@
     },
     {
       "id": "fachkraft-d2cba900f499",
-      "slug": "malerpraktiker-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur-zurich",
+      "slug": "professionista-di-pittura-per-il-lavoro-di-pittura-cliente-fachkraft-ch-gmbh-winterthur-zurich",
       "slugByLocale": {
-        "it": "malerpraktiker-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur-zurich",
-        "en": "malerpraktiker-in-fur-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur",
+        "it": "professionista-di-pittura-per-il-lavoro-di-pittura-cliente-fachkraft-ch-gmbh-winterthur-zurich",
+        "en": "painting-practitioner-for-client-painting-work-fachkraft-ch-gmbh-winterthur-zurich",
         "de": "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch",
-        "fr": "malerpraktiker-in-fur-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur"
+        "fr": "pratique-de-peinture-pour-le-travail-de-peinture-client-fachkraft-ch-gmbh-winterthur-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -139409,17 +139466,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch"
+        "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch",
+        "malerpraktiker-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur-zurich",
+        "malerpraktiker-in-fur-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch"
+          "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch",
+          "malerpraktiker-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur-zurich"
         ],
         "en": [
-          "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch"
+          "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch",
+          "malerpraktiker-in-fur-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur"
         ],
         "fr": [
-          "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch"
+          "malerpraktiker-in-fur-kundenmalerarbeiten-winterthur-zurich-fachkraft-ch",
+          "malerpraktiker-in-fur-kundenmalerarbeiten-fachkraft-ch-gmbh-winterthur"
         ]
       },
       "firstSeenAt": "2026-08-28T06:17:51.460Z",
@@ -139974,12 +140036,12 @@
     },
     {
       "id": "fachkraft-fa26935c994a",
-      "slug": "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch",
+      "slug": "pittura-praticante-pittura-cliente-fachkraft-ch-gmbh-winterthur-zurich",
       "slugByLocale": {
-        "it": "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch",
-        "en": "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch",
+        "it": "pittura-praticante-pittura-cliente-fachkraft-ch-gmbh-winterthur-zurich",
+        "en": "painting-practitioner-client-painting-fachkraft-ch-gmbh-winterthur-zurich",
         "de": "malerpraktiker-in-8211-kundenmalerei-winterthur-zurich-fachkraft-ch",
-        "fr": "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch"
+        "fr": "pratique-de-peinture-peinture-client-fachkraft-ch-gmbh-winterthur-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -140020,11 +140082,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "malerpraktiker-in-8211-kundenmalerei-winterthur-zurich-fachkraft-ch"
+        "malerpraktiker-in-8211-kundenmalerei-winterthur-zurich-fachkraft-ch",
+        "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "malerpraktiker-in-8211-kundenmalerei-winterthur-zurich-fachkraft-ch"
+          "malerpraktiker-in-8211-kundenmalerei-winterthur-zurich-fachkraft-ch",
+          "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch"
+        ],
+        "fr": [
+          "malerpraktiker-in-kundenmalerei-winterthur-zurich-fachkraft-ch"
         ]
       },
       "needsRetranslation": true,
@@ -140045,12 +140115,12 @@
     },
     {
       "id": "fachkraft-d208db68a5e9",
-      "slug": "malerpraktiker-in-per-anspruchsvolle-fassadenprojekte-fachkraft-ch-gmbh-luzern",
+      "slug": "professionista-di-pittura-per-progetti-di-facciata-esigenti-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
-        "it": "malerpraktiker-in-per-anspruchsvolle-fassadenprojekte-fachkraft-ch-gmbh-luzern",
-        "en": "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch",
+        "it": "professionista-di-pittura-per-progetti-di-facciata-esigenti-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "painting-practitioner-for-demanding-facade-projects-fachkraft-ch-gmbh-luzern-luzern",
         "de": "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch",
-        "fr": "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch"
+        "fr": "peintre-pour-projets-de-facade-exigeants-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -140091,10 +140161,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch"
+        "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch",
+        "malerpraktiker-in-per-anspruchsvolle-fassadenprojekte-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch",
+          "malerpraktiker-in-per-anspruchsvolle-fassadenprojekte-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "malerpraktiker-in-fur-anspruchsvolle-fassadenprojekte-luzern-luzern-fachkraft-ch"
         ]
       },
@@ -144563,12 +144641,12 @@
     },
     {
       "id": "fachkraft-515f18237508",
-      "slug": "maler-in-con-erfahrung-in-lackier-e-spritztechniken-fachkraft-ch-gmbh-zurich",
+      "slug": "pittore-con-esperienza-nella-pittura-e-nelle-tecniche-di-spruzzatura-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
-        "it": "maler-in-con-erfahrung-in-lackier-e-spritztechniken-fachkraft-ch-gmbh-zurich",
-        "en": "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch",
+        "it": "pittore-con-esperienza-nella-pittura-e-nelle-tecniche-di-spruzzatura-fachkraft-ch-gmbh-zurich-zurich",
+        "en": "painter-with-experience-in-painting-and-spraying-techniques-fachkraft-ch-gmbh-zurich-zurich",
         "de": "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch",
-        "fr": "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch"
+        "fr": "peintre-avec-experience-dans-la-peinture-et-les-techniques-de-pulverisation-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -144609,10 +144687,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch"
+        "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch",
+        "maler-in-con-erfahrung-in-lackier-e-spritztechniken-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch",
+          "maler-in-con-erfahrung-in-lackier-e-spritztechniken-fachkraft-ch-gmbh-zurich"
+        ],
+        "en": [
+          "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-mit-erfahrung-in-lackier-und-spritztechniken-zurich-zurich-fachkraft-ch"
         ]
       },
@@ -147404,12 +147490,12 @@
     },
     {
       "id": "fachkraft-2732057e251b",
-      "slug": "maler-in-per-renovationen-e-neubauten-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
+      "slug": "pittore-per-ristrutturazioni-e-nuovi-edifici-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
       "slugByLocale": {
-        "it": "maler-in-per-renovationen-e-neubauten-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
-        "en": "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch",
+        "it": "pittore-per-ristrutturazioni-e-nuovi-edifici-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
+        "en": "painter-for-renovations-and-new-buildings-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
         "de": "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch",
-        "fr": "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch"
+        "fr": "peintre-pour-renovations-et-nouveaux-batiments-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -147450,10 +147536,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch"
+        "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch",
+        "maler-in-per-renovationen-e-neubauten-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch",
+          "maler-in-per-renovationen-e-neubauten-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden"
+        ],
+        "en": [
+          "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-renovationen-und-neubauten-herisau-appenzell-ausserrhoden-fachkraft-ch"
         ]
       },
@@ -156650,7 +156744,7 @@
       "slug": "pittore-tutti-i-rubini-nella-pittura-del-cliente-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
         "it": "pittore-tutti-i-rubini-nella-pittura-del-cliente-fachkraft-ch-gmbh-zurich-zurich",
-        "en": "maler-in-allrounder-in-kundenmalerei-fachkraft-ch-gmbh-zurich",
+        "en": "painter-all-rounder-in-customer-painting-fachkraft-ch-gmbh-zurich-zurich",
         "de": "maler-in-allrounder-in-kundenmalerei-fachkraft-ch",
         "fr": "peintre-peintre-complet-en-peinture-client-fachkraft-ch-gmbh-zurich-zurich"
       },
@@ -156700,7 +156794,7 @@
         "peintre-peintre-complet-en-peinture-client-fachkraft-ch-gmbh-lugano",
         "maler-in-allrounder-in-kundenmalerei-zurich-zurich-fachkraft-ch",
         "maler-in-allrounder-in-kundenmalerei-fachkraft-ch",
-        "painter-all-rounder-in-customer-painting-fachkraft-ch-gmbh-zurich-zurich"
+        "maler-in-allrounder-in-kundenmalerei-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -156712,7 +156806,7 @@
           "painter-all-rounder-in-customer-painting-fachkraft-ch-gmbh-lugano",
           "maler-in-allrounder-in-kundenmalerei-fachkraft-ch-gmbh-lugano",
           "maler-in-allrounder-in-kundenmalerei-fachkraft-ch",
-          "painter-all-rounder-in-customer-painting-fachkraft-ch-gmbh-zurich-zurich"
+          "maler-in-allrounder-in-kundenmalerei-fachkraft-ch-gmbh-zurich"
         ],
         "de": [
           "maler-in-allrounder-in-kundenmalerei-fachkraft-ch-423buj",
@@ -243067,7 +243161,7 @@
         "it": "automatico-con-conoscenze-plc-fachkraft-ch-gmbh-muri-ag-aargau",
         "en": "automatician-with-plc-knowledge-fachkraft-ch-gmbh-muri-ag-aargau",
         "de": "automatiker-in-mit-sps-kenntnissen-fachkraft-ch",
-        "fr": "automatiker-in-mit-sps-kenntnissen-fachkraft-ch-gmbh-muri-ag"
+        "fr": "automatique-avec-connaissance-plc-fachkraft-ch-gmbh-muri-ag-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -243116,7 +243210,7 @@
         "automatician-with-plc-skills-for-maintenance-fachkraft-ch-gmbh-lugano",
         "automatique-avec-des-competences-plc-pour-la-maintenance-fachkraft-ch-gmbh-lugano",
         "automatiker-in-mit-sps-kenntnissen-fachkraft-ch",
-        "automatique-avec-connaissance-plc-fachkraft-ch-gmbh-muri-ag-aargau"
+        "automatiker-in-mit-sps-kenntnissen-fachkraft-ch-gmbh-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -243138,7 +243232,7 @@
         "fr": [
           "automatiker-in-mit-sps-kenntnissen-fur-instandhaltung-fachkraft-ch",
           "automatiker-in-mit-sps-kenntnissen-fachkraft-ch",
-          "automatique-avec-connaissance-plc-fachkraft-ch-gmbh-muri-ag-aargau"
+          "automatiker-in-mit-sps-kenntnissen-fachkraft-ch-gmbh-muri-ag"
         ]
       },
       "firstSeenAt": "2026-08-27T00:43:14.180Z",
@@ -243399,7 +243493,7 @@
       "slug": "automatiker-in-con-schwerpunkt-steuerungstechnik-e-prozessautomation-fachkraft-ch-gmbh-lugano",
       "slugByLocale": {
         "it": "automatiker-in-con-schwerpunkt-steuerungstechnik-e-prozessautomation-fachkraft-ch-gmbh-lugano",
-        "en": "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee",
+        "en": "automatician-with-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern",
         "de": "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch",
         "fr": "automatique-avec-accent-sur-la-technologie-de-controle-et-l-automatisation-des-processus-fachkraft-ch-gmbh-sursee-luzern"
       },
@@ -243455,8 +243549,8 @@
         ],
         "en": [
           "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch",
-          "automatician-with-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern",
-          "automatician-with-a-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern"
+          "automatician-with-a-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern",
+          "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee"
         ],
         "fr": [
           "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-lugano",
@@ -243470,8 +243564,8 @@
         "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-lugano",
         "automatician-with-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-lugano",
         "automatique-avec-accent-sur-la-technologie-de-controle-et-l-automatisation-des-processus-fachkraft-ch-gmbh-lugano",
-        "automatician-with-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern",
-        "automatician-with-a-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern"
+        "automatician-with-a-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern",
+        "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee"
       ],
       "firstSeenAt": "2026-08-27T00:43:11.763Z",
       "salaryMin": 69500,
@@ -263374,7 +263468,7 @@
       "slug": "anlagen-e-apparatebauer-in-con-allrounder-kompetenz-fachkraft-ch-gmbh-lugano",
       "slugByLocale": {
         "it": "anlagen-e-apparatebauer-in-con-allrounder-kompetenz-fachkraft-ch-gmbh-lugano",
-        "en": "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-fachkraft-ch-gmbh-schaffhausen",
+        "en": "plant-and-apparatus-manufacturer-with-all-rounder-competence-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "de": "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-fachkraft-ch",
         "fr": "fabricant-d-installations-et-d-appareils-possedant-une-competence-complete-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
@@ -263423,7 +263517,7 @@
         "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-fachkraft-ch-gmbh-lugano",
         "fabricant-d-installations-et-d-appareils-possedant-une-competence-complete-fachkraft-ch-gmbh-lugano",
         "plant-and-apparatus-manufacturer-with-all-rounder-competence-fachkraft-ch-gmbh-lugano",
-        "plant-and-apparatus-manufacturer-with-all-rounder-competence-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+        "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-fachkraft-ch-gmbh-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -263437,7 +263531,7 @@
         "en": [
           "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-fachkraft-ch-gmbh-lugano",
           "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-fachkraft-ch",
-          "plant-and-apparatus-manufacturer-with-all-rounder-competence-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+          "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-fachkraft-ch-gmbh-schaffhausen"
         ],
         "de": [
           "anlagen-und-apparatebauer-in-mit-allrounder-kompetenz-schaffhausen-schaffhausen-fachkraft"

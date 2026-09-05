@@ -1474,12 +1474,12 @@
     },
     {
       "id": "belimo-2a0f6db1a0ce",
-      "slug": "embedded-software-development-lead-80-100-belimo-hinwil",
+      "slug": "piombo-di-sviluppo-del-software-incorporato-80-100-belimo-hinwil",
       "slugByLocale": {
-        "it": "embedded-software-development-lead-80-100-belimo-hinwil",
+        "it": "piombo-di-sviluppo-del-software-incorporato-80-100-belimo-hinwil",
         "en": "embedded-software-development-lead-80-100-belimo-hinwil",
         "de": "embedded-software-development-lead-80-100-belimo-hinwil",
-        "fr": "embedded-software-development-lead-80-100-belimo-hinwil"
+        "fr": "responsable-du-developpement-logiciel-integre-80-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -1536,7 +1536,18 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "embedded-software-development-lead-80-100-belimo-hinwil"
+        ],
+        "fr": [
+          "embedded-software-development-lead-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "embedded-software-development-lead-80-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-1f407073f538",
@@ -2382,7 +2393,7 @@
       "slug": "recruiting-coordinatore-befristet-bis-31-12-2026-belimo-hinwil",
       "slugByLocale": {
         "it": "recruiting-coordinatore-befristet-bis-31-12-2026-belimo-hinwil",
-        "en": "recruiting-coordinator-befristet-bis-31-12-2026-belimo-hinwil",
+        "en": "junior-recruiting-coordinator-temporary-until-31-12-2026-belimo-hinwil",
         "de": "recruiting-coordinator-befristet-bis-31-12-2026-belimo-hinwil",
         "fr": "recruiting-coordinator-befristet-bis-31-12-2026-belimo-hinwil"
       },
@@ -2435,6 +2446,9 @@
         "it": [
           "recruiting-coordinator-befristet-bis-31-12-2026-belimo-hinwil",
           "junior-recruiting-coordinator-befristet-bis-31-12-2026-belimo-hinwil"
+        ],
+        "en": [
+          "recruiting-coordinator-befristet-bis-31-12-2026-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,

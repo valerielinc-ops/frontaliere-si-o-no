@@ -1240,12 +1240,12 @@
     },
     {
       "id": "srg-ssr-5f308f7330f9",
-      "slug": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+      "slug": "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-        "en": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+        "it": "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich",
+        "en": "genre-responsible-r-information-national-offer-operations-srg-ssr-zurich",
         "de": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-        "fr": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+        "fr": "genre-responsable-r-information-offre-nationale-operations-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -1319,7 +1319,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+        ],
+        "en": [
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+        ],
+        "fr": [
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-e925533036c3",
@@ -1407,11 +1421,11 @@
     },
     {
       "id": "srg-ssr-914a586be732",
-      "slug": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+      "slug": "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-        "en": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-        "de": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+        "it": "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich",
+        "en": "head-of-gender-national-information-offer-operations-srg-ssr-zurich",
+        "de": "leiterin-gender-national-information-offer-operations-srg-ssr-zurich",
         "fr": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
       },
       "company": "SRG SSR",
@@ -1487,7 +1501,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+        ],
+        "en": [
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+        ],
+        "de": [
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-b3b1135040db",

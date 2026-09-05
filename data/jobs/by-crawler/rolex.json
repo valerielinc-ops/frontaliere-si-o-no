@@ -11354,11 +11354,11 @@
     },
     {
       "id": "rolex-aaab1c86354a",
-      "slug": "charge-de-projets-digitaux-h-f-rolex-ch",
+      "slug": "direttore-del-progetto-digitale-m-f-rolex-geneve",
       "slugByLocale": {
-        "it": "charge-de-projets-digitaux-h-f-rolex-ch",
-        "en": "charge-de-projets-digitaux-h-f-rolex-ch",
-        "de": "charge-de-projets-digitaux-h-f-rolex-ch",
+        "it": "direttore-del-progetto-digitale-m-f-rolex-geneve",
+        "en": "digital-project-manager-m-f-rolex-geneve",
+        "de": "digitaler-projektmanager-m-w-rolex-geneve",
         "fr": "charge-de-projets-digitaux-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -11412,15 +11412,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-digitaux-h-f-rolex-ch"
+        ],
+        "en": [
+          "charge-de-projets-digitaux-h-f-rolex-ch"
+        ],
+        "de": [
+          "charge-de-projets-digitaux-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-digitaux-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-0d4db6e7470f",
-      "slug": "technicien-r-d-h-f-materiaux-rolex-ch",
+      "slug": "r-d-technician-m-f-materiali-rolex-geneve",
       "slugByLocale": {
-        "it": "technicien-r-d-h-f-materiaux-rolex-ch",
-        "en": "technicien-r-d-h-f-materiaux-rolex-ch",
-        "de": "technicien-r-d-h-f-materiaux-rolex-ch",
+        "it": "r-d-technician-m-f-materiali-rolex-geneve",
+        "en": "r-d-technician-m-f-materials-rolex-geneve",
+        "de": "r-d-techniker-m-w-materialien-rolex-geneve",
         "fr": "technicien-r-d-h-f-materiaux-rolex-ch"
       },
       "company": "Rolex",
@@ -11474,7 +11488,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-r-d-h-f-materiaux-rolex-ch"
+        ],
+        "en": [
+          "technicien-r-d-h-f-materiaux-rolex-ch"
+        ],
+        "de": [
+          "technicien-r-d-h-f-materiaux-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-r-d-h-f-materiaux-rolex-ch"
+      ]
     },
     {
       "id": "rolex-9c27b3166050",

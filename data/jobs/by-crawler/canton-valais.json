@@ -67,8 +67,7 @@
         "ubersetzer-in-40-canton-valais-ch",
         "traducteur-50-canton-du-valais-sion",
         "ubersetzer-in-50-canton-valais-ch",
-        "ubersetzer-in-40-canton-du-valais-sion",
-        "un-recensore-fiscale-o-un-recensore-fiscale-80-100-canton-du-valais-sion"
+        "ubersetzer-in-40-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,8 +87,7 @@
           "ubersetzer-in-40-canton-valais-ch",
           "traducteur-50-canton-du-valais-sion",
           "ubersetzer-in-50-canton-valais-ch",
-          "ubersetzer-in-40-canton-du-valais-sion",
-          "un-recensore-fiscale-o-un-recensore-fiscale-80-100-canton-du-valais-sion"
+          "ubersetzer-in-40-canton-du-valais-sion"
         ],
         "en": [
           "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch",
@@ -174,14 +172,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-collaborateur-ou-une-collaboratrice-scientifique-50-canton-valais-ch",
-        "un-collaborateur-ou-une-collaboratrice-scientifique-50-60-canton-valais-ch",
-        "un-collaboratore-scientifico-50-canton-du-valais-sion"
+        "un-collaborateur-ou-une-collaboratrice-scientifique-50-60-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-collaborateur-ou-une-collaboratrice-scientifique-50-canton-valais-ch",
-          "un-collaborateur-ou-une-collaboratrice-scientifique-50-60-canton-valais-ch",
-          "un-collaboratore-scientifico-50-canton-du-valais-sion"
+          "un-collaborateur-ou-une-collaboratrice-scientifique-50-60-canton-valais-ch"
         ],
         "en": [
           "un-collaborateur-ou-une-collaboratrice-scientifique-50-canton-valais-ch"
@@ -285,13 +281,11 @@
         ]
       },
       "previousSlugs": [
-        "un-ou-une-responsable-d-arrondissement-en-constructions-rurales-et-financement-des",
-        "responsabile-di-distretto-in-costruzioni-rurali-e-finanziamento-delle-aziende-agricole-60-canton-du-valais-sion"
+        "un-ou-une-responsable-d-arrondissement-en-constructions-rurales-et-financement-des"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-responsable-d-arrondissement-en-constructions-rurales-et-financement-des",
-          "responsabile-di-distretto-in-costruzioni-rurali-e-finanziamento-delle-aziende-agricole-60-canton-du-valais-sion"
+          "un-ou-une-responsable-d-arrondissement-en-constructions-rurales-et-financement-des"
         ],
         "en": [
           "un-ou-une-responsable-d-arrondissement-en-constructions-rurales-et-financement-des"
@@ -317,9 +311,9 @@
     },
     {
       "id": "canton-valais-a38463d1944d",
-      "slug": "strassenmeister-in-100-canton-valais-ch",
+      "slug": "roadmaster-100-canton-du-valais-brig-glis",
       "slugByLocale": {
-        "it": "strassenmeister-in-100-canton-valais-ch",
+        "it": "roadmaster-100-canton-du-valais-brig-glis",
         "en": "road-maintenance-manager-100-canton-du-valais-brig-glis",
         "de": "strassenmeister-in-100-canton-valais-ch",
         "fr": "chef-de-la-maintenance-routiere-100-canton-du-valais-brig-glis"
@@ -407,7 +401,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "strassenmeister-in-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strassenmeister-in-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-4914395c3c9a",
@@ -483,13 +485,11 @@
         ]
       },
       "previousSlugs": [
-        "un-controleur-ou-une-controleuse-interne-100-canton-valais-ch",
-        "controllore-o-controllatrice-interna-100-canton-du-valais-sion"
+        "un-controleur-ou-une-controleuse-interne-100-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-controleur-ou-une-controleuse-interne-100-canton-valais-ch",
-          "controllore-o-controllatrice-interna-100-canton-du-valais-sion"
+          "un-controleur-ou-une-controleuse-interne-100-canton-valais-ch"
         ],
         "en": [
           "un-controleur-ou-une-controleuse-interne-100-canton-valais-ch"
@@ -593,13 +593,11 @@
         ]
       },
       "previousSlugs": [
-        "un-ouvrier-professionnel-ou-une-ouvriere-professionnelle-80-100-canton-valais-ch",
-        "operaio-professionista-o-operaia-professionista-80-100-canton-du-valais-sion"
+        "un-ouvrier-professionnel-ou-une-ouvriere-professionnelle-80-100-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ouvrier-professionnel-ou-une-ouvriere-professionnelle-80-100-canton-valais-ch",
-          "operaio-professionista-o-operaia-professionista-80-100-canton-du-valais-sion"
+          "un-ouvrier-professionnel-ou-une-ouvriere-professionnelle-80-100-canton-valais-ch"
         ],
         "en": [
           "un-ouvrier-professionnel-ou-une-ouvriere-professionnelle-80-100-canton-valais-ch"
@@ -672,13 +670,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "jurist-in-80-canton-valais-ch",
-        "jurist-in-80-canton-du-valais-sion"
+        "jurist-in-80-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-80-canton-valais-ch",
-          "jurist-in-80-canton-du-valais-sion"
+          "jurist-in-80-canton-valais-ch"
         ],
         "en": [
           "jurist-in-80-canton-valais-ch"
@@ -782,13 +778,11 @@
         ]
       },
       "previousSlugs": [
-        "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch",
-        "un-serragliere-o-meccanico-una-serragliera-o-meccanica-100-canton-du-valais-sierre"
+        "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch",
-          "un-serragliere-o-meccanico-una-serragliera-o-meccanica-100-canton-du-valais-sierre"
+          "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch"
         ],
         "en": [
           "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch"
@@ -892,13 +886,11 @@
         ]
       },
       "previousSlugs": [
-        "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch",
-        "capo-sezione-infrastrutture-e-gestione-100-canton-du-valais-sierre"
+        "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch",
-          "capo-sezione-infrastrutture-e-gestione-100-canton-du-valais-sierre"
+          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
         ],
         "en": [
           "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
@@ -999,13 +991,11 @@
         ]
       },
       "previousSlugs": [
-        "un-ou-une-specialiste-sap-hr-80-100-canton-valais-ch",
-        "specialista-sap-hr-80-100-canton-du-valais-sion"
+        "un-ou-une-specialiste-sap-hr-80-100-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-specialiste-sap-hr-80-100-canton-valais-ch",
-          "specialista-sap-hr-80-100-canton-du-valais-sion"
+          "un-ou-une-specialiste-sap-hr-80-100-canton-valais-ch"
         ],
         "en": [
           "un-ou-une-specialiste-sap-hr-80-100-canton-valais-ch"
@@ -1104,13 +1094,11 @@
         ]
       },
       "previousSlugs": [
-        "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton",
-        "un-apprendista-meccanico-o-un-apprendista-meccanica-cfc-opzione-veicoli-leggeri-canton-du-valais-sion"
+        "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton",
-          "un-apprendista-meccanico-o-un-apprendista-meccanica-cfc-opzione-veicoli-leggeri-canton-du-valais-sion"
+          "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton"
         ],
         "en": [
           "un-apprenti-mecanicien-ou-une-apprentie-mecanicienne-cfc-option-vehicule-legers-canton"
@@ -1202,13 +1190,11 @@
         ]
       },
       "previousSlugs": [
-        "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch",
-        "posti-di-tirocinio-di-maturita-professionale-economia-mp-e-canton-du-valais-sion"
+        "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch",
-          "posti-di-tirocinio-di-maturita-professionale-economia-mp-e-canton-du-valais-sion"
+          "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch"
         ],
         "en": [
           "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch"
@@ -1307,13 +1293,11 @@
       },
       "previousSlugs": [
         "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch",
-        "un-apprenti-assistent-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-du-valais-sion",
-        "un-apprendista-assistente-socio-educativo-a-cfc-canton-du-valais-sion"
+        "un-apprenti-assistent-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch",
-          "un-apprendista-assistente-socio-educativo-a-cfc-canton-du-valais-sion"
+          "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch"
         ],
         "en": [
           "un-apprenti-assistant-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-valais-ch"
@@ -1386,13 +1370,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais",
-        "apprendisti-commerciali-efz-canton-du-valais-sion"
+        "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais",
-          "apprendisti-commerciali-efz-canton-du-valais-sion"
+          "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais"
         ],
         "en": [
           "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais"
@@ -1465,13 +1447,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch",
-        "un-lavoratore-sociale-80-100-canton-du-valais-sierre"
+        "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch",
-          "un-lavoratore-sociale-80-100-canton-du-valais-sierre"
+          "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch"
         ],
         "en": [
           "un-assistant-social-ou-une-assistante-sociale-80-100-canton-valais-ch"
@@ -1541,13 +1521,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-specialiste-scientifique-sij-canton-valais-ch",
-        "uno-specialista-scientifico-sij-canton-du-valais-sion"
+        "un-ou-une-specialiste-scientifique-sij-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-specialiste-scientifique-sij-canton-valais-ch",
-          "uno-specialista-scientifico-sij-canton-du-valais-sion"
+          "un-ou-une-specialiste-scientifique-sij-canton-valais-ch"
         ],
         "en": [
           "un-ou-une-specialiste-scientifique-sij-canton-valais-ch"
@@ -1625,8 +1603,7 @@
         "administrative-employee-80-canton-du-valais-sion",
         "administrative-r-mitarbeiter-in-80-canton-valais-ch",
         "administration-employe-80-canton-du-valais-sion",
-        "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion",
-        "dipendente-economico-40-50-canton-du-valais-sion"
+        "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1635,8 +1612,7 @@
           "administrative-employee-80-canton-du-valais-sion",
           "administrative-r-mitarbeiter-in-80-canton-valais-ch",
           "administration-employe-80-canton-du-valais-sion",
-          "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion",
-          "dipendente-economico-40-50-canton-du-valais-sion"
+          "wirtschaftliche-r-collaboratore-trice-40-50-canton-du-valais-sion"
         ],
         "en": [
           "administrative-employee-80-canton-du-valais-sion",
@@ -1714,13 +1690,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-collaborateur-ou-une-collaboratrice-scientifique-80-100-canton-valais-ch",
-        "un-collaboratore-scientifico-80-100-canton-du-valais-sion"
+        "un-collaborateur-ou-une-collaboratrice-scientifique-80-100-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-80-100-canton-valais-ch",
-          "un-collaboratore-scientifico-80-100-canton-du-valais-sion"
+          "un-collaborateur-ou-une-collaboratrice-scientifique-80-100-canton-valais-ch"
         ],
         "en": [
           "un-collaborateur-ou-une-collaboratrice-scientifique-80-100-canton-valais-ch"
@@ -1793,13 +1767,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie",
-        "direttore-delle-opere-drawer-in-ingegneria-civile-100-canton-du-valais-sion"
+        "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie",
-          "direttore-delle-opere-drawer-in-ingegneria-civile-100-canton-du-valais-sion"
+          "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie"
         ],
         "en": [
           "un-directeur-ou-une-directrice-des-travaux-un-dessinateur-ou-une-dessinatrice-en-genie"
@@ -1872,13 +1844,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch",
-        "un-ingegnere-dei-miglioramenti-strutturali-80-canton-du-valais-sion"
+        "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch",
-          "un-ingegnere-dei-miglioramenti-strutturali-80-canton-du-valais-sion"
+          "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch"
         ],
         "en": [
           "un-ingenieur-ou-une-ingenieure-en-ameliorations-structurelles-80-canton-valais-ch"
