@@ -17,9 +17,34 @@ import YAML from 'yaml';
  * The cause was NOT accumulation inside the audits. Both already dequeue with
  * an index cursor instead of `shift()`, both already keep bare path strings in
  * the frontier, and their offender lists are small (26,398 offenders over
- * 255,347 sitemap URLs in `data/bfs-depth-baseline.json`). The heap goes into
- * the BFS visited-set, which is one entry per reachable path over the whole
- * rehydrated `dist/` and cannot be streamed away.
+ * 255,347 sitemap URLs in `data/bfs-depth-baseline.json`).
+ *
+ * CORRECTION (2026-09-05, issues #7419/#7420). This docblock used to continue
+ * "The heap goes into the BFS visited-set, which is one entry per reachable
+ * path over the whole rehydrated dist/ and cannot be streamed away." That was
+ * inferred from one V8 death-rattle line, never measured, and it is wrong in
+ * both halves. It also did real damage: three autonomous fix attempts on these
+ * issues followed it and got nowhere, because a heap you believe is inherent
+ * is a heap you only ever raise.
+ *
+ * Measured, with a probe inside the walk, replaying the same corpus (replay
+ * 33949494806 over deploy 33936935725, 4,389,672 files):
+ *
+ *   dequeued=250000   discovered=936931   existing=248011  heap=4490MB
+ *   dequeued=1000000  discovered=1202200  existing=875363  heap=7689MB
+ *   → FATAL ERROR: Reached heap limit, rc=134, at 673 s
+ *
+ * The visited set peaks at 1,202,200 paths of ~44 characters — ~180 MB of the
+ * 7,712 MB that died, about 2%. The other 98% is what those paths HOLD: an
+ * href from the anchor regex is a V8 SlicedString pointing into the whole HTML
+ * document it came from, so each retained path pins its source page. PR #7441
+ * flattens at that boundary; `scripts/audit-duplicate-meta-description.mjs`
+ * had already hit and documented the identical bug on run 32261742920.
+ *
+ * So this guard is a CEILING, not the fix. A dist/ walk over this corpus still
+ * wants a real heap, and a new workflow that runs one of these audits on
+ * node's default is still the mistake below — but 8192 is no longer the thing
+ * standing between these gates and a verdict.
  *
  * The cause was a MISSING HEAP, and the reason it stayed invisible for so long
  * is that the fix and the defect live in different files: three other places

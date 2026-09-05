@@ -110,9 +110,35 @@ jobs:
     # in the frontier (see the comments in scripts/audit-bfs-depth.mjs and
     # scripts/audit-orphan-pages-in-sitemaps.mjs); the offender lists they build
     # are small — 26,398 offenders over 255,347 sitemap URLs in
-    # data/bfs-depth-baseline.json, a few MB. The heap goes into the BFS
-    # visited-set itself, which is inherent: one Map/Set entry per reachable
-    # path over the whole rehydrated dist/.
+    # data/bfs-depth-baseline.json, a few MB.
+    #
+    # CORRECTION (2026-09-05, issues #7419/#7420). The next sentence used to
+    # read "The heap goes into the BFS visited-set itself, which is inherent:
+    # one Map/Set entry per reachable path over the whole rehydrated dist/."
+    # That was inferred from a single V8 death-rattle line — a process that
+    # aborts inside the walk writes no report and no offender list, so the heap
+    # SIZE was the only surviving evidence and nothing said what was in it.
+    # It is wrong in both halves, and it is why three autonomous fix attempts
+    # on these issues went nowhere: they were following a false explanation
+    # written in-house.
+    #
+    # Measured, by putting a probe inside the walk and replaying the same
+    # corpus (replay 33949494806 over deploy 33936935725, 4,389,672 files):
+    #
+    #   dequeued=250000   discovered=936931   existing=248011  heap=4490MB
+    #   dequeued=1000000  discovered=1202200  existing=875363  heap=7689MB
+    #   → FATAL ERROR: Reached heap limit, rc=134, at 673 s
+    #
+    # The visited set peaks at 1,202,200 paths averaging 44 characters: ~180 MB
+    # of the 7,712 MB that died, about 2%. Nor is it inherent. The other 98% is
+    # what those paths HOLD: an href produced by the anchor regex is a V8
+    # SlicedString pointing into the whole HTML document it was scraped from, so
+    # every path kept in the visited set pins its entire source page. PR #7441
+    # flattens at that boundary (scripts/lib/flat-string.mjs) and the retention
+    # goes away — the same bug audit-duplicate-meta-description.mjs already hit
+    # on run 32261742920.
+    #
+    # The heap floor below therefore stays as a CEILING, not as the remedy.
     #
     # What was actually missing is the heap, and the asymmetry was invisible
     # because it lives in a DIFFERENT file from the audits: the very same two
