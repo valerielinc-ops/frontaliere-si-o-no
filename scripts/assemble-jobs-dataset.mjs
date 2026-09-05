@@ -60,6 +60,7 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1657,6 +1658,11 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   re-filter that found real content this run but confirmed none of it
  *   belongs to this company (see scripts/update-swatchgroup-jobs.mjs,
  *   issue #4866). Do not use to paper over an actual parser regression.
+ * @param {boolean} [options.skipOwnershipGuard] - Bypass the duplicate-identity
+ *   guard (issue #6759) for THIS write only. Reserved for a deliberate
+ *   hand-over, where this crawler is MEANT to take vacancies from the key that
+ *   currently holds them; the reconciler does not need it, since it writes
+ *   slices directly. Env equivalent: SKIP_OWNERSHIP_GUARD=1.
  */
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
@@ -1921,9 +1927,45 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
-  const finalJobs = options.preserveExistingSlugs && Array.isArray(existingSlice?.jobs)
+  const mergedJobs = options.preserveExistingSlugs && Array.isArray(existingSlice?.jobs)
     ? restoreExistingSlugIdentity(existingSlice.jobs, hardened.jobs).jobs
     : hardened.jobs;
+
+  // ── Duplicate-identity guard (issue #6759) ────────────────────────────
+  // A vacancy URL already published by ANOTHER crawler key is not ours to
+  // publish again: two crawler keys on one vacancy is two company cards on the
+  // site for one employer. The audit has reported this class for months and the
+  // repair was twice a data migration, so the pairs came back — the write was
+  // never the thing that changed. Centralized here, next to the shrink guard
+  // and for the same reason: the rule holds for all ~137 callers instead of
+  // being asked of each parser.
+  //
+  // Deliberately AFTER the shrink guard. The guard's question is "did this
+  // scrape degrade?", and a deterministic ownership drop is not a degraded
+  // scrape — measuring it as one would abort a crawler over a correction it
+  // asked for. Deliberately non-fatal for the same reason `preserveSlugHistory`
+  // and `collapseDuplicateRouteEntries` are: this runs inside the crawler cron,
+  // where a throw abandons the whole run.
+  let finalJobs = mergedJobs;
+  if (!process.env.SKIP_OWNERSHIP_GUARD && !options.skipOwnershipGuard) {
+    try {
+      const ownership = loadSourceHostOwnership(ROOT, { urls: true });
+      const owned = dropForeignOwnedVacancies(crawlerKey, mergedJobs, ownership);
+      if (owned.dropped.length > 0) {
+        finalJobs = owned.jobs;
+        const byOwner = new Map();
+        for (const { owner } of owned.dropped) byOwner.set(owner, (byOwner.get(owner) || 0) + 1);
+        const breakdown = [...byOwner].sort((a, b) => b[1] - a[1])
+          .map(([owner, n]) => `${owner}×${n}`).join(', ');
+        console.warn(`  🪪 Ownership guard: ${owned.dropped.length} vacancy already published by another crawler dropped from ${crawlerKey} (${breakdown})`);
+      }
+    } catch (err) {
+      // Never let a guard defect cost a crawl. A missing/unreadable slice dir
+      // yields an empty ownership map upstream, which drops nothing by design.
+      console.warn(`  ⚠️ Ownership guard skipped for ${crawlerKey}: ${err.message}`);
+    }
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
@@ -1931,7 +1973,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   };
   writeJson(slicePath, payload);
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
-  console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${hardened.total} jobs${hardeningSuffix})`);
+  console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);
 }
 
 /**

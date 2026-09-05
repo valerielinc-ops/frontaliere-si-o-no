@@ -338,6 +338,96 @@ export function matchExistingCrawler(urls, ownership, opts = {}) {
 }
 
 /**
+ * Vacancies in a slice about to be written that ANOTHER crawler already owns.
+ *
+ * ── Why this exists (issue #6759) ────────────────────────────────────────
+ *
+ * `findOverlappingCrawlers` below has reported this defect since the audit was
+ * written, and the repair has twice been a data migration: retire the losing
+ * `companyKey`, move its slugs into `previousSlugs`, close the issue on a clean
+ * count. Both times the count went back to zero and the issue reopened days
+ * later — on 2026-09-01 with the very pairs that had just been retired
+ * (`solothurner-spitaeler`, `spz`), on 2026-09-03 with a new one
+ * (`swiss-medical-network` + `villa-im-park`). Migrating the data never touched
+ * the reason two crawlers can claim one vacancy: nothing asks the question at
+ * the moment a slice is persisted. The audit is a morning report, and a report
+ * cannot refuse a write.
+ *
+ * So this is the same question `matchExistingCrawler` asks of a prospector
+ * CANDIDATE — "does someone else already publish these vacancies?" — asked of
+ * an established crawler at write time, which is the only moment at which the
+ * answer can still change the outcome.
+ *
+ * ── Why the incumbent wins ───────────────────────────────────────────────
+ *
+ * The guard does NOT adjudicate which employer is the real one: that needs
+ * human judgement (a retired alias, two brands on one board, a group crawler
+ * reading too widely) and getting it wrong silently is worse than the
+ * duplicate. It enforces the weaker invariant that is nonetheless the whole
+ * defect — a vacancy URL is served by at most ONE crawler key — and resolves it
+ * toward the key that already holds the URL on disk. That choice is the safe
+ * one and the stable one:
+ *
+ *   - safe, because the incumbent's slug is the published, indexed route;
+ *     handing the URL to a new claimant moves an indexed page to a different
+ *     company card, which is the SEO loss `slug-preservation-guard.mjs` exists
+ *     to prevent;
+ *   - stable, because it cannot flap. The newcomer drops the URL and the
+ *     incumbent keeps it whatever order the two crawlers run in. When the
+ *     incumbent genuinely stops listing the vacancy its slice loses the URL,
+ *     and the next writer is free to claim it — ownership hands over instead of
+ *     oscillating.
+ *
+ * Pure and I/O-free on purpose, like the two functions above it: the ownership
+ * snapshot is passed in, so a caller pays for one scan and a test needs two
+ * Maps rather than a slice fixture.
+ *
+ * ponytail: incumbency is a tie-break, not a verdict. A deliberate takeover
+ * (a dedicated brand crawler that SHOULD claim vacancies from the group crawler
+ * that currently holds them) is refused by this guard; that hand-over is the
+ * reconciler's job, which writes slices directly and never passes through here.
+ *
+ * @param {string} crawlerKey  key of the slice being written
+ * @param {{url?: string}[]} jobs  the payload about to be persisted
+ * @param {SourceHostOwnership} ownership  from `loadSourceHostOwnership(root, { urls: true })`
+ * @returns {{ jobs: {url?: string}[], dropped: { url: string, owner: string }[] }}
+ *   `jobs` filtered to what this crawler may publish, plus what was removed and
+ *   to whom it belongs. An empty/unloaded ownership map drops nothing: not
+ *   knowing who owns a URL must never be read as "someone else owns it".
+ */
+export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
+  const mine = String(crawlerKey || '').toLowerCase();
+  const urlsByKey = ownership?.urlsByKey;
+  if (!mine || !Array.isArray(jobs) || !(urlsByKey instanceof Map)) {
+    return { jobs: Array.isArray(jobs) ? jobs : [], dropped: [] };
+  }
+  // url -> owning key, every key but this one. Built once per call: the
+  // alternative, probing each of ~590 key sets per job, is a full scan per job.
+  /** @type {Map<string, string>} */
+  const owners = new Map();
+  for (const [key, urls] of urlsByKey) {
+    if (key === mine || !(urls instanceof Set)) continue;
+    for (const url of urls) {
+      // Lexicographic tie-break so two claimants give a stable answer whatever
+      // order readdir returned their slices in.
+      const held = owners.get(url);
+      if (held === undefined || key < held) owners.set(url, key);
+    }
+  }
+
+  /** @type {{ url: string, owner: string }[]} */
+  const dropped = [];
+  const kept = [];
+  for (const job of jobs) {
+    const url = normalizeJobUrl(job?.url || '');
+    const owner = url ? owners.get(url) : undefined;
+    if (owner) dropped.push({ url, owner });
+    else kept.push(job);
+  }
+  return { jobs: kept, dropped };
+}
+
+/**
  * Crawler keys that read the SAME vacancies, and what each one is missing.
  *
  * Two keys sharing a host may still be two genuine employers behind one ATS
