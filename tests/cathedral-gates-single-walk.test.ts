@@ -93,6 +93,17 @@ describe('#7421 — the cathedral gates share one dist/ walk', () => {
     }
   });
 
+  it('does not print "running" for a gate that no longer spawns anything', () => {
+    // The per-gate lines are the only stopwatch this workflow has: the
+    // 2h 36m 39s breakdown that justified the bundle was timed off them.
+    // Crediting ~0 s to four gates that did not run, and the whole shared walk
+    // to whichever is first, hands the next measurement a false reading taken
+    // with the same instrument.
+    const src = readFileSync(join(REPO_ROOT, 'scripts/cathedral-seo-gates-check.mjs'), 'utf8');
+    expect(src).toContain("'bundled (shared walk)'");
+    expect(src).toContain('shared dist/ walk done in');
+  });
+
   it('the shared walk is pinned to the full corpus, never the sampled slice', () => {
     // audit-all reads AUDIT_SAMPLE_RATE from the environment and this checker
     // spawns with `env: process.env`. One stray variable would put all four

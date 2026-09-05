@@ -411,6 +411,9 @@ function run(argv) {
 export async function runBundle(gates) {
   const names = gates.map((g) => g.bundledAs).filter((n) => typeof n === 'string');
   if (names.length === 0) return null;
+  // Timed on its own line so the shared walk keeps a stopwatch of its own —
+  // see the note on the per-gate lines in main().
+  const t0 = Date.now();
   process.stderr.write(
     `[seo-gates-check] one shared dist/ walk for ${names.length} gate(s): ${names.join(', ')}\n`,
   );
@@ -446,6 +449,9 @@ export async function runBundle(gates) {
       error: 'audit-all printed no `failed-audits=` line -- the shared walk did not complete',
     };
   }
+  process.stderr.write(
+    `[seo-gates-check] shared dist/ walk done in ${((Date.now() - t0) / 1000).toFixed(0)}s\n`,
+  );
   return { failed: new Set(m[1].split(',').map((s) => s.trim()).filter(Boolean)) };
 }
 
@@ -625,7 +631,14 @@ async function main() {
   const results = [];
   const bundle = await runBundle(GATES);
   for (const gate of GATES) {
-    process.stderr.write(`[seo-gates-check] running ${gate.name}...\n`);
+    // These lines are the only per-gate stopwatch this workflow has — the
+    // 2h 36m 39s breakdown that justified the bundle was timed off them. A
+    // bundled gate no longer spawns anything, so saying "running" would credit
+    // it ~0 s and dump the whole shared walk onto whichever gate happens to be
+    // first, i.e. hand the next person a false measurement taken with the same
+    // instrument. Say which ones rode the shared walk instead.
+    const how = gate.bundledAs && bundle && !bundle.error ? 'bundled (shared walk)' : 'running';
+    process.stderr.write(`[seo-gates-check] ${how} ${gate.name}...\n`);
     const r = await evaluateGate(gate, bundle);
     results.push(r);
     process.stderr.write(
