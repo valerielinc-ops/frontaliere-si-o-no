@@ -96,6 +96,13 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
 const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
 const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.json');
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
+// `generation_token` is declared `required: false, default: ''`, so a direct
+// dispatch or a re-run of a single leg reaches the job with an empty string.
+// The run coordinates are the same pair `scripts/lib/crawler-generation-token.mjs`
+// derives at runtime (`<run_id>-<run_attempt>`), so YAML and JS agree on the
+// value instead of racing on two different fallbacks.
+const CRAWLER_GENERATION_TOKEN_EXPR =
+  "${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
 const CORPUS_OBSERVER_SITE_SOURCES = new Map([
@@ -784,7 +791,7 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
       'continue-on-error': true,
       env: {
         CRAWLER_GENERATION_GROUP: nn,
-        CRAWLER_GENERATION_TOKEN: '${{ inputs.generation_token }}',
+        CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
         CRAWLER_GENERATION_CALLER_REPOSITORY: '${{ github.repository }}',
         CRAWLER_GENERATION_CALLER_RUN_ID: '${{ github.run_id }}',
         CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: '${{ github.run_attempt }}',
@@ -1009,7 +1016,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           // Job-level env is inherited by every background shell and avoids
           // hundreds of identical step overrides. The receipt CLIs resolve the
           // two relative directories strictly underneath runner-provided RUNNER_TEMP.
-          CRAWLER_GENERATION_TOKEN: '${{ inputs.generation_token }}',
+          CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
         },
@@ -1632,7 +1639,7 @@ export function generateCrossRepoExecutionArtifacts({
     const content = buildStandaloneCrossRepoWorkflow({
       logicText,
       name: `Crawler Group ${nn} (sparse cross-repo execution)`,
-      runName: `crawler-generation-\${{ inputs.generation_token }}-group-${nn}`,
+      runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
       workflowFile: fileName,
       trigger: groupTrigger(logic),
       concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },

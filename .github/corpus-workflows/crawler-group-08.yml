@@ -15,7 +15,7 @@
 # - scripts/lib/slug-preservation-guard.mjs
 
 name: Crawler Group 08 (sparse cross-repo execution)
-run-name: crawler-generation-${{ inputs.generation_token }}-group-08
+run-name: crawler-generation-${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-08
 on:
   workflow_dispatch:
     inputs:
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     env:
-      CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token }}
+      CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
     steps:
@@ -1651,7 +1651,7 @@ jobs:
         continue-on-error: true
         env:
           CRAWLER_GENERATION_GROUP: "08"
-          CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token }}
+          CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
