@@ -93,6 +93,15 @@ describe('#7421 — the cathedral gates share one dist/ walk', () => {
     }
   });
 
+  it('the shared walk is pinned to the full corpus, never the sampled slice', () => {
+    // audit-all reads AUDIT_SAMPLE_RATE from the environment and this checker
+    // spawns with `env: process.env`. One stray variable would put all four
+    // bundled gates on 25% of dist/, reporting a quarter of the offenders
+    // against unchanged baselines — four gates loosened at once, silently.
+    const src = readFileSync(join(REPO_ROOT, 'scripts/cathedral-seo-gates-check.mjs'), 'utf8');
+    expect(src).toContain("'--sample-rate=1'");
+  });
+
   it('a bundled gate whose name is in failed-audits is regressed, its sibling is not', async () => {
     const fake = (name: string) => ({
       name,

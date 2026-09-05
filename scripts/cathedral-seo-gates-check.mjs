@@ -414,7 +414,19 @@ export async function runBundle(gates) {
   process.stderr.write(
     `[seo-gates-check] one shared dist/ walk for ${names.length} gate(s): ${names.join(', ')}\n`,
   );
-  const result = await run(['node', 'scripts/audit-all.mjs', `--audits=${names.join(',')}`]);
+  // `--sample-rate=1` explicitly, not by relying on the default. audit-all
+  // reads `AUDIT_SAMPLE_RATE` from the environment, and this checker spawns
+  // with `env: process.env`; the CLI flag wins over the env var. Without it,
+  // anyone adding that variable to the workflow — or exporting it upstream —
+  // would put FOUR gates on a quarter of the corpus at once, reporting a
+  // quarter of the offenders against unchanged baselines, with no code change
+  // and no signal. That is a gate quietly loosened, which AGENTS.md
+  // non-negotiable #1 forbids. This gate audits the whole corpus or it does
+  // not run; the sampling lever belongs to post-deploy-validate-dist.yml,
+  // which opts into it deliberately.
+  const result = await run([
+    'node', 'scripts/audit-all.mjs', `--audits=${names.join(',')}`, '--sample-rate=1',
+  ]);
   // Exit 2 is "dist/ missing or fatal error": no audit produced a verdict, so
   // every bundled gate must report `error`, never a fabricated pass.
   if (result.code === 2) {
