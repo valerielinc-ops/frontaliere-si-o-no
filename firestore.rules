@@ -25,6 +25,32 @@ service cloud.firestore {
         && request.auth.token.email.lower() == 'valerielinc@gmail.com';
     }
 
+    // Doc-id identity, and why both sides carry `.lower()` (#6681, follow-up of
+    // #6670).
+    //
+    // Every rule below that gates a document keyed by an address compares
+    // `request.auth.token.email.lower()` against the `{email}` path segment.
+    // The token side was already normalised; the DOCUMENT side was taken on
+    // trust, on the strength of `normalizeNewsletterEmail` running in
+    // services/newsletterSubscribers.ts — but rules cannot see that function,
+    // and nothing stops a document from arriving another way: an import, a
+    // migration, an Admin SDK script, all of which bypass this file entirely.
+    // One such id with a capital letter and the address's real owner is locked
+    // out of their own consent record forever, silently — `token.email.lower()`
+    // can never equal a mixed-case id, and the failure looks like a permission
+    // error on the person's own data.
+    //
+    // Measured before changing anything, 2026-09-05, Admin SDK listDocuments
+    // over production: 0 of 11.038 `newsletter_subscribers` ids and 0 of 9.161
+    // `job_alert_subscribers` ids are non-lowercase. So this is not a repair —
+    // there is nothing to migrate — it removes the dependency on that count
+    // staying zero, which no rule in this file enforces. Comparing lowercase to
+    // lowercase grants nothing extra either: `a@x.com` and `A@x.com` are one
+    // person under the normalisation every writer applies.
+    //
+    // tests/firestore-rules-email-doc-id-case.test.ts keeps the two sides
+    // symmetric from here on.
+
     // Consent-field guard for newsletter_subscribers (#6378, phase 4 of
     // #5928). True if the incoming write touches any of the fields that
     // together form the art. 25 consent record — a change here is what an
@@ -143,12 +169,12 @@ service cloud.firestore {
       // person, no session required. Non-consent fields (name, isActive, the
       // engagement counters) still update freely; a write only needs to pass
       // through the auth clause when it actually touches a consent_* key.
-      // `request.auth.token.email.lower() == email` matches the identity
+      // `request.auth.token.email.lower() == email.lower()` matches the identity
       // check already used for job_alert_subscribers (line ~243) and the
       // alerts subcollection below — the subscriber's own signed-in session
       // is always allowed to touch their own consent record.
       allow update: if !consentFieldsTouched(request.resource.data, resource.data)
-        || (request.auth != null && request.auth.token.email.lower() == email);
+        || (request.auth != null && request.auth.token.email.lower() == email.lower());
 
       // Engagement events (subscribe, confirm, click, open) — append-only, and
       // never readable by a client.
@@ -194,7 +220,7 @@ service cloud.firestore {
       // Private sub-collection — auth-gated, own data only
       match /private/{docId} {
         allow read, write: if request.auth != null
-          && request.auth.token.email.lower() == email;
+          && request.auth.token.email.lower() == email.lower();
       }
     }
 
@@ -280,7 +306,7 @@ service cloud.firestore {
     // sibling rules in this same block.
     match /job_alert_subscribers/{email} {
       allow get: if request.auth != null
-        && request.auth.token.email.lower() == email;
+        && request.auth.token.email.lower() == email.lower();
       allow list: if false;
       allow write: if true;
 
@@ -290,10 +316,10 @@ service cloud.firestore {
       match /alerts/{alertId} {
         allow read: if request.auth != null
           && (request.auth.uid == resource.data.userId
-              || request.auth.token.email.lower() == email);
+              || request.auth.token.email.lower() == email.lower());
         allow create: if request.auth != null
           && request.auth.uid == request.resource.data.userId
-          && request.auth.token.email.lower() == email;
+          && request.auth.token.email.lower() == email.lower();
         // UPDATE takes the same disjunction `read` already takes, and #5876 is
         // why. `update` used to require `uid == resource.data.userId` AND the
         // email match — but the 6.295 alerts created by the travaso
@@ -313,7 +339,7 @@ service cloud.firestore {
         // (userId, active, createdAt) collection-group query that lists alerts
         // would stop seeing what the client just wrote.
         allow update, delete: if request.auth != null
-          && request.auth.token.email.lower() == email
+          && request.auth.token.email.lower() == email.lower()
           && (request.auth.uid == resource.data.userId
               || resource.data.userId == null);
       }
