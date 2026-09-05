@@ -42,6 +42,7 @@ import {
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import { engagementConsistency, dailyEngagementConsistency } from './lib/ga4-engagement-reliability.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -770,6 +771,46 @@ async function reportGA4(token) {
     'file_download',
   ]);
 
+  // #6703: la coerenza engagement/durata va misurata per-giorno, non
+  // sull'aggregato della finestra — su 30 giorni le giornate sane annegano
+  // quelle in lag e il verdetto sarebbe sempre "affidabile". Si interroga la
+  // stessa finestra con la dimensione `date` una volta sola e si riusa il
+  // verdetto sui consumer qui sotto (riepilogo e canale AI).
+  let dailyEngagement = { reliable: true, reason: null, unreliableDates: [] };
+  try {
+    const res = await fetchRetry(
+      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          ...baseRequest,
+          dimensions: [{ name: 'date' }],
+          metrics: [
+            { name: 'sessions' },
+            { name: 'engagedSessions' },
+            { name: 'averageSessionDuration' },
+          ],
+        }),
+      }
+    );
+    if (res.ok) {
+      const data = await res.json();
+      dailyEngagement = dailyEngagementConsistency(
+        (data.rows || []).map((r) => ({
+          date: r.dimensionValues?.[0]?.value || '?',
+          sessions: parseInt(r.metricValues?.[0]?.value || '0', 10),
+          engagedSessions: parseInt(r.metricValues?.[1]?.value || '0', 10),
+          averageSessionDuration: parseFloat(r.metricValues?.[2]?.value || '0'),
+        }))
+      );
+    } else {
+      log('⚠️', `GA4 engagement per-giorno: ${res.status} — sanity-check #6703 non applicato`);
+    }
+  } catch (e) {
+    log('⚠️', `GA4 engagement per-giorno: ${e.message} — sanity-check #6703 non applicato`);
+  }
+
   // ── 3a. Overall metrics ─────────────────
   try {
     const res = await fetchRetry(
@@ -815,6 +856,22 @@ async function reportGA4(token) {
       engagedSessions: parseInt(values[6]?.value || '0'),
     };
 
+    // Sanity-check #6703: sui giorni non ancora elaborati GA4 riporta
+    // engagedSessions/bounceRate che contraddicono averageSessionDuration.
+    // Marcarli qui evita che il riepilogo li mostri come un dato buono.
+    // Il verdetto per-giorno prevale su quello dell'aggregato: è l'aggregato a
+    // nascondere la contraddizione, non a rivelarla (vedi
+    // `dailyEngagementConsistency`). L'aggregato resta come secondo canale,
+    // per il caso in cui la richiesta per-giorno non sia disponibile.
+    const aggregateVerdict = engagementConsistency({
+      sessions: result.summary.sessions,
+      engagedSessions: result.summary.engagedSessions,
+      averageSessionDuration: result.summary.avgSessionDuration,
+    });
+    const engagementVerdict = dailyEngagement.reliable ? aggregateVerdict : dailyEngagement;
+    result.summary.engagementReliable = engagementVerdict.reliable;
+    result.summary.engagementUnreliableReason = engagementVerdict.reason;
+
     if (!flags.json) {
       const s = result.summary;
       log('📊', '┌──────────────────────────────────────┐');
@@ -827,6 +884,10 @@ async function reportGA4(token) {
       log('📊', `│  Durata avg:  ${Math.round(s.avgSessionDuration) + 's'.padStart(11)}           │`);
       log('📊', `│  Bounce rate: ${(s.bounceRate * 100).toFixed(1) + '%'.padStart(11)}           │`);
       log('📊', '└──────────────────────────────────────┘');
+      if (!s.engagementReliable) {
+        log('⚠️', `Engagement GA4 inaffidabile in questa finestra — ${s.engagementUnreliableReason}`);
+        log('💡', 'Non leggere engagedSessions/bounce rate qui sopra come un segnale del sito: rimisura fra 24-48h.');
+      }
     }
   } catch (e) { log('⚠️', `GA4 summary: ${e.message}`); }
 
@@ -1350,6 +1411,7 @@ async function reportGA4(token) {
             { name: 'sessions' },
             { name: 'totalUsers' },
             { name: 'engagedSessions' },
+            { name: 'averageSessionDuration' },
           ],
           dimensionFilter: {
             filter: {
@@ -1370,10 +1432,27 @@ async function reportGA4(token) {
         sessions: parseInt(r.metricValues[0].value, 10),
         users: parseInt(r.metricValues[1].value, 10),
         engagedSessions: parseInt(r.metricValues[2].value, 10),
+        avgSessionDuration: parseFloat(r.metricValues[3]?.value || '0'),
       }));
       const sessions = bySource.reduce((sum, r) => sum + r.sessions, 0);
       const engagedSessions = bySource.reduce((sum, r) => sum + r.engagedSessions, 0);
       const engagementRate = sessions > 0 ? Number((engagedSessions / sessions).toFixed(4)) : 0;
+      // averageSessionDuration non è sommabile: media pesata sulle sessioni.
+      const avgSessionDuration =
+        sessions > 0
+          ? bySource.reduce((sum, r) => sum + r.avgSessionDuration * r.sessions, 0) / sessions
+          : 0;
+      // #6703: la history è un file committato — un engagement rate prodotto da
+      // un giorno non ancora elaborato ci resterebbe per sempre e falserebbe
+      // ogni delta week-over-week successivo. Si annota e non si appende.
+      // Come per il riepilogo: il rate qui è l'aggregato della finestra, che
+      // diluisce il giorno in lag. Il verdetto per-giorno è quello che decide.
+      const aggregateVerdict = engagementConsistency({
+        sessions,
+        engagedSessions,
+        averageSessionDuration: avgSessionDuration,
+      });
+      const engagementVerdict = dailyEngagement.reliable ? aggregateVerdict : dailyEngagement;
 
       const todayStr = fmtDate(endDate);
       const priorEntries = readJsonlSafe(AI_CHANNEL_HISTORY_PATH)
@@ -1387,8 +1466,10 @@ async function reportGA4(token) {
         users: bySource.reduce((sum, r) => sum + r.users, 0),
         engagedSessions,
         engagementRate,
+        engagementReliable: engagementVerdict.reliable,
+        engagementUnreliableReason: engagementVerdict.reason,
         bySource,
-        trend: previous
+        trend: previous && engagementVerdict.reliable
           ? {
               previousDate: previous.date,
               sessionsDelta: sessions - Number(previous.sessions || 0),
@@ -1398,18 +1479,22 @@ async function reportGA4(token) {
       };
 
       try {
-        mkdirSync(dirname(AI_CHANNEL_HISTORY_PATH), { recursive: true });
-        appendFileSync(
-          AI_CHANNEL_HISTORY_PATH,
-          JSON.stringify({
-            date: todayStr,
-            windowDays: DAYS,
-            sessions,
-            engagedSessions,
-            engagementRate,
-            bySource: bySource.map((r) => ({ source: r.source, sessions: r.sessions })),
-          }) + '\n'
-        );
+        if (!engagementVerdict.reliable) {
+          log('⚠️', `AI channel history: append saltato, engagement inaffidabile — ${engagementVerdict.reason}`);
+        } else {
+          mkdirSync(dirname(AI_CHANNEL_HISTORY_PATH), { recursive: true });
+          appendFileSync(
+            AI_CHANNEL_HISTORY_PATH,
+            JSON.stringify({
+              date: todayStr,
+              windowDays: DAYS,
+              sessions,
+              engagedSessions,
+              engagementRate,
+              bySource: bySource.map((r) => ({ source: r.source, sessions: r.sessions })),
+            }) + '\n'
+          );
+        }
       } catch (histErr) {
         log('⚠️', `AI channel history append: ${histErr.message}`);
       }
@@ -1418,7 +1503,10 @@ async function reportGA4(token) {
         log('', '');
         log('🤖', `Canale AI Assistant (GEO) — ultimi ${DAYS} giorni`);
         log('', '─'.repeat(50));
-        log('', `  Sessioni: ${fmtNum(sessions)} | Engagement rate: ${pct(engagementRate)}`);
+        log('', `  Sessioni: ${fmtNum(sessions)} | Engagement rate: ${pct(engagementRate)}${engagementVerdict.reliable ? '' : ' ⚠️ inaffidabile'}`);
+        if (!engagementVerdict.reliable) {
+          log('⚠️', `Engagement rate AI channel non attendibile — ${engagementVerdict.reason}`);
+        }
         if (result.aiChannel.trend) {
           const t = result.aiChannel.trend;
           const arrow = t.sessionsDelta > 0 ? '📈' : t.sessionsDelta < 0 ? '📉' : '➡️';
@@ -3149,14 +3237,16 @@ async function reportGA4(token) {
     // CLS recommendation from PageSpeed data (checked externally)
     if (result.summary) {
       const bounceRate = result.summary.bounceRate;
-      if (bounceRate > 0.5) {
+      // Finestra in lag GA4 (#6703): l'engagement e' auto-contraddittorio, quindi il
+      // bounce rate non e' un segnale del sito. Non emettere raccomandazioni da esso.
+      if (result.summary.engagementReliable !== false && bounceRate > 0.5) {
         recommendations.push({
           severity: 'high',
           area: 'engagement',
           message: `Bounce rate alto (${(bounceRate * 100).toFixed(1)}%) — verifica UX della landing page principale`,
         });
       }
-      if (result.summary.avgSessionDuration < 60) {
+      if (result.summary.engagementReliable !== false && result.summary.avgSessionDuration < 60) {
         recommendations.push({
           severity: 'medium',
           area: 'engagement',
@@ -3312,7 +3402,7 @@ async function reportGA4(token) {
     }
 
     // High-bounce specific pages
-    if (result.highBouncePaths && result.highBouncePaths.length > 0) {
+    if (result.summary?.engagementReliable !== false && result.highBouncePaths && result.highBouncePaths.length > 0) {
       const criticalBounce = result.highBouncePaths.filter(p => p.sessions >= 50 && p.bounceRate > 0.7);
       if (criticalBounce.length > 0) {
         const paths = criticalBounce.slice(0, 3).map(p => p.path).join(', ');
