@@ -5566,6 +5566,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.morte-mongolfiera-ticino.title': 'Mehr TG: Ballonkorb tödlich getroffen',
     'blog.article.morte-mongolfiera-ticino.excerpt': 'Ein 86-jähriger Deutscher ist am späten Nachmittag in der Thurgauer Landschaft von einem Korb eines Heißluftballons getroffen worden.',
     'blog.article.morte-mongolfiera-ticino.imageAlt': 'Luftaufnahme eines Heißluftballons über der Schweizer Landschaft, mit einer tragischen Unfallszene im Vordergrund.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.title': 'Flammen mitten in der Nacht an der AGVs Berufsschule in Biasca',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.excerpt': 'Nachtbrand in der AGVs Berufsschule in Biasca, Flammen schnell von der Feuerwehr gezähmt, keine Verletzten oder Vergiftungen.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.imageAlt': 'Nachtsbrand an der Berufsschule UPSA in Biasca',
 };
 
 export default blogMetaChDe;

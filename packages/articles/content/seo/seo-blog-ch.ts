@@ -72248,6 +72248,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-notturno-scuola-professionale-biasca': {
+    title: 'Fiamme in piena notte alla scuola professionale UPSA di Biasca',
+    description: 'Incendio notturno alla scuola professionale UPSA di Biasca, fiamme domate rapidamente dai pompieri, nessun ferito o intossicato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiamme, piena, notte, alla',
+    ogTitle: 'Fiamme in piena notte alla scuola professionale UPSA di Biasca',
+    ogDescription: 'Un incendio notturno si è verificato al primo piano dell\'edificio che ospita SPAI e SAMS. I pompieri del Centro di Soccorso Cantonale di Biasca sono intervenuti rapidamente e hanno domato le fiamme, evitando la propagazione ai locali adiacenti',
+    canonicalPath: '/articoli-svizzera/incendio-notturno-scuola-professionale-biasca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiamme in piena notte alla scuola professionale UPSA di Biasca",
+      "description": "Incendio notturno alla scuola professionale UPSA di Biasca, fiamme domate rapidamente dai pompieri, nessun ferito o intossicato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-notturno-scuola-professionale-biasca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio notturno alla scuola professionale UPSA di Biasca"
+      },
+      "datePublished": "2026-09-05T14:17:14+00:00",
+      "dateModified": "2026-09-05T14:17:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incendio-notturno-scuola-professionale-biasca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

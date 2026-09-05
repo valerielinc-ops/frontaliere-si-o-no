@@ -16696,6 +16696,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'incendio-notturno-scuola-professionale-biasca',
+    category: 'novita',
+    date: '2026-09-05T14:17:14.450Z',
+    image: '/images/blog/incendio-notturno-scuola-professionale-biasca.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
