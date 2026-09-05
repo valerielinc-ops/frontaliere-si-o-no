@@ -12,6 +12,21 @@
  * Dal 2026-09-04 il tetto è `FOLLOWUP_MAX_INFLIGHT_FIX` (default 3) e il drain
  * riempie gli slot liberi invece di promuovere sempre uno solo.
  *
+ * Dal 2026-09-05 quel numero non è più libero: viene CLAMPATO a `fixQueueDepth()`,
+ * la profondità reale della coda di `issue-fix.yml`. Il `concurrency` di quel
+ * workflow ha un `group:` costante, quindi la profondità è 1 e ogni promozione
+ * oltre la prima non riempie uno slot — sfratta la pending precedente, che
+ * muore `cancelled` senza posare un `FIX_OUTCOME`, e il RESCUE le addebita un
+ * `fu-attempt` per una run mai partita. Misurato sul sito: 823 run `cancelled`
+ * il 09-04 (cap 3) contro 31 il 09-03 (cap 1), e 88 issue `fu-parked` senza un
+ * solo commento di verdetto, 84 delle quali parcheggiate il 09-04.
+ *
+ * Le attese qui sotto sono quindi sul comportamento CLAMPATO (1 promozione per
+ * tick, come prima del 09-04); i casi che provano la lettura del numero
+ * richiesto — kill-switch, valori fuori range, refusi — restano, perché è quel
+ * numero a tornare in gioco appena il gruppo di `issue-fix.yml` diventa
+ * per-issue.
+ *
  * `followup-drainer-dry-run-preview.test.ts` prova il GUARD (cosa succede a slot
  * pieni) e fissa il cap a 1 per farlo; questo file prova il CAP — che il numero
  * di promozioni segua gli slot liberi, in entrambe le direzioni.
@@ -92,23 +107,26 @@ beforeEach(() => {
 });
 
 describe('cap delle run issue-fix in volo', () => {
-  it('col default promuove fino a 3 quando lo slot è vuoto e la coda è lunga', async () => {
+  it('col default promuove UNA sola issue per tick: il cap è clampato alla coda reale', async () => {
+    // Il default richiesto resta 3, ma `issue-fix.yml` tiene una sola pending:
+    // la seconda e la terza promozione dello stesso tick non sarebbero lavoro
+    // in più, sarebbero due `agent:fix` le cui run muoiono `cancelled` a 0 min.
     execFileSync.mockImplementation(makeDispatch(0, 5));
     const lines = await runDrainCapturingLogs();
-    expect(promotions(lines)).toHaveLength(3);
+    expect(promotions(lines)).toHaveLength(1);
   });
 
-  it('con 1 run già viva ne promuove 2, non 3: conta gli slot LIBERI', async () => {
+  it('dice nel log che ha clampato, e perché: il clamp non è silenzioso', async () => {
+    execFileSync.mockImplementation(makeDispatch(0, 5));
+    const lines = await runDrainCapturingLogs();
+    expect(lines.some((l) => l.includes('cap issue-fix richiesto 3 → clampato a 1'))).toBe(true);
+  });
+
+  it('con 1 run già viva non promuove niente e lo dice col numero', async () => {
     execFileSync.mockImplementation(makeDispatch(1, 5));
     const lines = await runDrainCapturingLogs();
-    expect(promotions(lines)).toHaveLength(2);
-  });
-
-  it('a cap raggiunto non promuove niente e lo dice col numero', async () => {
-    execFileSync.mockImplementation(makeDispatch(3, 5));
-    const lines = await runDrainCapturingLogs();
     expect(promotions(lines)).toHaveLength(0);
-    expect(lines.some((l) => l.includes('in-flight=3/3'))).toBe(true);
+    expect(lines.some((l) => l.includes('in-flight=1/1'))).toBe(true);
   });
 
   it('non promuove più candidati di quanti ne abbia in coda', async () => {
@@ -143,7 +161,9 @@ describe('cap delle run issue-fix in volo', () => {
     process.env.FOLLOWUP_MAX_INFLIGHT_FIX = 'nonsense';
     execFileSync.mockImplementation(makeDispatch(0, 9));
     const lines = await runDrainCapturingLogs();
-    expect(promotions(lines)).toHaveLength(3);
+    // Default 3, poi clampato a 1 dalla profondità della coda: il punto del
+    // caso è che NON diventa «nessun limite», non il numero esatto.
+    expect(promotions(lines)).toHaveLength(1);
     expect(promotions(lines).length).toBeLessThan(9);
   });
 
@@ -156,11 +176,18 @@ describe('cap delle run issue-fix in volo', () => {
     // verrebbe classificata orfana — tentativo consumato mentre il fix lavora,
     // e una seconda run sulla stessa issue al tick dopo. Il p90 misurato dei
     // run e' 37 min, sopra la soglia: non e' un caso di laboratorio.
+    //
+    // Col clamp a `fixQueueDepth()` quella finestra si chiude a monte: con
+    // `MAX_INFLIGHT_FIX === 1`, `inflight > 0` implica `freeSlots === 0` e il
+    // drain esce PRIMA del blocco dei rescue. L'invariante `inflight === 0` per
+    // i rescue vale quindi per costruzione, e non piu' per una guardia
+    // aggiunta a valle. Il caso resta a sorvegliare proprio questo: se qualcuno
+    // toglie il clamp, il drain arriva ai rescue con una run viva e questa
+    // riga cade.
     execFileSync.mockImplementation(makeDispatch(1, 2));
     const lines = await runDrainCapturingLogs();
-    expect(lines.some((l) => l.includes('rescue orfani/crawler saltati: 1 run issue-fix vive'))).toBe(true);
-    // Il drain, che quell'assunzione non ce l'ha, continua a lavorare.
-    expect(promotions(lines).length).toBeGreaterThan(0);
+    expect(lines.some((l) => l.includes('slot issue-fix occupati (in-flight=1/1)'))).toBe(true);
+    expect(promotions(lines)).toHaveLength(0);
   });
 
   it('a slot liberi i rescue girano come sempre', async () => {
@@ -170,13 +197,16 @@ describe('cap delle run issue-fix in volo', () => {
   });
 
   it('la riga finale non contraddice le promozioni appena stampate', async () => {
-    // Con cap > 1 il ciclo puo' esaurire la coda DOPO aver promosso: la riga
-    // «niente da promuovere» compariva sotto i `PROMUOVO #N` dello stesso tick.
+    // La riga «niente da promuovere» non deve mai comparire sotto i
+    // `PROMUOVO #N` dello stesso tick: e' la telemetria con cui si giudica il
+    // cap, e se si contraddice non serve a niente. Col cap clampato a 1 la riga
+    // finale e' quella degli slot pieni, e dice lo stesso numero delle
+    // promozioni stampate sopra.
     execFileSync.mockImplementation(makeDispatch(0, 2));
     const lines = await runDrainCapturingLogs();
-    expect(promotions(lines)).toHaveLength(2);
+    expect(promotions(lines)).toHaveLength(1);
     expect(lines.some((l) => l.includes('niente da promuovere'))).toBe(false);
-    expect(lines.some((l) => l.includes('coda esaurita dopo 2 promozione/i'))).toBe(true);
+    expect(lines.some((l) => l.includes('slot riempiti (1/1 liberi su cap 1)'))).toBe(true);
   });
 
   it('senza candidati la riga «niente da promuovere» resta', async () => {
