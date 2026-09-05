@@ -424,7 +424,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:10:52.959Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -584,8 +583,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
