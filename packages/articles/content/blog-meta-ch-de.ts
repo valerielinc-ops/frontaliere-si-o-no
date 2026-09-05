@@ -5563,6 +5563,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prio-swiss-medici-specialisti-tardoc.title': 'Prio.swiss: Einige Fachärzte übertreiben mit Tardoc',
     'blog.article.prio-swiss-medici-specialisti-tardoc.excerpt': 'Der Verband der Schweizerischen Krankenversicherer stellt fest, dass einige medizinische Fachgebiete die Grenzen des neuen Tardoc-Tarifmodells überschreiten.',
     'blog.article.prio-swiss-medici-specialisti-tardoc.imageAlt': 'Ein Facharzt in einer professionellen Schweizer Umgebung.',
+    'blog.article.morte-mongolfiera-ticino.title': 'Mehr TG: Ballonkorb tödlich getroffen',
+    'blog.article.morte-mongolfiera-ticino.excerpt': 'Ein 86-jähriger Deutscher ist am späten Nachmittag in der Thurgauer Landschaft von einem Korb eines Heißluftballons getroffen worden.',
+    'blog.article.morte-mongolfiera-ticino.imageAlt': 'Luftaufnahme eines Heißluftballons über der Schweizer Landschaft, mit einer tragischen Unfallszene im Vordergrund.',
 };
 
 export default blogMetaChDe;

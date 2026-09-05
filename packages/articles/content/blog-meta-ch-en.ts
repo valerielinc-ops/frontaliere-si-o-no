@@ -5563,6 +5563,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prio-swiss-medici-specialisti-tardoc.title': 'Prio.swiss: some medical specialists exaggerate with Tardoc',
     'blog.article.prio-swiss-medici-specialisti-tardoc.excerpt': 'The association of Swiss health insurers notes that some medical specialties exceed the limits of the new Tardoc pricing model.',
     'blog.article.prio-swiss-medici-specialisti-tardoc.imageAlt': 'A specialist doctor in a professional Swiss setting.',
+    'blog.article.morte-mongolfiera-ticino.title': 'More TG: hit to death by balloon basket',
+    'blog.article.morte-mongolfiera-ticino.excerpt': 'An 86-year-old German died yesterday at the end of the afternoon hit by a balloon basket in the Turgovian countryside.',
+    'blog.article.morte-mongolfiera-ticino.imageAlt': 'Aerial view of a hot air balloon over the Swiss countryside, with a tragic incident scene in the foreground.',
 };
 
 export default blogMetaChEn;

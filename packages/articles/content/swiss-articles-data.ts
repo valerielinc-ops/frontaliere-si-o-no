@@ -16687,6 +16687,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'morte-mongolfiera-ticino',
+    category: 'novita',
+    date: '2026-09-05T14:06:08.103Z',
+    image: '/images/blog/morte-mongolfiera-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

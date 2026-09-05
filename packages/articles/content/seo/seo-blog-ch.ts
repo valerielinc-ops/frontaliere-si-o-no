@@ -72209,6 +72209,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-morte-mongolfiera-ticino': {
+    title: 'Di più TG: colpito a morte da cesto di mongolfiera',
+    description: 'Un 86enne tedesco è morto ieri a fine pomeriggio colpito da un cesto di una mongolfiera nella campagna turgoviese. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, colpito, morte, cesto, mongolfiera',
+    ogTitle: 'Di più TG: colpito a morte da cesto di mongolfiera',
+    ogDescription: 'Un 86enne tedesco è morto ieri a fine pomeriggio colpito da un cesto di una mongolfiera nella campagna turgoviese. L\'indagine è in corso.',
+    canonicalPath: '/articoli-svizzera/morte-mongolfiera-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più TG: colpito a morte da cesto di mongolfiera",
+      "description": "Un 86enne tedesco è morto ieri a fine pomeriggio colpito da un cesto di una mongolfiera nella campagna turgoviese. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/morte-mongolfiera-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un pallone aerostatico sopra la campagna svizzera, con una scena di incidente in primo piano."
+      },
+      "datePublished": "2026-09-05T14:06:08+00:00",
+      "dateModified": "2026-09-05T14:06:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/morte-mongolfiera-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

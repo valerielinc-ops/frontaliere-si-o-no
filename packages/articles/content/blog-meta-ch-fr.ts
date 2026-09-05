@@ -5563,6 +5563,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prio-swiss-medici-specialisti-tardoc.title': 'Prio.swiss : certains médecins spécialistes exagèrent avec Tardoc',
     'blog.article.prio-swiss-medici-specialisti-tardoc.excerpt': 'L\'association des assureurs-maladie suisses relève que certaines spécialités médicales dépassent les limites du nouveau modèle tarifaire Tardoc.',
     'blog.article.prio-swiss-medici-specialisti-tardoc.imageAlt': 'Un médecin spécialiste dans un cadre professionnel suisse.',
+    'blog.article.morte-mongolfiera-ticino.title': 'Plus TG : frappé à mort par un panier de montgolfière',
+    'blog.article.morte-mongolfiera-ticino.excerpt': 'Un Allemand de 86 ans est mort hier en fin d\'après-midi frappé par un panier d\'une montgolfière dans la campagne thurgovienne.',
+    'blog.article.morte-mongolfiera-ticino.imageAlt': 'Vue aérienne d\'un ballon à air chaud sur la campagne suisse, avec une scène d\'accident tragique au premier plan.',
 };
 
 export default blogMetaChFr;
