@@ -156,7 +156,13 @@ function importsOf(file, fileSet, githubAssets) {
   // letterale come `` `.github/…/crawler-group-${g}.yml` `` non produce arco, e
   // non serve: quei file non cambiano mai senza `contract.json`, che ne porta
   // gli sha256 ed e' nominato per esteso.
-  for (const [literal] of code.matchAll(githubLiteralRe)) {
+  for (const [rawLiteral] of code.matchAll(githubLiteralRe)) {
+    // La barra finale va tolta: un riferimento costruito per template —
+    // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
+    // lascia il letterale con lo slash, e senza normalizzazione il confronto
+    // diventa `startsWith('.github/workflows//')`, che non matcha niente. Il
+    // caso che funzionava era solo quello senza template.
+    const literal = rawLiteral.replace(/\/+$/, '');
     for (const asset of githubAssets) {
       if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
     }
@@ -167,11 +173,27 @@ function importsOf(file, fileSet, githubAssets) {
 function loadGraph(files, githubAssets) {
   let previous = {};
   let previousVersion = 0;
+  let previousAssets = null;
+  // Gli archi verso gli asset `.github/**` vivono nella entry del file
+  // SORGENTE che li nomina, e la validità di quella entry dipendeva solo dalla
+  // firma del sorgente. Un workflow AGGIUNTO (o rinominato) non cambia la
+  // firma di chi lo nomina per directory — `'.github/workflows'`, il caso
+  // reale di scripts/generate-crawler-group-workflows.mjs — quindi la entry
+  // vecchia veniva riusata senza l'arco verso il file nuovo. La cache
+  // sopravvive fra le run (tests.yml la salva e la ripristina, con
+  // restore-keys di prefisso), quindi da lì in poi una PR che tocca SOLO quel
+  // workflow tornava a selezionare zero test: il blind spot di #7355/#7514
+  // riaperto per ogni workflow nato dopo l'ultima invalidazione. Il bump di
+  // `version` lo copriva una volta sola. Ora l'insieme degli asset entra nella
+  // chiave di validità: se cambia, il grafo si ricalcola.
+  const assetsDigest = createHash('sha1').update(githubAssets.join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
     previous = cached.files || {};
     previousVersion = cached.version || 0;
+    previousAssets = cached.assets || null;
   } catch {}
+  const reusable = previousVersion === 6 && previousAssets === assetsDigest;
   const fileSet = new Set(files);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
@@ -181,12 +203,12 @@ function loadGraph(files, githubAssets) {
   for (const file of files) {
     const sig = signature(file);
     const old = previous[file];
-    graph[file] = previousVersion === 6 && old?.signature === sig
+    graph[file] = reusable && old?.signature === sig
       ? old
       : { signature: sig, deps: importsOf(file, fileSet, githubAssets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 6, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 6, assets: assetsDigest, files: graph }));
   return graph;
 }
 
@@ -255,13 +277,23 @@ if (related.size === 0 && sourceCandidates.length > 0) {
   }
 }
 const tests = [...related].filter((file) => existsSync(file)).sort();
-console.log(`Running Vitest related to ${candidates.length} changed source/test file(s): ${tests.length} test file(s)`);
+const githubCandidateCount = candidates.length - sourceCandidates.length;
+console.log(`Running Vitest related to ${sourceCandidates.length} changed source/test file(s)`
+  + (githubCandidateCount ? ` + ${githubCandidateCount} .github asset(s)` : '')
+  + `: ${tests.length} test file(s)`);
 console.log(tests.join('\n'));
 if (tests.length === 0) process.exit(0);
 // Seam per ispezionare la SELEZIONE senza pagare la corsa: stampa l'elenco qui
 // sopra ed esce. Usato da tests/run-related-tests-github-assets.test.ts e utile
 // a mano per capire perche' un file seleziona (o non seleziona) un test.
-if (process.env.VITEST_RELATED_DRY_RUN === 'true') process.exit(0);
+//
+// Disarmato sotto GitHub Actions, e di proposito: se questa variabile
+// trapelasse nell'env del job bloccante, il gate uscirebbe 0 senza eseguire un
+// solo test — un verde indistinguibile da una selezione vuota legittima. Il
+// seam serve in locale e nel sottoprocesso dell'osservatore, mai nel gate.
+if (process.env.VITEST_RELATED_DRY_RUN === 'true' && !process.env.GITHUB_ACTIONS) {
+  process.exit(0);
+}
 
 const args = ['node_modules/vitest/vitest.mjs', 'run', '--passWithNoTests'];
 const maxWorkers = selectMaxWorkers({
