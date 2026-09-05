@@ -92,7 +92,7 @@ jobs:
           # Stessa regex in scripts/ci/lib/constants.mjs — YAML `if:` non può
           # importarla; il drift fra le tre copie lo prende il guard `mirror bash` di
           # tests/redflag-important-marker.test.ts.
-          if ! printf '%s' "$REVIEW_BODY" | grep -qP '^[^🟡🟢❓]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
+          if ! printf '%s' "$REVIEW_BODY" | grep -qP '^[^🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
             echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi

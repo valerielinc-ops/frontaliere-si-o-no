@@ -159,3 +159,37 @@ describe('bucketFinding — le tre imprecisioni chiuse dalla review di corpus#90
     expect(bucketFinding(equivalente)).toBeTruthy();
   });
 });
+
+// La rete fingerprint vede il testo INTERO, quindi una riga che lo strip taglia
+// male non puo' sparire dal tally. Lo strip e' un'euristica sul CONFINE della
+// clausola negata: quando la negazione porta su un participio o su un verbo di
+// impatto usato in senso comportamentale, mangia anche la coda — che e' il
+// difetto vero. Se il safety net ricevesse il testo strippato, la riga cadrebbe
+// attraverso ENTRAMBI i livelli: nessun bucket, nessun fingerprint, nessuna
+// escalation, mai. E' la direzione opposta al falso positivo che questo modulo
+// chiude, e la piu' pericolosa perche' invisibile.
+describe('bucketFinding — un difetto mal-strippato perde al piu il bucket, mai il tally', () => {
+  const MAL_STRIPPATE = [
+    '🔴 Important: il redirect non raggiunge `/lavoro/ticino`, il canonical resta rotto e la sitemap perde lo slug.',
+    "🔴 Important: la pagina non e' stata toccata dal fix, quindi il JSON-LD emette `baseSalary` senza valuta.",
+  ];
+
+  for (const line of MAL_STRIPPATE) {
+    it(`resta contata: ${line.slice(15, 60)}…`, () => {
+      // lo strip mangia la coda — e' il limite noto, non lo neghiamo
+      expect(stripNegatedImpactClauses(line).length).toBeLessThan(line.length);
+      // ma la riga NON sparisce: il safety net la prende sul testo intero
+      expect(bucketFinding(line)).not.toBeNull();
+    });
+  }
+
+  it('la ricognizione negata resta comunque fuori dai bucket topic (#901 intatto)', () => {
+    // il rimedio non deve rientrare dalla finestra: una ricognizione vera non
+    // torna a fare punteggio su canonical-sitemap solo perche' il safety net
+    // vede il testo intero.
+    for (const [, line] of RICOGNIZIONI_NEGATE) {
+      expect(bucketFinding(line)).not.toBe('canonical-sitemap');
+    }
+    expect(bucketFinding('🟡 Nit: il diff non tocca `dist/api/`, gli slug, le sitemap o i feed.')).not.toBe('canonical-sitemap');
+  });
+});

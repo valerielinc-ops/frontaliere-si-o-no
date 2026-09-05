@@ -103,6 +103,18 @@ describe('REDFLAG_IMPORTANT_RE — marker vero contro marker citato (posizione)'
     expect(REDFLAG_IMPORTANT_RE.test('🔴 blocca il merge — 🔴 Important: canonical rotto')).toBe(true);
   });
 
+  it('un ❓ prima del marker NON lo spegne: REVIEW.md prescrive di promuovere ❓ a 🔴', () => {
+    // `❓` è fuori dalla classe negata insieme a `🔴`. REVIEW.md («Verification →
+    // escalation») chiede di promuovere a 🔴 Important un ❓ funnel-critical, e
+    // quella promozione si scrive spesso sulla stessa riga del dubbio: trattare
+    // ❓ come un lead che cita spegnerebbe il gate proprio sulla forma che il
+    // processo incoraggia. Sulle 172 review misurate la scelta non cambia un
+    // solo verdetto, quindi si decide sulla direzione dell'errore.
+    expect(REDFLAG_IMPORTANT_RE.test('❓ q: non verificato il ramo offline. 🔴 Important: bug reale')).toBe(true);
+    // e il 🟡, che NON è una promozione, continua a marcare la riga come citante
+    expect(REDFLAG_IMPORTANT_RE.test('🟡 Nit: la review diceva «🔴 Important: y».')).toBe(false);
+  });
+
   it('una riga citante non spegne il marker vero che sta su UN ALTRA riga', () => {
     const body = [
       '## Findings (Important: 1, Nit: 1)',
@@ -165,10 +177,19 @@ describe('REDFLAG_IMPORTANT_RE — coerenza col conteggio dichiarato', () => {
 describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
   const bashPattern = REDFLAG_IMPORTANT_RE.source.replace('[^\\n', '[^');
 
-  it('la sola differenza fra la source JS e il pattern bash è il `\\n` della classe negata', () => {
-    expect(REDFLAG_IMPORTANT_RE.source).toContain('[^\\n');
-    expect(bashPattern).not.toContain('\\n');
-    expect(bashPattern).toBe(REDFLAG_IMPORTANT_RE.source.replace('\\n', ''));
+  // Il pattern atteso è scritto per ESTESO, non ri-derivato dalla `.source`: un
+  // `expect(x).toBe(<la stessa espressione che ha prodotto x>)` è vero per
+  // costruzione e non fallirebbe mai. Il letterale è ciò che rende il guard un
+  // guard — se la regex cambia forma, questa riga va aggiornata di proposito, ed
+  // è esattamente il momento in cui si deve guardare anche i due workflow.
+  // NB: stringa singola, non `String.raw`: in un raw template `\`` resta backslash +
+  // backtick, mentre la `.source` porta il backtick nudo. Qui gli unici escape sono
+  // i `\\s`/`\\*` che diventano `\s`/`\*`.
+  const BASH_PATTERN_ATTESO = '^[^🟡🟢]*(?<!`)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]';
+
+  it('il pattern bash è la source JS senza il `\\n` della classe negata', () => {
+    expect(bashPattern).toBe(BASH_PATTERN_ATTESO);
+    expect(REDFLAG_IMPORTANT_RE.source).toBe('^[^\\n🟡🟢]*(?<!`)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]');
   });
 
   for (const wf of ['pr-redflag-fixer.yml', 'stale-pr-rescuer.yml']) {

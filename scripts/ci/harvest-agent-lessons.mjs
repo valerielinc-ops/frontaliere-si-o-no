@@ -270,7 +270,7 @@ export function isGenuineSiblingClassViolation(text) {
 // sitemap», «non emette il canonical») restano fuori, perche' li' la negazione E'
 // il difetto. La clausola si chiude al primo confine di frase (`.`/`;`/`—`/a
 // capo), cosi' non mangia il resto della riga.
-const IMPACT_VERB = String.raw`impatt\w*|impact\b|ricadut\w*|tocca\w*|toccano|toccat\w*|toccare|touch\w*|raggiung\w*|reach\w*|coinvolg\w*|affect\w*`;
+const IMPACT_VERB = String.raw`impatt\w*|impact\b|ricadut\w*|tocca\w*|touch\w*|raggiung\w*|reach\w*|coinvolg\w*|affect\w*`;
 // Il corpo di una clausola si chiude al primo confine di frase, ma un punto e'
 // confine SOLO se seguito da spazio o da fine riga: dentro un code span
 // (`articles.json`, `create-article.mjs`, `publish-api.yml`) non lo e'. Senza
@@ -284,7 +284,8 @@ const CLAUSE_BODY = String.raw`(?:[^.;—\n]|\.(?!\s|$))`;
 //     stesso anti-pattern in `cf-purge-cache.mjs` non e' toccato». E' la
 //     formulazione che REVIEW.md prescrive per un finding di classe, ed e' anche
 //     il tell `non toccat` della TAXONOMY `sibling-class-fix`, che collide per
-//     costruzione con `toccat\w*` di IMPACT_VERB. Su una riga cosi' lo strip non
+//     costruzione con `tocca\w*` di IMPACT_VERB (che copre gia' toccano/toccata/
+//     toccare: le alternative esplicite erano rami morti). Su una riga cosi' lo strip non
 //     deve girare, altrimenti il bucket process piu' canonico perde la sua entrata
 //     piu' tipica: misurato sulle ultime 114 PR mergiate, 6 righe su 50 con
 //     «negazione + participio» sono findings di sweep veri (#880 e #822 su tutte).
@@ -333,7 +334,22 @@ export function bucketFinding(text) {
     if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
     return t.key;
   }
-  return fingerprintFinding(scannable); // unbucketed → fingerprint safety net (or null)
+  // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'
+  // un'euristica sul CONFINE della clausola negata, e su una riga in cui la
+  // negazione porta su un participio o su un verbo di impatto usato in senso
+  // comportamentale — «il redirect non raggiunge `/lavoro/ticino`, il canonical
+  // resta rotto» — mangia anche la coda, che e' il difetto vero. Se anche il
+  // safety net vedesse il testo strippato, quella riga cadrebbe attraverso
+  // ENTRAMBI i livelli e sparirebbe dal tally: nessuna escalation, mai. E' la
+  // direzione opposta a quella che questo modulo chiude (il falso positivo
+  // GONFIA un bucket; questo lo SVUOTA in silenzio) ed e' la piu' pericolosa,
+  // perche' invisibile. Passando `text` la riga perde al piu' il bucket topic,
+  // ma resta contata e puo' ancora escalare.
+  // Misurato su 651 righe con glifo di 172 review reali dei due repo: cambiano 6
+  // righe, NESSUN bucket topic si muove (5 cambiano solo la lead-phrase del
+  // fingerprint, 1 rientra nella rete da `null`), quindi il rimedio a #901 resta
+  // intatto e i due controesempi smettono di sparire.
+  return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
 }
 
 // Severities that count as a CONFIRMED recurring mistake. `❓` is an
