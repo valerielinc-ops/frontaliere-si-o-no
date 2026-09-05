@@ -81,6 +81,22 @@ describe('findOrphanChainModules', () => {
     expect(orphans).not.toContain('scripts/lib/translation-state-drainer-v2.mjs');
   });
 
+  it('does not count a mention that cannot execute', () => {
+    // A comment, a changelog line, or a workflow `paths:` trigger names the
+    // module without running it. `--rebaseline` would then freeze that verdict
+    // and retire the module from the orphan set while #7096 is still open.
+    write(
+      'scripts/notes.mjs',
+      "// TODO: wire scripts/lib/translation-journal-v2.mjs one day\n",
+    );
+    write(
+      '.github/workflows/watch.yml',
+      'on:\n  push:\n    paths:\n      - scripts/lib/translation-journal-v2.mjs\n',
+    );
+    const { orphans } = findOrphanChainModules(root);
+    expect(orphans).toContain('scripts/lib/translation-journal-v2.mjs');
+  });
+
   it('reports a module that the gate names but that no longer exists', () => {
     fs.rmSync(path.join(root, 'scripts/lib/translation-journal-v2.mjs'));
     const { missing } = findOrphanChainModules(root);
@@ -98,13 +114,24 @@ describe('runtimeCallerFiles', () => {
 });
 
 describe('the committed baseline', () => {
-  it('matches what the chain measures in this checkout', () => {
-    // If this fails, either a module gained a runtime caller (tighten the
-    // baseline with --rebaseline and close out #7096) or one lost it.
-    const baseline = JSON.parse(
-      fs.readFileSync(path.join(REPO_ROOT, 'scripts/ci/translation-chain-wired-baseline.json'), 'utf8'),
-    );
+  const baseline = JSON.parse(
+    fs.readFileSync(path.join(REPO_ROOT, 'scripts/ci/translation-chain-wired-baseline.json'), 'utf8'),
+  );
+
+  it('still covers every orphan the chain has in this checkout', () => {
+    // Ratchet, not equality — the same rule the gate enforces. An exact match
+    // would turn SUCCESS into a red: wiring a module up (i.e. doing the work
+    // #7096 asks for) would shrink the orphan set and break this test until
+    // someone re-ran --rebaseline. What must never happen is a module becoming
+    // orphan without the baseline saying so.
     const { orphans } = findOrphanChainModules(REPO_ROOT);
-    expect(orphans).toEqual(baseline.orphans);
+    const known = new Set(baseline.orphans);
+    expect(orphans.filter((m: string) => !known.has(m))).toEqual([]);
+  });
+
+  it('names only modules the gate actually watches', () => {
+    // A baseline entry for a module no longer in the chain would forgive an
+    // orphan that nobody is measuring any more.
+    expect(baseline.orphans.every((m: string) => TRANSLATION_CHAIN_MODULES.includes(m))).toBe(true);
   });
 });

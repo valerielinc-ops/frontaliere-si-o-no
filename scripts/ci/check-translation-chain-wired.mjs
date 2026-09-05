@@ -93,7 +93,43 @@ export function runtimeCallerFiles(repoRoot = REPO_ROOT) {
 }
 
 /**
- * Modules from the chain that no runtime file mentions.
+ * Whether `text` actually WIRES `basename`, as opposed to merely naming it.
+ *
+ * A bare `text.includes(basename)` counts a comment, a changelog line or a
+ * `paths:` trigger block in a workflow as a caller — and since `--rebaseline`
+ * then freezes that verdict, one non-executable mention would quietly retire a
+ * module from the orphan set while #7096 is still open. That would blind the
+ * gate exactly where it is supposed to watch.
+ *
+ * So: comment lines are stripped first, and what remains must reference the
+ * module the way code or a workflow step actually does — inside an import or
+ * require specifier, or as an argument to `node`.
+ *
+ * @param {string} text
+ * @param {string} basename e.g. `translation-state-store-v2.mjs`
+ * @returns {boolean}
+ */
+export function referencesModule(text, basename) {
+  const escaped = basename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const executable = new RegExp(
+    // import/require/dynamic-import specifier ending in the module
+    String.raw`(?:from|import|require)\s*\(?\s*['"\`][^'"\`]*${escaped}['"\`]`
+    // or handed to node on a command line (workflow `run:` step, npm script)
+    + String.raw`|\bnode\b[^\n]*?${escaped}`,
+  );
+  return text
+    .split('\n')
+    .filter((line) => {
+      const t = line.trim();
+      // Line comments in JS and YAML, and the continuation lines of a block
+      // comment. A `#` mid-line in YAML is left alone: it may follow real code.
+      return !t.startsWith('//') && !t.startsWith('#') && !t.startsWith('*') && !t.startsWith('/*');
+    })
+    .some((line) => executable.test(line));
+}
+
+/**
+ * Modules from the chain that no runtime file actually calls.
  *
  * @param {string} repoRoot
  * @returns {{orphans: string[], wired: Record<string, string[]>, missing: string[]}}
@@ -112,7 +148,7 @@ export function findOrphanChainModules(repoRoot = REPO_ROOT) {
       continue;
     }
     const basename = path.basename(moduleRel);
-    const hits = callers.filter(({ text }) => text.includes(basename)).map(({ rel }) => rel);
+    const hits = callers.filter(({ text }) => referencesModule(text, basename)).map(({ rel }) => rel);
     if (hits.length === 0) orphans.push(moduleRel);
     else wired[moduleRel] = hits.sort();
   }

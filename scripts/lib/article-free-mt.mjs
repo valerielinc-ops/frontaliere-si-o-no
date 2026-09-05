@@ -146,13 +146,17 @@ function describeNumericLoss(losses) {
  * is what keeps ranges and merged clauses from firing it.
  *
  * Measured before being made blocking, over the 3'754-article corpus at
- * 1f4f9b441, comparing every IT body field against its EN and FR twin
- * (30'160 field pairs): the guard refuses 1'147/15'080 EN fields (7,6%) and
- * 1'157/15'080 FR fields (7,7%). Of those refusals at most 6,5% (EN) and 7,2%
- * (FR) are false — an upper bound, since the check that classified them counts
- * a field left untranslated in Italian as a false alarm too. A false refusal
- * costs one LLM retry, or the Italian text for that one field; a missed one
- * ships a figure that no longer exists in the translation.
+ * 1f4f9b441, by running every IT body field back through THIS function — mask,
+ * engine stub replaying the published translation, restore, balanceMarkdown,
+ * guard — rather than by comparing the two published texts directly, which
+ * would not exercise the masking at all: 1'009/14'600 EN fields refused (6,9%)
+ * and 1'030/14'566 FR (7,1%), with the pairs whose nav-link counts differ
+ * excluded because the sentinel check rejects those for its own reason.
+ * Comparing the published texts statically puts the false-refusal share at most
+ * at 6,5% (EN) and 7,2% (FR) — an upper bound, since the check that classified
+ * them counts a field left untranslated in Italian as a false alarm too. A
+ * false refusal costs one LLM retry, or the Italian text for that one field; a
+ * missed one ships a figure that no longer exists in the translation.
  *
  * This is deliberately NOT a repair: nothing here rewrites the translated text
  * to put a number back. A detector good enough to flag a field is not good
@@ -200,11 +204,30 @@ export async function translateFieldFreeMt({
     }
     restored = r.text;
   }
-  const balanced = balanceMarkdown(restored);
-  const lost = droppedNumericFacts(src, balanced, sourceLang, targetLang);
+  // Compared in the MASKED form, on both sides, and that is load-bearing.
+  //
+  // `extractNumericFacts` runs `withoutUntranslatedBlocks`, which drops every
+  // paragraph containing `](nav:`. That filter exists for the opposite job —
+  // ignoring the Italian-only CTA that create-article appends AFTER translation
+  // — and here it is only symmetric while the engine preserves the `\n{2,}`
+  // paragraph boundaries. Let an engine reflow two paragraphs into one, an
+  // ordinary thing to do to a body field, and the whole translated output
+  // becomes a single paragraph carrying `](nav:`: the filter eats all of it,
+  // the translated side reads zero facts, and every figure in the source looks
+  // dropped. The field is refused, and with no LLM retry left the body ships
+  // the Italian text — the exact defect this guard exists to prevent, caused by
+  // the guard. Reproduced before fixing: three amounts, all present in the
+  // translation, reported 3/3 lost.
+  //
+  // In the masked form neither side contains `](nav:` — the links are `0NAV<n>0`
+  // sentinels — so `withoutUntranslatedBlocks` is a no-op on both, and the
+  // parity check covers the paragraphs with nav-links too instead of skipping
+  // them. `out` is the raw engine output, still masked; `masked` is the source
+  // it was given.
+  const lost = droppedNumericFacts(masked, String(out), sourceLang, targetLang);
   if (lost.length > 0) {
     onWarn(`free-MT ${targetLang}:${fieldType} ha perso cifre dell'originale — ${describeNumericLoss(lost)}`);
     return '';
   }
-  return balanced;
+  return balanceMarkdown(restored);
 }

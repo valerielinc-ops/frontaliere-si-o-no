@@ -310,7 +310,15 @@ export const LOCALE_LEXICON = {
 
 /** The lexicon for `locale`, falling back to Italian for anything unknown. */
 export function lexiconFor(locale) {
-  return LOCALE_LEXICON[locale] || LOCALE_LEXICON.it;
+  // Base language, lowercased, before the lookup. The fallback is the ITALIAN
+  // lexicon, so an unmatched tag does not degrade gracefully — it hands English
+  // text a table of Italian month names, every date reads as absent, and the
+  // pre-publication guard in article-free-mt.mjs then refuses a field whose
+  // dates are all present. `en-GB`, `EN` and `fr_CH` are one `split` away from
+  // matching, and nothing upstream promises a bare lowercase code: the guard
+  // passes through whatever `targetLang` it was handed.
+  const base = String(locale ?? '').toLowerCase().split(/[-_]/)[0];
+  return LOCALE_LEXICON[base] || LOCALE_LEXICON.it;
 }
 
 // ─── Numeric facts, for the Italian↔translation comparison ────────────

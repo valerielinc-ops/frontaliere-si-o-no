@@ -77,6 +77,50 @@ describe('translateFieldFreeMt — numeric parity', () => {
     expect(lost.text).toBe('');
   });
 
+  it('accepts a faithful translation that reflowed two paragraphs into one', async () => {
+    // The regression this pins. `extractNumericFacts` drops every paragraph
+    // containing `](nav:` — a filter meant for the Italian-only CTA appended
+    // after translation. Comparing the RESTORED text made that filter symmetric
+    // only while the engine preserved the blank line between paragraphs: reflow
+    // them into one and the whole translated side is a single nav-link
+    // paragraph, eaten whole, so every source figure reads as lost. The field
+    // would be refused and, with no LLM retry left, the EN/FR body would ship
+    // the Italian text — the defect this guard exists to prevent.
+    const source = 'Il contributo sale a 10.000 euro nel 2024, contro i 7.500 euro '
+      + 'precedenti, e il tetto resta di 2.000 euro.\n\nVedi [le regole](nav:regole) per i dettagli.';
+    const { text, warnings } = await translateTo(
+      'The contribution rises to 10,000 euros in 2024, against the previous 7,500 euros, '
+      + 'and the cap stays at 2,000 euros. See [the rules](0NAV00) for details.',
+      source,
+    );
+    expect(warnings).toEqual([]);
+    expect(text).not.toBe('');
+  });
+
+  it('still catches a real loss in a field that carries a nav-link', async () => {
+    // The flip side: masking must not make the guard blind inside those
+    // paragraphs, which is what skipping them amounted to.
+    const source = 'Vedi [le regole](nav:regole): la franchigia e’ di 10.000 euro, '
+      + 'prima 7.500 euro, con un tetto di 2.000 euro.';
+    const { text } = await translateTo(
+      'See [the rules](0NAV00): the allowance changed again this year.',
+      source,
+    );
+    expect(text).toBe('');
+  });
+
+  it('reads the target locale by base language, not by exact tag', async () => {
+    // `lexiconFor` falls back to the ITALIAN lexicon, so an unmatched tag hands
+    // English text Italian month names, every date reads as absent, and a
+    // correct translation is refused wholesale.
+    const source = 'Le chiusure sono il 2 marzo 2026, il 4 marzo 2026 e il 6 marzo 2026.';
+    const translated = 'Closures are on 2 March 2026, 4 March 2026 and 6 March 2026.';
+    for (const tag of ['en', 'en-GB', 'EN']) {
+      const { text } = await translateTo(translated, source, tag);
+      expect(text, `locale tag ${tag}`).not.toBe('');
+    }
+  });
+
   it('still refuses a mangled nav-link sentinel, unchanged by this guard', async () => {
     const source = 'Vedi [le regole](nav:regole) e versa 2.000 euro entro il 2026.';
     const { text } = await translateTo('See [the rules](nav:rules) and pay 2,000 euros by 2026.', source);
