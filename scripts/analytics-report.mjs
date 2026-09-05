@@ -3237,14 +3237,16 @@ async function reportGA4(token) {
     // CLS recommendation from PageSpeed data (checked externally)
     if (result.summary) {
       const bounceRate = result.summary.bounceRate;
-      if (bounceRate > 0.5) {
+      // Finestra in lag GA4 (#6703): l'engagement e' auto-contraddittorio, quindi il
+      // bounce rate non e' un segnale del sito. Non emettere raccomandazioni da esso.
+      if (result.summary.engagementReliable !== false && bounceRate > 0.5) {
         recommendations.push({
           severity: 'high',
           area: 'engagement',
           message: `Bounce rate alto (${(bounceRate * 100).toFixed(1)}%) — verifica UX della landing page principale`,
         });
       }
-      if (result.summary.avgSessionDuration < 60) {
+      if (result.summary.engagementReliable !== false && result.summary.avgSessionDuration < 60) {
         recommendations.push({
           severity: 'medium',
           area: 'engagement',
@@ -3400,7 +3402,7 @@ async function reportGA4(token) {
     }
 
     // High-bounce specific pages
-    if (result.highBouncePaths && result.highBouncePaths.length > 0) {
+    if (result.summary?.engagementReliable !== false && result.highBouncePaths && result.highBouncePaths.length > 0) {
       const criticalBounce = result.highBouncePaths.filter(p => p.sessions >= 50 && p.bounceRate > 0.7);
       if (criticalBounce.length > 0) {
         const paths = criticalBounce.slice(0, 3).map(p => p.path).join(', ');

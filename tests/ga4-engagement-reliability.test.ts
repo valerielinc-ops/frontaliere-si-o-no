@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   engagementConsistency,
   dailyEngagementConsistency,
@@ -167,5 +168,45 @@ describe('engagementUnreliableNote', () => {
     const note = engagementUnreliableNote({ sessions: 2135, engagedSessions: 53, averageSessionDuration: 373 });
     expect(note).toContain('engagement inaffidabile');
     expect(note).toContain('elaborazione incompleta');
+  });
+});
+
+// Il generatore di raccomandazioni di scripts/analytics-report.mjs vive dentro
+// una funzione lunga e non esportata: non c'e' un punto d'ingresso da chiamare.
+// Questo test pinna quindi il sorgente. E' l'unica forma che diventa rossa nella
+// PR che toglie il guard, invece che nel report del giorno dopo — dove il
+// sintomo (una raccomandazione «Bounce rate alto (98,4%)» su una finestra in
+// lag di elaborazione, cioe' proprio #6703) e' indistinguibile da un dato vero.
+describe("le raccomandazioni da bounce/durata sono gatate sul verdetto d'affidabilita'", () => {
+  const src = readFileSync(
+    new URL('../scripts/analytics-report.mjs', import.meta.url),
+    'utf8',
+  );
+
+  it('il ramo bounceRate > 0.5 consulta engagementReliable', () => {
+    expect(src).toContain(
+      'if (result.summary.engagementReliable !== false && bounceRate > 0.5) {',
+    );
+  });
+
+  it('il ramo avgSessionDuration < 60 consulta engagementReliable', () => {
+    expect(src).toContain(
+      'if (result.summary.engagementReliable !== false && result.summary.avgSessionDuration < 60) {',
+    );
+  });
+
+  it('il ramo criticalBounce (>70% bounce, >=50 sessioni) consulta engagementReliable', () => {
+    expect(src).toContain(
+      'if (result.summary?.engagementReliable !== false && result.highBouncePaths',
+    );
+  });
+
+  // Non vacuo: se un domani i tre rami sparissero, i toContain sopra
+  // passerebbero solo restando rossi. Qui verifichiamo che i rami esistano
+  // ancora davvero, cosi' il test cade anche se qualcuno li rimuove del tutto.
+  it('i tre rami esistono ancora nel sorgente', () => {
+    expect(src).toContain('Bounce rate alto (');
+    expect(src).toContain('Durata sessione bassa (');
+    expect(src).toContain('rivedere contenuto e CTA');
   });
 });
