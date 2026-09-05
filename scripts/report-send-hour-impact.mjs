@@ -139,6 +139,38 @@ export const MAX_SCHEDULE_LOOKAHEAD_MS = 3 * DAY_MS;
  */
 export const LOW_COVERAGE_WARN_RATIO = 0.8;
 
+/**
+ * Minimum deliveries PER GROUP below which a comparison prints no p-value at
+ * all (#7342 item 3). The z-test itself stays the arbiter of "is this real"
+ * (see comparisonLine) — this is a validity floor, not a second significance
+ * heuristic: on a handful of deliveries the two-proportion normal
+ * approximation has no basis and the printed p-value invites a decision
+ * (keep or drop the 90-180 day tail of #6469) it cannot support.
+ */
+export const MIN_COMPARISON_DELIVERIES = 30;
+
+/**
+ * Companion validity condition of the normal approximation: with the POOLED
+ * rate, each group must expect at least this many opens and non-opens. A
+ * 40-vs-40 comparison where one side has 1 open clears
+ * MIN_COMPARISON_DELIVERIES but still has no usable sampling distribution.
+ */
+export const MIN_EXPECTED_PER_CELL = 5;
+
+/**
+ * True when a two-proportion z-test on these two cells is worth printing.
+ * @param {{deliveries:number, opens:number}} cellA
+ * @param {{deliveries:number, opens:number}} cellB
+ * @returns {boolean}
+ */
+export function hasEnoughPowerForTest(cellA, cellB) {
+  const nA = cellA?.deliveries ?? 0;
+  const nB = cellB?.deliveries ?? 0;
+  if (nA < MIN_COMPARISON_DELIVERIES || nB < MIN_COMPARISON_DELIVERIES) return false;
+  const pPool = ((cellA.opens ?? 0) + (cellB.opens ?? 0)) / (nA + nB);
+  return [nA, nB].every((n) => n * pPool >= MIN_EXPECTED_PER_CELL && n * (1 - pPool) >= MIN_EXPECTED_PER_CELL);
+}
+
 export function argValue(args, flag) {
   const i = args.indexOf(flag);
   return i >= 0 && i + 1 < args.length ? args[i + 1] : null;
@@ -902,11 +934,21 @@ export function comparisonLine(label, cellA, cellB, nameA, nameB) {
   // fixed n<100 threshold: a 500-vs-500 comparison with near-identical rates
   // is genuinely not significant, while a 60-vs-60 comparison with a huge gap
   // can be — sample size alone answers neither question.
-  const test = twoProportionTest(
-    { sends: cellA.deliveries, opens: cellA.opens },
-    { sends: cellB.deliveries, opens: cellB.opens },
-  );
-  const sigFlag = test ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]` : '';
+  // ...but a test needs a sampling distribution to exist at all: below the
+  // validity floor (#7342 item 3) the rates above still print — they are
+  // descriptive — while the verdict is replaced by an explicit "n
+  // insufficiente" instead of a p-value nobody should act on. Applies to
+  // EVERY comparison line, not just the `personal_tail_90_180 vs global` one
+  // that surfaced it.
+  const test = hasEnoughPowerForTest(cellA, cellB)
+    ? twoProportionTest(
+        { sends: cellA.deliveries, opens: cellA.opens },
+        { sends: cellB.deliveries, opens: cellB.opens },
+      )
+    : null;
+  const sigFlag = test
+    ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]`
+    : ` [n insufficiente (${nameA}=${cellA.deliveries}, ${nameB}=${cellB.deliveries}) — no p-value below ${MIN_COMPARISON_DELIVERIES} deliveries/group or ${MIN_EXPECTED_PER_CELL} expected opens]`;
   const sign = (n) => (n >= 0 ? '+' : '');
   return `${label}: open rate ${sign(openDelta)}${openDelta.toFixed(1)}pp (${rateA.toFixed(1)}% vs ${rateB.toFixed(1)}%), click rate ${sign(clickDelta)}${clickDelta.toFixed(1)}pp (${clickRateA.toFixed(1)}% vs ${clickRateB.toFixed(1)}%)${sigFlag}`;
 }
