@@ -538,6 +538,12 @@ class HreflangAudit {
     this.distFileSet = distFileSet;
     this.scanned = 0;
     this.withHreflang = 0;
+    // flatString on every push in `ingest()`: the hrefs are regex captures
+    // INTO the page HTML and a multi-substitution template literal is a
+    // ConsString that keeps them, so one failure would pin one whole document
+    // for the entire dist/ walk — the same second boundary fixed in
+    // audit-hreflang.mjs, of which this class is a verbatim clone (#7488 item
+    // 3, class of #7419). Paid per FAILURE, never per page.
     this.failures = {
       tooFew: [],
       invalidPair: [],
@@ -556,14 +562,14 @@ class HreflangAudit {
 
     if (alternates.size < 5) {
       this.failures.tooFew.push(
-        `${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`,
+        flatString(`${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`),
       );
     }
 
     for (const [hreflang, href] of alternates) {
       const error = validateLocalePair(hreflang, href);
       if (error) {
-        this.failures.invalidPair.push(`${rel}: ${error}`);
+        this.failures.invalidPair.push(flatString(`${rel}: ${error}`));
       }
     }
 
@@ -571,7 +577,7 @@ class HreflangAudit {
     const xDefault = alternates.get('x-default');
     if (itHref && xDefault && normaliseHref(itHref) !== normaliseHref(xDefault)) {
       this.failures.xDefaultMismatch.push(
-        `${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`,
+        flatString(`${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`),
       );
     }
 
@@ -585,7 +591,7 @@ class HreflangAudit {
           : join(dirname(target), basename(target, '.html'), 'index.html');
         if (!this.distFileSet.has(alt)) {
           this.failures.missingTarget.push(
-            `${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`,
+            flatString(`${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`),
           );
         }
       }

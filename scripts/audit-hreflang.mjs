@@ -68,6 +68,7 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
 import { readHeadOrAll } from './lib/readHead.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -195,6 +196,26 @@ async function main() {
     );
   }
 
+  // flatString on every push below: the hrefs come out of `extractAlternates`,
+  // i.e. they are regex captures INTO the page HTML, and a multi-substitution
+  // template literal is a ConsString that keeps them — so one failure would
+  // pin one whole document for the entire corpus walk (class of #7419, issue
+  // #7488 item 3: the flatten sits at the loader boundary, and this is a
+  // SECOND boundary downstream of it). hreflang is emitted by one shared
+  // template, so its degenerate case is not a handful of offenders but every
+  // page at once, and the gate would die of the heap limit instead of
+  // printing the diagnosis it exists to print. Paid per FAILURE, never per
+  // page: a healthy run pays nothing.
+  // flatString on every push below: the hrefs come out of `extractAlternates`,
+  // i.e. they are regex captures INTO the page HTML, and a multi-substitution
+  // template literal is a ConsString that keeps them — so one failure would
+  // pin one whole document for the entire corpus walk (class of #7419; issue
+  // #7488 item 3 is exactly this: the flatten of #7441 sits at the LOADER
+  // boundary and a second boundary downstream of it slips past). hreflang is
+  // emitted by one shared template, so its degenerate case is not a handful
+  // of offenders but every page at once, and the gate would die of the heap
+  // limit instead of printing the diagnosis it exists to print. Paid per
+  // FAILURE, never per page: a healthy run pays nothing.
   const failures = {
     /** page has <5 entries (has some hreflang but is incomplete). */
     tooFew: [],
@@ -227,7 +248,7 @@ async function main() {
 
       if (alternates.size < 5) {
         failures.tooFew.push(
-          `${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`,
+          flatString(`${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`),
         );
       }
 
@@ -235,7 +256,9 @@ async function main() {
       for (const [hreflang, href] of alternates) {
         const error = validateLocalePair(hreflang, href);
         if (error) {
-          failures.invalidPair.push(`${rel}: ${error}`);
+          // flatString: `error` embeds `href` (and slices of it), which are
+          // captures INTO the page HTML — see the block above `failures`.
+          failures.invalidPair.push(flatString(`${rel}: ${error}`));
         }
       }
 
@@ -244,7 +267,7 @@ async function main() {
       const xDefault = alternates.get('x-default');
       if (itHref && xDefault && normaliseHref(itHref) !== normaliseHref(xDefault)) {
         failures.xDefaultMismatch.push(
-          `${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`,
+          flatString(`${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`),
         );
       }
 
@@ -253,7 +276,7 @@ async function main() {
         if (!href.startsWith(BASE_URL)) continue;
         if (!targetExists(href, distFiles)) {
           failures.missingTarget.push(
-            `${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`,
+            flatString(`${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`),
           );
         }
       }
