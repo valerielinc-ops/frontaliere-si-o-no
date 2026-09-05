@@ -8126,7 +8126,6 @@
       "jobReqId": "JR07224",
       "previousSlugs": [
         "lehrstelle-mpa-efz-2027-a-medbase-toujours-medbase-ch",
-        "apprendistato-mpa-cfc-2027-a-medbase-toujours-medbase-basel",
         "apprendistato-mpa-cfc-2027-a-basel-heuwaage-medbase-basel",
         "apprenticeship-mpa-efz-2027-a-basel-heuwaage-medbase-basel",
         "lehrstelle-mpa-efz-2027-a-basel-heuwaage-medbase-ch",
@@ -8135,7 +8134,6 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-mpa-efz-2027-a-medbase-toujours-medbase-ch",
-          "apprendistato-mpa-cfc-2027-a-medbase-toujours-medbase-basel",
           "apprendistato-mpa-cfc-2027-a-basel-heuwaage-medbase-basel",
           "apprenticeship-mpa-efz-2027-a-basel-heuwaage-medbase-basel",
           "lehrstelle-mpa-efz-2027-a-basel-heuwaage-medbase-ch",
@@ -12838,12 +12836,12 @@
     },
     {
       "id": "medbase-088d6474c63c",
-      "slug": "fachfrau-fachmann-apotheke-a-60-medbase-ch",
+      "slug": "farmacia-professionale-a-100-medbase-zurich",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-apotheke-a-60-medbase-ch",
-        "en": "fachfrau-fachmann-apotheke-a-60-medbase-ch",
+        "it": "farmacia-professionale-a-100-medbase-zurich",
+        "en": "professional-pharmacy-a-100-medbase-zurich",
         "de": "fachfrau-fachmann-apotheke-a-60-medbase-ch",
-        "fr": "fachfrau-fachmann-apotheke-a-60-medbase-ch"
+        "fr": "pharmacie-professionnelle-a-100-medbase-zurich"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12897,7 +12895,8 @@
         "eft-professionale-di-farmacia-a-40-100-medbase-winterthur",
         "professional-pharmacy-eft-a-40-100-medbase-winterthur",
         "fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch",
-        "virement-en-pharmacie-a-40-100-medbase-winterthur"
+        "virement-en-pharmacie-a-40-100-medbase-winterthur",
+        "fachfrau-fachmann-apotheke-a-60-medbase-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12912,11 +12911,13 @@
           "eft-professionale-di-farmacia-a-40-100-medbase-winterthur",
           "professional-pharmacy-eft-a-40-100-medbase-winterthur",
           "fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch",
-          "virement-en-pharmacie-a-40-100-medbase-winterthur"
+          "virement-en-pharmacie-a-40-100-medbase-winterthur",
+          "fachfrau-fachmann-apotheke-a-60-medbase-ch"
         ],
         "en": [
           "apprentice-fachfrau-fachmann-apotheke-a-100-medbase-brugg",
-          "professional-pharmacy-a-100-medbase-basel"
+          "professional-pharmacy-a-100-medbase-basel",
+          "fachfrau-fachmann-apotheke-a-60-medbase-ch"
         ],
         "de": [
           "lernende-fachfrau-fachmann-apotheke-a-100-medbase-ch",
@@ -12924,7 +12925,8 @@
         ],
         "fr": [
           "apprenti-e-fachfrau-fachmann-apotheke-a-100-medbase-brugg",
-          "pharmacie-professionnelle-a-100-medbase-basel"
+          "pharmacie-professionnelle-a-100-medbase-basel",
+          "fachfrau-fachmann-apotheke-a-60-medbase-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T01:14:15.145Z",
