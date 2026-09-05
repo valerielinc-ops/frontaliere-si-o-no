@@ -11384,6 +11384,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.title': 'Cambio datore di lavoro per frontalieri single nel 2024',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.excerpt': 'Guida pratica al cambio datore di lavoro per frontalieri single nel 2024: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.imageAlt': 'Frontaliere che attraversa il confine a Brogeda, Ticino, Svizzera',
+    'blog.article.autonomia-differenziata-lombardia-2026.title': 'Autonomia Lombardia: ok su salute e professioni',
+    'blog.article.autonomia-differenziata-lombardia-2026.excerpt': 'La Commissione congiunta ha approvato la Risoluzione sull\'autonomia differenziata per la Lombardia, con implicazioni significative per i frontalieri.',
+    'blog.article.autonomia-differenziata-lombardia-2026.imageAlt': 'Vista aerea di Bellinzona, Ticino, Svizzera, con le montagne circostanti e i castelli storici della città.',
 };
 
 export default blogMetaIt;

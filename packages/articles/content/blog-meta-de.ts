@@ -11382,6 +11382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.title': 'Wechsel des Arbeitgebers für alleinstehende Grenzgänger im Jahr 2024',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.excerpt': 'Praktischer Leitfaden zum Arbeitgeberwechsel für alleinerziehende Grenzgänger im Jahr 2024: Vorankündigung, Verlängerung der G-Bewilligung, Beitragskontinuität und zu aktualisierende Dokumente.',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.imageAlt': 'Grenzgänger überquert die Grenze bei Brogeda, Tessin, Schweiz',
+    'blog.article.autonomia-differenziata-lombardia-2026.title': 'Autonomie Lombardei: OK für Gesundheit und Berufe',
+    'blog.article.autonomia-differenziata-lombardia-2026.excerpt': 'Die Gemeinsame Kommission hat die Entschließung zur differenzierten Autonomie für die Lombardei angenommen, die erhebliche Auswirkungen auf die Grenzgänger hat.',
+    'blog.article.autonomia-differenziata-lombardia-2026.imageAlt': 'Luftaufnahme von Bellinzona, Tessin, Schweiz, mit den umliegenden Bergen und den historischen Burgen der Stadt.',
 };
 
 export default blogMetaDe;

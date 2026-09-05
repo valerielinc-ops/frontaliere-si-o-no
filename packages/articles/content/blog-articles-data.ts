@@ -34005,6 +34005,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'autonomia-differenziata-lombardia-2026',
+ category: 'novita',
+ date: '2026-09-05T09:33:22.529Z',
+ image: '/images/blog/autonomia-differenziata-lombardia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

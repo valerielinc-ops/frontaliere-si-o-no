@@ -86027,6 +86027,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autonomia-differenziata-lombardia-2026': {
+    title: 'Autonomia Lombardia: ok su salute e professioni',
+    description: 'La Commissione congiunta ha approvato la Risoluzione sull\'autonomia differenziata per la Lombardia, con implicazioni significative per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autonomia, lombardia, salute, professioni',
+    ogTitle: 'Autonomia differenziata Lombardia: ok della Commissione congiunta alla Risoluzione su salute, protezione civile, professioni e previdenza',
+    ogDescription: 'La Commissione congiunta ha approvato la Risoluzione sull\'autonomia differenziata per la Lombardia, con implicazioni significative per i frontalieri. La maggiore autonomia regionale potrebbe portare a cambiamenti nelle politiche sanitarie',
+    canonicalPath: '/articoli-frontaliere/autonomia-differenziata-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autonomia Lombardia: ok su salute e professioni",
+      "description": "La Commissione congiunta ha approvato la Risoluzione sull'autonomia differenziata per la Lombardia, con implicazioni significative per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/autonomia-differenziata-lombardia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona, Ticino, Svizzera, con le montagne circostanti e i castelli storici della città."
+      },
+      "datePublished": "2026-09-05T09:33:22+00:00",
+      "dateModified": "2026-09-05T09:33:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autonomia-differenziata-lombardia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
