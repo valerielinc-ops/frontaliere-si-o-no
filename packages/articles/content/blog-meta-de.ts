@@ -11400,6 +11400,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fiera-varese-schiranna-2026.title': 'Messe Varese 2026: 150 Aussteller auf der Schiranna',
     'blog.article.fiera-varese-schiranna-2026.excerpt': 'Vom 11. bis 20. September 2026 konzentriert sich die 48. Ausgabe der Fiera di Varese unter dem Motto "Scelgo Varese" auf Unternehmen, Kultur und Sport.',
     'blog.article.fiera-varese-schiranna-2026.imageAlt': 'Ausstellungsbereich der Messe Varese in Schiranna',
+    'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.title': 'Cristina Zanini wechselt vom Großen Rat zur CDA aet',
+    'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.excerpt': 'Die sozialistische Abgeordnete und ehemalige Stadträtin von Lugano, Cristina Zanini, hat beschlossen, den Grossen Rat zu verlassen, um in den Verwaltungsrat von AET, dem Tessiner Elektrizitätsunternehmen, einzutreten.',
+    'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.imageAlt': 'Cristina Zanini verlässt den Grossen Rat, um in den Verwaltungsrat der Azienda elettrica ticinese einzutreten',
 };
 
 export default blogMetaDe;

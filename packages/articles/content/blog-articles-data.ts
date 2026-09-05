@@ -34059,6 +34059,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cristina-zanini-grande-consiglio-azienda-elettrica-ticinese',
+ category: 'novita',
+ date: '2026-09-05T10:51:04.210Z',
+ image: '/images/blog/cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
