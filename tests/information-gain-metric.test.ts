@@ -12,6 +12,7 @@
  * about the masking and cohorting rules, and a real page would make them
  * depend on whatever that page happens to say today.
  */
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   fingerprintPage,
@@ -434,4 +435,73 @@ describe('information-gain: la relazione di prefisso non allarga l\'inventario (
       value: 2,
     });
   });
+});
+
+describe("information-gain: ogni chiave d'inventario coincide con l'etichetta emessa dalla sua famiglia (issue #7383)", () => {
+  // Le assertion qui sotto sono le uniche del file costruite su slug REALI: la
+  // fixture è l'estrazione delle sitemap di produzione (comando e data dentro
+  // il JSON). Serve perché `KNOWN_LOW_GAIN_COHORTS` è indicizzata PER ETICHETTA
+  // e l'etichetta la calcola `commonPathPrefix()` sui path davvero emessi — una
+  // chiave scritta a mano che non coincide non risolve (una label che TRONCA la
+  // chiave non risolve, #7384), la coorte risulta non inventariata e il gate
+  // fallisce duro il giorno in cui la famiglia supera `MIN_COHORT_PAGES`. Fino a
+  // qui la calibrazione era verificata solo su coppie sintetiche
+  // (`tradate|torino`, `gaissau|hohenems`), che non sono gli slug emessi.
+  const fixture = JSON.parse(
+    readFileSync(new URL('./fixtures/information-gain-emitted-slugs.json', import.meta.url), 'utf8'),
+  ) as {
+    families: Array<{ inventoryKey: string; sitemap: string; urlPaths: string[] }>;
+  };
+  const inventoryKeys = [...INFORMATION_GAIN_GATE.KNOWN_LOW_GAIN_COHORTS.keys()];
+
+  it('la fixture copre esattamente le chiavi inventariate', () => {
+    // Aggiungere una riga a `KNOWN_LOW_GAIN_COHORTS` senza gli slug emessi che
+    // la giustificano rompe qui: è l'unico modo per impedire che la prossima
+    // chiave torni a essere non verificata, che è esattamente il difetto di
+    // questa issue.
+    expect(fixture.families.map((f) => f.inventoryKey).sort()).toEqual([...inventoryKeys].sort());
+  });
+
+  for (const family of fixture.families) {
+    const [locale, keyPath] = [
+      family.inventoryKey.slice(0, family.inventoryKey.indexOf(':')),
+      family.inventoryKey.slice(family.inventoryKey.indexOf(':') + 1),
+    ];
+
+    describe(family.inventoryKey, () => {
+      it('gli slug della fixture stanno tutti nel locale della chiave', () => {
+        for (const urlPath of family.urlPaths) {
+          expect(localeOfPath(`${urlPath.replace(/^\//, '')}index.html`)).toBe(locale);
+        }
+      });
+
+      it("l'insieme pieno produce l'etichetta inventariata", () => {
+        expect(family.urlPaths.length).toBeGreaterThanOrEqual(2);
+        expect(commonPathPrefix(family.urlPaths)).toBe(keyPath);
+      });
+
+      it("nessun sottoinsieme campionabile sposta l'etichetta", () => {
+        // `AUDIT_SAMPLE_RATE` e il campionamento a 12 pagine del live-scan fanno
+        // sì che un run veda un SOTTOINSIEME della famiglia. Se l'etichetta
+        // dipendesse da quale, la chiave risolverebbe a run alterni — il
+        // flapping che #7384 ha tolto sul lato inventario e che qui viene
+        // verificato sui path veri, coppia per coppia e leave-one-out.
+        for (let i = 0; i < family.urlPaths.length; i += 1) {
+          for (let j = i + 1; j < family.urlPaths.length; j += 1) {
+            expect(commonPathPrefix([family.urlPaths[i], family.urlPaths[j]])).toBe(keyPath);
+          }
+          const leaveOneOut = family.urlPaths.filter((_, idx) => idx !== i);
+          expect(commonPathPrefix(leaveOneOut)).toBe(keyPath);
+        }
+      });
+
+      it("l'etichetta emessa risolve alla riga d'inventario", () => {
+        const resolved = resolveInventoryEntry(
+          INFORMATION_GAIN_GATE.KNOWN_LOW_GAIN_COHORTS,
+          `${locale}:${commonPathPrefix(family.urlPaths)}`,
+        );
+        expect(resolved?.key).toBe(family.inventoryKey);
+      });
+    });
+  }
 });
