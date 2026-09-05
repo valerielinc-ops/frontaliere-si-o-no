@@ -11385,6 +11385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.title': 'Changement d\'employeur pour les frontaliers célibataires en 2024',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.excerpt': 'Guide pratique du changement d\'employeur pour les frontaliers célibataires en 2024 : préavis, renouvellement du permis G, continuité des cotisations et documents à mettre à jour.',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.imageAlt': 'Frontalier traversant la frontière à Brogeda, Tessin, Suisse',
+    'blog.article.autonomia-differenziata-lombardia-2026.title': 'Autonomie Lombardie : ok sur la santé et les professions',
+    'blog.article.autonomia-differenziata-lombardia-2026.excerpt': 'La Commission mixte a approuvé la Résolution sur l\'autonomie différenciée pour la Lombardie, avec des implications importantes pour les frontaliers.',
+    'blog.article.autonomia-differenziata-lombardia-2026.imageAlt': 'Vue aérienne de Bellinzona, Tessin, Suisse, avec les montagnes environnantes et les châteaux historiques de la ville.',
 };
 
 export default blogMetaFr;

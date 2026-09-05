@@ -11383,6 +11383,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.title': 'Change of employer for single border workers in 2024',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.excerpt': 'Practical guide to changing employers for single border workers in 2024: notice, renewal of permit G, continuity of contributions and documents to be updated.',
     'blog.article.cambio-datore-lavoro-frontaliere-2024-single.imageAlt': 'Frontalier crossing the border at Brogeda, Ticino, Switzerland',
+    'blog.article.autonomia-differenziata-lombardia-2026.title': 'Autonomy Lombardy: ok on health and professions',
+    'blog.article.autonomia-differenziata-lombardia-2026.excerpt': 'The Joint Commission approved the Resolution on differentiated autonomy for Lombardy, with significant implications for frontier workers.',
+    'blog.article.autonomia-differenziata-lombardia-2026.imageAlt': 'Aerial view of Bellinzona, Ticino, Switzerland, with the surrounding mountains and the city\'s historic castles.',
 };
 
 export default blogMetaEn;
