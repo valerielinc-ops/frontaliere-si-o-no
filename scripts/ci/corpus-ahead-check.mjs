@@ -139,6 +139,18 @@ export const SITE_REBASELINE_ONLY_STATES = ['both-moved-converged'];
 /** Una riga che richiede davvero una DECISIONE in questo repo. */
 export const needsDecisionHere = (r) => r.actionable && !SITE_REBASELINE_ONLY_STATES.includes(r.state);
 
+/**
+ * L'issue di questo lato e' il ricevitore delle DECISIONI che spettano a questo
+ * repo: aprirla — o commentarla, che e' cio' che fa il creator sulla dedup del
+ * titolo — quando non ce n'e' nessuna produce un commento giornaliero che dice
+ * «**0** richiedono una decisione **qui**». E' rumore permanente su un canale
+ * che deve restare ad alto segnale (issue #7452): da quando i convergenti sono
+ * una classe azionabile ma non una decisione (#7368), `actionable.length` e' un
+ * SOVRAINSIEME della soglia giusta. I convergenti restano visibili nel report
+ * testuale e in `--json`, dove non costano attenzione a nessuno.
+ */
+export const shouldOpenIssueHere = (results) => results.some(needsDecisionHere);
+
 /** Stesso digest del checker del corpus: sha256 del contenuto, primi 16 hex. */
 export const sha256 = (buf) => crypto.createHash('sha256').update(buf).digest('hex').slice(0, 16);
 
@@ -630,7 +642,7 @@ async function main() {
     }
   }
 
-  if (AS_ISSUE && actionable.length) {
+  if (AS_ISSUE && shouldOpenIssueHere(results)) {
     // Import differito: il modulo tocca l'ambiente GitHub all'import, e i test
     // di questo file devono poter caricare il classificatore senza di esso.
     const { createGithubIssue } = await import('../lib/github-issue-creator.mjs');

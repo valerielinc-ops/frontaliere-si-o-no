@@ -8,6 +8,7 @@ import {
   localHash,
   needsDecisionHere,
   renderIssueBody,
+  shouldOpenIssueHere,
   SITE_ACTIONABLE_STATES,
 } from '../../scripts/ci/corpus-ahead-check.mjs';
 
@@ -188,6 +189,29 @@ describe('il confronto a tre vie riporta solo la meta\' su cui questo repo puo\'
     const manualSection = body.slice(body.indexOf('🔴'), body.indexOf('🟢'));
     expect(manualSection).toContain('generator/a.mjs');
     expect(manualSection).not.toContain('generator/b.mjs');
+  });
+
+  it('nessuna decisione qui → la issue non si apre e non si commenta', () => {
+    // La soglia era `actionable.length`, che dal #7368 e' un sovrainsieme:
+    // con soli convergenti il ricevitore commentava ogni giorno «**0**
+    // richiedono una decisione **qui**» (issue #7452).
+    const converged = classify(twin({ mode: 'identical' }), { site: 'eeeeeeeeeeeeeeee', corpus: 'eeeeeeeeeeeeeeee' }, BASE);
+    const stable = classify(twin(), { site: BASE.site, corpus: BASE.corpus }, BASE);
+    expect(converged.actionable).toBe(true);
+    expect(shouldOpenIssueHere([converged, stable])).toBe(false);
+    // Una riga che chiede davvero una lettura umana riapre il canale.
+    const moved = classify(twin(), { site: 'dddddddddddddddd', corpus: 'cccccccccccccccc' }, BASE);
+    expect(shouldOpenIssueHere([converged, stable, moved])).toBe(true);
+  });
+
+  it('la soglia della issue e\' la stessa che il body annuncia', () => {
+    // Se le due divergono si torna al commento «0 richiedono una decisione»:
+    // il gate e il testo devono contare la stessa cosa.
+    const rows = [
+      { path: 'generator/b.mjs', sitePath: 'b.mjs', state: 'both-moved-converged', actionable: true, headline: 'gia\' identici' },
+    ];
+    expect(shouldOpenIssueHere(rows)).toBe(false);
+    expect(renderIssueBody({ alignedAt: '2026-09-01' }, rows, rows)).toMatch(/\*\*0\*\* richiedono una decisione \*\*qui\*\*/);
   });
 
   it('fermi entrambi sulla baseline → `stable`, silenzio', () => {
