@@ -1,6 +1,6 @@
 {
   "crawlerKey": "szb-chb",
-  "assembledAt": "2026-09-05T12:43:07.752Z",
+  "assembledAt": "2026-09-05T22:51:40.435Z",
   "jobs": [
     {
       "id": "szb-chb-360a57696c55",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "senior-physician-senior-physician-paediatric-surgery-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne",
         "fr": "medecin-superieur-medecin-superieur-chirurgie-pediatrique-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -34,7 +34,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4555/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:03.938Z",
+      "crawledAt": "2026-09-05T22:51:29.597Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,18 +51,12 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4555/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne",
-        "oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
-        "oberarztin-o-oberarzt-pneumologie-50-100-jobsharing-moglich-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "senior-physician-or-senior-physician-pneumology-50-100-job-sharing-possible-spitalzentrum-biel-centre-hospitalier-bienne",
-        "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne",
-        "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-biel-centre",
-        "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "senior-physician-angiology-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne",
+          "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+          "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne"
+        ],
         "it": [
           "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne",
           "oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
@@ -75,15 +69,22 @@
           "senior-physician-or-senior-physician-pneumology-50-100-job-sharing-possible-spitalzentrum-biel-centre-hospitalier-bienne",
           "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
-        "de": [
-          "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne",
-          "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne"
-        ],
         "fr": [
           "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-biel-centre",
           "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne",
+        "oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
+        "oberarztin-o-oberarzt-pneumologie-50-100-jobsharing-moglich-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "senior-physician-or-senior-physician-pneumology-50-100-job-sharing-possible-spitalzentrum-biel-centre-hospitalier-bienne",
+        "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne",
+        "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-biel-centre",
+        "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "senior-physician-angiology-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "firstSeenAt": "2026-08-27T19:55:35.132Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -105,7 +106,7 @@
       "slugByLocale": {
         "it": "responsabile-controlling-payroll-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "head-of-controlling-payroll-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "leiter-in-controlling-payroll-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne",
         "fr": "responsable-du-controle-et-de-la-paie-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -131,7 +132,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4625/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:03.088Z",
+      "crawledAt": "2026-09-05T22:51:28.782Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -148,15 +149,12 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4625/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne",
-        "sachbearbeiter-in-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "sachbearbeiter-in-human-resources-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
-        "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "responsabile-controlling-payroll-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
+          "leiter-in-controlling-payroll-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+          "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne"
+        ],
         "it": [
           "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne",
           "sachbearbeiter-in-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -169,15 +167,20 @@
           "sachbearbeiter-in-human-resources-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne"
         ],
-        "de": [
-          "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
-          "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne"
-        ],
         "fr": [
           "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "leiter-in-controlling-payroll-hr-80-100-szb-chb-biel-bienne",
+        "sachbearbeiter-in-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "sachbearbeiter-in-human-resources-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
+        "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "leiter-in-controlling-payroll-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "responsabile-controlling-payroll-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "firstSeenAt": "2026-08-31T17:08:34.395Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -199,7 +202,7 @@
       "slugByLocale": {
         "it": "kinder-e-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "child-and-adolescent-psychologist-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "kinder-und-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne",
         "fr": "psychologue-pour-enfants-et-adolescents-50-a-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -225,7 +228,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4626/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:02.300Z",
+      "crawledAt": "2026-09-05T22:51:27.986Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -242,12 +245,11 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4626/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne",
-        "kinder-und-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "kinder-e-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "kinder-und-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+          "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne"
+        ],
         "it": [
           "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne",
           "kinder-e-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
@@ -257,11 +259,13 @@
         ],
         "fr": [
           "kinder-und-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "de": [
-          "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne",
+        "kinder-und-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "kinder-e-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "firstSeenAt": "2026-08-31T17:08:32.990Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -283,7 +287,7 @@
       "slugByLocale": {
         "it": "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "senior-physician-in-child-and-adolescent-psychiatry-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
         "fr": "medecin-principal-en-psychiatrie-infantile-et-adolescente-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -309,7 +313,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4593/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:01.482Z",
+      "crawledAt": "2026-09-05T22:51:27.182Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -326,12 +330,11 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4593/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
-        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne"
+        ],
         "it": [
           "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
           "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
@@ -341,11 +344,13 @@
         ],
         "fr": [
           "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "de": [
-          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
+        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "firstSeenAt": "2026-08-31T17:08:33.580Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -367,7 +372,7 @@
       "slugByLocale": {
         "it": "dipl-expert-expert-anesthesia-care-nds-hf-come-formatore-professionale-80-100-spitalzentrum-biel-centre-hospitalier",
         "en": "dipl-expert-expert-anesthesia-care-nds-hf-as-a-vocational-trainer-80-100-spitalzentrum-biel-centre-hospitalier-bienne",
-        "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne",
+        "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-szb-chb-biel",
         "fr": "dipl-expert-expert-anesthesie-soins-nds-hf-en-tant-que-formateur-professionnel-80-100-spitalzentrum-biel-centre"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -393,7 +398,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4514/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:00.672Z",
+      "crawledAt": "2026-09-05T22:51:26.415Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -410,13 +415,11 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4514/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-szb-chb-biel",
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-come-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne",
-        "dipl-expert-expert-anesthesia-care-nds-hf-come-formatore-professionale-80-100-spitalzentrum-biel-centre-hospitalier"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne",
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-szb-chb-biel"
+        ],
         "it": [
           "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-szb-chb-biel",
           "dipl-expertin-experte-anasthesiepflege-nds-hf-come-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -427,11 +430,14 @@
         ],
         "fr": [
           "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
-        ],
-        "de": [
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-szb-chb-biel"
         ]
       },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-szb-chb-biel",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-come-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne",
+        "dipl-expert-expert-anesthesia-care-nds-hf-come-formatore-professionale-80-100-spitalzentrum-biel-centre-hospitalier"
+      ],
       "firstSeenAt": "2026-09-03T23:15:11.504Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -479,7 +485,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4433/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:42:59.839Z",
+      "crawledAt": "2026-09-05T22:51:25.626Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -500,28 +506,28 @@
         "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne",
         "certified-nurse-stroke-unit-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "infermiere-uomo-certificato-unita-di-tiro-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
+        "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
+        "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne",
           "certified-nurse-stroke-unit-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "infermiere-uomo-certificato-unita-di-tiro-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
+          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
+          "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "en": [
           "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne"
         ],
+        "de": [
+          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
+        ],
         "fr": [
           "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne",
           "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "de": [
-          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-03T13:35:19.387Z",
@@ -571,7 +577,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4486/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:42:59.072Z",
+      "crawledAt": "2026-09-05T22:51:24.880Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -624,7 +630,7 @@
       "slugByLocale": {
         "it": "fachspezialist-in-payroll-e-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "specialist-in-payroll-and-social-security-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "fachspezialist-in-payroll-und-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "fachspezialist-in-payroll-und-sozialversicherungen-80-100-szb-chb-biel-bienne",
         "fr": "specialiste-en-remuneration-et-securite-sociale-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -650,7 +656,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4641/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:42:58.246Z",
+      "crawledAt": "2026-09-05T22:51:24.078Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -667,12 +673,11 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4641/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-payroll-und-sozialversicherungen-80-100-szb-chb-biel-bienne",
-        "fachspezialist-in-payroll-und-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fachspezialist-in-payroll-e-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "fachspezialist-in-payroll-und-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+          "fachspezialist-in-payroll-und-sozialversicherungen-80-100-szb-chb-biel-bienne"
+        ],
         "it": [
           "fachspezialist-in-payroll-und-sozialversicherungen-80-100-szb-chb-biel-bienne",
           "fachspezialist-in-payroll-e-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
@@ -682,11 +687,13 @@
         ],
         "fr": [
           "fachspezialist-in-payroll-und-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "de": [
-          "fachspezialist-in-payroll-und-sozialversicherungen-80-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "fachspezialist-in-payroll-und-sozialversicherungen-80-100-szb-chb-biel-bienne",
+        "fachspezialist-in-payroll-und-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fachspezialist-in-payroll-e-sozialversicherungen-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "firstSeenAt": "2026-09-04T22:55:58.400Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -708,7 +715,7 @@
       "slugByLocale": {
         "it": "risorse-umane-generalist-in-payroll-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne",
-        "de": "hr-generalist-in-payroll-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne",
         "fr": "generaliste-des-rh-dans-la-paie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -734,7 +741,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4607/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:42:57.464Z",
+      "crawledAt": "2026-09-05T22:51:23.314Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -751,18 +758,22 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4607/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-04T22:55:59.184Z",
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
+          "hr-generalist-in-payroll-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne"
         ],
-        "de": [
-          "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne"
+        "it": [
+          "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne",
+          "risorse-umane-generalist-in-payroll-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne"
+        "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne",
+        "hr-generalist-in-payroll-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "risorse-umane-generalist-in-payroll-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
+      "firstSeenAt": "2026-09-04T22:55:59.184Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -783,7 +794,7 @@
       "slugByLocale": {
         "it": "pediatri-di-sviluppo-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "developmental-paediatricians-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
         "fr": "pediatres-en-developpement-en-50-a-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -809,7 +820,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4592/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:42:56.905Z",
+      "crawledAt": "2026-09-05T22:51:22.489Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -826,12 +837,11 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4592/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
-        "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "pediatri-di-sviluppo-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+          "entwicklungspadiater-in-50-100-szb-chb-biel-bienne"
+        ],
         "it": [
           "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
           "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -842,11 +852,13 @@
         ],
         "fr": [
           "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "de": [
-          "entwicklungspadiater-in-50-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
+        "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "pediatri-di-sviluppo-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "firstSeenAt": "2026-09-04T13:27:41.208Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -861,187 +873,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "szb-chb-e78f290ff9e7",
-      "slug": "medicina-sanitaria-professionale-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-      "slugByLocale": {
-        "it": "medicina-sanitaria-professionale-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "professional-health-acute-medicine-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "fachfrau-fachmann-gesundheit-akutmedizin-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fr": "sante-professionnelle-medecine-aigue-60-a-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      },
-      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
-      "companyKey": "szb-chb",
-      "companyDomain": "szb-chb.ch",
-      "title": "Fachfrau/Fachmann Gesundheit Akutmedizin 60%-90%",
-      "titleByLocale": {
-        "it": "Medicina sanitaria professionale 60%-90 %",
-        "en": "Professional Health Acute Medicine 60%-90 %",
-        "de": "Fachfrau/Fachmann Gesundheit Akutmedizin 60%-90%",
-        "fr": "Santé professionnelle Médecine aiguë 60 à 90 %"
-      },
-      "description": "Fachfrau/Fachmann Gesundheit Akutmedizin 60%-90% - Spitalzentrum Biel / Centre hospitalier Bienne Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein? Arbeiten am Puls des Lebens: das Spitalzentrum Biel ist eines der führenden Spitäler der Region, bekannt für seine Innovationskraft und Patientennähe. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Pflege mit. Du bist eine dynamische Fachfrau/Fachmann Gesundheit und auf der Suche nach einer neuen Herausforderung in einem tollen Team und mit einer super Teamleitung? Dann bist Du bei Céline und Olivia genau richtig! Wir suchen für unsere akutmedizinische Bettenstation, per 01. Oktober 2026 oder nach Vereinbarung, eine/n : Fachfrau/Fachmann Gesundheit Akutmedizin 60%-90% Das tust du Betreuung der Patientinnen im Rahmen der Fachkompetenzen in Zusammenarbeit mit dem diplomierten Pflegepersonal\n\nSelbstständige Erledigung vielseitiger Aufgaben aus der Administration, Logistik und Hauswirtschaft\n\nMitverantwortung für eine hohe Pflegequalität und aktive Beteiligung am kontinuierlichen Verbesserungsprozess\n\nFörderung einer ziel- und lösungsorientierten Zusammenarbeit innerhalb des interprofessionellen Betreuungsteams\n\nFähigkeitsausweis als Fachfrau/Fachmann Gesundheit Teamfähigkeit, Flexibilität, Belastbarkeit und Verantwortungsbewusstsein Organisierte und gewissenhafte Arbeitsweise Kommunikation in Deutsch oder Französisch mit guten Kenntnissen der jeweils anderen Sprache\n\nAttraktive Arbeitsbedingungen: Eine moderne Infrastruktur, flexible Arbeitszeiten und faire Vergütung. Karriereperspektiven: Unterstützung bei Weiterbildungen und individuelle Entwicklungsmöglichkeiten. Starkes Team: Eine wertschätzende Unternehmenskultur und ein motiviertes Team, das gemeinsam an einem Strang zieht. Lebensqualität: Arbeiten in Biel, der zweisprachigen Stadt zwischen See und Bergen, mit hohem Freizeitwert.\n\nFür weitere Auskünfte steht Dir Céline Mäder, Teamleiterin, Tel. 032 324 19 24, gerne zur Verfügung. Wir freuen uns auf Deine online-Bewerbung!\n\n• Bereich: Pflegeberufe\n• Art: Teilzeit",
-      "descriptionByLocale": {
-        "it": "Professional Health Acute Medicine 60%-90% - Hospital Center Biel / Centre Hospitalier Bienne Il Biel Hospital Center è l'ospedale del centro pubblico della regione bilingue Biel-Seeland-Berne Jura. Sei interessato a lavorare insieme ai nostri 2.300 dipendenti per la salute della nostra popolazione? Lavorando sul polso della vita: il Biel Hospital Center è uno dei principali ospedali della regione, noto per la sua potenza innovativa e la vicinanza ai pazienti. Diventa parte del nostro team e modella il futuro della cura. Sei uno specialista di salute dinamico e alla ricerca di una nuova sfida in un grande team e con una gestione di team super? Allora sei nel posto giusto con Céline e Olivia! Stiamo cercando la nostra stazione medica acuta, per 01. Ottobre 2026 o su appuntamento: medicina acuta sanitaria specialistica 60%-90% Ciò è fatto curando i pazienti nel quadro delle competenze specialistiche in collaborazione con il personale di cura qualificato.\n\nGestione indipendente di vari compiti da amministrazione, logistica e pulizia\n\nCondividere la responsabilità per un'alta qualità di cura e la partecipazione attiva al processo di miglioramento continuo\n\nPromozione della cooperazione mirata e orientata alla soluzione all'interno del team di supporto interprofessionale\n\nCertificato di abilità come specialista Health Teamwork, Flessibilità, Resilienza e Responsabilità Lavoro organizzato e coscienzioso Comunicazione in tedesco o francese con buona conoscenza dell'altra lingua\n\nCondizioni di lavoro attraenti: un'infrastruttura moderna, orari di lavoro flessibili e compensazione equa. Prospettive di carriera: Supporto per ulteriori opportunità di formazione e sviluppo individuale. Squadra forte: Una cultura aziendale apprezzata e un team motivato che si unisce. Qualità della vita: lavorare a Biel, la città bilingue tra lago e montagna, con alto valore di svago.\n\nPer ulteriori informazioni Céline Mäder, Team Leader, Tel. 032 324 19 24, è a vostra disposizione. Non vediamo l'ora della tua applicazione online!\n\n• Dominio: Infermieristica professioni\n• Tipo: part-time",
-        "en": "Professional Health Acute Medicine 60%-90% - Hospital Center Biel / Centre hospitalier Bienne The Biel Hospital Center is the public center hospital of the bilingual Biel-Seeland-Berne Jura region. Are you interested in working alongside our 2,300 employees for the health of our population? Working on the pulse of life: the Biel Hospital Center is one of the leading hospitals in the region, known for its innovative power and proximity to patients. Become part of our team and shape the future of care. You are a dynamic health specialist and looking for a new challenge in a great team and with a super team management? Then you are in the right place with Céline and Olivia! We are looking for our acute medical bed station, per 01. October 2026 or by appointment, one/n : specialist health acute medicine 60%-90% This is done by caring for the patients within the framework of the specialist competences in cooperation with the qualified nursing staff.\n\nIndependent management of various tasks from administration, logistics and housekeeping\n\nShare responsibility for a high quality of care and active participation in the continuous improvement process\n\nPromotion of goal- and solution-oriented cooperation within the interprofessional support team\n\nCertificate of ability as a specialist Health Teamwork, Flexibility, Resilience and Responsibility Organized and conscientious work Communication in German or French with good knowledge of the other language\n\nAttractive working conditions: A modern infrastructure, flexible working hours and fair compensation. Career prospects: Support for further education and individual development opportunities. Strong team: An appreciative corporate culture and a motivated team that pulls together. Quality of life: Working in Biel, the bilingual city between lake and mountains, with high leisure value.\n\nFor further information Céline Mäder, Team Leader, Tel. 032 324 19 24, is at your disposal. We look forward to your online application!\n\n• Domain: Nursing professions\n• Type: part-time",
-        "de": "Fachfrau/Fachmann Gesundheit Akutmedizin 60%-90% - Spitalzentrum Biel / Centre hospitalier Bienne Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein? Arbeiten am Puls des Lebens: das Spitalzentrum Biel ist eines der führenden Spitäler der Region, bekannt für seine Innovationskraft und Patientennähe. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Pflege mit. Du bist eine dynamische Fachfrau/Fachmann Gesundheit und auf der Suche nach einer neuen Herausforderung in einem tollen Team und mit einer super Teamleitung? Dann bist Du bei Céline und Olivia genau richtig! Wir suchen für unsere akutmedizinische Bettenstation, per 01. Oktober 2026 oder nach Vereinbarung, eine/n : Fachfrau/Fachmann Gesundheit Akutmedizin 60%-90% Das tust du Betreuung der Patientinnen im Rahmen der Fachkompetenzen in Zusammenarbeit mit dem diplomierten Pflegepersonal\n\nSelbstständige Erledigung vielseitiger Aufgaben aus der Administration, Logistik und Hauswirtschaft\n\nMitverantwortung für eine hohe Pflegequalität und aktive Beteiligung am kontinuierlichen Verbesserungsprozess\n\nFörderung einer ziel- und lösungsorientierten Zusammenarbeit innerhalb des interprofessionellen Betreuungsteams\n\nFähigkeitsausweis als Fachfrau/Fachmann Gesundheit Teamfähigkeit, Flexibilität, Belastbarkeit und Verantwortungsbewusstsein Organisierte und gewissenhafte Arbeitsweise Kommunikation in Deutsch oder Französisch mit guten Kenntnissen der jeweils anderen Sprache\n\nAttraktive Arbeitsbedingungen: Eine moderne Infrastruktur, flexible Arbeitszeiten und faire Vergütung. Karriereperspektiven: Unterstützung bei Weiterbildungen und individuelle Entwicklungsmöglichkeiten. Starkes Team: Eine wertschätzende Unternehmenskultur und ein motiviertes Team, das gemeinsam an einem Strang zieht. Lebensqualität: Arbeiten in Biel, der zweisprachigen Stadt zwischen See und Bergen, mit hohem Freizeitwert.\n\nFür weitere Auskünfte steht Dir Céline Mäder, Teamleiterin, Tel. 032 324 19 24, gerne zur Verfügung. Wir freuen uns auf Deine online-Bewerbung!\n\n• Bereich: Pflegeberufe\n• Art: Teilzeit",
-        "fr": "Santé professionnelle Médecine aiguë 60%-90% - Centre hospitalier Bienne / Centre hospitalier Bienne Le Centre hospitalier Bienne est le centre hospitalier public de la région bilingue Bienne Jura. Êtes-vous intéressé à travailler avec nos 2300 employés pour la santé de notre population? Travaillant sur le pouls de la vie: le centre hospitalier de Biel est l'un des principaux hôpitaux de la région, connu pour sa puissance innovante et sa proximité avec les patients. Faites partie de notre équipe et façonnez l'avenir des soins. Vous êtes un spécialiste de la santé dynamique et à la recherche d'un nouveau défi dans une grande équipe et avec une super gestion d'équipe? Alors vous êtes au bon endroit avec Céline et Olivia ! Nous cherchons notre lit médical aigu, par 01. Octobre 2026 ou sur rendez-vous, un/n : médecine spécialisée en médecine aiguë 60%-90% Cela se fait en prenant soin des patients dans le cadre des compétences spécialisées en coopération avec le personnel infirmier qualifié.\n\nGestion indépendante des différentes tâches de l'administration, de la logistique et du ménage\n\nPartager la responsabilité de la qualité des soins et de la participation active au processus d'amélioration continue\n\nPromotion de la coopération axée sur les objectifs et les solutions au sein de l ' équipe d ' appui interprofessionnel\n\nCertificat d'aptitude en tant qu'équipe spécialisée en santé, flexibilité, résilience et responsabilité Travail organisé et consciencieux Communication en allemand ou en français avec une bonne connaissance de l'autre langue\n\nConditions de travail attrayantes: une infrastructure moderne, des horaires de travail flexibles et une rémunération équitable. Perspectives de carrière: soutien à la formation continue et aux possibilités de développement individuel. Équipe forte : Une culture d'entreprise reconnaissante et une équipe motivée qui se rassemble. Qualité de vie : Travailler à Biel, ville bilingue entre lac et montagne, avec une grande valeur de loisirs.\n\nPour plus d'informations Céline Mäder, Chef d'équipe, Tél. 032 324 19 24, est à votre disposition. Nous nous réjouissons de votre candidature en ligne!\n\n• Domaine: Sciences infirmières\n• Type: temps partiel"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://jobs.szb-chb.ch/Vacancies/4610/Description/1",
-      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:27:48.914Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4610/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-27T19:55:33.918Z",
-      "salaryMin": 76500,
-      "salaryMax": 107100,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76500,
-          "maxValue": 107100,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-akutmedizin-60-90-szb-chb-biel-bienne",
-          "professional-health-urology-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "fachfrau-fachmann-gesundheit-urologie-80-100-szb-chb-biel-bienne",
-          "urologie-de-sante-professionnelle-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "fachfrau-fachmann-gesundheit-notfall-80-szb-chb-biel-bienne",
-          "professional-health-urology-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "en": [
-          "fachfrau-fachmann-gesundheit-akutmedizin-60-90-szb-chb-biel-bienne",
-          "professional-health-urology-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "fr": [
-          "fachfrau-fachmann-gesundheit-akutmedizin-60-90-szb-chb-biel-bienne",
-          "urologie-de-sante-professionnelle-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "de": [
-          "fachfrau-fachmann-gesundheit-urologie-80-100-szb-chb-biel-bienne",
-          "fachfrau-fachmann-gesundheit-akutmedizin-60-90-szb-chb-biel-bienne"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-akutmedizin-60-90-szb-chb-biel-bienne",
-        "professional-health-urology-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fachfrau-fachmann-gesundheit-urologie-80-100-szb-chb-biel-bienne",
-        "urologie-de-sante-professionnelle-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fachfrau-fachmann-gesundheit-notfall-80-szb-chb-biel-bienne",
-        "professional-health-urology-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ]
-    },
-    {
-      "id": "szb-chb-6923fb60e8b7",
-      "slug": "stazione-di-riabilitazione-geriatrica-sanitaria-professionale-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
-      "slugByLocale": {
-        "it": "stazione-di-riabilitazione-geriatrica-sanitaria-professionale-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
-        "en": "professional-health-geriatric-rehabilitation-station-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-spitalzentrum-biel-centre-hospitalier-bienne",
-        "fr": "sante-professionnelle-station-de-readaptation-geriatrique-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
-      },
-      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
-      "companyKey": "szb-chb",
-      "companyDomain": "szb-chb.ch",
-      "title": "Fachfrau/Fachmann Gesundheit Geriatrische Rehabilitationsstation (80-100%)",
-      "titleByLocale": {
-        "it": "Stazione di riabilitazione Geriatrica sanitaria professionale (80-100%)",
-        "en": "Professional Health Geriatric Rehabilitation Station (80-100%)",
-        "de": "Fachfrau/Fachmann Gesundheit Geriatrische Rehabilitationsstation (80-100%)",
-        "fr": "Santé professionnelle Station de réadaptation gériatrique (80-100%)"
-      },
-      "description": "Fachfrau/Fachmann Gesundheit Geriatrische Rehabilitationsstation (80-100%) - Spitalzentrum Biel / Centre hospitalier Bienne Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein? Unsere Geriatrie-Klinik bietet älteren Patienten ein umfassendes Spektrum an Dienstleistungen von der Akutgeriatrie bis zur geriatrischen Akutrehabilitation und verfügt über 16 Betten. Zur Verstärkung unseres Teams suchen wir per 01. Oktober 2026 oder nach Vereinbarung eine:n: Fachfrau/Fachmann Gesundheit Geriatrische Rehabilitationsstation (80-100%) Das tun Sie Sie betreuen die Patienten im Rahmen ihrer Fachkompetenzen und in Zusammenarbeit mit dem diplomierten Pflegepersonal\n\nUnterstützung der Patienten im Rehabilitationsprozess\n\nSie erledigen selbstständig vielseitige Aufgaben aus der Administration, Logistik und Hauswirtschaft\n\nSie legen Wert auf eine gute interprofessionelle, ziel- und lösungsorientierte Zusammenarbeit\n\nSie engagieren sich für eine hohe Pflegequalität und beteiligen sich aktiv am kontinuierlichen Verbesserungsprozess\n\nSie haben eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit Sie haben idealerweise bereits Berufserfahrung in der Rehabilitation. Sie verfügen über eine hohe Dienstleistungskompetenz Teamfähigkeit, Flexibilität und Belastbarkeit sind für Sie selbstverständlich Sie kommunizieren in Deutsch oder Französisch (Wort und Schrift) und haben gute Kenntnisse der jeweils anderen Sprache\n\nSinnvolle Arbeit für eine hohe Patientenzufriedenheit am Puls der regionalen Bevölkerung Zusammenarbeit mit zweisprachigen Kolleginnen und Kollegen aus vielen unterschiedlichen Berufen in einem lebhaften Umfeld Vielseitige berufliche Perspektiven mit Möglichkeit zur individuellen Weiter- und Fortbildung Sichere und fortschrittliche Anstellungsbedingungen\n\nFür weitere Auskünfte steht Ihnen Frau Caroline Suri und Frau Marina Schranz, Teamleitung , unter Tel. 032 324 19 13, gerne zur Verfügung. Wir freuen uns auf Ihre online-Bewerbung.\n\n• Bereich: Pflegeberufe\n• Art: Vollzeit",
-      "descriptionByLocale": {
-        "it": "Geriatric Rehabilitation Station (80-100%) - Hospital Center Biel / Centre Hospitalier Bienne Il Biel Hospital Center è l'ospedale del centro pubblico della regione bilingue Biel-Seeland-Berne Jura. Sei interessato a lavorare insieme ai nostri 2.300 dipendenti per la salute della nostra popolazione? La nostra clinica geriatrica offre una gamma completa di servizi ai pazienti più anziani dalla medicina acuta alla riabilitazione geriatrica acuta e ha 16 letti. Per rafforzare il nostro team, stiamo cercando 01. Ottobre 2026 o su appuntamento uno:n: Professional Health Geriatric Rehabilitation Station (80-100%) Si occupano dei pazienti nell'ambito delle loro competenze professionali e in collaborazione con il personale di cura qualificato.\n\nSostenere i pazienti nel processo di riabilitazione\n\nIndipendentemente eseguire una vasta gamma di compiti da amministrazione, logistica e economia domestica\n\nEssi attribuiscono importanza ad una buona cooperazione interprofessionale, orientata agli obiettivi e orientata alla soluzione\n\nTi impegni a un'alta qualità della cura e partecipi attivamente al processo di miglioramento continuo\n\nHai completato la formazione come specialista / professionista della salute Idealmente, hanno già esperienza professionale in riabilitazione. Hai un alto livello di competenza di servizio, lavoro di squadra, flessibilità e resilienza, comunichi in tedesco o francese (parola e scrittura) e hai una buona conoscenza dell'altra lingua\n\nLavoro significativo per un alto livello di soddisfazione del paziente all'impulso della popolazione regionale Collaborazione con colleghi bilingue provenienti da molte professioni diverse in un ambiente vivace Varie prospettive professionali con possibilità di formazione ulteriore e ulteriore\n\nPer ulteriori informazioni, si prega di contattare la sig.ra Caroline Suri e la sig.ra Marina Schranz, Team Leader, al tel. 032 324 19 13, è disponibile. Attendiamo con ansia la vostra applicazione online.\n\n• Dominio: Infermieristica professioni\n• Tipo: Tempo pieno",
-        "en": "Geriatric Rehabilitation Station (80-100%) - Hospital Center Biel / Centre hospitalier Bienne The Biel Hospital Center is the public center hospital of the bilingual Biel-Seeland-Berne Jura region. Are you interested in working alongside our 2,300 employees for the health of our population? Our geriatric clinic offers a comprehensive range of services to older patients from acute medicine to geriatric acute rehabilitation and has 16 beds. To strengthen our team, we are looking for 01. October 2026 or by appointment one:n: Professional Health Geriatric Rehabilitation Station (80-100%) They take care of patients within the framework of their professional competences and in cooperation with the qualified nursing staff.\n\nSupporting patients in the rehabilitation process\n\nYou independently perform a wide range of tasks from administration, logistics and home economics\n\nThey attach importance to a good interprofessional, goal-oriented and solution-oriented cooperation\n\nYou are committed to a high quality of care and actively participate in the continuous improvement process\n\nYou have completed training as a specialist/health professional Ideally, they already have professional experience in rehabilitation. You have a high level of service competence, teamwork, flexibility and resilience, you communicate in German or French (word and writing) and have a good knowledge of the other language\n\nMeaningful work for a high level of patient satisfaction at the pulse of the regional population Collaboration with bilingual colleagues from many different professions in a lively environment Various professional perspectives with the possibility of individual further and further education Safe and progressive employment conditions\n\nFor further information, please contact Ms. Caroline Suri and Ms. Marina Schranz, Team Leader, at tel. 032 324 19 13, is available. We look forward to your online application.\n\n• Domain: Nursing professions\n• Type: Full-time",
-        "de": "Fachfrau/Fachmann Gesundheit Geriatrische Rehabilitationsstation (80-100%) - Spitalzentrum Biel / Centre hospitalier Bienne Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein? Unsere Geriatrie-Klinik bietet älteren Patienten ein umfassendes Spektrum an Dienstleistungen von der Akutgeriatrie bis zur geriatrischen Akutrehabilitation und verfügt über 16 Betten. Zur Verstärkung unseres Teams suchen wir per 01. Oktober 2026 oder nach Vereinbarung eine:n: Fachfrau/Fachmann Gesundheit Geriatrische Rehabilitationsstation (80-100%) Das tun Sie Sie betreuen die Patienten im Rahmen ihrer Fachkompetenzen und in Zusammenarbeit mit dem diplomierten Pflegepersonal\n\nUnterstützung der Patienten im Rehabilitationsprozess\n\nSie erledigen selbstständig vielseitige Aufgaben aus der Administration, Logistik und Hauswirtschaft\n\nSie legen Wert auf eine gute interprofessionelle, ziel- und lösungsorientierte Zusammenarbeit\n\nSie engagieren sich für eine hohe Pflegequalität und beteiligen sich aktiv am kontinuierlichen Verbesserungsprozess\n\nSie haben eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit Sie haben idealerweise bereits Berufserfahrung in der Rehabilitation. Sie verfügen über eine hohe Dienstleistungskompetenz Teamfähigkeit, Flexibilität und Belastbarkeit sind für Sie selbstverständlich Sie kommunizieren in Deutsch oder Französisch (Wort und Schrift) und haben gute Kenntnisse der jeweils anderen Sprache\n\nSinnvolle Arbeit für eine hohe Patientenzufriedenheit am Puls der regionalen Bevölkerung Zusammenarbeit mit zweisprachigen Kolleginnen und Kollegen aus vielen unterschiedlichen Berufen in einem lebhaften Umfeld Vielseitige berufliche Perspektiven mit Möglichkeit zur individuellen Weiter- und Fortbildung Sichere und fortschrittliche Anstellungsbedingungen\n\nFür weitere Auskünfte steht Ihnen Frau Caroline Suri und Frau Marina Schranz, Teamleitung , unter Tel. 032 324 19 13, gerne zur Verfügung. Wir freuen uns auf Ihre online-Bewerbung.\n\n• Bereich: Pflegeberufe\n• Art: Vollzeit",
-        "fr": "Station de réadaptation gériatrique (80-100%) - Centre hospitalier Bienne / Centre hospitalier Bienne Le Centre hospitalier Bienne est le centre hospitalier public de la région bilingue du Jura Bienne-Seeland. Êtes-vous intéressé à travailler avec nos 2300 employés pour la santé de notre population? Notre clinique gériatrique offre une gamme complète de services aux patients âgés, de la médecine aiguë à la réadaptation aiguë gériatrique et dispose de 16 lits. Pour renforcer notre équipe, nous cherchons 01. Octobre 2026 ou sur rendez-vous un:n: Centre de réadaptation en gériatrie de santé professionnelle (80-100%) Ils prennent soin des patients dans le cadre de leurs compétences professionnelles et en coopération avec le personnel infirmier qualifié.\n\nSoutenir les patients dans le processus de réadaptation\n\nVous exécutez indépendamment un large éventail de tâches de l'administration, de la logistique et de l'économie domestique\n\nIls attachent de l ' importance à une bonne coopération interprofessionnelle, axée sur les objectifs et axée sur les solutions\n\nVous êtes engagé dans une qualité de soins élevée et participez activement au processus d'amélioration continue\n\nVous avez terminé la formation en tant que spécialiste/professionnel de la santé Idéalement, ils ont déjà une expérience professionnelle en réadaptation. Vous avez un niveau élevé de compétence de service, de travail d'équipe, de flexibilité et de résilience, vous communiquez en allemand ou en français (mot et écriture) et avez une bonne connaissance de l'autre langue\n\nTravail significatif pour un haut niveau de satisfaction des patients au pouls de la population régionale Collaboration avec des collègues bilingues de nombreuses professions différentes dans un environnement animé Diverses perspectives professionnelles avec la possibilité de poursuivre des études individuelles et de poursuivre des études en toute sécurité et progressive conditions d'emploi\n\nPour de plus amples renseignements, veuillez contacter Mme Caroline Suri et Mme Marina Schranz, chef d'équipe, tél. 032 324 19 13, est disponible. Nous nous réjouissons de votre candidature en ligne.\n\n• Domaine: Sciences infirmières\n• Type: Temps plein"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://jobs.szb-chb.ch/Vacancies/4599/Description/1",
-      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:27:48.061Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4599/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-szb-chb-biel",
-        "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-szb-chb-biel",
-          "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
-        ],
-        "en": [
-          "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
-        ],
-        "fr": [
-          "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
-        ],
-        "de": [
-          "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-szb-chb-biel"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T19:55:34.529Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
