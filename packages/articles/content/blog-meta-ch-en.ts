@@ -5497,6 +5497,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritto-locazione-canton-vaud.title': 'Rentals: the right to rent in Switzerland',
     'blog.article.diritto-locazione-canton-vaud.excerpt': 'Security deposit, cancellation and dispute: the federal rules for safe rentals in Switzerland, identical in every canton including Vaud.',
     'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Swiss residential street with well-maintained buildings, representing housing quality and rental standards across Switzerland',
+    'blog.article.affitti-vaud-deposito-cauzionale.title': 'Rentals Canton Vaud: rental right and security deposit',
+    'blog.article.affitti-vaud-deposito-cauzionale.excerpt': 'Right to rent in the Canton of Vaud: maximum security deposit of 3 months, legal cancellation on official form and dispute with the conciliation authority.',
+    'blog.article.affitti-vaud-deposito-cauzionale.imageAlt': 'Interior of a Swiss apartment with a lake view, symbolizing the Swiss rental market',
 };
 
 export default blogMetaChEn;

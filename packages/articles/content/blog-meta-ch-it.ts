@@ -5497,6 +5497,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritto-locazione-canton-vaud.title': 'Affitti: il diritto di locazione in Svizzera',
     'blog.article.diritto-locazione-canton-vaud.excerpt': 'Deposito cauzionale, disdetta e contestazione: le regole federali per affitti sicuri in Svizzera, identiche in ogni cantone incluso il Vaud.',
     'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Strada residenziale svizzera con edifici ben curati, simbolo della qualità abitativa e degli standard locativi in Svizzera',
+    'blog.article.affitti-vaud-deposito-cauzionale.title': 'Affitti Cantone Vaud: diritto locazione e deposito cauzionale',
+    'blog.article.affitti-vaud-deposito-cauzionale.excerpt': 'Diritto della locazione nel Cantone di Vaud: deposito cauzionale max 3 mesi, disdetta legale su modulo ufficiale e contestazione presso l\'autorità di conciliazione.',
+    'blog.article.affitti-vaud-deposito-cauzionale.imageAlt': 'Interno di un appartamento svizzero con vista su un lago, simbolo del mercato degli affitti svizzero',
 };
 
 export default blogMetaChIt;

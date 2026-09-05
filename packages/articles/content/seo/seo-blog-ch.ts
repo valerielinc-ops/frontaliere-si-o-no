@@ -71351,6 +71351,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-vaud-deposito-cauzionale': {
+    title: 'Affitti Cantone Vaud: diritto locazione e deposito cauzionale',
+    description: 'Diritto della locazione nel Cantone di Vaud: deposito cauzionale max 3 mesi, disdetta legale su modulo ufficiale e contestazione presso l\'autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, cantone, vaud, diritto',
+    ogTitle: 'Affitti Cantone Vaud: diritto locazione e deposito cauzionale',
+    ogDescription: 'Scopri come funziona il diritto della locazione nel Cantone di Vaud: deposito max 3 mesi di pigione su conto vincolato, disdetta su modulo ufficiale, come contestare canoni illegittimi presso l\'autorità di conciliazione. Guida pratica federale.',
+    canonicalPath: '/articoli-svizzera/affitti-vaud-deposito-cauzionale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Cantone Vaud: diritto locazione e deposito cauzionale",
+      "description": "Diritto della locazione nel Cantone di Vaud: deposito cauzionale max 3 mesi, disdetta legale su modulo ufficiale e contestazione presso l'autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-vaud-deposito-cauzionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un appartamento svizzero con vista su un lago, simbolo del mercato degli affitti svizzero"
+      },
+      "datePublished": "2026-09-05T00:51:10+00:00",
+      "dateModified": "2026-09-05T00:51:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-vaud-deposito-cauzionale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
