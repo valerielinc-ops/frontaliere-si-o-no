@@ -248,6 +248,27 @@ export function jobQueuedAtMs(job) {
 }
 
 /**
+ * Is this job inside the freshness window the lane serves?
+ *
+ * Extracted and exported because the lane is no longer the only place that has
+ * to answer it: the mop-up measures how much of the <24h cohort its candidate
+ * set actually covers (issue #7362), and a coverage number computed with a
+ * SECOND copy of this predicate would drift from the lane it claims to measure
+ * — reporting a cohort the ordering never saw.
+ *
+ * Same INTERVAL as the partition in buildTrafficPriority(): a job dated in the
+ * future is not fresh, it is undatable (see the comment there).
+ *
+ * @param {object} job
+ * @param {number} [now]
+ * @returns {boolean}
+ */
+export function isFreshJob(job, now = Date.now()) {
+  const t = jobQueuedAtMs(job);
+  return Number.isFinite(t) && t <= now && t >= now - FRESH_WINDOW_MS;
+}
+
+/**
  * Queue-age metrics for the jobs currently flagged for retranslation.
  *
  * Answers the question the plain count cannot: a drain that works and a drain
@@ -429,7 +450,10 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   // Why the ordering is not enough on its own: measured 2026-09-04, 1.308 of
   // the 1.421 jobs seen in the last 24 hours were still pending — 92,0%. The
   // lane did not exist, so nothing served them while they were fresh.
-  const freshCutoff = freshFirst ? now - FRESH_WINDOW_MS : -Infinity;
+  //
+  // Il predicato vive in `isFreshJob()` — esportato — perche' il mop-up ne
+  // misura la COPERTURA sui propri candidati (issue #7362) e due copie del
+  // confronto direbbero due coorti diverse.
   // La corsia e' un INTERVALLO, non una semiretta. Con il solo limite inferiore
   // un `queuedAt` nel FUTURO — skew dell'orologio di un crawler, o una data mal
   // parsata: `jobQueuedAtMs()` accetta qualunque `Date.parse` finito di
@@ -438,7 +462,7 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   // pending: non e' fresco, e' solo non databile. Il job non sparisce, perde
   // solo la testa: cade nel `rest` e viene servito dallo stride come gli altri.
   const isFuture = (s) => Number.isFinite(s.queuedAt) && s.queuedAt > now;
-  const isFresh = (s) => s.queuedAt >= freshCutoff && Number.isFinite(s.queuedAt) && !isFuture(s);
+  const isFresh = (s) => freshFirst && isFreshJob(s.job, now);
   // Contato, non solo scartato: una data futura e' un difetto a monte (crawler o
   // parser) che senza questo numero resterebbe muto — il job continuerebbe a
   // essere servito dallo stride e nessuno saprebbe mai perche' non e' in testa.
@@ -593,10 +617,19 @@ export function assertTrafficPriorityUsable(stats, { allowEmpty = false } = {}) 
 
 /**
  * One-line-per-fact console block for the run log. Pure — returns lines.
+ *
+ * `freshCoverage` (optional) is the caller's own measurement of how much of the
+ * <24h cohort ever REACHED this ordering — see the mop-up's
+ * createFreshCoverageMeter(). It is not derivable here: `stats` describes the
+ * queue this module was handed, and the whole question is what the caller
+ * filtered out before handing it over (issue #7362). A caller that does not
+ * measure it prints nothing extra, exactly as before.
+ *
  * @param {object} stats
+ * @param {{ freshCoverage?: { fresh: number, pending: number, covered: number, suppressed: number } }} [opts]
  * @returns {string[]}
  */
-export function formatPriorityReport(stats) {
+export function formatPriorityReport(stats, { freshCoverage = null } = {}) {
   const a = stats.age;
   const pct = (n) => `${(n * 100).toFixed(1)}%`;
   const lines = [
@@ -624,6 +657,26 @@ export function formatPriorityReport(stats) {
       ` · dated ${a.withTimestamp}/${a.count}`,
     `     buckets ${Object.entries(a.buckets).map(([k, v]) => `${k}=${v}`).join(' ')}`,
   ];
+  // La copertura della coorte fresca. Stampata SEMPRE quando il chiamante la
+  // misura, anche al 100%: la corsia ordina l'insieme che riceve, e un numero
+  // che compare solo quando e' brutto non dice se l'ordinamento sta servendo
+  // 12 job su 20 o 12 su 12 — cioe' non dice se la testa vale quanto promette.
+  if (freshCoverage) {
+    const c = freshCoverage;
+    const ratio = c.pending === 0 ? 'n/a' : pct(c.covered / c.pending);
+    lines.push(
+      `   Fresh cohort coverage: ${c.covered}/${c.pending} (${ratio}) of the <24h jobs that need work reached this ordering`
+      + ` · ${c.fresh} fresh job(s) scanned in total`,
+    );
+    const uncovered = Math.max(0, c.pending - c.covered);
+    if (uncovered > 0 || c.suppressed > 0) {
+      lines.push(
+        `     not reached: ${uncovered} need work but expose no translatable slot`
+        + ` · ${c.suppressed} suppressed (localeMismatchSuppressed).`
+        + ' Both stay pending for the flag reconcile / the paid cascade — this lane has nothing to write for them.',
+      );
+    }
+  }
   if (a.alert) {
     lines.push(`   ⚠️ QUEUE AGE ALERT — oldest job in queue is ${a.oldestAgeDays}d, at or past the ${a.alertDays}d ratchet.`);
     lines.push('      The drain is clearing the head and leaving the tail. Raise RESERVE_FOR_OLDEST or the cap.');
