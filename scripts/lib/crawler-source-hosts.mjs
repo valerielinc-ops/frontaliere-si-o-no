@@ -401,16 +401,22 @@ export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
   if (!mine || !Array.isArray(jobs) || !(urlsByKey instanceof Map)) {
     return { jobs: Array.isArray(jobs) ? jobs : [], dropped: [] };
   }
-  // Ownership is claimed by the LATEST crawl, not by history. `urlsByKey` keeps
-  // grace-period carry-over, so an incumbent that has already stopped listing a
-  // vacancy would keep blocking it for the whole grace window — and forever if
-  // its slice is never rewritten again, which contradicts the hand-over this
-  // guard promises above. `activeUrlsByKey` is the set the ownership scan built
-  // for exactly this question; fall back only for pre-upgrade callers that do
-  // not carry it.
-  const ownerIndexSource = ownership?.activeUrlsByKey instanceof Map
-    ? ownership.activeUrlsByKey
-    : urlsByKey;
+  // Ownership follows SLICE MEMBERSHIP (`urlsByKey`), deliberately not
+  // `activeUrlsByKey`. The two are not "history vs now": `activeUrlsByKey`
+  // holds only `crawlerJobActivity(job) === 'active'`, and that helper returns
+  // `'grace'` as soon as `crawlerMissStreak > 0` — i.e. after ONE missed run.
+  // Indexing owners by it would hand a vacancy away on the first flaky crawl
+  // (pagination hiccup, markup change, timeout), which is the very flakiness
+  // the grace window exists to absorb: A publishes X, misses one run, B sees X
+  // and finds it unowned, and the duplicate this guard exists to stop is
+  // created by the guard itself.
+  //
+  // Slice membership is the honest reading of "still published", and it is
+  // also what makes the hand-over promised above real: when an incumbent
+  // genuinely stops listing a vacancy it is archived out of the slice, so
+  // `urlsByKey` loses it and the next writer may claim it. Grace-period
+  // carry-over is still published, so it still owns.
+  const ownerIndexSource = urlsByKey;
 
   // Vacancies THIS crawler has already published, from its own slice on disk.
   // History, not the latest crawl: a URL this key ever served has a live,

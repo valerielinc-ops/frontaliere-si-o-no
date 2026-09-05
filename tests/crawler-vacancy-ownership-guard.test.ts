@@ -93,14 +93,28 @@ describe('#6759 — a vacancy belongs to exactly one crawler', () => {
     expect(result.jobs).toHaveLength(1);
   });
 
-  it('claims ownership from the latest crawl, not from grace-period history', () => {
-    // The incumbent stopped listing the vacancy: its active set no longer has
-    // it, so the URL must be claimable instead of blocked forever.
-    const url = 'https://jobs.example.test/offene-stellen/handover';
+  it('keeps the incumbent owner through the grace period', () => {
+    // `activeUrlsByKey` drops a job at the FIRST miss (crawlerJobActivity
+    // returns 'grace' for missStreak > 0), so indexing owners by it would hand
+    // the vacancy away after one flaky crawl — and this guard would create the
+    // duplicate it exists to stop. Slice membership is what "still published"
+    // means, and the job is still in the incumbent's slice.
+    const url = 'https://jobs.example.test/offene-stellen/flaky';
     const ownership = {
-      urlsByKey: new Map([['old-owner', new Set([url])]]),
-      activeUrlsByKey: new Map([['old-owner', new Set<string>()]]),
+      urlsByKey: new Map([['incumbent', new Set([url])]]),
+      activeUrlsByKey: new Map([['incumbent', new Set<string>()]]),
     };
+
+    const result = dropForeignOwnedVacancies('newcomer', [{ url }], ownership as never);
+
+    expect(result.dropped).toEqual([expect.objectContaining({ owner: 'incumbent' })]);
+    expect(result.jobs).toHaveLength(0);
+  });
+
+  it('lets ownership hand over once the incumbent drops the vacancy', () => {
+    // The other half of the same rule: archived out of the slice, so claimable.
+    const url = 'https://jobs.example.test/offene-stellen/handover';
+    const ownership = { urlsByKey: new Map([['old-owner', new Set<string>()]]) };
 
     const result = dropForeignOwnedVacancies('new-owner', [{ url }], ownership as never);
 
