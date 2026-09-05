@@ -6550,12 +6550,12 @@
     },
     {
       "id": "eth-zurich-1ab2434e04d3",
-      "slug": "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium",
+      "slug": "posizione-dottorale-nello-sviluppo-del-trasformatore-a-stato-solido-con-un-focus-sui-trasformatori-a-media-frequenza-ad",
       "slugByLocale": {
-        "it": "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium",
+        "it": "posizione-dottorale-nello-sviluppo-del-trasformatore-a-stato-solido-con-un-focus-sui-trasformatori-a-media-frequenza-ad",
         "en": "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium",
-        "de": "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium",
-        "fr": "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
+        "de": "promotionsposition-in-der-entwicklung-von-festkorpertransformatoren-mit-schwerpunkt-auf-hochleistungs",
+        "fr": "position-doctorale-dans-le-developpement-des-transformateurs-a-l-etat-solide-en-mettant-l-accent-sur-les-transformateurs"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6608,7 +6608,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
+        ],
+        "de": [
+          "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
+        ],
+        "fr": [
+          "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
+      ]
     },
     {
       "id": "eth-zurich-be6fee1ad1bc",

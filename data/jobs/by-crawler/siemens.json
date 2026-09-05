@@ -4301,12 +4301,12 @@
     },
     {
       "id": "siemens-64a79db9b877",
-      "slug": "system-engineer-loschsysteme-80-100-siemens-gossau",
+      "slug": "sistemi-di-estinzione-dell-ingegnere-di-sistema-80-100-siemens-gossau",
       "slugByLocale": {
-        "it": "system-engineer-loschsysteme-80-100-siemens-gossau",
+        "it": "sistemi-di-estinzione-dell-ingegnere-di-sistema-80-100-siemens-gossau",
         "en": "system-engineer-loschsysteme-80-100-siemens-gossau",
         "de": "system-engineer-loschsysteme-80-100-siemens-gossau",
-        "fr": "system-engineer-loschsysteme-80-100-siemens-gossau"
+        "fr": "ingenieur-systeme-systemes-d-extinction-80-100-siemens-gossau"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4364,7 +4364,18 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-loschsysteme-80-100-siemens-gossau"
+        ],
+        "fr": [
+          "system-engineer-loschsysteme-80-100-siemens-gossau"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-loschsysteme-80-100-siemens-gossau"
+      ]
     },
     {
       "id": "siemens-369e1b60da1d",

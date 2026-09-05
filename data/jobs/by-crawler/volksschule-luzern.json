@@ -507,12 +507,12 @@
     },
     {
       "id": "volksschule-luzern-6b7922990dda",
-      "slug": "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern",
+      "slug": "vice-kindergarten-weggismatt-2-maihof-scuola-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern",
-        "en": "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern",
+        "it": "vice-kindergarten-weggismatt-2-maihof-scuola-volksschule-stadt-luzern-luzern",
+        "en": "deputy-kindergarten-weggismatt-2-maihof-school-volksschule-stadt-luzern-luzern",
         "de": "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern",
-        "fr": "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern"
+        "fr": "ecole-secondaire-wegismatt-2-maihof-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -567,7 +567,21 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-kindergarten-weggismatt-2-schulhaus-maihof-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-27c28b1023bb",

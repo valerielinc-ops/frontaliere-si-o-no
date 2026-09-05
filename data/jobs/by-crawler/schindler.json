@@ -3193,12 +3193,12 @@
     },
     {
       "id": "schindler-81fc438808d0",
-      "slug": "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon",
+      "slug": "specialista-in-hlkks-m-f-d-80-100-schindler-ebikon",
       "slugByLocale": {
-        "it": "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon",
-        "en": "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon",
+        "it": "specialista-in-hlkks-m-f-d-80-100-schindler-ebikon",
+        "en": "specialist-in-hlkks-m-f-d-80-100-schindler-ebikon",
         "de": "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon",
-        "fr": "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon"
+        "fr": "specialiste-en-hlkks-h-f-d-80-100-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3252,7 +3252,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon"
+        ],
+        "en": [
+          "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon"
+        ],
+        "fr": [
+          "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-haustechnik-hlkks-m-w-d-80-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-14a3908e8fdb",

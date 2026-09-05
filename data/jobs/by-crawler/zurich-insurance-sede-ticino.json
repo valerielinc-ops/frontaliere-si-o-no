@@ -896,12 +896,12 @@
     },
     {
       "id": "company-redhjt",
-      "slug": "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt",
+      "slug": "responsabile-della-sottoscrizione-tecnica-academy-svizzera-m-f-d-zurich-insurance-sede-ticino-zurich",
       "slugByLocale": {
-        "it": "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt",
+        "it": "responsabile-della-sottoscrizione-tecnica-academy-svizzera-m-f-d-zurich-insurance-sede-ticino-zurich",
         "en": "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt",
         "de": "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt",
-        "fr": "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt"
+        "fr": "responsable-de-la-souscription-technique-et-de-l-academie-suisse-h-f-d-zurich-insurance-sede-ticino-zurich"
       },
       "company": "Zurich Insurance (sede Ticino)",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -948,11 +948,16 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano"
+        "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano",
+        "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano"
+          "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano",
+          "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt"
+        ],
+        "fr": [
+          "head-technical-underwriting-academy-schweiz-m-w-d-70-100-zurich-insurance-sede-ticino-lugano-redhjt"
         ]
       },
       "firstSeenAt": "2026-08-27T20:10:24.337Z",

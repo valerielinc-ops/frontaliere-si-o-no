@@ -3369,12 +3369,12 @@
     },
     {
       "id": "lindenhofgruppe-3760f37be9d6",
-      "slug": "praktikant-in-informatik-lindenhofgruppe-ch",
+      "slug": "stage-informatica-lindenhofgruppe-lindenhofgruppe",
       "slugByLocale": {
-        "it": "praktikant-in-informatik-lindenhofgruppe-ch",
-        "en": "praktikant-in-informatik-lindenhofgruppe-ch",
+        "it": "stage-informatica-lindenhofgruppe-lindenhofgruppe",
+        "en": "internship-informatics-lindenhofgruppe-lindenhofgruppe",
         "de": "praktikant-in-informatik-lindenhofgruppe-ch",
-        "fr": "praktikant-in-informatik-lindenhofgruppe-ch"
+        "fr": "stage-informatique-lindenhofgruppe-lindenhofgruppe"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3429,7 +3429,21 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-informatik-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "praktikant-in-informatik-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "praktikant-in-informatik-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-informatik-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-9b99acce08fa",

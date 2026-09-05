@@ -2073,12 +2073,12 @@
     },
     {
       "id": "galliker-5d1bf3a60ff8",
-      "slug": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
+      "slug": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "en": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
+        "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
+        "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -2135,7 +2135,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
+        ],
+        "en": [
+          "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
+        ],
+        "fr": [
+          "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-c2ea377427be",

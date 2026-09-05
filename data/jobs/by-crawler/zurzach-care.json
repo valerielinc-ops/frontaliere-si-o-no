@@ -3098,12 +3098,12 @@
           "berufsbildnerin-berufsbildner-pflege-80-100-zurzach-care-luzern",
           "professional-trainer-in-nursing-80-100-zurzach-care-baden"
         ],
-        "de": [
-          "berufsbildnerin-berufsbildner-pflege-80-100-zurzach-care-baden"
-        ],
         "fr": [
           "berufsbildnerin-berufsbildner-pflege-80-100-zurzach-care-luzern",
           "formateur-trice-en-soins-infirmiers-80-100-zurzach-care-baden"
+        ],
+        "de": [
+          "berufsbildnerin-berufsbildner-pflege-80-100-zurzach-care-baden"
         ]
       },
       "firstSeenAt": "2026-06-25T12:38:10.373Z",
@@ -4634,12 +4634,12 @@
     },
     {
       "id": "zurzach-care-14eb3fb2c06e",
-      "slug": "fachfrau-fachmann-service-80-zurzach-care-zollikerberg",
+      "slug": "servizi-professionali-80-zurzach-care-zollikerberg",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-service-80-zurzach-care-zollikerberg",
-        "en": "fachfrau-fachmann-service-80-zurzach-care-zollikerberg",
+        "it": "servizi-professionali-80-zurzach-care-zollikerberg",
+        "en": "professional-professional-service-80-zurzach-care-zollikerberg",
         "de": "fachfrau-fachmann-service-80-zurzach-care-zollikerberg",
-        "fr": "fachfrau-fachmann-service-80-zurzach-care-zollikerberg"
+        "fr": "service-professionnel-80-zurzach-care-zollikerberg"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -4694,7 +4694,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-service-80-zurzach-care-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-service-80-zurzach-care-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-service-80-zurzach-care-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-service-80-zurzach-care-zollikerberg"
+      ]
     },
     {
       "id": "zurzach-care-49d50c36759b",

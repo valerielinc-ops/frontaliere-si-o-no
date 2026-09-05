@@ -1433,11 +1433,11 @@
     },
     {
       "id": "vaudoise-999d0cfa4d6d",
-      "slug": "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch",
+      "slug": "commercial-manager-planning-m-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch",
+        "it": "commercial-manager-planning-m-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch",
-        "de": "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch",
+        "de": "kommerzieller-manager-planung-m-w-x-80-100-vaudoise-assurances-lausanne",
         "fr": "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -1492,7 +1492,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-commercial-prevoyance-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-294b1b93e002",

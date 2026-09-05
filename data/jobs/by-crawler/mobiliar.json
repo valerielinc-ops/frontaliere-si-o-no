@@ -2918,9 +2918,9 @@
       "slug": "assistent-generalagent-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
       "slugByLocale": {
         "it": "assistent-generalagent-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
-        "en": "assistent-generalagent-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
+        "en": "assistant-general-agent-m-f-d-general-agency-dielsdorf-die-mobiliar-dielsdorf",
         "de": "assistent-generalagent-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
-        "fr": "assistent-generalagent-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+        "fr": "agent-general-adjoint-h-f-d-agence-generale-dielsdorf-die-mobiliar-dielsdorf"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2969,6 +2969,12 @@
         "it": [
           "assistent-generalagent-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
           "assistent-generalagent-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
+        ],
+        "en": [
+          "assistent-generalagent-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+        ],
+        "fr": [
+          "assistent-generalagent-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
         ]
       },
       "needsRetranslation": true,

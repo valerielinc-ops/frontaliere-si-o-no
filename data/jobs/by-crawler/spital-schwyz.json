@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-schwyz-6225969ca445",
-      "slug": "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz",
+      "slug": "team-leader-nella-sterilizzazione-centrale-aemp-80-100-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz",
-        "en": "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz",
+        "it": "team-leader-nella-sterilizzazione-centrale-aemp-80-100-spital-schwyz-schwyz",
+        "en": "team-leader-in-central-sterilization-aemp-80-100-spital-schwyz-schwyz",
         "de": "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz",
-        "fr": "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz"
+        "fr": "chef-d-equipe-dans-le-centre-de-sterilisation-aemp-80-100-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -64,7 +64,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz"
+        ],
+        "fr": [
+          "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-zentralsterilisation-aemp-80-100-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-5d247ab15806",

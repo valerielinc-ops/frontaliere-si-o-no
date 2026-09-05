@@ -6098,12 +6098,12 @@
     },
     {
       "id": "ksbl-c77d0a9a2846",
-      "slug": "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal",
+      "slug": "cura-responsabile-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal",
-        "en": "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal",
+        "it": "cura-responsabile-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "responsible-care-a-kantonsspital-baselland-ksbl-liestal",
         "de": "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal",
-        "fr": "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal"
+        "fr": "prise-en-charge-responsable-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6145,21 +6145,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cura-responsabile-a-kantonsspital-baselland-ksbl-liestal",
         "responsible-care-a-kantonsspital-baselland-ksbl-liestal",
-        "prise-en-charge-responsable-a-kantonsspital-baselland-ksbl-liestal"
+        "prise-en-charge-responsable-a-kantonsspital-baselland-ksbl-liestal",
+        "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cura-responsabile-a-kantonsspital-baselland-ksbl-liestal",
           "responsible-care-a-kantonsspital-baselland-ksbl-liestal",
-          "prise-en-charge-responsable-a-kantonsspital-baselland-ksbl-liestal"
+          "prise-en-charge-responsable-a-kantonsspital-baselland-ksbl-liestal",
+          "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal"
         ],
         "en": [
-          "responsible-care-a-kantonsspital-baselland-ksbl-liestal"
+          "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal"
         ],
         "fr": [
-          "prise-en-charge-responsable-a-kantonsspital-baselland-ksbl-liestal"
+          "fachverantwortliche-fachverantwortlicher-pflege-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-08-27T20:13:21.065Z",
@@ -8081,12 +8081,12 @@
     },
     {
       "id": "ksbl-44af772333e2",
-      "slug": "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal",
+      "slug": "assistente-di-stazione-assistente-medico-interno-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal",
-        "en": "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal",
+        "it": "assistente-di-stazione-assistente-medico-interno-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "station-assistant-station-assistant-internal-medicine-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal",
-        "fr": "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal"
+        "fr": "assistant-de-poste-assistant-de-poste-en-medecine-interne-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8140,7 +8140,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal"
+        ],
+        "en": [
+          "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal"
+        ],
+        "fr": [
+          "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "stationsassistentin-stationsassistent-innere-medizin-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-bff996426d04",
