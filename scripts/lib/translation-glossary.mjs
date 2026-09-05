@@ -37,6 +37,8 @@
  * them.
  */
 
+import { BORDER_GUARD_SOURCE_ANCHOR } from './article-locale-lexicon.mjs';
+
 // Mirror the leading-letter case of `sample` onto `replacement` so a corrected
 // title keeps its capitalization ("Orologio notturno" → "Guardia notturna").
 function matchCase(sample, replacement) {
@@ -63,6 +65,10 @@ function matchCase(sample, replacement) {
  * @property {RegExp} trigger  Matched against the SOURCE text (German).
  * @property {Record<string, GlossaryRule[]>} fixes  Per target locale: rules
  *           applied to the translated output, in order.
+ * @property {string} [id]  Stable name, used in the veto annotation.
+ * @property {RegExp} [veto]  Matched against the SOURCE text. When it matches a
+ *           rule that WOULD have fired, the rewrite is skipped and the
+ *           co-occurrence is reported — see `applyGlossaryCorrections`.
  */
 
 /** Marks a rule as title-only (skipped on description-body fields). */
@@ -233,11 +239,25 @@ export const TRANSLATION_GLOSSARY = [
     // the other body-safe entries above, this one's replacement phrases ARE
     // legitimate correct translations when a source genuinely discusses a real
     // border guard, and the trigger fires on nearly every job in the corpus
-    // (the whole site is about frontalieri). Scanned all ~55k crawled records
-    // (`data/jobs/by-crawler` + `expired`): 173 trigger the rule, ZERO also
+    // (the whole site is about frontalieri). Scanned all 58 427 crawled records (2026-09-05)
+    // (`data/jobs/by-crawler` + `expired`): 172 trigger the rule, ZERO also
     // mention real border-guard/customs vocabulary in the same record — see
     // `tests/translation-glossary.test.ts`, which turns this one-time
     // measurement into a standing regression gate.
+    //
+    // That scan is a SNAPSHOT, though, and the crawlers add records every day,
+    // so the entry does not rely on it: `veto` re-checks the co-occurrence on
+    // every single record at translation time. When a source carries both the
+    // trigger and real customs-role vocabulary, the rewrite is skipped (the
+    // "border guard" rendering is then the CORRECT one) and the record is
+    // annotated — turning the one-time measurement into a continuous one.
+    // The anchor is the one the article gates already use for the same
+    // question (`BORDER_GUARD_SOURCE_ANCHOR`, article-locale-lexicon.mjs), not
+    // a second copy: 0 of the 172 records that trigger the rule in the current
+    // corpus match it, so the veto costs nothing today and any future cost
+    // arrives as a `::warning::` instead of as a silently false sentence.
+    id: 'frontalier-border-guard',
+    veto: BORDER_GUARD_SOURCE_ANCHOR,
     trigger: /\bfrontalier\w*\b/i,
     fixes: {
       en: [
@@ -278,12 +298,62 @@ export function applyGlossaryCorrections({ sourceText, translatedText, targetLan
     if (!entry.trigger.test(sourceText)) continue;
     const rules = entry.fixes[targetLang];
     if (!rules) continue;
+    const vetoed = entry.veto ? entry.veto.test(sourceText) : false;
     for (const [pattern, replacement, opts] of rules) {
       if (!isTitle && opts && opts.titleOnly) continue;
+      if (vetoed) {
+        // The rule WOULD have fired on this record and the source says the
+        // subject is a real border guard: the machine rendering is correct
+        // here, so leave it and make the collision visible instead.
+        if (matchesRule(out, pattern)) reportGlossaryVeto({ entry, pattern, targetLang, fieldType, sourceText });
+        continue;
+      }
       out = out.replace(pattern, (m) => matchCase(m, replacement));
     }
   }
   return out;
+}
+
+/** Non-destructive `pattern.test(text)` — the rule regexes carry /g, whose
+ *  `lastIndex` would otherwise leak into the next call on the same rule. */
+function matchesRule(text, pattern) {
+  const probe = new RegExp(pattern.source, pattern.flags.replace('g', ''));
+  return probe.test(text);
+}
+
+/**
+ * Continuous measurement of the veto collisions.
+ *
+ * Keyed per entry+locale so a crawler run that hits the same ambiguity a
+ * hundred times annotates once; the counts stay readable via
+ * `getGlossaryVetoStats()` for whoever wants the exact number.
+ */
+const glossaryVetoStats = new Map();
+
+function reportGlossaryVeto({ entry, pattern, targetLang, fieldType, sourceText }) {
+  const id = entry.id || String(entry.trigger);
+  const key = `${id}:${targetLang}`;
+  const seen = glossaryVetoStats.get(key);
+  if (seen) {
+    seen.count += 1;
+    return;
+  }
+  glossaryVetoStats.set(key, { id, targetLang, count: 1, sample: String(sourceText).slice(0, 160) });
+  console.warn(
+    `::warning::[glossary] rule ${id} (${targetLang}, ${fieldType}) matched ${pattern} but the source ` +
+      'also carries real border-guard/customs vocabulary — rewrite skipped, the machine rendering is ' +
+      `kept. Review the entry if this recurs. Source: "${String(sourceText).slice(0, 160)}"`,
+  );
+}
+
+/** Veto collisions seen in this process, per `entry:locale`. */
+export function getGlossaryVetoStats() {
+  return [...glossaryVetoStats.values()].map((v) => ({ ...v }));
+}
+
+/** Test seam: clears the per-process veto tally (and the annotation dedupe). */
+export function resetGlossaryVetoStats() {
+  glossaryVetoStats.clear();
 }
 
 /* ──────────────────────────────────────────────────────────────────────────

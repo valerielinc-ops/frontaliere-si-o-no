@@ -540,5 +540,51 @@ export const FALSE_FRIEND_PATTERNS = {
  * Deliberately broad — including plain "dogana" — because suppressing a real
  * defect costs one article while accusing a correct translation costs trust in
  * the whole gate.
+ *
+ * ONE branch is deliberately NOT broad: `\bfinanzier[ei]\b` is bounded to the
+ * two noun forms of the Guardia di Finanza officer. A `finanzier\w*` stem is
+ * unsafe here because this source is composed verbatim into
+ * `BORDER_GUARD_SOURCE_ANCHOR` below, which is applied to DE/FR/EN sources
+ * where the same letters mean "financing", not "customs" (German
+ * `Finanzierung`/`finanzieren`; in Italian it also swallows the future of
+ * `finanziare`, `finanzierà`/`finanzieranno`). Measured on the crawled corpus
+ * (`data/jobs/by-crawler` + `expired`, 58 427 records, 2026-09-05): of the 172
+ * records that trigger the glossary rule, 54 matched this anchor and ALL 54
+ * matched only via the `finanzier\w*` stem — zero via the noun forms, zero via
+ * any other branch. Every one of them was `Finanzierung` in a banking ad.
  */
-export const ITALIAN_BORDER_GUARD_ANCHOR = /guardi\w*\s+(?:di\s+)?(?:confin\w*|frontier\w*)|guardie\s+confinari\w*|doganier\w*|finanzier\w*|guardia\s+di\s+finanza|polizia\s+di\s+frontiera|corpo\s+delle\s+guardie|dogan\w*|\bUDSC\b|\bAFD\b|\bBAZG\b/i;
+export const ITALIAN_BORDER_GUARD_ANCHOR = /guardi\w*\s+(?:di\s+)?(?:confin\w*|frontier\w*)|guardie\s+confinari\w*|doganier\w*|\bfinanzier[ei]\b|guardia\s+di\s+finanza|polizia\s+di\s+frontiera|corpo\s+delle\s+guardie|dogan\w*|\bUDSC\b|\bAFD\b|\bBAZG\b/i;
+
+/**
+ * The same anchor for a source that is NOT Italian.
+ *
+ * The article gates only ever see Italian sources (generation is Italian), but
+ * the same "is this really a border guard?" question is asked of the crawled
+ * job ads, which arrive in DE/FR/EN too — see the `frontalier\w*` entry of
+ * `translation-glossary.mjs`, which suppresses its rewrite on a match. Kept
+ * next to the Italian arm, and composed FROM it, so the two callers cannot end
+ * up with two different ideas of what a customs job looks like (AGENTS.md #6).
+ * Deliberately broad for the same reason stated above: a suppressed correction
+ * is annotated and countable, a corrupted customs ad is silent.
+ */
+export const BORDER_GUARD_SOURCE_ANCHOR = new RegExp(
+  [
+    ITALIAN_BORDER_GUARD_ANCHOR.source,
+    // DE
+    'Grenzw(?:\u00e4|ae)chter\\w*',
+    'Grenzwache\\w*',
+    'Grenzschutz\\w*',
+    'Grenzkontroll\\w*',
+    'Zoll\\w*',
+    // FR
+    'gardes?[-\\s]fronti(?:\u00e8|e)res?',
+    'douanier\\w*',
+    'douanes?\\b',
+    'police\\s+(?:aux|des)\\s+fronti(?:\u00e8|e)res',
+    // EN
+    '(?:border|frontier)\\s+guards?',
+    'customs\\s+(?:officer|official|agent|inspector|declarant|clearance)s?',
+    'border\\s+(?:patrol|police)',
+  ].join('|'),
+  'i',
+);
