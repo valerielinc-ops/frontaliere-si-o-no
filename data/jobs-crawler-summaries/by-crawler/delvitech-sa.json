@@ -1,16 +1,16 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-09-05T12:49:09.681Z",
-  "total": 10,
+  "generatedAt": "2026-09-05T22:55:18.055Z",
+  "total": 7,
   "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "updatedCount": 7,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 22373,
-  "avgDurationMs": 22373,
+  "durationMs": 48153,
+  "avgDurationMs": 48153,
   "durationHistory": [
-    22373
+    48153
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -272,10 +272,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Mechanical Engineer",
-      "slug": "mechanical-engineer-delvitech-mendrisio",
+      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Mechanical%20Engineer",
       "company": "Delvitech SA",
@@ -291,7 +293,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-05",
+      "postedDate": "2026-09-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -328,7 +330,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-05",
+      "postedDate": "2026-09-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -349,7 +351,7 @@
     },
     {
       "title": "Customer Support Manager",
-      "slug": "customer-support-manager-delvitech-mendrisio",
+      "slug": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/customer-support-manager/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Customer%20Support%20Manager",
       "company": "Delvitech SA",
@@ -365,19 +367,17 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-05",
+      "postedDate": "2026-09-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-572058706020",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-04T23:06:10.639Z",
-      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -387,6 +387,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
