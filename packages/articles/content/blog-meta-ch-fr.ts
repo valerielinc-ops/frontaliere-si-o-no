@@ -5617,6 +5617,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reddito-risparmio-svizzeri-record.title': 'Les Suisses n\'ont jamais gagné et économisé comme aujourd\'hui',
     'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'Pour la première fois, le revenu disponible dépasse 65 000 francs et le taux d\'épargne volontaire 19,3 %. Les données DE l\'OFS confirment le record historique.',
     'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Famille suisse examine des documents financiers et des graphiques d\'investissement sur ordinateur portable dans un salon lumineux',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Naturalisation dans le canton de Soleure : exigences et procédure',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Découvrez les conditions et la procédure de naturalisation ordinaire dans le canton de Soleure, y compris les années de résidence, les tests d\'intégration et les taxes.',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Vue panoramique de Bellinzona, Suisse, avec le château en premier plan.',
 };
 
 export default blogMetaChFr;

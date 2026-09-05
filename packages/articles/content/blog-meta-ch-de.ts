@@ -5617,6 +5617,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reddito-risparmio-svizzeri-record.title': 'Noch nie haben Schweizer so viel verdient und gespart wie heute',
     'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'Erstmals übersteigt das verfügbare Einkommen 65 \'000 Franken und die freiwillige Sparquote 19,3 Prozent. Die Daten des BfS bestätigen den historischen Rekord.',
     'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Schweizer Familie untersucht Finanzdokumente und Investmentdiagramme auf Laptop in hellem Wohnzimmer',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Einbürgerung im Kanton Solothurn: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Solothurn, inklusive Wohnsitzjahre, Integrationstests und Gebühren.',
+    'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Panoramablick auf Bellinzona, Schweiz, mit der Burg im Vordergrund.',
 };
 
 export default blogMetaChDe;
