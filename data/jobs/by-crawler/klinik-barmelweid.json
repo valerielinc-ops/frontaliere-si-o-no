@@ -2878,12 +2878,12 @@
     },
     {
       "id": "klinik-barmelweid-8a38f7ff91ab",
-      "slug": "assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-klinik-barmelweid",
+      "slug": "assistente-in-salute-e-affari-sociali-ags-o-assistenza-infermieristica-srk-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-klinik-barmelweid",
-        "en": "assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-klinik-barmelweid-barmelweid",
+        "it": "assistente-in-salute-e-affari-sociali-ags-o-assistenza-infermieristica-srk-klinik-barmelweid-barmelweid",
+        "en": "assistant-in-health-and-social-affairs-ags-or-nursing-assistance-srk-klinik-barmelweid-barmelweid",
         "de": "assistent-in-gesundheit-und-soziales-ags-oder-pflegehilfe-srk-klinik-barmelweid-barmelweid",
-        "fr": "assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-klinik-barmelweid-barmelweid"
+        "fr": "assistant-en-sante-et-affaires-sociales-sag-ou-en-soins-infirmiers-srk-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -2926,14 +2926,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-klinik-barmelweid-barmelweid",
-        "assistent-in-gesundheit-und-soziales-ags-oder-pflegehilfe-srk-klinik-barmelweid-barmelweid"
+        "assistent-in-gesundheit-und-soziales-ags-oder-pflegehilfe-srk-klinik-barmelweid-barmelweid",
+        "assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-klinik-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-klinik-barmelweid-barmelweid",
-          "assistent-in-gesundheit-und-soziales-ags-oder-pflegehilfe-srk-klinik-barmelweid-barmelweid"
+          "assistent-in-gesundheit-und-soziales-ags-oder-pflegehilfe-srk-klinik-barmelweid-barmelweid",
+          "assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-klinik-barmelweid"
         ],
         "de": [
+          "assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-klinik-barmelweid-barmelweid"
+        ],
+        "en": [
+          "assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-klinik-barmelweid-barmelweid"
+        ],
+        "fr": [
           "assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-klinik-barmelweid-barmelweid"
         ]
       },
@@ -3221,12 +3229,12 @@
     },
     {
       "id": "klinik-barmelweid-48c1692055b1",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-con-funzione-formazione-professionale-in-medicina",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-con-funzione-formazione-professionale-in-medicina",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-with-function-vocational-trainer-in-internal-medicine-klinik",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildner-in-innere-medizin",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-avec-fonction-formateur-professionnel-en"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -3269,11 +3277,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildner-in-innere-medizin"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildner-in-innere-medizin",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildner-in-innere-medizin"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildner-in-innere-medizin",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-funktion-berufsbildnerin-berufsbildner-klinik"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:05.175Z",

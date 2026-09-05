@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ipw-c8393d722dbb",
-      "slug": "psychologin-psychologe-ipw-winterthur",
+      "slug": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "psychologin-psychologe-ipw-winterthur",
-        "en": "psychologin-psychologe-ipw-winterthur",
+        "it": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "psychologin-psychologe-ipw-winterthur",
-        "fr": "psychologin-psychologe-ipw-winterthur"
+        "fr": "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -67,7 +67,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-ipw-winterthur"
+        ],
+        "en": [
+          "psychologin-psychologe-ipw-winterthur"
+        ],
+        "fr": [
+          "psychologin-psychologe-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-ad41a60d2111",

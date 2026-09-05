@@ -912,11 +912,11 @@
     },
     {
       "id": "clinique-la-source-9e9a317e503f",
-      "slug": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
+      "slug": "coordinatore-di-prenotazione-clinique-de-la-source-lausanne",
       "slugByLocale": {
-        "it": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
-        "en": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
-        "de": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
+        "it": "coordinatore-di-prenotazione-clinique-de-la-source-lausanne",
+        "en": "booking-co-ordinator-clinique-de-la-source-lausanne",
+        "de": "buchungskoordinator-clinique-de-la-source-lausanne",
         "fr": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
       },
       "company": "Clinique de La Source",
@@ -973,7 +973,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
+        ],
+        "en": [
+          "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
+        ],
+        "de": [
+          "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
+      ]
     }
   ]
 }

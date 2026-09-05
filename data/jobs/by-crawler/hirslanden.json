@@ -24371,12 +24371,12 @@
     },
     {
       "id": "hirslanden-b7380eecaa69",
-      "slug": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich",
+      "slug": "personale-personale-servizio-di-fatturazione-a-100-hirslanden-klinik-hirslanden-corporate-office-2a10a7",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich",
-        "it": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich",
-        "en": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich",
-        "fr": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich"
+        "it": "personale-personale-servizio-di-fatturazione-a-100-hirslanden-klinik-hirslanden-corporate-office-2a10a7",
+        "en": "personnel-personnel-service-desk-invoicing-a-100-hirslanden-klinik-hirslanden-corporate-office-2a10a7",
+        "fr": "facturation-du-bureau-du-personnel-a-100-hirslanden-klinik-hirslanden-corporate-office-2a10a7"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24430,16 +24430,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-zurich"
+      ]
     },
     {
       "id": "hirslanden-ed3b33d64faa",
-      "slug": "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich",
+      "slug": "team-leader-hr-recruitment-partner-square-zurich-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich",
-        "it": "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich",
+        "it": "team-leader-hr-recruitment-partner-square-zurich-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
         "en": "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich",
-        "fr": "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich"
+        "fr": "chef-d-equipe-recrutement-rh-partner-square-zurich-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24493,7 +24507,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-hr-rekrutierungspartner-platz-zurich-a-80-100-hirslanden-zurich"
+      ]
     },
     {
       "id": "hirslanden-91ed18cfec73",
@@ -26270,12 +26295,12 @@
     },
     {
       "id": "hirslanden-32be900b8710",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern",
+      "slug": "dipl-infermiera-infermiera-anestesia-cure-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern",
-        "it": "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern",
-        "en": "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern"
+        "it": "dipl-infermiera-infermiera-anestesia-cure-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "dipl-nurse-nurse-anesthesia-care-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "dipl-soins-infirmiers-anesthesiques-a-80-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26329,7 +26354,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-anasthesiepflege-a-80-100-hirslanden-bern"
+      ]
     },
     {
       "id": "hirslanden-01c7ef7d29a3",

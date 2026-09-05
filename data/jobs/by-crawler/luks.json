@@ -15657,12 +15657,12 @@
     },
     {
       "id": "luks-d196e00913cf",
-      "slug": "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken",
+      "slug": "medico-senior-emergenza-pratica-menziken-20-80-possibile-la-condivisione-del-lavoro-luzerner-kantonsspital-luks-menziken",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken",
-        "en": "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken",
+        "it": "medico-senior-emergenza-pratica-menziken-20-80-possibile-la-condivisione-del-lavoro-luzerner-kantonsspital-luks-menziken",
+        "en": "senior-physician-emergency-practice-menziken-20-80-job-sharing-possible-luzerner-kantonsspital-luks-menziken",
         "de": "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken",
-        "fr": "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken"
+        "fr": "medecin-principal-pratique-d-urgence-menziken-20-80-partage-d-emploi-possible-luzerner-kantonsspital-luks-menziken"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15717,7 +15717,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken"
+        ],
+        "en": [
+          "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfallpraxis-menziken-20-80-jobsharing-moglich-luks-menziken"
+      ]
     },
     {
       "id": "luks-12f24b2e2f75",
@@ -15978,12 +15992,12 @@
     },
     {
       "id": "luks-83bdc26e6026",
-      "slug": "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27-luzerner-kantonsspital-luks-luzern",
+      "slug": "terapeuta-fisica-terapeuta-fisica-neuroriabilitazione-paziente-90-temporaneo-fino-al-31-10-27-luzerner-kantonsspital",
       "slugByLocale": {
-        "it": "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27-luzerner-kantonsspital-luks-luzern",
-        "en": "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27",
+        "it": "terapeuta-fisica-terapeuta-fisica-neuroriabilitazione-paziente-90-temporaneo-fino-al-31-10-27-luzerner-kantonsspital",
+        "en": "physical-therapist-physical-therapist-inpatient-neurorehabilitation-90-temporary-until-31-10-27-luzerner-kantonsspital",
         "de": "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27",
-        "fr": "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27"
+        "fr": "physiotherapeute-physiotherapeute-inpatient-neuroreadaptation-90-temporaire-jusqu-au-31-10-27-luzerner-kantonsspital"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16026,10 +16040,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27"
+        "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27",
+        "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27",
+          "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27"
+        ],
+        "fr": [
           "physiotherapeutin-physiotherapeut-stationare-neurorehabilitation-90-befristet-bis-31-10-27"
         ]
       },
@@ -16050,12 +16072,12 @@
     },
     {
       "id": "luks-ba79fa378dc3",
-      "slug": "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern",
+      "slug": "hr-case-handler-hr-case-handler-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern",
+        "it": "hr-case-handler-hr-case-handler-80-100-luzerner-kantonsspital-luks-luzern",
         "en": "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern",
         "de": "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern",
-        "fr": "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern"
+        "fr": "gestionnaire-de-cas-hr-gestionnaire-de-cas-hr-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16099,18 +16121,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern",
-        "hr-case-handler-case-handler-60-luzerner-kantonsspital-luks-luzern"
+        "hr-case-handler-case-handler-60-luzerner-kantonsspital-luks-luzern",
+        "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern",
-          "hr-case-handler-case-handler-60-luzerner-kantonsspital-luks-luzern"
+          "hr-case-handler-case-handler-60-luzerner-kantonsspital-luks-luzern",
+          "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern"
         ],
         "en": [
           "hr-case-handler-case-handler-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern"
+          "hr-sachbearbeiterin-sachbearbeiter-60-luks-luzern",
+          "hr-sachbearbeiterin-hr-sachbearbeiter-80-100-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-08-31T17:08:09.980Z",
@@ -16130,12 +16155,12 @@
     },
     {
       "id": "luks-38507637fdaf",
-      "slug": "leitende-arztin-leitender-arzt-orthopala-con-schwerpunkt-kniechirurgie-80-100-luzerner-kantonsspital-luks-wolhusen",
+      "slug": "medico-di-piombo-piombo-medico-ortopedia-con-un-focus-sulla-chirurgia-del-ginocchio-80-100-luzerner-kantonsspital-luks",
       "slugByLocale": {
-        "it": "leitende-arztin-leitender-arzt-orthopala-con-schwerpunkt-kniechirurgie-80-100-luzerner-kantonsspital-luks-wolhusen",
-        "en": "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks",
+        "it": "medico-di-piombo-piombo-medico-ortopedia-con-un-focus-sulla-chirurgia-del-ginocchio-80-100-luzerner-kantonsspital-luks",
+        "en": "lead-doctor-lead-doctor-orthopaedics-with-a-focus-on-knee-surgery-80-100-luzerner-kantonsspital-luks-wolhusen",
         "de": "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks",
-        "fr": "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks"
+        "fr": "medecin-en-chef-medecin-en-chef-orthopedie-avec-un-accent-sur-la-chirurgie-du-genou-80-100-luzerner-kantonsspital-luks"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16178,10 +16203,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks"
+        "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks",
+        "leitende-arztin-leitender-arzt-orthopala-con-schwerpunkt-kniechirurgie-80-100-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks",
+          "leitende-arztin-leitender-arzt-orthopala-con-schwerpunkt-kniechirurgie-80-100-luzerner-kantonsspital-luks-wolhusen"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks"
+        ],
+        "fr": [
           "leitende-arztin-leitender-arzt-orthopadie-mit-schwerpunkt-kniechirurgie-80-100-luks"
         ]
       },
@@ -16387,12 +16420,12 @@
     },
     {
       "id": "luks-352b9c86b705",
-      "slug": "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-e-gynakologische-endokrinologie-80-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "medico-senior-possibile-mbf-medicina-riproduttiva-frauenklinik-e-endocrinologia-ginecologica-80-100-luzerner",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-e-gynakologische-endokrinologie-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische",
+        "it": "medico-senior-possibile-mbf-medicina-riproduttiva-frauenklinik-e-endocrinologia-ginecologica-80-100-luzerner",
+        "en": "senior-physician-possibly-mbf-frauenklinik-reproductive-medicine-and-gynecological-endocrinology-80-100-luzerner",
         "de": "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische",
-        "fr": "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische"
+        "fr": "medecin-principal-eventuellement-mbf-frauenklinik-medecine-de-la-reproduction-et-endocrinologie-gynecologique-80-100"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16435,10 +16468,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische"
+        "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische",
+        "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-e-gynakologische-endokrinologie-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische",
+          "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-e-gynakologische-endokrinologie-80-100-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische"
+        ],
+        "fr": [
           "oberarztin-oberarzt-ggf-mbf-frauenklinik-reproduktionsmedizin-und-gynakologische"
         ]
       },

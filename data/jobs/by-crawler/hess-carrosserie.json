@@ -1601,12 +1601,12 @@
     },
     {
       "id": "hess-carrosserie-1d79b39e297e",
-      "slug": "leiter-montagelinie-bus-trolley-m-w-d-carrosserie-hess-ag-bellach",
+      "slug": "linea-di-montaggio-bus-carrello-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
-        "it": "leiter-montagelinie-bus-trolley-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach",
+        "it": "linea-di-montaggio-bus-carrello-m-f-d-carrosserie-hess-ag-bellach",
+        "en": "head-of-assembly-line-bus-trolley-m-f-d-carrosserie-hess-ag-bellach",
         "de": "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach",
-        "fr": "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach"
+        "fr": "chef-de-la-ligne-d-assemblage-bus-et-chariot-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -1651,10 +1651,18 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach"
+        "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach",
+        "leiter-montagelinie-bus-trolley-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach",
+          "leiter-montagelinie-bus-trolley-m-w-d-carrosserie-hess-ag-bellach"
+        ],
+        "en": [
+          "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach"
+        ],
+        "fr": [
           "leiter-montagelinie-bus-trolley-m-w-d-hess-bellach"
         ]
       },
@@ -2347,9 +2355,9 @@
       "slug": "schlosser-spengler-per-den-dachbau-in-der-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "it": "schlosser-spengler-per-den-dachbau-in-der-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach",
+        "en": "locksmith-spengler-for-roof-construction-in-bus-installation-m-f-d-carrosserie-hess-ag-bellach",
         "de": "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach",
-        "fr": "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
+        "fr": "serrurier-spengler-pour-la-construction-de-toit-dans-l-installation-de-bus-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2398,6 +2406,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
+        ],
+        "fr": [
           "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
         ]
       },

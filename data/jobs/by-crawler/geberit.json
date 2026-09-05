@@ -1879,23 +1879,20 @@
       "previousSlugs": [
         "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
         "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
-        "teamleiter-kunden-innendienst-a-100-geberit-ch",
-        "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona"
+        "teamleiter-kunden-innendienst-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-kunden-innendienst-a-100-geberit-ch"
         ],
         "en": [
-          "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
-          "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona"
+          "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona"
         ],
         "de": [
           "teamleiter-kunden-innendienst-a-100-geberit-ch"
         ],
         "fr": [
-          "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
-          "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona"
+          "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona"
         ]
       },
       "needsRetranslation": true,
@@ -2065,12 +2062,12 @@
     },
     {
       "id": "geberit-2182",
-      "slug": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
+      "slug": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "it": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "en": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
+        "it": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
+        "en": "sanitary-installer-of-building-physics-laboratory-a-100-geberit-rapperswil-jona",
         "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "fr": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+        "fr": "installation-sanitaire-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -2124,7 +2121,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+        ],
+        "en": [
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+        ],
+        "fr": [
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-2117",

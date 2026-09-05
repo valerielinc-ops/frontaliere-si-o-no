@@ -2082,12 +2082,12 @@
     },
     {
       "id": "mobiliar-16e031293b56",
-      "slug": "teamleiter-in-campaigning-w-m-d-mobiliar-ch",
+      "slug": "leader-del-team-nella-campagna-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-campaigning-w-m-d-mobiliar-ch",
-        "en": "teamleiter-in-campaigning-w-m-d-mobiliar-ch",
+        "it": "leader-del-team-nella-campagna-m-f-d-die-mobiliar-bern",
+        "en": "team-leader-in-campaigning-m-f-d-die-mobiliar-bern",
         "de": "teamleiter-in-campaigning-w-m-d-mobiliar-ch",
-        "fr": "teamleiter-in-campaigning-w-m-d-mobiliar-ch"
+        "fr": "chef-d-equipe-en-campagne-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2158,7 +2158,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-campaigning-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "teamleiter-in-campaigning-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "teamleiter-in-campaigning-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-campaigning-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-c22eb504fb1f",
@@ -2508,12 +2522,12 @@
     },
     {
       "id": "mobiliar-ed09fc07e436",
-      "slug": "themenowner-capability-e-skill-management-m-w-d-die-mobiliar-bern",
+      "slug": "capacita-tematica-e-gestione-delle-competenze-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "themenowner-capability-e-skill-management-m-w-d-die-mobiliar-bern",
+        "it": "capacita-tematica-e-gestione-delle-competenze-m-f-d-die-mobiliar-bern",
         "en": "themenowner-capability-und-skill-management-w-m-d-mobiliar-ch",
         "de": "themenowner-capability-und-skill-management-w-m-d-mobiliar-ch",
-        "fr": "themenowner-capability-und-skill-management-w-m-d-mobiliar-ch"
+        "fr": "capacite-thematique-et-gestion-des-competences-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2569,10 +2583,15 @@
       },
       "sfJobId": "1165357055",
       "previousSlugs": [
-        "themenowner-capability-und-skill-management-w-m-d-mobiliar-ch"
+        "themenowner-capability-und-skill-management-w-m-d-mobiliar-ch",
+        "themenowner-capability-e-skill-management-m-w-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "themenowner-capability-und-skill-management-w-m-d-mobiliar-ch",
+          "themenowner-capability-e-skill-management-m-w-d-die-mobiliar-bern"
+        ],
+        "fr": [
           "themenowner-capability-und-skill-management-w-m-d-mobiliar-ch"
         ]
       },

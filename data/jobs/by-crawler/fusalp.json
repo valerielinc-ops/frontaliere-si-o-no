@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fusalp-375e9ddc749d",
-      "slug": "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
+      "slug": "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt",
       "slugByLocale": {
-        "it": "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
+        "it": "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt",
         "en": "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-        "de": "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-        "fr": "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
+        "de": "verkaufsverbunden-m-w-dec-26-bis-27-april-80-fusalp-zermatt",
+        "fr": "ventes-associees-h-f-dec-26-au-27-avril-80-fusalp-zermatt"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -63,16 +63,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
+        ],
+        "de": [
+          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
+        ],
+        "fr": [
+          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
+      ]
     },
     {
       "id": "fusalp-98faeb272faa",
-      "slug": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes",
+      "slug": "sales-associate-m-f-dal-26-al-27-marzo-al-100-fusalp-val-de-bagnes",
       "slugByLocale": {
-        "it": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes",
+        "it": "sales-associate-m-f-dal-26-al-27-marzo-al-100-fusalp-val-de-bagnes",
         "en": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes",
-        "de": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes",
-        "fr": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
+        "de": "verkaufsverbunden-m-w-dec-26-bis-27-marz-100-fusalp-val-de-bagnes",
+        "fr": "ventes-associees-h-f-dec-26-au-27-mars-100-fusalp-val-de-bagnes"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -126,7 +140,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
+        ],
+        "de": [
+          "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
+        ],
+        "fr": [
+          "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes"
+      ]
     },
     {
       "id": "fusalp-1cde95462f05",
@@ -134,8 +162,8 @@
       "slugByLocale": {
         "it": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-saanen",
         "en": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-saanen",
-        "de": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-saanen",
-        "fr": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-saanen"
+        "de": "verkaufsverbindung-m-w-dec-26-bis-marz-27-100-fusalp-saanen",
+        "fr": "ventes-associees-h-f-dec-26-au-27-mars-100-fusalp-saanen"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",

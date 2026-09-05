@@ -2333,12 +2333,12 @@
     },
     {
       "id": "triaplus-96fa7296e6be",
-      "slug": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
+      "slug": "medico-senior-m-f-d-ambulatorio-triaplus-ag-goldau",
       "slugByLocale": {
-        "it": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "en": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
+        "it": "medico-senior-m-f-d-ambulatorio-triaplus-ag-goldau",
+        "en": "senior-physician-m-f-d-ambulatory-triaplus-ag-goldau",
         "de": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "fr": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant"
+        "fr": "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2393,7 +2393,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant"
+        ],
+        "en": [
+          "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant"
+        ],
+        "fr": [
+          "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant"
+      ]
     },
     {
       "id": "triaplus-6a1d104475dc",

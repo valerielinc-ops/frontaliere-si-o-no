@@ -1588,11 +1588,11 @@
     },
     {
       "id": "arsante-clinique-de-carouge-f0c8e6e7ec14",
-      "slug": "coordinateur-rice-arsante-clinique-de-carouge-carouge",
+      "slug": "coordinatore-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
       "slugByLocale": {
-        "it": "coordinateur-rice-arsante-clinique-de-carouge-carouge",
-        "en": "coordinateur-rice-arsante-clinique-de-carouge-carouge",
-        "de": "coordinateur-rice-arsante-clinique-de-carouge-carouge",
+        "it": "coordinatore-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
+        "en": "coordinator-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
+        "de": "koordinator-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
         "fr": "coordinateur-rice-arsante-clinique-de-carouge-carouge"
       },
       "company": "Arsanté (Clinique de Carouge) — Centre Médical de Meyrin",
@@ -1647,7 +1647,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-rice-arsante-clinique-de-carouge-carouge"
+        ],
+        "en": [
+          "coordinateur-rice-arsante-clinique-de-carouge-carouge"
+        ],
+        "de": [
+          "coordinateur-rice-arsante-clinique-de-carouge-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-rice-arsante-clinique-de-carouge-carouge"
+      ]
     },
     {
       "id": "arsante-clinique-de-carouge-230c0865fa50",

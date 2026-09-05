@@ -1591,12 +1591,12 @@
     },
     {
       "id": "ikea-6ebf0146e0e1",
-      "slug": "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch",
+      "slug": "leader-dello-sviluppo-immobiliare-focus-expansion-development-at-ch-m-f-d-ikea-spreitenbach-aargau",
       "slugByLocale": {
-        "it": "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch",
+        "it": "leader-dello-sviluppo-immobiliare-focus-expansion-development-at-ch-m-f-d-ikea-spreitenbach-aargau",
         "en": "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch",
-        "de": "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch",
-        "fr": "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch"
+        "de": "leiter-der-immobilienentwicklung-focus-expansion-development-at-ch-m-w-d-ikea-spreitenbach-aargau",
+        "fr": "leader-du-developpement-immobilier-focus-expansion-et-developpement-at-ch-h-f-d-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1651,15 +1651,29 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch"
+        ],
+        "de": [
+          "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch"
+        ],
+        "fr": [
+          "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "real-estate-development-leader-focus-expansion-development-at-ch-m-f-d-ikea-ch"
+      ]
     },
     {
       "id": "ikea-e741f59dece0",
-      "slug": "collaborateur-trice-logistique-cdd-60-ikea-ch",
+      "slug": "collaboratore-logistico-cdd-60-ikea-aubonne-vaud",
       "slugByLocale": {
-        "it": "collaborateur-trice-logistique-cdd-60-ikea-ch",
-        "en": "collaborateur-trice-logistique-cdd-60-ikea-ch",
-        "de": "collaborateur-trice-logistique-cdd-60-ikea-ch",
+        "it": "collaboratore-logistico-cdd-60-ikea-aubonne-vaud",
+        "en": "logistics-collaborator-cdd-60-ikea-aubonne-vaud",
+        "de": "logistik-mitarbeiter-cdd-60-ikea-aubonne-vaud",
         "fr": "collaborateur-trice-logistique-cdd-60-ikea-ch"
       },
       "company": "IKEA",
@@ -1714,7 +1728,21 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-logistique-cdd-60-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-logistique-cdd-60-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-logistique-cdd-60-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-logistique-cdd-60-ikea-ch"
+      ]
     },
     {
       "id": "ikea-b40ac23e34aa",
@@ -2942,7 +2970,7 @@
         "it": "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
         "en": "associate-sales-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
         "de": "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
-        "fr": "collaborateur-trice-vente-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
+        "fr": "employes-dans-les-cuisines-de-vente-et-la-salle-a-manger-departement-20-temporaire-jusqu-au-28-02-2027-ikea-pratteln-1"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2984,7 +3012,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
+        "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
+        "collaborateur-trice-vente-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2994,7 +3023,8 @@
           "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
         ],
         "fr": [
-          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
+          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
+          "collaborateur-trice-vente-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
         ]
       },
       "needsRetranslation": true,

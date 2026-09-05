@@ -4240,12 +4240,12 @@
     },
     {
       "id": "kanton-basel-landschaft-2e40058c8297",
-      "slug": "technische-leiterin-technischer-leiter-kantonale-verwaltung-basel-landschaft-birsfelden",
+      "slug": "direttore-tecnico-kantonale-verwaltung-basel-landschaft-birsfelden",
       "slugByLocale": {
-        "it": "technische-leiterin-technischer-leiter-kantonale-verwaltung-basel-landschaft-birsfelden",
-        "en": "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden",
+        "it": "direttore-tecnico-kantonale-verwaltung-basel-landschaft-birsfelden",
+        "en": "technical-director-kantonale-verwaltung-basel-landschaft-birsfelden",
         "de": "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden",
-        "fr": "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden"
+        "fr": "directeur-technique-kantonale-verwaltung-basel-landschaft-birsfelden"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4288,10 +4288,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden"
+        "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden",
+        "technische-leiterin-technischer-leiter-kantonale-verwaltung-basel-landschaft-birsfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden",
+          "technische-leiterin-technischer-leiter-kantonale-verwaltung-basel-landschaft-birsfelden"
+        ],
+        "en": [
+          "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden"
+        ],
+        "fr": [
           "technische-leiterin-technischer-leiter-kanton-basel-landschaft-birsfelden"
         ]
       },
@@ -4385,12 +4393,12 @@
     },
     {
       "id": "kanton-basel-landschaft-e404f9f79358",
-      "slug": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
+      "slug": "membro-della-direzione-scolastica-kantonale-verwaltung-basel-landschaft-lausen",
       "slugByLocale": {
-        "it": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
-        "en": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
+        "it": "membro-della-direzione-scolastica-kantonale-verwaltung-basel-landschaft-lausen",
+        "en": "member-of-school-management-kantonale-verwaltung-basel-landschaft-lausen",
         "de": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
-        "fr": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        "fr": "membre-de-la-direction-scolaire-kantonale-verwaltung-basel-landschaft-lausen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4445,16 +4453,30 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        ],
+        "en": [
+          "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        ],
+        "fr": [
+          "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        ]
+      },
+      "previousSlugs": [
+        "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-931f21173de5",
-      "slug": "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "direttore-della-scuola-musicale-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
-        "it": "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "direttore-della-scuola-musicale-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "music-school-director-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "musikschulleitung-kanton-basel-landschaft-liestal",
-        "fr": "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal"
+        "fr": "directeur-de-l-ecole-de-musique-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4509,7 +4531,8 @@
         "case-handler-case-handler-segreteria-contabilita-kantonale-verwaltung-basel-landschaft-liestal",
         "case-handler-case-handler-secretariat-accounting-kantonale-verwaltung-basel-landschaft-liestal",
         "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal",
-        "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal"
+        "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal",
+        "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4525,17 +4548,20 @@
           "case-handler-case-handler-segreteria-contabilita-kantonale-verwaltung-basel-landschaft-liestal",
           "case-handler-case-handler-secretariat-accounting-kantonale-verwaltung-basel-landschaft-liestal",
           "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal",
-          "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal"
+          "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal",
+          "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "en": [
-          "project-manager-project-manager-spatial-and-transport-planning-kantonale-verwaltung-basel-landschaft-liestal"
+          "project-manager-project-manager-spatial-and-transport-planning-kantonale-verwaltung-basel-landschaft-liestal",
+          "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "de": [
           "projektleiterin-projektleiter-raum-und-verkehrsplanung-kanton-basel-landschaft-liestal",
           "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal"
         ],
         "fr": [
-          "gestionnaire-de-projet-gestionnaire-de-projet-kantonale-verwaltung-basel-landschaft-liestal"
+          "gestionnaire-de-projet-gestionnaire-de-projet-kantonale-verwaltung-basel-landschaft-liestal",
+          "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-08-31T17:02:40.858Z",
@@ -4555,12 +4581,12 @@
     },
     {
       "id": "kanton-basel-landschaft-0cbfe14783fa",
-      "slug": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
+      "slug": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "it": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-ormalingen",
         "en": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
         "de": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen",
-        "fr": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
+        "fr": "pedagogue-sociale-pedagogue-sociale-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4603,11 +4629,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen"
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen"
+          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen",
+          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:02:40.850Z",
@@ -4692,12 +4723,12 @@
     },
     {
       "id": "kanton-basel-landschaft-274c4c2a9565",
-      "slug": "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "livello-primario-4-grado-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
-        "it": "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "livello-primario-4-grado-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "class-teacher-primary-level-4-grade-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "klassenlehrperson-primarstufe-4-klasse-kanton-basel-landschaft-liestal",
-        "fr": "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal"
+        "fr": "enseignant-de-classe-niveau-primaire-4-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4740,11 +4771,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "klassenlehrperson-primarstufe-4-klasse-kanton-basel-landschaft-liestal"
+        "klassenlehrperson-primarstufe-4-klasse-kanton-basel-landschaft-liestal",
+        "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "klassenlehrperson-primarstufe-4-klasse-kanton-basel-landschaft-liestal"
+          "klassenlehrperson-primarstufe-4-klasse-kanton-basel-landschaft-liestal",
+          "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "en": [
+          "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "klassenlehrperson-primarstufe-4-klasse-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-08-31T17:02:40.836Z",

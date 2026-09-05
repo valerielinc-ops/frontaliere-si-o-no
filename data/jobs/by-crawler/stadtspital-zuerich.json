@@ -154,7 +154,6 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich-zurich",
           "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558"
         ],
         "it": [
@@ -172,7 +171,6 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich-zurich",
         "fachperson-gesundheit-con-waidsicht-stadtspital-zurich-zurich",
         "health-professional-with-waid-vision-stadtspital-zurich-zurich",
         "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
@@ -3027,12 +3025,12 @@
     },
     {
       "id": "stadtspital-zuerich-0d9366590308",
-      "slug": "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394",
+      "slug": "hms-pratico-anno-2027-billing-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394",
-        "en": "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394",
+        "it": "hms-pratico-anno-2027-billing-triemli-stadtspital-zurich-zurich",
+        "en": "hms-practical-year-2027-billing-triemli-stadtspital-zurich-zurich",
         "de": "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394",
-        "fr": "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394"
+        "fr": "hms-annee-pratique-2027-billing-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3091,7 +3089,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394"
+        ],
+        "en": [
+          "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394"
+        ],
+        "fr": [
+          "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394"
+        ]
+      },
+      "previousSlugs": [
+        "hms-praxisjahr-2027-fakturierung-triemli-stadtspital-zuerich-51394"
+      ]
     },
     {
       "id": "stadtspital-zuerich-501f533729d6",
@@ -3174,12 +3186,12 @@
     },
     {
       "id": "stadtspital-zuerich-28e40efcd98e",
-      "slug": "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414",
+      "slug": "hms-pratico-anno-2027-finanza-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414",
+        "it": "hms-pratico-anno-2027-finanza-triemli-stadtspital-zurich-zurich",
         "en": "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zurich-zurich",
         "de": "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414",
-        "fr": "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414"
+        "fr": "hms-annee-pratique-2027-finance-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3238,7 +3250,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414"
+        ],
+        "fr": [
+          "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414"
+        ]
+      },
+      "previousSlugs": [
+        "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414"
+      ]
     },
     {
       "id": "stadtspital-zuerich-5c0c844ff4d9",
@@ -3318,12 +3341,12 @@
     },
     {
       "id": "stadtspital-zuerich-4f2f83262fc1",
-      "slug": "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zuerich-51430",
+      "slug": "hms-pratico-anno-2027-terapie-segreteria-waid-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zuerich-51430",
+        "it": "hms-pratico-anno-2027-terapie-segreteria-waid-triemli-stadtspital-zurich-zurich",
         "en": "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zurich-zurich",
         "de": "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zuerich-51430",
-        "fr": "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zuerich-51430"
+        "fr": "hms-annee-pratique-2027-secretariat-therapies-waid-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -3382,7 +3405,18 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zuerich-51430"
+        ],
+        "fr": [
+          "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zuerich-51430"
+        ]
+      },
+      "previousSlugs": [
+        "hms-praxisjahr-2027-sekretariat-therapien-waid-triemli-stadtspital-zuerich-51430"
+      ]
     },
     {
       "id": "stadtspital-zuerich-3d4580e7c3d5",

@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "tl-lausanne-7fdd1e80fc35",
-      "slug": "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
+      "slug": "internship-portavoce-e-comunicazione-istituzionale-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
-        "en": "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
-        "de": "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
+        "it": "internship-portavoce-e-comunicazione-istituzionale-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "internship-spokesperson-and-institutional-communication-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "praktikumssprecher-und-institutionelle-kommunikation-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -65,7 +65,21 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-c25bb5b6f690",

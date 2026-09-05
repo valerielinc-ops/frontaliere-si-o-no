@@ -772,9 +772,9 @@
       "slug": "medizinproduktetechnologin-medizinproduktetechnologe-o-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "medizinproduktetechnologin-medizinproduktetechnologe-o-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital-limmattal-schlieren",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital",
+        "en": "medical-device-technologist-medical-device-technologist-or-technical-sterilization-assistant-in-ste-ii-80-100-spital",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r",
-        "fr": "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital"
+        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-ou-assistant-a-la-sterilisation-technique-en"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -820,11 +820,18 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r"
+        "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r",
+        "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r"
+        ],
+        "en": [
+          "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital"
+        ],
+        "fr": [
+          "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital"
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:55.806Z",
@@ -844,12 +851,12 @@
     },
     {
       "id": "spital-limmattal-e46585116d08",
-      "slug": "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren",
+      "slug": "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch",
+        "it": "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
+        "en": "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren",
         "de": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch"
+        "fr": "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -891,10 +898,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch"
+        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch",
+        "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch",
+          "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch"
         ]
       },
@@ -918,9 +933,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
-        "en": "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+        "en": "professional-mann-health-efz-for-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
         "de": "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
-        "fr": "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+        "fr": "professionnel-sante-efz-pour-un-lit-medical-ou-chirurgical-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -967,6 +982,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
         ]
       },

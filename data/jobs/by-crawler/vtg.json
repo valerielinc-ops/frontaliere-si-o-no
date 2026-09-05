@@ -344,7 +344,7 @@
     },
     {
       "id": "company-g574g1",
-      "slug": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
+      "slug": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Techniker/-in Aufklärungsdrohnensystem (ADS)",
       "location": "Bern",
@@ -381,31 +381,35 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
-        "en": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
+        "it": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
+        "en": "technician-in-reconnaissance-drone-system-ads-swiss-armed-forces-vtg-bern",
         "de": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
-        "fr": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
+        "fr": "technicien-en-systeme-de-drone-de-reconnaissance-sad-swiss-armed-forces-vtg-bern"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
-          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen"
+          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
         ],
         "en": [
-          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen"
+          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
         ],
         "de": [
           "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen"
         ],
         "fr": [
-          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen"
+          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
         ]
       },
       "previousSlugs": [
         "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
-        "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen"
+        "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+        "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

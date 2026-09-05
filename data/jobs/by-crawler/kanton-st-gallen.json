@@ -4463,9 +4463,9 @@
     },
     {
       "id": "kanton-st-gallen-2e6770ed3ef1",
-      "slug": "stabsjurist-in-m-w-d-kanton-st-gallen",
+      "slug": "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "stabsjurist-in-m-w-d-kanton-st-gallen",
+        "it": "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen",
         "en": "staff-lawyer-in-m-f-d-kanton-st-gallen-st-gallen",
         "de": "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
         "fr": "avocat-du-personnel-en-h-f-d-kanton-st-gallen-st-gallen"
@@ -4513,12 +4513,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
-        "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen"
+        "stabsjurist-in-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
-          "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen"
+          "stabsjurist-in-m-w-d-kanton-st-gallen"
         ],
         "en": [
           "stabsjurist-in-m-w-d-kanton-st-gallen-ch"
@@ -4647,12 +4647,12 @@
     },
     {
       "id": "kanton-st-gallen-1ecd64a8dc82",
-      "slug": "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch",
+      "slug": "addiction-officer-addiction-officer-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch",
+        "it": "addiction-officer-addiction-officer-m-f-d-kanton-st-gallen-st-gallen",
         "en": "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch",
         "de": "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch",
-        "fr": "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch"
+        "fr": "agent-de-toxicomanie-agent-de-toxicomanie-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -4707,16 +4707,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-540ca9e2ddc8",
       "slug": "objektmanager-in-mobiliar-e-betrieb-m-w-d-kanton-st-gallen",
       "slugByLocale": {
         "it": "objektmanager-in-mobiliar-e-betrieb-m-w-d-kanton-st-gallen",
-        "en": "objektmanager-in-mobiliar-und-betrieb-m-w-d-kanton-st-gallen-ch",
+        "en": "object-manager-in-furniture-and-operation-m-f-d-kanton-st-gallen-st-gallen",
         "de": "objektmanager-in-mobiliar-und-betrieb-m-w-d-kanton-st-gallen-ch",
-        "fr": "objektmanager-in-mobiliar-und-betrieb-m-w-d-kanton-st-gallen-ch"
+        "fr": "gestionnaire-d-objets-en-mobilier-et-fonctionnement-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -4764,6 +4775,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "objektmanager-in-mobiliar-und-betrieb-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "objektmanager-in-mobiliar-und-betrieb-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "objektmanager-in-mobiliar-und-betrieb-m-w-d-kanton-st-gallen-ch"
         ]
       },
@@ -4953,12 +4970,12 @@
     },
     {
       "id": "kanton-st-gallen-b7095df717ef",
-      "slug": "apprendista-n-fachfrau-mann-betriebsunterhalt-cfc-specializzazione-werkdienst-m-w-d-kanton-st-gallen-wattwil",
+      "slug": "apprentice-specialista-manutenzione-aziendale-efz-servizio-di-lavoro-m-f-d-kanton-st-gallen-wattwil",
       "slugByLocale": {
-        "it": "apprendista-n-fachfrau-mann-betriebsunterhalt-cfc-specializzazione-werkdienst-m-w-d-kanton-st-gallen-wattwil",
-        "en": "apprentice-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil",
+        "it": "apprentice-specialista-manutenzione-aziendale-efz-servizio-di-lavoro-m-f-d-kanton-st-gallen-wattwil",
+        "en": "apprentice-specialist-business-maintenance-efz-field-of-work-service-m-f-d-kanton-st-gallen-wattwil",
         "de": "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
-        "fr": "apprenti-e-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil"
+        "fr": "apprentis-specialiste-maintenance-d-entreprise-efz-domaine-de-travail-service-h-f-d-kanton-st-gallen-wattwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5001,17 +5018,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st"
+        "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
+        "apprendista-n-fachfrau-mann-betriebsunterhalt-cfc-specializzazione-werkdienst-m-w-d-kanton-st-gallen-wattwil",
+        "apprentice-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil",
+        "apprenti-e-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st"
+          "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
+          "apprendista-n-fachfrau-mann-betriebsunterhalt-cfc-specializzazione-werkdienst-m-w-d-kanton-st-gallen-wattwil"
         ],
         "en": [
-          "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st"
+          "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
+          "apprentice-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil"
         ],
         "fr": [
-          "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st"
+          "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
+          "apprenti-e-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil"
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:12.737Z",
@@ -5031,12 +5054,12 @@
     },
     {
       "id": "kanton-st-gallen-608fc361f792",
-      "slug": "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2",
+      "slug": "servizio-di-manutenzione-stradale-dipendente-m-f-d-kanton-st-gallen-wattwil",
       "slugByLocale": {
-        "it": "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2",
-        "en": "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2",
+        "it": "servizio-di-manutenzione-stradale-dipendente-m-f-d-kanton-st-gallen-wattwil",
+        "en": "employee-road-maintenance-service-m-f-d-kanton-st-gallen-wattwil",
         "de": "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
-        "fr": "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
+        "fr": "service-d-entretien-routier-des-employes-h-f-d-kanton-st-gallen-wattwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5079,11 +5102,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch"
+        "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
+        "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch"
+          "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
+          "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
+        ],
+        "en": [
+          "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
+        ],
+        "fr": [
+          "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:11.062Z",
@@ -5103,12 +5134,12 @@
     },
     {
       "id": "kanton-st-gallen-f49c456a761c",
-      "slug": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
+      "slug": "gestione-del-progetto-energy-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
-        "en": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
+        "it": "gestione-del-progetto-energy-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "project-management-energy-m-f-d-kanton-st-gallen-st-gallen",
         "de": "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
-        "fr": "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+        "fr": "gestion-de-projet-energie-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5163,7 +5194,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-abfe1984f1b2",
@@ -6325,12 +6370,12 @@
     },
     {
       "id": "kanton-st-gallen-ac2eb0913a8c",
-      "slug": "berater-in-per-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-heerbrugg",
+      "slug": "consulente-per-le-misure-di-mercato-del-lavoro-m-f-d-kanton-st-gallen-heerbrugg",
       "slugByLocale": {
-        "it": "berater-in-per-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-heerbrugg",
-        "en": "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch",
+        "it": "consulente-per-le-misure-di-mercato-del-lavoro-m-f-d-kanton-st-gallen-heerbrugg",
+        "en": "consultant-for-labour-market-measures-m-f-d-kanton-st-gallen-heerbrugg",
         "de": "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch",
-        "fr": "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch"
+        "fr": "consultant-pour-les-mesures-du-marche-du-travail-h-f-d-kanton-st-gallen-heerbrugg"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6373,10 +6418,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch"
+        "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch",
+        "berater-in-per-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch",
+          "berater-in-per-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-heerbrugg"
+        ],
+        "en": [
+          "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "berater-in-fur-arbeitsmarktliche-massnahmen-m-w-d-kanton-st-gallen-ch"
         ]
       },

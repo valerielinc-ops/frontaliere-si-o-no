@@ -20992,12 +20992,12 @@
     },
     {
       "id": "sulzer-8e1f8694ca06",
-      "slug": "cnc-machinist-sulzer-leeds",
+      "slug": "macchinista-cnc-sulzer-leeds",
       "slugByLocale": {
-        "it": "cnc-machinist-sulzer-leeds",
+        "it": "macchinista-cnc-sulzer-leeds",
         "en": "cnc-machinist-sulzer-ch",
-        "de": "cnc-machinist-sulzer-ch",
-        "fr": "cnc-machinist-sulzer-ch"
+        "de": "cnc-maschinist-sulzer-leeds",
+        "fr": "machiniste-cnc-sulzer-leeds"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -21037,10 +21037,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cnc-machinist-sulzer-ch"
+        "cnc-machinist-sulzer-ch",
+        "cnc-machinist-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "cnc-machinist-sulzer-ch",
+          "cnc-machinist-sulzer-leeds"
+        ],
+        "de": [
+          "cnc-machinist-sulzer-ch"
+        ],
+        "fr": [
           "cnc-machinist-sulzer-ch"
         ]
       },

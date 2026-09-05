@@ -5728,12 +5728,12 @@
     },
     {
       "id": "lups-5cd87050891f",
-      "slug": "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban",
+      "slug": "responsabile-formazione-fage-m-f-d-50-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban",
-        "en": "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban",
+        "it": "responsabile-formazione-fage-m-f-d-50-luzerner-psychiatrie-lups-st-urban",
+        "en": "training-manager-fage-m-f-d-50-luzerner-psychiatrie-lups-st-urban",
         "de": "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban",
-        "fr": "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban"
+        "fr": "gestionnaire-de-formation-fage-h-f-d-50-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5787,16 +5787,30 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban"
+        ],
+        "en": [
+          "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban"
+        ],
+        "fr": [
+          "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsverantwortliche-fage-w-m-d-50-lups-st-urban"
+      ]
     },
     {
       "id": "lups-a605a572579c",
-      "slug": "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban",
+      "slug": "cura-responsabile-della-formazione-hf-fh-m-f-d-80-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban",
-        "en": "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban",
+        "it": "cura-responsabile-della-formazione-hf-fh-m-f-d-80-luzerner-psychiatrie-lups-st-urban",
+        "en": "training-responsible-care-hf-fh-m-f-d-80-luzerner-psychiatrie-lups-st-urban",
         "de": "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban",
-        "fr": "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban"
+        "fr": "formation-soins-responsables-hf-fh-h-f-d-80-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5850,16 +5864,30 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban"
+        ],
+        "en": [
+          "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban"
+        ],
+        "fr": [
+          "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsverantwortlicher-pflege-hf-fh-w-m-d-80-lups-st-urban"
+      ]
     },
     {
       "id": "lups-3d0968262989",
-      "slug": "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen",
+      "slug": "guardia-notturna-professionale-di-cura-60-100-m-f-d-luzerner-psychiatrie-lups-sarnen",
       "slugByLocale": {
-        "it": "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen",
-        "en": "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen",
+        "it": "guardia-notturna-professionale-di-cura-60-100-m-f-d-luzerner-psychiatrie-lups-sarnen",
+        "en": "care-professional-night-watch-60-100-m-f-d-luzerner-psychiatrie-lups-sarnen",
         "de": "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen",
-        "fr": "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen"
+        "fr": "garde-de-nuit-professionnel-de-soins-60-100-h-f-d-luzerner-psychiatrie-lups-sarnen"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5913,16 +5941,30 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen"
+        ],
+        "en": [
+          "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen"
+        ],
+        "fr": [
+          "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-nachtwache-60-100-m-w-d-lups-sarnen"
+      ]
     },
     {
       "id": "lups-8357eea1ec87",
-      "slug": "pflegefachperson-m-w-d-80-100-lups-st-urban",
+      "slug": "professionista-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "pflegefachperson-m-w-d-80-100-lups-st-urban",
-        "en": "pflegefachperson-m-w-d-80-100-lups-st-urban",
+        "it": "professionista-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
+        "en": "care-professional-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
         "de": "pflegefachperson-m-w-d-80-100-lups-st-urban",
-        "fr": "pflegefachperson-m-w-d-80-100-lups-st-urban"
+        "fr": "professionnel-de-soins-h-f-d-80-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5976,7 +6018,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-m-w-d-80-100-lups-st-urban"
+        ],
+        "en": [
+          "pflegefachperson-m-w-d-80-100-lups-st-urban"
+        ],
+        "fr": [
+          "pflegefachperson-m-w-d-80-100-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-m-w-d-80-100-lups-st-urban"
+      ]
     },
     {
       "id": "lups-274e87082957",
@@ -6044,12 +6100,12 @@
     },
     {
       "id": "lups-1e090e0d2c1a",
-      "slug": "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban",
+      "slug": "specialista-comunicazione-aziendale-marketing-60-70-m-f-d-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban",
-        "en": "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban",
+        "it": "specialista-comunicazione-aziendale-marketing-60-70-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "en": "specialist-corporate-communications-marketing-60-70-m-f-d-luzerner-psychiatrie-lups-st-urban",
         "de": "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban",
-        "fr": "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban"
+        "fr": "specialiste-en-communications-et-marketing-d-entreprise-60-70-h-f-d-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6103,7 +6159,21 @@
           "maxValue": 90000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban"
+        ],
+        "en": [
+          "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban"
+        ],
+        "fr": [
+          "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-unternehmenskommunikation-marketing-60-70-w-m-d-lups-st-urban"
+      ]
     },
     {
       "id": "lups-35dbf98f38fb",

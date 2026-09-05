@@ -1509,11 +1509,11 @@
     },
     {
       "id": "ehnv-ce1d19bf3664",
-      "slug": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
+      "slug": "due-40-di-segreti-medici-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
       "slugByLocale": {
-        "it": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
-        "en": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
-        "de": "deux-secretaires-medical-es-a-40-ehnv-pompaples",
+        "it": "due-40-di-segreti-medici-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
+        "en": "two-40-medical-secretaries-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
+        "de": "zwei-40-medizinische-sekretarinnen-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
         "fr": "deux-secretaires-medical-es-a-40-ehnv-pompaples"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1570,15 +1570,29 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "deux-secretaires-medical-es-a-40-ehnv-pompaples"
+        ],
+        "en": [
+          "deux-secretaires-medical-es-a-40-ehnv-pompaples"
+        ],
+        "de": [
+          "deux-secretaires-medical-es-a-40-ehnv-pompaples"
+        ]
+      },
+      "previousSlugs": [
+        "deux-secretaires-medical-es-a-40-ehnv-pompaples"
+      ]
     },
     {
       "id": "ehnv-040737688336",
-      "slug": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
+      "slug": "infermiera-a-80-100-spostamento-trasversale-a-2-siti-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et",
       "slugByLocale": {
-        "it": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
-        "en": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
-        "de": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et",
+        "it": "infermiera-a-80-100-spostamento-trasversale-a-2-siti-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et",
+        "en": "nurse-at-80-100-transverse-shift-at-2-sites-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
+        "de": "krankenschwester-bei-80-100-querverschiebung-an-2-standorten-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et",
         "fr": "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1635,15 +1649,29 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et"
+        ],
+        "en": [
+          "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et"
+        ],
+        "de": [
+          "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-infirmier-ere-a-80-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et"
+      ]
     },
     {
       "id": "ehnv-059bc29eef60",
-      "slug": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
+      "slug": "assc-70-100-spostamento-trasversale-a-2-siti-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
       "slugByLocale": {
-        "it": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
+        "it": "assc-70-100-spostamento-trasversale-a-2-siti-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
         "en": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
-        "de": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples",
+        "de": "assc-70-100-querverschiebung-an-2-standorten-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
         "fr": "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1700,7 +1728,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples"
+        ],
+        "de": [
+          "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-assc-70-100-poste-transverse-sur-2-sites-ehnv-yverdon-les-bains-et-pompaples"
+      ]
     },
     {
       "id": "ehnv-11eb6368b90d",

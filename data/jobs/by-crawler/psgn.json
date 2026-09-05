@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "psgn-98206d3ff58a",
-      "slug": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg",
+      "slug": "dipl-cura-professionale-hf-fh-post-servizio-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg",
-        "en": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg",
+        "it": "dipl-cura-professionale-hf-fh-post-servizio-psychiatrie-st-gallen-wil-sg",
+        "en": "dipl-care-professional-hf-fh-after-service-psychiatrie-st-gallen-wil-sg",
         "de": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg",
-        "fr": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg"
+        "fr": "dipl-soins-professionnels-hf-fh-apres-service-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -53,8 +53,7 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-nachdienst-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-nachdienst-psgn-wil-sg"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-nachdienst-psgn-wil-sg",
@@ -67,10 +66,12 @@
           "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+          "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg"
         ],
         "fr": [
-          "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg",
+          "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
@@ -100,12 +101,12 @@
     },
     {
       "id": "psgn-5880e44dac9f",
-      "slug": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg",
+      "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg",
+        "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-wil-sg",
+        "en": "occupational-therapist-psychiatrie-st-gallen-wil-sg",
         "de": "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-        "fr": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg"
+        "fr": "ergotherapeute-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -148,7 +149,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-        "terapeuta-del-lavoro-psychiatrie-st-gallen-wil-sg",
         "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg-ocof2o",
         "ergotherapeute-psychiatrie-st-gallen-wil-sg",
         "occupational-therapist-psychiatrie-st-gallen-wil-sg",
@@ -157,17 +157,17 @@
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-          "terapeuta-del-lavoro-psychiatrie-st-gallen-wil-sg",
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg-ocof2o",
           "ergotherapeute-psychiatrie-st-gallen-wil-sg",
           "occupational-therapist-psychiatrie-st-gallen-wil-sg",
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
-          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg-ocof2o"
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg-ocof2o",
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg"
         ],
         "fr": [
-          "ergotherapeute-psychiatrie-st-gallen-wil-sg"
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:55.376Z",
@@ -190,9 +190,9 @@
       "slug": "leiterin-leiter-bau-e-technik-pfafers-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "it": "leiterin-leiter-bau-e-technik-pfafers-psychiatrie-st-gallen-wil-sg",
-        "en": "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg",
+        "en": "head-head-of-construction-and-technology-of-pfafer-psychiatrie-st-gallen-wil-sg",
         "de": "leiterin-leiter-bau-und-technik-pfafers-psychiatrie-st-gallen-wil-sg",
-        "fr": "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
+        "fr": "chef-chef-de-la-construction-et-de-la-technologie-de-pfafer-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -236,18 +236,20 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg",
-          "leiterin-leiter-bau-und-technik-pfafers-psychiatrie-st-gallen-wil-sg"
+          "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
         ],
         "it": [
-          "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg",
-          "leiterin-leiter-bau-e-technik-pfafers-psychiatrie-st-gallen-wil-sg"
+          "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
+        ],
+        "en": [
+          "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
+        ],
+        "fr": [
+          "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg",
-        "leiterin-leiter-bau-und-technik-pfafers-psychiatrie-st-gallen-wil-sg",
-        "leiterin-leiter-bau-e-technik-pfafers-psychiatrie-st-gallen-wil-sg"
+        "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
       ],
       "firstSeenAt": "2026-08-31T17:04:54.788Z",
       "salaryMin": 92000,
@@ -266,12 +268,12 @@
     },
     {
       "id": "psgn-9755c6bb334f",
-      "slug": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg",
+      "slug": "stage-di-affari-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg",
-        "en": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg",
+        "it": "stage-di-affari-psychiatrie-st-gallen-wil-sg",
+        "en": "business-internship-psychiatrie-st-gallen-wil-sg",
         "de": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg",
-        "fr": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg"
+        "fr": "stage-en-entreprise-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -318,7 +320,12 @@
           "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg"
         ],
         "de": [
-          "betriebswirtschaftliches-praktikum-psgn-wil-sg",
+          "betriebswirtschaftliches-praktikum-psgn-wil-sg"
+        ],
+        "en": [
+          "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg"
+        ],
+        "fr": [
           "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -392,14 +399,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachpsychologin-fachpsychologe-psgn-wil-sg",
-          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg"
+          "fachpsychologin-fachpsychologe-psgn-wil-sg"
         ],
         "it": [
           "fachpsychologin-fachpsychologe-psgn-wil-sg",
           "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg",
-          "physician-specialist-psychiatrie-st-gallen-wil-sg",
-          "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg"
+          "physician-specialist-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg"
@@ -411,8 +416,7 @@
       "previousSlugs": [
         "fachpsychologin-fachpsychologe-psgn-wil-sg",
         "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg",
-        "physician-specialist-psychiatrie-st-gallen-wil-sg",
-        "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg"
+        "physician-specialist-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-09-02T13:36:06.715Z",
       "salaryMin": 81500,
@@ -481,8 +485,7 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-nrnarw",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-nrnarw"
         ],
         "it": [
           "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg",
@@ -503,8 +506,7 @@
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
           "dipl-specialiste-des-soins-hf-fh-psychiatrie-st-gallen-wil-sg",
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-ing-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-          "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-ing-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "dipl-care-professional-hf-fh-psychiatrie-st-gallen-wil-sg-b2be0a",
@@ -540,8 +542,7 @@
         "dipl-soins-professionnels-hf-fh-psychiatrie-st-gallen-wil-sg-b2be0a",
         "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-specialiste-des-soins-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-nrnarw",
-        "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-nrnarw"
       ],
       "firstSeenAt": "2026-09-02T23:09:53.827Z",
       "salaryMin": 81500,
@@ -610,8 +611,7 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg-2",
@@ -619,8 +619,7 @@
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-yvzmnh",
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg-3",
-          "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
-          "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
@@ -636,8 +635,7 @@
         "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-yvzmnh",
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg-3",
         "cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea",
-        "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea"
       ],
       "firstSeenAt": "2026-09-03T13:32:52.514Z",
       "salaryMin": 81500,
@@ -706,16 +704,14 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg-3",
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea",
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg-2",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-          "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg-bfbd93"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
@@ -729,8 +725,7 @@
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
         "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg-0ufaea",
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg-2",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg-bfbd93"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-09-04T13:27:56.775Z",
       "salaryMin": 81500,
@@ -798,13 +793,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fh-intensivbetreuung-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-intensivbetreuung-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-intensivbetreuung-psgn-wil-sg"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-intensivbetreuung-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-intensivbetreuung-psychiatrie-st-gallen-wil-sg",
-          "dipl-specialista-di-cura-hf-fh-cura-intensiva-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-intensivbetreuung-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-intensivbetreuung-psychiatrie-st-gallen-wil-sg"
@@ -815,8 +808,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-intensivbetreuung-psgn-wil-sg",
-        "dipl-pflegefachperson-hf-fh-intensivbetreuung-psychiatrie-st-gallen-wil-sg",
-        "dipl-specialista-di-cura-hf-fh-cura-intensiva-psychiatrie-st-gallen-wil-sg"
+        "dipl-pflegefachperson-hf-fh-intensivbetreuung-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-09-03T13:32:51.474Z",
       "salaryMin": 81500,
@@ -884,13 +876,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "praktikum-in-der-unternehmenskommunikation-psgn-wil-sg",
-          "praktikum-in-der-unternehmenskommunikation-psychiatrie-st-gallen-wil-sg"
+          "praktikum-in-der-unternehmenskommunikation-psgn-wil-sg"
         ],
         "it": [
           "praktikum-in-der-unternehmenskommunikation-psgn-wil-sg",
-          "praktikum-in-der-unternehmenskommunikation-psychiatrie-st-gallen-wil-sg",
-          "stage-nelle-comunicazioni-aziendali-psychiatrie-st-gallen-wil-sg"
+          "praktikum-in-der-unternehmenskommunikation-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "praktikum-in-der-unternehmenskommunikation-psychiatrie-st-gallen-wil-sg"
@@ -901,8 +891,7 @@
       },
       "previousSlugs": [
         "praktikum-in-der-unternehmenskommunikation-psgn-wil-sg",
-        "praktikum-in-der-unternehmenskommunikation-psychiatrie-st-gallen-wil-sg",
-        "stage-nelle-comunicazioni-aziendali-psychiatrie-st-gallen-wil-sg"
+        "praktikum-in-der-unternehmenskommunikation-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-09-03T13:32:50.926Z",
       "salaryMin": 48500,

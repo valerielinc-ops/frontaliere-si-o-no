@@ -3537,9 +3537,9 @@
       "slug": "velo-e-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-zurich",
       "slugByLocale": {
         "it": "velo-e-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-zurich",
-        "en": "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch",
+        "en": "velo-and-workshop-mechanics-in-m-f-d-xx-perpetual-e-g-geneva-decathlon-zurich",
         "de": "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch",
-        "fr": "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch"
+        "fr": "mecanique-velo-et-atelier-en-h-f-d-xx-perpetuel-par-exemple-geneve-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3585,6 +3585,12 @@
       "previousSlugsByLocale": {
         "it": [
           "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch"
+        ],
+        "en": [
+          "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch"
+        ],
+        "fr": [
+          "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3605,11 +3611,11 @@
     },
     {
       "id": "decathlon-179de0316059",
-      "slug": "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch",
+      "slug": "stage-leader-fe-avry-fribourg-decathlon-matran",
       "slugByLocale": {
-        "it": "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch",
-        "en": "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch",
-        "de": "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch",
+        "it": "stage-leader-fe-avry-fribourg-decathlon-matran",
+        "en": "stage-event-project-leader-fe-avry-fribourg-decathlon-matran",
+        "de": "stage-projektleiter-fe-avry-fribourg-decathlon-matran",
         "fr": "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch"
       },
       "company": "Decathlon",
@@ -3663,7 +3669,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch"
+        ],
+        "en": [
+          "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch"
+        ],
+        "de": [
+          "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stage-chef-fe-de-projet-evenementiel-avry-fribourg-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-86ceab7bb7d9",

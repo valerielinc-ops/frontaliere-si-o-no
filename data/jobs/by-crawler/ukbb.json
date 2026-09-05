@@ -912,12 +912,12 @@
     },
     {
       "id": "ukbb-8fb99a0a1ac5",
-      "slug": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
+      "slug": "dipl-pedagoga-sociale-in-fh-hf-80-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
-        "it": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
-        "en": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
+        "it": "dipl-pedagoga-sociale-in-fh-hf-80-universitats-kinderspital-beider-basel-basel",
+        "en": "dipl-social-pedagogue-in-fh-hf-80-universitats-kinderspital-beider-basel-basel",
         "de": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel",
-        "fr": "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel"
+        "fr": "diplome-de-pedagogie-sociale-en-fh-hf-80-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -972,7 +972,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel"
+        ],
+        "en": [
+          "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel"
+        ],
+        "fr": [
+          "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-sozialpadagoge-in-fh-hf-80-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-8f8a88ec37c9",
@@ -2002,12 +2016,12 @@
     },
     {
       "id": "ukbb-2eaf5f7f7b64",
-      "slug": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel",
+      "slug": "team-leader-in-ammissione-al-paziente-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
-        "it": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel",
-        "en": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel",
+        "it": "team-leader-in-ammissione-al-paziente-100-universitats-kinderspital-beider-basel-basel",
+        "en": "team-leader-in-patient-admission-100-universitats-kinderspital-beider-basel-basel",
         "de": "teamleiter-in-patientenaufnahme-100-ukbb-basel",
-        "fr": "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel"
+        "fr": "chef-d-equipe-en-admission-au-patient-100-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -2051,11 +2065,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-patientenaufnahme-100-ukbb-basel"
+        "teamleiter-in-patientenaufnahme-100-ukbb-basel",
+        "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-patientenaufnahme-100-ukbb-basel"
+          "teamleiter-in-patientenaufnahme-100-ukbb-basel",
+          "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel"
+        ],
+        "en": [
+          "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel"
+        ],
+        "fr": [
+          "teamleiter-in-patientenaufnahme-100-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-31T17:01:00.574Z",

@@ -3266,12 +3266,12 @@
     },
     {
       "id": "swiss-re-0cdbd08d6fa3",
-      "slug": "quantitative-credit-actuary-swiss-re-ch",
+      "slug": "attuario-di-credito-quantitativo-swiss-re-bangalore-in",
       "slugByLocale": {
-        "it": "quantitative-credit-actuary-swiss-re-ch",
+        "it": "attuario-di-credito-quantitativo-swiss-re-bangalore-in",
         "en": "quantitative-credit-actuary-swiss-re-ch",
-        "de": "quantitative-credit-actuary-swiss-re-ch",
-        "fr": "quantitative-credit-actuary-swiss-re-ch"
+        "de": "quantitativer-kreditversicherungsmathematiker-swiss-re-bangalore-in",
+        "fr": "actuaire-du-credit-quantitatif-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -3325,7 +3325,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "quantitative-credit-actuary-swiss-re-ch"
+        ],
+        "de": [
+          "quantitative-credit-actuary-swiss-re-ch"
+        ],
+        "fr": [
+          "quantitative-credit-actuary-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quantitative-credit-actuary-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-ae6976c0195d",
@@ -18380,7 +18394,7 @@
         "it": "assistente-underwriter-swiss-re-zurich",
         "en": "assistant-underwriter-swiss-re-ch",
         "de": "assistent-underwriter-swiss-re-zurich",
-        "fr": "assistant-underwriter-swiss-re-zurich"
+        "fr": "sous-traitant-adjoint-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18429,7 +18443,7 @@
         "assistant-underwriter-credit-surety-swiss-re-ch",
         "assistent-underwriter-credit-surety-swiss-re-plano-tx-us",
         "assistant-underwriter-swiss-re-ch",
-        "sous-traitant-adjoint-swiss-re-zurich"
+        "assistant-underwriter-swiss-re-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18453,7 +18467,7 @@
         "fr": [
           "sous-traitant-swiss-re-singapore-sg",
           "assistant-underwriter-credit-surety-swiss-re-ch",
-          "sous-traitant-adjoint-swiss-re-zurich"
+          "assistant-underwriter-swiss-re-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -19068,12 +19082,12 @@
     },
     {
       "id": "swiss-re-282784cb71e6",
-      "slug": "business-services-associate-1-swiss-re-ch",
+      "slug": "servizi-aziendali-associate-1-swiss-re-sao-paulo-br",
       "slugByLocale": {
-        "it": "business-services-associate-1-swiss-re-ch",
+        "it": "servizi-aziendali-associate-1-swiss-re-sao-paulo-br",
         "en": "business-services-associate-1-swiss-re-ch",
         "de": "business-services-associate-1-swiss-re-ch",
-        "fr": "business-services-associate-1-swiss-re-ch"
+        "fr": "associe-de-services-aux-entreprises-1-swiss-re-sao-paulo-br"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -19127,7 +19141,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-services-associate-1-swiss-re-ch"
+        ],
+        "fr": [
+          "business-services-associate-1-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-services-associate-1-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-5dbc5c717165",
@@ -19342,12 +19367,12 @@
     },
     {
       "id": "swiss-re-a78a4a95ebe0",
-      "slug": "application-engineering-manager-swiss-re-ch",
+      "slug": "gestione-dell-ingegneria-delle-applicazioni-swiss-re-sao-paulo-br",
       "slugByLocale": {
-        "it": "application-engineering-manager-swiss-re-ch",
+        "it": "gestione-dell-ingegneria-delle-applicazioni-swiss-re-sao-paulo-br",
         "en": "application-engineering-manager-swiss-re-ch",
         "de": "application-engineering-manager-swiss-re-ch",
-        "fr": "application-engineering-manager-swiss-re-ch"
+        "fr": "gestionnaire-d-ingenierie-des-applications-swiss-re-sao-paulo-br"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -19401,7 +19426,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-engineering-manager-swiss-re-ch"
+        ],
+        "fr": [
+          "application-engineering-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "application-engineering-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-303776f1fd92",
@@ -19491,11 +19527,11 @@
     },
     {
       "id": "swiss-re-a018b1bfdabd",
-      "slug": "technical-architect-swiss-re-bratislava-sk",
+      "slug": "architetto-tecnico-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "technical-architect-swiss-re-bratislava-sk",
+        "it": "architetto-tecnico-swiss-re-bratislava-sk",
         "en": "technical-architect-swiss-re-ch",
-        "de": "technical-architect-swiss-re-ch",
+        "de": "technischer-architekt-swiss-re-bratislava-sk",
         "fr": "technical-architecte-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
@@ -19536,13 +19572,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-architect-swiss-re-ch"
+        "technical-architect-swiss-re-ch",
+        "technical-architect-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-architect-swiss-re-ch"
+          "technical-architect-swiss-re-ch",
+          "technical-architect-swiss-re-bratislava-sk"
         ],
         "fr": [
+          "technical-architect-swiss-re-ch"
+        ],
+        "de": [
           "technical-architect-swiss-re-ch"
         ]
       },
@@ -19915,12 +19956,12 @@
     },
     {
       "id": "swiss-re-b0a57c7aafe9",
-      "slug": "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch",
+      "slug": "consigliere-legale-consulente-per-la-legge-sull-occupazione-hybrid-80-100-swiss-re-london-gb",
       "slugByLocale": {
-        "it": "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch",
+        "it": "consigliere-legale-consulente-per-la-legge-sull-occupazione-hybrid-80-100-swiss-re-london-gb",
         "en": "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch",
-        "de": "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch",
-        "fr": "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch"
+        "de": "rechtsberatung-arbeitsrechtsberatung-hybrid-80-100-swiss-re-london-gb",
+        "fr": "conseiller-juridique-conseil-en-droit-de-l-emploi-hybrid-80-100-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -19974,7 +20015,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch"
+        ],
+        "de": [
+          "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch"
+        ],
+        "fr": [
+          "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-employment-law-advisory-hybrid-80-100-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-7c1853960b2e",
@@ -20275,12 +20330,12 @@
     },
     {
       "id": "swiss-re-ae8c9e389638",
-      "slug": "behavioural-science-and-human-ai-consulente-temporary-contract-until-end-of-2027-hybrid-80-100-swiss-re-london-gb",
+      "slug": "scienza-comportamentale-e-consulente-human-ai-contratto-temporaneo-fino-alla-fine-del-2027-hybrid-80-100-swiss-re-london",
       "slugByLocale": {
-        "it": "behavioural-science-and-human-ai-consulente-temporary-contract-until-end-of-2027-hybrid-80-100-swiss-re-london-gb",
+        "it": "scienza-comportamentale-e-consulente-human-ai-contratto-temporaneo-fino-alla-fine-del-2027-hybrid-80-100-swiss-re-london",
         "en": "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80",
-        "de": "behavioural-science-and-human-ai-berater-temporary-contract-until-end-of-2027-hybrid-80-100-swiss-re-london-gb",
-        "fr": "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80"
+        "de": "behavioural-science-und-human-ai-consultant-vorubergehender-vertrag-bis-ende-2027-hybrid-80-100-swiss-re-london-gb",
+        "fr": "consultant-en-sciences-du-comportement-et-en-sciences-humaines-contrat-temporaire-jusqu-a-la-fin-de-2027-hybrid-80-100"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -20320,13 +20375,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80"
+        "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80",
+        "behavioural-science-and-human-ai-consulente-temporary-contract-until-end-of-2027-hybrid-80-100-swiss-re-london-gb",
+        "behavioural-science-and-human-ai-berater-temporary-contract-until-end-of-2027-hybrid-80-100-swiss-re-london-gb"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80"
+          "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80",
+          "behavioural-science-and-human-ai-consulente-temporary-contract-until-end-of-2027-hybrid-80-100-swiss-re-london-gb"
         ],
         "de": [
+          "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80",
+          "behavioural-science-and-human-ai-berater-temporary-contract-until-end-of-2027-hybrid-80-100-swiss-re-london-gb"
+        ],
+        "fr": [
           "behavioural-science-and-human-ai-consultant-temporary-contract-until-end-of-2027-hybrid-80"
         ]
       },

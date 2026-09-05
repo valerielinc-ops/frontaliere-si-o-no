@@ -55,13 +55,11 @@
       "pensum": "50%",
       "previousSlugs": [
         "mitarbeiter-in-facility-management-suedhang-ch",
-        "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach",
-        "collaboratore-trice-in-facility-management-klinik-sudhang-kirchlindach"
+        "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-facility-management-suedhang-ch",
-          "collaboratore-trice-in-facility-management-klinik-sudhang-kirchlindach"
+          "mitarbeiter-in-facility-management-suedhang-ch"
         ],
         "fr": [
           "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach"
@@ -136,12 +134,10 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "de": [
-          "it-applikationsmanager-in-suedhang-ch",
-          "it-applikationsmanager-in-klinik-sudhang-kirchlindach"
+          "it-applikationsmanager-in-suedhang-ch"
         ],
         "it": [
-          "it-applikationsmanager-in-suedhang-ch",
-          "responsabile-dell-applicazione-it-klinik-sudhang-kirchlindach"
+          "it-applikationsmanager-in-suedhang-ch"
         ],
         "en": [
           "it-applikationsmanager-in-klinik-sudhang-kirchlindach"
@@ -152,8 +148,7 @@
       },
       "previousSlugs": [
         "it-applikationsmanager-in-suedhang-ch",
-        "it-applikationsmanager-in-klinik-sudhang-kirchlindach",
-        "responsabile-dell-applicazione-it-klinik-sudhang-kirchlindach"
+        "it-applikationsmanager-in-klinik-sudhang-kirchlindach"
       ],
       "firstSeenAt": "2026-08-07T01:06:15.892Z",
       "salaryMin": 113000,
@@ -173,12 +168,12 @@
     },
     {
       "id": "suedhang-01b2787c1578",
-      "slug": "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern",
+      "slug": "responsabile-della-gestione-delle-pratiche-klinik-sudhang-ambulatorium-bern",
       "slugByLocale": {
-        "it": "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern",
-        "en": "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern",
+        "it": "responsabile-della-gestione-delle-pratiche-klinik-sudhang-ambulatorium-bern",
+        "en": "head-of-practice-management-klinik-sudhang-ambulatorium-bern",
         "de": "leiter-in-praxismanagement-suedhang-ch",
-        "fr": "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern"
+        "fr": "chef-de-la-gestion-des-pratiques-klinik-sudhang-ambulatorium-bern"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -229,6 +224,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-praxismanagement-suedhang-ch",
+          "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern"
+        ],
+        "en": [
+          "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern"
+        ],
+        "fr": [
           "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern"
         ]
       },
@@ -303,14 +304,12 @@
         "sport-bewegungstherapeut-in-suedhang-ch",
         "therapist-di-sport-e-movimento-klinik-sudhang-kirchlindach",
         "sports-movement-therapist-klinik-sudhang-kirchlindach",
-        "therapeute-du-sport-et-du-mouvement-klinik-sudhang-kirchlindach",
-        "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach"
+        "therapeute-du-sport-et-du-mouvement-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-bewegungstherapeut-in-suedhang-ch",
-          "therapist-di-sport-e-movimento-klinik-sudhang-kirchlindach",
-          "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach"
+          "therapist-di-sport-e-movimento-klinik-sudhang-kirchlindach"
         ],
         "en": [
           "sports-movement-therapist-klinik-sudhang-kirchlindach"
@@ -384,13 +383,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertreter-in-tanztherapie-suedhang-ch",
-        "terapia-da-ballo-aggiunto-klinik-sudhang-kirchlindach"
+        "stellvertreter-in-tanztherapie-suedhang-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertreter-in-tanztherapie-suedhang-ch",
-          "terapia-da-ballo-aggiunto-klinik-sudhang-kirchlindach"
+          "stellvertreter-in-tanztherapie-suedhang-ch"
         ],
         "en": [
           "stellvertreter-in-tanztherapie-suedhang-ch"
@@ -417,12 +414,12 @@
     },
     {
       "id": "suedhang-3a1e35768983",
-      "slug": "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
+      "slug": "salute-specialistica-efz-klinik-sudhang-kirchlindach",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-        "en": "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
+        "it": "salute-specialistica-efz-klinik-sudhang-kirchlindach",
+        "en": "specialist-health-efz-klinik-sudhang-kirchlindach",
         "de": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "fr": "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
+        "fr": "specialiste-de-la-sante-efz-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -482,12 +479,18 @@
       },
       "addressRegion": "BE",
       "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach"
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach"
+        "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
       ]
     },
     {
@@ -543,14 +546,12 @@
       "pensum": "50%",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-          "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch"
@@ -656,14 +657,12 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch",
         "assistenzarztin-assistenzarzt-suedhang-ch-2",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-        "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-suedhang-ch-2",
-          "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+          "assistenzarztin-assistenzarzt-suedhang-ch-2"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
@@ -738,14 +737,12 @@
       "previousSlugs": [
         "klinische-n-psycholog-in-suedhang-ch-2",
         "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klinische-n-psycholog-in-suedhang-ch-2",
-          "klinische-n-psycholog-in-suedhang-ch",
-          "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+          "klinische-n-psycholog-in-suedhang-ch"
         ],
         "en": [
           "klinische-n-psycholog-in-suedhang-ch-2"

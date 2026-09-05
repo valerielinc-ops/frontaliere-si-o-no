@@ -4575,9 +4575,9 @@
     },
     {
       "id": "emil-frey-076877a20310",
-      "slug": "collaborateur-trice-disposition-administration-emil-frey-marly",
+      "slug": "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly",
       "slugByLocale": {
-        "it": "collaborateur-trice-disposition-administration-emil-frey-marly",
+        "it": "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly",
         "en": "collaborator-arrangement-administration-emil-frey-marly",
         "de": "zusammenarbeitsvereinbarung-verwaltung-emil-frey-marly",
         "fr": "collaborateur-disposition-administration-emil-frey-marly"
@@ -4624,12 +4624,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-disposition-administration-emil-frey-marly",
-        "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly"
+        "collaborateur-trice-disposition-administration-emil-frey-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-disposition-administration-emil-frey-marly",
-          "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly"
+          "collaborateur-trice-disposition-administration-emil-frey-marly"
         ],
         "en": [
           "collaborateur-disposition-administration-emil-frey-marly"
@@ -5082,12 +5082,12 @@
     },
     {
       "id": "emil-frey-5ae8ce1cf212",
-      "slug": "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil",
+      "slug": "esperto-in-auto-mercedes-benz-emil-frey-au-wadenswil",
       "slugByLocale": {
-        "it": "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil",
+        "it": "esperto-in-auto-mercedes-benz-emil-frey-au-wadenswil",
         "en": "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil",
         "de": "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil",
-        "fr": "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil"
+        "fr": "produit-expert-in-voitures-mercedes-benz-emil-frey-au-wadenswil"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -5143,7 +5143,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil"
+        ],
+        "fr": [
+          "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil"
+        ]
+      },
+      "previousSlugs": [
+        "produktexperte-in-cars-mercedes-benz-emil-frey-au-wadenswil"
+      ]
     },
     {
       "id": "emil-frey-2817aa3a9c44",

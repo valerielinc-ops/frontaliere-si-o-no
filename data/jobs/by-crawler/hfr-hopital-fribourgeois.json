@@ -2011,12 +2011,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-b3febb0c58f1",
-      "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg",
+      "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital",
       "slugByLocale": {
-        "it": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg",
-        "en": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder",
+        "it": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital",
+        "en": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-practitioner-80",
         "de": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder",
-        "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder"
+        "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-fribourgeois"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -2061,12 +2061,20 @@
       "externalId": "07efcef7f293",
       "previousSlugs": [
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder",
-        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg"
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder",
-          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg"
+          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg",
+          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg"
+        ],
+        "en": [
+          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder"
+        ],
+        "fr": [
+          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder"
         ]
       },
       "firstSeenAt": "2026-08-28T05:38:22.265Z",

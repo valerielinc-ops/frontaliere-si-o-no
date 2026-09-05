@@ -3427,7 +3427,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-juridique-senior-en-operations-financieres-avec-la-clientele-entreprises-f-h-d",
-        "consigliere-legale-senior-in-operazioni-finanziarie-con-clienti-aziendali-m-f-d-raiffeisen-lausanne",
         "senior-rechtskonsulent-per-finanztransaktionen-im-firmenkundengeschaft-m-w-d-raiffeisen-lausanne",
         "senior-legal-consultant-for-financial-transactions-in-corporate-banking-f-m-d-raiffeisen-lausanne",
         "senior-rechtskonsulent-fur-finanztransaktionen-im-firmenkundengeschaft-w-m-d-raiffeisen",
@@ -3436,7 +3435,6 @@
       "previousSlugsByLocale": {
         "it": [
           "conseiller-juridique-senior-en-operations-financieres-avec-la-clientele-entreprises-f-h-d",
-          "consigliere-legale-senior-in-operazioni-finanziarie-con-clienti-aziendali-m-f-d-raiffeisen-lausanne",
           "senior-rechtskonsulent-per-finanztransaktionen-im-firmenkundengeschaft-m-w-d-raiffeisen-lausanne",
           "senior-legal-consultant-for-financial-transactions-in-corporate-banking-f-m-d-raiffeisen-lausanne",
           "senior-rechtskonsulent-fur-finanztransaktionen-im-firmenkundengeschaft-w-m-d-raiffeisen",
@@ -8916,12 +8914,12 @@
     },
     {
       "id": "raiffeisen-9a13d52351f3",
-      "slug": "firmenkundenberater-in-raiffeisen-niederuzwil",
+      "slug": "consulente-clienti-aziendale-raiffeisen-niederuzwil",
       "slugByLocale": {
-        "it": "firmenkundenberater-in-raiffeisen-niederuzwil",
-        "en": "firmenkundenberater-in-raiffeisen-niederuzwil",
+        "it": "consulente-clienti-aziendale-raiffeisen-niederuzwil",
+        "en": "corporate-client-advisor-raiffeisen-niederuzwil",
         "de": "firmenkundenberater-in-raiffeisen-niederuzwil",
-        "fr": "firmenkundenberater-in-raiffeisen-niederuzwil"
+        "fr": "conseiller-general-aupres-des-clients-raiffeisen-niederuzwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -8976,7 +8974,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-in-raiffeisen-niederuzwil"
+        ],
+        "en": [
+          "firmenkundenberater-in-raiffeisen-niederuzwil"
+        ],
+        "fr": [
+          "firmenkundenberater-in-raiffeisen-niederuzwil"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-in-raiffeisen-niederuzwil"
+      ]
     },
     {
       "id": "raiffeisen-1c9059c31cae",
@@ -9380,7 +9392,7 @@
         "it": "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus",
         "en": "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus",
         "de": "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus",
-        "fr": "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus"
+        "fr": "stv-agent-de-conformite-h-f-d-raiffeisen-sankt-niklaus"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",

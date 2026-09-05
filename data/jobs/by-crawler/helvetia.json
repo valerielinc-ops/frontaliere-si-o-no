@@ -3748,8 +3748,6 @@
       },
       "previousSlugs": [
         "teamleiter-m-w-d-produktmanagement-vorsorge-privatkunden-teilzeit-vollzeit-helvetia-basel",
-        "team-leader-m-f-d-product-management-provision-private-customers-part-time-full-time-helvetia-versicherungen-basel",
-        "chef-d-equipe-m-f-d-gestion-des-produits-clients-prives-a-temps-partiel-a-temps-plein-helvetia-versicherungen-basel",
         "teamleiter-m-w-d-produktmanagement-previdenza-privatkunden-teilzeit-vollzeit-bgyoon",
         "teamleiter-m-w-d-produktmanagement-previdenza-privatkunden-teilzeit-vollzeit-kardb6",
         "teamleiter-m-w-d-produktmanagement-previdenza-privatkunden-teilzeit-vollzeit-helvet-kardb6",
@@ -9256,9 +9254,9 @@
       "slug": "schadenspezialist-m-w-d-krankentaggeld-uk-service-teilzeit-o-vollzeit-helvetia-versicherungen-basel",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-krankentaggeld-uk-service-teilzeit-o-vollzeit-helvetia-versicherungen-basel",
-        "en": "schadenspezialist-w-m-d-krankentaggeld-uk-service-teilzeit-oder-vollzeit-helvetia-basel",
+        "en": "claims-specialist-m-f-d-medical-day-allowance-uk-service-part-time-or-full-time-helvetia-versicherungen-basel",
         "de": "schadenspezialist-w-m-d-krankentaggeld-uk-service-teilzeit-oder-vollzeit-helvetia-basel",
-        "fr": "schadenspezialist-w-m-d-krankentaggeld-uk-service-teilzeit-oder-vollzeit-helvetia-basel"
+        "fr": "specialiste-des-reclamations-h-f-d-indemnite-de-jour-medicale-service-uk-temps-partiel-ou-temps-plein-helvetia"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -9305,6 +9303,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schadenspezialist-w-m-d-krankentaggeld-uk-service-teilzeit-oder-vollzeit-helvetia-basel"
+        ],
+        "en": [
+          "schadenspezialist-w-m-d-krankentaggeld-uk-service-teilzeit-oder-vollzeit-helvetia-basel"
+        ],
+        "fr": [
           "schadenspezialist-w-m-d-krankentaggeld-uk-service-teilzeit-oder-vollzeit-helvetia-basel"
         ]
       },
@@ -9585,11 +9589,11 @@
     },
     {
       "id": "helvetia-10a548f1adde",
-      "slug": "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds",
+      "slug": "specialista-tutti-i-tipi-supporto-di-vendita-tempo-parziale-helvetia-versicherungen-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds",
-        "en": "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds",
-        "de": "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds",
+        "it": "specialista-tutti-i-tipi-supporto-di-vendita-tempo-parziale-helvetia-versicherungen-la-chaux-de-fonds",
+        "en": "specialist-all-kinds-sales-support-part-time-helvetia-versicherungen-la-chaux-de-fonds",
+        "de": "spezialist-alle-arten-verkaufsunterstutzung-teilzeit-helvetia-versicherungen-la-chaux-de-fonds",
         "fr": "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds"
       },
       "company": "Helvetia Versicherungen",
@@ -9645,7 +9649,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds"
+        ],
+        "en": [
+          "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds"
+        ],
+        "de": [
+          "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-tous-genres-soutien-de-vente-temps-partiel-helvetia-la-chaux-de-fonds"
+      ]
     },
     {
       "id": "helvetia-b30a3e1108ad",

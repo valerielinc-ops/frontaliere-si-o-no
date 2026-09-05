@@ -4411,12 +4411,12 @@
     },
     {
       "id": "zfv-unternehmungen-bcc991b9f73a",
-      "slug": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-bern",
+      "slug": "chef-cook-apprendistato-efz-2027-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-bern",
-        "en": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern",
+        "it": "chef-cook-apprendistato-efz-2027-zfv-unternehmungen-bern",
+        "en": "chef-cook-efz-apprenticeship-2027-zfv-unternehmungen-bern",
         "de": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-        "fr": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern"
+        "fr": "chef-cuisinier-efz-apprentissage-2027-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4458,10 +4458,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern",
+        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern",
+          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern"
+        ],
+        "fr": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern"
         ]
       },
