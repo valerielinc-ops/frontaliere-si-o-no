@@ -35,6 +35,7 @@ import {
   assertCompleteArtisaSnapshot,
 } from './lib/artisa-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -331,6 +332,10 @@ async function main() {
     jobs.push(await buildArtisaJob(listing));
   }
 
+  // Read before mergeJobs rewrites DATA_JOBS: on the proven-zero path the slice
+  // goes to 0 and these are exactly the jobs that still need an expired entry.
+  const priorTargetJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
@@ -352,7 +357,24 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  // A proven empty snapshot is a real wipeout, not a degraded scrape, but
+  // `shouldBlockShrink()` (assemble-jobs-dataset.mjs) blocks EVERY N→0
+  // unconditionally. Writing the slice bare here would throw `[shrink-guard]`,
+  // re-file the crawler-failure issue on every run and freeze the slice with
+  // dead jobs — the exact loop this change exists to close. Archive first so
+  // the retired URLs soft-land as expired pages instead of hard 404s: this
+  // bespoke runner has no template step 4b. Mirrors the shared template
+  // (crawler-template.mjs → `skipShrinkGuard: authoritativeSnapshotVerified`)
+  // and update-tpl-lugano-jobs.mjs's `state === 'empty'` branch.
+  if (authoritativeEmptySnapshot) {
+    const archived = archiveRemovedJobsToSlice(priorTargetJobs, COMPANY_KEY);
+    if (archived > 0) {
+      console.log(`📦 Archived ${archived} expired Artisa job(s) → data/jobs/expired/by-crawler/${COMPANY_KEY}.json`);
+    }
+    writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { skipShrinkGuard: true, preserveExistingSlugs: true });
+  } else {
+    writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  }
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Artisa Group',
