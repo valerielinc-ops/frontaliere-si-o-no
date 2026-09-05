@@ -31,7 +31,22 @@ export const GATE_DEFAULTS = {
   minReachable: 1,
   minTitleMatch: 0.8,
   minContentful: 0.75,
-  minLocationSourceRate: 1,
+  /**
+   * Quota del campione che espone una localita' svizzera source-backed.
+   *
+   * Non e' una difesa contro un dato falso: quella e' gia' by construction,
+   * perche' `runSpecInProduction()` SCARTA la riga quando la geografia non e'
+   * source-backed (`geographyDrops`) invece di sostituirle un default
+   * aziendale. Quel che misura e' la RESA: quanta parte dell'inventario
+   * sopravviverebbe. A 1 la soglia chiedeva che ogni singola pagina del
+   * datore esponesse la localita', e il costo di quella perfezione era misurato
+   * il 2026-09-05 su anker-swiss.ch: 3 pagine su 4 nel campione, 279 annunci
+   * pubblicabili con localita' vera (Rheinfelden AG, Wettingen AG, Dietikon
+   * ZH) e descrizioni da ~3 KB, bloccati dalla quarta pagina. Allineata a
+   * `minContentful` e `minJobLike`: sono la stessa domanda posta su tre campi
+   * diversi della stessa pagina.
+   */
+  minLocationSourceRate: 0.75,
   minDistinct: 0.8,
   /**
    * Quota delle pagine di dettaglio che devono leggere come annuncio di lavoro.
@@ -110,11 +125,19 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   mark('hasCrawlerKey', Boolean(candidate.crawlerKey),
     'nessuna chiave crawler: la spec non e\' stata sintetizzata');
 
-  // A template spec only knows title/URL from the index. Without the detail
-  // pass it can silently publish an employer default (historically Lugano)
-  // and a teaser as if they were per-job facts.
-  mark('detailEnrichment', candidate.mode !== 'template' || candidate.detailEnrichment === true,
-    'spec template senza arricchimento del dettaglio: localita\' e descrizione non sono verificate');
+  // Nessun check sul flag `detailEnrichment`. Il rischio che motivava quel
+  // check — una spec template che pubblica l'employer default (storicamente
+  // Lugano) e un teaser come se fossero fatti per-annuncio — non dipende dal
+  // flag: `needsDetailEnrichment()` in spec-crawler.mjs tratta la MODALITA'
+  // come invariante e arricchisce OGNI spec `template`, flag o non flag
+  // (pinnato da tests/prospector-core.test.ts). Il check chiedeva invece il
+  // flag proprio alle spec template, cioe' a quelle sempre arricchite, e le
+  // spec sintetizzate prima del 2026-08-27 non lo portano; poiche' un
+  // candidato gia' `promoted` non torna mai a SYNTHESIZE, il blocco era
+  // permanente e vacuo: 29 delle 34 candidate ferme li' il 2026-09-05.
+  // Il rischio vero resta coperto da chi misura la pagina di dettaglio
+  // vera — `sourceBackedLocation` e `contentful` — piu' il drop a runtime di
+  // ogni riga senza geografia source-backed.
 
   mark('keyFree', !candidate.crawlerKey || !(ctx.existingKeys || new Set()).has(candidate.crawlerKey),
     `la chiave ${candidate.crawlerKey} esiste gia' in produzione`);
@@ -155,8 +178,22 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
       ? 'nessuna misura della localita\' source-backed nell\'ultima validazione: serve una nuova validazione'
       : `solo il ${Math.round(Number(locationSourceRate) * 100)}% delle pagine campionate espone una localita' svizzera source-backed, serve ${Math.round(g.minLocationSourceRate * 100)}%`);
 
-  mark('distinct', Number(latest.distinctRate || 0) >= g.minDistinct,
-    'troppi titoli ripetuti nel listing');
+  // Titoli ripetuti nel listing sono il sintomo di DUE cose diverse: il
+  // selettore che ha agganciato N copie di una riga di chrome, e il datore che
+  // pubblica davvero lo stesso ruolo N volte (l'agenzia interinale, la catena
+  // con piu' filiali). Solo le pagine di dettaglio le separano — e quando sono
+  // fra loro diverse, il selettore ha fatto il suo lavoro. Misurato il
+  // 2026-09-05 su anker-swiss.ch: 0,23 di titoli distinti, 4 pagine campionate
+  // su 4 diverse, 279 annunci pubblicabili con localita' e descrizione proprie.
+  // `detailDistinctRate` assente = validazione anteriore alla misura: si ricade
+  // sui soli titoli, cioe' sul comportamento precedente.
+  const detailDistinctRate = latest.detailDistinctRate;
+  mark('distinct',
+    Number(latest.distinctRate || 0) >= g.minDistinct
+      || Number(detailDistinctRate || 0) >= g.minDistinct,
+    detailDistinctRate === undefined
+      ? 'troppi titoli ripetuti nel listing'
+      : 'troppi titoli ripetuti nel listing e pagine di dettaglio non distinte fra loro');
 
   // Semantica, non coerenza interna. Le quattro condizioni qui sopra misurano
   // se abbiamo copiato fedelmente cio' che il datore serve; nessuna chiede se
