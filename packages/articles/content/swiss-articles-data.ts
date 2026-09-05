@@ -16642,6 +16642,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'zugo-salari-occupazione-guida',
+    category: 'pratico',
+    date: '2026-09-05T11:49:46.863Z',
+    image: '/images/blog/zugo-salari-occupazione-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

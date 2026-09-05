@@ -5548,6 +5548,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Half a billion to the farmers to save the agreement with Mercosur',
     'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'The Foreign Policy Commission of the Council of States proposes 517 million francs for Swiss peasants.',
     'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Swiss farmers in a meeting discussing a free trade agreement.',
+    'blog.article.zugo-salari-occupazione-guida.title': 'Zug Labour Market: Wages, Sectors and Training',
+    'blog.article.zugo-salari-occupazione-guida.excerpt': 'Practical guide to wages and employment opportunities in the canton of Zug: wage levels for training, workers\' rights and net wage calculation in Switzerland.',
+    'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Swiss office buildings and workspaces representing labor market opportunities and employment landscape',
 };
 
 export default blogMetaChEn;

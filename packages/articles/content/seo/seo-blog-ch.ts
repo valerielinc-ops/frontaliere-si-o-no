@@ -72014,6 +72014,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zugo-salari-occupazione-guida': {
+    title: 'Mercato del lavoro Zugo: salari, settori e formazione',
+    description: 'Guida pratica ai salari nel canton Zugo: livelli salariali per grado di formazione, settori occupazionali, diritti dei lavoratori, contributi AVS/LPP',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, zugo, salari',
+    ogTitle: 'Mercato del lavoro Zugo: salari, settori e formazione',
+    ogDescription: 'Conosci il mercato del lavoro nel canton Zugo: salari per livello di formazione, settori che assumono, diritti dei lavoratori (vacanze, orario, licenziamento), contributi AVS/LPP e come calcolare lo stipendio netto in Svizzera. Guida completa 2026.',
+    canonicalPath: '/articoli-svizzera/zugo-salari-occupazione-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro Zugo: salari, settori e formazione",
+      "description": "Guida pratica ai salari nel canton Zugo: livelli salariali per grado di formazione, settori occupazionali, diritti dei lavoratori, contributi AVS/LPP",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zugo-salari-occupazione-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici svizzeri e spazi di lavoro che rappresentano il mercato occupazionale e le opportunità nel settore privato"
+      },
+      "datePublished": "2026-09-05T11:49:46+00:00",
+      "dateModified": "2026-09-05T11:49:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zugo-salari-occupazione-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
