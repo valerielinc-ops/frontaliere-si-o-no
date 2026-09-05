@@ -11374,6 +11374,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coordinamento-avs-inps-2026.title': 'Koordination AHV-INPS 2026: Familie mit Kindern',
     'blog.article.coordinamento-avs-inps-2026.excerpt': 'Summe AHV-INPS-Beiträge für Grenzgänger mit Kindern: Wie kann die Rente zwischen der Schweiz und Italien bis 2026 koordiniert werden?',
     'blog.article.coordinamento-avs-inps-2026.imageAlt': 'AVS-INPS-Koordinationsdokument für Grenzgänger mit Tessiner Landschaftsblick',
+    'blog.article.bollettino-frontaliere-2026-09-05.title': 'Grenzgänger-Tagesbulletin – 5. September 2026: 40 Minuten Wartezeit in Ponte Tresa',
+    'blog.article.bollettino-frontaliere-2026-09-05.excerpt': 'Die Zahlen von heute, 5. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-05.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 5. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-05.seoDescription': 'Grenzgänger-Bulletin vom 5. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-05.ogDescription': 'Die Zahlen vom 5. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

@@ -11377,6 +11377,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coordinamento-avs-inps-2026.title': 'Coordination AVS-INPS 2026 : famille avec enfants',
     'blog.article.coordinamento-avs-inps-2026.excerpt': 'Totalisation des cotisations AVS-INPS pour les frontaliers avec enfants : comment coordonner la retraite entre la Suisse et l\'Italie d\'ici 2026.',
     'blog.article.coordinamento-avs-inps-2026.imageAlt': 'Document de coordination AVS-INPS pour travailleurs frontaliers vue Tessin',
+    'blog.article.bollettino-frontaliere-2026-09-05.title': 'Bulletin du frontalier – 5 septembre 2026 : 40 minutes d\'attente à Ponte Tresa',
+    'blog.article.bollettino-frontaliere-2026-09-05.excerpt': 'Les chiffres du jour, 5 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-05.imageAlt': 'Les chiffres du jour pour les frontaliers – 5 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-05.seoDescription': 'Bulletin du frontalier du 5 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-05.ogDescription': 'Les chiffres du 5 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
