@@ -5614,6 +5614,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.soletta-naturalizzazione-procedura.title': 'Naturalizzazione Soletta: requisiti e procedura',
     'blog.article.soletta-naturalizzazione-procedura.excerpt': 'Come diventare cittadino svizzero in Soletta: anni di residenza, test di lingua e integrazione, tasse comunali e tempi del processo.',
     'blog.article.soletta-naturalizzazione-procedura.imageAlt': 'Documenti ufficiali di naturalizzazione svizzera e passaporto su una scrivania in un ufficio dell\'amministrazione cantonale.',
+    'blog.article.reddito-risparmio-svizzeri-record.title': 'Svizzeri non hanno mai guadagnato e risparmiato come oggi',
+    'blog.article.reddito-risparmio-svizzeri-record.excerpt': 'Per la prima volta il reddito disponibile supera i 65mila franchi e il tasso di risparmio volontario il 19,3%. I dati dell\'UST confermano il record storico.',
+    'blog.article.reddito-risparmio-svizzeri-record.imageAlt': 'Famiglia svizzera esamina documenti finanziari e grafici di investimento su laptop in salotto luminoso',
 };
 
 export default blogMetaChIt;

@@ -1897,6 +1897,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-canton-vallese-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-vallese-requisiti-rinnovo', en: 'residence-permit-b-valais-requirements-renewal', de: 'aufenthaltsbewilligung-b-wallis-voraussetzungen-verlaengerung', fr: 'permis-de-sejour-b-valais-conditions-renouvellement' },
  'pacifismo-neutralita-buzzi': { it: 'pacifismo-neutralita-buzzi', en: 'pacifism-armed-neutrality-buzzi', de: 'pazifismus-bewaffnete-neutralitaet-buzzi', fr: 'pacifisme-neutralite-armee-buzzi' },
  'soletta-naturalizzazione-procedura': { it: 'soletta-naturalizzazione-procedura', en: 'soletta-naturalization-requirements-procedure', de: 'soletta-einbuergerung-anforderungen-verfahren', fr: 'soletta-naturalisation-conditions-procedure' },
+ 'reddito-risparmio-svizzeri-record': { it: 'reddito-risparmio-svizzeri-record', en: 'income-savings-swiss-record', de: 'einkommen-ersparnisse-schweizer-rekord', fr: 'revenu-epargne-suisses-record' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
