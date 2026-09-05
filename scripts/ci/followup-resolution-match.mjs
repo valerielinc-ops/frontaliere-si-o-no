@@ -122,6 +122,74 @@ export function citedTokens(body) {
 }
 
 /**
+ * Un item di follow-up è TRACCIABILE solo se porta una condizione di
+ * accettazione FALSIFICABILE: qualcosa che, girando, può provare che è stato
+ * affrontato. Decisione del proprietario del 2026-09-05.
+ *
+ * L'oracolo non è nuovo ed è deliberatamente lo stesso che chiude l'item:
+ * `citedTokens()`. Un item che non cita nemmeno un token-codice distintivo non
+ * offre appiglio a nessun check — né oggi né mai — quindi non è lavoro
+ * verificabile ma un rischio ipotetico in prosa. Usare due oracoli diversi per
+ * «si può aprire» e «si può chiudere» produrrebbe esattamente la classe di
+ * item che entra in coda e non ne esce più.
+ *
+ * Misurato il 2026-09-05 sul sito: 36 dei 49 item (73%) delle aggregate
+ * bloccate non citano alcun token, e sulle ultime 60 follow-up sono 81 item su
+ * 129 (63%). Sono in massima parte rischi sollevati dal reviewer in
+ * `## Adversarial check` con `Stato dichiarato nella PR: nessuno`.
+ *
+ * NON è un criterio di chiusura: un item non falsificabile non viene chiuso
+ * «lo stesso», viene RICLASSIFICATO come mai-stato-un-item — resta leggibile
+ * nel corpo della issue e nel commento della PR, ma non fa da gate.
+ */
+export const ACCEPTANCE_CONDITION = Object.freeze({
+  id: 'cited-code-token',
+  describe: 'almeno un token-codice distintivo citato in `Suggested action`',
+  /**
+   * La regione `Suggested action` va richiesta ESPLICITAMENTE, non dedotta dai
+   * token: `suggestedActionText()` ricade sull'INTERO testo quando non trova la
+   * regione, e quel fallback qui sarebbe una trappola che apre esattamente il
+   * buco che questo modulo esiste per chiudere.
+   *
+   * Su un corpo intero il fallback non scattava quasi mai — basta un item ben
+   * formato perché la regione esista. Applicato PER-ITEM scatta su ogni item
+   * che non riporta la riga `- Suggested action:` del template, e gli item li
+   * scrive un LLM, non un emettitore deterministico. Per quell'item i token
+   * verrebbero raccolti da `- Original text: > …`, cioè dallo **status quo che
+   * la issue vuole cambiato**: `detectAlreadyResolved()` lo troverebbe verbatim
+   * nel file citato PROPRIO PERCHE' il lavoro non è fatto, e l'aggregata si
+   * auto-chiuderebbe su lavoro pendente. Il ramo `no-valid-item` non la copre:
+   * quell'item risulterebbe valido, non prosa.
+   *
+   * Un item senza `Suggested action` non è falsificabile per definizione — non
+   * prescrive nulla da verificare — quindi cade nel guardrail. Trovato dalla
+   * review su questa stessa PR, non da un incidente: il costo di sbagliarlo
+   * sarebbe stato una chiusura silenziosa di lavoro vero.
+   *
+   * @param {string} itemText @returns {boolean}
+   */
+  holds: (itemText) => {
+    const s = String(itemText || '');
+    if (!/suggested action/i.test(s)) return false;
+    return citedTokens(s).length > 0;
+  },
+});
+
+/** True se l'item porta una condizione di accettazione falsificabile. */
+export function hasFalsifiableAcceptance(itemText) {
+  return ACCEPTANCE_CONDITION.holds(String(itemText || ''));
+}
+
+/**
+ * Spezza il corpo di una follow-up nei suoi item (`### 1.`, `### 2.`, …).
+ * Ritorna `[]` se il corpo non ha la struttura a item — che per i chiamanti
+ * significa «non riclassificare», mai «zero item validi».
+ */
+export function splitFollowupItems(body) {
+  return String(body || '').split(/^### \d+\./m).slice(1);
+}
+
+/**
  * Explicit cross-reference signal: is this issue declared resolved by a MERGED PR?
  *
  * Orthogonal to the token matcher (which reads file CONTENT). Here the signal is a human/

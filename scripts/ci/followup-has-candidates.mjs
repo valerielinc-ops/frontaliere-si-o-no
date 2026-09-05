@@ -128,6 +128,19 @@ export function extractNonImplementedItems(body) {
  * Due copie divergerebbero al primo stato nuovo — e divergerebbero in silenzio,
  * perché nessun test le confronta.
  */
+// Regola sorella, e sta DELIBERATAMENTE altrove: `ACCEPTANCE_CONDITION` /
+// `hasFalsifiableAcceptance()` in `followup-resolution-match.mjs`. Un rischio
+// diventa item tracciato solo se porta una condizione di accettazione
+// falsificabile (decisione del proprietario, 2026-09-05).
+//
+// Perché non qui, accanto a `CLOSING_STATES`: (1) vive nel modulo che possiede
+// `citedTokens()`, cioè l'oracolo che la implementa, e quel modulo è
+// `identical` nel loop-sync-manifest mentre QUESTO file non è nel manifest —
+// definirla qui non scenderebbe mai al corpus; (2) ha una POPOLAZIONE diversa.
+// `CLOSING_STATES` filtra i bullet di `## Non implementato` di una PR;
+// `hasFalsifiableAcceptance()` filtra gli ITEM di una follow-up già coniata,
+// che hanno una sezione `Suggested action` da cui estrarre i token. Applicarla
+// ai bullet di PR li scarterebbe quasi tutti — non ne citano.
 const CLOSING_STATES = new Set([
   'in-this-pr',
   'chained-pr',
