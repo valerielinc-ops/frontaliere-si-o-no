@@ -224,15 +224,17 @@ describe('buildPhaseTimingPlugin', () => {
     (wrapped as unknown as { closeBundle: () => unknown }).closeBundle();
 
     const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    let printed: string[];
     try {
       const plugin = buildPhaseTimingPlugin();
       (plugin.buildStart as { handler: () => void }).handler();
       (plugin.closeBundle as { handler: () => void }).handler();
+      // Snapshot BEFORE mockRestore(): restoring also clears `mock.calls`.
+      printed = log.mock.calls.map((c) => String(c[0]));
     } finally {
       log.mockRestore();
     }
 
-    const printed = log.mock.calls.map((c) => String(c[0]));
     expect(printed.some((l) => l.startsWith('[phase-timing] measured:closeBundle'))).toBe(true);
     expect(printed.some((l) => l.startsWith('[phase-timing-total]'))).toBe(true);
     expect(printed.some((l) => l.startsWith('[profile]'))).toBe(false);
