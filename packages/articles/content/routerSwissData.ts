@@ -1880,6 +1880,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-zugo-aliquote': { it: 'imposta-successione-zugo-aliquote', en: 'inheritance-tax-canton-zug-rates', de: 'erbschaftssteuer-kanton-zug-saetze', fr: 'impot-succession-canton-zoug-taux' },
  'medici-specialisti-fatturazioni-svizzera': { it: 'medici-specialisti-fatturazioni-svizzera', en: 'specialist-doctors-billing-switzerland', de: 'facharzt-abrechnungen-schweiz', fr: 'facturation-medecins-specialistes-suisse' },
  'prio-swiss-medici-specialisti-tardoc': { it: 'prio-swiss-medici-specialisti-tardoc', en: 'prio-swiss-specialist-doctors-tardoc', de: 'prio-swiss-facharzte-tardoc', fr: 'prio-swiss-medecins-specialistes-tardoc' },
+ 'morte-mongolfiera-ticino': { it: 'morte-mongolfiera-ticino', en: 'hot-air-balloon-tragedy-ticino', de: 'tragodie-mit-heissluftballon-tessin', fr: 'tragedie-ballon-a-air-chaud-tessin' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
