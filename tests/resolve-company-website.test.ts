@@ -4,6 +4,7 @@ import path from 'node:path';
 import type { Dispatcher } from 'undici';
 import { describe, expect, it, vi } from 'vitest';
 import { normalizeDomain, resolveCompanyWebsite, resolveCompanyWebsites, run } from '../scripts/resolve-company-website.mjs';
+import { companyWebsiteFromDomain } from '../scripts/lib/crawler-company-identity.mjs';
 
 type ResolverHeaders = { get(name: string): string | null };
 type ResolverBody = { cancel(): Promise<unknown> };
@@ -294,7 +295,40 @@ describe('company website resolver', () => {
     expect(companies).toHaveLength(592);
     expect(registry.schemaVersion).toBe(1);
     expect(Object.keys(registry.domains)).toHaveLength(22);
-    expect(Object.values(registry.domains).every((value) => value === null || /^https:\/\//.test(String(value))))
-      .toBe(true);
+  });
+
+  // The assertion this replaces read
+  //   `every(v => v === null || /^https:\/\//.test(String(v)))` … toBe(true)
+  // and could not fail: the resolver returns `canonicalHttpsUrl()` — which
+  // rejects any protocol but https — or null, so every value it can possibly
+  // produce satisfies it. A registry of 22 nulls passed it just as happily as
+  // a fully resolved one, and the gate stayed green while nothing read the
+  // registry at all. The invariant below is the one worth holding, and it is
+  // capable of failing: it did, on 6 of the 22 probed hosts, until
+  // `companyWebsiteFromDomain` started deriving the published value from the
+  // verified one.
+  it('derives every published website from the verified host form, not from an unconditional www.', () => {
+    const registry = JSON.parse(readFileSync(path.resolve('data/company-website-resolved.json'), 'utf8'));
+    const domains: Record<string, string | null> = registry.domains;
+
+    for (const [domain, verified] of Object.entries(domains)) {
+      expect(companyWebsiteFromDomain(domain, domains))
+        .toBe(verified ? new URL(verified).origin : '');
+    }
+
+    // Proof the assertion above is not vacuous: on this registry the verified
+    // answer contradicts the old unconditional `https://www.<domain>` for six
+    // hosts (aarreha.ch, afry.com, amstein-walthert.ch and aldi.ch answer on a
+    // different host; abb.ch and alten.ch answer on neither form). Were the
+    // derivation reverted, those six comparisons would fail rather than pass.
+    const contradicted = Object.keys(domains)
+      .filter((domain) => companyWebsiteFromDomain(domain, domains) !== `https://www.${domain}`);
+    expect(contradicted).toHaveLength(6);
+  });
+
+  it('keeps the old default for a domain the probe has no verdict for', () => {
+    expect(companyWebsiteFromDomain('example.ch', {})).toBe('https://www.example.ch');
+    expect(companyWebsiteFromDomain('www.example.ch', {})).toBe('https://www.example.ch');
+    expect(companyWebsiteFromDomain('', { 'example.ch': null })).toBe('');
   });
 });

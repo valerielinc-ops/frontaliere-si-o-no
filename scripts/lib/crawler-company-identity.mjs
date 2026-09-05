@@ -247,3 +247,41 @@ export function sliceDomainForName(summary, chosenName) {
   }
   return '';
 }
+
+/**
+ * Il `website` pubblicato deriva dalla forma VERIFICATA dell'host, non da un
+ * `www.` messo davanti a scatola chiusa.
+ *
+ * Il generatore scriveva `https://www.${domain}` per ogni datore senza che
+ * nessuno avesse mai chiesto quale delle due forme risponda, e
+ * `scripts/resolve-company-website.mjs` — la sonda che quella domanda la fa —
+ * scriveva i verdetti in un registro che nessuno leggeva. Sui 22 host sondati
+ * finora i due valori divergono su SEI: `aarreha.ch`, `afry.com` e
+ * `amstein-walthert.ch` rispondono nudi, `aldi.ch` risponde come
+ * `www.aldi-suisse.ch`, e `abb.ch`/`alten.ch` non rispondono su nessuna delle
+ * due — per quei due pubblichiamo un link morto. Un dominio ancora senza
+ * verdetto tiene il default di prima: questa regola restringe una supposizione
+ * a una misura, non introduce una supposizione nuova.
+ *
+ * Della URL verificata si tiene solo l'origin: la sonda segue i redirect e
+ * atterra su landing localizzate (`https://afry.com/en`), ottime come prova di
+ * vita e pessime da pubblicare come home page di un datore.
+ *
+ * @param {string} companyDomain dominio nudo o con `www.`
+ * @param {Record<string, string|null>} resolvedDomains verdetti per dominio nudo
+ * @returns {string} il website da pubblicare, o '' se non se ne deve pubblicare uno
+ */
+export function companyWebsiteFromDomain(companyDomain, resolvedDomains = {}) {
+  const bare = String(companyDomain || '').replace(/^www\./, '');
+  if (!bare) return '';
+  if (!resolvedDomains || !Object.prototype.hasOwnProperty.call(resolvedDomains, bare)) {
+    return `https://www.${bare}`;
+  }
+  const verified = resolvedDomains[bare];
+  if (!verified) return '';
+  try {
+    return new URL(verified).origin;
+  } catch {
+    return '';
+  }
+}

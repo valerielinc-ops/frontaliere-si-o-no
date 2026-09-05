@@ -23,6 +23,7 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import {
+  companyWebsiteFromDomain,
   extractDeclaredIdentity,
   isNonEmployerSlug,
   sliceDomainForName,
@@ -35,6 +36,19 @@ const SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 const RUNNERS_DIR = path.resolve(ROOT, 'scripts');
 const PARSERS_DIR = path.resolve(ROOT, 'scripts', 'lib');
 const OUTPUT = path.resolve(ROOT, 'data', 'crawler-companies-auto.json');
+const RESOLVED_WEBSITES = path.resolve(ROOT, 'data', 'company-website-resolved.json');
+
+function loadResolvedWebsites() {
+  try {
+    const parsed = JSON.parse(fs.readFileSync(RESOLVED_WEBSITES, 'utf8'));
+    return parsed?.domains && typeof parsed.domains === 'object' ? parsed.domains : {};
+  } catch {
+    // No registry yet (or unreadable): every domain keeps the old default.
+    return {};
+  }
+}
+
+const resolvedWebsites = loadResolvedWebsites();
 
 // ─── Import COMPANY_HQ ─────────────────────────────────────────────────────
 const { COMPANY_HQ } = await import('./lib/crawler-location-config.mjs');
@@ -212,9 +226,7 @@ for (const slug of slugs) {
       .find((d) => d && !isVendorDomain(d)) || '';
 
   const careersUrl = runnerData?.careersUrl || parserData?.careersUrl || '';
-  const website = companyDomain
-    ? `https://www.${companyDomain.replace(/^www\./, '')}`
-    : '';
+  const website = companyWebsiteFromDomain(companyDomain, resolvedWebsites);
 
   const entry = {
     name: companyName,
