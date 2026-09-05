@@ -345,6 +345,19 @@ export function extractDetailFields(html = '', pageUrl = '') {
   if (!locationCandidates.length && renderedLocation) {
     locationCandidates.push({ location: renderedLocation, addressCountry: '' });
   }
+  // Last resort: the vacancy address rendered as a postal block. arsante.ch
+  // (gmo) publishes a JobPosting with title/description/datePosted and no
+  // jobLocation at all, while every detail page carries the workplace as
+  // `<div class="contact-info">… <p>1201 Genève</p>`. No class name in the
+  // cascade above spells "location", so the row lost its only geography
+  // evidence and the source-backed gate dropped all 10 vacancies — the crawler
+  // reported 0 jobs from a perfectly healthy page (#7322). The candidate stays
+  // evidence, not a default: `resolveSourceBackedSwissGeography` still has to
+  // recognise the municipality, and the employer address in header/footer/nav
+  // is out of scope by construction so an HQ cannot stand in for a workplace.
+  if (!locationCandidates.length && !ambiguousStructuredSiblings) {
+    for (const candidate of renderedPostalAddressCandidates(html)) locationCandidates.push(candidate);
+  }
   const primaryLocation = /** @type {any} */ (locationCandidates[0] || {});
   const structuredLocationClasses = structuredRecords.map((record) => {
     const decisions = locationEvidenceCandidates(record)
@@ -421,6 +434,83 @@ export function extractDetailFields(html = '', pageUrl = '') {
     postedDate: structuredRecords.find((record) => record.postedDate)?.postedDate || '',
     employmentType: structuredRecords.find((record) => record.employmentType)?.employmentType || '',
   };
+}
+
+/**
+ * Class names that mark a rendered address block. Vendor-neutral: arsante.ch
+ * spells it `contact-info`, other sites `standort` / `lieu-de-travail` /
+ * `job-address`. A bare `<address>` element counts by its own semantics.
+ */
+const ADDRESS_BLOCK_CLASS_RX = /(?:^|[\s_-])(?:contact|address|adresse|indirizzo|standort|arbeitsort|workplace|lieu|luogo|sede|ort)(?:$|[\s_-])/i;
+
+/**
+ * `1201 Genève`, `CH-8003 Zürich`: a Swiss postal code immediately followed by
+ * a capitalised municipality. The postal code is what makes the pair an
+ * address rather than a sentence, so it is required, never inferred.
+ */
+const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'\u2019.-]*(?:[ -]\p{L}[\p{L}'\u2019.-]*){0,3})/gu;
+
+/**
+ * The part of a detail page that describes the vacancy. The employer's own
+ * address lives in the site chrome (arsante.ch repeats `CH-1213 Petit-Lancy`
+ * in every page footer); reading it as the workplace would publish one
+ * fabricated employer default for every vacancy, which is exactly what the
+ * source-backed gate exists to prevent.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function vacancyContentRegion(html = '') {
+  const main = /<(main|article)\b[^>]*>([\s\S]*?)<\/\1>/i.exec(html);
+  return (main ? main[2] : html)
+    .replace(/<footer\b[\s\S]*?<\/footer>/gi, ' ')
+    .replace(/<header\b[\s\S]*?<\/header>/gi, ' ')
+    .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ');
+}
+
+/**
+ * Location evidence read from a rendered postal address inside the vacancy
+ * body, in document order. Returns [] when the page carries none — an empty
+ * result must stay empty so the caller keeps dropping the row.
+ *
+ * @param {string} html
+ * @returns {Array<{location: string, addressCountry: string, addressLocality: string, postalCode: string}>}
+ */
+export function renderedPostalAddressCandidates(html = '') {
+  const scope = vacancyContentRegion(html);
+  const index = indexHtmlTags(scope);
+  const containers = readAttributeContainers(
+    scope,
+    'class',
+    (value) => ADDRESS_BLOCK_CLASS_RX.test(value),
+    index,
+  );
+  for (const opening of index.openings) {
+    if (opening.name !== 'address') continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (bounds) containers.push(scope.slice(opening.index, bounds.end));
+  }
+  const out = [];
+  const seen = new Set();
+  // Match inside a single text node: flattening the container first glues
+  // `<p>1201 Genève</p><p>Postuler</p>` into one string and the municipality
+  // swallows the words that follow it.
+  for (const container of containers) {
+    for (const node of container.split(/<[^>]*>/).map((part) => textOf(part))) {
+      for (const match of node.matchAll(SWISS_POSTAL_ADDRESS_RX)) {
+        const postalCode = match[1];
+        const addressLocality = match[2].replace(/\s+/g, ' ').trim();
+        const location = `${postalCode} ${addressLocality}`;
+        const key = location.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        // No addressCountry: the country is not written on the page, and the
+        // canton has to come from recognising the municipality, not from us.
+        out.push({ location, addressCountry: '', addressLocality, postalCode });
+      }
+    }
+  }
+  return out;
 }
 
 /**
