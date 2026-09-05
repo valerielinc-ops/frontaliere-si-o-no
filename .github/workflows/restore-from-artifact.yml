@@ -34,9 +34,14 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _restore
+          # #7502: same class as the composite action — an unpaginated listing
+          # answers with the first 30 artifacts of the run, and deploy.yml
+          # uploads more than that, so a client-side name filter over a
+          # truncated page reports "no github-pages artifact" for a run that
+          # has one. Filter on the name server-side; `.expired == false` stays.
           ARTIFACT_ID=$(gh api \
-            repos/${{ github.repository }}/actions/runs/${SOURCE_RUN_ID}/artifacts \
-            --jq '.artifacts[] | select(.name == "github-pages" and .expired == false) | .id')
+            "repos/${{ github.repository }}/actions/runs/${SOURCE_RUN_ID}/artifacts?name=github-pages&per_page=100" \
+            --jq '.artifacts[] | select(.expired == false) | .id')
           if [ -z "$ARTIFACT_ID" ]; then
             echo "::error::No github-pages artifact in run ${SOURCE_RUN_ID}"
             exit 1

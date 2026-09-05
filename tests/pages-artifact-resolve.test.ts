@@ -175,6 +175,33 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('#7502 — every run-artifact listing filters on the name server-side, paginated', () => {
+    // `runs/<id>/artifacts` answers with `per_page=30` by default and
+    // deploy.yml uploads 22 artifacts, some of them inside a 4-locale matrix.
+    // A client-side `select(.name=="github-pages")` over a truncated page is
+    // indistinguishable from a run that has no artifact at all, so the
+    // walk-back rejects every candidate and dies claiming no deploy has one.
+    // `?name=github-pages&per_page=100` makes the response un-truncatable.
+    const offenders: string[] = [];
+    for (const f of allGithubShellFiles()) {
+      // measure-deploy-delta.yml carries the same listing and is exempt only
+      // because PR #7573 is rewriting those exact lines — see the
+      // `## Non implementato (ancora)` of the #7502 PR. Delete this line with
+      // the fix; the follow-up that lands it is what re-arms this assertion.
+      if (f.endsWith('measure-deploy-delta.yml')) continue;
+      for (const m of codeOnly(f).matchAll(/actions\/runs\/[^\s"']*\/artifacts([^\s"']*)/g)) {
+        const query = m[1];
+        if (!/[?&]per_page=\d+/.test(query) || !/[?&]name=github-pages/.test(query)) {
+          offenders.push(`${f}: ${m[0]}`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+    // …and the name filter left the jq, which now only has to drop expired
+    // artifacts (#7392) — a filter no query parameter replaces.
+    expect(actionSource).toMatch(/--jq '\.artifacts\[\] \| select\(\.expired==false\)/);
+  });
+
   it('every caller of the action reaches it through a checkout', () => {
     // A LOCAL composite action must exist on disk. A job that calls
     // `./.github/actions/...` without checking the repo out dies at step
