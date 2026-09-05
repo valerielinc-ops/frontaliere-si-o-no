@@ -31,15 +31,18 @@ describe('summarizeRunPhases', () => {
 
   it('carries the granted window and the time the earlier phases consumed', () => {
     const summary = summarizeRunPhases([
-      { name: 'local-mt', startedAtMs: 0, endedAtMs: 49 * 60_000 },
+      { name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 49 * 60_000, budgetMs: 150 * 60_000 },
       cascade(),
     ]);
     expect(summary?.phases).toHaveLength(2);
-    expect(summary?.phases[0]).toMatchObject({ name: 'local-mt', elapsedMs: 49 * 60_000 });
+    expect(summary?.phases[0]).toMatchObject({ name: 'local-mt-bulk', elapsedMs: 49 * 60_000 });
     expect(summary?.cascade).toMatchObject({
       windowMs: 38 * 60_000,
       starved: false,
-      consumedBeforeMs: 52 * 60_000,
+      cascadeStartedAtMs: 52 * 60_000,
+      // The phases BEFORE the cascade ended at 49 minutes; the 3 minutes between
+      // that and the loop's start are the cascade's own setup, not theirs.
+      consumedBeforeMs: 49 * 60_000,
       jobsCleared: 30,
       stopReason: 'cascade deadline',
     });
@@ -51,7 +54,7 @@ describe('summarizeRunPhases', () => {
     // Phase 2a is allowed 150 minutes and the cascade's deadline is 90, measured
     // from the same instant: the bulk pass alone can spend the whole deadline.
     const summary = summarizeRunPhases([
-      { name: 'local-mt', startedAtMs: 0, endedAtMs: 145.6 * 60_000 },
+      { name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 145.6 * 60_000, budgetMs: 150 * 60_000 },
       cascade({ startedAtMs: 152 * 60_000, windowMs: -62 * 60_000, jobsCleared: 0 }),
     ]);
     expect(summary?.cascade?.starved).toBe(true);
@@ -67,8 +70,35 @@ describe('summarizeRunPhases', () => {
     expect(summary?.cascade?.jobsPerWindowMinute).toBeNull();
   });
 
+  it('keeps the budget a phase was allowed next to the time it took', () => {
+    // 150 minutes allowed against the cascade's 90 from the same instant is the
+    // whole point of the measurement; a report showing only the duration hides it.
+    const summary = summarizeRunPhases([
+      { name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 145.6 * 60_000, budgetMs: 150 * 60_000 },
+    ]);
+    expect(summary?.phases[0]).toMatchObject({ budgetMs: 150 * 60_000, elapsedMs: 145.6 * 60_000 });
+  });
+
+  it('leaves consumedBeforeMs null when the cascade was the first phase', () => {
+    const summary = summarizeRunPhases([cascade({ startedAtMs: 0, windowMs: 90 * 60_000 })]);
+    expect(summary?.cascade?.consumedBeforeMs).toBeNull();
+    expect(summary?.cascade?.cascadeStartedAtMs).toBe(0);
+  });
+
+  it('distinguishes a cascade that ran and found nothing from one never instrumented', () => {
+    // An early return records the phase with a null window and a stated reason.
+    const idle = summarizeRunPhases([
+      { name: 'cascade', startedAtMs: null, endedAtMs: 4_000, windowMs: null, jobsCleared: 0, stopReason: 'nothing to relocalize' },
+    ]);
+    expect(idle?.cascade).not.toBeNull();
+    expect(idle?.cascade?.stopReason).toBe('nothing to relocalize');
+    expect(idle?.cascade?.starved).toBeNull();
+    // Never instrumented at all is the only case that yields no cascade block.
+    expect(summarizeRunPhases([{ name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 10 }])?.cascade).toBeNull();
+  });
+
   it('reports phases even when no cascade ran', () => {
-    const summary = summarizeRunPhases([{ name: 'local-mt', startedAtMs: 0, endedAtMs: 60_000 }]);
+    const summary = summarizeRunPhases([{ name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 60_000 }]);
     expect(summary?.cascade).toBeNull();
     expect(summary?.phases).toHaveLength(1);
   });
@@ -82,9 +112,9 @@ describe('the phase sidecar', () => {
   afterEach(() => fs.rmSync(RUN_PHASES_PATH, { force: true }));
 
   it('appends entries in the order the phases ran', () => {
-    recordRunPhase({ name: 'local-mt', startedAtMs: 0, endedAtMs: 10 });
+    recordRunPhase({ name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 10 });
     recordRunPhase({ name: 'cascade', startedAtMs: 10, endedAtMs: 20 });
-    expect(readRunPhases().map((phase: { name: string }) => phase.name)).toEqual(['local-mt', 'cascade']);
+    expect(readRunPhases().map((phase: { name: string }) => phase.name)).toEqual(['local-mt-bulk', 'cascade']);
   });
 
   it('ignores an entry with no name and never throws on a corrupt sidecar', () => {

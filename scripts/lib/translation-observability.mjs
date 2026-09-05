@@ -472,10 +472,17 @@ export function summarizeRunPhases(phases) {
         ? null
         : finiteOrNull(phase.endedAtMs) - finiteOrNull(phase.startedAtMs),
       jobsCleared: finiteOrNull(phase.jobsCleared),
+      // The budget a phase was ALLOWED, next to the time it took. Phase 2a is
+      // allowed 150 minutes and the cascade's deadline is 90 from the same
+      // instant: without the budget beside the duration, a report shows a long
+      // bulk pass without showing that it was entitled to run that long.
+      budgetMs: finiteOrNull(phase.budgetMs),
       stopReason: typeof phase.stopReason === 'string' ? phase.stopReason : null,
     }));
   if (clean.length === 0) return null;
-  const recorded = phases.find((phase) => phase?.name === 'cascade') || null;
+  const cascadeIndex = phases.findIndex((phase) => phase?.name === 'cascade');
+  const recorded = cascadeIndex === -1 ? null : phases[cascadeIndex];
+  const consumedBefore = cascadeIndex <= 0 ? null : finiteOrNull(phases[cascadeIndex - 1]?.endedAtMs);
   const startedAtMs = finiteOrNull(recorded?.startedAtMs);
   const windowMs = finiteOrNull(recorded?.windowMs);
   const jobsCleared = finiteOrNull(recorded?.jobsCleared);
@@ -486,8 +493,16 @@ export function summarizeRunPhases(phases) {
       // Zero or negative: the earlier phases spent the whole deadline, so the
       // cascade was over its limit before its first company.
       starved: windowMs === null ? null : windowMs <= 0,
-      // What the phases before it consumed — the "who ate the window" number.
-      consumedBeforeMs: startedAtMs,
+      // When the cascade's own loop began. NOT the same as what the earlier
+      // phases consumed: the cascade spends time on its own setup — dataset scan,
+      // shadow preflight, flag clearing, a full rewrite of data/jobs.json — before
+      // this instant, and charging that to the phases before it would point the
+      // "who ate the window" question at the wrong culprit.
+      cascadeStartedAtMs: startedAtMs,
+      // What the phases BEFORE the cascade actually consumed: the end of the last
+      // one. Null when the cascade was the first phase, so nothing is inferred
+      // from an absence.
+      consumedBeforeMs: consumedBefore,
       deadlineMs: finiteOrNull(recorded?.deadlineMs),
       jobsCleared,
       companiesQueued: finiteOrNull(recorded?.companiesQueued),
