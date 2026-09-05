@@ -138,6 +138,34 @@ describe('standard crawler authoritative-empty policy', () => {
       expect.objectContaining({ skipShrinkGuard: true }),
     );
     expect(mocks.assembleJobsDataset).toHaveBeenCalledOnce();
+    // #7324: the proof must reach the summary slice, otherwise
+    // check-crawler-health.mjs reads this published zero as a dead selector
+    // (`discovered: 0`, so the #5945 filtered-empty rule cannot fire either)
+    // and accrues a broken streak no parser fix can clear.
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({ key: COMPANY_KEY, total: 0, authoritativeEmptySnapshot: true }),
+    );
+  });
+
+  it('does not claim an authoritative empty snapshot on a run that published jobs', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-empty-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Authoritative Empty Test',
+        root,
+        fetchJobs: async () => [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+        isCompanyJob: () => true,
+        validateAuthoritativeSnapshot: () => true,
+        allowAuthoritativeEmptySnapshot: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({ authoritativeEmptySnapshot: false }),
+    );
   });
 
   it('keeps the legacy zero policy when the caller does not explicitly opt in', () => {

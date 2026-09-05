@@ -910,6 +910,10 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && Number.isFinite(Number(summary.written))
       ? Number(summary.written)
       : null;
+  // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
+  // absent for crawlers without an authoritative-snapshot validator.
+  const authoritativeEmpty =
+    summary && typeof summary === 'object' && summary.authoritativeEmptySnapshot === true;
   // For crawler health, count what the crawler found, not what later
   // housekeeping kept in the active slice. URL cleanup has its own failure
   // surface; otherwise a cleanup false positive is mislabeled as a parser
@@ -944,6 +948,7 @@ async function inspectCrawler(slug) {
     activeJobCount,
     discovered,
     written,
+    authoritativeEmpty,
   };
 }
 
@@ -1013,6 +1018,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     summary.written >= 0
       ? summary.written
       : null;
+  const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
 
   return {
     slug,
@@ -1024,6 +1030,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     activeJobCount,
     discovered,
     written,
+    authoritativeEmpty,
   };
 }
 
@@ -1155,8 +1162,11 @@ function selectNewestCrawlerObservation(
  * true either for a manually-curated `EMPTY_OK_CRAWLERS` slug, OR — issue
  * #5945 — when the observation itself proves the run found candidates but
  * its Swiss/location filter dropped all of them (`discovered > 0` and
- * `jobCount === 0`). The latter needs no allowlist entry: the run's own
- * counts already distinguish "filtered" from "broken".
+ * `jobCount === 0`), OR — issue #7324 — when the run carried an authoritative
+ * empty-snapshot proof (`authoritativeEmptySnapshot`, written by
+ * `crawler-template` only when the parser matched the source's explicit "no
+ * open positions" marker). The latter two need no allowlist entry: the run's
+ * own evidence already distinguishes "legitimately empty" from "broken".
  */
 function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const previous = prev && typeof prev === 'object' ? prev : {};
@@ -1169,8 +1179,20 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     Number.isFinite(observation.discovered);
   const autoFilteredEmpty =
     hasDiscoveredSignal && observation.discovered > 0 && lastObservedJobs === 0;
+  // A source-proven empty state (the run's own `validateAuthoritativeSnapshot`
+  // matched the page's explicit "no open positions" marker) is the SAME kind of
+  // evidence as the filtered-empty counts above, for the complementary case
+  // where `discovered` is legitimately 0: the source published nothing, and it
+  // said so. Without it, a crawler that can only ever return a proven 0 —
+  // `ocst`, `artisa`, `cippatrasporti`, … — accrues a broken streak that no
+  // parser fix can clear (#7324), and the only workaround is an
+  // `EMPTY_OK_CRAWLERS` entry that keeps masking the slug after the source
+  // really dies. This signal cannot: the proof is re-established every run or
+  // the crawler throws.
+  const authoritativeEmpty = observation.authoritativeEmpty === true && lastObservedJobs === 0;
 
-  const emptyOk = EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty;
+  const emptyOk =
+    EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty || authoritativeEmpty;
 
   // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
   // directly. Resolve a freshness timestamp from whichever field is present.
@@ -1204,7 +1226,9 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const previousEmptyOk =
     typeof previous._lastObservedEmptyOk === 'boolean'
       ? previous._lastObservedEmptyOk
-      : EMPTY_OK_CRAWLERS.has(observation.slug) || previous._autoFilteredEmpty === true;
+      : EMPTY_OK_CRAWLERS.has(observation.slug)
+        || previous._autoFilteredEmpty === true
+        || previous._authoritativeEmptySnapshot === true;
   const isRepeatObservation =
     hadPriorState &&
     freshnessAt !== null &&
@@ -1303,6 +1327,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedDiscoveredCount: hasDiscoveredSignal ? observation.discovered : null,
       _lastObservedWrittenCount: observation.written ?? null,
       _autoFilteredEmpty: autoFilteredEmpty,
+      _authoritativeEmptySnapshot: authoritativeEmpty,
     },
     reason,
     status,

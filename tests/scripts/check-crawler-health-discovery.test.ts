@@ -106,4 +106,47 @@ describe('inspectCrawler', () => {
     expect(observation.jobCount).toBe(0);
     expect(observation.activeJobCount).toBe(0);
   });
+
+  // #7324: crawlers with a source-proven empty state report `discovered: 0`
+  // legitimately, so the #5945 filtered-empty rule can never classify them.
+  // The template writes the proof into the summary slice; inspectCrawler has
+  // to carry it into the observation or nextCrawlerState cannot see it.
+  it('carries the authoritative empty-snapshot proof from the summary slice', async () => {
+    readFile.mockImplementation(async (file: string) => {
+      if (isSummaryDir(file)) {
+        return JSON.stringify({
+          generatedAt: '2026-09-05T12:58:06.161Z',
+          total: 0,
+          discovered: 0,
+          written: 0,
+          authoritativeEmptySnapshot: true,
+        });
+      }
+      throw enoent();
+    });
+    stat.mockRejectedValue(enoent());
+
+    const observation = await inspectCrawler('ocst');
+
+    expect(observation.authoritativeEmpty).toBe(true);
+  });
+
+  it('leaves the proof false for a summary slice that does not claim it', async () => {
+    readFile.mockImplementation(async (file: string) => {
+      if (isSummaryDir(file)) {
+        return JSON.stringify({
+          generatedAt: '2026-09-05T12:58:06.161Z',
+          total: 0,
+          discovered: 0,
+          written: 0,
+        });
+      }
+      throw enoent();
+    });
+    stat.mockRejectedValue(enoent());
+
+    const observation = await inspectCrawler('omega');
+
+    expect(observation.authoritativeEmpty).toBe(false);
+  });
 });

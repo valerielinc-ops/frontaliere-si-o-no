@@ -380,6 +380,12 @@ async function main() {
     label: 'Artisa Group',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    // Same per-run proof the shared template emits (crawler-template.mjs):
+    // without it `check-crawler-health.mjs` reads this run's proven zero as a
+    // dead selector and accrues a broken streak no parser fix can clear
+    // (#7324). This bespoke runner writes its own summary slice, so it has to
+    // carry the field itself.
+    authoritativeEmptySnapshot,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
