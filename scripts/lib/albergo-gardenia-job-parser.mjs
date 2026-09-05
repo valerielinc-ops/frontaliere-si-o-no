@@ -774,7 +774,17 @@ export function assertCompleteAlbergoGardeniaSnapshot(jobs) {
     || Reflect.get(jobs, 'gardeniaSnapshotState') !== 'authoritative-site-zero'
     || Number(Reflect.get(jobs, 'sourcePageCount')) < MIN_CONTENT_URLS
   ) {
-    throw new Error('Albergo Gardenia snapshot is not a proven authoritative empty state');
+    // Four conditions, so the message has to say WHICH one refused — see the
+    // same reasoning on `assertCompleteArtisaSnapshot` (issue #7425 item 3):
+    // a permanent parser drift and a transient fetch shortfall otherwise
+    // produce the same red, and only one of them clears itself.
+    throw new Error(
+      'Albergo Gardenia snapshot is not a proven authoritative empty state: '
+      + `rows=${Array.isArray(jobs) ? jobs.length : 'not-an-array'}, `
+      + `state=${Array.isArray(jobs) ? Reflect.get(jobs, 'gardeniaSnapshotState') ?? '(unset)' : 'n/a'}, `
+      + `sourcePageCount=${Array.isArray(jobs) ? Reflect.get(jobs, 'sourcePageCount') ?? '(unset)' : 'n/a'} `
+      + `(min ${MIN_CONTENT_URLS})`,
+    );
   }
   return true;
 }

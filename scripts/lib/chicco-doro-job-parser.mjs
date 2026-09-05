@@ -287,7 +287,17 @@ export function assertCompleteChiccoDoroSnapshot(jobs) {
     || Reflect.get(jobs, 'resolvedPageCount') !== CAREER_ALT_URLS.length
     || (jobs.length === 0 && Reflect.get(jobs, 'canonicalOpenApplication') !== true)
   ) {
-    throw new Error("Chicco d'Oro snapshot is not a proven complete career inventory");
+    // Same reasoning as `assertCompleteArtisaSnapshot` (issue #7425 item 3):
+    // four conditions collapsed into one message make a permanent markup
+    // drift indistinguishable from a transient fetch shortfall.
+    throw new Error(
+      "Chicco d'Oro snapshot is not a proven complete career inventory: "
+      + `rows=${Array.isArray(jobs) ? jobs.length : 'not-an-array'}, `
+      + `state=${Array.isArray(jobs) ? Reflect.get(jobs, 'chiccoDoroSnapshotState') ?? '(unset)' : 'n/a'}, `
+      + `resolvedPageCount=${Array.isArray(jobs) ? Reflect.get(jobs, 'resolvedPageCount') ?? '(unset)' : 'n/a'}`
+      + `/${CAREER_ALT_URLS.length}, `
+      + `canonicalOpenApplication=${Array.isArray(jobs) ? Reflect.get(jobs, 'canonicalOpenApplication') ?? '(unset)' : 'n/a'}`,
+    );
   }
   return true;
 }

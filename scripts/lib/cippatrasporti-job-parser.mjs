@@ -134,7 +134,15 @@ export function assertCompleteCippatrasportiSnapshot(jobs) {
     || Reflect.get(jobs, 'cippatrasportiSnapshotState') !== SNAPSHOT_STATE
     || Reflect.get(jobs, 'discoveredCount') !== jobs.length
   ) {
-    throw new Error('Cippà Trasporti snapshot is not a proven complete Altamira inventory');
+    // Same reasoning as `assertCompleteArtisaSnapshot` (issue #7425 item 3):
+    // name which of the three conditions refused, so a parser drift is not
+    // reported with the same string as a partial fetch.
+    throw new Error(
+      'Cippà Trasporti snapshot is not a proven complete Altamira inventory: '
+      + `rows=${Array.isArray(jobs) ? jobs.length : 'not-an-array'}, `
+      + `state=${Array.isArray(jobs) ? Reflect.get(jobs, 'cippatrasportiSnapshotState') ?? '(unset)' : 'n/a'}, `
+      + `discoveredCount=${Array.isArray(jobs) ? Reflect.get(jobs, 'discoveredCount') ?? '(unset)' : 'n/a'}`,
+    );
   }
   return true;
 }

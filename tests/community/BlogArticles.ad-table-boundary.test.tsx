@@ -99,6 +99,51 @@ describe('inline ads around a table that opens a section (#7337)', () => {
     expect(countAds(render(withTable))).toBe(countAds(render(control)));
   });
 
+  /**
+   * Issue #7414 item 1. `flushPendingAd` clears `pendingAdKey` BEFORE calling
+   * `tryEmitAd`, so a deferred ad gets exactly one attempt; the review asked
+   * whether that loses an ad when `adRenderer` hits the per-article cap and
+   * returns null mid-article, and noted it had never exercised a capped
+   * renderer on a body with more than one deferral.
+   *
+   * It cannot: `flushPendingAd()` is the FIRST statement of the block loop and
+   * runs again before the end-of-segment `post-end` slot, so between the `## `
+   * that defers and the flush that retries there is no other `tryEmitAd` call
+   * — the deferred ad is the very next ad REQUESTED, in the same order the
+   * un-deferred body would have requested it. A request-ordered cap therefore
+   * answers both bodies identically. This exercises that with a cap that bites
+   * mid-article, over two deferrals, which is what the review left untested.
+   */
+  it('loses no ad to a per-article cap that runs out mid-article (two deferrals)', () => {
+    const cappedRenderer = (cap: number) => {
+      let used = 0;
+      return (keyPrefix: string) => {
+        if (used >= cap) return null;
+        used += 1;
+        return <div key={keyPrefix} data-testid="inline-ad" />;
+      };
+    };
+    const section = (n: number) => `## Sezione ${n}\n\n${TABLE}\n\n${words(250)}`;
+    const control = (n: number) => `## Sezione ${n}\n\n${words(40)}\n\n${words(250)}`;
+    const deferred = `${words(250)}\n\n${section(1)}\n\n${section(2)}\n\n${words(250)}`;
+    const undeferred = `${words(250)}\n\n${control(1)}\n\n${control(2)}\n\n${words(250)}`;
+
+    // Uncapped both bodies emit the same number of ads (the invariant above);
+    // the cap has to bite strictly inside that number to test anything.
+    const uncapped = countAds(render(undeferred));
+    expect(uncapped).toBeGreaterThan(2);
+    for (let cap = 1; cap < uncapped; cap += 1) {
+      const withTables = renderToStaticMarkup(
+        renderFormattedContent(deferred, undefined, cappedRenderer(cap)),
+      );
+      const withoutTables = renderToStaticMarkup(
+        renderFormattedContent(undeferred, undefined, cappedRenderer(cap)),
+      );
+      expect(countAds(withTables)).toBe(countAds(withoutTables));
+      expect(countAds(withTables)).toBe(cap);
+    }
+  });
+
   it('still emits the ad before an H2 whose section opens with prose', () => {
     const html = render(bodyWithoutTable);
     const h2 = html.indexOf('<h2');

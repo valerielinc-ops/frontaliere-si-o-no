@@ -57,20 +57,30 @@ const PROJECT_ROOT = path.resolve(path.dirname(__filename), '..', '..');
 
 /**
  * A cathedral gate is named `text-html-ratio`; the same gate appears in
- * `QUALITY_GATES` under the name the validate-dist pipeline uses for it,
- * either `audit:<name>` (standalone audit) or `audit:all/<name>` (bundled
- * sub-auditor). Both prefixes are tried, so neither table has to repeat the
- * other's naming.
+ * `QUALITY_GATES` under the key the validate-dist pipeline uses for it, which
+ * carries the runner as a prefix. That table uses FOUR key shapes today —
+ * `audit:<name>`, `audit:all/<name>`, `validate:<name>`, `dist:<name>` — so
+ * indexing by the two `audit` prefixes alone (issue #7413 item 2) left the
+ * other two unreachable: a cathedral gate whose validate-dist key were
+ * `validate:…` would fall through to "actionable" and restart the rebaseline
+ * treadmill this script exists to stop.
  *
+ * Keying on the name AFTER the runner prefix covers every shape without either
+ * table repeating the other's naming, and without this file having to be
+ * edited again when a fifth runner appears.
+ */
+const NICE_TO_HAVE_GATE_NAMES = new Set(
+  Object.keys(QUALITY_GATES).map((key) =>
+    key.slice(Math.max(key.lastIndexOf(':'), key.lastIndexOf('/')) + 1),
+  ),
+);
+
+/**
  * @param {string} gateName cathedral gate name
  * @returns {boolean} true when the gate is an opportunistic heuristic (D9)
  */
 export function isNiceToHaveGate(gateName) {
-  const name = String(gateName ?? '');
-  return (
-    Object.hasOwn(QUALITY_GATES, `audit:${name}`) ||
-    Object.hasOwn(QUALITY_GATES, `audit:all/${name}`)
-  );
+  return NICE_TO_HAVE_GATE_NAMES.has(String(gateName ?? ''));
 }
 
 /**
