@@ -17,7 +17,33 @@
  * a worktree got the wrong gate verdict, citing a file that was dirty only
  * in an unrelated main checkout the gated branch never touched at all. The
  * agent worked around it by calling the GitHub API directly instead of
- * `gh pr create`; this module is the actual fix, not the workaround.
+ * `gh pr create`; this module addresses the half of that incident where
+ * `payload.cwd` IS the right directory and only the hook subprocess was
+ * running elsewhere.
+ *
+ * WHAT IT DOES NOT FIX, and used to claim it did (corrected 2026-09-05).
+ * `payload.cwd` is the session's TRACKED working directory — the result of
+ * `cd`s in PREVIOUS Bash calls. A `cd` written in the same call as the gated
+ * command does not count: the hook runs BEFORE the command. So in a fleet of
+ * parallel agents the tracked cwd is very often the shared main checkout, and
+ * a gate that analyses THAT DIRECTORY'S WORKING TREE is reading whatever the
+ * other sessions left uncommitted there. Measured 2026-09-05 on this
+ * repository: `check-sibling-patterns.mjs` reported 5 changed files and 44
+ * candidates from the main checkout (dirty with another session's
+ * `scripts/lib/prospector/**` work) and 0/0 from a clean worktree at the same
+ * instant. A branch touching 1 file was blocked over 50 candidates that
+ * belonged to nobody's branch — unsatisfiable, because no per-file false
+ * positive declaration can cover files the author never touched.
+ *
+ * The directory is therefore the WRONG UNIT for a gate. `sibling-check-gate.mjs`
+ * now resolves WHICH BRANCH the gated `gh pr create` is proposing (its `--head`,
+ * else the tracked directory's `HEAD`) and analyses that ref against
+ * `origin/main`. Worktrees share `.git`, so a branch ref resolves identically
+ * from any directory of the repo, and uncommitted foreign work is invisible to
+ * a commit-to-commit diff. This module is still the right answer for the
+ * remaining directory-shaped question — WHERE to resolve a relative
+ * `--body-file`, and which repo to run git in — which is what its callers use
+ * it for now.
  *
  * Fail-safe by construction: any missing/malformed/nonexistent `cwd` returns
  * `undefined`, which `execFileSync`'s own `cwd` option treats identically to

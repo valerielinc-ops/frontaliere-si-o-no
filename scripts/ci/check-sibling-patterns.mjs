@@ -53,9 +53,29 @@
  *      prima di persisterlo, stessa evidenza distrutta reimplementata con
  *      identificatori diversi in ogni sibling, nessun token condiviso.
  *
+ *   8. `--head <ref>` (2026-09-05): i pass 1-7 leggono di default il WORKING
+ *      TREE della directory da cui il processo gira — deliberato per l'uso
+ *      advisory pre-push, dove il fix può non essere ancora committato. Per un
+ *      GATE quella dipendenza dalla directory è un difetto: `sibling-check-gate`
+ *      gira come hook PreToolUse e riceve `payload.cwd`, cioè il working
+ *      directory TRACCIATO della sessione, che in una flotta di agenti è spesso
+ *      il checkout principale condiviso. Misurato il 2026-09-05 su questo
+ *      repository: dal checkout principale (sporco del lavoro non committato di
+ *      un'altra sessione su `scripts/lib/prospector/**`) lo script riportava 5
+ *      file cambiati e 44 candidati; dal worktree pulito dello stesso momento,
+ *      0 e 0. Nessuna dichiarazione di falso positivo poteva soddisfare quel
+ *      gate: i candidati non appartenevano al branch in apertura. Con
+ *      `--head <ref>` diff, `git grep` e la lettura del contenuto per il
+ *      pattern-class registry sono tutti scopati a QUEL ref — i worktree
+ *      condividono `.git`, quindi un branch dà lo stesso identico verdetto da
+ *      qualunque directory del repo. Diagnostico: esegui lo script dal checkout
+ *      principale e da un worktree e confronta «File di codice cambiati»; senza
+ *      `--head` i due numeri divergono, con `--head <branch>` no.
+ *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
  *   node scripts/ci/check-sibling-patterns.mjs --base <ref>
+ *   node scripts/ci/check-sibling-patterns.mjs --head <ref>  # ref, non working tree
  *   node scripts/ci/check-sibling-patterns.mjs --strict   # exit 1 se candidati
  *   node scripts/ci/check-sibling-patterns.mjs --json
  *
@@ -73,13 +93,17 @@ const JSON_OUT = argv.includes('--json');
 const HELP = argv.includes('--help') || argv.includes('-h');
 const baseIdx = argv.indexOf('--base');
 const BASE_ARG = baseIdx >= 0 ? argv[baseIdx + 1] : null;
+// `--head <ref>`: analizza QUEL ref invece del working tree della directory
+// corrente (vedi HEAD_REF sotto). Default `null` = comportamento storico.
+const headIdx = argv.indexOf('--head');
+const HEAD_REF = headIdx >= 0 && argv[headIdx + 1] ? argv[headIdx + 1] : null;
 
 if (HELP) {
   console.log(
     'check-sibling-patterns.mjs — surface untouched sibling files sharing the\n' +
       'code constructs your branch changed (sibling-class-fix helper, issue #1348).\n\n' +
-      'Flags: --base <ref> (default origin/main) · --strict (exit 1 if candidates)\n' +
-      '       --json · --help',
+      'Flags: --base <ref> (default origin/main) · --head <ref> (default: working tree)\n' +
+      '       --strict (exit 1 if candidates) · --json · --help',
   );
   process.exit(0);
 }
@@ -159,6 +183,63 @@ function git(args, { allowFail = false } = {}) {
     if (allowFail) return '';
     throw e;
   }
+}
+
+/**
+ * `git grep -l` scopato al ref quando `--head` è attivo. Con un rev in coda
+ * git prefissa ogni riga con `<rev>:`; lo togliamo per restituire path nudi
+ * identici a quelli del working tree, così i chiamanti non cambiano.
+ */
+function grepFiles(grepArgs, pathspecs) {
+  const out = git(
+    ['grep', ...grepArgs, ...(HEAD_REF ? [HEAD_REF] : []), '--', ...pathspecs],
+    { allowFail: true },
+  );
+  const prefix = HEAD_REF ? `${HEAD_REF}:` : '';
+  return out
+    .split('\n')
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((l) => (prefix && l.startsWith(prefix) ? l.slice(prefix.length) : l));
+}
+
+/** Contenuto di un file tracked, dal ref se `--head` è attivo, altrimenti dal disco. */
+function readTracked(file) {
+  if (!HEAD_REF) {
+    try {
+      return readFileSync(file, 'utf8');
+    } catch {
+      return null; // deleted/binary/unreadable in working tree
+    }
+  }
+  return git(['show', `${HEAD_REF}:${file}`], { allowFail: true }) || null;
+}
+
+/**
+ * Quanto è FORTE l'aggancio che ha portato dentro un candidato (2026-09-05).
+ *
+ * Misurato su questo repository (vedi PR che introduce questa funzione): su un
+ * diff di UN file, 20 candidati su 22 erano agganciati a un solo identificatore
+ * nudo — `rawDescription`, il nome di una variabile locale reimplementata in sei
+ * job parser, e `completedAt`, un nome di campo presente in un pannello admin e
+ * in una checklist. Gli unici due candidati seri condividevano un helper vero.
+ * Un match su UN solo identificatore non è la stessa evidenza di un match su più
+ * costrutti o su una forma strutturale del registro: chi legge l'elenco deve
+ * poterlo distinguere a colpo d'occhio invece di ispezionare venti file per
+ * trovarne due.
+ *
+ * `debole` NON significa «ignorabile»: il candidato resta nell'elenco e continua
+ * a bloccare il gate (AGENTS.md #6 protegge una regola reale, e declassare a
+ * silenzio aprirebbe un buco). È un ordinamento e un'etichetta, non un filtro.
+ *
+ * @param {string[]} tokens costrutti condivisi del candidato
+ * @returns {'forte'|'debole'}
+ */
+export function candidateStrength(tokens) {
+  const list = Array.isArray(tokens) ? tokens : [];
+  const structural = list.some((t) => t.startsWith('class:"') || t.startsWith('removed:"'));
+  if (structural) return 'forte';
+  return list.length >= 2 ? 'forte' : 'debole';
 }
 
 function resolveBase() {
@@ -472,7 +553,7 @@ export const PATTERN_CLASSES = [
 function main() {
   const base = resolveBase();
   // merge-base per il three-dot: cambiamenti del branch dalla divergenza.
-  const resolution = resolveMergeBase(base);
+  const resolution = resolveMergeBase(base, HEAD_REF ?? 'HEAD');
   const { mergeBase } = resolution;
 
   if (!mergeBase) {
@@ -492,7 +573,7 @@ function main() {
     if (JSON_OUT) {
       console.log(
         JSON.stringify(
-          { base, mergeBase: null, changedCode: [], candidates: [], skipped: true, reason: 'unresolvable-merge-base' },
+          { base, head: HEAD_REF, mergeBase: null, changedFiles: 0, changedCode: [], candidates: [], skipped: true, reason: 'unresolvable-merge-base' },
           null,
           2,
         ),
@@ -501,10 +582,12 @@ function main() {
     process.exit(STRICT && verdict.blocking ? 1 : 0);
   }
 
-  // Diff del working tree vs base (committed + staged + unstaged): copre tutto
-  // ciò che il branch introdurrà, anche se il fixer non ha ancora committato.
+  // Senza `--head`: diff del working tree vs base (committed + staged +
+  // unstaged), che copre tutto ciò che il branch introdurrà anche se il fixer
+  // non ha ancora committato. Con `--head <ref>`: diff commit-a-commit, quindi
+  // il verdetto dipende dal BRANCH e non dalla directory da cui giriamo (pass 8).
   const changedRaw = git(
-    ['diff', '--name-only', '--diff-filter=ACMR', mergeBase],
+    ['diff', '--name-only', '--diff-filter=ACMR', mergeBase, ...(HEAD_REF ? [HEAD_REF] : [])],
     { allowFail: true },
   );
   const changedAll = changedRaw.split('\n').map((s) => s.trim()).filter(Boolean);
@@ -515,7 +598,14 @@ function main() {
     const msg =
       'check-sibling-patterns: nessun file di codice funnel-critical cambiato vs ' +
       `${base} — niente da analizzare.`;
-    if (JSON_OUT) console.log(JSON.stringify({ base, changedCode: [], candidates: [] }, null, 2));
+    if (JSON_OUT)
+      console.log(
+        JSON.stringify(
+          { base, head: HEAD_REF, changedFiles: changedAll.length, changedCode: [], candidates: [] },
+          null,
+          2,
+        ),
+      );
     else console.log(msg);
     process.exit(0);
   }
@@ -524,7 +614,10 @@ function main() {
   const tokenToChangedFiles = new Map(); // token -> Set(file che l'ha cambiato)
   const removedExprs = new Set(); // espressioni verbatim da righe `-` (pass #6)
   for (const file of changedCode) {
-    const diff = git(['diff', mergeBase, '--', file], { allowFail: true });
+    const diff = git(
+      ['diff', mergeBase, ...(HEAD_REF ? [HEAD_REF] : []), '--', file],
+      { allowFail: true },
+    );
     const touched = diff
       .split('\n')
       .filter((l) => (l.startsWith('+') || l.startsWith('-')) && !/^(\+\+\+|---)/.test(l))
@@ -544,7 +637,14 @@ function main() {
     const msg =
       'check-sibling-patterns: nessun costrutto distintivo (costante/​helper/​modulo) ' +
       'estratto dalle righe cambiate — niente classe di pattern da sweepare.';
-    if (JSON_OUT) console.log(JSON.stringify({ base, changedCode, candidates: [] }, null, 2));
+    if (JSON_OUT)
+      console.log(
+        JSON.stringify(
+          { base, head: HEAD_REF, changedFiles: changedAll.length, changedCode, candidates: [] },
+          null,
+          2,
+        ),
+      );
     else console.log(msg);
     process.exit(0);
   }
@@ -554,11 +654,7 @@ function main() {
   const candidateTokens = new Map(); // file -> Set(token condiviso)
   const pathspecs = [...CODE_DIRS, ...EXCLUDE_PATHSPECS];
   for (const [tok, srcFiles] of tokenToChangedFiles) {
-    const out = git(
-      ['grep', '-l', '--fixed-strings', '-e', tok, '--', ...pathspecs],
-      { allowFail: true },
-    );
-    const hits = out.split('\n').map((s) => s.trim()).filter(Boolean);
+    const hits = grepFiles(['-l', '--fixed-strings', '-e', tok], pathspecs);
     if (hits.length > MAX_FILES) continue; // troppo comune → rumore
     for (const f of hits) {
       if (changedSet.has(f)) continue; // già nel branch
@@ -577,11 +673,7 @@ function main() {
   // mentre è esattamente la classe di bug più ampia da sweepare (reviewer
   // finding PR #4272 round 1).
   for (const expr of removedExprs) {
-    const out = git(
-      ['grep', '-l', '--fixed-strings', '-e', expr, '--', ...pathspecs],
-      { allowFail: true },
-    );
-    const hits = out.split('\n').map((s) => s.trim()).filter(Boolean);
+    const hits = grepFiles(['-l', '--fixed-strings', '-e', expr], pathspecs);
     if (hits.length > MAX_FILES) continue; // troppo comune → rumore
     for (const f of hits) {
       if (changedSet.has(f)) continue;
@@ -598,23 +690,15 @@ function main() {
   // pass sopra, non serve un token/espressione condivisa col diff — solo la
   // STESSA forma strutturale, anche con nomi di variabile diversi.
   for (const cls of PATTERN_CLASSES) {
-    const out = git(
-      ['grep', cls.prefilterFlags, cls.prefilter, '--', ...pathspecs],
-      { allowFail: true },
-    );
-    const files = out.split('\n').map((s) => s.trim()).filter(Boolean);
+    const files = grepFiles([cls.prefilterFlags, cls.prefilter], pathspecs);
     // Collect first, merge only if under the cap — a misfiring detector
     // should not contribute partial noise just because it fired early.
     const classHits = [];
     for (const f of files) {
       if (changedSet.has(f)) continue;
       if (!isCodeFile(f)) continue;
-      let content;
-      try {
-        content = readFileSync(f, 'utf8');
-      } catch {
-        continue; // deleted/binary/unreadable in working tree — skip
-      }
+      const content = readTracked(f);
+      if (content === null) continue; // deleted/binary/unreadable — skip
       if (cls.detect(content).length === 0) continue;
       classHits.push(f);
       if (classHits.length > MAX_PATTERN_CLASS_HITS) break; // stop early, too broad to be useful
@@ -627,15 +711,27 @@ function main() {
   }
 
   const candidates = [...candidateTokens.entries()]
-    .map(([file, toks]) => ({ file, tokens: [...toks].sort() }))
-    .sort((a, b) => b.tokens.length - a.tokens.length || a.file.localeCompare(b.file));
+    .map(([file, toks]) => {
+      const tokens = [...toks].sort();
+      return { file, tokens, strength: candidateStrength(tokens) };
+    })
+    // Forti prima: chi legge l'elenco deve incontrare per primi i candidati con
+    // più evidenza, non un blocco di agganci a token singolo (2026-09-05).
+    .sort(
+      (a, b) =>
+        (a.strength === b.strength ? 0 : a.strength === 'forte' ? -1 : 1) ||
+        b.tokens.length - a.tokens.length ||
+        a.file.localeCompare(b.file),
+    );
 
   if (JSON_OUT) {
-    console.log(JSON.stringify({ base, changedCode, candidates }, null, 2));
+    console.log(
+      JSON.stringify({ base, head: HEAD_REF, changedFiles: changedAll.length, changedCode, candidates }, null, 2),
+    );
     process.exit(STRICT && candidates.length ? 1 : 0);
   }
 
-  console.log(`check-sibling-patterns — base ${base}`);
+  console.log(`check-sibling-patterns — base ${base}${HEAD_REF ? ` · head ${HEAD_REF}` : ''}`);
   console.log(`File di codice cambiati: ${changedCode.length}`);
   if (candidates.length === 0) {
     console.log(
@@ -653,14 +749,22 @@ function main() {
     'Ispeziona ognuno: ha lo STESSO antipattern? → includi il fix nella STESSA PR ' +
       '(AGENTS.md #6) oppure giustificalo in `## Non implementato`.\n',
   );
+  const weak = candidates.filter((c) => c.strength === 'debole').length;
   for (const c of candidates) {
-    console.log(`  ${c.file}`);
+    console.log(`  [${c.strength}] ${c.file}`);
     console.log(`      costrutti condivisi: ${c.tokens.join(', ')}`);
   }
   console.log(
     '\nNB: candidate-surfacer euristico — token condivisi ≠ stesso antipattern. ' +
       'Conferma a mano prima di toccare/giustificare.',
   );
+  if (weak) {
+    console.log(
+      `[debole] = agganciato a UN solo identificatore nudo (${weak}/${candidates.length} qui). ` +
+        'Storicamente la gran parte di questi è rumore: un nome di variabile o di campo ' +
+        'reimplementato in file scorrelati. Vanno comunque guardati, ma parti dai [forte].',
+    );
+  }
   process.exit(STRICT ? 1 : 0);
 }
 

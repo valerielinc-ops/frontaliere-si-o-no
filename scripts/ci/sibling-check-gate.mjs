@@ -11,6 +11,28 @@
  * closure). Mirrors the analogous isGenuinePrBodyContractViolation filter in
  * pr-body-check-gate.mjs (shipped in #3332).
  *
+ * WHAT THIS GATE ANALYSES (rewritten 2026-09-05). Not "the working tree of
+ * some directory" — THE BRANCH the gated command is proposing. The gate reads
+ * `--head <branch>` off the `gh pr create` command line, falls back to the
+ * tracked directory's `HEAD` when that is a shell substitution it cannot
+ * expand, and passes the ref to `check-sibling-patterns.mjs --head`. Reason:
+ * `payload.cwd` is the session's TRACKED cwd, updated by `cd`s in PREVIOUS
+ * Bash calls, so in a fleet it is routinely the shared main checkout — and
+ * that checkout's working tree carries other sessions' uncommitted files.
+ * Measured that day: a branch touching 1 file (22 candidates from its own
+ * worktree) was judged against 4 foreign dirty files and 50 candidates, none
+ * of them declarable, because they were not the author's. A commit-to-commit
+ * diff against a branch ref cannot see foreign uncommitted work, and worktrees
+ * share `.git` so the ref resolves the same from any directory of the repo.
+ * See lib/hook-target-cwd.mjs for the full incident and for what that module
+ * does and does not close.
+ *
+ * When the branch cannot be identified at all — the ref diff comes back with
+ * ZERO changed files, which at `gh pr create` time is impossible for a real
+ * branch — the gate blocks and says exactly that, instead of reading it as a
+ * clean sweep. Same #5195 principle as the `skipped` branch below: an analysis
+ * that did not run must not be spelled "all clear".
+ *
  * Fail-safe: any internal error → exit 0 (never block PR on script failure).
  *
  * Exit codes are Claude Code hook semantics, NOT Unix convention: for
@@ -24,7 +46,7 @@
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, basename, resolve } from 'node:path';
-import { extractPrBody } from './pr-body-check-gate.mjs';
+import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import {
   ALLOW_UNRESOLVED_ENV,
@@ -82,6 +104,70 @@ export function isDeclaredFalsePositive(candidatePath, nonImplText) {
   return lines.some((l) => FALSE_POSITIVE_DECLARATION_RE.test(l));
 }
 
+/**
+ * La forma di dichiarazione che `isDeclaredFalsePositive` accetta davvero,
+ * scritta come la scriverebbe chi la deve usare.
+ *
+ * Il filtro richiede, PER OGNI candidato, UNA riga che contenga sia il path (o
+ * il basename) sia la formula di falso positivo, e `lineNamesADifferentPath`
+ * scarta una riga che nomina un altro path. Cioe': una riga per file. Un
+ * paragrafo di giustificazione — che a un lettore umano sembra piu' che
+ * sufficiente — non viene mai riconosciuto, e il gate lo ignorava in silenzio
+ * limitandosi a ripetere che i candidati non erano coperti. Il messaggio ora
+ * insegna la forma invece di lasciarla indovinare (2026-09-05).
+ */
+export const DECLARATION_HOWTO =
+  'FORMA ACCETTATA: dentro `## Non implementato (ancora)`, UNA RIGA PER FILE,\n' +
+  'ciascuna col suo path E la sua formula di falso positivo sulla STESSA riga.\n' +
+  'Esempio di una riga:\n' +
+  '  - scripts/foo.mjs — falso positivo, per scelta: condivide il token X ma lo usa\n' +
+  '    come nome di variabile locale, non come helper condiviso.\n' +
+  'Un paragrafo unico che giustifica più file NON viene riconosciuto: il filtro\n' +
+  'cerca path e formula sulla STESSA riga.\n' +
+  'Una riga che nomina un ALTRO path con lo stesso basename non copre il candidato.\n' +
+  'Formule valide: «falso positivo» / «false positive» / «solo lessicalmente simile\n' +
+  'ma semanticamente diverso» / «not the same bug class». Un rinvio a follow-up NO.';
+
+/**
+ * Il ref da analizzare: il BRANCH che il comando sta proponendo, non la
+ * directory da cui l'hook crede di girare.
+ *
+ * `--head` puo' arrivare come sostituzione di shell non espansa (la ricetta
+ * `--head "$(git rev-parse --abbrev-ref HEAD)"` e' quella raccomandata altrove),
+ * e l'hook gira PRIMA del comando, quindi non c'e' niente da espandere: in quel
+ * caso ricadiamo su `HEAD` della directory tracciata. E' comunque meglio del
+ * working tree — un diff commit-a-commit non vede il lavoro non committato di
+ * un'altra sessione, che era la causa del blocco impossibile del 2026-09-05.
+ *
+ * @param {string} command la command line di `gh pr create`
+ * @param {string|undefined} cwd directory in cui risolvere il ref
+ * @returns {{ ref: string, source: 'head-flag'|'cwd-head' }}
+ */
+export function resolveGatedHeadRef(command, cwd, run = defaultRevParse) {
+  const m = String(command ?? '').match(/--head[= ]+(?:"([^"]*)"|'([^']*)'|(\S+))/);
+  const raw = (m?.[1] ?? m?.[2] ?? m?.[3] ?? '').trim();
+  // `owner:branch` è la forma cross-fork accettata da gh; a noi serve il branch.
+  const branch = raw.includes(':') ? raw.slice(raw.indexOf(':') + 1) : raw;
+  const unexpanded = /[$`]/.test(branch);
+  if (branch && !unexpanded && run(branch, cwd)) {
+    return { ref: branch, source: 'head-flag' };
+  }
+  return { ref: 'HEAD', source: 'cwd-head' };
+}
+
+function defaultRevParse(ref, cwd) {
+  try {
+    execFileSync('git', ['rev-parse', '--verify', '--quiet', `${ref}^{commit}`], {
+      cwd,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore'],
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function main() {
   let command = '';
   let targetCwd;
@@ -112,12 +198,14 @@ async function main() {
   }
 
   // Run check-sibling-patterns.mjs --json to get the structured candidate list.
-  // `cwd: targetCwd` (see lib/hook-target-cwd.mjs) makes it analyze the
-  // worktree the gated `gh pr create` is actually running in, not whatever
-  // ambient directory this hook subprocess itself was launched from.
+  // `--head <ref>` pins the analysis to the BRANCH being proposed (see the
+  // module docstring): a commit-to-commit diff, identical from any directory of
+  // the repo, blind to other sessions' uncommitted files. `cwd: targetCwd` now
+  // only picks WHICH REPO to run git in.
+  const head = resolveGatedHeadRef(command, targetCwd);
   let jsonOutput;
   try {
-    jsonOutput = execFileSync('node', [checkScript, '--json'], {
+    jsonOutput = execFileSync('node', [checkScript, '--json', '--head', head.ref], {
       encoding: 'utf8',
       maxBuffer: 8 * 1024 * 1024,
       // Capture stdout (parsed as JSON); let stderr propagate for progress messages.
@@ -157,6 +245,29 @@ async function main() {
     process.exit(override ? 0 : EXIT_BLOCK);
   }
 
+  // Difetto 1, seconda meta'. Un branch in apertura di PR cambia per forza
+  // almeno un file: `changedFiles === 0` significa che il ref analizzato NON e'
+  // il branch dell'autore — tipicamente `HEAD` del checkout principale
+  // condiviso, fermo su main. Leggerlo come "sweep pulito" e' la stessa
+  // classe di difetto del silent skip #5195, al contrario: qui il gate
+  // lascerebbe passare senza aver guardato niente. Blocca e dice come uscirne.
+  if (result?.changedFiles === 0) {
+    process.stderr.write(
+      '\n\u{1F6AB} sibling-check-gate: BRANCH NON IDENTIFICATO — nessuna verifica sibling eseguita.\n' +
+        `Ref analizzato: ${head.ref} (${head.source === 'head-flag' ? 'da --head' : 'HEAD della directory tracciata'})` +
+        `${targetCwd ? ` in ${targetCwd}` : ''}\n` +
+        `Quel ref non differisce da ${result.base ?? 'origin/main'}: non puo' essere il branch che stai proponendo.\n` +
+        'Cause tipiche, in ordine di frequenza:\n' +
+        '  1. la directory tracciata è il checkout principale, non il tuo worktree.\n' +
+        '     Il `cd <worktree>` deve stare in una chiamata Bash PRECEDENTE: questo hook\n' +
+        '     gira PRIMA del comando, quindi un `cd` nella stessa riga non conta.\n' +
+        '  2. il branch non è ancora committato. Committa (e pusha) prima di aprire la PR.\n' +
+        '  3. `--head` porta una sostituzione di shell non espansa: passa il nome\n' +
+        '     letterale del branch, che questo hook sa risolvere da qualunque directory.\n\n',
+    );
+    process.exit(EXIT_BLOCK);
+  }
+
   if (candidates.length === 0) {
     process.exit(0); // no sibling candidates → allow PR creation
   }
@@ -186,23 +297,53 @@ async function main() {
     process.exit(0);
   }
 
-  // Print the genuine candidate list for the fixer to inspect.
+  // Difetto 2. Quando il body non e' leggibile il comportamento resta lo stesso
+  // (conservativo: tutti i candidati genuini), ma va detto PER PRIMO e con la
+  // causa: senza, il gate accusa i file gemelli mentre il problema e' un path
+  // risolto contro la directory sbagliata, e chi legge insegue i candidati.
+  if (prBody === undefined) {
+    const src = describePrBodySource(command, targetCwd);
+    process.stderr.write(
+      '\n\u{26A0}\u{FE0F}  sibling-check-gate: IL BODY DELLA PR NON È STATO LETTO ' +
+        `(${src.reason ?? 'causa sconosciuta'}).\n` +
+        `Sorgente rilevata: ${src.kind}\n` +
+        (src.path ? `Path tentato: ${src.path}\nRisolto in: ${src.resolved}\n` : '') +
+        `Directory di risoluzione: ${src.cwd}\n` +
+        'Nessuna dichiarazione di falso positivo può quindi essere stata considerata:\n' +
+        'i candidati qui sotto sono TUTTI quelli trovati, non quelli non coperti.\n' +
+        'Scrivi il body su file e passa `--body-file <path>`; se il path è relativo,\n' +
+        'lo risolviamo contro la directory qui sopra — mettilo lì o passalo assoluto.\n',
+    );
+  }
+
+  // Print the genuine candidate list for the fixer to inspect. `strength`
+  // (difetto 4) dice quanto e' forte l'aggancio: `debole` = un solo
+  // identificatore nudo condiviso, storicamente quasi sempre rumore.
   process.stdout.write(
     `\n⚠ ${genuineCandidates.length} file gemello/i NON toccato/i condivide/ono costrutti modificati da questo branch:\n\n`,
   );
   for (const c of genuineCandidates) {
-    process.stdout.write(`  ${c.file}\n`);
+    process.stdout.write(`  ${c.strength ? `[${c.strength}] ` : ''}${c.file}\n`);
     if (c.tokens?.length) {
       process.stdout.write(`      costrutti condivisi: ${c.tokens.join(', ')}\n`);
     }
+  }
+  const weak = genuineCandidates.filter((c) => c.strength === 'debole').length;
+  if (weak) {
+    process.stdout.write(
+      `\n[debole] = agganciato a UN SOLO identificatore nudo (${weak}/${genuineCandidates.length} qui).\n` +
+        'Un nome di variabile o di campo reimplementato in file scorrelati finisce qui;\n' +
+        'un helper condiviso o una forma strutturale del registro finisce in [forte].\n' +
+        'Guardali comunque tutti, ma parti dai [forte]: è lì che stanno i gemelli veri.\n',
+    );
   }
 
   process.stderr.write(
     '\n\u{1F6AB} sibling-check-gate: PR bloccata — file gemello/i non coperti trovati.\n' +
       'Ispeziona i candidati sopra e includi il fix nella STESSA PR (AGENTS.md #6),\n' +
-      'oppure giustifica in `## Non implementato` con linguaggio esplicito di falso\n' +
-      'positivo (es. "falso positivo — solo lessicalmente simile ma semanticamente\n' +
-      'diverso"). Un semplice rinvio a follow-up NON bypassa questo gate.\n\n',
+      'oppure dichiarali falsi positivi.\n\n' +
+      DECLARATION_HOWTO +
+      '\n\n',
   );
   process.exit(EXIT_BLOCK);
 }

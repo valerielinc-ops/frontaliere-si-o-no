@@ -44,11 +44,61 @@ const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/i
  * defaults to `process.cwd()` — this hook subprocess's own ambient
  * directory — matching the previous behaviour when no better signal exists.
  */
+const BODY_FILE_RE = /--body-file[= ]+(?:"([^"]+)"|'([^']+)'|(\S+))/;
+
+/**
+ * Perche' `extractPrBody` non ha restituito un body — la stessa analisi, ma
+ * con la CAUSA invece di un `undefined` muto.
+ *
+ * `extractPrBody` collassa tre situazioni diverse in un solo `undefined`:
+ * il flag non c'e' affatto, il `--body-file` c'e' ma il path non e' leggibile,
+ * oppure c'e' un `--body` in una forma che le sue regex non riconoscono. I
+ * chiamanti sono gate: quando non leggono il body ricadono (giustamente) sul
+ * comportamento conservativo, ma il messaggio che stampano parla d'altro — e
+ * chi lo legge insegue candidati invece del path sbagliato. Questa funzione
+ * sta ACCANTO a `extractPrBody` invece di cambiarne la firma proprio perche'
+ * quella e' esportata e usata altrove: la diagnosi e' additiva.
+ *
+ * @param {string} command la command line di `gh pr create`
+ * @param {string} [cwd] directory contro cui risolvere un `--body-file` relativo
+ * @returns {{ kind: 'body-file'|'body-inline'|'assente', ok: boolean, cwd: string,
+ *   path?: string, resolved?: string, reason?: string }}
+ */
+export function describePrBodySource(command, cwd = process.cwd()) {
+  const cmd = String(command ?? '');
+  const fileMatch = cmd.match(BODY_FILE_RE);
+  if (fileMatch) {
+    const path = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
+    const resolved = resolve(cwd, path);
+    try {
+      readFileSync(resolved, 'utf8');
+      return { kind: 'body-file', ok: true, cwd, path, resolved };
+    } catch (err) {
+      return {
+        kind: 'body-file',
+        ok: false,
+        cwd,
+        path,
+        resolved,
+        reason: `path non leggibile (${err?.code ?? err?.message ?? 'errore sconosciuto'})`,
+      };
+    }
+  }
+  if (/--body[= ]/.test(cmd)) {
+    const ok = extractPrBody(cmd, cwd) !== undefined;
+    return {
+      kind: 'body-inline',
+      ok,
+      cwd,
+      reason: ok ? undefined : 'forma di --body non riconosciuta dalle regex del parser',
+    };
+  }
+  return { kind: 'assente', ok: false, cwd, reason: 'nessun --body / --body-file nel comando' };
+}
+
 export function extractPrBody(command, cwd = process.cwd()) {
   // --body-file <path> | --body-file=<path> (quoted or bare)
-  const fileMatch = command.match(
-    /--body-file[= ]+(?:"([^"]+)"|'([^']+)'|(\S+))/,
-  );
+  const fileMatch = command.match(BODY_FILE_RE);
   if (fileMatch) {
     const path = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
     try {
