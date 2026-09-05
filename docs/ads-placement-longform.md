@@ -125,3 +125,17 @@ un taglio di densità invece del profilo specificato.
 Resta non misurabile finché non esiste un longform *nuovo* pubblicato: le
 metriche di §5 (CLS/LCP/INP, viewability, RPM, scroll depth) vanno confrontate
 contro la media del formato breve sullo stesso periodo.
+
+### Delta residuo rispetto a §2/§3
+
+Chiuso: il profilo di densità longform (#7336, sopra) e il rinvio dell'ad che
+cadrebbe a cavallo di una tabella (#7337). Restano aperti, e sono solo questi:
+
+- **Citazioni e liste operative** non hanno una protezione di confine dedicata:
+  l'unico blocco riconosciuto da `tryEmitAd` è la tabella. Un ad può ancora
+  cadere prima di una citazione lunga.
+- **Guscio mappa condiviso** (#7339): `leaflet`/`react-leaflet` sono installati
+  e usati da sei componenti, ma senza un componente comune con altezza
+  riservata un longform non può ospitare una mappa senza CLS — è un
+  prerequisito di layout di §3, non un lavoro ads.
+- **Metriche di §5**, non misurabili prima del primo longform pubblicato.
