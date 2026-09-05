@@ -85,12 +85,20 @@ editoriale.
 
 ## 4. Mancano dati strutturati, visualizzazioni, mappe per questo tipo di contenuto?
 
-**Sì.** Non risultano, in questo repository, componenti di mappa geografica o
-libreria di infografiche riutilizzabile per contenuti editoriali (il sito ha
-grafici per dati interni — es. `InlineBorderWaitRanking`, i grafici del
-traffico ai valichi — ma nessuno pensato per una mappa "Ticino+Insubria" o
-per tabelle comparative multi-territorio). Il brief pilota (§"Requisiti") lo
-segna esplicitamente come lavoro non coperto da infrastruttura esistente.
+**In parte, e non per assenza della libreria.** La mappa geografica c'è ed è
+in produzione: `leaflet` e `react-leaflet` sono dipendenze installate
+(`package.json`) e sono usate da **sei** componenti — `LivabilityMap`,
+`SupermarketMap`, `TicinoCompanies` (`components/vita/`),
+`BorderMunicipalitiesMap`, `FrontierGuide`, `TrafficAlerts`
+(`components/guide/`). Quello che manca non è la capacità di disegnare una
+mappa, è il **guscio condiviso**: i sei duplicano import di `leaflet.css`,
+`MapContainer`/`TileLayer` e altezza riservata, senza un componente comune che
+un contenuto editoriale possa istanziare (issue #7339, aperta).
+
+Sulle infografiche il finding regge: i grafici esistenti servono dati interni
+(es. `InlineBorderWaitRanking`, i grafici del traffico ai valichi) e nessuno è
+pensato per tabelle comparative multi-territorio. Il brief pilota
+(§"Requisiti") resta corretto sul secondo punto, non sul primo.
 
 ## 5. I KPI privilegiano quantità/SEO breve rispetto a engagement/backlink/brand authority?
 
@@ -104,27 +112,32 @@ un obiettivo di brand-authority/longform.
 
 ## 6. La monetizzazione ads scoraggia il formato longform per limiti di layout/UX?
 
-**Sì, ed è il finding più concreto e azionabile di questo audit.**
-`components/community/BlogArticles.tsx` — il solo placer inline in produzione,
-dopo la rimozione del modulo `services/articleAdSlots.ts` che non aveva
-consumatori (issue #7338) — applica **un unico profilo di densità a tutti gli
-articoli**: un ad a ogni confine H2 e a fine segmento, con gap minimo di 200
-parole (`AD_MIN_WORD_GAP`) e tetto per articolo `ARTICLE_INLINE_AD_CAP = 8`.
+**Era il finding più concreto di questo audit, ed è stato chiuso.** Alla
+stesura, `components/community/BlogArticles.tsx` — il solo placer inline in
+produzione, dopo la rimozione del modulo `services/articleAdSlots.ts` che non
+aveva consumatori (issue #7338) — applicava **un unico profilo di densità a
+tutti gli articoli**: tetto `ARTICLE_INLINE_AD_CAP = 8` e gap minimo di 200
+parole, senza alcun predicato di formato. Un longform ereditava il profilo di
+un articolo breve.
 
-L'unica protezione strutturale è il rinvio dell'ad quando la sezione dopo l'H2
-apre con una tabella; citazioni e liste operative possono ancora essere spezzate
-— esattamente il tipo di interruzione che il brief benchmark (§"Principi per
-frontaliereticino.ch" dell'issue) elenca come da evitare. Non esiste nessun
-predicato di formato: un longform eredita lo stesso profilo di un articolo
-breve.
+Dal 2026-09-05 (issue #7336) il predicato esiste: il tetto e il gap escono da
+`resolveArticleAdDensity` (`services/articleAdDensity.ts`), che su un corpo con
+≥7 sezioni `## ` seleziona il profilo longform di `docs/ads-placement-longform.md`
+§3 (3 ad in-content, gap 300 parole) invece dello standard 8/200, invariato per
+ogni altro articolo. Misura sul corpus alla stessa data: 402 articoli `it` su
+3779 sono longform, i loro ad inline passano da 1647 a 1105; i 9599 sugli altri
+3377 restano identici.
 
-Questa è la causa diretta della domanda 6: un longform con tabelle, mappa,
-citazioni multiple e una sezione di scenari verrebbe oggi trattato dal
-renderer esattamente come un articolo breve — un ad ogni paragrafo — il che
-è in tensione diretta con "riservare l'above-the-fold alla promessa
-editoriale" e "non spezzare tabelle/mappe/citazioni" richiesti dal benchmark.
-Il mapping dettagliato e le raccomandazioni sono in
-`docs/ads-placement-longform.md`.
+Sui confini strutturali va detto cosa il renderer protegge e cosa no. L'ad non
+viene mai emesso "a ogni paragrafo": i punti di emissione sono due — prima di un
+confine `## ` e a fine segmento di corpo (`tryEmitAd`) — e l'ad che cadrebbe a
+cavallo di una tabella viene rinviato al confine successivo, mai perso (issue
+#7337). Citazioni e liste operative non hanno invece una protezione dedicata e
+possono ancora essere spezzate: è il residuo aperto rispetto al brief benchmark
+(§"Principi per frontaliereticino.ch" dell'issue).
+
+Il mapping dettagliato, il wireframe e lo stato di implementazione sono in
+`docs/ads-placement-longform.md` §1 e §6.
 
 ## Decisione: licenza/syndication vs contenuto originale
 

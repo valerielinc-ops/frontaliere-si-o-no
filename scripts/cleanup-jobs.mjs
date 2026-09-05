@@ -26,6 +26,7 @@ import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -273,9 +274,14 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
 
   if (added === 0 && existing.length === bySlug.size) return 0;
 
-  // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
-  let archived = [...bySlug.values()]
-    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
+  // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP.
+  // `archiveKey` dedups on companyKey+slug, i.e. the CURRENT slug: two entries
+  // whose histories overlap on a locale route still both survive it. Collapse
+  // by route before capping so the aggregate never publishes a URL owned twice.
+  let archived = collapseDuplicateRouteEntries(
+    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    { source: 'cleanup-jobs/aggregate' },
+  ).entries;
   if (archived.length > EXPIRED_JOBS_CAP) {
     archived = archived.slice(0, EXPIRED_JOBS_CAP);
   }
@@ -317,8 +323,10 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
 
   if (added === 0 && existing.length === bySlug.size) return 0;
 
-  const archived = [...bySlug.values()]
-    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
+  const archived = collapseDuplicateRouteEntries(
+    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    { source: 'cleanup-jobs/slice' },
+  ).entries;
   writeJson(slicePath, archived);
   return added;
 }

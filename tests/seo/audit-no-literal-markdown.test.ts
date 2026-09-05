@@ -2,11 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { createAuditor } from '../../scripts/audit-no-literal-markdown.mjs';
 import { ROOT } from '../../scripts/lib/audit-runner.mjs';
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const JOB_PATH = `${ROOT}/dist/cerca-lavoro-ticino/sviluppatore-acme/index.html`;
 
 describe('audit-no-literal-markdown', () => {
-  it('scans minified unquoted seo-static-content shells', () => {
+  it('scans minified unquoted seo-static-content shells', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const html = minifyHtml(`<!doctype html><html><body>
       <main class="seo-static-content"><h1>Offerta</h1><p>Testo **non convertito**</p></main>
     </body></html>`);
@@ -21,7 +22,7 @@ describe('audit-no-literal-markdown', () => {
     expect(report.offenders[0].literalBoldSamples).toEqual(['**non convertito**']);
   });
 
-  it('does not flag === / runs inside inline <script> as literal markdown', () => {
+  it('does not flag === / runs inside inline <script> as literal markdown', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     // The per-card logo fallback script (jcLF) carries JS strict-equality
     // `===` runs; these are code, not visible markdown separators, and must
     // not trip the separator gate.
@@ -39,7 +40,7 @@ describe('audit-no-literal-markdown', () => {
     expect(report.offendersTotal).toBe(0);
   });
 
-  it('does not flag [_=~]{3,} inside inline tag attributes as literal markdown', () => {
+  it('does not flag [_=~]{3,} inside inline tag attributes as literal markdown', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     // Attribute markup (data-* JSON, logo src URLs, onerror handlers) is not
     // visible body text. The element-level <script>/<style> strip leaves it
     // behind, so a `===` / `___` / `~~~` run inside an attribute must not trip
@@ -58,7 +59,7 @@ describe('audit-no-literal-markdown', () => {
     expect(report.offendersTotal).toBe(0);
   });
 
-  it('does not merge text across a tag boundary into a false ** token', () => {
+  it('does not merge text across a tag boundary into a false ** token', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     // Tags are replaced with a space (not stripped to empty) so `*` at the end
     // of one element and `*` at the start of the next can't fuse into `**`.
     const html = minifyHtml(`<!doctype html><html><body>

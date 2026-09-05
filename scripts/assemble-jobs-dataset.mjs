@@ -59,7 +59,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -2645,9 +2645,16 @@ function assembleExpiredJobs() {
     }
   }
 
-  // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
-  let assembled = [...bySlug.values()]
-    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
+  // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP.
+  // `expiredKey` dedups on companyKey + CURRENT slug, which two entries whose
+  // `previousSlugs` overlap both survive: they then own the same locale route
+  // and the soft landing for that URL is ambiguous. Collapse by route before
+  // capping — same primitive the slice writers use, route-union preserving.
+  const collapsedExpired = collapseDuplicateRouteEntries(
+    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    { source: 'assemble-jobs-dataset/expired' },
+  );
+  let assembled = collapsedExpired.entries;
   if (assembled.length > EXPIRED_JOBS_CAP) {
     assembled = assembled.slice(0, EXPIRED_JOBS_CAP);
   }
