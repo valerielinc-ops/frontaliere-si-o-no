@@ -11399,6 +11399,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.export-varese-record-2026.title': 'Export Varese: record lombardo nel primo trimestre 2026',
     'blog.article.export-varese-record-2026.excerpt': 'Varese leader regionale con +23% nell\'export. Bene la Svizzera (+21,2%), ma cresce la CIGS (+14,9%) segnale di riorganizzazioni aziendali in corso.',
     'blog.article.export-varese-record-2026.imageAlt': 'Analisi economica e dati export nel contesto varesino.',
+    'blog.article.fiera-varese-schiranna-2026.title': 'Fiera di Varese 2026: 150 espositori alla Schiranna',
+    'blog.article.fiera-varese-schiranna-2026.excerpt': 'Dal 11 al 20 settembre 2026, la 48esima edizione della Fiera di Varese punta su imprese, cultura e sport con lo slogan \'Scelgo Varese\'.',
+    'blog.article.fiera-varese-schiranna-2026.imageAlt': 'Area espositiva della Fiera di Varese alla Schiranna',
 };
 
 export default blogMetaIt;
