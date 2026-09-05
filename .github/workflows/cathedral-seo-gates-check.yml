@@ -150,8 +150,9 @@ jobs:
     #
     # The heap floor below therefore stays as a CEILING, not as the remedy.
     #
-    # What was actually missing is the heap, and the asymmetry was invisible
-    # because it lives in a DIFFERENT file from the audits: the very same two
+    # A REAL asymmetry was also missing, and it is worth keeping even though it
+    # was never the whole story: it lives in a DIFFERENT file from the audits,
+    # so nobody saw it. The very same two
     # audits are given `--max-old-space-size=8192` by their seed workflows
     # (seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml), and this
     # gate — which runs them over a dist/ that is larger, because it is
@@ -159,7 +160,8 @@ jobs:
     # heap instead. Same binary, same corpus, a quarter of the memory.
     #
     # 8192 matches those two seed workflows deliberately: it is the value
-    # already proven on this runner for these audits, and it stays well under
+    # already proven on this runner for these audits — a ceiling, not a fix, as
+    # the CORRECTION above records — and it stays well under
     # the 16 GB of `ubuntu-latest` so a raised V8 ceiling cannot turn a clean
     # heap OOM into a KERNEL OOM-kill — the failure mode #5169 removed.
     #
