@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-09-04T23:12:40.210Z",
+  "assembledAt": "2026-09-05T12:52:38.414Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5635",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:35.342Z",
+      "crawledAt": "2026-09-05T12:52:34.294Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+        "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+          "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
         ],
         "en": [
           "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
@@ -111,7 +113,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5689",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:34.919Z",
+      "crawledAt": "2026-09-05T12:52:33.844Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -132,13 +134,15 @@
       "previousSlugs": [
         "coordinateur-trice-de-releases-de-projets-etat-de-vaud-renens-vd",
         "giurista-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "coordinatore-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "coordinateur-trice-de-releases-de-projets-etat-de-vaud-renens-vd",
           "giurista-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-          "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+          "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+          "coordinatore-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "coordinateur-trice-de-releases-de-projets-etat-de-vaud-renens-vd"
@@ -148,6 +152,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -193,7 +198,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:34.498Z",
+      "crawledAt": "2026-09-05T12:52:33.395Z",
       "addressLocality": "Puidoux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -212,11 +217,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux"
+        "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux",
+        "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-puidoux"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux"
+          "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux",
+          "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-puidoux"
         ],
         "en": [
           "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux"
@@ -271,7 +278,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5746",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:34.077Z",
+      "crawledAt": "2026-09-05T12:52:32.927Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -291,16 +298,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "comptable-etat-de-vaud-lausanne",
-        "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "comptable-etat-de-vaud-lausanne",
-          "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-          "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "comptable-etat-de-vaud-lausanne"
@@ -310,6 +317,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -355,7 +363,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5733",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:33.662Z",
+      "crawledAt": "2026-09-05T12:52:32.477Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -374,11 +382,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne"
+        "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne",
+        "capo-del-progetto-idraulico-risorse-idriche-ed-economia-idrica-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne"
+          "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne",
+          "capo-del-progetto-idraulico-risorse-idriche-ed-economia-idrica-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne"
@@ -433,7 +443,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5751",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:33.243Z",
+      "crawledAt": "2026-09-05T12:52:32.029Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -452,11 +462,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "enseignant-e-de-francais-etat-de-vaud-orbe"
+        "enseignant-e-de-francais-etat-de-vaud-orbe",
+        "insegnante-francese-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "enseignant-e-de-francais-etat-de-vaud-orbe"
+          "enseignant-e-de-francais-etat-de-vaud-orbe",
+          "insegnante-francese-etat-de-vaud-administration-cantonale-vaudoise-orbe"
         ],
         "en": [
           "enseignant-e-de-francais-etat-de-vaud-orbe"
@@ -511,7 +523,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5766",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:32.820Z",
+      "crawledAt": "2026-09-05T12:52:31.576Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -530,11 +542,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy"
+        "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy",
+        "documentary-information-officer-aid-etat-de-vaud-administration-cantonale-vaudoise-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy"
+          "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy",
+          "documentary-information-officer-aid-etat-de-vaud-administration-cantonale-vaudoise-etoy"
         ],
         "en": [
           "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy"
@@ -589,7 +603,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5757",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:32.386Z",
+      "crawledAt": "2026-09-05T12:52:31.130Z",
       "addressLocality": "Prangins",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -608,11 +622,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-en-milieu-scolaire-etat-de-vaud-prangins"
+        "psychologue-en-milieu-scolaire-etat-de-vaud-prangins",
+        "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-prangins"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-en-milieu-scolaire-etat-de-vaud-prangins"
+          "psychologue-en-milieu-scolaire-etat-de-vaud-prangins",
+          "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-prangins"
         ],
         "en": [
           "psychologue-en-milieu-scolaire-etat-de-vaud-prangins"
@@ -667,7 +683,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5756",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:31.946Z",
+      "crawledAt": "2026-09-05T12:52:30.671Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -686,11 +702,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne"
+        "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne",
+        "direttore-dell-ufficio-giudiziario-primo-cancelliere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne"
+          "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne",
+          "direttore-dell-ufficio-giudiziario-primo-cancelliere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne"
@@ -716,9 +734,9 @@
     },
     {
       "id": "etat-de-vaud-5762",
-      "slug": "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "it": "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "project-leader-climate-plan-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "projektleiter-klimaplan-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
@@ -728,7 +746,7 @@
       "companyDomain": "vd.ch",
       "title": "Chef·fe de projet Plan climat",
       "titleByLocale": {
-        "it": "Progetto Leader Piano Climatico",
+        "it": "Chef·fe de projet Plan climat",
         "en": "Climate Plan Project Manager",
         "de": "Projektleiter/in Klimaplan",
         "fr": "Chef·fe de projet Plan climat"
@@ -745,7 +763,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5762",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:31.520Z",
+      "crawledAt": "2026-09-05T12:52:30.227Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -797,12 +815,14 @@
       "previousSlugs": [
         "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
         "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
           "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
@@ -813,6 +833,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -858,7 +879,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5761",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:31.098Z",
+      "crawledAt": "2026-09-05T12:52:29.765Z",
       "addressLocality": "Le Sentier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -877,11 +898,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier"
+        "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier",
+        "psicologo-postobbligatorio-etat-de-vaud-administration-cantonale-vaudoise-le-sentier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier"
+          "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier",
+          "psicologo-postobbligatorio-etat-de-vaud-administration-cantonale-vaudoise-le-sentier"
         ],
         "en": [
           "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier"
@@ -891,6 +914,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -936,7 +960,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5691",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:30.651Z",
+      "crawledAt": "2026-09-05T12:52:29.304Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -955,11 +979,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
+        "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne",
+        "risposta-alle-applicazioni-si-spop-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
+          "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne",
+          "risposta-alle-applicazioni-si-spop-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
@@ -1014,7 +1040,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5785",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:30.233Z",
+      "crawledAt": "2026-09-05T12:52:28.857Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1034,11 +1060,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges",
-        "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "project-manager-miglioramenti-strutturali-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
+          "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges",
+          "project-manager-miglioramenti-strutturali-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ],
         "en": [
           "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
@@ -1049,6 +1077,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1094,7 +1123,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5759",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:29.818Z",
+      "crawledAt": "2026-09-05T12:52:28.401Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1113,11 +1142,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne"
+        "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne",
+        "librario-documentario-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne"
+          "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne",
+          "librario-documentario-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne"
@@ -1172,7 +1203,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5789",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:29.397Z",
+      "crawledAt": "2026-09-05T12:52:27.949Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1191,11 +1222,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
@@ -1250,7 +1283,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5788",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:28.971Z",
+      "crawledAt": "2026-09-05T12:52:27.475Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1271,12 +1304,14 @@
       "previousSlugs": [
         "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
         "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6xacz"
+        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6xacz",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
@@ -1335,7 +1370,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5784",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:28.552Z",
+      "crawledAt": "2026-09-05T12:52:27.026Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1354,11 +1389,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne"
+        "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne",
+        "leader-del-progetto-sanitario-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne"
+          "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne",
+          "leader-del-progetto-sanitario-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne"
@@ -1413,7 +1450,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5780",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:28.134Z",
+      "crawledAt": "2026-09-05T12:52:26.572Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1433,12 +1470,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
-        "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2"
+        "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne-5501ea"
       ],
       "previousSlugsByLocale": {
         "it": [
           "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
-          "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2"
+          "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne-5501ea"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2"
@@ -1493,7 +1532,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5775",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:27.710Z",
+      "crawledAt": "2026-09-05T12:52:26.113Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1512,11 +1551,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-vevey"
+        "curateur-trice-professionnel-le-etat-de-vaud-vevey",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-vevey"
+          "curateur-trice-professionnel-le-etat-de-vaud-vevey",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-vevey"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-vevey"
@@ -1571,7 +1612,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5738",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:27.284Z",
+      "crawledAt": "2026-09-05T12:52:25.662Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1590,11 +1631,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne"
+        "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne",
+        "collaboratore-di-un-ufficio-per-l-accusa-etat-de-vaud-administration-cantonale-vaudoise-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne"
+          "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne",
+          "collaboratore-di-un-ufficio-per-l-accusa-etat-de-vaud-administration-cantonale-vaudoise-payerne"
         ],
         "en": [
           "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne"
@@ -1649,7 +1692,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5791",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:26.865Z",
+      "crawledAt": "2026-09-05T12:52:25.216Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1668,11 +1711,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-direv-etat-de-vaud-epalinges"
+        "directeur-trice-direv-etat-de-vaud-epalinges",
+        "direttore-direv-etat-de-vaud-administration-cantonale-vaudoise-epalinges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-direv-etat-de-vaud-epalinges"
+          "directeur-trice-direv-etat-de-vaud-epalinges",
+          "direttore-direv-etat-de-vaud-administration-cantonale-vaudoise-epalinges"
         ],
         "en": [
           "directeur-trice-direv-etat-de-vaud-epalinges"
@@ -1682,6 +1727,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1710,7 +1756,7 @@
       "companyDomain": "vd.ch",
       "title": "Administrateur-rice Datacenter",
       "titleByLocale": {
-        "it": "Direttore Datacenter",
+        "it": "Administrateur-rice Datacenter",
         "en": "Datacenter Administrator",
         "de": "Datacenter-Administrator/in",
         "fr": "Administrateur-rice Datacenter"
@@ -1727,7 +1773,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5787",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:26.434Z",
+      "crawledAt": "2026-09-05T12:52:24.745Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1769,11 +1815,13 @@
       "previousSlugs": [
         "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
         "director-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "direktor-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "direktor-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "direttore-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-rice-datacenter-etat-de-vaud-renens-vd"
+          "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
+          "direttore-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
@@ -1785,6 +1833,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1830,7 +1879,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5786",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:26.013Z",
+      "crawledAt": "2026-09-05T12:52:24.296Z",
       "addressLocality": "Chavannes-Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1849,11 +1898,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens"
+        "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens",
+        "conservazione-lavoro-di-restauro-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens"
+          "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens",
+          "conservazione-lavoro-di-restauro-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
         ],
         "en": [
           "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens"
@@ -1908,7 +1959,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5745",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:25.594Z",
+      "crawledAt": "2026-09-05T12:52:23.850Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1927,11 +1978,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-de-projet-etat-de-vaud-lausanne"
+        "assistant-e-de-projet-etat-de-vaud-lausanne",
+        "assistente-di-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-de-projet-etat-de-vaud-lausanne"
+          "assistant-e-de-projet-etat-de-vaud-lausanne",
+          "assistente-di-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "assistant-e-de-projet-etat-de-vaud-lausanne"
@@ -1986,7 +2039,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5798",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:25.167Z",
+      "crawledAt": "2026-09-05T12:52:23.400Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2005,11 +2058,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd"
+        "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd",
+        "ingegnere-e-visualizzazione-dei-dati-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd"
+          "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd",
+          "ingegnere-e-visualizzazione-dei-dati-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd"
@@ -2019,6 +2074,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2064,7 +2120,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5795",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:24.747Z",
+      "crawledAt": "2026-09-05T12:52:22.949Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2083,11 +2139,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne"
+        "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne",
+        "responsabile-per-la-prevenzione-della-radicalizzazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne"
+          "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne",
+          "responsabile-per-la-prevenzione-della-radicalizzazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne"
@@ -2142,7 +2200,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5794",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:24.326Z",
+      "crawledAt": "2026-09-05T12:52:22.497Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2161,11 +2219,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
+        "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe",
+        "responsabile-officina-rotante-agricolo-m-f-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
+          "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe",
+          "responsabile-officina-rotante-agricolo-m-f-etat-de-vaud-administration-cantonale-vaudoise-orbe"
         ],
         "en": [
           "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
@@ -2220,7 +2280,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5778",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:23.915Z",
+      "crawledAt": "2026-09-05T12:52:22.039Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2239,11 +2299,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne"
+        "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne",
+        "registratore-in-tribunali-penali-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne"
+          "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne",
+          "registratore-in-tribunali-penali-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne"
@@ -2298,7 +2360,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5711",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:23.490Z",
+      "crawledAt": "2026-09-05T12:52:21.591Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2318,12 +2380,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsable-du-domaine-planification-exploitation-etat-de-vaud-lausanne",
-        "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "responsabile-pianificazione-e-operazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-du-domaine-planification-exploitation-etat-de-vaud-lausanne",
-          "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "responsabile-pianificazione-e-operazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-du-domaine-planification-exploitation-etat-de-vaud-lausanne"
@@ -2378,7 +2442,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5799",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:23.073Z",
+      "crawledAt": "2026-09-05T12:52:21.142Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2426,13 +2490,15 @@
         "responsable-rh-etat-de-vaud-lausanne",
         "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "leiter-in-human-resources-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "leiter-in-human-resources-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "gestione-delle-risorse-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-rh-etat-de-vaud-lausanne",
           "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-          "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "gestione-delle-risorse-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-rh-etat-de-vaud-lausanne"
@@ -2443,6 +2509,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2488,7 +2555,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5796",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:22.655Z",
+      "crawledAt": "2026-09-05T12:52:20.675Z",
       "addressLocality": "Coppet",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2531,12 +2598,14 @@
       "previousSlugs": [
         "responsable-d-equipe-profil-psychologue-etat-de-vaud-coppet",
         "responsabile-di-team-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet",
-        "teamleiter-in-psychologieprofil-etat-de-vaud-administration-cantonale-vaudoise-coppet"
+        "teamleiter-in-psychologieprofil-etat-de-vaud-administration-cantonale-vaudoise-coppet",
+        "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-equipe-profil-psychologue-etat-de-vaud-coppet",
-          "responsabile-di-team-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet"
+          "responsabile-di-team-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet",
+          "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet"
         ],
         "en": [
           "responsable-d-equipe-profil-psychologue-etat-de-vaud-coppet"
@@ -2547,6 +2616,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2592,7 +2662,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5792",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:22.229Z",
+      "crawledAt": "2026-09-05T12:52:20.227Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2643,12 +2713,14 @@
       },
       "previousSlugs": [
         "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-penthalaz",
-        "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+        "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+        "capo-aggiunto-dell-ufficio-per-l-esecuzione-penale-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-penthalaz",
-          "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+          "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+          "capo-aggiunto-dell-ufficio-per-l-esecuzione-penale-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
         ],
         "en": [
           "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-penthalaz"
@@ -2658,6 +2730,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2703,7 +2776,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5793",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:21.805Z",
+      "crawledAt": "2026-09-05T12:52:19.752Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2755,12 +2828,14 @@
       "previousSlugs": [
         "bibliothecaire-archiviste-au-mcah-etat-de-vaud-lausanne",
         "bibliotecario-archivista-presso-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "bibliothekar-archivar-beim-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "bibliothekar-archivar-beim-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "bibliotecario-architetto-di-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bibliothecaire-archiviste-au-mcah-etat-de-vaud-lausanne",
-          "bibliotecario-archivista-presso-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "bibliotecario-archivista-presso-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "bibliotecario-architetto-di-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "bibliothecaire-archiviste-au-mcah-etat-de-vaud-lausanne"
@@ -2771,6 +2846,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2816,7 +2892,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5790",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:21.389Z",
+      "crawledAt": "2026-09-05T12:52:19.302Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2866,12 +2942,14 @@
         "conseiller-ere-en-personnel-etat-de-vaud-gland",
         "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-gland",
         "personnel-advisor-etat-de-vaud-administration-cantonale-vaudoise-gland",
-        "personalfachperson-etat-de-vaud-administration-cantonale-vaudoise-gland"
+        "personalfachperson-etat-de-vaud-administration-cantonale-vaudoise-gland",
+        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-en-personnel-etat-de-vaud-gland",
-          "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-gland"
+          "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-gland",
+          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-gland"
         ],
         "en": [
           "conseiller-ere-en-personnel-etat-de-vaud-gland",
@@ -2883,6 +2961,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2928,7 +3007,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5783",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:20.965Z",
+      "crawledAt": "2026-09-05T12:52:18.847Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2970,12 +3049,14 @@
       "previousSlugs": [
         "charge-e-de-projets-rh-attractivite-et-developpement-rh-etat-de-vaud-penthalaz",
         "responsabile-di-progetti-hr-attrattivita-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
-        "hr-projektleiter-in-attraktivitat-und-hr-entwicklung-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+        "hr-projektleiter-in-attraktivitat-und-hr-entwicklung-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+        "hr-project-manager-attraente-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "charge-e-de-projets-rh-attractivite-et-developpement-rh-etat-de-vaud-penthalaz",
-          "responsabile-di-progetti-hr-attrattivita-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+          "responsabile-di-progetti-hr-attrattivita-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+          "hr-project-manager-attraente-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
         ],
         "en": [
           "charge-e-de-projets-rh-attractivite-et-developpement-rh-etat-de-vaud-penthalaz"
@@ -2986,6 +3067,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -3031,7 +3113,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5813",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:20.542Z",
+      "crawledAt": "2026-09-05T12:52:18.386Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3050,11 +3132,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        "conseiller-ere-en-personnel-etat-de-vaud-vevey",
+        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey",
+          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey"
         ],
         "en": [
           "conseiller-ere-en-personnel-etat-de-vaud-vevey"
@@ -3109,7 +3193,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5804",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:20.115Z",
+      "crawledAt": "2026-09-05T12:52:17.937Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3128,11 +3212,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geomaticien-ne-etat-de-vaud-lausanne"
+        "geomaticien-ne-etat-de-vaud-lausanne",
+        "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geomaticien-ne-etat-de-vaud-lausanne"
+          "geomaticien-ne-etat-de-vaud-lausanne",
+          "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "geomaticien-ne-etat-de-vaud-lausanne"
@@ -3187,7 +3273,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5723",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:19.699Z",
+      "crawledAt": "2026-09-05T12:52:17.484Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3206,11 +3292,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+        "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
+        "direttore-della-biblioteca-cantonale-e-universitaria-losanna-bcul-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+          "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
+          "direttore-della-biblioteca-cantonale-e-universitaria-losanna-bcul-etat-de-vaud-administration-cantonale-vaudoise"
         ],
         "en": [
           "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
@@ -3265,7 +3353,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5815",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:19.271Z",
+      "crawledAt": "2026-09-05T12:52:17.034Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3285,12 +3373,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-ere-en-personnel-etat-de-vaud-aigle",
-        "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-aigle"
+        "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-en-personnel-etat-de-vaud-aigle",
-          "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-aigle"
+          "personalberater-in-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-aigle"
         ],
         "en": [
           "conseiller-ere-en-personnel-etat-de-vaud-aigle"
@@ -3345,7 +3435,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5814",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:18.846Z",
+      "crawledAt": "2026-09-05T12:52:16.582Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3364,11 +3454,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-en-milieu-scolaire-etat-de-vaud-prilly"
+        "psychologue-en-milieu-scolaire-etat-de-vaud-prilly",
+        "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-en-milieu-scolaire-etat-de-vaud-prilly"
+          "psychologue-en-milieu-scolaire-etat-de-vaud-prilly",
+          "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-prilly"
         ],
         "en": [
           "psychologue-en-milieu-scolaire-etat-de-vaud-prilly"
@@ -3423,7 +3515,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5812",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:18.404Z",
+      "crawledAt": "2026-09-05T12:52:16.114Z",
       "addressLocality": "Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3442,11 +3534,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+        "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+        "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+          "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+          "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon"
         ],
         "en": [
           "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
@@ -3501,7 +3595,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5809",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:17.966Z",
+      "crawledAt": "2026-09-05T12:52:15.645Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3520,11 +3614,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd"
+        "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd",
+        "segretario-di-un-unita-decentrata-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd"
+          "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd",
+          "segretario-di-un-unita-decentrata-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd"
@@ -3579,7 +3675,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5831",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:17.549Z",
+      "crawledAt": "2026-09-05T12:52:15.196Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3599,12 +3695,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "comptable-etat-de-vaud-lausanne",
-        "comptable-etat-de-vaud-lausanne-2"
+        "comptable-etat-de-vaud-lausanne-2",
+        "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne-7dc614"
       ],
       "previousSlugsByLocale": {
         "it": [
           "comptable-etat-de-vaud-lausanne",
-          "comptable-etat-de-vaud-lausanne-2"
+          "comptable-etat-de-vaud-lausanne-2",
+          "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne-7dc614"
         ],
         "en": [
           "comptable-etat-de-vaud-lausanne-2"
@@ -3614,6 +3712,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3659,7 +3758,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5819",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:17.102Z",
+      "crawledAt": "2026-09-05T12:52:14.738Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3678,11 +3777,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-en-communication-etat-de-vaud-lausanne"
+        "specialiste-en-communication-etat-de-vaud-lausanne",
+        "specialista-delle-comunicazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-communication-etat-de-vaud-lausanne"
+          "specialiste-en-communication-etat-de-vaud-lausanne",
+          "specialista-delle-comunicazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "specialiste-en-communication-etat-de-vaud-lausanne"
@@ -3737,7 +3838,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5818",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:16.663Z",
+      "crawledAt": "2026-09-05T12:52:14.279Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3756,11 +3857,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-recherche-etat-de-vaud-lausanne"
+        "responsable-de-recherche-etat-de-vaud-lausanne",
+        "responsabile-ricerca-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-recherche-etat-de-vaud-lausanne"
+          "responsable-de-recherche-etat-de-vaud-lausanne",
+          "responsabile-ricerca-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-de-recherche-etat-de-vaud-lausanne"
@@ -3815,7 +3918,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5817",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:16.239Z",
+      "crawledAt": "2026-09-05T12:52:13.824Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3835,12 +3938,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-lausanne",
-        "leiter-in-des-beratungs-und-integrationsbereichs-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "leiter-in-des-beratungs-und-integrationsbereichs-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "capo-del-gruppo-di-protezione-degli-adulti-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-lausanne",
-          "leiter-in-des-beratungs-und-integrationsbereichs-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "leiter-in-des-beratungs-und-integrationsbereichs-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "capo-del-gruppo-di-protezione-degli-adulti-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-lausanne"
@@ -3896,7 +4001,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5802",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:15.818Z",
+      "crawledAt": "2026-09-05T12:52:13.375Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3916,12 +4021,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "case-manager-giustizia-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
-          "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "case-manager-giustizia-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne"
@@ -3931,6 +4038,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3976,7 +4084,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5837",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:15.396Z",
+      "crawledAt": "2026-09-05T12:52:12.915Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3995,11 +4103,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-projet-construction-et-amenagement-de-preaux-scolaires-durables-etat-de-vaud"
+        "chef-fe-de-projet-construction-et-amenagement-de-preaux-scolaires-durables-etat-de-vaud",
+        "leader-del-progetto-costruzione-e-sviluppo-di-locali-scolastici-sostenibili-etat-de-vaud-administration-cantonale"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-projet-construction-et-amenagement-de-preaux-scolaires-durables-etat-de-vaud"
+          "chef-fe-de-projet-construction-et-amenagement-de-preaux-scolaires-durables-etat-de-vaud",
+          "leader-del-progetto-costruzione-e-sviluppo-di-locali-scolastici-sostenibili-etat-de-vaud-administration-cantonale"
         ],
         "en": [
           "chef-fe-de-projet-construction-et-amenagement-de-preaux-scolaires-durables-etat-de-vaud"
@@ -4054,7 +4164,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5829",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:14.963Z",
+      "crawledAt": "2026-09-05T12:52:12.456Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4074,12 +4184,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "prefettura-caso-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-lausanne",
-          "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "prefettura-caso-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-lausanne"
@@ -4089,6 +4201,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -4134,7 +4247,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5823",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:14.536Z",
+      "crawledAt": "2026-09-05T12:52:12.001Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4153,11 +4266,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "huissier-ere-judiciaire-d-une-justice-de-paix-etat-de-vaud-yverdon-les-bains"
+        "huissier-ere-judiciaire-d-une-justice-de-paix-etat-de-vaud-yverdon-les-bains",
+        "giustizia-della-pace-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "huissier-ere-judiciaire-d-une-justice-de-paix-etat-de-vaud-yverdon-les-bains"
+          "huissier-ere-judiciaire-d-une-justice-de-paix-etat-de-vaud-yverdon-les-bains",
+          "giustizia-della-pace-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ],
         "en": [
           "huissier-ere-judiciaire-d-une-justice-de-paix-etat-de-vaud-yverdon-les-bains"
@@ -4180,6 +4295,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "etat-de-vaud-5839",
+      "slug": "stagiaire-master-ou-post-master-en-sante-publique-ou-domaine-assimile-etat-de-vaud",
+      "slugByLocale": {
+        "fr": "stagiaire-master-ou-post-master-en-sante-publique-ou-domaine-assimile-etat-de-vaud",
+        "it": "stagiaire-master-ou-post-master-en-sante-publique-ou-domaine-assimile-etat-de-vaud",
+        "en": "stagiaire-master-ou-post-master-en-sante-publique-ou-domaine-assimile-etat-de-vaud",
+        "de": "stagiaire-master-ou-post-master-en-sante-publique-ou-domaine-assimile-etat-de-vaud"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Stagiaire Master ou post Master en santé publique ou domaine assimilé",
+      "titleByLocale": {
+        "fr": "Stagiaire Master ou post Master en santé publique ou domaine assimilé",
+        "it": "Stagiaire Master ou post Master en santé publique ou domaine assimilé",
+        "en": "Stagiaire Master ou post Master en santé publique ou domaine assimilé",
+        "de": "Stagiaire Master ou post Master en santé publique ou domaine assimilé"
+      },
+      "description": "En votre qualité de stagiaire au sein de la Direction santé communautaire, vous contribuerez à la gestion du partenariat de l’entité avec les prestataires externes de la santé communautaire. Vous pourrez assister un·e chargée de mission dans ses activités, collaborer au suivi de certains dossiers-clés en lien avec les partenaires et soutenir le domaine de la première ligne de soins dans la conduite de projets.\n\n• Contribuer à la coordination opérationnelle et au suivi des mandats confiés au partenaire\n• Participer à l’élaboration des contrats de prestations pluriannuels et de l’avenant annuel\n• Assurer le suivi de ces contrats et contribuer à leur évaluation périodique\n• Contribuer à la mise en place des mandats spécifiques liés aux OSAD et infirmier∙ère∙s indépendant\n• Contribuer à la mise en œuvre de la stratégie de la DGS concernant les acteurs de la première ligne de soins\n• Mener ou suivre des analyses spécifiques sur demande (organisationnelles, financières, stratégiques)\n• Appuyer la préparation, l’organisation et le suivi des séances de coordination entre la DGS et les partenaires Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Katrin Wirsching, Directrice adjointe de la direction santé communautaire, par courriel à katrin.wirsching@vd.ch .\n\nProfil recherché : Le stage s’adresse à un·e personne en cours de formation du diplôme de Master ou post Master, dans l’un des domaines suivants :\n• Santé publique\n• Management ou administration publique (Management public, Management des institutions de santé, Management des organisations sociales et médico-sociales)\n• Sciences politiques (idéalement avec spécialisation en politiques publiques, politiques sociales ou santé)\n• Sciences sociales orientées politiques publiques ou systèmes de santé\n• Économie de la santé (en option) Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation, vos diplômes, ainsi que vos certificats de travail le cas échéant. En cas d’intérêt, nous vous remercions de nous transmettre votre dossier en un seul pdf.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "En votre qualité de stagiaire au sein de la Direction santé communautaire, vous contribuerez à la gestion du partenariat de l’entité avec les prestataires externes de la santé communautaire. Vous pourrez assister un·e chargée de mission dans ses activités, collaborer au suivi de certains dossiers-clés en lien avec les partenaires et soutenir le domaine de la première ligne de soins dans la conduite de projets.\n\n• Contribuer à la coordination opérationnelle et au suivi des mandats confiés au partenaire\n• Participer à l’élaboration des contrats de prestations pluriannuels et de l’avenant annuel\n• Assurer le suivi de ces contrats et contribuer à leur évaluation périodique\n• Contribuer à la mise en place des mandats spécifiques liés aux OSAD et infirmier∙ère∙s indépendant\n• Contribuer à la mise en œuvre de la stratégie de la DGS concernant les acteurs de la première ligne de soins\n• Mener ou suivre des analyses spécifiques sur demande (organisationnelles, financières, stratégiques)\n• Appuyer la préparation, l’organisation et le suivi des séances de coordination entre la DGS et les partenaires Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Katrin Wirsching, Directrice adjointe de la direction santé communautaire, par courriel à katrin.wirsching@vd.ch .\n\nProfil recherché : Le stage s’adresse à un·e personne en cours de formation du diplôme de Master ou post Master, dans l’un des domaines suivants :\n• Santé publique\n• Management ou administration publique (Management public, Management des institutions de santé, Management des organisations sociales et médico-sociales)\n• Sciences politiques (idéalement avec spécialisation en politiques publiques, politiques sociales ou santé)\n• Sciences sociales orientées politiques publiques ou systèmes de santé\n• Économie de la santé (en option) Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation, vos diplômes, ainsi que vos certificats de travail le cas échéant. En cas d’intérêt, nous vous remercions de nous transmettre votre dossier en un seul pdf.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "En votre qualité de stagiaire au sein de la Direction santé communautaire, vous contribuerez à la gestion du partenariat de l’entité avec les prestataires externes de la santé communautaire. Vous pourrez assister un·e chargée de mission dans ses activités, collaborer au suivi de certains dossiers-clés en lien avec les partenaires et soutenir le domaine de la première ligne de soins dans la conduite de projets.\n\n• Contribuer à la coordination opérationnelle et au suivi des mandats confiés au partenaire\n• Participer à l’élaboration des contrats de prestations pluriannuels et de l’avenant annuel\n• Assurer le suivi de ces contrats et contribuer à leur évaluation périodique\n• Contribuer à la mise en place des mandats spécifiques liés aux OSAD et infirmier∙ère∙s indépendant\n• Contribuer à la mise en œuvre de la stratégie de la DGS concernant les acteurs de la première ligne de soins\n• Mener ou suivre des analyses spécifiques sur demande (organisationnelles, financières, stratégiques)\n• Appuyer la préparation, l’organisation et le suivi des séances de coordination entre la DGS et les partenaires Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Katrin Wirsching, Directrice adjointe de la direction santé communautaire, par courriel à katrin.wirsching@vd.ch .\n\nProfil recherché : Le stage s’adresse à un·e personne en cours de formation du diplôme de Master ou post Master, dans l’un des domaines suivants :\n• Santé publique\n• Management ou administration publique (Management public, Management des institutions de santé, Management des organisations sociales et médico-sociales)\n• Sciences politiques (idéalement avec spécialisation en politiques publiques, politiques sociales ou santé)\n• Sciences sociales orientées politiques publiques ou systèmes de santé\n• Économie de la santé (en option) Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation, vos diplômes, ainsi que vos certificats de travail le cas échéant. En cas d’intérêt, nous vous remercions de nous transmettre votre dossier en un seul pdf.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "En votre qualité de stagiaire au sein de la Direction santé communautaire, vous contribuerez à la gestion du partenariat de l’entité avec les prestataires externes de la santé communautaire. Vous pourrez assister un·e chargée de mission dans ses activités, collaborer au suivi de certains dossiers-clés en lien avec les partenaires et soutenir le domaine de la première ligne de soins dans la conduite de projets.\n\n• Contribuer à la coordination opérationnelle et au suivi des mandats confiés au partenaire\n• Participer à l’élaboration des contrats de prestations pluriannuels et de l’avenant annuel\n• Assurer le suivi de ces contrats et contribuer à leur évaluation périodique\n• Contribuer à la mise en place des mandats spécifiques liés aux OSAD et infirmier∙ère∙s indépendant\n• Contribuer à la mise en œuvre de la stratégie de la DGS concernant les acteurs de la première ligne de soins\n• Mener ou suivre des analyses spécifiques sur demande (organisationnelles, financières, stratégiques)\n• Appuyer la préparation, l’organisation et le suivi des séances de coordination entre la DGS et les partenaires Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Katrin Wirsching, Directrice adjointe de la direction santé communautaire, par courriel à katrin.wirsching@vd.ch .\n\nProfil recherché : Le stage s’adresse à un·e personne en cours de formation du diplôme de Master ou post Master, dans l’un des domaines suivants :\n• Santé publique\n• Management ou administration publique (Management public, Management des institutions de santé, Management des organisations sociales et médico-sociales)\n• Sciences politiques (idéalement avec spécialisation en politiques publiques, politiques sociales ou santé)\n• Sciences sociales orientées politiques publiques ou systèmes de santé\n• Économie de la santé (en option) Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation, vos diplômes, ainsi que vos certificats de travail le cas échéant. En cas d’intérêt, nous vous remercions de nous transmettre votre dossier en un seul pdf.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "En votre qualité de stagiaire au sein de la Direction santé communautaire, vous contribuerez à la gestion du partenariat de l’entité avec les prestataires externes de la santé communautaire. Vous pourrez assister un·e chargée de mission dans ses activités, collaborer au suivi de certains dossiers-clés en lien avec les partenaires et soutenir le domaine de la première ligne de soins dans la conduite de projets.\n\n• Contribuer à la coordination opérationnelle et au suivi des mandats confiés au partenaire\n• Participer à l’élaboration des contrats de prestations pluriannuels et de l’avenant annuel\n• Assurer le suivi de ces contrats et contribuer à leur évaluation périodique\n• Contribuer à la mise en place des mandats spécifiques liés aux OSAD et infirmier∙ère∙s indépendant\n• Contribuer à la mise en œuvre de la stratégie de la DGS concernant les acteurs de la première ligne de soins\n• Mener ou suivre des analyses spécifiques sur demande (organisationnelles, financières, stratégiques)\n• Appuyer la préparation, l’organisation et le suivi des séances de coordination entre la DGS et les partenaires Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Katrin Wirsching, Directrice adjointe de la direction santé communautaire, par courriel à katrin.wirsching@vd.ch .\n\nProfil recherché : Le stage s’adresse à un·e personne en cours de formation du diplôme de Master ou post Master, dans l’un des domaines suivants :\n• Santé publique\n• Management ou administration publique (Management public, Management des institutions de santé, Management des organisations sociales et médico-sociales)\n• Sciences politiques (idéalement avec spécialisation en politiques publiques, politiques sociales ou santé)\n• Sciences sociales orientées politiques publiques ou systèmes de santé\n• Économie de la santé (en option) Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation, vos diplômes, ainsi que vos certificats de travail le cas échéant. En cas d’intérêt, nous vous remercions de nous transmettre votre dossier en un seul pdf.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5839",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T12:52:11.546Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5839",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z"
     },
     {
       "id": "etat-de-vaud-5628",
@@ -4258,7 +4440,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-vaud-5776",
@@ -4334,7 +4516,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5726",
@@ -4413,7 +4596,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
