@@ -85910,6 +85910,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coordinamento-avs-inps-2026': {
+    title: 'Coordinamento AVS-INPS 2026: famiglia con figli',
+    description: 'Guida pratica al coordinamento pensionistico AVS-INPS per frontalieri ticinesi con famiglia e figli. Totalizzazione contributi, scadenze 2024, checklist',
+    keywords: 'frontalieri, ticino, svizzera, italia, coordinamento, avs-inps, famiglia, figli',
+    ogTitle: 'Coordinamento AVS-INPS 2026: famiglia con figli',
+    ogDescription: 'Coordinamento pensionistico Svizzera-Italia per frontalieri con figli: totalizzazione automatica dal 2024, implicazioni fiscali, diritti LAMal e checklist per pianificazione.',
+    canonicalPath: '/articoli-frontaliere/coordinamento-avs-inps-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coordinamento AVS-INPS 2026: famiglia con figli",
+      "description": "Guida pratica al coordinamento pensionistico AVS-INPS per frontalieri ticinesi con famiglia e figli. Totalizzazione contributi, scadenze 2024, checklist",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/coordinamento-avs-inps-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento di coordinamento AVS-INPS per frontalieri con vista sul Ticino"
+      },
+      "datePublished": "2026-09-05T06:40:15+00:00",
+      "dateModified": "2026-09-05T06:40:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coordinamento-avs-inps-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

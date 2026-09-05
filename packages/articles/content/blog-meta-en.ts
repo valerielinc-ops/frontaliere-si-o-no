@@ -11372,6 +11372,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.quando-cambiare-euro-frontaliere-single.title': 'How to protect your salary from exchange',
     'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'The new 2024 cross-border agreement and the 2026 IRPEF rates make the exchange rate strategy critical. Practical guide for singles: timing, procedures, operational tools.',
     'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Calculator and Swiss francs on desk with Lake Lugano view. Financial planning workspace in Ticino.',
+    'blog.article.coordinamento-avs-inps-2026.title': 'AVS-INPS 2026 coordination: family with children',
+    'blog.article.coordinamento-avs-inps-2026.excerpt': 'Total AVS-INPS contributions for border workers with children: how to coordinate the pension between Switzerland and Italy by 2026.',
+    'blog.article.coordinamento-avs-inps-2026.imageAlt': 'AVS-INPS coordination document for cross-border workers with Ticino landscape view',
 };
 
 export default blogMetaEn;

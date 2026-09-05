@@ -11373,6 +11373,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quando-cambiare-euro-frontaliere-single.title': 'Come proteggere lo stipendio dal cambio',
     'blog.article.quando-cambiare-euro-frontaliere-single.excerpt': 'Il nuovo accordo frontalieri 2024 e le aliquote IRPEF 2026 rendono critica la strategia di cambio. Guida pratica per single: timing, procedure, strumenti operativi.',
     'blog.article.quando-cambiare-euro-frontaliere-single.imageAlt': 'Calcolatrice e franchi su scrivania con vista Lago Lugano. Ambiente di pianificazione finanziaria nel Ticino.',
+    'blog.article.coordinamento-avs-inps-2026.title': 'Coordinamento AVS-INPS 2026: famiglia con figli',
+    'blog.article.coordinamento-avs-inps-2026.excerpt': 'Totalizzazione contributi AVS-INPS per frontalieri con figli: come coordinare la pensione tra Svizzera e Italia entro il 2026.',
+    'blog.article.coordinamento-avs-inps-2026.imageAlt': 'Documento di coordinamento AVS-INPS per frontalieri con vista sul Ticino',
 };
 
 export default blogMetaIt;
