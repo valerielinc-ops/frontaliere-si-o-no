@@ -135,6 +135,13 @@ function isOpenRouterDisabled() {
 /** Reset the per-run request budget (a run = one process; tests need it too). */
 function resetOpenRouterBudget() { openRouterRequests = 0; }
 
+// A query the spend cap PREVENTED from being sent is not the same outcome as a
+// query that ran and surfaced nothing: the first was never measured, the second
+// is a measured zero. Both used to leave queryOpenRouter as `null`, so the run
+// after a retry burst recorded a visibility drop nobody had observed (issue
+// #7489 item 2). The sentinel keeps the two apart all the way to the report.
+const UNMEASURED_BUDGET_CAP = Object.freeze({ unmeasured: 'openrouter-per-run-cap' });
+
 /**
  * Call Perplexity Sonar API — returns citations natively.
  * Docs: https://docs.perplexity.ai/api-reference/chat-completions
@@ -262,6 +269,7 @@ async function queryOpenRouter(query) {
   const key = getOpenRouterKey();
   if (!key || isOpenRouterDisabled()) return null;
 
+  let cappedBySpendGuard = false;
   const res = await fetchWithRetry('OpenRouter', 'https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -288,7 +296,8 @@ async function queryOpenRouter(query) {
     // charged per HTTP request emitted, retries included.
     beforeAttempt: () => {
       if (openRouterRequests >= OPENROUTER_MAX_REQUESTS) {
-        console.warn(`  ⚠ OpenRouter per-run cap reached (${OPENROUTER_MAX_REQUESTS} requests) — skipped`);
+        console.warn(`  ⚠ OpenRouter per-run cap reached (${OPENROUTER_MAX_REQUESTS} requests) — not measured`);
+        cappedBySpendGuard = true;
         return false;
       }
       openRouterRequests++;
@@ -296,7 +305,9 @@ async function queryOpenRouter(query) {
     },
   });
 
-  if (!res) return null;
+  // `null` here means the platform was reached and failed; the sentinel means
+  // the request was never emitted, so the report must not read it as a zero.
+  if (!res) return cappedBySpendGuard ? UNMEASURED_BUDGET_CAP : null;
 
   const data = await res.json();
   const message = data.choices?.[0]?.message || {};
@@ -504,6 +515,19 @@ function findCompetitorMentions(content, citations = []) {
 function applyPlatformAnswer(result, platform, answer) {
   if (!answer) {
     result.platforms[platform] = { checked: false, error: 'API call failed' };
+    return result.platforms[platform];
+  }
+
+  // Never sent = never measured. It stays `checked: false` like an unreachable
+  // platform (so it is excluded from the score denominator exactly the same
+  // way), but it carries its own reason: "we chose not to spend" is a fact
+  // about our budget, not about our visibility.
+  if (answer.unmeasured) {
+    result.platforms[platform] = {
+      checked: false,
+      unmeasured: answer.unmeasured,
+      error: 'not measured: per-run request cap reached',
+    };
     return result.platforms[platform];
   }
 
@@ -845,7 +869,7 @@ function generateMarkdown(report) {
   }
 
   lines.push('', '---', '', '## Per-Query Results', '',
-    'Legend: ✅ cited · ❌ checked, not cited · ⚪ platform unreachable (excluded from the score)', '');
+    'Legend: ✅ cited · ❌ checked, not cited · ⚪ platform unreachable · ⏸ not measured, per-run spend cap reached (both excluded from the score)', '');
 
   // Table header
   const platformCols = meta.platformsChecked.map(p => p.charAt(0).toUpperCase() + p.slice(1));
@@ -855,6 +879,7 @@ function generateMarkdown(report) {
   for (const [i, r] of results.entries()) {
     const platformCells = meta.platformsChecked.map(p => {
       const pd = r.platforms[p];
+      if (pd?.unmeasured) return '⏸';
       if (!pd || !pd.checked) return '⚪';
       return pd.cited ? '✅' : '❌';
     });
@@ -970,4 +995,5 @@ export {
   resetRetryBudget,
   OPENROUTER_MAX_REQUESTS,
   RETRY_BUDGET_MS,
+  UNMEASURED_BUDGET_CAP,
 };
