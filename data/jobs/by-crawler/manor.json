@@ -714,21 +714,19 @@
       "slug": "manor-collaborateur-trice-supermarche-pain-patisserie-50-geneve-1-collaborateurtrice-supermarche",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-pain-patisserie-50-geneve-1-collaborateurtrice-supermarche",
-        "en": "manor-collaborateur-trice-supermarche-pain-patisserie-50-geneve-1-collaborateurtrice-supermarche",
-        "de": "manor-collaborateur-trice-supermarche-pain-patisserie-50-geneve-1-collaborateurtrice-supermarche",
-        "fr": "manor-collaborateur-trice-supermarche-pain-patisserie-50-geneve-1-collaborateurtrice-supermarche"
+        "en": "supermarche-co-operator-pain-patisserie-50-manor-ag-geneve-1-collaborateurtrice-supermarche",
+        "de": "supermarche-kooperator-pain-patisserie-50-manor-ag-geneve-1-collaborateurtrice-supermarche",
+        "fr": "cooperateur-supermarche-pain-patisserie-50-manor-ag-geneve-1-collaborateurtrice-supermarche"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Pain & Pâtisserie) 50%",
-        "en": "Supermarché Collaborateur/trice (Pain & Pâtisserie) 50%",
-        "de": "Supermarché Collaborateur/trice (Pain & Pâtisserie) 50%",
-        "fr": "Supermarché Collaborateur/trice (Pain & Pâtisserie) 50%"
+        "en": "Supermarché co-operator (Pain & Pâtisserie) 50%",
+        "de": "Supermarché-Kooperator (Pain & Pâtisserie) 50%",
+        "fr": "Coopérateur Supermarché (Pain & Pâtisserie) 50%"
       },
       "sourceLang": "it",
-      "id": "manor-c67bd88d849c",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-04T13:38:05.738Z",
       "crawledAt": "",
+      "id": "manor-c67bd88d849c",
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -745,7 +743,8 @@
       },
       "addressLocality": "Genève 1 Collaborateurtrice supermarché",
       "addressRegion": "GE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-04T13:38:05.738Z"
     },
     {
       "title": "Process Automation Specialist 100%",
