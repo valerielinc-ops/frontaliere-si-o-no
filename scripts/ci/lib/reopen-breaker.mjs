@@ -4,16 +4,16 @@
  *
  * ── IL DIFETTO (misurato 2026-08-14/15) ────────────────────────────────────
  * `reopenToRetrigger` è un re-trigger deterministico: chiude e riapre la PR
- * ~2s dopo, perché l'evento `reopened` fa ripartire `pr-review-loop` e
- * `tests.yml` (che ha `on: pull_request` SENZA `types:`, quindi eredita il
- * default `[opened, synchronize, reopened]`). Il call-site post-rebase lo
- * invoca ogni volta che la PR non ha `## LGTM`.
+ * ~2s dopo, perché l'evento `reopened` fa ripartire `tests.yml` (che ha
+ * `on: pull_request` SENZA `types:`, quindi eredita il default
+ * `[opened, synchronize, reopened]`) e con esso la review Claude, che dal
+ * 2026-08-26 è uno STEP di quel workflow. Il call-site post-rebase lo invoca
+ * ogni volta che la PR non ha `## LGTM`.
  *
- * Ma se il `vitest (unit + integration)` della PR è FAILURE per un motivo suo,
- * `!lgtm` è una condizione che il reopen NON PUÒ cambiare, per costruzione:
- *   pr-review-loop.yml gira solo su `workflow_run.conclusion == 'success'`
- *   → con vitest rosso non c'è review ⇒ non c'è `## LGTM` ⇒ `!lgtm` resta vero
- *   → il tick successivo riapre di nuovo. All'infinito.
+ * Ma se i TEST della PR sono rotti, `!lgtm` è una condizione che il reopen non
+ * può cambiare: il job `vitest (unit + integration)` torna rosso allo stesso
+ * modo, la review non trova nulla di nuovo da approvare ⇒ `!lgtm` resta vero
+ * → il tick successivo riapre di nuovo. All'infinito.
  * E ogni giro ri-esegue la suite intera. Misurato in ~8h su due PR sole:
  *   #5896  12 riaperture, 89 run di CI, di cui 23 di `tests`
  *   #5906  10 riaperture, 77 run di CI, di cui 19 di `tests`
@@ -29,6 +29,15 @@
  *    NB: il chiamante deve passare una conclusione NORMALIZZATA — un
  *    `cancelled`/`failure` da cancellazione-per-concurrency NON è un verdetto
  *    sul codice (vitestVerdictIsTransientCancellation) e non deve bloccare.
+ *    NB2 (`reviewGateFailure`, #7429): dopo l'unificazione tests+review dello
+ *    2026-08-26 il job `vitest (unit + integration)` è rosso anche quando i
+ *    test sono VERDI e a fallire è lo step `Require approving Claude review`.
+ *    Quel rosso non dice «la review non può partire» — dice il contrario: la
+ *    review è già partita e ha emesso un verdetto. Trattarlo come un test
+ *    rotto manda l'operatore a cercare un `FAIL ` che nel log non c'è, e nega
+ *    il riciclo proprio nel caso in cui funzionerebbe. Il chiamante lo passa
+ *    (`vitestFailureIsReviewGate`) per (a) scrivere la causa VERA nel messaggio
+ *    e (b) consentire UN re-trigger, one-shot per PR come lo stuck-red.
  *
  * 2. BREAKER (`decideReopen` → 'skip-breaker'): anche un reopen legittimo non
  *    può ripetersi all'infinito. Dopo `max` tentativi SENZA che lo stato
@@ -144,18 +153,26 @@ export function parseReopenBudget(body) {
  *
  * @param {{vitestConclusion:string, fingerprint:string,
  *          prior:{count:number,fingerprint:string}|null, max?:number,
- *          failureNotAttributable?:string}} s
- *   `failureNotAttributable` — la reason (`'red-main'`/`'stale'`) di
- *   `vitestFailureIsNotAttributableToPr` quando il chiamante ha la PROVA che il
- *   `failure` non è della PR, '' altrimenti. Vedi la precondizione sotto.
+ *          failureNotAttributable?:string, reviewGateFailure?:boolean}} s
+ *   `failureNotAttributable` — la reason (`'red-main'`/`'stale'`/`'review-gate'`)
+ *   quando il chiamante ha la PROVA che il `failure` non è dei test della PR,
+ *   '' altrimenti. Vedi la precondizione sotto.
+ *   `reviewGateFailure` — il rosso è lo step del review gate (LGTM mancante o
+ *   finding 🔴), non i test. Indipendente da `failureNotAttributable`: resta
+ *   `true` anche quando il re-trigger one-shot è già stato speso, perché serve
+ *   comunque a nominare la causa vera nel messaggio.
  * @returns {{action:'skip-failing-check'|'skip-breaker'|'reopen',
- *            count:number, reason:string}}
+ *            count:number, reason:string, cause:string}}
  *   'skip-failing-check' = un check richiesto è FAILURE: il reopen non può
  *                          ripararlo → non si tocca la PR.
  *   'skip-breaker'       = budget esaurito sullo STESSO stato → si smette.
  *   'reopen'             = riciclo legittimo; `count` è il tentativo in corso.
+ *   `cause` ∈ `'tests'|'review-gate'|''` — di chi è il rosso, per il messaggio.
  */
-export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAULT_MAX_REOPENS, failureNotAttributable = '' }) {
+export function decideReopen({
+  vitestConclusion, fingerprint, prior, max = DEFAULT_MAX_REOPENS,
+  failureNotAttributable = '', reviewGateFailure = false,
+}) {
   const carried = prior && prior.fingerprint === fingerprint ? prior.count : 0;
 
   // (1) PRECONDIZIONE — prima di tutto il resto, e senza consumare budget: una
@@ -180,10 +197,17 @@ export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAU
     return {
       action: 'skip-failing-check',
       count: carried,
-      reason: `il check richiesto \`${VITEST_CHECK_NAME}\` è FAILURE: `
-        + `con vitest rosso pr-review-loop non parte (gira solo su tests success), `
-        + `quindi nessun reopen può produrre l'\`## LGTM\` che manca — il riciclo è `
-        + `inutile per costruzione. Serve far passare i test.`,
+      cause: reviewGateFailure ? 'review-gate' : 'tests',
+      reason: reviewGateFailure
+        ? `il check richiesto \`${VITEST_CHECK_NAME}\` è FAILURE, ma i test sono `
+          + `verdi: a fallire è lo step del review gate — sulla HEAD manca un `
+          + `\`## LGTM\` approvante, oppure c'è un finding 🔴 Important. Il `
+          + `re-trigger one-shot è già stato speso su questo stato: serve una `
+          + `review nuova, o un commit che chiuda il finding.`
+        : `il check richiesto \`${VITEST_CHECK_NAME}\` è FAILURE sui TEST: il job `
+          + `torna rosso identico a ogni giro e la review, che gira nello stesso `
+          + `job, non ha nulla di nuovo da approvare — nessun reopen può produrre `
+          + `l'\`## LGTM\` che manca. Serve far passare i test.`,
     };
   }
 
@@ -194,14 +218,27 @@ export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAU
     return {
       action: 'skip-breaker',
       count: carried,
+      cause: reviewGateFailure ? 'review-gate' : '',
       reason: `${carried} riaperture su uno stato identico (impronta \`${fingerprint}\`) `
         + `non hanno cambiato nulla: il re-trigger non è la cura. Breaker aperto.`,
     };
   }
 
+  if (failureNotAttributable === 'review-gate') {
+    return {
+      action: 'reopen',
+      count: carried + 1,
+      cause: 'review-gate',
+      reason: `riciclo legittimo (tentativo ${carried + 1}/${max}): il rosso di `
+        + `\`${VITEST_CHECK_NAME}\` è il review gate, non i test — la review è già `
+        + `girata e il verdetto manca o è negativo, quindi il re-trigger è proprio `
+        + `ciò che ne produce uno nuovo.`,
+    };
+  }
   return {
     action: 'reopen',
     count: carried + 1,
+    cause: failureNotAttributable ? 'tests' : '',
     reason: failureNotAttributable
       ? `riciclo legittimo (tentativo ${carried + 1}/${max}): vitest rosso ma PROVATO `
         + `non attribuibile alla PR (${failureNotAttributable}) — re-trigger di `
@@ -265,7 +302,7 @@ export function decideNeedsHumanPass({ fingerprint, prior }) {
  * producono UNA notifica, non N. È questo — non un contatore di issue — a
  * garantire che la segnalazione sia una sola.
  */
-export function renderReopenBudget({ count, max, fingerprint, action, reason }) {
+export function renderReopenBudget({ count, max, fingerprint, action, reason, cause = '' }) {
   const state = JSON.stringify({ count, fingerprint });
   const head = action === 'skip-breaker'
     ? `⛔ **autorebase / breaker aperto** — smetto di riaprire questa PR.`
@@ -289,9 +326,18 @@ export function renderReopenBudget({ count, max, fingerprint, action, reason }) 
           + `di solito qui è già verde, non è lui il blocco. Appena l'impronta cambia il `
           + `contatore si azzera da solo e il ciclo la riprende; in alternativa un close+reopen `
           + `manuale ri-triggera review+tests subito.`
-        : `Cosa serve per sbloccarla: **far passare \`${VITEST_CHECK_NAME}\`**. `
-          + `Appena arriva un commit nuovo (o il check torna verde) il contatore si azzera `
-          + `da solo e il ciclo la riprende — non serve toccare niente qui.`;
+        // Il rosso del check ha DUE cause che si chiamano uguali: i test rotti
+        // e il review gate (LGTM mancante o 🔴 aperto), che dall'unificazione
+        // tests+review del 2026-08-26 vive nello stesso job. Dire «far passare
+        // i test» al secondo manda a cercare un `FAIL ` che nel log non c'è.
+        : cause === 'review-gate'
+          ? `Cosa serve per sbloccarla: **una review Claude approvante sulla HEAD** — `
+            + `\`## LGTM\` senza finding 🔴 Important. I test sono verdi: il rosso di `
+            + `\`${VITEST_CHECK_NAME}\` è lo step del review gate, che gira dentro lo `
+            + `stesso job. Un commit nuovo (o un close+reopen manuale) ri-esegue la review.`
+          : `Cosa serve per sbloccarla: **far passare \`${VITEST_CHECK_NAME}\`**. `
+            + `Appena arriva un commit nuovo (o il check torna verde) il contatore si azzera `
+            + `da solo e il ciclo la riprende — non serve toccare niente qui.`;
   return `${REOPEN_BUDGET_MARKER}\n${head}\n\n${reason}\n\n${tail}\n\n`
     + `_Segnale deterministico da pr-autorebase.yml (zero-Claude). Commento unico, aggiornato in place._\n`
     + `<!-- reopen-budget-state ${state} -->`;

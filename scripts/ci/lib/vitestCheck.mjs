@@ -278,3 +278,51 @@ export function vitestFailureIsNotAttributableToPr({
 
   return NO;
 }
+
+/**
+ * Nome dello step di `tests.yml` che rende rosso il job `vitest (unit +
+ * integration)` quando la review Claude sulla HEAD non è approvante (manca
+ * `## LGTM`, oppure c'è un finding 🔴 Important). Vive qui e non in un literal
+ * sparso perché è il DISCRIMINANTE fra due rossi che si chiamano uguali ma
+ * vogliono cure opposte — vedi `vitestFailureIsReviewGate`.
+ */
+export const REVIEW_GATE_STEP_NAME = 'Require approving Claude review';
+
+/**
+ * Il rosso del check `vitest (unit + integration)` è il REVIEW GATE e non i
+ * test?
+ *
+ * ── PERCHÉ SERVE ───────────────────────────────────────────────────────────
+ * Fino al 2026-08-26 la review Claude era un workflow a parte
+ * (`pr-review-loop.yml`) innescato da `workflow_run` su `tests` == success:
+ * con vitest rosso la review NON partiva, quindi «vitest rosso» implicava
+ * «nessuna review possibile» e riciclare la PR era inutile per costruzione.
+ * Da `80a8c73f73a` («Unify tests and PR review workflow») la review è uno step
+ * DENTRO il job `vitest (unit + integration)`, e gira PRIMA dello step che fa
+ * fallire il job. La premessa si è quindi invertita: un vitest rosso causato
+ * dal review gate significa che la review È GIÀ PARTITA e ha emesso un
+ * verdetto — e un re-trigger è esattamente ciò che ne produce uno nuovo.
+ *
+ * ── IL SEGNALE ─────────────────────────────────────────────────────────────
+ * Gli step del job, dalla jobs API: il gate è rosso ⇔ lo step
+ * `REVIEW_GATE_STEP_NAME` è `failure`. Conservativo: se ANCHE un altro step è
+ * fallito il rosso non è puro (ci sono test rotti sotto) → `false`, e vale la
+ * precondizione normale. Meglio non riciclare una PR riciclabile che riciclare
+ * all'infinito una PR coi test rossi (#5896/#5906).
+ *
+ * Pura: nessuna I/O. Il chiamante fetcha gli step e rende l'azione one-shot.
+ *
+ * @param {Array<{name?: string, conclusion?: string}>} steps `.steps` di
+ *   `repos/{repo}/actions/jobs/{job_id}`.
+ * @returns {boolean}
+ */
+export function vitestFailureIsReviewGate(steps) {
+  if (!Array.isArray(steps) || steps.length === 0) return false;
+  let gateFailed = false;
+  for (const s of steps) {
+    if (!s || s.conclusion !== 'failure') continue;
+    if (s.name === REVIEW_GATE_STEP_NAME) gateFailed = true;
+    else return false; // un altro step rosso: non è (solo) il gate.
+  }
+  return gateFailed;
+}

@@ -65,8 +65,10 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 import {
   latestCompletedVitestConclusion,
+  latestCompletedVitestRun,
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
+  vitestFailureIsReviewGate,
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
@@ -148,6 +150,17 @@ const STUCK_RED_MARKER = '<!-- AUTOREBASE_STUCK_RED_RESCUE -->';
 // (copre i fallimenti INFRA, es. #5019: `RPC failed; curl 56` + runner shutdown
 // durante il checkout, zero test eseguiti, con main verde in quel momento).
 const STUCK_RED_STALE_H = Number(process.env.AUTOREBASE_STUCK_RED_STALE_H || 24);
+// Re-trigger one-shot per il rosso da REVIEW GATE (#7429). Dall'unificazione
+// tests+review del 2026-08-26 il job `vitest (unit + integration)` è rosso anche
+// quando i test passano e a fallire è lo step `Require approving Claude review`:
+// quel rosso NON dice «la review non può partire» — dice che è già partita e il
+// verdetto manca o è negativo, quindi il riciclo è esattamente ciò che ne produce
+// uno nuovo. One-shot per PR, e per la stessa ragione dello stuck-red: il
+// fingerprint del breaker include il NUMERO di review, che un reopen incrementa —
+// senza marker il contatore si azzererebbe a ogni giro e il breaker non
+// scatterebbe mai (il livelock misurato su #5896/#5906). Un 🔴 reale si chiude
+// con un commit, non con un re-trigger: una volta sola è la dose giusta.
+const REVIEW_GATE_MARKER = '<!-- AUTOREBASE_REVIEW_GATE_RETRIGGER -->';
 // Activity-guard: don't rebase-push a branch whose head was pushed in the last
 // N minutes — a contributor/agent is likely mid-flight (still pushing fixes on
 // top of an LGTM'd PR). Rebasing then races their push: ours lands first, their
@@ -404,9 +417,16 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   const fingerprint = reopenStateFingerprint(num, vitestConclusion);
   const body = readReopenBudgetBody(num);
   const prior = parseReopenBudget(body);
+  // Rosso da review gate: causa del messaggio SEMPRE (anche a one-shot già
+  // speso, altrimenti il commento tornerebbe a dire «far passare i test» a una
+  // PR i cui test sono verdi), ma esenzione dalla precondizione una volta sola.
+  const reviewGateRed = vitestConclusion === 'failure' && vitestRedIsReviewGate(head);
+  const reviewGateReason = reviewGateRed && !hasCommentMarker(num, REVIEW_GATE_MARKER)
+    ? 'review-gate' : '';
   const d = decideReopen({
     vitestConclusion, fingerprint, prior, max: MAX_REOPENS,
-    failureNotAttributable: stuckRedReason,
+    failureNotAttributable: stuckRedReason || reviewGateReason,
+    reviewGateFailure: reviewGateRed,
   });
 
   if (d.action !== 'reopen') {
@@ -416,6 +436,7 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
     // più. Una segnalazione ripetuta sarebbe lo stesso difetto in altra forma.
     const next = renderReopenBudget({
       count: d.count, max: MAX_REOPENS, fingerprint, action: d.action, reason: d.reason,
+      cause: d.cause,
     });
     console.log(`PR #${num}: NO reopen (${d.action}) — ${d.reason}`);
     if (!DRY && !labelsOf(num).includes(BREAKER_LABEL)) {
@@ -433,9 +454,18 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   // cieco proprio ai giri che falliscono, cioè quelli che contano di più.
   const next = renderReopenBudget({
     count: d.count, max: MAX_REOPENS, fingerprint, action: d.action, reason: d.reason,
+    cause: d.cause,
   });
   if (body !== next) {
     upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+  }
+  // Consuma il one-shot PRIMA del close+reopen, come il contatore qui sopra e
+  // per la stessa ragione: se il job muore in mezzo, il tentativo è comunque
+  // speso e il tick successivo non ne concede un altro.
+  if (reviewGateReason && !DRY) {
+    gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+      `${REVIEW_GATE_MARKER}\n♻️ **autorebase / review gate**: il rosso di \`${VITEST_CHECK_NAME}\` su questa PR è lo step \`Require approving Claude review\`, non i test — sulla HEAD manca un \`## LGTM\` approvante oppure c'è un finding 🔴 Important.\n\nDall'unificazione tests+review la review gira DENTRO quel job, quindi un re-trigger ne produce una nuova: close+reopen **una sola volta**. Se il verdetto resta negativo, serve un commit che chiuda il finding — non un altro giro.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
+      { json: false, allowFail: true });
   }
   console.log(`PR #${num}: reopen consentito — ${d.reason}`);
   return reopenToRetrigger(num);
@@ -539,6 +569,28 @@ function mainTestsRuns() {
     { json: true, allowFail: true });
   _mainTestsRuns = (out && out.workflow_runs) || [];
   return _mainTestsRuns;
+}
+
+/** Gli step del job che ha prodotto l'ultimo check-run vitest COMPLETATO
+ * sull'head. Il job id si ricava dal `details_url` del check-run
+ * (`.../runs/<run_id>/job/<job_id>`), che è l'unico riferimento che la
+ * check-runs API dà al job di Actions. `[]` se il link non è parsabile o la
+ * chiamata fallisce → `vitestFailureIsReviewGate` risponde `false` e vale la
+ * precondizione normale (fail-CLOSED: nel dubbio non si ricicla). */
+function vitestJobSteps(head) {
+  const last = latestCompletedVitestRun(checkRunsOf(head));
+  const m = /\/job\/(\d+)/.exec((last && last.details_url) || '');
+  if (!m) return [];
+  const out = gh(['api', `repos/${REPO}/actions/jobs/${m[1]}`, '--jq', '.steps'],
+    { json: true, allowFail: true });
+  return Array.isArray(out) ? out : [];
+}
+
+/** Il rosso del check vitest sull'head è lo step del REVIEW GATE (LGTM mancante
+ * o finding 🔴) e non i test? Vedi `vitestFailureIsReviewGate` e il commento di
+ * `REVIEW_GATE_MARKER`. Una sola chiamata API, e solo quando serve davvero. */
+function vitestRedIsReviewGate(head) {
+  return vitestFailureIsReviewGate(vitestJobSteps(head));
 }
 
 /** Il vitest rosso sull'head NON è attribuibile alla PR (main rosso al momento
@@ -989,8 +1041,10 @@ async function processPR(pr) {
   // un `## LGTM`, o una label messa da qualcun altro. Una PR il cui vitest è
   // rosso non ne ha NESSUNO, e non può acquisirne, perché ogni produttore di
   // segnale è a valle del vitest verde:
-  //   pr-review-loop.yml gira solo su `workflow_run.conclusion == 'success'`
-  //     → niente review ⇒ niente LGTM ⇒ niente label;
+  //   la review Claude gira DENTRO il job vitest, ma dopo i test: se questi
+  //     falliscono il job si ferma prima ⇒ niente review, niente LGTM, niente
+  //     label (prima del 2026-08-26 era `pr-review-loop.yml`, gattato su
+  //     `workflow_run[tests] == success`: stessa implicazione, altro wiring);
   //   stale-pr-rescuer.yml classe A esige `tests == success`, classe B esige una
   //     review con 🔴 → cade nell'`else` ⇒ non mette nemmeno `stale-review`;
   //   e qui il gate sopra la skippa.
@@ -1025,7 +1079,7 @@ async function processPR(pr) {
         ? 'il suo `vitest` è stato eseguito sul merge ref mentre `main` era ROSSO, ed è tornato verde dopo'
         : 'il suo `vitest` è rosso da oltre ' + STUCK_RED_STALE_H + 'h senza che nulla possa ri-eseguirlo (probabile fallimento infrastrutturale)';
       gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
-        `${STUCK_RED_MARKER}\n♻️ **autorebase / stuck-red**: questa PR è ferma perché ${why}.\n\nCon vitest rosso \`pr-review-loop\` non parte (gira solo su \`tests\` success), quindi la PR non può ottenere né \`## LGTM\` né una label — e senza quelli nessun workflow la ri-testa: stato assorbente. Rebase su \`origin/main\` + ri-esecuzione dei test, **una sola volta**. Se torna rossa, il fallimento è della PR.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
+        `${STUCK_RED_MARKER}\n♻️ **autorebase / stuck-red**: questa PR è ferma perché ${why}.\n\nCon i test rossi il job si ferma prima della review Claude (che dal 2026-08-26 gira dentro lo stesso \`tests.yml\`), quindi la PR non può ottenere né \`## LGTM\` né una label — e senza quelli nessun workflow la ri-testa: stato assorbente. Rebase su \`origin/main\` + ri-esecuzione dei test, **una sola volta**. Se torna rossa, il fallimento è della PR.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
         { json: false, allowFail: true });
     }
   }
@@ -1288,9 +1342,10 @@ async function processPR(pr) {
     }
     const why = hasAnyClaudeReview(num) ? '🔴/❓ non chiuso + drift sanato' : 'classe-A senza review';
     // Il reopen passa dal breaker: è QUESTO call-site che ha prodotto le 12+10
-    // riaperture di #5896/#5906. `!lgtm` con vitest rosso è una condizione che
-    // il reopen non può cambiare (pr-review-loop gira solo su tests success),
-    // quindi senza guardia si ripete a ogni tick per sempre.
+    // riaperture di #5896/#5906. `!lgtm` con i TEST rossi è una condizione che
+    // il reopen non può cambiare (il job si ferma prima della review), quindi
+    // senza guardia si ripete a ogni tick per sempre. Diverso il rosso da
+    // REVIEW GATE, che il breaker riconosce e ricicla una volta (#7429).
     // ECCEZIONE: se la PR è qui come rescue STUCK-RED, il `failure` sull'head
     // è appena stato PROVATO non attribuibile (red-main/stale) e il reopen è
     // esattamente la ri-esecuzione promessa — `stuckRedReason` disattiva la
