@@ -28,6 +28,7 @@ import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { SECTION_LEGACY_TI as SECTION_BY_LOCALE } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -37,12 +38,6 @@ const EXPIRED_SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'expired', 'by-cra
 const SLICE_DIR_REL = 'data/jobs/by-crawler';
 const LOCALE_LIST = ['it', 'en', 'de', 'fr'];
 const LOCALE_PREFIX = { it: '', en: '/en', de: '/de', fr: '/fr' };
-const SECTION_BY_LOCALE = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
 
 const TICINO_MIN_SALARY_CHF = 41080;
 const FALLBACK_POSTAL_CODE = '6900';

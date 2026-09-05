@@ -30,6 +30,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -42,12 +43,6 @@ const OUT_PATH = path.join(ROOT, 'data', 'gsc-job-orphans.json');
 const DRY_RUN = process.argv.includes('--dry-run');
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const SECTION_LEGACY_TI = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
 
 const SECTION_PREFIX = {
   it: 'cerca-lavoro',
