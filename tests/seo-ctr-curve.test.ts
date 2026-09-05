@@ -17,6 +17,15 @@ import {
   MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
+import {
+  FUEL_DAILY_LOCALES,
+  FUEL_ZONES,
+  buildFuelTodayPath,
+  buildFuelArchivePath,
+  buildFuelStationPath,
+  buildFuelItalianCityPath,
+  buildFuelItalianStationPath,
+} from '../build-plugins/fuelDailyData';
 
 describe('seo-ctr-curve (issue #4300)', () => {
   describe('expectedCtrForPosition', () => {
@@ -224,6 +233,70 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(target).toBeGreaterThan(0);
       expect(target).toBeLessThan(0.0103);
       expect(target).toBeGreaterThan(0.0103 * 0.6);
+    });
+
+    it('familyPathPrefixes covers the ENTIRE fuel family, archives included (issue #7412 item 2)', () => {
+      // Il dubbio del reviewer: `pathContains` arriva a `fetchGscByPage` come
+      // SUBSTRING, quindi il monitor aggrega anche gli archivi mensili
+      // `/prezzi-benzina/<zona>/2026-08/` e le pagine per-stazione, non solo le
+      // pagine "oggi". Se i target fossero stati tarati su un campione più
+      // stretto (solo "oggi"), popolazione misurata ≠ popolazione monitorata e
+      // i due floor sarebbero tarati sull'insieme sbagliato.
+      //
+      // La misura GSC 90gg ri-eseguita con ESATTAMENTE questi prefissi (vedi il
+      // commento del registro) dice che i due insiemi coincidono e che gli
+      // archivi pesano lo 0,28% delle impressioni. Questo test pinna la parte
+      // strutturale di quella verifica: ogni FORMA di pagina che il generator
+      // fuel emette deve cadere dentro i prefissi della famiglia, così che un
+      // futuro restringimento del prefisso (o una rinomina di uno slug di
+      // sezione) rompa qui invece di scollegare in silenzio il campione dal
+      // monitorato.
+      const shapesFor = (fuel: 'benzina' | 'diesel') =>
+        FUEL_DAILY_LOCALES.flatMap((locale) => [
+          buildFuelTodayPath(locale, fuel),
+          buildFuelTodayPath(locale, fuel, FUEL_ZONES[0]),
+          buildFuelArchivePath(locale, fuel, FUEL_ZONES[0], '2026-08'),
+          buildFuelStationPath(locale, fuel, FUEL_ZONES[0], 'eni-via-roma'),
+          buildFuelItalianCityPath(locale, fuel, 'como'),
+          buildFuelItalianStationPath(locale, fuel, 'como', 'q8-via-milano'),
+        ]);
+
+      for (const [id, fuel] of [
+        ['prezzi-benzina', 'benzina'],
+        ['prezzi-diesel', 'diesel'],
+      ] as const) {
+        const fam = SEO_CTR_FAMILIES.find((f) => f.id === id)!;
+        const prefixes = familyPathPrefixes(fam);
+        for (const path of shapesFor(fuel)) {
+          expect(
+            prefixes.some((prefix) => path.includes(prefix)),
+            `${path} non è coperta da nessun prefisso di ${id} (${prefixes.join(', ')})`,
+          ).toBe(true);
+        }
+      }
+    });
+
+    it('no monitored template family cross-captures another one via substring (issue #7412 item 2)', () => {
+      // Il rovescio dello stesso rischio: siccome il filtro è `contains` e non
+      // `startsWith`, il prefisso di una famiglia potrebbe pescare pagine di
+      // un'ALTRA famiglia censita, attribuendo le stesse impressioni a due
+      // target diversi. Vale per la classe intera, non per le sole fuel: la
+      // coppia benzina/diesel è solo quella che ha sollevato la domanda.
+      const templates = SEO_CTR_FAMILIES.filter((f) => f.kind === 'template' && f.monitored);
+      expect(templates.length).toBeGreaterThan(1);
+      for (const fam of templates) {
+        for (const other of templates) {
+          if (other.id === fam.id) continue;
+          for (const mine of familyPathPrefixes(fam)) {
+            for (const theirs of familyPathPrefixes(other)) {
+              expect(
+                mine.includes(theirs) || theirs.includes(mine),
+                `il prefisso ${mine} di ${fam.id} si sovrappone a ${theirs} di ${other.id}`,
+              ).toBe(false);
+            }
+          }
+        }
+      }
     });
 
     it('carries pathAliases for every locale slug of a top-level template family (issue #5964)', () => {
