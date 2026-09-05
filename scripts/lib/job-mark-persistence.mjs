@@ -23,8 +23,11 @@
  *
  * WRITING THE MARK IS NOT ENOUGH — IT HAS TO SURVIVE OTHER WRITERS (#5645).
  * The slices are written by three families of process that do not coordinate:
- * this marker (inside `translate-pending.yml`), the 23 `crawler-group-NN.yml`
- * workflows, and the housekeeping scripts. `writeJsonAtomic` guarantees that a
+ * this marker (inside `translate-pending-logic.yml` — the site's own
+ * `.github/workflows/translate-pending.yml` is DISABLED since the cross-repo
+ * migration; the logic runs from the generated corpus artifact and from the
+ * frontaliere-articles caller), the 23 `crawler-group-NN.yml` workflows, and
+ * the housekeeping scripts. `writeJsonAtomic` guarantees that a
  * single file is never observed half-written; it guarantees NOTHING about the
  * ORDER of two writers, and the two failure modes below are what this module
  * now defends against explicitly.
