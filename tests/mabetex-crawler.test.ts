@@ -33,6 +33,23 @@ function careerPageWithForeignVacancy(): string {
   </div></body></html>`;
 }
 
+function careerPageWithTruncatedDescription(): string {
+  // The section still passes the >200-char "Job offers" sniff thanks to the
+  // intro copy, and the vacancy is in Lugano so the Swiss gate ACCEPTS it —
+  // only the per-vacancy detail body collapsed, which is what a drifted
+  // detail selector produces. The sole reason this listing is dropped is a
+  // non-geographic gate.
+  const intro = Array.from({ length: 12 }, () =>
+    'Mabetex Group builds large civil works packages across several regions.',
+  ).join(' ');
+  return `<html><body><div class="et_pb_text_inner">
+    <h2>Job offers</h2>
+    <p>${intro}</p>
+    <p><strong>PROJECT MANAGER</strong></p>
+    <p>Place of work: Lugano</p>
+  </div></body></html>`;
+}
+
 describe('Mabetex Group crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
@@ -167,6 +184,21 @@ describe('Mabetex Group crawler parser', () => {
       expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(1);
       // The extra property must not leak into the serialized slice.
       expect(JSON.stringify(jobs)).toBe('[]');
+    });
+
+    it('does not count listings dropped by a non-geographic gate', async () => {
+      // Regression: discoveredCount used to be `listings.length`, the count
+      // BEFORE every gate. A crawler whose detail extraction broke would then
+      // report `discovered > 0 && written === 0` — exactly the shape
+      // autoFilteredEmpty reads as "healthy, just filtered" — and a real
+      // outage would be laundered into a healthy verdict. Only the geographic
+      // gate may leave a listing counted.
+      vi.mocked(fetchHtml).mockResolvedValue(careerPageWithTruncatedDescription());
+
+      const jobs = await fetchAllMabetexJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(0);
     });
   });
 });

@@ -230,12 +230,20 @@ export async function fetchAllMabetexJobs() {
   if (!listings.length) return [];
 
   const jobs = [];
+  let geoEligible = 0;
   for (const listing of listings) {
+    const description = listing.description;
+    if (!description || description.length < MIN_DESC_LENGTH) continue;
+
+    // Every non-geographic gate is behind us: the description is fully
+    // extracted, so only the location can still exclude this listing.
+    // Counting here — and not `listings.length` — is what makes the count
+    // mean what autoFilteredEmpty claims it means (see note below).
+    geoEligible += 1;
+
     const geography = resolveSourceBackedSwissGeography(listing.location);
     if (!geography) continue;
     const { location, canton } = geography;
-    const description = listing.description;
-    if (!description || description.length < MIN_DESC_LENGTH) continue;
     const sourceLang = detectLang(listing.title, 'en');
     const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'mabetex');
     // The previous parser hard-coded Lugano into every slug. Preserve that
@@ -289,18 +297,24 @@ export async function fetchAllMabetexJobs() {
   }
 
   console.log(`  Total Mabetex jobs discovered: ${jobs.length}`);
-  // Pre-filter candidate count (issue #5945, mirrors kudelski-nagra) — lets the
-  // crawler-template pipeline report "found N listings, 0 Swiss after
+  // Geo-eligible candidate count (issue #5945, mirrors kudelski-nagra) — lets
+  // the crawler-template pipeline report "found N listings, 0 Swiss after
   // filtering" as healthy instead of broken (check-crawler-health.mjs
-  // autoFilteredEmpty). The career page currently carries a single vacancy
-  // ("Project Manager" / "Southwest Africa") that the Swiss-only geography gate
-  // correctly retires; that is the source's genuine state, not a selector break.
-  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal): the
-  // crawler-template reader at scripts/lib/crawler-template.mjs reads it as a
-  // plain property, but an enumerable own property on the array would leak into
-  // deep-equality contracts such as `resolves.toEqual([])`.
+  // autoFilteredEmpty), which a bare 3-run empty streak cannot distinguish
+  // from a selector break.
+  //
+  // This counts listings that cleared EVERY non-geographic gate, not
+  // `listings.length`. autoFilteredEmpty (`discovered > 0 && written === 0`)
+  // asserts that the location filter alone emptied the run, so a listing
+  // dropped for a missing title/description must NOT be counted here: doing
+  // so would report a crawler whose detail extraction broke as healthy.
+  //
+  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal):
+  // the crawler-template reader at scripts/lib/crawler-template.mjs reads it
+  // as a plain property, but an enumerable own property would leak into
+  // deep-equality contracts like `resolves.toEqual([])`.
   Object.defineProperty(jobs, 'discoveredCount', {
-    value: listings.length,
+    value: geoEligible,
     enumerable: false,
   });
   return jobs;

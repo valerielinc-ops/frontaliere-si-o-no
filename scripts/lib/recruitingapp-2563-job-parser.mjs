@@ -132,18 +132,26 @@ export async function fetchAllRecruitingapp2563Jobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let geoEligible = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
-    if (!geography) continue;
-    const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
+
+    // Every non-geographic gate is behind us: title and description are
+    // fully extracted, so only the location can still exclude this listing.
+    // Counting here — and not `listings.length` — is what makes the count
+    // mean what autoFilteredEmpty claims it means (see note below).
+    geoEligible += 1;
+
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -194,17 +202,24 @@ export async function fetchAllRecruitingapp2563Jobs() {
   }
 
   console.log(`\n📋 Total Switch Bewerbermanagement Stellen jobs discovered: ${jobs.length}`);
-  // Pre-filter candidate count (issue #5945, mirrors kudelski-nagra) — lets the
-  // crawler-template pipeline report "found N listings, 0 Swiss after
+  // Geo-eligible candidate count (issue #5945, mirrors kudelski-nagra) — lets
+  // the crawler-template pipeline report "found N listings, 0 Swiss after
   // filtering" as healthy instead of broken (check-crawler-health.mjs
-  // autoFilteredEmpty), instead of a 3-run empty streak that cannot tell a
-  // genuinely non-Swiss source state apart from a selector break.
-  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal): the
-  // crawler-template reader at scripts/lib/crawler-template.mjs reads it as a
-  // plain property, but an enumerable own property on the array would leak into
-  // deep-equality contracts such as `resolves.toEqual([])`.
+  // autoFilteredEmpty), which a bare 3-run empty streak cannot distinguish
+  // from a selector break.
+  //
+  // This counts listings that cleared EVERY non-geographic gate, not
+  // `listings.length`. autoFilteredEmpty (`discovered > 0 && written === 0`)
+  // asserts that the location filter alone emptied the run, so a listing
+  // dropped for a missing title/description must NOT be counted here: doing
+  // so would report a crawler whose detail extraction broke as healthy.
+  //
+  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal):
+  // the crawler-template reader at scripts/lib/crawler-template.mjs reads it
+  // as a plain property, but an enumerable own property would leak into
+  // deep-equality contracts like `resolves.toEqual([])`.
   Object.defineProperty(jobs, 'discoveredCount', {
-    value: listings.length,
+    value: geoEligible,
     enumerable: false,
   });
   return jobs;
