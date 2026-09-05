@@ -133,12 +133,12 @@ jobs:
             label="sitemap-shard-warning"
             title="[sitemap-shard-size] WARNING: shard(s) at or above 40k urls"
             priority=3
-            flaggedCount=$(jq -r '.warnings | length' "$report")
+            flaggedCount=$(jq -r '(.warnings // []) | length' "$report")
           fi
 
           # Build a markdown table of every flagged shard.
           flagged=$(jq -r '
-            .shards
+            (.shards // [])
             | map(select(.warning or .critical))
             | sort_by(-.urlCount)
             | map("| `\(.filename)` | \(.urlCount) | \(if .critical then "CRITICAL" elif .warning then "warning" else "ok" end) |")
