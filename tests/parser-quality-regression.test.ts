@@ -26,6 +26,7 @@ import {
   sourceDetailSeverity,
 } from '../scripts/audit-parser-quality.mjs';
 import {
+  classifySourceDetailObservation,
   createSourceDetailEvidence,
   createSourceDetailEvidenceBundle,
   replaySourceDetailEvidenceBundle,
@@ -182,5 +183,101 @@ describe('parser-quality regression — source-detail artifact replay', () => {
       result.evidenceProvenance.repoHeadSha === fixture.provenance.repoHeadSha
       && result.evidenceProvenance.datasetCommitSha === fixture.provenance.datasetLastCommit.sha
     ))).toBe(true);
+  });
+});
+
+describe('parser-quality regression — an unobservable source-detail sample is not a pass', () => {
+  // Verbatim observations from the three crawlers named by the cluster, replayed
+  // locally against the live detail pages on 2026-09-05: `jobs.coopjobs.ch`,
+  // `jobs.fenaco.com` and `stellen.ksuri.ch` all answered 200 with a body, and
+  // the extractor read NOTHING out of any of them — no source location, zero
+  // chars of source description. Before this guard all six samples scored as a
+  // clean pass and the audit printed "0 critical" for all three crawlers, which
+  // is how a source-detail run can be green while proving nothing. The same
+  // shape covers 208 of the 924 fetched samples of CI run 33953283741.
+  const unobservable = [
+    { crawlerKey: 'jumbo', published: 'Bern Marktgasse', publishedDescriptionLength: 1013, publishedWordCount: 77 },
+    { crawlerKey: 'jumbo', published: 'Baden-Dättwil', publishedDescriptionLength: 1013, publishedWordCount: 77 },
+    { crawlerKey: 'volg-fenaco', published: 'Wetzikon', publishedDescriptionLength: 1452, publishedWordCount: 109 },
+    { crawlerKey: 'volg-fenaco', published: 'Höri', publishedDescriptionLength: 1256, publishedWordCount: 89 },
+    { crawlerKey: 'kantonsspital-uri', published: 'Altdorf', publishedDescriptionLength: 51, publishedWordCount: 4 },
+    { crawlerKey: 'kantonsspital-uri', published: 'Altdorf', publishedDescriptionLength: 65, publishedWordCount: 4 },
+  ];
+
+  function resultsFrom(samples: typeof unobservable) {
+    return samples.map((sample, index) => ({
+      crawlerKey: sample.crawlerKey,
+      url: `https://evidence.invalid/${sample.crawlerKey}/${index}`,
+      ...classifySourceDetailObservation({
+        location: {
+          checked: false,
+          matchesPublished: false,
+          inconclusive: false,
+          evidence: 'generic',
+          authority: 'source-detail',
+          published: sample.published,
+          source: '',
+        },
+        description: {
+          publishedDescriptionLength: sample.publishedDescriptionLength,
+          sourceDescriptionLength: 0,
+          publishedWordCount: sample.publishedWordCount,
+          overlapWordCount: 0,
+        },
+      }),
+    }));
+  }
+
+  it('counts a fetched-but-unreadable sample as unobserved instead of swallowing it', () => {
+    const results = resultsFrom(unobservable);
+    const report: Record<string, any> = {
+      jumbo: { total: 178, issues: [] },
+      'volg-fenaco': { total: 553, issues: [] },
+      'kantonsspital-uri': { total: 26, issues: [] },
+    };
+    const summary = applySourceDetailResults(report, results, results.length);
+
+    // The old counters: every one of these six still scores zero, which is
+    // precisely why they have to be counted somewhere else.
+    expect(summary.fetched).toBe(6);
+    expect(summary.locationMismatches).toBe(0);
+    expect(summary.descriptionMismatches).toBe(0);
+    expect(summary.authoritativeLocationChecks).toBe(0);
+    expect(summary.inconclusiveLocationObservations).toBe(0);
+
+    expect(summary.unobserved).toBe(6);
+    for (const key of Object.keys(report)) {
+      const issue = report[key].issues.find((i: any) => i.type === 'source-detail-unobserved');
+      expect(issue, `${key} must report its unobservable samples`).toBeTruthy();
+      expect(issue.count).toBe(2);
+      expect(issue.details).toHaveLength(2);
+    }
+  });
+
+  it('leaves a sample that actually observed something out of the unobserved count', () => {
+    // Same ksuri page, read correctly: 1685 chars of source description against
+    // the 51 published. That is a real finding and must stay a mismatch, not be
+    // reclassified as "nothing was observed".
+    const observed = [{
+      crawlerKey: 'kantonsspital-uri',
+      url: 'https://evidence.invalid/kantonsspital-uri/observed',
+      ...classifySourceDetailObservation({
+        location: {
+          checked: false, matchesPublished: false, inconclusive: false,
+          evidence: 'generic', authority: 'source-detail', published: 'Altdorf', source: '',
+        },
+        description: {
+          publishedDescriptionLength: 51,
+          sourceDescriptionLength: 1685,
+          publishedWordCount: 4,
+          overlapWordCount: 0,
+        },
+      }),
+    }];
+    const report: Record<string, any> = { 'kantonsspital-uri': { total: 26, issues: [] } };
+    const summary = applySourceDetailResults(report, observed, observed.length);
+    expect(summary.unobserved).toBe(0);
+    expect(summary.descriptionMismatches).toBe(1);
+    expect(report['kantonsspital-uri'].issues.some((i: any) => i.type === 'source-detail-unobserved')).toBe(false);
   });
 });

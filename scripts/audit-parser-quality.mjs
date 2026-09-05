@@ -24,6 +24,7 @@ import { readAttr } from './lib/html-attr.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
 import {
+  COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS,
   classifySourceDetailObservation,
   createSourceDetailEvidence,
   createSourceDetailEvidenceBundle,
@@ -601,12 +602,28 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     ?? processingFailureResult(items[index], new Error('worker returned no result')));
 }
 
+/**
+ * A fetched detail page is evidence only if something was actually observed on
+ * it. With no usable source location AND no comparable source description,
+ * `locationMismatch` and `descriptionMismatch` are both false for every
+ * possible published value: the sample cannot contradict anything, yet the
+ * counters below used to swallow it and the crawler read as clean. That is how
+ * a green `--check-source-details` run can prove nothing — measured 208/924
+ * fetched samples on run 33953283741 (2026-09-05), plus 366/924 with no
+ * location verdict at all. Scored as its own outcome, never as a pass.
+ */
+export function sourceDetailUnobserved(result) {
+  return !result.sourceLocation
+    && Number(result.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS;
+}
+
 export function applySourceDetailResults(report, sourceResults, requested = sourceResults.length) {
   const sourceDetailSummary = {
     requested,
     fetched: 0,
     fetchFailed: 0,
     processingFailed: 0,
+    unobserved: 0,
     authoritativeLocationChecks: 0,
     locationMatches: 0,
     locationMismatches: 0,
@@ -619,7 +636,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (!byKey[key]) byKey[key] = {
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
-      descriptionMismatches: 0, details: [],
+      descriptionMismatches: 0, unobserved: 0, unobservedDetails: [], details: [],
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
@@ -636,6 +653,11 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       continue;
     }
     sourceDetailSummary.fetched++;
+    if (sourceDetailUnobserved(result)) {
+      info.unobserved++;
+      sourceDetailSummary.unobserved++;
+      info.unobservedDetails.push(`${sourceReference}: fetched, but no source location was readable and only ${result.sourceDescriptionLength} chars of source description (< ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS}) — this sample can contradict nothing`);
+    }
     if (result.locationChecked) {
       info.locationChecked++;
       sourceDetailSummary.authoritativeLocationChecks++;
@@ -664,6 +686,13 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
         message: `${info.processingFailed}/${info.checked} source detail pages failed during local processing`,
       });
       entry.severity = 'CRITICAL';
+    }
+    if (info.unobserved > 0) {
+      entry.issues.push({
+        type: 'source-detail-unobserved', count: info.unobserved, total: info.checked,
+        details: info.unobservedDetails,
+        message: `${info.unobserved}/${info.checked} source detail pages were fetched but observable in neither location nor description — those samples score as a pass without proving anything`,
+      });
     }
     const findings = info.locationMismatches + info.descriptionMismatches;
     if (findings > 0) {
@@ -1205,6 +1234,13 @@ async function main() {
       sourceDetailsToCheck,
       { provenance },
     ));
+    // Print the observability rate on every run: without it, a source-detail
+    // pass is indistinguishable from a source-detail no-op, and the next
+    // threshold gets tightened on an intuition instead of on this number.
+    if (sourceDetailSummary.fetched > 0) {
+      const rate = (sourceDetailSummary.unobserved / sourceDetailSummary.fetched * 100).toFixed(1);
+      console.log(`Source detail observability: ${sourceDetailSummary.fetched - sourceDetailSummary.unobserved}/${sourceDetailSummary.fetched} fetched pages yielded an observable field (${rate}% proved nothing)\n`);
+    }
   }
 
   // Run URL checks
