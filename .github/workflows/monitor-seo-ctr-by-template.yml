@@ -68,12 +68,12 @@ jobs:
       - name: Run SEO CTR-by-template monitor
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-        # `npx tsx`, not `node`: scripts/lib/seo-ctr-curve.mjs imports
+        # `npx --no-install tsx`, not `node`: scripts/lib/seo-ctr-curve.mjs imports
         # services/router.ts and build-plugins/fuelDailyData.ts for the
         # canton/fuel slug mappings the auto-classifier needs (issue #7174),
         # and those TS sources use extensionless relative specifiers that
         # bare node cannot resolve (ERR_MODULE_NOT_FOUND on services/i18n).
-        run: npx tsx scripts/monitor-seo-ctr-by-template.mjs
+        run: npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs
 
       - name: Cleanup credentials
         if: always()
@@ -98,10 +98,15 @@ jobs:
           fi
 
           git commit -m "chore(seo): update CTR-by-template monitor state"
+          # Pin the SHA of the commit we just made: the regenerate-cmd below
+          # runs inside the helper AFTER `git rebase --abort` + `git reset --hard`,
+          # both of which push new reflog entries, so a reflog position is not a stable
+          # handle on this commit (issue #7389).
+          COMMIT_SHA="$(git rev-parse HEAD)"
 
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --regenerate-cmd "git checkout HEAD@{1} -- data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json 2>/dev/null || true; git add data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json"
+            --regenerate-cmd "git checkout $COMMIT_SHA -- data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json; git add data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json"
 
       - name: Report failure to GitHub Issues
         if: failure()
