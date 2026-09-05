@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-04T09:05:43.450Z",
+  "generatedAt": "2026-09-05T08:46:12.671Z",
   "tally": {
-    "good": 12,
+    "good": 14,
     "weak": 11,
-    "bad": 4,
+    "bad": 2,
     "insufficient": 13
   },
-  "promotedVacancies": 440,
+  "promotedVacancies": 476,
   "reports": [
     {
       "companyKey": "115west",
@@ -78,27 +78,27 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 297,
+      "vacancyCount": 314,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "locationSourceRate": 1,
-      "distinctRate": 0.253,
+      "distinctRate": 0.232,
       "jobLikeRate": 1,
-      "score": 0.936,
+      "score": 0.935,
       "verdict": "good",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
       ],
       "samples": [
         {
-          "url": "https://anker-swiss.ch/stellen/metallbauer-1304906/",
+          "url": "https://anker-swiss.ch/stellen/maler-1250327/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 566,
+          "words": 594,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -113,12 +113,12 @@
           ]
         },
         {
-          "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1262559/",
+          "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1266822/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 557,
+          "words": 573,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -133,12 +133,12 @@
           ]
         },
         {
-          "url": "https://anker-swiss.ch/stellen/allrounder-garten-1188934/",
+          "url": "https://anker-swiss.ch/stellen/baumaschinenfuehrer-1198456/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 669,
+          "words": 590,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -218,56 +218,6 @@
       "companyName": "Alterszentrum Schwanden",
       "companyHost": "glsc.ch",
       "platform": "glsc.ch",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
-      "companyKey": "baeckerei-gabriel",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": null,
-      "score": 0.45,
-      "verdict": "bad",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "pagine di dettaglio senza testo: probabile render lato client",
-        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
-      ],
-      "samples": [
-        {
-          "url": "https://baeckerei-gabriel.ch/fileadmin/files/Downloads_PDF/Stellen-Inserat/Kueche_KoechIn_Stelleninserat.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 5737,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://baeckerei-gabriel.ch/fileadmin/files/Downloads_PDF/Stellen-Inserat/Raumpflegerin_mit_Verkaufsflair_Siebnen.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 54565,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        }
-      ],
-      "companyName": "Gabriel",
-      "companyHost": "baeckerei-gabriel.ch",
-      "platform": null,
       "mode": "template",
       "runErrors": [],
       "logoFound": false
@@ -753,56 +703,6 @@
       "logoFound": true
     },
     {
-      "companyKey": "glueckskette",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "locationSourceRate": 0,
-      "distinctRate": 0.5,
-      "jobLikeRate": null,
-      "score": 0.4,
-      "verdict": "bad",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "pagine di dettaglio senza testo: probabile render lato client",
-        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
-      ],
-      "samples": [
-        {
-          "url": "https://www.swiss-solidarity.org/fileadmin/user_upload/Offres_d_emploi/TOR_security_management.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 5889,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://www.swiss-solidarity.org/fileadmin/user_upload/Offres_d_emploi/260511_ToR_Consultancy_Evaluation_Small_Grants_Final.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 6064,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        }
-      ],
-      "companyName": "glueckskette",
-      "companyHost": "swiss-solidarity.org",
-      "platform": "swiss-solidarity.org",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
       "companyKey": "griesser",
       "vacancyCount": 24,
       "sampled": 3,
@@ -953,6 +853,69 @@
       "logoFound": true
     },
     {
+      "companyKey": "hotel-5doerfer",
+      "vacancyCount": 3,
+      "sampled": 3,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": null,
+      "score": 0.1,
+      "verdict": "bad",
+      "problems": [
+        "100% degli URL non risolve",
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "pagine di dettaglio senza testo: probabile render lato client",
+        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
+      ],
+      "samples": [
+        {
+          "url": "https://www.hotel-5doerfer.ch/en/about-us/jobs/%7B%7B%20data.uploadedToLink%20%7D%7D",
+          "reachable": false,
+          "titleMatch": 0,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 0,
+          "status": 404,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://www.hotel-5doerfer.ch/en/about-us/jobs/%7B%7B%20data.originalImageURL%20%7D%7D",
+          "reachable": false,
+          "titleMatch": 0,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 0,
+          "status": 404,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://www.hotel-5doerfer.ch/en/about-us/jobs/%7B%7B%20data.editLink%20%7D%7D&amp;image-editor",
+          "reachable": false,
+          "titleMatch": 0,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 0,
+          "status": 404,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
+        }
+      ],
+      "companyName": "Fünf-Dörfer",
+      "companyHost": "hotel-5doerfer.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
       "companyKey": "ibg",
       "vacancyCount": 2,
       "sampled": 2,
@@ -1068,7 +1031,7 @@
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 871,
+          "words": 867,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1194,68 +1157,6 @@
       "logoFound": true
     },
     {
-      "companyKey": "lenk-simmental",
-      "vacancyCount": 10,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": null,
-      "score": 0.45,
-      "verdict": "bad",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "pagine di dettaglio senza testo: probabile render lato client",
-        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
-      ],
-      "samples": [
-        {
-          "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Servicemitarbeitende%20Standort%20Adelboden%20Sommer%202026.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 7181,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Koch%20Winter%2026-27%20Standort%20Lenk%20und%20Adelboden%20.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 5193,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Betriebsassistent%20Winter%2026-27%20Standort%20Lenk%20und%20Adelboden%20.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 6240,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        }
-      ],
-      "companyName": "lenk-simmental",
-      "companyHost": "adelboden-lenk.ch",
-      "platform": "adelboden-lenk.ch",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
       "companyKey": "mendrisio",
       "vacancyCount": 2,
       "sampled": 2,
@@ -1349,15 +1250,15 @@
     },
     {
       "companyKey": "mueller-frauenfeld",
-      "vacancyCount": 10,
+      "vacancyCount": 11,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0,
       "contentfulRate": 1,
       "locationSourceRate": 1,
-      "distinctRate": 0.1,
+      "distinctRate": 0.091,
       "jobLikeRate": 1,
-      "score": 0.626,
+      "score": 0.625,
       "verdict": "weak",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
@@ -1365,17 +1266,19 @@
       ],
       "samples": [
         {
-          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/bau-und-landmaschinen-mwd-werkstattleiter-126.html",
+          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/sachverstaendiger-fahrleitungsanlagen-80-100-mwd-127.html",
           "reachable": true,
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 680,
+          "words": 609,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "cv",
+            "workload",
+            "requirements",
             "duties",
             "offer",
             "gender-tag",
@@ -1384,17 +1287,18 @@
           "notJobSignals": []
         },
         {
-          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/sicherheitswaerter-sicherheitschef-mw-120.html",
+          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/fahrleitungsmonteur-bahnprojekte-mwd-80-100-124.html",
           "reachable": true,
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 574,
+          "words": 567,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "cv",
+            "workload",
             "duties",
             "offer",
             "gender-tag",
@@ -1403,12 +1307,12 @@
           "notJobSignals": []
         },
         {
-          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/tief-hoch-oder-gleisbauer-mw-115.html",
+          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/junior-baufuehrertrainee-fachrichtung-gleis-tiefbau-mw-116.html",
           "reachable": true,
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 537,
+          "words": 598,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1431,41 +1335,18 @@
     },
     {
       "companyKey": "mueller-steinmaur",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
       "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 533,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [
-            "promo"
-          ]
-        }
-      ],
+      "samples": [],
       "companyName": "mueller-steinmaur",
       "companyHost": "mueller-steinmaur.ch",
       "platform": null,
@@ -1475,35 +1356,18 @@
     },
     {
       "companyKey": "my",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
       "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://my.jobalino.ch/job/9083c223ad9d4778ca1bb98e9ca676b2/klaerwaerter-in_8087",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 321,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "workplace"
-          ],
-          "notJobSignals": []
-        }
-      ],
+      "samples": [],
       "companyName": "Abwasserverband Wasserschloss",
       "companyHost": "my.jobalino.ch",
       "platform": "jobalino.ch",
@@ -1625,43 +1489,40 @@
     },
     {
       "companyKey": "physioswiss",
-      "vacancyCount": 8,
+      "vacancyCount": 9,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.605,
+      "titleMatchRate": 0.683,
       "contentfulRate": 1,
       "locationSourceRate": 0,
       "distinctRate": 1,
       "jobLikeRate": 1,
-      "score": 0.882,
+      "score": 0.906,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://physioswiss.ch/stelleninserate/153960/physiotherapeut-in-gesucht/",
+          "url": "https://physioswiss.ch/stelleninserate/152760/physiotherapeut-in-20-80-temporaer-ab-januar-2027/",
           "reachable": true,
-          "titleMatch": 0.5,
+          "titleMatch": 0.6666666666666666,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 520,
+          "words": 519,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
-            "apply",
-            "cv",
             "workload",
-            "duties",
-            "workplace"
+            "contract"
           ],
           "notJobSignals": []
         },
         {
-          "url": "https://physioswiss.ch/stelleninserate/154166/2-physiotherapeuten-gesucht-40-100/",
+          "url": "https://physioswiss.ch/stelleninserate/154121/physiotherapeute-vestibulaire-et-musculo-squelettique/",
           "reachable": true,
-          "titleMatch": 0.6,
+          "titleMatch": 0.6666666666666666,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 955,
+          "words": 560,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1700,90 +1561,19 @@
       "logoFound": true
     },
     {
-      "companyKey": "pi2-immobilien",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
+      "companyKey": "pianorm",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
       "titleMatchRate": 0,
       "contentfulRate": 0,
       "locationSourceRate": 0,
-      "distinctRate": 1,
+      "distinctRate": 0,
       "jobLikeRate": null,
-      "score": 0.45,
-      "verdict": "bad",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "pagine di dettaglio senza testo: probabile render lato client",
-        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
-      ],
-      "samples": [
-        {
-          "url": "https://www.pi2-immobilien.ch/images/jobs/inserat-bewi-16.04.2026.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 2028,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://www.pi2-immobilien.ch/images/jobs/inserat-sachbearbeitung-immobilien-bewirtschaftung-28.05.2026.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 1879,
-          "status": 200,
-          "jobLike": null,
-          "jobSignals": [],
-          "notJobSignals": []
-        }
-      ],
-      "companyName": "pi2-immobilien",
-      "companyHost": "pi2-immobilien.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "pianorm",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
+      "score": 0,
       "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 644,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "gender-tag",
-            "workplace"
-          ],
-          "notJobSignals": []
-        }
-      ],
+      "samples": [],
       "companyName": "pianorm",
       "companyHost": "pianorm.ch",
       "platform": null,
@@ -1947,31 +1737,32 @@
       ],
       "samples": [
         {
-          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3436/Description/1",
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3516/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 370,
+          "words": 490,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
+            "cv",
             "workload",
+            "contract",
             "requirements",
             "duties",
-            "offer",
-            "workplace"
+            "offer"
           ],
           "notJobSignals": []
         },
         {
-          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3509/Description/1",
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3500/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 409,
+          "words": 609,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1984,12 +1775,12 @@
           "notJobSignals": []
         },
         {
-          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3289/Description/1",
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3491/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 390,
+          "words": 418,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1997,8 +1788,7 @@
             "workload",
             "requirements",
             "duties",
-            "offer",
-            "workplace"
+            "offer"
           ],
           "notJobSignals": []
         }
@@ -2096,37 +1886,17 @@
       ],
       "samples": [
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5221/Description/1",
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5222/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 243,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5162/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 254,
+          "words": 197,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "workload",
-            "requirements",
             "duties",
             "offer",
             "gender-tag"
@@ -2134,12 +1904,33 @@
           "notJobSignals": []
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5199/Description/1",
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5177/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 337,
+          "words": 411,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "promo"
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5197/Description/1",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 344,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2176,59 +1967,59 @@
       ],
       "samples": [
         {
-          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24573/Description/1",
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/23023/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 392,
+          "words": 317,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "workload",
+            "cv",
             "offer",
-            "hr"
+            "gender-tag",
+            "workplace"
           ],
           "notJobSignals": []
         },
         {
-          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24600/Description/1",
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24601/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 355,
+          "words": 359,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "pay",
-            "duties",
-            "offer",
-            "workplace",
-            "hr"
-          ],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24598/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 386,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "pay",
-            "workload",
             "duties",
             "offer",
             "gender-tag",
             "workplace",
             "hr"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/23899/Description/1",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 393,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "gender-tag",
+            "workplace"
           ],
           "notJobSignals": []
         }
@@ -2310,6 +2101,233 @@
       ],
       "companyName": "Bewerbungsplattform Primarschule Uster Stellen",
       "companyHost": "recruitingapp-2794.umantis.com",
+      "platform": "umantis.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
+      "companyKey": "recruitingapp-2806",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.83,
+      "verdict": "good",
+      "problems": [
+        "pagine di dettaglio senza testo: probabile render lato client"
+      ],
+      "samples": [
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6627/Description/2",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 806,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "promo"
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6655/Description/2",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 706,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "hr"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6628/Description/2",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 729,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "hr"
+          ],
+          "notJobSignals": []
+        }
+      ],
+      "companyName": "eRecruiting SteelcoBelimed Infection Control Job Openings",
+      "companyHost": "recruitingapp-2806.umantis.com",
+      "platform": "umantis.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "recruitingapp-2814",
+      "vacancyCount": 8,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8192/Description/1",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 351,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "contract",
+            "requirements",
+            "duties"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/7975/Description/1",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 309,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "contract",
+            "requirements",
+            "duties"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/7806/Description/1",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 337,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "contract",
+            "requirements",
+            "duties"
+          ],
+          "notJobSignals": []
+        }
+      ],
+      "companyName": "HR Suite",
+      "companyHost": "recruitingapp-2814.umantis.com",
+      "platform": "umantis.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "recruitingapp-2820",
+      "vacancyCount": 4,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.033,
+      "contentfulRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 0,
+      "score": 0.392,
+      "verdict": "bad",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "pagine di dettaglio senza testo: probabile render lato client",
+        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+      ],
+      "samples": [
+        {
+          "url": "https://www.jobs.sites.be.ch/de/start/jobs/jobs-fuer-berufserfahrene-berufseinsteigende-und-studierende.html",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 144,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "apply"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://www.jobs.sites.be.ch/de/start/jobs/lehrstellen-und-praktika-fuer-schuelerinnen-und-schueler.html",
+          "reachable": true,
+          "titleMatch": 0.05263157894736842,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 143,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "apply"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://www.jobs.sites.be.ch/de/start/jobs/jobs-fuer-lehrpersonen.html",
+          "reachable": true,
+          "titleMatch": 0.045454545454545456,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 95,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "pay"
+          ],
+          "notJobSignals": []
+        }
+      ],
+      "companyName": "Jobs",
+      "companyHost": "jobs.sites.be.ch",
       "platform": "umantis.com",
       "mode": "template",
       "runErrors": [],
