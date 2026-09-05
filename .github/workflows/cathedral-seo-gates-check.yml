@@ -15,8 +15,22 @@ name: cathedral-seo-gates-check
 # improvement issue naming these same gates (text-html-ratio 6912→2562,
 # max-bfs-depth 26398→11108) — refuses tightening the baseline of a
 # "nice-to-have" gate when its measurement improves: the ratchet would make
-# the gate ever stricter on a heuristic Google does not require, and the
-# direction of travel is making such a gate advisory (#6462) instead. So the
+# the gate ever stricter on a heuristic Google does not require, and such a
+# gate is advisory instead. That reclassification is DONE, not pending: issue
+# #6462 was closed COMPLETED on 2026-08-31 by PR #6756, which added the last
+# two unclassified auditors (`audit:all/breadcrumb-coverage`,
+# `audit:all/information-gain`) to `QUALITY_GATES` and censused all 21 entries
+# in `docs/SEO-GATES.md`. The advisory mechanism lives in the pipeline that can
+# actually sequester a deploy — `post-deploy-validate-dist.yml` →
+# `classify-validate-dist-failures.mjs` → `publish` gated on `integrity_ok` —
+# and NOT here: this workflow is a standalone weekly `schedule` job with no
+# `needs:` edge from anything, replaying a past deploy's already-published
+# artifact, so its red fails its own Actions status and nothing else. #6462
+# audited it for exactly that and recorded "already fully advisory, no change
+# needed" (`docs/SEO-GATES.md`). The two `exit 1` left below are outside that
+# scope by #6462's own point 4: one fires when the checker produced no verdict
+# file at all (a crash, not a gate), the other when `regressed > 0` — a real
+# regression, whose zero tolerance #6462 explicitly said not to touch. So the
 # improvement issue asked for work that is forbidden the moment it is filed;
 # with a stable title it was refiled unchanged (#5983 → #7354) and routed to
 # the autonomous fixer every time, which burned a run rediscovering D9 and

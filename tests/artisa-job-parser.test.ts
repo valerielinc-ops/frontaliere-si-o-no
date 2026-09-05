@@ -162,4 +162,33 @@ describe('assertCompleteArtisaSnapshot', () => {
     expect(rows).toHaveLength(0);
     expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
   });
+
+  // Issue #7425 item 3. The two failures below are indistinguishable from the
+  // crawler's floor error alone, yet demand opposite responses: a re-worded
+  // landmark is a parser fix and stays red forever, a real opening is the
+  // system working and clears itself on the next run. The message has to say
+  // which one happened, and quote the h2 headings that decided it.
+  it('names a re-worded landmark, and quotes the headings the page rendered', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Le nostre Sedi in Ticino</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/landmark h2 not found: le nostre sedi/);
+    expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/Le nostre Sedi in Ticino/);
+  });
+
+  it('names a counted vacancy instead of blaming the landmarks that are present', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/1 candidate vacancy h2 present/);
+  });
 });
