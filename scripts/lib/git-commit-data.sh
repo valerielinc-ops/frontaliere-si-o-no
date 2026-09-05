@@ -27,6 +27,22 @@
 #        failure was a ref rejection/race (output matched rejected /
 #        fetch first / cannot lock ref / non-fast-forward). Only this
 #        class is safe for callers to treat as "self-heals next run".
+#   43 — GROUP_SHARED_PRECONDITION: the CRAWLER_GROUP_DEFER_COMMIT branch
+#        could not run at all. That branch pushes nothing — it only writes
+#        this crawler's descriptor for the group's single atomic commit —
+#        so every one of its failures is a property of the SHARED job
+#        environment (missing CRAWLER_GENERATION_TOKEN, unwritable receipt
+#        dir, a generator that emitted the wrong invocation), never of the
+#        calling crawler. Every sibling in the same group hits it in the
+#        same run: measured on corpus run 33585044260, where 27 of 27
+#        crawler steps failed with "could not persist its commit
+#        descriptor" after all 27 crawls had SUCCEEDED, and each one then
+#        filed its own `Crawler Failure: Run <slug>` issue (site #6857,
+#        #6953 are two of them). Callers must keep the step RED — the run
+#        must stay a failure so the corpus' central scan-failed-runs.mjs
+#        opens ONE `Workflow Failure: <group>` issue — but must NOT file a
+#        per-crawler issue: the crawler is not what broke. Distinct from 1
+#        so a real per-crawler commit failure keeps its own report.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -536,14 +552,18 @@ emit_crawler_generation_receipt() {
 }
 
 if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
+  # exit 43, not 1: see GROUP_SHARED_PRECONDITION in the exit-code header.
+  # Both failures below are shared-environment faults that every crawler in
+  # the group reproduces in the same run, so they must not be attributed to
+  # the one crawler that happened to observe them.
   if [ "$GROUP_BATCH" = true ] || [ "$GROUPED_ISOLATED" != true ]; then
     echo "❌ crawler group defer mode requires one --slice-only crawler invocation"
-    exit 1
+    exit 43
   fi
   if ! CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}"; then
     echo "❌ crawler group defer mode could not persist its commit descriptor"
-    exit 1
+    exit 43
   fi
   echo "ℹ️ Deferred ${JOBS_HOUSEKEEPING_SCOPE} data for the atomic crawler-group commit"
   [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"

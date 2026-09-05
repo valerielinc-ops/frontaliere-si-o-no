@@ -450,6 +450,55 @@ function validateTargetTimeoutMinutes(crawler) {
 
 const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', '']);
 
+// GROUP_SHARED_PRECONDITION, exit 43 from scripts/lib/git-commit-data.sh (see
+// that file's exit-code header for the full rationale). The deferred-commit
+// branch pushes nothing: it only writes this crawler's descriptor for the
+// group's single atomic commit, so every failure it can report is a property
+// of the SHARED job environment and every sibling crawler in the group hits
+// it in the same run.
+//
+// WHY IT IS CARVED OUT OF THE PER-CRAWLER ISSUE GATE. `Crawler Failure: Run
+// <slug>` carries a per-crawler title on purpose — dedup, the
+// consecutive-failure gate and close-recovered-failure-issues.mjs all key on
+// it — so N crawlers observing ONE shared fault mint N titles that no dedup
+// can ever collapse. Measured on corpus run 33585044260 (group 05): 27 of 27
+// crawler steps failed with "crawler group defer mode could not persist its
+// commit descriptor" AFTER all 27 crawls had succeeded, and the reporter fired
+// 27 times — site #6857 (faulhaber) and #6953 (ipersonal) are two of the
+// resulting priority:high issues, both for crawlers that had scraped fine.
+// Same shape as the 2026-07-10 push-contention flood that produced exit 42,
+// which is why the remedy is the same: one shared fault must produce one
+// signal, not one per crawler.
+//
+// UNLIKE 42, THE STEP STAYS RED. Contention self-heals next cycle, so 42 exits
+// 0; a shared precondition does not, and the group's data was not persisted.
+// Keeping the step non-zero keeps the run `conclusion == failure`, which is
+// what the corpus' central scan-failed-runs.mjs consumes to open exactly ONE
+// `Workflow Failure: <group>` issue for the run. Suppressing here therefore
+// consolidates the signal, it does not silence it.
+const GROUP_SHARED_PRECONDITION_EXIT = 43;
+// Fires the per-crawler failure reporter. Any non-zero commit exit still
+// reports EXCEPT the two systemic classes, which are not per-crawler signals.
+const PER_CRAWLER_REPORT_CONDITION = 'if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ]'
+  + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]; }; then`;
+
+/**
+ * Error annotation + step-summary breadcrumb emitted in place of the
+ * suppressed per-crawler issue. `propagate` re-exits with the same code so the
+ * TIMED variant's outer phase (which only sees `target_exit`) can tell this
+ * class apart from a generic failure; the untimed variant reads
+ * `git_commit_exit` directly and does not need it.
+ */
+function sharedPreconditionNotice(slug, { propagate = false } = {}) {
+  return [
+    `if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
+    `  echo "::error::${slug}: crawl OK but the crawler group's shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT}). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."`,
+    `  echo "❌ ${slug}: shared group precondition failure (exit ${GROUP_SHARED_PRECONDITION_EXIT}) — crawl was fine, no per-crawler issue filed" >> "$GITHUB_STEP_SUMMARY"`,
+    ...(propagate ? [`  exit ${GROUP_SHARED_PRECONDITION_EXIT}`] : []),
+    'fi',
+  ];
+}
+
 /**
  * Build the isolated work phase for a crawler with an explicit wall timeout.
  *
@@ -488,6 +537,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
   work.push('  exit 0');
   work.push('fi');
+  work.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
   work.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
   work.push('  exit 1');
   work.push('fi');
@@ -520,7 +570,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
     outer.push('fi');
-    outer.push('if [ "$target_exit" -ne 0 ]; then');
+    // `-ne 43`: the work phase re-exits GROUP_SHARED_PRECONDITION_EXIT
+    // verbatim so this gate can drop the per-crawler report for a group-wide
+    // fault. The final `-ne 0` gate below is untouched: the step still fails.
+    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`);
     outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
     outer.push('fi');
     outer.push('');
@@ -642,13 +695,16 @@ export function buildCrawlerShellBody(crawler) {
       // next scheduled run and PERSISTENT loss still surfaces via the
       // crawler-health staleness monitor. Any other non-zero exit keeps the
       // original reporting behavior.
-      lines.push('if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then');
+      // GROUP-SHARED PRECONDITION CLASS (exit 43): same remedy, different
+      // reason — see GROUP_SHARED_PRECONDITION_EXIT at the top of this file.
+      lines.push(PER_CRAWLER_REPORT_CONDITION);
       lines.push(indentBlock(literalizedRun.trimEnd(), 2));
       lines.push('fi');
       lines.push('if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then');
       lines.push(`  echo "::warning::${crawler.slug}: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."`);
       lines.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
       lines.push('fi');
+      lines.push(...sharedPreconditionNotice(crawler.slug));
       lines.push('');
       continue;
     }
