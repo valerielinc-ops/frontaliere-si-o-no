@@ -64,7 +64,7 @@ export function resolveOutputPath({
   const override = String(env[envVar] ?? '').trim();
 
   if (!override) {
-    log(`[${label}] output: ${describePath(root, canonical)}`);
+    log(`[${label}] percorso: ${describePath(root, canonical)}`);
     return canonical;
   }
 
@@ -79,7 +79,7 @@ export function resolveOutputPath({
 
   const resolved = path.resolve(root, override);
   log(
-    `[${label}] output REDIRETTO da ${envVar}: ${describePath(root, resolved)} `
+    `[${label}] percorso REDIRETTO da ${envVar}: ${describePath(root, resolved)} `
     + `— il percorso canonico ${describePath(root, canonical)} non viene toccato`,
   );
   return resolved;

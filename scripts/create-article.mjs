@@ -64,7 +64,8 @@ import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, copyFile
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { resolveOutputPath } from './lib/resolve-output-path.mjs';
 import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScoresBeforeExit, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary, estimateRequestTokens } from './lib/ai-models.mjs';
 // La disposizione di una cascata svuotata: differire o gridare. Il gemello del
 // corpus (`generator/scripts/lib/exhaustion-disposition.mjs`, issue #313/#348)
@@ -1017,9 +1018,15 @@ const CREATE_ARTICLE_REPORT_FILE = process.env.CREATE_ARTICLE_REPORT_FILE || '.t
 let _DEFECT_MEMORY = null;
 function defectMemory() {
   if (_DEFECT_MEMORY) return _DEFECT_MEMORY;
-  const { memory, degraded } = loadDefectMemory(
-    process.env.ARTICLE_DEFECT_MEMORY_FILE || 'data/article-defect-memory.json',
-  );
+  // Stesso resolver del suo scrittore (scripts/update-article-defect-memory.mjs,
+  // issue #7291): il percorso e' sempre a log e in CI l'override richiede
+  // l'opt-in, cosi' lettore e scrittore non possono divergere in silenzio.
+  const { memory, degraded } = loadDefectMemory(resolveOutputPath({
+    label: 'create-article/defect-memory',
+    envVar: 'ARTICLE_DEFECT_MEMORY_FILE',
+    canonicalPath: 'data/article-defect-memory.json',
+    root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'),
+  }));
   if (degraded) {
     // Loud, never silent: the run is about to be evaluated with a defence that
     // is not actually there. The curated lists still hold, so this degrades
