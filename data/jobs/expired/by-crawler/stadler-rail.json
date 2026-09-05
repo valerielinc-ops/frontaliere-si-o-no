@@ -1,5 +1,106 @@
 [
   {
+    "slug": "software-system-ingegnere-stadler-rail-wallisellen",
+    "title": "Software & System Engineer",
+    "titleByLocale": {
+      "de": "Software & System Ingenieur",
+      "en": "Software & System Engineer",
+      "it": "Software & System Ingegnere",
+      "fr": "Software & System Ingénieur"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Wallisellen",
+    "addressLocality": "Wallisellen",
+    "descriptionByLocale": {
+      "de": "Software and System Engineer\n\nAbgeschlossenes MSc Studium im Bereich Elektrotechnik, Maschinenbau, Mechatronik, Informatik oder einer ähnlichen Fachrichtung\nGrundkenntnisse in der Programmierung von Software, idealerweise SPS (Python, C#/C++ sind auch wünschenswert)\nVertrautheit mit Software-Versionierungstools wie SVN und Git.\nInteresse an der Eisenbahntechnik und Signaltechnik\nTeamfähigkeit, Eigeninitiative und gute Kommunikationsfähigkeiten\nGute Deutsch- und Englischkenntnisse\nReisebereitschaft bis zu 10 %.\n\nAUFGABEN\n\nEntwicklung und Implementierung von Softwarelösungen im Bereich der Signaltechnik Bahnanwendungen\nUnterstützung bei der Planung, Durchführung und Dokumentation von Softwaretests in verschiedenen Umgebungen (Simulation, Labor, Fahrzeug)\nZusammenarbeit mit anderen Ingenieuren und Teams, um technische\n• Anforderungen zu verstehen und umzusetzen\nFehlerbehebung und Optimierung bestehender Softwarelösungen",
+      "it": "Software e System Engineer\n\nStudi MSc completati in Ingegneria Elettrica, Ingegneria Meccanica, Meccatronica, Scienza Informatica o una zona tematica simile\nConoscenza di base della programmazione software, idealmente PLC (Python, C#/C++ sono anche desiderabili)\nFamiliarità con strumenti di versione software come SVN e Git.\nInteressi nella tecnologia ferroviaria e nella segnalazione\nLavoro di squadra, iniziativa e buone capacità di comunicazione\nBuona conoscenza della lingua tedesca e inglese\nVolontà di viaggiare fino al 10%.\n\nTASKS\n\nSviluppo e realizzazione di soluzioni software nel campo delle applicazioni ferroviarie della tecnologia del segnale\nSupporto nella pianificazione, implementazione e documentazione dei test software in vari ambienti (simulazione, laboratorio, veicolo)\nCollaborare con altri ingegneri e team per sviluppare tecniche\n• Capire e implementare i requisiti\nRisoluzione dei problemi e ottimizzazione delle soluzioni software esistenti",
+      "en": "Software and System Engineer\n\nCompleted MSc Studies in Electrical Engineering, Mechanical Engineering, Mechatronics, Computer Science or a similar subject area\nBasic knowledge of software programming, ideally PLC (Python, C#/C++ are also desirable)\nFamiliarity with software versioning tools like SVN and Git.\nInterest in railway technology and signalling\nTeamwork, initiative and good communication skills\nGood knowledge of German and English\nWillingness to travel up to 10%.\n\nTASKS\n\nDevelopment and implementation of software solutions in the field of signal technology railway applications\nSupport in the planning, implementation and documentation of software tests in various environments (simulation, laboratory, vehicle)\nCollaborating with other engineers and teams to develop technical\n• Understand and implement requirements\nTroubleshooting and optimization of existing software solutions",
+      "fr": "Ingénieur logiciel et système\n\nÉtudes de maîtrise en génie électrique, en génie mécanique, en mécatronique, en informatique ou dans un domaine semblable\nConnaissance de base de la programmation logicielle, idéalement PLC (Python, C#/C++ sont également souhaitables)\nFamiliarité avec des outils de version logicielle comme SVN et Git.\nIntérêt pour la technologie ferroviaire et la signalisation\nTravail d'équipe, initiative et bonnes compétences en communication\nBonne connaissance de l'allemand et de l'anglais\nVolonté de voyager jusqu'à 10%.\n\nTÂCHES\n\nDéveloppement et mise en œuvre de solutions logicielles dans le domaine des applications ferroviaires de la technologie du signal\nAppui à la planification, à la mise en œuvre et à la documentation des tests logiciels dans divers environnements (simulation, laboratoire, véhicule)\nCollaborer avec d'autres ingénieurs et équipes pour développer\n• Comprendre et mettre en œuvre les exigences\nDépannage et optimisation des solutions logicielles existantes"
+    },
+    "slugByLocale": {
+      "de": "software-system-engineer-stadler-rail-ch",
+      "it": "software-system-ingegnere-stadler-rail-wallisellen",
+      "fr": "software-system-ingenieur-stadler-rail-wallisellen",
+      "en": "software-system-ingegnere-stadler-rail-wallisellen"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-09-05T12:57:35.338Z",
+    "previousSlugs": [
+      "software-system-engineer-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "software-system-engineer-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "8304",
+    "salaryMin": 83000,
+    "salaryMax": 126000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ingegnere-di-sviluppo-powerpack-stadler-rail-bussnang",
+    "title": "Entwicklungsingenieur PowerPack",
+    "titleByLocale": {
+      "it": "Ingegnere di sviluppo PowerPack",
+      "en": "Development engineer PowerPack",
+      "de": "Entwicklungsingenieur PowerPack",
+      "fr": "Ingénieur de développement PowerPack"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n• Laurea completa (FH o equivalente) in ingegneria meccanica\n• Addestratore di base come un polimeccanico, veicolo fabbro, costruttore o equivalente\n• Esperienza professionale nel veicolo ferroviario o costruzione di impianti auspicabile\n• Ottima conoscenza in CATIA V5/V6 o in un altro sistema CAD 3D\n• Conoscenza di Teamcenter desiderabile\n• Buona conoscenza di Microsoft Office\n• Enthusiasm per veicoli ferroviari moderni e tecnologie di azionamento come celle a combustibile o batterie\n• Gioia in un ambiente dinamico\n• Modo di lavoro e di godimento mirato, strutturato e proattivo in un ambiente dinamico\n• \"Hands-on mentality\", rapida comprensione, flessibile, resiliente, indipendente\n• Buona conoscenza del tedesco e dell'inglese in parola e scrittura TASKS\n• Attività di sviluppo e progettazione nel campo degli impianti engerie e dei sistemi di raffreddamento dal concetto alla maturità della serie\n• Sviluppo e ottimizzazione delle assemblee e dei loro sottosistemi\n• Sviluppo di concetti di soluzione per una vasta gamma di problemi\n• Preparazione di documenti conformi alla produzione e specifiche tecniche\n• Supporto tecnico per i fornitori (compresi FAI) e i fornitori di servizi esterni\n• Supporti di montaggio e ispezioni di installazione\n• Gestione delle interfacce di sistemi complessi\n• Sapere come scambiare con specialisti nel vostro campo",
+      "en": "PROFILE\n• Completed university degree (FH or equivalent) in mechanical engineering\n• Basic trainer as a polymechanic, vehicle locksmith, constructor or equivalent\n• Professional experience in rail vehicle or plant construction desirable\n• Very good knowledge in CATIA V5/V6 or in another current 3D CAD system\n• Knowledge of Teamcenter desirable\n• Good knowledge of Microsoft Office\n• Enthusiasm for modern rail vehicles and drive technologies such as fuel cells or batteries\n• Joy in a Dynamic Environment\n• Targeted, structured and proactive way of working and enjoyment in a dynamic environment\n• \"Hands-on mentality\", rapid comprehension, flexible, resilient, independent\n• Good knowledge of German and English in word and writing TASKS\n• Development and design tasks in the field of engerie plants and cooling systems from concept to series maturity\n• Development and optimization of assemblies and their subsystems\n• Development of solution concepts for a wide variety of problems\n• Preparation of production-compliant documents and technical specifications\n• Technical support for suppliers (including FAI) and external service providers\n• Assembly support and installation inspections\n• Interface management of complex systems\n• Know how to exchange with specialists in your field",
+      "de": "PROFIL\n\n• Abgeschlossener Hochschulabschluss (FH oder vergleichbar) in Maschinenbau\n\n• Grundausbild als Polymechaniker, Fahrzeugschlosser, Konstrukteur oder vergleichbar\n\n• Berufserfahrung im Bereich Schienenfahrzeug- oder Anlagenbau wünschenswert\n\n• Sehr gute Kenntnisse in CATIA V5/V6 oder in einem anderen aktuellen 3D CAD System\n\n• Kenntnisse in Teamcenter wünschenswert\n\n• Gute Microsoft-Office-Kenntnisse\n\n• Begeisterung für moderne Schienenfahrzeuge und Antriebstechnologien wie Brennstoffzellen oder Batterien\n\n• Freude in einem dynamischen Umfeld\n\n• Zielgerichtete, strukturierte und proaktive Arbeitsweise sowie Freude in einem dynamischen Umfeld\n\n• \"Hands-on-Mentalität\", rasche Auffassungsgabe, flexibel, belastbar, selbständig\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nAUFGABEN\n\n• Entwicklungs- und Konstruktionsaufgaben im Fachbereich Engerieanlagen und Kühlanlagen vom Konzept bis zur Serienreife\n\n• Entwicklung und Optimierung von Baugruppen und deren Subsystemen\n\n• Erarbeitung von Lösungskonzepten für unterschiedlichste Problemstellungen\n\n• Erstellung von fertigungsgerechten Unterlagen und technischen Spezifikationen\n\n• Technische Betreuung von Lieferanten (inkl. FAI) und externen Dienstleistern\n\n• Montagebetreuung und Einbauuntersuchungen\n\n• Schnittstellen-Management von komplexen Systemen\n\n• Know How Austausch mit Spezialisten in Ihrem Fachbereich",
+      "fr": "PROFIL\n• Diplôme universitaire (FH ou équivalent) en génie mécanique\n• Entraîneur de base en tant que polymécanique, serrurier, constructeur ou équivalent\n• Expérience professionnelle dans la construction de véhicules ferroviaires ou d'installations souhaitable\n• Très bonne connaissance en CATIA V5/V6 ou dans un autre système CAO 3D actuel\n• Connaissance de Teamcenter souhaitable\n• Bonne connaissance de Microsoft Office\n• Enthousiasme pour les véhicules ferroviaires modernes et les technologies d'entraînement comme les piles à combustible ou les batteries\n• Joy dans un environnement dynamique\n• Mode de travail et de jouissance ciblé, structuré et proactif dans un environnement dynamique\n• \"Mentalité à la main\", compréhension rapide, flexibilité, résilience, indépendance\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture TÂCHES\n• Tâches de développement et de conception dans le domaine de l'ingénierie et des systèmes de refroidissement du concept à la maturité en série\n• Développement et optimisation des assemblages et de leurs sous-systèmes\n• Développement de concepts de solution pour une grande variété de problèmes\n• Préparation de documents et de spécifications techniques conformes à la production\n• Soutien technique aux fournisseurs (y compris FAI) et aux prestataires de services externes\n• Soutien à l'assemblage et inspections d'installation\n• Gestion de l'interface des systèmes complexes\n• Savoir échanger avec des spécialistes de votre domaine"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-di-sviluppo-powerpack-stadler-rail-bussnang",
+      "en": "development-engineer-powerpack-stadler-rail-bussnang",
+      "de": "entwicklungsingenieur-powerpack-stadler-rail-ch",
+      "fr": "ingenieur-de-developpement-powerpack-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-09-05T12:57:35.338Z",
+    "previousSlugs": [
+      "entwicklungsingenieur-powerpack-stadler-rail-ch",
+      "ingegnere-di-sviluppo-trasmissioni-assiali-stadler-rail-bussnang",
+      "axle-transmission-development-engineer-stadler-rail-bussnang",
+      "entwicklungsingenieur-in-radsatzgetriebe-stadler-rail-ch",
+      "ingenieur-de-developpement-de-transmissions-d-essieu-stadler-rail-bussnang"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "entwicklungsingenieur-powerpack-stadler-rail-ch",
+        "ingegnere-di-sviluppo-trasmissioni-assiali-stadler-rail-bussnang",
+        "axle-transmission-development-engineer-stadler-rail-bussnang",
+        "entwicklungsingenieur-in-radsatzgetriebe-stadler-rail-ch",
+        "ingenieur-de-developpement-de-transmissions-d-essieu-stadler-rail-bussnang"
+      ],
+      "en": [
+        "entwicklungsingenieur-powerpack-stadler-rail-ch",
+        "axle-transmission-development-engineer-stadler-rail-bussnang"
+      ],
+      "de": [
+        "entwicklungsingenieur-in-radsatzgetriebe-stadler-rail-ch"
+      ],
+      "fr": [
+        "entwicklungsingenieur-powerpack-stadler-rail-ch",
+        "ingenieur-de-developpement-de-transmissions-d-essieu-stadler-rail-bussnang"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "responsabile-di-progetto-engineering-stadler-rail-bussnang",
     "title": "Projektleiter:in Engineering",
     "titleByLocale": {
