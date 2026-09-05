@@ -9,7 +9,7 @@
  *
  * Requires the same env that ai-models.mjs needs (load-rc-env.mjs first).
  */
-import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels } from './lib/ai-models.mjs';
+import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels, setScoreStoreReadOnly } from './lib/ai-models.mjs';
 
 // stdout of this script is a machine-read JSON contract (the workflow pipes it
 // into .tmp/smoke.json and `require()`s it). ai-models.mjs emits diagnostic
@@ -20,6 +20,18 @@ import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels } from './lib/ai-
 // (ai-models.mjs does not log during module evaluation, so patching here —
 // after the import, before any call into it — catches every runtime log.)
 console.log = (...args) => console.error(...args);
+
+// Questo processo e' SOLO diagnostico: legge il ledger `ai_model_scores/_all`
+// (serve a classificare `skipped_exhausted`, su cui poggia il gate Mistral
+// `-latest`) ma non deve scriverci nulla. Il `recordScore: false` sulle singole
+// callLLM piu' sotto copre l'esito della chiamata; NON copre gli altri
+// scrittori del ledger che un run diagnostico attraversa comunque — in primis
+// `discoverFreeModels()`, che marca `stale` gli id spariti dal listing e
+// sporca i modelli PRIMA della prima callLLM, facendoli poi riscrivere con lo
+// score decaduto letto all'init. Il flag va quindi alzato qui, prima della
+// discovery, ed e' l'unico che rende vero "0 scritture diagnostiche sul
+// documento di produzione" (issue #6611 / corpus#624).
+setScoreStoreReadOnly();
 
 // Run multi-provider discovery FIRST so dynamically-added models (OpenRouter,
 // Groq, Cerebras, Mistral) are included in the smoke test — otherwise we'd only
