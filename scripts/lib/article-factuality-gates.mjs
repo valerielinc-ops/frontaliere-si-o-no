@@ -52,6 +52,7 @@ import {
   canonicalNumeric,
   NUMBER_TOKEN,
   extractNumericFacts,
+  numericDivergenceWorthReporting,
   FALSE_FRIEND_PATTERNS,
   ITALIAN_BORDER_GUARD_ANCHOR,
 } from './article-locale-lexicon.mjs';
@@ -2278,22 +2279,13 @@ function rescaledFrom(value, candidates) {
   return null;
 }
 
-/**
- * Below this, a set difference is noise rather than signal.
- *
- * Measured, not guessed. A single missing number is dominated by artefacts the
- * comparison cannot see through: ranges name only one endpoint next to the
- * currency ("da 60.000 a 100.000 franchi" yields 100000, "from CHF 60,000 to
- * 100,000" yields 60000), and translations legitimately merge or reorder
- * clauses. Requiring at least two values AND a quarter of that kind's set
- * concentrates the report on translations that actually lost their figures.
- */
-const MIN_NUMERIC_DIVERGENCE = 2;
-const MIN_NUMERIC_DIVERGENCE_SHARE = 0.25;
-
+// The threshold itself now lives next to `extractNumericFacts` in
+// article-locale-lexicon.mjs, because the pre-publication guard in
+// article-free-mt.mjs applies the same rule to decide whether to REFUSE a
+// freshly machine-translated field. Two copies of the constant would let the
+// guard and this report drift into disagreeing about the same translation.
 function worthReporting(diverged, total) {
-  return diverged.length >= MIN_NUMERIC_DIVERGENCE
-    && diverged.length >= total * MIN_NUMERIC_DIVERGENCE_SHARE;
+  return numericDivergenceWorthReporting(diverged.length, total);
 }
 
 /**

@@ -24,7 +24,10 @@ const consumers = [
   ['scripts/generate-crawler-companies.mjs', 'listSliceFileNames(SLICES_DIR)'],
   ['scripts/lib/job-mark-persistence.mjs', 'listSliceFileNames(byCrawler)'],
   ['scripts/lib/social-post-utils.mjs', 'listSliceFileNames(dir)'],
-  ['scripts/send-newsletter.mjs', 'listSliceFileNames(fileURLToPath(slicesDir))'],
+  // The newsletter takes the state-carrying variant: it is the one caller for
+  // which an absent directory is a broken checkout rather than a fact about the
+  // data, so it must be able to tell 'missing' from 'empty' (#6781).
+  ['scripts/send-newsletter.mjs', 'readSliceDirectory(slicesDirPath)'],
   ['scripts/update-swiss-medical-network-jobs.mjs', 'listSliceFileNames(dir)'],
 ] as const;
 

@@ -62,7 +62,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 // used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
 // guards its presence here) — the implementation is the canonical shared helper.
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
-import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1285,15 +1285,31 @@ function loadLocalJobsData() {
     jobs = JSON.parse(fs.readFileSync(new URL('../data/jobs.json', import.meta.url), 'utf8'));
   } catch {
     // Fallback: assemble from per-crawler slices (handles CI when assembly step failed)
+    //
+    // The missing directory is reported explicitly. Before #6776 this path read
+    // the directory with fs.readdirSync, so an absent data/jobs/by-crawler threw
+    // ENOENT into the catch below and printed "Local jobs load failed"; the
+    // shared listSliceFileNames() returns [] instead, which is right for the
+    // maintenance scripts but left the newsletter sending with jobs=[] and no
+    // diagnostic at all — the one caller for which an empty job list is not a
+    // fact about the data but a broken checkout.
+    //
+    // An EXISTING but empty directory stays silent on purpose: that is a
+    // legitimate state (every slice pruned) and not the same failure.
     try {
       const slicesDir = new URL('../data/jobs/by-crawler/', import.meta.url);
-      const sliceFiles = listSliceFileNames(fileURLToPath(slicesDir));
-      for (const file of sliceFiles) {
-        const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
-        if (Array.isArray(slice.jobs)) jobs.push(...slice.jobs);
-      }
-      if (jobs.length > 0) {
-        console.warn(`⚠️  data/jobs.json missing — loaded ${jobs.length} jobs from ${sliceFiles.length} crawler slices`);
+      const slicesDirPath = fileURLToPath(slicesDir);
+      const { state, files: sliceFiles } = readSliceDirectory(slicesDirPath);
+      if (state === 'missing') {
+        console.warn(`⚠️  Local jobs load failed (both jobs.json and slices): crawler slice directory missing at ${slicesDirPath}`);
+      } else {
+        for (const file of sliceFiles) {
+          const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
+          if (Array.isArray(slice.jobs)) jobs.push(...slice.jobs);
+        }
+        if (jobs.length > 0) {
+          console.warn(`⚠️  data/jobs.json missing — loaded ${jobs.length} jobs from ${sliceFiles.length} crawler slices`);
+        }
       }
     } catch (e2) {
       console.warn('⚠️  Local jobs load failed (both jobs.json and slices):', e2.message);

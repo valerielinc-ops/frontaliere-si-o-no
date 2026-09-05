@@ -56,3 +56,28 @@ export function listSliceFileNames(dir) {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter(isSliceFile).sort();
 }
+
+/**
+ * The slice listing PLUS the one thing the two list functions above cannot say:
+ * whether the directory was there at all.
+ *
+ * Both of them answer `[]` for a directory that is missing and for one that is
+ * present and holds no slice, which is the right answer for the maintenance
+ * scripts — they have nothing to do either way. It is the wrong answer for a
+ * caller whose job depends on the data actually being there: the newsletter
+ * send read `[]` from an absent data/jobs/by-crawler and mailed a job-less issue
+ * with no diagnostic, because the ENOENT that used to reach its catch block was
+ * gone (#6776 → #6781).
+ *
+ * Returning the state here, rather than having each such caller call
+ * `fs.existsSync` again on its own, keeps one definition of where the slices
+ * live and what their absence means.
+ *
+ * @param {string} dir
+ * @returns {{state: 'missing'|'empty'|'populated', files: string[]}}
+ */
+export function readSliceDirectory(dir) {
+  if (!fs.existsSync(dir)) return { state: 'missing', files: [] };
+  const files = listSliceFileNames(dir);
+  return { state: files.length > 0 ? 'populated' : 'empty', files };
+}
