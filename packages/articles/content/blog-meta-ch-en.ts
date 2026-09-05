@@ -5560,6 +5560,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.medici-specialisti-fatturazioni-svizzera.title': 'Some medical specialists exaggerate with billings',
     'blog.article.medici-specialisti-fatturazioni-svizzera.excerpt': 'According to Saskia Schenker, director of Prioswiss, some medical specialists are overcharging for their services.',
     'blog.article.medici-specialisti-fatturazioni-svizzera.imageAlt': 'Doctor\'s office in Lugano with medical equipment and charts',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.title': 'Prio.swiss: some medical specialists exaggerate with Tardoc',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.excerpt': 'The association of Swiss health insurers notes that some medical specialties exceed the limits of the new Tardoc pricing model.',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.imageAlt': 'A specialist doctor in a professional Swiss setting.',
 };
 
 export default blogMetaChEn;

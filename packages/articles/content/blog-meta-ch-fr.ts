@@ -5560,6 +5560,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.medici-specialisti-fatturazioni-svizzera.title': 'Certains médecins spécialistes exagèrent avec les factures',
     'blog.article.medici-specialisti-fatturazioni-svizzera.excerpt': 'Selon Saskia Schenker, directrice de Prioswiss, certains médecins spécialistes exagèrent les factures de leurs prestations.',
     'blog.article.medici-specialisti-fatturazioni-svizzera.imageAlt': 'Cabinet médical à Lugano avec équipement médical et graphiques',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.title': 'Prio.swiss : certains médecins spécialistes exagèrent avec Tardoc',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.excerpt': 'L\'association des assureurs-maladie suisses relève que certaines spécialités médicales dépassent les limites du nouveau modèle tarifaire Tardoc.',
+    'blog.article.prio-swiss-medici-specialisti-tardoc.imageAlt': 'Un médecin spécialiste dans un cadre professionnel suisse.',
 };
 
 export default blogMetaChFr;

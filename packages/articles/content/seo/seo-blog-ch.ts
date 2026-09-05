@@ -72170,6 +72170,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prio-swiss-medici-specialisti-tardoc': {
+    title: 'Prio.swiss: alcuni medici specialisti esagerano con Tardoc',
+    description: 'L\'associazione degli assicuratori-malattia svizzeri rileva che alcune specialità mediche superano i limiti del nuovo modello tariffario Tardoc. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, prio, swiss, alcuni, medici',
+    ogTitle: 'Prio.swiss: alcuni medici specialisti esagerano con Tardoc',
+    ogDescription: 'L\'associazione degli assicuratori-malattia svizzeri rileva che alcune specialità mediche superano i limiti del nuovo modello tariffario Tardoc. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/prio-swiss-medici-specialisti-tardoc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prio.swiss: alcuni medici specialisti esagerano con Tardoc",
+      "description": "L'associazione degli assicuratori-malattia svizzeri rileva che alcune specialità mediche superano i limiti del nuovo modello tariffario Tardoc. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prio-swiss-medici-specialisti-tardoc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un medico specialista in un ambiente professionale svizzero."
+      },
+      "datePublished": "2026-09-05T13:56:33+00:00",
+      "dateModified": "2026-09-05T13:56:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prio-swiss-medici-specialisti-tardoc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
