@@ -31,6 +31,9 @@ import {
   isJunkSearchKeyword,
 } from '@/services/relatedSearchClusters';
 import { renderSearchQueryIntro } from '../build-plugins/shared/jobBoardCommuterContext';
+// Imported for the binding assertion below (#7315): the anchor-text auditor's
+// catalogue is the authority on what reads as non-descriptive to a crawler.
+import { NON_DESCRIPTIVE_ANCHOR_TEXT } from '../scripts/audit-link-anchor-text.mjs';
 
 // ── Slug round-trip ─────────────────────────────────────────────────────
 
@@ -312,6 +315,34 @@ describe('isJunkSearchKeyword — drops generic filler / noise, keeps real inten
     expect(isJunkSearchKeyword('')).toBe(true);
     expect(isJunkSearchKeyword('   ')).toBe(true);
     expect(isJunkSearchKeyword('1234')).toBe(true);
+  });
+
+  // ── Binding to the anchor-text auditor's catalogue (issue #7315) ─────────
+  //
+  // The two sets are the SAME defect seen from two ends: a CTA verb that
+  // survives here becomes a cluster keyword, the hub renders it as
+  // `<a class="s-la">Scopri</a>`, and `scripts/audit-link-anchor-text.mjs`
+  // counts that anchor as non-descriptive. Measured on 2026-09-05 (run
+  // 33960781369): 7 of the 9 corpus offenders were exactly these anchors on
+  // `/cerca-lavoro-ticino/ricerca/page-N/` and its locale twins.
+  //
+  // Asserting the binding — rather than re-listing the tokens — means a future
+  // addition to the auditor's catalogue cannot silently re-enter as a cluster
+  // keyword: the test goes red the moment the two sets disagree.
+  it('classifies every mono-token entry of the auditor NON_DESCRIPTIVE_ANCHOR_TEXT as junk (#7315)', () => {
+    const monoToken = [...NON_DESCRIPTIVE_ANCHOR_TEXT].filter((t) => !/\s/.test(t.trim()));
+    expect(monoToken.length).toBeGreaterThan(5);
+    const survivors = monoToken.filter((t) => !isJunkSearchKeyword(t));
+    expect(survivors).toEqual([]);
+  });
+
+  it('does not over-reach: a CTA verb TRAILING a real role stays a legitimate intent', () => {
+    // The guard tests the FIRST token, so the French "formation continue" and
+    // the German "weiterbildung mehr" style tails must survive. Without this
+    // case the fix for #7315 could be "widened" into a blanket contains-check
+    // that would delete real multi-word searches.
+    expect(isJunkSearchKeyword('formation continue')).toBe(false);
+    expect(isJunkSearchKeyword('infermiere qui')).toBe(false);
   });
 });
 
