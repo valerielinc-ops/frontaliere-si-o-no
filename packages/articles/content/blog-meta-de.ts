@@ -11388,6 +11388,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mezzo-in-fiamme-vergiate-besnate.title': 'Fahrzeug in Flammen auf der Autobahn zwischen Vergiate und Besnate',
     'blog.article.mezzo-in-fiamme-vergiate-besnate.excerpt': 'Ein brennendes Fahrzeug blockierte den Autobahnverkehr zwischen Vergiate und Besnate und verursachte schwere Verkehrsstörungen.',
     'blog.article.mezzo-in-fiamme-vergiate-besnate.imageAlt': 'Brennendes Fahrzeug auf der Autobahn zwischen Vergiate und Besnate',
+    'blog.article.treno-dei-bambini-gallarate-piombino.title': 'Als der „Kinderzug“ die streikenden Arbeiterkinder nach Gallarate brachte',
+    'blog.article.treno-dei-bambini-gallarate-piombino.excerpt': 'Im Sommer 1911 wurden die Kinder der streikenden Arbeiter in Piombino aus Solidarität in Gallarate aufgenommen.',
+    'blog.article.treno-dei-bambini-gallarate-piombino.imageAlt': 'Bahnhof Gallarate mit der Ankunft des Kinderzugs',
 };
 
 export default blogMetaDe;

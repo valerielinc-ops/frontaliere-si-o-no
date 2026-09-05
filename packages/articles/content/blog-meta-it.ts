@@ -11390,6 +11390,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mezzo-in-fiamme-vergiate-besnate.title': 'Mezzo in fiamme sull\'autostrada tra Vergiate e Besnate',
     'blog.article.mezzo-in-fiamme-vergiate-besnate.excerpt': 'Un mezzo in fiamme ha bloccato il traffico autostradale tra Vergiate e Besnate, causando gravi disagi alla circolazione.',
     'blog.article.mezzo-in-fiamme-vergiate-besnate.imageAlt': 'Veicolo in fiamme sull\'autostrada tra Vergiate e Besnate',
+    'blog.article.treno-dei-bambini-gallarate-piombino.title': 'Quando il "treno dei bambini" portò a Gallarate i figli degli operai in sciopero',
+    'blog.article.treno-dei-bambini-gallarate-piombino.excerpt': 'Nell\'estate del 1911, i figli degli operai in sciopero a Piombino furono accolti a Gallarate come forma di solidarietà.',
+    'blog.article.treno-dei-bambini-gallarate-piombino.imageAlt': 'Stazione di Gallarate con l\'arrivo del treno dei bambini',
 };
 
 export default blogMetaIt;
