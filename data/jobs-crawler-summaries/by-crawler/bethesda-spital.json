@@ -1,18 +1,18 @@
 {
   "key": "bethesda-spital",
   "label": "Bethesda Spital",
-  "generatedAt": "2026-09-04T23:01:45.768Z",
-  "total": 11,
+  "generatedAt": "2026-09-05T12:41:34.087Z",
+  "total": 10,
   "discovered": null,
-  "written": 11,
+  "written": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13740,
-  "avgDurationMs": 13740,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12884,
+  "avgDurationMs": 12884,
   "durationHistory": [
-    13740
+    12884
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/454/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:34.776Z",
+      "crawledAt": "2026-09-05T12:41:23.584Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/323/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:35.824Z",
+      "crawledAt": "2026-09-05T12:41:24.484Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -97,13 +97,13 @@
       "companyKey": "bethesda-spital",
       "companyDomain": "bethesda-spital.ch",
       "title": "Medizinische/r Praxisassistent/in (MPA) Wirbelsäulenchirurgie (50%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/436/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:36.716Z",
+      "crawledAt": "2026-09-05T12:41:25.396Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -119,11 +119,11 @@
       "postedDate": "2026-08-28",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/436/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-28T05:25:01.212Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -140,7 +140,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/444/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:37.607Z",
+      "crawledAt": "2026-09-05T12:41:26.305Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -177,7 +177,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/453/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:38.476Z",
+      "crawledAt": "2026-09-05T12:41:27.200Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/367/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:39.347Z",
+      "crawledAt": "2026-09-05T12:41:28.121Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/377/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:40.247Z",
+      "crawledAt": "2026-09-05T12:41:29.029Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/426/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:41.298Z",
+      "crawledAt": "2026-09-05T12:41:29.912Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -325,7 +325,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/393/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:42.336Z",
+      "crawledAt": "2026-09-05T12:41:30.845Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/415/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:01:43.351Z",
+      "crawledAt": "2026-09-05T12:41:31.732Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -387,8 +387,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "bethesda-spital-8ae315894e77",
       "slug": "tecnico-di-radiologia-dipl-60-bethesda-spital-basel",
@@ -429,5 +428,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
