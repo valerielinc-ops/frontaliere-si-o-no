@@ -9,8 +9,9 @@ name: Stale PR rescuer (self-healing signal)
 #   B) 🔴 Important non ripreso: il reviewer ha postato 🔴 sull'head corrente,
 #      auto-merge skipped, nessun commit nuovo. Fix: commit sullo stesso branch.
 #   C) vitest non-`success` sull'head e nessun run in volo: la PR non ha NESSUN
-#      segnale a valle e non può acquisirne (pr-review-loop gira solo su tests
-#      verdi) → prima cadeva in un `else` muto ed era irrecuperabile. Fix:
+#      segnale a valle e non può acquisirne (con i test rossi il job si ferma
+#      prima dello step di review Claude, che dal 2026-08-26 vive dentro
+#      `tests.yml`) → prima cadeva in un `else` muto ed era irrecuperabile. Fix:
 #      `stale-review`, che riapre il gate near-merge di pr-autorebase.
 #      Misurata su 8 PR ferme 1-4 giorni il 2026-08-05 (issue #5041).
 #
@@ -166,7 +167,7 @@ jobs:
               # `recycle-stale-prs` a raccogliere ciò che resta fermo. Il gate
               # d'età di 2h + l'idempotenza della label impediscono il rumore su
               # una PR con lavoro in corso.
-              REASON="vitest \`$TESTS_CONCL\` sull'head da >2h, nessun run in volo e nessun segnale a valle (nessuna review possibile: pr-review-loop gira solo su tests verdi) — stallo silenzioso"
+              REASON="vitest \`$TESTS_CONCL\` sull'head da >2h, nessun run in volo e nessun segnale a valle (con i test rossi il job si ferma prima dello step di review Claude) — stallo silenzioso"
               RESCUE="etichettata \`stale-review\` per riaprire il grafo: \`pr-autorebase\` ora la considera near-merge e la rebasa su main ri-dispatchando i test. Se il rosso è REALE (del diff della PR) va fixato a mano sul branch \`$BRANCH\` — la label non lo nasconde, lo rende visibile. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
             else
               echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL pending=$TESTS_PENDING) — skip"; continue

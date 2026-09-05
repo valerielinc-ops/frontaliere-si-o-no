@@ -1,13 +1,14 @@
 /**
  * Il close+reopen di pr-autorebase (`reopenToRetrigger`) è un re-trigger
  * deterministico: chiude e riapre la PR ~2s dopo perché l'evento `reopened`
- * fa ripartire pr-review-loop e tests.yml. Il call-site post-rebase lo invoca
- * ogni volta che manca l'`## LGTM`.
+ * fa ripartire `tests.yml` — e con esso la review Claude, che dal 2026-08-26
+ * è uno STEP di quel workflow. Il call-site post-rebase lo invoca ogni volta
+ * che manca l'`## LGTM`.
  *
  * Il 2026-08-14/15 questo ha prodotto un loop che non poteva convergere: con
- * `vitest (unit + integration)` in FAILURE per un motivo suo, pr-review-loop
- * non parte (gira solo su `tests` success) → nessuna review → nessun LGTM →
- * `!lgtm` resta vero → il tick dopo riapre di nuovo. Misurato in ~8h:
+ * i TEST in FAILURE il job si ferma prima della review → nessun verdetto nuovo
+ * → nessun LGTM → `!lgtm` resta vero → il tick dopo riapre di nuovo. Misurato
+ * in ~8h:
  *   #5896  12 riaperture, 89 run di CI (23 di `tests`)
  *   #5906  10 riaperture, 77 run di CI (19 di `tests`)
  * cioè 166 run su 300 di TUTTO il repo — 55% della CI consumata da due PR che
@@ -19,6 +20,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { vitestFailureIsReviewGate } from '../scripts/ci/lib/vitestCheck.mjs';
 import {
   decideReopen,
   decideNeedsHumanPass,
@@ -152,7 +154,8 @@ describe('il contatore sopravvive al close+reopen', () => {
     const body = renderReopenBudget({
       count: 2, max: DEFAULT_MAX_REOPENS, fingerprint: fp, action: 'reopen', reason: 'x',
     });
-    expect(parseReopenBudget(body)).toEqual({ count: 2, fingerprint: fp });
+    expect(parseReopenBudget(body))
+      .toEqual({ count: 2, fingerprint: fp, reviewGateUsed: false });
   });
 
   it('uno stato illeggibile non blocca la PR (fail-open)', () => {
@@ -309,5 +312,126 @@ describe('stuck-red: un failure PROVATO non attribuibile non blocca il reopen', 
     });
     expect(body).toContain('un commit nuovo, o una review');
     expect(body).not.toContain('far passare');
+  });
+});
+
+/**
+ * #7429 — la premessa scaduta. Fino al 2026-08-26 la review Claude era un
+ * workflow a parte (`pr-review-loop.yml`) innescato da `workflow_run` su
+ * `tests == success`: «vitest rosso» implicava «review impossibile», e la
+ * precondizione aveva ragione a rifiutare il riciclo. Dopo l'unificazione
+ * (`80a8c73f73a`) la review è uno step DENTRO il job `vitest (unit +
+ * integration)` e gira PRIMA dello step `Require approving Claude review`, che
+ * è ciò che rende rosso il job. Un rosso di quello step non dice «la review non
+ * può partire»: dice che è già partita e il verdetto manca o è negativo — e il
+ * riciclo è esattamente ciò che ne produce uno nuovo. Osservato su #7369 #7374
+ * #7381 #7422: quattro PR ferme, tutte col messaggio «serve far passare i test»
+ * e nessun `FAIL ` in tutto il log.
+ */
+describe('#7429 — il rosso da REVIEW GATE non è il rosso dei test', () => {
+  const redFp = reopenFingerprint({ ...green, vitestConclusion: 'failure' });
+
+  it('distingue il gate rosso dai test rossi guardando gli step del job', () => {
+    const gateOnly = [
+      { name: 'vitest related (PR diff)', conclusion: 'success' },
+      { name: 'Run Claude review', conclusion: 'success' },
+      { name: 'Require approving Claude review', conclusion: 'failure' },
+      { name: 'Rebase near-merge PRs after approved review', conclusion: 'skipped' },
+    ];
+    expect(vitestFailureIsReviewGate(gateOnly)).toBe(true);
+
+    // Test rotti sotto → il gate non è la causa (unica) del rosso: fail-CLOSED,
+    // vale la precondizione normale. Riciclare qui rifarebbe #5896/#5906.
+    expect(vitestFailureIsReviewGate([
+      { name: 'vitest related (PR diff)', conclusion: 'failure' },
+      { name: 'Require approving Claude review', conclusion: 'failure' },
+    ])).toBe(false);
+    // Nessun dato (job id non parsabile, API muta) → nessuna eccezione.
+    expect(vitestFailureIsReviewGate([])).toBe(false);
+    expect(vitestFailureIsReviewGate(undefined as never)).toBe(false);
+  });
+
+  it('failure da review gate → il riciclo NON viene saltato', () => {
+    const d = decideReopen({
+      vitestConclusion: 'failure', fingerprint: redFp, prior: null,
+      failureNotAttributable: 'review-gate', reviewGateFailure: true,
+    });
+    expect(d.action).toBe('reopen');
+    expect(d.count).toBe(1); // conta nel budget: nemmeno questo si ricicla all'infinito
+    expect(d.reason).toContain('review gate');
+  });
+
+  it('one-shot speso → si salta, ma il messaggio nomina la causa VERA', () => {
+    // È il difetto che ha mandato l'operatore a cercare un fallimento dei test
+    // che non c'era: qui i test sono verdi, il blocco è la review mancante.
+    const d = decideReopen({
+      vitestConclusion: 'failure', fingerprint: redFp, prior: null,
+      reviewGateFailure: true,
+    });
+    expect(d.action).toBe('skip-failing-check');
+    expect(d.cause).toBe('review-gate');
+    expect(d.reason).not.toContain('Serve far passare i test');
+
+    const body = renderReopenBudget({
+      count: d.count, max: DEFAULT_MAX_REOPENS, fingerprint: redFp,
+      action: d.action, reason: d.reason, cause: d.cause,
+    });
+    expect(body).toContain('review Claude approvante');
+    expect(body).not.toContain('far passare `vitest (unit + integration)`');
+  });
+
+  it('il rosso dei TEST resta bloccato e continua a dire «far passare i test»', () => {
+    const d = decideReopen({ vitestConclusion: 'failure', fingerprint: redFp, prior: null });
+    expect(d.action).toBe('skip-failing-check');
+    expect(d.cause).toBe('tests');
+    const body = renderReopenBudget({
+      count: d.count, max: DEFAULT_MAX_REOPENS, fingerprint: redFp,
+      action: d.action, reason: d.reason, cause: d.cause,
+    });
+    expect(body).toContain('far passare `vitest (unit + integration)`');
+  });
+
+  it('il one-shot sopravvive al reset dell\'impronta (altrimenti è perpetuo)', () => {
+    // L'impronta include il numero di review, che ogni reopen incrementa: un
+    // flag appaiato ad essa si azzererebbe a ogni giro e l'eccezione
+    // ricicherebbe all'infinito — #5896/#5906 in altra forma.
+    const spent = renderReopenBudget({
+      count: 1, max: DEFAULT_MAX_REOPENS, fingerprint: redFp,
+      action: 'reopen', reason: 'x', cause: 'review-gate', reviewGateUsed: true,
+    });
+    expect(parseReopenBudget(spent)?.reviewGateUsed).toBe(true);
+    // Impronta diversa (review arrivata) → il CONTATORE riparte, il flag no.
+    const other = reopenFingerprint({ ...green, vitestConclusion: 'failure', reviewCount: 1 });
+    expect(parseReopenBudget(spent)?.fingerprint).not.toBe(other);
+    expect(parseReopenBudget(spent)?.reviewGateUsed).toBe(true);
+    // Default: uno stato scritto prima di #7429 (o illeggibile) non blocca
+    // nessuno — fail-OPEN, come tutto il resto di questo modulo.
+    const fresh = renderReopenBudget({
+      count: 1, max: DEFAULT_MAX_REOPENS, fingerprint: redFp, action: 'reopen', reason: 'x',
+    });
+    expect(parseReopenBudget(fresh)?.reviewGateUsed).toBe(false);
+  });
+
+  it('il breaker vale anche qui: budget esaurito → stop', () => {
+    // Il fingerprint include il NUMERO di review, che ogni reopen incrementa:
+    // è per questo che il call-site rende l'eccezione one-shot per PR con un
+    // marker, invece di affidarsi al solo contatore.
+    expect(decideReopen({
+      vitestConclusion: 'failure', fingerprint: redFp,
+      prior: { count: DEFAULT_MAX_REOPENS, fingerprint: redFp },
+      failureNotAttributable: 'review-gate', reviewGateFailure: true,
+    }).action).toBe('skip-breaker');
+  });
+
+  it('WIRING: guardedReopen calcola il rosso-da-gate e lo rende one-shot', () => {
+    // Senza il wiring la decisione pura resterebbe irraggiungibile — la stessa
+    // forma della guardia morta già fissata sopra per lo stuck-red.
+    expect(script).toMatch(/vitestRedIsReviewGate\(head\)/);
+    expect(script).toMatch(/failureNotAttributable:\s*stuckRedReason\s*\|\|\s*reviewGateReason/);
+    expect(script).toMatch(/reviewGateFailure:\s*reviewGateRed/);
+    // Il one-shot vive nello STATO dello sticky, non in un secondo commento:
+    // un solo canale di segnalazione (stessa invariante fissata sopra).
+    expect(script).toMatch(/prior\s*&&\s*prior\.reviewGateUsed/);
+    expect(script).toMatch(/reviewGateUsed,?\s*$/m);
   });
 });
