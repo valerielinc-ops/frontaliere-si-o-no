@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-04T22:58:10.350Z",
+  "assembledAt": "2026-09-05T12:40:54.744Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T22:58:05.780Z",
+      "crawledAt": "2026-09-05T12:40:49.488Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-04T22:58:05.245Z",
+      "crawledAt": "2026-09-05T12:40:48.665Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,6 +142,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -160,7 +169,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -170,7 +179,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -187,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:58:04.689Z",
+      "crawledAt": "2026-09-05T12:40:48.153Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,6 +260,15 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -297,7 +315,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:58:04.042Z",
+      "crawledAt": "2026-09-05T12:40:47.576Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -333,16 +351,21 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -389,7 +412,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:58:03.407Z",
+      "crawledAt": "2026-09-05T12:40:47.018Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -424,17 +447,20 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -481,7 +507,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:58:02.772Z",
+      "crawledAt": "2026-09-05T12:40:46.481Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,6 +559,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -579,7 +606,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T22:58:02.131Z",
+      "crawledAt": "2026-09-05T12:40:45.915Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -616,11 +643,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -630,6 +659,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -676,7 +706,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:58:01.450Z",
+      "crawledAt": "2026-09-05T12:40:45.360Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -715,11 +745,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -776,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:58:00.818Z",
+      "crawledAt": "2026-09-05T12:40:44.711Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -815,11 +847,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -876,7 +910,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:57:57.848Z",
+      "crawledAt": "2026-09-05T12:40:44.157Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -913,11 +947,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -927,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -941,6 +978,102 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "srg-ssr-8afe9668f79c",
+      "slug": "hostess-steward-servizio-eventi-srg-ssr-lugano",
+      "slugByLocale": {
+        "it": "hostess-steward-servizio-eventi-srg-ssr-lugano",
+        "en": "hostess-steward-events-service-srg-ssr-lugano",
+        "de": "hostess-steward-events-service-srg-ssr-lugano",
+        "fr": "service-d-accueil-et-d-accueil-srg-ssr-lugano"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Hostess/Steward Servizio Eventi",
+      "titleByLocale": {
+        "it": "Hostess/Steward Servizio Eventi",
+        "en": "Hostess/Steward Events Service",
+        "de": "Hostess/Steward Events Service",
+        "fr": "Service d ' accueil et d ' accueil"
+      },
+      "description": "Mansioni\n• accogliere e assistere il pubblico durante gli eventi;\n• allestire piccoli stand e predisporre il materiale identificativo, distribuendo eventuale materiale promozionale in occasione di eventi organizzati da RSI o di cui RSI è partner;\n• gestire attività di animazione, giochi e concorsi in occasione di eventi dedicati alla musica, alla letteratura, alla scienza, alla tecnologia, all'intrattenimento per bambini e a molte altre tematiche;\n• collaborare alla preparazione degli eventi, svolgendo attività organizzative e amministrative, quali la gestione delle conferme di iscrizione e la predisposizione del materiale necessario;\n• rappresentare RSI e relazionarsi con il pubblico, contribuendo a creare un'esperienza positiva e coinvolgente durante gli eventi. Requisiti Cerchiamo persone curiose, dinamiche e con voglia di stare a contatto con il pubblico e di mettersi in gioco. In particolare:\n• ottime capacità relazionali e comunicative;\n• atteggiamento positivo, proattivo e flessibile;\n• spirito d'iniziativa e capacità di adattarsi a situazioni diverse;\n• affidabilità, senso di responsabilità e precisione;\n• buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;\n• dimestichezza con le nuove tecnologie e i principali strumenti digitali;\n• capacità di lavorare in squadra e di collaborare con persone diverse;\n• capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;\n• ottima padronanza della lingua italiana, scritta e parlata;\n• età compresa tra i 18 e i 26 anni. Costituiscono titolo preferenziale\n• buona conoscenza di una o più lingue nazionali e dell'inglese;\n• patente di guida categoria B;\n• disponibilità di un'automobile propria;\n• disponibilità a guidare il Volkswagen Transporter in dotazione al team Eventi RSI. Cosa offriamo\n• Un'attività arricchente, dinamica e variata a contatto diretto con il pubblico e il mondo degli eventi.\n• La possibilità di rappresentare RSI sul territorio e contribuire attivamente alla promozione delle sue attività e dei suoi valori.\n• Un ambiente di lavoro giovane, collaborativo e aperto allo scambio di idee.\n• Un'esperienza professionale stimolante che permette di sviluppare competenze organizzative, relazionali e comunicative. Altre domande? Info sul processo di candidatura Lavoro a chiamata - Termine ultimo per l'inoltro della candidatura domenica 20 settembre 2026 Radio, TV, multimedia: il servizio pubblico prende forma grazie a uomini e donne che trasformano le idee in programmi e contenuti e danno forma alla strategia aziendale con creatività ed equilibrio. Con il valore aggiunto della loro personalità.",
+      "descriptionByLocale": {
+        "it": "Mansioni\n• accogliere e assistere il pubblico durante gli eventi;\n• allestire piccoli stand e predisporre il materiale identificativo, distribuendo eventuale materiale promozionale in occasione di eventi organizzati da RSI o di cui RSI è partner;\n• gestire attività di animazione, giochi e concorsi in occasione di eventi dedicati alla musica, alla letteratura, alla scienza, alla tecnologia, all'intrattenimento per bambini e a molte altre tematiche;\n• collaborare alla preparazione degli eventi, svolgendo attività organizzative e amministrative, quali la gestione delle conferme di iscrizione e la predisposizione del materiale necessario;\n• rappresentare RSI e relazionarsi con il pubblico, contribuendo a creare un'esperienza positiva e coinvolgente durante gli eventi. Requisiti Cerchiamo persone curiose, dinamiche e con voglia di stare a contatto con il pubblico e di mettersi in gioco. In particolare:\n• ottime capacità relazionali e comunicative;\n• atteggiamento positivo, proattivo e flessibile;\n• spirito d'iniziativa e capacità di adattarsi a situazioni diverse;\n• affidabilità, senso di responsabilità e precisione;\n• buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;\n• dimestichezza con le nuove tecnologie e i principali strumenti digitali;\n• capacità di lavorare in squadra e di collaborare con persone diverse;\n• capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;\n• ottima padronanza della lingua italiana, scritta e parlata;\n• età compresa tra i 18 e i 26 anni. Costituiscono titolo preferenziale\n• buona conoscenza di una o più lingue nazionali e dell'inglese;\n• patente di guida categoria B;\n• disponibilità di un'automobile propria;\n• disponibilità a guidare il Volkswagen Transporter in dotazione al team Eventi RSI. Cosa offriamo\n• Un'attività arricchente, dinamica e variata a contatto diretto con il pubblico e il mondo degli eventi.\n• La possibilità di rappresentare RSI sul territorio e contribuire attivamente alla promozione delle sue attività e dei suoi valori.\n• Un ambiente di lavoro giovane, collaborativo e aperto allo scambio di idee.\n• Un'esperienza professionale stimolante che permette di sviluppare competenze organizzative, relazionali e comunicative. Altre domande? Info sul processo di candidatura Lavoro a chiamata - Termine ultimo per l'inoltro della candidatura domenica 20 settembre 2026 Radio, TV, multimedia: il servizio pubblico prende forma grazie a uomini e donne che trasformano le idee in programmi e contenuti e danno forma alla strategia aziendale con creatività ed equilibrio. Con il valore aggiunto della loro personalità.",
+        "en": "Shipments\n• welcome and assist the public during the events;\n• set up small stands and prepare the identification material, distributing any promotional material at events organized by RSI or of which RSI is a partner;\n• manage activities of animation, games and competitions at events dedicated to music, literature, science, technology, entertainment for children and many other topics;\n• collaborate in the preparation of events, conducting organizational and administrative activities, such as the management of registration confirmations and the preparation of the necessary material;\n• represent RSI and interact with the public, helping to create a positive and engaging experience during events. Requirements We look for curious, dynamic and eager to be in touch with the public and to get involved. In particular:\n• excellent relational and communication skills;\n• positive, proactive and flexible attitude;\n• spirit of initiative and ability to adapt to different situations;\n• reliability, sense of responsibility and precision;\n• good knowledge of the reality of Italian Switzerland and interest in the offer and activities of RSI;\n• familiarizes with new technologies and the main digital tools;\n• ability to work on team and collaborate with different people;\n• ability to manage dynamic situations and moments of greater intensity, maintaining calm and professionalism;\n• excellent mastery of the Italian language, written and spoken;\n• between 18 and 26 years. Constitute preferential title\n• good knowledge of one or more national languages and English;\n• driving license category B;\n• availability of a own car;\n• availability to drive the Volkswagen Transporter provided to the team Events RSI. What we offer\n• An enriching, dynamic and varied activity in direct contact with the public and the world of events.\n• The possibility of representing RSI on the territory and actively contribute to the promotion of its activities and values.\n• A young working environment, collaborative and open to exchange ideas.\n• A stimulating professional experience that allows you to develop organizational, relational and communicative skills. Any more questions? Info on the application process Call work - Deadline for submission of the application Sunday 20 September 2026 Radio, TV, multimedia: the public service takes shape thanks to men and women who transform ideas into programs and content and shape the company strategy with creativity and balance. With the added value of their personality.",
+        "de": "Sendungen\n• die Öffentlichkeit während der Veranstaltungen willkommen zu heißen und zu unterstützen;\n• Einrichtung kleiner Stände und Vorbereitung des Identifizierungsmaterials, Verteilung von Werbematerial bei Veranstaltungen, die von RSI organisiert werden oder deren Partner RSI ist;\n• Leitung von Animationsaktivitäten, Spielen und Wettbewerben bei Veranstaltungen zu Musik, Literatur, Wissenschaft, Technologie, Unterhaltung für Kinder und vielen anderen Themen;\n• Zusammenarbeit bei der Vorbereitung von Veranstaltungen, Durchführung organisatorischer und administrativer Tätigkeiten, wie z. B. Verwaltung von Registrierungsbestätigungen und Erstellung des erforderlichen Materials;\n• RSI repräsentieren und mit der Öffentlichkeit interagieren, um eine positive und ansprechende Erfahrung bei Veranstaltungen zu schaffen. Anforderungen Wir suchen neugierig, dynamisch und begierig darauf, mit der Öffentlichkeit in Kontakt zu treten und uns zu engagieren. Insbesondere:\n• ausgezeichnete Beziehungs- und Kommunikationsfähigkeiten;\n• positive, proaktive und flexible Einstellung;\n• Initiativgeist und Fähigkeit, sich an unterschiedliche Situationen anzupassen;\n• Zuverlässigkeit, Verantwortungsbewusstsein und Präzision;\n• gute Kenntnis der Realität der italienischen Schweiz und Interesse am Angebot und den Aktivitäten von RSI;\n• vertraut mit neuen Technologien und den wichtigsten digitalen Tools;\n• Fähigkeit, im Team zu arbeiten und mit verschiedenen Menschen zusammenzuarbeiten;\n• Fähigkeit, dynamische Situationen und Momente von größerer Intensität zu bewältigen, Ruhe und Professionalität zu bewahren;\n• ausgezeichnete Beherrschung der italienischen Sprache, geschrieben und gesprochen;\n• zwischen 18 und 26 Jahren. Präferenztitel\n• gute Kenntnisse einer oder mehrerer Landessprachen und Englisch;\n• Führerscheinklasse B;\n• Verfügbarkeit eines eigenen Autos;\n• Fahrbereitschaft des Volkswagen Transporters für das Team Events RSI. Was wir anbieten\n• Eine bereichernde, dynamische und abwechslungsreiche Aktivität im direkten Kontakt mit der Öffentlichkeit und der Welt der Ereignisse.\n• Die Möglichkeit, RSI auf dem Territorium zu vertreten und aktiv zur Förderung seiner Aktivitäten und Werte beizutragen.\n• Ein junges Arbeitsumfeld, kollaborativ und offen für den Austausch.\n• Eine anregende Berufserfahrung, die es Ihnen ermöglicht, organisatorische, relationale und kommunikative Fähigkeiten zu entwickeln. Noch weitere Fragen? Info zum Bewerbungsprozess Call work - Bewerbungsfrist Sonntag, 20. September 2026 Radio, TV, Multimedia: Der öffentliche Dienst nimmt Gestalt an dank Männern und Frauen, die Ideen in Programme und Inhalte umwandeln und die Unternehmensstrategie kreativ und ausgewogen gestalten. Mit dem Mehrwert ihrer Persönlichkeit.",
+        "fr": "Expéditions\n• accueillir et assister le public pendant les événements;\n• créer de petits stands et préparer le matériel d'identification, en distribuant tout matériel promotionnel lors d'événements organisés par RSI ou dont RSI est partenaire;\n• gérer des activités d'animation, de jeux et de concours lors d'événements dédiés à la musique, à la littérature, à la science, à la technologie, au divertissement pour les enfants et à bien d'autres sujets;\n• collaborer à la préparation des manifestations, à la conduite des activités organisationnelles et administratives, telles que la gestion des confirmations d'inscription et la préparation des documents nécessaires;\n• représenter l'ISR et interagir avec le public, en aidant à créer une expérience positive et stimulante pendant les événements. Exigences Nous cherchons curieux, dynamique et désireux d'être en contact avec le public et de nous impliquer. En particulier:\n• d'excellentes compétences relationnelles et en communication;\n• une attitude positive, proactive et souple;\n• esprit d'initiative et capacité à s'adapter aux différentes situations;\n• fiabilité, sens des responsabilités et précision;\n• bonne connaissance de la réalité de la Suisse italienne et intérêt pour l'offre et les activités de RSI;\n• se familiarise avec les nouvelles technologies et les principaux outils numériques;\n• la capacité de travailler en équipe et de collaborer avec différentes personnes;\n• capacité à gérer des situations dynamiques et des moments de plus grande intensité, en maintenant le calme et le professionnalisme;\n• excellente maîtrise de la langue italienne, écrite et parlée;\n• entre 18 et 26 ans. Constituer un titre préférentiel\n• bonne connaissance d'une ou de plusieurs langues nationales et de l'anglais;\n• la catégorie de permis de conduire B;\n• disponibilité d'une voiture propre;\n• disponibilité pour conduire la Volkswagen Transporter fournie à l'équipe Events RSI. Ce que nous offrons\n• Une activité enrichissante, dynamique et variée en contact direct avec le public et le monde des événements.\n• La possibilité de représenter RSI sur le territoire et de contribuer activement à la promotion de ses activités et de ses valeurs.\n• Un environnement de travail jeune, collaboratif et ouvert à l'échange d'idées.\n• Une expérience professionnelle stimulante qui vous permet de développer des compétences organisationnelles, relationnelles et communicatives. D'autres questions ? Info sur le processus de candidature Call work - Date limite pour le dépôt de la candidature dimanche 20 septembre 2026 Radio, TV, multimédia : le service public prend forme grâce aux hommes et aux femmes qui transforment les idées en programmes et contenus et façonnent la stratégie de l'entreprise avec créativité et équilibre. Avec la valeur ajoutée de leur personnalité."
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-05T12:40:41.173Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6903",
+      "streetAddress": "Casella postale",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
+      "requirements": [
+        "ottime capacità relazionali e comunicative;",
+        "atteggiamento positivo, proattivo e flessibile;",
+        "spirito d'iniziativa e capacità di adattarsi a situazioni diverse;",
+        "affidabilità, senso di responsabilità e precisione;",
+        "buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;",
+        "dimestichezza con le nuove tecnologie e i principali strumenti digitali;",
+        "capacità di lavorare in squadra e di collaborare con persone diverse;",
+        "capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;",
+        "ottima padronanza della lingua italiana, scritta e parlata;",
+        "età compresa tra i 18 e i 26 anni.",
+        "buona conoscenza di una o più lingue nazionali e dell'inglese;",
+        "patente di guida categoria B;",
+        "disponibilità di un'automobile propria;",
+        "disponibilità a guidare il Volkswagen Transporter in dotazione al team Eventi RSI."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "ottime capacità relazionali e comunicative;",
+          "atteggiamento positivo, proattivo e flessibile;",
+          "spirito d'iniziativa e capacità di adattarsi a situazioni diverse;",
+          "affidabilità, senso di responsabilità e precisione;",
+          "buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;",
+          "dimestichezza con le nuove tecnologie e i principali strumenti digitali;",
+          "capacità di lavorare in squadra e di collaborare con persone diverse;",
+          "capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "3e7ba70d-5105-4c69-a753-d1a91815a68b",
+        "org": "rsi",
+        "orgLabel": "RSI"
+      },
+      "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-f6cddd196e33",
@@ -973,7 +1106,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:57:46.827Z",
+      "crawledAt": "2026-09-05T12:40:32.643Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1075,7 +1208,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:57:46.182Z",
+      "crawledAt": "2026-09-05T12:40:32.094Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1159,7 +1292,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T22:57:45.528Z",
+      "crawledAt": "2026-09-05T12:40:31.526Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1208,7 +1341,24 @@
         "pensumMin": 35,
         "pensumMax": 35
       },
+      "previousSlugs": [
+        "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+        "presentatore-di-tempo-srg-ssr-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+          "presentatore-di-tempo-srg-ssr-bern"
+        ],
+        "en": [
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        ],
+        "de": [
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        ]
+      },
       "firstSeenAt": "2026-08-27T19:52:31.631Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1222,21 +1372,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "previousSlugsByLocale": {
-        "it": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-        ],
-        "en": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-        ],
-        "de": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-        ]
-      },
-      "previousSlugs": [
-        "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
-      ]
+      "addressRegion": "BE"
     },
     {
       "id": "srg-ssr-5f308f7330f9",
@@ -1269,7 +1405,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:57:44.790Z",
+      "crawledAt": "2026-09-05T12:40:30.905Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1305,24 +1441,14 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-08-31T17:00:42.256Z",
-      "salaryMin": 77000,
-      "salaryMax": 136000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 136000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
+      "previousSlugs": [
+        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+        "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+          "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
         ],
         "en": [
           "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
@@ -1331,9 +1457,22 @@
           "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
         ]
       },
-      "previousSlugs": [
-        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
-      ]
+      "firstSeenAt": "2026-08-31T17:00:42.256Z",
+      "needsRetranslation": true,
+      "salaryMin": 114500,
+      "salaryMax": 203000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 114500,
+          "maxValue": 203000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "srg-ssr-e925533036c3",
@@ -1366,7 +1505,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-04T22:57:44.133Z",
+      "crawledAt": "2026-09-05T12:40:30.335Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1404,6 +1543,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-31T17:00:43.065Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1450,7 +1590,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T22:57:43.437Z",
+      "crawledAt": "2026-09-05T12:40:29.359Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1487,24 +1627,14 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-08-31T17:00:43.813Z",
-      "salaryMin": 77000,
-      "salaryMax": 136000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 136000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
+      "previousSlugs": [
+        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+        "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+          "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
         ],
         "en": [
           "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
@@ -1513,9 +1643,22 @@
           "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
         ]
       },
-      "previousSlugs": [
-        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
-      ]
+      "firstSeenAt": "2026-08-31T17:00:43.813Z",
+      "needsRetranslation": true,
+      "salaryMin": 114500,
+      "salaryMax": 203000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 114500,
+          "maxValue": 203000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "srg-ssr-b3b1135040db",
@@ -1548,7 +1691,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-04T22:57:42.703Z",
+      "crawledAt": "2026-09-05T12:40:28.762Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1640,7 +1783,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T22:57:41.936Z",
+      "crawledAt": "2026-09-05T12:40:28.017Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1732,7 +1875,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste/7e518bec-7354-4090-9626-3d8c4ea47d3d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T22:57:41.302Z",
+      "crawledAt": "2026-09-05T12:40:27.134Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1777,11 +1920,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-srg-ssr-bern"
+        "stagiaire-recherchiste-srg-ssr-bern",
+        "formazione-di-ricerca-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-srg-ssr-bern"
+          "stagiaire-recherchiste-srg-ssr-bern",
+          "formazione-di-ricerca-srg-ssr-bern"
         ],
         "en": [
           "stagiaire-recherchiste-srg-ssr-bern"
@@ -1791,6 +1936,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:01.047Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1805,102 +1951,6 @@
         }
       },
       "addressRegion": "BE"
-    },
-    {
-      "id": "srg-ssr-8afe9668f79c",
-      "slug": "hostess-steward-servizio-eventi-srg-ssr-lugano",
-      "slugByLocale": {
-        "it": "hostess-steward-servizio-eventi-srg-ssr-lugano",
-        "en": "hostess-steward-events-service-srg-ssr-lugano",
-        "de": "hostess-steward-events-service-srg-ssr-lugano",
-        "fr": "service-d-accueil-et-d-accueil-srg-ssr-lugano"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Hostess/Steward Servizio Eventi",
-      "titleByLocale": {
-        "it": "Hostess/Steward Servizio Eventi",
-        "en": "Hostess/Steward Events Service",
-        "de": "Hostess/Steward Events Service",
-        "fr": "Service d ' accueil et d ' accueil"
-      },
-      "description": "Mansioni\n• accogliere e assistere il pubblico durante gli eventi;\n• allestire piccoli stand e predisporre il materiale identificativo, distribuendo eventuale materiale promozionale in occasione di eventi organizzati da RSI o di cui RSI è partner;\n• gestire attività di animazione, giochi e concorsi in occasione di eventi dedicati alla musica, alla letteratura, alla scienza, alla tecnologia, all'intrattenimento per bambini e a molte altre tematiche;\n• collaborare alla preparazione degli eventi, svolgendo attività organizzative e amministrative, quali la gestione delle conferme di iscrizione e la predisposizione del materiale necessario;\n• rappresentare RSI e relazionarsi con il pubblico, contribuendo a creare un'esperienza positiva e coinvolgente durante gli eventi. Requisiti Cerchiamo persone curiose, dinamiche e con voglia di stare a contatto con il pubblico e di mettersi in gioco. In particolare:\n• ottime capacità relazionali e comunicative;\n• atteggiamento positivo, proattivo e flessibile;\n• spirito d'iniziativa e capacità di adattarsi a situazioni diverse;\n• affidabilità, senso di responsabilità e precisione;\n• buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;\n• dimestichezza con le nuove tecnologie e i principali strumenti digitali;\n• capacità di lavorare in squadra e di collaborare con persone diverse;\n• capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;\n• ottima padronanza della lingua italiana, scritta e parlata;\n• età compresa tra i 18 e i 26 anni. Costituiscono titolo preferenziale\n• buona conoscenza di una o più lingue nazionali e dell'inglese;\n• patente di guida categoria B;\n• disponibilità di un'automobile propria;\n• disponibilità a guidare il Volkswagen Transporter in dotazione al team Eventi RSI. Cosa offriamo\n• Un'attività arricchente, dinamica e variata a contatto diretto con il pubblico e il mondo degli eventi.\n• La possibilità di rappresentare RSI sul territorio e contribuire attivamente alla promozione delle sue attività e dei suoi valori.\n• Un ambiente di lavoro giovane, collaborativo e aperto allo scambio di idee.\n• Un'esperienza professionale stimolante che permette di sviluppare competenze organizzative, relazionali e comunicative. Altre domande? Info sul processo di candidatura Lavoro a chiamata - Termine ultimo per l'inoltro della candidatura domenica 20 settembre 2026 Radio, TV, multimedia: il servizio pubblico prende forma grazie a uomini e donne che trasformano le idee in programmi e contenuti e danno forma alla strategia aziendale con creatività ed equilibrio. Con il valore aggiunto della loro personalità.",
-      "descriptionByLocale": {
-        "it": "Mansioni\n• accogliere e assistere il pubblico durante gli eventi;\n• allestire piccoli stand e predisporre il materiale identificativo, distribuendo eventuale materiale promozionale in occasione di eventi organizzati da RSI o di cui RSI è partner;\n• gestire attività di animazione, giochi e concorsi in occasione di eventi dedicati alla musica, alla letteratura, alla scienza, alla tecnologia, all'intrattenimento per bambini e a molte altre tematiche;\n• collaborare alla preparazione degli eventi, svolgendo attività organizzative e amministrative, quali la gestione delle conferme di iscrizione e la predisposizione del materiale necessario;\n• rappresentare RSI e relazionarsi con il pubblico, contribuendo a creare un'esperienza positiva e coinvolgente durante gli eventi. Requisiti Cerchiamo persone curiose, dinamiche e con voglia di stare a contatto con il pubblico e di mettersi in gioco. In particolare:\n• ottime capacità relazionali e comunicative;\n• atteggiamento positivo, proattivo e flessibile;\n• spirito d'iniziativa e capacità di adattarsi a situazioni diverse;\n• affidabilità, senso di responsabilità e precisione;\n• buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;\n• dimestichezza con le nuove tecnologie e i principali strumenti digitali;\n• capacità di lavorare in squadra e di collaborare con persone diverse;\n• capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;\n• ottima padronanza della lingua italiana, scritta e parlata;\n• età compresa tra i 18 e i 26 anni. Costituiscono titolo preferenziale\n• buona conoscenza di una o più lingue nazionali e dell'inglese;\n• patente di guida categoria B;\n• disponibilità di un'automobile propria;\n• disponibilità a guidare il Volkswagen Transporter in dotazione al team Eventi RSI. Cosa offriamo\n• Un'attività arricchente, dinamica e variata a contatto diretto con il pubblico e il mondo degli eventi.\n• La possibilità di rappresentare RSI sul territorio e contribuire attivamente alla promozione delle sue attività e dei suoi valori.\n• Un ambiente di lavoro giovane, collaborativo e aperto allo scambio di idee.\n• Un'esperienza professionale stimolante che permette di sviluppare competenze organizzative, relazionali e comunicative. Altre domande? Info sul processo di candidatura Lavoro a chiamata - Termine ultimo per l'inoltro della candidatura domenica 20 settembre 2026 Radio, TV, multimedia: il servizio pubblico prende forma grazie a uomini e donne che trasformano le idee in programmi e contenuti e danno forma alla strategia aziendale con creatività ed equilibrio. Con il valore aggiunto della loro personalità.",
-        "en": "Shipments\n• welcome and assist the public during the events;\n• set up small stands and prepare the identification material, distributing any promotional material at events organized by RSI or of which RSI is a partner;\n• manage activities of animation, games and competitions at events dedicated to music, literature, science, technology, entertainment for children and many other topics;\n• collaborate in the preparation of events, conducting organizational and administrative activities, such as the management of registration confirmations and the preparation of the necessary material;\n• represent RSI and interact with the public, helping to create a positive and engaging experience during events. Requirements We look for curious, dynamic and eager to be in touch with the public and to get involved. In particular:\n• excellent relational and communication skills;\n• positive, proactive and flexible attitude;\n• spirit of initiative and ability to adapt to different situations;\n• reliability, sense of responsibility and precision;\n• good knowledge of the reality of Italian Switzerland and interest in the offer and activities of RSI;\n• familiarizes with new technologies and the main digital tools;\n• ability to work on team and collaborate with different people;\n• ability to manage dynamic situations and moments of greater intensity, maintaining calm and professionalism;\n• excellent mastery of the Italian language, written and spoken;\n• between 18 and 26 years. Constitute preferential title\n• good knowledge of one or more national languages and English;\n• driving license category B;\n• availability of a own car;\n• availability to drive the Volkswagen Transporter provided to the team Events RSI. What we offer\n• An enriching, dynamic and varied activity in direct contact with the public and the world of events.\n• The possibility of representing RSI on the territory and actively contribute to the promotion of its activities and values.\n• A young working environment, collaborative and open to exchange ideas.\n• A stimulating professional experience that allows you to develop organizational, relational and communicative skills. Any more questions? Info on the application process Call work - Deadline for submission of the application Sunday 20 September 2026 Radio, TV, multimedia: the public service takes shape thanks to men and women who transform ideas into programs and content and shape the company strategy with creativity and balance. With the added value of their personality.",
-        "de": "Sendungen\n• die Öffentlichkeit während der Veranstaltungen willkommen zu heißen und zu unterstützen;\n• Einrichtung kleiner Stände und Vorbereitung des Identifizierungsmaterials, Verteilung von Werbematerial bei Veranstaltungen, die von RSI organisiert werden oder deren Partner RSI ist;\n• Leitung von Animationsaktivitäten, Spielen und Wettbewerben bei Veranstaltungen zu Musik, Literatur, Wissenschaft, Technologie, Unterhaltung für Kinder und vielen anderen Themen;\n• Zusammenarbeit bei der Vorbereitung von Veranstaltungen, Durchführung organisatorischer und administrativer Tätigkeiten, wie z. B. Verwaltung von Registrierungsbestätigungen und Erstellung des erforderlichen Materials;\n• RSI repräsentieren und mit der Öffentlichkeit interagieren, um eine positive und ansprechende Erfahrung bei Veranstaltungen zu schaffen. Anforderungen Wir suchen neugierig, dynamisch und begierig darauf, mit der Öffentlichkeit in Kontakt zu treten und uns zu engagieren. Insbesondere:\n• ausgezeichnete Beziehungs- und Kommunikationsfähigkeiten;\n• positive, proaktive und flexible Einstellung;\n• Initiativgeist und Fähigkeit, sich an unterschiedliche Situationen anzupassen;\n• Zuverlässigkeit, Verantwortungsbewusstsein und Präzision;\n• gute Kenntnis der Realität der italienischen Schweiz und Interesse am Angebot und den Aktivitäten von RSI;\n• vertraut mit neuen Technologien und den wichtigsten digitalen Tools;\n• Fähigkeit, im Team zu arbeiten und mit verschiedenen Menschen zusammenzuarbeiten;\n• Fähigkeit, dynamische Situationen und Momente von größerer Intensität zu bewältigen, Ruhe und Professionalität zu bewahren;\n• ausgezeichnete Beherrschung der italienischen Sprache, geschrieben und gesprochen;\n• zwischen 18 und 26 Jahren. Präferenztitel\n• gute Kenntnisse einer oder mehrerer Landessprachen und Englisch;\n• Führerscheinklasse B;\n• Verfügbarkeit eines eigenen Autos;\n• Fahrbereitschaft des Volkswagen Transporters für das Team Events RSI. Was wir anbieten\n• Eine bereichernde, dynamische und abwechslungsreiche Aktivität im direkten Kontakt mit der Öffentlichkeit und der Welt der Ereignisse.\n• Die Möglichkeit, RSI auf dem Territorium zu vertreten und aktiv zur Förderung seiner Aktivitäten und Werte beizutragen.\n• Ein junges Arbeitsumfeld, kollaborativ und offen für den Austausch.\n• Eine anregende Berufserfahrung, die es Ihnen ermöglicht, organisatorische, relationale und kommunikative Fähigkeiten zu entwickeln. Noch weitere Fragen? Info zum Bewerbungsprozess Call work - Bewerbungsfrist Sonntag, 20. September 2026 Radio, TV, Multimedia: Der öffentliche Dienst nimmt Gestalt an dank Männern und Frauen, die Ideen in Programme und Inhalte umwandeln und die Unternehmensstrategie kreativ und ausgewogen gestalten. Mit dem Mehrwert ihrer Persönlichkeit.",
-        "fr": "Expéditions\n• accueillir et assister le public pendant les événements;\n• créer de petits stands et préparer le matériel d'identification, en distribuant tout matériel promotionnel lors d'événements organisés par RSI ou dont RSI est partenaire;\n• gérer des activités d'animation, de jeux et de concours lors d'événements dédiés à la musique, à la littérature, à la science, à la technologie, au divertissement pour les enfants et à bien d'autres sujets;\n• collaborer à la préparation des manifestations, à la conduite des activités organisationnelles et administratives, telles que la gestion des confirmations d'inscription et la préparation des documents nécessaires;\n• représenter l'ISR et interagir avec le public, en aidant à créer une expérience positive et stimulante pendant les événements. Exigences Nous cherchons curieux, dynamique et désireux d'être en contact avec le public et de nous impliquer. En particulier:\n• d'excellentes compétences relationnelles et en communication;\n• une attitude positive, proactive et souple;\n• esprit d'initiative et capacité à s'adapter aux différentes situations;\n• fiabilité, sens des responsabilités et précision;\n• bonne connaissance de la réalité de la Suisse italienne et intérêt pour l'offre et les activités de RSI;\n• se familiarise avec les nouvelles technologies et les principaux outils numériques;\n• la capacité de travailler en équipe et de collaborer avec différentes personnes;\n• capacité à gérer des situations dynamiques et des moments de plus grande intensité, en maintenant le calme et le professionnalisme;\n• excellente maîtrise de la langue italienne, écrite et parlée;\n• entre 18 et 26 ans. Constituer un titre préférentiel\n• bonne connaissance d'une ou de plusieurs langues nationales et de l'anglais;\n• la catégorie de permis de conduire B;\n• disponibilité d'une voiture propre;\n• disponibilité pour conduire la Volkswagen Transporter fournie à l'équipe Events RSI. Ce que nous offrons\n• Une activité enrichissante, dynamique et variée en contact direct avec le public et le monde des événements.\n• La possibilité de représenter RSI sur le territoire et de contribuer activement à la promotion de ses activités et de ses valeurs.\n• Un environnement de travail jeune, collaboratif et ouvert à l'échange d'idées.\n• Une expérience professionnelle stimulante qui vous permet de développer des compétences organisationnelles, relationnelles et communicatives. D'autres questions ? Info sur le processus de candidature Call work - Date limite pour le dépôt de la candidature dimanche 20 septembre 2026 Radio, TV, multimédia : le service public prend forme grâce aux hommes et aux femmes qui transforment les idées en programmes et contenus et façonnent la stratégie de l'entreprise avec créativité et équilibre. Avec la valeur ajoutée de leur personnalité."
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-04T13:28:06.912Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6903",
-      "streetAddress": "Casella postale",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
-      "requirements": [
-        "ottime capacità relazionali e comunicative;",
-        "atteggiamento positivo, proattivo e flessibile;",
-        "spirito d'iniziativa e capacità di adattarsi a situazioni diverse;",
-        "affidabilità, senso di responsabilità e precisione;",
-        "buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;",
-        "dimestichezza con le nuove tecnologie e i principali strumenti digitali;",
-        "capacità di lavorare in squadra e di collaborare con persone diverse;",
-        "capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;",
-        "ottima padronanza della lingua italiana, scritta e parlata;",
-        "età compresa tra i 18 e i 26 anni.",
-        "buona conoscenza di una o più lingue nazionali e dell'inglese;",
-        "patente di guida categoria B;",
-        "disponibilità di un'automobile propria;",
-        "disponibilità a guidare il Volkswagen Transporter in dotazione al team Eventi RSI."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "ottime capacità relazionali e comunicative;",
-          "atteggiamento positivo, proattivo e flessibile;",
-          "spirito d'iniziativa e capacità di adattarsi a situazioni diverse;",
-          "affidabilità, senso di responsabilità e precisione;",
-          "buona conoscenza della realtà della Svizzera italiana e interesse per l'offerta e le attività di RSI;",
-          "dimestichezza con le nuove tecnologie e i principali strumenti digitali;",
-          "capacità di lavorare in squadra e di collaborare con persone diverse;",
-          "capacità di gestire situazioni dinamiche e momenti di maggiore intensità, mantenendo calma e professionalità;"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "3e7ba70d-5105-4c69-a753-d1a91815a68b",
-        "org": "rsi",
-        "orgLabel": "RSI"
-      },
-      "firstSeenAt": "2026-08-24T10:00:42.039Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "crawlerMissStreak": 1
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-09-04T22:58:40.580Z",
+  "generatedAt": "2026-09-05T12:41:00.465Z",
   "total": 67,
   "newCount": 2,
   "updatedCount": 65,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 60179,
-  "avgDurationMs": 60179,
+  "durationMs": 34627,
+  "avgDurationMs": 34627,
   "durationHistory": [
-    60179
+    34627
   ],
   "newJobs": [
     {
@@ -144,8 +144,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-09-04T13:28:42.788Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:28:42.788Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -238,7 +238,7 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "ai-workshop-facilitator-for-baer-ai-lab-10-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-two-years-possible-extension-julius-baer",
+      "slug": "ai-workshop-facilitator-for-baer-ai-lab-max-10-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-two-years-possible-extension-julius-baer",
       "category": "hr",
       "datePosted": "2026-08-31",
       "source": "julius-baer-workday-crawler",
@@ -251,11 +251,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "_qualityScore": 58,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -321,11 +321,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "_qualityScore": 58,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -356,11 +356,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "_qualityScore": 55,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -391,11 +391,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "_qualityScore": 60,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -426,11 +426,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "_qualityScore": 60,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -496,11 +496,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "_qualityScore": 55,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -1137,47 +1137,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Machine-Learning-Engineer-100---f-m-d-_r-19214-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Machine-Learning-Engineer-100---f-m-d-_r-19214-2",
-      "title": "Machine Learning Engineer 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "machine-learning-engineer-100-f-m-d-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-08-13",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-13T10:18:32.503Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
