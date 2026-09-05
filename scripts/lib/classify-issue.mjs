@@ -39,6 +39,9 @@
  *   → stdout JSON: {"category":"crawler","autofix":true,"route":"fix","fuPrio":null}
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+
 export function classifyIssue(title = '', labels = []) {
   const set = new Set((labels || []).map((s) => String(s).toLowerCase()));
   const has = (name) => set.has(String(name).toLowerCase());
@@ -81,7 +84,14 @@ export function classifyIssue(title = '', labels = []) {
 }
 
 // CLI mode
-if (process.argv[1] && process.argv[1].endsWith('classify-issue.mjs')) {
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+const isDirectRun = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+if (isDirectRun) {
   const title = process.argv[2] || '';
   let labels = [];
   try {

@@ -41,6 +41,8 @@
  * measurement that made this the default rather than an opt-in.
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 
@@ -1269,7 +1271,14 @@ export async function createGithubIssue({
 
 // CLI mode — mirrors github-issue-creator.mjs flag set so workflow scripts
 // only need to swap the .mjs filename in the path.
-if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+const isDirectRun = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+if (isDirectRun) {
   const args = process.argv.slice(2);
   const get = (flag) => {
     const idx = args.indexOf(flag);
