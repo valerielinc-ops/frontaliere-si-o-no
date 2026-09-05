@@ -262,24 +262,17 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
     : []);
   const out = [];
-  // Entries whose merge was refused stay in `out` but claim no route, so a
-  // later entry cannot try (and fail) to collapse onto them again.
-  const indexable = new Set();
   const owners = new Map();
   let collapsed = 0;
   let slugsTransferred = 0;
   let unmergeable = 0;
-  const reindex = () => {
-    owners.clear();
-    for (const entry of out) {
-      if (!indexable.has(entry)) continue;
-      for (const route of namespaced(entry)) owners.set(route, entry);
-    }
-  };
+  // The index is maintained incrementally, never rebuilt: this runs over the
+  // ~30k-entry aggregate archive, where a full rebuild per entry would be
+  // quadratic. An entry whose merge was refused is kept in `out` but claims no
+  // route, so a later entry cannot try (and fail) to collapse onto it again.
   const keep = (entry, { claimsRoutes = true } = {}) => {
     out.push(entry);
-    if (claimsRoutes) indexable.add(entry);
-    reindex();
+    if (claimsRoutes) for (const route of namespaced(entry)) owners.set(route, entry);
   };
 
   for (const entry of entries) {
@@ -314,13 +307,15 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
       continue;
     }
     for (let index = out.length - 1; index >= 0; index -= 1) {
-      if (claimed.has(out[index])) {
-        indexable.delete(out[index]);
-        out.splice(index, 1);
-      }
+      if (!claimed.has(out[index])) continue;
+      for (const route of namespaced(out[index])) owners.delete(route);
+      out.splice(index, 1);
     }
     slugsTransferred += transferred;
     collapsed += component.length - 1;
+    // Safe to re-add wholesale: the survivor was accepted only after proving it
+    // serves the component's entire route union, so it re-claims every route
+    // just deleted plus its own.
     keep(survivor);
   }
 
