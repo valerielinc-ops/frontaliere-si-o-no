@@ -11,6 +11,7 @@ import {
   formatReport,
   parseIsoDurationMs,
 } from '../scripts/check-pharmacy-data-health.mjs';
+import ticino from '../data/pharmacies-ticino.json';
 
 /**
  * Osservatore della dashboard dati farmacie (#6753). Il punto misurato: le
@@ -181,6 +182,23 @@ describe('normalizeIdentityField', () => {
       ],
     };
     expect(detectAnagraficaConflicts('ticino', doc).map((c) => c.type)).toEqual(['duplicate-identity']);
+  });
+
+  it('does not collapse two distinct pharmacies onto a degenerate key when a field normalizes to empty', () => {
+    const doc = {
+      pharmacies: [
+        { id: 'ti-a', slug: 'a', name: 'Alfa', address: '   ', postalCode: '6900', sourceUrl: 'r1' },
+        { id: 'ti-b', slug: 'b', name: 'Alfa', address: '\u00a0', postalCode: '6900', sourceUrl: 'r2' },
+      ],
+    };
+    expect(detectAnagraficaConflicts('ticino', doc)).toEqual([]);
+  });
+});
+
+describe('the identity check against the real dataset', () => {
+  it('reports zero conflicts on the 119 pharmacies of data/pharmacies-ticino.json, so the monitor is born green', () => {
+    expect(ticino.pharmacies.length).toBeGreaterThan(100);
+    expect(detectAnagraficaConflicts('ticino', ticino)).toEqual([]);
   });
 });
 

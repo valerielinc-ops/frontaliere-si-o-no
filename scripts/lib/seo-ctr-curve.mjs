@@ -230,12 +230,12 @@ const MANUAL_SEO_CTR_FAMILIES = [
   {
     // The single highest-value family on the property, and it sat here with
     // `monitored: false, targetCtr: null` from #4300 onward because the issue
-    // cited it as a healthy *benchmark*. Measured 2026-08-11 over GSC
-    // 2026-05-13 → 2026-08-08 (dataState final): 911.138 impressioni, 60.373
-    // click, CTR 6,63%, posizione media ponderata 8,61 — 2,4× le impressioni e
+    // cited it as a healthy *benchmark*. Rimisurata 2026-09-05 su GSC
+    // 2026-06-05 → 2026-09-03 (90gg): 1.008.226 impressioni, 60.692 click,
+    // CTR 6,020%, posizione media ponderata 8,68 — 2,4× le impressioni e
     // 3,4× i click pesati delle tre famiglie sorvegliate MESSE INSIEME, su
     // pubblico svizzero (CPC 0,17 contro 0,05 dell'italiano). Un punto di CTR
-    // qui vale ~9.111 click / 90gg ≈ 3.037 al mese. Non sorvegliarla era la
+    // qui vale ~10.082 click / 90gg ≈ 3.361 al mese. Non sorvegliarla era la
     // cosa più costosa che questo registro potesse fare.
     id: 'cerca-lavoro-ticino', // cathedral-allow: GSC family identifier for CTR aggregation, not a URL emission site
     label: 'Cerca lavoro Ticino',
@@ -245,34 +245,34 @@ const MANUAL_SEO_CTR_FAMILIES = [
     pathAliases: ['/find-jobs-ticino/', '/jobs-im-tessin/', '/trouver-emploi-tessin/'],
     kind: 'template',
     monitored: true,
-    // WHY NOT 0.035 like the Italian families: at 6,63% a 3,50% floor is 47%
+    // WHY NOT 0.035 like the Italian families: at 6,020% a 3,50% floor is 42%
     // below where the family lives — it could never fire, and an alarm that
     // cannot fire is decoration. WHY NOT the raw position curve either: at
-    // position 8,61 the generic organic benchmark expects 2,956%, so this
-    // family already beats its position by 2,24× (Swiss job-search intent) and
-    // 2,956% would be even more ornamental than 3,50%.
+    // position 8,68 the generic organic benchmark expects 2,928%, so this
+    // family already beats its position by 2,06× (Swiss job-search intent) and
+    // 2,928% would be even more ornamental than 3,50%.
     // So the target is expressed on the family's OWN position↔CTR curve:
-    // 80% of the demonstrated 2,24× ratio → 1,79× the position-expected CTR.
-    // Today that is 1,79 × 2,956% = 5,29%, i.e. the monitor escalates after a
+    // 80% of the demonstrated 2,06× ratio → 1,64× the position-expected CTR.
+    // Today that is 1,64 × 2,928% = 4,80%, i.e. the monitor escalates after a
     // ~20% CTR regression sustained for 2 consecutive weekly runs. Because the
     // target moves with the measured position, a pure ranking loss does NOT
     // fire it — that is deliberate: this monitor answers "is the snippet still
     // earning its position", which is the question its remediation advice
     // (title/description generators) can actually act on.
-    // Il 2,8% / 2,37× / 1,9 di prima erano lo stesso calcolo fatto sul bucket
-    // ARROTONDATO (posizione 8,61 → bucket 9): #7426 ha reso la curva
-    // interpolata e l'atteso a 8,61 non e` piu` quello del bucket 9 (issue
-    // #7412). Ri-derivato sulla curva vera, il floor torna all'80% dichiarato:
-    // con 1,9 valeva l'84,7% del CTR misurato, cioe` scattava gia` a una
-    // regressione del 15,3% invece che del 20%.
-    targetCtrCurveMultiple: 1.79,
+    // L'1,79 di prima era la stessa derivazione sulla misura del 2026-08-11
+    // (6,63% a posizione 8,61). Il CTR e` sceso al 6,020% su un volume
+    // cresciuto del 10,7% (911.138 → 1.008.226 imp), quindi il floor
+    // dell'80% scende con lui: tenere l'1,79 avrebbe preteso l'89,4% del CTR
+    // che la famiglia rende oggi, cioe` un allarme che scatta gia` a una
+    // regressione del 10,6% invece che del 20% (issue #7467).
+    targetCtrCurveMultiple: 1.64,
     // Fallback floor when GSC gives no usable position: 80% of the measured
-    // 6,63%, the same 20%-regression trigger expressed as an absolute.
-    targetCtr: 0.053,
-    impressions90d: 911138,
-    measuredCtr: 0.0663,
-    measuredPosition: 8.61,
-    measuredOn: '2026-08-11',
+    // 6,020%, the same 20%-regression trigger expressed as an absolute.
+    targetCtr: 0.0482,
+    impressions90d: 1008226,
+    measuredCtr: 0.0602,
+    measuredPosition: 8.68,
+    measuredOn: '2026-09-05',
   },
   {
     // Flagged unregistered by discoverUnregisteredFamilies (issue #6306):
@@ -302,9 +302,9 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // MIN_IMPRESSIONS_TO_MONITOR. Confirmed to be the SAME shared
     // canton/aggregator job-board template as `cerca-lavoro-ticino` above
     // (jobsSeoPagesPlugin.ts / jobBoardSeo.ts) — a repeatable generator, not
-    // a hand-authored listing like `vita-in-ticino`. Measured live via GSC
-    // 2026-05-27 → 2026-08-23 (90d): 101.716 imp, 2.811 click, CTR 2,76%,
-    // pos media ponderata 18,27.
+    // a hand-authored listing like `vita-in-ticino`. Rimisurata live via GSC
+    // 2026-06-05 → 2026-09-03 (90gg, 2026-09-05): 134.091 imp, 4.843 click,
+    // CTR 3,612%, pos media ponderata 20,23.
     id: 'cerca-lavoro-svizzera',
     label: 'Cerca lavoro Svizzera',
     pathContains: '/cerca-lavoro-svizzera/',
@@ -314,41 +314,44 @@ const MANUAL_SEO_CTR_FAMILIES = [
     kind: 'template',
     monitored: true,
     // Same "own position↔CTR curve" methodology as `cerca-lavoro-ticino`
-    // above: at position 18,27 the interpolated benchmark expects 0,973%, so
-    // this family already beats its position by 2,84×; target = 80% of that
-    // ratio. Il 2,2 di prima veniva dal bucket arrotondato (1,0% a posizione
-    // 18) e valeva il 77,6% del CTR misurato invece dell'80% (issue #7412).
-    targetCtrCurveMultiple: 2.27,
-    // Fallback floor when GSC gives no usable position: 80% of the measured 2,76%.
-    targetCtr: 0.022,
-    impressions90d: 101716,
-    measuredCtr: 0.0276,
-    measuredPosition: 18.27,
-    measuredOn: '2026-08-25',
+    // above: at position 20,23 the interpolated benchmark expects 0,754%, so
+    // this family already beats its position by 4,79×; target = 80% of that
+    // ratio. Il 2,27 di prima era la stessa derivazione sulla misura del
+    // 2026-08-25 (2,76% a posizione 18,27): la famiglia e` scivolata di due
+    // posizioni ma rende il 31% in piu` (3,612%), e il floor a 2,27 valeva
+    // ormai il 47% del CTR reale — un allarme che pretendeva una regressione
+    // del 53% per scattare (issue #7467).
+    targetCtrCurveMultiple: 3.83,
+    // Fallback floor when GSC gives no usable position: 80% of the measured 3,612%.
+    targetCtr: 0.0289,
+    impressions90d: 134091,
+    measuredCtr: 0.0361,
+    measuredPosition: 20.23,
+    measuredOn: '2026-09-05',
   },
   {
     // Item 1 of follow-up #5964: same discovery/verification path as
-    // `cerca-lavoro-svizzera` above. Measured live via GSC 2026-05-27 →
-    // 2026-08-23 (90d): 104.070 imp, 5.497 click, CTR 5,28%, pos media
-    // ponderata 8,22.
+    // `cerca-lavoro-svizzera` above. Rimisurata live via GSC 2026-06-05 →
+    // 2026-09-03 (90gg, 2026-09-05): 128.060 imp, 6.948 click, CTR 5,426%,
+    // pos media ponderata 8,26.
     id: 'cerca-lavoro-grigioni',
     label: 'Cerca lavoro Grigioni',
     pathContains: '/cerca-lavoro-grigioni/',
     pathAliases: ['/find-jobs-graubunden/', '/jobs-in-graubunden/', '/trouver-emploi-grisons/'],
     kind: 'template',
     monitored: true,
-    // At position 8,22 the interpolated benchmark expects 3,112%, so this
-    // family beats its position by 1,70×; target = 80% of that ratio, same
-    // methodology as above. Il precedente 1,3 era derivato dal bucket
-    // arrotondato (3,2% a posizione 8) e valeva il 76,6% del CTR misurato
-    // invece dell'80%: l'allarme pretendeva una regressione del 23,4% per
-    // scattare (issue #7412).
-    targetCtrCurveMultiple: 1.36,
-    targetCtr: 0.042,
-    impressions90d: 104070,
-    measuredCtr: 0.0528,
-    measuredPosition: 8.22,
-    measuredOn: '2026-08-25',
+    // At position 8,26 the interpolated benchmark expects 3,096%, so this
+    // family beats its position by 1,75×; target = 80% of that ratio, same
+    // methodology as above. L'1,36 di prima era la stessa derivazione sulla
+    // misura del 2026-08-25 (5,28% a posizione 8,22): famiglia sostanzialmente
+    // ferma (+2,8% di CTR), il multiplo si muove di poco ma la misura da cui
+    // discende non e` piu` quella (issue #7467).
+    targetCtrCurveMultiple: 1.4,
+    targetCtr: 0.0434,
+    impressions90d: 128060,
+    measuredCtr: 0.0543,
+    measuredPosition: 8.26,
+    measuredOn: '2026-09-05',
   },
   {
     // Same shared canton job-board template as `cerca-lavoro-ticino` /
@@ -358,8 +361,9 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // `/find-jobs-zurich/` (EN) and `/jobs-in-zurich/` (DE) slugs weren't
     // registered here — discoverUnregisteredFamilies flagged them as 3
     // separate unregistered families instead of 1 (issue #7172, thread
-    // #6704). Measured live via GSC 2026-06-05 → 2026-09-03 (90d): 138.210
-    // imp, 6.915 click, CTR 5,00%, pos media ponderata 10,64.
+    // #6704). Rimisurata live via GSC 2026-06-05 → 2026-09-03 (90gg,
+    // 2026-09-05): 193.932 imp, 10.844 click, CTR 5,592%, pos media
+    // ponderata 10,13.
     id: 'cerca-lavoro-zurigo',
     label: 'Cerca lavoro Zurigo',
     pathContains: '/cerca-lavoro-zurigo/',
@@ -367,17 +371,19 @@ const MANUAL_SEO_CTR_FAMILIES = [
     kind: 'template',
     monitored: true,
     // Same "own position↔CTR curve" methodology as the sibling cantons
-    // above: at position 10,64 the interpolated benchmark expects 2,308%, so
-    // this family already beats its position by 2,17×; target = 80% of that
-    // ratio. Il precedente 1,8 usava il bucket arrotondato (2,2% a posizione
-    // 11) e valeva l'83,1% del CTR misurato invece dell'80% (issue #7412).
-    targetCtrCurveMultiple: 1.73,
-    // Fallback floor when GSC gives no usable position: 80% of the measured 5,00%.
-    targetCtr: 0.04,
-    impressions90d: 138210,
-    measuredCtr: 0.05,
-    measuredPosition: 10.64,
-    measuredOn: '2026-09-03',
+    // above: at position 10,13 the interpolated benchmark expects 2,461%, so
+    // this family already beats its position by 2,27×; target = 80% of that
+    // ratio. L'1,73 di prima era la stessa derivazione sulla misura del
+    // 2026-09-03 (5,00% a posizione 10,64): la famiglia e` salita di mezza
+    // posizione E rende il 12% in piu` (5,592%), quindi il floor a 1,73
+    // valeva il 76% del CTR reale invece dell'80% (issue #7467).
+    targetCtrCurveMultiple: 1.82,
+    // Fallback floor when GSC gives no usable position: 80% of the measured 5,592%.
+    targetCtr: 0.0447,
+    impressions90d: 193932,
+    measuredCtr: 0.0559,
+    measuredPosition: 10.13,
+    measuredOn: '2026-09-05',
   },
   {
     // Same shared canton job-board template as `cerca-lavoro-ticino` /
@@ -386,8 +392,8 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // data/canton-url-slugs.json), but unregistered — the FR slug alone had
     // already crossed MIN_IMPRESSIONS_TO_MONITOR and was flagged by
     // discoverUnregisteredFamilies (issue #7173, thread #6704/#7170).
-    // Measured live via GSC 2026-06-03 → 2026-09-01 (90d): 142.773 imp,
-    // 6.906 click, CTR 4,84%, pos media ponderata 8,51.
+    // Rimisurata live via GSC 2026-06-05 → 2026-09-03 (90gg, 2026-09-05):
+    // 144.016 imp, 6.690 click, CTR 4,645%, pos media ponderata 8,51.
     id: 'cerca-lavoro-vallese',
     label: 'Cerca lavoro Vallese',
     pathContains: '/cerca-lavoro-vallese/',
@@ -396,18 +402,18 @@ const MANUAL_SEO_CTR_FAMILIES = [
     monitored: true,
     // Same "own position↔CTR curve" methodology as the sibling cantons
     // above: at position 8,51 the interpolated benchmark expects 2,996%, so
-    // this family already beats its position by 1,62×; target = 80% of that
-    // ratio. Il precedente 1,4 usava il bucket arrotondato (2,8% a posizione
-    // 9): era il caso peggiore del registro, un floor all'86,7% del CTR
-    // misurato, cioe` un allarme che scattava gia` a una regressione del
-    // 13,3% invece che del 20% (issue #7412).
-    targetCtrCurveMultiple: 1.29,
-    // Fallback floor when GSC gives no usable position: 80% of the measured 4,84%.
-    targetCtr: 0.039,
-    impressions90d: 142773,
-    measuredCtr: 0.0484,
+    // this family already beats its position by 1,55×; target = 80% of that
+    // ratio. L'1,29 di prima era la stessa derivazione sulla misura del
+    // 2026-09-03 (4,84% a posizione 8,51): stessa posizione, CTR sceso del
+    // 4%, quindi il floor scende con lui invece di pretendere l'83,3% di
+    // quanto la famiglia rende oggi (issue #7467).
+    targetCtrCurveMultiple: 1.24,
+    // Fallback floor when GSC gives no usable position: 80% of the measured 4,645%.
+    targetCtr: 0.0372,
+    impressions90d: 144016,
+    measuredCtr: 0.0465,
     measuredPosition: 8.51,
-    measuredOn: '2026-09-03',
+    measuredOn: '2026-09-05',
   },
   {
     // Il template fuel-price giornaliero (`build-plugins/fuelDailyPagesPlugin.ts`
