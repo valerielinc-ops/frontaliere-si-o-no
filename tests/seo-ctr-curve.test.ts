@@ -131,6 +131,57 @@ describe('seo-ctr-curve (issue #4300)', () => {
       }
     });
 
+    it('ogni moltiplicatore di curva vale l\'80% del CTR misurato, sulla curva DI OGGI (issue #7412)', () => {
+      // L'osservatore che mancava. `targetCtrCurveMultiple` non e` un numero
+      // scelto a mano: e` `0,8 × measuredCtr / expectedCtrForPosition(pos)`,
+      // cioe` "il floor sta all'80% di quanto la famiglia rende oggi, quindi
+      // il monitor scala dopo una regressione del ~20%". Quella derivazione
+      // dipende dalla CURVA, e quando #7426 l'ha resa interpolata invece che
+      // arrotondata i cinque multipli job-board sono rimasti tarati su valori
+      // attesi che non esistono piu`: i floor andavano dal 76,6%
+      // (`cerca-lavoro-grigioni`, allarme muto fino a -23,4%) all'86,7%
+      // (`cerca-lavoro-vallese`, allarme che scattava gia` a -13,3%).
+      // Nessun test se n'era accorto perche` la derivazione viveva nella
+      // prosa dei commenti. Questo test la rifa` dai campi `measuredCtr` /
+      // `measuredPosition` e fallisce alla prossima modifica della curva che
+      // non ri-derivi i multipli — che e` esattamente il modo in cui la
+      // deriva si e` prodotta.
+      const offenders: string[] = [];
+      for (const family of SEO_CTR_FAMILIES) {
+        if (!Number.isFinite(Number(family.targetCtrCurveMultiple))) continue;
+        expect(
+          Number.isFinite(family.measuredCtr) && family.measuredCtr > 0,
+          `${family.id}: dichiara targetCtrCurveMultiple ma non measuredCtr`,
+        ).toBe(true);
+        expect(
+          Number.isFinite(family.measuredPosition) && family.measuredPosition >= 1,
+          `${family.id}: dichiara targetCtrCurveMultiple ma non measuredPosition`,
+        ).toBe(true);
+
+        const floor = effectiveTargetCtr(family, family.measuredPosition)!;
+        const fraction = floor / family.measuredCtr;
+        // Tolleranza ±1 punto percentuale: i multipli sono arrotondati a due
+        // (o tre) decimali, e l'arrotondamento sposta il floor di qualche
+        // millesimo. Una curva ri-tarata sotto i piedi lo sposta di punti.
+        if (Math.abs(fraction - 0.8) > 0.01) {
+          offenders.push(
+            `${family.id}: floor ${(floor * 100).toFixed(3)}% = ${(fraction * 100).toFixed(1)}% ` +
+              `del CTR misurato ${(family.measuredCtr * 100).toFixed(3)}% (atteso 80%); ` +
+              `moltiplicatore corretto per posizione ${family.measuredPosition}: ` +
+              `${(0.8 * family.measuredCtr / expectedCtrForPosition(family.measuredPosition)).toFixed(3)}`,
+          );
+        }
+
+        // Il floor assoluto di fallback e` la stessa soglia espressa senza
+        // posizione: deve raccontare la stessa storia, non una piu` lasca.
+        expect(
+          Math.abs(family.targetCtr / family.measuredCtr - 0.8),
+          `${family.id}: targetCtr ${family.targetCtr} non vale l'80% del CTR misurato ${family.measuredCtr}`,
+        ).toBeLessThan(0.01);
+      }
+      expect(offenders, offenders.join('\n')).toEqual([]);
+    });
+
     it('THE INVARIANT: every template family above the volume threshold is monitored with a usable target', () => {
       // This is the test the missing `/cerca-lavoro-ticino/` entry needed and
       // did not have. Without it, dropping `monitored: true` is a silent

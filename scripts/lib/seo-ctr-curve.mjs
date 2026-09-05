@@ -132,12 +132,28 @@ export const MIN_IMPRESSIONS_TO_MONITOR = 50_000;
  *                 exemption stays auditable rather than a silent escape hatch.
  *   impressions90d  measured GSC impressions over a trailing 90 days — the input
  *                 to the invariant. `measuredOn` records when.
+ *   measuredCtr / measuredPosition  the CTR (fraction) and impressions-weighted
+ *                 average position of the SAME 90-day measurement that produced
+ *                 `impressions90d`. Required on every family that declares
+ *                 `targetCtrCurveMultiple`, because those two numbers are the
+ *                 only inputs from which the multiple can be re-derived — and
+ *                 without them the derivation lives in prose and silently rots
+ *                 whenever the curve changes underneath it (issue #7412: the
+ *                 rounded→interpolated curve of #7426 left five multiples
+ *                 calibrated against expected-CTR values that no longer exist).
+ *                 `tests/seo-ctr-curve.test.ts` re-derives every multiple from
+ *                 these fields and fails when the declared floor drifts off the
+ *                 80%-of-measured-CTR methodology.
  *   targetCtr     absolute CTR floor (fraction). Used as-is when the family
  *                 declares no curve multiple, and as the fallback when GSC
- *                 returns no usable average position.
+ *                 returns no usable average position. Same 80% rule: it is
+ *                 0,8 × `measuredCtr` expressed as an absolute.
  *   targetCtrCurveMultiple  when set, the effective target is
  *                 `multiple × expectedCtrForPosition(avgPosition)` — see
- *                 effectiveTargetCtr() below.
+ *                 effectiveTargetCtr() below. Derived as
+ *                 `0,8 × measuredCtr / expectedCtrForPosition(measuredPosition)`
+ *                 so that at the measured position the floor sits at 80% of the
+ *                 measured CTR, i.e. the monitor escalates on a ~20% regression.
  *   pathAliases   optional extra `pathContains`-style substrings that are
  *                 the SAME template under a different locale's URL slug.
  *                 Two distinct shapes both need it: (a) the locale slug drops
@@ -232,22 +248,30 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // WHY NOT 0.035 like the Italian families: at 6,63% a 3,50% floor is 47%
     // below where the family lives — it could never fire, and an alarm that
     // cannot fire is decoration. WHY NOT the raw position curve either: at
-    // position 8,61 the generic organic benchmark expects 2,8%, so this family
-    // already beats its position by 2,37× (Swiss job-search intent) and 2,8%
-    // would be even more ornamental than 3,50%.
+    // position 8,61 the generic organic benchmark expects 2,956%, so this
+    // family already beats its position by 2,24× (Swiss job-search intent) and
+    // 2,956% would be even more ornamental than 3,50%.
     // So the target is expressed on the family's OWN position↔CTR curve:
-    // 80% of the demonstrated 2,37× ratio → 1,9× the position-expected CTR.
-    // Today that is 1,9 × 2,8% = 5,32%, i.e. the monitor escalates after a
+    // 80% of the demonstrated 2,24× ratio → 1,79× the position-expected CTR.
+    // Today that is 1,79 × 2,956% = 5,29%, i.e. the monitor escalates after a
     // ~20% CTR regression sustained for 2 consecutive weekly runs. Because the
     // target moves with the measured position, a pure ranking loss does NOT
     // fire it — that is deliberate: this monitor answers "is the snippet still
     // earning its position", which is the question its remediation advice
     // (title/description generators) can actually act on.
-    targetCtrCurveMultiple: 1.9,
+    // Il 2,8% / 2,37× / 1,9 di prima erano lo stesso calcolo fatto sul bucket
+    // ARROTONDATO (posizione 8,61 → bucket 9): #7426 ha reso la curva
+    // interpolata e l'atteso a 8,61 non e` piu` quello del bucket 9 (issue
+    // #7412). Ri-derivato sulla curva vera, il floor torna all'80% dichiarato:
+    // con 1,9 valeva l'84,7% del CTR misurato, cioe` scattava gia` a una
+    // regressione del 15,3% invece che del 20%.
+    targetCtrCurveMultiple: 1.79,
     // Fallback floor when GSC gives no usable position: 80% of the measured
     // 6,63%, the same 20%-regression trigger expressed as an absolute.
     targetCtr: 0.053,
     impressions90d: 911138,
+    measuredCtr: 0.0663,
+    measuredPosition: 8.61,
     measuredOn: '2026-08-11',
   },
   {
@@ -290,12 +314,16 @@ const MANUAL_SEO_CTR_FAMILIES = [
     kind: 'template',
     monitored: true,
     // Same "own position↔CTR curve" methodology as `cerca-lavoro-ticino`
-    // above: at position 18,27 the generic benchmark expects ~1,0%, so this
-    // family already beats its position by 2,76×; target = 80% of that ratio.
-    targetCtrCurveMultiple: 2.2,
+    // above: at position 18,27 the interpolated benchmark expects 0,973%, so
+    // this family already beats its position by 2,84×; target = 80% of that
+    // ratio. Il 2,2 di prima veniva dal bucket arrotondato (1,0% a posizione
+    // 18) e valeva il 77,6% del CTR misurato invece dell'80% (issue #7412).
+    targetCtrCurveMultiple: 2.27,
     // Fallback floor when GSC gives no usable position: 80% of the measured 2,76%.
     targetCtr: 0.022,
     impressions90d: 101716,
+    measuredCtr: 0.0276,
+    measuredPosition: 18.27,
     measuredOn: '2026-08-25',
   },
   {
@@ -309,11 +337,17 @@ const MANUAL_SEO_CTR_FAMILIES = [
     pathAliases: ['/find-jobs-graubunden/', '/jobs-in-graubunden/', '/trouver-emploi-grisons/'],
     kind: 'template',
     monitored: true,
-    // At position 8,22 the benchmark expects ~3,2%, so this family beats its
-    // position by 1,65×; target = 80% of that ratio, same methodology as above.
-    targetCtrCurveMultiple: 1.3,
+    // At position 8,22 the interpolated benchmark expects 3,112%, so this
+    // family beats its position by 1,70×; target = 80% of that ratio, same
+    // methodology as above. Il precedente 1,3 era derivato dal bucket
+    // arrotondato (3,2% a posizione 8) e valeva il 76,6% del CTR misurato
+    // invece dell'80%: l'allarme pretendeva una regressione del 23,4% per
+    // scattare (issue #7412).
+    targetCtrCurveMultiple: 1.36,
     targetCtr: 0.042,
     impressions90d: 104070,
+    measuredCtr: 0.0528,
+    measuredPosition: 8.22,
     measuredOn: '2026-08-25',
   },
   {
@@ -333,12 +367,16 @@ const MANUAL_SEO_CTR_FAMILIES = [
     kind: 'template',
     monitored: true,
     // Same "own position↔CTR curve" methodology as the sibling cantons
-    // above: at position 10,64 the generic benchmark expects ~2,2%, so this
-    // family already beats its position by 2,27×; target = 80% of that ratio.
-    targetCtrCurveMultiple: 1.8,
+    // above: at position 10,64 the interpolated benchmark expects 2,308%, so
+    // this family already beats its position by 2,17×; target = 80% of that
+    // ratio. Il precedente 1,8 usava il bucket arrotondato (2,2% a posizione
+    // 11) e valeva l'83,1% del CTR misurato invece dell'80% (issue #7412).
+    targetCtrCurveMultiple: 1.73,
     // Fallback floor when GSC gives no usable position: 80% of the measured 5,00%.
     targetCtr: 0.04,
     impressions90d: 138210,
+    measuredCtr: 0.05,
+    measuredPosition: 10.64,
     measuredOn: '2026-09-03',
   },
   {
@@ -357,12 +395,18 @@ const MANUAL_SEO_CTR_FAMILIES = [
     kind: 'template',
     monitored: true,
     // Same "own position↔CTR curve" methodology as the sibling cantons
-    // above: at position 8,51 the generic benchmark expects ~2,8%, so this
-    // family already beats its position by 1,73×; target = 80% of that ratio.
-    targetCtrCurveMultiple: 1.4,
+    // above: at position 8,51 the interpolated benchmark expects 2,996%, so
+    // this family already beats its position by 1,62×; target = 80% of that
+    // ratio. Il precedente 1,4 usava il bucket arrotondato (2,8% a posizione
+    // 9): era il caso peggiore del registro, un floor all'86,7% del CTR
+    // misurato, cioe` un allarme che scattava gia` a una regressione del
+    // 13,3% invece che del 20% (issue #7412).
+    targetCtrCurveMultiple: 1.29,
     // Fallback floor when GSC gives no usable position: 80% of the measured 4,84%.
     targetCtr: 0.039,
     impressions90d: 142773,
+    measuredCtr: 0.0484,
+    measuredPosition: 8.51,
     measuredOn: '2026-09-03',
   },
   {
@@ -414,6 +458,8 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // misurato, la stessa soglia di regressione ~20% espressa in assoluto.
     targetCtr: 0.0098,
     impressions90d: 139514,
+    measuredCtr: 0.01226,
+    measuredPosition: 7.46,
     measuredOn: '2026-09-05',
   },
   {
@@ -446,6 +492,8 @@ const MANUAL_SEO_CTR_FAMILIES = [
     // Floor assoluto senza posizione usabile: 80% dell'1,037% misurato.
     targetCtr: 0.0083,
     impressions90d: 85934,
+    measuredCtr: 0.01037,
+    measuredPosition: 7.04,
     measuredOn: '2026-09-05',
   },
   {
