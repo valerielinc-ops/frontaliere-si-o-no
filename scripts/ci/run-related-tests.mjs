@@ -26,10 +26,26 @@ const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-path
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
 const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
+// faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli
+// e si difende dal falso verde con `expect(total).toBeGreaterThan(1000)`. Il job
+// PR non materializza `packages/articles/content`, quindi quel guard scatta
+// sempre: misurato il 2026-09-06 sulla PR #7617, `expected 4 to be greater than
+// 1000` — quattro campi FAQ visibili invece di 22.012. Non stava trovando un
+// difetto, stava dicendo (come progettato) di non avere il dato; sul corpus vero
+// passa, 23 illeggibili contro un RATCHET_BASELINE di 26.
+// Stessa ragione del vicino qui sotto: un test che richiede un ambiente che
+// QUESTO job non ha non e' un gate, e' un rosso fisso. Resta bloccante nella
+// suite piena, che il corpus ce l'ha. Ci finiva dentro solo da quando un cambio
+// a `blog-body-io.mjs` lo tira nel grafo related, cioe' su ogni PR che tocca
+// quel modulo condiviso.
 // firestore-rules-consent-write needs a running Firestore emulator (Java 21+,
 // wired via `npm run test:firestore-rules`) — plain `vitest run` fails fast
 // with ECONNREFUSED, so it stays out of the blocking related-tests gate (#6377).
-const alwaysExcludedTests = new Set(['tests/checkout-sparse-profiles.test.ts', 'tests/firestore-rules-consent-write.test.ts']);
+const alwaysExcludedTests = new Set([
+  'tests/checkout-sparse-profiles.test.ts',
+  'tests/faq-readability-gate.test.ts',
+  'tests/firestore-rules-consent-write.test.ts',
+]);
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
 // Workflow e artefatti portabili sotto `.github/`. Non sono sorgenti e non
 // hanno nessun edge di import, ma i test che ne congelano il contenuto li
