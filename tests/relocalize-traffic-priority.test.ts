@@ -592,3 +592,130 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
     expect(src).toMatch(/if \(flagged\) \{[\s\S]{0,400}?queuedSamples\.push\(/);
   });
 });
+
+describe('copertura della coorte <24h nei candidates del mop-up (#7362)', () => {
+  /**
+   * La corsia freschezza ordina `candidates` — `needsWork(job) &&
+   * missingSlots(job).length > 0` — non la coda pending. Un annuncio nuovo,
+   * pending, che non ricade in quel predicato non entra nell'insieme, quindi la
+   * testa non lo tocca: la quota di job <24h che la corsia dice di muovere si
+   * sposta MENO di quanto il numero in testa suggerisce. Questi casi pinnano il
+   * RAPPORTO nel report, cosi' la copertura non torna invisibile.
+   */
+  const testo = (parola: string) => `${parola} `.repeat(40).trim();
+  const fresco = (slug: string, extra: Record<string, unknown> = {}) => ({
+    slug,
+    firstSeenAt: daysAgo(0.1),
+    sourceLang: 'it',
+    title: 'Idraulico di cantiere',
+    description: testo('Cerchiamo un idraulico per cantieri residenziali in Ticino.'),
+    titleByLocale: {
+      it: 'Idraulico di cantiere',
+      en: 'Construction plumber',
+      de: 'Baustellenklempner',
+      fr: 'Plombier de chantier',
+    },
+    descriptionByLocale: {
+      it: testo('Cerchiamo un idraulico per cantieri residenziali in Ticino.'),
+      en: testo('We are looking for a plumber for residential sites in Ticino.'),
+      de: testo('Wir suchen einen Klempner fuer Wohnbaustellen im Tessin.'),
+      fr: testo('Nous cherchons un plombier pour des chantiers au Tessin.'),
+    },
+    ...extra,
+  });
+
+  it('un job fresco pending ma FUORI dai candidates viene contato lo stesso', async () => {
+    const { createFreshCoverageMeter, needsWork, missingSlots } =
+      await import('../scripts/local-mt-mopup.mjs');
+
+    // Pending per il flag, ma senza uno slot che questa corsia sappia riempire:
+    // esattamente il job che `candidates` scarta e che la testa non vedra' mai.
+    const invisibile = fresco('flaggato-senza-slot', { needsRetranslation: true });
+    expect(needsWork(invisibile)).toBe(true);
+    expect(missingSlots(invisibile)).toHaveLength(0);
+
+    // Pending E riparabile: entra nei candidates.
+    const coperto = fresco('titolo-mancante', {
+      needsRetranslation: true,
+      titleByLocale: { it: 'Idraulico di cantiere' },
+    });
+    expect(missingSlots(coperto).length).toBeGreaterThan(0);
+
+    const meter = createFreshCoverageMeter({ now: NOW });
+    for (const j of [invisibile, coperto]) {
+      const inScope = needsWork(j);
+      meter.observe(j, { inScope, slotCount: inScope ? missingSlots(j).length : 0 });
+    }
+
+    // E un terzo caso: la sorgente stessa e' troppo corta, quindi non c'e'
+    // niente DA CUI tradurre — motivo diverso, e il report li tiene distinti.
+    const sorgenteRotta = fresco('sorgente-corta', {
+      needsRetranslation: true,
+      description: 'Breve.',
+      descriptionByLocale: { it: 'Breve.', en: 'Short.', de: 'Kurz.', fr: 'Bref.' },
+    });
+    expect(missingSlots(sorgenteRotta)).toHaveLength(0);
+
+    const meter2 = createFreshCoverageMeter({ now: NOW });
+    meter2.observe(sorgenteRotta, { inScope: true, slotCount: 0 });
+    expect(meter2.stats()).toMatchObject({ pending: 1, covered: 0, sourceIncomplete: 1, flagOnly: 0 });
+
+    expect(meter.stats()).toMatchObject({
+      scanned: 2, fresh: 2, pending: 2, covered: 1,
+      // Il job invisibile e' pending per il solo flag: la sorgente sta bene, non
+      // c'e' niente da tradurre. Il motivo va contato a parte da una sorgente rotta.
+      flagOnly: 1, sourceIncomplete: 0,
+    });
+  });
+
+  it('un job zittito e un job vecchio non gonfiano ne il numeratore ne il denominatore', async () => {
+    const { createFreshCoverageMeter } = await import('../scripts/local-mt-mopup.mjs');
+    const meter = createFreshCoverageMeter({ now: NOW });
+    // Zittito: pending nei fatti, ma `needsWork()` lo esclude — va contato come
+    // motivo di mancata copertura, non come coorte servita.
+    meter.observe(fresco('zittito', { needsRetranslation: true, localeMismatchSuppressed: true }));
+    // Vecchio: fuori dalla coorte, non e' affare di questa misura.
+    meter.observe({ ...fresco('vecchio'), firstSeenAt: daysAgo(30), needsRetranslation: true });
+    // Datato nel FUTURO: la corsia lo esclude dalla testa, e la copertura deve
+    // misurare la STESSA coorte che l'ordinamento serve.
+    meter.observe({ ...fresco('domani'), firstSeenAt: new Date(NOW + DAY).toISOString(), needsRetranslation: true });
+
+    expect(meter.stats()).toMatchObject({ scanned: 3, fresh: 1, pending: 0, covered: 0, suppressed: 1 });
+  });
+
+  it('il report stampa il rapporto, anche quando la copertura e piena', () => {
+    const stats = buildTrafficPriority([job('a', daysAgo(0.1))], {}, { now: NOW, lane: MOPUP_TRAFFIC_LANE }).stats;
+
+    const parziale = formatPriorityReport(stats, {
+      freshCoverage: {
+        scanned: 400, fresh: 20, pending: 20, covered: 12,
+        sourceIncomplete: 5, flagOnly: 3, suppressed: 3,
+      },
+    }).join('\n');
+    expect(parziale).toMatch(/Fresh cohort coverage: 12\/20 \(60\.0%\)/);
+    expect(parziale).toContain('8 with no slot this lane can fill');
+    expect(parziale).toContain('5 incomplete at the SOURCE');
+    expect(parziale).toContain('3 flagged only');
+    expect(parziale).toContain('3 suppressed');
+
+    const piena = formatPriorityReport(stats, {
+      freshCoverage: {
+        scanned: 400, fresh: 20, pending: 12, covered: 12,
+        sourceIncomplete: 0, flagOnly: 0, suppressed: 0,
+      },
+    }).join('\n');
+    expect(piena).toMatch(/Fresh cohort coverage: 12\/12 \(100\.0%\)/);
+    expect(piena).not.toContain('not reached:');
+
+    // Un chiamante che NON misura (il cascade) stampa il report di prima.
+    expect(formatPriorityReport(stats).join('\n')).not.toContain('Fresh cohort coverage');
+  });
+
+  it('il mop-up misura dentro la scansione che fa gia, e passa il numero al report', () => {
+    // Il CABLAGGIO: senza queste due righe il meter esisterebbe e nessuna run lo
+    // stamperebbe — la copertura tornerebbe invisibile con i test verdi.
+    const src = fs.readFileSync(path.join(ROOT, 'scripts/local-mt-mopup.mjs'), 'utf-8');
+    expect(src).toMatch(/freshMeter\.observe\(job, \{ inScope: true, slotCount: slots\.length \}\)/);
+    expect(src).toMatch(/formatPriorityReport\(stats, \{ freshCoverage: freshMeter\.stats\(\) \}\)/);
+  });
+});
