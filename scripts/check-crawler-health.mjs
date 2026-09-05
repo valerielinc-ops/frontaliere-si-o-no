@@ -916,16 +916,13 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && summary.authoritativeEmptySnapshot === true;
   // Issue #7461 & al.: this slice was written by the process-exit guard
   // (`registerCrawlerSummaryGuard`, assemble-jobs-dataset.mjs), not by the
-  // pipeline. It means the run RETURNED BEFORE PUBLISHING ANYTHING — a
-  // connection-level fetch failure, an exhausted anti-bot fence, or a
-  // fail-closed parser abort — and deliberately kept the previous slice live.
-  // Its `total: 0` is the guard's placeholder, NOT an observation that the
-  // source is empty. Conflating the two is what made nine crawlers report the
-  // identical "N consecutive runs returned 0 jobs" while their sources still
-  // carried 19, 26, 26 and 4 open positions.
+  // pipeline — the run RETURNED BEFORE PUBLISHING and kept the previous slice
+  // live. Its `total: 0` is the guard's placeholder, NOT an observation that
+  // the source is empty.
   const earlyExit = summary && typeof summary === 'object' && summary.earlyExit === true;
   // Separates a deliberate bail-out (0) from a crash (non-zero) — different
-  // triage, and the guard already records it.
+  // triage, and the guard already records it. `null` when absent: "unknown" is
+  // not "clean exit".
   const exitCode =
     earlyExit && Number.isFinite(Number(summary.exitCode)) ? Number(summary.exitCode) : null;
   // For crawler health, count what the crawler found, not what later
@@ -1036,8 +1033,13 @@ function corpusObservationFromPayloads(slug, data, summary) {
       : null;
   const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
   // Same guard-slice marker as `inspectCrawler` above: the corpus republishes
-  // whatever slice the crawler wrote, exit-guard placeholders included.
+  // whatever slice the crawler wrote, exit-guard placeholders included — and
+  // for cross-repo crawlers the corpus observation is usually the one that
+  // wins `selectNewestCrawlerObservation`, so it has to carry `exitCode` too
+  // or the reason would report a crash as a deliberate bail-out.
   const earlyExit = summary.earlyExit === true;
+  const exitCode =
+    earlyExit && Number.isFinite(Number(summary.exitCode)) ? Number(summary.exitCode) : null;
 
   return {
     slug,
@@ -1051,6 +1053,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     written,
     authoritativeEmpty,
     earlyExit,
+    exitCode,
   };
 }
 
@@ -1342,7 +1345,12 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // crawler; when the run aborted, both are the wrong place to look and the
     // source is usually still full. Say what actually happened instead.
     reason = abortedRun
-      ? `${consecutiveEmptyRuns} consecutive runs aborted before publishing a result (exit guard, last exitCode=${observation.exitCode ?? 0}) — the source was NOT observed empty and the previous slice is still live; look for the crawler's own bail-out, not for a dead selector`
+      // `?? 'unknown'` and never `?? 0`: 0 means "deliberate bail-out" and
+      // non-zero means "crash", which is different triage. An absent field is
+      // neither, and defaulting it to 0 would assert a clean bail-out on a
+      // crash — the same substitution of a placeholder for evidence this whole
+      // change exists to stop.
+      ? `${consecutiveEmptyRuns} consecutive runs aborted before publishing a result (exit guard, last exitCode=${observation.exitCode ?? 'unknown'}) — the source was NOT observed empty and the previous slice is still live; look for the crawler's own bail-out, not for a dead selector`
       : `${consecutiveEmptyRuns} consecutive runs returned 0 jobs`;
   } else if (lastObservedJobs === 0 && !lastSuccessfulRunAt && !hadPriorState) {
     // First time we see this crawler AND it's empty AND we have no history.

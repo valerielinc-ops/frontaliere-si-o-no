@@ -1106,6 +1106,31 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     expect(reason).toMatch(/exitCode=0/);
   });
 
+  it('never reports a missing exitCode as a clean bail-out', () => {
+    // Review finding on #7585: a corpus-sourced observation used to arrive
+    // without `exitCode`, and a `?? 0` fallback turned "unknown" into
+    // "deliberate exit 0" — asserting a clean bail-out on a possible crash,
+    // the same placeholder-as-evidence substitution this change exists to stop.
+    const { reason } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), exitCode: undefined },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(reason).toMatch(/exitCode=unknown/);
+    expect(reason).not.toMatch(/exitCode=0/);
+  });
+
+  it('reports a crash exit code as itself, not as a bail-out', () => {
+    const { reason } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), exitCode: 1 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(reason).toMatch(/exitCode=1/);
+  });
+
   it('keeps saying "returned 0 jobs" for a zero the pipeline really published', () => {
     // Same streak, same counts — only the guard marker differs. A published
     // zero IS a statement about the source, so the parser/retire triage stays
