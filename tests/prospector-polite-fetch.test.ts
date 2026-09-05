@@ -3,7 +3,6 @@ import { HOST_DELAY_MS } from '../scripts/lib/prospector/config.mjs';
 import {
   clearPoliteFetchStateForTests,
   politeFetch,
-  transportErrorKind,
 } from '../scripts/lib/prospector/polite-fetch.mjs';
 
 function response(
@@ -364,35 +363,16 @@ describe('prospector polite fetch retry cooldown', () => {
   });
 });
 
-describe('transportErrorKind — a failure with no status still names its cause', () => {
-  // #7351: every network error used to collapse into `{ ok: false, status: 0 }`
-  // and callers could only report the layer («transport»), never the cause.
-  // `fetch()` hides the real code one level down in `.cause`, so the chain is
-  // walked rather than the surface read.
-  const wrapped = (code: string) => Object.assign(new TypeError('fetch failed'), {
-    cause: Object.assign(new Error(code), { code }),
-  });
-
-  it('reads the code through the fetch wrapper', () => {
-    expect(transportErrorKind(wrapped('ENOTFOUND'))).toBe('dns');
-    expect(transportErrorKind(wrapped('EAI_AGAIN'))).toBe('dns');
-    expect(transportErrorKind(wrapped('ECONNRESET'))).toBe('reset');
-    expect(transportErrorKind(wrapped('ECONNREFUSED'))).toBe('refused');
-    expect(transportErrorKind(wrapped('ERR_TLS_CERT_ALTNAME_INVALID'))).toBe('tls');
-    expect(transportErrorKind(wrapped('UND_ERR_CONNECT_TIMEOUT'))).toBe('timeout');
-  });
-
-  it('an aborted request is a timeout, whatever the code says', () => {
-    expect(transportErrorKind(Object.assign(new Error('aborted'), { name: 'AbortError' }))).toBe('timeout');
-  });
-
-  it('does not guess — an unrecognised failure says so', () => {
-    expect(transportErrorKind(new Error('something else'))).toBe('other');
-    expect(transportErrorKind(null)).toBe('other');
-  });
-
-  it('politeFetch attaches the kind to the result it already returned', async () => {
-    const fetchImpl = vi.fn(async () => { throw wrapped('ENOTFOUND'); });
+describe('politeFetch — a failure with no status still names its cause', () => {
+  // #7351. The kind itself is pinned in tests/transient-fetch.test.ts, next to
+  // the function; what this case pins is that politeFetch actually attaches it
+  // to the result it was already returning.
+  it('attaches the transport kind to the result it already returned', async () => {
+    const fetchImpl = vi.fn(async () => {
+      throw Object.assign(new TypeError('fetch failed'), {
+        cause: Object.assign(new Error('ENOTFOUND'), { code: 'ENOTFOUND' }),
+      });
+    });
     await expect(politeFetch('https://gone.invalid/x', {
       fetchImpl, retries: 0, sleepImpl: async () => {}, lookupImpl: async () => '93.184.216.34',
     })).resolves.toMatchObject({ ok: false, status: 0, transportError: 'dns' });

@@ -1,4 +1,5 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { TLS_ERROR_CODES } from './transient-fetch.mjs';
 /**
  * McDonald's Switzerland — job parser
  *
@@ -34,7 +35,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *
  * TRANSPORT POLICY. Requests are attempted over HTTPS first and fall back
  * to HTTP for this host only, and only on a TLS/certificate failure (see
- * `TLS_ERROR_CODES` below) — kept from the 2026-08-10 rewrite as a defensive
+ * `TLS_ERROR_CODES`, shared with `transient-fetch.mjs` so the TLS class has
+ * one definition and not two) — kept from the 2026-08-10 rewrite as a defensive
  * measure even though the certificate is valid again as of 2026-08-14.
  */
 
@@ -53,16 +55,6 @@ const MCDO_LISTING_PATH = '/fr/emplois-restauration';
 
 const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-
-/** Node/undici error codes that mean "TLS refused this certificate". */
-const TLS_ERROR_CODES = new Set([
-  'ERR_TLS_CERT_ALTNAME_INVALID',
-  'CERT_HAS_EXPIRED',
-  'DEPTH_ZERO_SELF_SIGNED_CERT',
-  'SELF_SIGNED_CERT_IN_CHAIN',
-  'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
-  'ERR_SSL_WRONG_VERSION_NUMBER',
-]);
 
 /* ── Text helpers ─────────────────────────────────────────────── */
 
