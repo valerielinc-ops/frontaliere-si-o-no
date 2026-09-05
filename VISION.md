@@ -7,6 +7,17 @@ commenti sparsi) o questioni che un driver scritto avrebbe risolto da solo. Il
 2026-08-14 era già stato misurato: 16 su 35 `needs-human` erano difetti tecnici
 parcheggiati per sbaglio.
 
+**Rimisurato il 2026-09-05, e il fenomeno non è finito: 22 issue del corpus
+erano `fu-parked`/`needs-human`, e solo 4 aspettavano davvero una decisione del
+proprietario.** Delle altre 18: una era già risolta da un driver scritto qui
+(#531, coperta da D3 dal 2026-08-24), **due aspettavano un blocco che non
+esisteva più** — #471 ferma su una PR mergiata da 18 giorni, #714 in attesa di
+un probe live il cui workflow risponde 404 — cinque aspettavano misure di
+produzione che nessuno stava producendo, e dieci erano difetti tecnici puri.
+Il parcheggio non scade da solo: quando la condizione di sblocco svanisce,
+nessun meccanismo se ne accorge. Chi scrive `blocked:` scriva anche **come si
+verifica che il blocco valga ancora**.
+
 Chi lo legge: il fixer (`issue-fix.yml`), il decompositore (`issue-decompose.yml`),
 lo sweep delle `needs-human` (`needs-human-sweep.yml`), il reviewer, il growth
 report, e qualunque sessione interattiva. Regola d'uso: **quando un driver copre
@@ -187,6 +198,10 @@ Cosa resta invariato, perché non è mai stato parte di questa sezione:
 | 2026-08-24 | #5995 (repo weight): leve **1** (batch commit bot), **3** (cache derivate fuori git), **4** (file append-only partizionati per shard) autorizzate. Leve **2** (snapshot fuori git) e **5** (immagini→CDN, tentativo precedente ritirato) restano BACKLOG, non autorizzate: non aprire lavoro su quelle finché non arriva una decisione dedicata | istruzione diretta, sessione 24-08 |
 | 2026-08-25 | #5983 (text-html-ratio + max-bfs-depth, entrambi migliorati): **NO, non stringere la baseline** — i due file restano com'erano (6912/26398). Lettura iniziale errata ("migliorato → rebaseline in autonomia"), corretta lo stesso giorno: "rendiamo le baseline più ampie" significava lasciarle larghe/permissive, non ottimizzarle verso il basso. La stessa logica vale per OGNI futuro gate SEO "nice-to-have": bloccare publish/validate per un warning che Google non richiede non ha senso, quindi il gate diventa advisory (issue #6462) — non si stringe la soglia — vedi driver **D9** | istruzione diretta, sessione 25-08, issue #6458 (corretta stessa sessione) |
 | 2026-08-25 | #5921 (PostHog fermo dal 23-07 per quota, monitor Source Liveness riapre a vuoto ogni giorno): **non si paga più quota subito** — si crea invece un fallback: o si duplica il tracking PostHog su GA4 (fallback quando PostHog satura), o si spostano direttamente i monitor a leggere da GA4, che è già la fonte affidabile. Lavoro scorporato in issue dedicata (vedi sotto), #5921 non resta needs-human in attesa | istruzione diretta, sessione 25-08, issue #6458 |
+| 2026-09-05 | **Obiettivo `crawler-goal` RIATTIVATO** (#727 piano, #728 audit, corpus). Erano `needs-human`+`fu-parked` dal 02-09 senza essere un blocco di capacità: la sospensione non era più una decisione attiva. Rimesse in coda con `agent:fix-queued`; i numeri delle schede sono del 02-09 e vanno rimisurati prima di lavorarci | istruzione diretta, sessione 05-09 |
+| 2026-09-05 | **#814 (`TRANSLATION_THINKING_AB`): si lascia aperta per MONITORING, non come blocco.** L'A/B resta acceso col default invariato. Tolte `needs-human` e `fu-parked`: non aspetta né una decisione né una capacità. La rimisura del 05-09 aveva già trovato tutti e tre gli item **falsi positivi** — non c'è codice da cambiare, quindi non c'è lavoro in coda: chi la ritrova legge i numeri dell'esperimento, non apre una PR | istruzione diretta, sessione 05-09 |
+| 2026-09-05 | **Proprietà dei file in drift: ogni repo vince sui file che stanno a casa sua.** Applicato a #339: rimisurato, il drift non è più «40 file» (dato del 14-08) ma **7**, di cui 4 già `adapted` (differiscono per progetto, non è una decisione) e 1 `corpus-only-pending` già tracciato. Restano `generator/scripts/lib/free-translate.mjs` e `generator/scripts/lib/translation-glossary.mjs`: vivono sotto `generator/`, che è codice che **il corpus esegue in produzione a ogni articolo**, mentre l'unico consumer del sito è `scripts/repair-object-object-bodies.mjs`, una riparazione una tantum ferma dal 29-07 → **vince il corpus**, i due passano ad `adapted`. Applicazione rinviata al dopo-merge di nanako#894, che sta già modificando lo stesso manifest | istruzione diretta, sessione 05-09 |
+| 2026-09-05 | **Le issue ferme in attesa di «numeri da run reali» si STRUMENTANO, non si parcheggiano.** Cinque issue del corpus (#621, #625, #787, #804, #832) aspettavano misure che nessuno produceva: la misura a posteriori sui log non le sblocca — provato lo stesso giorno su #832, dove 400 run rendono `flip 0/28` solo perché la finestra di retention non contiene il fenomeno. Si emette il dato al momento in cui l'evento accade, da un solo punto condiviso, e poi ogni issue si chiude: o la misura mostra il difetto, o è coerente e la issue va chiusa | istruzione diretta, sessione 05-09 |
 | 2026-09-04 | **Gate sibling sul pre-push: ADVISORY.** `.githooks/pre-push` elenca i candidati e lascia passare il push; non blocca piu'. Ragione: li' non c'e' un body da leggere, quindi l'unica risposta possibile era `git push --no-verify` — un gate soddisfacibile solo aggirandolo insegna ad aggirarlo, e il bypass spegne l'hook per l'intero push. L'enforcement resta su `sibling-check-gate.mjs` (PreToolUse su `gh pr create`), che il body ce l'ha, piu' il 🔴 del reviewer | istruzione diretta, sessione 04-09 |
 
 Prima di parcheggiare per «decisione del proprietario», cerca nei commenti:
