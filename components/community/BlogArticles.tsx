@@ -17,6 +17,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
+import { resolveArticleAdDensity, STANDARD_ARTICLE_AD_DENSITY, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
@@ -426,8 +427,10 @@ function renderInlineBodyContent(inlineBody: string, keyPrefix: string, navigato
 /** Min words of content that must elapse between two consecutive inline ads.
  *  Prevents back-to-back ad stacking when adjacent paragraphs are short, which
  *  is the dominant cause of CLS spikes on article pages.
- *  Conservative profile (2026-05-19). */
-const AD_MIN_WORD_GAP = 200;
+ *  Conservative profile (2026-05-19), now the default of the standard density
+ *  profile: the longform format overrides it through `minWordGap` below
+ *  (`services/articleAdDensity.ts`, issue #7336). */
+const AD_MIN_WORD_GAP = STANDARD_ARTICLE_AD_DENSITY.minWordGap;
 
 function countWordsIn(text: string): number {
  const t = text.trim();
@@ -447,6 +450,7 @@ export function renderFormattedContent(
  text: string,
  navigators?: NavigatorMap,
  adRenderer?: (keyPrefix: string) => ReactElement | null,
+ minWordGap: number = AD_MIN_WORD_GAP,
 ): ReactElement {
  // Auto-link keywords if navigators provided
  const processed = navigators ? autoLinkKeywords(text, navigators) : text;
@@ -455,7 +459,9 @@ export function renderFormattedContent(
 
  // Section-aware ad gating: emit an ad before each H2 boundary (so the ad sits
  // between section A's end and section B's H2) and once at end-of-segment,
- // when ≥AD_MIN_WORD_GAP words of content have elapsed since the previous ad.
+ // when ≥`minWordGap` words of content have elapsed since the previous ad
+ // (AD_MIN_WORD_GAP for the standard format, the wider longform gap for a
+ // multi-section piece — see `services/articleAdDensity.ts`).
  // The renderer enforces the per-article cap (returns null when capped).
  let wordsSinceLastAd = 0;
  let sawContent = false;
@@ -472,7 +478,7 @@ export function renderFormattedContent(
  let wordsAtDefer = 0;
  const tryEmitAd = (keyPrefix: string): boolean => {
   if (!adRenderer) return false;
-  if (!sawContent || wordsSinceLastAd < AD_MIN_WORD_GAP) return false;
+  if (!sawContent || wordsSinceLastAd < minWordGap) return false;
   const ad = adRenderer(keyPrefix);
   if (!ad) return false;
   renderedBlocks.push(ad);
@@ -2080,11 +2086,16 @@ function BlogArticles({
   AD_SLOTS.ARTICLE_INLINE_MOBILE_4,
   AD_SLOTS.ARTICLE_INLINE_MOBILE_5,
  ] as const;
- // Per-article cap on inline ads (conservative profile, 2026-05-19).
- // Combined with the section-aware gating + 200-word gap inside
- // renderFormattedContent, this targets ~4 ads on a 1500w article and ~7-8
- // ads on a 3000w article — ratio under Better Ads ≈30% guideline.
- const ARTICLE_INLINE_AD_CAP = 8;
+ // Ad density per article FORMAT, not one profile for the whole corpus
+ // (issue #7336). The standard profile is the conservative one of 2026-05-19,
+ // byte-identical in effect to what every article got before: cap 8 + 200-word
+ // gap inside renderFormattedContent, ~4 ads on a 1500w article and ~7-8 on a
+ // 3000w one, under the Better Ads ≈30% guideline. A longform body (≥7 `## `
+ // sections) instead gets the reduced profile of
+ // `docs/ads-placement-longform.md` §3 — 3 in-content ads spread by a wider
+ // gap, plus the ARTICLE_END_MULTIPLEX closing unit rendered below.
+ const adDensity: ArticleAdDensityProfile = resolveArticleAdDensity(presentSegments);
+ const ARTICLE_INLINE_AD_CAP = adDensity.inlineCap;
  // Mutable counter for the per-paragraph ad renderer; reset on every render
  // pass so React keys stay stable across re-renders of the same article.
  let inlineAdCounter = 0;
@@ -2555,7 +2566,7 @@ function BlogArticles({
  </>
  )}
 
- {renderFormattedContent(segment, navigators, makeInlineAd)}
+ {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap)}
  </Fragment>
   );
  })}
