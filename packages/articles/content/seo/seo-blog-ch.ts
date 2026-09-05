@@ -72092,6 +72092,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-zugo-aliquote': {
+    title: 'Imposta successione Zugo: aliquote e esenzioni',
+    description: 'Imposta di successione e donazione nel Zugo: aliquote per parentela, esenzioni coniuge e figli, dichiarazione e termini di versamento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, zugo, aliquote',
+    ogTitle: 'Imposta successione Zugo: aliquote e esenzioni',
+    ogDescription: 'Nel Cantone Zugo, l\'imposta di successione e donazione è materia cantonale. Scopri le aliquote per grado di parentela, le esenzioni per coniuge e discendenti, e come presentare la dichiarazione di successione all\'ufficio tributario.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-zugo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione Zugo: aliquote e esenzioni",
+      "description": "Imposta di successione e donazione nel Zugo: aliquote per parentela, esenzioni coniuge e figli, dichiarazione e termini di versamento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-zugo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio tributario cantonale: documenti di successione e moduli fiscali su una scrivania amministrativa svizzera."
+      },
+      "datePublished": "2026-09-05T13:12:53+00:00",
+      "dateModified": "2026-09-05T13:12:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-zugo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
