@@ -1,0 +1,24 @@
+{
+  "companyKey": "schauenstein",
+  "companyName": "Schauenstein Andreas Caminada",
+  "companyHost": "andreascaminada.com",
+  "platform": "andreascaminada.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.andreascaminada.com/offene-stellen"
+  ],
+  "detailTemplate": "/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "<img data-src=\"https://images.squarespace-cdn.com/content/v1/605b1530f17cce401b523f70/1762126917721-PPF63YUMLPA2Y23HZ1R5/Buech+Herrliberg-2.png\" data-image=\"htt",
+    "<img data-src=\"https://images.squarespace-cdn.com/content/v1/605b1530f17cce401b523f70/1786208082447-52JZ0V56NDYV7DE22V8V/IGNIV+Bad+Ragaz.png\" data-image=\"https:",
+    "<img data-src=\"https://images.squarespace-cdn.com/content/v1/605b1530f17cce401b523f70/1786208082447-52JZ0V56NDYV7DE22V8V/IGNIV+Bad+Ragaz.png\" data-image=\"https:",
+    "<img data-src=\"https://images.squarespace-cdn.com/content/v1/605b1530f17cce401b523f70/1775114676761-RX8S5VH6K5YII0MYBHDJ/Schloss.png\" data-image=\"https://images",
+    "<img data-src=\"https://images.squarespace-cdn.com/content/v1/605b1530f17cce401b523f70/1786208082447-52JZ0V56NDYV7DE22V8V/IGNIV+Bad+Ragaz.png\" data-image=\"https:"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-05T08:41:31.129Z"
+}
