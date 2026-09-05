@@ -5494,6 +5494,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Garderie Zoug : coûts, tarifs et subventions cantonales',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'Dans le canton de Zoug, les crèches et garderies suivent des tarifs progressifs sur la base des revenus. Découvrez les options disponibles, les subventions cantonales et les procédures d\'accès.',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Salle de classe de jardin d\'enfants suisse avec des jouets colorés et des dessins d\'enfants',
+    'blog.article.diritto-locazione-canton-vaud.title': 'Loyers : le droit de location en Suisse',
+    'blog.article.diritto-locazione-canton-vaud.excerpt': 'Caution, résiliation et contestation : les règles fédérales pour des loyers sûrs en Suisse, identiques dans chaque canton y compris le Vaud.',
+    'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Rue résidentielle suisse avec immeubles bien entretenus, symbole de la qualité du logement et des normes de location',
 };
 
 export default blogMetaChFr;

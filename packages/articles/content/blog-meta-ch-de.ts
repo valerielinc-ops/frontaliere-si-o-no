@@ -5494,6 +5494,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Kindergarten Zug: Kosten, Tarife und kantonale Zuschüsse',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'Im Kanton Zug gelten für Kinderkrippen und Kinderbetreuung progressive Tarife auf Einkommensbasis. Informieren Sie sich über die verfügbaren Optionen, die kantonalen Subventionen und die Zugangsverfahren.',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Schweizer Kindergartenklassenzimmer mit farbigen Spielzeugen und Kinderzeichnungen an den Wänden',
+    'blog.article.diritto-locazione-canton-vaud.title': 'Vermietungen: das Mietrecht in der Schweiz',
+    'blog.article.diritto-locazione-canton-vaud.excerpt': 'Kaution, Kündigung und Anfechtung: Die eidgenössischen Regeln für sichere Mieten in der Schweiz, die in jedem Kanton, einschliesslich Waadt, identisch sind.',
+    'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Schweizer Wohnstraße mit gepflegten Gebäuden, Symbole für Wohnqualität und Mietstandards in der Schweiz',
 };
 
 export default blogMetaChDe;
