@@ -53,6 +53,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -74,7 +75,7 @@ const CAREERS_URL = 'https://www.engelvoelkers.com/ch/it/azienda/carriera/offert
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
-const MAX_DETAIL_PAGES = Number(process.env.ENGELVOELKERS_MAX_DETAIL_PAGES) || 100000;
+const MAX_DETAIL_PAGES = positiveIntFromEnv('ENGELVOELKERS_MAX_DETAIL_PAGES', 100000);
 const DETAIL_DELAY_MS = 1200;
 
 function readJson(filePath, fallback) {

@@ -55,6 +55,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -243,7 +244,7 @@ export async function fetchDennerJobUrls() {
 /* -- Detail page fetching & parsing ------------------------------------ */
 async function fetchAndParseDetailPages(urls) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-  const concurrency = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 3;
+  const concurrency = positiveIntFromEnv('JOBS_CRAWLER_CONCURRENCY', 3);
   const jobs = [];
 
   for (let i = 0; i < urls.length; i += concurrency) {

@@ -53,6 +53,7 @@ import {
 } from './lib/afry-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -71,7 +72,7 @@ const API_URL = 'https://afry.com/en/api/afp-hr-smartrecruiteres-job-list';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
-const MAX_DETAIL_PAGES = Number(process.env.AFRY_MAX_DETAIL_PAGES) || 100000;
+const MAX_DETAIL_PAGES = positiveIntFromEnv('AFRY_MAX_DETAIL_PAGES', 100000);
 const DETAIL_DELAY_MS = 1500;
 
 function readJson(filePath, fallback) {
