@@ -1886,6 +1886,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-controlli-minori': { it: 'asilo-nido-controlli-minori', en: 'daycare-controls-children-safety', de: 'kindergarten-kontrollen-kinderschutz', fr: 'garderie-controles-protection-enfants' },
  'permesso-b-friburgo-requisiti-rinnovo': { it: 'permesso-b-friburgo-requisiti-rinnovo', en: 'residence-permit-b-fribourg-requirements-renewal', de: 'aufenthaltserlaubnis-b-freiburg-verlaengerung', fr: 'permis-sejour-b-fribourg-renouvellement' },
  'premi-lamal-vallese-riduzione': { it: 'premi-lamal-vallese-riduzione', en: 'valais-lamal-premiums-reduction', de: 'vallese-lamal-praemien-reduktion', fr: 'valais-lamal-cotisazioni-riduzione' },
+ 'permesso-vallese-b-procedure': { it: 'permesso-vallese-b-procedure', en: 'valais-residence-permit-b-procedures', de: 'walliser-aufenthaltsbewilligung-b-verfahren', fr: 'permis-sejour-b-valais-procedures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -72443,6 +72443,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-vallese-b-procedure': {
+    title: 'Permesso B Vallese: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Guida completa al rinnovo del permesso di dimora B nel Vallese: requisiti, documenti necessari e procedura presso l\'Ufficio cantonale della migrazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, vallese, requisiti, rinnovo',
+    ogTitle: 'Permesso B Vallese: come rinnovarlo',
+    ogDescription: 'Scopri tutti i requisiti, i documenti necessari e la procedura per rinnovare il permesso di dimora B nel Cantone Vallese. Guida pratica aggiornata per gli stranieri residenti.',
+    canonicalPath: '/articoli-svizzera/permesso-vallese-b-procedure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Vallese: requisiti e rinnovo",
+      "description": "Guida completa al rinnovo del permesso di dimora B nel Vallese: requisiti, documenti necessari e procedura presso l'Ufficio cantonale della migrazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-vallese-b-procedure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e moduli per il permesso di dimora B presso un ufficio cantonale svizzero"
+      },
+      "datePublished": "2026-09-05T17:13:22+00:00",
+      "dateModified": "2026-09-05T17:13:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-vallese-b-procedure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
