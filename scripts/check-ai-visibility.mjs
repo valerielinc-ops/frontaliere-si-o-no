@@ -97,13 +97,31 @@ function getGeminiKey() { return (process.env.GEMINI_API_KEY || process.env.VITE
 function getGhModelsPat() { return (process.env.GH_MODELS_PAT || '').trim(); }
 function getOpenRouterKey() { return (process.env.OPENROUTER_API_KEY || '').trim(); }
 
-// OpenRouter's web search is METERED (the plugin bills per search result, not
-// per token), so this platform — unlike the others, whose cost is either zero
-// or a flat quota — ships with an explicit per-run ceiling and a kill switch.
-// One billable search request per monitored query, never more:
-//   20 queries × OPENROUTER_WEB_MAX_RESULTS results × $0.004/result ≈ $0.24
-// per monthly run, plus a few cents of model tokens. Failed calls are not
-// billed, so fetchWithRetry's bounded retries do not move that number.
+// OpenRouter's web search is METERED, so this platform — unlike the others,
+// whose cost is either zero or a flat quota — ships with an explicit per-run
+// ceiling and a kill switch. One billable search request per monitored query,
+// never more.
+//
+// The bound that actually holds is OPENROUTER_MAX_REQUESTS: it is the number of
+// billable search requests per run, and it is independent of how OpenRouter
+// prices each one. Do NOT re-derive the ceiling from a per-result unit price —
+// that pricing model no longer exists (checked 2026-09-05, issue #7404 item 3).
+// Today the docs describe two paths, neither of them per-result:
+//   - native provider search, used for models that support it (OpenAI included,
+//     so that is the path OPENROUTER_MODEL takes): passed through from the
+//     provider and billed by search context size, not by result count;
+//   - Exa, the fallback for everything else: a flat fee per request ($0.007 for
+//     the default `auto` mode) that already includes up to 10 results.
+//
+// OPENROUTER_WEB_MAX_RESULTS = 3 therefore buys no per-result charge on either
+// path: it sits under Exa's included allowance, and native search does not meter
+// by result at all. It is kept as a payload-size bound, not as a cost lever.
+// Order of magnitude at 20 requests: ~$0.14 on Exa `auto`, ~$0.30 at the most
+// expensive documented mode, plus a few cents of model tokens.
+//
+// Failed calls are not billed, so fetchWithRetry's bounded retries do not move
+// the money — but they DO move the request count, which is why the cap is
+// charged per real HTTP attempt inside fetchWithRetry, not once per query.
 const OPENROUTER_MODEL = 'openai/gpt-4o-mini';
 const OPENROUTER_WEB_MAX_RESULTS = 3;
 const OPENROUTER_MAX_REQUESTS = QUERIES.length;

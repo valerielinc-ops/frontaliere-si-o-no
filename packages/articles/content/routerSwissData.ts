@@ -1864,6 +1864,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-vaud': { it: 'avs-prestazioni-complementari-vaud', en: 'avs-supplementary-benefits-vaud-compensation-fund', de: 'ahv-zusatzleistungen-waadt-ausgleichskasse', fr: 'avs-prestations-complementaires-vaud-caisse-compensation' },
  'abbonamenti-trasporti-vaud-zone': { it: 'abbonamenti-trasporti-vaud-zone', en: 'public-transport-subscriptions-vaud-zones', de: 'abos-oepnv-vaud-zonen', fr: 'abonnements-transports-vaud-zones' },
  'franco-euro-analisi-cambio-dati': { it: 'franco-euro-analisi-cambio-dati', en: 'swiss-franc-euro-analysis-exchange-data', de: 'franken-euro-analyse-wechselkurs-daten', fr: 'franc-euro-analyse-donnees-change' },
+ 'aprire-attivita-vaud-registro-costi': { it: 'aprire-attivita-vaud-registro-costi', en: 'open-business-vaud-registry-costs', de: 'geschaft-offnen-waadt-registrierung-kosten', fr: 'ouvrir-activite-vaud-registre-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

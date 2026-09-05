@@ -71585,6 +71585,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-vaud-registro-costi': {
+    title: 'Aprire un\'attività nel Canton Vaud: registro e costi',
+    description: 'Guida pratica all\'apertura di attività nel Canton Vaud: forme giuridiche, Registro di Commercio, tassazione federale/cantonale/comunale e obblighi assicurativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, vaud',
+    ogTitle: 'Aprire un\'attività nel Canton Vaud: registro e costi',
+    ogDescription: 'Procedura completa per avviare un\'attività nel Canton Vaud: scelta forma giuridica, iscrizione Registro Commercio, tassazione a tre livelli (federale/cantonale/comunale) e obblighi contributivi (AVS/LPP/LAMal).',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-vaud-registro-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Canton Vaud: registro e costi",
+      "description": "Guida pratica all'apertura di attività nel Canton Vaud: forme giuridiche, Registro di Commercio, tassazione federale/cantonale/comunale e obblighi assicurativi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-vaud-registro-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio dell'amministrazione cantonale a Losanna nel canton Vaud"
+      },
+      "datePublished": "2026-09-05T06:51:02+00:00",
+      "dateModified": "2026-09-05T06:51:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-vaud-registro-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

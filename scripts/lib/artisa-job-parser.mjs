@@ -40,6 +40,11 @@ export function parseArtisaCareerPage(html = '') {
   const nodes = [...document.querySelectorAll('h2, h4, a[href*="app.smartsheet.com/b/form/"]')];
   const jobs = [];
   const landmarks = new Set();
+  // Every `h2` the page rendered, in order, verbatim. Only ever read to build
+  // the diagnostic below: when the snapshot is not provable, this is the one
+  // fact that separates "Squarespace re-worded a landmark" from "the page
+  // really lists an opening" — see `artisaSnapshotReason`.
+  const headingsSeen = [];
   // Vacancy `h2` headings seen before any downstream gate: neither the
   // `title && location` flush gate nor the Swiss-location filter can shrink it.
   // This is what makes a zero provable rather than merely observed.
@@ -63,6 +68,7 @@ export function parseArtisaCareerPage(html = '') {
     const tag = node.tagName.toLowerCase();
     if (tag === 'h2') {
       const title = normalizeSpace(node.textContent || '');
+      if (title) headingsSeen.push(title);
       if (!isCandidateTitle(title)) {
         landmarks.add(normalizeText(title));
         continue;
@@ -104,6 +110,20 @@ export function parseArtisaCareerPage(html = '') {
     value: landmarksComplete && candidateVacancies === 0 ? 'authoritative-site-zero' : 'unverified',
     enumerable: false,
   });
+  // Why the state is `unverified`, in the words of what the page actually
+  // rendered (issue #7425 item 3). Without it the crawler's only signal is the
+  // floor error, which reads "landmarks missing" even when both landmarks are
+  // there and the page simply listed an opening — so a Squarespace re-wording
+  // of `carriera` / `le nostre sedi` and a real vacancy produce the SAME red,
+  // and the first is permanent while the second clears itself. Naming the
+  // cause costs a string; guessing it costs a fixer run per occurrence.
+  const missingLandmarks = LANDMARK_TITLES.filter((title) => !landmarks.has(title));
+  Object.defineProperty(targetJobs, 'artisaSnapshotReason', {
+    value: missingLandmarks.length > 0
+      ? `landmark h2 not found: ${missingLandmarks.join(', ')} — h2 rendered: ${headingsSeen.join(' | ') || '(none)'}`
+      : `${candidateVacancies} candidate vacancy h2 present — h2 rendered: ${headingsSeen.join(' | ')}`,
+    enumerable: false,
+  });
   return targetJobs;
 }
 
@@ -124,7 +144,10 @@ export function assertCompleteArtisaSnapshot(jobs) {
     || jobs.length !== 0
     || Reflect.get(jobs, 'artisaSnapshotState') !== 'authoritative-site-zero'
   ) {
-    throw new Error('Artisa Group snapshot is not a proven authoritative empty state (careers page landmarks missing)');
+    const reason = Array.isArray(jobs)
+      ? Reflect.get(jobs, 'artisaSnapshotReason') || `${jobs.length} row(s) parsed`
+      : 'parser returned no array';
+    throw new Error(`Artisa Group snapshot is not a proven authoritative empty state: ${reason}`);
   }
   return true;
 }

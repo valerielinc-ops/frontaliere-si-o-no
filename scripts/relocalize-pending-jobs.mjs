@@ -1118,6 +1118,13 @@ async function main() {
   };
   try {
     await runRelocalization(phase);
+  } catch (error) {
+    // Without this, a cascade that crashes AFTER eating the window is recorded
+    // with the defaults of an early return — same signature as a run that simply
+    // found nothing to do. That is precisely the confusion this instrumentation
+    // exists to remove, so a failure has to sign itself.
+    phase.stopReason = 'failed';
+    throw error;
   } finally {
     phase.endedAtMs = LEGACY_CLOCK.now() - RUN_START_MS;
     recordRunPhase(phase);
@@ -1389,6 +1396,9 @@ async function runRelocalization(phase) {
 
   if (companyKeys.length === 0) {
     console.log('⚠️  No valid company keys found. Skipping.');
+    // Not the same as an empty queue: there WAS pending work, it just carried no
+    // usable company key. The default reason would have called this idle.
+    phase.stopReason = 'no valid company keys';
     return;
   }
 
@@ -1399,6 +1409,11 @@ async function runRelocalization(phase) {
   let totalProcessed = 0;
   let consecutiveFailures = 0;
   const startTime = LEGACY_CLOCK.now();
+  // Published here, not at the bottom: from this instant the window is a known
+  // fact, and a crash on the next line must not report it as unknown.
+  phase.startedAtMs = startTime - RUN_START_MS;
+  phase.windowMs = CASCADE_LOCALIZATION_DEADLINE_MS - phase.startedAtMs;
+  phase.stopReason = 'in progress';
   // Why the stop reason is hoisted: it is the difference between "the cascade ran
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
@@ -1752,8 +1767,6 @@ async function runRelocalization(phase) {
   // budget of its own. A run where they left nothing looks, in the committed
   // history, exactly like a run where the cascade found little to do. Recording
   // the window tells the two apart.
-  phase.startedAtMs = startTime - RUN_START_MS;
-  phase.windowMs = CASCADE_LOCALIZATION_DEADLINE_MS - phase.startedAtMs;
   phase.jobsCleared = totalFixed;
   phase.companiesQueued = companyKeys.length;
   phase.stopReason = cascadeStop;
