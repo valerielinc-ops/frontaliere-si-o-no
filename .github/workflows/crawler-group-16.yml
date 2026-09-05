@@ -135,7 +135,7 @@ jobs:
           fi
 
           # ---- ksgr: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ksgr" \
               --description "## Crawler fallito
@@ -149,6 +149,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::ksgr: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ ksgr: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::ksgr: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ ksgr: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -190,7 +194,7 @@ jobs:
           fi
 
           # ---- senevita: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run senevita" \
               --description "## Crawler fallito
@@ -204,6 +208,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::senevita: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ senevita: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::senevita: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ senevita: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -246,7 +254,7 @@ jobs:
           fi
 
           # ---- rehaklinik-hasliberg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run rehaklinik-hasliberg" \
               --description "## Crawler fallito
@@ -260,6 +268,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::rehaklinik-hasliberg: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ rehaklinik-hasliberg: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::rehaklinik-hasliberg: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ rehaklinik-hasliberg: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -301,7 +313,7 @@ jobs:
           fi
 
           # ---- eoc: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run eoc" \
               --description "## Crawler fallito
@@ -315,6 +327,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::eoc: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ eoc: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::eoc: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ eoc: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -356,7 +372,7 @@ jobs:
           fi
 
           # ---- tich: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tich" \
               --description "## Crawler fallito
@@ -370,6 +386,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::tich: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ tich: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::tich: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ tich: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -411,7 +431,7 @@ jobs:
           fi
 
           # ---- swisscom: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run swisscom" \
               --description "## Crawler fallito
@@ -425,6 +445,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::swisscom: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ swisscom: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::swisscom: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ swisscom: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -466,7 +490,7 @@ jobs:
           fi
 
           # ---- swica: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run swica" \
               --description "## Crawler fallito
@@ -480,6 +504,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::swica: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ swica: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::swica: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ swica: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -521,7 +549,7 @@ jobs:
           fi
 
           # ---- spital-nidwalden: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spital-nidwalden" \
               --description "## Crawler fallito
@@ -535,6 +563,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::spital-nidwalden: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ spital-nidwalden: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::spital-nidwalden: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ spital-nidwalden: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -576,7 +608,7 @@ jobs:
           fi
 
           # ---- spitex-zuerich: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spitex-zuerich" \
               --description "## Crawler fallito
@@ -590,6 +622,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::spitex-zuerich: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ spitex-zuerich: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::spitex-zuerich: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ spitex-zuerich: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -631,7 +667,7 @@ jobs:
           fi
 
           # ---- fhgr: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run fhgr" \
               --description "## Crawler fallito
@@ -645,6 +681,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::fhgr: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ fhgr: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::fhgr: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ fhgr: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -686,7 +726,7 @@ jobs:
           fi
 
           # ---- vir-biotechnology: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run vir-biotechnology" \
               --description "## Crawler fallito
@@ -700,6 +740,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::vir-biotechnology: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ vir-biotechnology: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::vir-biotechnology: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ vir-biotechnology: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -741,7 +785,7 @@ jobs:
           fi
 
           # ---- postauto: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run postauto" \
               --description "## Crawler fallito
@@ -755,6 +799,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::postauto: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ postauto: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::postauto: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ postauto: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -796,7 +844,7 @@ jobs:
           fi
 
           # ---- kispi-sg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run kispi-sg" \
               --description "## Crawler fallito
@@ -810,6 +858,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::kispi-sg: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ kispi-sg: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::kispi-sg: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ kispi-sg: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -851,7 +903,7 @@ jobs:
           fi
 
           # ---- recruitingapp-1154: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run recruitingapp-1154" \
               --description "## Crawler fallito
@@ -865,6 +917,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::recruitingapp-1154: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ recruitingapp-1154: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::recruitingapp-1154: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ recruitingapp-1154: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -906,7 +962,7 @@ jobs:
           fi
 
           # ---- decathlon: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run decathlon" \
               --description "## Crawler fallito
@@ -920,6 +976,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::decathlon: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ decathlon: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::decathlon: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ decathlon: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -961,7 +1021,7 @@ jobs:
           fi
 
           # ---- gemeinde-st-moritz: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run gemeinde-st-moritz" \
               --description "## Crawler fallito
@@ -975,6 +1035,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::gemeinde-st-moritz: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ gemeinde-st-moritz: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::gemeinde-st-moritz: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ gemeinde-st-moritz: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1016,7 +1080,7 @@ jobs:
           fi
 
           # ---- hopital-la-tour: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hopital-la-tour" \
               --description "## Crawler fallito
@@ -1030,6 +1094,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::hopital-la-tour: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ hopital-la-tour: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::hopital-la-tour: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ hopital-la-tour: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1071,7 +1139,7 @@ jobs:
           fi
 
           # ---- davos-klosters-bergbahnen: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run davos-klosters-bergbahnen" \
               --description "## Crawler fallito
@@ -1085,6 +1153,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::davos-klosters-bergbahnen: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ davos-klosters-bergbahnen: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::davos-klosters-bergbahnen: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ davos-klosters-bergbahnen: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1126,7 +1198,7 @@ jobs:
           fi
 
           # ---- claraspital: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run claraspital" \
               --description "## Crawler fallito
@@ -1140,6 +1212,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::claraspital: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ claraspital: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::claraspital: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ claraspital: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1181,7 +1257,7 @@ jobs:
           fi
 
           # ---- ghol: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ghol" \
               --description "## Crawler fallito
@@ -1195,6 +1271,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::ghol: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ ghol: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::ghol: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ ghol: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1236,7 +1316,7 @@ jobs:
           fi
 
           # ---- lastminute: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run lastminute" \
               --description "## Crawler fallito
@@ -1250,6 +1330,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::lastminute: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ lastminute: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::lastminute: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ lastminute: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1291,7 +1375,7 @@ jobs:
           fi
 
           # ---- entero: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run entero" \
               --description "## Crawler fallito
@@ -1305,6 +1389,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::entero: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ entero: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::entero: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ entero: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1346,7 +1434,7 @@ jobs:
           fi
 
           # ---- franklin-university: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run franklin-university" \
               --description "## Crawler fallito
@@ -1360,6 +1448,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::franklin-university: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ franklin-university: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::franklin-university: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ franklin-university: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1401,7 +1493,7 @@ jobs:
           fi
 
           # ---- everest-re: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run everest-re" \
               --description "## Crawler fallito
@@ -1415,6 +1507,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::everest-re: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ everest-re: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::everest-re: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ everest-re: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1457,7 +1553,7 @@ jobs:
           fi
 
           # ---- csvm-mustair: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run csvm-mustair" \
               --description "## Crawler fallito
@@ -1471,6 +1567,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::csvm-mustair: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ csvm-mustair: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::csvm-mustair: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ csvm-mustair: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1512,7 +1612,7 @@ jobs:
           fi
 
           # ---- benteler: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run benteler" \
               --description "## Crawler fallito
@@ -1526,6 +1626,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::benteler: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ benteler: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::benteler: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ benteler: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1567,7 +1671,7 @@ jobs:
           fi
 
           # ---- adullam: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run adullam" \
               --description "## Crawler fallito
@@ -1581,6 +1685,10 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::adullam: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ adullam: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::adullam: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ adullam: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then

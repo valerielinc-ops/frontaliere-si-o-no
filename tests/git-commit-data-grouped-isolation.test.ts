@@ -122,7 +122,14 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
 
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"new"}]\n');
       const deferred = deferGroupCommit(repoDir, runnerTemp, 'a', [], token);
-      expect(deferred.status).toBe(1);
+      // 43, not 1: GROUP_SHARED_PRECONDITION. The token is an input of the
+      // SHARED job env, so every crawler in the group fails identically on it
+      // in the same run — measured 27/27 on corpus run 33585044260, which then
+      // filed 27 separate `Crawler Failure: Run <slug>` issues for crawlers
+      // that had all scraped fine (site #6857, #6953). The distinct code is
+      // what lets the generated group workflows drop the per-crawler report
+      // while keeping the step red. Fails closed exactly as before otherwise.
+      expect(deferred.status).toBe(43);
       expect(`${deferred.stdout}${deferred.stderr}`).toMatch(error);
       expect(existsSync(join(
         runnerTemp,
