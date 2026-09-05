@@ -38,6 +38,8 @@
  * marcata `needs-human`. Ora hanno un rescue proprio, gemello di quello
  * queue-managed: vedi `crawlerFixDecision`.
  */
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { classifyIssue } from '../lib/classify-issue.mjs';
@@ -3248,6 +3250,13 @@ export function runDrain() {
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
-if (process.argv[1]?.endsWith('followup-drainer.mjs')) {
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+const isDirectRun = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+if (isDirectRun) {
   main();
 }
