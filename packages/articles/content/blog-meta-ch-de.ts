@@ -5518,6 +5518,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-vaud-registro-costi.title': 'Geschäft im Kanton Waadt eröffnen: Register und Kosten',
     'blog.article.aprire-attivita-vaud-registro-costi.excerpt': 'Praktischer Leitfaden zur Registrierung und zu den Kosten für die Unternehmensgründung im Kanton Waadt: Rechtsformen, Handelsregister, dreistufige Besteuerung und Versicherungspflichten.',
     'blog.article.aprire-attivita-vaud-registro-costi.imageAlt': 'Kantonsgebäude in Lausanne, Kanton Waadt',
+    'blog.article.patente-estero-vaud-conversione.title': 'Ausländischer Führerschein im Waadtland: Umschulung und Prüfungen',
+    'blog.article.patente-estero-vaud-conversione.excerpt': 'Kantonales Verfahren zur Umwandlung eines ausländischen Führerscheins im Waadtland: theoretische und praktische Prüfungen, Pflichtkurse, erforderliche Unterlagen und Kontakte Strassenverkehrsamt.',
+    'blog.article.patente-estero-vaud-conversione.imageAlt': 'Schweizer Bergstraße mit Verkehrsschildern, Auto und Berglandschaft im Hintergrund.',
 };
 
 export default blogMetaChDe;

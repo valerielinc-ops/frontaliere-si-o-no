@@ -71624,6 +71624,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-estero-vaud-conversione': {
+    title: 'Patente estera nel Vaud: conversione ed esami | Frontaliere Ticino',
+    description: 'Guida completa alla conversione patente straniera nel Cantone Vaud: procedura, esami teorico-pratico, documenti richiesti e contatti Ufficio della circolazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, estera, vaud, conversione',
+    ogTitle: 'Patente estera nel Vaud: conversione ed esami',
+    ogDescription: 'Procedura completa per convertire la patente di guida straniera nel Cantone Vaud della Svizzera. Esami obbligatori, corsi richiesti, documenti e come contattare l\'Ufficio della circolazione.',
+    canonicalPath: '/articoli-svizzera/patente-estero-vaud-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente estera nel Vaud: conversione ed esami",
+      "description": "Guida completa alla conversione patente straniera nel Cantone Vaud: procedura, esami teorico-pratico, documenti richiesti e contatti Ufficio della circolazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-estero-vaud-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di montagna svizzera con segnaletica di circolazione, auto in transito e paesaggio alpino sullo sfondo."
+      },
+      "datePublished": "2026-09-05T07:39:31+00:00",
+      "dateModified": "2026-09-05T07:39:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-estero-vaud-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
