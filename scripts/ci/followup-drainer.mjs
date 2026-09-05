@@ -220,6 +220,33 @@ export function isDecomposeEligible(iss) {
 }
 
 /**
+ * Un padre già decomposto (`decomposed:1`) è un TRACKER, non lavoro del fixer.
+ *
+ * Dopo lo scorporo tutto lo scope vive nelle sub-issue dichiarate dal marker
+ * `DECOMPOSED_INTO`, che entrano in coda da sole; il padre ha un solo stato
+ * terminale, il PARENT-CLOSE più sotto (figlie tutte chiuse). Promuoverlo o
+ * ri-armarlo verso `agent:fix` manda un run Claude su una issue che NON ha
+ * lavoro proprio: l'agent legge il body, trova gli item già delegati e non può
+ * che terminare senza PR — e implementarli lì duplicherebbe le figlie.
+ *
+ * Misurato il 2026-09-04 su #7340 (`decomposed:1` + `agent:fix` + `fu-attempt:1`,
+ * scorporata la sera prima in #7382-#7386): nello stesso istante altri tre
+ * padri decomposti — #7375 #7345 #7343 — portavano `agent:fix`, cioè quattro
+ * run da ~1M token in coda su altrettanti tracker. Il giro si chiude da sé: la
+ * run senza PR non lascia verdetto → il RESCUE la ri-accoda (`isQueueManaged`
+ * è vero per una follow-up, decomposta o no) → il DRAIN la ripromuove, fino a
+ * `fu-parked` (la coda dei parcheggiati sopra è piena di padri arrivati così).
+ *
+ * L'invariante esisteva già a valle — AGE-OUT e VERDICT-EXIT escludono
+ * `decomposed:1` da sempre — ma non nei due punti che alimentano il fixer.
+ * Pura (solo label) → testabile.
+ * @param {{labels?: Array<{name:string}>}} iss
+ */
+export function isDecomposedParent(iss) {
+  return names(iss).includes(LBL_DECOMPOSED);
+}
+
+/**
  * Numeri delle sub-issue dichiarate dall'ULTIMO marker `DECOMPOSED_INTO` nei
  * commenti (l'ultimo vince: una decomposizione corretta a mano sovrascrive la
  * precedente). Dedup, ordina, ignora garbage. Pura → testabile.
@@ -1997,6 +2024,23 @@ export function runDrain() {
   // di stato ciascuno), i restanti al tick successivo (no silent cap).
   if (DECOMPOSE_ENABLED) {
     const parents = listIssues(LBL_DECOMPOSED);
+    // PARENT-DEQUEUE: un padre decomposto non è lavoro del fixer (vedi
+    // `isDecomposedParent`). I filtri di RESCUE/DRAIN impediscono che ci
+    // rientri, ma non tolgono la label a chi ci è già dentro: senza questo
+    // passo #7340 & C. resterebbero `agent:fix` per sempre, invisibili a ogni
+    // altro strato. Solo label (nessuna `gh view`), e solo per i pochi padri
+    // che le portano davvero.
+    for (const p of parents.filter((x) => has(x, LBL_FIX) || has(x, LBL_QUEUED))) {
+      if (DRY) { console.log(`[dry] parent-dequeue #${p.number}`); continue; }
+      try {
+        gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
+          `⏭️ **Pre-flight drainer (zero-Claude): padre decomposto fuori dalla coda del fixer.** Lo scope di questa issue vive nelle sub-issue dichiarate da \`DECOMPOSED_INTO\`, che entrano in coda per conto loro; qui non resta lavoro proprio, e un run del fixer non potrebbe che terminare senza PR (o duplicare una figlia). Rimuovo \`agent:fix\`/\`agent:fix-queued\`. La issue **resta aperta**: la chiude il PARENT-CLOSE quando tutte le figlie sono chiuse.`], { json: false });
+      } catch (e) {
+        console.log(`::warning::parent-dequeue: comment #${p.number} fallito: ${String(e).slice(0, 120)}`);
+      }
+      edit(p.number, { remove: [LBL_FIX, LBL_QUEUED] });
+      console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie) — "${p.title?.slice(0, 50)}"`);
+    }
     let examined = 0;
     for (const p of parents) {
       if (examined >= PARENT_CLOSE_MAX_PER_RUN) {
@@ -2405,13 +2449,14 @@ export function runDrain() {
   }
 
   const stuckFix = rescueSafe ? allFix.filter(
-    (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
+    (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !isDecomposedParent(i)
   ) : [];
   // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
   // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
   // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
   const crawlerFix = rescueSafe ? allFix.filter(
     (i) => !isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !has(i, 'needs-human')
+      && !isDecomposedParent(i)
   ) : [];
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza
@@ -2754,7 +2799,7 @@ export function runDrain() {
   if (fairnessHold) return;
 
   const queued = listIssues(LBL_QUEUED)
-    .filter((i) => !has(i, LBL_PARKED))
+    .filter((i) => !has(i, LBL_PARKED) && !isDecomposedParent(i))
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
   if (!queued.length) { console.log('coda vuota → niente da promuovere.'); return; }
 
