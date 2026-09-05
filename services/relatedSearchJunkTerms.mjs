@@ -78,6 +78,21 @@ export const RELATED_SEARCH_JUNK_TERMS = new Set([
   'owner', 'owners',
   // ── Scraped web/UI noise ──
   'cookie', 'cookies', 'javascript', 'browser', 'newsletter', 'website',
+  // ── CTA verbs / filler harvested from the "read more" furniture of a
+  //    posting (issue #7315). These are the mono-token entries of
+  //    `NON_DESCRIPTIVE_ANCHOR_TEXT` (scripts/audit-link-anchor-text.mjs):
+  //    a keyword that leads with one of them becomes a doorway
+  //    (/cerca-lavoro-svizzera/ricerca-scopri-winterthur/, HTTP 200 on
+  //    2026-09-04) AND a `<a class="s-la">Scopri</a>` on the paginated hub —
+  //    exactly the offender the link-anchor-text ratchet counts. The binding
+  //    between the two sets is asserted in tests/related-search-clusters.test.ts
+  //    so a future addition to the auditor catalogue cannot re-enter here.
+  //    Multi-token entries of that catalogue ('leggi tutto', 'read more') are
+  //    deliberately NOT listed: `isJunkSearchKeyword` tests the FIRST token, so
+  //    'leggi'/'read'-led keywords are already covered, while adding 'read'
+  //    alone would drop real role searches ("read only memory technician").
+  'scopri', 'continua', 'leggi', 'vedi', 'qui',
+  'here', 'continue', 'more', 'mehr', 'plus',
 ]);
 
 /**

@@ -12,12 +12,20 @@ import {
   classifyUnregisteredFamilyCandidate,
   loadAutoRegisteredFamilies,
   mergeRegisteredFamilies,
+  shadowingManualPrefixes,
+  __familyPathsFromSlugLookup,
   AUTO_FAMILIES_PATH,
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 import {
+  CANTON_URL_SLUGS,
+  getJobBoardSlugForCanton,
+  getAggregatorJobBoardSlug,
+} from '../services/jobBoardSlugs';
+import {
+  FUEL_SECTION_SLUG,
   FUEL_DAILY_LOCALES,
   FUEL_ZONES,
   buildFuelTodayPath,
@@ -604,6 +612,114 @@ describe('seo-ctr-curve (issue #4300)', () => {
       const result = classifyUnregisteredFamilyCandidate({ pathContains: '/sezione-sconosciuta/', impressions90d: 60_000 });
       expect(result.kind).toBe('unknown');
       expect(result.family).toBeNull();
+    });
+  });
+
+  // ── Guardia sugli slug interpolati in un path (issue #7388) ─────────────
+  //
+  // Il difetto non era un crash: era una entry SCRITTA su disco con
+  // `pathContains: '/undefined/'`, che non matcha nessuna URL e fa risultare
+  // «registrata» una famiglia che produrra' zero dati per sempre. La guardia
+  // sta in `familyPathsFromSlugLookup`, l'unico punto in cui uno slug diventa
+  // un path, cosi' che un terzo resolver aggiunto domani la erediti.
+  describe('familyPathsFromSlugLookup — nessuno slug mancante finisce in un path (#7388)', () => {
+    it('lancia invece di produrre "/undefined/" quando manca lo slug IT canonico', () => {
+      const mappaSenzaIt: Record<string, string> = { en: 'find-jobs-nowhere', de: 'jobs-in-nowhere' };
+      expect(() => __familyPathsFromSlugLookup((l: string) => mappaSenzaIt[l], 'test fuel=x'))
+        .toThrow(/slug IT mancante per test fuel=x/);
+    });
+
+    it('filtra — non interpola — un alias di locale mancante', () => {
+      const mappaBucata: Record<string, string> = { it: 'prezzi-benzina', en: 'petrol-prices' };
+      const out = __familyPathsFromSlugLookup((l: string) => mappaBucata[l], 'test fuel=benzina');
+      expect(out.pathContains).toBe('/prezzi-benzina/');
+      // DE e FR mancano: assenti dagli alias, non presenti come "/undefined/".
+      expect(out.pathAliases).toEqual(['/petrol-prices/']);
+    });
+
+    it('non produce mai la sottostringa "undefined" sugli slug reali del sito', () => {
+      // Popolazione completa: ogni sezione carburante in ogni locale + ogni
+      // job board cantonale/aggregato in ogni locale. Se una delle due mappe
+      // perde una chiave rispetto a ROUTER_LOCALES, questo test diventa rosso
+      // prima che la entry rotta raggiunga seo-ctr-auto-families.json.
+      const segmenti: string[] = [];
+      for (const locale of FUEL_DAILY_LOCALES) {
+        for (const slug of Object.values(FUEL_SECTION_SLUG[locale])) segmenti.push(slug);
+      }
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        segmenti.push(getAggregatorJobBoardSlug(locale));
+        for (const canton of Object.keys(CANTON_URL_SLUGS.cantons)) {
+          segmenti.push(getJobBoardSlugForCanton(canton, locale));
+        }
+      }
+      expect(segmenti.length).toBeGreaterThan(20);
+
+      const rotti: string[] = [];
+      for (const segmento of [...new Set(segmenti)]) {
+        const result = classifyUnregisteredFamilyCandidate({
+          pathContains: `/${segmento}/`,
+          impressions90d: 60_000,
+        });
+        const paths = [result.family?.pathContains, ...(result.family?.pathAliases ?? [])];
+        for (const p of paths) {
+          if (typeof p === 'string' && p.includes('undefined')) rotti.push(`${segmento} → ${p}`);
+        }
+      }
+      expect(rotti).toEqual([]);
+    });
+  });
+
+  // ── Collisione auto/manuale (issue #7387) ──────────────────────────────
+  //
+  // Lettore e scrittore del registro automatico devono chiedere alla STESSA
+  // funzione che cosa e' gia' rivendicato: finche' lo scrittore guardava solo
+  // il registro auto, scriveva entry che il lettore scartava, e il giro dopo
+  // le rileggeva come «gia' presenti» senza mai ritentare.
+  describe("shadowingManualPrefixes — stessa autorita' per lettore e scrittore (#7387)", () => {
+    const manual = [
+      { id: 'vallese', pathContains: '/cerca-lavoro-vallese/', pathAliases: ['/trouver-emploi-valais/'] },
+      { id: 'benzina', pathContains: '/prezzi-benzina/' },
+    ];
+
+    it('rende [] per un candidato che nessuna manuale rivendica', () => {
+      expect(shadowingManualPrefixes({ id: 'zurigo', pathContains: '/cerca-lavoro-zurigo/' }, manual)).toEqual([]);
+    });
+
+    it('nomina il prefisso in collisione anche quando la collisione e su un ALIAS', () => {
+      // Il caso reale: la discovery trova lo slug FR, il resolver canonicalizza
+      // sull'IT, e la manuale che lo rivendica non elenca quell'alias. Il
+      // vecchio writer non vedeva la collisione perche' leggeva solo il
+      // registro auto.
+      expect(shadowingManualPrefixes({ id: 'x', pathContains: '/trouver-emploi-valais/' }, manual))
+        .toEqual(['/trouver-emploi-valais/']);
+      expect(shadowingManualPrefixes({ id: 'y', pathContains: '/nuovo/', pathAliases: ['/prezzi-benzina/'] }, manual))
+        .toEqual(['/prezzi-benzina/']);
+    });
+
+    // L'invariante che tiene insieme scrittore e lettore: un candidato che il
+    // predicato dichiara registrabile DEVE sopravvivere al merge, e uno che
+    // dichiara in collisione DEVE essere scartato. Se le due logiche divergono,
+    // torna esattamente il difetto #7387 — entry scritta, scartata, mai ritentata.
+    it('concorda con mergeRegisteredFamilies su ogni candidato', () => {
+      const candidati = [
+        { id: 'ok', pathContains: '/cerca-lavoro-zurigo/' },
+        { id: 'collide-pathContains', pathContains: '/prezzi-benzina/' },
+        { id: 'collide-alias-manuale', pathContains: '/trouver-emploi-valais/' },
+        { id: 'collide-via-proprio-alias', pathContains: '/nuovo/', pathAliases: ['/cerca-lavoro-vallese/'] },
+      ];
+      for (const candidato of candidati) {
+        const inCollisione = shadowingManualPrefixes(candidato, manual).length > 0;
+        const sopravvive = mergeRegisteredFamilies(manual, [candidato]).some((f: { id: string }) => f.id === candidato.id);
+        expect(sopravvive).toBe(!inCollisione);
+      }
+    });
+
+    it('usa il registro manuale reale quando non gliene passi uno', () => {
+      // Il writer chiama `shadowingManualPrefixes(family)` senza secondo
+      // argomento: il default deve essere MANUAL_SEO_CTR_FAMILIES, non [].
+      const primaManuale = SEO_CTR_FAMILIES[0] as { pathContains: string };
+      expect(shadowingManualPrefixes({ id: 'clone', pathContains: primaManuale.pathContains }))
+        .toContain(primaManuale.pathContains);
     });
   });
 
