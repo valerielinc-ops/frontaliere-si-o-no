@@ -11421,6 +11421,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.forum-teha-cernobbio-2026.title': 'Cernobbio capitale du monde : à Villa d’Este, le Forum Teha',
     'blog.article.forum-teha-cernobbio-2026.excerpt': 'Du 4 au 6 septembre 2026, la Villa d’Este accueillera le 52ème Forum TEHA avec des dirigeants politiques et des économistes internationaux.',
     'blog.article.forum-teha-cernobbio-2026.imageAlt': 'Villa d’Este à Cernobbio, Italie',
+    'blog.article.giardino-cure-intense-clinica-moncucco.title': 'La récupération des patients passe par le Jardin des soins intensifs',
+    'blog.article.giardino-cure-intense-clinica-moncucco.excerpt': 'La Clinique Moncucco inaugure un nouvel espace thérapeutique et de réadaptation, unique dans le paysage sanitaire suisse.',
+    'blog.article.giardino-cure-intense-clinica-moncucco.imageAlt': 'Jardin thérapeutique à la Clinique Moncucco à Lugano',
 };
 
 export default blogMetaFr;
