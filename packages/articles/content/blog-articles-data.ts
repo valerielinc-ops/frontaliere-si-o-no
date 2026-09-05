@@ -33951,6 +33951,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontalieri-busta-paga-2026-simulazione',
+ category: 'fiscale',
+ date: '2026-09-05T04:48:13.873Z',
+ image: '/images/blog/frontalieri-busta-paga-2026-simulazione.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11363,6 +11363,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calcolo-trattenute-stipendio-frontalieri.title': 'Swiss border payroll: AVS, LPP and real net',
     'blog.article.calcolo-trattenute-stipendio-frontalieri.excerpt': 'From the New Frontier Agreement in force since 2024: how to calculate the AVS, LPP, LAMal withholdings and the tax at source in the Swiss paycheck.',
     'blog.article.calcolo-trattenute-stipendio-frontalieri.imageAlt': 'Financial advisor reviewing Swiss payroll and tax withholding documentation',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.title': 'Border payroll 2026: practical simulation',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.excerpt': 'Calculate the Swiss net 2026: AVS rates 5.3%, tax at source, New Agreement, exemptions €7,500-€10,000 and Italian tax credit.',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.imageAlt': 'Swiss payslip simulation 2026 with calculator, Swiss francs and Italian euros on office desk, Ticino',
 };
 
 export default blogMetaEn;

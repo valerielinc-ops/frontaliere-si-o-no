@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 04:23:23 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 04:48:13 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,88 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Border payroll 2026: practical simulation</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-workers-payslip-2026-simulation/</link>
+      <description><![CDATA[Calculate the Swiss net 2026: AVS rates 5.3%, tax at source, New Agreement, exemptions €7,500-€10,000 and Italian tax credit.]]></description>
+      <content:encoded><![CDATA[## In brief
+- Withholding tax only in Switzerland: no double taxation thanks to the Italian tax credit
+- New Agreement 2024: old cross-border workers exemption €7,500, new €10,000
+- Mandatory rates: AVS 5.3%, AD/AC 1.1%, LAINF 0.7-1.5%, LPP 7-18% per age bracket
+
+## Key facts
+- **What**: Swiss payslip with AVS, AD/AC, LAINF, LPP deductions and withholding tax
+- When: Calculations 2026 according to the New Cross-Border Workers Agreement (effective 1 January 2024)
+- Where: Cross-border workers Italy-Switzerland, Canton Ticino
+- Who: Cross-border workers employed in Switzerland with permit G
+- Tax: Withheld only in Switzerland, tax credit in Italy (CE 730 form)
+- Exemption: Old cross-border workers €7,500, new €10,000 annually
+
+The Swiss payslip of the cross-border worker is not a simple subtraction of gross minus net. It is the intertwining of five levels of mandatory deductions that add up before generating the Swiss taxable income: AVS/AI/IPG at 5.3%, AD/AC at 1.1%, LAINF between 0.7% and 1.5%, LPP from 7% to 18% depending on the age bracket (from 25 years onwards), and finally the federal and cantonal withholding tax. Each item has its own logic, but the biggest surprise is often the withholding tax: it is withheld directly in Switzerland, without Italy applying an additional tax. The mechanism is the tax credit provided by the CE section of the Italian income tax return, a protection that dates back to the Double Taxation Convention signed on 9 December 1976 between Italy and Switzerland.
+
+The New Cross-Border Workers Agreement, signed on 23 December 2020 and entered into force on 1 January 2024 (Italian Law 83 of 13 June 2023), has brought a paradigm shift: cross-border workers already registered before 17 July 2023 (the "old" ones) benefit from an annual exemption of €7,500 in the transitional regime 2024–2033, while "new" cross-border workers obtain a franchise of €10,000. Both exemptions are deducted from the Italian taxable income before applying the IRPEF.
+
+### Anatomy of the Swiss payslip
+
+The structure of the Swiss payslip follows a rigid and transparent scheme. The contractual gross is the starting point; from there, the employer applies the mandatory social contributions in cascade. The AVS/AI/IPG (social security and disability) absorbs 5.3% of the salary. The AD/AC (unemployment and competitiveness insurance) cuts 1.1%, with a maximum cap of CHF 148,200 of taxable income. The LAINF (workplace accidents) varies between 0.7% and 1.5% depending on the sector and risk class. The LPP (second pillar pension fund) depends on the worker's age: between 25 and 34 years it is about 7%, and grows up to 18% for those closest to retirement. After these four items, a reduced gross subtotal is calculated (gross minus all contributions). The withholding tax falls on this subtotal, which varies by canton, municipality, and personal rate. On average, the gross-net tax burden is between 15% and 17% of the initial salary.
+## New Agreement: the change of rules for old and new cross-border workers
+
+The New Cross-Border Workers Agreement has introduced two parallel and time-limited regimes. "Old" cross-border workers — i.e., those who already had cross-border worker status before July 17, 2023 — enjoy an Italian tax exemption of €7,500 annually starting from January 1, 2024, and until December 31, 2033. This is a ten-year exemption designed to facilitate the transition to a new system. "New" cross-border workers — hired as cross-border workers after July 17, 2023 — are entitled to an annual allowance of €10,000, with no time limit.
+
+How does this apply in practice? A cross-border worker with a gross Swiss salary of 60,000 CHF first incurs Swiss deductions (AVS 5.3% = CHF 3,180, AD/AC 1.1% = CHF 660, LAINF 1% = CHF 600, LPP 7% average = CHF 4,200), totaling approximately CHF 8,640. This leaves a gross Swiss salary of CHF 51,360. The federal, cantonal, and communal withholding tax varies, but assuming an average burden of 16%, it absorbs an additional CHF 8,200. The Swiss net salary drops to CHF 43,160.
+
+This net salary, converted to euros at the exchange rate of the tax year (let's say 1 CHF = 1.05 EUR for simplicity), becomes approximately €43,320. In Italy, the cross-border worker declares the gross Swiss income in the CE section of the 730 form: it is €63,000 (60,000 CHF ÷ 0.952 for the average exchange rate). If they are an "old" cross-border worker, they subtract €7,500, bringing the taxable amount to €55,500. The Italian IRPEF (23% up to €28,000, 35% from €28,001 to €50,000, 43% over €50,000) would generate a theoretical tax of €28,000 × 0.23 + €22,500 × 0.35 = €6,440 + €7,875 = €14,315. But on the declaration, Italy recognizes the Swiss tax credit: the withholding tax paid in Switzerland (CHF 8,200 ≈ €7,790) is subtracted. The result: the cross-border worker must pay approximately €4,525 additionally, or if the Swiss tax is higher than the presumed Italian IRPEF, they receive a refund.
+
+### The role of the tax credit and double taxation
+
+The Italy-Switzerland Double Taxation Convention of December 9, 1976 established a cornerstone principle: taxation occurs in the country where the economic activity is carried out (Switzerland, where the employer is based). Italy does not impose a separate second tax on foreign income; instead, it applies a tax credit (CE section of the 730 form). This credit is compensation for taxes paid abroad: if the Swiss rates are higher than the presumed Italian IRPEF, the credit covers the entire difference (and sometimes generates an Italian refund). If the Swiss rates are lower, Italy requires the balance.
+
+The advantage of the credit is twofold: first, it avoids legal double taxation (paying taxes in both countries on the same income); second, it protects the cross-border worker from currency fluctuations and changes in rates. If the CHF weakens and the nominal Swiss tax remains the same but its value in EUR decreases, the Italian credit can still cover the lower amount, without penalties.
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+## Step by step: how to calculate the net 2026
+
+Calculating the real net of a Swiss payslip requires systematicity. Here is the procedure.
+
+Step 1: collect the gross contractual amount
+Start from the value declared in the Swiss employment contract. There are no surprises here: if the contract says 60,000 CHF per year, the gross is 60,000 CHF. You will divide by 12 or 13 if you are paid monthly or for 13 months.
+
+Step 2: subtract the mandatory social contributions
+Apply the rates:
+- AVS/AI/IPG: 5.3% of the gross
+- AD/AC: 1.1% of the gross (up to a ceiling of CHF 148,200 of taxable income)
+- LAINF: between 0.7% and 1.5% (variable by sector; consult your employer or the labor office)
+- LPP: depends on age. From 25 years old, it starts at 7% and rises up to 18%. Your payslip will indicate the exact percentage for your age group.
+
+The subtotal of these four items represents 15–18% of the initial gross. Example: 60,000 CHF × 14.5% (average) = CHF 8,700. Remaining CHF 51,300.
+
+Step 3: estimate the withholding tax
+The federal, cantonal, and municipal tax varies for the canton of Ticino and for the place of residence / work. The average burden in Ticino is between 14% and 17% of the subtotal after contributions. On CHF 51,300: between CHF 7,182 and CHF 8,721. Subtract this amount from the subtotal. Estimated Swiss net: between CHF 42,579 and CHF 44,118.
+
+Step 4: record the income in the Italian declaration and apply the tax credit
+The gross Swiss income (60,000 CHF) is entered in the CE section of the Italian model 730. Convert using the exchange rate of the tax year (for 2026, use the average ISTAT exchange rate or the one published by the Revenue Agency). If you are an "old" cross-border worker, subtract €7,500 from the Italian taxable income; if you are "new," subtract €10,000. Calculate the theoretical Italian IRPEF (23% up to €28,000, 35% from €28,001 to €50,000, 43% beyond). Then, apply the tax credit: the sum of the Swiss withholding tax (converted into euros) becomes a credit against the Italian IRPEF. If the credit is higher than the theoretical IRPEF, you receive a refund; if lower, you pay the balance.
+
+### Operational checklist for 2026
+
+☐ Collect all Swiss payslips of the year (paper copies or PDF from the LPA, the employer's online payroll platform)
+☐ Personally verify the AVS, AD/AC, LAINF, LPP rates in the payslip (they are not standardized: they vary by canton, employer, age, and sector)
+☐ Calculate the Swiss gross-net using an Excel sheet or the [payslip simulator](nav:payslip) of the site
+☐ Convert the gross Swiss income into EUR using the average exchange rate of the tax year (available at the Revenue Agency)
+☐ Prepare the CE section of the Italian model 730 with: foreign gross income (in EUR), tax paid abroad (in EUR), exemption €7,500 (old) or €10,000 (new)
+☐ Calculate the theoretical Italian IRPEF (apply the 23%-35%-43% rates)
+☐ Subtract the tax credit from the theoretical IRPEF
+☐ If the balance is negative, you are entitled to a refund; if positive, you must pay it
+☐ Use the [salary calculator](nav:calculator) of the site for quick scenarios and comparisons
+☐ Entrust the final calculation of the declaration to a tax consultant specialized in cross-border workers, especially if your situation includes multiple sources of income, a spouse declared as a dependent, or changes in permit during the year
+
+Practical simulation shows that the real net of a 2026 cross-border worker depends on three mobile factors: the Swiss cantonal rate (which varies by place of work and residence), the CHF-EUR exchange rate, and the Italian tax exemption regime (€7,500 or €10,000). A Ticino tax consultant with transnational experience can adapt these calculations to your specific situation and ensure compliance with both tax systems (Swiss and Italian). For an initial and quick estimate, use the [salary calculator](nav:calculator) available on the site.]]></content:encoded>
+      <pubDate>Sat, 05 Sep 2026 04:48:13 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/frontalieri-busta-paga-2026-simulazione</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontalieri-busta-paga-2026-simulazione.webp" medium="image"/>
+    </item>
     <item>
       <title>Swiss border payroll: AVS, LPP and real net</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/calculate-tax-withholding-salary-crossborder/</link>
@@ -3790,62 +3872,6 @@ The concrete path to a mortgage involves a series of ordered steps that should b
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/frontaliere-mutuo-banche-svizzera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontaliere-mutuo-banche-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Cross-border daily brief – September 3, 2026: 719 new job listings yesterday</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-daily-brief-2026-09-03/</link>
-      <description><![CDATA[Today's numbers, September 3, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday's close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.]]></description>
-      <content:encoded><![CDATA[Good morning — it's Thursday, September 3, 2026. This is the daily brief for people who live on one side of the border and work on the other: four numbers measured today by our monitoring — border queues, fuel, the exchange rate and jobs — each with a link to its live page.
-
-## Border waits this morning
-
-Smooth crossing this morning: of 141 monitored crossings, 110 report no queue and the longest wait is just **3 minutes** (Haag-Bendern).
-
-| Crossing | Wait | Status |
-|---|---|---|
-| Haag-Bendern | 3 min | clear |
-| Laufenburg (Baden) – Laufenburg AG | 2 min | clear |
-| Ponte Tresa | 2 min | clear |
-| Porto Ceresio-Brusino | 2 min | clear |
-| Thônex-Vallard (Autoroute Blanche) | 2 min | clear |
-
-Traffic shifts by the hour — every crossing's live status is on the [border traffic page](/en/border-wait/).
-## Fuel: where it costs least today
-
-Across 518 monitored border municipalities, filling up is cheaper in Switzerland in 88 of them and in Italy in 56.
-
-| Municipality (IT) | Unleaded, lowest price |
-|---|---|
-| Livigno (SO) | €1.528/L |
-| Veduggio con Colzano (MB) | €1.849/L |
-| Arcisate (VA) | €1.854/L |
-| Aprica (SO) | €1.919/L |
-| Cucciago (CO) | €1.949/L |
-
-📊 **The right side for a full tank.** In **Livigno** (SO) today's gap is worth **€26.55 on a 50-litre tank** (€1.528/L in Italy vs €2.059/L at the nearest Swiss station).
-
-The cheapest Swiss station today is **SOCAR Samnaun** (CHF 1.38/L, ≈ €1.464/L), near Curon Venosta (BZ).
-
-Prices town by town, updated daily: [border fuel prices today](/en/gasoline-price-switzerland/today/).
-## CHF–EUR exchange rate
-
-One franc buys **€1.0652** (close of 2026-09-02). Versus the previous day it loses 0.0006 €; over seven days the move is -0.0014 €.
-
-💡 If you earn francs and spend euros, the rate IS part of your salary: on CHF 4,000, one cent of movement is worth €40 a month. The [net salary calculator](/en/calculate-salary/) and the [currency-exchange comparison](/en/service-comparison/chf-eur-exchange-rate/) run the numbers for your case.
-## Jobs: yesterday’s numbers
-
-**719 new Swiss job listings** landed on our job board yesterday; 8'281 over the last seven days. Active listings now total **25'500** from 844 companies.
-
-Filter by canton, sector and city: [find jobs in Ticino and Switzerland](/en/find-jobs-ticino/).
-
-## How this brief is made
-
-None of the numbers above come from an agency feed — they are our own monitoring: border queues sampled several times an hour at every Swiss crossing, fuel prices across Italian border municipalities and nearby Swiss stations, the official daily CHF/EUR series, and our job-board crawlers. The brief goes out early each morning, before the commute; numbers are a snapshot at publication time, the linked pages stay live all day.]]></content:encoded>
-      <pubDate>Thu, 03 Sep 2026 09:32:54 GMT</pubDate>
-      <dc:creator><![CDATA[Samuele Valente]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/bollettino-frontaliere-2026-09-03</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-03.webp" medium="image"/>
     </item>
   </channel>
 </rss>

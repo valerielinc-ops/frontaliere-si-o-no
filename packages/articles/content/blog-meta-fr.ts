@@ -11365,6 +11365,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcolo-trattenute-stipendio-frontalieri.title': 'Bulletin de paie suisse frontaliers : AVS, LPP et Net réel',
     'blog.article.calcolo-trattenute-stipendio-frontalieri.excerpt': 'Depuis le Nouvel Accord frontalier en vigueur depuis 2024 : comment calculer les retenues AVS, LPP, LAMal et l\'impôt à la source sur la paie suisse.',
     'blog.article.calcolo-trattenute-stipendio-frontalieri.imageAlt': 'Conseiller financier examine la fiche de paie suisse et les déductions fiscales',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.title': 'Bulletin de paie frontalier 2026 : simulation pratique',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.excerpt': 'Calcule le net suisse 2026 : taux AVS 5.3%, impôt à la source, Nouvel Accord, exonérations € 7.500-€ 10.000 et crédit d\'impôt italien.',
+    'blog.article.frontalieri-busta-paga-2026-simulazione.imageAlt': 'Simulation de fiche de paie suisse 2026 avec calculatrice, francs suisses et euros italiens sur bureau, Tessin',
 };
 
 export default blogMetaFr;
