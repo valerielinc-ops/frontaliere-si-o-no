@@ -401,11 +401,27 @@ export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
   if (!mine || !Array.isArray(jobs) || !(urlsByKey instanceof Map)) {
     return { jobs: Array.isArray(jobs) ? jobs : [], dropped: [] };
   }
+  // Ownership is claimed by the LATEST crawl, not by history. `urlsByKey` keeps
+  // grace-period carry-over, so an incumbent that has already stopped listing a
+  // vacancy would keep blocking it for the whole grace window — and forever if
+  // its slice is never rewritten again, which contradicts the hand-over this
+  // guard promises above. `activeUrlsByKey` is the set the ownership scan built
+  // for exactly this question; fall back only for pre-upgrade callers that do
+  // not carry it.
+  const ownerIndexSource = ownership?.activeUrlsByKey instanceof Map
+    ? ownership.activeUrlsByKey
+    : urlsByKey;
+
+  // Vacancies THIS crawler has already published, from its own slice on disk.
+  // History, not the latest crawl: a URL this key ever served has a live,
+  // indexed slug, and that is what must not be dropped.
+  const alreadyMine = urlsByKey.get(mine) instanceof Set ? urlsByKey.get(mine) : new Set();
+
   // url -> owning key, every key but this one. Built once per call: the
   // alternative, probing each of ~590 key sets per job, is a full scan per job.
   /** @type {Map<string, string>} */
   const owners = new Map();
-  for (const [key, urls] of urlsByKey) {
+  for (const [key, urls] of ownerIndexSource) {
     if (key === mine || !(urls instanceof Set)) continue;
     for (const url of urls) {
       // Lexicographic tie-break so two claimants give a stable answer whatever
@@ -421,7 +437,17 @@ export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
   for (const job of jobs) {
     const url = normalizeJobUrl(job?.url || '');
     const owner = url ? owners.get(url) : undefined;
-    if (owner) dropped.push({ url, owner });
+    // Only a NEW claim is refused. If this key already publishes the vacancy,
+    // the duplicate is already live and its slug is already indexed: dropping
+    // it here would delete that page instead of redirecting it, turning an
+    // indexed URL into a dead route — the loss `slug-preservation-guard.mjs`
+    // exists to prevent, inflicted by the guard meant to protect identity.
+    // Collapsing an EXISTING duplicate means moving the loser's slugs into the
+    // winner's `previousSlugs`, which is a migration with a human deciding who
+    // wins (`reconcile-crawler-company-ownership.mjs`), not a write-time drop.
+    // So this guard does exactly what the issue asks — stops new duplicates
+    // from being created — and leaves the published ones to the reconciler.
+    if (owner && !alreadyMine.has(url)) dropped.push({ url, owner });
     else kept.push(job);
   }
   return { jobs: kept, dropped };

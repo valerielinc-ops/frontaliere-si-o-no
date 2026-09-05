@@ -1953,12 +1953,25 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       const ownership = loadSourceHostOwnership(ROOT, { urls: true });
       const owned = dropForeignOwnedVacancies(crawlerKey, mergedJobs, ownership);
       if (owned.dropped.length > 0) {
-        finalJobs = owned.jobs;
         const byOwner = new Map();
         for (const { owner } of owned.dropped) byOwner.set(owner, (byOwner.get(owner) || 0) + 1);
         const breakdown = [...byOwner].sort((a, b) => b[1] - a[1])
           .map(([owner, n]) => `${owner}×${n}`).join(', ');
-        console.warn(`  🪪 Ownership guard: ${owned.dropped.length} vacancy already published by another crawler dropped from ${crawlerKey} (${breakdown})`);
+        // Floor, same predicate the anti-shrink guard uses. The ownership index
+        // is built by reading the slice DIRECTORY, not a roster of live
+        // crawlers, so a retired alias slice left on disk (the exact residue
+        // #6798/#7043 kept sweeping up) presents itself as a legitimate owner.
+        // Without a floor a live crawler could meet its whole catalogue "owned
+        // by someone else" and persist an empty slice, deleting every job page
+        // it serves — precisely the loss the shrink guard exists to stop,
+        // re-entered through the door next to it. A drop that large is never a
+        // real ownership correction: refuse it whole and keep the vacancies.
+        if (shouldBlockShrink(mergedJobs.length, owned.jobs.length)) {
+          console.error(`\n🚨 Ownership guard REFUSED for ${crawlerKey}: dropping ${owned.dropped.length}/${mergedJobs.length} vacancy would gut the slice (${breakdown}) — keeping all jobs. A stale alias slice on disk is the usual cause; run scripts/audit-duplicate-crawler-companies.mjs\n`);
+        } else {
+          finalJobs = owned.jobs;
+          console.warn(`  🪪 Ownership guard: ${owned.dropped.length} vacancy already published by another crawler dropped from ${crawlerKey} (${breakdown})`);
+        }
       }
     } catch (err) {
       // Never let a guard defect cost a crawl. A missing/unreadable slice dir

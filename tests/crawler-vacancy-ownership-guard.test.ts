@@ -75,6 +75,39 @@ describe('#6759 — a vacancy belongs to exactly one crawler', () => {
     expect(dropForeignOwnedVacancies('any-key', jobs, {} as never).jobs).toEqual(jobs);
   });
 
+  it('never drops a vacancy this crawler already publishes', () => {
+    // An already-live duplicate has an indexed slug under BOTH keys. Dropping it
+    // here would delete that page instead of redirecting it: collapsing a
+    // published duplicate is a slug-preserving migration, not a write-time drop.
+    const url = 'https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000146906639-mitarbeiter-in-bistro';
+    const ownership = {
+      urlsByKey: new Map([
+        ['villa-im-park', new Set([url])],
+        ['swiss-medical-network', new Set([url])],
+      ]),
+    };
+
+    const result = dropForeignOwnedVacancies('swiss-medical-network', [{ url }], ownership as never);
+
+    expect(result.dropped).toEqual([]);
+    expect(result.jobs).toHaveLength(1);
+  });
+
+  it('claims ownership from the latest crawl, not from grace-period history', () => {
+    // The incumbent stopped listing the vacancy: its active set no longer has
+    // it, so the URL must be claimable instead of blocked forever.
+    const url = 'https://jobs.example.test/offene-stellen/handover';
+    const ownership = {
+      urlsByKey: new Map([['old-owner', new Set([url])]]),
+      activeUrlsByKey: new Map([['old-owner', new Set<string>()]]),
+    };
+
+    const result = dropForeignOwnedVacancies('new-owner', [{ url }], ownership as never);
+
+    expect(result.dropped).toEqual([]);
+    expect(result.jobs).toHaveLength(1);
+  });
+
   it('picks one owner deterministically when two crawlers both hold the URL', () => {
     // Already-duplicated state must resolve the same way on every run,
     // whatever order readdir returned the slices in.
