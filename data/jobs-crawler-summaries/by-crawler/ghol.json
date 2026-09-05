@@ -1,18 +1,18 @@
 {
   "key": "ghol",
   "label": "Groupement Hospitalier de l'Ouest Lémanique",
-  "generatedAt": "2026-09-04T23:08:26.904Z",
-  "total": 10,
+  "generatedAt": "2026-09-05T12:51:48.249Z",
+  "total": 9,
   "discovered": null,
-  "written": 10,
+  "written": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3941,
-  "avgDurationMs": 3941,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3948,
+  "avgDurationMs": 3948,
   "durationHistory": [
-    3941
+    3948
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,7 +42,7 @@
       "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.978Z",
+      "crawledAt": "2026-09-05T12:51:45.042Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:36:03.664Z",
       "_qualityScore": 85,
@@ -79,7 +79,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.979Z",
+      "crawledAt": "2026-09-05T12:51:45.044Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-25T21:49:26.103Z",
       "_qualityScore": 81,
@@ -116,7 +116,7 @@
       "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.979Z",
+      "crawledAt": "2026-09-05T12:51:45.045Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-31T12:04:04.810Z",
       "_qualityScore": 85,
@@ -153,7 +153,7 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.980Z",
+      "crawledAt": "2026-09-05T12:51:45.049Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-02T21:47:49.679Z",
       "_qualityScore": 85,
@@ -190,7 +190,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.983Z",
+      "crawledAt": "2026-09-05T12:51:45.051Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-01T11:45:55.990Z",
       "_qualityScore": 85,
@@ -227,7 +227,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.983Z",
+      "crawledAt": "2026-09-05T12:51:45.052Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-15T14:27:39.540Z",
       "_qualityScore": 85,
@@ -264,7 +264,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.984Z",
+      "crawledAt": "2026-09-05T12:51:45.057Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-21T11:59:27.233Z",
       "_qualityScore": 85,
@@ -301,7 +301,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.985Z",
+      "crawledAt": "2026-09-05T12:51:45.060Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
       "_qualityScore": 85,
@@ -338,7 +338,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:23.987Z",
+      "crawledAt": "2026-09-05T12:51:45.063Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
       "_qualityScore": 85,
@@ -350,8 +350,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ghol-fd047f33a8e7",
       "slug": "infermiere-di-polmonite-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -392,5 +391,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
