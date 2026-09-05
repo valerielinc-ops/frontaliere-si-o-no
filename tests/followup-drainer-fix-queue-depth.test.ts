@@ -41,6 +41,12 @@ import { fileURLToPath } from 'node:url';
 import { fixQueueDepth } from '../scripts/ci/followup-drainer.mjs';
 
 const WF = fileURLToPath(new URL('../.github/workflows/issue-fix.yml', import.meta.url));
+// I tre workflow innescati da eventi issue condividono la stessa classe di
+// difetto: `concurrency` è valutata a livello di WORKFLOW, prima dell'`if:` del
+// job, quindi con un `group:` costante ogni evento del repo entra nella stessa
+// coda profonda 1 e sfratta la pending — anche gli eventi che l'`if:` avrebbe
+// scartato come `skipped`.
+const ISSUE_EVENT_WORKFLOWS = ['issue-fix.yml', 'issue-decompose.yml', 'issue-triage.yml'];
 
 describe('fixQueueDepth: la profondità dichiarata dal workflow', () => {
   it('gruppo COSTANTE → 1: una sola pending, ogni altra la sfratterebbe', () => {
@@ -61,13 +67,57 @@ describe('fixQueueDepth: la profondità dichiarata dal workflow', () => {
     // Mai indovinare al rialzo: una promozione di troppo costa un `fu-attempt`
     // su una run che non è mai partita, e tre di quelle parcheggiano la issue.
     expect(fixQueueDepth('concurrency: ${{ fromJSON(inputs.cfg) }}\n')).toBe(1);
-    expect(fixQueueDepth('')).toBe(Number.POSITIVE_INFINITY);
   });
 
-  it('il workflow REALE di questo repo vale 1: è il vincolo che il cap deve rispettare', () => {
-    // Il test non finge il file: legge quello che gira in produzione. Se un
-    // domani il gruppo diventa per-issue, questa riga cade ed è il segnale che
-    // il cap del drainer può salire.
-    expect(fixQueueDepth(readFileSync(WF, 'utf8'))).toBe(1);
+  it('file vuoto o troncato → 1: `readFileSync` su 0 byte non lancia', () => {
+    // Il `catch` del chiamante non scatta su un file vuoto, quindi senza questo
+    // caso un troncamento varrebbe «nessuna serializzazione» e il cap tornerebbe
+    // a 3 su una coda profonda 1 (review #7482, 🟡 L199).
+    for (const empty of ['', '   ', '\n\n']) expect(fixQueueDepth(empty), JSON.stringify(empty)).toBe(1);
+  });
+
+  it('blocco `concurrency:` a livello di JOB: stessa risposta della forma top-level', () => {
+    // Spostare il blocco dentro `jobs.<id>` è una refactor innocua; leggerlo
+    // solo in colonna 0 la trasformava in una riapertura silenziosa degli
+    // sfratti (review #7482, 🟡 L198).
+    const y = 'jobs:\n  fix:\n    concurrency:\n      group: issue-fix\n      cancel-in-progress: false\n    steps: []\n';
+    expect(fixQueueDepth(y)).toBe(1);
+  });
+
+  it('un `group:` COMMENTATO non decide al posto di quello vero', () => {
+    // Una riga `# group: ...-${{ ... }}` lasciata sopra come nota vinceva il
+    // `return` e dichiarava «nessun limite» su una coda profonda 1
+    // (review #7482, 🟡 L203).
+    const y = 'concurrency:\n  # group: issue-fix-${{ github.event.issue.number }}  # TODO\n  group: issue-fix\n';
+    expect(fixQueueDepth(y)).toBe(1);
+  });
+
+  it('il workflow REALE di questo repo non serializza più: la chiave è per-issue', () => {
+    // Il test non finge il file: legge quello che gira in produzione. La chiave
+    // `issue-fix-${{ github.event.issue.number || github.run_id }}` dà a ogni
+    // issue una coda propria, quindi due issue diverse non si sfrattano e a
+    // limitare torna a essere `FOLLOWUP_MAX_INFLIGHT_FIX`. Se qualcuno rimette
+    // una chiave costante, questa riga cade e il clamp riporta il cap a 1
+    // invece di ricreare gli sfratti in silenzio.
+    expect(fixQueueDepth(readFileSync(WF, 'utf8'))).toBe(Number.POSITIVE_INFINITY);
+  });
+
+  it('NESSUNO dei workflow innescati da eventi issue serializza su una chiave costante', () => {
+    // Il gate di classe (AGENTS.md #6). Misurato il 2026-09-05, il giorno in cui
+    // la chiave era costante su tutti e tre: issue-fix 823 `cancelled` contro 36
+    // `success` il 09-04; issue-decompose 382 contro 13; issue-triage 26 su 61
+    // run, cioè issue nuove mai instradate. Se una di queste chiavi torna
+    // costante, la riga cade prima che il difetto torni a misurarsi in issue.
+    for (const wf of ISSUE_EVENT_WORKFLOWS) {
+      const yaml = readFileSync(fileURLToPath(new URL(`../.github/workflows/${wf}`, import.meta.url)), 'utf8');
+      expect(fixQueueDepth(yaml), wf).toBe(Number.POSITIVE_INFINITY);
+    }
+  });
+
+  it('il fallback `|| github.run_id` conta come espressione: nessuna chiave costante di rimbalzo', () => {
+    // Il fallback esiste per un trigger futuro senza issue nel payload. Se
+    // `fixQueueDepth` lo leggesse come costante, il cap verrebbe clampato a 1
+    // per sempre e la fix del 09-05 si annullerebbe da sola.
+    expect(fixQueueDepth('concurrency:\n  group: issue-fix-${{ github.event.issue.number || github.run_id }}\n')).toBe(Number.POSITIVE_INFINITY);
   });
 });
