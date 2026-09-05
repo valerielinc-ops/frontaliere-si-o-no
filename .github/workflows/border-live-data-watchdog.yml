@@ -65,6 +65,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # The "Persist per-webcam status" step below pushes data/webcam-status.json
+      # straight to main, and the main ruleset rejects the ambient
+      # github-actions[bot] identity (GH013). git-push-with-retry.sh fails closed
+      # on that via configure-main-push-auth.sh, so without GITHUB_PAT loaded here
+      # the push never lands — and because the persist step is
+      # `continue-on-error: true`, the run still went green while the snapshot was
+      # silently dropped on every single run since #7360 added it.
+      # Fail-open on purpose (`if [ -n ... ]` + continue-on-error): this workflow's
+      # reason to exist is the health verdict and the degraded-issue alert, and a
+      # Remote Config hiccup must never mask those — same rationale as the persist
+      # step's own "never let state bookkeeping mask a health verdict" comment.
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
       - name: Run border live-data health check
         id: health
         env:
