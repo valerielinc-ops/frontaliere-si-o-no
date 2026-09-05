@@ -573,7 +573,19 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     } catch (error) {
       return { ...item, fetchFailed: true, status: 0, fetchError: sanitizeProcessingError(error) };
     }
-    if (!fetched.ok || !fetched.body) return { ...item, fetchFailed: true, status: fetched.status || 0 };
+    if (!fetched.ok || !fetched.body) {
+      return {
+        ...item,
+        fetchFailed: true,
+        status: fetched.status || 0,
+        // Only meaningful when status is 0: `politeFetch` returns the transport
+        // kind (dns/tls/timeout/reset/refused) instead of dropping the error, so
+        // a status-less failure still says WHY (#7351).
+        transportError: fetched.transportError,
+        policyBlocked: fetched.policyBlocked || undefined,
+        blockedByRobots: fetched.blockedByRobots || undefined,
+      };
+    }
     try {
       const detail = extractDetail(fetched.body, fetched.url || item.url);
       const locationObservation = observeLocation(fetched.body, fetched.url || item.url);
@@ -672,14 +684,82 @@ export function tenantConstantSourceLocations(sourceResults) {
  * 401/403 refusals and only 6 genuinely expired vacancies — i.e. 13,8% of the
  * sample is missing for reasons that are ours to fix, not the source's.
  */
-export function fetchFailureCause(status) {
+export function fetchFailureCause(status, result = null) {
   const code = Number(status || 0);
   if (code === 404 || code === 410) return 'expired-vacancy';
   if (code === 401 || code === 403) return 'blocked-by-source';
   if (code === 429) return 'rate-limited';
   if (code >= 500) return 'source-server-error';
-  if (code === 0) return 'transport';
+  if (code === 0) {
+    // «transport» on its own is the same disease as «fetchFailed» on its own:
+    // an aggregate that names no cause. A DNS failure means the host is gone,
+    // a TLS failure means its certificate is broken, a timeout means we may be
+    // the ones too slow — three different answers, one old bucket.
+    if (result?.blockedByRobots) return 'blocked-by-robots';
+    if (result?.policyBlocked) return 'blocked-by-policy';
+    return `transport-${result?.transportError || 'other'}`;
+  }
   return `http-${code}`;
+}
+
+/**
+ * The family a cause belongs to, for the per-source pass below. Transport kinds
+ * collapse back together here on purpose: a source that is unreachable is one
+ * finding whether the socket died of DNS on one sample and of TLS on the next.
+ */
+export function fetchFailureFamily(cause) {
+  if (cause === 'expired-vacancy') return 'expired-vacancy';
+  if (String(cause).startsWith('blocked-')) return 'refused-by-source';
+  if (String(cause).startsWith('transport-')) return 'source-unreachable';
+  return String(cause);
+}
+
+/**
+ * How many sampled fetches a source must lose before «all of them failed» is
+ * evidence of anything. The source-detail sampler draws 2 details per crawler,
+ * so 2 is both the floor and the usual case; a single loss stays a per-vacancy
+ * failure, which is what keeps a flaky sample out of the source-level bucket.
+ */
+export const SOURCE_LEVEL_FAILURE_MIN_SAMPLES = 2;
+
+/**
+ * The share of the source-detail sample that may fail for a reason nothing
+ * explains. Above it the audit's own coverage claim is unproven: the run says
+ * «checked 1075» while some of those samples proved nothing and nobody can say
+ * why. Set at the 5 % the ticket asks for, against a measured 0,19 % — the
+ * headroom is deliberate, it is a floor under a regression, not a target.
+ */
+export const SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT = 5;
+
+/**
+ * Split failures the source explains from failures we still owe an answer for.
+ *
+ * A refusal is a POLICY of a source when EVERY detail page sampled from that
+ * source was refused the same way — 403 on 2 of 2 is that source declining our
+ * fetcher, not our parser breaking. The same reading applies to a host that is
+ * simply not there any more. What it deliberately does NOT cover is the
+ * scattered failure: one sample of two, on a source that answered the other —
+ * that one is ours, stays unexplained, and is the number the gate watches.
+ *
+ * Measured on artifact parser-quality-report-33969036485-1 (2026-09-05):
+ * 120/1075 failures = 6 expired + 49 refusals over 26 sources that refused
+ * 2 of 2 + 63 unreachable over 34 sources unreachable 2 of 2 + 2 scattered.
+ * Unexplained goes 10,60 % → 0,19 %.
+ */
+export function classifySourceLevelFailures(byKey) {
+  const sources = {};
+  let samples = 0;
+  for (const [key, info] of Object.entries(byKey)) {
+    if (info.checked < SOURCE_LEVEL_FAILURE_MIN_SAMPLES) continue;
+    if (info.fetchFailed !== info.checked) continue;
+    const families = Object.keys(info.failureFamilies || {});
+    if (families.length !== 1) continue;
+    const [family] = families;
+    if (family === 'expired-vacancy') continue;
+    sources[key] = { family, samples: info.checked };
+    samples += info.checked;
+  }
+  return { sources, samples, sourceCount: Object.keys(sources).length };
 }
 
 export function applySourceDetailResults(report, sourceResults, requested = sourceResults.length) {
@@ -688,6 +768,10 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     fetched: 0,
     fetchFailed: 0,
     fetchFailureCauses: {},
+    expiredVacancies: 0,
+    sourceLevelFailures: { sourceCount: 0, samples: 0, sources: {} },
+    unexplainedFetchFailures: 0,
+    unexplainedFetchFailureRatePct: 0,
     processingFailed: 0,
     unobserved: 0,
     tenantConstantLocationObservations: 0,
@@ -705,7 +789,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
       descriptionMismatches: 0, unobserved: 0, tenantConstantObservations: 0,
-      unobservedDetails: [], details: [],
+      unobservedDetails: [], details: [], failureFamilies: {},
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
@@ -713,8 +797,11 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.fetchFailed) {
       info.fetchFailed++;
       sourceDetailSummary.fetchFailed++;
-      const cause = fetchFailureCause(result.status);
+      const cause = fetchFailureCause(result.status, result);
       sourceDetailSummary.fetchFailureCauses[cause] = (sourceDetailSummary.fetchFailureCauses[cause] || 0) + 1;
+      const family = fetchFailureFamily(cause);
+      info.failureFamilies[family] = (info.failureFamilies[family] || 0) + 1;
+      if (family === 'expired-vacancy') sourceDetailSummary.expiredVacancies++;
       continue;
     }
     if (result.processingFailed) {
@@ -796,6 +883,16 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       });
     }
   }
+  sourceDetailSummary.sourceLevelFailures = classifySourceLevelFailures(byKey);
+  sourceDetailSummary.unexplainedFetchFailures = Math.max(
+    0,
+    sourceDetailSummary.fetchFailed
+      - sourceDetailSummary.expiredVacancies
+      - sourceDetailSummary.sourceLevelFailures.samples,
+  );
+  sourceDetailSummary.unexplainedFetchFailureRatePct = requested
+    ? Number((100 * sourceDetailSummary.unexplainedFetchFailures / requested).toFixed(4))
+    : 0;
   return sourceDetailSummary;
 }
 
@@ -1331,6 +1428,9 @@ async function main() {
     const causes = Object.entries(sourceDetailSummary.fetchFailureCauses).sort((a, b) => b[1] - a[1]);
     if (causes.length > 0) {
       console.log(`Source detail fetch failures: ${sourceDetailSummary.fetchFailed}/${sourceDetailSummary.requested} — ${causes.map(([cause, count]) => `${count} ${cause}`).join(', ')}`);
+      const level = sourceDetailSummary.sourceLevelFailures;
+      console.log(`  explained: ${sourceDetailSummary.expiredVacancies} expired vacancies, ${level.samples} over ${level.sourceCount} source(s) that failed every sampled detail`);
+      console.log(`  unexplained: ${sourceDetailSummary.unexplainedFetchFailures}/${sourceDetailSummary.requested} (${sourceDetailSummary.unexplainedFetchFailureRatePct} %, ceiling ${SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT} %)`);
     }
     console.log('');
   }
@@ -1461,8 +1561,20 @@ export function finishAudit(report, {
   };
   fs.writeFileSync(outPath, JSON.stringify(jsonReport, null, 2));
   console.log(`\nJSON report saved to: ${path.relative(ROOT, outPath) || path.basename(outPath)}\n`);
-  if (strict && summary.critical > 0) {
-    console.error(`\n❌ --strict: ${summary.critical} critical crawler(s) found. Failing.`);
+  // The verdict is computed AFTER the JSON is on disk, and every failing
+  // condition is collected before returning: an early `return 1` here would
+  // hide the second reason from the run that has to act on it.
+  const failures = [];
+  if (summary.critical > 0) failures.push(`${summary.critical} critical crawler(s) found`);
+  if (sourceDetailSummary && sourceDetailSummary.unexplainedFetchFailureRatePct > SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT) {
+    failures.push(
+      `${sourceDetailSummary.unexplainedFetchFailures}/${sourceDetailSummary.requested} source detail fetches `
+      + `(${sourceDetailSummary.unexplainedFetchFailureRatePct} %) failed for reasons neither an expired vacancy `
+      + `nor a source-level refusal explains — over the ${SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT} % ceiling`,
+    );
+  }
+  if (strict && failures.length > 0) {
+    console.error(`\n❌ --strict: ${failures.join('; ')}. Failing.`);
     return 1;
   }
   return 0;

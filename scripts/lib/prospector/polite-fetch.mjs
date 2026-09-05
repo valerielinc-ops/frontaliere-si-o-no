@@ -234,6 +234,35 @@ class RobotsDeniedError extends Error {
  * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, signal?: AbortSignal, sleepImpl?: (ms: number) => Promise<unknown>, nowImpl?: () => number }} [opts]
  * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean, policyBlocked?: boolean, error?: string }>}
  */
+/**
+ * Why a request never produced an HTTP status.
+ *
+ * `politeFetch` swallows every transport error into `{ ok: false, status: 0 }`,
+ * so every caller that counts failures could only ever report "transport" — a
+ * bucket that names no cause and therefore cannot be acted on (issue #7351: 65
+ * of 120 source-detail failures sat in it). The kind is derived here, once,
+ * where the error object still exists; callers keep the shape they had and read
+ * the extra field only if they care.
+ *
+ * `fetch()` wraps the real cause: a `TypeError: fetch failed` whose `.cause`
+ * carries the libc/undici code, so the chain is walked rather than the top.
+ *
+ * @param {unknown} error
+ * @returns {'timeout'|'dns'|'tls'|'reset'|'refused'|'other'}
+ */
+export function transportErrorKind(error) {
+  for (let e = error, depth = 0; e && typeof e === 'object' && depth < 5; e = e.cause, depth += 1) {
+    const code = String(e.code || '');
+    const name = String(e.name || '');
+    if (name === 'AbortError' || name === 'TimeoutError' || code.includes('TIMEOUT') || code === 'ETIMEDOUT') return 'timeout';
+    if (code === 'ENOTFOUND' || code === 'EAI_AGAIN') return 'dns';
+    if (code === 'ECONNREFUSED') return 'refused';
+    if (code === 'ECONNRESET' || code === 'EPIPE' || code === 'UND_ERR_SOCKET') return 'reset';
+    if (code.startsWith('ERR_TLS') || code.startsWith('ERR_SSL') || code.includes('CERT') || code === 'EPROTO') return 'tls';
+  }
+  return 'other';
+}
+
 export async function politeFetch(url, opts = {}) {
   let parsed;
   try { parsed = new URL(url); } catch {
@@ -281,6 +310,7 @@ export async function politeFetch(url, opts = {}) {
           url: error instanceof RobotsDeniedError ? error.url : url,
           body: '',
           host,
+          transportError: transportErrorKind(error),
           ...(error instanceof RobotsDeniedError ? { blockedByRobots: true } : {}),
           ...(isPublicFetchPolicyError(error)
             ? { policyBlocked: true, error: String(error?.message || error) }
@@ -307,6 +337,7 @@ export async function politeFetch(url, opts = {}) {
       url,
       body: '',
       host,
+      transportError: transportErrorKind(error),
       ...(isPublicFetchPolicyError(error)
         ? { policyBlocked: true, error: String(error?.message || error) }
         : {}),

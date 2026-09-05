@@ -45,9 +45,12 @@ import {
 import { ROOT } from '../../scripts/lib/audit-runner.mjs';
 
 interface Measurement {
-  observedOffenders?: number[];
+  observedOffenders?: number[] | number;
   worstBucket?: { runId: string; offenders: number; filesScanned: number; ratePct: number };
+  runId?: string;
+  filesScanned?: number;
   measuredAt?: string;
+  note?: string;
 }
 interface FamilyEntry {
   issue: string;
@@ -102,20 +105,34 @@ describe('seo defect ledger — structure', () => {
       if (e.enforcement === 'unmeasured') continue;
       expect(e.measurement, `${name} has no measurement block`).toBeTruthy();
       expect(e.measurement?.measuredAt, `${name} has no measuredAt`).toBeTruthy();
+      const observed = e.measurement?.observedOffenders;
       expect(
-        Array.isArray(e.measurement?.observedOffenders) && e.measurement!.observedOffenders!.length > 0,
+        Array.isArray(observed) ? observed.length > 0 : typeof observed === 'number',
         `${name} records no observed offender counts`,
       ).toBe(true);
     }
   });
 
-  it('a ratcheted family always seals its worst bucket, with the run id', () => {
+  it('a ratcheted family always names the run its ceiling came from', () => {
+    // Two legal shapes, one invariant: a ceiling is never a bare number. Either
+    // it was SEALED from the four rotating buckets (then the worst of them is
+    // named, and it really is the worst), or it was TIGHTENED by
+    // `npm run seo:families:tighten` from one post-deploy run (then that run id
+    // and its denominator are on the entry). #7317 produced the second shape
+    // for the first time.
     for (const [name, e] of families) {
       if (e.enforcement !== 'ratchet') continue;
-      const w = e.measurement?.worstBucket;
-      expect(w, `${name} is ratcheted without a worstBucket`).toBeTruthy();
-      expect(w!.runId, `${name}'s worstBucket has no runId`).toMatch(/^\d+$/);
-      expect(w!.offenders).toBe(Math.max(...(e.measurement!.observedOffenders ?? [])));
+      const m = e.measurement;
+      expect(m, `${name} is ratcheted without a measurement`).toBeTruthy();
+      const w = m?.worstBucket;
+      if (w) {
+        expect(w.runId, `${name}'s worstBucket has no runId`).toMatch(/^\d+$/);
+        expect(w.offenders).toBe(Math.max(...(m!.observedOffenders as number[])));
+        continue;
+      }
+      expect(m!.runId, `${name} was tightened without naming the run`).toMatch(/^\d+$/);
+      expect(typeof m!.filesScanned, `${name} was tightened without a denominator`).toBe('number');
+      expect(typeof m!.observedOffenders, `${name} was tightened without an offender count`).toBe('number');
     }
   });
 
@@ -136,6 +153,33 @@ describe('seo defect ledger — structure', () => {
   });
 });
 
+/**
+ * Every draw a committed ceiling must stay green on.
+ *
+ * A ceiling is sealed in one of two shapes and BOTH have to start green:
+ *  - the initial sealing, from the four rotating 25 % buckets
+ *    (`worstBucket` + `observedOffenders: number[]`);
+ *  - a later `npm run seo:families:tighten`, which replaces `measurement` with
+ *    the single post-deploy run it was measured on (`filesScanned` +
+ *    `observedOffenders: number`). Before #7317 no family had ever been
+ *    tightened, so this file read only the first shape and threw
+ *    `observedOffenders is not iterable` on the first real tighten.
+ */
+function sealedDraws(name: string, e: FamilyEntry): { offenders: number; filesScanned: number }[] {
+  const m = e.measurement;
+  expect(m, `${name} is a ratchet with no measurement behind its ceiling`).toBeTruthy();
+  if (m!.worstBucket) {
+    const w = m!.worstBucket;
+    const observed = m!.observedOffenders;
+    const draws = Array.isArray(observed) ? observed : [w.offenders];
+    return draws.map((offenders) => ({ offenders, filesScanned: w.filesScanned }));
+  }
+  const offenders = m!.observedOffenders;
+  expect(typeof offenders === 'number', `${name} was tightened without an offender count`).toBe(true);
+  expect(typeof m!.filesScanned === 'number', `${name} was tightened without a denominator`).toBe(true);
+  return [{ offenders: offenders as number, filesScanned: m!.filesScanned! }];
+}
+
 describe('seo defect ledger — the committed ceilings start green', () => {
   it('replaying each sealed measurement through the ratchet PASSES', () => {
     // Requirement 2 of the ticket: the initial ceiling is the CURRENT
@@ -145,34 +189,34 @@ describe('seo defect ledger — the committed ceilings start green', () => {
     // have gone red with nothing to fix.
     for (const [name, e] of families) {
       if (e.enforcement !== 'ratchet') continue;
-      const w = e.measurement!.worstBucket!;
-      const verdict = evaluateCeiling({
-        family: name,
-        offenders: w.offenders,
-        filesScanned: w.filesScanned,
-        entry: familyEntry(ledger, name),
-      });
-      expect(verdict.ratcheted).toBe(true);
-      expect(verdict.passed, `${name} is red on the very measurement it was sealed from: ${verdict.humanSummary}`).toBe(true);
+      for (const draw of sealedDraws(name, e)) {
+        const verdict = evaluateCeiling({
+          family: name,
+          offenders: draw.offenders,
+          filesScanned: draw.filesScanned,
+          entry: familyEntry(ledger, name),
+        });
+        expect(verdict.ratcheted).toBe(true);
+        expect(verdict.passed, `${name} is red on the very measurement it was sealed from: ${verdict.humanSummary}`).toBe(true);
+      }
     }
   });
 
   it('every observed bucket, not just the worst, passes its ceiling', () => {
     for (const [name, e] of families) {
       if (e.enforcement !== 'ratchet') continue;
-      const w = e.measurement!.worstBucket!;
-      for (const offenders of e.measurement!.observedOffenders!) {
+      for (const draw of sealedDraws(name, e)) {
         const verdict = evaluateCeiling({
           family: name,
-          offenders,
+          offenders: draw.offenders,
           // Bucket denominators differ by <0.1 % across the four runs; using the
           // worst bucket's is close enough to prove none of them flaps, and
           // errs strict (the largest denominator is not the friendliest one for
           // the smallest counts).
-          filesScanned: w.filesScanned,
+          filesScanned: draw.filesScanned,
           entry: familyEntry(ledger, name),
         });
-        expect(verdict.passed, `${name} flaps on a real bucket draw of ${offenders}: ${verdict.humanSummary}`).toBe(true);
+        expect(verdict.passed, `${name} flaps on a real bucket draw of ${draw.offenders}: ${verdict.humanSummary}`).toBe(true);
       }
     }
   });
@@ -274,6 +318,28 @@ describe('tightenLedger — the one-way valve', () => {
     });
     expect(next.families['duplicate-meta-description'].raised).toBe(true);
     expect(next.families['duplicate-meta-description'].previousCeilingRatePct).toBe(4.9043);
+  });
+
+  it('carries the previous measurement note forward — a tighten is not a silent doc deletion', () => {
+    // Regression for #7317: `measurement` is replaced wholesale by the new run's
+    // provenance, so the prose explaining WHY a ceiling has its shape (noise
+    // floor, which templates the offenders are) used to vanish on every tighten.
+    const before = ledger.families['link-anchor-text-non-descriptive'].measurement?.note;
+    expect(before).toBeTruthy();
+    const next = tightenLedger({
+      ledger, family: 'link-anchor-text-non-descriptive', ratePct: 0.0001, provenance: prov,
+    });
+    expect(next.families['link-anchor-text-non-descriptive'].measurement.note).toBe(before);
+  });
+
+  it('an explicit note replaces the carried one', () => {
+    const next = tightenLedger({
+      ledger,
+      family: 'link-anchor-text-non-descriptive',
+      ratePct: 0.0001,
+      provenance: { ...prov, note: 'measured again on run 2' },
+    });
+    expect(next.families['link-anchor-text-non-descriptive'].measurement.note).toBe('measured again on run 2');
   });
 
   it('refuses a ceiling with no provenance — no number without the run behind it', () => {

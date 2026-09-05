@@ -15,12 +15,14 @@
  */
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractEpflDetailDescription } from '../scripts/lib/epfl-job-parser.mjs';
 import { extractEthZurichDetailDescription } from '../scripts/lib/eth-zurich-job-parser.mjs';
 import { normalizeDescriptionBullets } from '../scripts/lib/crawler-template.mjs';
 import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
+import { stableStringify } from '../scripts/lib/stable-stringify.mjs';
 import {
   applySourceDetailResults,
   fetchFailureCause,
@@ -185,6 +187,79 @@ describe('parser-quality regression — source-detail artifact replay', () => {
       result.evidenceProvenance.repoHeadSha === fixture.provenance.repoHeadSha
       && result.evidenceProvenance.datasetCommitSha === fixture.provenance.datasetLastCommit.sha
     ))).toBe(true);
+  });
+});
+
+describe('parser-quality regression — the artifact carries its own request manifest', () => {
+  // #7352. The receipts were already verifiable one record at a time, and a
+  // tampered observation was already rejected. What the published artifact did
+  // NOT carry was the manifest of what had been requested, so the claim the
+  // bundle actually makes — «these are the N samples asked for, in this order,
+  // none dropped» — could only be checked by whoever still held the request
+  // URLs, i.e. the run itself. Replaying a downloaded artifact stopped at
+  // `missing-evidence`, which is why pinning 1,20 MB of it would have been a
+  // fixture that verified less than it looked like.
+  const provenance = {
+    repoHeadSha: '56dc609d080f0b2fe8faf8f9329beadb2e563567',
+    datasetLastCommit: { sha: 'eefc1b0e4ca67fd7be480cd07ec404be903c0270', committedAt: '2026-09-05T13:13:37Z' },
+  };
+  const versions = { extractor: 'a'.repeat(64), normalizer: 'b'.repeat(64) };
+  const requestedSamples = ['a-group', 'b-group', 'c-group'].map((crawlerKey) => ({
+    crawlerKey, url: `https://evidence.invalid/${crawlerKey}/1`,
+  }));
+  const expected = { provenance, versions, requestedCount: requestedSamples.length, requestedSamples };
+  const build = () => createSourceDetailEvidenceBundle(
+    requestedSamples.map((s, i) => ({ ...s, fetchFailed: true, status: i === 0 ? 403 : 0 })),
+    expected,
+  );
+
+  it('replays end to end with nothing but the artifact', () => {
+    const bundle = build();
+    expect(bundle.requestedSamples).toHaveLength(3);
+    // No raw URL travels with the manifest: it commits to the same digests the
+    // samples do, which is what lets the bundle be published at all.
+    expect(JSON.stringify(bundle.requestedSamples)).not.toContain('evidence.invalid');
+    const fromArtifactAlone = replaySourceDetailEvidenceBundle(bundle, { provenance, versions });
+    expect(fromArtifactAlone).toEqual(replaySourceDetailEvidenceBundle(bundle, expected));
+    expect(fromArtifactAlone).toHaveLength(3);
+  });
+
+  it('a pre-#7352 artifact still replays with the request list, and without it says why', () => {
+    // Re-sealed without the manifest: exactly the shape of every artifact
+    // published before this change.
+    const { requestedSamples: _dropped, bundleSha256: _old, ...legacy } = build();
+    const legacyBundle = {
+      ...legacy,
+      bundleSha256: createHash('sha256').update(stableStringify(legacy)).digest('hex'),
+    };
+    expect(replaySourceDetailEvidenceBundle(legacyBundle as never, expected)).toHaveLength(3);
+    expect(() => replaySourceDetailEvidenceBundle(legacyBundle as never, { provenance, versions }))
+      .toThrow(/requestedSamples are required/);
+  });
+
+  it('rejects a manifest edited to match a doctored sample list', () => {
+    const bundle = build();
+    const tampered = {
+      ...bundle,
+      requestedSamples: bundle.requestedSamples.map((s: { crawlerKey: string }, i: number) => (
+        i === 0 ? { ...s, crawlerKey: 'someone-else' } : s
+      )),
+    };
+    // Two seals have to be forged, not one: the manifest no longer hashes to
+    // `requestSha256`, and the bundle no longer hashes to `bundleSha256`.
+    expect(() => replaySourceDetailEvidenceBundle(tampered, { provenance, versions }))
+      .toThrow(/digest does not match/);
+    expect(() => replaySourceDetailEvidenceBundle(
+      { ...tampered, bundleSha256: undefined } as never, { provenance, versions },
+    )).toThrow();
+  });
+
+  it('rejects a truncated manifest', () => {
+    const bundle = build();
+    expect(() => replaySourceDetailEvidenceBundle(
+      { ...bundle, requestedSamples: bundle.requestedSamples.slice(0, 2) } as never,
+      { provenance, versions },
+    )).toThrow();
   });
 });
 
@@ -372,7 +447,7 @@ describe('parser-quality regression — a fetch failure says why, not just that'
     expect(summary.fetchFailureCauses).toEqual({
       'expired-vacancy': 1,
       'blocked-by-source': 2,
-      transport: 1,
+      'transport-other': 1,
       'source-server-error': 1,
       'rate-limited': 1,
     });
@@ -381,7 +456,72 @@ describe('parser-quality regression — a fetch failure says why, not just that'
   it('names every cause it can be handed', () => {
     expect(fetchFailureCause(410)).toBe('expired-vacancy');
     expect(fetchFailureCause(401)).toBe('blocked-by-source');
-    expect(fetchFailureCause(undefined)).toBe('transport');
+    expect(fetchFailureCause(undefined)).toBe('transport-other');
     expect(fetchFailureCause(418)).toBe('http-418');
+  });
+
+  it('a status-less failure carries the transport kind, not the word «transport»', () => {
+    // #7351: 65 of 120 failures on run 33969036485 landed in one bucket named
+    // after the layer instead of the cause. DNS says the host is gone, TLS says
+    // its certificate is broken, a timeout may well be us — three answers.
+    expect(fetchFailureCause(0, { transportError: 'dns' })).toBe('transport-dns');
+    expect(fetchFailureCause(0, { transportError: 'tls' })).toBe('transport-tls');
+    expect(fetchFailureCause(0, { transportError: 'timeout' })).toBe('transport-timeout');
+    expect(fetchFailureCause(0, { transportError: 'reset' })).toBe('transport-reset');
+    expect(fetchFailureCause(0, { blockedByRobots: true })).toBe('blocked-by-robots');
+    expect(fetchFailureCause(0, { policyBlocked: true })).toBe('blocked-by-policy');
+  });
+});
+
+describe('parser-quality regression — a source that refuses everything is not an unexplained failure', () => {
+  const sample = (crawlerKey: string, n: number, patch: Record<string, unknown>) => ({
+    crawlerKey, url: `https://evidence.invalid/${crawlerKey}/${n}`, fetchFailed: true, ...patch,
+  });
+
+  it('separates what the source explains from what we still owe an answer for', () => {
+    // Shape taken from artifact parser-quality-report-33969036485-1: the source
+    // detail sampler draws 2 details per crawler, so a source that refuses BOTH
+    // is stating a policy, while one refusal out of two on a source that
+    // answered the other is ours.
+    const results = [
+      sample('refuses-everything', 1, { status: 403 }),
+      sample('refuses-everything', 2, { status: 403 }),
+      sample('host-is-gone', 1, { status: 0, transportError: 'dns' }),
+      sample('host-is-gone', 2, { status: 0, transportError: 'tls' }),
+      sample('vacancy-rotated', 1, { status: 404 }),
+      sample('vacancy-rotated', 2, { status: 410 }),
+      sample('flaky', 1, { status: 0, transportError: 'timeout' }),
+      { crawlerKey: 'flaky', url: 'https://evidence.invalid/flaky/2', sourceDetailEvidence: null, fetchFailed: false },
+    ];
+    const report: Record<string, any> = Object.fromEntries(
+      ['refuses-everything', 'host-is-gone', 'vacancy-rotated', 'flaky'].map((k) => [k, { total: 2, issues: [] }]),
+    );
+    const summary = applySourceDetailResults(report, results, results.length);
+
+    expect(summary.fetchFailed).toBe(7);
+    expect(summary.expiredVacancies).toBe(2);
+    // Two sources, four samples: the 403 pair and the unreachable pair. The
+    // mixed dns/tls pair still counts as ONE source-level finding — a host that
+    // is not there is not two different bugs.
+    expect(summary.sourceLevelFailures.sourceCount).toBe(2);
+    expect(summary.sourceLevelFailures.samples).toBe(4);
+    expect(Object.keys(summary.sourceLevelFailures.sources).sort()).toEqual(['host-is-gone', 'refuses-everything']);
+    // What is left is the single scattered timeout — and it stays unexplained.
+    expect(summary.unexplainedFetchFailures).toBe(1);
+    expect(summary.unexplainedFetchFailureRatePct).toBeCloseTo(12.5, 4);
+  });
+
+  it('refuses to call a single loss a source policy', () => {
+    // The reclassification must not become a way to make the number go away:
+    // one failure on a source that answered its other sample is a per-vacancy
+    // failure, and no amount of it turns into «the source declined».
+    const results = [
+      sample('half-broken', 1, { status: 403 }),
+      { crawlerKey: 'half-broken', url: 'https://evidence.invalid/half-broken/2', fetchFailed: false },
+    ];
+    const report: Record<string, any> = { 'half-broken': { total: 2, issues: [] } };
+    const summary = applySourceDetailResults(report, results, results.length);
+    expect(summary.sourceLevelFailures.sourceCount).toBe(0);
+    expect(summary.unexplainedFetchFailures).toBe(1);
   });
 });
