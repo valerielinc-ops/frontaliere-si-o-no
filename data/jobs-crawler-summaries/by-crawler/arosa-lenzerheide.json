@@ -1,18 +1,19 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-09-05T12:38:33.637Z",
-  "total": 3,
+  "generatedAt": "2026-09-05T22:45:45.996Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
+  "written": 2,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5450,
-  "avgDurationMs": 5450,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5226,
+  "avgDurationMs": 5226,
   "durationHistory": [
-    5450
+    5226
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +30,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:38:30.298Z",
+      "crawledAt": "2026-09-05T22:45:40.838Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -67,7 +68,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:38:29.621Z",
+      "crawledAt": "2026-09-05T22:45:40.224Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -93,8 +94,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "arosa-lenzerheide-cca09befafd3",
       "slug": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
@@ -137,5 +137,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
