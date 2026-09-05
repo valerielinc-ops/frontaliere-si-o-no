@@ -341,7 +341,18 @@ export function orderMopupJobsByTraffic(jobs, popularity, cap) {
  * @param {{ now?: number }} [opts]
  */
 export function createFreshCoverageMeter({ now = Date.now() } = {}) {
-  const counts = { scanned: 0, fresh: 0, pending: 0, covered: 0, suppressed: 0 };
+  const counts = {
+    scanned: 0, fresh: 0, pending: 0, covered: 0,
+    // I due motivi per cui un job fresco PENDING resta fuori dai candidates.
+    // Separati perche' dicono cose opposte su cosa farci: il primo e' una
+    // sorgente rotta a monte (nessuna corsia di traduzione puo' ripararla), il
+    // secondo e' un flag che nessuno ha riconciliato. Un solo numero
+    // aggregato li confonderebbe e la copertura parziale resterebbe
+    // inspiegata — misurato sulla coda del 2026-09-05: 195/260, 23 + 42.
+    sourceIncomplete: 0,
+    flagOnly: 0,
+    suppressed: 0,
+  };
   return {
     /**
      * @param {object} job
@@ -357,7 +368,11 @@ export function createFreshCoverageMeter({ now = Date.now() } = {}) {
       if (!inScope) return;
       counts.pending++;
       const slotCount = observed.slotCount ?? missingSlots(job).length;
-      if (slotCount > 0) counts.covered++;
+      if (slotCount > 0) { counts.covered++; return; }
+      // `isIncomplete()` costa, ma qui gira solo sui freschi gia' pending e
+      // gia' senza slot — decine di job, non il corpus.
+      if (isIncomplete(job)) counts.sourceIncomplete++;
+      else counts.flagOnly++;
     },
     stats() {
       return { ...counts };

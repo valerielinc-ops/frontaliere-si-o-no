@@ -626,7 +626,8 @@ export function assertTrafficPriorityUsable(stats, { allowEmpty = false } = {}) 
  * measure it prints nothing extra, exactly as before.
  *
  * @param {object} stats
- * @param {{ freshCoverage?: { fresh: number, pending: number, covered: number, suppressed: number } }} [opts]
+ * @param {{ freshCoverage?: { fresh: number, pending: number, covered: number,
+ *   sourceIncomplete?: number, flagOnly?: number, suppressed: number } }} [opts]
  * @returns {string[]}
  */
 export function formatPriorityReport(stats, { freshCoverage = null } = {}) {
@@ -670,10 +671,15 @@ export function formatPriorityReport(stats, { freshCoverage = null } = {}) {
     );
     const uncovered = Math.max(0, c.pending - c.covered);
     if (uncovered > 0 || c.suppressed > 0) {
+      // I motivi separati: dicono cose diverse su cosa farci. Un job incompleto
+      // ALLA SORGENTE non ha niente da cui tradurre (difetto del crawler, non
+      // della corsia); un job solo flaggato e' debito di riconciliazione del
+      // flag. Aggregarli renderebbe la copertura parziale un numero senza causa.
       lines.push(
-        `     not reached: ${uncovered} need work but expose no translatable slot`
-        + ` · ${c.suppressed} suppressed (localeMismatchSuppressed).`
-        + ' Both stay pending for the flag reconcile / the paid cascade — this lane has nothing to write for them.',
+        `     not reached: ${uncovered} with no slot this lane can fill`
+        + ` — ${c.sourceIncomplete ?? 0} incomplete at the SOURCE (nothing to translate FROM: check the crawler that wrote them)`
+        + ` · ${c.flagOnly ?? 0} flagged only (needsRetranslation set, no missing slot: flag-reconcile debt)`
+        + ` · ${c.suppressed} suppressed (localeMismatchSuppressed).`,
       );
     }
   }
