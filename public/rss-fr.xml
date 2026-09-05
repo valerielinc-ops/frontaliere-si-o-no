@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 05 Sep 2026 06:40:15 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 08:53:56 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,62 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Bulletin du frontalier – 5 septembre 2026 : 40 minutes d&apos;attente à Ponte Tresa</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-09-05/</link>
+      <description><![CDATA[Les chiffres du jour, 5 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.]]></description>
+      <content:encoded><![CDATA[Bonjour — nous sommes samedi 5 septembre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre chiffres mesurés aujourd'hui par notre suivi — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
+
+## Attentes aux douanes ce matin
+
+Le dernier relevé (141 passages surveillés) place l'attente la plus longue à **Ponte Tresa : 40 minutes**. 112 passages ne signalent aucune file.
+
+| Douane | Attente | État |
+|---|---|---|
+| Ponte Tresa | 40 min | file |
+| Chiasso Centro (Ponte Chiasso) | 8 min | ralenti |
+| Chiasso-Strada | 8 min | ralenti |
+| Basel – Weil am Rhein, Autostrada A2/A5 | 5 min | ralenti |
+| Porto Ceresio-Brusino | 5 min | ralenti |
+
+Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
+## Essence : où elle coûte le moins cher aujourd’hui
+
+Sur 518 communes frontalières suivies, faire le plein revient aujourd'hui moins cher en Suisse dans 90 cas et en Italie dans 47.
+
+| Commune (IT) | Sans plomb, prix minimum |
+|---|---|
+| Livigno (SO) | 1,538 €/L |
+| Veduggio con Colzano (MB) | 1,849 €/L |
+| Arcisate (VA) | 1,854 €/L |
+| Aprica (SO) | 1,919 €/L |
+| Cosio Valtellino (SO) | 1,949 €/L |
+
+📊 **Le bon côté pour un plein.** À **Livigno** (SO), l'écart vaut aujourd'hui **26,25 € sur un plein de 50 litres** (1,538 €/L en Italie contre 2,063 €/L à la station suisse la plus proche).
+
+La station suisse la moins chère aujourd'hui est **SOCAR Samnaun** (1,38 CHF/L, ≈ 1,467 €/L), près de Curon Venosta (BZ).
+
+Les prix commune par commune, mis à jour chaque jour : [prix de l'essence à la frontière, aujourd'hui](/fr/prix-essence-suisse/aujourd-hui/).
+## Taux de change franc–euro
+
+Un franc vaut **1,0631 €** (clôture du 2026-09-04). Par rapport à la veille il gagne +0,0009 € ; sur sept jours, la variation est de -0,0031 €.
+
+💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
+## Emploi : les chiffres d’hier
+
+Hier, **1 091 nouvelles offres d'emploi** en Suisse sont arrivées sur notre job board ; 9 551 sur les sept derniers jours. Au total, **25 605** annonces sont actives, de 843 entreprises.
+
+Filtrez par canton, secteur et ville : [trouver un emploi au Tessin et en Suisse](/fr/trouver-emploi-tessin/).
+
+## Comment naît ce bulletin
+
+Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin sort tôt chaque matin, avant les trajets pendulaires ; les chiffres sont un instantané au moment de la publication, les pages liées restent en direct toute la journée.]]></content:encoded>
+      <pubDate>Sat, 05 Sep 2026 08:53:56 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-09-05</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-05.webp" medium="image"/>
+    </item>
     <item>
       <title>Coordination AVS-INPS 2026 : famille avec enfants</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/coordination-avs-inps-2026/</link>
@@ -3792,87 +3848,6 @@ Prêt à commencer ? Contactez une banque suisse qui sert les frontaliers, rasse
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/terzo-pilastro-frontaliere-deducibilita</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/terzo-pilastro-frontaliere-deducibilita.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Offres d&apos;emploi et de stage dans la province de Varèse - 2 SEPTEMBRE 2026</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/offres-demploi-et-de-stages-varese-2026/</link>
-      <description><![CDATA[Découvrez les nouvelles opportunités d'emploi et de stage proposées par les Centres pour l’Emploi de la Province de Varèse.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Offres d’emploi et de stages proposées par les Centres pour l’Emploi de la Province de Varèse
-- Les offres sont datées du 2 SEPTEMBRE 2026
-- Information sur la transparence salariale
-
-## Faits clés
-- **Quoi**: Offres d’emploi et de stages
-- Quand: 2 SEPTEMBRE 2026
-- Où: Province de Varèse
-- Qui: Centres pour l’Emploi de la Province de Varèse
-- Montant: Salaire horaire brut: 5,99 euros
-
-Le Centre pour l’Emploi de Busto Arsizio a publié de nouvelles offres d’emploi et de stages pour la province de Varèse. Les offres sont datées du 2 SEPTEMBRE 2026 et incluent des postes dans divers secteurs. Si vous êtes intéressé par l’une des expériences mentionnées, envoyez immédiatement votre CV au Centre pour l’Emploi de référence comme indiqué dans chaque annonce.
-
-### Information sur la Transparence Salariale
-Les annonces dépourvues d’information sur la transparence salariale concernent des recherches de personnel ouvertes avant l’entrée en vigueur du D.lgs. 96/2026 et/ou avant l’adaptation de la documentation à la nouvelle prévision normative. Il est précisé en outre que le Secteur Travail a procédé à l’adaptation à la norme et que toutes les nouvelles annonces d’emploi gérées par le Service de Présélection des Centres pour l’Emploi de la Province de Varèse contiennent déjà l’indication sur la transparence salariale.
-
-### Offres d’Emploi et de Stages
-Salon de coiffure situé à Castellanza (VA) recherche n. 1 APPRENTI COIFFEUR/COIFFEUSE. La ressource, accompagnée par la gérante, soutiendra le salon dans les activités ordinaires, acquérant progressivement de l’autonomie dans les techniques de coloration des cheveux, domaine dans lequel le salon est spécialisé. Exigences: diplôme professionnel (technicien de la coiffure) et qualification professionnelle préférables, connaissance de base de la langue anglaise (compréhension orale) et bonne utilisation de l’ordinateur et des principaux logiciels informatiques. Offre: contrat d’apprentissage à temps partiel (25 heures par semaine) avec horaires 9.30-12.00; 14.30-17.00 (possibilité de convenir d’une autre organisation). Salaire horaire brut: 5,99 euros. (RIF: 14785 CR) S’adresser à CPI BUSTO ARSIZIO mail: Presel.Cpibusto@provincia.va.it
-
-BUSTO ARSIZIO: PRÉPARATEUR/TRICE DE PLATS
-Le centre pour l’emploi de Busto Arsizio pour une entreprise opérant dans la restauration recherche UNE/UN PRÉPARATEUR/TRICE DE PLATS. La ressource se chargera de préparer les plats et de ranger l’aire où ils sont préparés. Diplôme hôtelier préférable. Offre: contrat d’apprentissage de 36 mois avec horaires à temps plein de 10.30 à 15 et de 18 à 22 du lundi au dimanche avec un jour de repos. RAL 21.500 euros. Rif.14780AV S’adresser à CPI BUSTO ARSIZIO mail: Presel.Cpibusto@provincia.va.it
-
-GORLA MINORE: ÉDUCATEURS/TRICES SCOLAIRES
-Coopérative Sociale de Padoue recherche n. 5 ÉDUCATEURS/TRICES SCOLAIRES. Les ressources travailleront sur des services d’assistance scolaire et des services intégratifs dans des écoles des communes de la Vallée Olona. Exigences requises: Licence en Sciences de l’éducation L19 ou acquisition de 60 crédits de formation ou diplôme magistral obtenu avant l’année 2001/2002; expérience dans le poste préférable; permis B automunis. Offre: contrat à durée déterminée, horaires à temps partiel de 15 à 30 heures par semaine. Salaire initial de 9.500 à 18.500 euros bruts annuels, selon le nombre d’heures. (Rif. 14767 GD) S’adresser à CPI BUSTO ARSIZIO mail: Presel.Cpibusto@provincia.va.it
-
-Société de métallurgie située à Busto Arsizio (VA) recherche n. 1 DESSINATEUR MÉCANIQUE. La ressource se chargera de la réalisation et de la mise à jour de modèles 3D et de dessins techniques à l’aide du logiciel CAD IronCAD, de la production de plans constructifs complets de cotes, tolérances et nomenclatures, du contrôle et de l’optimisation de la documentation technique, ainsi que du soutien à l’atelier technique, à la production et aux fournisseurs pour la réalisation correcte des projets. Exigences indispensables: expérience antérieure dans le poste, diplôme de l’enseignement secondaire, excellente connaissance du dessin mécanique, utilisation experte de l’ordinateur et des logiciels CAD, bonne connaissance de la langue anglaise, précision, capacité à travailler en équipe, possession du permis B, de préférence automunis. Offre: contrat de travail subordonné à durée déterminée avec objectif d’embauche, avec horaires à temps plein. RAL indicative: de 21.000 à 25.000 euros. La recherche est ouverte aux deux sexes. (RIF: 14755 CR) S’adresser à CPI BUSTO ARSIZIO mail: Presel.Cpibusto@provincia.va.it
-
-Société de métallurgie située à Busto Arsizio (VA) recherche n. 1 OPÉRATEUR CNC. La ressource se chargera de la production de pièces mécaniques de haute précision en utilisant des machines-outils à commande numérique, en effectuant des activités de montage et de préparation de la machine, de gestion et de modification des programmes C [...]
-## Implications pour les Frontaliers
-Les offres d'emploi et de stage publiées par les Centres pour l'Emploi de la Province de Varese représentent une opportunité significative pour les frontaliers qui souhaitent travailler en Italie. Ces positions peuvent offrir une alternative intéressante pour ceux qui recherchent de nouvelles expériences professionnelles ou une stabilité économique.
-
-### Procédure de Candidature
-Pour postuler à l'une des positions offertes, il est nécessaire d'envoyer son Curriculum au Centre pour l'Emploi de référence. Il est important de suivre les indications fournies dans chaque annonce pour s'assurer que la candidature soit considérée. La transparence salariale est un aspect crucial à considérer, surtout pour les positions ouvertes avant l'entrée en vigueur du D.lgs. 96/2026.
-
-### Comparaison entre les Offres
-Les offres d'emploi et de stage varient considérablement en termes de exigences, d'horaires et de rémunération. Par exemple, l'APPRENDISTA PARRUCCHIERE/A à Castellanza offre un contrat à temps partiel avec une rémunération horaire brute de 5,99 euros, tandis que l'ADDETTO/A PREPARAZIONE CIBI à Busto Arsizio offre un contrat d'apprentissage de 36 mois avec une RAL de 21.500 euros. Il est fondamental d'évaluer attentivement ses compétences et ses préférences avant de postuler.
-
-### Scénarios Possibles
-Pour un frontalier qui vit en Ticino et travaille en Italie, ces offres peuvent représenter une opportunité pour améliorer ses compétences professionnelles et augmenter sa rémunération. Cependant, il est important de considérer également les aspects fiscaux et prévidentiels, comme l'impôt à la source et les contributions AVS/LPP/LAMal, qui peuvent influencer le revenu net.
-
-### Outils Utiles
-Pour les frontaliers intéressés par ces offres, il est utile de consulter le calculateur fiscal disponible sur le site de Frontaliere Ticino. Cet outil permet d'estimer son revenu net en tenant compte des impôts et des contributions prévidentielles. De plus, il est possible d'utiliser le comparateur de change CHF/EUR pour évaluer l'impact du change de devise sur sa rémunération.
-
-### Conclusion
-Les offres d'emploi et de stage publiées par les Centres pour l'Emploi de la Province de Varese représentent une opportunité intéressante pour les frontaliers. Il est important d'évaluer attentivement ses compétences et ses préférences avant de postuler et de considérer les aspects fiscaux et prévidentiels. Pour plus d'informations, il est possible de consulter le site de Frontaliere Ticino et d'utiliser les outils disponibles pour estimer son revenu net et évaluer l'impact du change de devise.
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
-## Actions à entreprendre
-Pour les frontaliers intéressés par ces offres d’emploi et de stages, il est important de suivre une procédure claire et bien définie. Voici quelques étapes à suivre :
-
-### Étape par étape
-1. **Identifier l’offre** : Lire attentivement les offres publiées par les Centres pour l’Emploi de la Province de Varèse et identifier celle qui correspond le mieux à vos compétences et préférences.
-2. Préparer le CV : Mettre à jour votre Curriculum Vitae et vous assurer qu’il contient toutes les informations pertinentes pour le poste souhaité.
-3. Envoyer la candidature : Envoyer votre CV au Centre pour l’Emploi de référence en suivant les indications fournies dans chaque annonce.
-4. Évaluer la rémunération : Utiliser le calculateur fiscal disponible sur le site de Frontaliere Ticino pour estimer votre revenu net en tenant compte des impôts et des cotisations de sécurité sociale.
-5. Considérer les aspects fiscaux : Évaluer l’impact du taux de change sur votre rémunération en utilisant le comparateur de taux CHF/EUR.
-
-### Délais et procédure
-Il est important de respecter les délais indiqués dans chaque annonce et de suivre attentivement les indications fournies pour la candidature. La transparence salariale est un aspect crucial à considérer, surtout pour les postes ouverts avant l’entrée en vigueur du D.lgs. 96/2026.
-
-### Outils utiles
-Pour les frontaliers intéressés par ces offres, il est utile de consulter le calculateur fiscal disponible sur le site de Frontaliere Ticino. Cet outil permet d’estimer votre revenu net en tenant compte des impôts et des cotisations de sécurité sociale. De plus, il est possible d’utiliser le comparateur de taux CHF/EUR pour évaluer l’impact du taux de change sur votre rémunération.
-
-### Conclusion
-Les offres d’emploi et de stages publiées par les Centres pour l’Emploi de la Province de Varèse représentent une opportunité intéressante pour les frontaliers. Il est important d’évaluer attentivement vos compétences et préférences avant de postuler et de considérer les aspects fiscaux et de sécurité sociale. Pour plus d’informations, vous pouvez consulter le site de Frontaliere Ticino et utiliser les outils disponibles pour estimer votre revenu net et évaluer l’impact du taux de change.
-
-[calculateur fiscal](nav:calculator)
-
-*Source: [varesenews.it](https://www.varesenews.it/2026/09/tutte-le-offerte-lavoro-tirocinio-dei-centri-limpiego-della-provincia-varese/1347077/)*]]></content:encoded>
-      <pubDate>Thu, 03 Sep 2026 12:54:26 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/offerte-lavoro-tirocinio-varese-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/offerte-lavoro-tirocinio-varese-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

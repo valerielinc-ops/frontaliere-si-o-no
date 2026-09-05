@@ -11376,6 +11376,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coordinamento-avs-inps-2026.title': 'Coordinamento AVS-INPS 2026: famiglia con figli',
     'blog.article.coordinamento-avs-inps-2026.excerpt': 'Totalizzazione contributi AVS-INPS per frontalieri con figli: come coordinare la pensione tra Svizzera e Italia entro il 2026.',
     'blog.article.coordinamento-avs-inps-2026.imageAlt': 'Documento di coordinamento AVS-INPS per frontalieri con vista sul Ticino',
+    'blog.article.bollettino-frontaliere-2026-09-05.title': 'Bollettino del frontaliere – 5 settembre 2026: a Ponte Tresa 40 minuti di coda',
+    'blog.article.bollettino-frontaliere-2026-09-05.excerpt': 'I numeri di oggi, 5 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-05.imageAlt': 'I numeri del giorno per i frontalieri – 5 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-05.seoDescription': 'Bollettino frontalieri del 5 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-05.ogDescription': 'I numeri del 5 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
