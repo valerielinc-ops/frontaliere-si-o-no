@@ -16615,6 +16615,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'intervento-polizia-goldach-scuola',
+    category: 'novita',
+    date: '2026-09-05T10:47:04.550Z',
+    image: '/images/blog/intervento-polizia-goldach-scuola.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

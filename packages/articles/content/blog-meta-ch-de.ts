@@ -5539,6 +5539,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-treno-oggetti-binari.title': '«Trunkenbolde» stapeln Gegenstände auf den Gleisen und der Zug kommt',
     'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Jugendliche stapeln Gegenstände auf den Gleisen, Entgleisung eines Interregio mit 110 km/h, Schäden für 141.369 Franken.',
     'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Zug entgleist aufgrund von Gegenständen auf den Gleisen in der Schweiz',
+    'blog.article.intervento-polizia-goldach-scuola.title': 'Polizeieinsatz in Goldach: kein Schuss',
+    'blog.article.intervento-polizia-goldach-scuola.excerpt': 'Der Polizeieinsatz in Goldach an einer Hochschule ist beendet: 300 Personen wurden wegen pyrotechnischer Geräusche evakuiert und für Schüsse gehalten.',
+    'blog.article.intervento-polizia-goldach-scuola.imageAlt': 'Schweizer Polizeiauto vor einem Schulgebäude bei Nacht',
 };
 
 export default blogMetaChDe;
