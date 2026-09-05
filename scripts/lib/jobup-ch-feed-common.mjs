@@ -39,6 +39,7 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
+import { createSourceRecordQuarantine } from './source-record-quarantine.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
@@ -491,6 +492,11 @@ export function createJobupChFeedParser(config) {
     const jobs = [];
     const seenLinks = new Set();
     let detailHits = 0;
+    // A feed row whose `lieu` the source itself places outside the configured
+    // Swiss target is an exclusion of THAT row: quarantine it and keep the rest
+    // (#7459). The detail gate below stays atomic — it means the run never
+    // observed the vacancy, see `source-record-quarantine.mjs`.
+    const quarantine = createSourceRecordQuarantine({ label: companyName, total: items.length });
 
     for (const raw of items) {
       const link = normalizeSpace(raw?.link || '');
@@ -528,8 +534,8 @@ export function createJobupChFeedParser(config) {
           });
       const canton = geography?.canton || '';
       if (!location || !canton) {
-        console.log(`     ⚠ source location rejected for ${link}: missing, foreign or unresolved lieu`);
-        return [];
+        quarantine.reject(link, 'source location rejected: missing, foreign or unresolved lieu');
+        continue;
       }
       const postalCode = lieu.postal;
 
@@ -595,7 +601,7 @@ export function createJobupChFeedParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${items.length} with rich detail content)`);
-    return jobs;
+    return quarantine.settle(jobs);
   }
 
   return { fetchAllJobs, isCompanyJob, isTrustedDomain };

@@ -50,6 +50,7 @@ import {
   jsonLdBlocks as readRexxStructuredBlocks,
 } from './prospector/extract.mjs';
 import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { createSourceRecordQuarantine } from './source-record-quarantine.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -441,6 +442,11 @@ export function createRexxSystemsParser(config) {
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
+    // A record the source proves is not at the configured workplace is an
+    // exclusion of THAT record, not of the batch: quarantine it and keep the
+    // rest (#7459). The gates below that mean "the run never observed this
+    // record" stay atomic — see `source-record-quarantine.mjs`.
+    const quarantine = createSourceRecordQuarantine({ label: companyName, total: entries.length });
 
     for (const entry of entries) {
       let detailDescription = '';
@@ -469,8 +475,8 @@ export function createRexxSystemsParser(config) {
       const sourceLang = detectLang(description || title, defaultSourceLang);
       const resolvedWorkplace = resolveRexxWorkplace(detail);
       if (!resolvedWorkplace) {
-        console.log(`     ⚠ detail location rejected for j${entry.id}: source contradicts configured headquarters`);
-        return [];
+        quarantine.reject(`j${entry.id}`, 'detail location rejected: source contradicts configured headquarters');
+        continue;
       }
       const jobSlug = slugify(`${title} ${companyKey} ${defaultCity}`);
       const urlHash = createHash('sha1').update(entry.detailUrl).digest('hex').slice(0, 12);
@@ -529,7 +535,7 @@ export function createRexxSystemsParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content)`);
-    return jobs;
+    return quarantine.settle(jobs);
   }
 
   return { fetchAllJobs, isCompanyJob, isTrustedDomain };
