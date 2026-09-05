@@ -19,157 +19,28 @@ const FORBIDDEN = [
 // hardcode is correct legacy preservation. New canton-aware code should
 // import resolveCantonSection() from build-plugins/shared/cantonSection.
 const ALLOWLIST = [
-  // ── Canton-section typed shim: the TI legacy section table now lives in
-  //    shared/cantonResolvers.mjs (inline cathedral-allow markers); this file
-  //    only quotes the literals inside the legacyTiSectionRoot() docblock. ──
+  // Issue #7491: le voci pinnate `path:riga` erano ~45 e sono state cancellate
+  // tutte. Dopo il collasso su `SECTION_LEGACY_TI` ogni occorrenza rimasta
+  // dentro SCAN_DIRS porta un marker ` // cathedral-allow: <ragione>` inline, e
+  // le righe pinnate non contenevano piu' il literal: era una lista morta i cui
+  // commenti di riancoraggio storico («Lines shifted +1 …») descrivevano righe
+  // che non esistono piu'. Il meccanismo inline e' l'unico, come il messaggio
+  // d'errore di questo file dichiara da sempre.
+  //
+  // NON reintrodurre voci pinnate per numero di riga: si sfasano al primo
+  // refactor e allora allowlistano la riga sbagliata.
+  // Le uniche voci per FILE che restano: due posti dove il marker inline non e'
+  // materialmente possibile.
+  //
+  // cantonSection.ts: e' lo shim tipizzato della tabella canonica e cita i
+  // quattro literal solo dentro i propri docblock, per spiegare cosa esporta.
   'build-plugins/shared/cantonSection.ts',
-
-  // ── section-shard-slugs.json: single source of truth for the canton
-  //    Pages-shard mechanism's section×locale slug table (ticino/svizzera/
-  //    zurigo). JSON cannot carry an inline ` // cathedral-allow:` comment,
-  //    so this whole-file entry is the only viable mechanism — the literal
-  //    IS the canonical data here, not a hardcode leaking outside the
-  //    architecture (it replaces the old per-script TI-only hardcoding). ──
+  // section-shard-slugs.json: JSON non ammette commenti, quindi un marker
+  // inline non e' esprimibile. Qui il literal E' il dato canonico del
+  // meccanismo di shard per sezione, non un hardcode che scappa.
   'scripts/lib/section-shard-slugs.json',
-
-  // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
-  // Lines shifted +1 by the minifyHtml import added at the top of the file
-  // (May 2026 — apply minifier to soft-landing emit path).
-  // Prior shifts: +1 from shared jobDescription parser import,
-  // +1 from renderJobCardHtml import (2026-05-18), +3 from BFS-depth Explore
-  // navigator + Phase 8(g).
-  // 2026-05-21 +1: PR #473 dropped 2 twitter:* lines above the sectionByLocale
-  // table — the table itself didn't shift (no removal before line 787), but
-  // the jsdoc reference further down moved 795 → 796.
-  'build-plugins/jobsSeoPagesPlugin.ts:787',
-  'build-plugins/jobsSeoPagesPlugin.ts:788',
-  'build-plugins/jobsSeoPagesPlugin.ts:789',
-  'build-plugins/jobsSeoPagesPlugin.ts:790',
-  'build-plugins/jobsSeoPagesPlugin.ts:796',          // jsdoc reference to the legacy slugs
-  // (`:7853` removed 2026-05-18 — the breadcrumb-bugfix comment no longer
-  // quotes "cerca-lavoro-ticino" directly; rephrased to "TI legacy
-  // job-board section name" so the literal-grep stops matching.)
-
-  // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
-  'build-plugins/jobBoardSeo.ts:38',
-  'build-plugins/jobBoardSeo.ts:39',
-  'build-plugins/jobBoardSeo.ts:40',
-  'build-plugins/jobBoardSeo.ts:41',
-
-  // ── Per-plugin SECTION_SLUG fallback tables (TI default for unknown canton) ──
-  // Each plugin keeps its own typed Record<locale, string> for performance /
-  // bundle-isolation; the values mirror cantonSection.SECTION_LEGACY_TI by design.
-  'build-plugins/cityJobsHub.ts:111',
-  'build-plugins/cityJobsHub.ts:112',
-  'build-plugins/cityJobsHub.ts:113',
-  'build-plugins/cityJobsHub.ts:114',
-  // cityJobsAggregate: JOB_BOARD_SECTION fallback table (TI default per locale).
-  // Lines shifted +50 by helper functions added between
-  // buildSnapshotForCity and the JOB_BOARD_SECTION block
-  // (aggregateAllCities + aggregateCityJobs + _resetCityJobsAggregateCache).
-  'build-plugins/cityJobsAggregate.ts:358',
-  'build-plugins/cityJobsAggregate.ts:359',
-  'build-plugins/cityJobsAggregate.ts:360',
-  'build-plugins/cityJobsAggregate.ts:361',
-  // Lines shifted +1 by the cantonSeoProse helper import added at the top
-  // of the file (May 2026 — text-to-html-ratio gate fix).
-  'build-plugins/companyHubBridgePlugin.ts:41',
-  'build-plugins/companyHubBridgePlugin.ts:42',
-  'build-plugins/companyHubBridgePlugin.ts:43',
-  'build-plugins/companyHubBridgePlugin.ts:44',
-  'build-plugins/companyHubBridgePlugin.ts:45',
-  // Lines shifted +1 by the bridgePageProse helper import added at the
-  // top of the file (May 2026 — text-to-html-ratio gate fix).
-  'build-plugins/jobOrphanBridgePlugin.ts:84',
-  'build-plugins/jobOrphanBridgePlugin.ts:85',
-  'build-plugins/jobOrphanBridgePlugin.ts:86',
-  'build-plugins/jobOrphanBridgePlugin.ts:87',
-  'build-plugins/jobOrphanBridgePlugin.ts:88',
-  // (jobRecencyPagesPlugin.ts: migrated to inline `cathedral-allow` markers on
-  // the 4 SECTION_BY_LOCALE entries, 2026-05-21 — drift-proof.)
-  'build-plugins/jobSectorLanding.ts:103',
-  'build-plugins/jobSectorLanding.ts:104',
-  'build-plugins/jobSectorLanding.ts:105',
-  'build-plugins/jobSectorLanding.ts:106',
-  'build-plugins/legacyRedirectsPlugin.ts:281',
-  'build-plugins/legacyRedirectsPlugin.ts:282',
-  'build-plugins/legacyRedirectsPlugin.ts:283',
-  'build-plugins/legacyRedirectsPlugin.ts:284',
-  // Lines shifted +1 by the cantonSeoProse helper import added at the top
-  // of the file (May 2026 — text-to-html-ratio gate fix).
-  'build-plugins/locationHubBridgePlugin.ts:52',
-  'build-plugins/locationHubBridgePlugin.ts:53',
-  'build-plugins/locationHubBridgePlugin.ts:54',
-  'build-plugins/locationHubBridgePlugin.ts:55',
-  'build-plugins/locationHubBridgePlugin.ts:56',
-  'build-plugins/orphanQueryLandingPlugin.ts:436',
-  'build-plugins/orphanQueryLandingPlugin.ts:437',
-  'build-plugins/orphanQueryLandingPlugin.ts:438',
-  'build-plugins/orphanQueryLandingPlugin.ts:439',
-  'build-plugins/searchConsoleCompat.ts:11',
-  'build-plugins/searchConsoleCompat.ts:12',
-  'build-plugins/searchConsoleCompat.ts:13',
-  'build-plugins/searchConsoleCompat.ts:14',
-
-  // (seoHubsPlugin.ts:2057 + :2073 removed 2026-05-18 — both ternary blocks
-  // refactored to use `legacyTiSectionRoot(locale)` from shared/cantonSection.
-  // No more TI literals in this file — when future shifts happen, nothing
-  // breaks because the slug strings live in the helper.)
-
-  // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
-  //    the prose explicitly references "10 most-searched roles in Ticino"). ──
-  'build-plugins/professionLandingsLinksPlugin.ts:207',
-  'build-plugins/professionLandingsLinksPlugin.ts:211',
-  'build-plugins/professionLandingsLinksPlugin.ts:215',
-  'build-plugins/professionLandingsLinksPlugin.ts:219',
-
-  // ── staticPagesPlugin: section→category / section→label maps. These ARE
-  //    keyed by the TI legacy section name; they are data, not links. ──
-  //    2026-05-18 re-anchor: PR #277 (a11y) + #279 (orphan-pillar) added
-  //    ~108 lines above the JobBoard slug map, propagating +108 to every
-  //    TI-section entry inside the same file. Previous historical shifts
-  //    (+197 cathedral, +129 PR#133, +74 homepageCantonNav, +44 cross-section
-  //    hubs, +1 fuel-station-IT) remain folded into the absolute numbers.
-  'build-plugins/staticPagesPlugin.ts:1423',
-  'build-plugins/staticPagesPlugin.ts:1424',
-  'build-plugins/staticPagesPlugin.ts:1425',
-  'build-plugins/staticPagesPlugin.ts:1426',
-  'build-plugins/staticPagesPlugin.ts:1445',
-  'build-plugins/staticPagesPlugin.ts:1446',
-  'build-plugins/staticPagesPlugin.ts:1980',
-  'build-plugins/staticPagesPlugin.ts:2005',
-  'build-plugins/staticPagesPlugin.ts:2030',
-  'build-plugins/staticPagesPlugin.ts:2298',
-  // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
-  'build-plugins/shared/hubChrome.ts:115',
-  'build-plugins/shared/hubChrome.ts:156',
-  'build-plugins/shared/hubChrome.ts:197',
-  'build-plugins/shared/hubChrome.ts:238',
-
-  // ── services/router.ts: TI legacy slug entries in the per-locale ROUTER
-  //    slug table. These are the URLs the SPA recognises as the TI hub. ──
-  'services/router.ts:1048',
-  'services/router.ts:1149',
-  'services/router.ts:1250',
-  'services/router.ts:1351',
-
-  // ── services/relatedSearchClusters.ts: TI default section in resolveSectionSlug. ──
-  'services/relatedSearchClusters.ts:64',
-  'services/relatedSearchClusters.ts:65',
-  'services/relatedSearchClusters.ts:66',
-  'services/relatedSearchClusters.ts:67',
-
-  // ── services/analytics-seo.ts: TI section-name whitelist for analytics. ──
-  'services/analytics-seo.ts:109',
-  'services/analytics-seo.ts:110',
-  'services/analytics-seo.ts:111',
-  'services/analytics-seo.ts:112',
-
-  // ── newsletter-content: TI section name used to build CTA links in TI-themed
-  //    newsletter emails. Newsletter content is TI-targeted. ──
-  'services/newsletter-content.mjs:368',
-
-  'tests/',                                          // tests reference literals for verification
+  // I test citano i literal per verificarli.
+  'tests/',
 ];
 
 // ── Scan surface ────────────────────────────────────────────────────────────
@@ -189,8 +60,10 @@ const SCAN_DIRS = [
   'build-plugins/',
   'components/',
   'functions/src/',
+  'hooks/',
   'infra/',
   'scripts/',
+  'server/',
   'services/',
 ];
 
