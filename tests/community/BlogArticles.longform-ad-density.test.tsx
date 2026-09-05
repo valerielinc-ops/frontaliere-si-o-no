@@ -102,9 +102,18 @@ describe('longform profile (docs/ads-placement-longform.md §3)', () => {
 });
 
 describe('standard profile is unchanged (AGENTS.md #7)', () => {
-  it('still places 8 ads on a non-longform article of the same length', () => {
+  it('places 8 ads on the same body under the standard profile — the pre-fix baseline', () => {
+    // 7 `## ` boundaries + the end-of-segment slot, all clearing the 200-word
+    // gap: the cap is what stops the 8th. This is the "prima = 8" of #7336,
+    // and asserting it here is what makes the 3 above a repositioning of the
+    // longform format only, not a corpus-wide density cut.
+    expect(renderWithProfile(longformBody, STANDARD_ARTICLE_AD_DENSITY)).toBe(8);
+  });
+
+  it('leaves a 6-section article on the standard profile, with its full ad count', () => {
     expect(resolveArticleAdDensity([shortFormBody])).toBe(STANDARD_ARTICLE_AD_DENSITY);
-    expect(renderWithProfile(shortFormBody, STANDARD_ARTICLE_AD_DENSITY)).toBe(8);
+    // 6 `## ` boundaries + end-of-segment, exactly what it emitted before.
+    expect(renderWithProfile(shortFormBody, STANDARD_ARTICLE_AD_DENSITY)).toBe(7);
   });
 
   it('keeps cap 8 and gap 200 as the standard constants', () => {

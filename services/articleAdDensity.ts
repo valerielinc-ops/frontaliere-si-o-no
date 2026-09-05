@@ -52,10 +52,17 @@ export const STANDARD_ARTICLE_AD_DENSITY: ArticleAdDensityProfile = {
  * what spreads them: with the standard 200 the cap alone would spend all three
  * on the first sections and leave the rest of the piece bare, which is the
  * opposite of the wireframe (ad after §1, §3, §5).
+ *
+ * 300, not more, is calibrated on the corpus rather than assumed: the median
+ * longform `it` article is 1634 words over 3 body segments (the word credit
+ * restarts on each segment), so a 500-word gap would starve it down to a mean
+ * of 1.57 ads — BELOW the three the spec asks for, which would make this a
+ * density cut instead of the specified profile. At 300 the mean is 2.75 and
+ * 342 of the 402 longform articles land on exactly 3.
  */
 export const LONGFORM_ARTICLE_AD_DENSITY: ArticleAdDensityProfile = {
   inlineCap: 3,
-  minWordGap: 500,
+  minWordGap: 300,
   longform: true,
 };
 
