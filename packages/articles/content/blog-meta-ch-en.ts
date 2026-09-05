@@ -5554,6 +5554,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-canton-zugo-contratti.title': 'Wages and the labour market in the canton of Zug: sectors and levels',
     'blog.article.salari-canton-zugo-contratti.excerpt': 'Swiss labour market: how wage determination works between collective agreements, cantonal taxation and education levels.',
     'blog.article.salari-canton-zugo-contratti.imageAlt': 'Modern Swiss office with professionals from multiple sectors working at desks, large windows overlooking Alpine landscape',
+    'blog.article.imposta-successione-zugo-aliquote.title': 'Zug inheritance tax: rates and exemptions',
+    'blog.article.imposta-successione-zugo-aliquote.excerpt': 'In the Canton of Zug, inheritance and gift taxes are cantonal matters. Spouse and descendant exemptions, kinship rates: how the declaration works.',
+    'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Cantonal tax office: succession documents and fiscal forms on Swiss administrative desk.',
 };
 
 export default blogMetaChEn;

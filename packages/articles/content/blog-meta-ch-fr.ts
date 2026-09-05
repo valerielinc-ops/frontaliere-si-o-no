@@ -5554,6 +5554,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-canton-zugo-contratti.title': 'Salaires et marché du travail canton de Zoug : secteurs et niveaux',
     'blog.article.salari-canton-zugo-contratti.excerpt': 'Marché du travail suisse : comment fonctionne la détermination des salaires entre conventions collectives, fiscalité cantonale et niveaux de formation.',
     'blog.article.salari-canton-zugo-contratti.imageAlt': 'Bureau moderne suisse avec des professionnels de différents secteurs au travail, grandes fenêtres avec vue sur le paysage alpin',
+    'blog.article.imposta-successione-zugo-aliquote.title': 'Impôt succession Zoug : taux et exonérations',
+    'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Dans le canton de Zoug, les droits de succession et de donation sont cantonaux. Exemptions pour conjoint et descendants, taux par degré de parenté : comment fonctionne la déclaration.',
+    'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Bureau d\'impôts cantonal: documents de succession et formulaires fiscaux sur un bureau suisse.',
 };
 
 export default blogMetaChFr;
