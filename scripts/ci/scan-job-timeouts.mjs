@@ -246,8 +246,16 @@ export function scopedTitle(run) {
 
 function findTimeoutAnnotation(job) {
   if (job.conclusion !== 'cancelled' || !job.check_run_url) return null;
-  const annotations = ghJson(`${job.check_run_url}/annotations`) || [];
-  return annotations.find((a) => TIMEOUT_ANNOTATION_RE.test(a.message || '')) || null;
+  const annotations = ghJson(`${job.check_run_url}/annotations`);
+  // `ghJson` torna `null` su errore gh E su JSON malformato, ma l'endpoint puo' anche
+  // rispondere con un OGGETTO (`{ message: 'Not Found' }`), su cui `.find` non esiste: il
+  // vecchio `|| []` copriva solo il primo caso e sull'altro lo scanner moriva in mezzo
+  // alla passata. Qui una lettura non-array vale come "nessuna prova": il bias e' opposto
+  // a quello di `close-recovered-failure-issues.mjs` (li' il silenzio TIENE la issue
+  // aperta, qui al massimo rimanda l'apertura al cron successivo, 30 minuti dopo) ma la
+  // regola e' la stessa — non dedurre un contenuto da una lettura che non c'e' stata.
+  if (!Array.isArray(annotations)) return null;
+  return annotations.find((a) => TIMEOUT_ANNOTATION_RE.test(a?.message || '')) || null;
 }
 
 /**
