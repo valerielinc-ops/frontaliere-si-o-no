@@ -103,11 +103,16 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(actionSource).toContain('Walk-back cap reached');
   });
 
-  it('#7396 — a 410 during download re-enters the walk-back', () => {
+  it('#7396 — an EXPIRY during download re-enters the walk-back, nothing else does', () => {
     // The resolve and the download are separated by real time. An artifact at
     // the edge of its 8-day retention can die in between.
     expect(actionSource).toMatch(/HTTP 410/);
-    expect(actionSource).toMatch(/410\)\s*—\s*trying older/);
+    expect(actionSource).toMatch(/410\/404\)\s*—\s*trying older/);
+    // …but ONLY an expiry. Walking back on a network blip would have the
+    // scheduled SEO gate audit a previous deploy and publish that verdict as
+    // if it were about the current dist/. The non-expiry branch must exit.
+    const nonExpiry = actionSource.slice(actionSource.indexOf('is NOT an expiry'));
+    expect(nonExpiry).toMatch(/^[\s\S]{0,400}exit 1/);
   });
 
   it('#7397 — the chosen run is logged with its created_at', () => {
@@ -147,8 +152,12 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
       const usesAt = src.indexOf('uses: ./.github/actions/fetch-pages-artifact');
       expect(checkoutAt, `${f}: no checkout step`).toBeGreaterThan(-1);
       expect(checkoutAt, `${f}: checkout must precede the action`).toBeLessThan(usesAt);
-      // A sparse checkout must actually include the action directory.
-      const sparse = /sparse-checkout:\s*\|([\s\S]*?)\n\s{0,10}[a-z-]+:/.exec(src);
+      // A sparse checkout must actually include the action directory — in
+      // BOTH YAML spellings. The block-scalar-only form of this regex skipped
+      // inspect-dist-composition.yml, whose `sparse-checkout: <path>` is the
+      // inline scalar, i.e. it skipped the one checkout this work added and
+      // the only one narrow enough to plausibly lose the action.
+      const sparse = /sparse-checkout:[ \t]*(\|[\s\S]*?\n\s{0,10}[a-z-]+:|[^\n]+)/.exec(src);
       if (sparse && !sparse[1].includes('/*')) {
         expect(sparse[1], `${f}: sparse checkout omits the action`).toContain(
           '.github/actions/fetch-pages-artifact',

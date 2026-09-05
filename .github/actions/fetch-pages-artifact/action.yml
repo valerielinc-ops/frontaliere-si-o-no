@@ -71,8 +71,18 @@ runs:
         PER_PAGE=50
 
         if [ -n "$PINNED" ]; then
-          printf '%s\t%s\t%s\n' "$PINNED" "(pinned)" "(pinned)" > "$CANDS"
-          echo "Operator-pinned deploy run: $PINNED"
+          # The pinned run needs its created_at looked up: this is the branch
+          # where a WRONG run is most likely (an id typed by hand), so it is
+          # the branch that most needs #7397's timestamp in the log. One extra
+          # API call. If the lookup fails the run id is almost certainly not a
+          # run of this repo, and saying so here beats a 404 three steps later.
+          if ! gh api "repos/$GH_REPO/actions/runs/$PINNED" \
+                 --jq '[(.id|tostring), .created_at, (.head_sha[0:8])] | @tsv' \
+               > "$CANDS"; then
+            echo "::error::Run $PINNED does not exist in $GH_REPO (or the token cannot read it)."
+            exit 1
+          fi
+          echo "Operator-pinned deploy run: $(cat "$CANDS")"
         else
           page=1
           while [ "$page" -le "$MAX_PAGES" ]; do
@@ -138,19 +148,25 @@ runs:
             "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
             > "$WORK/pages.zip" 2> "$WORK/dl.err" || dlrc=$?
           if [ "$dlrc" -ne 0 ]; then
+            rm -f "$WORK/pages.zip"
             # #7396: an artifact can expire BETWEEN the resolve above and this
             # download (real time passes: other steps, other candidates). The
-            # zip then answers 410. That is a walk-back condition, not a job
-            # failure — so is any other broken download, since a candidate we
-            # cannot read is a candidate we cannot audit.
-            if grep -qi 'HTTP 410' "$WORK/dl.err"; then
-              echo "  run $cand ($created): artifact $ARTIFACT_ID expired between resolve and download (HTTP 410) — trying older"
-            else
-              echo "  run $cand ($created): download of artifact $ARTIFACT_ID failed (exit $dlrc) — trying older"
-              sed 's/^/      /' "$WORK/dl.err" || true
+            # zip then answers 410, and THAT is a walk-back condition: the
+            # candidate is provably gone and an older one is the best available
+            # truth.
+            if grep -qi 'HTTP 410\|HTTP 404' "$WORK/dl.err"; then
+              echo "  run $cand ($created): artifact $ARTIFACT_ID expired between resolve and download (HTTP 410/404) — trying older"
+              continue
             fi
-            rm -f "$WORK/pages.zip"
-            continue
+            # Any OTHER download failure is fatal, deliberately. Walking back on
+            # a network blip would make the scheduled SEO gate audit a PREVIOUS
+            # deploy and publish that verdict as if it were about the current
+            # dist/, with a single log line inside a multi-hour job as the only
+            # trace. A red that says "download failed" is cheap; a green about
+            # the wrong dist is not.
+            echo "::error::Download of github-pages artifact $ARTIFACT_ID (run $cand, $created) failed with exit $dlrc and it is NOT an expiry (no HTTP 410/404). Not walking back: auditing an older deploy would silently answer a different question. Re-run the job."
+            sed 's/^/  /' "$WORK/dl.err" || true
+            exit 1
           fi
 
           # The extraction IS the integrity check. A separate `unzip -t` would
