@@ -811,6 +811,19 @@ async function reportGA4(token) {
     log('⚠️', `GA4 engagement per-giorno: ${e.message} — sanity-check #6703 non applicato`);
   }
 
+  // #7508: `engagementReliable` era assegnato in un punto solo, sul percorso
+  // felice del riepilogo. Sui rami d'errore (403, non-ok, throw) il campo
+  // restava `undefined`, e i guard a valle lo testano con `!== false`: un
+  // verdetto mai calcolato passava per «affidabile» e le raccomandazioni da
+  // bounce/durata tornavano a essere emesse proprio quando la rilevazione era
+  // rotta — il caso #6703 che il guard esiste per neutralizzare. «Non
+  // calcolato» e' un verdetto negativo, non un'assenza: lo si scrive.
+  const markEngagementNotComputed = (cause) => {
+    if (!result.summary) result.summary = {};
+    result.summary.engagementReliable = false;
+    result.summary.engagementUnreliableReason = `verdetto non calcolato: ${cause}`;
+  };
+
   // ── 3a. Overall metrics ─────────────────
   try {
     const res = await fetchRetry(
@@ -838,9 +851,11 @@ async function reportGA4(token) {
       if (res.status === 403) {
         log('⚠️', 'GA4 API: permessi insufficienti — aggiungi scope analytics.readonly');
         log('💡', 'Rigenera token: node scripts/setup-google-oauth.mjs <CLIENT_ID> <CLIENT_SECRET>');
+        markEngagementNotComputed(`HTTP ${res.status} — permessi GA4 insufficienti`);
         return null;
       }
       log('⚠️', `GA4 summary: ${res.status} — ${text.slice(0, 200)}`);
+      markEngagementNotComputed(`HTTP ${res.status}`);
       return null;
     }
 
@@ -889,7 +904,10 @@ async function reportGA4(token) {
         log('💡', 'Non leggere engagedSessions/bounce rate qui sopra come un segnale del sito: rimisura fra 24-48h.');
       }
     }
-  } catch (e) { log('⚠️', `GA4 summary: ${e.message}`); }
+  } catch (e) {
+    log('⚠️', `GA4 summary: ${e.message}`);
+    markEngagementNotComputed(e.message);
+  }
 
   // ── 3b. Top pages + top articles + keyword intent ─────────
   try {
@@ -4413,8 +4431,12 @@ async function main() {
           }
 
           // GA4 deltas
-          const curGa4 = report.ga4?.summary || report.ga4?.overview;
-          const prevGa4 = prevReport.ga4?.summary || prevReport.ga4?.overview;
+          // #7508: sui rami d'errore il riepilogo GA4 esiste ma porta solo il
+          // verdetto «non calcolato», senza metriche — non e' una base da cui
+          // ricavare delta (darebbe `NaN` invece di nessun delta).
+          const withGa4Metrics = (s) => (Number.isFinite(s?.sessions) ? s : null);
+          const curGa4 = withGa4Metrics(report.ga4?.summary) || report.ga4?.overview;
+          const prevGa4 = withGa4Metrics(prevReport.ga4?.summary) || prevReport.ga4?.overview;
           if (curGa4 && prevGa4) {
             const cur = curGa4;
             const prev = prevGa4;

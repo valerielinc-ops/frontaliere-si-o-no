@@ -210,3 +210,44 @@ describe("le raccomandazioni da bounce/durata sono gatate sul verdetto d'affidab
     expect(src).toContain('rivedere contenuto e CTA');
   });
 });
+
+// #7508: i tre guard qui sopra testano `!== false`, quindi un ramo d'uscita che
+// lascia `engagementReliable` a `undefined` li fa fail-open — la raccomandazione
+// «Bounce rate alto» torna proprio quando la rilevazione e' rotta. Il contratto
+// inverso, pinnato qui: OGNI uscita d'errore del blocco riepilogo scrive il
+// verdetto. Una riscrittura che ne aggiunge una senza marcarla cade qui, non nel
+// report del giorno dopo.
+describe("i rami d'errore del riepilogo GA4 marcano il verdetto come non calcolato", () => {
+  const src = readFileSync(
+    new URL('../scripts/analytics-report.mjs', import.meta.url),
+    'utf8',
+  );
+  const start = src.indexOf('// ── 3a. Overall metrics');
+  const end = src.indexOf('// ── 3b.', start);
+  const block = src.slice(start, end);
+
+  it('il blocco riepilogo e ancora delimitabile nel sorgente', () => {
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(block).toContain('GA4 summary:');
+  });
+
+  it('la marcatura scrive un verdetto negativo, non lascia un undefined', () => {
+    expect(src).toContain('result.summary.engagementReliable = false;');
+    expect(src).toContain('verdetto non calcolato:');
+  });
+
+  it('ogni `return null` del blocco e preceduto dalla marcatura', () => {
+    const segments = block.split('return null;');
+    // I due rami HTTP: 403 (permessi) e non-ok generico.
+    expect(segments.length - 1).toBe(2);
+    for (const before of segments.slice(0, -1)) {
+      expect(before.slice(-200)).toContain('markEngagementNotComputed(');
+    }
+  });
+
+  it('il catch di chiusura del blocco marca il verdetto', () => {
+    const tail = block.slice(block.lastIndexOf('} catch ('));
+    expect(tail).toContain('markEngagementNotComputed(');
+  });
+});
