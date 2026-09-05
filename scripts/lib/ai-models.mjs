@@ -6803,7 +6803,54 @@ export async function callLLM(messages, opts = {}) {
  * persistent buckets. Transient = quota/rate/cooldown/timeout/5xx/overloaded
  * (recovers on its own). Persistent = auth/credit/removed-model/payload/no-key
  * (needs intervention). Reasons matching neither are ignored in the tally.
+ *
+ * Il voto e' per CAUSA, non per riga, sul solo caso in cui le due cose
+ * divergono in modo misurabile: N modelli dello stesso host che riportano lo
+ * stesso status a body vuoto sono un gateway giu', e valgono un voto solo
+ * (`_hostFaultVoteKey`). Tutto il resto conta una riga = un voto, come prima.
  */
+/**
+ * Lo status di un guasto che parla dell'HOST e non del modello, quando la riga
+ * di errore ne porta uno; `null` altrimenti.
+ *
+ * PERCHE' ESISTE (issue #7451, adversarial check di #7374). Il voto di
+ * `classifyExhaustionCause` e' per RIGA, e le righe sono una per modello: un
+ * provider pesa quindi quanto il numero di modelli che ospita. Un gateway giu'
+ * per un minuto non e' un guasto per modello — e' UNO — ma i 12 modelli GitHub
+ * Models lo riportano dodici volte e il voto lo conta dodici volte. E' cio' che
+ * la run 32169621635 ha misurato: `grep -aoE 'HTTP 404: *$'` → 163 occorrenze,
+ * e il commento portato da #7374 lo dice a parole — «non sono 12 modelli morti,
+ * sono un host morto». Dodici voti da una causa sola sommergono per costruzione
+ * i voti veri del resto del roster (una quota, un 429), cioe' proprio la
+ * protezione che quel confronto esiste per far scattare.
+ *
+ * LA DISCRIMINANTE E' IL BODY, NON LO STATUS. Un modello ritirato risponde
+ * NOMINANDO la causa (`no longer available`, `unknown_model`, `model not
+ * found`); una rotta morta risponde con lo status e basta — `404 size=0`, cioe'
+ * la riga finisce sullo status. Solo la seconda forma e' un fatto sull'host, e
+ * solo quella viene collassata: i tre modelli Gemini ritirati il 2026-08-14
+ * continuano a valere tre voti persistenti, perche' il loro 404 si nomina.
+ *
+ * NON riclassifica: un 404 d'host resta persistente, un 5xx resta transitorio.
+ * Cambia il PESO, non il secchio — differire su un host morto per sempre
+ * sarebbe il ciclo infinito che `exhaustion-disposition.mjs` documenta.
+ *
+ * @param {string} reason una riga di `errors`, nella forma `${model}: ${msg}`
+ * @returns {string|null} chiave `<provider>|<status>` per il voto unico
+ */
+function _hostFaultVoteKey(reason) {
+  if (typeof reason !== 'string') return null;
+  // Lo status a FINE riga = body vuoto. `msg` e' troncato a 200 caratteri, ma
+  // un body che nomina la causa la nomina ben prima di quel taglio.
+  const status = /\bHTTP (404|410|5\d\d):?\s*$/i.exec(reason);
+  if (!status) return null;
+  // Il modello non contiene mai `: ` (due punti PIU' spazio): `openrouter/…:free`
+  // ha i due punti, non lo spazio, quindi il primo `': '` e' sempre il separatore.
+  const sep = reason.indexOf(': ');
+  if (sep <= 0) return null;
+  return `${getProvider(reason.slice(0, sep))}|${status[1]}`;
+}
+
 export function classifyExhaustionCause(errors) {
   // `non-retryable provider error`, `no longer offered`, `repeated unusable
   // content` and `no longer available` are the vocabulary _exhaustSkipCause and
@@ -6820,12 +6867,24 @@ export function classifyExhaustionCause(errors) {
   const transientRe = /daily (request )?limit|daily quota|exceeded your current quota|plan and billing|free.?models.?per.?day|\b429\b|rate.?limit|resource.?exhausted|cooling down|timeout|timed out|aborted|overloaded|\b5\d\d\b|temporarily/i;
   let transient = 0;
   let persistent = 0;
+  // Un guasto di gateway vota UNA volta per host, non una per modello ospitato
+  // — vedi _hostFaultVoteKey. Le righe collassate escono anche dal TOTALE: il
+  // denominatore di isLegitimateQuotaDeferral conta le cause, e contarne dodici
+  // dove ce n'e' una falserebbe la quota transitoria nella stessa direzione.
+  const seenHostFaults = new Set();
+  let total = 0;
   for (const reason of errors) {
+    const hostFault = _hostFaultVoteKey(reason);
+    if (hostFault !== null) {
+      if (seenHostFaults.has(hostFault)) continue;
+      seenHostFaults.add(hostFault);
+    }
+    total += 1;
     const isTransient = transientRe.test(reason);
     const isPersistent = persistentRe.test(reason);
     if (isTransient) transient += 1;
     else if (isPersistent) persistent += 1;
     // neither → ambiguous, left out of the tally
   }
-  return { transient, persistent, total: errors.length };
+  return { transient, persistent, total };
 }
