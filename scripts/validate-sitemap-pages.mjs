@@ -482,7 +482,14 @@ function runAuditSitemapCanonicals() {
         okCount++;
         continue;
       }
-      offenders.push({ category: 'mismatch', sitemap, loc, canonical });
+      // flatString: `canonical` is a capture out of `html`, i.e. a
+      // SlicedString pointing INTO the whole page, and `offenders` spans the
+      // entire scan. One offender is harmless; a category-wide canonical
+      // regression is thousands, each pinning its own document, and the gate
+      // OOMs instead of printing the diagnosis it exists to print — precisely
+      // when that diagnosis is needed. Paid per OFFENDER (normally zero), not
+      // per URL, so a healthy run costs nothing.
+      offenders.push({ category: 'mismatch', sitemap, loc, canonical: flatString(canonical) });
       continue;
     }
     okCount++;

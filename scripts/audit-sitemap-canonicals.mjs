@@ -305,7 +305,12 @@ async function main() {
           okCount++;
           continue;
         }
-        offenders.push({ category: 'mismatch', sitemap, loc, canonical });
+        // flatString: `canonical` is a capture out of `html` (a SlicedString
+        // into the whole page) and `offenders` spans the entire scan, so a
+        // category-wide canonical regression would pin one document per
+        // offender and OOM the gate exactly when it has a mass regression to
+        // report. Paid per OFFENDER, not per URL.
+        offenders.push({ category: 'mismatch', sitemap, loc, canonical: flatString(canonical) });
         continue;
       }
       okCount++;

@@ -38,6 +38,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { flatString } from './lib/flat-string.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
@@ -382,7 +383,9 @@ export class TitleAudit {
     if (!title) { this.missingTitle++; return; }
     if (title.length <= TITLE_THRESHOLD) return;
     const locale = inferRootLocale(relFromRoot);
-    this.offenders.push({ file: relFromRoot, feature, locale, title, length: title.length });
+    // flatString: see the twin boundary in audit-h1-title-duplicates.mjs —
+    // `title` is a capture into the whole page and `offenders` spans the scan.
+    this.offenders.push({ file: relFromRoot, feature, locale, title: flatString(title), length: title.length });
   }
 }
 
@@ -417,7 +420,8 @@ export class H1Audit {
     if (!h1) { this.missingH1++; return; }
     if (title.toLowerCase() !== h1.toLowerCase()) return;
     const locale = inferRootLocale(relFromRoot);
-    this.offenders.push({ file: relFromRoot, feature, locale, title, h1 });
+    // flatString: same boundary as audit-h1-title-duplicates.mjs.
+    this.offenders.push({ file: relFromRoot, feature, locale, title: flatString(title), h1: flatString(h1) });
   }
 }
 
