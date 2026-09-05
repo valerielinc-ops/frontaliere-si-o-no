@@ -25,8 +25,19 @@ on:
   issues:
     types: [labeled]
 
+# Chiave PER-ISSUE, stessa ragione e stessa misura di `issue-fix.yml` (vedi il
+# commento in testa a quel file). Il gruppo era `issue-decompose`, costante: e
+# poiche' `concurrency` e' valutata a livello di WORKFLOW, cioe' PRIMA dell'`if:`
+# del job, ogni evento `issues:[labeled]` del repo entrava in questa coda —
+# anche i ~1700 che l'`if:` avrebbe scartato come `skipped` — e sfrattava la
+# pending, compresa l'unica run di decomposizione vera.
+#
+# Misurato il 2026-09-05 su questo workflow: il 09-04, 1704 run create, 382
+# `cancelled`, 13 `success`. Il 09-01: 704 create, 134 `cancelled`, 14
+# `success`. Il drainer promuove UNA decompose per tick, quindi qui il volume
+# non c'entra: a sfrattare erano gli eventi delle altre issue.
 concurrency:
-  group: issue-decompose
+  group: issue-decompose-${{ github.event.issue.number || github.run_id }}
   cancel-in-progress: false
 
 permissions:

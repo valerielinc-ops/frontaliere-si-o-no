@@ -41,6 +41,12 @@ import { fileURLToPath } from 'node:url';
 import { fixQueueDepth } from '../scripts/ci/followup-drainer.mjs';
 
 const WF = fileURLToPath(new URL('../.github/workflows/issue-fix.yml', import.meta.url));
+// I tre workflow innescati da eventi issue condividono la stessa classe di
+// difetto: `concurrency` è valutata a livello di WORKFLOW, prima dell'`if:` del
+// job, quindi con un `group:` costante ogni evento del repo entra nella stessa
+// coda profonda 1 e sfratta la pending — anche gli eventi che l'`if:` avrebbe
+// scartato come `skipped`.
+const ISSUE_EVENT_WORKFLOWS = ['issue-fix.yml', 'issue-decompose.yml', 'issue-triage.yml'];
 
 describe('fixQueueDepth: la profondità dichiarata dal workflow', () => {
   it('gruppo COSTANTE → 1: una sola pending, ogni altra la sfratterebbe', () => {
@@ -94,6 +100,18 @@ describe('fixQueueDepth: la profondità dichiarata dal workflow', () => {
     // una chiave costante, questa riga cade e il clamp riporta il cap a 1
     // invece di ricreare gli sfratti in silenzio.
     expect(fixQueueDepth(readFileSync(WF, 'utf8'))).toBe(Number.POSITIVE_INFINITY);
+  });
+
+  it('NESSUNO dei workflow innescati da eventi issue serializza su una chiave costante', () => {
+    // Il gate di classe (AGENTS.md #6). Misurato il 2026-09-05, il giorno in cui
+    // la chiave era costante su tutti e tre: issue-fix 823 `cancelled` contro 36
+    // `success` il 09-04; issue-decompose 382 contro 13; issue-triage 26 su 61
+    // run, cioè issue nuove mai instradate. Se una di queste chiavi torna
+    // costante, la riga cade prima che il difetto torni a misurarsi in issue.
+    for (const wf of ISSUE_EVENT_WORKFLOWS) {
+      const yaml = readFileSync(fileURLToPath(new URL(`../.github/workflows/${wf}`, import.meta.url)), 'utf8');
+      expect(fixQueueDepth(yaml), wf).toBe(Number.POSITIVE_INFINITY);
+    }
   });
 
   it('il fallback `|| github.run_id` conta come espressione: nessuna chiave costante di rimbalzo', () => {
