@@ -5536,6 +5536,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Anti-G7-Demonstration, die Eindämmungsvorrichtung war erlaubt',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'Das kantonale Instituts- und Digitaldepartement bestätigte die Rechtmässigkeit der Eindämmungsvorrichtung während der Veranstaltung Nr. G7 in Genf.',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Anti-G7-Demonstration in Genf mit der Polizei, die die Situation kontrolliert.',
+    'blog.article.svizzera-treno-oggetti-binari.title': '«Trunkenbolde» stapeln Gegenstände auf den Gleisen und der Zug kommt',
+    'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Jugendliche stapeln Gegenstände auf den Gleisen, Entgleisung eines Interregio mit 110 km/h, Schäden für 141.369 Franken.',
+    'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Zug entgleist aufgrund von Gegenständen auf den Gleisen in der Schweiz',
 };
 
 export default blogMetaChDe;

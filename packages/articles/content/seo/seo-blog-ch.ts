@@ -71858,6 +71858,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-treno-oggetti-binari': {
+    title: '«Ubriachi fradici» accatastano oggetti sui binari e arriva il treno',
+    description: 'Adolescenti accatastano oggetti sui binari, deragliamento di un Interregio a 110 km/h, danni per 141.369 franchi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, ubriachi, fradici, accatastano, oggetti',
+    ogTitle: '«Ubriachi fradici» accatastano oggetti sui binari e arriva il treno',
+    ogDescription: 'Adolescenti accatastano oggetti sui binari, deragliamento di un Interregio a 110 km/h, danni per 141.369 franchi. Scopri di più su questo incidente ferroviario in Svizzera.',
+    canonicalPath: '/articoli-svizzera/svizzera-treno-oggetti-binari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "«Ubriachi fradici» accatastano oggetti sui binari e arriva il treno",
+      "description": "Adolescenti accatastano oggetti sui binari, deragliamento di un Interregio a 110 km/h, danni per 141.369 franchi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-treno-oggetti-binari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno deragliato a causa di oggetti sui binari in Svizzera"
+      },
+      "datePublished": "2026-09-05T10:36:22+00:00",
+      "dateModified": "2026-09-05T10:36:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-treno-oggetti-binari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
