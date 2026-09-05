@@ -11414,6 +11414,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-cantiere-corsie-ztl.title': 'Como, disastro traffico: aperte corsie e ZTL',
     'blog.article.como-cantiere-corsie-ztl.excerpt': 'Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.',
     'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Traffico intenso sulla strada verso Como con cantiere e segnali di avvertimento arancioni',
+    'blog.article.lungolago-como-chiusura-traffico.title': 'Lungolago di Como chiuso: code infinite e attese fino a 150 minuti',
+    'blog.article.lungolago-como-chiusura-traffico.excerpt': 'La chiusura del lungolago di Como ha causato enormi disagi per il traffico, con code infinite e attese fino a 150 minuti.',
+    'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Vista aerea del lungolago chiuso a Como con traffico congestionato e lunghe code',
 };
 
 export default blogMetaIt;
