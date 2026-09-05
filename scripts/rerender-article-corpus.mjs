@@ -74,6 +74,8 @@
 // Internal (worker mode — spawned by this same file, never invoke directly):
 //   --worker-section <name> --worker-ids-file <path> --worker-out <dir> --worker-result <path>
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -404,7 +406,10 @@ async function main() {
 // scripts/audit-footer-root-presence.mjs). Guards against a plain `import`
 // of this module executing its whole side-effecting run.
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+  // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+  // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })();
 
