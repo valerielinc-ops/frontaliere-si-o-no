@@ -1862,6 +1862,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'locazione-vaud-deposito-cauzionale': { it: 'locazione-vaud-deposito-cauzionale', en: 'vaud-rental-security-deposit-termination', de: 'mietwesen-vaud-kaution-kundigung', fr: 'location-vaud-depot-cautionnement-resiliation' },
  'affitti-vaud-diritti-locatari': { it: 'affitti-vaud-diritti-locatari', en: 'rentals-vaud-tenant-rights', de: 'mietmarkt-waadt-mieterrechte', fr: 'locations-vaud-droits-locataires' },
  'avs-prestazioni-complementari-vaud': { it: 'avs-prestazioni-complementari-vaud', en: 'avs-supplementary-benefits-vaud-compensation-fund', de: 'ahv-zusatzleistungen-waadt-ausgleichskasse', fr: 'avs-prestations-complementaires-vaud-caisse-compensation' },
+ 'abbonamenti-trasporti-vaud-zone': { it: 'abbonamenti-trasporti-vaud-zone', en: 'public-transport-subscriptions-vaud-zones', de: 'abos-oepnv-vaud-zonen', fr: 'abonnements-transports-vaud-zones' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

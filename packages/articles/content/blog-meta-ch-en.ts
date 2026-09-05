@@ -5509,6 +5509,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-vaud.title': 'AVS and complementary services: Vaud',
     'blog.article.avs-prestazioni-complementari-vaud.excerpt': 'How the first pillar works in the Canton of Vaud. Cantonal Compensation Fund Guide, Contribution Gaps and Supplementary Benefits for Minimum Living.',
     'blog.article.avs-prestazioni-complementari-vaud.imageAlt': 'Elderly retirees reviewing pension documents by a Swiss lake, peaceful natural landscape background',
+    'blog.article.abbonamenti-trasporti-vaud-zone.title': 'Vaud canton transport subscriptions: zones and rates',
+    'blog.article.abbonamenti-trasporti-vaud-zone.excerpt': 'Monthly, annual, half-price and General Subscriptions in Swiss public transport. How fare zones and student discounts work.',
+    'blog.article.abbonamenti-trasporti-vaud-zone.imageAlt': 'Swiss public transport station with tram, passengers and ticket vending machines',
 };
 
 export default blogMetaChEn;
