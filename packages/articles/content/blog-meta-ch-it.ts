@@ -5506,6 +5506,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-vaud-diritti-locatari.title': 'Affitti Vaud: diritti locatari e deposito cauzione',
     'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Diritto di locazione in Vaud: deposito cauzionale, disdetta, contestazione canone e autorità conciliazione secondo il Codice delle Obbligazioni federale.',
     'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Strada residenziale con edifici multifamiliari in Svizzera, rappresentativi del mercato degli affitti',
+    'blog.article.avs-prestazioni-complementari-vaud.title': 'AVS e prestazioni complementari: Vaud',
+    'blog.article.avs-prestazioni-complementari-vaud.excerpt': 'Come funziona il primo pilastro nel Canton Vaud. Guida alla cassa di compensazione cantonale, lacune contributive e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-vaud.imageAlt': 'Coppia di pensionati consulta documenti sulla rendita presso una riva lacustre svizzera, paesaggio naturale tranquillo',
 };
 
 export default blogMetaChIt;

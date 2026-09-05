@@ -5506,6 +5506,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-vaud-diritti-locatari.title': 'Location Vaud : droits locataires et dépôt de caution',
     'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Droit de location en Vaud : caution, résiliation, contestation de redevance et autorité de conciliation selon le Code fédéral des obligations.',
     'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Rue résidentielle avec immeubles collectifs, typiques du marché locatif suisse',
+    'blog.article.avs-prestazioni-complementari-vaud.title': 'AVS et prestations complémentaires : Vaud',
+    'blog.article.avs-prestazioni-complementari-vaud.excerpt': 'Comment fonctionne le premier pilier dans le canton de Vaud. Guide de la caisse de compensation cantonale, lacunes contributives et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-vaud.imageAlt': 'Couple de retraités consultant les documents de rente au bord d\'un lac suisse, paysage naturel serein',
 };
 
 export default blogMetaChFr;

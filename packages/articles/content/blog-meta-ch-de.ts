@@ -5506,6 +5506,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-vaud-diritti-locatari.title': 'Vermietung Waadt: Mietrechte und Kaution',
     'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Mietrecht in der Waadt: Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsbehörde gemäss Bundesobligationenrecht.',
     'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Wohnstrasse mit Mehrfamilienhäusern, typisch für Schweizer Mietmarkte',
+    'blog.article.avs-prestazioni-complementari-vaud.title': 'AHV und Ergänzungsleistungen: Waadt',
+    'blog.article.avs-prestazioni-complementari-vaud.excerpt': 'Wie funktioniert die erste Säule im Kanton Waadt? Leitfaden zur kantonalen Ausgleichskasse, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-prestazioni-complementari-vaud.imageAlt': 'Rentnerpaar bespricht Rentendokumente an einem Schweizer Seeufer, ruhige Naturkulisse',
 };
 
 export default blogMetaChDe;
