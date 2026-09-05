@@ -179,8 +179,12 @@ interface LeverCopy {
  */
 const RATIO_EDGES = [1.15, 1.4, 1.75, 2.25, 2.75, 3.5, 5, 8] as const;
 const RETENTION_EDGES = [0.3, 0.45, 0.55, 0.65, 0.75, 0.85] as const;
-/** Peso della leva più debole sul netto annuo. */
-const WEAKEST_EDGES = [0.002, 0.005, 0.01, 0.02, 0.04] as const;
+/**
+ * Peso della leva più debole sul netto annuo. Il bordo 0.10 esiste perché
+ * l'ultima fascia è etichettata «a due cifre percentuali»: senza di esso un
+ * valore fra il 4 % e il 10 % — a una cifra — finirebbe sotto quell'etichetta.
+ */
+const WEAKEST_EDGES = [0.002, 0.005, 0.01, 0.02, 0.04, 0.1] as const;
 /** Differenza fra netto da residente CH e da frontaliere, sul netto CH. */
 const RESIDENCY_EDGES = [-0.06, -0.02, 0.02, 0.06, 0.12] as const;
 
@@ -243,6 +247,7 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'poco meno di un punto percentuale',
       'un paio di punti percentuali',
       'qualche punto percentuale',
+      'qualche punto percentuale in più',
       'una fetta a due cifre percentuali',
     ],
     residencyBuckets: [
@@ -325,6 +330,7 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'just under one percentage point',
       'a couple of percentage points',
       'a few percentage points',
+      'several percentage points',
       'a double-digit percentage slice',
     ],
     residencyBuckets: [
@@ -406,6 +412,7 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'knapp unter einem Prozentpunkt',
       'ein paar Prozentpunkte',
       'einige Prozentpunkte',
+      'mehrere Prozentpunkte',
       'einen zweistelligen Prozentanteil',
     ],
     residencyBuckets: [
@@ -488,6 +495,7 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'un peu moins d\'un point de pourcentage',
       'deux points de pourcentage environ',
       'quelques points de pourcentage',
+      'plusieurs points de pourcentage',
       'une part à deux chiffres en pourcentage',
     ],
     residencyBuckets: [
@@ -640,10 +648,25 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
   // finora solo in cifre.
   const step = levers.find((x) => x.key === 'salaryUp') ?? levers.find((x) => x.key === 'salaryDown');
   const other = levers.find((x) => x.key !== 'salaryUp' && x.key !== 'salaryDown');
-  if (step && other && Math.abs(other.deltaCHF) > 0) {
-    const ratio = Math.abs(step.deltaCHF) / Math.abs(other.deltaCHF);
+  if (step && other && Math.abs(other.deltaCHF) > 0 && Math.abs(step.deltaCHF) > 0) {
+    // `ratioBuckets` descrive un rapporto >= 1 ("pesa il doppio di"), e la
+    // frase attribuisce il peso maggiore alla leva nominata per prima. Sotto
+    // una certa RAL è la leva non salariale a battere il gradino (a 40 000 CHF
+    // un figlio vale più di 5 000 CHF di lordo): passando comunque
+    // |step|/|other| < 1 il bucket collasserebbe su «quasi esattamente quanto
+    // pesa» proprio sulle pagine dove la frase successiva elenca quella leva
+    // fra quelle che pesano PIÙ di un gradino. Si nomina prima la più pesante,
+    // così il rapporto resta >= 1 e le due frasi non si contraddicono.
+    const stepIsHeavier = Math.abs(step.deltaCHF) >= Math.abs(other.deltaCHF);
+    const heavierLever = stepIsHeavier ? step : other;
+    const lighterLever = stepIsHeavier ? other : step;
+    const ratio = Math.abs(heavierLever.deltaCHF) / Math.abs(lighterLever.deltaCHF);
     sentences.push(
-      copy.stepVsOther(step.label, other.label, copy.ratioBuckets[bucketIndex(ratio, RATIO_EDGES)]),
+      copy.stepVsOther(
+        heavierLever.label,
+        lighterLever.label,
+        copy.ratioBuckets[bucketIndex(ratio, RATIO_EDGES)],
+      ),
     );
   }
 
