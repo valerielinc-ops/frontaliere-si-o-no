@@ -5572,6 +5572,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.falso-allarme-goldach.title': 'Falso allarme per presunti spari durante una festa scolastica',
     'blog.article.falso-allarme-goldach.excerpt': 'Circa 300 persone evacuate a Goldach, nel canton San Gallo, dopo segnalazioni di presunti spari.',
     'blog.article.falso-allarme-goldach.imageAlt': 'Festa scolastica con polizia e soccorritori',
+    'blog.article.asilo-nido-controlli-minori.title': 'Asilo nido: le lacune nei controlli sui minori',
+    'blog.article.asilo-nido-controlli-minori.excerpt': 'Un educatore segnalato per pedopornografia ha lavorato in un asilo nido per due anni. Come e perché i controlli istituzionali hanno fallato in Svizzera.',
+    'blog.article.asilo-nido-controlli-minori.imageAlt': 'Esterno di un asilo nido svizzero con area gioco, architettura moderna, fotografia documentaristica',
 };
 
 export default blogMetaChIt;

@@ -5572,6 +5572,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.falso-allarme-goldach.title': 'Fehlalarm wegen angeblicher Schüsse während einer Schulfeier',
     'blog.article.falso-allarme-goldach.excerpt': 'Rund 300 Personen wurden nach Berichten über mutmaßliche Schüsse nach Goldach im Kanton St. Gallen evakuiert.',
     'blog.article.falso-allarme-goldach.imageAlt': 'Schulfest mit Polizei und Rettungsdiensten',
+    'blog.article.asilo-nido-controlli-minori.title': 'Kindertagesstätte: die Lücken bei den Kontrollen von Minderjährigen',
+    'blog.article.asilo-nido-controlli-minori.excerpt': 'Ein wegen Kinderpornografie gemeldeter Erzieher arbeitete zwei Jahre in einer Kindertagesstätte. Wie und warum die institutionellen Kontrollen in der Schweiz gescheitert sind.',
+    'blog.article.asilo-nido-controlli-minori.imageAlt': 'Außenansicht eines Schweizer Kindergartens mit Spielplatz, moderne Architektur, dokumentarische Fotografie',
 };
 
 export default blogMetaChDe;
