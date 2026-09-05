@@ -114,12 +114,33 @@ export function resolveHookTargetCwd(payload) {
  * @returns {{ ref: string, source: 'head-flag'|'head-flag-fallback'|'cwd-head', cwd: string|undefined }}
  */
 export function resolveGatedHeadRef(command, cwd, fallbackCwd, run = defaultRevParse) {
-  const m = String(command ?? '').match(/--head[= ]+(?:"([^"]*)"|'([^']*)'|(\S+))/);
-  const raw = (m?.[1] ?? m?.[2] ?? m?.[3] ?? '').trim();
-  // `owner:branch` è la forma cross-fork accettata da gh; a noi serve il branch.
-  const branch = raw.includes(':') ? raw.slice(raw.indexOf(':') + 1) : raw;
-  const unexpanded = /[$`]/.test(branch);
-  if (branch && !unexpanded) {
+  // Due difetti in una regex sola, entrambi misurati il 2026-09-05.
+  //
+  // (1) L'alias corto del flag esiste e non era riconosciuto. Un `-H
+  //     mio-branch` cadeva sul fallback `HEAD`, e dal checkout principale
+  //     fermo su main quel diff e' vuoto → il gate blocca un comando che il
+  //     branch lo dichiarava, esattamente il caso che questa funzione esiste
+  //     per servire.
+  //
+  // (2) Il match gira sull'INTERA command line, body compreso. I messaggi di
+  //     questi gate consigliano testualmente di passare il nome letterale del
+  //     branch al flag, quindi quella stringa finira' nei body delle PR
+  //     future: un'occorrenza dentro la prosa che PRECEDE il flag vero
+  //     vinceva, perche' si teneva solo il primo match.
+  //
+  // Il rimedio per (2) non e' un parser di shell — e' smettere di fidarsi
+  // della posizione. Si raccolgono TUTTI i candidati nell'ordine in cui
+  // compaiono e si tiene il PRIMO CHE RISOLVE a un commit vero: un flag
+  // citato in prosa e' seguito da prosa, che non e' un ref. L'ancoraggio al
+  // confine di token scarta il grosso del rumore, il rev-parse fa il resto —
+  // e il rev-parse e' un oracolo che la regex da sola non puo' avere.
+  const flagRe = /(?:^|\s)(?:--head[= ]+|-H[= ]*)(?:"([^"]*)"|'([^']*)'|(\S+))/g;
+  for (const m of String(command ?? '').matchAll(flagRe)) {
+    const raw = (m[1] ?? m[2] ?? m[3] ?? '').trim();
+    // `owner:branch` è la forma cross-fork accettata da gh; a noi serve il branch.
+    const branch = raw.includes(':') ? raw.slice(raw.indexOf(':') + 1) : raw;
+    const unexpanded = /[$`]/.test(branch);
+    if (!branch || unexpanded) continue;
     if (run(branch, cwd)) return { ref: branch, source: 'head-flag', cwd };
     if (fallbackCwd && fallbackCwd !== cwd && run(branch, fallbackCwd)) {
       return { ref: branch, source: 'head-flag-fallback', cwd: fallbackCwd };

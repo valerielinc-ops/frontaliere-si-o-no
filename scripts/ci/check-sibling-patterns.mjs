@@ -594,6 +594,23 @@ function main() {
   const changedCode = changedAll.filter(isCodeFile);
   const changedSet = new Set(changedAll);
 
+  // `changedFiles` NON e' `changedAll.length`. Il diff sopra filtra `ACMR`
+  // perche' l'analisi dei gemelli ha bisogno di file che ESISTONO da leggere;
+  // ma il numero che il gate usa per rispondere «ho analizzato il branch
+  // giusto?» deve rispondere a «il ref differisce dalla base?», non a «il ref
+  // aggiunge file?». Senza questa seconda misura un branch di sole
+  // cancellazioni (script morto, workflow ritirato, revert) produce
+  // `changedFiles: 0` con un ref perfettamente corretto, e
+  // `sibling-check-gate.mjs` lo blocca stampando tre cause tutte false —
+  // l'autore ha gia' fatto tutto e non ha nessuna leva per soddisfare il gate.
+  // E' la stessa classe di blocco insoddisfacibile che questa PR chiude
+  // altrove, reintrodotta dal suo stesso fix. `D` deve contare.
+  const changedAnyRaw = git(
+    ['diff', '--name-only', mergeBase, ...(HEAD_REF ? [HEAD_REF] : [])],
+    { allowFail: true },
+  );
+  const changedFiles = changedAnyRaw.split('\n').map((s) => s.trim()).filter(Boolean).length;
+
   if (changedCode.length === 0) {
     const msg =
       'check-sibling-patterns: nessun file di codice funnel-critical cambiato vs ' +
@@ -601,7 +618,7 @@ function main() {
     if (JSON_OUT)
       console.log(
         JSON.stringify(
-          { base, head: HEAD_REF, changedFiles: changedAll.length, changedCode: [], candidates: [] },
+          { base, head: HEAD_REF, changedFiles, changedCode: [], candidates: [] },
           null,
           2,
         ),
@@ -640,7 +657,7 @@ function main() {
     if (JSON_OUT)
       console.log(
         JSON.stringify(
-          { base, head: HEAD_REF, changedFiles: changedAll.length, changedCode, candidates: [] },
+          { base, head: HEAD_REF, changedFiles, changedCode, candidates: [] },
           null,
           2,
         ),
@@ -726,7 +743,7 @@ function main() {
 
   if (JSON_OUT) {
     console.log(
-      JSON.stringify({ base, head: HEAD_REF, changedFiles: changedAll.length, changedCode, candidates }, null, 2),
+      JSON.stringify({ base, head: HEAD_REF, changedFiles, changedCode, candidates }, null, 2),
     );
     process.exit(STRICT && candidates.length ? 1 : 0);
   }

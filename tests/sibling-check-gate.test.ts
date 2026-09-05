@@ -234,6 +234,14 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
     git('add', 'scripts/alpha.mjs');
     git('commit', '-q', '-m', 'feature');
 
+    // Il branch che ritira uno script morto e NON tocca nient'altro: revert,
+    // workflow ritirato, cleanup. E' un branch legittimo e frequente, e fino
+    // al 2026-09-05 era l'unico che il gate non sapeva far passare.
+    git('checkout', '-q', 'main');
+    git('checkout', '-q', '-b', 'delete-only');
+    git('rm', '-q', 'scripts/gamma.mjs');
+    git('commit', '-q', '-m', 'ritira lo script morto');
+
     // Torna su main e sporca il working tree, come il checkout principale
     // condiviso da una flotta di agenti.
     git('checkout', '-q', 'main');
@@ -258,6 +266,38 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       encoding: 'utf8',
       cwd: repo,
     });
+
+  describe('regressione del 2026-09-05 — un branch di sole cancellazioni deve passare il gate', () => {
+    // `changedFiles` alimenta il blocco «BRANCH NON IDENTIFICATO», che esiste
+    // per un motivo giusto: un ref che non differisce dalla base non e' il
+    // branch dell'autore. Ma veniva calcolato da un diff `--diff-filter=ACMR`,
+    // che per costruzione non conta le `D`. Un branch di sole rimozioni
+    // produceva quindi `changedFiles: 0` con un ref perfettamente corretto, e
+    // il gate stampava tre rimedi TUTTI falsi — l'autore aveva gia' fatto
+    // tutto e non aveva nessuna leva. E' la stessa classe di blocco
+    // insoddisfacibile che questa PR chiude altrove, reintrodotta dal suo
+    // stesso fix: prima della PR quel branch usciva 0.
+    it('changedFiles conta le cancellazioni: il ref differisce dalla base, e il gate lo vede', () => {
+      const r = runCheck('--head', 'delete-only');
+      expect(r.changedFiles).toBeGreaterThan(0);
+    });
+
+    it('changedCode resta su ACMR: un file cancellato non e\' un file da leggere', () => {
+      // La restrizione di filtro serve ancora — l'analisi dei gemelli legge il
+      // CONTENUTO dei file cambiati, e un file cancellato non ha contenuto da
+      // leggere. Le due misure rispondono a due domande diverse e devono
+      // restare separate: questo caso lo fissa, cosi' nessuno "semplifica"
+      // riunificandole e riporta il difetto dall'altro lato.
+      const r = runCheck('--head', 'delete-only');
+      expect(r.changedCode).toEqual([]);
+    });
+
+    it('il gate NON blocca un branch di sole cancellazioni', () => {
+      const res = runGate('gh pr create --head delete-only --title x --body-file body.md');
+      expect(res.status, res.stderr).not.toBe(EXIT_BLOCK);
+      expect(res.stderr).not.toMatch(/BRANCH NON IDENTIFICATO/i);
+    });
+  });
 
   describe('difetto 1 — il gate deve giudicare il branch, non il working tree di chi ha sporcato il checkout', () => {
     it('senza --head l\'analisi vede il lavoro NON COMMITTATO di un\'altra sessione (il difetto)', () => {
@@ -321,6 +361,47 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
 
     it('resolveGatedHeadRef: branch inesistente → fallback su HEAD invece di un ref rotto', () => {
       expect(resolveGatedHeadRef('gh pr create --head mai-esistito', repo).ref).toBe('HEAD');
+    });
+
+    it('resolveGatedHeadRef: l\'alias corto -H vale quanto la forma lunga', () => {
+      // `gh pr create` accetta `-H`. Prima cadeva sul fallback `HEAD`, e dal
+      // checkout principale fermo su main quel diff e' vuoto: il gate bloccava
+      // un comando che il branch lo dichiarava eccome.
+      for (const cmd of [
+        'gh pr create -H feature-x --title x',
+        'gh pr create -H=feature-x --title x',
+        'gh pr create -Hfeature-x --title x',
+      ]) {
+        expect(resolveGatedHeadRef(cmd, repo), cmd).toEqual({
+          ref: 'feature-x',
+          source: 'head-flag',
+          cwd: repo,
+        });
+      }
+    });
+
+    it('resolveGatedHeadRef: un --head citato NEL BODY non batte il flag vero', () => {
+      // Domanda avversariale 2 della review, e non e' teorica: i messaggi di
+      // questi gate consigliano testualmente di passare il nome letterale del
+      // branch, quindi quella frase finira' nei body delle PR future. Qui la
+      // citazione PRECEDE il flag vero, che e' il caso in cui il vecchio
+      // "primo match vince" sbagliava.
+      const cmd =
+        'gh pr create --body "il gate chiede di passare --head mai-esistito come nome letterale" '
+        + '--head feature-x --title x';
+      expect(resolveGatedHeadRef(cmd, repo)).toEqual({
+        ref: 'feature-x',
+        source: 'head-flag',
+        cwd: repo,
+      });
+    });
+
+    it('resolveGatedHeadRef: nessun candidato risolvibile → resta il fallback, non un ref inventato', () => {
+      // L'altra meta' della regola sopra: se NIENTE risolve, il risultato deve
+      // restare `cwd-head`. Il rev-parse e' un oracolo, non un modo per
+      // pescare la prima parola che somiglia a un branch.
+      const cmd = 'gh pr create --body "vedi --head qualcosa-che-non-esiste" --title x';
+      expect(resolveGatedHeadRef(cmd, repo)).toEqual({ ref: 'HEAD', source: 'cwd-head', cwd: repo });
     });
 
     it('il gemello pr-body-check-gate aveva la STESSA forma e la stessa fix (AGENTS.md #6)', () => {
