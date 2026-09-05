@@ -101,6 +101,10 @@ describe('checkClosesLines — ineffective closing keyword', () => {
       { body: 'Resolving #12', ref: '#12' },
       { body: 'Chiude owner/repo#8', ref: 'owner/repo#8' },
       { body: '## Implementato\n- roba\n\nChiude #133\n', ref: '#133' },
+      // The negation guard reaches back two words and stops at punctuation, so
+      // a real intent in a later clause is still caught: without this case the
+      // guard could be widened until any `non` on the line silenced the check.
+      { body: 'Questo non è un problema, chiude #12', ref: '#12' },
     ];
     for (const c of bad) {
       it(JSON.stringify(c.body.slice(0, 40)), () => {
@@ -127,6 +131,13 @@ describe('checkClosesLines — ineffective closing keyword', () => {
       // Past-tense report about something ELSE having closed it.
       'La sibling è già chiusa da #66, qui non si tocca.',
       'That path was fixed by #66 upstream.',
+      // NEGATED report: the sentence says the ref stays OPEN. Reporting it made
+      // the gate answer "write `Closes #849`" on a line declaring #849 open —
+      // and on PR #881 the author complied, so a PR that left three items of
+      // #849 uncovered was one merge away from closing it.
+      'Sono difetti reali, non coperti qui e non chiusi: #849 resta aperta.',
+      '#849 non è ancora chiusa da questa PR.',
+      'Landed without resolving #77 — the cap stays.',
       // Connective verbs that deliberately do NOT close.
       'Addresses #12',
       'See #42 and #43 for background',

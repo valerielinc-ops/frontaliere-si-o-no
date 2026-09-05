@@ -105,6 +105,14 @@ const INTENT_KW =
 // something ELSE already closed the ref — it is not this PR's closure intent,
 // and flagging it would punish a body that is telling the truth.
 const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
+// A NEGATED report ("non chiusi: #849 resta aperta", "not fixed by #66") states
+// the ref stays OPEN — the exact opposite of a closure intent. Without this the
+// gate answers such a line with "write `Closes #849`", i.e. it asks the author
+// to close an issue the same sentence declares still open: the very outcome the
+// check exists to prevent, inverted. Bounded to two intervening words and
+// stopped by any punctuation (`\w` never matches a comma), so a real intent a
+// clause later — "questo non è un problema, chiude #12" — is still reported.
+const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?:\s+\w+){0,2}\s*$/i;
 // Filler tolerated between the verb and the ref: `Chiusa da #12`, `Risolve
 // definitivamente #12`, `Closing the #12`. Bounded to a known word list so a
 // sentence boundary or real prose can never bridge verb and ref.
@@ -127,7 +135,10 @@ function lineIntentRefs(line) {
   const s = String(line || '');
   INTENT_RE.lastIndex = 0;
   return [...s.matchAll(INTENT_RE)]
-    .filter((m) => !PAST_REPORT_RE.test(s.slice(Math.max(0, m.index - 24), m.index)))
+    .filter((m) => {
+      const before = s.slice(Math.max(0, m.index - 24), m.index);
+      return !PAST_REPORT_RE.test(before) && !NEG_REPORT_RE.test(before);
+    })
     .map((m) => ({ keyword: m[1], ref: m[2] }));
 }
 
