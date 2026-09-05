@@ -208,6 +208,7 @@ import {
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { logBuildMem } from './shared/buildMemLog';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
+import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 
 // ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
 // `logBuildMem` now lives in ./shared/buildMemLog so employerProfilePagesPlugin
@@ -1182,9 +1183,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `jobs-im` here for non-TI cantons emitted files at unroutable URLs
  // (every `/de/jobs-im-{canton}/` returned 404 even though the static HTML
  // existed). Aligns the build emit with the router's parsing contract.
- const SECTION_PREFIX_BY_LOCALE: Record<CantonLocale, string> = {
-   it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi',
- };
+ // Issue #7306: a twelfth literal copy of that same table used to sit here,
+// `const SECTION_PREFIX_BY_LOCALE`, declared and never read once — the
+// emit path goes through `sharedResolveCantonSection`. Removed rather than
+// pinned: an unread copy is the one that drifts without anybody noticing,
+// and the note above is the part that was worth keeping.
  /**
   * Build the canton-aware top-level URL segment (e.g. `cerca-lavoro-zurigo`,
   * `jobs-im-aargau`, `jobs-in-der-waadt`). For non-TI cantons we honour the
@@ -11564,7 +11567,7 @@ ${staticAnalyticsHtml}
  // years — caps how many long-tail entries we retain. Default is generous
  // (well above today's ~5k) so it never bites normal coverage; lower via env if
  // a deploy ever OOMs on the augmented map.
- const SLICE_AUGMENT_CAP = Number(process.env.EXPIRED_SLICE_AUGMENT_CAP || 60000);
+ const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 60000);
  if (fs.existsSync(expiredSlicesDir)) {
  const emittedSlugs = new Set(Object.keys(tracking));
  let sliceAugmented = 0;

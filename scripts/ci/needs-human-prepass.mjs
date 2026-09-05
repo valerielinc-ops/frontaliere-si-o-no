@@ -76,6 +76,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { PREPASS_VERDICT_BEATS_FAMILY, AGGREGATE_ITEMS_RE, isDecomposeEligible } from './followup-drainer.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const DRY = process.argv.includes('--dry-run');
@@ -85,7 +86,7 @@ const DRY = process.argv.includes('--dry-run');
 // coda piu' in fretta di quanto la si svuota — e sopra ~5 PR aperte i merge
 // rallentano da soli. A 10/giorno le 59 parcheggiate rientrano in circa una
 // settimana senza che nessun altro stadio se ne accorga.
-const MAX_PER_RUN = Number(process.env.PREPASS_MAX_PER_RUN || 10);
+const MAX_PER_RUN = intFromEnv('PREPASS_MAX_PER_RUN', 10);
 // Cap SEPARATO, e non un'esenzione dal cap sopra. Sono due risorse diverse: il
 // cap di `MAX_PER_RUN` protegge la portata della coda del fixer (~15 PR/giorno,
 // sopra ~5 PR aperte i merge rallentano), mentre una nota non instrada niente —
@@ -93,10 +94,10 @@ const MAX_PER_RUN = Number(process.env.PREPASS_MAX_PER_RUN || 10);
 // fame proprio le annotazioni, che sono il grosso del valore nuovo su una coda
 // di `keep`. Il conteggio è stampato a parte, e la nota è idempotente (marker
 // nei commenti), quindi a regime il volume è zero.
-const MAX_NOTES_PER_RUN = Number(process.env.PREPASS_MAX_NOTES_PER_RUN || 10);
+const MAX_NOTES_PER_RUN = intFromEnv('PREPASS_MAX_NOTES_PER_RUN', 10);
 // Le letture di stato per i blocchi scaduti, per run e su tutte le issue: una
 // issue non può far esplodere il costo del run nominando quaranta PR.
-const MAX_REF_LOOKUPS = Number(process.env.PREPASS_MAX_REF_LOOKUPS || 40);
+const MAX_REF_LOOKUPS = intFromEnv('PREPASS_MAX_REF_LOOKUPS', 40);
 // Di quale repo sono i numeri NUDI che questo pre-pass legge. Sul gemello del
 // corpus vale `'corpus'` — vedi `matchRegistry`.
 const HOME_SCOPE = 'site';

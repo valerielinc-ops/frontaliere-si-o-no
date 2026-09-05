@@ -30,7 +30,25 @@ const MAX_FLOW_DELAY_MIN = 45;
 // HERE usage below the free tier and skip further runs once the budget is
 // exhausted — the deterministic guarantee that we never pay, independent of how
 // GitHub schedules the cron. Override via the HERE_MONTHLY_BUDGET env var.
-const HERE_MONTHLY_BUDGET = Number(process.env.HERE_MONTHLY_BUDGET || 4500);
+// `Number(process.env.X || 4500)` metteva l'alternativa DENTRO `Number`: una
+// variabile presente ma non numerica dava `NaN`, e `NaN` come tetto di spesa
+// significa nessun tetto — `usage >= NaN` e' falso, quindi la garanzia «non
+// paghiamo mai» sarebbe evaporata in silenzio (issue #7344).
+//
+// Il predicato e' quello di `scripts/lib/int-from-env.mjs`, ma qui e' scritto
+// a mano DELIBERATAMENTE: `functions/` e' un artefatto di deploy separato
+// (`firebase deploy --only functions` carica solo questa cartella), quindi un
+// import verso `scripts/` risolverebbe in locale e romperebbe in produzione.
+const HERE_MONTHLY_BUDGET = (() => {
+  const raw = process.env.HERE_MONTHLY_BUDGET;
+  if (raw === undefined || raw === null || String(raw).trim() === '') return 4500;
+  const n = Number(String(raw).trim());
+  if (!Number.isInteger(n) || n < 0) {
+    console.warn(`[traffic-scheduler] HERE_MONTHLY_BUDGET=${JSON.stringify(String(raw))} non e' un intero >= 0 — uso 4500`);
+    return 4500;
+  }
+  return n;
+})();
 const WEBCAM_QUEUE_MIN_WAIT_MIN = 8;
 const WEBCAM_CLEAR_HIGH_WAIT_MIN = 30;
 const WEBCAM_CLEAR_APPROACH_MAX_MIN = 5;

@@ -319,7 +319,13 @@ export function tightenLedger({ ledger, family, ratePct, provenance, allowRaise 
         ceilingRatePct: ratePct,
         raised: ratePct > entry.ceilingRatePct ? true : undefined,
         previousCeilingRatePct: entry.ceilingRatePct,
-        measurement: { ...provenance },
+        // A tighten replaces the measurement with the new run's provenance. The
+        // PROSE of the old entry (why the ceiling has this shape, what the noise
+        // floor is, which templates the offenders are) is not a measurement and
+        // is not re-derivable from a run id, so it is carried forward unless the
+        // caller supplies a fresh one. Dropping it turned every tighten into a
+        // silent deletion of the only explanation the ledger had (#7317).
+        measurement: { ...provenance, note: provenance.note ?? entry.measurement?.note },
       },
     },
   };

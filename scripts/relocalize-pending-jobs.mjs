@@ -583,6 +583,24 @@ function sortByPriority(a, b) {
 }
 
 /**
+ * Il nome con cui il cascade chiede la sua politica di corsia.
+ *
+ * La politica vera (`freshFirst: false`) sta in `TRAFFIC_PRIORITY_LANES` dentro
+ * `scripts/lib/job-traffic-priority.mjs`. Prima la scelta del cascade era
+ * l'ASSENZA della parola `freshFirst` da questo file, e il guard che la pinnava
+ * era un `expect(cascade).not.toContain('freshFirst')` (issue #7361): una
+ * proprieta' del testo, non del flusso. Dichiarare la corsia rende la scelta un
+ * valore leggibile, e chiederne una che non esiste ora lancia invece di
+ * ricadere in silenzio sul default.
+ *
+ * Resta SPENTA: 53 job per run da 90 minuti, contro una testa fresca che al
+ * 2026-09-04 misurava ~1.308 job. Accenderla qui consegnerebbe ogni slot del
+ * percorso a pagamento a una coorte venticinque volte piu' grande di quanto la
+ * run possa servire.
+ */
+export const CASCADE_TRAFFIC_LANE = 'relocalize-pending-jobs';
+
+/**
  * Order the pending queue by served traffic, with an oldest-first reserve.
  *
  * The I/O half of scripts/lib/job-traffic-priority.mjs (which is pure so the
@@ -608,7 +626,7 @@ export function orderPendingByTraffic(pending, { capture } = {}) {
     popularity = {};
   }
 
-  const { order, stats } = buildTrafficPriority(pending, popularity);
+  const { order, stats } = buildTrafficPriority(pending, popularity, { lane: CASCADE_TRAFFIC_LANE });
   for (const line of formatPriorityReport(stats)) console.log(line);
   assertTrafficPriorityUsable(stats, { allowEmpty: ALLOW_NO_TRAFFIC });
   if (capture && typeof capture === 'object') {

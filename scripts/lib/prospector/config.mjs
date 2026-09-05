@@ -16,6 +16,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
+import { intFromEnv } from '../int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -45,12 +46,12 @@ export const UA = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/2.0; +https://frontaliereticino.ch/)';
 
 /** Per-host politeness: minimum gap between two requests to the same host. */
-export const HOST_DELAY_MS = Number(process.env.PROSPECTOR_HOST_DELAY_MS || 1100);
+export const HOST_DELAY_MS = intFromEnv('PROSPECTOR_HOST_DELAY_MS', 1100);
 
 /** Global concurrency across all hosts. */
-export const CONCURRENCY = Number(process.env.PROSPECTOR_CONCURRENCY || 6);
+export const CONCURRENCY = intFromEnv('PROSPECTOR_CONCURRENCY', 6);
 
-export const FETCH_TIMEOUT_MS = Number(process.env.PROSPECTOR_TIMEOUT_MS || 15000);
+export const FETCH_TIMEOUT_MS = intFromEnv('PROSPECTOR_TIMEOUT_MS', 15000);
 
 /** Swiss cantons, used to fan discovery sources out over the whole country. */
 export const CANTONS = [
@@ -114,4 +115,4 @@ export const NON_PLATFORM_HOSTS = new Set([
  * out "the company happens to own a second domain", which is the dominant false
  * positive, while still promoting a niche vendor after a single extra sighting.
  */
-export const PLATFORM_CONFIRM_THRESHOLD = Number(process.env.PROSPECTOR_CONFIRM_AT || 2);
+export const PLATFORM_CONFIRM_THRESHOLD = intFromEnv('PROSPECTOR_CONFIRM_AT', 2);

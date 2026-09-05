@@ -38,6 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { checkLink, runWithConcurrency, DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const [, , summaryPath] = process.argv;
 
@@ -68,8 +69,8 @@ if (urls.length === 0) {
 // so this is ~10x margin. Deliberately generous: a timeout here opens a
 // dedup'd GitHub issue, and a false alarm feeds the issue-fix loop and burns
 // shared Claude quota (AGENTS.md "Auth automazioni & frugalità quota").
-const timeoutMs = Number(process.env.FAST_PUBLISH_WAIT_TIMEOUT_MS || 5 * 60 * 1000);
-const intervalMs = Number(process.env.FAST_PUBLISH_WAIT_INTERVAL_MS || 5 * 1000);
+const timeoutMs = intFromEnv('FAST_PUBLISH_WAIT_TIMEOUT_MS', 5 * 60 * 1000);
+const intervalMs = intFromEnv('FAST_PUBLISH_WAIT_INTERVAL_MS', 5 * 1000);
 const deadline = Date.now() + timeoutMs;
 
 function sleep(ms) {
