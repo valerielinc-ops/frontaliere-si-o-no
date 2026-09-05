@@ -54,6 +54,7 @@ import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
+import { flatString } from './lib/flat-string.mjs';
 import {
   carryForwardReasons,
   evaluateBaselineJustification,
@@ -136,7 +137,7 @@ function extractLocs(xml) {
   const out = [];
   const re = /<loc>\s*([^<\s][^<]*?)\s*<\/loc>/gi;
   let m;
-  while ((m = re.exec(xml)) !== null) out.push(m[1].trim());
+  while ((m = re.exec(xml)) !== null) out.push(flatString(m[1].trim()));
   return out;
 }
 
@@ -217,7 +218,17 @@ async function fetchAllSitemaps() {
 // BFS-with-depth over dist/. Returns Map<canonicalPath, depth>.
 // ---------------------------------------------------------------------------
 
+// Everything this returns is stored in a Map/Set that lives for the whole BFS
+// walk, while `href` is a regex capture slicing INTO the megabyte-sized HTML
+// document it was scraped from. Flattening here — the one boundary whose
+// output is long-lived — is what stops each retained path from pinning its
+// whole source page in the heap (issue #7419, rationale in
+// scripts/lib/flat-string.mjs).
 function normaliseInternalPath(href) {
+  return flatString(normaliseInternalPathRaw(href));
+}
+
+function normaliseInternalPathRaw(href) {
   if (!href) return null;
   let h = href.trim();
   if (!h) return null;
