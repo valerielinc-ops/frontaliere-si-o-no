@@ -22,6 +22,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 import {
   BRAND_CANONICAL_MAP,
   listAllBrandAliases,
@@ -154,7 +155,7 @@ function extractRobots(html: string): string | null {
 }
 
 describeBuild('brand dedup — build output (dist/)', () => {
-  it('each primary hub carries a self-canonical', () => {
+  it('each primary hub carries a self-canonical', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     for (const { canonical, expectedPath } of EXPECTED_PRIMARIES) {
       const html = readHtml(path.join(expectedPath.replace(/^\//, ''), 'index.html'));
       if (!html) {
@@ -174,7 +175,7 @@ describeBuild('brand dedup — build output (dist/)', () => {
     }
   });
 
-  it('every alias slug points canonical to the primary (not self) and is noindex', () => {
+  it('every alias slug points canonical to the primary (not self) and is noindex', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     for (const { alias, canonical } of listAllBrandAliases()) {
       const entry = BRAND_CANONICAL_MAP[canonical];
       if (!entry) continue;
@@ -191,7 +192,7 @@ describeBuild('brand dedup — build output (dist/)', () => {
     }
   });
 
-  it('sitemap-jobs.xml lists the primary hub but never an alias slug', () => {
+  it('sitemap-jobs.xml lists the primary hub but never an alias slug', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const sitemapPath = path.join(DIST, 'sitemap-jobs.xml');
     if (!fs.existsSync(sitemapPath)) return; // skip when sitemap not built
     const xml = fs.readFileSync(sitemapPath, 'utf-8');

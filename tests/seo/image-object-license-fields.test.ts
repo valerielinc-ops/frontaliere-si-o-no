@@ -28,6 +28,7 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 
@@ -118,7 +119,7 @@ describe('dist HTML — ImageObject license-fields gate (GSC licensable-image)',
 
   it(
     'every ImageObject in dist JSON-LD has acquireLicensePage, copyrightNotice, license, creator, creditText',
-    { timeout: 120_000 },
+    { timeout: SCAN_TEST_TIMEOUT_MS },
     () => {
       const files = walkHtml(DIST_DIR);
       const allOffenders: Offender[] = [];

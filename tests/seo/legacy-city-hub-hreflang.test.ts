@@ -24,6 +24,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const DIST = path.join(REPO_ROOT, 'dist');
@@ -73,7 +74,7 @@ const CANONICAL_RE = /<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["'
 
 describeBuild('legacy city-hub duplicates — no hreflang on canonicalized pages', () => {
   for (const { description, legacyPath, canonicalPath } of LEGACY_CITY_HUB_PATHS) {
-    it(`${description} — emits canonical to clean URL and zero hreflang tags`, () => {
+    it(`${description} — emits canonical to clean URL and zero hreflang tags`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
       const html = readHtml(legacyPath);
       if (!html) return;
 

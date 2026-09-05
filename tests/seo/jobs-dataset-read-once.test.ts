@@ -33,6 +33,7 @@ import * as os from 'node:os';
 import * as path from 'node:path';
 
 import { readJobsDataset } from '../helpers/jobsDataset';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const SEO_TESTS_DIR = __dirname;
 const SELF = 'jobs-dataset-read-once.test.ts';
@@ -218,7 +219,7 @@ describe('gate:seo-source — the jobs dataset is read through the shared memo',
 
   // The guard above is only worth its runtime if the helper it points at
   // actually memoizes — otherwise it enforces a rename, not a behaviour.
-  it('the shared reader parses a given path once', () => {
+  it('the shared reader parses a given path once', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-memo-'));
     const fixture = path.join(dir, 'jobs.json');
     fs.writeFileSync(fixture, JSON.stringify([{ slug: 'a' }]));

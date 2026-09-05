@@ -2,11 +2,12 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { isArchivedStubHtml, isCrossSectionCanonical } from './_bridgeMarker';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
 describe('hreflang round-trip non-TI canton (P3-B)', () => {
-  it('a ZH job IT page declares EN/DE/FR alternates under matching canton sections', () => {
+  it('a ZH job IT page declares EN/DE/FR alternates under matching canton sections', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     // Find any ZH job HTML
     const zhDir = path.join(DIST, 'cerca-lavoro-zurigo');

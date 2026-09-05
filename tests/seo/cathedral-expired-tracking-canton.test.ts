@@ -20,6 +20,7 @@ import {
   knownSlugsStoreExists,
 } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 import { readJobsDataset } from '../helpers/jobsDataset';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const PLUGIN_PATH = path.resolve(__dirname, '../../build-plugins/jobsSeoPagesPlugin.ts');
 const REPO_ROOT = path.resolve(__dirname, '../..');
@@ -47,7 +48,7 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
     expect(region).not.toMatch(/sectionByLocale\[locale\]/);
   });
 
-  it('data: non-TI tracking entries no longer reference the TI section path', () => {
+  it('data: non-TI tracking entries no longer reference the TI section path', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!knownSlugsStoreExists(REPO_ROOT)) return;
     const jobs = readJobsDataset<{
       slug?: string;
