@@ -5518,6 +5518,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-vaud-registro-costi.title': 'Opening a business in the Canton of Vaud: registration and costs',
     'blog.article.aprire-attivita-vaud-registro-costi.excerpt': 'Practical guide to registration and costs to start a business in the Canton of Vaud: legal forms, Trade Register, three-tier taxation and insurance obligations.',
     'blog.article.aprire-attivita-vaud-registro-costi.imageAlt': 'Cantonal administration building in Lausanne, canton Vaud',
+    'blog.article.patente-estero-vaud-conversione.title': 'Foreign driver\'s license in Vaud: conversion and exams',
+    'blog.article.patente-estero-vaud-conversione.excerpt': 'Cantonal procedure for converting a foreign driver\'s license into Vaud: theoretical and practical exams, compulsory courses, required documents and contacts with the Traffic Office.',
+    'blog.article.patente-estero-vaud-conversione.imageAlt': 'Swiss mountain road with traffic signs, car driving and alpine landscape in the background.',
 };
 
 export default blogMetaChEn;

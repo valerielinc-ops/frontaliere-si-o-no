@@ -5518,6 +5518,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-vaud-registro-costi.title': 'Aprire un\'attività nel Canton Vaud: registro e costi',
     'blog.article.aprire-attivita-vaud-registro-costi.excerpt': 'Guida pratica alla registrazione e ai costi per avviare un\'attività nel Canton Vaud: forme giuridiche, Registro di Commercio, tassazione a tre livelli e obblighi assicurativi.',
     'blog.article.aprire-attivita-vaud-registro-costi.imageAlt': 'Edificio dell\'amministrazione cantonale a Losanna nel canton Vaud',
+    'blog.article.patente-estero-vaud-conversione.title': 'Patente estera nel Vaud: conversione ed esami',
+    'blog.article.patente-estero-vaud-conversione.excerpt': 'Procedura cantonale per convertire patente straniera nel Vaud: esami teorico e pratico, corsi obbligatori, documenti richiesti e contatti Ufficio della circolazione.',
+    'blog.article.patente-estero-vaud-conversione.imageAlt': 'Strada di montagna svizzera con segnaletica di circolazione, auto in transito e paesaggio alpino sullo sfondo.',
 };
 
 export default blogMetaChIt;

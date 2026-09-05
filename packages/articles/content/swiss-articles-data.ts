@@ -16552,6 +16552,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-estero-vaud-conversione',
+    category: 'pratico',
+    date: '2026-09-05T07:39:31.371Z',
+    image: '/images/blog/patente-estero-vaud-conversione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
