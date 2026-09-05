@@ -51,6 +51,7 @@ import {
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
+  shadowingManualPrefixes,
   classifyUnregisteredFamilyCandidate,
   loadAutoRegisteredFamilies,
   AUTO_FAMILIES_PATH,
@@ -81,6 +82,26 @@ function pct(n) {
  */
 function registerFamilyInAutoRegistry(family) {
   const current = loadAutoRegisteredFamilies();
+  const prefixes = familyPathPrefixes(family);
+
+  // Collisione col registro MANUALE: scrivere qui sarebbe peggio che non
+  // scrivere. `mergeRegisteredFamilies` scarta l'entry al prossimo import
+  // (il prefisso e' gia' rivendicato a mano), ma il giro successivo la
+  // ritrova sul disco, la legge come `alreadyThere` e non ritenta mai: il
+  // segmento resta fuori da SEO_CTR_FAMILIES per sempre, in silenzio (#7387).
+  // Il throw ricade sul catch di `applyAutoFamilyRegistration`, che apre la
+  // issue di triage umano — l'unica uscita che porta davvero a coprire il
+  // segmento, tipicamente aggiungendo l'alias mancante alla famiglia manuale
+  // (il resolver canonicalizza sullo slug IT, quindi lo slug EN/DE/FR
+  // scoperto puo' collidere con una manuale che non lo elenca fra i suoi).
+  const shadowing = shadowingManualPrefixes(family);
+  if (shadowing.length > 0) {
+    throw new Error(
+      `prefisso gia' rivendicato dal registro manuale (${shadowing.join(', ')}): `
+      + `l'entry auto ${family.id} verrebbe scritta e poi scartata da mergeRegisteredFamilies`,
+    );
+  }
+
   const claimed = new Set(current.flatMap((f) => familyPathPrefixes(f)));
   const alreadyThere =
     current.some((f) => f.id === family.id) ||
@@ -178,7 +199,7 @@ eterogenee senza un generator condiviso, marcarla \`kind: 'listing'\` con un
   }
 }
 
-async function applyAutoFamilyRegistration({ family }) {
+async function applyAutoFamilyRegistration({ family, pathContains, impressions90d }) {
   if (!family || !family.id) return;
   if (dryRun) {
     console.log(`   [dry-run] avrei registrato automaticamente ${family.pathContains} come ${family.kind}`);
@@ -189,7 +210,13 @@ async function applyAutoFamilyRegistration({ family }) {
     registerFamilyInAutoRegistry(family);
   } catch (e) {
     console.warn(`   ⚠️ impossibile registrare automaticamente in SEO_CTR_FAMILIES: ${e.message}`);
-    await reportUnregisteredFamily({ pathContains: family.pathContains, impressions90d: family.impressions90d });
+    // La issue nomina il segmento SCOPERTO, non il canonico IT su cui il
+    // resolver ha canonicalizzato: e' il segmento scoperto quello che resta
+    // senza copertura, e cercarlo nel registro e' il primo passo del triage.
+    await reportUnregisteredFamily({
+      pathContains: pathContains || family.pathContains,
+      impressions90d: impressions90d ?? family.impressions90d,
+    });
   }
 }
 
@@ -204,7 +231,20 @@ async function discoverNewFamilies() {
       return;
     }
     for (const candidate of candidates) {
-      const classified = classifyUnregisteredFamilyCandidate(candidate);
+      let classified;
+      try {
+        classified = classifyUnregisteredFamilyCandidate(candidate);
+      } catch (e) {
+        // La classificazione ora rifiuta di interpolare uno slug mancante
+        // (#7388) invece di produrre un `pathContains: '/undefined/'`. Il
+        // rifiuto e' per-candidato: catturarlo qui, e non nel catch esterno,
+        // evita che una mappa slug incompleta faccia saltare l'INTERA passata
+        // di scoperta (il catch sotto dice «errore GSC … salto questo giro»,
+        // che sarebbe una diagnosi falsa oltre che una perdita di segnale).
+        console.warn(`   ⚠️ ${candidate.pathContains}: classificazione rifiutata — ${e.message}`);
+        await reportUnregisteredFamily(candidate);
+        continue;
+      }
       if (classified.kind === 'unknown') {
         console.log(`   ⚠️ ${classified.pathContains}: ${classified.impressions90d} impressioni/90gg non censite`);
         await reportUnregisteredFamily(classified);
