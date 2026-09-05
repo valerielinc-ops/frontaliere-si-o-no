@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated MediPersonal crawler runner.
+ * Dedicated iPersonal AG crawler runner.
  *
- * Uses the standard crawler template with the MediPersonal parser.
+ * Uses the standard crawler template with the iPersonal AG parser.
  * All fetch/parse logic lives in ./lib/med-ipersonal-job-parser.mjs.
  */
 import path from 'node:path';
@@ -30,6 +30,6 @@ runStandardCrawlerPipeline({
   defaultSourceLang: 'de',
   validateAuthoritativeSnapshot: assertCompleteIpersonalSnapshot,
 }).catch((err) => {
-  console.error(`❌ MediPersonal crawler failed: ${err?.message || err}`);
+  console.error(`❌ iPersonal AG crawler failed: ${err?.message || err}`);
   process.exit(1);
 });

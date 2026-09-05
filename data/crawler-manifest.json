@@ -17280,7 +17280,7 @@
         }
       ],
       "runStep": {
-        "name": "Run dedicated iPersonal AG crawler",
+        "name": "Run dedicated MediPersonal crawler",
         "env": {
           "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
           "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
@@ -17306,7 +17306,7 @@
           "env": {
             "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
           },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update iPersonal AG jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update MediPersonal jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
         },
         {
           "name": "Report failure to GitHub Issue",
@@ -22628,7 +22628,7 @@
         }
       ],
       "runStep": {
-        "name": "Run dedicated MediPersonal crawler",
+        "name": "Run dedicated iPersonal AG crawler",
         "env": {
           "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
           "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
@@ -22654,7 +22654,7 @@
           "env": {
             "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
           },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update MediPersonal jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update iPersonal AG jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
         },
         {
           "name": "Report failure to GitHub Issue",

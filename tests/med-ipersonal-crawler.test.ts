@@ -8,7 +8,7 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { extractIpersonalDescription } from '../scripts/lib/ipersonal-spec-runtime.mjs';
 
-describe('MediPersonal crawler parser', () => {
+describe('iPersonal AG crawler parser', () => {
   describe('shared Simple Job Board detail boundary', () => {
     it('preserves authored HTML lists without the application tail', () => {
       const html = `
@@ -34,7 +34,7 @@ describe('MediPersonal crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(MED_IPERSONAL_KEY).toBe('med-ipersonal');
-    expect(MED_IPERSONAL_COMPANY_NAME).toBe('MediPersonal');
+    expect(MED_IPERSONAL_COMPANY_NAME).toBe('iPersonal AG');
   });
 
   // ── isCompanyJob ──
@@ -44,7 +44,7 @@ describe('MediPersonal crawler parser', () => {
     });
 
     it('matches by company name', () => {
-      expect(isMedIpersonalJob({ company: 'MediPersonal' })).toBe(true);
+      expect(isMedIpersonalJob({ company: 'iPersonal AG' })).toBe(true);
     });
 
     it('matches by URL domain', () => {
@@ -110,7 +110,7 @@ describe('MediPersonal crawler parser', () => {
       id: 'med-ipersonal-abc123',
       slug: 'test-position-med-ipersonal-ch',
       slugByLocale: { de: 'test-position-med-ipersonal-ch' },
-      company: 'MediPersonal',
+      company: 'iPersonal AG',
       companyKey: 'med-ipersonal',
       title: 'Test Position',
       titleByLocale: { de: 'Test Position' },
@@ -119,7 +119,7 @@ describe('MediPersonal crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://ipersonal.ch/jobs/test',
-      source: 'MediPersonal Dedicated Parser',
+      source: 'iPersonal AG Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
     };

@@ -30,7 +30,7 @@ function makeJob(crawlerKey: string, index: number, fresh = false) {
     previousSlugsByLocale: Object.fromEntries(
       LOCALES.map((locale) => [locale, [`${crawlerKey}-${locale}-history-${index}`]]),
     ),
-    company: crawlerKey === 'ipersonal' ? 'iPersonal AG' : 'MediPersonal',
+    company: crawlerKey === 'ipersonal' ? 'MediPersonal' : 'iPersonal AG',
     companyKey: crawlerKey,
     title: `Ruolo specialistico ${index}`,
     titleByLocale: { de: `Fachrolle ${index}` },
