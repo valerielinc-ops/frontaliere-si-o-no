@@ -11411,6 +11411,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assemblea-centro-iva-avs.title': 'Assemblea Centro approva finanziamento AVS con IVA',
     'blog.article.assemblea-centro-iva-avs.excerpt': 'Il Centro sostiene il finanziamento della 13esima rendita AVS mediante aumento IVA dello 0,4%. Voto il 29 novembre. Cosa cambia per i frontalieri?',
     'blog.article.assemblea-centro-iva-avs.imageAlt': 'Panorama di Lugano, cuore del Ticino e meta dei frontalieri svizzeri',
+    'blog.article.como-cantiere-corsie-ztl.title': 'Como, disastro traffico: aperte corsie e ZTL',
+    'blog.article.como-cantiere-corsie-ztl.excerpt': 'Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.',
+    'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Traffico intenso sulla strada verso Como con cantiere e segnali di avvertimento arancioni',
 };
 
 export default blogMetaIt;
