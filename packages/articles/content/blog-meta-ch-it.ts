@@ -5539,6 +5539,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-treno-oggetti-binari.title': '«Ubriachi fradici» accatastano oggetti sui binari e arriva il treno',
     'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Adolescenti accatastano oggetti sui binari, deragliamento di un Interregio a 110 km/h, danni per 141.369 franchi.',
     'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Treno deragliato a causa di oggetti sui binari in Svizzera',
+    'blog.article.intervento-polizia-goldach-scuola.title': 'Intervento polizia a Goldach: nessun colpo d\'arma da fuoco',
+    'blog.article.intervento-polizia-goldach-scuola.excerpt': 'Terminato l\'intervento della polizia a Goldach presso una scuola superiore: 300 persone evacuate per rumori pirotecnici scambiati per spari.',
+    'blog.article.intervento-polizia-goldach-scuola.imageAlt': 'Auto della polizia svizzera davanti a una scuola di notte',
 };
 
 export default blogMetaChIt;

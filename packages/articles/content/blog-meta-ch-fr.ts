@@ -5539,6 +5539,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-treno-oggetti-binari.title': 'Des « ivrognes trempés » entassent des objets sur les rails et le train arrive',
     'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Des adolescents entassent des objets sur les rails, déraillement d\'un Interregio à 110 km/h, dégâts pour 141 369 francs.',
     'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Train déraillé à cause d\'objets sur les rails en Suisse',
+    'blog.article.intervento-polizia-goldach-scuola.title': 'Intervention de la police à Goldach : pas de tir',
+    'blog.article.intervento-polizia-goldach-scuola.excerpt': 'Après l\'intervention de la police à Goldach dans un lycée : 300 personnes évacuées pour des bruits pyrotechniques échangés contre des coups de feu.',
+    'blog.article.intervento-polizia-goldach-scuola.imageAlt': 'Voiture de police suisse devant une école la nuit',
 };
 
 export default blogMetaChFr;

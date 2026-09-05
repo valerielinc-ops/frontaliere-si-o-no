@@ -5539,6 +5539,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-treno-oggetti-binari.title': '"Soaked drunk" they stack objects on the tracks and the train arrives',
     'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Adolescents stack objects on the tracks, derailment of an Interregio at 110 km/h, damage for 141,369 francs.',
     'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Train derailed due to objects on the tracks in Switzerland',
+    'blog.article.intervento-polizia-goldach-scuola.title': 'Police intervention in Goldach: no gunfire',
+    'blog.article.intervento-polizia-goldach-scuola.excerpt': 'After the police intervention in Goldach at a high school: 300 people evacuated due to pyrotechnic noises mistaken for gunshots.',
+    'blog.article.intervento-polizia-goldach-scuola.imageAlt': 'Swiss police car in front of a school building at night',
 };
 
 export default blogMetaChEn;
