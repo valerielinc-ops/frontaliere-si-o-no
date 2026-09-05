@@ -5575,6 +5575,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-controlli-minori.title': 'Garderie : les lacunes dans les contrôles sur les mineurs',
     'blog.article.asilo-nido-controlli-minori.excerpt': 'Un éducateur signalé pour pédopornographie a travaillé dans une crèche pendant deux ans. Comment et pourquoi les contrôles institutionnels ont échoué en Suisse.',
     'blog.article.asilo-nido-controlli-minori.imageAlt': 'Extérieur d\'une crèche suisse avec aire de jeu, architecture moderne, photographie documentaire',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Permis de séjour B Fribourg : exigences et renouvellement',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Permis B à Fribourg : exigences pour l\'UE/AELE et les pays tiers, procédures de renouvellement, documents nécessaires et rôles du SEM et de l\'administration cantonale.',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Bureau administratif cantonal pour le traitement des permis de séjour.',
 };
 
 export default blogMetaChFr;

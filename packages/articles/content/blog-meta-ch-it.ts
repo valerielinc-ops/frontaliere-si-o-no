@@ -5575,6 +5575,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-controlli-minori.title': 'Asilo nido: le lacune nei controlli sui minori',
     'blog.article.asilo-nido-controlli-minori.excerpt': 'Un educatore segnalato per pedopornografia ha lavorato in un asilo nido per due anni. Come e perché i controlli istituzionali hanno fallato in Svizzera.',
     'blog.article.asilo-nido-controlli-minori.imageAlt': 'Esterno di un asilo nido svizzero con area gioco, architettura moderna, fotografia documentaristica',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Permesso di dimora B Friburgo: requisiti e rinnovo',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Permesso B a Friburgo: requisiti per UE/AELS e Paesi terzi, procedure di rinnovo, documenti necessari e ruoli della SEM e amministrazione cantonale.',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Ufficio dell\'amministrazione cantonale: sportello per il rilascio e rinnovo di permessi di dimora.',
 };
 
 export default blogMetaChIt;
