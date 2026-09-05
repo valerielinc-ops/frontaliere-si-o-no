@@ -173,6 +173,40 @@ describe('issue #6759 reconciliation', () => {
     expect(untouched.collapsed).toBe(0);
   });
 
+  it('returns entries in expiredAt-descending order, so the callers that cap keep the most recent', () => {
+    // The survivor carries the NEWEST payload but is pushed at the position of
+    // the OLDEST member of its component. `assemble-jobs-dataset` and
+    // `cleanup-jobs` then `slice(0, EXPIRED_JOBS_CAP)` and document that cut as
+    // "the 5000 most recent": without the re-sort, entries that belong inside
+    // the window fall past it and their soft landings disappear. The invariant
+    // has to hold at the LAST consumer, not at the function's exit.
+    const entry = (slug: string, expiredAt: string, previousSlugs: string[] = []) => ({
+      slug,
+      companyKey: 'acme',
+      expiredAt,
+      slugByLocale: { it: slug },
+      previousSlugs,
+      previousSlugsByLocale: {} as Record<string, string[]>,
+    });
+    const result = collapseDuplicateRouteEntries([
+      entry('oldest', '2026-01-01T00:00:00.000Z', ['shared-history']),
+      entry('middle', '2026-05-01T00:00:00.000Z'),
+      entry('newest', '2026-09-01T00:00:00.000Z', ['shared-history']),
+    ]);
+    expect(result.entries.map((e) => e.slug)).toEqual(['newest', 'middle']);
+    // …and no two survivors own the same route, including the ones a merge
+    // widened: promoting a slug to flat `previousSlugs` serves it under every
+    // locale prefix, so a survivor can reach routes neither original entry had.
+    const owners = new Set<string>();
+    for (const e of result.entries) {
+      for (const route of localeRouteKeys(e)) {
+        const key = `${e.companyKey}::${route}`;
+        expect(owners.has(key), key).toBe(false);
+        owners.add(key);
+      }
+    }
+  });
+
   it('refuses a merge that would drop a route instead of throwing inside the cron', () => {
     // `promotePreviousSlugToLegacy` caps the unattributed legacy bucket, so a
     // pair of very deep histories cannot be merged without losing routes. The
@@ -191,6 +225,8 @@ describe('issue #6759 reconciliation', () => {
 
     const result = collapseDuplicateRouteEntries(before);
     expect(result.unmergeable).toBe(1);
+    // …e il rifiuto e' contato come rifiuto del CAP, non come guasto generico.
+    expect(result.capRefused).toBe(1);
     expect(result.entries).toHaveLength(2);
     const served = new Set(result.entries.flatMap((e) => [...localeRouteKeys(e)]));
     for (const route of requiredRoutes) expect(served.has(route), route).toBe(true);

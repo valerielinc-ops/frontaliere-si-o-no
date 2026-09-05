@@ -15,13 +15,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {
-  addPreviousSlugForLocale,
-  DEFAULT_PREV_SLUG_CAP,
-  getPreviousSlugsForLocale,
-  LOCALES,
-  promotePreviousSlugToLegacy,
-} from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, hasUsableJobId } from './lib/job-match-key.mjs';
 import { normalizeJobUrl } from './lib/crawler-source-hosts.mjs';
 import {

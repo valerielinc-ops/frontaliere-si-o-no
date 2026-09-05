@@ -266,6 +266,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   let collapsed = 0;
   let slugsTransferred = 0;
   let unmergeable = 0;
+  let capRefused = 0;
   // The index is maintained incrementally, never rebuilt: this runs over the
   // ~30k-entry aggregate archive, where a full rebuild per entry would be
   // quadratic. An entry whose merge was refused is kept in `out` but claims no
@@ -294,12 +295,24 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
         if (removed === component[0]) continue;
         transferred += transferSlugHistory(survivor, removed, source);
       }
-    } catch {
+    } catch (error) {
+      // Only the legacy-bucket cap refusal is an expected outcome. Anything
+      // else is a defect in the entry or in this code, and swallowing it would
+      // make the component silently `unmergeable` — indistinguishable from a
+      // legitimate refusal, and invisible in the cron log.
+      if (!/Cannot preserve \d+ legacy routes/.test(String(error?.message || ''))) throw error;
       merged = false;
+      capRefused += 1;
     }
     if (merged) {
       const served = new Set(namespaced(survivor));
-      merged = [...required].every((route) => served.has(route));
+      // `promotePreviousSlugToLegacy` moves a slug out of its per-locale bucket
+      // into flat `previousSlugs`, which the SEO bridge serves under EVERY
+      // locale prefix. The survivor can therefore gain routes neither original
+      // entry served — and one of those may already belong to a third record.
+      // Requiring the union is not enough: the gained routes must be free.
+      merged = [...required].every((route) => served.has(route))
+        && [...served].every((route) => required.has(route) || !owners.has(route));
     }
     if (!merged) {
       unmergeable += 1;
@@ -319,7 +332,18 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     keep(survivor);
   }
 
+  // A survivor is pushed at the position of the OLDEST member of its component
+  // while carrying the NEWEST payload, so collapsing scrambles the expiredAt
+  // ordering the callers rely on: `assemble-jobs-dataset` and `cleanup-jobs`
+  // both `slice(0, EXPIRED_JOBS_CAP)` and document that cut as "the 5000 most
+  // recent". Without this re-sort, 350 of the entries that belong in that
+  // window fall past index 5000 and are dropped — the soft landings of the
+  // jobs that expired last, i.e. the URLs Google indexed most recently.
   return {
-    entries: out, collapsed, slugsTransferred, unmergeable,
+    entries: out.sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    collapsed,
+    slugsTransferred,
+    unmergeable,
+    capRefused,
   };
 }
