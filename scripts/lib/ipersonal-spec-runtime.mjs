@@ -152,7 +152,7 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     (spec?.seedUrls || []).map((seed) => canonicalUrl(seed)).filter(Boolean),
   );
   const loadedSeedUrls = new Set();
-  const detailTemplateRx = spec?.detailTemplate ? templateToRegex(spec.detailTemplate) : null;
+  const detailTemplateRx = spec?.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
   const upstreamDetailExtractor = runtime.detailExtractor || extractDetailFields;
   const capturingFetch = async (input, init = {}) => {
