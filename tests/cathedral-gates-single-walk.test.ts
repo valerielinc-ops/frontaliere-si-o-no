@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 // @ts-expect-error — plain .mjs gate script, no type declarations
-import { GATES, evaluateGate } from '../scripts/cathedral-seo-gates-check.mjs';
+import { GATES, evaluateGate, runBundle } from '../scripts/cathedral-seo-gates-check.mjs';
 
 /**
  * Guardrail for issue #7421 — `cathedral-seo-gates-check` cancelled at the
@@ -160,6 +160,55 @@ describe('#7421 — the cathedral gates share one dist/ walk', () => {
     });
     expect(entry.status).toBe('error');
     expect(String(entry.error)).toMatch(/failed-audits/);
+  });
+
+  it('the shared walk prints its stopwatch on the ERROR paths too, not only on success', async () => {
+    // #7485 item 3. The revert-trigger declared in #7453 -- "if that run does
+    // not drop below two hours, go back to six separate spawns" -- is a
+    // judgement about the `shared dist/ walk done in Ns` number. The run it
+    // has to judge is the one cut at the step cap or killed mid-walk, i.e.
+    // exactly the two error early-returns of runBundle(). Printing the
+    // stopwatch only after them left that scenario with no number at all, on
+    // the same instrument half of #7453 exists to make readable.
+    //
+    // Driven for real, not asserted against source text: with no `dist/` the
+    // spawned audit-all exits 2, which is the first early return.
+    expect(existsSync(join(REPO_ROOT, 'dist'))).toBe(false);
+    const writes: string[] = [];
+    const original = process.stderr.write;
+    // @ts-expect-error — narrowed test double for the two overloads we hit
+    process.stderr.write = (chunk: string) => { writes.push(String(chunk)); return true; };
+    let bundle;
+    try {
+      bundle = await runBundle(GATES);
+    } finally {
+      process.stderr.write = original;
+    }
+
+    // Precondition: we really are on the error path, not on a green walk.
+    expect(bundle.error, 'expected the dist-missing early return').toBeTruthy();
+
+    const stopwatchLine = writes.find((l) => l.includes('shared dist/ walk done in'));
+    expect(stopwatchLine, `no stopwatch line among: ${writes.join('')}`).toBeTruthy();
+    // A duration, not a placeholder -- the trigger reads a number.
+    expect(stopwatchLine).toMatch(/shared dist\/ walk done in \d+s/);
+    // And the reason it is not a success timing, so the two are never confused.
+    expect(stopwatchLine).toMatch(/did NOT complete/);
+  });
+
+  it('every exit of runBundle after the stopwatch starts reports an elapsed time', () => {
+    // The second early return ("no failed-audits= line") cannot be reached
+    // without stubbing the spawn, so its coverage is structural: all three
+    // post-t0 exits must go through the one `stopwatch()` helper. A future
+    // early return added without it would drop the measurement again.
+    const src = readFileSync(join(REPO_ROOT, 'scripts/cathedral-seo-gates-check.mjs'), 'utf8');
+    const body = /export async function runBundle\(gates\) \{([\s\S]*?)\n\}/.exec(src);
+    expect(body, 'runBundle body not found').toBeTruthy();
+    const afterT0 = body![1].slice(body![1].indexOf('const t0 = Date.now()'));
+    const returns = (afterT0.match(/\n\s*return /g) ?? []).length;
+    const stopwatchCalls = (afterT0.match(/\n\s*stopwatch\(/g) ?? []).length;
+    expect(returns).toBeGreaterThanOrEqual(3);
+    expect(stopwatchCalls).toBe(returns);
   });
 
   it('an unbundled gate still spawns its own cmd (no bundle regression for the BFS pair)', async () => {

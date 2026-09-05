@@ -414,6 +414,22 @@ export async function runBundle(gates) {
   // Timed on its own line so the shared walk keeps a stopwatch of its own —
   // see the note on the per-gate lines in main().
   const t0 = Date.now();
+  // Printed on EVERY exit of this function, not just the successful one. The
+  // revert-trigger declared in #7453 ("if that run does not drop below two
+  // hours, go back to six separate spawns") is a judgement about this number,
+  // and the run it has to judge is precisely the one that gets cut at the
+  // step cap or dies mid-walk -- i.e. one of the two error early-returns
+  // below. Printing the stopwatch only on success left the failing scenario,
+  // the one the whole measurement exists for, without a number to read. The
+  // `shared dist/ walk done in Ns` token is kept byte-identical on all paths
+  // so a `grep` for it finds a duration in every scenario; the cause is
+  // appended after it rather than replacing it.
+  const stopwatch = (cause) => {
+    process.stderr.write(
+      `[seo-gates-check] shared dist/ walk done in ${((Date.now() - t0) / 1000).toFixed(0)}s` +
+        (cause ? ` -- did NOT complete: ${cause}\n` : '\n'),
+    );
+  };
   process.stderr.write(
     `[seo-gates-check] one shared dist/ walk for ${names.length} gate(s): ${names.join(', ')}\n`,
   );
@@ -433,6 +449,7 @@ export async function runBundle(gates) {
   // Exit 2 is "dist/ missing or fatal error": no audit produced a verdict, so
   // every bundled gate must report `error`, never a fabricated pass.
   if (result.code === 2) {
+    stopwatch('audit-all exited 2 (dist missing / fatal)');
     return {
       failed: new Set(),
       error: `audit-all exited 2 (dist missing / fatal): ${result.stderr.split('\n').slice(-5).join(' ')}`,
@@ -444,14 +461,13 @@ export async function runBundle(gates) {
   // out of a truncated log.
   const m = /^audit-all: failed-audits=(.*)$/m.exec(`${result.stdout}\n${result.stderr}`);
   if (!m) {
+    stopwatch('audit-all printed no `failed-audits=` line');
     return {
       failed: new Set(),
       error: 'audit-all printed no `failed-audits=` line -- the shared walk did not complete',
     };
   }
-  process.stderr.write(
-    `[seo-gates-check] shared dist/ walk done in ${((Date.now() - t0) / 1000).toFixed(0)}s\n`,
-  );
+  stopwatch(null);
   return { failed: new Set(m[1].split(',').map((s) => s.trim()).filter(Boolean)) };
 }
 
