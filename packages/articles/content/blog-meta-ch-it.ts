@@ -5557,6 +5557,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-zugo-aliquote.title': 'Imposta successione Zugo: aliquote e esenzioni',
     'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Nel Cantone Zugo, le imposte di successione e donazione sono materia cantonale. Esenzioni per coniuge e discendenti, aliquote per grado di parentela: come funziona la dichiarazione.',
     'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Ufficio tributario cantonale: documenti di successione e moduli fiscali su una scrivania amministrativa svizzera.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.title': 'Alcuni medici specialisti esagerano con le fatturazioni',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.excerpt': 'Secondo Saskia Schenker, direttrice di Prioswiss, alcuni medici specialisti stanno esagerando con le fatturazioni delle loro prestazioni.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.imageAlt': 'Ufficio medico a Lugano con attrezzature e grafici',
 };
 
 export default blogMetaChIt;

@@ -72131,6 +72131,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-medici-specialisti-fatturazioni-svizzera': {
+    title: 'Alcuni medici specialisti esagerano con le fatturazioni',
+    description: 'Saskia Schenker, direttrice di Prioswiss, critica le pratiche di fatturazione di alcuni medici specialisti in Svizzera. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, alcuni, medici, specialisti, esagerano',
+    ogTitle: 'Alcuni medici specialisti esagerano con le fatturazioni',
+    ogDescription: 'Scopri come alcuni medici specialisti in Svizzera stanno esagerando con le fatturazioni delle loro prestazioni secondo Saskia Schenker, direttrice di Prioswiss.',
+    canonicalPath: '/articoli-svizzera/medici-specialisti-fatturazioni-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alcuni medici specialisti esagerano con le fatturazioni",
+      "description": "Saskia Schenker, direttrice di Prioswiss, critica le pratiche di fatturazione di alcuni medici specialisti in Svizzera. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/medici-specialisti-fatturazioni-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio medico a Lugano con attrezzature e grafici"
+      },
+      "datePublished": "2026-09-05T13:45:01+00:00",
+      "dateModified": "2026-09-05T13:45:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/medici-specialisti-fatturazioni-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
