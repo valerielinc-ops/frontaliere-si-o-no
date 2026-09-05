@@ -11382,6 +11382,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-05.imageAlt': 'Les chiffres du jour pour les frontaliers – 5 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-05.seoDescription': 'Bulletin du frontalier du 5 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-05.ogDescription': 'Les chiffres du 5 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.title': 'Changement d\'employeur pour les frontaliers célibataires en 2024',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.excerpt': 'Guide pratique du changement d\'employeur pour les frontaliers célibataires en 2024 : préavis, renouvellement du permis G, continuité des cotisations et documents à mettre à jour.',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.imageAlt': 'Frontalier traversant la frontière à Brogeda, Tessin, Suisse',
 };
 
 export default blogMetaFr;

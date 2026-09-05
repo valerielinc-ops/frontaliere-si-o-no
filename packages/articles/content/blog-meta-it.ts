@@ -11381,6 +11381,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-05.imageAlt': 'I numeri del giorno per i frontalieri – 5 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-05.seoDescription': 'Bollettino frontalieri del 5 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-05.ogDescription': 'I numeri del 5 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.title': 'Cambio datore di lavoro per frontalieri single nel 2024',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.excerpt': 'Guida pratica al cambio datore di lavoro per frontalieri single nel 2024: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.imageAlt': 'Frontaliere che attraversa il confine a Brogeda, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

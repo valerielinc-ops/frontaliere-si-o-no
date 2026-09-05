@@ -85988,6 +85988,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-datore-lavoro-frontaliere-2024-single': {
+    title: 'Cambio datore di lavoro per frontalieri single nel 2024',
+    description: 'Guida pratica al cambio datore di lavoro per frontalieri single nel 2024: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, datore, lavoro, single',
+    ogTitle: 'Cambio datore di lavoro per frontalieri single nel 2024',
+    ogDescription: 'Scopri la guida pratica al cambio datore di lavoro per frontalieri single nel 2024: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    canonicalPath: '/articoli-frontaliere/cambio-datore-lavoro-frontaliere-2024-single',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio datore di lavoro per frontalieri single nel 2024",
+      "description": "Guida pratica al cambio datore di lavoro per frontalieri single nel 2024: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-datore-lavoro-frontaliere-2024-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che attraversa il confine a Brogeda, Ticino, Svizzera"
+      },
+      "datePublished": "2026-09-05T09:15:08+00:00",
+      "dateModified": "2026-09-05T09:15:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-datore-lavoro-frontaliere-2024-single/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
