@@ -85,7 +85,7 @@ beforeEach(() => {
 /** Re-importa il modulo con `process.argv` esteso di `extraArgv` (il modulo
  * fissa `DRY`/`REPO` come `const` al primo import), esegue `runDrain()` e
  * cattura ogni riga passata a `console.log`. Non tocca `argv[1]`: la guardia
- * CLI (`process.argv[1]?.endsWith('followup-drainer.mjs')`) resta falsa, così
+ * CLI (`import.meta.url === pathToFileURL(realpathSync(argv[1])).href`) resta falsa, così
  * `main()` non parte da solo e l'unica esecuzione è quella esplicita qui sotto. */
 async function runDrainCapturingLogs(extraArgv: string[]): Promise<string[]> {
   vi.resetModules();

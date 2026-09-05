@@ -57,6 +57,8 @@
  *   node scripts/ci/assert-dist-complete.mjs --full --report=/tmp/missing.json
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { readdir, readFile, access, stat, writeFile } from 'node:fs/promises';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -351,7 +353,10 @@ async function main() {
 
 // Import-safe: unit tests import the pure helpers without triggering a walk.
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+  // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+  // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })();
 

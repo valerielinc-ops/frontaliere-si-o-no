@@ -31,6 +31,8 @@
  * interactive analysis (top-N offenders, JSON dumps, baseline rewrites).
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, relative, sep, isAbsolute, dirname, extname, basename } from 'node:path';
@@ -2106,7 +2108,10 @@ async function main() {
 // classifier helpers below) without triggering the real dist/ walk + CLI
 // exit codes — same `invokedDirectly` convention as audit-title-length.mjs.
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+  // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+  // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })();
 

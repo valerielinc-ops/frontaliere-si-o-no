@@ -48,6 +48,8 @@
  * justification in the PR description.
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { readdir, readFile, writeFile, access } from 'node:fs/promises';
 import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -751,7 +753,10 @@ async function main() {
 // Only crawl + gate when run as a CLI. Importing this module (e.g. the unit
 // tests for `evaluateBfsGate`) must NOT trigger the live sitemap fetch / BFS.
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+  // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+  // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })();
 

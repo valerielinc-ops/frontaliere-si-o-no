@@ -18,7 +18,7 @@
 import fs from 'node:fs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readAllAttr, readAttr, readMetaContent } from './html-attr.mjs';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
@@ -6253,10 +6253,14 @@ export const __testables = {
   },
 };
 
-// Auto-run only when executed directly (not imported as module)
-const isDirectExecution = typeof process !== 'undefined' &&
-  process.argv[1] &&
-  import.meta.url.endsWith(process.argv[1].replace(/\\/g, '/'));
+// Auto-run only when executed directly (not imported as module).
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+const isDirectExecution = (() => {
+  try { return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
 
 if (isDirectExecution) {
   main().catch(async (err) => {

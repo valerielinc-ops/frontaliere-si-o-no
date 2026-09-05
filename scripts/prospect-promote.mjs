@@ -55,10 +55,15 @@ import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
 // silenzio. Splittare vale la pena solo INSIEME alla voce di manifest e alla
 // PR gemella sul corpus, nello stesso giro.
 //
-// Nel frattempo l'import e' sicuro qui: `followup-drainer.mjs` ha il guard
-// `if (process.argv[1]?.endsWith('followup-drainer.mjs'))` sul suo `main()`,
-// quindi importarlo non esegue niente. Il contrario NON vale — questo file
-// il guard non ce l'ha e un `import()` lo esegue davvero.
+// Nel frattempo l'import e' sicuro qui: `followup-drainer.mjs` ha un guard di
+// entrypoint sul suo `main()`, quindi importarlo non esegue niente. Dal #7292
+// quel guard confronta l'IDENTITA' del modulo
+// (`import.meta.url === pathToFileURL(realpathSync(argv[1])).href`) e non piu'
+// il suffisso di `argv[1]`: sotto questo entrypoint il suffisso era solo
+// *probabilmente* diverso, l'identita' e' diversa per costruzione, e il
+// `main()` del drainer — che scrive su issue e PR reali — non puo' partire
+// dentro il job del prospector. Il contrario NON vale — questo file il guard
+// non ce l'ha e un `import()` lo esegue davvero.
 import { canPushWorkflows } from './ci/followup-drainer.mjs';
 
 const argv = process.argv.slice(2);

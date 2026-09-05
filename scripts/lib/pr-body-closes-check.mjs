@@ -53,6 +53,9 @@
  * file mirrors down, with no change needed there.
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+
 // An issue reference: optional `owner/repo` prefix, then `#<digits>`.
 const REF = '(?:[\\w.-]+\\/[\\w.-]+)?#\\d+';
 // Separators GitHub users put between chained refs (the ones it silently ignores):
@@ -223,7 +226,14 @@ export function checkClosesLines(body = '') {
 }
 
 // CLI mode: read body from arg or stdin, print JSON, exit 1 on violation.
-if (process.argv[1] && process.argv[1].endsWith('pr-body-closes-check.mjs')) {
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+const isDirectRun = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+if (isDirectRun) {
   const arg = process.argv[2];
   const run = (body) => {
     const res = checkClosesLines(body);
