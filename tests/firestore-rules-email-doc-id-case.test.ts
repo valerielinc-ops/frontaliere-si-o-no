@@ -26,10 +26,13 @@ import { resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 
 /**
- * Ogni confronto fra l'email del token e qualcos'altro, con ciò che sta a
- * destra dell'uguale catturato per intero fino al delimitatore di clausola.
+ * Ogni confronto fra l'email del token e qualcos'altro, con il lato destro
+ * catturato per intero: o una stringa quotata, o un identificatore con la sua
+ * eventuale chiamata `()` — senza quest'ultima `email.lower()` verrebbe
+ * troncato alla parentesi e segnalato come non normalizzato.
  */
-const IDENTITY_COMPARISON_RE = /request\.auth\.token\.email\.lower\(\)\s*==\s*([^\s;)&|]+)/g;
+const IDENTITY_COMPARISON_RE =
+  /request\.auth\.token\.email\.lower\(\)\s*==\s*('[^']*'|[A-Za-z_][A-Za-z0-9_.]*(?:\(\))?)/g;
 
 /**
  * Il lato destro è accettabile in due forme sole:
