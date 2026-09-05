@@ -7,6 +7,8 @@
  *    acquisitionSource tracking;
  *  - a paid sponsor wins over affiliate partners;
  *  - copy is locale-correct (no cross-locale leak);
+ *  - the link declares its slot via `pos`, which the /go/ redirect turns into
+ *    the Partnerize `pubref` (#7346);
  *  - NEVER AdSense / Google Ads in email.
  */
 import { describe, expect, it, afterEach } from 'vitest';
@@ -129,5 +131,23 @@ describe('recommendedBlock render', () => {
     // the card, so nested <tr>s are expected, but there must be only one
     // outer <td class="section-pad"> opener — the cell the outer table sees.
     expect((trimmed.match(/<td class="section-pad"/g) || []).length).toBe(1);
+  });
+
+  it('declares the slot with `pos`, so the /go/ redirect can derive a pubref', () => {
+    const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'general' });
+    expect(rec).not.toBeNull();
+
+    const weekly = new URL(buildRecommendedHref(rec!, { campaign: 'weekly-42' }));
+    expect(weekly.searchParams.get('pos')).toBe(`weekly-42-${rec!.id}`);
+
+    // a different surface must not collapse into the same tracked slot
+    const welcome = new URL(buildRecommendedHref(rec!, { campaign: 'welcome' }));
+    expect(welcome.searchParams.get('pos')).not.toBe(weekly.searchParams.get('pos'));
+
+    // an explicit placement wins over the campaign-derived default
+    const explicit = new URL(buildRecommendedHref(rec!, { campaign: 'weekly-42', placement: 'nl-slot-1' }));
+    expect(explicit.searchParams.get('pos')).toBe('nl-slot-1');
+
+    expect(renderRecommendedBlock({ locale: 'it', interest: 'general', campaign: 'weekly-42' })).toContain('pos=');
   });
 });
