@@ -82,6 +82,34 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('#7501 — no artifact listing turns a gh failure into a zero count', () => {
+    // `has=$(gh api …/artifacts --jq '…|length' 2>/dev/null || echo 0)` reads
+    // an API/token failure as "this run has no artifact": the candidate is
+    // dropped in silence and the A/B pair slides onto two older deploys, so
+    // the delta is plausible but between the wrong two runs. Every listing
+    // must let the exit code out and treat a non-zero one as fatal.
+    const offenders: string[] = [];
+    for (const f of allGithubShellFiles()) {
+      const src = codeOnly(f);
+      // The listing line plus the three that can still close its command
+      // substitution — a lazy `[\s\S]*?\n` would stop at the first newline
+      // and never see the fallback, which is always on a continuation line.
+      const re = /gh\s+api\s+"[^"]*\/artifacts"[^\n]*(?:\n[^\n]*){0,3}/g;
+      for (const m of src.matchAll(re)) {
+        if (/2>\/dev\/null|\|\|\s*echo\b/.test(m[0])) offenders.push(`${f}: ${m[0].trim()}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+    // …and the two files that list artifacts themselves say so out loud.
+    for (const f of [ACTION_PATH, join(WORKFLOWS_DIR, 'measure-deploy-delta.yml')]) {
+      const src = codeOnly(f);
+      expect(src, f).toMatch(/gh api failed while listing artifacts/);
+      // The branch that reports it must EXIT, not continue onto an older run.
+      const after = src.slice(src.indexOf('gh api failed while listing artifacts'));
+      expect(/\n\s*(continue|exit)\b/.exec(after)?.[1], f).toBe('exit');
+    }
+  });
+
   it('#7394 — every walk-back orders candidates on created_at client-side', () => {
     // The two files that still list deploy runs themselves. The REST endpoint
     // does not contract `created_at desc`; the old code relied on having
