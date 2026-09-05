@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -711,9 +712,13 @@ function applyToDisk(filtered) {
   for (const [crawlerKey, proposals] of filtered.entries()) {
     const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
     const existing = loadExpiredSliceFromDisk(crawlerKey);
-    const merged = [...existing, ...proposals].sort((a, b) =>
-      compareExpiredAt(b.expiredAt, a.expiredAt),
-    );
+    // A recovered dedup loser shares its slug with the winner by definition,
+    // so the union below can hand two entries the same locale route. Collapse
+    // by route — the union of routes is what the soft landings need.
+    const merged = collapseDuplicateRouteEntries(
+      [...existing, ...proposals].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+      { source: 'backfill-dedup-lost-jobs' },
+    ).entries;
     writeJsonAtomic(slicePath, merged);
     summary.push({ crawlerKey, added: proposals.length, total: merged.length });
   }
