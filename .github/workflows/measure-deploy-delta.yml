@@ -65,7 +65,12 @@ jobs:
       - name: Checkout (script only)
         uses: actions/checkout@v5
         with:
-          sparse-checkout: scripts/measure-dist-delta.py
+          # Hand-kept (apply-checkout-profiles.mjs deliberately leaves this
+          # one alone): the delta script, plus the composite action that
+          # owns artifact resolve+download for every workflow in the repo.
+          sparse-checkout: |
+            scripts/measure-dist-delta.py
+            .github/actions/fetch-pages-artifact
           sparse-checkout-cone-mode: false
 
       - name: Resolve run ids (auto-pick last two with github-pages artifact)
@@ -84,17 +89,54 @@ jobs:
           fi
           if [ -z "$A" ] && [ -z "$B" ]; then
             echo "Auto-picking last two deploy.yml runs with a non-expired github-pages artifact..."
+            # #7393: this used to iterate a `gh api` command substitution
+            # directly in the for-LIST position. Under `set -euo
+            # pipefail` a command substitution in a for-LIST does not abort the
+            # script when it fails — the list came back empty, the loop never
+            # ran, and an API error read as "no run has an artifact". The
+            # listing is materialised to a file and checked before iterating.
+            #
+            # #7395: and it was a single per_page=40 page with no successor.
+            # Paginate to an explicit, named cap so "we ran out of window" is
+            # distinguishable from "nothing succeeded" — same 3 x 50 ceiling as
+            # .github/actions/fetch-pages-artifact/action.yml.
+            MAX_PAGES=3
+            PER_PAGE=50
+            WORK="$(mktemp -d)"
+            page=1
+            while [ "$page" -le "$MAX_PAGES" ]; do
+              if ! gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?branch=main&status=success&per_page=$PER_PAGE&page=$page" \
+                   > "$WORK/page-$page.json"; then
+                echo "::error::gh api failed while listing deploy.yml runs (page $page). This is an API/token failure, NOT 'no deploy has an artifact'."
+                exit 1
+              fi
+              got=$(jq '.workflow_runs | length' "$WORK/page-$page.json")
+              [ "$got" -lt "$PER_PAGE" ] && break
+              page=$((page + 1))
+            done
+            # #7394: the REST endpoint does not CONTRACT created_at desc, and
+            # here the order decides which artifact is B (newer) and which is A
+            # (older) — i.e. the SIGN of every number this workflow reports.
+            # Order client-side and print the timestamps.
+            jq -rs '[.[].workflow_runs[]]
+                    | sort_by(.created_at) | reverse
+                    | .[] | [(.id|tostring), .created_at] | @tsv' \
+              "$WORK"/page-*.json > "$WORK/cands.tsv"
+            echo "Candidates (id / created_at), client-sorted by created_at desc:"
+            sed 's/^/  /' "$WORK/cands.tsv"
             picked=()
-            for r in $(gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?per_page=40" --jq '.workflow_runs[].id'); do
+            while IFS=$'\t' read -r r created; do
+              [ -n "$r" ] || continue
               has=$(gh api "repos/$GH_REPO/actions/runs/$r/artifacts" \
                 --jq '[.artifacts[]|select(.name=="github-pages" and .expired==false)]|length' 2>/dev/null || echo 0)
               if [ "${has:-0}" -gt 0 ]; then
+                echo "  keeping run $r ($created)"
                 picked+=("$r")
               fi
               [ "${#picked[@]}" -ge 2 ] && break
-            done
+            done < "$WORK/cands.tsv"
             if [ "${#picked[@]}" -lt 2 ]; then
-              echo "::error::Could not find two deploy runs with a non-expired github-pages artifact."
+              echo "::error::Could not find two deploy.yml runs on main with a non-expired github-pages artifact within the walk-back cap ($MAX_PAGES pages x $PER_PAGE runs). Pass run_a and run_b explicitly."
               exit 1
             fi
             B="${picked[0]}"   # newest
@@ -105,48 +147,26 @@ jobs:
           echo "run_a=$A" >> "$GITHUB_OUTPUT"
           echo "run_b=$B" >> "$GITHUB_OUTPUT"
 
+      # Both downloads go through the composite action, which owns the
+      # `.expired==false` filter these two steps were missing (#7392) and the
+      # 410 handling (#7396). The run ids are PINNED here — the pair above is
+      # already chosen, so a dead artifact must fail loudly rather than have
+      # one half of the diff silently slide to a different deploy.
       - name: Fetch OLDER artifact
-        run: |
-          set -e
-          RID="${{ steps.pick.outputs.run_a }}"
-          # `gh run download -n github-pages` does not reliably yield artifact.tar
-          # for the large (>1 GB) Pages artifact — same proven gh-api-zip fix as
-          # audit-dist-from-run.yml / seed-*.yml (PR #3101, issue #3104 item 2).
-          ARTIFACT_ID=$(gh api "repos/$GH_REPO/actions/runs/$RID/artifacts" \
-            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
-          if [ -z "$ARTIFACT_ID" ]; then
-            echo "::error::No 'github-pages' artifact on run $RID."
-            exit 1
-          fi
-          mkdir -p A
-          gh api -H "Accept: application/vnd.github+json" \
-            "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
-            > /tmp/older.zip
-          unzip -q /tmp/older.zip -d A
-          if [ ! -f A/artifact.tar ]; then
-            echo "::error::Expected A/artifact.tar — saw $(ls A)"
-            exit 1
-          fi
+        id: older
+        uses: ./.github/actions/fetch-pages-artifact
+        with:
+          run-id: ${{ steps.pick.outputs.run_a }}
+          output-dir: A
+          github-token: ${{ github.token }}
 
       - name: Fetch NEWER artifact
-        run: |
-          set -e
-          RID="${{ steps.pick.outputs.run_b }}"
-          ARTIFACT_ID=$(gh api "repos/$GH_REPO/actions/runs/$RID/artifacts" \
-            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
-          if [ -z "$ARTIFACT_ID" ]; then
-            echo "::error::No 'github-pages' artifact on run $RID."
-            exit 1
-          fi
-          mkdir -p B
-          gh api -H "Accept: application/vnd.github+json" \
-            "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
-            > /tmp/newer.zip
-          unzip -q /tmp/newer.zip -d B
-          if [ ! -f B/artifact.tar ]; then
-            echo "::error::Expected B/artifact.tar — saw $(ls B)"
-            exit 1
-          fi
+        id: newer
+        uses: ./.github/actions/fetch-pages-artifact
+        with:
+          run-id: ${{ steps.pick.outputs.run_b }}
+          output-dir: B
+          github-token: ${{ github.token }}
 
       - name: Measure delta (stream-hash, no extract)
         env:
