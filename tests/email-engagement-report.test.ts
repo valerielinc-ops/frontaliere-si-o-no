@@ -5,8 +5,9 @@ import {
   campaignFromMetadata,
   aggregateMessages,
   detectRegressions,
+  pickBaseline,
   REGRESSION_RULES,
-  WRITER_FIX_LANDED_AT,
+  ZERO_ENGAGEMENT_MIN_SENDS,
 } from '../scripts/report-email-engagement.mjs';
 
 describe('classifyEmailType', () => {
@@ -80,38 +81,35 @@ describe('aggregateMessages', () => {
     expect(agg.orphanEngagement).toBe(1);
   });
 
-  it('counts a Maileroo lifecycle message as unmeasurable, a job alert as measurable', () => {
-    const agg = aggregateMessages([
-      msg({ emailType: 'onboarding_drip' }),
-      msg({ emailType: 'welcome' }),
-      msg({ emailType: 'job_alert' }),
-      msg({ emailType: 'newsletter_weekly' }),
-    ]);
-    expect(agg.unmeasurable).toBe(2);
+  const cohort = (n: number, o: any) => Array.from({ length: n }, () => msg(o));
+
+  // THE observer for #6317. Until this fix `unmeasurable` was only counted for
+  // messages older than a hard-coded WRITER_FIX_LANDED_AT = 2026-08-21T06:00Z,
+  // while the report always looks at the trailing 7 days — so from 2026-08-28
+  // the counter could not return anything but 0 for ANY input. It read green
+  // because the predicate was dead, which is the failure this whole report
+  // exists to prevent someone else's metric from having. Dates here are `now`
+  // on purpose: that is the input the old code could not see.
+  it('counts a cohort with zero opens and zero clicks as unmeasurable, whatever the date — #6317', () => {
+    const agg = aggregateMessages(cohort(ZERO_ENGAGEMENT_MIN_SENDS, { emailType: 'welcome' }));
+    expect(agg.unmeasurable).toBe(ZERO_ENGAGEMENT_MIN_SENDS);
+    expect(agg.unmeasurableCohorts).toEqual([{ name: 'maileroo|welcome', sent: ZERO_ENGAGEMENT_MIN_SENDS }]);
   });
 
-  it('does not call a Mailgun lifecycle message unmeasurable — that webhook carries the recipient', () => {
-    const agg = aggregateMessages([msg({ provider: 'mailgun', emailType: 'welcome' })]);
+  it('clears a cohort the moment a single open proves the webhook can attribute it', () => {
+    const msgs = cohort(ZERO_ENGAGEMENT_MIN_SENDS, { emailType: 'welcome' });
+    msgs[0].open = 1;
+    expect(aggregateMessages(msgs).unmeasurable).toBe(0);
+  });
+
+  it('is provider-agnostic: engagement recorded for nobody is not a Maileroo property', () => {
+    const agg = aggregateMessages(cohort(ZERO_ENGAGEMENT_MIN_SENDS, { provider: 'mailgun', emailType: 'welcome' }));
+    expect(agg.unmeasurableCohorts).toEqual([{ name: 'mailgun|welcome', sent: ZERO_ENGAGEMENT_MIN_SENDS }]);
+  });
+
+  it('does not indict a cohort too small to be evidence', () => {
+    const agg = aggregateMessages(cohort(ZERO_ENGAGEMENT_MIN_SENDS - 1, { emailType: 'welcome' }));
     expect(agg.unmeasurable).toBe(0);
-  });
-
-  it('does not call a Maileroo lifecycle message unmeasurable once seen after the writer fix — #6317', () => {
-    // Before #6317 this counted onboarding_drip/welcome/etc. as unmeasurable by
-    // type alone forever, even once the shared ref writer (#6195) covered every
-    // sender: a message seen well after the fix landed, with a real open on
-    // record, is proof the ref resolved — the exact opposite of unmeasurable.
-    const after = new Date(WRITER_FIX_LANDED_AT.getTime() + 24 * 60 * 60 * 1000);
-    const agg = aggregateMessages([
-      msg({ emailType: 'onboarding_drip', open: 1, firstSeenAt: after }),
-      msg({ emailType: 'welcome', firstSeenAt: after }),
-    ]);
-    expect(agg.unmeasurable).toBe(0);
-  });
-
-  it('still calls a Maileroo lifecycle message unmeasurable when seen before the writer fix', () => {
-    const before = new Date(WRITER_FIX_LANDED_AT.getTime() - 24 * 60 * 60 * 1000);
-    const agg = aggregateMessages([msg({ emailType: 'onboarding_drip', firstSeenAt: before })]);
-    expect(agg.unmeasurable).toBe(1);
   });
 
   it('splits by provider and by type from the same pass', () => {
@@ -212,5 +210,38 @@ describe('detectRegressions', () => {
     const cur = snap({ byPair: { 'mailgun|job_alert': { sent: 400, opened: 120, clicked: 50 } } });
     const metrics = detectRegressions(cur, prev).map((x: any) => x.metric);
     expect(metrics).toContain('pair:mailgun|job_alert:open');
+  });
+});
+
+describe('pickBaseline', () => {
+  // The other half of #6317: every [rate] alert on that issue was measured
+  // against "whatever snapshot ran last", which is not a baseline. The
+  // scheduled run of 2026-08-31T10:05 (19'596 invii, the numbers posted on the
+  // issue) was replaced in Firestore by a hand run at 13:34 the same day
+  // (16'875 invii) — same calendar-date document id, merging write.
+  const s = (generated_at: string, window_days = 7) => ({ generated_at, window_days });
+  const now = '2026-09-05T18:40:00.000Z';
+
+  it('takes the most recent snapshot that is a whole window behind', () => {
+    expect(pickBaseline(
+      [s('2026-08-29T18:00:00.000Z'), s('2026-08-22T18:00:00.000Z')], 7, now,
+    )).toMatchObject({ generated_at: '2026-08-29T18:00:00.000Z' });
+  });
+
+  it('refuses the same-day ad-hoc run whose window is almost this one', () => {
+    // 13:34 against a window closing at 18:40: ~97% shared data, so any "drop"
+    // is noise measured on the 3% that differs.
+    expect(pickBaseline([s('2026-09-05T13:34:00.000Z')], 7, now)).toBeNull();
+  });
+
+  it('refuses a snapshot of a different window length', () => {
+    expect(pickBaseline([s('2026-08-29T18:00:00.000Z', 30)], 7, now)).toBeNull();
+  });
+
+  it('survives the hours of cron lag that move a weekly run around', () => {
+    // Scheduled 03:40 UTC, observed 04:27 and 10:05 on consecutive Mondays.
+    // A strict non-overlap rule would silently drop the comparison whenever
+    // the lag flips sign; half a window absorbs it.
+    expect(pickBaseline([s('2026-08-29T23:59:00.000Z')], 7, now)).not.toBeNull();
   });
 });
