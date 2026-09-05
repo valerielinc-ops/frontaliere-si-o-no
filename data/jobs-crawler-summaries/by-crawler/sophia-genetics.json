@@ -1,18 +1,19 @@
 {
   "key": "sophia-genetics",
   "label": "SOPHiA GENETICS",
-  "generatedAt": "2026-09-05T12:45:34.096Z",
-  "total": 8,
+  "generatedAt": "2026-09-05T22:52:51.710Z",
+  "total": 7,
   "discovered": null,
-  "written": 8,
+  "written": 7,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 10705,
-  "avgDurationMs": 10705,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6725,
+  "avgDurationMs": 6725,
   "durationHistory": [
-    10705
+    6725
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +29,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:45:26.730Z",
+      "crawledAt": "2026-09-05T22:52:40.704Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -67,7 +68,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/DCBD3D6F1B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:45:25.565Z",
+      "crawledAt": "2026-09-05T22:52:39.767Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -105,7 +106,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/29E6DA069F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:45:25.766Z",
+      "crawledAt": "2026-09-05T22:52:39.977Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -143,7 +144,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:45:26.645Z",
+      "crawledAt": "2026-09-05T22:52:40.612Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -182,7 +183,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0C21CE35F7/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:45:25.668Z",
+      "crawledAt": "2026-09-05T22:52:39.890Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -220,7 +221,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:45:26.364Z",
+      "crawledAt": "2026-09-05T22:52:40.433Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -259,7 +260,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:45:26.108Z",
+      "crawledAt": "2026-09-05T22:52:40.341Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -286,8 +287,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "sophia-genetics-4ac49825c5f8",
       "slug": "associate-director-sr-manager-biopharma-business-development-sophia-genetics-zurich",
@@ -330,5 +330,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
