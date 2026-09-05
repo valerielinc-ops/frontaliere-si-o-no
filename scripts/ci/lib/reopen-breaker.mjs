@@ -132,7 +132,7 @@ export function reopenFingerprint({ additions, deletions, changedFiles, vitestCo
  * questa direzione è al più `max` giri in più; nell'altra è una PR bloccata
  * per sempre da un JSON malformato.
  * @param {string} body
- * @returns {{count:number, fingerprint:string}|null}
+ * @returns {{count:number, fingerprint:string, reviewGateUsed:boolean}|null}
  */
 export function parseReopenBudget(body) {
   if (!body) return null;
@@ -144,7 +144,16 @@ export function parseReopenBudget(body) {
   const fingerprint = typeof o.fingerprint === 'string' ? o.fingerprint : '';
   if (!fingerprint) return null;
   const count = Number.isInteger(o.count) && o.count >= 0 ? o.count : 0;
-  return { count, fingerprint };
+  // `reviewGate` — il re-trigger one-shot del rosso-da-review-gate è già stato
+  // speso su questa PR. Sta QUI e non in un secondo commento marker per la
+  // stessa ragione per cui il contatore sta qui: un solo canale di
+  // segnalazione, riscritto in place. Ed è DELIBERATAMENTE fuori
+  // dall'impronta: l'impronta include il numero di review, che ogni reopen
+  // incrementa, quindi un flag appaiato ad essa si azzererebbe a ogni giro e
+  // l'eccezione non sarebbe one-shot ma perpetua — il livelock #5896/#5906 in
+  // altra forma. Un commit nuovo non ne ha bisogno: ri-triggera i test da sé.
+  const reviewGateUsed = o.reviewGate === true;
+  return { count, fingerprint, reviewGateUsed };
 }
 
 /**
@@ -302,8 +311,11 @@ export function decideNeedsHumanPass({ fingerprint, prior }) {
  * producono UNA notifica, non N. È questo — non un contatore di issue — a
  * garantire che la segnalazione sia una sola.
  */
-export function renderReopenBudget({ count, max, fingerprint, action, reason, cause = '' }) {
-  const state = JSON.stringify({ count, fingerprint });
+export function renderReopenBudget({
+  count, max, fingerprint, action, reason, cause = '', reviewGateUsed = false,
+}) {
+  const state = JSON.stringify(
+    reviewGateUsed ? { count, fingerprint, reviewGate: true } : { count, fingerprint });
   const head = action === 'skip-breaker'
     ? `⛔ **autorebase / breaker aperto** — smetto di riaprire questa PR.`
     : action === 'skip-failing-check'

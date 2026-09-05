@@ -156,11 +156,12 @@ const STUCK_RED_STALE_H = Number(process.env.AUTOREBASE_STUCK_RED_STALE_H || 24)
 // quel rosso NON dice «la review non può partire» — dice che è già partita e il
 // verdetto manca o è negativo, quindi il riciclo è esattamente ciò che ne produce
 // uno nuovo. One-shot per PR, e per la stessa ragione dello stuck-red: il
-// fingerprint del breaker include il NUMERO di review, che un reopen incrementa —
-// senza marker il contatore si azzererebbe a ogni giro e il breaker non
-// scatterebbe mai (il livelock misurato su #5896/#5906). Un 🔴 reale si chiude
-// con un commit, non con un re-trigger: una volta sola è la dose giusta.
-const REVIEW_GATE_MARKER = '<!-- AUTOREBASE_REVIEW_GATE_RETRIGGER -->';
+// fingerprint del breaker include il NUMERO di review, che un reopen incrementa,
+// quindi il solo contatore si azzererebbe a ogni giro e il breaker non
+// scatterebbe mai (il livelock misurato su #5896/#5906). Il flag vive nello
+// STATO dello sticky del budget (`reviewGate`), non in un secondo commento: un
+// solo canale di segnalazione. Un 🔴 reale si chiude con un commit, non con un
+// re-trigger — una volta sola è la dose giusta.
 // Activity-guard: don't rebase-push a branch whose head was pushed in the last
 // N minutes — a contributor/agent is likely mid-flight (still pushing fixes on
 // top of an LGTM'd PR). Rebasing then races their push: ours lands first, their
@@ -421,8 +422,9 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   // speso, altrimenti il commento tornerebbe a dire «far passare i test» a una
   // PR i cui test sono verdi), ma esenzione dalla precondizione una volta sola.
   const reviewGateRed = vitestConclusion === 'failure' && vitestRedIsReviewGate(head);
-  const reviewGateReason = reviewGateRed && !hasCommentMarker(num, REVIEW_GATE_MARKER)
+  const reviewGateReason = reviewGateRed && !(prior && prior.reviewGateUsed)
     ? 'review-gate' : '';
+  const reviewGateUsed = Boolean((prior && prior.reviewGateUsed) || reviewGateReason);
   const d = decideReopen({
     vitestConclusion, fingerprint, prior, max: MAX_REOPENS,
     failureNotAttributable: stuckRedReason || reviewGateReason,
@@ -436,7 +438,7 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
     // più. Una segnalazione ripetuta sarebbe lo stesso difetto in altra forma.
     const next = renderReopenBudget({
       count: d.count, max: MAX_REOPENS, fingerprint, action: d.action, reason: d.reason,
-      cause: d.cause,
+      cause: d.cause, reviewGateUsed,
     });
     console.log(`PR #${num}: NO reopen (${d.action}) — ${d.reason}`);
     if (!DRY && !labelsOf(num).includes(BREAKER_LABEL)) {
@@ -454,18 +456,10 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   // cieco proprio ai giri che falliscono, cioè quelli che contano di più.
   const next = renderReopenBudget({
     count: d.count, max: MAX_REOPENS, fingerprint, action: d.action, reason: d.reason,
-    cause: d.cause,
+    cause: d.cause, reviewGateUsed,
   });
   if (body !== next) {
     upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
-  }
-  // Consuma il one-shot PRIMA del close+reopen, come il contatore qui sopra e
-  // per la stessa ragione: se il job muore in mezzo, il tentativo è comunque
-  // speso e il tick successivo non ne concede un altro.
-  if (reviewGateReason && !DRY) {
-    gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
-      `${REVIEW_GATE_MARKER}\n♻️ **autorebase / review gate**: il rosso di \`${VITEST_CHECK_NAME}\` su questa PR è lo step \`Require approving Claude review\`, non i test — sulla HEAD manca un \`## LGTM\` approvante oppure c'è un finding 🔴 Important.\n\nDall'unificazione tests+review la review gira DENTRO quel job, quindi un re-trigger ne produce una nuova: close+reopen **una sola volta**. Se il verdetto resta negativo, serve un commit che chiuda il finding — non un altro giro.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
-      { json: false, allowFail: true });
   }
   console.log(`PR #${num}: reopen consentito — ${d.reason}`);
   return reopenToRetrigger(num);
@@ -1022,6 +1016,10 @@ async function processPR(pr) {
     // nuovo, esattamente come nel reset normale.
     const next = renderReopenBudget({
       count: 0, max: MAX_REOPENS, fingerprint: fp, action: 'needs-human-pass', reason: d.reason,
+      // Il one-shot del review gate NON si azzera qui: è appaiato alla PR, non
+      // all'impronta (vedi parseReopenBudget). Riscriverlo a false lo
+      // renderebbe rinnovabile a ogni cambio di stato, cioè non più one-shot.
+      reviewGateUsed: Boolean(prior && prior.reviewGateUsed),
     });
     if (body !== next) {
       upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });

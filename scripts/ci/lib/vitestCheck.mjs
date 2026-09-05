@@ -113,7 +113,8 @@ export function latestCompletedConclusionByName(checkRuns, name) {
  * Senza questo ramo `cancelled` è uno stato ASSORBENTE, la stessa trappola
  * chiusa da `vitestFailureIsNotAttributableToPr` per il caso `failure`:
  *   - `auto-merge-eval` esige `success` → blocca;
- *   - `pr-review-loop.yml` gira solo su `workflow_run.conclusion == 'success'`
+ *   - la review Claude gira dentro il job vitest, DOPO i test (fino al
+ *     2026-08-26 era `pr-review-loop.yml`, gattato su `tests` success)
  *     → nessuna review ⇒ nessun `## LGTM`, nessuna label;
  *   - `vitestFailureIsNotAttributableToPr` esige `failure` → non copre;
  *   - `pr-autorebase` senza label/LGTM/stuck-red → skip.
@@ -198,7 +199,8 @@ export function vitestVerdictIsTransientCancellation(checkRuns) {
  * vitest=failure sull'HEAD è sempre un fail reale». Sul merge ref quella
  * premessa è FALSA, e su di essa poggiava l'intera catena di recupero, che
  * diventa uno stato ASSORBENTE:
- *   1. `pr-review-loop.yml` gira solo su `workflow_run.conclusion == 'success'`
+ *   1. la review Claude gira dentro il job vitest, DOPO i test (fino al
+ *      2026-08-26 era `pr-review-loop.yml`, gattato su `tests` success)
  *      → vitest rosso ⇒ nessuna review ⇒ nessun `## LGTM`, nessuna label.
  *   2. `pr-autorebase.mjs` tratta come near-merge solo LGTM / `collision-risk` /
  *      `stale-review` → nessuno dei tre ⇒ skip, niente rebase, niente re-test.
