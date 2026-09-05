@@ -474,6 +474,36 @@ describe('translation glossary — customs-role veto on the frontalieri rule', (
     expect(getGlossaryVetoStats()).toEqual([]);
   });
 
+  it('does not veto on German "Finanzierung": financing is not customs vocabulary', () => {
+    // The anchor is composed FROM the Italian one, so its `finanziere` branch is
+    // read against DE/FR/EN sources too, where the same letters mean "financing".
+    // Measured on `data/jobs/by-crawler` + `expired` (58 427 records, 2026-09-05):
+    // 172 records trigger the rule, 54 matched the anchor, and ALL 54 matched only
+    // via that branch — every one of them a banking ad saying `Finanzierung`, zero
+    // real customs roles. A veto here would silently keep "Grenzwächter" as the
+    // rendering of "frontalieri" in an ad that has nothing to do with the border.
+    expect(applyGlossaryCorrections({
+      sourceText: 'Interesse an sozialer Sicherheit, persönlicher Finanzierung und Kundenkontakt; frontalieri willkommen.',
+      translatedText: 'Die Grenzwächter pendeln täglich.',
+      targetLang: 'de',
+      fieldType: 'description',
+    })).toBe('Die Grenzgänger pendeln täglich.');
+    expect(getGlossaryVetoStats()).toEqual([]);
+  });
+
+  it('still vetoes on the real Guardia di Finanza noun (the branch is narrowed, not dropped)', () => {
+    const translated = 'The border guards of the Guardia di Finanza patrol the area.';
+    expect(applyGlossaryCorrections({
+      sourceText: 'Il finanziere di stanza al valico; frontalieri benvenuti.',
+      translatedText: translated,
+      targetLang: 'en',
+      fieldType: 'description',
+    })).toBe(translated);
+    expect(getGlossaryVetoStats()).toEqual([
+      expect.objectContaining({ id: 'frontalier-border-guard', count: 1 }),
+    ]);
+  });
+
   it('does not leak regex lastIndex between records (the rule regexes carry /g)', () => {
     // The veto path probes the rule pattern; probing must not consume it, or
     // the NEXT record would be silently skipped.

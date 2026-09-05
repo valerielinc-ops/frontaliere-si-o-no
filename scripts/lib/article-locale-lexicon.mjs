@@ -540,8 +540,20 @@ export const FALSE_FRIEND_PATTERNS = {
  * Deliberately broad — including plain "dogana" — because suppressing a real
  * defect costs one article while accusing a correct translation costs trust in
  * the whole gate.
+ *
+ * ONE branch is deliberately NOT broad: `\bfinanzier[ei]\b` is bounded to the
+ * two noun forms of the Guardia di Finanza officer. A `finanzier\w*` stem is
+ * unsafe here because this source is composed verbatim into
+ * `BORDER_GUARD_SOURCE_ANCHOR` below, which is applied to DE/FR/EN sources
+ * where the same letters mean "financing", not "customs" (German
+ * `Finanzierung`/`finanzieren`; in Italian it also swallows the future of
+ * `finanziare`, `finanzierà`/`finanzieranno`). Measured on the crawled corpus
+ * (`data/jobs/by-crawler` + `expired`, 58 427 records, 2026-09-05): of the 172
+ * records that trigger the glossary rule, 54 matched this anchor and ALL 54
+ * matched only via the `finanzier\w*` stem — zero via the noun forms, zero via
+ * any other branch. Every one of them was `Finanzierung` in a banking ad.
  */
-export const ITALIAN_BORDER_GUARD_ANCHOR = /guardi\w*\s+(?:di\s+)?(?:confin\w*|frontier\w*)|guardie\s+confinari\w*|doganier\w*|finanzier\w*|guardia\s+di\s+finanza|polizia\s+di\s+frontiera|corpo\s+delle\s+guardie|dogan\w*|\bUDSC\b|\bAFD\b|\bBAZG\b/i;
+export const ITALIAN_BORDER_GUARD_ANCHOR = /guardi\w*\s+(?:di\s+)?(?:confin\w*|frontier\w*)|guardie\s+confinari\w*|doganier\w*|\bfinanzier[ei]\b|guardia\s+di\s+finanza|polizia\s+di\s+frontiera|corpo\s+delle\s+guardie|dogan\w*|\bUDSC\b|\bAFD\b|\bBAZG\b/i;
 
 /**
  * The same anchor for a source that is NOT Italian.

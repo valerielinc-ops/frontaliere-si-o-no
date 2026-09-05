@@ -239,8 +239,8 @@ export const TRANSLATION_GLOSSARY = [
     // the other body-safe entries above, this one's replacement phrases ARE
     // legitimate correct translations when a source genuinely discusses a real
     // border guard, and the trigger fires on nearly every job in the corpus
-    // (the whole site is about frontalieri). Scanned all ~55k crawled records
-    // (`data/jobs/by-crawler` + `expired`): 173 trigger the rule, ZERO also
+    // (the whole site is about frontalieri). Scanned all 58 427 crawled records (2026-09-05)
+    // (`data/jobs/by-crawler` + `expired`): 172 trigger the rule, ZERO also
     // mention real border-guard/customs vocabulary in the same record — see
     // `tests/translation-glossary.test.ts`, which turns this one-time
     // measurement into a standing regression gate.
@@ -253,7 +253,7 @@ export const TRANSLATION_GLOSSARY = [
     // annotated — turning the one-time measurement into a continuous one.
     // The anchor is the one the article gates already use for the same
     // question (`BORDER_GUARD_SOURCE_ANCHOR`, article-locale-lexicon.mjs), not
-    // a second copy: 0 of the 94 records that trigger the rule in the current
+    // a second copy: 0 of the 172 records that trigger the rule in the current
     // corpus match it, so the veto costs nothing today and any future cost
     // arrives as a `::warning::` instead of as a silently false sentence.
     id: 'frontalier-border-guard',
