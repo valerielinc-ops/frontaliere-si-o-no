@@ -71702,6 +71702,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-donazione-vaud': {
+    title: 'Imposta successione e donazione nel Cantone di Vaud',
+    description: 'Scopri come funziona l\'imposta di successione e donazione nel Cantone di Vaud. Guida su aliquote, esenzioni per parenti stretti e obblighi dichiarativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, cantone',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Vaud',
+    ogDescription: 'Analisi delle norme vodesi sulle successioni e donazioni: scopri le aliquote, le esenzioni per i familiari e come gestire correttamente la dichiarazione fiscale.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione e donazione nel Cantone di Vaud",
+      "description": "Scopri come funziona l'imposta di successione e donazione nel Cantone di Vaud. Guida su aliquote, esenzioni per parenti stretti e obblighi dichiarativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-donazione-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti fiscali e pianificazione patrimoniale in Svizzera"
+      },
+      "datePublished": "2026-09-05T09:40:27+00:00",
+      "dateModified": "2026-09-05T09:40:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

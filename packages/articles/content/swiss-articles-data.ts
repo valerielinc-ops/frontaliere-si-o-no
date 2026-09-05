@@ -16570,6 +16570,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-successione-donazione-vaud',
+    category: 'fiscale',
+    date: '2026-09-05T09:40:27.337Z',
+    image: '/images/blog/imposta-successione-donazione-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

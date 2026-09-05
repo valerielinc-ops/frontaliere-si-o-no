@@ -5524,6 +5524,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-canton-vaud-conversione-esami.title': 'Permis de conduire dans le canton de Vaud : conversion, examens et cours',
     'blog.article.patente-guida-canton-vaud-conversione-esami.excerpt': 'Guide pratique à la conversion du permis de conduire étranger dans le canton de Vaud, comprenant examens théoriques et pratiques, cours obligatoires et office de la circulation compétent.',
     'blog.article.patente-guida-canton-vaud-conversione-esami.imageAlt': 'Route suisse avec une voiture s\'approchant du bureau de la circulation',
+    'blog.article.imposta-successione-donazione-vaud.title': 'Impôt succession et donation dans le canton de Vaud',
+    'blog.article.imposta-successione-donazione-vaud.excerpt': 'Guide des taux et des exonérations pour les héritiers et les donataires dans le système fiscal du canton de Vaud, en mettant l\'accent sur les relations de parenté.',
+    'blog.article.imposta-successione-donazione-vaud.imageAlt': 'Documents fiscaux et planification patrimoniale en Suisse',
 };
 
 export default blogMetaChFr;

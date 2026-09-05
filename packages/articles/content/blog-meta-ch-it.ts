@@ -5524,6 +5524,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-canton-vaud-conversione-esami.title': 'Patente di guida nel Cantone di Vaud: conversione, esami e corsi obbligatori',
     'blog.article.patente-guida-canton-vaud-conversione-esami.excerpt': 'Guida pratica alla conversione della patente di guida estera nel Cantone di Vaud, inclusi esami teorici e pratici, corsi obbligatori e ufficio della circolazione competente.',
     'blog.article.patente-guida-canton-vaud-conversione-esami.imageAlt': 'Strada svizzera con auto e ufficio della circolazione',
+    'blog.article.imposta-successione-donazione-vaud.title': 'Imposta successione e donazione nel Cantone di Vaud',
+    'blog.article.imposta-successione-donazione-vaud.excerpt': 'Guida alle aliquote e alle esenzioni per eredi e donatari nel sistema fiscale del Cantone di Vaud, con focus sui rapporti di parentela.',
+    'blog.article.imposta-successione-donazione-vaud.imageAlt': 'Documenti fiscali e pianificazione patrimoniale in Svizzera',
 };
 
 export default blogMetaChIt;

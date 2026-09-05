@@ -5524,6 +5524,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-canton-vaud-conversione-esami.title': 'Führerschein im Kanton Waadt: Umschulung, Prüfungen und Pflichtkurse',
     'blog.article.patente-guida-canton-vaud-conversione-esami.excerpt': 'Praktischer Leitfaden für den Umtausch des ausländischen Führerscheins im Kanton Waadt, einschliesslich theoretischer und praktischer Prüfungen, Pflichtkurse und des zuständigen Strassenverkehrsamtes.',
     'blog.article.patente-guida-canton-vaud-conversione-esami.imageAlt': 'Schweizer Straße mit Auto, das sich dem Verkehrsbüro nähert',
+    'blog.article.imposta-successione-donazione-vaud.title': 'Erbschafts- und Schenkungssteuer im Kanton Waadt',
+    'blog.article.imposta-successione-donazione-vaud.excerpt': 'Leitfaden zu den Steuersätzen und Befreiungen für Erben und Schenkende im Steuersystem des Kantons Waadt mit Schwerpunkt auf Verwandtschaftsverhältnissen.',
+    'blog.article.imposta-successione-donazione-vaud.imageAlt': 'Steuerunterlagen und Vermögensplanung in der Schweiz',
 };
 
 export default blogMetaChDe;
