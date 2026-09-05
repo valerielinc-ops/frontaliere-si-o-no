@@ -281,6 +281,86 @@ describe('classifyExhaustionCause — le cause di skip finiscono nel secchio giu
   });
 });
 
+describe('un gateway giu\' vota una volta sola, non una per modello ospitato', () => {
+  // ── IL CASO CHE MOTIVA LA PROTEZIONE (issue #7451, adversarial check di #7374)
+  //
+  // `models.inference.ai.azure.com/chat/completions` risponde `404 size=0` a
+  // TUTTI i modelli GitHub Models nello stesso istante. Il voto di
+  // `classifyExhaustionCause` era per riga, e le righe sono una per modello:
+  // dodici voti persistenti da una causa sola, che sommergono i voti veri del
+  // resto del roster. La protezione non scattava proprio nello scenario che la
+  // motiva. Misura sulla run 32169621635: `grep -aoE 'HTTP 404: *$'` → 163.
+  const GATEWAY_404 = [
+    'gpt-4o', 'gpt-4o-mini', 'Llama-3.3-70B-Instruct', 'Mistral-large',
+    'Phi-3.5-MoE-instruct', 'Cohere-command-r-plus', 'AI21-Jamba-1.5-Large',
+    'Meta-Llama-3.1-405B-Instruct', 'gpt-4.1', 'gpt-4.1-mini',
+    'Ministral-3B', 'Codestral-2501',
+  ].map((m) => `${m}: GitHub Models API error: HTTP 404: `);
+
+  it('i 12 modelli dietro lo stesso host morto valgono UN voto persistente', () => {
+    const { persistent, transient, total } = classifyExhaustionCause(GATEWAY_404);
+    assert.equal(persistent, 1, 'un host, una causa, un voto');
+    assert.equal(transient, 0);
+    // Il denominatore conta le cause: dodici righe dove ce n\'e\' una falserebbe
+    // la quota transitoria di isLegitimateQuotaDeferral nella stessa direzione.
+    assert.equal(total, 1);
+  });
+
+  it('il 404 di gateway non sommerge piu\' la quota vera del resto del roster', () => {
+    // Lo scenario esatto dell\'adversarial check: gateway GitHub giu\' per un
+    // minuto mentre gli altri provider sono a quota. Prima: 12 persistenti
+    // contro 3 transitori → nessun differimento, allarme su un guasto di un
+    // minuto. Dopo: 1 contro 3 → il roster differisce e si ricura da solo.
+    const quota = [
+      'gemini-2.5-flash: skipped — exhausted (daily limit / consecutive 429s)',
+      'groq/llama-3.3-70b-versatile: skipped — exhausted (daily limit / consecutive 429s)',
+      'cerebras/gpt-oss-120b: skipped — exhausted (daily limit / consecutive 429s)',
+    ];
+    const b = classifyExhaustionCause([...GATEWAY_404, ...quota]);
+    assert.equal(b.persistent, 1);
+    assert.equal(b.transient, 3);
+    const transientExhaustion = b.transient > 0 && b.transient >= b.persistent;
+    assert.equal(transientExhaustion, true, 'la protezione deve scattare sul caso che la motiva');
+  });
+
+  it('due host diversi restano due voti — il collasso e\' per host, non globale', () => {
+    const b = classifyExhaustionCause([
+      ...GATEWAY_404,
+      'groq/a: HTTP 404: ',
+      'groq/b: HTTP 404: ',
+    ]);
+    assert.equal(b.persistent, 2, 'GitHub Models e Groq sono due host distinti');
+    assert.equal(b.total, 2);
+  });
+
+  it('lo stesso host con due status diversi resta due voti', () => {
+    // Un 404 sulla rotta e un 503 del gateway sono due fatti diversi, e finiscono
+    // in secchi diversi: solo il secondo si cura da solo.
+    const b = classifyExhaustionCause(['gpt-4o: HTTP 404: ', 'gpt-4o-mini: HTTP 503: ']);
+    assert.equal(b.persistent, 1);
+    assert.equal(b.transient, 1);
+    assert.equal(b.total, 2);
+  });
+
+  it('un 404 che NOMINA il modello non viene collassato: e\' un ritiro, non un host', () => {
+    // I tre modelli Gemini ritirati il 2026-08-14 devono continuare a pesare
+    // ognuno per se\': la loro causa e\' scritta nel body, e non si cura a
+    // mezzanotte. E\' la discriminante del collasso — il body, non lo status.
+    const b = classifyExhaustionCause([
+      'gemini-2.0-flash: HTTP 404: This model is no longer available.',
+      'gemini-2.0-flash-lite: HTTP 404: This model is no longer available.',
+      'gemini-3-pro-preview: HTTP 404: This model is no longer available.',
+    ]);
+    assert.equal(b.persistent, 3, 'tre ritiri sono tre cause, non un host giu\'');
+    assert.equal(b.total, 3);
+  });
+
+  it('una riga sola non cambia comportamento rispetto a prima', () => {
+    const b = classifyExhaustionCause(['gpt-4o: GitHub Models API error: HTTP 404: ']);
+    assert.deepEqual(b, { transient: 0, persistent: 1, total: 1 }, 'nessun collasso senza duplicati');
+  });
+});
+
 describe('roster — nessun modello ritirato, nessun buco', () => {
   it('un modello ritirato esce dal giro da solo, senza curare il roster a mano', () => {
     // I tre modelli che Google ha ritirato il 2026-08-14 restano in AI_MODELS DI
