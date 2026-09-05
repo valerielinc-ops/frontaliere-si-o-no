@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MediPersonal job parser — Fetcher and job builder.
+ * iPersonal AG job parser — Fetcher and job builder.
  *
  * Source: https://www.ipersonal.ch/
  *
@@ -23,7 +23,7 @@ import {
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const MED_IPERSONAL_KEY = 'med-ipersonal';
-export const MED_IPERSONAL_COMPANY_NAME = 'MediPersonal';
+export const MED_IPERSONAL_COMPANY_NAME = 'iPersonal AG';
 export const MED_IPERSONAL_COMPANY_DOMAIN = 'ipersonal.ch';
 
 const CAREER_URL = 'https://www.ipersonal.ch/';
@@ -38,31 +38,42 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-/* ── Company Matchers ──────────────────────────────────────── */
-
-/**
- * Check if a job belongs to MediPersonal.
- * Used by the template to filter this company's jobs from the global dataset.
- */
-export function isMedIpersonalJob(job) {
-  const key = normalize(job?.companyKey || job?.company || '')
+/** Slugified company identity, used to compare a declared key against ours. */
+function toCompanyKey(value = '') {
+  return normalize(value)
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+/* ── Company Matchers ──────────────────────────────────────── */
+
+/**
+ * Check if a job belongs to iPersonal AG.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function isMedIpersonalJob(job) {
+  const declaredKey = toCompanyKey(job?.companyKey || '');
   const company = normalize(job?.company || '');
   const url = normalize(job?.url || '');
 
+  // A row that declares its own companyKey belongs to that crawler and to no
+  // other. This crawler and its sibling `ipersonal` publish two different
+  // brands on two look-alike hosts (iPersonal AG on ipersonal.ch here,
+  // MediPersonal on med-ipersonal.ch there), so matching off the label or off
+  // a substring of the host lets each one claim the other's rows (#7474).
+  if (declaredKey) return declaredKey === MED_IPERSONAL_KEY;
+
   return (
-    key === MED_IPERSONAL_KEY ||
-    key.startsWith('med-ipersonal') ||
-    company.includes('medipersonal') ||
-    url.includes('ipersonal.ch')
+    toCompanyKey(company) === MED_IPERSONAL_KEY ||
+    company.includes('ipersonal ag') ||
+    isTrustedDomain(url)
   );
 }
 
 /**
- * Validate that a URL belongs to MediPersonal's domain.
+ * Validate that a URL belongs to iPersonal AG's domain.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -119,14 +130,14 @@ async function fetchJobListings() {
 }
 
 /**
- * Fetch all MediPersonal jobs.
+ * Fetch all iPersonal AG jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllMedIpersonalJobs() {
-  console.log(`🔍 Fetching MediPersonal jobs`);
+  console.log(`🔍 Fetching iPersonal AG jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
   const listings = await fetchJobListings();
@@ -179,7 +190,7 @@ export async function fetchAllMedIpersonalJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'MediPersonal Dedicated Parser',
+      source: 'iPersonal AG Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -205,7 +216,7 @@ export async function fetchAllMedIpersonalJobs() {
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
-  console.log(`\n📋 Total MediPersonal jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total iPersonal AG jobs discovered: ${jobs.length}`);
   Object.defineProperty(jobs, 'discoveredCount', {
     value: Number(listings.discoveredCount),
     enumerable: false,
