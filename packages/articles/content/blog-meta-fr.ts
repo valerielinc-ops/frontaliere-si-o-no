@@ -9665,9 +9665,6 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.allacasadicomunitalavenosegnala.title': 'Travail à 37 degrés à Laveno, le syndicat signale',
     'blog.article.allacasadicomunitalavenosegnala.excerpt': 'Le syndicat signale le cas d\'une maison communautaire à Laveno où vous travaillez avec des températures élevées',
     'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'Une maison de communauté en Ticino avec des températures élevées',
-    'blog.article.vivere-tovo-lavorare-grigioni.title': 'Vivre à Tovo di Sant\'Agata et travailler dans les Grisons',
-    'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Guide pratique pour les frontaliers : fiscalité, nouvel accord, franchises et cotisations de sécurité sociale pour ceux qui résident en Valteline et travaillent dans le canton des Grisons.',
-    'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Vue panoramique d\'une route de montagne près de la frontière italo-suisse',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Vivre à Saint-Rhémy-En-Bosses et travailler en Valais comme frontalier',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Permis G, travail en Valais, déplacements et coût de la vie pour frontaliers résidant à Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontalier avec enfant en sortant d\'un passage frontalier',
@@ -9701,9 +9698,6 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontière en Valais : règles et fiscalité',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Guide opérationnel sur le nouvel accord fiscal, la gestion des revenus et les obligations de sécurité sociale pour les travailleurs frontaliers en Suisse.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Paysage montagneux alpin avec village',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Vivre à Courmayeur et travailler en Valais comme frontalier',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Réglage fiscal et permis pour les frontaliers qui vivent à Courmayeur et travaillent en Valais',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Une vue de Courmayeur, une ville italienne située sur la frontière avec la Suisse',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Vivre à Gignod et travailler en Valais comme frontalier',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse des contraintes fiscales et opérationnelles pour les déplacements transfrontaliers entre l\'Italie et la Suisse conformément aux accords en vigueur.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Paysage alpin suisse près de la frontière',
@@ -11430,6 +11424,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.figino-serenza-frontaliere-ticino.title': 'Figino Serenza : guide pour les frontaliers au Tessin',
     'blog.article.figino-serenza-frontaliere-ticino.excerpt': 'Permis G, fiscalité, LAMal et coûts : tout ce qui change si vous vivez à Figino Serenza et travaillez dans le canton du Tessin en tant que frontalier.',
     'blog.article.figino-serenza-frontaliere-ticino.imageAlt': 'Vue aérienne de Lugano et son lac au coucher du soleil, destination de travail commune pour frontaliers.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.title': 'Vivre à Bellagio, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.excerpt': 'Déménager à Bellagio et travailler au Tessin en tant que frontalier : découvrez le régime fiscal, les cotisations AVS, la LAMal et comment planifier le transfert.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique de Lugano et son lac avec montagnes, zone de travail tessinoise pour frontaliers',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.title': 'Vivre à Griante et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.excerpt': 'Avantages, procédures, coûts et réglementation pour ceux qui choisissent de vivre à Griante en travaillant dans le canton du Tessin en tant que frontalier',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.imageAlt': 'Vue du lac de Côme à Griante avec immeubles résidentiels et paysage montagneux',
 };
 
 export default blogMetaFr;

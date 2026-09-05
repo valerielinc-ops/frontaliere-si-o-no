@@ -22,6 +22,7 @@ import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 // Budget: 200 requests/day total. Reserve 40 for articles (10 articles × 4 locales).
@@ -219,12 +220,11 @@ function loadJobs() {
   return Array.isArray(jobs) ? jobs : [];
 }
 
-const JOB_BOARD_PREFIX = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-};
+// Derived from the canonical TI legacy section table — see cantonResolvers.mjs.
+const JOB_BOARD_PREFIX = Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI)
+    .map(([loc, section]) => [loc, `${loc === 'it' ? '' : `/${loc}`}/${section}/`]),
+);
 
 // First PARSEABLE date among the candidates → epoch ms (0 if none parse).
 // Local twin of build-plugins/shared/firstParsableDate.ts — this is a runtime
