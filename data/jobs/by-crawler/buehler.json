@@ -10833,7 +10833,7 @@
       "slugByLocale": {
         "it": "treasury-financial-analista-buhler-group-uzwil",
         "en": "treasury-financial-analyst-buehler-uzwil",
-        "de": "treasury-financial-analyst-buehler-uzwil",
+        "de": "finanzanalyst-buhler-group-uzwil",
         "fr": "treasury-financial-analyste-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -10888,6 +10888,9 @@
           "treasury-financial-analyst-buhler-group-uzwil"
         ],
         "fr": [
+          "treasury-financial-analyst-buehler-uzwil"
+        ],
+        "de": [
           "treasury-financial-analyst-buehler-uzwil"
         ]
       },
@@ -11063,12 +11066,12 @@
     },
     {
       "id": "buehler-675fdd436bdd",
-      "slug": "r-amp-d-process-expert-xff08-xff09-buehler-beijing",
+      "slug": "esperto-di-processo-di-r-d-buhler-group-beijing",
       "slugByLocale": {
-        "it": "r-amp-d-process-expert-xff08-xff09-buehler-beijing",
+        "it": "esperto-di-processo-di-r-d-buhler-group-beijing",
         "en": "r-amp-d-process-expert-xff08-xff09-buehler-beijing",
-        "de": "r-amp-d-process-expert-xff08-xff09-buehler-beijing",
-        "fr": "r-amp-d-process-expert-xff08-xff09-buehler-beijing"
+        "de": "experte-fur-fue-prozesse-buhler-group-beijing",
+        "fr": "expert-en-processus-de-r-d-buhler-group-beijing"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11111,11 +11114,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "r-d-process-expert-buhler-group-beijing"
+        "r-d-process-expert-buhler-group-beijing",
+        "r-amp-d-process-expert-xff08-xff09-buehler-beijing"
       ],
       "previousSlugsByLocale": {
         "en": [
           "r-d-process-expert-buhler-group-beijing"
+        ],
+        "it": [
+          "r-amp-d-process-expert-xff08-xff09-buehler-beijing"
+        ],
+        "de": [
+          "r-amp-d-process-expert-xff08-xff09-buehler-beijing"
+        ],
+        "fr": [
+          "r-amp-d-process-expert-xff08-xff09-buehler-beijing"
         ]
       },
       "firstSeenAt": "2026-08-31T17:13:42.301Z",
@@ -11135,12 +11148,12 @@
     },
     {
       "id": "buehler-9617b9245f70",
-      "slug": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau",
+      "slug": "formazione-impiegato-industriale-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau",
-        "en": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau",
+        "it": "formazione-impiegato-industriale-m-f-d-buhler-group-alzenau",
+        "en": "training-industrial-clerk-m-f-d-buhler-group-alzenau",
         "de": "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau",
-        "fr": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
+        "fr": "formation-commis-industriel-h-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11183,11 +11196,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau"
+        "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau",
+        "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau"
+          "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau",
+          "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
+        ],
+        "en": [
+          "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-31T17:13:42.290Z",
@@ -11207,12 +11228,12 @@
     },
     {
       "id": "buehler-ca2e5dee5c72",
-      "slug": "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau",
+      "slug": "formazione-designer-di-prodotto-tecnico-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau",
-        "en": "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau",
+        "it": "formazione-designer-di-prodotto-tecnico-m-f-d-buhler-group-alzenau",
+        "en": "training-technical-product-designer-m-f-d-buhler-group-alzenau",
         "de": "ausbildung-technischer-produktdesigner-m-w-d-buehler-alzenau",
-        "fr": "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau"
+        "fr": "formation-designer-de-produit-technique-h-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11255,11 +11276,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-technischer-produktdesigner-m-w-d-buehler-alzenau"
+        "ausbildung-technischer-produktdesigner-m-w-d-buehler-alzenau",
+        "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-technischer-produktdesigner-m-w-d-buehler-alzenau"
+          "ausbildung-technischer-produktdesigner-m-w-d-buehler-alzenau",
+          "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau"
+        ],
+        "en": [
+          "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "ausbildung-technischer-produktdesigner-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-31T17:13:42.293Z",
@@ -11356,12 +11385,12 @@
     },
     {
       "id": "buehler-7b365a4eff99",
-      "slug": "ausbildung-fachinformatiker-per-anwendungsentwicklung-m-w-d-buhler-group-alzenau",
+      "slug": "formazione-specialista-it-per-lo-sviluppo-delle-applicazioni-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "ausbildung-fachinformatiker-per-anwendungsentwicklung-m-w-d-buhler-group-alzenau",
-        "en": "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buhler-group-alzenau",
+        "it": "formazione-specialista-it-per-lo-sviluppo-delle-applicazioni-m-f-d-buhler-group-alzenau",
+        "en": "training-it-specialist-for-application-development-m-f-d-buhler-group-alzenau",
         "de": "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buehler-alzenau",
-        "fr": "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buhler-group-alzenau"
+        "fr": "formation-specialiste-informatique-pour-le-developpement-d-applications-h-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11406,13 +11435,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buehler-alzenau",
-        "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buhler-group-alzenau"
+        "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buhler-group-alzenau",
+        "ausbildung-fachinformatiker-per-anwendungsentwicklung-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buehler-alzenau"
+          "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buehler-alzenau",
+          "ausbildung-fachinformatiker-per-anwendungsentwicklung-m-w-d-buhler-group-alzenau"
         ],
         "de": [
+          "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buhler-group-alzenau"
+        ],
+        "en": [
+          "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
           "ausbildung-fachinformatiker-fur-anwendungsentwicklung-m-w-d-buhler-group-alzenau"
         ]
       },
@@ -11433,12 +11470,12 @@
     },
     {
       "id": "buehler-60c1d6da9d65",
-      "slug": "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth",
+      "slug": "formazione-macchinista-m-f-d-buhler-group-hasselroth",
       "slugByLocale": {
-        "it": "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth",
-        "en": "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth",
+        "it": "formazione-macchinista-m-f-d-buhler-group-hasselroth",
+        "en": "training-machinist-m-f-d-buhler-group-hasselroth",
         "de": "ausbildung-zerspanungsmechaniker-m-w-d-buehler-hasselroth",
-        "fr": "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth"
+        "fr": "formation-machiniste-h-f-d-buhler-group-hasselroth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11481,11 +11518,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-zerspanungsmechaniker-m-w-d-buehler-hasselroth"
+        "ausbildung-zerspanungsmechaniker-m-w-d-buehler-hasselroth",
+        "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zerspanungsmechaniker-m-w-d-buehler-hasselroth"
+          "ausbildung-zerspanungsmechaniker-m-w-d-buehler-hasselroth",
+          "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth"
+        ],
+        "en": [
+          "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth"
+        ],
+        "fr": [
+          "ausbildung-zerspanungsmechaniker-m-w-d-buhler-group-hasselroth"
         ]
       },
       "firstSeenAt": "2026-08-31T17:13:42.262Z",

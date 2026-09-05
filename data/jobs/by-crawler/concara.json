@@ -319,7 +319,6 @@
         "payroll-specialist-80-100-concara-domicil-spitex-bern-bern",
         "spezialist-in-payroll-80-100-concara-bern",
         "specialiste-de-la-paie-a-80-100-concara-domicil-spitex-bern-bern",
-        "operatore-socio-sanitario-e-infermiere-diplomato-50-100-concara-domicil-spitex-bern-bern",
         "specialista-in-salute-e-dipl-infermiere-a-50-100-concara-domicil-spitex-bern-bern",
         "healthcare-professional-and-dipl-nursing-professional-50-100-concara-domicil-spitex-bern-bern",
         "specialiste-en-sante-et-diplome-e-en-soins-infirmiers-50-100-concara-domicil-spitex-bern-bern",
@@ -338,7 +337,6 @@
           "payroll-specialist-80-100-concara-domicil-spitex-bern-bern",
           "spezialist-in-payroll-80-100-concara-bern",
           "specialiste-de-la-paie-a-80-100-concara-domicil-spitex-bern-bern",
-          "operatore-socio-sanitario-e-infermiere-diplomato-50-100-concara-domicil-spitex-bern-bern",
           "specialista-in-salute-e-dipl-infermiere-a-50-100-concara-domicil-spitex-bern-bern",
           "healthcare-professional-and-dipl-nursing-professional-50-100-concara-domicil-spitex-bern-bern",
           "specialiste-en-sante-et-diplome-e-en-soins-infirmiers-50-100-concara-domicil-spitex-bern-bern",
@@ -3142,7 +3140,7 @@
         "it": "collaboratore-trice-wohngruppenservice-im-stundenlohn-10-20-concara-domicil-spitex-bern-hinterkappelen",
         "en": "associate-wohngruppenservice-im-stundenlohn-10-20-concara-domicil-spitex-bern-hinterkappelen",
         "de": "mitarbeiter-in-wohngruppenservice-im-stundenlohn-10-20-concara-hinterkappelen",
-        "fr": "collaborateur-trice-wohngruppenservice-im-stundenlohn-10-20-concara-domicil-spitex-bern-hinterkappelen"
+        "fr": "employe-dans-le-service-de-groupe-residentiel-a-salaire-horaire-10-20-concara-domicil-spitex-bern-hinterkappelen"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3186,7 +3184,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-wohngruppenservice-im-stundenlohn-10-20-concara-hinterkappelen"
+        "mitarbeiter-in-wohngruppenservice-im-stundenlohn-10-20-concara-hinterkappelen",
+        "collaborateur-trice-wohngruppenservice-im-stundenlohn-10-20-concara-domicil-spitex-bern-hinterkappelen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3196,7 +3195,8 @@
           "mitarbeiter-in-wohngruppenservice-im-stundenlohn-10-20-concara-hinterkappelen"
         ],
         "fr": [
-          "mitarbeiter-in-wohngruppenservice-im-stundenlohn-10-20-concara-hinterkappelen"
+          "mitarbeiter-in-wohngruppenservice-im-stundenlohn-10-20-concara-hinterkappelen",
+          "collaborateur-trice-wohngruppenservice-im-stundenlohn-10-20-concara-domicil-spitex-bern-hinterkappelen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:42.031Z",

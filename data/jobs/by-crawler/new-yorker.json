@@ -1227,12 +1227,12 @@
     },
     {
       "id": "new-yorker-27971",
-      "slug": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-basel",
+      "slug": "cooperazione-m-f-d-in-vendita-60-new-yorker-basel",
       "slugByLocale": {
-        "it": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-basel",
-        "en": "mitarbeiter-m-w-d-im-sales-60-new-yorker-basel",
+        "it": "cooperazione-m-f-d-in-vendita-60-new-yorker-basel",
+        "en": "cooperation-m-f-d-in-sale-60-new-yorker-basel",
         "de": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
-        "fr": "mitarbeiter-m-w-d-im-vente-60-new-yorker-basel"
+        "fr": "cooperation-h-f-d-en-vente-60-new-yorker-basel"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -1274,17 +1274,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
+        "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-basel",
+        "mitarbeiter-m-w-d-im-sales-60-new-yorker-basel",
+        "mitarbeiter-m-w-d-im-vente-60-new-yorker-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
+          "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-basel"
         ],
         "en": [
-          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
+          "mitarbeiter-m-w-d-im-sales-60-new-yorker-basel"
         ],
         "fr": [
-          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
+          "mitarbeiter-m-w-d-im-vente-60-new-yorker-basel"
         ]
       },
       "firstSeenAt": "2026-08-31T17:24:45.315Z",

@@ -9899,12 +9899,12 @@
     },
     {
       "id": "stadtspital-zuerich-bf56e5fe6554",
-      "slug": "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
+      "slug": "training-care-hf-autunno-27-focus-esom-kjff-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
-        "en": "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich",
+        "it": "training-care-hf-autunno-27-focus-esom-kjff-stadtspital-zurich-zurich",
+        "en": "training-care-hf-autumn-27-focus-esom-kjff-stadtspital-zurich-zurich",
         "de": "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zuerich-51492",
-        "fr": "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        "fr": "soins-de-formation-hf-automne-27-focus-esom-kjff-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9951,11 +9951,19 @@
       "referenceNumber": "51492",
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zuerich-51492"
+          "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zuerich-51492",
+          "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zuerich-51492"
+        "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zuerich-51492",
+        "ausbildung-pflege-hf-herbst-27-schwerpunkt-esom-kjff-stadtspital-zurich-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:19:20.093Z",

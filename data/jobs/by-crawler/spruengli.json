@@ -1820,11 +1820,11 @@
     },
     {
       "id": "spruengli-945a345e545e",
-      "slug": "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf",
+      "slug": "consulente-commerciale-stazione-di-ginevra-60-confiserie-sprungli-ag-genf",
       "slugByLocale": {
-        "it": "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf",
-        "en": "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf",
-        "de": "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf",
+        "it": "consulente-commerciale-stazione-di-ginevra-60-confiserie-sprungli-ag-genf",
+        "en": "sales-advisor-geneva-station-60-confiserie-sprungli-ag-genf",
+        "de": "verkaufsberater-bahnhof-genf-60-confiserie-sprungli-ag-genf",
         "fr": "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1870,11 +1870,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseillere-conseiller-de-vente-gare-de-geneve-60-confiserie-sprungli-ag-geneve"
+        "conseillere-conseiller-de-vente-gare-de-geneve-60-confiserie-sprungli-ag-geneve",
+        "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "conseillere-conseiller-de-vente-gare-de-geneve-60-confiserie-sprungli-ag-geneve"
+        ],
+        "it": [
+          "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf"
+        ],
+        "en": [
+          "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf"
+        ],
+        "de": [
+          "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf"
         ]
       },
       "firstSeenAt": "2026-08-31T17:12:03.433Z",

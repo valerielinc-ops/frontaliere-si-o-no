@@ -741,12 +741,12 @@
     },
     {
       "id": "spital-affoltern-627be2d646c9",
-      "slug": "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
+      "slug": "dipl-cura-professionale-hf-fh-psichiatria-di-vecchiaia-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
-        "en": "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
+        "it": "dipl-cura-professionale-hf-fh-psichiatria-di-vecchiaia-spital-affoltern-ag-affoltern-am-albis",
+        "en": "dipl-care-professional-hf-fh-old-age-psychiatry-spital-affoltern-ag-affoltern-am-albis",
         "de": "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
-        "fr": "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
+        "fr": "dipl-soins-professionnels-hf-fh-psychiatrie-vieillesse-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -791,23 +791,27 @@
         "infermiere-qualificato-hf-fh-psichiatria-adulti-spital-affoltern-ag-affoltern-am-albis",
         "dipl-care-professional-hf-fh-adult-psychiatry-spital-affoltern-ag-affoltern-am-albis",
         "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis",
-        "infirmier-ere-diplome-e-es-hes-en-psychiatrie-adulte-spital-affoltern-ag-affoltern-am-albis"
+        "infirmier-ere-diplome-e-es-hes-en-psychiatrie-adulte-spital-affoltern-ag-affoltern-am-albis",
+        "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiere-qualificato-hf-fh-psichiatria-adulti-spital-affoltern-ag-affoltern-am-albis",
           "dipl-care-professional-hf-fh-adult-psychiatry-spital-affoltern-ag-affoltern-am-albis",
           "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis",
-          "infirmier-ere-diplome-e-es-hes-en-psychiatrie-adulte-spital-affoltern-ag-affoltern-am-albis"
+          "infirmier-ere-diplome-e-es-hes-en-psychiatrie-adulte-spital-affoltern-ag-affoltern-am-albis",
+          "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
         ],
         "en": [
-          "dipl-care-professional-hf-fh-adult-psychiatry-spital-affoltern-ag-affoltern-am-albis"
+          "dipl-care-professional-hf-fh-adult-psychiatry-spital-affoltern-ag-affoltern-am-albis",
+          "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-es-hes-en-psychiatrie-adulte-spital-affoltern-ag-affoltern-am-albis"
+          "infirmier-ere-diplome-e-es-hes-en-psychiatrie-adulte-spital-affoltern-ag-affoltern-am-albis",
+          "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-08-31T17:12:46.245Z",
@@ -905,12 +909,12 @@
     },
     {
       "id": "spital-affoltern-a0a876546ed5",
-      "slug": "fachperson-gesundheit-cfc-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-ag-affoltern-am-albis",
+      "slug": "salute-specialistica-efz-psichiatria-principalmente-in-servizio-notturno-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-ag-affoltern-am-albis",
-        "en": "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern",
+        "it": "salute-specialistica-efz-psichiatria-principalmente-in-servizio-notturno-spital-affoltern-ag-affoltern-am-albis",
+        "en": "specialist-health-efz-psychiatry-primarily-at-night-duty-spital-affoltern-ag-affoltern-am-albis",
         "de": "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern",
-        "fr": "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern"
+        "fr": "specialiste-de-la-sante-efz-psychiatrie-principalement-en-service-de-nuit-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -952,10 +956,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern"
+        "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern",
+        "fachperson-gesundheit-cfc-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern",
+          "fachperson-gesundheit-cfc-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern"
         ]
       },
@@ -1639,12 +1651,12 @@
     },
     {
       "id": "spital-affoltern-44fe63682d44",
-      "slug": "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am",
+      "slug": "medico-sub-assistante-centro-di-emergenza-under-assistant-100-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am",
-        "en": "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am",
+        "it": "medico-sub-assistante-centro-di-emergenza-under-assistant-100-spital-affoltern-ag-affoltern-am-albis",
+        "en": "under-assistant-doctor-under-assistant-emergency-center-100-spital-affoltern-ag-affoltern-am-albis",
         "de": "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am",
-        "fr": "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am"
+        "fr": "medecin-sous-assistant-centre-d-urgence-sous-assistant-100-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -1698,7 +1710,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am"
+        ],
+        "en": [
+          "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am"
+        ],
+        "fr": [
+          "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistenzarztin-unterassistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am"
+      ]
     }
   ]
 }

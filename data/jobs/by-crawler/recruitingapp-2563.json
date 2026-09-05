@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "recruitingapp-2563-30a3e08d865c",
-      "slug": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
+      "slug": "amministratore-delegato-membro-del-comitato-esecutivo-80-100-tutte-le-identita-e-gli-sfondi-di-zurigo-switch",
       "slugByLocale": {
         "de": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
-        "it": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
+        "it": "amministratore-delegato-membro-del-comitato-esecutivo-80-100-tutte-le-identita-e-gli-sfondi-di-zurigo-switch",
         "en": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and",
-        "fr": "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and"
+        "fr": "dirigeant-principal-de-l-information-membre-du-directoire-80-100-toutes-identites-et-origines-a-zurich-switch"
       },
       "company": "Switch Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-2563",
@@ -64,7 +64,18 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-31T17:15:44.340Z"
+      "firstSeenAt": "2026-08-31T17:15:44.340Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and"
+        ],
+        "fr": [
+          "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and"
+        ]
+      },
+      "previousSlugs": [
+        "chief-information-officer-mitglied-der-geschaftsleitung-80-100-all-identities-and"
+      ]
     },
     {
       "id": "recruitingapp-2563-97a2b838b3bd",
@@ -113,13 +124,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich",
-        "technical-documentation-specialista-60-all-identities-and-backgrounds-in-zurich-switch-bewerbermanagement-stellen-lugano"
+        "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich",
-          "technical-documentation-specialista-60-all-identities-and-backgrounds-in-zurich-switch-bewerbermanagement-stellen-lugano"
+          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
         ],
         "de": [
           "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
@@ -190,13 +199,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch",
-        "network-security-ingegnere-80-100-all-identities-and-backgrounds-switch-bewerbermanagement-stellen-lugano"
+        "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch",
-          "network-security-ingegnere-80-100-all-identities-and-backgrounds-switch-bewerbermanagement-stellen-lugano"
+          "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch"
         ],
         "de": [
           "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch"

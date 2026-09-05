@@ -3766,12 +3766,12 @@
     },
     {
       "id": "kispi-3b0887738432",
-      "slug": "apprendista-fachmann-apprendista-fachfrau-betriebsunterhalt-cfc-kinder-reha-schweiz-affoltern-am-albis-universitats",
+      "slug": "specialista-di-apprendimento-specialista-di-apprendimento-manutenzione-aziendale-efz-rehab-per-bambini-svizzera",
       "slugByLocale": {
-        "it": "apprendista-fachmann-apprendista-fachfrau-betriebsunterhalt-cfc-kinder-reha-schweiz-affoltern-am-albis-universitats",
-        "en": "apprentice-fachmann-apprentice-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern-am-albis-universitats",
+        "it": "specialista-di-apprendimento-specialista-di-apprendimento-manutenzione-aziendale-efz-rehab-per-bambini-svizzera",
+        "en": "learning-specialist-learning-specialist-company-maintenance-efz-children-s-rehab-switzerland-affoltern-am-albis",
         "de": "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern",
-        "fr": "apprenti-e-fachmann-apprenti-e-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern-am-albis-universitats"
+        "fr": "specialiste-de-l-apprentissage-specialiste-de-l-apprentissage-entretien-de-l-entreprise-efz-children-s-rehab-suisse"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -3814,17 +3814,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern"
+        "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern",
+        "apprendista-fachmann-apprendista-fachfrau-betriebsunterhalt-cfc-kinder-reha-schweiz-affoltern-am-albis-universitats",
+        "apprentice-fachmann-apprentice-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern-am-albis-universitats",
+        "apprenti-e-fachmann-apprenti-e-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern-am-albis-universitats"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern"
+          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern",
+          "apprendista-fachmann-apprendista-fachfrau-betriebsunterhalt-cfc-kinder-reha-schweiz-affoltern-am-albis-universitats"
         ],
         "en": [
-          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern"
+          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern",
+          "apprentice-fachmann-apprentice-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern-am-albis-universitats"
         ],
         "fr": [
-          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern"
+          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern",
+          "apprenti-e-fachmann-apprenti-e-fachfrau-betriebsunterhalt-efz-kinder-reha-schweiz-affoltern-am-albis-universitats"
         ]
       },
       "firstSeenAt": "2026-08-31T17:22:31.708Z",

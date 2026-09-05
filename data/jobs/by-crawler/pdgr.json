@@ -3232,12 +3232,12 @@
     },
     {
       "id": "pdgr-d5ccef7be67b",
-      "slug": "hilfskochin-hilfskoch-pdgr-ch",
+      "slug": "cuoco-ausiliario-cuoco-ausiliario-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "hilfskochin-hilfskoch-pdgr-ch",
-        "en": "hilfskochin-hilfskoch-psychiatrische-dienste-graubunden-chur",
+        "it": "cuoco-ausiliario-cuoco-ausiliario-psychiatrische-dienste-graubunden-chur",
+        "en": "auxiliary-cook-auxiliary-cook-psychiatrische-dienste-graubunden-chur",
         "de": "hilfskochin-hilfskoch-pdgr-ch",
-        "fr": "hilfskochin-hilfskoch-pdgr-ch"
+        "fr": "cuisiniere-auxiliaire-cuisiniere-auxiliaire-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3295,7 +3295,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-pdgr-ch"
+        ],
+        "en": [
+          "hilfskochin-hilfskoch-psychiatrische-dienste-graubunden-chur"
+        ],
+        "fr": [
+          "hilfskochin-hilfskoch-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-pdgr-ch",
+        "hilfskochin-hilfskoch-psychiatrische-dienste-graubunden-chur"
+      ]
     },
     {
       "id": "pdgr-e99eac9c824d",

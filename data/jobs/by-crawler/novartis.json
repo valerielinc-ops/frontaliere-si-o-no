@@ -2498,7 +2498,7 @@
         "it": "translational-medicine-expert-dermatology-direttore-novartis-basel-city",
         "en": "translational-medicine-expert-dermatology-director-novartis-ch",
         "de": "translational-medicine-expert-dermatology-direktor-novartis-basel-city",
-        "fr": "translational-medicine-expert-dermatology-director-novartis-ch"
+        "fr": "expert-en-medecine-translationnelle-dermatologie-directeur-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2546,6 +2546,9 @@
         ],
         "de": [
           "translational-medicine-expert-dermatology-director-novartis-ch"
+        ],
+        "fr": [
+          "translational-medicine-expert-dermatology-director-novartis-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T17:10:13.772Z",
@@ -2566,12 +2569,12 @@
     },
     {
       "id": "novartis-7f1250f9909b",
-      "slug": "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch",
+      "slug": "ai-innovation-fellow-postdoctoral-in-patologia-digitale-novartis-basel-city",
       "slugByLocale": {
-        "it": "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch",
+        "it": "ai-innovation-fellow-postdoctoral-in-patologia-digitale-novartis-basel-city",
         "en": "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch",
-        "de": "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch",
-        "fr": "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch"
+        "de": "ai-innovation-postdoktorandin-fur-digitale-pathologie-novartis-basel-city",
+        "fr": "bourse-postdoctorale-d-innovation-en-pathologie-numerique-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2624,7 +2627,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch"
+        ],
+        "de": [
+          "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch"
+        ],
+        "fr": [
+          "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-innovation-postdoctoral-fellow-in-digital-pathology-novartis-ch"
+      ]
     },
     {
       "id": "novartis-41abd3248fb1",
@@ -2775,9 +2792,9 @@
     },
     {
       "id": "novartis-99fbe77b6c23",
-      "slug": "director-hematology-cls-novartis-ch",
+      "slug": "direttore-ematologia-cls-novartis-basel-city",
       "slugByLocale": {
-        "it": "director-hematology-cls-novartis-ch",
+        "it": "direttore-ematologia-cls-novartis-basel-city",
         "en": "director-hematology-cls-novartis-ch",
         "de": "direktor-hematology-cls-novartis-basel-city",
         "fr": "directeur-hematology-cls-novartis-basel-city"
@@ -2833,7 +2850,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-hematology-cls-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-hematology-cls-novartis-ch"
+      ]
     },
     {
       "id": "novartis-159530180d21",

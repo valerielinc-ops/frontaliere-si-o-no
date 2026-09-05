@@ -82,11 +82,11 @@
     },
     {
       "id": "hrc-a98a543cd1e8",
-      "slug": "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz",
+      "slug": "fisioterapia-m-f-al-60-80-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz",
-        "en": "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz",
-        "de": "physiotherapeute-h-f-a-60-80-hrc-rennaz",
+        "it": "fisioterapia-m-f-al-60-80-hopital-riviera-chablais-hrc-rennaz",
+        "en": "physiotherapy-m-f-at-60-80-hopital-riviera-chablais-hrc-rennaz",
+        "de": "physiotherapie-m-w-bei-60-80-hopital-riviera-chablais-hrc-rennaz",
         "fr": "physiotherapeute-h-f-a-60-80-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -130,10 +130,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeute-h-f-a-60-80-hrc-rennaz"
+        "physiotherapeute-h-f-a-60-80-hrc-rennaz",
+        "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeute-h-f-a-60-80-hrc-rennaz",
+          "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz"
+        ],
+        "en": [
+          "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz"
+        ],
+        "de": [
           "physiotherapeute-h-f-a-60-80-hrc-rennaz"
         ]
       },
@@ -232,10 +240,10 @@
     },
     {
       "id": "hrc-ccda912e1af3",
-      "slug": "assistant-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hrc-rennaz",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-m-f-in-chirurgia-60-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "assistant-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hrc-rennaz",
-        "en": "assistant-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hrc-rennaz",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-chs-m-f-in-chirurgia-60-hopital-riviera-chablais-hrc-rennaz",
+        "en": "community-health-and-care-assistant-chs-m-f-in-surgery-60-hopital-riviera-chablais-hrc-rennaz",
         "de": "assistent-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hopital-riviera-chablais-hrc-rennaz",
         "fr": "assistant-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hrc-rennaz"
       },
@@ -291,7 +299,18 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hrc-rennaz"
+        ],
+        "en": [
+          "assistant-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-en-soins-en-sante-communautaire-assc-h-f-en-chirurgie-a-60-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-3e29bcec6ec8",

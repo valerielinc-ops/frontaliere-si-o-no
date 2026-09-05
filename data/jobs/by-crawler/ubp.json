@@ -4304,10 +4304,10 @@
     },
     {
       "id": "ubp-4fa63254c866",
-      "slug": "banklehre-zurich-2027-ubp-ch",
+      "slug": "zurigo-banking-2027-union-bancaire-privee-zurich-switzerland",
       "slugByLocale": {
-        "it": "banklehre-zurich-2027-ubp-ch",
-        "en": "banklehre-zurich-2027-ubp-ch",
+        "it": "zurigo-banking-2027-union-bancaire-privee-zurich-switzerland",
+        "en": "zurich-banking-2027-union-bancaire-privee-zurich-switzerland",
         "de": "banklehre-zurich-2027-ubp-ch",
         "fr": "banklehre-zurich-2027-ubp-ch"
       },
@@ -4351,11 +4351,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "banklehre-zurich-2027-union-bancaire-privee-zurich-switzerland"
+        "banklehre-zurich-2027-union-bancaire-privee-zurich-switzerland",
+        "banklehre-zurich-2027-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "banklehre-zurich-2027-union-bancaire-privee-zurich-switzerland"
+        ],
+        "it": [
+          "banklehre-zurich-2027-ubp-ch"
+        ],
+        "en": [
+          "banklehre-zurich-2027-ubp-ch"
         ]
       },
       "needsRetranslation": true,

@@ -2314,12 +2314,12 @@
     },
     {
       "id": "selecta-b3c27cd05937",
-      "slug": "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
+      "slug": "dipendenti-del-magazzino-m-f-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
       "slugByLocale": {
-        "it": "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
-        "en": "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
+        "it": "dipendenti-del-magazzino-m-f-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
+        "en": "warehouse-employees-m-f-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
         "de": "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
-        "fr": "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45"
+        "fr": "employes-d-entrepot-h-f-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -2380,7 +2380,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45"
+        ],
+        "en": [
+          "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45"
+        ],
+        "fr": [
+          "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45"
+        ]
+      },
+      "previousSlugs": [
+        "lagermitarbeiter-m-w-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45"
+      ]
     },
     {
       "id": "selecta-031285260b42",

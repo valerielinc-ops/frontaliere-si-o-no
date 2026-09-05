@@ -9314,12 +9314,12 @@
     },
     {
       "id": "raiffeisen-6256ee5adfa2",
-      "slug": "collaboratore-trice-in-kreditverarbeitung-raiffeisen-wattwil",
+      "slug": "dipendenti-nell-elaborazione-del-credito-raiffeisen-wattwil",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-kreditverarbeitung-raiffeisen-wattwil",
-        "en": "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil",
+        "it": "dipendenti-nell-elaborazione-del-credito-raiffeisen-wattwil",
+        "en": "employee-in-credit-processing-raiffeisen-wattwil",
         "de": "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil",
-        "fr": "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil"
+        "fr": "employe-dans-le-traitement-du-credit-raiffeisen-wattwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9363,10 +9363,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil"
+        "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil",
+        "collaboratore-trice-in-kreditverarbeitung-raiffeisen-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil",
+          "collaboratore-trice-in-kreditverarbeitung-raiffeisen-wattwil"
+        ],
+        "en": [
+          "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil"
+        ],
+        "fr": [
           "mitarbeiter-in-kreditverarbeitung-raiffeisen-wattwil"
         ]
       },
@@ -9460,12 +9468,12 @@
     },
     {
       "id": "raiffeisen-a37498d048d0",
-      "slug": "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
+      "slug": "specialista-bi-nella-gestione-dei-dati-di-rischio-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
-        "en": "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
+        "it": "specialista-bi-nella-gestione-dei-dati-di-rischio-m-f-d-raiffeisen-st-gallen",
+        "en": "bi-specialist-in-risk-data-management-m-f-d-raiffeisen-st-gallen",
         "de": "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
-        "fr": "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
+        "fr": "specialiste-bi-en-gestion-des-donnees-de-risque-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9520,7 +9528,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-d835e44d7b22",
@@ -9611,12 +9633,12 @@
     },
     {
       "id": "raiffeisen-10093c39f609",
-      "slug": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
+      "slug": "consulente-clienti-senior-raiffeisen-untersiggenthal",
       "slugByLocale": {
-        "it": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
-        "en": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
+        "it": "consulente-clienti-senior-raiffeisen-untersiggenthal",
+        "en": "senior-customer-advisor-basis-raiffeisen-untersiggenthal",
         "de": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
-        "fr": "senior-kundenberater-basis-raiffeisen-untersiggenthal"
+        "fr": "conseiller-principal-a-la-clientele-raiffeisen-untersiggenthal"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9671,15 +9693,29 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-kundenberater-basis-raiffeisen-untersiggenthal"
+        ],
+        "en": [
+          "senior-kundenberater-basis-raiffeisen-untersiggenthal"
+        ],
+        "fr": [
+          "senior-kundenberater-basis-raiffeisen-untersiggenthal"
+        ]
+      },
+      "previousSlugs": [
+        "senior-kundenberater-basis-raiffeisen-untersiggenthal"
+      ]
     },
     {
       "id": "raiffeisen-d79710f555de",
-      "slug": "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees",
+      "slug": "apprentice-trade-employee-profile-m-agosto-2027-raiffeisen-neuchatel-et-vallees",
       "slugByLocale": {
-        "it": "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees",
-        "en": "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees",
-        "de": "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees",
+        "it": "apprentice-trade-employee-profile-m-agosto-2027-raiffeisen-neuchatel-et-vallees",
+        "en": "apprentice-trade-employee-profile-m-august-2027-raiffeisen-neuchatel-et-vallees",
+        "de": "mitarbeiterprofil-des-lehrlingshandels-m-august-2027-raiffeisen-neuchatel-et-vallees",
         "fr": "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
       },
       "company": "Raiffeisen",
@@ -9735,7 +9771,21 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
+        ],
+        "en": [
+          "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
+        ],
+        "de": [
+          "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
+      ]
     },
     {
       "id": "raiffeisen-9ac1153f9981",
@@ -9849,11 +9899,11 @@
     },
     {
       "id": "raiffeisen-8bf995198a65",
-      "slug": "membre-de-la-direction-f-h-raiffeisen-neuchatel",
+      "slug": "membro-della-direzione-m-f-raiffeisen-neuchatel",
       "slugByLocale": {
-        "it": "membre-de-la-direction-f-h-raiffeisen-neuchatel",
-        "en": "membre-de-la-direction-f-h-raiffeisen-neuchatel",
-        "de": "membre-de-la-direction-f-h-raiffeisen-neuchatel",
+        "it": "membro-della-direzione-m-f-raiffeisen-neuchatel",
+        "en": "member-of-the-directorate-m-f-raiffeisen-neuchatel",
+        "de": "mitglied-der-direktion-m-w-raiffeisen-neuchatel",
         "fr": "membre-de-la-direction-f-h-raiffeisen-neuchatel"
       },
       "company": "Raiffeisen",
@@ -9909,7 +9959,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "membre-de-la-direction-f-h-raiffeisen-neuchatel"
+        ],
+        "en": [
+          "membre-de-la-direction-f-h-raiffeisen-neuchatel"
+        ],
+        "de": [
+          "membre-de-la-direction-f-h-raiffeisen-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "membre-de-la-direction-f-h-raiffeisen-neuchatel"
+      ]
     },
     {
       "id": "raiffeisen-dd55df9e20a6",
@@ -10258,12 +10322,12 @@
     },
     {
       "id": "raiffeisen-e75cea3c5195",
-      "slug": "kundenberaterin-basis-w-m-d-raiffeisen-altnau",
+      "slug": "base-di-consulenza-clienti-m-f-d-raiffeisen-altnau",
       "slugByLocale": {
-        "it": "kundenberaterin-basis-w-m-d-raiffeisen-altnau",
-        "en": "kundenberaterin-basis-w-m-d-raiffeisen-altnau",
+        "it": "base-di-consulenza-clienti-m-f-d-raiffeisen-altnau",
+        "en": "customer-consultant-basis-m-f-d-raiffeisen-altnau",
         "de": "kundenberaterin-basis-w-m-d-raiffeisen-altnau",
-        "fr": "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
+        "fr": "consultant-client-h-f-d-raiffeisen-altnau"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10318,7 +10382,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
+        ],
+        "en": [
+          "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
+        ],
+        "fr": [
+          "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
+      ]
     },
     {
       "id": "raiffeisen-6701e6d03b63",

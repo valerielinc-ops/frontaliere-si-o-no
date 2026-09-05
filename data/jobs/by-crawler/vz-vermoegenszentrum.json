@@ -4096,12 +4096,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-b9678e088695",
-      "slug": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
+      "slug": "analista-del-mercato-finanziario-in-editor-in-vz-vermogenszentrum-zug-zug",
       "slugByLocale": {
-        "it": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
-        "en": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
+        "it": "analista-del-mercato-finanziario-in-editor-in-vz-vermogenszentrum-zug-zug",
+        "en": "financial-market-analyst-in-editor-in-vz-vermogenszentrum-zug-zug",
         "de": "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
-        "fr": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
+        "fr": "analyste-des-marches-financiers-dans-editeur-dans-vz-vermogenszentrum-zug-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4161,11 +4161,19 @@
         ]
       },
       "previousSlugs": [
-        "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch"
+        "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
+        "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch"
+          "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
+          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
+        ],
+        "en": [
+          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
+        ],
+        "fr": [
+          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ]
       },
       "needsRetranslation": true,
@@ -4186,12 +4194,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-090e178348e4",
-      "slug": "collaboratore-trice-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
+      "slug": "dipendenti-in-resoconto-fiscale-tax-reclaim-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
+        "it": "dipendenti-in-resoconto-fiscale-tax-reclaim-vz-vermogenszentrum-zurich-zurich",
         "en": "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
         "de": "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
-        "fr": "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
+        "fr": "employe-en-declaration-d-impot-et-remboursement-d-impot-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4246,11 +4254,17 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
+        "collaboratore-trice-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
+        "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch"
+          "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
+          "collaboratore-trice-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.049Z",
@@ -4270,12 +4284,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-5be41204e63e",
-      "slug": "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich",
+      "slug": "assicurazione-personale-privato-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich",
-        "en": "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich",
+        "it": "assicurazione-personale-privato-vz-vermogenszentrum-zurich-zurich",
+        "en": "personnel-private-insurance-vz-vermogenszentrum-zurich-zurich",
         "de": "sachbearbeiter-in-privatversicherungen-vz-vermoegenszentrum-ch",
-        "fr": "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich"
+        "fr": "assurance-personnel-prive-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4331,11 +4345,19 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-privatversicherungen-vz-vermoegenszentrum-ch"
+        "sachbearbeiter-in-privatversicherungen-vz-vermoegenszentrum-ch",
+        "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-privatversicherungen-vz-vermoegenszentrum-ch"
+          "sachbearbeiter-in-privatversicherungen-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-privatversicherungen-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.047Z",
@@ -4355,12 +4377,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-24ddd4da0a08",
-      "slug": "collaboratore-trice-in-securities-settlement-vz-vermogenszentrum-zurich",
+      "slug": "dipendenti-in-securities-settlement-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-securities-settlement-vz-vermogenszentrum-zurich",
+        "it": "dipendenti-in-securities-settlement-vz-vermogenszentrum-zurich-zurich",
         "en": "mitarbeiter-in-securities-settlement-vz-vermogenszentrum-zurich",
         "de": "mitarbeiter-in-securities-settlement-vz-vermoegenszentrum-ch",
-        "fr": "mitarbeiter-in-securities-settlement-vz-vermogenszentrum-zurich"
+        "fr": "employe-en-reglement-de-titres-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4416,11 +4438,17 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-securities-settlement-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-securities-settlement-vz-vermoegenszentrum-ch",
+        "collaboratore-trice-in-securities-settlement-vz-vermogenszentrum-zurich",
+        "mitarbeiter-in-securities-settlement-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-securities-settlement-vz-vermoegenszentrum-ch"
+          "mitarbeiter-in-securities-settlement-vz-vermoegenszentrum-ch",
+          "collaboratore-trice-in-securities-settlement-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-securities-settlement-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.048Z",
@@ -4528,7 +4556,7 @@
         "it": "professional-software-ingegnere-net-e-web-vz-vermogenszentrum-zurich",
         "en": "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich",
         "de": "professional-software-engineer-net-und-web-vz-vermoegenszentrum-ch",
-        "fr": "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich"
+        "fr": "ingenieur-logiciel-professionnel-net-et-web-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4581,11 +4609,15 @@
         ]
       },
       "previousSlugs": [
-        "professional-software-engineer-net-und-web-vz-vermoegenszentrum-ch"
+        "professional-software-engineer-net-und-web-vz-vermoegenszentrum-ch",
+        "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "professional-software-engineer-net-und-web-vz-vermoegenszentrum-ch"
+        ],
+        "fr": [
+          "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.042Z",

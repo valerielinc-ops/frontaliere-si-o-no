@@ -357,12 +357,12 @@
     },
     {
       "id": "endress-hauser-f39e91e4585f",
-      "slug": "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach",
+      "slug": "gestione-del-processo-nella-lavorazione-del-tubo-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach",
-        "en": "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach",
+        "it": "gestione-del-processo-nella-lavorazione-del-tubo-m-f-d-endress-hauser-reinach",
+        "en": "process-manager-in-pipe-processing-m-f-d-endress-hauser-reinach",
         "de": "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach",
-        "fr": "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach"
+        "fr": "gestionnaire-de-processus-dans-le-traitement-des-tuyaux-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -417,7 +417,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-0673da9b9693",
@@ -4037,12 +4051,12 @@
     },
     {
       "id": "endress-hauser-5d7b74eaa55d",
-      "slug": "collaboratore-trice-in-produktionslogistik-m-w-d-endress-hauser-reinach",
+      "slug": "dipendenti-nella-logistica-di-produzione-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-produktionslogistik-m-w-d-endress-hauser-reinach",
-        "en": "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach",
+        "it": "dipendenti-nella-logistica-di-produzione-m-f-d-endress-hauser-reinach",
+        "en": "employee-in-production-logistics-m-f-d-endress-hauser-reinach",
         "de": "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach",
-        "fr": "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach"
+        "fr": "employe-en-logistique-de-production-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -4085,10 +4099,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach"
+        "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach",
+        "collaboratore-trice-in-produktionslogistik-m-w-d-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach",
+          "collaboratore-trice-in-produktionslogistik-m-w-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach"
         ]
       },
