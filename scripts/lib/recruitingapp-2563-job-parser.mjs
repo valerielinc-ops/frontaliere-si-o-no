@@ -13,8 +13,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import {
+  runUmantisSpecWithEmptyProof,
+  umantisAuthoritativeEmptyOrNull,
+} from './umantis-empty-listing.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -107,9 +110,8 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
-  const spec = loadSpec(RECRUITINGAPP_2563_KEY);
-  return runSpecInProduction(spec);
+async function fetchJobListings(runtime = {}) {
+  return runUmantisSpecWithEmptyProof(RECRUITINGAPP_2563_KEY, runtime);
 }
 
 /**
@@ -119,14 +121,14 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllRecruitingapp2563Jobs() {
+export async function fetchAllRecruitingapp2563Jobs(runtime = {}) {
   console.log(`🔍 Fetching Switch Bewerbermanagement Stellen jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return umantisAuthoritativeEmptyOrNull(listings, RECRUITINGAPP_2563_COMPANY_NAME) || [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);

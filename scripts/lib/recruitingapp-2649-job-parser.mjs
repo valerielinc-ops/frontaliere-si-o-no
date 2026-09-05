@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { fetch as undiciFetch } from 'undici';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
@@ -160,7 +161,11 @@ async function fetchJobListings(runtime = {}) {
   const attemptedDetailIds = new Set();
   const listingTitles = new Map();
   const observedDetails = new Map();
-  const sourceFetch = runtime.fetchImpl || globalThis.fetch;
+  // Same undici copy that supplies the dispatcher `politeFetch` hands down.
+  // `globalThis.fetch` here would skip gunzip in silence and read every page
+  // as empty — the proof below is fail-closed, but the crawler would still
+  // stop publishing without an error.
+  const sourceFetch = runtime.fetchImpl || undiciFetch;
 
   const observingFetch = async (input, init) => {
     const rawUrl = typeof input === 'string' || input instanceof URL
