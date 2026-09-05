@@ -53,7 +53,13 @@
  */
 
 import { fileURLToPath } from 'node:url';
-import { fingerprintPage, scoreCohorts, resolveInventoryEntry, skeletonHashHex } from '../lib/informationGain.mjs';
+import {
+  fingerprintPage,
+  scoreCohorts,
+  resolveInventoryEntry,
+  skeletonHashHex,
+  isFamilyWideMeasure,
+} from '../lib/informationGain.mjs';
 import { INFORMATION_GAIN_GATE } from '../audit-information-gain.mjs';
 
 const { MEDIAN_IGS_FLOOR_PCT, REGRESSION_TOLERANCE_PCT, KNOWN_LOW_GAIN_COHORTS } =
@@ -194,7 +200,7 @@ export function classifyCohorts(cohorts, { floor, tolerance, target, inventory }
     const { key: inventoryKey, value: recorded } = entry;
     if (cohort.medianIgs < recorded - tolerance) {
       regressions.push({ ...cohort, recorded, inventoryKey, reason: 'regressed-vs-inventory' });
-    } else if (cohort.medianIgs >= floor && inventoryKey === cohort.label) {
+    } else if (cohort.medianIgs >= floor && isFamilyWideMeasure(inventoryKey, cohort.label)) {
       // Asimmetria voluta, stessa del gate su dist: il ratchet si stringe su
       // un campione (una sotto-famiglia sotto la baseline è già una prova di
       // peggioramento) ma si allenta solo su una misura che copre la famiglia

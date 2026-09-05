@@ -493,6 +493,35 @@ export function skeletonHashHex(skeletonHash) {
 }
 
 /**
+ * Il ratchet si allenta solo su una misura che copre l'intera riga d'inventario.
+ *
+ * Il gate su dist e il live-scan hanno la stessa asimmetria voluta: verso il
+ * BASSO un campione basta (una sotto-famiglia sotto la baseline è già la prova
+ * che qualcosa è peggiorato), verso l'ALTO no — un bucket di 12 pagine di UNA
+ * sotto-famiglia sopra il floor non dice niente delle altre, e dichiararla
+ * «risalita» toglierebbe la riga della famiglia INTERA. Finora la condizione
+ * era scritta a mano nei due file come `key === label`.
+ *
+ * Con le chiavi di identità-template (#7382) quella scrittura diventa
+ * SBAGLIATA, e in modo silenzioso: `it:~2b6ed2` non è mai uguale a
+ * `it:/calcola-stipendio/stipendio-netto-~2b6ed2`, quindi nessuna delle 37
+ * righe potrebbe più essere segnalata come risalita e l'inventario perderebbe
+ * la sola direzione in cui deve poter cambiare. Ma per una chiave-template
+ * l'asimmetria non ha oggetto: la riga È una coorte, non una famiglia di
+ * coorti, quindi qualunque run che la misura la misura per intero.
+ *
+ * Regola condivisa e in un posto solo, perché due copie divergerebbero senza
+ * che nulla lo mostri (AGENTS.md #6).
+ *
+ * @param {string} inventoryKey
+ * @param {string} label
+ * @returns {boolean}
+ */
+export function isFamilyWideMeasure(inventoryKey, label) {
+  return inventoryKey === label || /^[a-z]{2}:~[0-9a-f]{6}$/.test(inventoryKey);
+}
+
+/**
  * Resolve a cohort label against a label-keyed inventory (issue #7384).
  *
  * The label is derived from the SAMPLED paths, and `audit-all.mjs` rotates the

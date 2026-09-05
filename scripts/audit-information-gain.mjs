@@ -49,7 +49,13 @@ import { relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
-import { fingerprintPage, scoreCohorts, resolveInventoryEntry, skeletonHashHex } from './lib/informationGain.mjs';
+import {
+  fingerprintPage,
+  scoreCohorts,
+  resolveInventoryEntry,
+  skeletonHashHex,
+  isFamilyWideMeasure,
+} from './lib/informationGain.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 /**
@@ -330,7 +336,7 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
             recordedMedian: known.value,
             inventoryKey: known.key,
           });
-        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT && known.key === cohort.label) {
+        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT && isFamilyWideMeasure(known.key, cohort.label)) {
           // La risoluzione per prefisso è ASIMMETRICA di proposito. Verso il
           // basso un campione basta: una sotto-famiglia sotto la baseline è di
           // per sé la prova che qualcosa è peggiorato, e il ratchet può solo

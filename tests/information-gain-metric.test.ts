@@ -29,6 +29,7 @@ import {
   localeOfPath,
   urlPathOf,
   resolveInventoryEntry,
+  isFamilyWideMeasure,
   extractVisibleText,
   segmentsFromText,
   INFORMATION_GAIN_TUNABLES,
@@ -567,6 +568,18 @@ describe("information-gain: le chiavi di identità-template risolvono ogni etich
         expect(template.observedLabels.length).toBeGreaterThanOrEqual(1);
         for (const { label } of template.observedLabels) {
           expect(resolveInventoryEntry(inventory, label, hash)?.key).toBe(template.inventoryKey);
+        }
+      });
+
+      it('la riga resta togliibile: una misura della coorte è una misura della riga', () => {
+        // L'asimmetria del ratchet (`key === label`) esiste per non togliere la
+        // riga di una FAMIGLIA sulla base di una sotto-famiglia. Una chiave di
+        // identità-template non è una famiglia, è una coorte: se restasse
+        // soggetta a quella condizione nessuna di queste 37 righe potrebbe mai
+        // uscire dall'inventario, e un inventario che può solo crescere è il
+        // difetto che l'inventario esiste per non essere.
+        for (const { label } of template.observedLabels) {
+          expect(isFamilyWideMeasure(template.inventoryKey, label)).toBe(true);
         }
       });
 

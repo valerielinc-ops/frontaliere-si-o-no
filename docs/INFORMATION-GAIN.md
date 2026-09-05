@@ -257,6 +257,16 @@ Due dettagli che si vedono solo guardando i dati:
   la mediana registrata resta quella del 2026-09-01, che è la popolazione che il
   gate giudica.
 
+L'asimmetria del ratchet cambia di conseguenza, ed è l'unica cosa che il resto
+del meccanismo doveva sapere. La condizione «togli la riga solo se l'etichetta
+è UGUALE alla chiave» esiste per non smontare la riga di una **famiglia** sulla
+base di una sotto-famiglia campionata; una chiave di identità-template non è una
+famiglia, è una coorte, quindi qualunque run che la misura la misura per intero.
+Scritta com'era (`key === label`) nessuna delle 37 righe sarebbe mai potuta
+uscire dall'inventario — un inventario che può solo crescere è esattamente ciò
+che un inventario non deve essere. La regola sta ora in un posto solo
+(`isFamilyWideMeasure`), condivisa dal gate su dist e dal live-scan.
+
 La prova per riga sta in `tests/fixtures/information-gain-emitted-slugs.json`,
 sezione `templates`: per ogni chiave le etichette **osservate** nelle due run, e
 `tests/information-gain-metric.test.ts` verifica che tutte risolvano a quella
