@@ -10,6 +10,8 @@ import {
   DEFAULT_CONSECUTIVE_SAMPLES,
   FAILURE_ISSUE_TITLE,
   SWAP_CEILING_CREDIT_CAP_MB,
+  SWAP_AVAIL_CREDIT_CAP_MB,
+  HOST_AVAIL_HARD_FLOOR_MB,
   DEFAULT_SWAP_FLOOR_MB,
   SWAP_FLOOR_FRACTION,
   SWAP_FLOOR_MIN_TOTAL_MB,
@@ -683,5 +685,93 @@ describe('canonicalCleanedKey — stessa identita\', senza tenere il testo', () 
     const r = ['req1', 'req2'];
     const expected = createHash('sha1').update(`${d.length}${d}${r.join('')}`).digest('hex');
     expect(canonicalCleanedKey(d, r)).toBe(expected);
+  });
+});
+
+describe("il pavimento host misura l'headroom anonimo, non la sola RAM (#5899)", () => {
+  const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+
+  it("il caso reale che ha fermato il deploy: 731 MB di MemAvailable con 10 521 MB di SwapFree NON e' un kill imminente", () => {
+    // Leg `de` del 2026-09-05T16:32 (data/build-history/memory-peaks.jsonl):
+    // il pavimento RAM-only ha fermato una build che aveva 10 GB di spazio di
+    // evizione davanti. Con l'headroom anonimo la stessa serie resta verde.
+    // Soglie di QUEL run, non quelle del fixture pre-swap: col credito swap il
+    // tetto era 19 515 MB, e il footprint (13 480 MB) gli restava sotto — e'
+    // proprio per questo che a fermare la build e' stato il pavimento host.
+    const thatRun: GuardThresholds = { ...withSwap, rssCeilingMb: 19515 };
+    const state = createGuardState();
+    for (let i = 0; i < 40; i += 1) {
+      expect(
+        observeSample(state, { rssMb: 13480, hostAvailMb: 731, swapFreeMb: 10521 }, thatRun),
+      ).toBeNull();
+    }
+    expect(state.breach).toBeNull();
+    expect(state.minHostAvailMb).toBe(731);
+    // 731 + min(10521, 8192) = 8923: il credito e' cappato, e resta comunque
+    // un ordine di grandezza sopra il pavimento.
+    expect(state.minHostHeadroomMb).toBe(731 + SWAP_AVAIL_CREDIT_CAP_MB);
+  });
+
+  it('il minimo verde osservato nell\'era swap (503 MB, leg fr 2026-09-04) resta verde', () => {
+    const state = createGuardState();
+    for (let i = 0; i < 40; i += 1) {
+      expect(
+        observeSample(state, { rssMb: 12800, hostAvailMb: 503, swapFreeMb: 4755 }, withSwap),
+      ).toBeNull();
+    }
+    expect(state.breach).toBeNull();
+  });
+
+  it("senza swap leggibile il credito e' 0 e la regola e' byte-identica a prima", () => {
+    // Stessa serie del test storico «il pavimento host vuole 3 campioni
+    // CONSECUTIVI»: su un host senza swap il pavimento scatta come sempre.
+    const state = createGuardState();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 700, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 640, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 500, swapFreeMb: null }, RUNNER)).toBe('host-floor');
+    expect(state.minHostHeadroomMb).toBe(500);
+  });
+
+  it("quando anche lo spazio di evizione e' finito il pavimento scatta lo stesso", () => {
+    // 600 MB di RAM + 100 MB di swap = 700 MB di headroom, sotto 768: qui il
+    // kernel non ha piu' dove evicere e il gate deve dirlo. (Il pavimento swap
+    // scatterebbe anche lui: host-floor ha la precedenza, come da contratto.)
+    const state = createGuardState();
+    for (let i = 0; i < 2; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 100 }, withSwap);
+    }
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 100 }, withSwap)).toBe(
+      'host-floor',
+    );
+  });
+
+  it('sotto il pavimento RAM-only duro scatta anche con lo swap pieno di spazio: la diagnosi va scritta in RAM', () => {
+    const state = createGuardState();
+    for (let i = 0; i < 2; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 200, swapFreeMb: 8000 }, withSwap);
+    }
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 200, swapFreeMb: 8000 }, withSwap)).toBe(
+      'host-floor',
+    );
+    expect(HOST_AVAIL_HARD_FLOOR_MB).toBeLessThan(503); // sotto ogni minimo verde misurato
+  });
+
+  it('un recupero azzera la serie anche in regime swap — un flush non e\' uno stato', () => {
+    const state = createGuardState();
+    observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 100 }, withSwap);
+    observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 100 }, withSwap);
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 3000 }, withSwap)).toBeNull();
+    expect(state.breach).toBeNull();
+  });
+
+  it("la diagnosi host-floor nomina l'headroom, non la sola MemAvailable", () => {
+    const state = createGuardState();
+    for (let i = 0; i < 3; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 100 }, withSwap);
+    }
+    const text = formatBreachDiagnosis('host-floor', state, withSwap);
+    expect(text).toContain('headroom anonimo');
+    expect(text).toContain('minHostHeadroomMb=700');
+    expect(text).toContain('minHostAvailMb=600');
   });
 });

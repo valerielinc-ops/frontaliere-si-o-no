@@ -35,6 +35,39 @@ export function twoProportionTest(a, b) {
 
 export const openRate = (cell) => (cell && cell.sends > 0 ? cell.opens / cell.sends : 0);
 
+/**
+ * Minimum sends PER ARM below which a two-proportion p-value must not be
+ * printed at all (#7342 item 3). The z-test stays the arbiter of "is this
+ * difference real" — this is a VALIDITY floor, not a second significance
+ * heuristic: on a handful of sends the normal approximation has no basis and
+ * the number still invites a decision it cannot support.
+ */
+export const MIN_COMPARISON_SENDS = 30;
+
+/**
+ * Companion validity condition: with the POOLED rate, each arm must expect at
+ * least this many opens and non-opens. A 40-vs-40 comparison where one side
+ * has 1 open clears MIN_COMPARISON_SENDS and still has no usable sampling
+ * distribution.
+ */
+export const MIN_EXPECTED_PER_CELL = 5;
+
+/**
+ * True when a two-proportion z-test on these two arms is worth reporting.
+ * Single source of truth for both readouts (subject-line A/B report and
+ * send-hour impact report) so their "too thin to test" line can never drift.
+ * @param {{sends:number,opens:number}} a
+ * @param {{sends:number,opens:number}} b
+ * @returns {boolean}
+ */
+export function hasEnoughPowerForTest(a, b) {
+  const nA = a?.sends ?? 0;
+  const nB = b?.sends ?? 0;
+  if (nA < MIN_COMPARISON_SENDS || nB < MIN_COMPARISON_SENDS) return false;
+  const pPool = ((a.opens ?? 0) + (b.opens ?? 0)) / (nA + nB);
+  return [nA, nB].every((n) => n * pPool >= MIN_EXPECTED_PER_CELL && n * (1 - pPool) >= MIN_EXPECTED_PER_CELL);
+}
+
 /** Default gates for declaring an auto-promotable winner. Conservative on
  * purpose: never promote on thin data or a noisy difference. */
 export const DEFAULT_WINNER_GATES = Object.freeze({

@@ -33,7 +33,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
-import { RELATED_SEARCH_JUNK_TERMS } from '../services/relatedSearchJunkTerms.mjs';
+import { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
@@ -488,6 +488,12 @@ function main() {
   };
   let editorialCollisions = 0;
   let gscMatches = 0;
+  // Historical entries whose keyword the denylist now rejects (issue #7316).
+  // They survive the append-only merge above (append-only exists so indexed
+  // URLs are never silently dropped), the build stops EMITTING their doorway,
+  // and `relatedSearchClustersPlugin` writes a withdrawal document over the
+  // already-published copy. This is the population that count sizes.
+  let junkRetired = 0;
   const byLocale = { it: 0, en: 0, de: 0, fr: 0 };
 
   for (const entry of candidates.values()) {
@@ -502,6 +508,7 @@ function main() {
     else cohorts['100+']++;
     if (entry.editorialCollision) editorialCollisions++;
     if (entry.gscMatch) gscMatches++;
+    if (isJunkSearchKeyword(entry.sampleTerms[0] || '')) junkRetired++;
     byLocale[entry.locale]++;
   }
 
@@ -566,6 +573,7 @@ function main() {
   console.log(`Total emissions:     ${totalEmissions.toLocaleString()}  (job × locale × term)`);
   console.log(`Editorial collisions:${editorialCollisions.toLocaleString()}  (would conflict with existing landing)`);
   console.log(`GSC matches:         ${gscMatches.toLocaleString()}  (slug exists as GSC orphan-query cluster)`);
+  console.log(`Junk doorways:       ${junkRetired.toLocaleString()}  (keyword on the denylist → not emitted, published copy retired at build)`);
   console.log('');
   console.log('By locale:');
   for (const [k, v] of Object.entries(byLocale)) console.log(`  ${k}: ${v.toLocaleString()}`);

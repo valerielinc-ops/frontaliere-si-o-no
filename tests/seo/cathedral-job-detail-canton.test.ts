@@ -4,6 +4,7 @@ import * as path from 'node:path';
 
 import { resolveCantonSection } from '../../build-plugins/shared/cantonSection';
 import { readJobsDataset } from '../helpers/jobsDataset';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
 const JOBS_PATH = path.resolve(__dirname, '../../data/jobs.json');
@@ -46,7 +47,7 @@ function extractCanonicalHref(html: string): string | null {
 }
 
 describe('job-detail URLs route per job.canton (Phase 1)', () => {
-  it('TI invariance: a Lugano job stays at /cerca-lavoro-ticino/<slug>/', () => {
+  it('TI invariance: a Lugano job stays at /cerca-lavoro-ticino/<slug>/', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const jobs = readJobs();
     if (!jobs) return;
@@ -69,7 +70,7 @@ describe('job-detail URLs route per job.canton (Phase 1)', () => {
   //          consolidates instead of cannibalising the new section.
   for (const cantonCode of SAMPLED_NON_TI_CANTONS) {
     const sectionSlug = resolveCantonSection('it', cantonCode);
-    it(`non-TI ${cantonCode}: emits at /${sectionSlug}/<slug>/ + legacy TI bridge canonicalises to it`, () => {
+    it(`non-TI ${cantonCode}: emits at /${sectionSlug}/<slug>/ + legacy TI bridge canonicalises to it`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
       if (!fs.existsSync(DIST)) return;
       const jobs = readJobs();
       if (!jobs) return;

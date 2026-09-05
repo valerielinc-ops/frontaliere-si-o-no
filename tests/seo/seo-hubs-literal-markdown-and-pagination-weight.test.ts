@@ -6,6 +6,7 @@ import {
 import { createAuditor } from '../../scripts/audit-no-literal-markdown.mjs';
 import { ROOT } from '../../scripts/lib/audit-runner.mjs';
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 // Regression for post-deploy validate-dist run 29330607996 (issue #4060),
 // audit:all failing sub-audits:
@@ -24,7 +25,7 @@ const JOB_BOARD_PATH = `${ROOT}/dist/cerca-lavoro-zurigo/tutti/index.html`;
 const DIRTY_TITLE = 'Assistenzärzt*in Medizinische Onkologie___Ärzte-DIM-Onkologie';
 
 describe('seoHubs — no literal markdown leaks into hub listings', () => {
-  it('strips separator runs / bold tokens from tutti-hub item titles', () => {
+  it('strips separator runs / bold tokens from tutti-hub item titles', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const html = buildThinCantonHubHtml({
       locale: 'de',
       hub: 'tutti',
