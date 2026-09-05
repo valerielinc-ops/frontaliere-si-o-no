@@ -45,13 +45,39 @@ const CTR_BY_POSITION = [
 ];
 const TAIL_CTR = 0.006; // position > 20
 
-/** Expected organic CTR (fraction, e.g. 0.037) for a given average position. */
+/**
+ * Expected organic CTR (fraction, e.g. 0.037) for a given average position.
+ *
+ * LINEARLY INTERPOLATED between the integer buckets, not rounded to the
+ * nearest one (issue #7412). Rounding made the curve a step function, and
+ * because `effectiveTargetCtr()` derives a family's alarm floor from it
+ * (`multiple × expectedCtrForPosition(avgPosition)`), every bucket edge was a
+ * cliff in the THRESHOLD, not just in the model: the fuel families sit at a
+ * weighted position of ~6.5, where a run-to-run drift of a few hundredths
+ * across 6.5 flipped the expected CTR between 0.037 (bucket 7) and 0.044
+ * (bucket 6) — a 19% jump in the floor. Since a LOWER position number is a
+ * BETTER ranking, the cliff fired the alarm precisely on a position
+ * IMPROVEMENT, with the snippet unchanged: a structural false positive.
+ *
+ * Interpolating keeps the curve continuous and still monotonically
+ * non-increasing, so the floor now tracks the position smoothly — a marginal
+ * ranking move produces a marginal threshold move, and only a real CTR drop
+ * (or a large position gain) can cross it. Integer positions are unchanged
+ * (exact bucket values), so the model itself is the same benchmark; positions
+ * past the last bucket fade into `TAIL_CTR` over one position instead of
+ * dropping onto it.
+ */
 export function expectedCtrForPosition(position) {
   const p = Number(position);
   if (!Number.isFinite(p) || p < 1) return CTR_BY_POSITION[1];
-  const idx = Math.round(p);
-  if (idx >= 1 && idx < CTR_BY_POSITION.length) return CTR_BY_POSITION[idx];
-  return TAIL_CTR;
+  const lastBucket = CTR_BY_POSITION.length - 1;
+  if (p >= lastBucket + 1) return TAIL_CTR;
+  const lower = Math.floor(p);
+  const fraction = p - lower;
+  const lowerCtr = CTR_BY_POSITION[lower];
+  if (fraction === 0) return lowerCtr;
+  const upperCtr = lower + 1 <= lastBucket ? CTR_BY_POSITION[lower + 1] : TAIL_CTR;
+  return lowerCtr + (upperCtr - lowerCtr) * fraction;
 }
 
 /**
