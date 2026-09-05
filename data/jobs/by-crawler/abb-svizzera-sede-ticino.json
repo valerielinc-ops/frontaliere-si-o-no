@@ -70,7 +70,6 @@
       "addressLocality": "Untersiggenthal, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -150,7 +149,6 @@
       "addressLocality": "Quartino, Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -378,7 +376,6 @@
       "addressLocality": "Morges, Vaud",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500
     },
@@ -1057,7 +1054,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -1129,7 +1125,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -1161,7 +1156,7 @@
       "titleByLocale": {
         "it": "Service Capo squadra (f/m/d) 80-100%",
         "en": "Service Team Leader (f/m/d) 80-100%",
-        "de": "Service Team Leader (f/m/d) 80-100%",
+        "de": "Service Team Leader (m/w/d) 80-100%",
         "fr": "Service Capo squadra (f/m/d) 80-100%"
       },
       "descriptionByLocale": {
@@ -1208,7 +1203,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -1312,7 +1306,6 @@
         "angewandter-physiker-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "medecin-applique-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -1390,7 +1383,6 @@
       "previousSlugs": [
         "project-manager-electrical-systems-customer-projects-switzerland-80-100-abb-svizzera-sede-ticino-baden-aargau-lr4e2a"
       ],
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1473,7 +1465,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -1545,7 +1536,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1609,7 +1599,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -1683,7 +1672,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -1787,7 +1775,7 @@
       "crawledAt": "2026-09-05T12:45:46.174Z",
       "firstSeenAt": "2026-08-19T21:44:00.488Z",
       "titleByLocale": {
-        "de": "Direct Current Datacenter System Architect",
+        "de": "Gleichstrom Datacenter System Architekt",
         "it": "Direct Current Datacenter System Architetto",
         "fr": "Direct Current Datacenter System Architecte",
         "en": "Direct Current Datacenter System Architect"
@@ -1847,7 +1835,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -1923,7 +1910,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -1997,7 +1983,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500
     },
@@ -2061,7 +2046,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -2133,7 +2117,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -2199,7 +2182,6 @@
       "addressLocality": "Quartino, Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -2264,8 +2246,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "salaryMin": 107000,
-      "salaryMax": 187500,
-      "needsRetranslation": true
+      "salaryMax": 187500
     },
     {
       "id": "company-n7exdv",
@@ -2481,7 +2462,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -2715,7 +2695,7 @@
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technical Trainer - Power Electronics",
+        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
         "fr": "(80 - 100 %) Formateur technique - Électronique de puissance"
       },
       "descriptionByLocale": {
@@ -2757,7 +2737,6 @@
         "80-100-technical-trainer-power-electronics-abb-svizzera-sede-ticino-quartino-ticino-46ubs3"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -2944,7 +2923,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },

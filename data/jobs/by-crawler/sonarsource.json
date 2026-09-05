@@ -154,7 +154,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:45.224Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -372,7 +371,10 @@
         "graduate-software-ingegnere-sonarsource-sonar-geneva",
         "graduate-software-engineer-sonarsource-ch",
         "graduate-software-ingenieur-sonarsource-sonar-geneva",
-        "staff-software-ingegnere-java-sonarsource-sonar-geneva"
+        "staff-software-ingegnere-java-sonarsource-sonar-geneva",
+        "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
+        "senior-software-engineer-java-remediation-agent-sonarsource-ch",
+        "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -386,11 +388,15 @@
           "graduate-software-ingegnere-sonarsource-sonar-geneva",
           "graduate-software-engineer-sonarsource-ch",
           "graduate-software-ingenieur-sonarsource-sonar-geneva",
-          "staff-software-ingegnere-java-sonarsource-sonar-geneva"
+          "staff-software-ingegnere-java-sonarsource-sonar-geneva",
+          "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
+          "senior-software-engineer-java-remediation-agent-sonarsource-ch",
+          "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
         ],
         "en": [
           "staff-full-stack-engineer-java-react-sonarsource-ch",
-          "graduate-software-engineer-sonarsource-ch"
+          "graduate-software-engineer-sonarsource-ch",
+          "senior-software-engineer-java-remediation-agent-sonarsource-ch"
         ],
         "de": [
           "staff-software-engineer-java-sonarsource-ch"
@@ -398,7 +404,8 @@
         "fr": [
           "staff-software-engineer-java-sonarsource-ch",
           "staff-full-stack-ingenieur-java-react-sonarsource-sonar-geneva",
-          "graduate-software-ingenieur-sonarsource-sonar-geneva"
+          "graduate-software-ingenieur-sonarsource-sonar-geneva",
+          "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
         ]
       },
       "firstSeenAt": "2026-08-12T22:16:07.537Z",
@@ -1110,7 +1117,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:42.206Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1140,7 +1146,7 @@
       "companyDomain": "sonarsource.com",
       "title": "NetSuite Administrator",
       "titleByLocale": {
-        "it": "NetSuite Administrator",
+        "it": "Amministratore NetSuite",
         "en": "NetSuite Administrator",
         "de": "NetSuite Administrator",
         "fr": "Administrateur NetSuite"
@@ -1218,7 +1224,7 @@
       "companyDomain": "sonarsource.com",
       "title": "NetSuite & Payroll Systems Administrator",
       "titleByLocale": {
-        "it": "NetSuite & Payroll Systems Administrator",
+        "it": "NetSuite & Payroll Systems Amministratore",
         "en": "NetSuite & Payroll Systems Administrator",
         "de": "NetSuite & Payroll Systems Administrator",
         "fr": "Administrateur des systèmes NetSuite & Payroll"
@@ -1334,7 +1340,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:43:27.325Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1410,7 +1415,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:56.975Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1627,7 +1631,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:39.488Z",
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "salarySource": "estimated",

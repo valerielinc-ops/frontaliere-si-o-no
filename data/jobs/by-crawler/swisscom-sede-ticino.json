@@ -65,7 +65,6 @@
       },
       "firstSeenAt": "2026-08-07T01:27:52.672Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -210,7 +209,6 @@
       },
       "firstSeenAt": "2026-09-03T13:43:40.656Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "currency": "CHF",
@@ -391,14 +389,16 @@
         "apprendistato-mediamatico-a-afc-swisscom-bellinzona",
         "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona-b7f2l9",
         "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
-        "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona"
+        "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona",
+        "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-mediamatico-a-afc-swisscom-bellinzona",
           "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona-b7f2l9",
           "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
-          "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona"
+          "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona",
+          "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-lugano"
         ],
         "de": [
           "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona-b7f2l9"
@@ -493,13 +493,15 @@
       "previousSlugs": [
         "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-lugano",
         "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
-        "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona"
+        "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona",
+        "apprentissage-operateur-informatique-afc-swisscom-sede-ticino-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-lugano",
           "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
-          "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona"
+          "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona",
+          "apprentissage-operateur-informatique-afc-swisscom-sede-ticino-bellinzona"
         ]
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
@@ -612,7 +614,6 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "currency": "CHF",
@@ -2399,7 +2400,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -3291,7 +3291,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -3567,7 +3566,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "PiB: Bachelor of Science (BSc) in Informatica",
-        "en": "PiBs: Bachelor of Science (BSc) in Informatik",
+        "en": "PiBs: Bachelor of Science (BSc) in Computer Science",
         "de": "PiBs: Bachelor of Science (BSc) in Informatik",
         "fr": "PiBs: Baccalauréat en sciences (BSc) en informatique"
       },
@@ -3609,7 +3608,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -3647,7 +3645,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "PiB: Bachelor of Science (BSc) in Informatica",
-        "en": "PiBs: Bachelor of Science (BSc) in Informatik",
+        "en": "PiBs: Bachelor of Science (BSc) in Computer Science",
         "de": "PiBs: Bachelor of Science (BSc) in Informatik",
         "fr": "PiBs: Baccalauréat en sciences (BSc) en informatique"
       },
@@ -3689,7 +3687,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3936,7 +3933,6 @@
       },
       "firstSeenAt": "2026-07-03T23:11:01.417Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -4018,7 +4014,6 @@
       },
       "firstSeenAt": "2026-05-29T00:55:24.315Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -4185,7 +4180,6 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -4267,7 +4261,6 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
