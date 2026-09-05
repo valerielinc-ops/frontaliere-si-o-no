@@ -16480,6 +16480,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'diritto-locazione-canton-vaud',
+    category: 'pratico',
+    date: '2026-09-05T00:14:26.273Z',
+    image: '/images/blog/diritto-locazione-canton-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

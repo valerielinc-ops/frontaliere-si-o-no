@@ -5494,6 +5494,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Zug kindergarten: cantonal costs, fees and subsidies',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'In the canton of Zug, nurseries and childcare facilities follow progressive rates on an income basis. Learn about available options, cantonal subsidies, and access procedures.',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Swiss kindergarten classroom with colorful toys and children\'s drawings on walls',
+    'blog.article.diritto-locazione-canton-vaud.title': 'Rentals: the right to rent in Switzerland',
+    'blog.article.diritto-locazione-canton-vaud.excerpt': 'Security deposit, cancellation and dispute: the federal rules for safe rentals in Switzerland, identical in every canton including Vaud.',
+    'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Swiss residential street with well-maintained buildings, representing housing quality and rental standards across Switzerland',
 };
 
 export default blogMetaChEn;

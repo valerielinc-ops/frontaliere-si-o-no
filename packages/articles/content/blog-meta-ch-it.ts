@@ -5494,6 +5494,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Asilo nido Zugo: costi, tariffe e sussidi cantonali',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'Nel canton Zugo, asili nido e custodia seguono tariffe progressive su base reddituale. Scopri le opzioni disponibili, i sussidi cantonali e le procedure di accesso.',
     'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Aula di asilo nido svizzera con giocattoli colorati e disegni di bambini alle pareti',
+    'blog.article.diritto-locazione-canton-vaud.title': 'Affitti: il diritto di locazione in Svizzera',
+    'blog.article.diritto-locazione-canton-vaud.excerpt': 'Deposito cauzionale, disdetta e contestazione: le regole federali per affitti sicuri in Svizzera, identiche in ogni cantone incluso il Vaud.',
+    'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Strada residenziale svizzera con edifici ben curati, simbolo della qualità abitativa e degli standard locativi in Svizzera',
 };
 
 export default blogMetaChIt;
