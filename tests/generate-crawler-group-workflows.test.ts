@@ -419,6 +419,68 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout, 'failure-report step must fire when commit/push fails').toContain('REPORTED_FAILURE');
   });
 
+  // ── OSSERVATORE del cluster `Crawler Failure: Run *` ──────────────────────
+  //
+  // Il predicato dell'apri-issue per-crawler non distingueva un guasto DEL
+  // crawler da un guasto CONDIVISO del gruppo. Il ramo deferred-commit di
+  // git-commit-data.sh non pusha niente: scrive solo il descrittore per il
+  // commit atomico del gruppo, quindi ogni suo fallimento e' una proprieta'
+  // dell'ambiente di job condiviso e ogni crawler fratello lo riproduce nella
+  // STESSA run. Misurato sulla run corpus 33585044260 (group 05): 27 step su
+  // 27 falliti con "could not persist its commit descriptor" DOPO che tutti e
+  // 27 i crawl erano riusciti, e il reporter ha sparato 27 volte — #6857
+  // (faulhaber) e #6953 (ipersonal) sono due delle issue priority:high nate
+  // cosi', entrambe per crawler che avevano scrapato bene. Titoli tutti
+  // diversi, quindi nessun dedup puo' collassarli.
+  //
+  // Questi due test falliscono se quel carve-out sparisce, e falliscono anche
+  // se qualcuno lo "aggiusta" rendendo lo step verde: il segnale di gruppo
+  // vive proprio nel fatto che la run resta `conclusion == failure`, che e'
+  // cio' che scan-failed-runs.mjs consuma per aprire UNA sola
+  // `Workflow Failure: <group>`. Sopprimere qui consolida il segnale, non lo
+  // spegne — e i due assert insieme sono l'unica cosa che lo dimostra.
+  it('exit 43 (shared group precondition): no per-crawler issue, but the step stays red', () => {
+    const sharedFaultDir = writeFixtureCommitScript(43);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: sharedFaultDir }));
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(stdout, 'un guasto condiviso non deve aprire una issue per-crawler').not.toContain(
+      'TITLE=Crawler Failure: Run test-crawler',
+    );
+    expect(exitCode, 'lo step deve restare rosso: la run rossa e il solo segnale di gruppo').not.toBe(0);
+    // L'annotation e' l'unica traccia leggibile: la riga di step-summary va in
+    // `${GITHUB_STEP_SUMMARY:-/dev/null}` e fuori da Actions non si vede.
+    expect(stdout).toContain("shared deferred-commit precondition failed (exit 43)");
+  });
+
+  it('exit 43 under the target timeout wrapper: same verdict through target_exit', () => {
+    const sharedFaultDir = writeFixtureCommitScript(43);
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: sharedFaultDir })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(exitCode).not.toBe(0);
+  });
+
+  // Il contrappeso: il carve-out deve restare stretto. Un fallimento di
+  // commit VERO del singolo crawler (exit 1) tiene la sua issue, altrimenti
+  // la fix avrebbe barattato il rumore con il silenzio.
+  it('exit 1 (real per-crawler commit failure) still files its own issue', () => {
+    const realFailureDir = writeFixtureCommitScript(1);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: realFailureDir }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(stdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(exitCode).not.toBe(0);
+  });
+
   it('crawl succeeds, commit/push succeeds -> background step exits zero and no failure report fires', () => {
     const okCommitDir = writeFixtureCommitScript(0);
     const crawler = crawlerFixture({ commitCommand: okCommitDir });
