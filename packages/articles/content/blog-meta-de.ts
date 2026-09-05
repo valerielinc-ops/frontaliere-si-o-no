@@ -11379,6 +11379,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-05.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 5. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-05.seoDescription': 'Grenzgänger-Bulletin vom 5. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-05.ogDescription': 'Die Zahlen vom 5. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.title': 'Wechsel des Arbeitgebers für alleinstehende Grenzgänger im Jahr 2024',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.excerpt': 'Praktischer Leitfaden zum Arbeitgeberwechsel für alleinerziehende Grenzgänger im Jahr 2024: Vorankündigung, Verlängerung der G-Bewilligung, Beitragskontinuität und zu aktualisierende Dokumente.',
+    'blog.article.cambio-datore-lavoro-frontaliere-2024-single.imageAlt': 'Grenzgänger überquert die Grenze bei Brogeda, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

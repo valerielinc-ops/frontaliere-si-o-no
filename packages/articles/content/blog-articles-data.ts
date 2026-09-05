@@ -33996,6 +33996,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'cambio-datore-lavoro-frontaliere-2024-single',
+ category: 'pratico',
+ date: '2026-09-05T09:15:08.085Z',
+ image: '/images/blog/cambio-datore-lavoro-frontaliere-2024-single.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
