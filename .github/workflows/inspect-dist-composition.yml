@@ -16,37 +16,33 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Resolve github-pages artifact
-        id: art
-        env:
-          GH_TOKEN: ${{ github.token }}
-          # Dispatch inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-        run: |
-          set -e
-          RID="$INPUT_DEPLOY_RUN_ID"
-          ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts \
-            --jq '.artifacts[] | select(.name=="github-pages" and .expired==false) | .id' | head -1)
-          if [ -z "$ARTIFACT_ID" ]; then
-            echo "::error::No 'github-pages' artifact on run $RID."
-            exit 1
-          fi
-          echo "artifact_id=$ARTIFACT_ID" >> "$GITHUB_OUTPUT"
-          echo "Resolved artifact id=$ARTIFACT_ID on run $RID"
+      # This job has no repo checkout of its own (it only needs dist/), but a
+      # LOCAL composite action has to exist on disk to be used. Sparse and
+      # cone-mode off: `.github/actions/` only, a few KB, not the 6.7 GB tree.
+      - name: Checkout the composite action only
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: .github/actions/fetch-pages-artifact
+          sparse-checkout-cone-mode: false
 
-      - name: Download + extract github-pages artifact
+      - name: Fetch the deployed dist (github-pages artifact)
+        id: pages
+        uses: ./.github/actions/fetch-pages-artifact
+        with:
+          # Required input of this workflow: an operator names the run to
+          # inspect, so the action pins it and does NOT walk back to another.
+          run-id: ${{ inputs.deploy_run_id }}
+          output-dir: /tmp/pages
+          github-token: ${{ github.token }}
+
+      - name: Extract dist/ from the artifact tarball
         env:
-          GH_TOKEN: ${{ github.token }}
+          TAR_PATH: ${{ steps.pages.outputs.tar-path }}
         run: |
-          set -e
-          mkdir -p /tmp/pages
-          gh api -H "Accept: application/vnd.github+json" \
-            repos/${{ github.repository }}/actions/artifacts/${{ steps.art.outputs.artifact_id }}/zip \
-            > /tmp/pages.zip
-          unzip -q /tmp/pages.zip -d /tmp/pages
-          test -f /tmp/pages/artifact.tar
+          set -euo pipefail
           mkdir -p dist
-          tar -xf /tmp/pages/artifact.tar -C dist
+          tar -xf "$TAR_PATH" -C dist
+          rm -f "$TAR_PATH"
           echo "Extracted $(find dist -type f | wc -l) files into dist/"
 
       - name: Analyze composition
