@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-09-04T23:08:21.883Z",
+  "assembledAt": "2026-09-05T12:51:55.749Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Microsoft-Licensing-Sales-Specialist_R-0006153",
@@ -65,6 +65,7 @@
       },
       "firstSeenAt": "2026-08-07T01:27:52.672Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -209,6 +210,7 @@
       },
       "firstSeenAt": "2026-09-03T13:43:40.656Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "currency": "CHF",
@@ -269,9 +271,9 @@
         "de": "Apprendistato: Angestellte/r del commercio al dettaglio AFC",
         "fr": "Apprendistato: Employé/e del commercio al dettaglio AFC"
       },
-      "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia-drxxmd",
+      "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
       "slugByLocale": {
-        "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia-drxxmd",
+        "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
         "en": "apprendistato-employee-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
         "de": "apprendistato-angestellte-r-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
         "fr": "apprendistato-employe-e-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia"
@@ -293,14 +295,16 @@
         "apprendistato-angestellte-r-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
         "apprendistato-angestellte-r-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
         "apprendistato-employe-e-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
-        "apprendistato-employee-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
+        "apprendistato-employee-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
+        "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia-drxxmd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-angestellte-r-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
           "apprendistato-angestellte-r-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
           "apprendistato-employe-e-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
-          "apprendistato-employee-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
+          "apprendistato-employee-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
+          "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia-drxxmd"
         ]
       },
       "needsRetranslation": true,
@@ -364,9 +368,9 @@
         "de": "Apprendistato: Mediamatico/a AFC",
         "fr": "Apprendistato: Mediamatico/a AFC"
       },
-      "slug": "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
+      "slug": "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona",
       "slugByLocale": {
-        "it": "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
+        "it": "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona",
         "en": "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
         "de": "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
         "fr": "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc"
@@ -387,12 +391,14 @@
       "previousSlugs": [
         "apprendistato-mediamatico-a-afc-swisscom-bellinzona",
         "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona-b7f2l9",
+        "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
         "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-mediamatico-a-afc-swisscom-bellinzona",
           "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona-b7f2l9",
+          "apprendistato-mediamatico-a-afc-swisscom-bellinzona-drxxmc",
           "apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona"
         ],
         "de": [
@@ -466,9 +472,9 @@
         "de": "Apprendistato: Operatore/Operatrice informatico/a AFC",
         "fr": "Apprendistato: Operatore/Operatrice informatico/a AFC"
       },
-      "slug": "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
+      "slug": "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona",
       "slugByLocale": {
-        "it": "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
+        "it": "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona",
         "en": "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
         "de": "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
         "fr": "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb"
@@ -487,13 +493,15 @@
       "jobReqId": "R-0005988",
       "id": "swisscom-sede-ticino-d884f1106cb3",
       "previousSlugs": [
-        "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona",
-        "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-lugano"
+        "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-lugano",
+        "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
+        "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona",
-          "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-lugano"
+          "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-lugano",
+          "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-bellinzona-drxxmb",
+          "apprendistato-operatore-operatrice-informatico-a-afc-swisscom-sede-ticino-bellinzona"
         ]
       },
       "needsRetranslation": true,
@@ -560,9 +568,9 @@
         "de": "Lernen: Entwickler / Digital Business Development AFC",
         "fr": "Apprentissage: Développeur/Digital Business Development AFC"
       },
-      "slug": "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona-drxxma",
+      "slug": "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona",
       "slugByLocale": {
-        "it": "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona-drxxma",
+        "it": "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona",
         "en": "learning-developer-digital-business-development-afc-swisscom-sede-ticino-bellinzona",
         "de": "lernen-entwickler-digital-business-development-afc-swisscom-sede-ticino-bellinzona",
         "fr": "apprentissage-developpeur-digital-business-development-afc-swisscom-sede-ticino-bellinzona"
@@ -582,22 +590,24 @@
       "id": "swisscom-sede-ticino-961dda675157",
       "previousSlugs": [
         "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona-dnuo1f",
-        "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona",
         "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona-dnuo1f",
         "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona",
         "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-lugano",
         "apprentissage-developpeur-developpeuse-business-digital-afc-swisscom-sede-ticino-bellinzona",
-        "lernen-afc-digital-business-entwickler-swisscom-sede-ticino-bellinzona"
+        "lernen-afc-digital-business-entwickler-swisscom-sede-ticino-bellinzona",
+        "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona-drxxma",
+        "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona-dnuo1f",
-          "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona",
           "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona-dnuo1f",
           "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona",
           "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-lugano",
           "apprentissage-developpeur-developpeuse-business-digital-afc-swisscom-sede-ticino-bellinzona",
-          "lernen-afc-digital-business-entwickler-swisscom-sede-ticino-bellinzona"
+          "lernen-afc-digital-business-entwickler-swisscom-sede-ticino-bellinzona",
+          "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-bellinzona-drxxma",
+          "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona"
         ],
         "de": [
           "apprendistato-sviluppatore-sviluppatrice-business-digitale-afc-swisscom-sede-ticino-bellinzona-dnuo1f"
@@ -605,6 +615,7 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "currency": "CHF",
@@ -648,9 +659,9 @@
         "de": "Apprentissage: Gestionnaire du commerce de détail CFC",
         "fr": "Apprentissage: Gestionnaire du commerce de détail CFC"
       },
-      "slug": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj",
+      "slug": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-avry-sur-matran",
       "slugByLocale": {
-        "it": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj",
+        "it": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-avry-sur-matran",
         "en": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj",
         "de": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj",
         "fr": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-avry-sur-matran"
@@ -671,6 +682,14 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -712,9 +731,9 @@
         "de": "Apprentissage: Gestionnaire du commerce de détail CFC",
         "fr": "Apprentissage: Gestionnaire du commerce de détail CFC"
       },
-      "slug": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh",
+      "slug": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-neuchatel",
       "slugByLocale": {
-        "it": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh",
+        "it": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-neuchatel",
         "en": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh",
         "de": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh",
         "fr": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-neuchatel"
@@ -735,6 +754,14 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -776,9 +803,9 @@
         "de": "Apprentissage: Gestionnaire du commerce de détail CFC",
         "fr": "Apprentissage: Gestionnaire du commerce de détail CFC"
       },
-      "slug": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf",
+      "slug": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-sierre",
       "slugByLocale": {
-        "it": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf",
+        "it": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-sierre",
         "en": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf",
         "de": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf",
         "fr": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-sierre"
@@ -799,6 +826,14 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -843,7 +878,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-aarau",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-aarau",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-aarau-drxxpv",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-aarau",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-aarau",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-aarau"
       },
@@ -868,6 +903,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-aarau-drxxpv",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-aarau"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-aarau-drxxpv"
         ]
       },
       "needsRetranslation": true,
@@ -917,7 +955,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-biel-bienne",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-biel-bienne",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-biel-bienne-drxxpu",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-biel-bienne",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-biel-bienne",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-biel-bienne"
       },
@@ -942,6 +980,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-biel-bienne-drxxpu",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-biel-bienne"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-biel-bienne-drxxpu"
         ]
       },
       "needsRetranslation": true,
@@ -991,7 +1032,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-thun",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-thun",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-thun-drxxp4",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-thun",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-thun",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-thun"
       },
@@ -1016,6 +1057,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-thun-drxxp4",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-thun"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-thun-drxxp4"
         ]
       },
       "needsRetranslation": true,
@@ -1145,7 +1189,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-chur",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-chur",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-chur-drxxow",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-chur",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-chur",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-chur"
       },
@@ -1182,7 +1226,8 @@
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-chur"
         ],
         "en": [
-          "apprenticeship-retail-specialist-efz-swisscom-sede-ticino-chur"
+          "apprenticeship-retail-specialist-efz-swisscom-sede-ticino-chur",
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-chur-drxxow"
         ],
         "de": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-chur-cpoao7"
@@ -1238,7 +1283,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-st-gallen",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-st-gallen",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-st-gallen-drxxov",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-st-gallen",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-st-gallen",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-st-gallen"
       },
@@ -1263,6 +1308,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-st-gallen-drxxov",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-st-gallen"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-st-gallen-drxxov"
         ]
       },
       "needsRetranslation": true,
@@ -1312,7 +1360,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-schaffhausen",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-schaffhausen",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-schaffhausen-drxxo8",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-schaffhausen",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-schaffhausen",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-schaffhausen"
       },
@@ -1337,6 +1385,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-schaffhausen-drxxo8",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-schaffhausen"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-schaffhausen-drxxo8"
         ]
       },
       "needsRetranslation": true,
@@ -1386,7 +1437,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-frauenfeld",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-frauenfeld",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-frauenfeld-drxxo7",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-frauenfeld",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-frauenfeld",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-frauenfeld"
       },
@@ -1411,6 +1462,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-frauenfeld-drxxo7",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-frauenfeld"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-frauenfeld-drxxo7"
         ]
       },
       "needsRetranslation": true,
@@ -1460,7 +1514,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-brig",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-brig",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-brig-drxxo6",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-brig",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-brig",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-brig"
       },
@@ -1485,6 +1539,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-brig-drxxo6",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-brig"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-brig-drxxo6"
         ]
       },
       "needsRetranslation": true,
@@ -1534,7 +1591,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-zurich",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-zurich",
-        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-zurich-drxxo5",
+        "en": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-zurich",
         "de": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-zurich",
         "fr": "lehre-detailhandelsfachfrau-mann-efz-swisscom-sede-ticino-zurich"
       },
@@ -1559,6 +1616,9 @@
         "it": [
           "lehre-detailhandelsfachfrau-mann-efz-swisscom-zurich-drxxo5",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-zurich"
+        ],
+        "en": [
+          "lehre-detailhandelsfachfrau-mann-efz-swisscom-zurich-drxxo5"
         ]
       },
       "needsRetranslation": true,
@@ -1608,7 +1668,7 @@
       "slug": "solution-architetto-swisscom-sede-ticino-lausanne",
       "slugByLocale": {
         "it": "solution-architetto-swisscom-sede-ticino-lausanne",
-        "en": "solution-architect-swisscom-lausanne-drxgoq",
+        "en": "architect-solution-swisscom-sede-ticino-lausanne",
         "de": "architektenlosung-swisscom-sede-ticino-lausanne",
         "fr": "solution-architect-swisscom-sede-ticino-lausanne"
       },
@@ -1635,6 +1695,9 @@
           "solution-architetto-swisscom-sede-ticino-lausanne"
         ],
         "de": [
+          "solution-architect-swisscom-lausanne-drxgoq"
+        ],
+        "en": [
           "solution-architect-swisscom-lausanne-drxgoq"
         ]
       },
@@ -1765,7 +1828,7 @@
       "slugByLocale": {
         "it": "modern-workplace-ingegnere-swisscom-sede-ticino-zurich",
         "en": "modern-workplace-engineer-swisscom-sede-ticino-zurich",
-        "de": "modern-workplace-engineer-swisscom-zurich-qs9yfp",
+        "de": "modern-workplace-ingenieur-swisscom-sede-ticino-zurich",
         "fr": "modern-workplace-ingenieur-swisscom-sede-ticino-zurich"
       },
       "category": "technology",
@@ -1794,6 +1857,9 @@
           "modern-workplace-engineer-swisscom-zurich-qs9yfp"
         ],
         "fr": [
+          "modern-workplace-engineer-swisscom-zurich-qs9yfp"
+        ],
+        "de": [
           "modern-workplace-engineer-swisscom-zurich-qs9yfp"
         ]
       },
@@ -2348,6 +2414,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -3239,6 +3306,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -3514,7 +3582,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "PiB: Bachelor of Science (BSc) in Informatica",
-        "en": "PiBs: Bachelor of Science (BSc) in Computer Science",
+        "en": "PiBs: Bachelor of Science (BSc) in Informatik",
         "de": "PiBs: Bachelor of Science (BSc) in Informatik",
         "fr": "PiBs: Baccalauréat en sciences (BSc) en informatique"
       },
@@ -3556,6 +3624,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -3593,7 +3662,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "PiB: Bachelor of Science (BSc) in Informatica",
-        "en": "PiBs: Bachelor of Science (BSc) in Computer Science",
+        "en": "PiBs: Bachelor of Science (BSc) in Informatik",
         "de": "PiBs: Bachelor of Science (BSc) in Informatik",
         "fr": "PiBs: Baccalauréat en sciences (BSc) en informatique"
       },
@@ -3635,6 +3704,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3881,6 +3951,7 @@
       },
       "firstSeenAt": "2026-07-03T23:11:01.417Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3962,6 +4033,7 @@
       },
       "firstSeenAt": "2026-05-29T00:55:24.315Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -4128,6 +4200,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -4209,6 +4282,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
