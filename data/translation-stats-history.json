@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-08-10T12:54:00.152Z",
-    "label": "before",
-    "total": 26568,
-    "needsRetranslation": 887,
-    "suppressed": 44,
-    "incomplete": 79,
-    "complete": 26489,
-    "missingByLocale": {
-      "it": 55,
-      "en": 35,
-      "de": 43,
-      "fr": 41
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 17
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 15
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 11
-      },
-      {
-        "company": "IKEA",
-        "pending": 10
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 3
-      },
-      {
-        "company": "Hans Ziegler AG Hauptsitz",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      },
-      {
-        "company": "Sulzer",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-10T13:57:15.583Z",
-    "label": "after",
-    "total": 26568,
-    "needsRetranslation": 502,
-    "suppressed": 51,
-    "incomplete": 79,
-    "complete": 26489,
-    "missingByLocale": {
-      "it": 55,
-      "en": 35,
-      "de": 43,
-      "fr": 41
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 17
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 15
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 11
-      },
-      {
-        "company": "IKEA",
-        "pending": 10
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 3
-      },
-      {
-        "company": "Hans Ziegler AG Hauptsitz",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      },
-      {
-        "company": "Sulzer",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-10T17:06:33.973Z",
     "label": "before",
     "total": 26861,
@@ -15052,6 +14938,190 @@
       {
         "company": "Confederazione Svizzera",
         "pending": 181
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-05T06:33:23.690Z",
+    "label": "before",
+    "total": 28948,
+    "needsRetranslation": 9530,
+    "suppressed": 106,
+    "incomplete": 10276,
+    "complete": 18672,
+    "slotsPresent": 18672,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 18672,
+    "sourceCopyExcused": 631,
+    "slotsPresentByLength": 28525,
+    "languageVerified": 19592,
+    "missingByLocale": {
+      "it": 1754,
+      "en": 1447,
+      "de": 718,
+      "fr": 1447
+    },
+    "queueAge": {
+      "count": 9530,
+      "withTimestamp": 9530,
+      "oldestAgeDays": 144.9,
+      "p50AgeDays": 9.8,
+      "p90AgeDays": 62.8,
+      "buckets": {
+        "0-1d": 257,
+        "1-2d": 518,
+        "2-7d": 2795,
+        "0-7d": 3570,
+        "7-30d": 2999,
+        "30-90d": 2484,
+        "90-180d": 477,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1362
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 1177
+      },
+      {
+        "company": "Roche",
+        "pending": 586
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 331
+      },
+      {
+        "company": "BKW",
+        "pending": 237
+      },
+      {
+        "company": "PEMSA",
+        "pending": 195
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 192
+      },
+      {
+        "company": "Genossenschaft Migros Ostschweiz",
+        "pending": 186
+      },
+      {
+        "company": "Sulzer",
+        "pending": 183
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 168
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-05T06:48:00.904Z",
+    "label": "after",
+    "total": 28948,
+    "needsRetranslation": 9526,
+    "suppressed": 106,
+    "incomplete": 10275,
+    "complete": 18673,
+    "slotsPresent": 18673,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 18673,
+    "sourceCopyExcused": 631,
+    "slotsPresentByLength": 28525,
+    "languageVerified": 19596,
+    "missingByLocale": {
+      "it": 1754,
+      "en": 1447,
+      "de": 718,
+      "fr": 1447
+    },
+    "queueAge": {
+      "count": 9526,
+      "withTimestamp": 9526,
+      "oldestAgeDays": 144.9,
+      "p50AgeDays": 9.9,
+      "p90AgeDays": 62.8,
+      "buckets": {
+        "0-1d": 257,
+        "1-2d": 518,
+        "2-7d": 2795,
+        "0-7d": 3570,
+        "7-30d": 2998,
+        "30-90d": 2481,
+        "90-180d": 477,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 1,
+      "withTimestamp": 1,
+      "oldestAgeDays": 60.6,
+      "p50AgeDays": 60.6,
+      "p90AgeDays": 60.6,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 0,
+        "7-30d": 0,
+        "30-90d": 1,
+        "90-180d": 0,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1362
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 1177
+      },
+      {
+        "company": "Roche",
+        "pending": 586
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 331
+      },
+      {
+        "company": "BKW",
+        "pending": 237
+      },
+      {
+        "company": "PEMSA",
+        "pending": 195
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 192
+      },
+      {
+        "company": "Genossenschaft Migros Ostschweiz",
+        "pending": 186
+      },
+      {
+        "company": "Sulzer",
+        "pending": 183
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 168
       }
     ]
   }
