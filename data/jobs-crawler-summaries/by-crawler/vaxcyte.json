@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-09-04T22:55:51.273Z",
+  "generatedAt": "2026-09-05T12:36:29.822Z",
   "total": 4,
   "discovered": null,
   "written": 4,
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6652,
-  "avgDurationMs": 6652,
+  "durationMs": 6576,
+  "avgDurationMs": 6576,
   "durationHistory": [
-    6652
+    6576
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:55:45.617Z",
+      "crawledAt": "2026-09-05T12:36:24.587Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:55:45.692Z",
+      "crawledAt": "2026-09-05T12:36:24.694Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T22:55:45.625Z",
+      "crawledAt": "2026-09-05T12:36:24.612Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
