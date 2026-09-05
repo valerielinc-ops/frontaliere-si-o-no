@@ -81,9 +81,18 @@ jobs:
           # reviewer ("zero 🔴 Important findings", PR #3330): "Important" lì è un
           # aggettivo che dice che non ce ne sono, non il marker. Un 🔴 NON seguito
           # da "Important<delimitatore>" (decorativo o prosa, es. "nessun 🔴") →
-          # no-op, niente round speso. Stessa regex in scripts/ci/lib/constants.mjs
-          # (REDFLAG_IMPORTANT_RE) — YAML `if:` non può importarla, tenerle allineate.
-          if ! printf '%s' "$REVIEW_BODY" | grep -qP '🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
+          # no-op, niente round speso.
+          #
+          # `^[^🟡🟢❓]*` e `(?<!\`)` sono la terza variante della stessa classe, chiusa
+          # sulla POSIZIONE invece che sul vocabolario (corpus#909): un 🔴 Important
+          # CITATO dentro la riga di un altro finding, o dentro un code span, non è il
+          # marker di quella riga — e portava i due punti come quello vero, quindi il
+          # rimedio precedente non lo vedeva. grep è già orientato alla riga, quindi il
+          # pattern è REDFLAG_IMPORTANT_RE.source senza il `\n` nella classe negata.
+          # Stessa regex in scripts/ci/lib/constants.mjs — YAML `if:` non può
+          # importarla; il drift fra le tre copie lo prende il guard `mirror bash` di
+          # tests/redflag-important-marker.test.ts.
+          if ! printf '%s' "$REVIEW_BODY" | grep -qP '^[^🟡🟢❓]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
             echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
