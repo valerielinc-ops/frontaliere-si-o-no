@@ -97,6 +97,22 @@ describe('summarizeRunPhases', () => {
     expect(summarizeRunPhases([{ name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 10 }])?.cascade).toBeNull();
   });
 
+  it('tells a crashed cascade from an idle one, both having produced no jobs', () => {
+    // Same jobsCleared: 0 on both. The window and the reason are what separate a
+    // cascade that died after eating its window from one that found nothing.
+    const crashed = summarizeRunPhases([
+      { name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 60 * 60_000, budgetMs: 150 * 60_000 },
+      { name: 'cascade', startedAtMs: 62 * 60_000, endedAtMs: 70 * 60_000, windowMs: 28 * 60_000, jobsCleared: 0, stopReason: 'failed' },
+    ]);
+    expect(crashed?.cascade).toMatchObject({ stopReason: 'failed', starved: false, windowMs: 28 * 60_000 });
+    expect(crashed?.cascade?.jobsPerWindowMinute).toBe(0);
+
+    const idle = summarizeRunPhases([
+      { name: 'cascade', startedAtMs: null, endedAtMs: 3_000, windowMs: null, jobsCleared: 0, stopReason: 'nothing to relocalize' },
+    ]);
+    expect(idle?.cascade).toMatchObject({ stopReason: 'nothing to relocalize', starved: null, windowMs: null });
+  });
+
   it('reports phases even when no cascade ran', () => {
     const summary = summarizeRunPhases([{ name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 60_000 }]);
     expect(summary?.cascade).toBeNull();
