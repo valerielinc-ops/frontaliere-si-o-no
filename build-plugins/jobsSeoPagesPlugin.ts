@@ -208,6 +208,7 @@ import {
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { logBuildMem } from './shared/buildMemLog';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
+import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 
 // ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
 // `logBuildMem` now lives in ./shared/buildMemLog so employerProfilePagesPlugin
@@ -11564,7 +11565,7 @@ ${staticAnalyticsHtml}
  // years — caps how many long-tail entries we retain. Default is generous
  // (well above today's ~5k) so it never bites normal coverage; lower via env if
  // a deploy ever OOMs on the augmented map.
- const SLICE_AUGMENT_CAP = Number(process.env.EXPIRED_SLICE_AUGMENT_CAP || 60000);
+ const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 60000);
  if (fs.existsSync(expiredSlicesDir)) {
  const emittedSlugs = new Set(Object.keys(tracking));
  let sliceAugmented = 0;

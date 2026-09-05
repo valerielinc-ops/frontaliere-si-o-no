@@ -55,6 +55,7 @@ import {
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 export {
   detectWorkflowScoped,
@@ -77,7 +78,7 @@ export {
 const budget = runBudgetFromEnv();
 // Costo per item: un'azione di age-out sono 2 chiamate gh (comment + close), un
 // rescue/park 1-2 (view commenti + edit label). 8s copre entrambe con margine.
-const ITEM_COST_MS = Number(process.env.FOLLOWUP_ITEM_COST_MS || 8_000);
+const ITEM_COST_MS = intFromEnv('FOLLOWUP_ITEM_COST_MS', 8_000);
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -93,7 +94,7 @@ export const MAX_ATTEMPTS = 3;
 // sta sull'ultima issue processata, quindi in regime normale si trova alla prima
 // o seconda lettura; il cap serve solo a impedire che una coda lunga trasformi il
 // guard in un costo lineare sul backlog.
-const QUOTA_SCAN_MAX = Number(process.env.FOLLOWUP_QUOTA_SCAN_MAX || 8);
+const QUOTA_SCAN_MAX = intFromEnv('FOLLOWUP_QUOTA_SCAN_MAX', 8);
 // Margine prima di considerare un agent:fix "orfano" (la run deve aver avuto il
 // tempo di partire + aprire la PR). Conservativo per non ri-accodare run vive.
 const ORPHAN_MIN_AGE_MIN = 30;
@@ -106,7 +107,7 @@ const ORPHAN_MIN_AGE_MIN = 30;
 // BLOCCAVA il drain fino al cron throttlato (stallo osservato 2026-06-14 21:00Z:
 // coda 21 ferma ~40min). 3min coprono la registrazione con ampio margine senza
 // incatenare il drain a un fix già finito.
-const SETTLE_MIN = Number(process.env.FOLLOWUP_SETTLE_MIN || 3);
+const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 
 // Quante run `issue-fix` possono essere vive insieme. Era 1 hard-coded — un
 // mutex, non un cap — e con una mediana di 25 min per run piu' il tick di 20
@@ -189,7 +190,7 @@ const LBL_DECOMP_RETRIED = 'decompose-retried';
 const LBL_MAYBE_RESOLVED = 'maybe-resolved';
 const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
 const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
-const PARENT_CLOSE_MAX_PER_RUN = Number(process.env.FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN || 5);
+const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN', 5);
 
 /**
  * La issue può entrare nello stadio di decomposizione? Pura (solo label) →
@@ -272,16 +273,16 @@ export function decomposedChildNumbers(comments) {
 // agent:fix-queued) non verrà mai drenato: chiudilo (riapribile se ricorre). I
 // `fu-parked` (tentativi esauriti) sono i candidati principali. Drain, non
 // perdita: commento esplicito + reversibile. 0 disabilita.
-const AGEOUT_DAYS = Number(process.env.FOLLOWUP_AGEOUT_DAYS || 10);
-const AGEOUT_INACTIVE_DAYS = Number(process.env.FOLLOWUP_AGEOUT_INACTIVE_DAYS || 7);
-const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20);
+const AGEOUT_DAYS = intFromEnv('FOLLOWUP_AGEOUT_DAYS', 10);
+const AGEOUT_INACTIVE_DAYS = intFromEnv('FOLLOWUP_AGEOUT_INACTIVE_DAYS', 7);
+const AGEOUT_MAX_PER_RUN = intFromEnv('FOLLOWUP_AGEOUT_MAX_PER_RUN', 20);
 // Cap dello stadio VERDICT-EXIT. Ogni item costa una lettura commenti + una
 // coppia comment/close o una edit: con 87 parked e un budget di run di ~277s
 // leggerli tutti a ogni tick non ci sta. Il cap è alto perché lo stadio è
 // TERMINALE — ciò che tocca esce dal pool e non torna, quindi il backlog si
 // drena e non si ripresenta al tick dopo, a differenza di uno stadio che
 // ri-valuta sempre lo stesso insieme.
-const VERDICT_EXIT_MAX_PER_RUN = Number(process.env.FOLLOWUP_VERDICT_EXIT_MAX_PER_RUN || 12);
+const VERDICT_EXIT_MAX_PER_RUN = intFromEnv('FOLLOWUP_VERDICT_EXIT_MAX_PER_RUN', 12);
 // Interruttore gemello di `NO_AUTOCLOSE` in reconcile-followups.mjs: degrada la
 // chiusura di `already-fixed` a `maybe-resolved` + commento.
 const VERDICT_EXIT_NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO_AUTOCLOSE === '1';
@@ -296,13 +297,13 @@ const LBL_RESOLVED_AUTO = 'fu-resolved-auto';
 // ~75s per ciascuno dei due su ~275s utilizzabili, quindi nessuno dei due può
 // affamare l'altro ai default. L'eccedenza è dichiarata nel log e rivalutata al
 // tick successivo (AGENTS.md "no silent cap").
-const AGEOUT_COMMENT_SCAN_MAX = Number(process.env.FOLLOWUP_AGEOUT_COMMENT_SCAN_MAX || 25);
+const AGEOUT_COMMENT_SCAN_MAX = intFromEnv('FOLLOWUP_AGEOUT_COMMENT_SCAN_MAX', 25);
 // Periodo della finestra rotante (vedi `scanWindowOffset`). 20 minuti = la
 // cadenza del cron di `followup-drainer.yml`, così un tick del cron corrisponde
 // a uno spostamento della finestra. Le run extra innescate da `workflow_run`
 // cadono nello stesso bucket e riusano lo stesso offset: è voluto, altrimenti
 // una raffica di fine-fix sfoglierebbe il pool senza che passi tempo vero.
-const SCAN_ROTATION_PERIOD_MS = Number(process.env.FOLLOWUP_SCAN_ROTATION_MS || 20 * 60_000);
+const SCAN_ROTATION_PERIOD_MS = intFromEnv('FOLLOWUP_SCAN_ROTATION_MS', 20 * 60_000);
 
 // Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
 // `<!-- FIX_OUTCOME: <code> -->`) DETERMINISTICI: rieseguire il fixer sullo
@@ -775,7 +776,7 @@ export const SIBLING_SIDES = {
 };
 const LBL_SIBLING_DEBT = 'sibling-debt';
 // Cap per tick: ogni etichettatura costa un commento + un edit. 0 = kill-switch.
-const SIBLING_DEBT_MAX_PER_RUN = Number(process.env.FOLLOWUP_SIBLING_DEBT_MAX_PER_RUN || 3);
+const SIBLING_DEBT_MAX_PER_RUN = intFromEnv('FOLLOWUP_SIBLING_DEBT_MAX_PER_RUN', 3);
 
 // Prossimità, non «stessa riga»: un body di follow-up ha righe da 400+ caratteri
 // in cui «blocked: serve la misura di due run» e «gemello» stanno in due
@@ -952,7 +953,7 @@ export function detectDataPending(title, body) {
 // stessa famiglia: N>=2 accende il circuit-breaker one-item di `issue-fix.yml`
 // (che le aggregate da 2-3 item le lavora, una alla volta) e
 // `BACKLOG_MIN_ITEMS`=3 copre gli handoff di sessione con marker nel titolo.
-export const WIDE_SCOPE_MIN_ITEMS = Number(process.env.FOLLOWUP_WIDE_SCOPE_MIN_ITEMS || 4);
+export const WIDE_SCOPE_MIN_ITEMS = intFromEnv('FOLLOWUP_WIDE_SCOPE_MIN_ITEMS', 4);
 
 /**
  * Voci enumerate nel body di una follow-up AGGREGATA. Forme del template
@@ -1363,7 +1364,7 @@ function inFlightFixCount() {
 // 5 giorni e non è capability-scoped: lavoro ri-accodabile che nessun tick
 // avrebbe mai potuto vedere, e senza una riga di log a dirlo. Un silent cap in
 // senso proprio, contro la regola esplicita di AGENTS.md.
-const ISSUE_LIST_LIMIT = Number(process.env.FOLLOWUP_ISSUE_LIST_LIMIT || 300);
+const ISSUE_LIST_LIMIT = intFromEnv('FOLLOWUP_ISSUE_LIST_LIMIT', 300);
 
 /** Elenco issue con tetto DICHIARATO: se il tetto è stato raggiunto lo dice,
  * invece di restituire in silenzio una vista parziale che sembra completa. */
@@ -1446,7 +1447,7 @@ const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
 // spesso), repark-gen 2→1 (un solo giro di retry, poi parked stabile fino
 // all'age-out), cap/run 5→1 (no burst di run Claude su pool a basso rendimento).
 // Override via env se serve più aggressività di convergenza.
-const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 5);
+const RETRY_COOLDOWN_DAYS = intFromEnv('FOLLOWUP_RETRY_COOLDOWN_DAYS', 5);
 // Variante per le parcheggiate `fu-data-pending` (vedi il detector omonimo):
 // `RETRY_COOLDOWN_DAYS` risponde a «quanto aspettare prima di RI-TENTARE un fix
 // fallito»; una data-pending non ha fallito niente — dichiara che la finestra di
@@ -1455,15 +1456,13 @@ const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 5
 // settimana. Ri-accodarla a 5 giorni rifà lo stesso run contro lo stesso dato
 // mancante. Default = 2× il cooldown normale; env dedicata per tararlo senza
 // toccare l'altro.
-const DATA_PENDING_COOLDOWN_DAYS = Number(
-  process.env.FOLLOWUP_DATA_PENDING_COOLDOWN_DAYS || RETRY_COOLDOWN_DAYS * 2,
-);
+const DATA_PENDING_COOLDOWN_DAYS = intFromEnv('FOLLOWUP_DATA_PENDING_COOLDOWN_DAYS', RETRY_COOLDOWN_DAYS * 2);
 /** Cooldown in giorni applicabile a QUESTA parcheggiata. Pura → testabile. */
 export function cooldownDaysFor(iss, { base = RETRY_COOLDOWN_DAYS, dataPending = DATA_PENDING_COOLDOWN_DAYS } = {}) {
   return (iss?.labels || []).some((l) => l?.name === LBL_DATA_PENDING) ? dataPending : base;
 }
-const MAX_REPARK_GEN = Number(process.env.FOLLOWUP_MAX_REPARK_GEN || 1);
-const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 1);
+const MAX_REPARK_GEN = intFromEnv('FOLLOWUP_MAX_REPARK_GEN', 1);
+const RETRY_MAX_PER_RUN = intFromEnv('FOLLOWUP_RETRY_MAX_PER_RUN', 1);
 // Il cooldown si misura sull'ultimo evento SIGNIFICATIVO, non su `updatedAt`
 // (vedi `lastSignificantActivityAt`), e leggerlo costa una `gh issue view --json
 // comments` per candidata. Due limiti tengono il costo bounded e indipendente
@@ -1474,10 +1473,10 @@ const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 1);
 //  • cap per run, sullo stesso modello di `QUOTA_SCAN_MAX`. 25 copre con margine
 //    le 19 candidate misurate il 2026-08-11; l'eccedenza è dichiarata nel log e
 //    rivalutata al tick successivo (AGENTS.md "no silent cap").
-const RETRY_COMMENT_SCAN_MAX = Number(process.env.FOLLOWUP_RETRY_COMMENT_SCAN_MAX || 25);
+const RETRY_COMMENT_SCAN_MAX = intFromEnv('FOLLOWUP_RETRY_COMMENT_SCAN_MAX', 25);
 // Costo di una singola lettura commenti per il budget di run: una `gh issue
 // view`, molto meno della coppia comment+edit di `ITEM_COST_MS`.
-const COMMENT_SCAN_COST_MS = Number(process.env.FOLLOWUP_COMMENT_SCAN_COST_MS || 3_000);
+const COMMENT_SCAN_COST_MS = intFromEnv('FOLLOWUP_COMMENT_SCAN_COST_MS', 3_000);
 const reparkGenOf = (iss) => {
   const m = names(iss).map((n) => /^fu-reparked:(\d+)$/.exec(n)).find(Boolean);
   return m ? parseInt(m[1], 10) : 0;
@@ -1776,7 +1775,7 @@ export function isSettlingPromotion({ outcome, ageMin, settleMin }) {
 // Al tetto: `fu-parked` + `needs-human` (i crawler non passano dal parked-retry,
 // che filtra su `isQueueManaged` → `fu-parked` da solo sarebbe uno stato
 // terminale che non guarda nessuno).
-export const CRAWLER_MAX_ATTEMPTS = Number(process.env.FOLLOWUP_CRAWLER_MAX_ATTEMPTS || MAX_ATTEMPTS);
+export const CRAWLER_MAX_ATTEMPTS = intFromEnv('FOLLOWUP_CRAWLER_MAX_ATTEMPTS', MAX_ATTEMPTS);
 
 /**
  * Decide cosa fare di una issue crawler (`route='fix'`, non queue-managed) che
@@ -2524,7 +2523,7 @@ export function runDrain() {
     if (fairnessPeer && quotaBackoffUntil === null && fairnessHours.includes(new Date().getUTCHours())) {
       try {
         const pq = gh(['issue', 'list', '--repo', fairnessPeer, '--state', 'open', '--label', LBL_QUEUED, '--json', 'number', '--limit', '50']);
-        const minQ = Number(process.env.FAIRNESS_PEER_QUEUE_MIN || 10);
+        const minQ = intFromEnv('FAIRNESS_PEER_QUEUE_MIN', 10);
         if (Array.isArray(pq) && pq.length >= minQ) {
           fairnessHold = true;
           console.log(`FAIRNESS: ora UTC ${new Date().getUTCHours()} riservata al peer ${fairnessPeer} (coda peer=${pq.length} ≥ ${minQ}) → nessuna promozione (fix né decompose) in questo tick.`);

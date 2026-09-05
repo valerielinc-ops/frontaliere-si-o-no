@@ -63,6 +63,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 // guards its presence here) — the implementation is the canonical shared helper.
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1594,7 +1595,7 @@ export function filterUnsentSubscribers(subscribers, alreadySent) {
 // sample (pickWinner gates), in which case the assignment biases toward it
 // epsilon-greedily while still exploring the other arm.
 const AB_AUTOPROMOTE = process.env.NEWSLETTER_AB_AUTOPROMOTE !== 'false';
-const AB_PROMOTE_LOOKBACK = Math.max(1, Number(process.env.NEWSLETTER_AB_LOOKBACK || 2));
+const AB_PROMOTE_LOOKBACK = Math.max(1, intFromEnv('NEWSLETTER_AB_LOOKBACK', 2));
 
 /**
  * Resolve auto-promotion winners for this campaign by pooling the previous
