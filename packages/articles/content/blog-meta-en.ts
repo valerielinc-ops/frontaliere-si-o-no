@@ -11401,6 +11401,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fiera-varese-schiranna-2026.title': 'Varese Fair 2026: 150 exhibitors at Schiranna',
     'blog.article.fiera-varese-schiranna-2026.excerpt': 'From 11 to 20 September 2026, the 48th edition of the Varese Fair focuses on business, culture and sport with the slogan \'Scelgo Varese\'.',
     'blog.article.fiera-varese-schiranna-2026.imageAlt': 'Exhibition area of the Varese Fair at Schiranna',
+    'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.title': 'Cristina Zanini moves from the great advice to the board of directors',
+    'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.excerpt': 'The socialist deputy and former mayor of Lugano, Cristina Zanini, has decided to leave the Grand Council to join the board of directors of Aet, the Ticino electricity company.',
+    'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.imageAlt': 'Cristina Zanini leaves the Grand Council to join the board of Azienda elettrica ticinese',
 };
 
 export default blogMetaEn;
