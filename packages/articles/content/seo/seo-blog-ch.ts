@@ -71819,6 +71819,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-manifestazione-anti-g7-dispositivo-lecito': {
+    title: 'Manifestazione anti-G7, il dispositivo di contenimento era lecito',
+    description: 'Il Dipartimento cantonale delle istituzioni e del digitale ha confermato la liceità del dispositivo di contenimento durante la manifestazione No G7 a Ginevra.',
+    keywords: 'frontalieri, ticino, svizzera, italia, manifestazione, anti-g7, dispositivo, contenimento',
+    ogTitle: 'Manifestazione anti-G7, il dispositivo di contenimento era lecito',
+    ogDescription: 'Il Dipartimento cantonale delle istituzioni e del digitale ha confermato la liceità del dispositivo di contenimento durante la manifestazione No G7 a Ginevra. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/manifestazione-anti-g7-dispositivo-lecito/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manifestazione anti-G7, il dispositivo di contenimento era lecito",
+      "description": "Il Dipartimento cantonale delle istituzioni e del digitale ha confermato la liceità del dispositivo di contenimento durante la manifestazione No G7 a Ginevra.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/manifestazione-anti-g7-dispositivo-lecito.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione anti-G7 a Ginevra con la polizia che controlla la situazione."
+      },
+      "datePublished": "2026-09-05T10:26:36+00:00",
+      "dateModified": "2026-09-05T10:26:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/manifestazione-anti-g7-dispositivo-lecito/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

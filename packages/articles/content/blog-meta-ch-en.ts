@@ -5533,6 +5533,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.osce-conferenza-berna.title': 'OSCE conference in Bern: from Geneva to Helsinki',
     'blog.article.osce-conferenza-berna.excerpt': 'Federal Councillor Ignazio Cassis spoke in Bern on 3 September 2026 about the capacity for diplomatic cooperation despite disagreements.',
     'blog.article.osce-conferenza-berna.imageAlt': 'Aerial view of Berna, Switzerland, with the Swiss Federal Palace and the Aare River.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Anti-G7 manifestation, the containment device was lawful',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'The cantonal Department of Institutions and Digital confirmed the legality of the containment device during the No G7 event in Geneva.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Anti-G7 demonstration in Geneva with police controlling the situation.',
 };
 
 export default blogMetaChEn;

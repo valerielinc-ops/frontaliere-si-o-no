@@ -5533,6 +5533,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.osce-conferenza-berna.title': 'OSCE conferenza a Berna: da Ginevra a helsinki',
     'blog.article.osce-conferenza-berna.excerpt': 'Il Consigliere federale Ignazio Cassis ha parlato a Berna il 3 settembre 2026 sulla capacità di cooperazione diplomatica nonostante i disaccordi.',
     'blog.article.osce-conferenza-berna.imageAlt': 'Vista aerea di Berna, Svizzera, con il Palazzo Federale e il fiume Aare.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Manifestazione anti-G7, il dispositivo di contenimento era lecito',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'Il Dipartimento cantonale delle istituzioni e del digitale ha confermato la liceità del dispositivo di contenimento durante la manifestazione No G7 a Ginevra.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Manifestazione anti-G7 a Ginevra con la polizia che controlla la situazione.',
 };
 
 export default blogMetaChIt;

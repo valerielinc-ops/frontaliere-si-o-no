@@ -16597,6 +16597,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'manifestazione-anti-g7-dispositivo-lecito',
+    category: 'novita',
+    date: '2026-09-05T10:26:36.021Z',
+    image: '/images/blog/manifestazione-anti-g7-dispositivo-lecito.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
