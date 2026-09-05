@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-09-04T23:12:20.509Z",
+  "assembledAt": "2026-09-05T12:52:15.183Z",
   "jobs": [
     {
       "id": "sfs-group-f207510fa814",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:16.682Z",
+      "crawledAt": "2026-09-05T12:52:12.248Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "postalCode": "9435",
@@ -99,7 +99,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:16.555Z",
+      "crawledAt": "2026-09-05T12:52:12.115Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -120,11 +120,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+        "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+          "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
@@ -179,7 +181,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-building-components-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:16.428Z",
+      "crawledAt": "2026-09-05T12:52:11.981Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -269,7 +271,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:16.301Z",
+      "crawledAt": "2026-09-05T12:52:11.846Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -336,7 +338,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:16.173Z",
+      "crawledAt": "2026-09-05T12:52:11.712Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -388,11 +390,13 @@
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+        "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+          "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
@@ -402,6 +406,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -447,7 +452,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/pim-data-governance-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:16.045Z",
+      "crawledAt": "2026-09-05T12:52:11.578Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -542,7 +547,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.915Z",
+      "crawledAt": "2026-09-05T12:52:11.445Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -562,11 +567,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "messtechniker-in-m-f-d-sfs-group-hallau"
+        "messtechniker-in-m-f-d-sfs-group-hallau",
+        "tecnico-di-misura-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "messtechniker-in-m-f-d-sfs-group-hallau"
+          "messtechniker-in-m-f-d-sfs-group-hallau",
+          "tecnico-di-misura-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "messtechniker-in-m-f-d-sfs-group-hallau"
@@ -621,7 +628,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.787Z",
+      "crawledAt": "2026-09-05T12:52:11.310Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -642,11 +649,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
-        "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
+        "kunststofftechnologe-in-m-w-d-sfs-group-hallau",
+        "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
+          "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
@@ -656,6 +665,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -675,7 +685,7 @@
       "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
@@ -685,7 +695,7 @@
       "title": "Kaltmassivumformer/in (m/f/d)",
       "titleByLocale": {
         "it": "Operatore/Operatrice di stampaggio a freddo (m/f/d)",
-        "en": "Cold mass converter/in (m/f/d)",
+        "en": "Kaltmassivumformer/in (m/f/d)",
         "de": "Kaltmassivumformer/in (m/f/d)",
         "fr": "Opérateur/Opératrice de formage à froid (m/f/d)"
       },
@@ -701,7 +711,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.656Z",
+      "crawledAt": "2026-09-05T12:52:11.175Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -750,15 +760,19 @@
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
+          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+          "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
           "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
         "fr": [
@@ -813,7 +827,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/gebietsverkaufsleiter-in-–-industrie-und-metall-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.515Z",
+      "crawledAt": "2026-09-05T12:52:11.040Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -865,12 +879,14 @@
       },
       "previousSlugs": [
         "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
-        "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz"
+        "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+        "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
-          "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz"
+          "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+          "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
         ],
         "en": [
           "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
@@ -880,6 +896,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:07.092Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -925,7 +942,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d)-2.html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.386Z",
+      "crawledAt": "2026-09-05T12:52:10.906Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "9435",
@@ -973,11 +990,13 @@
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
+        "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
+        "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
+          "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
+          "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
@@ -1033,7 +1052,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.260Z",
+      "crawledAt": "2026-09-05T12:52:10.774Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1053,11 +1072,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+        "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+          "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
@@ -1067,6 +1088,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1112,7 +1134,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.131Z",
+      "crawledAt": "2026-09-05T12:52:10.640Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1133,11 +1155,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+        "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+          "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
@@ -1192,7 +1216,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:15.001Z",
+      "crawledAt": "2026-09-05T12:52:10.503Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1244,11 +1268,13 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+        "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+          "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
@@ -1275,9 +1301,9 @@
     },
     {
       "id": "sfs-group-3c8b7b63ccab",
-      "slug": "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg",
+      "slug": "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg",
+        "it": "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg",
         "en": "data-content-manager-in-m-f-d-80-sfs-group-heerbrugg",
         "de": "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
         "fr": "gestionnaire-de-donnees-et-de-contenu-dans-h-f-d-80-sfs-group-heerbrugg"
@@ -1287,7 +1313,7 @@
       "companyDomain": "sfs.com",
       "title": "Data- & Contentmanager/in (m/f/d) 80–",
       "titleByLocale": {
-        "it": "Gestione dei dati e dei contenuti in (m/f/d) 80–",
+        "it": "Data- & Contentmanager/in (m/f/d) 80–",
         "en": "Data & Content Manager in (m/f/d) 80–",
         "de": "Data- & Contentmanager/in (m/f/d) 80–",
         "fr": "Gestionnaire de données et de contenu dans (h/f/d) 80–"
@@ -1304,7 +1330,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/data-contentmanager-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:14.871Z",
+      "crawledAt": "2026-09-05T12:52:10.368Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1352,11 +1378,13 @@
       "previousSlugs": [
         "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
         "data-content-manager-m-w-d-80-sfs-group-heerbrugg",
+        "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg",
         "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
+          "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg",
           "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg"
         ],
         "en": [
@@ -1368,6 +1396,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:06.926Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -1413,7 +1442,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-conseillère-de-vente-au-service-externe-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:14.743Z",
+      "crawledAt": "2026-09-05T12:52:10.231Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "postalCode": "9435",
@@ -1479,7 +1508,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:12:14.611Z",
+      "crawledAt": "2026-09-05T12:52:10.093Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -1499,11 +1528,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+        "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+          "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
         ],
         "en": [
           "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
@@ -1558,7 +1589,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:14.477Z",
+      "crawledAt": "2026-09-05T12:52:09.960Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1579,11 +1610,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+          "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
@@ -1593,6 +1626,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.291Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1622,7 +1656,7 @@
       "title": "Automatiker/in Instandhaltung (m/f/d)",
       "titleByLocale": {
         "it": "Tecnico automazione - Manutenzione (m/f/d)",
-        "en": "Automatic engineer/maintenance (m/f/d)",
+        "en": "Automatiker/in Instandhaltung (m/f/d)",
         "de": "Automatiker/in Instandhaltung (m/f/d)",
         "fr": "Automaticien/ne - Maintenance (m/f/d)"
       },
@@ -1638,7 +1672,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:12:14.304Z",
+      "crawledAt": "2026-09-05T12:52:09.807Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1691,11 +1725,13 @@
       "previousSlugs": [
         "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
         "automatician-under-maintenance-m-f-d-sfs-group-heerbrugg",
-        "automatic-operator-under-maintenance-m-f-d-sfs-group-heerbrugg"
+        "automatic-operator-under-maintenance-m-f-d-sfs-group-heerbrugg",
+        "operatore-automatico-in-manutenzione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
+          "operatore-automatico-in-manutenzione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
@@ -1707,6 +1743,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.117Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1829,112 +1866,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "sfs-group-bb912995d565",
-      "slug": "ingegnere-di-applicazione-in-sistemi-di-drenaggio-hauraton-m-f-d-sfs-group-buchs-zh",
-      "slugByLocale": {
-        "it": "ingegnere-di-applicazione-in-sistemi-di-drenaggio-hauraton-m-f-d-sfs-group-buchs-zh",
-        "en": "application-engineer-in-hauraton-drainage-systems-m-f-d-sfs-group-buchs-zh",
-        "de": "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh",
-        "fr": "ingenieur-d-application-dans-les-systemes-de-drainage-hauraton-m-f-d-sfs-group-buchs-zh"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Anwendungstechniker/in Hauraton Entwässerungssysteme (m/f/d)",
-      "titleByLocale": {
-        "it": "Tecnico applicativo sistemi di drenaggio Hauraton (m/f/d)",
-        "en": "Application Engineer Hauraton Drainage Systems (m/f/d)",
-        "de": "Anwendungstechniker/in Hauraton Entwässerungssysteme (m/f/d)",
-        "fr": "Technicien d'application systèmes de drainage Hauraton (m/f/d)"
-      },
-      "description": "Entwässerungslösungen müssen auf der Baustelle funktionieren, genau dort setzt deine Rolle bei SFS mit der Marke HAURATON an. Du berätst Planer/Architekten, Kunden und Verkaufsteams bei technischen Fragestellungen, entwickelst passende Konzepte für konkrete Bauvorhaben und begleitest Projekte von der Ausschreibung bis zur erfolgreichen Realisierung. Dabei bringst du dein technisches Know-how frühzeitig ein, erkennst Anforderungen und sorgst dafür, dass aus komplexen Herausforderungen praxistaugliche Lösungen entstehen. Your Tasks:\n• Technische Lösungen für Entwässerungsprojekte gemeinsam mit Kunden und Planer erarbeiten\n• Planer, Kunden und Verkaufsteams technisch beraten und begleiten\n• Bauprojekte von der Ausschreibung bis zur Umsetzung steuern\n• Hydraulische Berechnungen und objektspezifische Verlegepläne erstellen\n• Neue Objektpotenziale erkennen und Planernetzwerke ausbauen\n• Als technische Schnittstelle zwischen Markt, SFS und HAURATON wirken Your profile:\n• Ausbildung in der Baubranche mit technischer Weiterbildung, z. B. Baupolier, Bauführer oder Techn. Spezialisierung\n• Praxis- oder Projekterfahrung im Bauhaupt- oder Baunebengewerbe\n• Erfahrung in der technischen Beratung, Projektleitung oder im Aussendienst\n• Fähigkeit, technische Anforderungen verständlich und kundenorientiert zu vermitteln\n• Eigeninitiative, Organisationstalent und Freude an Verantwortung\n• Kommunikationsstark, verbindlich und lösungsorientiert\n• Verhandlungssicheres Deutsch in Wort und Schrift; weitere Sprachen sind willkommen We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nLe soluzioni di drenaggio devono funzionare in cantiere, ed è proprio qui che entra in gioco il vostro ruolo presso SFS con il marchio HAURATON. Consiglierete progettisti/architetti, clienti e team di vendita su questioni tecniche, sviluppate concetti adatti per progetti di costruzione specifici e accompagnate i progetti dalla gara d'appalto fino alla realizzazione di successo. Contribuirai con il tuo know-how tecnico in una fase iniziale, identificherai i requisiti e assicurerai che soluzioni pratiche emergano da sfide complesse.\n\nCompiti\n\n- Sviluppare soluzioni tecniche per progetti di drenaggio insieme a clienti e progettisti\n- Fornire consulenza tecnica e supporto a progettisti, clienti e team di vendita\n- Gestire i progetti di costruzione dalla gara alla realizzazione\n- Creare calcoli idraulici e piani di installazione specifici per l'oggetto\n- Riconoscere il potenziale di nuove proprietà ed espandere le reti di pianificazione\n- Fungere da interfaccia tecnica tra il mercato, SFS e HAURATON\n\nRequisiti\n\n- Formazione nel settore edile con ulteriore formazione tecnica, ad es. B. Caposquadra, direttore dei lavori o specializzazione tecnica\n- Esperienza pratica o di progetto nel settore edile principale o accessorio\n- Esperienza nella consulenza tecnica, nella gestione di progetti o nel servizio sul campo\n- Capacità di comunicare i requisiti tecnici in modo comprensibile e orientato al cliente\n- Iniziativa, talento organizzativo e gusto della responsabilità\n- Forte comunicatore, impegnato e orientato alla soluzione\n- Tedesco parlato e scritto fluente nel mondo degli affari; altre lingue sono benvenute\n\nOffriamo\n\n- Sei settimane di vacanza e possibilità di acquisto di vacanze aggiuntive\n- Partecipazione agli utili annuali\n- Possedere un fondo pensione sano con piani di risparmio individuali\n- Corsi di formazione interni e supporto per corsi di formazione esterni\n- Spazio alla responsabilità e all'iniziativa personale\n- Ulteriori vantaggi: https://join.sfs.com/ch/de/benefits/\n\nContatto\n\nAbbiamo suscitato il tuo interesse? Candidati oggi tramite la nostra home page delle offerte di lavoro | Unisciti a SFS\n\nStiamo ricoprendo questa posizione senza il supporto dei fornitori di servizi del personale.",
-        "en": "Description\n\nDrainage solutions have to work on the construction site, which is exactly where your role at SFS with the HAURATON brand comes in. You advise planners/architects, customers and sales teams on technical issues, develop suitable concepts for specific construction projects and accompany projects from tendering to successful implementation. You will contribute your technical know-how at an early stage, identify requirements and ensure that practical solutions emerge from complex challenges.\n\nTasks\n\n- Develop technical solutions for drainage projects together with customers and planners\n- Provide technical advice and support to planners, customers and sales teams\n- Manage construction projects from tender to implementation\n- Create hydraulic calculations and object-specific installation plans\n- Recognize new property potential and expand planner networks\n- Act as a technical interface between the market, SFS and HAURATON\n\nRequirements\n\n- Training in the construction industry with further technical training, e.g. B. Construction foreman, construction manager or technical specialization\n- Practical or project experience in the main construction or ancillary construction industry\n- Experience in technical consulting, project management or field service\n- Ability to communicate technical requirements in an understandable and customer-oriented manner\n- Initiative, organizational talent and enjoyment of responsibility\n- Strong communicator, committed and solution-oriented\n- Business fluent spoken and written German; other languages are welcome\n\nWe offer\n\n- Six weeks holiday & additional holiday purchase possible\n- Annual profit sharing\n- Own healthy pension fund with individual savings plans\n- Internal training courses & support for external training courses\n- Room for personal responsibility and initiative\n- Further benefits: https://join.sfs.com/ch/de/benefits/\n\nContact\n\nHave we sparked your interest? Apply today via our Job Offers homepage | Join SFS\n\nWe are filling this position without the support of personnel service providers.",
-        "de": "Entwässerungslösungen müssen auf der Baustelle funktionieren, genau dort setzt deine Rolle bei SFS mit der Marke HAURATON an. Du berätst Planer/Architekten, Kunden und Verkaufsteams bei technischen Fragestellungen, entwickelst passende Konzepte für konkrete Bauvorhaben und begleitest Projekte von der Ausschreibung bis zur erfolgreichen Realisierung. Dabei bringst du dein technisches Know-how frühzeitig ein, erkennst Anforderungen und sorgst dafür, dass aus komplexen Herausforderungen praxistaugliche Lösungen entstehen. Your Tasks:\n• Technische Lösungen für Entwässerungsprojekte gemeinsam mit Kunden und Planer erarbeiten\n• Planer, Kunden und Verkaufsteams technisch beraten und begleiten\n• Bauprojekte von der Ausschreibung bis zur Umsetzung steuern\n• Hydraulische Berechnungen und objektspezifische Verlegepläne erstellen\n• Neue Objektpotenziale erkennen und Planernetzwerke ausbauen\n• Als technische Schnittstelle zwischen Markt, SFS und HAURATON wirken Your profile:\n• Ausbildung in der Baubranche mit technischer Weiterbildung, z. B. Baupolier, Bauführer oder Techn. Spezialisierung\n• Praxis- oder Projekterfahrung im Bauhaupt- oder Baunebengewerbe\n• Erfahrung in der technischen Beratung, Projektleitung oder im Aussendienst\n• Fähigkeit, technische Anforderungen verständlich und kundenorientiert zu vermitteln\n• Eigeninitiative, Organisationstalent und Freude an Verantwortung\n• Kommunikationsstark, verbindlich und lösungsorientiert\n• Verhandlungssicheres Deutsch in Wort und Schrift; weitere Sprachen sind willkommen We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
-        "fr": "Descriptif\n\nLes solutions de drainage doivent fonctionner sur le chantier, et c'est exactement là qu'intervient votre rôle chez SFS avec la marque HAURATON. Vous conseillez les planificateurs/architectes, les clients et les équipes commerciales sur les questions techniques, développez des concepts adaptés à des projets de construction spécifiques et accompagnez les projets depuis l'appel d'offres jusqu'à la mise en œuvre réussie. Vous apporterez votre savoir-faire technique dès le début, identifierez les exigences et veillerez à ce que des solutions pratiques émergent de défis complexes.\n\nTâches\n\n- Développer des solutions techniques pour les projets de drainage en collaboration avec les clients et les planificateurs\n- Fournir des conseils techniques et un support aux planificateurs, aux clients et aux équipes commerciales\n- Gérer les projets de construction depuis l'appel d'offres jusqu'à la mise en œuvre\n- Créer des calculs hydrauliques et des plans d'installation spécifiques aux objets\n- Reconnaître le nouveau potentiel immobilier et élargir les réseaux de planificateurs\n- Agir comme interface technique entre le marché, SFS et HAURATON\n\nExigences\n\n- Formation dans le secteur de la construction avec formation technique complémentaire, par ex. B. Contremaître de construction, directeur de construction ou spécialisation technique\n- Expérience pratique ou de projet dans le secteur principal de la construction ou dans le secteur de la construction auxiliaire\n- Expérience en conseil technique, gestion de projet ou service sur le terrain\n- Capacité à communiquer les exigences techniques de manière compréhensible et orientée client\n- Initiative, talent organisationnel et goût des responsabilités\n- Fort communicateur, engagé et orienté solutions\n- Allemand des affaires parlé et écrit couramment ; d'autres langues sont les bienvenues\n\nNous offrons\n\n- Six semaines de vacances et achat de vacances supplémentaires possible\n-Participation annuelle aux bénéfices\n- Propre fonds de pension sain avec plans d'épargne individuels\n- Formations internes & accompagnement des formations externes\n- Place à la responsabilité personnelle et à l'initiative\n- Autres avantages : https://join.sfs.com/ch/de/benefits/\n\nContacter\n\nAvons-nous éveillé votre intérêt ? Postulez dès aujourd'hui via notre page d'accueil Offres d'emploi | Rejoignez SFS\n\nNous comblons ce poste sans le soutien de prestataires de services de personnel."
-      },
-      "location": "Buchs ZH",
-      "canton": "ZH",
-      "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:25:24.156Z",
-      "addressLocality": "Buchs ZH",
-      "addressRegion": "ZH",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2965/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2965",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza pratica o di progetto nel settore principale dell'edilizia o nei settori correlati",
-          "Esperienza nella consulenza tecnica, nella gestione di progetti o nel servizio esterno",
-          "Capacità di comunicare le esigenze tecniche in modo chiaro e orientato al cliente",
-          "Iniziativa personale, talento organizzativo e piacere nell'assumersi responsabilità",
-          "Forti capacità comunicative, affidabilità e orientamento alle soluzioni",
-          "Tedesco fluente, parlato e scritto; ulteriori lingue sono benvenute"
-        ],
-        "en": [
-          "Practical or project experience in the main construction trade or related construction sectors",
-          "Experience in technical consulting, project management, or field sales",
-          "Ability to communicate technical requirements clearly and in a customer-oriented manner",
-          "Self-initiative, organizational talent, and enjoyment of taking responsibility",
-          "Strong communication skills, reliability, and a solution-oriented approach",
-          "Fluent German, spoken and written; additional languages are welcome"
-        ],
-        "fr": [
-          "Expérience pratique ou en gestion de projet dans le gros œuvre ou les métiers annexes de la construction",
-          "Expérience dans le conseil technique, la direction de projet ou le service externe",
-          "Capacité à transmettre les exigences techniques de manière claire et orientée client",
-          "Esprit d'initiative, sens de l'organisation et plaisir à assumer des responsabilités",
-          "Fortes compétences en communication, fiabilité et orientation solutions",
-          "Maîtrise de l'allemand à l'oral et à l'écrit ; d'autres langues sont les bienvenues"
-        ]
-      },
-      "previousSlugs": [
-        "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
-        ],
-        "en": [
-          "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
-        ],
-        "fr": [
-          "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T10:24:04.593Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
