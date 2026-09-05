@@ -92,7 +92,12 @@
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
+import {
+  twoProportionTest,
+  hasEnoughPowerForTest,
+  MIN_COMPARISON_SENDS,
+  MIN_EXPECTED_PER_CELL,
+} from '../services/newsletter-ab-stats.mjs';
 import { MissingIndexError } from './lib/missing-index-error.mjs';
 import { PREFERRED_SEND_MIN_EVENTS, PREFERRED_SEND_WINDOW_DAYS } from '../functions/src/lib/preferredSendHour.js';
 
@@ -138,6 +143,14 @@ export const MAX_SCHEDULE_LOOKAHEAD_MS = 3 * DAY_MS;
  * intent-to-treat rate should not be read as the feature's effect.
  */
 export const LOW_COVERAGE_WARN_RATIO = 0.8;
+
+/**
+ * Minimum deliveries PER GROUP below which a comparison prints no p-value
+ * (#7342 item 3). Alias of the shared arm-level floor: a delivery here is a
+ * send there, and the decision the number drives — keep or drop the 90-180
+ * day tail of #6469 — needs the same validity condition as the A/B readout.
+ */
+export const MIN_COMPARISON_DELIVERIES = MIN_COMPARISON_SENDS;
 
 export function argValue(args, flag) {
   const i = args.indexOf(flag);
@@ -902,11 +915,18 @@ export function comparisonLine(label, cellA, cellB, nameA, nameB) {
   // fixed n<100 threshold: a 500-vs-500 comparison with near-identical rates
   // is genuinely not significant, while a 60-vs-60 comparison with a huge gap
   // can be — sample size alone answers neither question.
-  const test = twoProportionTest(
-    { sends: cellA.deliveries, opens: cellA.opens },
-    { sends: cellB.deliveries, opens: cellB.opens },
-  );
-  const sigFlag = test ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]` : '';
+  // ...but a test needs a sampling distribution to exist at all: below the
+  // validity floor (#7342 item 3) the rates above still print — they are
+  // descriptive — while the verdict is replaced by an explicit "n
+  // insufficiente" instead of a p-value nobody should act on. Applies to
+  // EVERY comparison line, not just the `personal_tail_90_180 vs global` one
+  // that surfaced it.
+  const armA = { sends: cellA.deliveries, opens: cellA.opens };
+  const armB = { sends: cellB.deliveries, opens: cellB.opens };
+  const test = hasEnoughPowerForTest(armA, armB) ? twoProportionTest(armA, armB) : null;
+  const sigFlag = test
+    ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]`
+    : ` [n insufficiente (${nameA}=${cellA.deliveries}, ${nameB}=${cellB.deliveries}) — no p-value below ${MIN_COMPARISON_DELIVERIES} deliveries/group or ${MIN_EXPECTED_PER_CELL} expected opens]`;
   const sign = (n) => (n >= 0 ? '+' : '');
   return `${label}: open rate ${sign(openDelta)}${openDelta.toFixed(1)}pp (${rateA.toFixed(1)}% vs ${rateB.toFixed(1)}%), click rate ${sign(clickDelta)}${clickDelta.toFixed(1)}pp (${clickRateA.toFixed(1)}% vs ${clickRateB.toFixed(1)}%)${sigFlag}`;
 }

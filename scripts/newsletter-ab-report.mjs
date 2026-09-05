@@ -43,7 +43,12 @@
  */
 
 import { listVariantIds } from '../services/newsletter-subject-variants.mjs';
-import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
+import {
+  twoProportionTest,
+  hasEnoughPowerForTest,
+  MIN_COMPARISON_SENDS,
+  MIN_EXPECTED_PER_CELL,
+} from '../services/newsletter-ab-stats.mjs';
 import {
   loadCampaignVariantTotals,
   loadCampaignSegmentReport,
@@ -198,10 +203,20 @@ async function main() {
       console.log(`    ${v.padEnd(10)} sends=${String(cell.sends).padStart(5)}  opens=${String(cell.opens).padStart(5)}  open-rate=${cell.openRate.toFixed(1).padStart(5)}%${flag}`);
     }
     if (p.significance) {
-      const sig = p.significance.pValue < 0.05 ? '✅ significant (p<0.05)' : `not yet significant (p=${p.significance.pValue.toFixed(2)})`;
       const minSends = Math.min(...variantIds.map(v => p.variants[v].sends));
-      const note = minSends < 100 ? ' — small sample, keep collecting' : '';
-      console.log(`    → ${sig}${note}`);
+      // #7342 item 3: below the validity floor the z-test has no sampling
+      // distribution to speak of, so print the arm sizes instead of a p-value
+      // nobody should act on. Same predicate as the send-hour report.
+      const testable = variantIds.length === 2
+        && hasEnoughPowerForTest(p.variants[variantIds[0]], p.variants[variantIds[1]]);
+      if (!testable) {
+        const arms = variantIds.map(v => `${v}=${p.variants[v].sends}`).join(', ');
+        console.log(`    → n insufficiente (${arms}) — no p-value below ${MIN_COMPARISON_SENDS} sends/arm or ${MIN_EXPECTED_PER_CELL} expected opens`);
+      } else {
+        const sig = p.significance.pValue < 0.05 ? '✅ significant (p<0.05)' : `not yet significant (p=${p.significance.pValue.toFixed(2)})`;
+        const note = minSends < 100 ? ' — small sample, keep collecting' : '';
+        console.log(`    → ${sig}${note}`);
+      }
     }
     console.log('');
   }

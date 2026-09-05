@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-const { pickWinner, twoProportionTest, DEFAULT_WINNER_GATES, resolveWinnersByProvider } = await import('@/services/newsletter-ab-stats.mjs');
+const {
+  pickWinner,
+  twoProportionTest,
+  DEFAULT_WINNER_GATES,
+  resolveWinnersByProvider,
+  hasEnoughPowerForTest,
+  MIN_COMPARISON_SENDS,
+  MIN_EXPECTED_PER_CELL,
+} = await import('@/services/newsletter-ab-stats.mjs');
 const { DEFAULT_EPSILON, listVariantIds } = await import('@/services/newsletter-subject-variants.mjs');
 const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
 const {
@@ -466,3 +474,28 @@ describe('loadCampaignSegmentReport — a malformed sent_at cannot drag the wind
   });
 });
 
+
+describe('hasEnoughPowerForTest — validity floor for a printable p-value (#7342 item 3)', () => {
+  it('rejects an arm below MIN_COMPARISON_SENDS however large the other side is', () => {
+    expect(hasEnoughPowerForTest({ sends: MIN_COMPARISON_SENDS - 1, opens: 10 }, { sends: 5000, opens: 2000 })).toBe(false);
+    expect(hasEnoughPowerForTest({ sends: 5000, opens: 2000 }, { sends: MIN_COMPARISON_SENDS - 1, opens: 10 })).toBe(false);
+  });
+
+  it('rejects a pooled rate too extreme for the normal approximation even at N >= floor', () => {
+    // pooled 2/80 = 2.5% → 1 expected open per arm, below MIN_EXPECTED_PER_CELL.
+    expect(MIN_EXPECTED_PER_CELL).toBeGreaterThan(1);
+    expect(hasEnoughPowerForTest({ sends: 40, opens: 0 }, { sends: 40, opens: 2 })).toBe(false);
+    // ...and symmetrically when almost everyone opens.
+    expect(hasEnoughPowerForTest({ sends: 40, opens: 40 }, { sends: 40, opens: 38 })).toBe(false);
+  });
+
+  it('accepts a small-but-usable pair (n=60 each, decisive gap) — the floor is not a significance heuristic', () => {
+    expect(hasEnoughPowerForTest({ sends: 60, opens: 50 }, { sends: 60, opens: 5 })).toBe(true);
+    expect(twoProportionTest({ sends: 60, opens: 50 }, { sends: 60, opens: 5 })!.pValue).toBeLessThan(0.05);
+  });
+
+  it('treats missing/empty cells as not testable instead of throwing', () => {
+    expect(hasEnoughPowerForTest(undefined as never, { sends: 500, opens: 200 })).toBe(false);
+    expect(hasEnoughPowerForTest({ sends: 0, opens: 0 }, { sends: 0, opens: 0 })).toBe(false);
+  });
+});

@@ -898,6 +898,50 @@ describe('significance testing — real two-proportion z-test, not a fixed n<100
     expect(line).not.toContain('not significant');
   });
 
+  it('comparisonLine suppresses the p-value below the per-group delivery floor (#7342 item 3)', () => {
+    // The case the reviewer flagged: a thin `personal_tail_90_180` cohort
+    // against a large `global` one. A p-value here invites a keep/drop
+    // decision on the 90-180 day tail that the sample cannot support.
+    const thin = { deliveries: 12, opens: 3, clicks: 1 };
+    const wide = { deliveries: 980, opens: 300, clicks: 40 };
+    const line = comparisonLine('  \u2192 personal_tail_90_180 vs global', thin, wide, 'personal_tail_90_180', 'global');
+    expect(line).toContain('n insufficiente (personal_tail_90_180=12, global=980)');
+    expect(line).not.toMatch(/p=\d/);
+    expect(line).not.toContain('significant');
+    // Descriptive rates still print — they are observations, not inferences.
+    expect(line).toContain('open rate');
+  });
+
+  it('comparisonLine suppresses the p-value when the expected-count rule fails despite N >= floor', () => {
+    // 40 vs 40 clears MIN_COMPARISON_DELIVERIES, but a pooled rate of 2.5%
+    // expects 1 open per group: the normal approximation has no basis.
+    const a = { deliveries: 40, opens: 0, clicks: 0 };
+    const b = { deliveries: 40, opens: 2, clicks: 0 };
+    const line = comparisonLine('x', a, b, 'a', 'b');
+    expect(line).toContain('n insufficiente');
+    expect(line).not.toMatch(/p=\d/);
+  });
+
+  it('comparisonLine applies the floor to EVERY comparison line, not just the tail one', () => {
+    const thin = { deliveries: 5, opens: 2, clicks: 0 };
+    const wide = { deliveries: 500, opens: 150, clicks: 20 };
+    for (const [label, x, y] of [
+      ['  \u2192 personal vs immediate', thin, wide],
+      ['  \u2192 global vs immediate  ', wide, thin],
+      ['  \u2192 personal vs global   ', thin, wide],
+    ] as const) {
+      expect(comparisonLine(label, x, y, 'a', 'b')).toContain('n insufficiente');
+    }
+  });
+
+  it('comparisonLine keeps the p-value once both groups clear the floor', () => {
+    const a = { deliveries: 60, opens: 50, clicks: 10 };
+    const b = { deliveries: 60, opens: 5, clicks: 1 };
+    const line = comparisonLine('x', a, b, 'a', 'b');
+    expect(line).not.toContain('n insufficiente');
+    expect(line).toMatch(/p=\d\.\d{3}/);
+  });
+
   it('comparisonLine reports the p-value inline', () => {
     const a = { deliveries: 500, opens: 250, clicks: 50 };
     const b = { deliveries: 500, opens: 248, clicks: 50 };
