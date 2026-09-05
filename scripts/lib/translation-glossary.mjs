@@ -37,6 +37,8 @@
  * them.
  */
 
+import { BORDER_GUARD_SOURCE_ANCHOR } from './article-locale-lexicon.mjs';
+
 // Mirror the leading-letter case of `sample` onto `replacement` so a corrected
 // title keeps its capitalization ("Orologio notturno" → "Guardia notturna").
 function matchCase(sample, replacement) {
@@ -71,46 +73,6 @@ function matchCase(sample, replacement) {
 
 /** Marks a rule as title-only (skipped on description-body fields). */
 const TITLE_ONLY = { titleOnly: true };
-
-/**
- * Source-language vocabulary of a REAL border-guard / customs role.
- *
- * The `frontalier\w*` entry below rewrites "border guard" → "cross-border
- * commuter", and those replacement phrases are, unlike every other entry here,
- * legitimate CORRECT translations when the source genuinely advertises a
- * customs job — a Grenzwächter posting that also says "Grenzgänger willkommen"
- * would be silently turned into a false sentence on an indexed page. The
- * one-time corpus scan of #723 found zero such records, but the crawlers add
- * records every day, so the entry carries this veto instead of relying on a
- * snapshot: role vocabulary only (an ad that merely names "la dogana di
- * Chiasso" as a landmark is not a customs job and must still be corrected).
- */
-const CUSTOMS_ROLE_CONTEXT = new RegExp(
-  [
-    // IT
-    'guardi[ae]\\s+di\\s+(?:confine|frontiera)',
-    'guardia\\s+di\\s+finanza',
-    '(?:agent|funzionari|ispettor|spedizionier|operator)\\w*\\s+doganal\\w*',
-    'polizia\\s+di\\s+(?:confine|frontiera)',
-    // DE
-    'Grenzw(?:\u00e4|ae)chter\\w*',
-    'Grenzwache\\w*',
-    'Grenzschutz\\w*',
-    'Grenzkontroll\\w*',
-    'Zoll(?:beamt|fachfrau|fachmann|deklarant|inspektor|kontroll)\\w*',
-    // FR
-    'gardes?[-\\s]fronti(?:\u00e8|e)res?',
-    'douanier\\w*',
-    'agents?\\s+des\\s+douanes',
-    'police\\s+(?:aux|des)\\s+fronti(?:\u00e8|e)res',
-    // EN
-    'border\\s+guards?',
-    'frontier\\s+guards?',
-    'customs\\s+(?:officer|official|agent|inspector|declarant)s?',
-    'border\\s+(?:patrol|police)',
-  ].join('|'),
-  'iu',
-);
 
 /** @type {GlossaryEntry[]} */
 export const TRANSLATION_GLOSSARY = [
@@ -289,8 +251,13 @@ export const TRANSLATION_GLOSSARY = [
     // trigger and real customs-role vocabulary, the rewrite is skipped (the
     // "border guard" rendering is then the CORRECT one) and the record is
     // annotated — turning the one-time measurement into a continuous one.
+    // The anchor is the one the article gates already use for the same
+    // question (`BORDER_GUARD_SOURCE_ANCHOR`, article-locale-lexicon.mjs), not
+    // a second copy: 0 of the 94 records that trigger the rule in the current
+    // corpus match it, so the veto costs nothing today and any future cost
+    // arrives as a `::warning::` instead of as a silently false sentence.
     id: 'frontalier-border-guard',
-    veto: CUSTOMS_ROLE_CONTEXT,
+    veto: BORDER_GUARD_SOURCE_ANCHOR,
     trigger: /\bfrontalier\w*\b/i,
     fixes: {
       en: [

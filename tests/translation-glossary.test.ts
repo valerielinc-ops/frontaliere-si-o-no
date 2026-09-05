@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 // @ts-expect-error — plain .mjs helper, no type declarations
-import { applyGlossaryCorrections } from '../scripts/lib/translation-glossary.mjs';
+import { applyGlossaryCorrections, getGlossaryVetoStats, resetGlossaryVetoStats } from '../scripts/lib/translation-glossary.mjs';
 
 describe('translation glossary — protected-term corrections', () => {
   it('fixes Nachtwache → IT timepiece mistranslation', () => {
@@ -389,5 +389,105 @@ describe('translation glossary — protected-term corrections', () => {
       targetLang: 'en',
       fieldType: 'description',
     })).toBe(translated);
+  });
+});
+
+describe('translation glossary — customs-role veto on the frontalieri rule', () => {
+  beforeEach(() => resetGlossaryVetoStats());
+
+  // The trigger fires on nearly every record on this site, and the replacement
+  // ("cross-border commuters") is a WRONG rendering when the source really is
+  // advertising a border-guard / customs job. Corpus co-occurrence was zero on
+  // the 2026-09-05 snapshot, but crawlers add records daily, so the veto — not
+  // the snapshot — is what keeps a future customs ad from being corrupted.
+  const CUSTOMS_SOURCES: Array<[string, string, string, string]> = [
+    // [label, sourceText, targetLang, translatedText that the rule would rewrite]
+    ['IT guardia di confine', 'Cercasi guardia di confine, frontalieri benvenuti.', 'en', 'Looking for a border guard, cross-border commuters welcome.'],
+    ['IT agente doganale', 'Agente doganale a Chiasso; i frontalieri sono i benvenuti.', 'en', 'Customs agent in Chiasso; the border guards are welcome.'],
+    ['DE Grenzwächter', 'Grenzwächter gesucht — auch für Grenzgänger und frontalieri.', 'de', 'Die Grenzwächter arbeiten an der Grenze.'],
+    ['DE Zollbeamter', 'Zollbeamter gesucht, frontalieri willkommen.', 'de', 'Wir suchen einen Grenzbeamten.'],
+    ['FR douanier', 'Douanier recherché, frontaliers bienvenus.', 'fr', 'Les gardes-frontières travaillent à la douane.'],
+    ['FR garde-frontière', 'Poste de garde-frontière ouvert aux frontaliers.', 'fr', 'Les gardes-frontières patrouillent.'],
+  ];
+
+  it.each(CUSTOMS_SOURCES)('keeps the machine rendering when the source is a real customs role (%s)', (_label, sourceText, targetLang, translated) => {
+    expect(applyGlossaryCorrections({
+      sourceText,
+      translatedText: translated,
+      targetLang,
+      fieldType: 'description',
+    })).toBe(translated);
+  });
+
+  it('reports the collision so the co-occurrence is measured continuously, not once', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const args = {
+        sourceText: 'Cercasi guardia di confine, frontalieri benvenuti.',
+        translatedText: 'Looking for a border guard.',
+        targetLang: 'en',
+        fieldType: 'description',
+      };
+      applyGlossaryCorrections(args);
+      applyGlossaryCorrections(args);
+
+      // Annotated once (a crawler run hits the same ambiguity repeatedly)...
+      const annotations = warn.mock.calls.filter(([msg]) => String(msg).startsWith('::warning::[glossary]'));
+      expect(annotations).toHaveLength(1);
+      expect(String(annotations[0][0])).toContain('frontalier-border-guard');
+
+      // ...but every occurrence is still counted.
+      expect(getGlossaryVetoStats()).toEqual([
+        expect.objectContaining({ id: 'frontalier-border-guard', targetLang: 'en', count: 2 }),
+      ]);
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('shares the article gates\' anchor, breadth included (plain "dogana" vetoes)', () => {
+    // The anchor is ITALIAN_BORDER_GUARD_ANCHOR extended to DE/FR/EN, and it is
+    // deliberately broad — a bare "dogana" suppresses the rewrite even when it
+    // is only a landmark. That is the documented trade of the shared anchor: a
+    // suppressed correction is annotated and countable, a corrupted customs ad
+    // is silent. On the corpus this costs nothing (0 of the 94 triggering
+    // records match the anchor), and any future cost shows up as a warning.
+    const translated = 'Cross-border commuters: the border guards office is 5 minutes away.';
+    expect(applyGlossaryCorrections({
+      sourceText: 'Frontalieri: ufficio a 5 minuti dalla dogana di Chiasso.',
+      translatedText: translated,
+      targetLang: 'en',
+      fieldType: 'description',
+    })).toBe(translated);
+    expect(getGlossaryVetoStats()).toEqual([
+      expect.objectContaining({ id: 'frontalier-border-guard', count: 1 }),
+    ]);
+  });
+
+  it('leaves the ordinary frontalieri correction untouched (no veto vocabulary)', () => {
+    expect(applyGlossaryCorrections({
+      sourceText: 'I frontalieri lavorano in Svizzera e rientrano ogni sera.',
+      translatedText: 'The border guards work in Switzerland and return every evening.',
+      targetLang: 'en',
+      fieldType: 'description',
+    })).toBe('The cross-border commuters work in Switzerland and return every evening.');
+    expect(getGlossaryVetoStats()).toEqual([]);
+  });
+
+  it('does not leak regex lastIndex between records (the rule regexes carry /g)', () => {
+    // The veto path probes the rule pattern; probing must not consume it, or
+    // the NEXT record would be silently skipped.
+    applyGlossaryCorrections({
+      sourceText: 'Cercasi guardia di confine, frontalieri benvenuti.',
+      translatedText: 'The border guards are here.',
+      targetLang: 'en',
+      fieldType: 'description',
+    });
+    expect(applyGlossaryCorrections({
+      sourceText: 'I frontalieri lavorano in Svizzera.',
+      translatedText: 'The border guards work in Switzerland.',
+      targetLang: 'en',
+      fieldType: 'description',
+    })).toBe('The cross-border commuters work in Switzerland.');
   });
 });
