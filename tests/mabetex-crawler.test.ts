@@ -1,11 +1,54 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Only the network call is stubbed; every other crawler-template export the
+// parser relies on (slugify, buildJobSlug, stripHtml, normalizeSpace) stays real.
+vi.mock('../scripts/lib/crawler-template.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/crawler-template.mjs')>()),
+  fetchHtml: vi.fn(),
+}));
 import {
   MABETEX_KEY,
   MABETEX_COMPANY_NAME,
   isMabetexJob,
   isTrustedDomain,
 } from '../scripts/lib/mabetex-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { fetchAllMabetexJobs } from '../scripts/lib/mabetex-job-parser.mjs';
+import { slugify, fetchHtml } from '../scripts/lib/crawler-template.mjs';
+
+/**
+ * Career page shaped like the live one: a single Divi rich-text module whose
+ * only vacancy sits outside Switzerland.
+ */
+function careerPageWithForeignVacancy(): string {
+  const body = Array.from({ length: 12 }, () =>
+    'The role covers site supervision, cost control and client reporting on a large civil works package.',
+  ).join(' ');
+  return `<html><body><div class="et_pb_text_inner">
+    <h2>Job offers</h2>
+    <p><strong>PROJECT MANAGER</strong></p>
+    <p>Place of work: Southwest Africa</p>
+    <p>Starting date: immediate</p>
+    <p><strong>JOB DESCRIPTION</strong></p>
+    <p>${body}</p>
+  </div></body></html>`;
+}
+
+function careerPageWithTruncatedDescription(): string {
+  // The section still passes the >200-char "Job offers" sniff thanks to the
+  // intro copy, and the vacancy is in Lugano so the Swiss gate ACCEPTS it —
+  // only the per-vacancy detail body collapsed, which is what a drifted
+  // detail selector produces. The sole reason this listing is dropped is a
+  // non-geographic gate.
+  const intro = Array.from({ length: 12 }, () =>
+    'Mabetex Group builds large civil works packages across several regions.',
+  ).join(' ');
+  return `<html><body><div class="et_pb_text_inner">
+    <h2>Job offers</h2>
+    <p>${intro}</p>
+    <p><strong>PROJECT MANAGER</strong></p>
+    <p>Place of work: Lugano</p>
+  </div></body></html>`;
+}
 
 describe('Mabetex Group crawler parser', () => {
   // ── Constants ──
@@ -124,6 +167,38 @@ describe('Mabetex Group crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── Filtered-empty health signal (issue #7323) ──
+  describe('discoveredCount', () => {
+    it('reports the pre-filter candidate count when the Swiss gate keeps nothing', async () => {
+      vi.mocked(fetchHtml).mockResolvedValue(careerPageWithForeignVacancy());
+
+      const jobs = await fetchAllMabetexJobs();
+
+      // Without this the crawler looks identical to a selector break: zero jobs
+      // and no evidence that the page was parsed at all, so check-crawler-health
+      // counts an empty streak and flags the crawler broken after three runs.
+      expect(jobs).toHaveLength(0);
+      expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(1);
+      // The extra property must not leak into the serialized slice.
+      expect(JSON.stringify(jobs)).toBe('[]');
+    });
+
+    it('does not count listings dropped by a non-geographic gate', async () => {
+      // Regression: discoveredCount used to be `listings.length`, the count
+      // BEFORE every gate. A crawler whose detail extraction broke would then
+      // report `discovered > 0 && written === 0` — exactly the shape
+      // autoFilteredEmpty reads as "healthy, just filtered" — and a real
+      // outage would be laundered into a healthy verdict. Only the geographic
+      // gate may leave a listing counted.
+      vi.mocked(fetchHtml).mockResolvedValue(careerPageWithTruncatedDescription());
+
+      const jobs = await fetchAllMabetexJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(0);
     });
   });
 });
