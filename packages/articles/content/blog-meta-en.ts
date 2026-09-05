@@ -11360,6 +11360,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Swiss payroll frontiers 2026',
     'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Practical guide: read the deductions (source tax, AVS 5.3%, LPP 7–18%, LAMal), calculate the net, recover the taxes in 730 with the deductible €7.500/€10,000.',
     'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Swiss payslip document with CHF amounts and deductions overlaid on Lugano\'s waterfront and Lake Lugano view.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.title': 'Swiss border payroll: AVS, LPP and real net',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.excerpt': 'From the New Frontier Agreement in force since 2024: how to calculate the AVS, LPP, LAMal withholdings and the tax at source in the Swiss paycheck.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.imageAlt': 'Financial advisor reviewing Swiss payroll and tax withholding documentation',
 };
 
 export default blogMetaEn;

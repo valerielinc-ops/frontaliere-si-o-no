@@ -11361,6 +11361,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Frontalieri busta paga svizzera 2026',
     'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Guida pratica: leggi le trattenute (imposta fonte, AVS 5.3%, LPP 7–18%, LAMal), calcola il netto, recupera le tasse nel 730 con la franchigia €7.500/€10.000.',
     'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Documento di busta paga svizzera con importi CHF, trattenute e contributi, sovrapposto a vista di Lugano e riva del lago.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.title': 'Busta paga svizzera frontalieri: AVS, LPP e netto reale',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.excerpt': 'Dal Nuovo Accordo Frontalieri vigente dal 2024: come calcolare le trattenute AVS, LPP, LAMal e l\'imposta alla fonte nella busta paga svizzera.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.imageAlt': 'Consulente finanziario analizza busta paga svizzera con calcolatrice e documenti',
 };
 
 export default blogMetaIt;
