@@ -154,8 +154,19 @@ runs:
             # zip then answers 410, and THAT is a walk-back condition: the
             # candidate is provably gone and an older one is the best available
             # truth.
-            if grep -qi 'HTTP 410\|HTTP 404' "$WORK/dl.err"; then
-              echo "  run $cand ($created): artifact $ARTIFACT_ID expired between resolve and download (HTTP 410/404) — trying older"
+            # `410 Gone` ONLY. Not 404: on this endpoint GitHub answers 404
+            # instead of 403 for a resource the token may not read, so
+            # accepting it would turn a missing `actions: read` on any one of
+            # the callers into a silent walk-back onto an older deploy —
+            # exactly the class the branch below exists to make fatal — and
+            # would log it as "expired", the wrong diagnosis #7392/#7396 were
+            # opened to remove. The resolve above already saw this artifact
+            # with `.expired==false`, so a genuine expiry here IS 410.
+            # Anchored on gh's STATUS line — `gh: Gone (HTTP 410)` — not on the
+            # substring anywhere in stderr: an error body that happens to
+            # contain "410" for an unrelated reason must not buy a walk-back.
+            if grep -qE '\(HTTP 410\)[[:space:]]*$' "$WORK/dl.err"; then
+              echo "  run $cand ($created): artifact $ARTIFACT_ID expired between resolve and download (HTTP 410 Gone) — trying older"
               continue
             fi
             # Any OTHER download failure is fatal, deliberately. Walking back on
@@ -164,7 +175,7 @@ runs:
             # dist/, with a single log line inside a multi-hour job as the only
             # trace. A red that says "download failed" is cheap; a green about
             # the wrong dist is not.
-            echo "::error::Download of github-pages artifact $ARTIFACT_ID (run $cand, $created) failed with exit $dlrc and it is NOT an expiry (no HTTP 410/404). Not walking back: auditing an older deploy would silently answer a different question. Re-run the job."
+            echo "::error::Download of github-pages artifact $ARTIFACT_ID (run $cand, $created) failed with exit $dlrc and it is NOT an expiry (no HTTP 410 Gone). A 404 here usually means the token cannot read this run's artifacts — check that the calling workflow grants 'actions: read'. Not walking back: auditing an older deploy would silently answer a different question. Re-run the job."
             sed 's/^/  /' "$WORK/dl.err" || true
             exit 1
           fi
