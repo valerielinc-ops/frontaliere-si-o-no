@@ -11408,6 +11408,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.via-industria-caslano-iniziativa-popolare.title': 'Via Industria a Caslano, riuscita l\'iniziativa popolare',
     'blog.article.via-industria-caslano-iniziativa-popolare.excerpt': 'Consegnate 530 firme per non allargare Via Industria a Caslano, 458 certificate alla Cancelleria.',
     'blog.article.via-industria-caslano-iniziativa-popolare.imageAlt': 'Via Industria a Caslano vista dall\'alto',
+    'blog.article.assemblea-centro-iva-avs.title': 'Assemblea Centro approva finanziamento AVS con IVA',
+    'blog.article.assemblea-centro-iva-avs.excerpt': 'Il Centro sostiene il finanziamento della 13esima rendita AVS mediante aumento IVA dello 0,4%. Voto il 29 novembre. Cosa cambia per i frontalieri?',
+    'blog.article.assemblea-centro-iva-avs.imageAlt': 'Panorama di Lugano, cuore del Ticino e meta dei frontalieri svizzeri',
 };
 
 export default blogMetaIt;
