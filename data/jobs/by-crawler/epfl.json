@@ -135,21 +135,7 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1165266055",
-      "previousSlugs": [
-        "assistant-e-administratif-ve-30-epfl-lausanne",
-        "assistente-amministrativo-ve-30-epfl-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-administratif-ve-30-epfl-lausanne",
-          "assistente-amministrativo-ve-30-epfl-lausanne"
-        ],
-        "en": [
-          "assistant-e-administratif-ve-30-epfl-lausanne"
-        ]
-      },
       "firstSeenAt": "2026-08-31T17:09:32.358Z",
-      "needsRetranslation": true,
       "salaryMin": 18200,
       "salaryMax": 27500,
       "salarySource": "estimated",
@@ -163,7 +149,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-30-epfl-lausanne",
+          "assistente-amministrativo-ve-30-epfl-lausanne",
+          "administrative-assistant-ve-doktorandenprogramm-50-epfl-lausanne"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-30-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-30-epfl-lausanne",
+        "assistente-amministrativo-ve-30-epfl-lausanne",
+        "administrative-assistant-ve-doktorandenprogramm-50-epfl-lausanne"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "epfl-4f977237b5ba",
