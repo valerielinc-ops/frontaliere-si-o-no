@@ -110,6 +110,7 @@ import {
 } from './shared/seoContentTokens';
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F6 fuel-daily feature.
@@ -4060,7 +4061,7 @@ export function generateFuelStationPages(opts: {
   const distDir = opts.distDir;
   const history = opts.history;
   const rootDir = opts.rootDir;
-  const maxPages = opts.maxPages ?? Number(process.env.MAX_FUEL_STATION_PAGES_PER_BUILD || 1500);
+  const maxPages = opts.maxPages ?? intFromEnv('MAX_FUEL_STATION_PAGES_PER_BUILD', 1500);
   const pages: Record<string, string> = {};
 
   const contexts = opts.contexts ?? collectSwissStationContexts(dataset);

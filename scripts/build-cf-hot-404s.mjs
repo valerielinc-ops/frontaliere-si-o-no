@@ -33,6 +33,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -286,8 +287,8 @@ async function main() {
   // per-path counts: a path outside one window's top-10k still surfaces in
   // another, and summing the non-overlapping windows reconstructs its true
   // multi-day hit total. Tunable via env for backfill vs daily cadence.
-  const WINDOW_HOURS = Number(process.env.CF_SWEEP_WINDOW_HOURS || 1);
-  const WINDOW_COUNT = Number(process.env.CF_SWEEP_WINDOWS || 48);
+  const WINDOW_HOURS = intFromEnv('CF_SWEEP_WINDOW_HOURS', 1);
+  const WINDOW_COUNT = intFromEnv('CF_SWEEP_WINDOWS', 48);
   const { rows, windowsOk } = await sweepErrorPathsWindowed(token, zoneId, {
     windowHours: WINDOW_HOURS,
     windowCount: WINDOW_COUNT,

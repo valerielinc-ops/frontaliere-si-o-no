@@ -21,12 +21,13 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 // Budget: 200 requests/day total. Reserve 40 for articles (10 articles × 4 locales).
 // Remaining 160 for job URLs, spread across deploys.
 const DAILY_BUDGET = 160;
-const MAX_PER_DEPLOY = Math.max(1, Math.min(30, Number(process.env.GSC_JOBS_INDEXING_MAX || 15)));
+const MAX_PER_DEPLOY = Math.max(1, Math.min(30, intFromEnv('GSC_JOBS_INDEXING_MAX', 15)));
 const MAX_RETRIES = 2;
 const INDEXING_API = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 const INDEXING_SCOPE = 'https://www.googleapis.com/auth/indexing';

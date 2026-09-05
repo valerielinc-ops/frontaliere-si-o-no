@@ -43,6 +43,7 @@
  */
 
 import crypto from 'node:crypto';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const HERE_TOKEN_URL = 'https://account.api.here.com/oauth2/token';
 const HERE_USAGE_HOST = 'https://usage.bam.api.here.com';
@@ -245,7 +246,7 @@ async function seedCounter({ monthKey, realBilled, source, dryRun }) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const monthKey = currentMonthKey();
-  const budget = args.budget ?? Number(process.env.HERE_MONTHLY_BUDGET || 4500);
+  const budget = args.budget ?? intFromEnv('HERE_MONTHLY_BUDGET', 4500);
 
   let realBilled;
   let source;

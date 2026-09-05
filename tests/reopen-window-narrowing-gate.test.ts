@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 
 // Il creator e' sostituito da una spia: qui interessa COSA gli arriva, non che
 // apra qualcosa. `execFileSync` e' neutralizzato perche' il reporter interroga
@@ -33,7 +34,7 @@ vi.mock('node:child_process', async (orig) => {
  *    con `default: '6'`, e i 7 workflow che adottano quella action non
  *    chiedevano 6h: le ricevevano;
  *  - `scripts/ci/report-workflow-failure.mjs` faceva
- *    `Number(process.env.REOPEN_WITHIN_HOURS || '6') || 6`, quindi anche con
+ *    `intFromEnv('REOPEN_WITHIN_HOURS', 6) || 6`, quindi anche con
  *    l'input vuoto il 6 tornava dentro.
  *
  * Il default di #5850 era corretto e non arrivava a quei chiamanti. È la stessa

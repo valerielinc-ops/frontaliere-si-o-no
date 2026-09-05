@@ -13,6 +13,7 @@ import {
   validateCrawlerGenerationRoster,
 } from '../scripts/lib/crawler-generation-contract.mjs';
 import {
+  CRAWLER_GENERATION_TOKEN_EXPR as GENERATION_TOKEN_EXPR,
   assertCrawlerLogicParity,
   checkGeneratedArtifacts,
   generate,
@@ -174,8 +175,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(() => assertCrawlerLogicParity(generated, logic, `crawler-group-${group}-logic.yml`)).not.toThrow();
 
       const job = jobFrom(logic);
-      expect(job.env.CRAWLER_GENERATION_TOKEN)
-        .toBe('${{ inputs.generation_token }}');
+      expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       expect(job.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
       const background = job.steps.filter((step: any) => step.background === true);
@@ -217,14 +217,17 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
 
       const portableText = fs.readFileSync(path.join(PORTABLE, `crawler-group-${group}.yml`), 'utf8');
       const portable = YAML.parse(portableText);
-      expect(portable['run-name']).toBe(`crawler-generation-${'${{ inputs.generation_token }}'}-group-${group}`);
+      expect(portable['run-name']).toBe(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(portable.on.workflow_dispatch.inputs.generation_token)
         .toMatchObject({ required: false, default: '', type: 'string' });
       const portableJob = Object.values(portable.jobs)[0] as any;
-      expect(portableJob.env.CRAWLER_GENERATION_TOKEN)
-        .toBe('${{ inputs.generation_token }}');
-      expect(portableJob.env.CRAWLER_GENERATION_TOKEN)
-        .not.toMatch(/\|\||github\.run_id|github\.run_attempt/);
+      expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
+      // #7083 invariant, restated as an equality instead of a blanket ban on
+      // `github.run_*`: producers and finalizer must read ONE value, so the
+      // terminal step env may only repeat the job-level expression verbatim.
+      expect(jobFrom(logic).steps.at(-2).env.CRAWLER_GENERATION_TOKEN)
+        .toBe(job.env.CRAWLER_GENERATION_TOKEN);
+      expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
       const portableProducers = portableJob.steps.filter((step: any) =>

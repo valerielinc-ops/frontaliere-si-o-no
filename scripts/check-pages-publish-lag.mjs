@@ -85,6 +85,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { githubApiHeaders } from './lib/githubApiHeaders.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const REPO = 'valerielinc-ops/frontaliere-si-o-no';
 const API = 'https://api.github.com';
@@ -379,7 +380,7 @@ async function getBuildQueueState(nowMs) {
 // ── Orchestration ───────────────────────────────────────────────────
 
 async function main() {
-  const lagHours = Number(process.env.LAG_HOURS || DEFAULT_LAG_HOURS);
+  const lagHours = intFromEnv('LAG_HOURS', DEFAULT_LAG_HOURS);
 
   const deployYmlPath = path.resolve(process.cwd(), '.github/workflows/deploy.yml');
   const globs = parsePathsIgnore(fs.readFileSync(deployYmlPath, 'utf8'));

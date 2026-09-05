@@ -15,7 +15,7 @@
 import { fetch as undiciFetch } from 'undici';
 import { UA, HOST_DELAY_MS, FETCH_TIMEOUT_MS } from './config.mjs';
 import { normalizeHost } from './registrable.mjs';
-import { RETRYABLE_STATUS } from '../transient-fetch.mjs';
+import { RETRYABLE_STATUS, transportErrorKind } from '../transient-fetch.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirectsWithUrl,
@@ -281,6 +281,7 @@ export async function politeFetch(url, opts = {}) {
           url: error instanceof RobotsDeniedError ? error.url : url,
           body: '',
           host,
+          transportError: transportErrorKind(error),
           ...(error instanceof RobotsDeniedError ? { blockedByRobots: true } : {}),
           ...(isPublicFetchPolicyError(error)
             ? { policyBlocked: true, error: String(error?.message || error) }
@@ -307,6 +308,7 @@ export async function politeFetch(url, opts = {}) {
       url,
       body: '',
       host,
+      transportError: transportErrorKind(error),
       ...(isPublicFetchPolicyError(error)
         ? { policyBlocked: true, error: String(error?.message || error) }
         : {}),
