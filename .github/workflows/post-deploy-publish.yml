@@ -345,7 +345,7 @@ jobs:
           PID_GSC=$!
           timeout 90 node scripts/verify-post-deploy-seo.mjs &
           PID_SEO=$!
-          timeout 240 npx tsx scripts/monitor-sector-coverage.mjs &
+          timeout 240 npx --no-install tsx scripts/monitor-sector-coverage.mjs &
           PID_SECTOR_COVERAGE=$!
 
           FAIL=0

@@ -90,7 +90,7 @@ jobs:
 
       - name: Broadcast dogane ranking
         if: env.MODE == 'border'
-        run: npx tsx scripts/post-to-telegram.mjs border
+        run: npx --no-install tsx scripts/post-to-telegram.mjs border
 
       - name: Broadcast preferred-source announcement
         if: env.MODE == 'preferred-source'
