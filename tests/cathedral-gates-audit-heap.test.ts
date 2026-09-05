@@ -34,12 +34,19 @@ import YAML from 'yaml';
  *   dequeued=1000000  discovered=1202200  existing=875363  heap=7689MB
  *   → FATAL ERROR: Reached heap limit, rc=134, at 673 s
  *
- * The visited set peaks at 1,202,200 paths of ~44 characters — ~180 MB of the
- * 7,712 MB that died, about 2%. The other 98% is what those paths HOLD: an
- * href from the anchor regex is a V8 SlicedString pointing into the whole HTML
- * document it came from, so each retained path pins its source page. PR #7441
- * flattens at that boundary; `scripts/audit-duplicate-meta-description.mjs`
- * had already hit and documented the identical bug on run 32261742920.
+ * So the sentence was wrong TWICE, and each half mattered.
+ *
+ * Wrong on the ORDER OF MAGNITUDE: the visited set peaks at 1,202,200 paths of
+ * ~44 characters — ~180 MB of the 7,712 MB that died, about 2%.
+ *
+ * Wrong on the MECHANISM, which is where the other 98% is: an href from the
+ * anchor regex is a V8 SlicedString pointing into the whole HTML document it
+ * came from, so each retained path pins its source page — emphatically
+ * streamable away. PR #7441 measured it directly (40,359 bytes retained per
+ * path before its fix, under 5,000 after) and flattened at that boundary via
+ * `scripts/lib/flat-string.mjs`, merged as 11d4f1ef695;
+ * `scripts/audit-duplicate-meta-description.mjs` had already hit and
+ * documented the identical bug on run 32261742920.
  *
  * So this guard is a CEILING, not the fix. A dist/ walk over this corpus still
  * wants a real heap, and a new workflow that runs one of these audits on

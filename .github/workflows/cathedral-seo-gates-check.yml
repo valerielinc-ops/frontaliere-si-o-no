@@ -129,14 +129,24 @@ jobs:
     #   dequeued=1000000  discovered=1202200  existing=875363  heap=7689MB
     #   → FATAL ERROR: Reached heap limit, rc=134, at 673 s
     #
-    # The visited set peaks at 1,202,200 paths averaging 44 characters: ~180 MB
-    # of the 7,712 MB that died, about 2%. Nor is it inherent. The other 98% is
-    # what those paths HOLD: an href produced by the anchor regex is a V8
-    # SlicedString pointing into the whole HTML document it was scraped from, so
-    # every path kept in the visited set pins its entire source page. PR #7441
-    # flattens at that boundary (scripts/lib/flat-string.mjs) and the retention
-    # goes away — the same bug audit-duplicate-meta-description.mjs already hit
-    # on run 32261742920.
+    # So the sentence was wrong TWICE, and each half mattered.
+    #
+    # Wrong on the ORDER OF MAGNITUDE: the visited set peaks at 1,202,200 paths
+    # averaging 44 characters — ~180 MB of the 7,712 MB that died, about 2%.
+    #
+    # Wrong on the MECHANISM, which is where the other 98% is: an href produced
+    # by the anchor regex is a V8 SlicedString pointing into the whole HTML
+    # document it was scraped from, so every path kept in the visited set pins
+    # its entire source page. That is emphatically streamable-away. PR #7441
+    # measured it directly — 40,359 bytes retained per path before its fix,
+    # under 5,000 after — and flattened at that boundary
+    # (scripts/lib/flat-string.mjs, merged as 11d4f1ef695). The identical bug
+    # had already been found and documented in
+    # scripts/audit-duplicate-meta-description.mjs on run 32261742920.
+    #
+    # Both halves are recorded because this comment is what three autonomous
+    # fix attempts on #7419/#7420 read and believed: a heap you are told is
+    # inherent is a heap you only ever raise.
     #
     # The heap floor below therefore stays as a CEILING, not as the remedy.
     #
