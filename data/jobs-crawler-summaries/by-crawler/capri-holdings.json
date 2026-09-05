@@ -1,56 +1,18 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-05T12:58:46.082Z",
+  "generatedAt": "2026-09-05T23:00:46.433Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20599,
-  "avgDurationMs": 20599,
+  "durationMs": 18813,
+  "avgDurationMs": 18813,
   "durationHistory": [
-    20599
+    18813
   ],
-  "newJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Michale-Kors---Landquart-PT-24-h_R_786449-1",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Michale-Kors---Landquart-PT-24-h_R_786449-1",
-      "title": "Michale Kors - Landquart PT 24 h",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "michale-kors-landquart-pt-24-h-capri-holdings",
-      "category": "general",
-      "datePosted": "2026-09-05",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 15
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Supervisor--30h-Michael-Kors-Landquart_R_785916",
@@ -119,6 +81,45 @@
       },
       "id": "capri-holdings-3a2740ba0b27",
       "firstSeenAt": "2026-08-05T11:29:55.397Z",
+      "crawledAt": "",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Michale-Kors---Landquart-PT-24-h_R_786449-1",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Michale-Kors---Landquart-PT-24-h_R_786449-1",
+      "title": "Michale Kors - Landquart PT 24 h",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "michale-kors-terreno-pt-24-h-capri-holdings-michael-kors-versace-graubunden",
+      "category": "general",
+      "datePosted": "2026-09-05",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "id": "capri-holdings-17ad09c3fb4e",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-05T12:58:46.078Z",
       "crawledAt": "",
       "_qualityScore": 89,
       "_qualityBreakdown": {
