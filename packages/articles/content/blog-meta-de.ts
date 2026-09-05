@@ -11359,6 +11359,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Grenzgänger Schweizer Lohnabrechnung 2026',
     'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Praktischer Leitfaden: Lesen Sie die Abzüge (Quellensteuer, AHV 5,3%, BVG 7-18%, KVG), berechnen Sie das Netto, holen Sie die Steuern im Jahr 730 mit dem Selbstbehalt von € 7.500/€ 10.000 ein.',
     'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Schweizer Lohnabrechnung mit CHF-Beträgen, überlagert auf Luganos Uferpromenade und Luganersee-Blick.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.title': 'Schweizer Lohnabrechnung Grenzgänger: AHV, BVG und Realnetto',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.excerpt': 'Seit dem neuen Frontalieri-Abkommen ab 2024: Berechnung der AHV-, BVG-, KVG- und Quellensteuerabzüge in der schweizerischen Lohnabrechnung.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.imageAlt': 'Finanzberater überprüft Schweizer Gehaltsabrechnung und Quellensteuerabzüge',
 };
 
 export default blogMetaDe;

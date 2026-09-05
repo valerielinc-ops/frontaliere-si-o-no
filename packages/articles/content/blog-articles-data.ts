@@ -33942,6 +33942,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'calcolo-trattenute-stipendio-frontalieri',
+ category: 'fiscale',
+ date: '2026-09-05T04:23:23.672Z',
+ image: '/images/blog/calcolo-trattenute-stipendio-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

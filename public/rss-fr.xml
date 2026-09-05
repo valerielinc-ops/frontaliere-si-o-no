@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 04 Sep 2026 23:42:53 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 04:23:23 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,106 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Bulletin de paie suisse frontaliers : AVS, LPP et Net réel</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/calcul-retenue-salaire-frontaliers/</link>
+      <description><![CDATA[Depuis le Nouvel Accord frontalier en vigueur depuis 2024 : comment calculer les retenues AVS, LPP, LAMal et l'impôt à la source sur la paie suisse.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Impôt à la source retenu uniquement en Suisse à partir du 1er janvier 2024
+- Exonération de 7 500 € (anciens frontalier) ou 10 000 € (nouveaux frontalier)
+- AVS/AI/IPG 5,3 %, LPP 7-18 %, LAMal en option pour Permis G
+
+## Faits clés
+- **Quoi** : Nouvelles règles sur la fiche de paie pour les frontaliers italiens
+- Quand : 1er janvier 2024 (entrée en vigueur du Nouvel Accord Frontalier)
+- Où : Suisse (tous les cantons)
+- Qui : Frontaliers italiens avec Permis G/B
+- Exonération anciens : 7 500 € annuels (régime transitoire 2024–2033)
+- Exonération nouveaux : 10 000 € annuels
+- AVS/AI/IPG : 5,3 % du salaire brut (salarié)
+
+Le Nouvel Accord Frontalier, signé le 23 décembre 2020 et entré en vigueur le 1er janvier 2024, a redéfini les règles sur la fiche de paie des frontaliers italiens travaillant en Suisse. L'une des nouveautés les plus significatives concerne le régime de l'impôt à la source, désormais retenu exclusivement en Suisse et jamais en Italie. Le changement de paradigme pour éviter la double imposition passe par la nouvelle exonération, qui varie selon que vous êtes « anciens frontaliers » (déjà tels avant le 17 juillet 2023) ou « nouveaux frontaliers » entrés après cette date.
+
+La ratification italienne de l'accord est intervenue par la Loi n. 83 du 13 juin 2023. Pour les anciens frontaliers, le régime transitoire prévoit une exonération de 7 500 € bruts par an, avec droit au crédit d'impôt dans le modèle 730 italien. Les nouveaux frontaliers bénéficient quant à eux d'une franchise de 10 000 €. Dans le régime transitoire qui va de 2024 à 2033, le montant soumis à l'impôt à la source varie selon l'année, jusqu'à ce que la distinction entre les deux catégories cesse.
+
+La Convention contre les doubles impositions Italie-Suisse (signée le 9 décembre 1976) reste le fondement juridique pour le crédit d'impôt que les frontaliers signalent dans le cadre CE du 730. L'Italie, en effet, n'applique pas d'impôt sur le revenu de travail de ceux qui travaillent en Suisse — parce que la Suisse n'est pas membre de l'UE/EEE et a un régime fiscal propre. La retenue a donc lieu une seule fois, auprès de l'employeur suisse, éliminant le risque de double imposition.
+
+### Composition des retenues obligatoires sur la fiche de paie
+
+Comprendre la composition de la fiche de paie est la première étape pour vérifier que les retenues sont correctes. Les principaux contributions obligatoires que vous verrez sur la fiche sont l'AVS (assurance invalidité et vieillesse), l'AI (invalidité), l'IPG (indemnité de perte de gain) — ensemble retenus à 5,3 % du brut — et le fonds LAMal (assurance maladie) qui, contrairement à AVS/AI/IPG, est facultatif pour les frontaliers avec Permis G, tout en restant une couverture essentielle. [Découvrez quelles contributions comporte une couverture LAMal et quelle franchise choisir](nav:health).
+
+En plus des contributions des salariés, sur la fiche apparaissent l'AD (assurance chômage) et l'AC (indemnité pour insolvabilité de l'employeur), tous deux à 1,1 % (avec un plafond de CHF 148 200 de salaire assuré) et la LAINF (assurance accidents), qui varie entre 0,7 % et 1,5 % selon le risque de l'activité. L'employeur verse également sa part de contributions (non visible directement sur la fiche, mais tout de même à la charge de l'entreprise).
+
+Enfin, il y a le LPP (fonds de pension du deuxième pilier), avec des taux de versement qui varient entre 7 % et 18 % selon la tranche d'âge, à partir de 25 ans. Cette différenciation par âge reflète le profil de risque et le nombre d'années jusqu'à la retraite.
+### Comment se compose le net de la fiche de paie
+
+Le net que le frontalier reçoit chaque mois est le résultat d'une soustraction méthodique entre le salaire brut convenu et une série de retenues obligatoires. Dans le cas des frontalier italiens, le calcul est compliqué par les deux taux d'imposition différents appliqués en fonction du statut de "vieux" ou "nouveau" frontalier.
+
+Prenons un scénario générique : un frontalier perçoit un salaire brut convenu (Bruttolohn en allemand suisse). De ce montant sont déduits, dans l'ordre :
+
+1. AVS/AI/IPG : 5,3 % du brut, retenu comme contribution obligatoire pour les prestations sociales.
+2. AD/AC : 1,1 % jusqu'à un plafond de CHF 148.200 de revenu assuré par an.
+3. LAINF : 0,7-1,5 % selon le secteur d'activité.
+4. LPP : 7-18 % selon l'âge (à partir de 25 ans).
+5. LAMal : Facultatif pour Permesso G. Si adhéré, environ 5-8 % du brut est retenu (mais varie selon la prime et la franchise, généralement CHF 300–2.500 pour adultes).
+6. Impôt à la source : Maintenant retenu uniquement en Suisse. Le premier montant (€7.500 pour vieux, €10.000 pour nouveaux) reste exonéré.
+
+### Vieux vs nouveaux frontalier : l'impact sur la fiche de paie
+
+La distinction entre ceux qui étaient déjà frontalier avant le 17 juillet 2023 et ceux qui sont entrés après n'est pas académique — elle a des implications directes sur la fiche de paie mensuelle et la déclaration annuelle.
+
+**Vieux frontalier** : Bénéficient de l'exonération de €7.500 par an dans le régime transitoire qui se développe de 2024 à 2033. Au cours du régime transitoire, le montant soumis à l'impôt à la source varie d'année en année, permettant un ajustement progressif au nouveau système.
+
+Nouveaux frontalier : Profitent d'une exonération fixe de €10.000 par an, sans diminution. Cette protection accrue reflète l'intention d'attirer une nouvelle main-d'œuvre transfrontalière sur le marché suisse.
+
+Dans les deux cas, le montant exonéré se traduit par une fiche de paie mensuelle légèrement plus avantageuse et, surtout, par un montant moindre à déclarer dans le 730 italien. Le crédit d'impôt dans le cadre CE du 730 couvre l'impôt à la source suisse versé, éliminant le paiement double.
+
+### Échéances et procédure de déclaration
+
+Chaque mois, l'employeur suisse remet au frontalier la fiche de paie (en allemand/français selon le canton). La déclaration de revenu italien se fait avant le 30 novembre de l'année suivante via le modèle 730, complété auprès d'un CAF ou d'un comptable. Dans le cadre CE, les impôts payés à la source en Suisse doivent être indiqués pour obtenir le crédit d'impôt. [Lire le guide sur la déclaration des revenus suisses](nav:tax-return) pour intégrer correctement les données en Italie.
+
+Il est essentiel de conserver toutes les fiches de paie annuelles et les certificats fiscaux suisses (comme le certificat de l'employeur indiquant les bruts et les retenues), car l'Agenzia delle Entrate italienne et le MEF pourraient les demander en cas de vérifications. La Suisse ne transmet pas automatiquement les données fiscales à l'Italie (puisqu'elle n'est pas membre de l'UE/EEE), donc la déclaration correcte dépend du frontalier.
+
+## Outils utiles pour la planification
+Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
+### Checklist: comment vérifier la fiche de paie chaque mois
+
+Une fois la fiche de paie reçue de l'employeur suisse, le frontalier doit suivre une procédure simple pour vérifier que les calculs sont corrects:
+
+1. Vérifier le brut: Assurez-vous que le salaire brut correspond à celui convenu dans le contrat. Toute différence (augmentations, primes convenues) doit être documentée.
+
+2. Vérifier les retenues AVS/AI/IPG: Elles doivent être de 5,3% du brut. Si le brut est, par exemple, CHF 4.000, les retenues AVS/AI/IPG devraient être d'environ CHF 212.
+
+3. Vérifier AD/AC: Environ 1,1% jusqu'au plafond de CHF 148.200 par an. Si le frontalier n'a pas encore atteint le plafond annuel, la retenue apparaît; une fois dépassé, elle disparaît des fiches suivantes.
+
+4. Vérifier LAINF: Cela dépend du secteur (entre 0,7% et 1,5%). Comparer avec les fiches précédentes pour assurer la cohérence.
+
+5. Vérifier le LPP: Il devrait varier entre 7% et 18% selon votre tranche d'âge (à partir de 25 ans). Si vous avez moins de 25 ans, il ne devrait pas être retenu.
+
+6. Vérifier l'impôt à la source: Si le revenu brut annuel dépasse l'exonération (€7.500 pour les anciens, €10.000 pour les nouveaux), la retenue commence sur le revenu supérieur.
+
+7. Conserver la fiche: Archivez numériquement (scannez) toutes les fiches de paie et les documents fiscaux suisses.
+
+### Échéances annuelles et outils disponibles
+
+Avant le 31 décembre de chaque année, l'employeur suisse émet le certificat fiscal (Lohnausweiskopie) qui indique:
+- Salaire brut annuel
+- Toutes les retenues sociales
+- Impôt à la source payé
+
+En mars-mai de l'année suivante, le frontalier remplit le modèle 730 auprès d'un CAF ou d'un expert-comptable, en insérant:
+- Dans le cadre RA les revenus de travail salarié
+- Dans le cadre CE les impôts payés à la source en Suisse pour le crédit d'impôt
+
+### Comment réduire le risque d'erreurs dans la fiche de paie
+
+La fiche de paie suisse reste l'un des documents les plus importants dans la vie du frontalier. Comprendre chaque élément permet d'éviter les surprises, de vérifier le bon versement des cotisations et de se préparer sereinement à la déclaration fiscale annuelle. Si vous constatez des écarts, contactez rapidement l'employeur suisse et votre expert-comptable italien, afin d'éviter des litiges futurs. [Vous pouvez utiliser notre calculateur de fiche de paie pour simuler le net mensuel](nav:calculator) et vérifier l'impact des retenues sur votre contrat spécifique.]]></content:encoded>
+      <pubDate>Sat, 05 Sep 2026 04:23:23 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/calcolo-trattenute-stipendio-frontalieri</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/calcolo-trattenute-stipendio-frontalieri.webp" medium="image"/>
+    </item>
     <item>
       <title>Frontaliers bulletin de paie suisse 2026</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/travailleurs-frontaliers-calcul-fiche-paie/</link>
@@ -3741,96 +3841,6 @@ Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre p
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-09-03</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-03.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Déductions fiscales pour les frontaliers 2026</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/frontalier-credits-impot-deductions/</link>
-      <description><![CDATA[Déductions et crédits d'impôt pour ceux qui travaillent en Suisse et résident en Italie : franchises € 7.500–€ 10.000, cadre CE, déclaration de revenus.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Nouvel accord frontalier en vigueur depuis le 1er janvier 2024
-- Franchise 7 500 € anciens frontaliers, 10 000 € nouveaux
-- Impôt à la source versé en Suisse, crédit en Italie
-- Déclaration via cadre CE du modèle 730
-
-## Faits clés
-- **Quoi** : Nouvel accord sur la fiscalité frontalière
-- Quand : 1er janvier 2024 (en vigueur)
-- Où : Frontaliers Italie-Suisse, Canton du Tessin
-- Qui : frontaliers avec permis G
-- Franchise : 7 500 € ( anciens), 10 000 € ( nouveaux à partir du 17/07/2023)
-- Impôt : Retenue en Suisse, crédit via cadre CE
-
-Le frontalier tessinois qui travaille en Suisse et réside en Italie se trouve aujourd'hui dans un scénario bien défini par la nouvelle réglementation. Depuis le 1er janvier 2024, le nouvel accord frontalier est entré en vigueur, signé le 23 décembre 2020, qui établit les règles définitives de taxation pour ceux qui traversent quotidiennement la frontière pour des raisons professionnelles.
-
-### La nouveauté des franchises
-
-La principale nouveauté concerne les franchises — c'est-à-dire les seuils de revenus exonérés de la charge fiscale italienne. Pour les frontaliers déjà tels avant le 17 juillet 2023 (les « anciens frontaliers »), la franchise est de 7 500 € par an sous le régime transitoire qui dure jusqu'en 2033. Pour ceux qui sont devenus frontaliers après cette date, la franchise s'élève à 10 000 € . Cela signifie que la première tranche de revenu brut annuel, jusqu'à ce seuil, n'est pas imposée en Italie.
-
-### Comment fonctionne l'impôt à la source
-
-Le mécanisme de base est simple mais crucial :
-### La déclaration en Italie: le cadre CE
-
-Chaque année, le frontalier qui travaille en Suisse doit présenter la déclaration des revenus italienne. Dans le modèle 730 (ou dans le Modèle Redditi PF s'il le préfère), il doit remplir le cadre CE pour signaler les revenus perçus à l'étranger et les impôts déjà payés.
-
-Le cadre CE est l'outil avec lequel le frontalier communique à l'Agenzia delle Entrate:
-- Le revenu brut perçu en Suisse (à partir de la documentation suisse)
-- Les impôts retenus à la source en Suisse (impôt fédéral/cantonal, AVS, AI, IPG, LAINF, contribution de solidarité)
-- La demande de crédit d'impôt sur la base de ce qui a été versé à l'étranger
-
-L'Agenzia Entrate calcule ensuite si le frontalier doit payer un impôt supplémentaire en Italie (lorsque le revenu dépasse la franchise et que le crédit d'impôt ne couvre pas complètement la taxe italienne selon les taux IRPEF: 23% jusqu'à €28.000, 35% de €28.001 à €50.000, 43% au-delà de €50.000), ou s'il aura un remboursement (lorsque le crédit est supérieur à l'impôt italien dû sur la base réduite par la franchise).
-
-### Frontaliers anciens vs nouveaux: les implications pratiques
-
-La distinction de date (17 juillet 2023) crée deux régimes parallèles jusqu'en 2033. Un frontalier qui a commencé à travailler en Suisse avant cette date bénéficie d'une franchise de €7.500 dans le régime transitoire. Celui qui a commencé après en bénéficie immédiatement d'une franchise de €10.000. Cela signifie qu'à revenu brut égal en Suisse, le nouveau frontalier a une exonération imposable en Italie plus large, et donc une charge fiscale italienne potentiellement moindre.
-
-Dans le régime transitoire qui durera jusqu'en 2033, la situation reste séparée pour les deux catégories de frontaliers. Il n'est pas encore défini comment la réglementation évoluera au-delà de 2033 — les franchises pourraient s'aligner, augmenter, ou rester différenciées.
-
-### Système de prévoyance et d'assurance
-
-Le frontalier verse des contributions en Suisse pour l'AVS (prévoyance obligatoire), le LPP (deuxième pilier) et l'assurance LAMal (maladie, avec droit d'option et franchises adultes de CHF 300 à CHF 2.500 selon la police choisie). Pendant ce temps, en Italie, il reste inscrit comme résident étranger aux fins de l'INPS. Cela crée une superposition administrative que le nouvel accord cherche à gérer avec clarté, en spécifiant quelles contributions verser dans quel pays et comment les considérer dans la déclaration.
-
-## Outils utiles pour votre cas
-Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
-### Procédure de déclaration étape par étape
-
-La déclaration des revenus pour le frontalier suit une procédure bien définie qui commence plusieurs mois avant la date limite :
-
-Étape 1 : Rassembler la documentation suisse
-
-De l'employeur suisse, le frontalier reçoit en fin d'année (généralement en janvier) le certificat de retenues (feuille fiscale). Sur ce document sont indiquées toutes les impôts et contributions versés en Suisse : impôt à la source fédéral, impôt cantonal, AVS, AI, IPG, LAINF, et contribution de solidarité si dû. Cette feuille est essentielle pour compléter le cadre CE.
-
-Étape 2 : Remplir la déclaration italienne
-
-En Italie, le frontalier présente le modèle 730 (via le substitut d'impôt, ou en autonomie en ligne sur le site de l'Agenzia delle Entrate). Dans le cadre CE, il indique le revenu brut étranger (de la documentation suisse) et les impôts versés à l'étranger, puis demande le crédit d'impôt. L'Agenzia Entrate fournit des instructions spécifiques pour le cadre CE sur son site officiel.
-
-Étape 3 : Application de la franchise et calcul de l'impôt
-
-L'Agenzia Entrate soustrait de la base imposable la franchise due (€7.500 si frontalier avant le 17/7/2023, €10.000 si après). Elle calcule l'impôt italien sur cette base réduite selon les taux IRPEF et applique le crédit d'impôt suisse. Si le crédit dépasse l'impôt italien, le frontalier a droit à un remboursement.
-
-Étape 4 : Respect des délais
-
-Le terme pour la présentation du 730 est généralement en mai de l'année suivante à celle des revenus (avec des prorogations à novembre si via CAF ou commercialiste). Les modifications et les éclaircissements peuvent être apportés avant le 31 mars de l'année suivante via une déclaration intégrative.
-
-### Documents essentiels à conserver
-
-- Certificat de retenues suisse (feuille fiscale de l'employeur) : document clé
-- Extraits de compte bancaire : pour justifier les revenus et les versements transfrontaliers
-- Permis G : preuve du statut de frontalier et de la relation de travail
-- Attestation de résidence italienne : certificat de la commune de résidence
-- Déclarations de revenus précédentes : utiles pour les vérifications de cohérence par l'Agenzia Entrate
-- Communications de l'Agenzia Entrate : éventuelles notes, rectifications ou demandes de clarifications
-
-### Quand demander de l'aide spécialisée
-
-Tous les comptables n'ont pas une expérience spécifique avec le régime frontalier et le cadre CE de la convention de double imposition. Il est conseillé de s'adresser à un intermédiaire qui connaît bien le système CH-IT, ou de contacter directement l'Agenzia delle Entrate via le site officiel ou les numéros verts régionaux. Une erreur dans la compilation du cadre CE peut entraîner des rôles de recouvrement ou des remboursements refusés, il vaut donc la peine de vérifier la correction de la procédure.
-
-[Utilisez le calculateur de bulletin de paie frontalier pour estimer votre net](nav:calculator) en fonction du revenu brut suisse et des retenues prévues. Cela vous aidera à prévoir le revenu net à déclarer en Italie.]]></content:encoded>
-      <pubDate>Thu, 03 Sep 2026 09:20:22 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/frontaliere-tassazione-crediti-detrazioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontaliere-tassazione-crediti-detrazioni.webp" medium="image"/>
     </item>
   </channel>
 </rss>

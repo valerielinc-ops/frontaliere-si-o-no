@@ -11362,6 +11362,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Frontaliers bulletin de paie suisse 2026',
     'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Guide pratique : lisez les retenues (impôt source, AVS 5.3%, LPP 7–18%, LAMal), calculez le net, récupérez les taxes en 730 avec la franchise €7.500/€ 10.000.',
     'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Bulletin de salaire suisse avec montants CHF et déductions, superposé à la vue du waterfront de Lugano et du Lac Lugano.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.title': 'Bulletin de paie suisse frontaliers : AVS, LPP et Net réel',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.excerpt': 'Depuis le Nouvel Accord frontalier en vigueur depuis 2024 : comment calculer les retenues AVS, LPP, LAMal et l\'impôt à la source sur la paie suisse.',
+    'blog.article.calcolo-trattenute-stipendio-frontalieri.imageAlt': 'Conseiller financier examine la fiche de paie suisse et les déductions fiscales',
 };
 
 export default blogMetaFr;
