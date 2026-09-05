@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
@@ -30,7 +31,7 @@ function walkHtml(dir: string, out: string[] = [], limit = SAMPLE_LIMIT): string
 describe('every page with hreflang ALSO emits x-default', () => {
   // 60s ceiling kept as a safety margin; with the short-circuited walk the test
   // reads only SAMPLE_LIMIT files (~seconds) regardless of total dist size.
-  it('checks dist for hreflang completeness', { timeout: 60_000 }, () => {
+  it('checks dist for hreflang completeness', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     // Bounded sample — the walk already stops at SAMPLE_LIMIT (see walkHtml).
     const sample = walkHtml(DIST);

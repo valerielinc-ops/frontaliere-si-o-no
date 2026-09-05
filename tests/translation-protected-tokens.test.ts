@@ -527,7 +527,18 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // main() sits behind a direct-invocation guard: without it, importing the
     // module would scan data/jobs/by-crawler, seed the shared run clock, and
     // spawn the Python worker.
-    expect(Object.keys(mopup).sort()).toEqual(['buildMopupRequest', 'classifyMopupWrite', 'finalizeMopupTranslation', 'missingSlots', 'needsWork']);
+    // `MOPUP_TRAFFIC_LANE` e `orderMopupJobsByTraffic` sono l'estrazione della
+    // scelta di corsia da main() (issue #7361): sono valori e una funzione
+    // pura, nessuno dei due tocca il filesystem all'import.
+    expect(Object.keys(mopup).sort()).toEqual([
+      'MOPUP_TRAFFIC_LANE',
+      'buildMopupRequest',
+      'classifyMopupWrite',
+      'finalizeMopupTranslation',
+      'missingSlots',
+      'needsWork',
+      'orderMopupJobsByTraffic',
+    ]);
   });
 });
 

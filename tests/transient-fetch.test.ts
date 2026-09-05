@@ -5,6 +5,8 @@ import {
   fetchWithRetry,
   httpFetchWithRetry,
   RETRYABLE_STATUS,
+  transportErrorKind,
+  TLS_ERROR_CODES,
 } from '../scripts/lib/transient-fetch.mjs';
 
 const mkResponse = (status: number) =>
@@ -222,5 +224,46 @@ describe('httpFetchWithRetry', () => {
     // body read would survive instead of throwing AbortError.
     await new Promise((r) => setTimeout(r, 40));
     expect(captured?.aborted ?? false).toBe(false);
+  });
+});
+
+describe('transportErrorKind — a failure with no status still names its cause', () => {
+  // #7351: `isTransientFetchError` above answers «retry?»; this answers «what
+  // happened?». Every network failure used to collapse into one bucket named
+  // after the layer, so 65 of 120 source-detail failures were unactionable.
+  const wrapped = (code: string) => Object.assign(new TypeError('fetch failed'), {
+    cause: Object.assign(new Error(code), { code }),
+  });
+
+  it('reads the code through the fetch wrapper', () => {
+    expect(transportErrorKind(wrapped('ENOTFOUND'))).toBe('dns');
+    expect(transportErrorKind(wrapped('EAI_AGAIN'))).toBe('dns');
+    expect(transportErrorKind(wrapped('ECONNRESET'))).toBe('reset');
+    expect(transportErrorKind(wrapped('ECONNREFUSED'))).toBe('refused');
+    expect(transportErrorKind(wrapped('UND_ERR_CONNECT_TIMEOUT'))).toBe('timeout');
+  });
+
+  it('names every TLS code the http fallback downgrades on', () => {
+    // The set has one home now: mcdonalds-job-parser.mjs downgrades to http on
+    // exactly these, and this classifier must call all of them `tls` — two
+    // copies of the list would drift on the first code added to one of them.
+    for (const code of TLS_ERROR_CODES) {
+      expect(transportErrorKind(wrapped(code)), code).toBe('tls');
+    }
+  });
+
+  it('an aborted request is a timeout, whatever the code says', () => {
+    expect(transportErrorKind(Object.assign(new Error('aborted'), { name: 'AbortError' }))).toBe('timeout');
+  });
+
+  it('does not guess — an unrecognised failure says so', () => {
+    expect(transportErrorKind(new Error('something else'))).toBe('other');
+    expect(transportErrorKind(null)).toBe('other');
+  });
+
+  it('survives a self-referential cause chain', () => {
+    const loop: any = new Error('loop');
+    loop.cause = loop;
+    expect(transportErrorKind(loop)).toBe('other');
   });
 });

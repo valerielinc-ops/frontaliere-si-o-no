@@ -44,15 +44,15 @@ function mabetexVacancyIdentity(title = '', location = '') {
   return `${normalize(title)}\u0000${normalize(location)}`;
 }
 
-// The only previously published bare-page identity is evidenced by the
-// crawler snapshot on origin/main. Never transfer that URL/slug history to the
-// first Swiss survivor: DOM order is not identity and the historic foreign job
-// is correctly retired by the Swiss-only geography gate.
-const HISTORICAL_BARE_URL_IDENTITY = mabetexVacancyIdentity('Project Manager', 'Southwest Africa');
-
-export function isHistoricalMabetexVacancy(title = '', location = '') {
-  return mabetexVacancyIdentity(title, location) === HISTORICAL_BARE_URL_IDENTITY;
-}
+// The only previously published bare-page vacancy ("Project Manager" /
+// "Southwest Africa") used to get a legacy `jobs-...-lugano` alias grafted onto
+// it here. That branch was dead (issue #6816): its identity test reads the RAW
+// `listing.location`, the same string the Swiss-only geography gate above it
+// already rejected, so `isHistoricalBareUrl` was a compile-time-constant false.
+// The retirement of that URL is the geography gate's job and the gate does it —
+// pinned by `tests/prospector-location-contract.test.ts`. Do not reintroduce an
+// alias branch keyed on a foreign location: it can only fire if the gate is
+// weakened, and then it would publish a foreign vacancy as Swiss.
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -230,36 +230,30 @@ export async function fetchAllMabetexJobs() {
   if (!listings.length) return [];
 
   const jobs = [];
+  let geoEligible = 0;
   for (const listing of listings) {
+    const description = listing.description;
+    if (!description || description.length < MIN_DESC_LENGTH) continue;
+
+    // Every non-geographic gate is behind us: the description is fully
+    // extracted, so only the location can still exclude this listing.
+    // Counting here — and not `listings.length` — is what makes the count
+    // mean what autoFilteredEmpty claims it means (see note below).
+    geoEligible += 1;
+
     const geography = resolveSourceBackedSwissGeography(listing.location);
     if (!geography) continue;
     const { location, canton } = geography;
-    const description = listing.description;
-    if (!description || description.length < MIN_DESC_LENGTH) continue;
     const sourceLang = detectLang(listing.title, 'en');
     const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'mabetex');
-    // The previous parser hard-coded Lugano into every slug. Preserve that
-    // published route as an explicit alias while new identity reflects the
-    // vacancy's actual place of work.
-    const isHistoricalBareUrl = isHistoricalMabetexVacancy(listing.title, listing.location);
-    const legacyLuganoSlug = buildJobSlug(`${listing.title} Lugano`, 'mabetex');
     const identityHash = createHash('sha1').update(listing.sourceIdentity).digest('hex').slice(0, 12);
-    const urlHash = isHistoricalBareUrl
-      ? createHash('sha1').update(`${CAREERS_URL}#${listing.title}`).digest('hex').slice(0, 12)
-      : identityHash;
     const empType = inferEmploymentType(listing.title, description);
-    const publicUrl = isHistoricalBareUrl
-      ? CAREERS_URL
-      : `${CAREERS_URL}#vacancy-${slugify(`${listing.title}-${location}`)}-${identityHash.slice(0, 8)}`;
+    const publicUrl = `${CAREERS_URL}#vacancy-${slugify(`${listing.title}-${location}`)}-${identityHash.slice(0, 8)}`;
 
     jobs.push({
-      id: `${MABETEX_KEY}-${urlHash}`,
+      id: `${MABETEX_KEY}-${identityHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      ...(isHistoricalBareUrl && legacyLuganoSlug !== jobSlug ? {
-        previousSlugs: [legacyLuganoSlug],
-        previousSlugsByLocale: { [sourceLang]: [legacyLuganoSlug] },
-      } : {}),
       company: MABETEX_COMPANY_NAME,
       companyKey: MABETEX_KEY,
       companyDomain: MABETEX_COMPANY_DOMAIN,
@@ -289,5 +283,25 @@ export async function fetchAllMabetexJobs() {
   }
 
   console.log(`  Total Mabetex jobs discovered: ${jobs.length}`);
+  // Geo-eligible candidate count (issue #5945, mirrors kudelski-nagra) — lets
+  // the crawler-template pipeline report "found N listings, 0 Swiss after
+  // filtering" as healthy instead of broken (check-crawler-health.mjs
+  // autoFilteredEmpty), which a bare 3-run empty streak cannot distinguish
+  // from a selector break.
+  //
+  // This counts listings that cleared EVERY non-geographic gate, not
+  // `listings.length`. autoFilteredEmpty (`discovered > 0 && written === 0`)
+  // asserts that the location filter alone emptied the run, so a listing
+  // dropped for a missing title/description must NOT be counted here: doing
+  // so would report a crawler whose detail extraction broke as healthy.
+  //
+  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal):
+  // the crawler-template reader at scripts/lib/crawler-template.mjs reads it
+  // as a plain property, but an enumerable own property would leak into
+  // deep-equality contracts like `resolves.toEqual([])`.
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: geoEligible,
+    enumerable: false,
+  });
   return jobs;
 }

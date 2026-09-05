@@ -131,7 +131,19 @@ jobs:
           node --input-type=module - <<'NODE'
           import { readFileSync, writeFileSync } from 'node:fs';
           const r = JSON.parse(readFileSync('data/job-title-locale-audit.json', 'utf8'));
-          const alertRate = Number(process.env.ALERT_RATE_PCT || '20');
+          // `Number(process.env.ALERT_RATE_PCT || '20')` metteva l'alternativa
+          // DENTRO `Number`: si applicava solo a variabile assente o vuota,
+          // quindi un valore presente e non numerico — la repo variable
+          // `JOB_TITLE_LOCALE_ALERT_RATE` scritta come "20%" o "venti" —
+          // dava `NaN`. E `r.rate * 100 > NaN` e' **falso**: l'audit non
+          // avrebbe mai allertato, senza un errore e senza un rosso
+          // (issue #7344). Qui il predicato e' scritto a mano perche' questo
+          // e' uno script inline di `actions/github-script`, senza modo di
+          // importare `scripts/lib/int-from-env.mjs`; e accetta i frazionari,
+          // perche' e' una percentuale, non un intero.
+          const rawAlertRate = String(process.env.ALERT_RATE_PCT ?? '').trim();
+          const parsedAlertRate = Number(rawAlertRate);
+          const alertRate = rawAlertRate !== '' && Number.isFinite(parsedAlertRate) ? parsedAlertRate : 20;
           const p2 = (v) => `${(v * 100).toFixed(2)}%`;
 
           if (!r.datasetPresent) {

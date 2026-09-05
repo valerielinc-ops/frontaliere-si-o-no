@@ -155,16 +155,29 @@ jobs:
             --label automation \
             --workflow "Main Ruleset Invariants Monitor"
 
+      # Chiuditore GEMELLO dell'opener qui sopra: stesso file, titolo LETTERALE
+      # identico, `github-issue-creator.mjs --resolve`. Non e' una riscrittura
+      # cosmetica di un `gh issue list | gh issue close` che gia' funzionava:
+      # e' l'unica forma di chiuditore che `scripts/ci/failure-issue-inventory.mjs`
+      # sa riconoscere (`coverageOf` -> `sibling-resolve-step`), e finche' non
+      # la usava questo workflow risultava «apre una issue e nessuno la chiude»
+      # in `tests/failure-issue-closers.test.ts` — un rosso su `main`, ereditato
+      # da ogni branch. Il chiuditore c'era e l'inventario non poteva vederlo,
+      # che e' lo stesso difetto di forma contro cui l'inventario esiste: un
+      # accoppiamento vero ma non enumerabile non e' verificabile.
+      #
+      # Il titolo va tenuto letterale e byte-identico a quello dell'opener:
+      # nasconderlo dietro una variabile shell o `${{ }}` rende la coppia di
+      # nuovo invisibile.
       - name: Close alert on recovery
         if: ${{ success() }}
         env:
+          GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
-          TITLE="Ruleset di main: il check vitest non è più obbligatorio"
-          OPEN="$(gh issue list --state open --search "in:title \"${TITLE}\"" --limit 10 \
-            --json number,title --jq "[.[] | select(.title == \"${TITLE}\")][0].number" 2>/dev/null || true)"
-          if [ -n "$OPEN" ] && [ "$OPEN" != "null" ]; then
-            gh issue comment "$OPEN" --body "✅ Recovery — l'invariante del Ruleset di \`main\` è di nuovo rispettata. Auto-closing." || true
-            gh issue close "$OPEN" --reason completed || true
-          fi
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Ruleset di main: il check vitest non è più obbligatorio" \
+            --workflow "Main Ruleset Invariants Monitor" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve

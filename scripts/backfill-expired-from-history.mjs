@@ -29,6 +29,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
@@ -201,9 +202,13 @@ function processSlice(sliceFile) {
 
   if (added === 0) return { crawlerKey, scannedCommits: sliceCommits.length, lost: lostById.size, added: 0 };
 
-  const archived = [...bySlug.values()].sort((a, b) =>
-    compareExpiredAt(b.expiredAt, a.expiredAt),
-  );
+  // Same slug-keyed dedup as the pipeline writers: `bySlug` keeps the CURRENT
+  // slug, so two entries whose histories overlap on a locale route both
+  // survive it. Collapse by route before writing.
+  const archived = collapseDuplicateRouteEntries(
+    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    { source: 'backfill-expired-from-history' },
+  ).entries;
   if (!DRY_RUN) {
     fs.mkdirSync(EXPIRED_DIR, { recursive: true });
     writeJsonAtomic(expiredPath, archived);
