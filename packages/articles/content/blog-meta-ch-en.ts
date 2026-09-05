@@ -5575,6 +5575,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-controlli-minori.title': 'Nursery: gaps in controls on minors',
     'blog.article.asilo-nido-controlli-minori.excerpt': 'An educator reported for child pornography worked in a kindergarten for two years. How and why institutional controls failed in Switzerland.',
     'blog.article.asilo-nido-controlli-minori.imageAlt': 'Exterior of a Swiss daycare facility with playground area, modern architecture, documentary photography',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Residence Permit B Freiburg: Requirements and Renewal',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Permit B in Freiburg: requirements for EU/EFTA and third countries, renewal procedures, necessary documents and roles of the SEM and cantonal administration.',
+    'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Cantonal administrative office counter for residence permit processing.',
 };
 
 export default blogMetaChEn;
