@@ -117,7 +117,7 @@ describe('seo-ctr-curve (issue #4300)', () => {
     it('monitors /cerca-lavoro-ticino/, the highest-volume family', () => {
       // Regression guard for the state this test itself used to pin: the
       // family was `monitored: false, targetCtr: null` while carrying
-      // 911.138 impressioni / 90gg — 2,4× le tre famiglie sorvegliate insieme.
+      // 1.008.226 impressioni / 90gg — 2,4× le tre famiglie sorvegliate insieme.
       const byId = Object.fromEntries(SEO_CTR_FAMILIES.map((f) => [f.id, f]));
       const fam = byId['cerca-lavoro-ticino'];
       expect(fam.kind).toBe('template');
@@ -430,14 +430,18 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(effectiveTargetCtr({ id: 'z', targetCtr: null }, 8.61)).toBeNull();
     });
 
-    it('would not fire on the /cerca-lavoro-ticino/ CTR measured on 2026-08-11', () => {
+    it('would not fire on the /cerca-lavoro-ticino/ CTR measured on 2026-09-05', () => {
       // Sanity check that the chosen threshold is neither ornamental nor
-      // trigger-happy: at the measured 6,63% / pos 8,61 the family is above
+      // trigger-happy: at the measured 6,020% / pos 8,68 the family is above
       // target, and a 25% CTR regression at the same position drops below it.
+      // Le costanti vengono dalla voce di registro invece di essere ribattute
+      // a mano: la versione precedente ripeteva 0,0663 / 8,61 in linea, e la
+      // rimisurazione di #7467 le avrebbe lasciate a raccontare una misura che
+      // il registro non porta piu`.
       const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'cerca-lavoro-ticino')!;
-      const target = effectiveTargetCtr(fam, 8.61)!;
-      expect(0.0663).toBeGreaterThan(target);
-      expect(0.0663 * 0.75).toBeLessThan(target);
+      const target = effectiveTargetCtr(fam, fam.measuredPosition)!;
+      expect(fam.measuredCtr).toBeGreaterThan(target);
+      expect(fam.measuredCtr * 0.75).toBeLessThan(target);
     });
   });
 
