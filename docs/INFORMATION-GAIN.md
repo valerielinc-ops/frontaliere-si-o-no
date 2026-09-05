@@ -188,6 +188,18 @@ Due conseguenze operative:
   `recoveredCohorts` / `ratchets`): è la riga da togliere quando una famiglia
   risale sopra il floor, e non coincide più necessariamente con l'etichetta.
 
+Un tronco di famiglia però resta un'ipotesi finché non lo si misura sugli slug
+che il build **emette davvero**: le prime due chiavi inventariate erano state
+calibrate solo su coppie sintetiche di slug (issue #7383). Oggi i path emessi
+delle tre famiglie sono committati in
+`tests/fixtures/information-gain-emitted-slugs.json` (comando di estrazione e
+data dentro il file) e `tests/information-gain-metric.test.ts` ri-deriva ogni
+chiave con `commonPathPrefix()` sull'insieme pieno, su ogni coppia e su ogni
+leave-one-out — i sottoinsiemi perché un run campionato vede solo una parte
+della famiglia, e una chiave che regge sull'intero ma non su un sottoinsieme
+risolve a run alterni. **Aggiungere una riga all'inventario senza aggiungere i
+suoi slug emessi alla fixture fa fallire quel test**, di proposito.
+
 Il suffisso `~<skeletonHash>` resta fuori dalla relazione: viene aggiunto solo
 quando **due template distinti** si riducono alla stessa etichetta, e farli
 risolvere entrambi alla chiave nuda condividerebbe la baseline che quel
