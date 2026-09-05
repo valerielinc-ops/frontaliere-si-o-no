@@ -20,6 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatString } from './lib/flat-string.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -214,7 +215,11 @@ function main() {
     // archival stubs, brand-alias bridges all ship with noindex,follow).
     if (hasNoindex(head)) continue;
 
-    const canonicalUrl = extractCanonical(head);
+    // flatString: `canonicalUrl` is a capture into `head` and `canonicalKey`
+    // becomes a Map key in `titlesByLocale`, which spans the whole corpus
+    // scan — one retained document per distinct canonical. Same boundary as
+    // the canonical gates (#7488, class of #7419).
+    const canonicalUrl = flatString(extractCanonical(head));
     const canonicalKey = canonicalUrl ?? fsCanonical;
 
     if (!titlesByLocale.has(locale)) {
