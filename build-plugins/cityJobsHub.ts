@@ -16,6 +16,7 @@ import type { JobBoardLocale } from './jobBoardSeo';
 import { buildCityHubTitle } from '../services/seo/job-board-titles';
 import { buildCityHubMeta } from '../services/seo/meta-descriptions';
 import { getCantonCities, normalizeCitySlug, getCityCanton } from './shared/cantonCities';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 /**
  * P1.3 (Phase 2, 2026-05-11) — `CityHubKey` lifted from a 5-TI-city literal
@@ -110,12 +111,7 @@ export const CITY_HUB_SLUG: Record<JobBoardLocale, Record<string, string>> = {
 export const CITY_HUB_LOCALES: readonly JobBoardLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 /** Section root slug per locale (same as job-board landing). */
-export const CITY_HUB_SECTION: Record<JobBoardLocale, string> = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
-  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
-  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
-  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
-};
+export const CITY_HUB_SECTION: Record<JobBoardLocale, string> = SECTION_LEGACY_TI;
 
 export const CITY_HUB_LOCALE_PREFIX: Record<JobBoardLocale, string> = {
   it: '',

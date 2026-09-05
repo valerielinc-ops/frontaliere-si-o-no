@@ -33,6 +33,7 @@ import ArticleRailAdStack from '@/components/shared/ArticleRailAdStack';
 import JobAlertSection from '@/components/community/JobAlertSection';
 import { buildPath } from '@/services/router';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
+import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -45,12 +46,8 @@ interface JobOrphanViewProps {
  onNavigateToJob?: (jobSlug: string) => void;
 }
 
-const SECTION_BY_LOCALE: Record<string, string> = {
- it: 'cerca-lavoro-ticino',
- en: 'find-jobs-ticino',
- de: 'jobs-im-tessin',
- fr: 'trouver-emploi-tessin',
-};
+// Canonical TI legacy section table — imported, never re-declared (issue #7491).
+const SECTION_BY_LOCALE: Record<string, string> = SECTION_LEGACY_TI;
 const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 
 const COMPANY_ROUTE_PREFIX: Record<string, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };

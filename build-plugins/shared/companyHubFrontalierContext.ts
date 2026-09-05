@@ -40,6 +40,7 @@
 import { BASE_URL } from '../constants';
 import { GUIDE_HUB_HREF } from './pillarGuideHrefs';
 import fuelPricesSnapshot from '../../public/data/fuel-prices.json';
+import { SECTION_LEGACY_TI_PATH } from './cantonSection';
 
 export type CompanyHubFrontalierContextLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -302,13 +303,11 @@ function pickContractHint(
  * back to the locale's job-board root when no obvious sector hub exists.
  */
 function sectorHubUrl(locale: CompanyHubFrontalierContextLocale): string {
- const root: Record<CompanyHubFrontalierContextLocale, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/find-jobs-ticino/',
-  de: '/jobs-im-tessin/',
-  fr: '/trouver-emploi-tessin/',
- };
- return `${BASE_URL}${root[locale]}`;
+ // Issue #7491: this copy had lost the locale prefix, so en/de/fr built
+ // `${BASE_URL}/find-jobs-ticino/` — measured 404 in production, against 200
+ // for `/en/find-jobs-ticino/`. Deriving from the canonical table fixes it by
+ // construction instead of by a fourth hand-typed table.
+ return `${BASE_URL}${SECTION_LEGACY_TI_PATH[locale]}`;
 }
 
 // Guide section root per locale — derived from SLUG_TABLES via

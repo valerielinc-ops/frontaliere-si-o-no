@@ -46,6 +46,7 @@
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
 import { FX_HREF, HEALTH_HREF, FUEL_HREF } from './comparatorHref';
+import { SECTION_LEGACY_TI_PATH } from './cantonSection';
 
 // Local feature flag: skip the prose entirely on bridge pages (slug rename
 // / legacy alias redirects). Default ON because bridges are pure redirect
@@ -95,12 +96,7 @@ const CALCULATOR_HREF: Record<BridgeProseLocale, string> = {
 // (canonical, curl-verified-200 paths) — see the import above. Local copies had
 // drifted to a dead orphan scheme (/en/comparators/… 404, #1997).
 
-const JOBS_HREF: Record<BridgeProseLocale, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-};
+const JOBS_HREF: Record<BridgeProseLocale, string> = SECTION_LEGACY_TI_PATH;
 
 interface ProseCopy {
   readonly contextHeading: string;

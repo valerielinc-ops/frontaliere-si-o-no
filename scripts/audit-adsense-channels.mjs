@@ -88,7 +88,7 @@ const KNOWN_PATH_PREFIXES = [
   '',                                  // root domain
   'articoli-frontaliere',
   'aziende-che-assumono',
-  'cerca-lavoro-ticino',
+  'cerca-lavoro-ticino', // cathedral-allow: one entry of KNOWN_PATH_PREFIXES, the AdSense channel path list — not the locale table
   'calcola-stipendio',
   'compara-servizi',
   'fisco',

@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BASE_URL = 'https://frontaliereticino.ch';
 
-const LOCALES = [
-  { code: 'it', prefix: '', segment: 'cerca-lavoro-ticino' },
-  { code: 'en', prefix: 'en', segment: 'find-jobs-ticino' },
-  { code: 'de', prefix: 'de', segment: 'jobs-im-tessin' },
-  { code: 'fr', prefix: 'fr', segment: 'trouver-emploi-tessin' },
-];
+// Derived from the canonical TI legacy section table — see cantonResolvers.mjs.
+const LOCALES = Object.entries(SECTION_LEGACY_TI).map(([code, segment]) => ({
+  code,
+  prefix: code === 'it' ? '' : code,
+  segment,
+}));
 
 const RAW_ARG = process.argv[2];
 const SAMPLE_SIZE = RAW_ARG ? Number(RAW_ARG) : null;

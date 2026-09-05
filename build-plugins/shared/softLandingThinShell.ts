@@ -23,13 +23,9 @@
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
 import { stripScriptsAndStyles } from '../../scripts/lib/strip-scripts-styles.mjs';
 import { extractJobPostingFacts, extractJobPostingFactsReference } from './jobPostingFacts';
+import { SECTION_LEGACY_TI_PATH } from './cantonSection';
 
-const LOCALE_LISTING_PATH: Record<string, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-};
+const LOCALE_LISTING_PATH: Record<string, string> = SECTION_LEGACY_TI_PATH;
 
 const SOFT_LANDING_PROSE: Record<string, (canonicalPath: string, listingPath: string) => string> = {
   it: (canonicalPath, listingPath) =>

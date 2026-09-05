@@ -41,15 +41,11 @@ import { COMPANY_ROUTE_PREFIX } from './shared/cantonSection';
 import { buildCanonicalBridgePage } from './constants';
 import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap';
 import { buildTitleWithBrand, composePlaceTitle } from './shared/titleSuffix';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
-const SECTION_SLUG: Record<Locale, string> = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
-  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
-  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
-  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
-};
+const SECTION_SLUG: Record<Locale, string> = SECTION_LEGACY_TI;
 
 // `COMP_PREFIX` is the same {it,en,de,fr}->prefix mapping as
 // `COMPANY_ROUTE_PREFIX` in shared/cantonSection.ts (single source of truth,

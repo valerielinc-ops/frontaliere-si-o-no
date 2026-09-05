@@ -5464,7 +5464,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Canton-aware section: the per-job static page is emitted under the job's
  // OWN canton (/cerca-lavoro-zurigo/<slug>/), NOT the legacy TI default.
  // Without jobBoardCanton, buildPath() falls back to table.jobBoard
- // ('cerca-lavoro-ticino') and every non-TI job link collapses onto the TI
+ // ('cerca-lavoro-ticino') and every non-TI job link collapses onto the TI // cathedral-allow: prose comment, not a declaration
  // section — the SPA was overwriting the (correct) static card hrefs with
  // TI ones on hydration. Object branch resolves from the job exactly like
  // the build emitter (renderJobCardLi → resolveJobCanton); string branch

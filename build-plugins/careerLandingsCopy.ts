@@ -17,6 +17,7 @@
  */
 
 import type { CareerLocale, CareerLandingId } from './careerLandingsData';
+import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 
 export interface CareerLandingSection {
   title: string;
@@ -1393,12 +1394,7 @@ const CALCULATOR_URL: Record<CareerLocale, string> = {
   fr: '/fr/calculer-salaire/',
 };
 
-const JOB_BOARD_URL: Record<CareerLocale, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-};
+const JOB_BOARD_URL: Record<CareerLocale, string> = SECTION_LEGACY_TI_PATH;
 
 function fmtIntLocale(n: number, locale: CareerLocale): string {
   const tag = { it: 'it-CH', en: 'en-CH', de: 'de-CH', fr: 'fr-CH' }[locale];

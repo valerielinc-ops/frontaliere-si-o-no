@@ -102,6 +102,7 @@ import {
   type ColCityId,
   type ColLocale,
 } from '../costOfLivingLandingsData';
+import { SECTION_LEGACY_TI_PATH } from './cantonSection';
 
 // ── Public types ─────────────────────────────────────────────────
 
@@ -193,12 +194,7 @@ export type RelatedLinksCtx = RelatedLinksContext;
 
 // ── Evergreen paths (not covered by feature-specific builders) ──
 
-export const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-};
+export const JOB_LISTING_ROOT: Record<LinkLocale, string> = SECTION_LEGACY_TI_PATH;
 
 const LOCALE_PATH_PREFIX: Record<LinkLocale, string> = {
   it: '',

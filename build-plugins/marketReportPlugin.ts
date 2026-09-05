@@ -63,6 +63,7 @@ import {
   H2_STYLE,
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
+import { SECTION_LEGACY_TI_PATH, SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -508,12 +509,7 @@ function renderReport(opts: {
     formatNumber(e.count),
   ]);
   const cityHubSet = new Set<string>(CITY_HUB_KEYS as readonly string[]);
-  const cityHubBase: Record<Locale, string> = {
-    it: '/cerca-lavoro-ticino',
-    en: '/en/find-jobs-ticino',
-    de: '/de/jobs-im-tessin',
-    fr: '/fr/trouver-emploi-tessin',
-  };
+  const cityHubBase: Record<Locale, string> = SECTION_LEGACY_TI_ROOT;
   const cityHubHref = (key: string): string | null => cityHubSet.has(key) ? `${cityHubBase[locale]}/${key}/` : null;
   const topCitiesRows = topCities.map((c, i) => {
     const href = cityHubHref(c.key);
@@ -641,12 +637,7 @@ function renderReport(opts: {
     },
   });
 
-  const jobsRoot: Record<Locale, string> = {
-    it: '/cerca-lavoro-ticino/',
-    en: '/en/find-jobs-ticino/',
-    de: '/de/jobs-im-tessin/',
-    fr: '/fr/trouver-emploi-tessin/',
-  };
+  const jobsRoot: Record<Locale, string> = SECTION_LEGACY_TI_PATH;
 
   const body = `
     <nav class="s-bcr">

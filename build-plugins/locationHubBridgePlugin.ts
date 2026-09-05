@@ -48,15 +48,11 @@ import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { composePlaceTitle } from './shared/titleSuffix';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
-const SECTION_SLUG: Record<Locale, string> = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
-  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
-  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
-  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
-};
+const SECTION_SLUG: Record<Locale, string> = SECTION_LEGACY_TI;
 
 const LOC_PREFIX: Record<Locale, string> = {
   it: 'localita',

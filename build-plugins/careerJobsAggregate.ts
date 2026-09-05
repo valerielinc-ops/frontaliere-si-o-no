@@ -29,6 +29,7 @@ import {
 import { resolveJobCanton } from './shared/cantonSection';
 import { realSalaryMedianChf } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -557,12 +558,7 @@ export function _resetCareerJobsAggregateCache(): void {
 
 // ── Job-board URL builder ────────────────────────────────────────────────────
 
-const JOB_BOARD_BASE_PATH: Record<CareerLocale, string> = {
-  it: '/cerca-lavoro-ticino',
-  en: '/en/find-jobs-ticino',
-  de: '/de/jobs-im-tessin',
-  fr: '/fr/trouver-emploi-tessin',
-};
+const JOB_BOARD_BASE_PATH: Record<CareerLocale, string> = SECTION_LEGACY_TI_ROOT;
 
 export function buildCareerFeaturedJobUrl(
   job: CareerFeaturedJob,

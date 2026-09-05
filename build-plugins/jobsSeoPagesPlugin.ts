@@ -209,6 +209,7 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { logBuildMem } from './shared/buildMemLog';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 // ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
 // `logBuildMem` now lives in ./shared/buildMemLog so employerProfilePagesPlugin
@@ -1153,12 +1154,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  // Default search-section route slugs — these are actual URL paths that must exist in the router.
  // They use "Ticino/Tessin" because that is the primary/branded section; other cantons share it.
- const sectionByLocale: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
- en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
- de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
- fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
- };
+ const sectionByLocale: Record<'it' | 'en' | 'de' | 'fr', string> = SECTION_LEGACY_TI;
 
  /**
   * Section URL prefix per (locale, canton). For TI in any locale this returns

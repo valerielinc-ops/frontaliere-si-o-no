@@ -12,6 +12,8 @@ import { CANTON_JOB_BOARD_PREFIX } from '../build-plugins/shared/cantonJobBoardP
 import { CH_CANTON_SNAPSHOT_LOCALES, CH_CANTON_SNAPSHOT_CANTON_KEYS, buildCantonSnapshotPath } from '../build-plugins/jobMarketSnapshotChCantonPathsData';
 import { SALARY_STATS_CANTON_SLUGS } from '../build-plugins/salaryStatsData';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from '../scripts/lib/jobBoardSections.mjs';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 
 /**
  * Job-board prefix parity — issue #7306.
@@ -166,5 +168,92 @@ describe('job-board prefix parity (issue #7306)', () => {
     expect(parseJobBoardSlug('jobs-in-zurich', 'de')).toEqual({ cantonCode: 'ZH', isAggregator: false });
     expect(parseJobBoardSlug('jobs-im-tessin', 'de')).toEqual({ cantonCode: 'TI', isAggregator: false });
     expect(parseJobBoardSlug('jobs-im-zurich', 'de')).toBeNull();
+  });
+});
+
+
+/**
+ * ─── TI legacy section parity (issue #7491) ─────────────────────────────────
+ *
+ * Sibling family of the prefix table above — and NOT the same table. There the
+ * value is a PREFIX (`cerca-lavoro`) still to be composed with a canton slug;
+ * here it is the TI segment already fused (`cerca-lavoro-ticino`). The DE forms
+ * alone prove they must never be unified: the canton prefix is `jobs-in`, the
+ * TI legacy segment is `jobs-im-tessin`, and both are live in production.
+ *
+ * Measured on origin/main 2026-09-05: 53 source files declared the four-locale
+ * section table, 78 declarations in all. (The issue said 41 because its grep
+ * matched only the single-quoted IT literal — the path form `'/cerca-lavoro-
+ * ticino'`, the double-quoted form and the regex alternations were invisible
+ * to it.)
+ *
+ * TWO importable canonicals exist, split by runtime, and until this file
+ * NOTHING pinned them to each other:
+ *   • build-plugins/shared/cantonResolvers.mjs → SECTION_LEGACY_TI
+ *     pure `.mjs`, no fs and no JSON import, so raw-`node` scripts can import
+ *     it; `cantonSection.ts` re-exports it typed for the SPA and the plugins.
+ *   • services/routeSlugs.data.ts → SLUG_TABLES[locale].jobBoard
+ *     the SPA router's own slug table.
+ * They hold the same four strings. If they ever diverge, the SPA and the
+ * emitters disagree about what a TI job URL is — silently.
+ *
+ * What remains duplicated is behind a deploy boundary that forbids the import,
+ * exactly as for the prefix family: a Cloud Function and the Cloudflare Worker
+ * bundle. Parity is all that can be enforced there, and it is enforced below.
+ *
+ * A NEW in-repo copy is caught by tests/seo/cathedral-no-ti-hardcodes.test.ts,
+ * whose grep now walks the whole source tree instead of the three directories
+ * it used to walk — which is precisely how these copies grew unseen.
+ */
+describe('TI legacy section parity (issue #7491)', () => {
+  /** `/cerca-lavoro-ticino`, `/en/find-jobs-ticino`, … derived, never typed twice. */
+  const CANONICAL_ROOTS = new Set(
+    Object.entries(SECTION_LEGACY_TI as Record<string, string>)
+      .map(([loc, segment]) => `${loc === 'it' ? '' : `/${loc}`}/${segment}`),
+  );
+
+  /**
+   * Any TI-section-shaped path root, canonical OR drifted — `jobs-in-tessin`
+   * matches too, which is the whole point: a copy that drifts still looks like
+   * a TI section root, so the assertion sees it instead of missing it.
+   */
+  const TI_SECTION_ROOT_RX =
+    /\/(?:en\/|de\/|fr\/)?(?:cerca-lavoro|find-jobs|jobs-i[nm]|trouver-emploi)-(?:ticino|tessin)\b/g;
+
+  it('the two importable canonicals hold the same table', () => {
+    // If this fails, decide which one production serves BEFORE editing either:
+    // a TI job URL that only one half knows about is a 404 with a canonical
+    // pointing at it.
+    expect(SECTION_LEGACY_TI).toEqual(
+      Object.fromEntries(Object.entries(SLUG_TABLES).map(([loc, table]) => [loc, table.jobBoard])),
+    );
+  });
+
+  it.each([
+    ['functions/src/lib/newsletterUrlPaths.js', 'a Cloud Function cannot import the repo-root module'],
+    ['infra/cloudflare-worker/locale-router.js', 'the Worker bundle is a separate deploy'],
+  ])('%s carries the canonical TI section roots', (rel) => {
+    const src = fs.readFileSync(path.join(REPO_ROOT, rel), 'utf-8');
+    const found = new Set(src.match(TI_SECTION_ROOT_RX) ?? []);
+
+    for (const root of CANONICAL_ROOTS) {
+      expect(found, `${rel} no longer mentions ${root} — the boundary copy lost a locale`).toContain(root);
+    }
+    expect(
+      [...found].filter((f) => !CANONICAL_ROOTS.has(f)),
+      `${rel} has a TI section root that is not canonical. Copy the values from ` +
+        'build-plugins/shared/cantonResolvers.mjs (SECTION_LEGACY_TI) — the canonical table wins.',
+    ).toEqual([]);
+  });
+  it('the Python slug extractor carries the same four segments', () => {
+    // scripts/extract-all-job-slugs.py cannot import a JS module at all, so the
+    // copy is unavoidable — but it does not have to be unwatched. Surfaced by
+    // widening the guard's scan surface: the issue's grep only looked at
+    // *.ts/*.mjs/*.js and never saw this file.
+    const src = fs.readFileSync(path.join(REPO_ROOT, 'scripts/extract-all-job-slugs.py'), 'utf-8');
+    const table = Object.fromEntries(
+      [...src.matchAll(/'(it|en|de|fr)':\s*'([a-z-]+)'/g)].map((m) => [m[1], m[2]]),
+    );
+    expect(table).toMatchObject(SECTION_LEGACY_TI as Record<string, string>);
   });
 });
