@@ -175,6 +175,16 @@ function main() {
   }
   for (const moduleRel of orphans) console.log(`  orphan   ${moduleRel}`);
 
+  // Checked BEFORE the rebaseline branch: a module the gate names but that no
+  // longer exists means the list is stale, and freezing a baseline computed
+  // from a stale list would record the wrong orphan set as ground truth.
+  if (missing.length > 0) {
+    console.error('\n❌ chain modules named by this gate no longer exist:');
+    for (const moduleRel of missing) console.error(`   ${moduleRel}`);
+    console.error('   Rename or remove them from TRANSLATION_CHAIN_MODULES in the same change.');
+    return 1;
+  }
+
   if (rebaseline) {
     fs.writeFileSync(BASELINE_PATH, `${JSON.stringify({ orphans }, null, 2)}\n`);
     console.log(`baseline written: ${orphans.length} orphan module(s)`);
@@ -183,13 +193,6 @@ function main() {
 
   const regressions = orphans.filter((moduleRel) => !known.has(moduleRel));
   const improvements = [...known].filter((moduleRel) => !orphans.includes(moduleRel)).sort();
-
-  if (missing.length > 0) {
-    console.error('\n❌ chain modules named by this gate no longer exist:');
-    for (const moduleRel of missing) console.error(`   ${moduleRel}`);
-    console.error('   Rename or remove them from TRANSLATION_CHAIN_MODULES in the same change.');
-    return 1;
-  }
   if (regressions.length > 0) {
     console.error('\n❌ translation v2 chain lost runtime callers (or gained orphan modules):');
     for (const moduleRel of regressions) console.error(`   ${moduleRel}`);
