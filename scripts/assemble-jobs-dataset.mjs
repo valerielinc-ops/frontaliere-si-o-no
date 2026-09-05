@@ -45,6 +45,7 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
@@ -2200,6 +2201,22 @@ async function assembleJobs() {
     console.log(`  🧼 Location sanitize: cleaned ${sanitizedLoc} job(s) with leaked body text in location field`);
   }
 
+  // Same shape again, for the employer LABEL of a crawler that corrected its
+  // own brand. Needed HERE for a stronger reason than the two nets above: the
+  // employer-profile slug derives from `company`, not from `companyKey`
+  // (companyProfileSlug.mjs → rawCompanySlug), so while two crawlers that
+  // SWAPPED labels wait for their separately-scheduled workflows to re-run,
+  // both slices carry the same name and the loser's `/aziende/<slug>/` drops
+  // to zero rows — below BRIDGE_FLOOR in build-employer-profiles.mjs, i.e. a
+  // 404 on an indexed route plus a sitemap exit. Reconciling at assembly makes
+  // the swap atomic: one deploy flips both slices, whatever order the crawlers
+  // happen to run in. See scripts/lib/crawler-brand-relabel.mjs.
+  const relabel = applyDeclaredBrandRelabel(deduped);
+  if (relabel.relabelled > 0) {
+    const perKey = Object.entries(relabel.byKey).map(([k, n]) => `${k}×${n}`).join(', ');
+    console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey})`);
+  }
+
   // ── Filter out foreign jobs ─────────────────────────────────────────
   // Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
   // should not appear on the Swiss job board. Filter them out at assembly time
@@ -2658,6 +2675,12 @@ function assembleExpiredJobs() {
   if (assembled.length > EXPIRED_JOBS_CAP) {
     assembled = assembled.slice(0, EXPIRED_JOBS_CAP);
   }
+
+  // Expired entries carry `company` too, and feed the soft-landing pages that
+  // sit under the same employer brand. Reconcile them in the same pass so a
+  // corrected label does not read one way on the active page and another on
+  // the expired one.
+  applyDeclaredBrandRelabel(assembled);
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
