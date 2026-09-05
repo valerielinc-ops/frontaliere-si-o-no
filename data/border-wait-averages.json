@@ -5,6 +5,9 @@
   "chiasso-brogeda": {
     "morning": "0-7 min"
   },
+  "chiasso-centro": {
+    "morning": "0-8 min"
+  },
   "chiasso-strada": {
     "morning": "0-8 min",
     "evening": "0-2 min"
@@ -16,7 +19,6 @@
     "evening": "0-4 min"
   },
   "grenzach-wyhlen-riehen": {
-    "morning": "1-3 min",
     "evening": "1-2 min"
   },
   "haag-bendern": {
@@ -26,19 +28,19 @@
     "morning": "1-2 min",
     "evening": "1-2 min"
   },
-  "laufenburg-laufenburg-ag": {
-    "morning": "0-2 min"
-  },
   "moillesulaz": {
     "morning": "2-3 min",
     "evening": "1-3 min"
   },
+  "passo-dello-spluga": {
+    "morning": "0-2 min"
+  },
   "ponte-tresa": {
-    "morning": "1-3 min",
+    "morning": "1-5 min",
     "evening": "0-2 min"
   },
   "porto-ceresio-brusino": {
-    "morning": "2-6 min",
+    "morning": "3-6 min",
     "evening": "1-3 min"
   },
   "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
@@ -57,8 +59,5 @@
   },
   "traforo-del-gran-san-bernardo": {
     "morning": "0-2 min"
-  },
-  "waldshut-tiengen-koblenz-ag": {
-    "morning": "1-2 min"
   }
 }

@@ -47,6 +47,7 @@ import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { classifyCanonicalMismatch } from './lib/canonicalExemptions.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -98,7 +99,11 @@ function extractLocs(xml) {
   while ((m = re.exec(xml)) !== null) {
     const block = m[0];
     const loc = block.match(/<loc>\s*([^<\s][^<]*?)\s*<\/loc>/i);
-    if (loc && loc[1]) out.push(decodeEntities(loc[1].trim()));
+    // flatString: the capture slices INTO the whole sitemap XML (and a
+    // no-op `.replace()` in decodeEntities hands the same sliced string
+    // straight back), while the offenders built from it outlive every
+    // sitemap in the run — see scripts/lib/flat-string.mjs (issue #7419).
+    if (loc && loc[1]) out.push(flatString(decodeEntities(loc[1].trim())));
   }
   return out;
 }

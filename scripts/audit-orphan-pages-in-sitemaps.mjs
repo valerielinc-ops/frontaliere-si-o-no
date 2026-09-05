@@ -81,6 +81,7 @@ import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
 // Currently dormant here — same validate-dist-postbuild-bfs job as
@@ -164,7 +165,7 @@ function extractLocs(xml) {
   const re = /<loc>\s*([^<\s][^<]*?)\s*<\/loc>/gi;
   let m;
   while ((m = re.exec(xml)) !== null) {
-    out.push(m[1].trim());
+    out.push(flatString(m[1].trim()));
   }
   return out;
 }
@@ -300,7 +301,17 @@ async function distHasEnoughHtml(distRoot = DIST) {
 // matching against sitemap canonical paths.
 // ---------------------------------------------------------------------------
 
+// Everything this returns is stored in a Map/Set that lives for the whole BFS
+// walk, while `href` is a regex capture slicing INTO the megabyte-sized HTML
+// document it was scraped from. Flattening here — the one boundary whose
+// output is long-lived — is what stops each retained path from pinning its
+// whole source page in the heap (issue #7419, rationale in
+// scripts/lib/flat-string.mjs).
 function normaliseInternalPath(href) {
+  return flatString(normaliseInternalPathRaw(href));
+}
+
+function normaliseInternalPathRaw(href) {
   if (!href) return null;
   let h = href.trim();
   if (!h) return null;
@@ -541,14 +552,16 @@ async function scanSourceFile(file, linked, linkedPrefixes, stringRe) {
     if (dollar < 0) {
       let p = lit;
       if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
-      linked.add(p);
+      // Same retention hazard as the HTML walk: `lit` slices into the whole
+      // source file, and `linked` outlives the scan of every file.
+      linked.add(flatString(p));
     } else {
       const prefix = lit.slice(0, dollar);
       let pre = prefix;
       if (pre.length > 1 && pre.endsWith('/')) pre = pre.slice(0, -1);
       const slashCount = (pre.match(/\//g) || []).length;
       if (slashCount >= 2) {
-        linkedPrefixes.add(pre);
+        linkedPrefixes.add(flatString(pre));
       }
     }
   }

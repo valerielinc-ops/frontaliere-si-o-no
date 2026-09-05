@@ -109,6 +109,7 @@ import { tmpdir } from 'node:os';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import https from 'node:https';
+import { flatString } from './lib/flat-string.mjs';
 // Exercise the REAL newsletter URL builder, not a frozen copy of the bug — so
 // check (B) auto-resolves once companyPageUrl is fixed AND catches any future
 // prefix/slug regression (the builder is the single source of truth).
@@ -310,7 +311,10 @@ function extractLocs(xml) {
   const out = [];
   const re = /<loc>\s*([^<\s][^<]*?)\s*<\/loc>/gi;
   let m;
-  while ((m = re.exec(xml)) !== null) out.push(m[1].trim());
+  // flatString: each loc is a regex capture slicing INTO the whole sitemap XML,
+  // and the derived paths outlive it in a cross-sitemap accumulator — see
+  // scripts/lib/flat-string.mjs (issue #7419).
+  while ((m = re.exec(xml)) !== null) out.push(flatString(m[1].trim()));
   return out;
 }
 
