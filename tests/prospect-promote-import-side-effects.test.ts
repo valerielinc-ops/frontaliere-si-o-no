@@ -24,9 +24,14 @@
  * il primo test verifica che stia davvero guardando qualcosa (una chiusura
  * vuota renderebbe verdi anche i due successivi).
  *
- * L'entrypoint stesso è ESCLUSO di proposito: `prospect-promote.mjs` non ha un
+ * L'entrypoint stesso è ESCLUSO dalla propria chiusura di proposito: non ha un
  * guard e non deve averlo — quando è lui l'entrypoint, eseguire è il suo
  * lavoro.
+ *
+ * Il test copre DUE entrypoint, non uno: `generate-crawler-group-workflows.mjs`
+ * importa anch'esso da `scripts/ci/` ed è `prospect-promote.mjs` a lanciarlo
+ * subito dopo lo scaffolding, quindi è lo stesso difetto un passo più in là —
+ * stessa classe, stessa PR (AGENTS.md #6).
  */
 import { describe, it, expect } from 'vitest';
 import { spawnSync } from 'node:child_process';
@@ -35,7 +40,16 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const ROOT = path.resolve(__dirname, '..');
-const ENTRY = 'scripts/prospect-promote.mjs';
+
+// I due entrypoint della promozione che importano moduli di `scripts/ci/`, con
+// l'argv sotto cui girano davvero. Il secondo non e' un extra: e'
+// `prospect-promote.mjs` stesso a lanciarlo (`execFileSync`) subito dopo lo
+// scaffolding per rigenerare i workflow di gruppo, quindi un side-effect nella
+// SUA catena rompe la stessa promozione, un passo piu' in la'.
+const ENTRYPOINTS = [
+  { entry: 'scripts/prospect-promote.mjs', argv: ['--max=5', '--min-days=1', '--open-pr'] },
+  { entry: 'scripts/generate-crawler-group-workflows.mjs', argv: [] },
+];
 
 /** Chiusura transitiva degli import relativi, a partire dall'entrypoint. */
 function importClosure(entry: string): string[] {
@@ -60,32 +74,29 @@ function importClosure(entry: string): string[] {
   return [...seen].sort();
 }
 
-const CLOSURE = importClosure(ENTRY);
-
-// L'argv e l'env sotto cui il prospector importa quella catena: è la
-// combinazione che l'argomento di sicurezza del 2026-09-04 non aveva coperto.
-const PROSPECTOR_ARGV = ['--max=5', '--min-days=1', '--open-pr'];
-
-describe('prospect-promote — nessun side-effect a load-time nella catena importata (#7292)', () => {
-  it('la chiusura contiene davvero la catena del drainer', () => {
+describe('promozione crawler — nessun side-effect a load-time nelle catene importate (#7292)', () => {
+  it('la chiusura di prospect-promote contiene davvero la catena del drainer', () => {
     // Se il walker smettesse di risolvere gli import, i test qui sotto
     // passerebbero su un insieme vuoto senza provare niente.
-    expect(CLOSURE).toContain('scripts/ci/followup-drainer.mjs');
-    expect(CLOSURE).toContain('scripts/ci/claude-rate-limit.mjs');
-    expect(CLOSURE).toContain('scripts/ci/close-recovered-failure-issues.mjs');
-    expect(CLOSURE).toContain('scripts/ci/lib/run-budget.mjs');
-    expect(CLOSURE).not.toContain(ENTRY);
+    const closure = importClosure('scripts/prospect-promote.mjs');
+    expect(closure).toContain('scripts/ci/followup-drainer.mjs');
+    expect(closure).toContain('scripts/ci/claude-rate-limit.mjs');
+    expect(closure).toContain('scripts/ci/close-recovered-failure-issues.mjs');
+    expect(closure).toContain('scripts/ci/lib/run-budget.mjs');
+    expect(closure).not.toContain('scripts/prospect-promote.mjs');
   });
 
-  it('importare ogni modulo della catena sotto argv/env del prospector non esce né lancia', () => {
+  it.each(ENTRYPOINTS)('importare la catena di $entry sotto il suo argv non esce né lancia', ({ entry, argv }) => {
+    const CLOSURE = importClosure(entry);
+    expect(CLOSURE.length).toBeGreaterThan(0);
     // Un solo processo figlio invece di uno per modulo: se un import muore, il
     // marker mancante dice QUALE, che è l'informazione che serve in rosso.
     // Il driver vive in un file vero, chiamato come l'entrypoint di
     // produzione: così `process.argv[1]` ha la stessa FORMA che ha nel job del
-    // prospector — un path che finisce con `prospect-promote.mjs` e non con il
-    // nome di nessun modulo della catena.
-    const dir = mkdtempSync(path.join(tmpdir(), 'prospect-promote-import-'));
-    const driver = path.join(dir, 'prospect-promote.mjs');
+    // prospector — un path che finisce col nome dell'entrypoint e non con
+    // quello di un modulo della catena.
+    const dir = mkdtempSync(path.join(tmpdir(), 'promote-import-'));
+    const driver = path.join(dir, path.basename(entry));
     writeFileSync(
       driver,
       `const mods = ${JSON.stringify(CLOSURE)};\n`
@@ -95,7 +106,7 @@ describe('prospect-promote — nessun side-effect a load-time nella catena impor
         + `}\n`,
     );
 
-    const res = spawnSync(process.execPath, [driver, ...PROSPECTOR_ARGV], {
+    const res = spawnSync(process.execPath, [driver, ...argv], {
       cwd: ROOT,
       encoding: 'utf8',
     });
