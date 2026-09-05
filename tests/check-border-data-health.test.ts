@@ -296,70 +296,96 @@ describe('applyWebcamStatus (post-downtime recovery, issue #6644)', () => {
   const broken = { broken: true, reason: 'HTTP 404' };
   const indeterminate = { broken: false, indeterminate: true, reason: 'blocked from monitor' };
 
-  it('records an online feed with lastOnlineAt = now', () => {
+  it('records an online feed with NO per-run timestamp (issue #7376)', () => {
     const { state, recovered } = applyWebcamStatus({}, [{ url: 'a', verdict: online }], now);
-    expect(state.a.status).toBe('online');
-    expect(state.a.lastOnlineAt).toBe(new Date(now).toISOString());
+    expect(state.a).toEqual({ status: 'online' });
     expect(recovered).toEqual([]);
   });
 
-  it('marks a broken feed offline and FREEZES lastOnlineAt at the last good read', () => {
-    const before = { a: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) } };
+  it('is a fixed point while nothing changes state, so the watchdog diff-guard holds (issue #7376)', () => {
+    // The regression this test freezes: a `lastCheckedAt: now` written on every
+    // observed URL made `git diff --cached --quiet` in border-live-data-watchdog.yml
+    // never true → commit+push to main every 6h carrying no information.
+    const observations = [
+      { url: 'a', verdict: online },
+      { url: 'b', verdict: broken },
+      { url: 'c', verdict: indeterminate },
+    ];
+    const first = applyWebcamStatus({}, observations, now);
+    const second = applyWebcamStatus(first.state, observations, now + 6 * HOUR);
+    const third = applyWebcamStatus(second.state, observations, now + 12 * HOUR);
+    expect(second.state).toEqual(first.state);
+    expect(third.state).toEqual(first.state);
+    expect(JSON.stringify(third.state)).toBe(JSON.stringify(first.state));
+  });
+
+  it('stamps offlineSince on the run that first sees the feed broken', () => {
+    const before = { a: { status: 'online' } };
     const { state, recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: broken }], now);
-    expect(state.a.status).toBe('offline');
-    expect(state.a.lastOnlineAt).toBe(before.a.lastOnlineAt);
-    expect(state.a.lastCheckedAt).toBe(new Date(now).toISOString());
+    expect(state.a).toEqual({ status: 'offline', offlineSince: new Date(now).toISOString() });
     expect(recovered).toEqual([]);
   });
 
-  it('reports a recovery with the downtime measured from lastOnlineAt', () => {
-    const before = { a: { status: 'offline', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(30 * HOUR) } };
+  it('FREEZES offlineSince while the feed stays broken', () => {
+    const before = { a: { status: 'offline', offlineSince: isoAgo(30 * HOUR) } };
+    const { state } = applyWebcamStatus(before, [{ url: 'a', verdict: broken }], now);
+    expect(state.a.offlineSince).toBe(before.a.offlineSince);
+  });
+
+  it('reports a recovery with the downtime measured from offlineSince', () => {
+    const before = { a: { status: 'offline', offlineSince: isoAgo(30 * HOUR) } };
     const { state, recovered } = applyWebcamStatus(
       before,
       [{ url: 'a', label: 'Chiasso', served: ['Chiasso-Brogeda'], verdict: online }],
       now,
     );
-    expect(state.a.status).toBe('online');
+    expect(state.a).toEqual({ status: 'online' });
     expect(recovered).toHaveLength(1);
     expect(recovered[0].url).toBe('a');
     expect(recovered[0].served).toEqual(['Chiasso-Brogeda']);
     expect(Math.round(recovered[0].offlineForMs / HOUR)).toBe(30);
   });
 
-  it('does NOT re-report a recovery on the following healthy run', () => {
+  it('reads a legacy lastOnlineAt as the start of the downtime window', () => {
+    // State files written before #7376 carry `lastOnlineAt`, not `offlineSince`.
     const before = { a: { status: 'offline', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(30 * HOUR) } };
+    const { recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: online }], now);
+    expect(Math.round(recovered[0].offlineForMs / HOUR)).toBe(30);
+  });
+
+  it('does NOT re-report a recovery on the following healthy run', () => {
+    const before = { a: { status: 'offline', offlineSince: isoAgo(30 * HOUR) } };
     const first = applyWebcamStatus(before, [{ url: 'a', verdict: online }], now);
     const second = applyWebcamStatus(first.state, [{ url: 'a', verdict: online }], now + HOUR);
     expect(first.recovered).toHaveLength(1);
     expect(second.recovered).toEqual([]);
   });
 
-  it('reports a recovery with unknown downtime when no lastOnlineAt was ever recorded', () => {
-    const before = { a: { status: 'offline', lastCheckedAt: isoAgo(HOUR), lastOnlineAt: null } };
+  it('reports a recovery with unknown downtime when no offlineSince was ever recorded', () => {
+    const before = { a: { status: 'offline' } };
     const { recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: online }], now);
     expect(recovered).toHaveLength(1);
     expect(recovered[0].offlineForMs).toBeNull();
   });
 
   it('carries the previous status forward on an INDETERMINATE read (no fabricated downtime)', () => {
-    const before = { a: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) } };
+    const before = { a: { status: 'online' } };
     const { state, recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: indeterminate }], now);
-    expect(state.a.status).toBe('online');
-    expect(state.a.lastOnlineAt).toBe(before.a.lastOnlineAt);
+    expect(state.a).toEqual({ status: 'online' });
     expect(recovered).toEqual([]);
   });
 
-  it('does not fabricate a recovery when an offline feed reads INDETERMINATE', () => {
-    const before = { a: { status: 'offline', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(30 * HOUR) } };
+  it('does not fabricate a recovery when an offline feed reads INDETERMINATE, and keeps its window', () => {
+    const before = { a: { status: 'offline', offlineSince: isoAgo(30 * HOUR) } };
     const { state, recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: indeterminate }], now);
-    expect(state.a.status).toBe('offline');
+    expect(state.a).toEqual({ status: 'offline', offlineSince: before.a.offlineSince });
     expect(recovered).toEqual([]);
   });
 
   it('prunes URLs no longer in the registry instead of growing forever', () => {
     const before = {
-      gone: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) },
-      kept: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) },
+      gone: { status: 'online' },
+      kept: { status: 'online' },
     };
     const { state } = applyWebcamStatus(before, [{ url: 'kept', verdict: online }], now);
     expect(Object.keys(state)).toEqual(['kept']);
