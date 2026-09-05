@@ -11425,6 +11425,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'Living in Venegono Inferiore and working in Ticino as a border worker',
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Complete guide for commuters: connections, taxes, new tax agreement and life management between Venegono Inferiore and the Canton of Ticino.',
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Panoramic view of the border region between Italy and Switzerland near Mendrisio.',
+    'blog.article.figino-serenza-frontaliere-ticino.title': 'Figino Serenza: guide for border workers in Ticino',
+    'blog.article.figino-serenza-frontaliere-ticino.excerpt': 'Permit G, taxation, LAMal and costs: everything that changes if you live in Figino Serenza and work in the Canton of Ticino as a border worker.',
+    'blog.article.figino-serenza-frontaliere-ticino.imageAlt': 'Aerial view of Lugano, Ticino and its lake at sunset, typical workplace destination for Italian cross-border commuters.',
 };
 
 export default blogMetaEn;

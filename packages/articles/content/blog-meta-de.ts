@@ -11424,6 +11424,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'In Venegono Inferiore leben und als Grenzgänger im Tessin arbeiten',
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für Pendler: Verbindungen, Steuern, neues Steuerabkommen und Lebensmanagement zwischen Venegono Inferiore und dem Kanton Tessin.',
     'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Panoramablick auf die Grenzregion zwischen Italien und der Schweiz bei Mendrisio.',
+    'blog.article.figino-serenza-frontaliere-ticino.title': 'Figino Serenza: Leitfaden für Grenzgänger im Tessin',
+    'blog.article.figino-serenza-frontaliere-ticino.excerpt': 'G-Bewilligung, Besteuerung, KVG und Kosten: Alles, was sich ändert, wenn Sie als Grenzgänger in Figino Serenza leben und im Kanton Tessin arbeiten.',
+    'blog.article.figino-serenza-frontaliere-ticino.imageAlt': 'Luftansicht von Lugano und seinem See bei Sonnenuntergang, typisches Arbeitsziel für Grenzgänger.',
 };
 
 export default blogMetaDe;

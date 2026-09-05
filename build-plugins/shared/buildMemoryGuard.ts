@@ -68,6 +68,11 @@
  *    il numero giusto, `MemFree` no. Su macOS non esiste un equivalente
  *    confrontabile, quindi li' questa meta' e' spenta e resta il tetto RSS.
  *
+ *    L'invariante «33 % di margine sotto il minimo verde» vale come scritta
+ *    qui solo nel regime senza swapfile in cui e' stata calibrata: da
+ *    2026-09-05 la QUANTITA' confrontata col pavimento non e' piu' la sola
+ *    `MemAvailable` — vedi «Il pavimento host e' swap-aware anche lui».
+ *
  * ─── Perche' 3 campioni consecutivi ─────────────────────────────────────
  *
  * `WriteCollector` scarica a blocchi di 5000 file: un singolo campione puo'
@@ -108,6 +113,55 @@
  * vicino perche' il kernel non ha piu' dove evicere. Armato solo quando
  * SwapTotal ≥ 2 GB — su uno swap minuscolo il pavimento sarebbe
  * permanentemente sfondato gia' a riposo, cioe' un falso allarme strutturale.
+ *
+ * ─── Il pavimento host e' swap-aware anche lui (2026-09-05, issue #5899) ─
+ *
+ * Il punto 2 qui sopra fissa 768 MB con un'invariante esplicita: «sotto il
+ * minimo verde piu' basso (1152 MB) di 384 MB — 33 % di margine, quindi non
+ * puo' scattare su una build che sarebbe arrivata in fondo». Quell'invariante
+ * era vera nel mondo in cui e' stata scritta, dove lo swap era il default del
+ * runner. Da quando `grow-build-swap.sh` porta lo SwapTotal a ~12 GB, non lo
+ * e' piu': su 334 build VERDI registrate in
+ * `data/build-history/memory-peaks.jsonl` (2026-08-25 → 09-05) il minimo di
+ * `MemAvailable` e' 503 MB (leg `fr`, 2026-09-04T21:19, con 4 755 MB di
+ * SwapFree), il decile inferiore e' 728 MB, e **50 build verdi su 334 (15 %)
+ * sono passate SOTTO il pavimento**. Il pavimento non e' piu' 384 MB sotto il
+ * minimo verde: gli e' passato SOPRA di 265.
+ *
+ * Il risultato e' un gate che non discrimina, e che il 2026-09-05T16:32 ha
+ * fermato il leg `de` del deploy a `MemAvailable=731 MB` — un valore piu' alto
+ * di quello di 24 build verdi — mentre l'host aveva **10 521 MB di SwapFree**.
+ * Con 10 GB di spazio di evizione il kill dell'host non era imminente: la
+ * build e' stata fermata da una soglia che misurava la quantita' sbagliata, e
+ * un deploy fermato per un falso positivo costa esattamente quanto uno vero
+ * (nessun payload nuovo sulla CDN, guard di ordinamento #2569 che trattiene
+ * gli shard non-IT).
+ *
+ * La quantita' giusta la dice gia' la sezione sul tetto: «la distanza dal kill
+ * dell'host non e' funzione della sola RAM fisica, e' funzione della capacita'
+ * anonima totale». Il tetto era stato reso swap-aware; il pavimento no, ed e'
+ * l'asimmetria che questa sezione toglie. Il pavimento confronta ora
+ * l'HEADROOM ANONIMO — `MemAvailable + min(SwapFree, SWAP_AVAIL_CREDIT_CAP_MB)`
+ * — contro lo stesso `hostAvailFloorMb` di prima. Su un host senza swap (o
+ * dove `/proc/meminfo` non e' leggibile) il credito e' 0 e la regola e'
+ * byte-identica a prima: i fixture storici e i quattro leg verdi del run
+ * 31747139648 restano validi senza riscriverli, come per il tetto.
+ *
+ * Due cose che questo NON e', perche' sono le due obiezioni giuste:
+ *
+ *  - **Non e' alzare la soglia.** Il numero non si muove. Cambia l'unita'
+ *    misurata, che e' il difetto: confrontare la sola RAM con un pavimento che
+ *    vuole dire «capacita' rimasta» e' lo stesso errore di categoria che la
+ *    review di #6150 ha trovato dall'altra parte, RSS nudo contro un tetto su
+ *    RAM+swap. Li' rendeva il ratchet morto, qui rende il pavimento isterico.
+ *  - **Non rende il gate vacuo.** In regime swap il pavimento host diventa il
+ *    BACKSTOP di `swapFreeFloorMb`, che presidia la componente che si consuma
+ *    per prima e scatta prima (SwapFree sotto 512 MB con MemAvailable ancora
+ *    comoda: headroom sopra il pavimento, ma swap-floor rosso). E resta armato
+ *    da solo in due casi che nessun'altra soglia copre: host senza swap, e
+ *    `MemAvailable` sotto {@link HOST_AVAIL_HARD_FLOOR_MB} qualunque sia lo
+ *    swap libero — la headroom che serve a Node per scrivere il referto, che
+ *    lo swap non puo' prestare.
  *
  * ─── La quantita' misurata e' il FOOTPRINT ANONIMO, non l'RSS nudo ───────
  *
@@ -198,6 +252,39 @@ export const DEFAULT_HOST_AVAIL_FLOOR_MB = 768;
  * `'raise'` che gia' governa l'override da env.
  */
 export const HOST_AVAIL_FLOOR_FRACTION = 0.048;
+
+/**
+ * Quanto `SwapFree` puo' al massimo CONTARE come headroom del pavimento host,
+ * in MB — vedi «Il pavimento host e' swap-aware» nel docblock del modulo.
+ *
+ * Stesso numero del credito del tetto ({@link SWAP_CEILING_CREDIT_CAP_MB}) ma
+ * per una ragione diversa, ed e' il motivo per cui e' una costante a se': la'
+ * il cap evita che uno swapfile enorme renda il RATCHET vacuo; qui dice
+ * quanto spazio di evizione siamo disposti a considerare una via d'uscita
+ * dalla pressione. Oltre gli 8 GB il kernel avrebbe comunque smesso di
+ * evicere e cominciato a trashare molto prima di consumarli: contarne di piu'
+ * sarebbe credito che nessuna build riesce a spendere.
+ */
+export const SWAP_AVAIL_CREDIT_CAP_MB = 8192;
+
+/**
+ * Il pavimento RAM-only che resta armato QUALUNQUE sia lo swap libero, in MB.
+ *
+ * Delle due ragioni che fissano {@link DEFAULT_HOST_AVAIL_FLOOR_MB} una sola
+ * e' davvero RAM-only: Node deve avere abbastanza memoria FISICA per
+ * formattare la diagnosi, scriverla e uscire. Quel fabbisogno non lo copre lo
+ * swap (scrivere il referto mentre si evice e' esattamente la condizione in
+ * cui il processo non finisce piu') e non scala con l'host.
+ *
+ * 256 MB: 247 MB (49 %) sotto il minimo di `MemAvailable` mai osservato su
+ * una build VERDE nell'era swap (503 MB, leg `fr` del 2026-09-04T21:19,
+ * `data/build-history/memory-peaks.jsonl`), e due ordini di grandezza sopra
+ * il referto, che e' un JSON da poche centinaia di byte. Nessuna build che
+ * sarebbe arrivata in fondo lo tocca, e sotto di li' il gate deve scattare
+ * anche con 10 GB di swap liberi — perche' li' non e' piu' il kill dell'host
+ * il rischio, e' non riuscire piu' a raccontarlo.
+ */
+export const HOST_AVAIL_HARD_FLOOR_MB = 256;
 
 /**
  * Quanto SwapTotal puo' al massimo ALZARE il tetto RSS, in MB. Vedi il
@@ -330,6 +417,15 @@ export interface GuardState {
   peakAnonMb: number;
   minHostAvailMb: number | null;
   minSwapFreeMb: number | null;
+  /**
+   * Minimo dell'HEADROOM ANONIMO dell'host — `MemAvailable` piu' lo spazio di
+   * evizione accreditato ({@link SWAP_AVAIL_CREDIT_CAP_MB}) — cioe' la
+   * quantita' che il pavimento host confronta davvero. Registrato a parte
+   * perche' il minimo di `MemAvailable` e quello di `SwapFree` possono venire
+   * da campioni diversi: la loro somma non e' l'headroom minimo, e una
+   * diagnosi che la stampasse direbbe un numero mai misurato.
+   */
+  minHostHeadroomMb: number | null;
   samples: number;
   consecutiveRssOver: number;
   consecutiveHostUnder: number;
@@ -343,6 +439,7 @@ export function createGuardState(): GuardState {
     peakAnonMb: 0,
     minHostAvailMb: null,
     minSwapFreeMb: null,
+    minHostHeadroomMb: null,
     samples: 0,
     consecutiveRssOver: 0,
     consecutiveHostUnder: 0,
@@ -654,8 +751,20 @@ export function observeSample(
   state.consecutiveRssOver = anonMb > thresholds.rssCeilingMb ? state.consecutiveRssOver + 1 : 0;
 
   if (thresholds.hostAvailFloorMb !== null && sample.hostAvailMb !== null) {
-    state.consecutiveHostUnder =
-      sample.hostAvailMb < thresholds.hostAvailFloorMb ? state.consecutiveHostUnder + 1 : 0;
+    // Il pavimento host misura l'HEADROOM ANONIMO dell'host, non la sola RAM
+    // libera: `MemAvailable` + lo spazio di evizione ancora disponibile (vedi
+    // «Il pavimento host e' swap-aware» nel docblock del modulo). Senza swap
+    // leggibile il credito e' 0 e la regola e' byte-identica a prima.
+    const headroomMb =
+      sample.hostAvailMb + Math.min(sample.swapFreeMb ?? 0, SWAP_AVAIL_CREDIT_CAP_MB);
+    state.minHostHeadroomMb =
+      state.minHostHeadroomMb === null ? headroomMb : Math.min(state.minHostHeadroomMb, headroomMb);
+    // Il pavimento RAM-only resta armato a un livello molto piu' basso: sotto
+    // HOST_AVAIL_HARD_FLOOR_MB non e' piu' il kill dell'host il rischio, e'
+    // non avere la RAM per scrivere la diagnosi — e quello lo swap non lo copre.
+    const underFloor =
+      headroomMb < thresholds.hostAvailFloorMb || sample.hostAvailMb < HOST_AVAIL_HARD_FLOOR_MB;
+    state.consecutiveHostUnder = underFloor ? state.consecutiveHostUnder + 1 : 0;
   } else {
     state.consecutiveHostUnder = 0;
   }
@@ -706,7 +815,7 @@ export function formatBreachDiagnosis(
 ): string {
   const cause =
     kind === 'host-floor'
-      ? `Causa: MemAvailable dell'host e' sceso a ${state.minHostAvailMb} MB, sotto il pavimento di ${thresholds.hostAvailFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi.`
+      ? `Causa: l'headroom anonimo dell'host (MemAvailable + spazio di evizione accreditato, cap ${SWAP_AVAIL_CREDIT_CAP_MB} MB) e' sceso a ${state.minHostHeadroomMb ?? state.minHostAvailMb} MB, sotto il pavimento di ${thresholds.hostAvailFloorMb} MB — oppure MemAvailable da solo e' sceso sotto ${HOST_AVAIL_HARD_FLOOR_MB} MB (minimo misurato ${state.minHostAvailMb} MB) — per ${thresholds.consecutiveSamples} campioni consecutivi.`
       : kind === 'swap-floor'
         ? `Causa: SwapFree dell'host e' sceso a ${state.minSwapFreeMb} MB, sotto il pavimento di ${thresholds.swapFreeFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi — il kernel sta finendo lo spazio di evizione.`
         : `Causa: il footprint anonimo del processo di build (RSS + VmSwap) ha superato il tetto di ${thresholds.rssCeilingMb} MB per ${thresholds.consecutiveSamples} campioni consecutivi (picco ${state.peakAnonMb} MB, di cui ${state.peakRssMb} MB residenti).`;
@@ -715,7 +824,7 @@ export function formatBreachDiagnosis(
     '',
     cause,
     '',
-    `peakAnonMb=${state.peakAnonMb} peakRssMb=${state.peakRssMb} minHostAvailMb=${state.minHostAvailMb ?? 'n/d'} minSwapFreeMb=${state.minSwapFreeMb ?? 'n/d'} rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d'} samples=${state.samples}`,
+    `peakAnonMb=${state.peakAnonMb} peakRssMb=${state.peakRssMb} minHostAvailMb=${state.minHostAvailMb ?? 'n/d'} minHostHeadroomMb=${state.minHostHeadroomMb ?? 'n/d'} minSwapFreeMb=${state.minSwapFreeMb ?? 'n/d'} rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d'} samples=${state.samples}`,
     '',
     "Questa build e' stata fermata di proposito PRIMA che l'host la uccidesse.",
     "Un kill dell'host lascia lo step su `in_progress` senza exit code, e in quella",
@@ -749,6 +858,7 @@ export function buildMemoryGuardPlugin(): Plugin {
       peakRssMb: state.peakRssMb,
       peakAnonMb: state.peakAnonMb,
       minHostAvailMb: state.minHostAvailMb,
+      minHostHeadroomMb: state.minHostHeadroomMb,
       minSwapFreeMb: state.minSwapFreeMb,
       rssCeilingMb: thresholds.rssCeilingMb,
       hostAvailFloorMb: thresholds.hostAvailFloorMb,
