@@ -1087,6 +1087,32 @@ function filterAndDedupeCandidates(all: CandidateEntry[]): CandidateEntry[] {
   return Array.from(bySlug.values());
 }
 
+/**
+ * Displayed keyword for a candidate: the harvested sample term with the
+ * detected city and any leaked literal markdown stripped.
+ *
+ * Extracted so the emit path (`buildClusterContext`) and the junk-retirement
+ * enumerator (`enumerateJunkRetirements`) ask `isJunkSearchKeyword` about the
+ * exact same string. A second inline copy of this three-step pipeline would
+ * drift on the next tweak, and the two sides would then disagree on which
+ * doorway is junk — the retirement bridge would land on a live page, or the
+ * junk page would keep serving 200.
+ */
+export function clusterKeywordFromCandidate(
+  candidate: CandidateEntry,
+): { city: string | null; keyword: string } | null {
+  const sampleTerm = (candidate.sampleTerms || [])[0] || '';
+  if (!sampleTerm) return null;
+  const city = detectCity(sampleTerm);
+  // Strip literal markdown (`**Requisitos:**`) leaked from crawler
+  // descriptions into the harvested sample term BEFORE it flows into the
+  // displayed keyword (H1, title, hub link, intro, JSON-LD). The slug stays
+  // `candidate.slug` (already markdown-free), so canonical URLs are unaffected.
+  const keyword = stripLiteralMarkdown(stripCityFromKeyword(sampleTerm, city));
+  if (!keyword) return null;
+  return { city, keyword };
+}
+
 export function buildClusterContext(
   candidate: CandidateEntry,
   index: TokenIndex,
@@ -1094,20 +1120,12 @@ export function buildClusterContext(
 ): ClusterContext | null {
   const __tTokenize = profileStart();
   const sampleTerm = (candidate.sampleTerms || [])[0] || '';
-  if (!sampleTerm) {
+  const derived = clusterKeywordFromCandidate(candidate);
+  if (!derived) {
     profileRecord('bc:tokenize', __tTokenize);
     return null;
   }
-  const city = detectCity(sampleTerm);
-  // Strip literal markdown (`**Requisitos:**`) leaked from crawler
-  // descriptions into the harvested sample term BEFORE it flows into the
-  // displayed keyword (H1, title, hub link, intro, JSON-LD). The slug stays
-  // `candidate.slug` (already markdown-free), so canonical URLs are unaffected.
-  const keyword = stripLiteralMarkdown(stripCityFromKeyword(sampleTerm, city));
-  if (!keyword) {
-    profileRecord('bc:tokenize', __tTokenize);
-    return null;
-  }
+  const { city, keyword } = derived;
 
   // Drop junk keywords (generic filler / cross-language connectives / scraped
   // UI noise like "cookie", "sowie", "pazienti") even when they survive in the
@@ -1115,6 +1133,13 @@ export function buildClusterContext(
   // cleans the LIVE /…/ricerca/ hub + stops emitting the thin doorway landings
   // (e.g. /…/ricerca-cookie-bern/) without waiting for the weekly audit regen.
   // Net-reducing consolidation (drops thin junk doorways). See relatedSearchJunkTerms.mjs.
+  //
+  // Not emitting is NOT the same as retiring (issue #7316): the published
+  // corpus is reassembled across deploys, so a doorway this guard stops
+  // re-emitting keeps serving its old 200 — orphaned (no hub links to it any
+  // more) and still indexable. The withdrawal artefact is emitted separately
+  // by `enumerateJunkRetirements` + `buildJunkRetirementHtml` below, which
+  // classify the same keyword through the same helper.
   if (isJunkSearchKeyword(keyword)) {
     profileRecord('bc:tokenize', __tTokenize);
     return null;
@@ -1565,6 +1590,122 @@ function buildHubPath(locale: Locale, page: number = 1): string {
   const sub = getSearchSlugPrefix(locale);
   const base = `${prefix}/${section}/${sub}/`.replace(/\/+/g, '/');
   return page > 1 ? `${base}page-${page}/` : base;
+}
+
+// ── Junk-doorway retirement (issue #7316) ──────────────────────────────
+//
+// The junk guard in `buildClusterContext` stops EMITTING a thin doorway; it
+// cannot withdraw one that is already published. Measured live on 2026-09-04,
+// `/cerca-lavoro-svizzera/ricerca-cookie-bern/`, `…/ricerca-pazienti-baden/`
+// and `…/ricerca-owner-zurich/` all answered 200 while the hub
+// `/cerca-lavoro-ticino/ricerca/page-12/` linked none of them: orphaned and
+// indexable, which is the worst of both states.
+//
+// Semantics chosen: HTTP 200 + `noindex,follow` + canonical to the locale's
+// search hub. The three candidates were 410, a 301 to the hub, and this.
+// 410 and 301 are not expressible here — the corpus is served as static files
+// (no `_redirects`, no origin rules for this family), so the only status code
+// this build can put at a path is 200; a 404/410 would need the file to be
+// ABSENT, which is exactly the state that leaves the stale page live. Between
+// the two 200-shaped options, `noindex,follow` is the one Google documents as
+// a removal signal, it keeps the page useful for the rare visitor who lands
+// there (a real link to the hub, not a bounce), and `follow` passes the crawl
+// on to the hub. It is also the semantics `cantonOrphanRedirectsPlugin`
+// already uses for the same problem in the canton family — one withdrawal
+// idiom for the site, not two.
+export interface JunkRetirement {
+  readonly locale: Locale;
+  readonly slug: string;
+  readonly keyword: string;
+  /** Absolute paths (trailing slash) whose stale doorway must be overwritten. */
+  readonly paths: readonly string[];
+}
+
+/**
+ * Every already-publishable doorway whose keyword the junk denylist now
+ * rejects, with the paths its emit loop would have written.
+ *
+ * Path sources mirror the emit loop's own three, minus the one that cannot be
+ * known without matching jobs:
+ *   1. the Svizzera aggregate canonical (`cantonGroup = AGGREGATE_KEY`) — where
+ *      every cluster canonicalizes since #4400, and where the three measured
+ *      URLs live;
+ *   2. the `'TI'` legacy mirror — the section the JobBoard widget linked from
+ *      for every locale, so Googlebot indexed it too;
+ *   3. `data/indexed-cluster-urls.json` — the GSC/GA4/PostHog union of cluster
+ *      URLs still receiving traffic, i.e. the evidence-backed set.
+ * `ctx.legacyCantonGroup` (canton of `matchingJobs[0]`) is deliberately not
+ * reconstructed: deriving it means running the match phase for a page that is
+ * being withdrawn, and source 3 already covers the legacy-canton mirrors that
+ * were actually indexed.
+ */
+export function enumerateJunkRetirements(
+  candidates: ReadonlyArray<CandidateEntry>,
+  indexedClusterUrlsByKey: ReadonlyMap<string, string[]> = new Map(),
+): JunkRetirement[] {
+  const byKey = new Map<string, JunkRetirement>();
+  for (const candidate of candidates) {
+    const derived = clusterKeywordFromCandidate(candidate);
+    if (!derived || !isJunkSearchKeyword(derived.keyword)) continue;
+    const key = `${candidate.locale}::${candidate.slug}`;
+    if (byKey.has(key)) continue;
+    const paths = new Set<string>([
+      buildClusterPath(candidate.locale, candidate.slug, AGGREGATE_KEY),
+      buildClusterPath(candidate.locale, candidate.slug, 'TI'),
+    ]);
+    for (const indexed of indexedClusterUrlsByKey.get(key) || []) {
+      paths.add(indexed.endsWith('/') ? indexed : `${indexed}/`);
+    }
+    byKey.set(key, {
+      locale: candidate.locale,
+      slug: candidate.slug,
+      keyword: derived.keyword,
+      paths: Array.from(paths),
+    });
+  }
+  return Array.from(byKey.values());
+}
+
+const JUNK_RETIREMENT_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
+  it: {
+    title: 'Ricerca non più disponibile | Frontaliere Ticino',
+    body: 'Questa ricerca salvata è stata ritirata perché troppo generica per restare una pagina a sé. Trovi tutte le ricerche attive di lavoro in Svizzera nell\u2019indice qui sotto.',
+    cta: 'Vai all\u2019indice delle ricerche',
+  },
+  en: {
+    title: 'Search no longer available | Frontaliere Ticino',
+    body: 'This saved search has been withdrawn: the keyword was too generic to justify its own page. Every active job search is listed in the index below.',
+    cta: 'Open the search index',
+  },
+  de: {
+    title: 'Suche nicht mehr verfügbar | Frontaliere Ticino',
+    body: 'Diese gespeicherte Suche wurde zurückgezogen: der Suchbegriff war zu allgemein für eine eigene Seite. Alle aktiven Jobsuchen stehen im Index unten.',
+    cta: 'Zum Suchindex',
+  },
+  fr: {
+    title: 'Recherche plus disponible | Frontaliere Ticino',
+    body: 'Cette recherche enregistrée a été retirée : le mot-clé était trop générique pour justifier une page dédiée. Toutes les recherches actives figurent dans l\u2019index ci-dessous.',
+    cta: 'Ouvrir l\u2019index des recherches',
+  },
+};
+
+/**
+ * The withdrawal document served at a retired junk doorway: 200,
+ * `noindex,follow`, canonical + visible link to the locale's search hub.
+ */
+export function buildJunkRetirementHtml(locale: Locale): string {
+  const hubPath = buildHubPath(locale, 1);
+  const copy = JUNK_RETIREMENT_COPY[locale];
+  return buildCanonicalBridgePage({
+    canonicalUrl: `${BASE_URL}${hubPath}`,
+    pathLabel: hubPath,
+    title: copy.title,
+    description: copy.body,
+    body: copy.body,
+    ctaLabel: copy.cta,
+    lang: locale,
+    noindex: true,
+  });
 }
 
 /**
@@ -3215,6 +3356,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // the emit loop still produces the TI + legacyCantonGroup default
       // mirrors for every cluster.
       const indexedClusterUrlsByKey = loadIndexedClusterUrls(rootDir);
+      // Doorways whose keyword the junk denylist now rejects (issue #7316).
+      // `buildClusterContext` stops emitting them; that alone leaves the
+      // already-published copy live, orphaned and indexable, because the
+      // served corpus is reassembled across deploys. Enumerated here so the
+      // withdrawal document below can overwrite those exact paths.
+      const junkRetirements = enumerateJunkRetirements(candidates, indexedClusterUrlsByKey);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys`);
 
       // Inverted token index: lazy posting lists per (locale, token), shared
@@ -3458,6 +3605,48 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // section landing bridge (issue #4400). Collected during the
       // per-locale hub loop below, persisted to the cache manifest.
       const svizzeraLinksByLocale: { locale: Locale; links: { label: string; path: string }[] }[] = [];
+
+      // ── Retired junk doorways (issue #7316) ───────────────────────────
+      //
+      // Overwrite, deliberately NOT skip-if-exists: the stale doorway IS the
+      // file we are here to replace (`cantonOrphanRedirectsPlugin` skips an
+      // existing file because it bridges a path another plugin owns — this
+      // path is this plugin's own, and the old bytes are the defect).
+      //
+      // Nothing is pushed to `sitemapLocs`, to `crossSectionMirrorLocs` or to
+      // the keyword-landing plan: a withdrawn URL is not a landing this build
+      // advertises, and leaving it out of the plan is what makes
+      // `transformHreflang` strip any alternate still pointing at it.
+      // `emittedFiles` DOES get them, so a cache-hit restore reproduces the
+      // withdrawal instead of resurrecting the doorway.
+      const __tRetire = profileStart();
+      const retirementHtmlByLocale = new Map<Locale, string>();
+      let retiredPathCount = 0;
+      let retiredSlugCount = 0;
+      for (const retirement of junkRetirements) {
+        // Same locale-shard rule as the cluster loop: only the shard that owns
+        // the locale writes its HTML.
+        if (!shouldEmitLocale(retirement.locale)) continue;
+        let html = retirementHtmlByLocale.get(retirement.locale);
+        if (html === undefined) {
+          html = buildJunkRetirementHtml(retirement.locale);
+          retirementHtmlByLocale.set(retirement.locale, html);
+        }
+        retiredSlugCount++;
+        for (const retiredPath of retirement.paths) {
+          const outFile = path.join(distDir, retiredPath, 'index.html');
+          collector.add(outFile, html);
+          emittedFiles.push(path.relative(distDir, outFile));
+          // Same backpressure cadence as the per-cluster loop: bound the
+          // in-flight write closures instead of queueing tens of thousands.
+          if (++retiredPathCount % 2000 === 0) await collector.awaitDrainSlot(2);
+        }
+      }
+      profileRecord('retire-junk-doorways', __tRetire);
+      console.log(
+        `\x1b[36m[related-search-clusters]\x1b[0m ${retiredPathCount} junk doorway page(s) retired ` +
+        `(${retiredSlugCount} slug(s) × canonical + legacy/indexed mirrors, 200 + noindex,follow → hub)`,
+      );
 
       // ── Per-cluster pages ─────────────────────────────────────────────
       //
