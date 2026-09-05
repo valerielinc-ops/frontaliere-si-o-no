@@ -51,13 +51,25 @@ export const JOB_BOARD_CANTON_AGGREGATE = '_AGGREGATE_';
  * grammatically attaches to Tessin), and the canonical new-canton form
  * `jobs-in-` for everything else. Both parse to the same `jobBoardCanton`.
  */
-const JOB_BOARD_PREFIX: Record<Locale, string> = {
+export const JOB_BOARD_PREFIX: Record<Locale, string> = {
  it: 'cerca-lavoro-',
  en: 'find-jobs-',
  de: 'jobs-in-',
  fr: 'trouver-emploi-',
 };
-const JOB_BOARD_PREFIX_LEGACY_DE = 'jobs-im-'; // legacy TI-only
+export const JOB_BOARD_PREFIX_LEGACY_DE = 'jobs-im-'; // legacy TI-only
+
+/**
+ * Both constants above are EXPORTED (issue #7306) because this table was one
+ * of ELEVEN literal copies of the same prefixes in the repo — the issue counted
+ * four; the sibling sweep on that fix found the rest. This is the canonical
+ * one. `build-plugins/shared/cantonJobBoardPrefix.ts` now derives from it; the
+ * nine that cannot import it (a Cloud Functions deploy boundary, and `.mjs`
+ * scripts their workflows launch under plain `node` rather than `tsx`) are held
+ * to it by `tests/job-board-prefix-parity.test.ts`, which also records which of
+ * the two live DE forms each copy belongs to. Change a prefix here and that
+ * test names every copy that must follow.
+ */
 
 /**
  * Build the canonical job-board URL slug for a given canton + locale.

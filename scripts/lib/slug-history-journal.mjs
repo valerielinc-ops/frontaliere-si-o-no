@@ -94,6 +94,106 @@ export function mergePreviousSlugsCapped(oldSlugs, newSlugs, { jobId, source, ca
   return capSlugArray(union, cap, { jobId, source });
 }
 
+/**
+ * Restore the active slug identity of jobs already present in a crawler slice.
+ *
+ * This lives HERE, in the journal, and nowhere else (issue #6908). It is the
+ * one operation that writes `slug` / `slugByLocale` / `previousSlugs` /
+ * `previousSlugsByLocale` *backwards* — from the previous on-disk version onto
+ * the freshly parsed one — so it is the exact shape of write the #5157
+ * encapsulation invariant exists to contain. As a copy inside
+ * `scripts/lib/crawler-template.mjs` it was six unjournaled direct writes
+ * pinned in `tests/slug-write-encapsulation.test.ts`; as a journal primitive
+ * every restore is recorded with `action: 'restore'` and the ratchet no longer
+ * has to carry the debt. `crawler-template.mjs` re-exports this symbol, so all
+ * callers reach the same implementation and a second copy cannot appear
+ * without the ratchet noticing.
+ *
+ * Semantics (unchanged from the crawler-template original): this is
+ * intentionally opt-in. Most crawlers should let a material title/location
+ * correction mint a new slug and retain the old one as a redirect. A crawler
+ * uses this stricter policy when the corrected field is display metadata and
+ * changing an already-published URL would be needless.
+ *
+ * Matching is by the stable job ID that `mergePreserveLocaleData` has already
+ * carried forward, and is fail-closed on duplicate IDs. Fresh jobs are
+ * untouched. Existing history is restored verbatim so an intermediate
+ * hardening pass cannot turn a transient derived slug into a permanent
+ * redirect.
+ *
+ * @param {object[]} existingJobs
+ * @param {object[]} currentJobs
+ * @param {{ source?: string }} [options] journal attribution for the mutations
+ * @returns {{ jobs: object[], restored: number }}
+ */
+export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = [], { source = 'restoreExistingSlugIdentity' } = {}) {
+  const counts = new Map();
+  for (const job of existingJobs) {
+    const id = String(job?.id || '').trim();
+    if (id) counts.set(id, (counts.get(id) || 0) + 1);
+  }
+  const existingById = new Map();
+  for (const job of existingJobs) {
+    const id = String(job?.id || '').trim();
+    if (id && counts.get(id) === 1) existingById.set(id, job);
+  }
+
+  let restored = 0;
+  const jobs = currentJobs.map((job) => {
+    const id = String(job?.id || '').trim();
+    const old = id ? existingById.get(id) : null;
+    if (!old) return job;
+
+    const next = { ...job };
+    const oldSlug = String(old.slug || '').trim();
+    if (oldSlug && oldSlug !== String(next.slug || '').trim()) {
+      next.slug = oldSlug;
+      restored++;
+      recordSlugMutation({
+        jobId: id, locale: null, slug: oldSlug, action: 'restore', source,
+        reason: `active slug reverted to the published value (was ${String(job.slug || '') || '<empty>'})`,
+      });
+    }
+    if (old.slugByLocale && typeof old.slugByLocale === 'object') {
+      const currentByLocale = next.slugByLocale && typeof next.slugByLocale === 'object'
+        ? next.slugByLocale
+        : {};
+      const restoredByLocale = { ...old.slugByLocale };
+      for (const [locale, slug] of Object.entries(currentByLocale)) {
+        if (!(locale in restoredByLocale)) restoredByLocale[locale] = slug;
+      }
+      if (JSON.stringify(restoredByLocale) !== JSON.stringify(currentByLocale)) {
+        restored++;
+        for (const [locale, slug] of Object.entries(restoredByLocale)) {
+          if (currentByLocale[locale] !== slug) {
+            recordSlugMutation({
+              jobId: id, locale, slug, action: 'restore', source,
+              reason: `per-locale slug reverted to the published value (was ${String(currentByLocale[locale] || '') || '<absent>'})`,
+            });
+          }
+        }
+      }
+      next.slugByLocale = restoredByLocale;
+    }
+
+    if (Array.isArray(old.previousSlugs)) next.previousSlugs = [...old.previousSlugs];
+    else delete next.previousSlugs;
+    if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
+      next.previousSlugsByLocale = Object.fromEntries(
+        Object.entries(old.previousSlugsByLocale).map(([locale, slugs]) => [
+          locale,
+          Array.isArray(slugs) ? [...slugs] : slugs,
+        ]),
+      );
+    } else {
+      delete next.previousSlugsByLocale;
+    }
+    return next;
+  });
+
+  return { jobs, restored };
+}
+
 /** Reset the journal. Tests only. */
 export function clear() {
   _events.length = 0;

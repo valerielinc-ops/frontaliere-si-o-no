@@ -22,10 +22,7 @@ vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (importOriginal) => 
 }));
 
 import { fetchAllAccorJobs } from '../scripts/lib/accor-job-parser.mjs';
-import {
-  fetchAllMabetexJobs,
-  isHistoricalMabetexVacancy,
-} from '../scripts/lib/mabetex-job-parser.mjs';
+import { fetchAllMabetexJobs } from '../scripts/lib/mabetex-job-parser.mjs';
 import { fetchAllProtonJobs } from '../scripts/lib/proton-job-parser.mjs';
 import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { runSpec, synthesizeSpec } from '../scripts/lib/prospector/synthesize.mjs';
@@ -488,10 +485,52 @@ describe('prospector location and identity contract', () => {
     expect(job.id).toMatch(/^mabetex-/);
   });
 
-  it('assigns legacy Mabetex identity only to the evidenced historical vacancy', () => {
-    expect(isHistoricalMabetexVacancy('Project Manager', 'Southwest Africa')).toBe(true);
-    expect(isHistoricalMabetexVacancy('Project Manager', 'Chiasso')).toBe(false);
-    expect(isHistoricalMabetexVacancy('Design Engineer', 'Southwest Africa')).toBe(false);
+  // Issue #6816. The parser used to carry an `isHistoricalMabetexVacancy`
+  // branch that grafted a legacy `…-lugano-mabetex` alias onto the one
+  // previously published bare-URL vacancy, "Project Manager" in "Southwest
+  // Africa". That branch tested the RAW `listing.location` — the very string
+  // `resolveSourceBackedSwissGeography` had already rejected two lines above —
+  // so it was unreachable for every possible input, and the branch was removed.
+  //
+  // This is the replacement guarantee: the geography gate, not an alias branch,
+  // is what handles that vacancy. It must stay dropped, and no Mabetex row may
+  // ever leave the parser carrying slug history. Reintroducing an alias branch
+  // keyed on a foreign location can only work by weakening the gate, and then
+  // this test fails with a foreign vacancy published as Swiss.
+  it('retires the historical foreign Mabetex vacancy through the geography gate, not an alias branch', async () => {
+    fetchHtml.mockResolvedValue(
+      `<div class="et_pb_text_inner">Job offers ${'role '.repeat(50)}` +
+      '<p><strong>PROJECT MANAGER</strong></p><p>Place of work: Southwest Africa</p>' +
+      `<p>${'Lead international construction delivery with client and engineering teams. '.repeat(4)}</p>` +
+      '<p><strong>DESIGN ENGINEER</strong></p><p>Place of work: Chiasso</p>' +
+      `<p>${'Design technical solutions in Ticino with architects and project stakeholders. '.repeat(4)}</p></div>`,
+    );
+
+    const jobs = await fetchAllMabetexJobs();
+
+    // The foreign vacancy is gone: not republished, not aliased, not
+    // reattributed to the Lugano headquarters of the Swiss survivor.
+    expect(jobs.map((job: any) => job.location)).toEqual(['Chiasso']);
+    expect(jobs.some((job: any) => /southwest|africa|lugano/i.test(JSON.stringify(job)))).toBe(false);
+
+    // No Mabetex row carries slug history from this parser: preserving an
+    // already-published slug is the write-boundary guard's job (issue #5157),
+    // never a per-crawler special case.
+    expect(jobs.every((job: any) => job.previousSlugs === undefined)).toBe(true);
+    expect(jobs.every((job: any) => job.previousSlugsByLocale === undefined)).toBe(true);
+
+    // The surviving row's URL is derived from its own identity hash — the dead
+    // branch used to hand the bare careers URL to the historical vacancy.
+    expect(jobs[0].url).toMatch(
+      /^https:\/\/www\.mabetex\.com\/career\/#vacancy-design-engineer-chiasso-[a-f0-9]{8}$/,
+    );
+
+    // The behavioural assertions above hold on the OLD code too — that is what
+    // "dead branch" means, and it is why the branch could rot unnoticed. This
+    // last one is the one that actually fails if the escape hatch comes back:
+    // the parser must expose no per-vacancy identity predicate at all.
+    const parserExports = await import('../scripts/lib/mabetex-job-parser.mjs');
+    expect(Object.keys(parserExports).filter((k) => /historical|legacy/i.test(k))).toEqual([]);
   });
 
   it('segments each Mabetex vacancy into its own location, description and stable slug aliases', async () => {
