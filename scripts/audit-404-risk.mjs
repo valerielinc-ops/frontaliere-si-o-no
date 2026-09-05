@@ -124,6 +124,7 @@ import {
   buildCompanyHubSlugSet,
   companyHubUrlIfEmitted,
 } from '../services/newsletter-content.mjs';
+import { SECTION_LEGACY_TI as SECTION_BY_LOCALE } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const execFileP = promisify(execFile);
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -132,15 +133,10 @@ const DIST = join(ROOT, 'dist');
 const DATA_DIR = join(ROOT, 'data');
 const HOST = 'https://frontaliereticino.ch';
 
-// ── Locale routing maps — MIRROR build-plugins/jobsSeoPagesPlugin.ts ─────────
-// Keep in lockstep with that file (the single emit-time source of truth).
+// ── Locale routing maps ──────────────────────────────────────────────────────
+// SECTION_BY_LOCALE is imported (not copied) from cantonResolvers.SECTION_LEGACY_TI,
+// so a TI section rename can no longer leave this audit pointing at dead paths.
 const LOCALE_PREFIX = { it: '', en: '/en', de: '/de', fr: '/fr' };
-const SECTION_BY_LOCALE = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
 const COMPANY_ROUTE_PREFIX = {
   it: 'azienda',
   en: 'company',

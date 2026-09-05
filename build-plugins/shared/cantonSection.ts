@@ -3,11 +3,30 @@ import municipalitiesFile from '../../data/canton-municipalities.json';
 import {
   createCantonResolvers,
   AGGREGATE_KEY as CORE_AGGREGATE_KEY,
-  SECTION_LEGACY_TI,
+  SECTION_LEGACY_TI as CORE_SECTION_LEGACY_TI,
 } from './cantonResolvers.mjs';
 
 export type CantonLocale = 'it' | 'en' | 'de' | 'fr';
 export const AGGREGATE_KEY = CORE_AGGREGATE_KEY;
+
+/**
+ * The canonical TI legacy section table (issue #7491), typed and re-exported so
+ * the SPA and the build plugins can IMPORT it instead of hand-copying
+ * `{ it: 'cerca-lavoro-ticino', en: 'find-jobs-ticino', … }` — which is what 53
+ * source files were doing when the issue was measured. The values live once, in
+ * `cantonResolvers.mjs`; raw-`node` scripts import them straight from there.
+ */
+export const SECTION_LEGACY_TI: Record<CantonLocale, string> = CORE_SECTION_LEGACY_TI;
+
+/** `/cerca-lavoro-ticino`, `/en/find-jobs-ticino`, … — the same table with the SPA locale prefix, no trailing slash. */
+export const SECTION_LEGACY_TI_ROOT: Record<CantonLocale, string> = Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI).map(([loc, segment]) => [loc, `${loc === 'it' ? '' : `/${loc}`}/${segment}`]),
+) as Record<CantonLocale, string>;
+
+/** The same roots with the trailing slash the emitters build hrefs from. */
+export const SECTION_LEGACY_TI_PATH: Record<CantonLocale, string> = Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI_ROOT).map(([loc, root]) => [loc, `${root}/`]),
+) as Record<CantonLocale, string>;
 
 // The resolver logic itself lives in the runtime-agnostic single source of
 // truth `cantonResolvers.mjs`, so the raw-`node` migration script

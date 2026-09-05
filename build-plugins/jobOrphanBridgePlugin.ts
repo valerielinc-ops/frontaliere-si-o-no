@@ -75,18 +75,14 @@ import { getCantonForSlug } from './shared/slugCantonIndex';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderBridgePageProse } from './shared/bridgePageProse';
 import type { Locale } from '../services/i18n';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
 // Legacy TI section table — used only as a fallback for section-canonical paths
 // when no slug context is available. Per-slug paths use `sectionForSlug()` below
 // so non-TI jobs land on their canton URL.
-const SECTION_SLUG: Record<Locale, string> = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
-  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
-  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
-  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
-};
+const SECTION_SLUG: Record<Locale, string> = SECTION_LEGACY_TI;
 
 /**
  * Resolve the job-board section for (locale, slug) using the slug→canton

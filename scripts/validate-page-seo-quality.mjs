@@ -34,22 +34,22 @@ const SAMPLE_SIZE = 500;
 // Directories where ALL pages are checked (key SEO content)
 const FULL_CHECK_DIRS = [
   'domande-frequenti-frontalieri',
-  'cerca-lavoro-ticino',
+  'cerca-lavoro-ticino', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
   'articoli-frontaliere',
   'glossario-frontaliere',
   // EN equivalents
   'frequently-asked-questions-cross-border',
-  'find-jobs-ticino',
+  'find-jobs-ticino', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
   'cross-border-articles',
   'cross-border-glossary',
   // DE equivalents
   'haeufig-gestellte-fragen-grenzgaenger',
-  'jobs-im-tessin',
+  'jobs-im-tessin', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
   'grenzgaenger-artikel',
   'grenzgaenger-glossar',
   // FR equivalents
   'questions-frequentes-frontalier',
-  'trouver-emploi-tessin',
+  'trouver-emploi-tessin', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
   'articles-frontalier',
   'glossaire-frontalier',
 ];
