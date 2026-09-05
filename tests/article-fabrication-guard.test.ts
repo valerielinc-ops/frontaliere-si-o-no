@@ -24,6 +24,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { isEscalatableFinding, buildFindingsIssue } from '../scripts/ci/report-synced-article-fabrication.mjs';
 import {
   FABRICATED_INSTITUTIONS,
   FABRICATED_ACRONYMS,
@@ -141,4 +142,51 @@ describe('article fabrication guard', () => {
       expect(violations, `Vague sourcing found in ${_id}`).toEqual([]);
     }
   );
+});
+
+/**
+ * ── Flusso, non stock: gemello del filtro in
+ * `tests/ci/report-synced-article-factuality.test.ts` (#5661) ───────────────
+ *
+ * Questi casi NON leggono il corpus: girano sulle funzioni pure del reporter,
+ * quindi restano validi anche in un worktree sparse dove i body non ci sono.
+ *
+ * Il difetto che sorvegliano e' quello che ha riaperto #5661 trentaquattro
+ * minuti dopo la chiusura: un articolo generato il 2026-08-11 e riscritto il
+ * 2026-09-05 da una PR di riparazione rientra nel diff del sync e diventa
+ * indistinguibile da uno appena ammesso. Su un articolo gia' pubblicato il
+ * rilievo non e' «ricomparso»: non se n'e' mai andato.
+ */
+describe('fabrication reporter: escala il flusso, non lo stock (#5661)', () => {
+  const vecchio = {
+    id: 'articolo-di-agosto',
+    dir: 'services/locales/blog-body',
+    locale: 'en',
+    violations: [{ code: 'fabricated-institution', desc: 'ente inventato', evidence: 'Ufficio X' }],
+    isNew: false,
+  };
+  const nuovo = { ...vecchio, id: 'articolo-appena-ammesso', isNew: true };
+
+  it('non escala un articolo che il sync ha solo modificato', () => {
+    expect(isEscalatableFinding(vecchio)).toBe(false);
+  });
+
+  it('escala un articolo ammesso in questo sync', () => {
+    expect(isEscalatableFinding(nuovo)).toBe(true);
+  });
+
+  it('se flusso e stock non sono distinguibili NON smette di segnalare', () => {
+    // Fail-open deliberato: git muto non deve rendere il guard un no-op muto.
+    expect(isEscalatableFinding({ ...vecchio, isNew: null })).toBe(true);
+    expect(isEscalatableFinding({ ...vecchio, isNew: undefined })).toBe(true);
+  });
+
+  it('il corpo della issue non elenca gli articoli gia\' pubblicati', () => {
+    const report = { scanned: 8, flagged: 2, escalatable: 1, diffUnavailable: false, findings: [vecchio, nuovo] };
+    const { description } = buildFindingsIssue(report, 'https://example.test/run/1');
+    expect(description).toContain('articolo-appena-ammesso');
+    expect(description).not.toContain('articolo-di-agosto');
+    // Il conteggio in testa deve contare gli escalabili, non i segnalati.
+    expect(description).toContain('**1** body-locale');
+  });
 });
