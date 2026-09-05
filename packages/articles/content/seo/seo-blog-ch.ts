@@ -71780,6 +71780,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-osce-conferenza-berna': {
+    title: 'OSCE conferenza a Berna: da Ginevra a helsinki',
+    description: 'Il Consigliere federale Ignazio Cassis ha parlato a Berna il 3 settembre 2026 sulla capacità di cooperazione diplomatica nonostante i disaccordi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, osce, conferenza, berna, ginevra',
+    ogTitle: 'OSCE Conferenza a Berna: Da Ginevra a Helsinki: processo di fondazione e scopo principale dell’OSCE',
+    ogDescription: 'Il Consigliere federale Ignazio Cassis ha parlato a Berna il 3 settembre 2026 sulla capacità di cooperazione diplomatica nonostante i disaccordi. Tutti i 57 stati hanno approvato il bilancio 2026 dopo anni di stallo.',
+    canonicalPath: '/articoli-svizzera/osce-conferenza-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OSCE conferenza a Berna: da Ginevra a helsinki",
+      "description": "Il Consigliere federale Ignazio Cassis ha parlato a Berna il 3 settembre 2026 sulla capacità di cooperazione diplomatica nonostante i disaccordi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/osce-conferenza-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Berna, Svizzera, con il Palazzo Federale e il fiume Aare."
+      },
+      "datePublished": "2026-09-05T10:04:57+00:00",
+      "dateModified": "2026-09-05T10:04:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/osce-conferenza-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

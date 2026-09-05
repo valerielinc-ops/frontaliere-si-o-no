@@ -5530,6 +5530,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.title': 'Cantonal taxes in Valais: rates and deductions',
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.excerpt': 'Find out about tax rates and deductions in the Canton of Valais, with details on deadlines and the tax administration\'s online portal.',
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.imageAlt': 'Panoramic view of Lake Maggiore with Swiss mountains in the background',
+    'blog.article.osce-conferenza-berna.title': 'OSCE conference in Bern: from Geneva to Helsinki',
+    'blog.article.osce-conferenza-berna.excerpt': 'Federal Councillor Ignazio Cassis spoke in Bern on 3 September 2026 about the capacity for diplomatic cooperation despite disagreements.',
+    'blog.article.osce-conferenza-berna.imageAlt': 'Aerial view of Berna, Switzerland, with the Swiss Federal Palace and the Aare River.',
 };
 
 export default blogMetaChEn;

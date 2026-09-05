@@ -5530,6 +5530,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.title': 'Imposte cantonali nel Vallese: aliquote e deduzioni',
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.excerpt': 'Scopri le aliquote e le deduzioni fiscali nel Cantone Vallese, con dettagli su scadenze e portale online dell\'amministrazione fiscale.',
     'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.imageAlt': 'Vista panoramica del Lago Maggiore con le montagne svizzere sullo sfondo',
+    'blog.article.osce-conferenza-berna.title': 'OSCE conferenza a Berna: da Ginevra a helsinki',
+    'blog.article.osce-conferenza-berna.excerpt': 'Il Consigliere federale Ignazio Cassis ha parlato a Berna il 3 settembre 2026 sulla capacità di cooperazione diplomatica nonostante i disaccordi.',
+    'blog.article.osce-conferenza-berna.imageAlt': 'Vista aerea di Berna, Svizzera, con il Palazzo Federale e il fiume Aare.',
 };
 
 export default blogMetaChIt;
