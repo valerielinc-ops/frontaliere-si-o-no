@@ -137,7 +137,7 @@ runs:
           gh api -H "Accept: application/vnd.github+json" \
             "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
             > "$WORK/pages.zip" 2> "$WORK/dl.err" || dlrc=$?
-          if [ "$dlrc" -ne 0 ] || ! unzip -tqq "$WORK/pages.zip" >/dev/null 2>&1; then
+          if [ "$dlrc" -ne 0 ]; then
             # #7396: an artifact can expire BETWEEN the resolve above and this
             # download (real time passes: other steps, other candidates). The
             # zip then answers 410. That is a walk-back condition, not a job
@@ -153,8 +153,22 @@ runs:
             continue
           fi
 
-          unzip -q -o "$WORK/pages.zip" -d "$OUTDIR"
+          # The extraction IS the integrity check. A separate `unzip -t` would
+          # CRC the whole >1 GB archive and then decompress it again — minutes
+          # per run, in eight workflows, one of which already dies at a 3h cap.
+          # A truncated or non-zip body fails here just the same, and a failed
+          # extraction is the same walk-back condition as a failed download.
+          uzrc=0
+          unzip -q -o "$WORK/pages.zip" -d "$OUTDIR" 2> "$WORK/unzip.err" || uzrc=$?
           rm -f "$WORK/pages.zip"
+          if [ "$uzrc" -ne 0 ]; then
+            echo "  run $cand ($created): github-pages zip of artifact $ARTIFACT_ID is not readable (unzip exit $uzrc) — trying older"
+            sed 's/^/      /' "$WORK/unzip.err" || true
+            # A half-extracted tree would be mistaken for the next candidate's.
+            rm -rf "${OUTDIR:?}"
+            mkdir -p "$OUTDIR"
+            continue
+          fi
           if [ ! -f "$OUTDIR/artifact.tar" ]; then
             # Not a walk-back case: the zip downloaded fine but does not hold
             # what every caller extracts. That is a deploy.yml contract change.
