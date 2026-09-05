@@ -295,6 +295,13 @@ export async function fetchAllMabetexJobs() {
   // autoFilteredEmpty). The career page currently carries a single vacancy
   // ("Project Manager" / "Southwest Africa") that the Swiss-only geography gate
   // correctly retires; that is the source's genuine state, not a selector break.
-  jobs.discoveredCount = listings.length;
+  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal): the
+  // crawler-template reader at scripts/lib/crawler-template.mjs reads it as a
+  // plain property, but an enumerable own property on the array would leak into
+  // deep-equality contracts such as `resolves.toEqual([])`.
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: listings.length,
+    enumerable: false,
+  });
   return jobs;
 }

@@ -253,6 +253,13 @@ export async function fetchAllOkjobJobs(runtime = {}) {
   // filtering" as healthy instead of broken (check-crawler-health.mjs
   // autoFilteredEmpty), instead of a 3-run empty streak that cannot tell a
   // genuinely non-Swiss source state apart from a selector break.
-  jobs.discoveredCount = listings.length;
+  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal): the
+  // crawler-template reader at scripts/lib/crawler-template.mjs reads it as a
+  // plain property, but an enumerable own property on the array would leak into
+  // deep-equality contracts such as `resolves.toEqual([])`.
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: listings.length,
+    enumerable: false,
+  });
   return jobs;
 }
