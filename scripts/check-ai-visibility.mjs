@@ -106,24 +106,49 @@ function getOpenRouterKey() { return (process.env.OPENROUTER_API_KEY || '').trim
 // billable search requests per run, and it is independent of how OpenRouter
 // prices each one. Do NOT re-derive the ceiling from a per-result unit price —
 // that pricing model no longer exists (checked 2026-09-05, issue #7404 item 3).
-// Today the docs describe two paths, neither of them per-result:
-//   - native provider search, used for models that support it (OpenAI included,
-//     so that is the path OPENROUTER_MODEL takes): passed through from the
-//     provider and billed by search context size, not by result count;
-//   - Exa, the fallback for everything else: a flat fee per request ($0.007 for
-//     the default `auto` mode) that already includes up to 10 results.
+// The docs describe two billing paths, neither of them per-result:
+//   - native provider search: passed through from the provider and billed per
+//     call plus the search-content tokens it injects;
+//   - Exa: a flat fee per request ($0.007 for the `auto` mode) that already
+//     includes up to 10 results.
+//
+// WHICH of the two applies used to be left to OpenRouter's auto-selection, i.e.
+// to a default the source never stated — and the two paths do not cost the
+// same, so the order of magnitude below was a guess about a parameter this file
+// did not send (issue #7489 item 1). The payload now DECLARES `engine`, derived
+// from OPENROUTER_MODEL by openRouterWebEngine(), so the billing path is
+// readable here and stays right if the model is ever swapped.
+//
+// With OPENROUTER_MODEL = openai/gpt-4o-mini the declared engine is `native`,
+// so the cost is OpenAI's web-search tool passed through: $10 per 1k calls plus
+// ~8k search-content input tokens per call at the model rate (checked
+// 2026-09-05 on developers.openai.com/api/docs/pricing) ≈ $0.011 per request,
+// i.e. **~$0.22 at 20 requests**, plus the few cents of prompt/answer tokens.
+// On the Exa fallback the same 20 requests are ~$0.14 in `auto` mode.
 //
 // OPENROUTER_WEB_MAX_RESULTS = 3 therefore buys no per-result charge on either
-// path: it sits under Exa's included allowance, and native search does not meter
-// by result at all. It is kept as a payload-size bound, not as a cost lever.
-// Order of magnitude at 20 requests: ~$0.14 on Exa `auto`, ~$0.30 at the most
-// expensive documented mode, plus a few cents of model tokens.
+// path: it sits under Exa's included allowance of 10, and native search does
+// not meter by result at all. It is kept as a payload-size bound, not as a cost
+// lever.
 //
 // Failed calls are not billed, so fetchWithRetry's bounded retries do not move
 // the money — but they DO move the request count, which is why the cap is
 // charged per real HTTP attempt inside fetchWithRetry, not once per query.
 const OPENROUTER_MODEL = 'openai/gpt-4o-mini';
 const OPENROUTER_WEB_MAX_RESULTS = 3;
+
+// Providers whose models OpenRouter grounds with the provider's OWN search when
+// `engine` is left out (docs: "Uses native search if available for the
+// provider, otherwise falls back to Exa", checked 2026-09-05). Encoding the
+// rule here is what makes the choice explicit in the payload: forcing `native`
+// on a model that does not support it is a documented error, so a model outside
+// this list must go to Exa.
+const OPENROUTER_NATIVE_SEARCH_PROVIDERS = ['openai/', 'anthropic/', 'google/', 'perplexity/', 'x-ai/'];
+
+/** The web-search engine to declare for `model` — never left to the default. */
+function openRouterWebEngine(model = OPENROUTER_MODEL) {
+  return OPENROUTER_NATIVE_SEARCH_PROVIDERS.some(p => model.startsWith(p)) ? 'native' : 'exa';
+}
 const OPENROUTER_MAX_REQUESTS = QUERIES.length;
 let openRouterRequests = 0;
 
@@ -280,7 +305,7 @@ async function queryOpenRouter(query) {
     },
     body: JSON.stringify({
       model: OPENROUTER_MODEL,
-      plugins: [{ id: 'web', max_results: OPENROUTER_WEB_MAX_RESULTS }],
+      plugins: [{ id: 'web', engine: openRouterWebEngine(), max_results: OPENROUTER_WEB_MAX_RESULTS }],
       messages: [
         {
           role: 'system',
@@ -990,6 +1015,7 @@ export {
   queryOpenRouter,
   applyPlatformAnswer,
   detectPlatforms,
+  openRouterWebEngine,
   listAvailablePlatforms,
   resetOpenRouterBudget,
   resetRetryBudget,

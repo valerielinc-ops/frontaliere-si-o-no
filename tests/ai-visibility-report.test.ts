@@ -8,6 +8,7 @@ import {
   findSiteMention,
   generateMarkdown,
   listAvailablePlatforms,
+  openRouterWebEngine,
   queryOpenRouter,
   resetOpenRouterBudget,
   resetRetryBudget,
@@ -175,7 +176,30 @@ describe('OpenRouter web-search platform', () => {
     await queryOpenRouter('costo vita Ticino');
 
     const body = JSON.parse((fetchMock.mock.calls[0][1] as RequestInit).body as string);
-    expect(body.plugins).toEqual([{ id: 'web', max_results: expect.any(Number) }]);
+    expect(body.plugins).toEqual([{ id: 'web', engine: expect.any(String), max_results: expect.any(Number) }]);
+  });
+
+  /**
+   * Issue #7489 item 1. Which of the two billing paths the run pays for was
+   * left to OpenRouter's auto-selection, a default the payload never stated, so
+   * the cost written in the source was a guess about an unsent parameter.
+   */
+  it('declares the search engine instead of inheriting an unstated default', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => openRouterAnswer('https://comparis.ch/x'));
+
+    await queryOpenRouter('costo vita Ticino');
+
+    const body = JSON.parse((fetchMock.mock.calls[0][1] as RequestInit).body as string);
+    expect(body.plugins[0].engine).toBe(openRouterWebEngine(body.model));
+  });
+
+  it('asks for native search only where the provider supports it, Exa otherwise', () => {
+    expect(openRouterWebEngine('openai/gpt-4o-mini')).toBe('native');
+    expect(openRouterWebEngine('anthropic/claude-3.5-haiku')).toBe('native');
+    expect(openRouterWebEngine('mistralai/mistral-small')).toBe('exa');
+    expect(openRouterWebEngine()).toBe('native');
   });
 
   it('stops at the per-run request cap (metered web search)', async () => {
