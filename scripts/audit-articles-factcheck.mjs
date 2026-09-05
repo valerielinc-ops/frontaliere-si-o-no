@@ -9,6 +9,8 @@
 
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import { extractBodies } from './lib/blog-body-io.mjs';
+// Endpoint shared with the other GitHub Models callers so it cannot drift (#7399).
+import { GH_MODELS_URL } from './lib/gh-models-endpoint.mjs';
 import { join } from 'path';
 import { execSync } from 'child_process';
 
@@ -22,7 +24,6 @@ try {
 }
 
 const BATCH_SIZE = 8; // articles per LLM call
-const GH_MODELS_URL = 'https://models.github.ai/inference/chat/completions';
 const MODEL = 'openai/gpt-4.1-mini';
 const CONCURRENCY = 3; // parallel batches
 
