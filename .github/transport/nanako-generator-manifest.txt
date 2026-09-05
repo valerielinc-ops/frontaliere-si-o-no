@@ -73,6 +73,7 @@ scripts/lib/decode-html-entities.mjs
 scripts/lib/detect-language.mjs
 scripts/lib/dup-stoplist.mjs
 scripts/lib/ensure-chromium.mjs
+scripts/lib/escape-regexp.mjs
 scripts/lib/events-digest-content.mjs
 scripts/lib/events-utils.mjs
 scripts/lib/evergreen-article-refresh.mjs
