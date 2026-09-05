@@ -69,7 +69,7 @@ jobs:
 
       - name: Refresh ranking digest article body + snapshot JSON
         id: refresh
-        run: npx tsx scripts/generate-border-wait-ranking-article.mjs
+        run: npx --no-install tsx scripts/generate-border-wait-ranking-article.mjs
 
       - name: Gate — refreshed body files must keep the suite green
         id: gate
@@ -96,7 +96,7 @@ jobs:
           fi
           git commit -m "🛂 Weekly border-wait ranking digest refresh"
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "npx tsx scripts/generate-border-wait-ranking-article.mjs && node scripts/lib/git-add-resolved.mjs public/data/border-wait-ranking.json services/locales/blog-body/it/classifica-dogane-ticino.ts services/locales/blog-body/en/classifica-dogane-ticino.ts services/locales/blog-body/de/classifica-dogane-ticino.ts services/locales/blog-body/fr/classifica-dogane-ticino.ts"
+            --regenerate-cmd "npx --no-install tsx scripts/generate-border-wait-ranking-article.mjs && node scripts/lib/git-add-resolved.mjs public/data/border-wait-ranking.json services/locales/blog-body/it/classifica-dogane-ticino.ts services/locales/blog-body/en/classifica-dogane-ticino.ts services/locales/blog-body/de/classifica-dogane-ticino.ts services/locales/blog-body/fr/classifica-dogane-ticino.ts"
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
       - name: Trigger deploy workflow

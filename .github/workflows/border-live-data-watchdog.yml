@@ -69,7 +69,7 @@ jobs:
         id: health
         env:
           STALE_HOURS: '6'
-        run: npx tsx scripts/check-border-data-health.mjs
+        run: npx --no-install tsx scripts/check-border-data-health.mjs
 
       # Persist the per-webcam state regardless of the health verdict: a
       # DEGRADED run is exactly when the transitions are most interesting, and

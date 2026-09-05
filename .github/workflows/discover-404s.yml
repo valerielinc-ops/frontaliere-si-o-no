@@ -128,7 +128,7 @@ jobs:
         # data/jobs.json), then drop non-resolving paths before commit.
         run: |
           node scripts/assemble-jobs-dataset.mjs
-          npx tsx scripts/prune-404-compat-paths.ts
+          npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       - name: Commit and push
         if: ${{ inputs.dry_run != true }}
