@@ -16723,6 +16723,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-b-friburgo-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-09-05T16:17:35.042Z',
+    image: '/images/blog/permesso-b-friburgo-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1884,6 +1884,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'incendio-notturno-scuola-professionale-biasca': { it: 'incendio-notturno-scuola-professionale-biasca', en: 'nighttime-fire-at-upsa-professional-school-biasca', de: 'nachtsbrand-an-der-berufsschule-upsa-in-biasca', fr: 'incendie-nocturne-a-l-ecole-professionnelle-upsa-de-biasca' },
  'falso-allarme-goldach': { it: 'falso-allarme-goldach', en: 'false-alarm-goldach', de: 'falscher-alarm-goldach', fr: 'faux-alarme-goldach' },
  'asilo-nido-controlli-minori': { it: 'asilo-nido-controlli-minori', en: 'daycare-controls-children-safety', de: 'kindergarten-kontrollen-kinderschutz', fr: 'garderie-controles-protection-enfants' },
+ 'permesso-b-friburgo-requisiti-rinnovo': { it: 'permesso-b-friburgo-requisiti-rinnovo', en: 'residence-permit-b-fribourg-requirements-renewal', de: 'aufenthaltserlaubnis-b-freiburg-verlaengerung', fr: 'permis-sejour-b-fribourg-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
