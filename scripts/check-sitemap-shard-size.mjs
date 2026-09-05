@@ -33,6 +33,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatString } from './lib/flat-string.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '..');
@@ -79,7 +80,10 @@ function extractLocs(xml) {
   const re = /<loc>\s*([^<]+?)\s*<\/loc>/g;
   let match;
   while ((match = re.exec(xml)) !== null) {
-    out.push(match[1].trim());
+  // flatString: la capture affetta DENTRO l'intero XML. Qui il padre è uno
+  // solo e piccolo, ma il costrutto è quello che ha fatto OOM la catena BFS
+  // — vedi scripts/lib/flat-string.mjs (issue #7419).
+    out.push(flatString(match[1].trim()));
   }
   return out;
 }

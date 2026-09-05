@@ -35,6 +35,7 @@ import { dirname, join, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LIVE_CHECK_USER_AGENT, DEFAULT_LIVE_CHECK_TIMEOUT_MS } from './lib/live-link-check.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -149,7 +150,10 @@ const LOC_RX = /<loc>([^<]+)<\/loc>/g;
 function extractLocs(xml) {
   const out = [];
   let m;
-  while ((m = LOC_RX.exec(xml)) !== null) out.push(m[1]);
+  // flatString: a `<loc>` capture slices INTO the whole sitemap XML, and the
+  // derived URLs outlive it in a cross-sitemap accumulator — see
+  // scripts/lib/flat-string.mjs (issue #7419).
+  while ((m = LOC_RX.exec(xml)) !== null) out.push(flatString(m[1]));
   return out;
 }
 

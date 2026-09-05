@@ -60,6 +60,7 @@
 import { readdir, readFile, access, stat, writeFile } from 'node:fs/promises';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatString } from '../lib/flat-string.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..', '..');
@@ -167,7 +168,10 @@ function extractLocs(xml) {
   const out = [];
   const re = /<loc>\s*([^<\s][^<]*?)\s*<\/loc>/gi;
   let m;
-  while ((m = re.exec(xml)) !== null) out.push(m[1].trim());
+  // flatString: each loc is a regex capture slicing INTO the whole sitemap XML,
+  // and the derived paths outlive it in a cross-sitemap accumulator — see
+  // scripts/lib/flat-string.mjs (issue #7419).
+  while ((m = re.exec(xml)) !== null) out.push(flatString(m[1].trim()));
   return out;
 }
 

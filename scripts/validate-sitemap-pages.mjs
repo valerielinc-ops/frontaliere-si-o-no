@@ -99,6 +99,7 @@
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatString } from './lib/flat-string.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { isExternallyServedUrl, isExternallyServedPath } from './lib/externally-served-paths.mjs';
@@ -219,7 +220,11 @@ function loadAuditSitemapCanonicalsUrls() {
     while ((m = re.exec(xml)) !== null) {
       const block = m[0];
       const loc = block.match(/<loc>\s*([^<\s][^<]*?)\s*<\/loc>/i);
-      if (loc && loc[1]) out.push({ sitemap, loc: decodeEntities(loc[1].trim()) });
+      // flatString: the capture slices INTO the whole sitemap XML (and a
+      // no-op `.replace()` in decodeEntities hands the same sliced string
+      // straight back), while `out` outlives every sitemap in the run —
+      // see scripts/lib/flat-string.mjs (issue #7419).
+      if (loc && loc[1]) out.push({ sitemap, loc: flatString(decodeEntities(loc[1].trim())) });
     }
   }
   return { sitemapFiles, urls: out };
@@ -271,8 +276,11 @@ function loadValidateCanonicalUrls() {
     const content = readFileSync(join(DIST, file), 'utf-8');
     const re = /<loc>([^<]+)<\/loc>/g;
     let m;
+    // flatString: the `<loc>` capture slices INTO the whole sitemap XML,
+    // while `urls` accumulates across every sitemap file and is returned —
+    // see scripts/lib/flat-string.mjs (issue #7419).
     while ((m = re.exec(content)) !== null) {
-      const url = m[1].trim();
+      const url = flatString(m[1].trim());
       if (url.startsWith(HOST)) urls.add(url);
     }
   }
@@ -318,13 +326,16 @@ function loadSoft404Urls() {
     {
       const re = /<loc>\s*(https?:\/\/[^<]+?)\s*<\/loc>/gi;
       let m;
-      while ((m = re.exec(xml)) !== null) locs.push(m[1].trim());
+      // flatString: the `<loc>` capture slices INTO the whole sitemap XML,
+      // and the URLs derived from it outlive it in `perSitemap` — see
+      // scripts/lib/flat-string.mjs (issue #7419).
+      while ((m = re.exec(xml)) !== null) locs.push(flatString(m[1].trim()));
     }
     const hreflangs = new Set();
     {
       const re = /<xhtml:link[^>]*href="(https?:\/\/[^"]+)"[^>]*\/?\s*>/gi;
       let m;
-      while ((m = re.exec(xml)) !== null) hreflangs.add(m[1].trim());
+      while ((m = re.exec(xml)) !== null) hreflangs.add(flatString(m[1].trim()));
     }
     const allUrls = [...new Set([...locs, ...hreflangs])];
     perSitemap.push({ file, urls: allUrls });
@@ -368,7 +379,10 @@ function loadContentQualityUrls() {
       const path = url.slice(BASE_URL_TRAILING.length).replace(/\/$/, '') || '';
       if (!path) continue;          // skip homepage
       if (path.endsWith('.xml')) continue; // skip sub-sitemap references
-      out.push({ sitemap: sm, url, path });
+      // flatString: `url` slices INTO the whole sitemap XML and `path` is a
+      // slice of that slice, so both keep the document alive inside `out`,
+      // which spans every sitemap — see scripts/lib/flat-string.mjs (#7419).
+      out.push({ sitemap: sm, url: flatString(url), path: flatString(path) });
     }
   }
   return out;
