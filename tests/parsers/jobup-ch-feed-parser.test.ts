@@ -399,6 +399,35 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     expect(detailFetches).toBe(0);
   });
 
+  // #7457: jobup serves `lieu` HTML-entity-encoded. The raw string was handed
+  // to the geography resolver as the `location` candidate, where
+  // `Neuch&#226;tel` matches no BFS municipality — so every Neuchâtel row was
+  // rejected as "foreign or unresolved" and the fail-closed batch guard below
+  // dropped all 26 live CNP jobs. These are the exact `lieu` values the live cnp
+  // feed served on 2026-09-05.
+  it.each([
+    ['2000 Neuch&#226;tel', 'Neuchâtel', '2000'],
+    ['2020 Neuch&#226;tel', 'Neuchâtel', '2020'],
+    ['2074 La T&#232;ne', 'La Tène', '2074'],
+    ['2074 Marin-Epagnier', 'Marin-Epagnier', '2074'],
+    ['2300 La Chaux-de-Fonds', 'La Chaux-de-Fonds', '2300'],
+  ])('resolves entity-encoded source lieu %s to its canton instead of rejecting it', async (lieu, city, postal) => {
+    stubJobupSource(() => new Response(RICH_JOBUP_DETAIL, { status: 200 }), [{ ...JOBUP_FEED_JOB, lieu }]);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      location: city,
+      addressLocality: city,
+      postalCode: postal,
+      canton: 'NE',
+    });
+    // No entity residue may leak into the published record.
+    expect(jobs[0].location).not.toContain('&#');
+  });
+
   it('invalidates the whole batch when a sibling row has unresolved source geography', async () => {
     const foreignJob = {
       ...JOBUP_FEED_JOB,

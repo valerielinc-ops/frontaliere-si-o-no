@@ -501,7 +501,15 @@ export function createJobupChFeedParser(config) {
       const title = normalizeSpace(decodeEntities(raw?.titre || ''));
       if (!title || title.length < 3) continue;
 
-      const rawLieu = normalizeSpace(raw?.lieu || '');
+      // Decode entities BEFORE the value is used as location evidence, the same
+      // way `titre` is decoded two lines above. jobup serves `lieu` HTML-entity
+      // encoded (`Neuch&#226;tel`, `La T&#232;ne`), and while `parseJobupLieu`
+      // decodes internally, the raw string was also handed to
+      // `resolveSourceBackedSwissGeography` as the `location` candidate — where
+      // `Neuch&#226;tel` matches no BFS municipality, so every Neuchâtel row was
+      // rejected as "foreign or unresolved" and the fail-closed `return []`
+      // below dropped the whole batch (#7457, cnp: 26 feed jobs → 0 published).
+      const rawLieu = normalizeSpace(decodeEntities(raw?.lieu || ''));
       const lieu = parseJobupLieu(rawLieu);
       const hasUnsupportedPostalPrefix = /^\d+\b/.test(rawLieu) && !lieu.postal;
       const location = lieu.city;
