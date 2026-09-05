@@ -60,7 +60,7 @@ const REDIRECT_TRACKING_TIMEOUT_MS = 400;
  */
 const PLACEMENT_PARAM = 'pos';
 
-function buildRedirectPage(partner: typeof PARTNERS[number]): string {
+export function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  const targetUrl = buildAffiliateUrl(partner, 'go-redirect');
  // Same normalisation as `sanitizePubref`, inlined because this snippet runs in
  // the browser with no bundler — the character class and the cap come from the
@@ -71,7 +71,9 @@ var q=new URLSearchParams(location.search);
 var raw=q.get(${JSON.stringify(PLACEMENT_PARAM)})||q.get('utm_content')||q.get('utm_campaign')||'';
 if(!raw&&document.referrer){try{raw='ref-'+new URL(document.referrer).pathname;}catch(e){}}
 var ref=String(raw).toLowerCase().replace(new RegExp(${JSON.stringify(PUBREF_INVALID_RE.source)},'g'),'-').replace(/^-+|-+$/g,'').slice(0,${PUBREF_MAX_LEN}).replace(/-+$/,'');
-if(ref){var t=new URL(u);t.searchParams.set('pubref',ref);u=t.toString();var a=document.getElementById('go-link');if(a)a.setAttribute('href',u);}
+if(ref){var t=new URL(u);t.searchParams.set('pubref',ref);u=t.toString();
+var patch=function(){var a=document.getElementById('go-link');if(a)a.setAttribute('href',u);};
+if(document.readyState!=='loading')patch();else document.addEventListener('DOMContentLoaded',patch);}
 }catch(e){}
 `
  : '';

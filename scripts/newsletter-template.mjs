@@ -505,17 +505,12 @@ const AFFILIATE_PARTNERS_NL = [
 ];
 
 function renderAffiliatePartners({ campaign, locale }) {
-  const rows = AFFILIATE_PARTNERS_NL.map((p, i) => {
+  const rows = AFFILIATE_PARTNERS_NL.map(p => {
     const desc = p.desc[locale] || p.desc.it;
-    // `pos` porta la posizione dello slot fino al redirect /go/, che la
-    // trasforma nel `pubref` del deeplink Partnerize: senza, i click di tutte
-    // le righe arrivano in dashboard indistinguibili e non si sa quale
-    // piazzamento converte (build-plugins/affiliateRedirectPlugin.ts).
-    const href = `${utmUrl(p.goUrl, campaign)}&pos=nl-partner-${i + 1}`;
     return `
       <tr>
         <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
-          <a target="_blank" rel="noopener noreferrer" href="${href}" style="text-decoration:none;">
+          <a target="_blank" rel="noopener noreferrer" href="${utmUrl(p.goUrl, campaign)}" style="text-decoration:none;">
             <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${p.emoji} ${escapeHtml(p.name)}</div>
             <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${escapeHtml(desc)}</div>
           </a>
