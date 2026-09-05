@@ -11,8 +11,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { extractDetailFields } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
@@ -107,9 +109,61 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+
+/**
+ * La pagina di dettaglio okjob non pubblica ne' schema.org ne' un campo
+ * indirizzo: il comune vive solo nel titolo di pagina, `<Prefisso> <titolo> -
+ * <Comune> | Okjob` (`Emploi ... | Okjob` in francese, `Stellenangebote ... |
+ * Okjob` in tedesco). Senza questa evidenza il gate geografico scarta ogni
+ * riga e il crawler pubblica zero annunci.
+ *
+ * Il comune resta source-backed — e' il sito stesso a dichiararlo — e il
+ * suffisso di marca e' obbligatorio, cosi' il titolo di una pagina qualunque
+ * non puo' diventare evidenza. La validita' del comune la decide comunque il
+ * resolver svizzero condiviso.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ */
+export function extractOkjobDetailFields(html = '', pageUrl = '') {
+  const source = String(html || '');
+  const detail = extractDetailFields(source, pageUrl);
+  if (!source || detail.location || detail.locationCandidates?.length) return detail;
+
+  const dom = new JSDOM(source);
+  const { document } = dom.window;
+  try {
+    const branded = normalizeSpace(
+      document.querySelector('meta[property="og:title"]')?.getAttribute('content')
+      || document.querySelector('title')?.textContent
+      || '',
+    );
+    // `<Prefisso> <titolo> - <Comune> | Okjob`: accetta solo il suffisso di
+    // marca del sito, cosi' un titolo qualunque non diventa evidenza.
+    const withoutBrand = /\|\s*okjob\s*$/i.test(branded)
+      ? normalizeSpace(branded.replace(/\|\s*okjob\s*$/i, ''))
+      : '';
+    const separator = withoutBrand.lastIndexOf(' - ');
+    const location = separator === -1 ? '' : normalizeSpace(withoutBrand.slice(separator + 3));
+    if (!location) return detail;
+
+    return {
+      ...detail,
+      location,
+      addressLocality: location,
+      locationCandidates: [{ location, addressLocality: location, addressCountry: '' }],
+    };
+  } finally {
+    dom.window.close();
+  }
+}
+
+async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(OKJOB_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    ...runtime,
+    detailExtractor: extractOkjobDetailFields,
+  });
 }
 
 /**
@@ -119,11 +173,11 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllOkjobJobs() {
+export async function fetchAllOkjobJobs(runtime = {}) {
   console.log(`🔍 Fetching OK Job SA, succursale di Mendrisio jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
