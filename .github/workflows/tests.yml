@@ -149,6 +149,12 @@ permissions:
   pull-requests: write
   issues: write
   id-token: write
+  # Sola lettura, per l'ultimo step del job: legge gli step del job STESSO
+  # dalla jobs API per scrivere nello Step Summary quale famiglia ha fatto
+  # rosso. Il check si chiama `vitest (unit + integration)` ma porta l'intero
+  # cancello, e senza questa riga la pagina della run continua ad accogliere
+  # con 43 step da scorrere.
+  actions: read
 
 # Two different questions share this workflow, and they do NOT want the same
 # cancellation semantics.
@@ -2242,3 +2248,17 @@ jobs:
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-review-loop"
+
+      # ULTIMO step del job, e deve restarlo: legge l'esito di tutti quelli
+      # sopra. `always()` non è decorativo — un `if:` che nomina uno step senza
+      # `always()` non parte MAI dopo un fallimento, ed è esattamente dopo un
+      # fallimento che questo step ha qualcosa da dire.
+      #
+      # `continue-on-error: true` è il fail-soft: il segnalatore non può
+      # aggiungere un rosso al job che sta descrivendo, nemmeno crashando.
+      - name: Explain the job verdict in the run summary
+        if: ${{ always() }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/explain-job-verdict.mjs
