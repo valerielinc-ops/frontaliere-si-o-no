@@ -10,6 +10,8 @@ import {
   listAvailablePlatforms,
   queryOpenRouter,
   resetOpenRouterBudget,
+  resetRetryBudget,
+  RETRY_BUDGET_MS,
 } from '../scripts/check-ai-visibility.mjs';
 
 /**
@@ -49,6 +51,7 @@ afterEach(() => {
   vi.unstubAllEnvs();
   vi.useRealTimers();
   resetOpenRouterBudget();
+  resetRetryBudget();
 });
 
 const openRouterAnswer = (url: string) => new Response(JSON.stringify({
@@ -208,5 +211,151 @@ describe('OpenRouter web-search platform', () => {
     applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
 
     expect(result.platforms.openrouter).toEqual({ checked: false, error: 'API call failed' });
+  });
+});
+
+
+/**
+ * Issue #7400. Competitors were matched as a substring of the whole answer
+ * text, so `ticino.ch` matched inside our OWN `frontaliereticino.ch`: the false
+ * positive fired precisely on the queries where we ranked.
+ */
+describe('competitor matching is bounded to the host', () => {
+  it('does not read our own domain as the competitor ticino.ch', () => {
+    expect(findCompetitorMentions(
+      'Vedi https://frontaliereticino.ch/calcolo-stipendio per il calcolo.',
+      ['https://frontaliereticino.ch/calcolo-stipendio'],
+    )).toEqual([]);
+  });
+
+  it('does not count a competitor merely named in a page title', () => {
+    expect(findCompetitorMentions(
+      '',
+      ['Confronto premi cassa malati: la guida di Comparis.ch spiegata'],
+    )).toEqual([]);
+  });
+
+  it('still books a competitor cited by URL or as a bare Gemini host', () => {
+    expect(findCompetitorMentions('Fonte: https://www.comparis.ch/krankenkassen', []))
+      .toEqual(['comparis.ch']);
+    // Gemini grounding chunks expose the real host only as `web.title`.
+    expect(findCompetitorMentions('', ['ticino.ch'])).toEqual(['ticino.ch']);
+    // A subdomain of a competitor is still that competitor.
+    expect(findCompetitorMentions('', ['https://www4.ti.ch/x', 'https://red.admin.ch/y']))
+      .toEqual(['admin.ch']);
+  });
+});
+
+/**
+ * Issue #7398. MAX_ATTEMPTS bounds ONE call's wait, not the run's: 20 queries x
+ * ~120s of `Retry-After: 60` sleep overran the job's 30-minute timeout, so the
+ * run emitted neither the honest report nor the committed history.
+ */
+describe('retry waiting is capped per run, not only per call', () => {
+  /** Swallow the sleeps, recording what each one WOULD have waited. */
+  const captureWaits = () => {
+    const waits: number[] = [];
+    vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void, ms?: number) => {
+      waits.push(Number(ms ?? 0));
+      fn();
+      return 0 as unknown as ReturnType<typeof setTimeout>;
+    }) as unknown as typeof setTimeout);
+    return waits;
+  };
+
+  const rateLimited = async () => new Response('slow down', {
+    status: 429,
+    headers: { 'retry-after': '60' },
+  });
+
+  it('never sleeps more than the run budget, however many calls fail', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(rateLimited);
+    const waits = captureWaits();
+
+    // Unbudgeted this is 12 x 120_000 = 1_440_000 ms of sleep.
+    for (let i = 0; i < 12; i++) await fetchWithRetry('X', 'https://x.test', {});
+
+    expect(waits.reduce((a, b) => a + b, 0)).toBeLessThanOrEqual(RETRY_BUDGET_MS);
+  });
+
+  it('returns null without sleeping once the budget is spent', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(rateLimited);
+    const waits = captureWaits();
+
+    for (let i = 0; i < 12; i++) await fetchWithRetry('X', 'https://x.test', {});
+    const spent = waits.length;
+
+    expect(await fetchWithRetry('X', 'https://x.test', {})).toBeNull();
+    expect(waits.length).toBe(spent); // not one further sleep
+  });
+
+  it('starts each run with a full budget', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(rateLimited);
+    const waits = captureWaits();
+
+    for (let i = 0; i < 12; i++) await fetchWithRetry('X', 'https://x.test', {});
+    resetRetryBudget();
+    await fetchWithRetry('X', 'https://x.test', {});
+
+    expect(waits.length).toBeGreaterThan(0);
+  });
+});
+
+/**
+ * Issue #7404. The metered cap counted calls to queryOpenRouter, not the HTTP
+ * requests fetchWithRetry actually emits, and an unrecognised response shape
+ * collapsed into a measured `cited: false`.
+ */
+describe('OpenRouter spend cap and response shape', () => {
+  it('charges the cap per HTTP attempt, retries included', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void) => {
+      fn();
+      return 0 as unknown as ReturnType<typeof setTimeout>;
+    }) as typeof setTimeout);
+    // Every request is a retryable 429, so one queryOpenRouter burns 3 attempts.
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => new Response('slow down', { status: 429 }));
+
+    for (let i = 0; i < OPENROUTER_MAX_REQUESTS + 5; i++) await queryOpenRouter(`q${i}`);
+
+    expect(fetchMock.mock.calls.length).toBeLessThanOrEqual(OPENROUTER_MAX_REQUESTS);
+  });
+
+  it('records an unrecognised response as unchecked, never as a miss', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(JSON.stringify({
+      choices: [{ message: { content: 'Ecco alcune risorse.' } }],
+    }), { status: 200 }));
+
+    const result = { platforms: {} as Record<string, unknown>, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(result.platforms.openrouter).toEqual({ checked: false, error: 'API call failed' });
+  });
+
+  it('keeps a present-but-empty citation list an honest measured zero', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(JSON.stringify({
+      choices: [{ message: { content: 'Nessuna fonte.', annotations: [] } }],
+    }), { status: 200 }));
+
+    const result = { platforms: {} as Record<string, unknown>, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(result.platforms.openrouter).toMatchObject({ checked: true, cited: false });
+  });
+
+  it('reads the sources from the alternative citations shape', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(JSON.stringify({
+      choices: [{ message: { content: 'Ecco.' } }],
+      citations: ['https://frontaliereticino.ch/calcolo-stipendio'],
+    }), { status: 200 }));
+
+    const result = { platforms: {}, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    const entry = applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(entry).toMatchObject({ checked: true, cited: true });
   });
 });

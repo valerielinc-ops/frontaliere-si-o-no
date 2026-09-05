@@ -26,9 +26,11 @@
  */
 
 import { readFile, writeFile, appendFile, mkdir } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, realpathSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import { GH_MODELS_URL } from './lib/gh-models-endpoint.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
@@ -202,14 +204,15 @@ async function queryGitHubModels(query) {
   const key = getGhModelsPat();
   if (!key) return null;
 
-  const res = await fetchWithRetry('GitHub Models', 'https://models.inference.ai.azure.com/chat/completions', {
+  const res = await fetchWithRetry('GitHub Models', GH_MODELS_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${key}`,
     },
     body: JSON.stringify({
-      model: 'gpt-4o',
+      // models.github.ai requires publisher-prefixed ids.
+      model: 'openai/gpt-4o',
       messages: [
         {
           role: 'system',
@@ -241,12 +244,6 @@ async function queryOpenRouter(query) {
   const key = getOpenRouterKey();
   if (!key || isOpenRouterDisabled()) return null;
 
-  if (openRouterRequests >= OPENROUTER_MAX_REQUESTS) {
-    console.warn(`  ⚠ OpenRouter per-run cap reached (${OPENROUTER_MAX_REQUESTS} requests) — skipped`);
-    return null;
-  }
-  openRouterRequests++;
-
   const res = await fetchWithRetry('OpenRouter', 'https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -268,20 +265,51 @@ async function queryOpenRouter(query) {
       max_tokens: 1024,
       temperature: 0.2,
     }),
+  }, {
+    // The cap is this metered platform's only spend guarantee, so it is
+    // charged per HTTP request emitted, retries included.
+    beforeAttempt: () => {
+      if (openRouterRequests >= OPENROUTER_MAX_REQUESTS) {
+        console.warn(`  ⚠ OpenRouter per-run cap reached (${OPENROUTER_MAX_REQUESTS} requests) — skipped`);
+        return false;
+      }
+      openRouterRequests++;
+      return true;
+    },
   });
 
   if (!res) return null;
 
   const data = await res.json();
   const message = data.choices?.[0]?.message || {};
+  const choice = data.choices?.[0] || {};
   const content = message.content || '';
+
   // The web plugin returns its sources as `annotations[].url_citation`, not
-  // inside the prose: those are the real retrieved URLs. Reading only the
-  // text would measure what the model remembers, not what search surfaced.
-  const citations = (message.annotations || [])
+  // inside the prose: those are the real retrieved URLs. Reading only the text
+  // would measure what the model remembers, not what search surfaced.
+  //
+  // Read every shape OpenRouter is known to use, and — the point of issue
+  // #7404 — tell "the plugin found nothing" apart from "we did not recognise
+  // this response". Reading one shape only, an unrecognised payload yielded an
+  // empty list that applyPlatformAnswer recorded as `checked: true,
+  // cited: false`: a systematic miss indistinguishable from a measured zero,
+  // exactly the class of bug the #7005 contract exists to prevent. An absent
+  // key is now `null` (checked: false, unknown); a PRESENT but empty one stays
+  // an honest measured zero.
+  const annotations = message.annotations ?? choice.annotations;
+  const listed = data.citations ?? message.citations;
+  if (annotations === undefined && listed === undefined) {
+    console.warn('  ⚠ OpenRouter: no known citation key in response (annotations/citations) — recorded as unchecked, not as a miss');
+    return null;
+  }
+
+  const fromAnnotations = (Array.isArray(annotations) ? annotations : [])
     .filter(a => a?.type === 'url_citation')
-    .map(a => a.url_citation?.url)
-    .filter(Boolean);
+    .map(a => a.url_citation?.url);
+  const fromListed = (Array.isArray(listed) ? listed : [])
+    .map(c => (typeof c === 'string' ? c : c?.url));
+  const citations = [...new Set([...fromAnnotations, ...fromListed].filter(Boolean))];
 
   return { content, citations, raw: data };
 }
@@ -295,9 +323,42 @@ async function queryOpenRouter(query) {
  */
 const MAX_ATTEMPTS = 3;
 
-async function fetchWithRetry(label, url, init) {
+// Per-RUN ceiling on time spent sleeping between retries (issue #7398).
+// MAX_ATTEMPTS bounds the wait of a SINGLE call (<=120s with `Retry-After: 60`),
+// but runCheck makes one call per platform per query: 20 queries x ~120s is ~40
+// min of pure sleep against the job's `timeout-minutes: 30`, so a quota-429 day
+// cancelled the job and it emitted NEITHER the honest report NOR the committed
+// history. A cumulative budget makes the outcome independent of what the
+// servers put in `Retry-After`: once it is spent, calls stop sleeping and
+// return null, which callers already record as `checked: false` (unknown) and
+// never as "not cited".
+const RETRY_BUDGET_MS = 300_000; // 5 min of sleep on a 30-min job
+let retryBudgetLeftMs = RETRY_BUDGET_MS;
+
+/** Reset the per-run retry budget (a run = one process; tests need it too). */
+function resetRetryBudget() { retryBudgetLeftMs = RETRY_BUDGET_MS; }
+
+/**
+ * Spend `ms` of the run's retry budget. Returns false when the budget cannot
+ * cover the planned wait — the caller must then give up WITHOUT sleeping.
+ */
+function spendRetryBudget(label, ms) {
+  if (ms > retryBudgetLeftMs) {
+    console.warn(`  ⚠ ${label}: retry budget spent (${Math.round(RETRY_BUDGET_MS / 1000)}s/run) — giving up without waiting`);
+    return false;
+  }
+  retryBudgetLeftMs -= ms;
+  return true;
+}
+
+async function fetchWithRetry(label, url, init, { beforeAttempt } = {}) {
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     const last = attempt === MAX_ATTEMPTS;
+    // Metered callers charge their budget HERE, per HTTP request actually
+    // emitted (issue #7404): a retry re-sends the request, so counting once
+    // per queryX() undercounted spend by up to MAX_ATTEMPTS. Returning false
+    // aborts without emitting.
+    if (beforeAttempt && beforeAttempt(attempt) === false) return null;
     try {
       const res = await fetch(url, init);
       if (res.ok) return res;
@@ -312,6 +373,7 @@ async function fetchWithRetry(label, url, init) {
       const waitMs = Number.isFinite(retryAfter) && retryAfter > 0
         ? Math.min(retryAfter * 1000, 60_000)
         : 2000 * 2 ** (attempt - 1);
+      if (!spendRetryBudget(label, waitMs)) return null;
       console.warn(`  ⚠ ${label} API ${res.status} (attempt ${attempt}/${MAX_ATTEMPTS}) — retry in ${Math.round(waitMs / 1000)}s`);
       await sleep(waitMs);
     } catch (err) {
@@ -319,8 +381,10 @@ async function fetchWithRetry(label, url, init) {
         console.warn(`  ⚠ ${label} error: ${err.message}`);
         return null;
       }
+      const backoffMs = 2000 * 2 ** (attempt - 1);
+      if (!spendRetryBudget(label, backoffMs)) return null;
       console.warn(`  ⚠ ${label} error: ${err.message} (attempt ${attempt}/${MAX_ATTEMPTS})`);
-      await sleep(2000 * 2 ** (attempt - 1));
+      await sleep(backoffMs);
     }
   }
   return null;
@@ -362,11 +426,55 @@ function findSiteMention(content, citations = []) {
 /**
  * Find which competitors are mentioned in the response.
  */
-function findCompetitorMentions(content, citations = []) {
-  const allText = [content, ...citations.map(c => typeof c === 'string' ? c : c.url || '')].join(' ');
-  const lower = allText.toLowerCase();
+/**
+ * Hosts referenced by an answer — the only surface a competitor may be matched
+ * against (issue #7400). A substring scan over the raw text counted
+ * `ticino.ch` inside our OWN `frontaliereticino.ch`, so every query where we
+ * ranked also booked a competitor: the false positive fired exactly on the
+ * successes.
+ *
+ * A citation entry is accepted as a host only when the WHOLE string is one.
+ * That is deliberate and load-bearing for Gemini, whose grounding chunks carry
+ * the source twice: a redirect `uri` that never contains the real host, and a
+ * `web.title` that usually IS the bare domain (`comparis.ch`) but is sometimes
+ * a real page title (`... la guida di Comparis.ch spiegata`). Parsing the bare
+ * domain keeps Gemini's competitor signal alive; refusing the prose title drops
+ * the second false positive. Redirect uris parse to Google's own host and
+ * simply never match a competitor.
+ */
+function citedHosts(content, citations = []) {
+  const candidates = [
+    ...(String(content || '').match(/https?:\/\/[^\s"'<>\])}]+/gi) || []),
+    ...citations.map(c => (typeof c === 'string' ? c : (c && c.url) || '')),
+  ];
 
-  return COMPETITORS.filter(comp => lower.includes(comp.toLowerCase()));
+  const hosts = [];
+  for (const raw of candidates) {
+    const cleaned = String(raw || '').trim().replace(/[.,;:!?)]+$/, '');
+    if (!cleaned) continue;
+    // Bare hostname (a Gemini `web.title`) — no scheme, no whitespace.
+    const withScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(cleaned)
+      ? cleaned
+      : (/^[a-z0-9-]+(\.[a-z0-9-]+)+(\/\S*)?$/i.test(cleaned) ? `https://${cleaned}` : null);
+    if (!withScheme) continue;
+    try {
+      hosts.push(new URL(withScheme).hostname.toLowerCase().replace(/^www\./, ''));
+    } catch { /* not a URL — carries no host, so no competitor */ }
+  }
+  return hosts;
+}
+
+/**
+ * Find which competitors are mentioned in the response. Matching is on the
+ * host with a domain-LABEL boundary: `ticino.ch` matches `ticino.ch` and
+ * `www.ticino.ch`, never `frontaliereticino.ch`.
+ */
+function findCompetitorMentions(content, citations = []) {
+  const hosts = citedHosts(content, citations);
+  return COMPETITORS.filter(comp => {
+    const c = comp.toLowerCase();
+    return hosts.some(h => h === c || h.endsWith(`.${c}`));
+  });
 }
 
 /**
@@ -809,7 +917,18 @@ function generateMarkdown(report) {
 
 // ─── Entry point ────────────────────────────────────────────────────────────
 
-const isDirectRun = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+// Compare REALPATHS (issue #7401): `resolve()` alone keeps symlinks, so an
+// entry point reached through a link (a runner with a symlinked
+// $GITHUB_WORKSPACE, an npm wrapper, a worktree behind a link) failed the
+// comparison and the script silently did nothing while exiting 0 — a green step
+// that ran no work. realpathSync throws on a path that does not exist, so fall
+// back to resolve().
+function realPath(p) {
+  try { return realpathSync(p); } catch { return resolve(p); }
+}
+
+const isDirectRun = Boolean(process.argv[1])
+  && realPath(process.argv[1]) === realPath(fileURLToPath(import.meta.url));
 
 if (isDirectRun) {
   runCheck().catch(err => {
@@ -830,5 +949,7 @@ export {
   detectPlatforms,
   listAvailablePlatforms,
   resetOpenRouterBudget,
+  resetRetryBudget,
   OPENROUTER_MAX_REQUESTS,
+  RETRY_BUDGET_MS,
 };
