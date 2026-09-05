@@ -1,14 +1,628 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-08-31T17:06:09.718Z",
+  "assembledAt": "2026-09-05T22:49:43.343Z",
   "jobs": [
+    {
+      "id": "gmo-69ead8a8b120",
+      "slug": "farmaceutici-gmo-lugano",
+      "slugByLocale": {
+        "it": "farmaceutici-gmo-lugano",
+        "en": "pharmaceuticals-gmo-lugano",
+        "de": "pharmazeutika-gmo-lugano",
+        "fr": "pharmacien-ne-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Pharmacien·ne",
+      "titleByLocale": {
+        "it": "Farmaceutici",
+        "en": "Pharmaceuticals",
+        "de": "Pharmazeutika",
+        "fr": "Pharmacien·ne"
+      },
+      "description": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être des pharmacies de quartier, intégrées au sein de structures médicales offrant à la population un parcours de soins optimal et de qualité. Vos conditions Contrat à durée indéterminée Entrée en fonction : septembre 2026 Taux d’activité : entre un 60% et 80% Droit aux vacances : 5 semaines par an \n• Votre mission Dans le cadre de votre poste, vous devrez assurer un service à la clientèle de qualité, contrôler et valider les ordonnances, ainsi qu’accomplir diverses tâches déléguées selon votre cahier des charges. Vous participerez activement au conseil et à l’accompagnement thérapeutique des patients, notamment dans les domaines de la médecine naturelle et complémentaire, en apportant une prise en charge personnalisée et de proximité. Vous serez également impliqué-e dans les activités de préparations magistrales, d’assistance pharmaceutique et de gestion d'approvisionnement d’EMS, dans un souci constant de qualité, de rigueur et de sécurité pour les patients. \n• Vos compétences Vous disposez des qualifications et autorisations nécessaires pour exercer votre profession de pharmacien-ne, Vous avez deux ans d’expérience sur Suisse, Vous appréciez les contacts humains, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé-e, Vous maîtrisez les outils informatiques usuels, la connaissance de Tactil serait un atout.",
+      "descriptionByLocale": {
+        "it": "Per la nostra farmacia Eaux-Vives stazione nel cantone di Ginevra, stiamo attivamente cercando un farmacista-ne al 60-80% Le nostre farmacie sono state riconosciute da più di 10 anni. Sono destinati ad essere... Maggiori informazioni",
+        "en": "For our pharmacy Eaux-Vives station in the canton of Geneva, we are actively looking for a pharmacist-ne at 60-80% Our pharmacies have been recognized for more than 10 years. They're meant to be... More information",
+        "de": "Für unsere Apotheke Eaux-Vives Station im Kanton Genf suchen wir aktiv einen Apotheker-ne bei 60-80% Unsere Apotheken sind seit mehr als 10 Jahren anerkannt. Sie sollen... Weitere Informationen",
+        "fr": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être des pharmacies de quartier, intégrées au sein de structures médicales offrant à la population un parcours de soins optimal et de qualité. Vos conditions Contrat à durée indéterminée Entrée en fonction : septembre 2026 Taux d’activité : entre un 60% et 80% Droit aux vacances : 5 semaines par an \n• Votre mission Dans le cadre de votre poste, vous devrez assurer un service à la clientèle de qualité, contrôler et valider les ordonnances, ainsi qu’accomplir diverses tâches déléguées selon votre cahier des charges. Vous participerez activement au conseil et à l’accompagnement thérapeutique des patients, notamment dans les domaines de la médecine naturelle et complémentaire, en apportant une prise en charge personnalisée et de proximité. Vous serez également impliqué-e dans les activités de préparations magistrales, d’assistance pharmaceutique et de gestion d'approvisionnement d’EMS, dans un souci constant de qualité, de rigueur et de sécurité pour les patients. \n• Vos compétences Vous disposez des qualifications et autorisations nécessaires pour exercer votre profession de pharmacien-ne, Vous avez deux ans d’expérience sur Suisse, Vous appréciez les contacts humains, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé-e, Vous maîtrisez les outils informatiques usuels, la connaissance de Tactil serait un atout."
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:36.065Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.arsante.ch/emploi/pharmacien-ne-92",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pharmacien-ne-gmo-ch",
+        "farmaceutici-gmo-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pharmacien-ne-gmo-ch",
+          "farmaceutici-gmo-lugano"
+        ],
+        "en": [
+          "pharmacien-ne-gmo-ch"
+        ],
+        "de": [
+          "pharmacien-ne-gmo-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:19:25.649Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gmo-4b5a5ae3e4b8",
+      "slug": "esperti-medici-gmo-lugano",
+      "slugByLocale": {
+        "it": "esperti-medici-gmo-lugano",
+        "en": "medical-experts-gmo-lugano",
+        "de": "medizinische-experten-gmo-lugano",
+        "fr": "experts-medicaux-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Experts médicaux",
+      "titleByLocale": {
+        "it": "Esperti medici",
+        "en": "Medical experts",
+        "de": "Medizinische Experten",
+        "fr": "Experts médicaux"
+      },
+      "description": "Le Centre d’Expertise Médicale de Lancy (CEML) recherche des médecins spécialistes en : Médecine interne Rhumatologie Psychiatrie Neuropsychologie titulaires du titre FMH et de la certification SIM, souhaitant collaborer avec notre équipe médico-administrative, selon leurs disponibilités. Nous mettons à disposition un accompagnement complet comprenant la préparation des dossiers (résumé des pièces et élaboration d’un chablon adapté aux questions d’expertise), des locaux équipés, le matériel nécessaire à la réalisation des expertises, la frappe des dictées ainsi qu’une relecture des rapports par un médecin spécialiste. Le CEML propose également un accompagnement et une formation, assurés par ses médecins collaborateurs, experts SIM, bénéficiant d’une solide expérience dans le domaine des expertises médicales. Nous serions heureux de vous compter parmi nos collaborateurs et restons volontiers à votre disposition pour tout renseignement complémentaire.",
+      "descriptionByLocale": {
+        "it": "Il Centre d'Expertise Médicale de Lancy (CEML) sta cercando specialisti medici in: Medicina interna Rheumatology Psychiatry Neuropsychology con il titolo di certificazione FMH e SIM, che desiderano collaborare con il nostro team amministrativo, secondo il loro... Maggiori informazioni",
+        "en": "The Centre d'Expertise Médicale de Lancy (CEML) is looking for medical specialists in: Internal medicine Rheumatology Psychiatry Neuropsychology with the title FMH and SIM certification, wishing to collaborate with our medico-administrative team, according to their... More information",
+        "de": "Das Centre d'Expertise Médicale de Lancy (CEML) sucht medizinische Spezialisten in: Innere Medizin Rheumatologie Psychiatrie Neuropsychologie mit dem Titel FMH und SIM-Zertifizierung, die mit unserem medizinisch-administrativen Team zusammenarbeiten möchten, nach ihrer... Weitere Informationen",
+        "fr": "Le Centre d’Expertise Médicale de Lancy (CEML) recherche des médecins spécialistes en : Médecine interne Rhumatologie Psychiatrie Neuropsychologie titulaires du titre FMH et de la certification SIM, souhaitant collaborer avec notre équipe médico-administrative, selon leurs disponibilités. Nous mettons à disposition un accompagnement complet comprenant la préparation des dossiers (résumé des pièces et élaboration d’un chablon adapté aux questions d’expertise), des locaux équipés, le matériel nécessaire à la réalisation des expertises, la frappe des dictées ainsi qu’une relecture des rapports par un médecin spécialiste. Le CEML propose également un accompagnement et une formation, assurés par ses médecins collaborateurs, experts SIM, bénéficiant d’une solide expérience dans le domaine des expertises médicales. Nous serions heureux de vous compter parmi nos collaborateurs et restons volontiers à votre disposition pour tout renseignement complémentaire."
+      },
+      "location": "1213 Petit-Lancy",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:35.764Z",
+      "addressLocality": "Petit-Lancy",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.arsante.ch/emploi/experts-medicaux-93",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "experts-medicaux-gmo-ch",
+        "esperti-medici-gmo-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "experts-medicaux-gmo-ch",
+          "esperti-medici-gmo-lugano"
+        ],
+        "en": [
+          "experts-medicaux-gmo-ch"
+        ],
+        "de": [
+          "experts-medicaux-gmo-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:19:25.346Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gmo-576ebe7aaad6",
+      "slug": "infermiere-pediatrico-gmo-lugano",
+      "slugByLocale": {
+        "it": "infermiere-pediatrico-gmo-lugano",
+        "en": "paediatric-nurse-gmo-lugano",
+        "de": "kinderkrankenschwester-gmo-lugano",
+        "fr": "infirmier-ere-pediatrique-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Infirmier·ère pédiatrique",
+      "titleByLocale": {
+        "it": "Infermiere pediatrico",
+        "en": "Paediatric nurse",
+        "de": "Kinderkrankenschwester",
+        "fr": "Infirmier·ère pédiatrique"
+      },
+      "description": "Nous recherchons un·e infirmier·ère à 60-70 % pour notre service des urgences pédiatriques au sein de la Clinique et Permanence d’Onex SA. Vous rejoindrez une équipe dynamique dans un environnement stimulant, où la qualité des soins, la réactivité et l'accompagnement des enfants et de leurs familles sont au coeur de nos priorités. \n• Vos missions Accueillir, évaluer et prendre en charge les enfants se présentant aux urgences, en collaboration avec l'équipe médicale. Réaliser les soins infirmiers adaptés à l'état clinique de l'enfant dans le respect des protocoles en vigueur. Assurer la surveillance clinique des patients et adapter la prise en charge selon l'évolution de leur état. Administrer les traitements et effectuer les gestes techniques prescrits. Participer à la prise en charge des situations d'urgence et des soins aigus pédiatriques. Accompagner et informer les parents tout au long de la prise en charge, avec écoute et bienveillance. Assurer la traçabilité des soins et garantir la qualité de la documentation dans le dossier patient. Collaborer étroitement avec les médecins et les autres professionnels de santé afin d'assurer une prise en charge coordonnée. Veiller au respect des règles d'hygiène, de sécurité et des bonnes pratiques. Participer à la vie du service, aux réunions d'équipe et aux formations continues. \n• Votre profil Diplôme d'infirmier·ère reconnu en Suisse et droit de pratique sur le canton de Genève. Expérience d'au moins cinq ans en pédiatrie. Obtention de la certification Pediatric Advance Life Support (PALS) ou à effectuer. Une expérience en service d'urgences pédiatriques ou en soins aigus constitue un réel atout. Excellente capacité à gérer les situations d'urgence et à travailler sous pression. Sens des responsabilités, autonomie et bonne capacité d'organisation. Esprit d'équipe, aisance relationnelle et approche bienveillante envers les enfants et leurs familles. \n• Nous offrons Pas de gardes de nuit Taux d'activité à 60-70 %. 5 semaines de vacances par an. Un environnement de travail convivial, dynamique et spécialisé. Une entrée en fonction dès novembre 2026.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un'infermiera del 60-70% per il nostro reparto di emergenza pediatrica presso la clinica e la permanenza di Onex SA. Ti unirai a un team dinamico in un ambiente... Maggiori informazioni",
+        "en": "We are looking for a 60-70% nurse for our pediatric emergency department at the Clinic and Permanence of Onex SA. You will join a dynamic team in an environment... More information",
+        "de": "Wir suchen eine 60-70% Krankenschwester für unsere pädiatrische Notaufnahme in der Klinik und Permanenz von Onex SA. Sie werden einem dynamischen Team in einer Umgebung beitreten ... Weitere Informationen",
+        "fr": "Nous recherchons un·e infirmier·ère à 60-70 % pour notre service des urgences pédiatriques au sein de la Clinique et Permanence d’Onex SA. Vous rejoindrez une équipe dynamique dans un environnement stimulant, où la qualité des soins, la réactivité et l'accompagnement des enfants et de leurs familles sont au coeur de nos priorités. \n• Vos missions Accueillir, évaluer et prendre en charge les enfants se présentant aux urgences, en collaboration avec l'équipe médicale. Réaliser les soins infirmiers adaptés à l'état clinique de l'enfant dans le respect des protocoles en vigueur. Assurer la surveillance clinique des patients et adapter la prise en charge selon l'évolution de leur état. Administrer les traitements et effectuer les gestes techniques prescrits. Participer à la prise en charge des situations d'urgence et des soins aigus pédiatriques. Accompagner et informer les parents tout au long de la prise en charge, avec écoute et bienveillance. Assurer la traçabilité des soins et garantir la qualité de la documentation dans le dossier patient. Collaborer étroitement avec les médecins et les autres professionnels de santé afin d'assurer une prise en charge coordonnée. Veiller au respect des règles d'hygiène, de sécurité et des bonnes pratiques. Participer à la vie du service, aux réunions d'équipe et aux formations continues. \n• Votre profil Diplôme d'infirmier·ère reconnu en Suisse et droit de pratique sur le canton de Genève. Expérience d'au moins cinq ans en pédiatrie. Obtention de la certification Pediatric Advance Life Support (PALS) ou à effectuer. Une expérience en service d'urgences pédiatriques ou en soins aigus constitue un réel atout. Excellente capacité à gérer les situations d'urgence et à travailler sous pression. Sens des responsabilités, autonomie et bonne capacité d'organisation. Esprit d'équipe, aisance relationnelle et approche bienveillante envers les enfants et leurs familles. \n• Nous offrons Pas de gardes de nuit Taux d'activité à 60-70 %. 5 semaines de vacances par an. Un environnement de travail convivial, dynamique et spécialisé. Une entrée en fonction dès novembre 2026."
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:35.463Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-pediatrique-gmo-ch",
+        "infermiere-pediatrico-gmo-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pediatrique-gmo-ch",
+          "infermiere-pediatrico-gmo-lugano"
+        ],
+        "en": [
+          "infirmier-ere-pediatrique-gmo-ch"
+        ],
+        "de": [
+          "infirmier-ere-pediatrique-gmo-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:19:24.741Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gmo-f1bf9caf6800",
+      "slug": "junior-lavoratore-gmo-lugano",
+      "slugByLocale": {
+        "it": "junior-lavoratore-gmo-lugano",
+        "en": "junior-worker-gmo-lugano",
+        "de": "juniorarbeiter-gmo-lugano",
+        "fr": "conducteur-rice-de-travaux-junior-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Conducteur·rice de travaux junior",
+      "titleByLocale": {
+        "it": "Junior lavoratore",
+        "en": "Junior worker",
+        "de": "Juniorarbeiter",
+        "fr": "Conducteur·rice de travaux junior"
+      },
+      "description": "Dans le cadre d'un projet de surrélévation du bâtiment de la Clinique et permanence d'Onex, nous recherchons un·e conducteur·rice des travaux. LE PROJET Développer une surélévation sur un bâtiment existant afin de créer de nouvelles surfaces d’hébergements destinées à l’exploitation du groupe médical. Le chantier devra conjuguer performance technique, maîtrise des délais et des coûts, conformité réglementaire et maintien d’un environnement sûr pour les usagers et les équipes. \n• Votre mission Rattaché·e à la direction d’Arsanté Services SA et accompagné·e par les responsables du projet, vous participez au pilotage opérationnel d’un chantier de surélévation à Genève, depuis la préparation des travaux jusqu’à la réception et la mise en exploitation des nouveaux locaux médicaux. \n• Vos responsabilités principales Participer à la préparation, à la planification et au phasage du chantier. Coordonner au quotidien les entreprises, mandataires, fournisseurs et intervenants internes. Suivre l’avancement, les délais, la qualité d’exécution et les coûts, puis produire un reporting clair. Préparer et co-animer les séances de chantier, rédiger les procès-verbaux et assurer le suivi des décisions. Contrôler les travaux sur site, relever les écarts et contribuer à la résolution rapide des problèmes. Veiller au respect des règles de sécurité, des exigences réglementaires et des standards du projet. Organiser les contrôles, essais, réceptions, levées de réserves et la remise de la documentation finale. Intégrer les contraintes d’un bâtiment médical, notamment la continuité d’activité, les accès, le bruit, la poussière, l’hygiène et la sécurité des patient·es et du personnel. \n• Votre profil Formation technique dans le bâtiment : diplôme ES/HES, architecture, génie civil, technicien·ne en conduite de travaux, dessinateur·trice avec évolution chantier, ou formation jugée équivalente. Première expérience de chantier souhaitée (stage, apprentissage, alternance ou 1 à 3 ans d’expérience). Bonne lecture de plans et compréhension des principaux corps d’état du bâtiment. Maîtrise des outils bureautiques ; aisance avec un logiciel de planification et/ou de suivi de chantier appréciée. Français courant à l’oral et à l’écrit ; permis de conduire souhaité. Sens de l’organisation, fiabilité, esprit pratique, communication constructive et capacité à prioriser. Ce que nous proposons Une mission concrète et responsabilisante sur un projet utile au développement de l’offre de soins genevoise. Un cadre permettant à un profil junior de progresser au contact de partenaires expérimentés. Un CDD d’environ 18 mois, basé à Genève Entrée en fonction: septembre 2026",
+      "descriptionByLocale": {
+        "it": "Come parte di un progetto per sopraffare l'edificio della clinica e la struttura in loco a Onex, stiamo cercando un manager. IL PROGETTO Sviluppare un'altezza su un edificio esistente per... Maggiori informazioni",
+        "en": "As part of a project to overwhelm the clinic building and on-site facility at Onex, we are looking for a manager. THE PROJECT Develop an elevation on an existing building in order to... More information",
+        "de": "Im Rahmen eines Projekts, um das Klinikgebäude und die Einrichtung vor Ort bei Onex zu überwältigen, suchen wir einen Manager. DAS PROJEKT Entwickeln Sie eine Erhöhung auf einem bestehenden Gebäude, um... Weitere Informationen",
+        "fr": "Dans le cadre d'un projet de surrélévation du bâtiment de la Clinique et permanence d'Onex, nous recherchons un·e conducteur·rice des travaux. LE PROJET Développer une surélévation sur un bâtiment existant afin de créer de nouvelles surfaces d’hébergements destinées à l’exploitation du groupe médical. Le chantier devra conjuguer performance technique, maîtrise des délais et des coûts, conformité réglementaire et maintien d’un environnement sûr pour les usagers et les équipes. \n• Votre mission Rattaché·e à la direction d’Arsanté Services SA et accompagné·e par les responsables du projet, vous participez au pilotage opérationnel d’un chantier de surélévation à Genève, depuis la préparation des travaux jusqu’à la réception et la mise en exploitation des nouveaux locaux médicaux. \n• Vos responsabilités principales Participer à la préparation, à la planification et au phasage du chantier. Coordonner au quotidien les entreprises, mandataires, fournisseurs et intervenants internes. Suivre l’avancement, les délais, la qualité d’exécution et les coûts, puis produire un reporting clair. Préparer et co-animer les séances de chantier, rédiger les procès-verbaux et assurer le suivi des décisions. Contrôler les travaux sur site, relever les écarts et contribuer à la résolution rapide des problèmes. Veiller au respect des règles de sécurité, des exigences réglementaires et des standards du projet. Organiser les contrôles, essais, réceptions, levées de réserves et la remise de la documentation finale. Intégrer les contraintes d’un bâtiment médical, notamment la continuité d’activité, les accès, le bruit, la poussière, l’hygiène et la sécurité des patient·es et du personnel. \n• Votre profil Formation technique dans le bâtiment : diplôme ES/HES, architecture, génie civil, technicien·ne en conduite de travaux, dessinateur·trice avec évolution chantier, ou formation jugée équivalente. Première expérience de chantier souhaitée (stage, apprentissage, alternance ou 1 à 3 ans d’expérience). Bonne lecture de plans et compréhension des principaux corps d’état du bâtiment. Maîtrise des outils bureautiques ; aisance avec un logiciel de planification et/ou de suivi de chantier appréciée. Français courant à l’oral et à l’écrit ; permis de conduire souhaité. Sens de l’organisation, fiabilité, esprit pratique, communication constructive et capacité à prioriser. Ce que nous proposons Une mission concrète et responsabilisante sur un projet utile au développement de l’offre de soins genevoise. Un cadre permettant à un profil junior de progresser au contact de partenaires expérimentés. Un CDD d’environ 18 mois, basé à Genève Entrée en fonction: septembre 2026"
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:35.158Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "conducteur-rice-de-travaux-junior-gmo-ch",
+        "junior-lavoratore-gmo-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conducteur-rice-de-travaux-junior-gmo-ch",
+          "junior-lavoratore-gmo-lugano"
+        ],
+        "en": [
+          "conducteur-rice-de-travaux-junior-gmo-ch"
+        ],
+        "de": [
+          "conducteur-rice-de-travaux-junior-gmo-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:19:24.134Z",
+      "needsRetranslation": true,
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gmo-2d73a3ff1c4a",
+      "slug": "assistente-medico-gmo-lugano",
+      "slugByLocale": {
+        "it": "assistente-medico-gmo-lugano",
+        "en": "assistant-e-medical-e-gmo-ch",
+        "de": "assistent-e-medical-e-gmo-lugano",
+        "fr": "assistant-e-medical-e-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Assistant·e médical·e",
+      "titleByLocale": {
+        "it": "Assistente medico",
+        "en": "Medical Assistant",
+        "de": "Assistent·e médical·e",
+        "fr": "Assistant·e médical·e"
+      },
+      "description": "La Clinique et Permanence d’Onex recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son service de médecine générale Vos conditions : Entrée en fonction : dès que possible Contrat à durée indéterminée Taux d’activité : 50%, 20 heures hebdomadaire Droit aux vacances : 5 semaines \n• Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. \n• Vos compétences : CFC d'assistant· e médical· e Vous avez votre droit de pratique sur le canton de Genève, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé· e, Vous êtes organisé· e et avez le sens des priorités, Vous êtes discret· e et consciencieux-se, Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout.",
+      "descriptionByLocale": {
+        "it": "La Clinica e Permanenza di Onex recluta un assistente medico per unirsi al suo team nel suo servizio medico generale Le vostre condizioni: Entrata in servizio: appena possibile Contratto... Maggiori informazioni",
+        "en": "The Clinic and Permanence of Onex recruits a medical assistant to join its team in its general medical service Your conditions : Entry into service : as soon as possible Contract... More information",
+        "de": "Die Klinik und Beständigkeit von Onex rekrutiert einen medizinischen Assistenten, der sich seinem Team in seinem allgemeinen medizinischen Dienst anschließt Ihre Bedingungen: Eintritt in den Dienst: so bald wie möglich Vertrag ... Weitere Informationen",
+        "fr": "La Clinique et Permanence d’Onex recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son service de médecine générale Vos conditions : Entrée en fonction : dès que possible Contrat à durée indéterminée Taux d’activité : 50%, 20 heures hebdomadaire Droit aux vacances : 5 semaines \n• Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. \n• Vos compétences : CFC d'assistant· e médical· e Vous avez votre droit de pratique sur le canton de Genève, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé· e, Vous êtes organisé· e et avez le sens des priorités, Vous êtes discret· e et consciencieux-se, Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout."
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:34.856Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-medical-e-gmo-ch",
+        "assistente-medico-gmo-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-gmo-ch",
+          "assistente-medico-gmo-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:19:23.816Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gmo-91ba1140d26f",
+      "slug": "coordinatore-gmo-lugano",
+      "slugByLocale": {
+        "it": "coordinatore-gmo-lugano",
+        "en": "coordinator-gmo-lugano",
+        "de": "koordinator-gmo-lugano",
+        "fr": "coordinateur-rice-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Coordinateur·rice",
+      "titleByLocale": {
+        "it": "Coordinatore",
+        "en": "Coordinator",
+        "de": "Koordinator",
+        "fr": "Coordinateur·rice"
+      },
+      "description": "Le Centre Médical de Meyrin recherche un-e coordinateur-trice administratif-tive entre un 80% et 100%. A ce poste stratégique, vous assurez l’organisation en collaboration avec la direction médicale, la continuité et la qualité des activités du Centre Médical. Vous jouez un rôle central dans la coordination de l’équipe, notamment par la planification des horaires, la gestion des absences et la garantie d’une couverture optimale permettant un fonctionnement fluide et efficace au quotidien. Vous êtes également un point de référence pour les collaborateurs et assurez le lien entre les équipes, les médecins et la direction. En tant que cadre intermédiaire, vous contribuez à fixer les objectifs du Centre, à identifier les axes d’amélioration et à structurer les modalités organisationnelles nécessaires à son évolution, en recherchant la meilleure efficience. Vous accompagnez les collaborateurs dans leur activité quotidienne, participez à la résolution des situations complexes et contribuez à la mise en place et au suivi des procédures et des bonnes pratiques. Vos conditions : Fonction : coordinateur-trice administratif-tive Taux d’activité : entre un 80% et un 100% (entrée en fonction dès que possible), dont environ 40%-60% sur le terrain Profil recherché : Diplôme de secrétaire médical-e ou assistant-e médical-e Expérience confirmée en gestion d’équipe Formation complémentaire en management ou en gestion des institutions de santé (atout) Excellentes capacités organisationnelles et relationnelles Expérience dans le domaine de la santé Leadership naturel, capacité à prendre des décisions et à gérer les priorités Maîtrise des outils informatiques et de planification Sens des responsabilités, autonomie et esprit d’initiative Nous vous offrons : Un environnement de travail dynamique et stimulant au sein d’un Centre Médical regroupant une dizaine de médecins. Une équipe engagée, collaborative et professionnelle Un poste varié et à responsabilités, au coeur de l’organisation et du fonctionnement du Centre Médical Une fonction offrant une réelle autonomie dans la coordination des équipes et l’organisation des activités La possibilité de participer activement à l’amélioration des processus et au développement du Centre Un équilibre entre responsabilités de coordination et activité sur le terrain Un environnement favorisant les échanges, la collaboration et la prise d’initiative Des conditions de travail attractives au sein d’un groupe médical en pleine évolution",
+      "descriptionByLocale": {
+        "it": "Il Medical Center di Meyrin sta cercando un coordinatore amministrativo-attivo tra l'80% e il 100%. In questa posizione strategica, si assicura l'organizzazione in collaborazione con la gestione medica, la continuità e... Maggiori informazioni",
+        "en": "The Medical Center of Meyrin is looking for an administrative-tive coordinator between an 80% and 100%. In this strategic position, you ensure the organization in collaboration with the medical management, continuity and... More information",
+        "de": "Das Medical Center of Meyrin sucht einen administrativen Koordinator zwischen 80% und 100%. In dieser strategischen Position sichern Sie die Organisation in Zusammenarbeit mit dem medizinischen Management, Kontinuität und... Weitere Informationen",
+        "fr": "Le Centre Médical de Meyrin recherche un-e coordinateur-trice administratif-tive entre un 80% et 100%. A ce poste stratégique, vous assurez l’organisation en collaboration avec la direction médicale, la continuité et la qualité des activités du Centre Médical. Vous jouez un rôle central dans la coordination de l’équipe, notamment par la planification des horaires, la gestion des absences et la garantie d’une couverture optimale permettant un fonctionnement fluide et efficace au quotidien. Vous êtes également un point de référence pour les collaborateurs et assurez le lien entre les équipes, les médecins et la direction. En tant que cadre intermédiaire, vous contribuez à fixer les objectifs du Centre, à identifier les axes d’amélioration et à structurer les modalités organisationnelles nécessaires à son évolution, en recherchant la meilleure efficience. Vous accompagnez les collaborateurs dans leur activité quotidienne, participez à la résolution des situations complexes et contribuez à la mise en place et au suivi des procédures et des bonnes pratiques. Vos conditions : Fonction : coordinateur-trice administratif-tive Taux d’activité : entre un 80% et un 100% (entrée en fonction dès que possible), dont environ 40%-60% sur le terrain Profil recherché : Diplôme de secrétaire médical-e ou assistant-e médical-e Expérience confirmée en gestion d’équipe Formation complémentaire en management ou en gestion des institutions de santé (atout) Excellentes capacités organisationnelles et relationnelles Expérience dans le domaine de la santé Leadership naturel, capacité à prendre des décisions et à gérer les priorités Maîtrise des outils informatiques et de planification Sens des responsabilités, autonomie et esprit d’initiative Nous vous offrons : Un environnement de travail dynamique et stimulant au sein d’un Centre Médical regroupant une dizaine de médecins. Une équipe engagée, collaborative et professionnelle Un poste varié et à responsabilités, au coeur de l’organisation et du fonctionnement du Centre Médical Une fonction offrant une réelle autonomie dans la coordination des équipes et l’organisation des activités La possibilité de participer activement à l’amélioration des processus et au développement du Centre Un équilibre entre responsabilités de coordination et activité sur le terrain Un environnement favorisant les échanges, la collaboration et la prise d’initiative Des conditions de travail attractives au sein d’un groupe médical en pleine évolution"
+      },
+      "location": "1217 Meyrin",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:34.551Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.arsante.ch/emploi/coordinateur-rice-99",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "coordinateur-rice-gmo-ch",
+        "coordinatore-gmo-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-rice-gmo-ch",
+          "coordinatore-gmo-lugano"
+        ],
+        "en": [
+          "coordinateur-rice-gmo-ch"
+        ],
+        "de": [
+          "coordinateur-rice-gmo-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T17:06:03.377Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gmo-88ab010d0f39",
+      "slug": "assistant-e-medical-e-gmo-ch-2",
+      "slugByLocale": {
+        "fr": "assistant-e-medical-e-gmo-ch",
+        "it": "assistant-e-medical-e-gmo-ch-2",
+        "en": "assistant-e-medical-e-gmo-ch-2",
+        "de": "assistant-e-medical-e-gmo-ch-2"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Assistant·e médical·e",
+      "titleByLocale": {
+        "fr": "Assistant·e médical·e",
+        "it": "Assistant·e médical·e",
+        "en": "Assistant·e médical·e",
+        "de": "Assistent·e médical·e"
+      },
+      "description": "Le Centre Médical du Leman recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son équipe. Vos conditions : Entrée en fonction : dès que possible Contrat à durée indéterminée Taux d’activité : 100%, 41 heures hebdomadaire Droit aux vacances : 5 semaines \n• Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. \n• Vos compétences : CFC d'assistant· e médical· e Vous avez votre droit de pratique sur le canton de Genève, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé· e, Vous êtes organisé· e et avez le sens des priorités, Vous êtes discret· e et consciencieux-se, Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout.",
+      "descriptionByLocale": {
+        "fr": "Le Centre Médical du Leman recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son équipe. Vos conditions : Entrée en fonction : dès que possible Contrat à durée indéterminée Taux d’activité : 100%, 41 heures hebdomadaire Droit aux vacances : 5 semaines \n• Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. \n• Vos compétences : CFC d'assistant· e médical· e Vous avez votre droit de pratique sur le canton de Genève, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé· e, Vous êtes organisé· e et avez le sens des priorités, Vous êtes discret· e et consciencieux-se, Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout.",
+        "it": "Le Centre Médical du Leman recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son équipe. Vos conditions : Entrée en fonction : dès que possible Contrat à durée indéterminée Taux d’activité : 100%, 41 heures hebdomadaire Droit aux vacances : 5 semaines \n• Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. \n• Vos compétences : CFC d'assistant· e médical· e Vous avez votre droit de pratique sur le canton de Genève, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé· e, Vous êtes organisé· e et avez le sens des priorités, Vous êtes discret· e et consciencieux-se, Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout.",
+        "en": "Le Centre Médical du Leman recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son équipe. Vos conditions : Entrée en fonction : dès que possible Contrat à durée indéterminée Taux d’activité : 100%, 41 heures hebdomadaire Droit aux vacances : 5 semaines \n• Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. \n• Vos compétences : CFC d'assistant· e médical· e Vous avez votre droit de pratique sur le canton de Genève, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé· e, Vous êtes organisé· e et avez le sens des priorités, Vous êtes discret· e et consciencieux-se, Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout.",
+        "de": "Le Centre Médical du Leman recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son équipe. Vos conditions : Entrée en fonction : dès que possible Contrat à durée indéterminée Taux d’activité : 100%, 41 heures hebdomadaire Droit aux vacances : 5 semaines \n• Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. \n• Vos compétences : CFC d'assistant· e médical· e Vous avez votre droit de pratique sur le canton de Genève, Vous avez l'esprit d'équipe, Vous êtes flexible et motivé· e, Vous êtes organisé· e et avez le sens des priorités, Vous êtes discret· e et consciencieux-se, Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout."
+      },
+      "location": "1201 Genève",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:34.246Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1201",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-05",
+      "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-05T22:49:34.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-gmo-ch"
+      ]
+    },
+    {
+      "id": "gmo-8e31a9f82f8a",
+      "slug": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
+      "slugByLocale": {
+        "fr": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
+        "it": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
+        "en": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
+        "de": "specialiste-en-medecine-interne-generale-fmh-gmo-ch"
+      },
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Spécialiste en Médecine Interne Générale FMH",
+      "titleByLocale": {
+        "fr": "Spécialiste en Médecine Interne Générale FMH",
+        "it": "Spécialiste en Médecine Interne Générale FMH",
+        "en": "Spécialiste en Médecine Interne Générale FMH",
+        "de": "Spécialiste en Médecine Interne Générale FMH"
+      },
+      "description": "Le Centre Santé de Lancy – Pont-Rouge recherche un·e médecin spécialiste en médecine interne générale, souhaitant exercer en qualité d’indépendant·e, afin de compléter son équipe de professionnels de santé. Idéalement situé au coeur du quartier dynamique de Lancy Pont-Rouge, notre Centre de Santé est une structure médicale de proximité, accessible tant aux habitants du quartier qu’aux personnes y travaillant ou venant de l’extérieur. Notre approche repose sur une médecine de famille de qualité, fondée sur l’écoute, la continuité des soins et une relation de confiance avec les patients. Le Centre accueille également différents professionnels indépendants issus des domaines paramédicaux et des pratiques complémentaires, notamment en podologie, diététique, shiatsu, art-thérapie et kinésiologie, favorisant ainsi une prise en charge pluridisciplinaire. Nous vous proposons Un cabinet moderne et entièrement équipé, prêt à accueillir votre activité. Un statut et une pratique en toute indépendance. Une patientèle existante ainsi qu’un important potentiel de développement. Un environnement pluridisciplinaire favorisant les échanges et les synergies entre professionnels de santé. Un accompagnement administratif et logistique vous permettant de vous concentrer pleinement sur votre pratique médicale. Une grande autonomie dans l’organisation et le développement de votre activité. \n• Votre profil Médecin spécialiste en médecine interne générale. Titulaire d’une autorisation de pratiquer en Suisse et, idéalement, d’une autorisation de facturer à charge de l’assurance obligatoire des soins, ou remplissant les conditions nécessaires à leur obtention. Souhait de développer une activité indépendante, durable et centrée sur la qualité des soins. Esprit entrepreneurial, autonomie et sens de la collaboration. Intérêt pour une pratique médicale de proximité et le travail en réseau avec d’autres professionnels de santé. Vous souhaitez exercer en toute indépendance tout en bénéficiant d’un environnement professionnel moderne, dynamique et pluridisciplinaire ? Nous serions ravis d’échanger avec vous et de vous présenter notre Centre ainsi que notre projet.",
+      "descriptionByLocale": {
+        "fr": "Le Centre Santé de Lancy – Pont-Rouge recherche un·e médecin spécialiste en médecine interne générale, souhaitant exercer en qualité d’indépendant·e, afin de compléter son équipe de professionnels de santé. Idéalement situé au coeur du quartier dynamique de Lancy Pont-Rouge, notre Centre de Santé est une structure médicale de proximité, accessible tant aux habitants du quartier qu’aux personnes y travaillant ou venant de l’extérieur. Notre approche repose sur une médecine de famille de qualité, fondée sur l’écoute, la continuité des soins et une relation de confiance avec les patients. Le Centre accueille également différents professionnels indépendants issus des domaines paramédicaux et des pratiques complémentaires, notamment en podologie, diététique, shiatsu, art-thérapie et kinésiologie, favorisant ainsi une prise en charge pluridisciplinaire. Nous vous proposons Un cabinet moderne et entièrement équipé, prêt à accueillir votre activité. Un statut et une pratique en toute indépendance. Une patientèle existante ainsi qu’un important potentiel de développement. Un environnement pluridisciplinaire favorisant les échanges et les synergies entre professionnels de santé. Un accompagnement administratif et logistique vous permettant de vous concentrer pleinement sur votre pratique médicale. Une grande autonomie dans l’organisation et le développement de votre activité. \n• Votre profil Médecin spécialiste en médecine interne générale. Titulaire d’une autorisation de pratiquer en Suisse et, idéalement, d’une autorisation de facturer à charge de l’assurance obligatoire des soins, ou remplissant les conditions nécessaires à leur obtention. Souhait de développer une activité indépendante, durable et centrée sur la qualité des soins. Esprit entrepreneurial, autonomie et sens de la collaboration. Intérêt pour une pratique médicale de proximité et le travail en réseau avec d’autres professionnels de santé. Vous souhaitez exercer en toute indépendance tout en bénéficiant d’un environnement professionnel moderne, dynamique et pluridisciplinaire ? Nous serions ravis d’échanger avec vous et de vous présenter notre Centre ainsi que notre projet.",
+        "it": "Le Centre Santé de Lancy – Pont-Rouge recherche un·e médecin spécialiste en médecine interne générale, souhaitant exercer en qualité d’indépendant·e, afin de compléter son équipe de professionnels de santé. Idéalement situé au coeur du quartier dynamique de Lancy Pont-Rouge, notre Centre de Santé est une structure médicale de proximité, accessible tant aux habitants du quartier qu’aux personnes y travaillant ou venant de l’extérieur. Notre approche repose sur une médecine de famille de qualité, fondée sur l’écoute, la continuité des soins et une relation de confiance avec les patients. Le Centre accueille également différents professionnels indépendants issus des domaines paramédicaux et des pratiques complémentaires, notamment en podologie, diététique, shiatsu, art-thérapie et kinésiologie, favorisant ainsi une prise en charge pluridisciplinaire. Nous vous proposons Un cabinet moderne et entièrement équipé, prêt à accueillir votre activité. Un statut et une pratique en toute indépendance. Une patientèle existante ainsi qu’un important potentiel de développement. Un environnement pluridisciplinaire favorisant les échanges et les synergies entre professionnels de santé. Un accompagnement administratif et logistique vous permettant de vous concentrer pleinement sur votre pratique médicale. Une grande autonomie dans l’organisation et le développement de votre activité. \n• Votre profil Médecin spécialiste en médecine interne générale. Titulaire d’une autorisation de pratiquer en Suisse et, idéalement, d’une autorisation de facturer à charge de l’assurance obligatoire des soins, ou remplissant les conditions nécessaires à leur obtention. Souhait de développer une activité indépendante, durable et centrée sur la qualité des soins. Esprit entrepreneurial, autonomie et sens de la collaboration. Intérêt pour une pratique médicale de proximité et le travail en réseau avec d’autres professionnels de santé. Vous souhaitez exercer en toute indépendance tout en bénéficiant d’un environnement professionnel moderne, dynamique et pluridisciplinaire ? Nous serions ravis d’échanger avec vous et de vous présenter notre Centre ainsi que notre projet.",
+        "en": "Le Centre Santé de Lancy – Pont-Rouge recherche un·e médecin spécialiste en médecine interne générale, souhaitant exercer en qualité d’indépendant·e, afin de compléter son équipe de professionnels de santé. Idéalement situé au coeur du quartier dynamique de Lancy Pont-Rouge, notre Centre de Santé est une structure médicale de proximité, accessible tant aux habitants du quartier qu’aux personnes y travaillant ou venant de l’extérieur. Notre approche repose sur une médecine de famille de qualité, fondée sur l’écoute, la continuité des soins et une relation de confiance avec les patients. Le Centre accueille également différents professionnels indépendants issus des domaines paramédicaux et des pratiques complémentaires, notamment en podologie, diététique, shiatsu, art-thérapie et kinésiologie, favorisant ainsi une prise en charge pluridisciplinaire. Nous vous proposons Un cabinet moderne et entièrement équipé, prêt à accueillir votre activité. Un statut et une pratique en toute indépendance. Une patientèle existante ainsi qu’un important potentiel de développement. Un environnement pluridisciplinaire favorisant les échanges et les synergies entre professionnels de santé. Un accompagnement administratif et logistique vous permettant de vous concentrer pleinement sur votre pratique médicale. Une grande autonomie dans l’organisation et le développement de votre activité. \n• Votre profil Médecin spécialiste en médecine interne générale. Titulaire d’une autorisation de pratiquer en Suisse et, idéalement, d’une autorisation de facturer à charge de l’assurance obligatoire des soins, ou remplissant les conditions nécessaires à leur obtention. Souhait de développer une activité indépendante, durable et centrée sur la qualité des soins. Esprit entrepreneurial, autonomie et sens de la collaboration. Intérêt pour une pratique médicale de proximité et le travail en réseau avec d’autres professionnels de santé. Vous souhaitez exercer en toute indépendance tout en bénéficiant d’un environnement professionnel moderne, dynamique et pluridisciplinaire ? Nous serions ravis d’échanger avec vous et de vous présenter notre Centre ainsi que notre projet.",
+        "de": "Le Centre Santé de Lancy – Pont-Rouge recherche un·e médecin spécialiste en médecine interne générale, souhaitant exercer en qualité d’indépendant·e, afin de compléter son équipe de professionnels de santé. Idéalement situé au coeur du quartier dynamique de Lancy Pont-Rouge, notre Centre de Santé est une structure médicale de proximité, accessible tant aux habitants du quartier qu’aux personnes y travaillant ou venant de l’extérieur. Notre approche repose sur une médecine de famille de qualité, fondée sur l’écoute, la continuité des soins et une relation de confiance avec les patients. Le Centre accueille également différents professionnels indépendants issus des domaines paramédicaux et des pratiques complémentaires, notamment en podologie, diététique, shiatsu, art-thérapie et kinésiologie, favorisant ainsi une prise en charge pluridisciplinaire. Nous vous proposons Un cabinet moderne et entièrement équipé, prêt à accueillir votre activité. Un statut et une pratique en toute indépendance. Une patientèle existante ainsi qu’un important potentiel de développement. Un environnement pluridisciplinaire favorisant les échanges et les synergies entre professionnels de santé. Un accompagnement administratif et logistique vous permettant de vous concentrer pleinement sur votre pratique médicale. Une grande autonomie dans l’organisation et le développement de votre activité. \n• Votre profil Médecin spécialiste en médecine interne générale. Titulaire d’une autorisation de pratiquer en Suisse et, idéalement, d’une autorisation de facturer à charge de l’assurance obligatoire des soins, ou remplissant les conditions nécessaires à leur obtention. Souhait de développer une activité indépendante, durable et centrée sur la qualité des soins. Esprit entrepreneurial, autonomie et sens de la collaboration. Intérêt pour une pratique médicale de proximité et le travail en réseau avec d’autres professionnels de santé. Vous souhaitez exercer en toute indépendance tout en bénéficiant d’un environnement professionnel moderne, dynamique et pluridisciplinaire ? Nous serions ravis d’échanger avec vous et de vous présenter notre Centre ainsi que notre projet."
+      },
+      "location": "1212 Grand-Lancy",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-05T22:49:33.943Z",
+      "addressLocality": "Grand-Lancy",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1212",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-05",
+      "applyUrl": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-05T22:49:33.943Z"
+    },
     {
       "id": "gmo-fdf6239fe3ec",
       "slug": "capo-gmo-lugano",
       "slugByLocale": {
         "it": "capo-gmo-lugano",
         "en": "chief-nurse-gmo-lugano",
-        "de": "hauptkrankenschwester-gmo-lugano",
+        "de": "infirmier-ere-chef-fe-gmo-lugano",
         "fr": "infirmier-ere-chef-fe-gmo-ch"
       },
       "company": "gmo",
@@ -18,7 +632,7 @@
       "titleByLocale": {
         "it": "Capo",
         "en": "Chief Nurse",
-        "de": "Hauptkrankenschwester",
+        "de": "Infirmier·ère chef·fe",
         "fr": "Infirmier·ère chef·fe"
       },
       "description": "Dans le cadre du développement de ses activités, notre établissement médico-social recherche un-e infirmier-ère chef-fe. Dépendant de la direction, l'infirmier-chef dirige le service des soins. Il participe, dans son domaine de... Plus d’informations",
@@ -51,7 +665,7 @@
       "firstSeenAt": "2026-08-28T05:19:26.253Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -71,12 +685,16 @@
           "infirmier-ere-chef-fe-gmo-ch"
         ],
         "de": [
-          "infirmier-ere-chef-fe-gmo-ch"
+          "infirmier-ere-chef-fe-gmo-ch",
+          "hauptkrankenschwester-gmo-lugano"
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-chef-fe-gmo-ch"
-      ]
+        "infirmier-ere-chef-fe-gmo-ch",
+        "hauptkrankenschwester-gmo-lugano"
+      ],
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "gmo-2e392bc89d01",
@@ -152,159 +770,8 @@
       },
       "previousSlugs": [
         "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
-      ]
-    },
-    {
-      "id": "gmo-69ead8a8b120",
-      "slug": "farmaceutici-gmo-lugano",
-      "slugByLocale": {
-        "it": "farmaceutici-gmo-lugano",
-        "en": "pharmaceuticals-gmo-lugano",
-        "de": "pharmazeutika-gmo-lugano",
-        "fr": "pharmacien-ne-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Pharmacien·ne",
-      "titleByLocale": {
-        "it": "Farmaceutici",
-        "en": "Pharmaceuticals",
-        "de": "Pharmazeutika",
-        "fr": "Pharmacien·ne"
-      },
-      "description": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Per la nostra farmacia Eaux-Vives stazione nel cantone di Ginevra, stiamo attivamente cercando un farmacista-ne al 60-80% Le nostre farmacie sono state riconosciute da più di 10 anni. Sono destinati ad essere... Maggiori informazioni",
-        "en": "For our pharmacy Eaux-Vives station in the canton of Geneva, we are actively looking for a pharmacist-ne at 60-80% Our pharmacies have been recognized for more than 10 years. They're meant to be... More information",
-        "de": "Für unsere Apotheke Eaux-Vives Station im Kanton Genf suchen wir aktiv einen Apotheker-ne bei 60-80% Unsere Apotheken sind seit mehr als 10 Jahren anerkannt. Sie sollen... Weitere Informationen",
-        "fr": "Pour notre pharmacie Eaux-Vives gare dans le canton de Genève, nous recherchons activement un-e pharmacien-ne à 60-80% Nos pharmacies sont reconnues depuis plus de 10 ans. Elles ont pour but d’être... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:05.508Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/pharmacien-ne-92",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:25.649Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "pharmacien-ne-gmo-ch"
-        ],
-        "en": [
-          "pharmacien-ne-gmo-ch"
-        ],
-        "de": [
-          "pharmacien-ne-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pharmacien-ne-gmo-ch"
-      ]
-    },
-    {
-      "id": "gmo-4b5a5ae3e4b8",
-      "slug": "esperti-medici-gmo-lugano",
-      "slugByLocale": {
-        "it": "esperti-medici-gmo-lugano",
-        "en": "medical-experts-gmo-lugano",
-        "de": "medizinische-experten-gmo-lugano",
-        "fr": "experts-medicaux-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Experts médicaux",
-      "titleByLocale": {
-        "it": "Esperti medici",
-        "en": "Medical experts",
-        "de": "Medizinische Experten",
-        "fr": "Experts médicaux"
-      },
-      "description": "Le Centre d’Expertise Médicale de Lancy (CEML) recherche des médecins spécialistes en : Médecine interne Rhumatologie Psychiatrie Neuropsychologie titulaires du titre FMH et de la certification SIM, souhaitant collaborer avec notre équipe médico-administrative, selon leurs... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Il Centre d'Expertise Médicale de Lancy (CEML) sta cercando specialisti medici in: Medicina interna Rheumatology Psychiatry Neuropsychology con il titolo di certificazione FMH e SIM, che desiderano collaborare con il nostro team amministrativo, secondo il loro... Maggiori informazioni",
-        "en": "The Centre d'Expertise Médicale de Lancy (CEML) is looking for medical specialists in: Internal medicine Rheumatology Psychiatry Neuropsychology with the title FMH and SIM certification, wishing to collaborate with our medico-administrative team, according to their... More information",
-        "de": "Das Centre d'Expertise Médicale de Lancy (CEML) sucht medizinische Spezialisten in: Innere Medizin Rheumatologie Psychiatrie Neuropsychologie mit dem Titel FMH und SIM-Zertifizierung, die mit unserem medizinisch-administrativen Team zusammenarbeiten möchten, nach ihrer... Weitere Informationen",
-        "fr": "Le Centre d’Expertise Médicale de Lancy (CEML) recherche des médecins spécialistes en : Médecine interne Rhumatologie Psychiatrie Neuropsychologie titulaires du titre FMH et de la certification SIM, souhaitant collaborer avec notre équipe médico-administrative, selon leurs... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:05.206Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/experts-medicaux-93",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:25.346Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "experts-medicaux-gmo-ch"
-        ],
-        "en": [
-          "experts-medicaux-gmo-ch"
-        ],
-        "de": [
-          "experts-medicaux-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "experts-medicaux-gmo-ch"
-      ]
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "gmo-ac7868278538",
@@ -321,7 +788,7 @@
       "title": "Psychologue psychothérapeute FSP",
       "titleByLocale": {
         "it": "Psicologia psicoterapeuta FSP",
-        "en": "Psychologist psychotherapist FSP",
+        "en": "Psychologue psychothérapeute FSP",
         "de": "Psychologe Psychotherapeut FSP",
         "fr": "Psychologue psychothérapeute FSP"
       },
@@ -380,83 +847,9 @@
       },
       "previousSlugs": [
         "psychologue-psychotherapeute-fsp-gmo-ch"
-      ]
-    },
-    {
-      "id": "gmo-576ebe7aaad6",
-      "slug": "infermiere-pediatrico-gmo-lugano",
-      "slugByLocale": {
-        "it": "infermiere-pediatrico-gmo-lugano",
-        "en": "paediatric-nurse-gmo-lugano",
-        "de": "kinderkrankenschwester-gmo-lugano",
-        "fr": "infirmier-ere-pediatrique-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Infirmier·ère pédiatrique",
-      "titleByLocale": {
-        "it": "Infermiere pediatrico",
-        "en": "Paediatric nurse",
-        "de": "Kinderkrankenschwester",
-        "fr": "Infirmier·ère pédiatrique"
-      },
-      "description": "Nous recherchons un·e infirmier·ère à 60-70 % pour notre service des urgences pédiatriques au sein de la Clinique et Permanence d’Onex SA. Vous rejoindrez une équipe dynamique dans un environnement... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un'infermiera del 60-70% per il nostro reparto di emergenza pediatrica presso la clinica e la permanenza di Onex SA. Ti unirai a un team dinamico in un ambiente... Maggiori informazioni",
-        "en": "We are looking for a 60-70% nurse for our pediatric emergency department at the Clinic and Permanence of Onex SA. You will join a dynamic team in an environment... More information",
-        "de": "Wir suchen eine 60-70% Krankenschwester für unsere pädiatrische Notaufnahme in der Klinik und Permanenz von Onex SA. Sie werden einem dynamischen Team in einer Umgebung beitreten ... Weitere Informationen",
-        "fr": "Nous recherchons un·e infirmier·ère à 60-70 % pour notre service des urgences pédiatriques au sein de la Clinique et Permanence d’Onex SA. Vous rejoindrez une équipe dynamique dans un environnement... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:04.601Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:24.741Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-pediatrique-gmo-ch"
-        ],
-        "en": [
-          "infirmier-ere-pediatrique-gmo-ch"
-        ],
-        "de": [
-          "infirmier-ere-pediatrique-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-pediatrique-gmo-ch"
-      ]
+      ],
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "gmo-287e39d62086",
@@ -477,12 +870,12 @@
         "de": "Buchhalter",
         "fr": "Comptable"
       },
-      "description": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %. \n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations",
+      "description": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations",
       "descriptionByLocale": {
         "it": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations",
         "en": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations",
         "de": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations",
-        "fr": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %. \n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations"
+        "fr": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations"
       },
       "location": "Lugano",
       "canton": "TI",
@@ -533,231 +926,8 @@
       },
       "previousSlugs": [
         "comptable-gmo-ch"
-      ]
-    },
-    {
-      "id": "gmo-f1bf9caf6800",
-      "slug": "junior-lavoratore-gmo-lugano",
-      "slugByLocale": {
-        "it": "junior-lavoratore-gmo-lugano",
-        "en": "junior-worker-gmo-lugano",
-        "de": "juniorarbeiter-gmo-lugano",
-        "fr": "conducteur-rice-de-travaux-junior-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Conducteur·rice de travaux junior",
-      "titleByLocale": {
-        "it": "Junior lavoratore",
-        "en": "Junior worker",
-        "de": "Juniorarbeiter",
-        "fr": "Conducteur·rice de travaux junior"
-      },
-      "description": "Dans le cadre d'un projet de surrélévation du bâtiment de la Clinique et permanence d'Onex, nous recherchons un·e conducteur·rice des travaux. LE PROJET Développer une surélévation sur un bâtiment existant afin... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Come parte di un progetto per sopraffare l'edificio della clinica e la struttura in loco a Onex, stiamo cercando un manager. IL PROGETTO Sviluppare un'altezza su un edificio esistente per... Maggiori informazioni",
-        "en": "As part of a project to overwhelm the clinic building and on-site facility at Onex, we are looking for a manager. THE PROJECT Develop an elevation on an existing building in order to... More information",
-        "de": "Im Rahmen eines Projekts, um das Klinikgebäude und die Einrichtung vor Ort bei Onex zu überwältigen, suchen wir einen Manager. DAS PROJEKT Entwickeln Sie eine Erhöhung auf einem bestehenden Gebäude, um... Weitere Informationen",
-        "fr": "Dans le cadre d'un projet de surrélévation du bâtiment de la Clinique et permanence d'Onex, nous recherchons un·e conducteur·rice des travaux. LE PROJET Développer une surélévation sur un bâtiment existant afin... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:03.997Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:24.134Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "conducteur-rice-de-travaux-junior-gmo-ch"
-        ],
-        "en": [
-          "conducteur-rice-de-travaux-junior-gmo-ch"
-        ],
-        "de": [
-          "conducteur-rice-de-travaux-junior-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "conducteur-rice-de-travaux-junior-gmo-ch"
-      ]
-    },
-    {
-      "id": "gmo-2d73a3ff1c4a",
-      "slug": "assistente-medico-gmo-lugano",
-      "slugByLocale": {
-        "it": "assistente-medico-gmo-lugano",
-        "en": "assistant-e-medical-e-gmo-ch",
-        "de": "assistent-e-medical-e-gmo-lugano",
-        "fr": "assistant-e-medical-e-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Assistant·e médical·e",
-      "titleByLocale": {
-        "it": "Assistente medico",
-        "en": "Medical Assistant",
-        "de": "Assistent·e médical·e",
-        "fr": "Assistant·e médical·e"
-      },
-      "description": "La Clinique et Permanence d’Onex recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son service de médecine générale Vos conditions : Entrée en fonction : dès que possible Contrat... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "La Clinica e Permanenza di Onex recluta un assistente medico per unirsi al suo team nel suo servizio medico generale Le vostre condizioni: Entrata in servizio: appena possibile Contratto... Maggiori informazioni",
-        "en": "The Clinic and Permanence of Onex recruits a medical assistant to join its team in its general medical service Your conditions : Entry into service : as soon as possible Contract... More information",
-        "de": "Die Klinik und Beständigkeit von Onex rekrutiert einen medizinischen Assistenten, der sich seinem Team in seinem allgemeinen medizinischen Dienst anschließt Ihre Bedingungen: Eintritt in den Dienst: so bald wie möglich Vertrag ... Weitere Informationen",
-        "fr": "La Clinique et Permanence d’Onex recrute un·e assistant·e médical·e pour rejoindre son équipe au sein de son service de médecine générale Vos conditions : Entrée en fonction : dès que possible Contrat... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:03.694Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:23.816Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-medical-e-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-e-medical-e-gmo-ch"
-      ]
-    },
-    {
-      "id": "gmo-91ba1140d26f",
-      "slug": "coordinatore-gmo-lugano",
-      "slugByLocale": {
-        "fr": "coordinateur-rice-gmo-ch",
-        "it": "coordinatore-gmo-lugano",
-        "en": "coordinator-gmo-lugano",
-        "de": "koordinator-gmo-lugano"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Coordinateur·rice",
-      "titleByLocale": {
-        "fr": "Coordinateur·rice",
-        "it": "Coordinatore",
-        "en": "Coordinator",
-        "de": "Koordinator"
-      },
-      "description": "Le Centre Médical de Meyrin recherche un-e coordinateur-trice administratif-tive entre un 80% et 100%. A ce poste stratégique, vous assurez l’organisation en collaboration avec la direction médicale, la continuité et la... Plus d’informations",
-      "descriptionByLocale": {
-        "fr": "Le Centre Médical de Meyrin recherche un-e coordinateur-trice administratif-tive entre un 80% et 100%. A ce poste stratégique, vous assurez l’organisation en collaboration avec la direction médicale, la continuité et la... Plus d’informations",
-        "it": "Il Medical Center di Meyrin sta cercando un coordinatore amministrativo-attivo tra l'80% e il 100%. In questa posizione strategica, si assicura l'organizzazione in collaborazione con la gestione medica, la continuità e... Maggiori informazioni",
-        "en": "The Medical Center of Meyrin is looking for an administrative-tive coordinator between an 80% and 100%. In this strategic position, you ensure the organization in collaboration with the medical management, continuity and... More information",
-        "de": "Das Medical Center of Meyrin sucht einen administrativen Koordinator zwischen 80% und 100%. In dieser strategischen Position sichern Sie die Organisation in Zusammenarbeit mit dem medizinischen Management, Kontinuität und... Weitere Informationen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:03.377Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://www.arsante.ch/emploi/coordinateur-rice-99",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-31T17:06:03.377Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinateur-rice-gmo-ch"
-        ],
-        "en": [
-          "coordinateur-rice-gmo-ch"
-        ],
-        "de": [
-          "coordinateur-rice-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "coordinateur-rice-gmo-ch"
-      ]
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "gmo-45ad69cc39fe",
@@ -821,7 +991,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-28T05:19:26.557Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [

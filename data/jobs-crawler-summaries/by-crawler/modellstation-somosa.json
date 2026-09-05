@@ -1,18 +1,19 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-09-05T12:41:01.371Z",
+  "generatedAt": "2026-09-05T22:49:45.971Z",
   "total": 3,
   "discovered": null,
   "written": 3,
+  "authoritativeEmptySnapshot": false,
   "newCount": 3,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7293,
-  "avgDurationMs": 7293,
+  "durationMs": 6281,
+  "avgDurationMs": 6281,
   "durationHistory": [
-    7293
+    6281
   ],
   "newJobs": [
     {
@@ -28,7 +29,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:40:55.367Z",
+      "crawledAt": "2026-09-05T22:49:38.326Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +65,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:40:56.028Z",
+      "crawledAt": "2026-09-05T22:49:39.041Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -100,7 +101,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:40:56.670Z",
+      "crawledAt": "2026-09-05T22:49:39.746Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
