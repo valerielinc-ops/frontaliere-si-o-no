@@ -5566,6 +5566,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.morte-mongolfiera-ticino.title': 'Di più TG: colpito a morte da cesto di mongolfiera',
     'blog.article.morte-mongolfiera-ticino.excerpt': 'Un 86enne tedesco è morto ieri a fine pomeriggio colpito da un cesto di una mongolfiera nella campagna turgoviese.',
     'blog.article.morte-mongolfiera-ticino.imageAlt': 'Vista aerea di un pallone aerostatico sopra la campagna svizzera, con una scena di incidente in primo piano.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.title': 'Fiamme in piena notte alla scuola professionale UPSA di Biasca',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.excerpt': 'Incendio notturno alla scuola professionale UPSA di Biasca, fiamme domate rapidamente dai pompieri, nessun ferito o intossicato.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.imageAlt': 'Incendio notturno alla scuola professionale UPSA di Biasca',
 };
 
 export default blogMetaChIt;

@@ -5566,6 +5566,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.morte-mongolfiera-ticino.title': 'Plus TG : frappé à mort par un panier de montgolfière',
     'blog.article.morte-mongolfiera-ticino.excerpt': 'Un Allemand de 86 ans est mort hier en fin d\'après-midi frappé par un panier d\'une montgolfière dans la campagne thurgovienne.',
     'blog.article.morte-mongolfiera-ticino.imageAlt': 'Vue aérienne d\'un ballon à air chaud sur la campagne suisse, avec une scène d\'accident tragique au premier plan.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.title': 'Incendie en pleine nuit à l\'école professionnelle UPSA de Biasca',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.excerpt': 'Incendie nocturne à l\'école professionnelle UPSA de Biasca, flammes rapidement maîtrisées par les pompiers, aucun blessé ou intoxiqué.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.imageAlt': 'Incendie nocturne à l\'école professionnelle UPSA de Biasca',
 };
 
 export default blogMetaChFr;

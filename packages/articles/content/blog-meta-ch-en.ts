@@ -5566,6 +5566,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.morte-mongolfiera-ticino.title': 'More TG: hit to death by balloon basket',
     'blog.article.morte-mongolfiera-ticino.excerpt': 'An 86-year-old German died yesterday at the end of the afternoon hit by a balloon basket in the Turgovian countryside.',
     'blog.article.morte-mongolfiera-ticino.imageAlt': 'Aerial view of a hot air balloon over the Swiss countryside, with a tragic incident scene in the foreground.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.title': 'Flames in the middle of the night at the UPSA vocational school in Biasca',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.excerpt': 'Night fire at the UPSA vocational school in Biasca, flames quickly tamed by firefighters, no one injured or intoxicated.',
+    'blog.article.incendio-notturno-scuola-professionale-biasca.imageAlt': 'Nighttime fire at the UPSA professional school in Biasca',
 };
 
 export default blogMetaChEn;
