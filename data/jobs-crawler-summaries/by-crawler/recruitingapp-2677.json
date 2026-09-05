@@ -1,18 +1,19 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-09-05T12:46:07.044Z",
+  "generatedAt": "2026-09-05T22:53:32.746Z",
   "total": 1,
   "discovered": null,
   "written": 1,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 29184,
-  "avgDurationMs": 29184,
+  "durationMs": 28995,
+  "avgDurationMs": 28995,
   "durationHistory": [
-    29184
+    28995
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +29,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:46:02.016Z",
+      "crawledAt": "2026-09-05T22:53:23.248Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,46 +54,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "recruitingapp-2677-4923473206ff",
-      "slug": "responsabile-legale-e-compliance-e-recruiting-llb-gruppe-stellen-lugano",
-      "company": "E-Recruiting LLB-Gruppe Stellen",
-      "companyKey": "recruitingapp-2677",
-      "companyDomain": "recruitingapp-2677.umantis.com",
-      "title": "Legal & Compliance Officer",
-      "location": "Uznach",
-      "canton": "SG",
-      "url": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
-      "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:57.090Z",
-      "addressLocality": "Uznach",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
-      "firstSeenAt": "2026-08-23T09:36:47.734Z",
-      "salaryMin": 101000,
-      "salaryMax": 172500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
