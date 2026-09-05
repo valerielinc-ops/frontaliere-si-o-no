@@ -9662,9 +9662,6 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.allacasadicomunitalavenosegnala.title': '37-Grad-Arbeit in Laveno, berichtet die Gewerkschaft',
     'blog.article.allacasadicomunitalavenosegnala.excerpt': 'Die Gewerkschaft weist auf den Fall eines Gemeinschaftshauses in Laveno hin, in dem mit hohen Temperaturen gearbeitet wird',
     'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'Eine Gemeinschaftshaus in Ticino mit hohen Temperaturen',
-    'blog.article.vivere-tovo-lavorare-grigioni.title': 'Leben in Tovo di Sant \'Agata und Arbeiten in Graubünden',
-    'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für Grenzgänger: Steuern, neues Abkommen, Franchisen und Sozialversicherungsbeiträge für diejenigen, die im Veltlin wohnen und im Kanton Graubünden arbeiten.',
-    'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Panoramablick auf eine Bergstraße nahe der italienisch-schweizerischen Grenze',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'In Saint-Rhémy-En-Bosses leben und als Grenzgänger im Wallis arbeiten',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Bewilligungen G, Arbeit im Wallis, Pendeln und Lebenshaltungskosten für Grenzgänger mit Wohnsitz in Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontalier mit Kind beim Verlassen eines Grenzübergangs',
@@ -9698,9 +9695,6 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Grenzgänger im Wallis: Regeln und Besteuerung',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Operativer Leitfaden zum neuen Steuerabkommen, Einkommensmanagement und Vorsorgepflichten für Grenzgänger in der Schweiz.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Alpine Berglandschaft mit Dorf',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Wohnen in Courmayeur und Arbeiten im Wallis als Grenzgänger',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Besteuerung und Genehmigungen für Grenzgänger, die in Courmayeur leben und im Wallis arbeiten',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Ein Blick auf Courmayeur, eine italienische Stadt am Grenzgebiet zu der Schweiz',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Wohnen in Gignod und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse der steuerlichen und betrieblichen Zwänge für den grenzüberschreitenden Pendelverkehr zwischen Italien und der Schweiz gemäß den geltenden Vereinbarungen.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Schweizer Alpenlandschaft nahe der Grenze',
@@ -11427,6 +11421,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.figino-serenza-frontaliere-ticino.title': 'Figino Serenza: Leitfaden für Grenzgänger im Tessin',
     'blog.article.figino-serenza-frontaliere-ticino.excerpt': 'G-Bewilligung, Besteuerung, KVG und Kosten: Alles, was sich ändert, wenn Sie als Grenzgänger in Figino Serenza leben und im Kanton Tessin arbeiten.',
     'blog.article.figino-serenza-frontaliere-ticino.imageAlt': 'Luftansicht von Lugano und seinem See bei Sonnenuntergang, typisches Arbeitsziel für Grenzgänger.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.title': 'Wohnen in Bellagio, Arbeiten im Tessin: Grenzführer',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.excerpt': 'Umzug nach Bellagio und Arbeit im Tessin als Grenzgänger: Erfahren Sie mehr über das Steuersystem, die AHV-Beiträge, das KVG und wie Sie den Umzug planen.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf Lugano und den See mit Bergen, ein Arbeitsplatz im Tessin für Grenzgänger',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.title': 'Wohnen in Griante und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.excerpt': 'Vorteile, Verfahren, Kosten und Vorschriften für diejenigen, die im Kanton Tessin als Grenzgänger in Griante leben möchten',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Comer See bei Griante mit Wohnhäusern und Berglandschaft',
 };
 
 export default blogMetaDe;
