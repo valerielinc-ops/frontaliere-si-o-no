@@ -24,6 +24,7 @@ import {
 } from './live-copy-edit-agent.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
+import { intFromEnv } from '../../../../scripts/lib/int-from-env.mjs';
 
 const ROLLBACK_EXTENSIONS = new Set([
   '.astro',
@@ -1224,7 +1225,7 @@ async function main() {
     cwd: process.cwd(),
     pageUrl: argVal(args, '--page-url'),
     provider: argVal(args, '--provider') || undefined,
-    timeoutMs: Number(process.env.IMPECCABLE_LIVE_COPY_AGENT_TIMEOUT_MS || 120000),
+    timeoutMs: intFromEnv('IMPECCABLE_LIVE_COPY_AGENT_TIMEOUT_MS', 120000),
   });
   console.log(JSON.stringify(result));
 }

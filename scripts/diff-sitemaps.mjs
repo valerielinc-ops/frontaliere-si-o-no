@@ -30,10 +30,11 @@
 
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const DIST = process.env.DIST_DIR || 'dist';
 const PRE_DEPLOY_FILE = process.env.PRE_DEPLOY_FILE || '/tmp/pre-deploy-sitemap-urls.json';
-const FIRST_N = Number(process.env.DIFF_FIRST_N || '20');
+const FIRST_N = intFromEnv('DIFF_FIRST_N', 20);
 
 const SEP = '═'.repeat(72);
 const SUB = '─'.repeat(72);

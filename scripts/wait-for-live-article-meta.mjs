@@ -10,6 +10,7 @@
  *   1 = timeout or hard validation failure
  */
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const [, , rawUrl, expectedOgTitle = '', expectedOgImage = ''] = process.argv;
 
@@ -23,8 +24,8 @@ const url = rawUrl.trim();
 // With the bridge serving a JS-only redirect, fetch() never followed it; we now
 // re-fetch from canonical when og:title is missing. If OG still hasn't surfaced
 // after 5 min, something is genuinely broken and we should release the deploy lock.
-const timeoutMs = Number(process.env.LIVE_ARTICLE_WAIT_TIMEOUT_MS || 5 * 60 * 1000);
-const intervalMs = Number(process.env.LIVE_ARTICLE_WAIT_INTERVAL_MS || 10 * 1000);
+const timeoutMs = intFromEnv('LIVE_ARTICLE_WAIT_TIMEOUT_MS', 5 * 60 * 1000);
+const intervalMs = intFromEnv('LIVE_ARTICLE_WAIT_INTERVAL_MS', 10 * 1000);
 const deadline = Date.now() + timeoutMs;
 
 function parseAttributes(tag) {

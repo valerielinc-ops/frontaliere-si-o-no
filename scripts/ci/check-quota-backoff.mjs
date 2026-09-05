@@ -62,11 +62,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
-const LOOKBACK_H = Number(process.env.QUOTA_BEACON_LOOKBACK_H || 24);
-const MAX_ISSUES = Number(process.env.QUOTA_BEACON_MAX_ISSUES || 12);
+const LOOKBACK_H = intFromEnv('QUOTA_BEACON_LOOKBACK_H', 24);
+const MAX_ISSUES = intFromEnv('QUOTA_BEACON_MAX_ISSUES', 12);
 const LBL_FIX = 'agent:fix';
 const LBL_QUEUED = 'agent:fix-queued';
 // Stadio di decomposizione (2026-08-21): stesso gate, label diverse. Il
@@ -132,7 +133,7 @@ export function beaconCandidates(lists, { now, lookbackH, max }) {
 // serializzati, quindi il tetto non morde oggi; ma e' lo stesso costrutto, e
 // una coda che si gonfia mentre il drain e' fermo e' esattamente lo scenario in
 // cui questo file viene consultato.
-const ISSUE_LIST_LIMIT = Number(process.env.FOLLOWUP_ISSUE_LIST_LIMIT || 300);
+const ISSUE_LIST_LIMIT = intFromEnv('FOLLOWUP_ISSUE_LIST_LIMIT', 300);
 
 function listIssues(label) {
   const raw = gh([

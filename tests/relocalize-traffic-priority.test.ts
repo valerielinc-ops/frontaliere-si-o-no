@@ -12,6 +12,7 @@ import {
   QUEUE_AGE_BUCKET_KEYS,
   QUEUE_AGE_DISJOINT_BUCKET_KEYS,
   TRAFFIC_STATS_KEYS,
+  TRAFFIC_PRIORITY_LANES,
   TRAFFIC_SOURCE_PATH,
   assertTrafficPriorityUsable,
   buildTrafficPriority,
@@ -20,6 +21,8 @@ import {
   jobTrafficScore,
   summarizeQueueAge,
 } from '../scripts/lib/job-traffic-priority.mjs';
+import { MOPUP_TRAFFIC_LANE } from '../scripts/local-mt-mopup.mjs';
+import { CASCADE_TRAFFIC_LANE } from '../scripts/relocalize-pending-jobs.mjs';
 
 /**
  * L'OSSERVATORE del drenaggio della coda di ritraduzione (issue #5650,
@@ -331,12 +334,20 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     }
   });
 
-  it('il mop-up dichiara a buildTrafficPriority lo stesso cap con cui affetta', () => {
-    // Un tetto calcolato su un cap che non e' quello vero non garantisce
-    // niente: e' il numero passato che deve essere lo stesso dello slice.
-    const mopup = fs.readFileSync(path.join(ROOT, 'scripts/local-mt-mopup.mjs'), 'utf-8');
-    expect(mopup).toMatch(/buildTrafficPriority\([^;]*cap:\s*MAX_JOBS/s);
-    expect(mopup).toMatch(/order\.slice\(0,\s*MAX_JOBS\)/);
+  it('la fetta presa e tagliata dallo stesso cap su cui e calcolato il tetto', () => {
+    // Prima il mop-up rifaceva `order.slice(0, MAX_JOBS)` per conto suo e un
+    // guard TESTUALE controllava che i due numeri fossero lo stesso
+    // identificatore. Ora il taglio e' uno solo e la divergenza non e' piu'
+    // rappresentabile: si asserisce il VALORE, non la forma del sorgente.
+    const pending = Array.from({ length: 30 }, (_, i) => job(`j${i}`, daysAgo(0.1)));
+    const { order, selected } = buildTrafficPriority(pending, {}, { now: NOW, cap: 7, lane: MOPUP_TRAFFIC_LANE });
+    expect(selected).toHaveLength(7);
+    expect(selected).toEqual(order.slice(0, 7));
+    // Senza cap la fetta e' tutta la coda: `null` e' l'unico modo onesto di
+    // dire "prendo tutto", e non deve diventare una fetta vuota.
+    expect(buildTrafficPriority(pending, {}, { now: NOW }).selected).toEqual(
+      buildTrafficPriority(pending, {}, { now: NOW }).order,
+    );
   });
 
   it('il report dice sempre in che stato e la corsia', () => {
@@ -347,14 +358,33 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     expect(on).toMatch(/Freshness lane:\s+1 job\(s\) ahead of the stride \(< 24h old\)/);
   });
 
-  it('il mop-up gratuito la accende, il cascade a pagamento no', () => {
-    // SCANSIONE DEL SORGENTE: i due call site sono in `main()`, non esportati.
-    // E' l'asimmetria che il ticket decide, e senza questo caso tornerebbe
-    // simmetrica con una riga.
-    const mopup = fs.readFileSync(path.join(ROOT, 'scripts/local-mt-mopup.mjs'), 'utf-8');
-    const cascade = fs.readFileSync(path.join(ROOT, 'scripts/relocalize-pending-jobs.mjs'), 'utf-8');
-    expect(mopup).toMatch(/buildTrafficPriority\([^;]*freshFirst:\s*true/s);
-    expect(cascade).not.toContain('freshFirst');
+  it('il mop-up gratuito la accende, il cascade a pagamento no — per VALORE, non per testo', () => {
+    // I due entry point dichiarano la loro corsia; la politica e' un valore di
+    // questo modulo. Il guard di prima leggeva il SORGENTE dei due script
+    // (`toMatch(/freshFirst:\s*true/)` e `not.toContain('freshFirst')`):
+    // descriveva la forma testuale dell'unico call site diretto, quindi
+    // spostare la chiamata dietro un helper lo lasciava verde senza piu'
+    // descrivere niente — verde anche con la corsia spenta in produzione.
+    expect(TRAFFIC_PRIORITY_LANES[MOPUP_TRAFFIC_LANE].freshFirst).toBe(true);
+    expect(TRAFFIC_PRIORITY_LANES[CASCADE_TRAFFIC_LANE].freshFirst).toBe(false);
+    expect(MOPUP_TRAFFIC_LANE).not.toBe(CASCADE_TRAFFIC_LANE);
+
+    // E il valore si vede nel COMPORTAMENTO, non solo nella tabella.
+    const fresh = [job('a', daysAgo(0.1))];
+    expect(buildTrafficPriority(fresh, {}, { now: NOW, lane: MOPUP_TRAFFIC_LANE }).stats.freshHead).toBe(1);
+    expect(buildTrafficPriority(fresh, {}, { now: NOW, lane: CASCADE_TRAFFIC_LANE }).stats.freshHead).toBe(0);
+  });
+
+  it('una corsia sconosciuta lancia invece di ricadere in silenzio sul default', () => {
+    // Il modo in cui questa corsia puo' spegnersi senza che nessuno lo veda e'
+    // un refuso o un rename del nome dell'entry point. Con un default muto
+    // sarebbe `freshFirst: false` e nessun rosso.
+    expect(() => buildTrafficPriority([job('a', daysAgo(0.1))], {}, { now: NOW, lane: 'local-mt-mopu' }))
+      .toThrow(/unknown lane/);
+    // Dire la corsia E il booleano insieme e' una chiamata la cui politica vera
+    // nessuno sa nominare: fallisce invece di lasciar vincere uno dei due.
+    expect(() => buildTrafficPriority([job('a', daysAgo(0.1))], {}, { now: NOW, lane: MOPUP_TRAFFIC_LANE, freshFirst: false }))
+      .toThrow(/lane OR freshFirst/);
   });
 });
 

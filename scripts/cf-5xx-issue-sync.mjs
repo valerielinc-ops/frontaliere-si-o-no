@@ -64,10 +64,11 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const HOURS = process.env.CF_5XX_HOURS || '23';
-const MIN_COUNT = Number(process.env.CF_5XX_MIN_COUNT || 20);
-const MAX_ISSUES = Number(process.env.CF_5XX_MAX_ISSUES || 5);
+const MIN_COUNT = intFromEnv('CF_5XX_MIN_COUNT', 20);
+const MAX_ISSUES = intFromEnv('CF_5XX_MAX_ISSUES', 5);
 /**
  * How recent a URL's last 5xx must be for it to still count as a live defect.
  * 2h, not 0h, so an incident that stopped minutes before the daily run is still

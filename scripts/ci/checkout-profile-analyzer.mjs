@@ -245,6 +245,33 @@ export function transitiveClosure(entries) {
 }
 
 /**
+ * Il bersaglio ASSOLUTO di un symlink, LEGGENDO IL LINK e non seguendolo.
+ *
+ * PERCHE' NON `realpathSync`. `realpathSync` statta ogni segmento del
+ * bersaglio: su un symlink PENDENTE lancia `ENOENT`. Ma il symlink pendente e'
+ * esattamente il caso che il meccanismo di alias qui sotto esiste per
+ * prevenire — un link il cui bersaglio sta in un bucket ESCLUSO dallo sparse
+ * checkout. Con `realpathSync` in un `catch { continue }` l'analizzatore
+ * perdeva proprio l'alias che doveva vedere, e concludeva «nessun job legge
+ * questo bucket» dentro il checkout in cui il bucket manca: un verde vacuo che
+ * si auto-conferma. Misurato in un worktree sparse il 2026-09-05 — 30 symlink
+ * tracciati, `realpathSync` ne risolve 7, `readlinkSync` tutti e 30 (issue
+ * #6223).
+ *
+ * `readlinkSync` legge il TESTO del link senza toccare il bersaglio, quindi la
+ * risposta non dipende da che cosa il profilo sparse ha materializzato — che e'
+ * la sola proprieta' accettabile per un'analisi che decide i profili sparse.
+ * `path.resolve` sulla dir del link normalizza `..`; un link assoluto resta
+ * assoluto (`path.resolve` lo tratta come tale) e semplicemente non matchera'
+ * nessun bucket, che e' il comportamento voluto.
+ */
+export function symlinkTargetAbs(abs) {
+  let target;
+  try { target = fs.readlinkSync(abs); } catch { return null; }
+  return path.resolve(path.dirname(abs), target);
+}
+
+/**
  * Alcuni percorsi sotto `services/`, `data/`, `build-plugins/shared/` sono
  * symlink verso un bucket (es. `services/seo/seo-blog-2.ts` -> `packages/
  * articles/content/seo/seo-blog-2.ts`): un consumer che legge/enumera l'alias
@@ -259,7 +286,7 @@ export function transitiveClosure(entries) {
  * gira una volta sola.
  */
 let ALIAS_CACHE = null;
-function bucketAliasPaths() {
+export function bucketAliasPaths() {
   if (ALIAS_CACHE) return ALIAS_CACHE;
   const aliases = new Map(); // bucketId -> Set<string> (path dell'alias + sua dir padre)
   const bucketAbs = BUCKETS.map((b) => ({ id: b.id, abs: path.join(ROOT, b.id.replace(/\/$/, '')) }));
@@ -286,8 +313,8 @@ function bucketAliasPaths() {
       if (SKIP.has(e.name)) continue;
       const abs = path.join(dir, e.name);
       if (e.isSymbolicLink()) {
-        let real;
-        try { real = fs.realpathSync(abs); } catch { continue; }
+        const real = symlinkTargetAbs(abs);
+        if (real === null) continue;
         const bucket = bucketAbs.find((b) => real === b.abs || real.startsWith(b.abs + path.sep));
         if (bucket) addAlias(bucket.id, path.relative(ROOT, abs));
       } else if (e.isDirectory()) {

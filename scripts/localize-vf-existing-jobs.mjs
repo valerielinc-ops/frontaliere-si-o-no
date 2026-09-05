@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -15,7 +16,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const GOOGLE_TRANSLATE_ENDPOINT = 'https://translate.googleapis.com/translate_a/single';
 const DEEPL_API_KEY = (process.env.DEEPL_API_KEY || '').trim();
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
-const MAX_PER_RUN = Number(process.env.JOBS_VF_LOCALIZE_LIMIT || 5);
+const MAX_PER_RUN = intFromEnv('JOBS_VF_LOCALIZE_LIMIT', 5);
 const ONLY_SLUG = String(process.env.JOBS_VF_LOCALIZE_SLUG || '').trim();
 
 function normalize(value = '') {

@@ -28,6 +28,7 @@ import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
 import { isAcceptableTranslation, hasConcatenatedWords, isStructureFlattenedCopy } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
+import { intFromEnv } from './int-from-env.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -3028,7 +3029,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   let changed = false;
   let translated = 0;
   const details = [];
-  const concurrency = Math.max(1, Math.min(6, Number(process.env.JOBS_LOCALE_TRANSLATION_CONCURRENCY || 3)));
+  const concurrency = Math.max(1, Math.min(6, intFromEnv('JOBS_LOCALE_TRANSLATION_CONCURRENCY', 3)));
 
   const filtered = isTargetJob ? raw.filter(isTargetJob) : raw;
   // FRO-327: prioritize jobs marked for retranslation (failed in a previous run)

@@ -32,6 +32,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
 import { WAF_IP_BLOCK_STATUS } from './lib/transient-fetch.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 // ── Tunables ────────────────────────────────────────────────────────
 const DEFAULT_STALE_HOURS = 6;
@@ -492,7 +493,7 @@ function loadCurrentSnapshot() {
 // ── Orchestration ───────────────────────────────────────────────────
 
 async function main() {
-  const staleHours = Number(process.env.STALE_HOURS || DEFAULT_STALE_HOURS);
+  const staleHours = intFromEnv('STALE_HOURS', DEFAULT_STALE_HOURS);
   const problems = [];
   const lines = [];
 

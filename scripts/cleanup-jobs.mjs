@@ -25,6 +25,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -42,8 +43,8 @@ const EXPIRED_SLICES_DIR = process.env.JOBS_EXPIRED_SLICES_DIR
   ? path.resolve(process.env.JOBS_EXPIRED_SLICES_DIR)
   : path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
 
-const MAX_CONCURRENCY = Math.max(1, Math.min(20, Number(process.env.JOBS_HOUSEKEEPING_CONCURRENCY || DEFAULT_CONCURRENCY)));
-const TIMEOUT_MS = Math.max(2000, Math.min(15000, Number(process.env.JOBS_HOUSEKEEPING_TIMEOUT_MS || DEFAULT_TIMEOUT_MS)));
+const MAX_CONCURRENCY = Math.max(1, Math.min(20, intFromEnv('JOBS_HOUSEKEEPING_CONCURRENCY', DEFAULT_CONCURRENCY)));
+const TIMEOUT_MS = Math.max(2000, Math.min(15000, intFromEnv('JOBS_HOUSEKEEPING_TIMEOUT_MS', DEFAULT_TIMEOUT_MS)));
 const HOUSEKEEPING_SCOPE = String(process.env.JOBS_HOUSEKEEPING_SCOPE || '').trim();
 const SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') === '1';
 
@@ -55,7 +56,7 @@ const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
 
 /** Maximum age in days before a job is considered stale regardless of URL status.
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
-const STALE_DAYS = Math.max(7, Math.min(180, Number(process.env.JOBS_STALE_DAYS || 60)));
+const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
 const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 
 function readJson(filePath) {

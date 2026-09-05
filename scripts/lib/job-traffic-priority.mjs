@@ -311,6 +311,30 @@ export function summarizeQueueAge(jobs, { now = Date.now(), alertDays = QUEUE_AG
 function round1(n) { return Math.round(n * 10) / 10; }
 
 /**
+ * La politica della corsia freschezza, per ENTRY POINT di produzione.
+ *
+ * Prima stava scritta come `freshFirst: true` in un letterale al call site del
+ * mop-up e come ASSENZA di quella parola nel cascade, e i due guard che la
+ * pinnavano erano `readFileSync` + regex sui due script (issue #7361): una
+ * regex descrive la forma testuale di UN call site, quindi bastava spostare la
+ * chiamata dietro un helper perche' i guard restassero verdi senza piu'
+ * descrivere niente — verdi anche con la corsia spenta sul mop-up, o accesa sul
+ * cascade, dove una testa da ~1.200 job fresca mangerebbe tutti i 53 slot per
+ * run del percorso a pagamento.
+ *
+ * Qui la scelta e' un VALORE esportato: gli script si limitano a dichiarare chi
+ * sono, e il guard legge questa tabella invece del loro sorgente.
+ */
+export const TRAFFIC_PRIORITY_LANES = Object.freeze({
+  // Percorso GRATUITO (traduzione locale): la coorte fresca costa zero e ogni
+  // job fresco tradotto subito e' una pagina servibile in giornata.
+  'local-mt-mopup': Object.freeze({ freshFirst: true }),
+  // Percorso A PAGAMENTO (cascade AI): 53 job per run da 90 minuti. Accendere
+  // qui la corsia freschezza consegnerebbe l'intero batch alla coorte fresca.
+  'relocalize-pending-jobs': Object.freeze({ freshFirst: false }),
+});
+
+/**
  * Order the pending queue so the capped batch repairs the most served traffic,
  * without letting the oldest jobs starve.
  *
@@ -335,15 +359,40 @@ function round1(n) { return Math.round(n * 10) / 10; }
  *
  * @param {object[]} pending
  * @param {Record<string, number>} popularity
- * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, cap?: number }} [opts]
- * @returns {{ order: object[], stats: object }}
+ * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, lane?: string, cap?: number }} [opts]
+ * @returns {{ order: object[], selected: object[], stats: object }}
  */
-export function buildTrafficPriority(pending, popularity, { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now(), freshFirst = false, cap = null } = {}) {
+export function buildTrafficPriority(pending, popularity, opts = {}) {
+  // `opts` intero e non solo destrutturato: distinguere «freshFirst assente» da
+  // «freshFirst: false» richiede `Object.hasOwn`, e con un default nella
+  // destrutturazione i due casi sono indistinguibili.
+  const { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now(), lane = null, cap = null } = opts;
+  let freshFirst = opts.freshFirst === true;
   // A cap that is NaN, zero or negative would silently fall back to "no cap"
   // and take the ceiling with it — the lane would look bounded and not be.
   // `null` (the default) is the honest way to say "I take everything".
   if (cap !== null && !(Number.isInteger(cap) && cap > 0)) {
     throw new TypeError(`buildTrafficPriority: cap must be a positive integer or null, got ${JSON.stringify(cap)}`);
+  }
+  // `lane` is how the two PRODUCTION entry points ask for their policy: they
+  // name themselves and the policy comes from TRAFFIC_PRIORITY_LANES, so the
+  // freshness decision is a value this module owns and a test can read, not a
+  // boolean literal sitting at a call site that only a source-scanning regex
+  // could see (issue #7361). `freshFirst` stays for this module's own unit
+  // tests, which exercise both settings directly — but the two are mutually
+  // exclusive: a call that says both is a call whose real policy nobody can
+  // name, so it fails loudly instead of silently letting one win.
+  if (lane !== null) {
+    if (!Object.hasOwn(TRAFFIC_PRIORITY_LANES, lane)) {
+      throw new TypeError(
+        `buildTrafficPriority: unknown lane ${JSON.stringify(lane)} — declare it in TRAFFIC_PRIORITY_LANES `
+        + `(known: ${Object.keys(TRAFFIC_PRIORITY_LANES).join(', ')})`,
+      );
+    }
+    if (Object.hasOwn(opts, 'freshFirst')) {
+      throw new TypeError(`buildTrafficPriority: pass lane OR freshFirst, never both (lane ${JSON.stringify(lane)})`);
+    }
+    freshFirst = TRAFFIC_PRIORITY_LANES[lane].freshFirst;
   }
   const jobs = Array.isArray(pending) ? pending : [];
   const pop = popularity && typeof popularity === 'object' ? popularity : {};
@@ -465,6 +514,14 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
   const totalViews = scored.reduce((s, x) => s + x.views, 0);
   return {
     order,
+    // La fetta che il chiamante prendera' davvero, tagliata QUI con lo stesso
+    // `cap` su cui e' calcolato `freshHeadCeiling`. Prima il mop-up rifaceva
+    // `order.slice(0, MAX_JOBS)` per conto suo e un guard testuale controllava
+    // che i due numeri fossero lo stesso identificatore (issue #7361): un tetto
+    // calcolato su un cap diverso da quello con cui si affetta non garantisce
+    // niente, e la coincidenza dei due nomi era pinnata da una regex. Con un
+    // solo taglio la divergenza non e' piu' rappresentabile.
+    selected: cap === null ? order : order.slice(0, cap),
     stats: {
       queued: scored.length,
       trafficEntries,

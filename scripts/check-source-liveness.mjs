@@ -37,6 +37,7 @@
 
 import { pathToFileURL } from 'node:url';
 import { checkPostHogLiveness, POSTHOG_MONITORS, DEFAULT_MIN_EVENTS_PER_DAY } from './lib/source-liveness.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 // Discriminant FIRST: issue dedup truncates the title at 60 chars, so a
 // trailing discriminant is the token that gets dropped and collides.
@@ -82,7 +83,7 @@ export async function main({
   const json = argv.includes('--json');
   const dryRun = argv.includes('--dry-run');
   const strict = argv.includes('--strict');
-  const windowDays = Number(process.env.SOURCE_LIVENESS_WINDOW_DAYS || 7);
+  const windowDays = intFromEnv('SOURCE_LIVENESS_WINDOW_DAYS', 7);
 
   const verdict = await checkImpl({ windowDays, minEventsPerDay: DEFAULT_MIN_EVENTS_PER_DAY });
   // `dailyCounts` is a Map and would serialise to `{}` — drop it from output.

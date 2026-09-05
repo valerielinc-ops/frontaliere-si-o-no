@@ -35,6 +35,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createGithubIssue } from './lib/github-issue-creator.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -42,8 +43,8 @@ const WORKFLOWS_DIR = process.env.WORKFLOWS_DIR || '.github/workflows';
 const JOBS_DATA_PIPELINE_GROUP = 'jobs-data-pipeline';
 // GitHub's documented cap for a `queue: max` concurrency group (changelog 2026-05-07).
 const QUEUE_CAP = 100;
-const SATURATION_WARN_THRESHOLD = Number(process.env.QUEUE_SATURATION_WARN_THRESHOLD || 80);
-const CANCELLED_LOOKBACK_MINUTES = Number(process.env.QUEUE_CANCELLED_LOOKBACK_MINUTES || 180);
+const SATURATION_WARN_THRESHOLD = intFromEnv('QUEUE_SATURATION_WARN_THRESHOLD', 80);
+const CANCELLED_LOOKBACK_MINUTES = intFromEnv('QUEUE_CANCELLED_LOOKBACK_MINUTES', 180);
 
 function repoPath(suffix) {
   return REPO ? `repos/${REPO}/${suffix}` : `repos/{owner}/{repo}/${suffix}`;

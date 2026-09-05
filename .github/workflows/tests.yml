@@ -1003,6 +1003,18 @@ jobs:
         background: true
         run: node scripts/ci/check-client-lookbehind.mjs
 
+      # Blocking gate (#7300 → #7344): forbid `Number(process.env.X || N)`. The
+      # fallback INSIDE Number() only applies when the variable is unset, so a
+      # non-numeric value yields NaN — which never throws and quietly removes
+      # caps, concurrency limits and deadlines. `Number(process.env.X) || N` is
+      # fine (NaN is falsy there). Correct form: intFromEnv() from
+      # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
+      # by tests/int-from-env.test.ts.
+      - name: Forbid the NaN-producing env fallback inside Number()
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        background: true
+        run: node scripts/ci/check-number-env-fallback.mjs
+
       # NB: niente `if:` qui, ed è una constatazione, non una dimenticanza. Un
       # primo tentativo gli aveva messo la stessa condizione dei due
       # `background:` qui sopra (rijoinare solo ciò che si è forkato, dato che

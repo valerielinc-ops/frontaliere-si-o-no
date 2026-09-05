@@ -54,6 +54,7 @@ import {
   couldServeStaleHaveHelped,
   CACHE_HAD_COPY,
 } from '../lib/cf-error-surface.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DEFAULT_HISTORY_FILE = 'data/cf-5xx-history.jsonl';
 /** Top offending URLs kept per snapshot. Enough to spot a pattern, small enough to keep forever. */
@@ -257,7 +258,7 @@ async function main() {
     console.warn('⚠️  CF_API_TOKEN assente — snapshot saltato (nessun errore: è un registratore, non un gate).');
     return;
   }
-  const hours = Number(process.env.CF_5XX_SNAPSHOT_HOURS || 23);
+  const hours = intFromEnv('CF_5XX_SNAPSHOT_HOURS', 23);
   const until = new Date();
 
   const zoneId = await resolveZoneId(token, DEFAULT_ZONE_NAME, process.env.CF_ZONE_ID);

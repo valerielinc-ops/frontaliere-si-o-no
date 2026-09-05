@@ -46,11 +46,12 @@ import {
   buildWinnerFingerprint,
   sortScored,
 } from './lib/perf-sources/scoring.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
 
-const WINDOW_DAYS = Number(process.env.PERF_WINDOW_DAYS || 30);
+const WINDOW_DAYS = intFromEnv('PERF_WINDOW_DAYS', 30);
 const MIN_AGE_DAYS = 14;
 const MAX_WINNERS = 20;
 const MAX_LOSERS = 50;

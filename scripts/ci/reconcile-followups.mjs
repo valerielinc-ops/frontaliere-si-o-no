@@ -44,10 +44,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectAlreadyResolved } from './followup-resolution-match.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const NO_AUTOCLOSE = process.env.NO_AUTOCLOSE === '1';
-const MAX_ISSUES = Number(process.env.MAX_ISSUES || 100);
+const MAX_ISSUES = intFromEnv('MAX_ISSUES', 100);
 const MARKER = '<!-- reconcile-bot -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
 const LABEL = 'maybe-resolved';

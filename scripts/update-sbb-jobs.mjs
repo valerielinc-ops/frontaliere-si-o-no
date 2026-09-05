@@ -66,6 +66,7 @@ import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1079,7 +1080,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
 
 async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl, apiMetaByTitle = new Map()) {
   const uniqueUrls = [...new Set((detailUrls || []).map((u) => normalizeDetailUrl(u)).filter(Boolean))];
-  const concurrency = Math.max(1, Number(process.env.JOBS_SBB_DETAIL_CONCURRENCY || 6));
+  const concurrency = Math.max(1, intFromEnv('JOBS_SBB_DETAIL_CONCURRENCY', 6));
   let cursor = 0;
   const parsed = [];
 

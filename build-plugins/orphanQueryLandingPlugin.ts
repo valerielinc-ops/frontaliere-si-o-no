@@ -78,6 +78,7 @@ import { buildDayStampIso } from './shared/buildDayStamp';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
+import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -831,7 +832,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         return;
       }
 
-      const maxEnv = Number(process.env.MAX_ORPHAN_LANDINGS || '');
+      const maxEnv = intFromEnv('MAX_ORPHAN_LANDINGS', 0);
       const maxLandings = Number.isFinite(maxEnv) && maxEnv > 0 ? Math.floor(maxEnv) : DEFAULT_MAX_LANDINGS;
 
       const jobs = loadAllJobs(rootDir);

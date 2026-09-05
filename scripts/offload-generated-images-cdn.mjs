@@ -54,6 +54,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ASSETS_SAME_ORIGIN_RX } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
+import { formatCdnAssetReport, formatOffloadCoverageReport, verifyCdnAssetRefs } from './lib/cdn-asset-existence.mjs';
 
 const ORIGIN = 'https://frontaliereticino.ch';
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
@@ -211,7 +212,17 @@ function offloadAll(distDir, cdnBase) {
   // site-relative /assets/, NOT preceded by a word char (so an already-absolute
   // CDN URL `…cdn.frontaliereticino.ch/assets/…` — preceded by `h` — is skipped).
   const assetReRel = new RegExp('(?<![\\w.@])/assets/' + ASSET_FILE, 'g');
-  const assetRepl = (_m, file) => `${cdnBase}/assets/${file}`;
+  // OGNI riscrittura di un `/assets/` passa di qui — assoluta e relativa, in
+  // HTML come in XML/TXT. Registrare gli URL PRODOTTI, invece di ri-greppare
+  // l'HTML dopo, rende l'elenco esatto per costruzione: nessuna seconda regex
+  // da tenere allineata a questa, e nessun ramo di riscrittura che possa
+  // sfuggire alla verifica (issue #7366).
+  const cdnAssetUrls = new Set();
+  const assetRepl = (_m, file) => {
+    const url = `${cdnBase}/assets/${file}`;
+    cdnAssetUrls.add(url);
+    return url;
+  };
 
   // data inject + ref-collect + same-origin→CDN rewrite setup.
   const dataDir = path.join(distDir, 'data');
@@ -504,9 +515,11 @@ function offloadAll(distDir, cdnBase) {
   }
 
   log(`single-pass offload over ${scanned} HTML/XML/TXT files ; assets: rewrote /assets/ refs in ${assetRewritten} (dist/assets dropped by the deploy verify step)`);
+
+  return { cdnAssetUrls: [...cdnAssetUrls], assetsLeaks };
 }
 
-function main() {
+async function main() {
   // CDN_BASE is the full origin+path of the CDN repo's GitHub Pages site
   // (e.g. https://valerielinc-ops.github.io/frontaliere-cdn), exported by the
   // deploy step only after the assets were successfully pushed there. Pages
@@ -526,11 +539,30 @@ function main() {
     return;
   }
 
-  offloadAll(distDir, cdnBase);
+  const { cdnAssetUrls, assetsLeaks } = offloadAll(distDir, cdnBase);
+
+  // GUARDIA DI ESISTENZA (issue #7366). Gli /assets/ sono l'unica famiglia che
+  // l'ordine del deploy non garantisce: puntano al bundle dell'ULTIMO deploy e
+  // il fast-publish non ne ricostruisce nemmeno uno. Non-fatale come tutto il
+  // resto di questo script: verifica e DICE, non blocca una pubblicazione per
+  // uno script di tracking mancante.
+  // `console.log` e non `log()`: le righe portano gia' il proprio prefisso, e
+  // quelle di allarme cominciano con `::warning::`, che GitHub Actions
+  // riconosce solo a INIZIO riga.
+  for (const line of formatOffloadCoverageReport({
+    cdnRefCount: cdnAssetUrls.length,
+    sameOriginFiles: assetsLeaks,
+    prefix: '[offload-generated-cdn]',
+  })) console.log(line);
+
+  if (cdnAssetUrls.length > 0) {
+    const results = await verifyCdnAssetRefs({ urls: cdnAssetUrls });
+    for (const line of formatCdnAssetReport(results, '[offload-generated-cdn]')) console.log(line);
+  }
 }
 
 try {
-  main();
+  await main();
 } catch (err) {
   // NON-FATAL: never break a deploy over an image-offload optimisation.
   console.log(`[offload-generated-cdn] error (non-fatal, images kept in dist): ${err && err.message ? err.message : err}`);

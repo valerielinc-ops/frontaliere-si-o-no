@@ -25,16 +25,17 @@ import fs from 'node:fs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
-const WINDOW_DAYS = Number(process.env.WINDOW_DAYS || 14);
-const THRESHOLD = Number(process.env.THRESHOLD || 3);
-const MAX_PRS = Number(process.env.MAX_PRS || 40);
-const MAX_ISSUES = Number(process.env.MAX_ISSUES || 120);
+const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
+const THRESHOLD = intFromEnv('THRESHOLD', 3);
+const MAX_PRS = intFromEnv('MAX_PRS', 40);
+const MAX_ISSUES = intFromEnv('MAX_ISSUES', 120);
 const OUT = process.env.HARVEST_OUT || 'harvest-clusters.json';
 // EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
 // is evidence the prose rule isn't preventing the mistake → escalate to a
 // structural fix instead of writing another line nobody follows.
-const EFFICACY_FACTOR = Number(process.env.EFFICACY_FACTOR || 2);
+const EFFICACY_FACTOR = intFromEnv('EFFICACY_FACTOR', 2);
 
 const sinceMs = Date.now() - WINDOW_DAYS * 86_400_000;
 const sinceDay = new Date(sinceMs).toISOString().slice(0, 10);
