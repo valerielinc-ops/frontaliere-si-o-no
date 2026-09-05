@@ -5521,6 +5521,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-estero-vaud-conversione.title': 'Permis étranger en Vaud : conversion et examens',
     'blog.article.patente-estero-vaud-conversione.excerpt': 'Procédure cantonale pour convertir un permis étranger en Vaud : examens théoriques et pratiques, cours obligatoires, documents requis et contacts Office de la circulation.',
     'blog.article.patente-estero-vaud-conversione.imageAlt': 'Route suisse en montagne avec signalisation routière, voiture et paysage alpin en arrière-plan.',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.title': 'Permis de conduire dans le canton de Vaud : conversion, examens et cours',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.excerpt': 'Guide pratique à la conversion du permis de conduire étranger dans le canton de Vaud, comprenant examens théoriques et pratiques, cours obligatoires et office de la circulation compétent.',
+    'blog.article.patente-guida-canton-vaud-conversione-esami.imageAlt': 'Route suisse avec une voiture s\'approchant du bureau de la circulation',
 };
 
 export default blogMetaChFr;
