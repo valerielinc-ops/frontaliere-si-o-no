@@ -40,6 +40,7 @@ import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitel
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
+import { MAX_HTML_BYTES } from './audit-page-weight.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
@@ -81,12 +82,11 @@ const DUP_CLUSTER_THRESHOLD = 5;
 const DUP_MAX_REPORTED = 20;
 const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 
-// audit-page-weight constants.
-// Kept in lock-step with scripts/audit-page-weight.mjs's own MAX_HTML_BYTES
-// (see maintenance contract in that file's header) — raised 215 -> 260 KB
-// for the TI /cerca-lavoro-ticino/tutti/ pagination-ladder headroom
-// (issue #4209(b); this script was already stale at 200 KB pre-change).
-const MAX_HTML_BYTES = 260 * 1024;
+// audit-page-weight constants. `MAX_HTML_BYTES` is IMPORTED (see the import
+// block above), not re-declared: "kept in lock-step" by comment is what left
+// this script stale at 200 KB while the active gate had already moved to 215
+// (issue #4209(b)), i.e. a budget that silently stopped matching the gate it
+// mirrors. One declaration cannot drift (issue #7330).
 // Per-path budget override — mirrors scripts/audit-page-weight.mjs (the active
 // gate). The Italian-fuel-stations index pages deliberately link every border
 // station inline for the orphan-elimination contract (#1241); per explicit user
