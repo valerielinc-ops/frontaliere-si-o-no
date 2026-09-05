@@ -12,6 +12,8 @@
  *   2. Unified runner:  imported by scripts/audit-all.mjs via factory().
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
@@ -51,7 +53,11 @@ import { insertBounded } from './lib/boundedTopN.mjs';
 // redesign lands, instead of waiting for a hard breach like run
 // 26112128794 above. Do not raise further without a fresh measured
 // baseline citing the issue.
-const MAX_HTML_BYTES = 260 * 1024;
+// Exported so the byte budget lives in ONE place: a regression test that
+// re-derives the number as a literal drifts silently the moment this constant
+// moves, and then guards a threshold the gate no longer enforces
+// (tests/events-page-weight-bound.test.ts, issue #7330).
+export const MAX_HTML_BYTES = 260 * 1024;
 
 // Per-path budget override (explicit user-approved exception, 2026-06-03).
 // The Italian-fuel-stations INDEX pages (2 fuels × 4 locales) deliberately
@@ -303,7 +309,10 @@ async function standalone() {
 }
 
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+  // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+  // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })();
 

@@ -34,6 +34,8 @@
  * handful of CV feeds per cron run is comfortably within the Actions collector.
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -595,7 +597,14 @@ export async function analyzeWebcamForCrossing(crossingSlug) {
 // CLI usage:
 //   node scripts/analyze-webcam-frame.mjs <feedKey>      → analyze one feed
 //   node scripts/analyze-webcam-frame.mjs --crossing <slug> → aggregate a crossing
-if (process.argv[1]?.endsWith('analyze-webcam-frame.mjs')) {
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+const isDirectRun = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+if (isDirectRun) {
   const arg = process.argv[2];
   if (arg === '--crossing') {
     const result = await analyzeWebcamForCrossing(process.argv[3]);

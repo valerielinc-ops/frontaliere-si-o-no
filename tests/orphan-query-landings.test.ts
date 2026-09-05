@@ -335,7 +335,17 @@ describe('cluster-orphan-queries.mjs — deterministic output', () => {
   });
 
   it('skips clusters whose canonical slug collides with a known job slug', () => {
-    if (!fs.existsSync(outputPath) || !knownSlugsStoreExists(ROOT)) return;
+    // La condizione e' ancorata a `inputPath`, non a `outputPath`: quest'ultimo
+    // vive in os.tmpdir() e lo scrive il caso precedente, che salta esattamente
+    // quando manca lo stesso `inputPath`. Guardare l'output significherebbe
+    // trasformare quella skip in un verde silenzioso proprio sulla regressione
+    // che questo caso esiste per intercettare (collisione slug cluster↔job =
+    // doorway duplicato indicizzato). Le due skip sono la stessa skip.
+    if (!fs.existsSync(inputPath) || !knownSlugsStoreExists(ROOT)) return;
+    expect(
+      fs.existsSync(outputPath),
+      'i cluster non sono stati prodotti: il guard anti-collisione non ha nulla da verificare',
+    ).toBe(true);
     const parsed = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
     const known = readAllKnownJobSlugs(ROOT);
     const knownKeys = new Set(Object.keys(known || {}));

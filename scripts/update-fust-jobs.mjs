@@ -1164,6 +1164,13 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
     writeSummary: (summary) => writeSummary({
       ...summary,
       authoritativeEmptyConfirmed: true,
+      // Same per-run proof the shared template emits (crawler-template.mjs).
+      // `authoritativeEmptyConfirmed` above is Fust's own two-run confirmation
+      // bookkeeping, which `check-crawler-health.mjs` does not read; without
+      // this field the monitor sees a bare zero and accrues a broken streak no
+      // parser fix can clear (#7324). Only the CONFIRMED branch sets it: the
+      // pending branch above republishes the preserved non-empty plan.
+      authoritativeEmptySnapshot: true,
     }),
   });
   return { confirmed: true, ...result, noop: false };

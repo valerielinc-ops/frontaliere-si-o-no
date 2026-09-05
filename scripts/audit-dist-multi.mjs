@@ -31,6 +31,8 @@
  * interactive analysis (top-N offenders, JSON dumps, baseline rewrites).
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, relative, sep, isAbsolute, dirname, extname, basename } from 'node:path';
@@ -38,8 +40,10 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { flatString } from './lib/flat-string.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
+import { MAX_HTML_BYTES } from './audit-page-weight.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
@@ -81,12 +85,11 @@ const DUP_CLUSTER_THRESHOLD = 5;
 const DUP_MAX_REPORTED = 20;
 const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 
-// audit-page-weight constants.
-// Kept in lock-step with scripts/audit-page-weight.mjs's own MAX_HTML_BYTES
-// (see maintenance contract in that file's header) — raised 215 -> 260 KB
-// for the TI /cerca-lavoro-ticino/tutti/ pagination-ladder headroom
-// (issue #4209(b); this script was already stale at 200 KB pre-change).
-const MAX_HTML_BYTES = 260 * 1024;
+// audit-page-weight constants. `MAX_HTML_BYTES` is IMPORTED (see the import
+// block above), not re-declared: "kept in lock-step" by comment is what left
+// this script stale at 200 KB while the active gate had already moved to 215
+// (issue #4209(b)), i.e. a budget that silently stopped matching the gate it
+// mirrors. One declaration cannot drift (issue #7330).
 // Per-path budget override — mirrors scripts/audit-page-weight.mjs (the active
 // gate). The Italian-fuel-stations index pages deliberately link every border
 // station inline for the orphan-elimination contract (#1241); per explicit user
@@ -382,7 +385,9 @@ export class TitleAudit {
     if (!title) { this.missingTitle++; return; }
     if (title.length <= TITLE_THRESHOLD) return;
     const locale = inferRootLocale(relFromRoot);
-    this.offenders.push({ file: relFromRoot, feature, locale, title, length: title.length });
+    // flatString: see the twin boundary in audit-h1-title-duplicates.mjs —
+    // `title` is a capture into the whole page and `offenders` spans the scan.
+    this.offenders.push({ file: relFromRoot, feature, locale, title: flatString(title), length: title.length });
   }
 }
 
@@ -417,7 +422,8 @@ export class H1Audit {
     if (!h1) { this.missingH1++; return; }
     if (title.toLowerCase() !== h1.toLowerCase()) return;
     const locale = inferRootLocale(relFromRoot);
-    this.offenders.push({ file: relFromRoot, feature, locale, title, h1 });
+    // flatString: same boundary as audit-h1-title-duplicates.mjs.
+    this.offenders.push({ file: relFromRoot, feature, locale, title: flatString(title), h1: flatString(h1) });
   }
 }
 
@@ -610,12 +616,18 @@ class TitleUniqAudit {
     const locale = inferDupLocale(distRel);
     const fsCanonical = canonicalizeDistPath(distRel);
 
-    const title = extractHeadTitle(html);
+    // flatString: both keys of `titlesByLocale` are slices that would outlive
+    // the scan. Here the parent is the *whole* `html`, not just the head —
+    // `extractHeadTitle` scopes via a capture into `html` — so one retained
+    // page per distinct title/canonical is a full document each. Same
+    // boundary as the original in audit-title-uniqueness.mjs, which this
+    // block mirrors verbatim.
+    const title = flatString(extractHeadTitle(html));
     this.totalPages += 1;
     if (!title) { this.missingTitles += 1; return; }
     if (hasNoindexDup(html)) return;
 
-    const canonicalUrl = extractCanonical(html);
+    const canonicalUrl = flatString(extractCanonical(html));
     const canonicalKey = canonicalUrl ?? fsCanonical;
 
     if (!this.titlesByLocale.has(locale)) {
@@ -2096,7 +2108,10 @@ async function main() {
 // classifier helpers below) without triggering the real dist/ walk + CLI
 // exit codes — same `invokedDirectly` convention as audit-title-length.mjs.
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+  // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+  // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })();
 

@@ -38,6 +38,8 @@
  * marcata `needs-human`. Ora hanno un rescue proprio, gemello di quello
  * queue-managed: vedi `crawlerFixDecision`.
  */
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { classifyIssue } from '../lib/classify-issue.mjs';
@@ -2153,8 +2155,32 @@ export function runDrain() {
       edit(p.number, { remove: [LBL_FIX, LBL_QUEUED] });
       console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie) — "${p.title?.slice(0, 50)}"`);
     }
+    // Il cap di questo stadio conta le ESAMINATE, non le azioni — a differenza
+    // di age-out (`slice` su candidate già filtrate), verdict-exit (`acted`) e
+    // sibling-debt (`labelled`), dove uno slot lo consuma solo chi agisce. Qui
+    // l'esame È il costo (1 view commenti + K view di stato per padre), quindi
+    // il cap sulle esaminate è giusto e resta. Senza rotazione, però, quel cap
+    // cade SEMPRE sulle stesse 5 posizioni di testa: `gh issue list` ordina
+    // dalla più recente, e i padri più recenti sono per costruzione quelli con
+    // le figlie ancora aperte. Il «rinviati al prossimo tick» del log diventa
+    // una bugia — il tick successivo riesamina gli stessi cinque.
+    //
+    // Misurato il 2026-09-05 sul sito: 39 padri `decomposed:1`, deferred fermo
+    // a 33-34 per ~25 run consecutive e ZERO `PARENT-CLOSE` in 40 run. Degli 8
+    // padri con TUTTE le figlie chiuse — chiudibili subito — nessuno era nella
+    // testa da 5: stavano alle posizioni 20, 22, 23, 27, 29, 31, 33 e 36, da
+    // 11-23 giorni. Irraggiungibili per costruzione, non per difficoltà.
+    //
+    // Stessa cura già applicata agli altri stadi scansionati: `rotateForScan`
+    // avanza di `cap` posizioni per tick, quindi il pool è coperto in
+    // ⌈pool/cap⌉ tick (39/5 → 8 tick) senza alzare il costo per run.
+    const rotatedParents = rotateForScan(parents, {
+      scanMax: PARENT_CLOSE_MAX_PER_RUN,
+      now: Date.now(),
+      periodMs: SCAN_ROTATION_PERIOD_MS,
+    });
     let examined = 0;
-    for (const p of parents) {
+    for (const p of rotatedParents) {
       if (examined >= PARENT_CLOSE_MAX_PER_RUN) {
         console.log(`parent-close: cap ${PARENT_CLOSE_MAX_PER_RUN}/run raggiunto, ${parents.length - examined} padri rinviati al prossimo tick (no silent cap).`);
         break;
@@ -3248,6 +3274,13 @@ export function runDrain() {
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
-if (process.argv[1]?.endsWith('followup-drainer.mjs')) {
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+const isDirectRun = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+if (isDirectRun) {
   main();
 }

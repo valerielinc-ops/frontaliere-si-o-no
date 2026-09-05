@@ -532,24 +532,47 @@ function wordSet(value) {
   return new Set(normalizePlace(value).split(' ').filter((word) => word.length >= 4));
 }
 
-const LISTING_WORKPLACE_OVER_ADMIN_JSONLD = new Set([
-  // Solique exposes the workplace in its listing API, while ktzh detail
-  // JSON-LD can contain the administrative district office instead. Require
-  // the rendered job title to corroborate the listing value before preferring
-  // it, so an actually wrong listing location still fails the audit.
-  'kanton-zuerich',
-]);
-
-function titleCorroboratesPublishedLocation(title, publishedLocation) {
-  const normalizedTitle = normalizePlace(title);
+/**
+ * `jobLocation` in an ATS JSON-LD is not always the workplace: on the postings
+ * an organisation publishes on behalf of another one it carries the POSTING
+ * organisation's seat, constant across vacancies that are worked in different
+ * towns. Measured on run 33953283741 (2026-09-05): `jobs.fenaco.com` declares
+ * fenaco's `Erlachstrasse 5, 3001 Bern` for a Volg shop whose own detail-page
+ * text reads «Die LANDI Wetzikon-Seegräben …», `jobs.coopjobs.ch` declares
+ * Coop's `Reservatstrasse 1-3, 8953 Dietikon` for a store in Bern and one in
+ * Baden-Dättwil alike, and `jobs.admin.ch` declares Wädenswil for an Agroscope
+ * vacancy whose own page states `Arbeitsort: Reckenholzstrasse 191, 8046
+ * Zürich`. In all three the PUBLISHED value is the real workplace and the
+ * JSON-LD field is a second, different field of the same page — so the
+ * comparison observes a disagreement inside the source, not a parser defect,
+ * and reporting it as one asks the crawler to publish the tenant's address for
+ * every branch (178 `jumbo` and 553 `volg-fenaco` records, issue #7348).
+ *
+ * The published value is therefore taken as authoritative exactly when the
+ * SAME authoritative page names it in the vacancy's own title or description.
+ * That is per-vacancy evidence read off the source, not a crawler exemption:
+ * it used to be gated on a hand-kept list of one crawler (`kanton-zuerich`),
+ * which left every other ATS with the same behaviour permanently red.
+ *
+ * Two deliberate limits keep it from swallowing the defects the check exists
+ * to raise. A bare canton/region name is never corroborated, because that is
+ * precisely the generic fallback shape (`swisslog` publishing `Argovia`), and
+ * only JSON-LD contradictions are eligible: job-scoped rendered markup IS a
+ * workplace declaration, so a disagreement with it stays a finding.
+ */
+export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   const normalizedLocation = normalizePlace(publishedLocation);
-  if (!normalizedTitle || normalizedLocation.length < 2) return false;
-  return ` ${normalizedTitle} `.includes(` ${normalizedLocation} `);
+  if (normalizedLocation.length < 3) return false;
+  // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
+  // canton, and only one of the two spellings is in the region set.
+  if (SWISS_REGION_NAMES.has(canonicalLocationTokens(publishedLocation).join(' '))) return false;
+  const haystack = normalizePlace(`${detail?.title || ''} ${detail?.description || ''}`);
+  if (!haystack) return false;
+  return ` ${haystack} `.includes(` ${normalizedLocation} `);
 }
 
 export function compareSourceDetail(job, detail, {
   locationEvidence = 'jsonld',
-  locationPolicy = 'source-detail',
 } = {}) {
   const publishedLocation = job?.addressLocality || job?.location || '';
   const sourceLocation = detail?.location || '';
@@ -559,11 +582,10 @@ export function compareSourceDetail(job, detail, {
   const sourceWords = wordSet(sourceDescriptionText);
   let overlap = 0;
   for (const word of publishedWords) if (sourceWords.has(word)) overlap++;
-  const listingWorkplaceCorroborated = locationPolicy === 'listing-workplace-over-admin-jsonld'
-    && locationEvidence === 'jsonld'
-    && titleCorroboratesPublishedLocation(detail?.title || '', publishedLocation);
+  const publishedCorroboratedBySource = locationEvidence === 'jsonld'
+    && sourceCorroboratesPublishedLocation(detail, publishedLocation);
   const locationMatchesPublished = sourceLocationMatches(publishedLocation, sourceLocation)
-    || listingWorkplaceCorroborated;
+    || publishedCorroboratedBySource;
   const locationChecked = Boolean(publishedLocation)
     && isUsableSourceLocation(sourceLocation)
     && locationEvidence !== 'generic';
@@ -573,7 +595,7 @@ export function compareSourceDetail(job, detail, {
       matchesPublished: locationMatchesPublished,
       inconclusive: Boolean(sourceLocation) && !locationChecked,
       evidence: locationEvidence,
-      authority: listingWorkplaceCorroborated ? 'listing-workplace' : 'source-detail',
+      authority: publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail',
       published: publishedLocation,
       source: sourceLocation,
     },
@@ -659,10 +681,7 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       const locationObservation = observeLocation(fetched.body, fetched.url || item.url);
       if (locationObservation.location) detail.location = locationObservation.location;
       const locationEvidence = locationObservation.evidence;
-      const locationPolicy = LISTING_WORKPLACE_OVER_ADMIN_JSONLD.has(item.crawlerKey)
-        ? 'listing-workplace-over-admin-jsonld'
-        : 'source-detail';
-      const comparison = compareSourceDetail(item.job, detail, { locationEvidence, locationPolicy });
+      const comparison = compareSourceDetail(item.job, detail, { locationEvidence });
       const sourceDetailEvidence = evidenceContext
         ? createSourceDetailEvidence({
           crawlerKey: item.crawlerKey,
@@ -856,6 +875,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     authoritativeLocationChecks: 0,
     locationMatches: 0,
     locationMismatches: 0,
+    sourceCorroboratedLocationObservations: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
   };
@@ -909,6 +929,12 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       sourceDetailSummary.authoritativeLocationChecks++;
       if (result.locationMismatch) sourceDetailSummary.locationMismatches++;
       else sourceDetailSummary.locationMatches++;
+      // Kept visible: a pass earned because the page names the published place
+      // elsewhere is a different fact from a pass earned by the two location
+      // fields agreeing, and only the count makes the first one auditable.
+      if (result.locationAuthority === 'source-corroborated') {
+        sourceDetailSummary.sourceCorroboratedLocationObservations++;
+      }
     } else if (result.locationInconclusive) {
       info.locationInconclusive++;
       sourceDetailSummary.inconclusiveLocationObservations++;

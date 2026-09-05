@@ -3423,7 +3423,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1d16ed8babd2",
@@ -5099,7 +5100,7 @@
       "title": "Product Architect Microsoft 365 (m/w/d)",
       "titleByLocale": {
         "it": "Architetto di prodotto Microsoft 365 (m/f/d)",
-        "en": "Product Architect Microsoft 365 (m/w/d)",
+        "en": "Product Architect Microsoft 365 (m/f/d)",
         "de": "Product Architect Microsoft 365 (m/w/d)",
         "fr": "Architecte produit Microsoft 365 (h/f/d)"
       },
@@ -5155,8 +5156,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-39b1a11e9670",
@@ -5352,7 +5352,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "SAP Enterprise Architect (m/w/d)",
       "titleByLocale": {
-        "it": "SAP Enterprise Architect (m/w/d)",
+        "it": "SAP Enterprise Architect (m/f/d)",
         "en": "SAP Enterprise Architect (m/f/d)",
         "de": "SAP Enterprise Architect (m/w/d)",
         "fr": "Architecte d'entreprise SAP (h/f/d)"
@@ -5408,8 +5408,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-9b5ff90b38c1",
@@ -5426,7 +5425,7 @@
       "title": "Key Account Manager (m/w/d)",
       "titleByLocale": {
         "it": "Gestore dei Conti Chiave (m/f/d)",
-        "en": "Key Account Manager (m/w/d)",
+        "en": "Key Account Manager (m/f/d)",
         "de": "Key Account Manager (m/w/d)",
         "fr": "Gestionnaire de comptes clés (h/f/d)"
       },
@@ -5476,8 +5475,7 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-f3b34e99b6c6",
@@ -5485,7 +5483,7 @@
       "slugByLocale": {
         "it": "caposquadra-ferrovie-m-f-d-ffs-officine-ferrovie-federali-allaman",
         "en": "railway-foreman-m-f-d-ffs-officine-ferrovie-federali-allaman",
-        "de": "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman",
+        "de": "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
         "fr": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -5544,7 +5542,6 @@
         "caposquadra-ferroviario-m-f-d-ffs-officine-ferrovie-federali-allaman",
         "contremaitre-voies-ferrees-f-m-d-ffs-officine-ferrovie-federali-allaman",
         "eisenbahnvorsteher-m-f-d-ffs-officine-ferrovie-federali-allaman",
-        "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
         "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman"
       ],
       "previousSlugsByLocale": {
@@ -5556,7 +5553,6 @@
         ],
         "de": [
           "eisenbahnvorsteher-m-f-d-ffs-officine-ferrovie-federali-allaman",
-          "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
           "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman"
         ]
       },
@@ -6767,7 +6763,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -8581,7 +8577,7 @@
       "title": "Security Engineer (m/w/d) - Netzleitsystem Energie",
       "titleByLocale": {
         "it": "Security Engineer (m/f/d) - Sistema di gestione dell'energia",
-        "en": "Security Engineer (m/w/d) - Netzleitsystem Energie",
+        "en": "Security Engineer (m/f/d) - Power grid control system",
         "de": "Security Ingenieur (m/w/d) - Netzleitsystem Energie",
         "fr": "Ingénieur en sécurité (h/f/d) - Système de contrôle des réseaux énergétiques"
       },
@@ -12377,9 +12373,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12440,8 +12436,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -12451,12 +12445,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

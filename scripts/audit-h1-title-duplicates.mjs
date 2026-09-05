@@ -15,11 +15,14 @@
  *   2. Unified runner:  imported by scripts/audit-all.mjs via factory().
  */
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import { join, relative, isAbsolute } from 'node:path';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { classifyFeature, inferLocale } from './audit-title-length.mjs';
+import { flatString } from './lib/flat-string.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
@@ -88,7 +91,13 @@ export function createAuditor(opts = {}) {
       if (title.toLowerCase() !== h1.toLowerCase()) return;
       if (featureFilter && feature !== featureFilter) return;
       const locale = inferLocale(rel);
-      offenders.push({ path: rel, file: rel, feature, locale, title, h1, metric: 1 });
+      // flatString: `title`/`h1` originate as captures into the whole page.
+      // `normalizeText()` happens to rebuild them whenever they contain
+      // whitespace, but that is incidental — a long title with no whitespace
+      // at all leaves every `replace` a no-op and the SlicedString survives
+      // into `offenders`, which spans the whole scan. Same explicit boundary
+      // audit-title-length.mjs already carries (tests/seo/title-audit-offender-retention.test.ts).
+      offenders.push({ path: rel, file: rel, feature, locale, title: flatString(title), h1: flatString(h1), metric: 1 });
     },
     async report() {
       const byFeature = {};
@@ -366,7 +375,10 @@ async function standalone() {
 }
 
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+  // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+  // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })();
 

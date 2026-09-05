@@ -65,6 +65,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { keywordLandingPath } from './lib/keyword-page-paths.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -209,7 +210,10 @@ export function auditKeywordLandingCoverage({ distRoot, configPath, sitemapFile 
     const genuine = !noindex && selfCanonical;
 
     if (inSitemap && !genuine) {
-      const reason = noindex ? 'noindex' : `canonical-mismatch:${canonical ?? '(none)'}`;
+      // flatString: the template literal is a ConsString retaining
+      // `canonical`, a capture into the page HTML, and `sitemappedNotGenuine`
+      // spans the whole scan. Paid per OFFENDER.
+      const reason = noindex ? 'noindex' : flatString(`canonical-mismatch:${canonical ?? '(none)'}`);
       sitemappedNotGenuine.push({ slug, locale, path, reason });
     }
     if (genuine && !inSitemap) {

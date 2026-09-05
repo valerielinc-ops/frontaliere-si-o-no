@@ -125,8 +125,19 @@ runs:
         while IFS=$'\t' read -r cand created sha; do
           [ -n "$cand" ] || continue
           rc=0
-          gh api "repos/$GH_REPO/actions/runs/$cand/artifacts" \
-            --jq '.artifacts[] | select(.name=="github-pages" and .expired==false) | .id' \
+          # #7502: `name=` + `per_page=100`. This listing used to run on the
+          # endpoint's default `per_page=30`: deploy.yml uploads 22 artifacts,
+          # some inside a 4-locale matrix, so `github-pages` can sit past the
+          # first page — and a client-side `select(.name==...)` over a
+          # TRUNCATED page reads exactly like "this run has no artifact". The
+          # walk-back then rejected every candidate and the whole thing died
+          # on "no successful deploy.yml run … still has a 'github-pages'
+          # artifact". Filtering server-side on the name leaves at most the
+          # homonymous artifacts of this run (in practice one), so the answer
+          # cannot be truncated; `.expired==false` stays, it is a different
+          # filter (#7392) and no query parameter covers it.
+          gh api "repos/$GH_REPO/actions/runs/$cand/artifacts?name=github-pages&per_page=100" \
+            --jq '.artifacts[] | select(.expired==false) | .id' \
             > "$WORK/art.txt" || rc=$?
           if [ "$rc" -ne 0 ]; then
             echo "::error::gh api failed while listing artifacts of run $cand (exit $rc)."

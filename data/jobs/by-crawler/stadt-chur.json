@@ -4,7 +4,7 @@
   "jobs": [
     {
       "title": "Kaufmännische Praktikumsstelle (HMS 3+1)",
-      "slug": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
+      "slug": "stage-commerciale-hms-3-1-stadt-chur-chur",
       "url": "https://jobs.chur.ch/Kaufmaennische-Praktikumsstelle-HMS-31-de-j1709.html",
       "applyUrl": "https://jobs.chur.ch/Kaufmaennische-Praktikumsstelle-HMS-31-de-j1709.html",
       "company": "Stadt Chur",
@@ -39,10 +39,10 @@
         "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. „Wir engagieren uns für ein sicheres und lebenswertes Chur“Sicherheit ..."
       },
       "slugByLocale": {
-        "it": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
-        "en": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
+        "it": "stage-commerciale-hms-3-1-stadt-chur-chur",
+        "en": "commercial-internship-hms-3-1-stadt-chur-chur",
         "de": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
-        "fr": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
+        "fr": "stage-commercial-hms-3-1-stadt-chur-chur"
       },
       "crawledAt": "2026-09-05T12:53:28.107Z",
       "id": "stadt-chur-c0496a08b9e2",
@@ -61,7 +61,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T00:58:37.556Z"
+      "firstSeenAt": "2026-09-01T00:58:37.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
+        ],
+        "en": [
+          "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
+        ],
+        "fr": [
+          "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
+      ]
     },
     {
       "title": "Stellvertretung Klassenlehrperson, zweisprachiger Klassenzug, 3./4. Klasse, Italienisch (93%)",
@@ -135,7 +149,8 @@
       },
       "previousSlugs": [
         "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Kauffrau / Kaufmann öffentliche Verwaltung EFZ",
@@ -211,7 +226,8 @@
       "previousSlugs": [
         "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur",
         "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Fachfrau / Fachmann Betreuung EFZ (Fachrichtung Kinderbetreuung)",

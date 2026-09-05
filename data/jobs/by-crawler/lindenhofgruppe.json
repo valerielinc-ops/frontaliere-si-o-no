@@ -65,7 +65,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.776Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -139,8 +138,7 @@
         "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
         "nds-intensive-care-training-centre-lindenhofgruppe-bern",
         "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
-        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-        "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern"
+        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -148,8 +146,7 @@
           "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
           "nds-intensive-care-training-centre-lindenhofgruppe-bern",
           "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
-          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-          "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern"
+          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
         ],
         "en": [
           "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch",
@@ -192,7 +189,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing specialist FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/ère diplômé/e HES/HF"
@@ -309,7 +306,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.775Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -374,13 +370,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lagerungspfleger-in-lindenhofgruppe-ch",
-          "lagerungspfleger-in-lindenhofgruppe-bern"
+          "lagerungspfleger-in-lindenhofgruppe-ch"
         ],
         "it": [
           "lagerungspfleger-in-lindenhofgruppe-ch",
-          "lagerungspfleger-in-lindenhofgruppe-bern",
-          "cure-di-stoccaggio-lindenhofgruppe-bern"
+          "lagerungspfleger-in-lindenhofgruppe-bern"
         ],
         "en": [
           "lagerungspfleger-in-lindenhofgruppe-bern"
@@ -391,11 +385,9 @@
       },
       "previousSlugs": [
         "lagerungspfleger-in-lindenhofgruppe-ch",
-        "lagerungspfleger-in-lindenhofgruppe-bern",
-        "cure-di-stoccaggio-lindenhofgruppe-bern"
+        "lagerungspfleger-in-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.774Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -538,13 +530,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch",
-        "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern"
+        "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch",
-          "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern"
+          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
         ],
         "en": [
           "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
@@ -584,7 +574,7 @@
       "title": "Dipl. Expertin/Experte Anästhesie NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expertin/Experte Anästhesie NDS HF",
+        "en": "Dipl. Expert/Expert Anesthesia NDS HF",
         "de": "Dipl. Expertin/Experte Anästhesie NDS HF",
         "fr": "Dipl. Expert/Dipl. Expert Anesthésie Soins NDS HF"
       },
@@ -620,13 +610,11 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
-          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern",
-          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
+          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern"
         ],
         "it": [
           "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
-          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
+          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch"
         ],
         "en": [
           "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
@@ -638,11 +626,9 @@
       "previousSlugs": [
         "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
         "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern",
-        "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
-        "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
+        "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.762Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -708,15 +694,13 @@
       "previousSlugs": [
         "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
         "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
-        "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
-        "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern"
+        "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
-          "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
-          "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern"
+          "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern"
         ],
         "en": [
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-"
@@ -755,7 +739,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
       "titleByLocale": {
         "it": "Dipl. Expertin/Expert terapia intensiva NDS HF o specialista infermieristico dipl. con corso IMC",
-        "en": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
+        "en": "Dipl. Expert/Expert Intensive Care NDS HF or dipl. Nursing professional with IMC course",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "fr": "Dipl. Expertin/Expert soins intensifs NDS HF ou dipl. spécialiste des soins infirmiers avec cours IMC"
       },
@@ -805,7 +789,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:51.847Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -869,13 +852,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
-        "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital"
+        "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
-          "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital"
+          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
         ],
         "en": [
           "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
@@ -913,7 +894,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmière diplômée FH/HF"
@@ -959,8 +940,7 @@
         "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
         "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
         "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
-        "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+        "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -975,8 +955,7 @@
           "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
           "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
           "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
-          "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+          "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
@@ -989,7 +968,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:03:30.775Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1053,13 +1031,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch",
-        "koch-kochin-cfc-in-ausbildung-lindenhofgruppe-engeried"
+        "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch",
-          "koch-kochin-cfc-in-ausbildung-lindenhofgruppe-engeried"
+          "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
         ],
         "en": [
           "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
@@ -1069,7 +1045,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.996Z",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -1133,13 +1108,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie",
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-schwerpunkt-hotellerie-lindenhofgruppe-lindenhofspital"
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie",
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-schwerpunkt-hotellerie-lindenhofgruppe-lindenhofspital"
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
         ],
         "en": [
           "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
@@ -1149,7 +1122,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.992Z",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -1213,13 +1185,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
-        "fachfrau-mann-gesundheit-cfc-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital"
+        "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
-          "fachfrau-mann-gesundheit-cfc-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital"
+          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
@@ -1229,7 +1199,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.968Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1258,7 +1227,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Registered Nurse FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/infirmière diplômé(e) FH/HF"
@@ -1298,8 +1267,7 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1308,8 +1276,7 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
@@ -1319,7 +1286,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:31:36.606Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1348,7 +1314,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1386,16 +1352,14 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4"
@@ -1405,7 +1369,6 @@
         ]
       },
       "firstSeenAt": "2026-07-18T21:58:23.063Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1434,7 +1397,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1472,16 +1435,14 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
@@ -1491,7 +1452,6 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:09:01.939Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1520,7 +1480,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1564,8 +1524,7 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-4ytmdj",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-4ytmdj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1577,8 +1536,7 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
@@ -1591,7 +1549,6 @@
         ]
       },
       "firstSeenAt": "2026-07-19T22:16:44.389Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1620,7 +1577,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1658,16 +1615,14 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
@@ -1677,7 +1632,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:59:40.952Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1875,7 +1829,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
+        "it": "Dipl. Infermieristica Focus F - Neonatologia",
         "en": "Dipl. Nursing specialist Focus F - Neonatology",
         "de": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "fr": "Dipl. Spécialiste des soins infirmiers Focus F - Néonatologie"
@@ -1912,15 +1866,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
         "dipl-infermiere-focus-f-neonatologia-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital",
-        "dipl-infermieristica-focus-f-neonatologia-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
           "dipl-infermiere-focus-f-neonatologia-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital",
-          "dipl-infermieristica-focus-f-neonatologia-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch"
@@ -1930,7 +1882,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:43:35.711Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1959,7 +1910,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2004,8 +1955,7 @@
         "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
         "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e801eb"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2019,8 +1969,7 @@
           "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
           "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e801eb"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
@@ -2033,7 +1982,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:55:52.059Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2062,7 +2010,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Radiologiefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann",
+        "it": "Dipl. Specialista della radiologia",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -2099,15 +2047,13 @@
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-lindenhofgruppe-ch",
         "dipl-specialista-di-radiologia-lindenhofgruppe-engeried",
-        "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried",
-        "dipl-specialista-della-radiologia-lindenhofgruppe-engeried"
+        "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-lindenhofgruppe-ch",
           "dipl-specialista-di-radiologia-lindenhofgruppe-engeried",
-          "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried",
-          "dipl-specialista-della-radiologia-lindenhofgruppe-engeried"
+          "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-lindenhofgruppe-ch"
@@ -2117,7 +2063,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:09:50.994Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2182,14 +2127,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-ch",
-        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital",
-        "infermiera-mann-hf-in-formazione-lavoro-aziendale-autunno-2027-lindenhofgruppe-lindenhofspital"
+        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-ch",
-          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital",
-          "infermiera-mann-hf-in-formazione-lavoro-aziendale-autunno-2027-lindenhofgruppe-lindenhofspital"
+          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-ch"
@@ -2265,16 +2208,14 @@
         "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
         "assistente-medico-medico-clinica-medica-lindenhofgruppe-bern",
         "assistant-physician-doctor-medical-clinic-lindenhofgruppe-bern",
-        "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern",
-        "medico-ambulatorio-medico-medico-lindenhofgruppe-lindenhofspital"
+        "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
           "assistente-medico-medico-clinica-medica-lindenhofgruppe-bern",
           "assistant-physician-doctor-medical-clinic-lindenhofgruppe-bern",
-          "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern",
-          "medico-ambulatorio-medico-medico-lindenhofgruppe-lindenhofspital"
+          "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern"
         ],
         "en": [
           "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
@@ -2286,7 +2227,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:44:41.538Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2353,16 +2293,14 @@
         "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
         "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
         "nds-intensive-care-training-centre-lindenhofgruppe-bern",
-        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-        "nds-intensive-care-centro-di-formazione-lindenhofgruppe-lindenhofspital"
+        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
           "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
           "nds-intensive-care-training-centre-lindenhofgruppe-bern",
-          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-          "nds-intensive-care-centro-di-formazione-lindenhofgruppe-lindenhofspital"
+          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
         ],
         "en": [
           "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
@@ -2488,7 +2426,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
+        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -2524,14 +2462,12 @@
       "previousSlugs": [
         "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
         "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle",
-        "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch-gti28k",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+        "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch-gti28k"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle"
         ],
         "en": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
@@ -2544,7 +2480,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:31:34.545Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2624,7 +2559,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:31:17.043Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2688,13 +2622,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-pflege-lindenhofgruppe-ch",
-        "stage-assistenza-lindenhofgruppe-lindenhofgruppe"
+        "praktikant-in-pflege-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-pflege-lindenhofgruppe-ch",
-          "stage-assistenza-lindenhofgruppe-lindenhofgruppe"
+          "praktikant-in-pflege-lindenhofgruppe-ch"
         ],
         "en": [
           "praktikant-in-pflege-lindenhofgruppe-ch"
@@ -2767,13 +2699,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-cand-med-lindenhofgruppe-ch",
-        "intern-in-cand-med-lindenhofgruppe-lindenhofgruppe"
+        "praktikant-in-cand-med-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-cand-med-lindenhofgruppe-ch",
-          "intern-in-cand-med-lindenhofgruppe-lindenhofgruppe"
+          "praktikant-in-cand-med-lindenhofgruppe-ch"
         ],
         "en": [
           "praktikant-in-cand-med-lindenhofgruppe-ch"
@@ -2812,7 +2742,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann",
+        "it": "Dipl. Infermieristica professionale",
         "en": "Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau/-mann",
         "fr": "Dipl. Professionnels des soins infirmiers"
@@ -2848,14 +2778,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-lindenhofgruppe-ch",
-        "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital",
-        "dipl-infermieristica-professionale-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-lindenhofgruppe-ch",
-          "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital",
-          "dipl-infermieristica-professionale-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-lindenhofgruppe-ch"
@@ -2865,7 +2793,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:23:40.522Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2929,13 +2856,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch",
-        "collaboratore-trice-sekretariat-radiologie-lindenhofgruppe-lindenhofspital"
+        "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch",
-          "collaboratore-trice-sekretariat-radiologie-lindenhofgruppe-lindenhofspital"
+          "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
         ],
         "en": [
           "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
@@ -3009,18 +2934,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-r-codierer-in-lindenhofgruppe-ch",
-        "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn",
-        "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-codierer-in-lindenhofgruppe-ch",
-          "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn",
-          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn"
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:12.294Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3050,7 +2972,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
       "titleByLocale": {
         "it": "Dipl. Esperto/Dipl. Cura dell'anestesia esperto Sonnenhof",
-        "en": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
+        "en": "Dipl. Expert/Dipl. Expert anesthesia care Sonnenhof",
         "de": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
         "fr": "Dipl. Expert/Dipl. Soins d'anesthésie expert Sonnenhof"
       },
@@ -3084,13 +3006,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch",
-        "dipl-esperto-dipl-cura-dell-anestesia-esperto-sonnenhof-lindenhofgruppe-sonnenhofspital"
+        "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch",
-          "dipl-esperto-dipl-cura-dell-anestesia-esperto-sonnenhof-lindenhofgruppe-sonnenhofspital"
+          "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch"
         ],
         "en": [
           "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch"
@@ -3100,7 +3020,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:12.274Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3165,13 +3084,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegeassistent-in-lindenhofgruppe-ch",
-          "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
+          "pflegeassistent-in-lindenhofgruppe-ch"
         ],
         "it": [
           "pflegeassistent-in-lindenhofgruppe-ch",
-          "pflegeassistent-in-lindenhofgruppe-sonnenhofspital",
-          "assistente-infermieristico-lindenhofgruppe-sonnenhofspital"
+          "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
@@ -3182,11 +3099,9 @@
       },
       "previousSlugs": [
         "pflegeassistent-in-lindenhofgruppe-ch",
-        "pflegeassistent-in-lindenhofgruppe-sonnenhofspital",
-        "assistente-infermieristico-lindenhofgruppe-sonnenhofspital"
+        "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
       ],
       "firstSeenAt": "2026-08-24T10:19:20.378Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3252,8 +3167,7 @@
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
-          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
-          "stage-universitario-in-bgm-lindenhofgruppe-engeried"
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
         ],
         "en": [
           "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
@@ -3262,14 +3176,12 @@
           "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
         ],
         "de": [
-          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
-          "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
         "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
-        "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
-        "stage-universitario-in-bgm-lindenhofgruppe-engeried"
+        "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T10:17:37.236Z",
@@ -3336,13 +3248,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
-        "stv-capo-reparto-in-centro-di-emergenza-di-assistenza-lindenhofgruppe-lindenhofspital"
+        "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
-          "stv-capo-reparto-in-centro-di-emergenza-di-assistenza-lindenhofgruppe-lindenhofspital"
+          "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
         ],
         "en": [
           "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
@@ -3416,13 +3326,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-informatik-lindenhofgruppe-ch",
-        "stage-informatica-lindenhofgruppe-lindenhofgruppe"
+        "praktikant-in-informatik-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-informatik-lindenhofgruppe-ch",
-          "stage-informatica-lindenhofgruppe-lindenhofgruppe"
+          "praktikant-in-informatik-lindenhofgruppe-ch"
         ],
         "en": [
           "praktikant-in-informatik-lindenhofgruppe-ch"
@@ -3496,13 +3404,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch",
-        "collaboratore-trice-disposition-e-empfang-lindenhofgruppe-sonnenhofspital"
+        "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch",
-          "collaboratore-trice-disposition-e-empfang-lindenhofgruppe-sonnenhofspital"
+          "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
         ],
         "en": [
           "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
@@ -3620,7 +3526,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
+        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -3656,20 +3562,16 @@
       "previousSlugs": [
         "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
         "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-lindenhofspital",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-mbxe62"
+        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896"
+          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
         ],
         "en": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-lindenhofspital",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-mbxe62"
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
         ],
         "fr": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
@@ -3693,12 +3595,12 @@
     },
     {
       "id": "lindenhofgruppe-78faf7c3ce7f",
-      "slug": "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch",
+      "slug": "centro-medico-emergenza-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch",
-        "en": "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch",
+        "it": "centro-medico-emergenza-lindenhofgruppe-lindenhofspital",
+        "en": "sub-assistant-physician-emergency-center-lindenhofgruppe-lindenhofspital",
         "de": "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch",
-        "fr": "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
+        "fr": "medecin-auxiliaire-centre-d-urgence-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3753,7 +3655,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-73ee90904fdc",
@@ -3869,17 +3785,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-gynakologie-lindenhofgruppe-ch",
-          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
-        ],
-        "de": [
-          "arztsekretar-in-gynakologie-lindenhofgruppe-ch",
-          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
+          "arztsekretar-in-gynakologie-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-gynakologie-lindenhofgruppe-ch",
-        "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
+        "arztsekretar-in-gynakologie-lindenhofgruppe-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:50:05.280Z",
@@ -3911,7 +3821,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -3947,14 +3857,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-e5a207"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-e5a207"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
@@ -3964,7 +3872,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:06.836Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4029,18 +3936,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
-        "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-lindenhofgruppe-lindenhofgruppe"
+        "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-lindenhofgruppe-lindenhofgruppe",
+        "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern",
+        "bachelor-of-science-in-care-additional-module-b-lindenhofgruppe-bern",
+        "baccalaureat-en-sciences-en-soins-module-supplementaire-b-lindenhofgruppe-bern",
+        "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch-f3xjvj"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
-          "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-lindenhofgruppe-lindenhofgruppe"
+          "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-lindenhofgruppe-lindenhofgruppe",
+          "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern",
+          "bachelor-of-science-in-care-additional-module-b-lindenhofgruppe-bern",
+          "baccalaureat-en-sciences-en-soins-module-supplementaire-b-lindenhofgruppe-bern",
+          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch-f3xjvj"
         ],
         "en": [
-          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch"
+          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
+          "bachelor-of-science-in-care-additional-module-b-lindenhofgruppe-bern"
         ],
         "fr": [
-          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch"
+          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
+          "baccalaureat-en-sciences-en-soins-module-supplementaire-b-lindenhofgruppe-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:46.990Z",
@@ -4108,14 +4025,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
-        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital",
-        "infermiera-mann-hf-in-formazione-lavoro-operativo-primavera-2027-lindenhofgruppe-lindenhofspital"
+        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
-          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital",
-          "infermiera-mann-hf-in-formazione-lavoro-operativo-primavera-2027-lindenhofgruppe-lindenhofspital"
+          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch"
