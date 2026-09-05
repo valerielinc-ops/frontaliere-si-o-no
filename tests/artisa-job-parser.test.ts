@@ -131,4 +131,35 @@ describe('assertCompleteArtisaSnapshot', () => {
     expect(rows.length).toBeGreaterThan(0);
     expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
   });
+
+  // Both drifts below render the page in full (landmarks present) and yield zero
+  // rows. Qualifying the zero post-filter would call them authoritative and
+  // delist every live Artisa job; the proof is pre-filter precisely so they throw.
+  it('rejects a zero produced by the location moving out of the h4 selector', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <div>Lugano</div>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('rejects a zero produced by every vacancy falling outside the target filter', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <h4>Losanna</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
+  });
 });

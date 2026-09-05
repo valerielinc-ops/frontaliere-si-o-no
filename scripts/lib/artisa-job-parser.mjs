@@ -23,9 +23,11 @@ function slugify(value = '') {
 const NON_JOB_TITLES = new Set(['carriera', 'le nostre sedi']);
 
 // The two non-job `h2` landmarks Squarespace renders around the vacancy list.
-// Both present is the structural proof that the careers page rendered in full,
-// so a zero between them is the site's own answer and not a drift/blocked
-// fetch. Used only to qualify an empty snapshot (see assertCompleteArtisaSnapshot).
+// Both present proves the careers page rendered in full (not a WAF/truncated
+// fetch). Necessary but NOT sufficient to call a zero authoritative: the page
+// can render in full and still yield zero *rows* because the location selector
+// drifted. The zero must also be proven pre-filter, by the absence of candidate
+// vacancy headings — see `candidateVacancies` in parseArtisaCareerPage.
 const LANDMARK_TITLES = ['carriera', 'le nostre sedi'];
 
 function isCandidateTitle(value = '') {
@@ -38,6 +40,10 @@ export function parseArtisaCareerPage(html = '') {
   const nodes = [...document.querySelectorAll('h2, h4, a[href*="app.smartsheet.com/b/form/"]')];
   const jobs = [];
   const landmarks = new Set();
+  // Vacancy `h2` headings seen before any downstream gate: neither the
+  // `title && location` flush gate nor the Swiss-location filter can shrink it.
+  // This is what makes a zero provable rather than merely observed.
+  let candidateVacancies = 0;
   let current = null;
   let pendingLocation = '';
 
@@ -62,6 +68,7 @@ export function parseArtisaCareerPage(html = '') {
         continue;
       }
       flush();
+      candidateVacancies += 1;
       current = { title, location: pendingLocation, applyUrl: '', sourceUrl: `https://artisagroup.com/carriera#${slugify(title)}` };
       pendingLocation = '';
       continue;
@@ -85,8 +92,16 @@ export function parseArtisaCareerPage(html = '') {
   flush();
   const targetJobs = jobs.filter((job) => isTargetSwissLocation(job.location));
   const landmarksComplete = LANDMARK_TITLES.every((title) => landmarks.has(title));
+  // A zero is authoritative only when the page rendered in full AND listed no
+  // vacancy at all. Qualifying on `targetJobs.length === 0` instead would make a
+  // drift indistinguishable from a real zero: if Squarespace moves the location
+  // out of `h4`, or changes its wording so `isTargetSwissLocation()` stops
+  // matching, every vacancy is parsed and then discarded while both landmarks
+  // still render — a false zero that archives live jobs and bypasses the shrink
+  // guard. Counting candidates pre-filter keeps that case `unverified`, so the
+  // crawler fails loudly instead of delisting.
   Object.defineProperty(targetJobs, 'artisaSnapshotState', {
-    value: targetJobs.length === 0 && landmarksComplete ? 'authoritative-site-zero' : 'unverified',
+    value: landmarksComplete && candidateVacancies === 0 ? 'authoritative-site-zero' : 'unverified',
     enumerable: false,
   });
   return targetJobs;
@@ -95,9 +110,10 @@ export function parseArtisaCareerPage(html = '') {
 /**
  * Authoritative-snapshot validator for the empty case (crawler-template
  * contract). Returns true only when the careers page rendered both landmark
- * headings and listed no vacancy between them — i.e. Artisa itself published
- * zero openings. Anything else (drift, WAF page, truncated fetch) throws, so
- * the crawler still fails loudly instead of delisting live jobs.
+ * headings and listed no candidate vacancy heading at all — i.e. Artisa itself
+ * published zero openings. Anything else (WAF page, truncated fetch, or a
+ * selector/wording drift that parses vacancies and then discards them) throws,
+ * so the crawler still fails loudly instead of delisting live jobs.
  *
  * @param {object[]|undefined|null} jobs
  * @returns {true}
