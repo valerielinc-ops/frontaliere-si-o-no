@@ -34,7 +34,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildHubPatch } from '../build-plugins/borderMunicipalityPagesPlugin';
 import { borderMunicipalityPathFor } from '../build-plugins/borderMunicipalityData';
-import { renderComunePage, renderOtherEventsPage, pathForEventDetail } from '../build-plugins/eventsSeoPagesPlugin';
+import {
+  renderComunePage,
+  renderOtherEventsPage,
+  pathForEventDetail,
+  renderOverflowLadderPage,
+  overflowLadderPageCount,
+  overflowLadderPath,
+} from '../build-plugins/eventsSeoPagesPlugin';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = mkdtempSync(path.join(os.tmpdir(), 'bfs-hub-links-'));
@@ -253,5 +260,127 @@ describe('the home shell carries the two depth-1 entry points the audit needs (#
 
   it('links the border-comuni hub directly, so it does not hang off a single inbound', () => {
     expect(INDEX_HTML).toContain('href="/vivere-in-ticino/comuni-di-frontiera/"');
+  });
+});
+
+// ── 4. the overflow ladder ──────────────────────────────────────────────────
+
+/**
+ * The overflow ladder (issue #7329) caps page WEIGHT by moving rows past
+ * `OVERFLOW_ROWS_PER_PAGE` onto `<bucket>/page-N/`. That trade is only
+ * legitimate while reachability is untouched — the same bargain the sentinel's
+ * lower card cap makes above — and here it is sharper: a ladder page is the
+ * ONLY inbound of every row it carries.
+ *
+ * Both reachability auditors stop dead at a noindex page and never extract its
+ * links: `scripts/audit-orphan-pages-in-sitemaps.mjs`
+ * (`if (htmlHasNoindex(html)) { noindexCount += 1; continue; }`) and
+ * `scripts/audit-bfs-depth.mjs` (`if (htmlHasNoindex(html)) continue;`). So a
+ * `noindex` ladder does not merely rank badly — it re-orphans every row it was
+ * built to carry, which is regression #5434 arriving through the fix meant to
+ * prevent it. Nothing else in the repo watches this: the auditors need a full
+ * build, and the byte-budget test in `tests/events-page-weight-bound.test.ts`
+ * measures only weight and would stay green through a noindex ladder.
+ */
+describe('the overflow ladder keeps the rows it carries reachable (#7329)', () => {
+  /**
+   * Large enough to span a real ladder: past the cap the remainder must exceed
+   * `OVERFLOW_ROWS_PER_PAGE` (300) or there is no page 2 to assert about, and a
+   * fixture that never builds one would pass against the bug.
+   */
+  const LADDER_EVENTS = Array.from({ length: 700 }, (_, i) => ({
+    id: `ev:${i}`,
+    title: `Concerto della banda cittadina numero ${i}`,
+    startDate: `2026-07-${String((i % 27) + 1).padStart(2, '0')}`,
+    category: 'musica',
+    venue: 'Centro polivalente comunale',
+    canton: 'altri-cantoni',
+    sourceKey: 'guidle',
+    sourceName: 'Guidle',
+  }));
+
+  /** Mirrors the sentinel bucket's own lower cap; passed explicitly so this
+   *  test states its scenario instead of pinning the plugin's constant. */
+  const CAP = 24;
+  const ladderHref = (e: { id: string }) =>
+    pathForEventDetail('it', 'altri-eventi', `slug-${e.id.replace(':', '-')}`, 'altri-cantoni');
+
+  const pageCount = overflowLadderPageCount(LADDER_EVENTS as never, CAP, ladderHref as never);
+
+  const ladderPage = (page: number) =>
+    renderOverflowLadderPage({
+      locale: 'it',
+      canton: 'altri-cantoni',
+      comune: undefined,
+      events: LADDER_EVENTS as never,
+      cap: CAP,
+      page,
+      dateStamp: '2026-09-04',
+      distDir,
+      detailHref: ladderHref as never,
+    });
+
+  /**
+   * Minifier-tolerant, same trap as `hrefs()` and `MARKER_RE`: `index,follow`
+   * carries no whitespace, so the quotes around it are dropped on the rendered
+   * page and a `content="…"`-only pattern matches nothing.
+   */
+  const robotsOf = (html: string) =>
+    html.match(/<meta[^>]*\bname=["']?robots["']?[^>]*\bcontent=(?:"([^"]*)"|([^\s>]+))/i)?.slice(1).find(Boolean) ?? '';
+
+  it('builds a real ladder for the fixture — otherwise the rest asserts nothing', () => {
+    expect(pageCount).toBeGreaterThan(1);
+  });
+
+  it('renders ladder pages indexable — a noindex ladder re-orphans every row it carries', () => {
+    // Parity with the base page, not a literal: the plugin expands the gate's
+    // `index,follow` into a full directive string (`max-snippet:-1`, …) shared
+    // by every template, so pinning the literal here would fail the day that
+    // preview policy changes for reasons that have nothing to do with #7329.
+    // What must hold is that the ladder is not the odd one out.
+    const { html: base } = renderOtherEventsPage({
+      locale: 'it',
+      canton: 'altri-cantoni',
+      events: LADDER_EVENTS as never,
+      dateStamp: '2026-09-04',
+      weekendDays: new Set(['2026-07-04', '2026-07-05']),
+      distDir,
+      detailHref: ladderHref as never,
+    });
+    const baseRobots = robotsOf(base);
+    expect(baseRobots).toMatch(/^index\b/);
+
+    for (let page = 2; page <= pageCount; page += 1) {
+      const robots = robotsOf(ladderPage(page).html);
+      expect(robots).not.toMatch(/\bnoindex\b/);
+      expect(robots).toBe(baseRobots);
+    }
+  });
+
+  it('links every event past the cap across the base page and its ladder', () => {
+    const { html: base } = renderOtherEventsPage({
+      locale: 'it',
+      canton: 'altri-cantoni',
+      events: LADDER_EVENTS as never,
+      dateStamp: '2026-09-04',
+      weekendDays: new Set(['2026-07-04', '2026-07-05']),
+      distDir,
+      detailHref: ladderHref as never,
+    });
+
+    const linked = hrefs(base);
+    for (let page = 2; page <= pageCount; page += 1) {
+      for (const href of hrefs(ladderPage(page).html)) linked.add(href);
+    }
+
+    const missing = LADDER_EVENTS.filter((e) => !linked.has(ladderHref(e))).map((e) => e.id);
+    expect(missing).toEqual([]);
+  });
+
+  it('links the whole ladder from every ladder page, so no page sits deeper than the base', () => {
+    const linked = hrefs(ladderPage(2).html);
+    for (let page = 3; page <= pageCount; page += 1) {
+      expect(linked).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, page));
+    }
   });
 });
