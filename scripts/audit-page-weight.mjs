@@ -51,7 +51,11 @@ import { insertBounded } from './lib/boundedTopN.mjs';
 // redesign lands, instead of waiting for a hard breach like run
 // 26112128794 above. Do not raise further without a fresh measured
 // baseline citing the issue.
-const MAX_HTML_BYTES = 260 * 1024;
+// Exported so the byte budget lives in ONE place: a regression test that
+// re-derives the number as a literal drifts silently the moment this constant
+// moves, and then guards a threshold the gate no longer enforces
+// (tests/events-page-weight-bound.test.ts, issue #7330).
+export const MAX_HTML_BYTES = 260 * 1024;
 
 // Per-path budget override (explicit user-approved exception, 2026-06-03).
 // The Italian-fuel-stations INDEX pages (2 fuels × 4 locales) deliberately
