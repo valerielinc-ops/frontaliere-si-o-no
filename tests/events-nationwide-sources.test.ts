@@ -24,6 +24,9 @@ import {
   resetEventImageManifestCache,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
+  reverseGeocodeCacheKey,
+  reverseGeocodeComune,
+  enrichEventsWithGeoComune,
   EVENT_IMAGE_MAX_BYTES,
 } from '../scripts/lib/events-utils.mjs';
 
@@ -175,6 +178,117 @@ describe('resolveComuneNationwide', () => {
   it('returns null comune when nothing matches', () => {
     const r = resolveComuneNationwide({ venue: 'Somewhere unresolvable', title: 'Nothing here', region: undefined });
     expect(r).toEqual({ comune: null, canton: null, method: null });
+  });
+});
+
+/**
+ * #7328: the text-matching tiers above cannot place a fused comune
+ * ("Schwende" → Schwende-Rüte, AI, 2022), a frazione ("Bichwil" → Oberuzwil,
+ * SG) or a non-municipal toponym ("Gondelbahn Rothorn 1") — 1235 future
+ * events had neither comune nor canton and 1234 of them carried coordinates.
+ * The geo fallback resolves those from `geo`, and must never invent anything
+ * for an event that has none.
+ */
+const nominatimResponse = (address: Record<string, string>, name = '') => ({
+  ok: true,
+  json: async () => ({ name, address }),
+});
+
+describe('reverseGeocodeComune', () => {
+  it('resolves a fused comune from coordinates a text match cannot place', async () => {
+    const cache: Record<string, unknown> = {};
+    const fetchImpl = vi.fn().mockResolvedValue(
+      nominatimResponse({ city: 'Schwende-Rüte', 'ISO3166-2-lvl4': 'CH-AI', country_code: 'ch' }, 'Schwende-Rüte'),
+    );
+    // The venue string really is unmatchable by name — that is the premise.
+    expect(resolveComuneNationwide({ venue: 'Schwende', title: '30 Jahre Waldhöckler Fest', region: undefined })).toEqual({
+      comune: null,
+      canton: null,
+      method: null,
+    });
+
+    const hit = await reverseGeocodeComune({ lat: 47.300056, lng: 9.43559 }, cache, fetchImpl as never);
+    expect(hit).toEqual({ comune: 'Schwende-Rüte', canton: 'AI' });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    const url = String(fetchImpl.mock.calls[0][0]);
+    expect(url).toContain('/reverse?');
+    expect(url).toContain('zoom=10'); // Swiss municipality admin level
+    // Cached by rounded coordinates: a second event in the same place is free.
+    expect(cache[reverseGeocodeCacheKey(47.300056, 9.43559)]).toEqual({ comune: 'Schwende-Rüte', canton: 'AI' });
+    await reverseGeocodeComune({ lat: 47.30006, lng: 9.435589 }, cache, fetchImpl as never);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps the canton alone when the municipality is not a BFS comune of it', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(
+      nominatimResponse({ village: 'Nowhere-am-Berg', 'ISO3166-2-lvl4': 'CH-GR', country_code: 'ch' }),
+    );
+    expect(await reverseGeocodeComune({ lat: 46.8, lng: 9.7 }, {}, fetchImpl as never)).toEqual({
+      comune: null,
+      canton: 'GR',
+    });
+  });
+
+  it('never attributes a canton to a non-CH point or an unknown canton code', async () => {
+    const italy = vi.fn().mockResolvedValue(nominatimResponse({ city: 'Como', 'ISO3166-2-lvl4': 'IT-CO', country_code: 'it' }));
+    expect(await reverseGeocodeComune({ lat: 45.81, lng: 9.08 }, {}, italy as never)).toBeNull();
+
+    const bogus = vi.fn().mockResolvedValue(nominatimResponse({ city: 'X', 'ISO3166-2-lvl4': 'CH-XX', country_code: 'ch' }));
+    expect(await reverseGeocodeComune({ lat: 46.8, lng: 9.7 }, {}, bogus as never)).toBeNull();
+  });
+
+  it('returns null without caching on a transient failure, and ignores bad coordinates', async () => {
+    const cache: Record<string, unknown> = {};
+    const failing = vi.fn().mockResolvedValue({ ok: false, json: async () => ({}) });
+    expect(await reverseGeocodeComune({ lat: 46.8, lng: 9.7 }, cache, failing as never)).toBeNull();
+    expect(cache).toEqual({}); // retried next run, not remembered as "no match"
+    expect(await reverseGeocodeComune({ lat: Number.NaN, lng: 9.7 }, cache, failing as never)).toBeNull();
+    expect(await reverseGeocodeComune(undefined, cache, failing as never)).toBeNull();
+    expect(failing).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('enrichEventsWithGeoComune', () => {
+  const reverseFn = async (geo: { lat: number; lng: number }) =>
+    geo.lat === 47.300056 ? { comune: 'Schwende-Rüte', canton: 'AI' } : { comune: null, canton: 'GR' };
+
+  it('fills comune/canton only for unattributed events that have coordinates', async () => {
+    const events = [
+      { id: 'a', venue: 'Schwende', geo: { lat: 47.300056, lng: 9.43559 } },
+      { id: 'b', venue: 'Gondelbahn Rothorn 1', geo: { lat: 46.828105, lng: 9.746241 } },
+      { id: 'c', venue: 'Teatro Sociale', comune: 'Bellinzona', canton: 'TI', geo: { lat: 46.19, lng: 9.02 } },
+      { id: 'd', venue: 'Petersplatz', canton: 'BS' },
+      { id: 'e', venue: 'Nowhere at all' }, // no geo → must stay exactly as it is
+    ] as Array<Record<string, unknown>>;
+
+    const stats = await enrichEventsWithGeoComune(events, {}, { reverseFn, delayMs: 0 });
+
+    expect(stats).toEqual({ lookups: 2, comuneFilled: 1, cantonFilled: 2 });
+    expect(events[0]).toMatchObject({ comune: 'Schwende-Rüte', canton: 'AI' });
+    expect(events[1]).toMatchObject({ canton: 'GR' });
+    expect(events[1].comune).toBeUndefined(); // canton hub, not an invented comune
+    expect(events[2]).toMatchObject({ comune: 'Bellinzona', canton: 'TI' }); // untouched
+    expect(events[3]).toEqual({ id: 'd', venue: 'Petersplatz', canton: 'BS' });
+    expect(events[4]).toEqual({ id: 'e', venue: 'Nowhere at all' });
+  });
+
+  it('caps the network lookups of a single run and resumes on the next one', async () => {
+    const events = [
+      { id: 'a', geo: { lat: 47.300056, lng: 9.43559 } },
+      { id: 'b', geo: { lat: 46.828105, lng: 9.746241 } },
+    ] as Array<Record<string, unknown>>;
+    const cache: Record<string, unknown> = {};
+
+    const first = await enrichEventsWithGeoComune(events, cache, { reverseFn, delayMs: 0, maxLookups: 1 });
+    expect(first.lookups).toBe(1);
+    expect(events[1].canton).toBeUndefined(); // deferred, not fabricated
+
+    // Second run: the first coordinate is cached (free) and the deferred one
+    // gets its lookup.
+    cache[reverseGeocodeCacheKey(47.300056, 9.43559)] = { comune: 'Schwende-Rüte', canton: 'AI' };
+    const second = await enrichEventsWithGeoComune(events, cache, { reverseFn, delayMs: 0, maxLookups: 1 });
+    expect(second.lookups).toBe(1);
+    expect(events[1]).toMatchObject({ canton: 'GR' });
   });
 });
 

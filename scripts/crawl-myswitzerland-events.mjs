@@ -71,6 +71,9 @@ import {
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
+  loadGeocodeCache,
+  saveGeocodeCache,
+  enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
@@ -99,6 +102,12 @@ const RUN_BUDGET_MS = Number(process.env.MYSWITZERLAND_CRAWL_BUDGET_MS) || 8 * 6
 // it could save the checkpoint or the slice — see the note on
 // enrichEventsWithLocaleFallbackTranslations in lib/events-utils.mjs.
 const TRANSLATE_BUDGET_MS = Number(process.env.MYSWITZERLAND_TRANSLATE_BUDGET_MS) || 4 * 60_000;
+// Same shape for the geo → comune/canton fallback pass (issue #7328), which is
+// also AFTER the visit loop and also paced (≤1 Nominatim req/s): 1205 of the
+// 1235 unattributed events are myswitzerland's, so a first pass drains its
+// share of the backlog over a few nightly runs against a warming disk cache
+// instead of blowing crawl-events.yml's timeout-minutes in one go.
+const GEO_COMUNE_BUDGET_MS = Number(process.env.MYSWITZERLAND_GEO_COMUNE_BUDGET_MS) || 4 * 60_000;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -564,6 +573,19 @@ async function main() {
       `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields) — comune resolved ${resolved}/${events.length}`,
   );
 
+  // #7328: myswitzerland's own `addressRegion` plus venue/title text-matching
+  // still leaves ~1200 future events with no comune AND no canton at all,
+  // nearly every one of them carrying usable coordinates — resolve those from
+  // `geo` before they fall into the unresolved-canton bucket page.
+  const geocodeCache = loadGeocodeCache();
+  const geoStats = await enrichEventsWithGeoComune(events, geocodeCache, {
+    deadline: Date.now() + GEO_COMUNE_BUDGET_MS,
+  });
+  console.log(
+    `[myswitzerland] geo fallback: ${geoStats.cantonFilled} canton / ${geoStats.comuneFilled} comune attributed ` +
+      `from coordinates (${geoStats.lookups} reverse-geocode lookup(s) this run)`,
+  );
+
   // #3741: the Algolia per-locale search index very often ships the SAME
   // title/description text across it/en/de/fr (the organizer never
   // translated it) instead of a missing locale — fill those gaps via the
@@ -583,6 +605,7 @@ async function main() {
 
   if (!limit && records.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
   saveEventTitleTranslationCache(translationCache);
+  saveGeocodeCache(geocodeCache);
 
   if (events.length === 0) {
     // Never overwrite a good slice with an empty run. Distinguish three causes:
