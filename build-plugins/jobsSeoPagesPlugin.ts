@@ -1182,9 +1182,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `jobs-im` here for non-TI cantons emitted files at unroutable URLs
  // (every `/de/jobs-im-{canton}/` returned 404 even though the static HTML
  // existed). Aligns the build emit with the router's parsing contract.
- const SECTION_PREFIX_BY_LOCALE: Record<CantonLocale, string> = {
-   it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi',
- };
+ // Issue #7306: a twelfth literal copy of that same table used to sit here,
+// `const SECTION_PREFIX_BY_LOCALE`, declared and never read once — the
+// emit path goes through `sharedResolveCantonSection`. Removed rather than
+// pinned: an unread copy is the one that drifts without anybody noticing,
+// and the note above is the part that was worth keeping.
  /**
   * Build the canton-aware top-level URL segment (e.g. `cerca-lavoro-zurigo`,
   * `jobs-im-aargau`, `jobs-in-der-waadt`). For non-TI cantons we honour the
