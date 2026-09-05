@@ -454,7 +454,7 @@ export function scoreCohorts(fingerprints, opts = {}) {
   const labelCounts = new Map();
   for (const cohort of cohorts) labelCounts.set(cohort.label, (labelCounts.get(cohort.label) ?? 0) + 1);
   for (const cohort of cohorts) {
-    if (labelCounts.get(cohort.label) > 1) cohort.label = `${cohort.label}~${cohort.skeletonHash.toString(16).slice(0, 6)}`;
+    if (labelCounts.get(cohort.label) > 1) cohort.label = `${cohort.label}~${skeletonHashHex(cohort.skeletonHash)}`;
   }
 
   cohorts.sort((a, b) => a.medianIgs - b.medianIgs || b.pages - a.pages);
@@ -466,6 +466,24 @@ export const INFORMATION_GAIN_TUNABLES = {
   TEMPLATE_DF_SHARE,
   MAX_SEGMENTS_PER_PAGE,
 };
+
+/**
+ * The 6 hex chars that stand for a cohort's TEMPLATE, everywhere they appear.
+ *
+ * Three call sites need the identical string or the mechanism silently breaks:
+ * the `~` anti-collision suffix `scoreCohorts` appends to a colliding label,
+ * the `skeletonHash` field the audit report prints so a cohort can be
+ * inventoried, and the `<locale>:~<hash>` inventory keys `resolveInventoryEntry`
+ * matches. Three copies of `.toString(16).slice(0, 6)` in three files is a
+ * drift waiting to happen (AGENTS.md #6), and the drift would look like a gate
+ * that stopped recognising its own inventory.
+ *
+ * @param {number} skeletonHash
+ * @returns {string}
+ */
+export function skeletonHashHex(skeletonHash) {
+  return skeletonHash.toString(16).slice(0, 6);
+}
 
 /**
  * Resolve a cohort label against a label-keyed inventory (issue #7384).
@@ -500,12 +518,43 @@ export const INFORMATION_GAIN_TUNABLES = {
  * prefix of the same label, so the longest match is unique. Longest wins, which
  * is the most specific family recorded.
  *
+ * THIRD FORM: TEMPLATE-IDENTITY KEYS `<locale>:~<skeletonHash>` (issue #7382).
+ *
+ * The prefix relation is unavailable to exactly the cohorts that need it most:
+ * a label carrying the `~` anti-collision suffix can only ever match a key by
+ * EQUALITY (the `~` guard above rejects it, on purpose), and the part before
+ * the `~` is the sampled common prefix — which moves. Measured across two runs
+ * of the same unchanged family: run 33460354951 named a salary-calculator
+ * cohort `it:/calcola-stipendio/~2b6ed2`, and the same template on 2026-09-05
+ * named it `it:/calcola-stipendio/stipendio-netto-~2b6ed2`. Same page set, same
+ * template, two labels, and NEITHER a stem key nor an exact key covers both.
+ * That is why the 37 cohorts of issue #6975 sat outside the inventory: they
+ * were not un-inventoried by choice, they were un-inventoriABLE.
+ *
+ * `skeletonHash` is the identity that does not move: it is the hash of the
+ * masked `<h1>`, i.e. the template itself, and it is what `scoreCohorts` builds
+ * the suffix FROM. Verified stable across the same two runs on all 22
+ * calculator cohorts plus the health-premium, weekly-employer and
+ * profession-landing ones, spanning the label change of #7332. So a key written
+ * `<locale>:~<hash>` resolves any label of that template in that locale,
+ * whatever prefix the run's bucket produced.
+ *
+ * It is STRICTER than the prefix relation, not looser: the hash is per-template
+ * where a stem covers a whole family, so it cannot hand one cohort another's
+ * baseline — the failure mode the `~` guard exists to prevent. Ordering follows
+ * specificity: exact label, then template identity, then family stem.
+ *
  * @param {Map<string, number>} inventory
  * @param {string} label
+ * @param {string} [skeletonHash] the cohort's `skeletonHashHex()`, when known
  * @returns {{key: string, value: number} | null}
  */
-export function resolveInventoryEntry(inventory, label) {
+export function resolveInventoryEntry(inventory, label, skeletonHash) {
   if (inventory.has(label)) return { key: label, value: inventory.get(label) };
+  if (skeletonHash) {
+    const templateKey = `${label.slice(0, label.indexOf(':') + 1)}~${skeletonHash}`;
+    if (inventory.has(templateKey)) return { key: templateKey, value: inventory.get(templateKey) };
+  }
   let best = null;
   for (const key of inventory.keys()) {
     if (!key.endsWith('-') && !key.endsWith('/')) continue;
