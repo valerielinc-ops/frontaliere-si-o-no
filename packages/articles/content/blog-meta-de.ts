@@ -11415,6 +11415,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lungolago-como-chiusura-traffico.title': 'Lungolago di Como chiuso: code e attese fino a 150 min',
     'blog.article.lungolago-como-chiusura-traffico.excerpt': 'Die Schließung der Comer Seepromenade verursachte enorme Unannehmlichkeiten für den Verkehr, mit endlosen Warteschlangen und Wartezeiten von bis zu 150 Minuten.',
     'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Luftaufnahme des geschlossenen Lungolago in Como mit Verkehrsstau und langen Schlangen',
+    'blog.article.forum-teha-cernobbio-2026.title': 'Cernobbio, Hauptstadt der Welt: in Villa d \'Este das Forum Teha',
+    'blog.article.forum-teha-cernobbio-2026.excerpt': 'Vom 4. bis 6. September 2026 findet in Villa d \'Este das 52. TEHA-Forum mit internationalen Politikern und Ökonomen statt.',
+    'blog.article.forum-teha-cernobbio-2026.imageAlt': 'Villa d’Este in Cernobbio, Italien',
 };
 
 export default blogMetaDe;
