@@ -5545,6 +5545,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.processo-junge-tat-zurigo.title': 'Processo Junge Tat: Procura chiede condanna, difesa assoluzione',
     'blog.article.processo-junge-tat-zurigo.excerpt': 'Sei membri del gruppo di estrema destra \'Junge Tat\' sono comparsi davanti alla giustizia zurighese con l\'accusa di discriminazione e incitamento all\'odio.',
     'blog.article.processo-junge-tat-zurigo.imageAlt': 'Aula di tribunale affollata con giornalisti e manifestanti antifascisti all\'esterno.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur',
+    'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Agricoltori svizzeri in una riunione di discussione su un accordo di libero scambio.',
 };
 
 export default blogMetaChIt;

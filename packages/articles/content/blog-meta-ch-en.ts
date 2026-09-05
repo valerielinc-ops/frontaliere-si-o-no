@@ -5545,6 +5545,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.processo-junge-tat-zurigo.title': 'Junge Tat trial: Prosecutor asks for conviction, acquittal defense',
     'blog.article.processo-junge-tat-zurigo.excerpt': 'Six members of the far-right group \'Junge Tat\' appeared before the Zurich justice on charges of discrimination and incitement to hatred.',
     'blog.article.processo-junge-tat-zurigo.imageAlt': 'Crowded courtroom with journalists and anti-fascist protesters outside.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Half a billion to the farmers to save the agreement with Mercosur',
+    'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'The Foreign Policy Commission of the Council of States proposes 517 million francs for Swiss peasants.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Swiss farmers in a meeting discussing a free trade agreement.',
 };
 
 export default blogMetaChEn;
