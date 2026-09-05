@@ -35,7 +35,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
@@ -51,43 +51,79 @@ const ENTRYPOINTS = [
   { entry: 'scripts/generate-crawler-group-workflows.mjs', argv: [] },
 ];
 
-/** Chiusura transitiva degli import relativi, a partire dall'entrypoint. */
-function importClosure(entry: string): string[] {
-  const seen = new Set<string>();
-  const stack = [entry];
-  while (stack.length) {
-    const rel = stack.pop()!;
-    if (seen.has(rel)) continue;
-    seen.add(rel);
-    let src: string;
+// Uno specifier relativo puo' essere scritto senza estensione (`'./foo'`, forma
+// gia' presente nel repo) o puntare a una directory con `index.*`: risolverlo
+// come fa Node e' l'unico modo perche' il suo sottoalbero entri nella chiusura.
+const RESOLVE_EXTS = ['', '.mjs', '.js', '.cjs', '.mts', '.ts', '.tsx'];
+
+/** Il file puntato dallo specifier gia' risolto ad assoluto, o null. */
+function resolveModule(abs: string): string | null {
+  const candidates = [
+    ...RESOLVE_EXTS.map((ext) => abs + ext),
+    ...RESOLVE_EXTS.slice(1).map((ext) => path.join(abs, `index${ext}`)),
+  ];
+  for (const cand of candidates) {
     try {
-      src = readFileSync(path.join(ROOT, rel), 'utf8');
+      if (statSync(cand).isFile()) return cand;
     } catch {
+      // candidato assente: si prova il prossimo
+    }
+  }
+  return null;
+}
+
+/**
+ * Chiusura transitiva degli import relativi, a partire dall'entrypoint.
+ *
+ * `unresolved` non e' un extra diagnostico: uno specifier relativo che non
+ * risolve a un file e' un pezzo di catena che sparisce dalla chiusura, e il
+ * test resterebbe verde su un sottoalbero che non ha mai guardato. Viene
+ * restituito per essere asserito vuoto, invece di essere scartato in silenzio.
+ */
+function importClosure(entry: string): { modules: string[]; unresolved: string[] } {
+  const seen = new Set<string>();
+  const unresolved = new Set<string>();
+  const stack = [path.join(ROOT, entry)];
+  while (stack.length) {
+    const abs = stack.pop()!;
+    const file = resolveModule(abs);
+    if (!file) {
+      unresolved.add(path.relative(ROOT, abs));
       continue;
     }
-    const here = path.dirname(path.join(ROOT, rel));
-    for (const m of src.matchAll(/from\s+['"](\.[^'"]+)['"]/g)) {
-      stack.push(path.relative(ROOT, path.resolve(here, m[1])));
+    const rel = path.relative(ROOT, file);
+    if (seen.has(rel)) continue;
+    seen.add(rel);
+    const src = readFileSync(file, 'utf8');
+    const here = path.dirname(file);
+    // Anche `import './x.mjs';` senza `from`: e' la forma dell'import di puro
+    // side-effect, cioe' esattamente quella che questo osservatore esiste per
+    // prendere. Riconoscere solo `from` lo lascerebbe verde sulla regressione.
+    for (const m of src.matchAll(/(?:from\s+|import\s+)['"](\.[^'"]+)['"]/g)) {
+      stack.push(path.resolve(here, m[1]));
     }
   }
   seen.delete(entry);
-  return [...seen].sort();
+  return { modules: [...seen].sort(), unresolved: [...unresolved].sort() };
 }
 
 describe('promozione crawler — nessun side-effect a load-time nelle catene importate (#7292)', () => {
   it('la chiusura di prospect-promote contiene davvero la catena del drainer', () => {
     // Se il walker smettesse di risolvere gli import, i test qui sotto
     // passerebbero su un insieme vuoto senza provare niente.
-    const closure = importClosure('scripts/prospect-promote.mjs');
-    expect(closure).toContain('scripts/ci/followup-drainer.mjs');
-    expect(closure).toContain('scripts/ci/claude-rate-limit.mjs');
-    expect(closure).toContain('scripts/ci/close-recovered-failure-issues.mjs');
-    expect(closure).toContain('scripts/ci/lib/run-budget.mjs');
-    expect(closure).not.toContain('scripts/prospect-promote.mjs');
+    const { modules, unresolved } = importClosure('scripts/prospect-promote.mjs');
+    expect(modules).toContain('scripts/ci/followup-drainer.mjs');
+    expect(modules).toContain('scripts/ci/claude-rate-limit.mjs');
+    expect(modules).toContain('scripts/ci/close-recovered-failure-issues.mjs');
+    expect(modules).toContain('scripts/ci/lib/run-budget.mjs');
+    expect(modules).not.toContain('scripts/prospect-promote.mjs');
+    // Un buco nel walker si vede qui, non come chiusura piu' piccola del vero.
+    expect(unresolved).toEqual([]);
   });
 
   it.each(ENTRYPOINTS)('importare la catena di $entry sotto il suo argv non esce né lancia', ({ entry, argv }) => {
-    const CLOSURE = importClosure(entry);
+    const { modules: CLOSURE, unresolved } = importClosure(entry);
+    expect(unresolved).toEqual([]);
     expect(CLOSURE.length).toBeGreaterThan(0);
     // Un solo processo figlio invece di uno per modulo: se un import muore, il
     // marker mancante dice QUALE, che è l'informazione che serve in rosso.
