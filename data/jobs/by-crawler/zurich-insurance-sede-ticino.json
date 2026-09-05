@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zurich-insurance-sede-ticino",
-  "assembledAt": "2026-09-04T23:08:55.739Z",
+  "assembledAt": "2026-09-05T12:52:27.322Z",
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1371290057",
@@ -17,7 +17,7 @@
       "title": "Service Advisor Back Office After Sales (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Service Consulente Back Office After Sales (m/w/d) 80 - 100%",
-        "en": "Service Advisor Back Office After Sales (m/f/d) 80 - 100%",
+        "en": "Service Advisor Back Office After Sales (m/w/d) 80 - 100%",
         "de": "Service Berater Back Office After Sales (m/w/d) 80 - 100%",
         "fr": "Service Conseiller Back Office After Sales (m/w/d) 80 - 100%"
       },
@@ -34,7 +34,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Service-Advisor-Back-Office-After-Sales-%28mwd%29-80-100/1371290057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-09-04",
       "datePosted": "2026-09-04",
       "addressLocality": "Zürich",
@@ -50,8 +50,10 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "slugDisambiguator": "1371290057",
-      "firstSeenAt": "2026-09-04T13:42:00.689Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "service-advisor-back-office-after-sales-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "service-advisor-back-office-after-sales-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
@@ -60,9 +62,8 @@
           "service-advisor-back-office-after-sales-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
         ]
       },
-      "previousSlugs": [
-        "service-advisor-back-office-after-sales-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
-      ],
+      "slugDisambiguator": "1371290057",
+      "firstSeenAt": "2026-09-04T13:42:00.689Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -92,7 +93,7 @@
       "title": "Claims Performance Manager Motorfahrzeuge (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Prestazioni Performance Manager Motor Vehicles (m/f/d) 80 - 100%",
-        "en": "Claims Performance Manager Motor Vehicles (m/f/d) 80 - 100%",
+        "en": "Claims Performance Manager Motorfahrzeuge (m/w/d) 80 - 100%",
         "de": "Claims Performance Manager Motorfahrzeuge (m/w/d) 80 - 100%",
         "fr": "Gestionnaire du rendement des réclamations Véhicules automobiles (h/f/d) 80 - 100%"
       },
@@ -109,7 +110,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Claims-Performance-Manager-Motorfahrzeuge-%28mwd%29-80-100/1371331957/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-09-04",
       "datePosted": "2026-09-04",
       "addressLocality": "Zürich",
@@ -125,6 +126,7 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
       ],
@@ -184,7 +186,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Test-Manager-%28mwd%29-80-100/1371120157/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-09-02",
       "datePosted": "2026-09-02",
       "addressLocality": "Zürich",
@@ -249,7 +251,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Real-Estate-Asset-Manager-%28mwd%29-80-100/1371088557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-09-02",
       "datePosted": "2026-09-02",
       "addressLocality": "Zürich",
@@ -314,7 +316,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Spezialist-Kundenteam-UVG-%28mwd%29-80-100/1371048857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-09-02",
       "datePosted": "2026-09-02",
       "addressLocality": "Zürich",
@@ -393,7 +395,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Lead-IT-FAR-Solution-Architect-80-100/1370918057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-09-01",
       "datePosted": "2026-09-01",
       "addressLocality": "Zürich",
@@ -469,7 +471,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Junior-Underwriter-Bau-und-Montageversicherung-%28mwd%29-80-100/1370932557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-09-01",
       "datePosted": "2026-09-01",
       "addressLocality": "Zürich",
@@ -550,7 +552,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Schadenspezialist-MF-Auslandschaden-%28mwd%29-80-100/1370829357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-31",
       "datePosted": "2026-08-31",
       "addressLocality": "Zürich",
@@ -613,7 +615,7 @@
       "title": "Lead Business Architect Individual Life (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Lead Business Architetto Individual Life (m/w/d) 80 - 100%",
-        "en": "Lead Business Architect Individual Life (m/f/d) 80 - 100%",
+        "en": "Lead Business Architect Individual Life (m/w/d) 80 - 100%",
         "de": "Lead Business Architect Individual Life (m/w/d) 80 - 100%",
         "fr": "Lead Business Architecte Individual Life (m/w/d) 80 - 100%"
       },
@@ -630,7 +632,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Lead-Business-Architect-Individual-Life-%28mwd%29-80-100/1370830857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-31",
       "datePosted": "2026-08-31",
       "addressLocality": "Zürich",
@@ -684,10 +686,10 @@
       "companyDomain": "zurich.ch",
       "title": "Gruppenleiter Kundensupport Einzelleben (m/w/d)",
       "titleByLocale": {
-        "it": "Gruppenleiter Kundensupport Einzelleben (m/w/d) 80 - 100%",
-        "en": "Gruppenleiter Kundensupport Einzelleben (m/w/d) 80 - 100%",
+        "it": "Gruppo Leader Assistenza clienti Vita individuale (m/f/d)",
+        "en": "Group Leader Customer Support Individual Life (m/f/d)",
         "de": "Gruppenleiter Kundensupport Einzelleben (m/w/d)",
-        "fr": "Gruppenleiter Kundensupport Einzelleben (m/w/d) 80 - 100%"
+        "fr": "Groupe Leader Service à la clientèle Vie individuelle (h/f/d)"
       },
       "description": "Das Einzelleben fasziniert dich und du bringst fundiertes Fachwissen mit? Dann passt du hervorragend zu uns.\n\nIm Kundensupport (First Level) Individual Life bearbeitet dein Team die telefonischen und digitalen Anliegen unserer Vertriebspartner sowie unserer Kundinnen und Kunden aus der ganzen Schweiz. Als Gruppenleiter unterstützt du deine Mitarbeitenden fachlich und persönlich, förderst ihre Entwicklung und sorgst gemeinsam mit ihnen für ein positives Serviceerlebnis. Du führst mit Leidenschaft, denkst lösungsorientiert und baust dir aktiv ein starkes Netzwerk auf. Veränderungen treiben dich an, Verantwortung zu übernehmen motiviert dich – und gemeinsam mit deinem Team möchtest du erfolgreich sein.\n\nWenn du Kundenerlebnisse aktiv mitgestalten und ein inspirierendes Umfeld für Mitarbeitende schaffen möchtest, freuen wir uns sehr darauf, dich kennenzulernen.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als Gruppenleiter Kundensupport Einzelleben.\n\nWas du tust\n\n• Du führst personell und fachlich eine Gruppe von rund 10 Mitarbeitenden im Kundensupport Individual Life und steuerst gemeinsam mit ihnen das operative Tagesgeschäft über alle Kanäle (Telefon und E-Mail)\n\n• Du stellst eine exzellente Beratung für unsere Vertriebspartner sowie unsere Kundinnen und Kunden sicher und optimierst kontinuierlich die Arbeitsabläufe\n\n• Du verantwortest die relevanten KPIs (z.B. Erreichbarkeit, Servicequalität, Effizienz) und entwickelst dein Team gezielt entlang dieser Ziele weiter\n\n• Du erteilst kompetente Auskünfte und unterstützt dein Team bei Fach- und Prozessfragen im Bereich Einzelleben\n\n• Du bringst deine Erfahrung aus dem Kundensupport aktiv in interne und bereichsübergreifende Projekte sowie Initiativen ein\n\nWas du mitbringst\n\n• Erfolgreich absolvierte kaufmännische Ausbildung sowie idealerweise eine Weiterbildung im Bereich Versicherungen oder Betriebswirtschaft; eine VBV-Zertifizierung ist von Vorteil\n\n• Mehrjährige Erfahrung in der Versicherungsbranche, vorzugsweise im Bereich Einzelleben und im telefonischen Kundensupport\n\n• Nachweisbare Führungserfahrung mit direkter Verantwortung für Mitarbeitende – inklusive Führung über KPIs und kontinuierlicher Weiterentwicklung des Teams\n\n• Freude am telefonischen Kundenkontakt, ausgeprägte Dienstleistungsorientierung, hohes Qualitätsbewusstsein sowie Entscheidungsfähigkeit, Eigeninitiative und vernetztes Denken\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute Französisch- und Italienischkenntnisse; weitere Sprachkenntnisse sind von Vorteil\n\nDein Kontakt\n\nSenior Talent Acquisition Consultant: Philippe Frutiger (+41 44 628 32 20)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybrides Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
       "descriptionByLocale": {
@@ -702,7 +704,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Gruppenleiter-Kundensupport-Einzelleben-%28mwd%29/1370806357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-31",
       "datePosted": "2026-08-31",
       "addressLocality": "Zürich",
@@ -774,7 +776,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Global-Head-of-Risk-Advisory/1370691857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-28",
       "datePosted": "2026-08-28",
       "addressLocality": "Zürich",
@@ -796,6 +798,7 @@
           "additional languages are an advantage."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "global-head-of-risk-advisory-zurich-insurance-sede-ticino-lugano"
       ],
@@ -820,78 +823,6 @@
       }
     },
     {
-      "id": "company-rect2w",
-      "slug": "it-software-license-management-specialista-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
-      "slugByLocale": {
-        "it": "it-software-license-management-specialista-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
-        "en": "it-software-license-management-specialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
-        "de": "it-software-license-management-spezialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
-        "fr": "it-software-license-management-specialiste-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w"
-      },
-      "company": "Zurich Insurance (sede Ticino)",
-      "companyKey": "zurich-insurance-sede-ticino",
-      "companyDomain": "zurich.ch",
-      "title": "IT Software & License Management Specialist (m/w/d) 80 - 100%",
-      "titleByLocale": {
-        "it": "IT Software & License Management Specialista (m/w/d) 80 - 100%",
-        "en": "IT Software & License Management Specialist (m/f/d) 80 - 100%",
-        "de": "IT Software & License Management Spezialist (m/w/d) 80 - 100%",
-        "fr": "IT Software & License Management Spécialiste (m/w/d) 80 - 100%"
-      },
-      "description": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies dein nächster Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n• Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n• Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n• Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n• Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n• Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n• Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n• Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n• Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n• Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n• Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies deine nächste Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n- Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n- Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n- Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n- Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n- Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n- Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n- Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n- Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n- Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n- Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-        "en": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies deine nächste Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n- Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n- Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n- Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n- Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n- Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n- Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n- Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n- Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n- Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n- Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-        "de": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies dein nächster Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n• Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n• Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n• Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n• Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n• Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n• Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n• Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n• Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n• Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n• Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-        "fr": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies deine nächste Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n- Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n- Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n- Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n- Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n- Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n- Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n- Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n- Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n- Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n- Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-IT-Software-&-License-Management-Specialist-%28mwd%29-80-100/1370525257/",
-      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-IT-Software-&-License-Management-Specialist-%28mwd%29-80-100/1370525257/",
-      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
-      "postedDate": "2026-08-27",
-      "datePosted": "2026-08-27",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "tech",
-      "contract": "contract",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Insurance",
-      "currency": "CHF",
-      "featured": false,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "it-software-license-management-specialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "it-software-license-management-specialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T20:10:24.337Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "company-redhjt",
       "slug": "responsabile-della-sottoscrizione-tecnica-academy-svizzera-m-f-d-zurich-insurance-sede-ticino-zurich",
       "slugByLocale": {
@@ -906,7 +837,7 @@
       "title": "Head Technical Underwriting & Academy Schweiz (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della sottoscrizione tecnica & Academy Svizzera (m/f/d)",
-        "en": "Head of Technical Underwriting & Academy Switzerland (m/f/d)",
+        "en": "Head Technical Underwriting & Academy Schweiz (m/w/d)",
         "de": "Head Technical Underwriting & Academy Schweiz (m/w/d)",
         "fr": "Responsable de la souscription technique et de l'Académie Suisse (h/f/d)"
       },
@@ -923,7 +854,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Head-Technical-Underwriting-&-Academy-Schweiz-%28mwd%29/1370524057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-27",
       "datePosted": "2026-08-27",
       "addressLocality": "Zürich",
@@ -973,6 +904,78 @@
       }
     },
     {
+      "id": "company-rect2w",
+      "slug": "it-software-license-management-specialista-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
+      "slugByLocale": {
+        "it": "it-software-license-management-specialista-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
+        "en": "it-software-license-management-specialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
+        "de": "it-software-license-management-spezialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w",
+        "fr": "it-software-license-management-specialiste-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-rect2w"
+      },
+      "company": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "companyDomain": "zurich.ch",
+      "title": "IT Software & License Management Specialist (m/w/d) 80 - 100%",
+      "titleByLocale": {
+        "it": "IT Software & License Management Specialista (m/w/d) 80 - 100%",
+        "en": "IT Software & License Management Specialist (m/w/d) 80 - 100%",
+        "de": "IT Software & License Management Spezialist (m/w/d) 80 - 100%",
+        "fr": "IT Software & License Management Spécialiste (m/w/d) 80 - 100%"
+      },
+      "description": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies dein nächster Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n• Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n• Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n• Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n• Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n• Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n• Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n• Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n• Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n• Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n• Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies deine nächste Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n- Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n- Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n- Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n- Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n- Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n- Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n- Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n- Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n- Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n- Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+        "en": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies deine nächste Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n- Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n- Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n- Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n- Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n- Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n- Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n- Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n- Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n- Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n- Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+        "de": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies dein nächster Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n• Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n• Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n• Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n• Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n• Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n• Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n• Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n• Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n• Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n• Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+        "fr": "Fasziniert dich die Steuerung des Software Asset Lifecycles und die Optimierung von Lizenz- und Vertragsmanagement in einem dynamischen Unternehmensumfeld? Möchtest du Verantwortung übernehmen, um Transparenz über Softwarekosten zu schaffen und Einsparpotenziale zu heben?\n\nIn dieser Rolle bist du eine zentrale Schnittstelle zwischen verschiedenen Fachbereichen und Herstellern, und du hast die Möglichkeit, strategische Empfehlungen zu entwickeln und als Trusted Advisor zu agieren. Du arbeitest in einem Umfeld, das Innovation und Zusammenarbeit fördert und dir die Möglichkeit gibt, deine Expertise in Software Asset Management und IT Financial Management einzubringen und weiterzuentwickeln.\n\nWenn du eine Ownership-Mentalität mit strategischem und wirtschaftlichem Denken mitbringst und gerne bereichsübergreifend arbeitest, dann ist dies deine nächste Karriereschritt!\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als IT Software & License Management Specialist.\n\nWas du tust\n\n- Du steuerst den gesamten Lebenszyklus von Software-Assets und sorgst für eine belastbare Lizenz- und Vertragsdatenbasis inkl. Audit- und Compliance-Fähigkeit. Dabei kümmerst du dich um Beschaffung, Nutzung, Optimierung, Renewals und Ausserbetriebnahme\n\n- Du schaffst Transparenz über Softwarekosten, entwickelst belastbare Forecasts und erstellst Business Cases. Zudem identifizierst du konkrete Optimierungs- und Einsparmöglichkeiten\n\n- Du steuerst softwarebezogene Vertrags- und Lizenzthemen und unterstützt komplexe Verhandlungen. Dabei arbeitest du eng mit Procurement, Finance, Legal, Group SAM und Herstellern zusammen\n\n- Du bewertest regelmässig den Gesundheitszustand des SAM-Frameworks und berichtest strukturiert ans Management. Dies umfasst Compliance, Renewals, Audit Readiness sowie Vertrags- und Vendor-Risiken\n\n- Du verfolgst Entwicklungen bei Hersteller-Lizenzmodellen, SaaS/Cloud, AI-/Copilot-Lizenzierung und FinOps. Daraus leitest du Empfehlungen ab und berätst Digital Product Manager und Führungskräfte als Trusted Advisor\n\nWas du mitbringst\n\n- Mehrjährige Erfahrung im Lizenz- und Software-Vertragsmanagement, idealerweise in einem komplexen Unternehmensumfeld. Referenzen aus der Industrie oder dem Finanzbereich sind von Vorteil\n\n- Expertenwissen in Software Asset Management, Software Licensing, Contract Management, IT Financial Management, Cost Optimization und Vendor Management. Du bist sattelfest in Microsoft-Lizenzierung und hast Erfahrung mit AI Tools, Flexera und ServiceNow\n\n- Nachweisbare Erfolge bei Kosteneinsparungen und Optimierungsinitiativen sowie fortgeschrittene Kenntnisse in Governance & Compliance, Risk Management, Business Case Development und Data Analytics\n\n- Ausgeprägtes Stakeholder- und Vendor-Management. Du baust Beziehungen auf, schaffst Alignment und kommunizierst faktenbasiert und überzeugend, auch auf Management-Ebene und in bereichsübergreifenden Gremien\n\n- Ownership-Mentalität mit strategischem und wirtschaftlichem Denken. Du treibst Themen aktiv voran, erkennst Risiken und Trends frühzeitig, hinterfragst Kosten und entwickelst zukunftsgerichtete Empfehlungen für die Weiterentwicklung des Software-Portfolios\n\nDein Kontakt\n\nTalent Acquisition Consultant: Marco Stettler (+41 44 628 31 62)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybride s Arbeiten : bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-IT-Software-&-License-Management-Specialist-%28mwd%29-80-100/1370525257/",
+      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-IT-Software-&-License-Management-Specialist-%28mwd%29-80-100/1370525257/",
+      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
+      "postedDate": "2026-08-27",
+      "datePosted": "2026-08-27",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "contract": "contract",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Insurance",
+      "currency": "CHF",
+      "featured": false,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "it-software-license-management-specialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-software-license-management-specialist-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-08-27T20:10:24.337Z",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "company-rsqmp8",
       "slug": "attuario-vita-reporting-analytics-80-100-temporaneo-fino-a-settembre-2027-zurich-insurance-sede-ticino-zurich",
       "slugByLocale": {
@@ -1004,7 +1007,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Actuary-Life-Reporting-&-Analytics-80-100%2C-Temporary-until-Sept_-2027/1370470357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-26",
       "datePosted": "2026-08-26",
       "addressLocality": "Zürich",
@@ -1024,6 +1027,7 @@
           "Experience and skillset in data analytics, data management and data visualization techniques."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "actuary-life-reporting-analytics-80-100-temporary-until-sept-2027-zurich-insurance-sede-ticino-2027-job-details",
         "actuary-life-reporting-analytics-80-100-temporary-until-sept-2027-zurich-insurance-sede-ticino-2027-job-details-rsqmp8"
@@ -1087,7 +1091,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Crissier-Gestionnaire-en-pr%C3%A9voyance-professionnelle-%28LPP%29-%28hfd%29-80-100/1370432557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-26",
       "datePosted": "2026-08-26",
       "addressLocality": "Crissier",
@@ -1109,6 +1113,7 @@
           "Excellente maîtrise du français, à l’oral comme à l’écrit."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8",
         "gestionnaire-en-prevoyance-professionnelle-lpp-h-f-d-80-100-zurich-insurance-sede-ticino-crissier"
@@ -1172,7 +1177,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Head-of-Special-Business-&-Sales-Service-%28mwd%29-80-100/1370348157/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-25",
       "datePosted": "2026-08-25",
       "addressLocality": "Zürich",
@@ -1248,7 +1253,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Insurance-Risk-Analyst-%2880-100%29/1370195657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-24",
       "datePosted": "2026-08-24",
       "addressLocality": "Zürich",
@@ -1327,7 +1332,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Global-Head-of-Climate-Resilience-80-100/1370234057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-24",
       "datePosted": "2026-08-24",
       "addressLocality": "Zürich",
@@ -1349,6 +1354,7 @@
           "additional languages are an advantage."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "global-head-of-climate-resilience-80-100-zurich-insurance-sede-ticino-lugano"
       ],
@@ -1386,7 +1392,7 @@
       "companyDomain": "zurich.ch",
       "title": "Senior Anaplan Model Builder FP&A (m/w/d) 80 - 100%",
       "titleByLocale": {
-        "it": "Senior Anaplan Model Builder FP&A (m/f/d) 80 - 100%",
+        "it": "Senior Anaplan Model Builder FP&A (m/w/d) 80 - 100%",
         "en": "Senior Anaplan Model Builder FP&A (m/f/d) 80 - 100%",
         "de": "Senior Anaplan Model Builder FP&A (m/w/d) 80 - 100%",
         "fr": "Modèle principal d'anaplan FP&A (h/f/d) 80 - 100%"
@@ -1404,7 +1410,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Anaplan-Model-Builder-FP&A-%28mwd%29-80-100/1370229657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-24",
       "datePosted": "2026-08-24",
       "addressLocality": "Zürich",
@@ -1486,7 +1492,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Schadeninspektor-Sach-und-Haftpflichtversicherung-Region-Innerschweiz-und-Aargau-%28mwd%29-80-100/1370236357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-24",
       "datePosted": "2026-08-24",
       "addressLocality": "Zürich",
@@ -1569,7 +1575,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Insight-Manager-Brand-&-Experience-Tracking%2C-80-100/1369850657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-19",
       "datePosted": "2026-08-19",
       "addressLocality": "Zürich",
@@ -1648,7 +1654,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Head-Legal-IT-and-Operations-80-100/1369843657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-19",
       "datePosted": "2026-08-19",
       "addressLocality": "Zürich",
@@ -1720,7 +1726,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Spezialist-Kundenteam-KTG-%28mwd%29-80-100/1369878357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-19",
       "datePosted": "2026-08-19",
       "addressLocality": "Zürich",
@@ -1800,7 +1806,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Bauherrenvertretung-Zurich-Invest-AG-%28mwd%29-80-100/1369715257/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-18",
       "datePosted": "2026-08-18",
       "addressLocality": "Zürich",
@@ -1880,7 +1886,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Werkstudent-Schaden-SOS-&-Assistance-%28mwd%29-40-ab-Oktober-befristet/1369376657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-13",
       "datePosted": "2026-08-13",
       "addressLocality": "Zürich",
@@ -1958,7 +1964,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Platform-Engineer-Identity-&-Security-%28mfd%29-80-100/1369305757/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-12",
       "datePosted": "2026-08-12",
       "addressLocality": "Zürich",
@@ -1974,6 +1980,7 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "senior-platform-engineer-identity-security-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
       ],
@@ -2029,7 +2036,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-%28Senior%29-Underwriter-Haftpflicht-International-%28mwd%29/1369135957/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-11",
       "datePosted": "2026-08-11",
       "addressLocality": "Zürich",
@@ -2108,7 +2115,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Crissier-Responsable-d'%C3%A9quipe-sinistres-complexes-%28hfd%29-80-100/1368899857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-07",
       "datePosted": "2026-08-07",
       "addressLocality": "Crissier",
@@ -2128,6 +2135,7 @@
           "Excellente maîtrise du français et bonnes connaissances de l’allemand."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
         "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-8auyll",
@@ -2187,7 +2195,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Crissier-Expert-en-v%C3%A9hicules-Lausanne-%28hfd%29-80-100/1368698157/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-05",
       "datePosted": "2026-08-05",
       "addressLocality": "Crissier",
@@ -2261,7 +2269,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Lead-Reporting-Solution-SAP-Group-Reporting-80-100%2C-temporary-until-30_06_2027/1368001057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-04",
       "datePosted": "2026-08-27",
       "addressLocality": "Zürich",
@@ -2286,6 +2294,7 @@
           "SAP Embedded Analytics (e.g."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "lead-reporting-solution-sap-group-reporting-80-100-temporary-until-30-06-2027-zurich-insurance-sede-ticino-2027-job-details",
         "lead-reporting-solution-sap-group-reporting-80-100-temporary-until-30-06-2027-zurich-insurance-sede-ticino-2027-job-details-c8bcx6"
@@ -2346,7 +2355,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Lead-Inbound-Data-Flow-SAP-Group-Reporting-80-100%2C-temporary-until-31_12_2027/1367997857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-04",
       "datePosted": "2026-08-27",
       "addressLocality": "Zürich",
@@ -2435,7 +2444,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-BASME-Databricks-80-100-Finance-Transformation%2C-temporary-31_12_2027/1367922057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-03",
       "datePosted": "2026-08-26",
       "addressLocality": "Zürich",
@@ -2460,6 +2469,7 @@
           "Experience working with IT / data engineering teams on shared solutions."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "ba-sme-data-bricks-80-100-finance-transformation-temporary-31-12-2027-zurich-insurance-sede-ticino-2027-job-details",
         "ba-sme-data-bricks-80-100-finance-transformation-temporary-31-12-2027-zurich-insurance-sede-ticino-2027-job-details-mm6tf7"
@@ -2519,7 +2529,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Business-Solution-Architect-80-100-Finance-Transformation%2C-temporary-until-31_12_2027/1367919457/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-08-03",
       "datePosted": "2026-08-26",
       "addressLocality": "Zürich",
@@ -2544,6 +2554,7 @@
           "Strong collaboration skills and a “one team” attitude, supporting both Finance and IT colleagues."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "business-solution-architect-80-100-finance-transformation-temporary-until-31-12-2027-zurich-insurance-sede-ticino-2027-job-details"
       ],
@@ -2599,7 +2610,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Tracking-Insight-Manager-Relationship-80-100%2C-Temporary-12-months/1368003757/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-29",
       "datePosted": "2026-08-27",
       "addressLocality": "Zürich",
@@ -2622,6 +2633,7 @@
           "Working language is primarily English."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "tracking-insight-manager-relationship-80-100-temporary-12-months-zurich-insurance-sede-ticino-lugano",
         "tracking-insight-manager-relationship-80-100-temporary-12-months-zurich-insurance-sede-ticino-lugano-c89xr9"
@@ -2668,7 +2680,7 @@
       "title": "Business Intelligence & Performance Manager CoC Claims Personenversicherung (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Business Intelligence & Performance Manager CoC Richiede l'assicurazione personale (m/f/d) 80 - 100%",
-        "en": "Business Intelligence & Performance Manager CoC Claims Personal Insurance (m/f/d) 80 - 100%",
+        "en": "Business Intelligence & Performance Manager CoC Claims Personenversicherung (m/w/d) 80 - 100%",
         "de": "Business Intelligence & Performance Manager CoC Claims Personenversicherung (m/w/d) 80 - 100%",
         "fr": "Business Intelligence & Performance Manager Le CoC réclame une assurance personnelle (h/f/d) 80 - 100%"
       },
@@ -2685,7 +2697,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Business-Intelligence-&-Performance-Manager-CoC-Claims-Personenversicherung-%28mwd%29-80-100/1368039957/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-29",
       "datePosted": "2026-07-29",
       "addressLocality": "Zürich",
@@ -2701,6 +2713,7 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "business-intelligence-performance-manager-coc-claims-personenversicherung-m-w-d-80-100"
       ],
@@ -2760,7 +2773,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Customer-Management-&-CRM-Business-Process-Manager/1366989357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-17",
       "datePosted": "2026-07-17",
       "addressLocality": "Zürich",
@@ -2819,7 +2832,7 @@
       "title": "Customer Advisor Special Services (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Customer Consulente Special Services (m/w/d) 80 - 100%",
-        "en": "Customer Advisor Special Services (m/f/d) 80 - 100%",
+        "en": "Customer Advisor Special Services (m/w/d) 80 - 100%",
         "de": "Customer Berater Special Services (m/w/d) 80 - 100%",
         "fr": "Customer Conseiller Special Services (m/w/d) 80 - 100%"
       },
@@ -2836,7 +2849,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Customer-Advisor-Special-Services-%28mwd%29-80-100/1366786257/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-16",
       "datePosted": "2026-08-14",
       "addressLocality": "Zürich",
@@ -2852,6 +2865,7 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "customer-advisor-special-services-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybrid"
       ],
@@ -2907,7 +2921,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Head-of-Marine-Europe-80-100/1366602257/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-14",
       "datePosted": "2026-08-12",
       "addressLocality": "Zürich",
@@ -2928,6 +2942,7 @@
           "Excellent English language skills."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "head-of-marine-europe-80-100-zurich-insurance-sede-ticino-s-at-quai-zurich-campus"
       ],
@@ -2983,7 +2998,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Property-Underwriter-f%C3%BCr-Internationale-Unternehmenskunden-%28mwd%29/1366431357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-13",
       "datePosted": "2026-08-11",
       "addressLocality": "Zürich",
@@ -3045,7 +3060,7 @@
       "title": "Workplace Services Engineer 80-100% (m/w/d)",
       "titleByLocale": {
         "it": "Workplace Services Ingegnere 80-100% (m/w/d)",
-        "en": "Workplace Services Engineer 80-100% (m/f/d)",
+        "en": "Workplace Services Engineer 80-100% (m/w/d)",
         "de": "Workplace Services Ingenieur 80-100% (m/w/d)",
         "fr": "Workplace Services Ingénieur 80-100% (m/w/d)"
       },
@@ -3062,7 +3077,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Workplace-Services-Engineer-80-100-%28mwd%29/1358259657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-10",
       "datePosted": "2026-08-07",
       "addressLocality": "Zürich",
@@ -3082,6 +3097,7 @@
           "Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "workplace-services-engineer-80-100-m-w-d-zurich-insurance-sede-ticino-services-engineer-80-100-m-w-d-stellendetails-zurich-insurance-company"
       ],
@@ -3137,7 +3153,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Finanzplaner-%28mwd%29-80-100/1366203457/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-10",
       "datePosted": "2026-08-07",
       "addressLocality": "Zürich",
@@ -3157,6 +3173,7 @@
           "Stilsichere Deutschkenntnisse;"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "finanzplaner-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybrid",
         "finanzplaner-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybrid-ue4qc4",
@@ -3204,6 +3221,166 @@
       }
     },
     {
+      "id": "company-qat1rm",
+      "slug": "senior-assicurazione-immobiliare-underwriter-in-corporate-banking-nazionale-m-f-d-70-100-zurich-insurance-sede-ticino",
+      "slugByLocale": {
+        "it": "senior-assicurazione-immobiliare-underwriter-in-corporate-banking-nazionale-m-f-d-70-100-zurich-insurance-sede-ticino",
+        "en": "senior-underwriter-property-insurance-in-national-corporate-banking-m-f-d-70-100-zurich-insurance-sede-ticino-zurich",
+        "de": "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm",
+        "fr": "aine-assurance-propriete-dans-les-banques-nationales-m-f-j-70-100-zurich-insurance-sede-ticino-zurich"
+      },
+      "company": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "companyDomain": "zurich.ch",
+      "title": "(Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft (m/w/d)",
+      "titleByLocale": {
+        "it": "(Senior) Assicurazione immobiliare Underwriter in corporate banking nazionale (m/f/d) 70 - 100%",
+        "en": "(Senior) Underwriter Property insurance in national corporate banking (m/f/d) 70 - 100%",
+        "de": "(Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft (m/w/d)",
+        "fr": "(Aîné) Assurance propriété dans les banques nationales (m/f/j) 70 - 100%"
+      },
+      "description": "Das Firmenkundengeschäft-Underwriting ist deine Leidenschaft? Du hast bereits einige Jahre Erfahrung in diesem Bereich und möchtest gerne mehr Verantwortung übernehmen?\n\nIm Bereich P&C Underwriting im nationalen Firmenkundengeschäft suchen wir einen erfahrenen Underwriter im Bereich Sach- und Technische Versicherungen. In dieser Funktion bist du für das Offertwesen verantwortlich, betreust und berätst die dir zugewiesenen Generalagenturen und Broker selbstständig und stehst ihnen als fachliche Ansprechperson zur Verfügung. Gemeinsam mit unserem Vertrieb gehst du auf die Bedürfnisse unserer Kunden ein und suchst nach den besten Versicherungslösungen.\n\nFür unsere Kunden nach der besten Lösung zu suchen und dabei als Fachperson zur Verfügung zu stehen, motiviert dich? Deine Erfahrung und Leidenschaft für das Firmenkundengeschäft sind die Basis, um in dieser Funktion erfolgreich zu sein.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als (Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft.\n\nWas du tust\n\n• Du bearbeitest selbstständig Offertanfragen von Generalagenturen und Brokern für Neu- und Bestandes Kunden\n\n• Du identifizierst und beurteilst Versicherungsrisiken und holst relevante Informationen zur Festlegung der Offert Konditionen ein\n\n• Du unterstützt Kunden, Generalagenturen und Broker in fachlichen Fragen und bearbeitest Versicherungsanträge inklusive administrativer Aufgaben\n\n• Du wirkst bei der Umsetzung von Portfoliomassnahmen mit\n\n• Du pflegst den telefonischen und persönlichen Kontakt zu Kunden, Agenturen und Brokern und agierst dabei als fachliche Ansprechperson\n\nWas du mitbringst\n\n• Abgeschlossene kaufmännische Grundausbildung, vorzugsweise ergänzt durch eine weiterführende, höhere Ausbildung in der Versicherungswirtschaft\n\n• Einige Jahre Berufserfahrung im Versicherungsumfeld, insbesondere im Underwriting oder in den Sach- und Technischen Versicherungen\n\n• Ausgeprägte Kunden- und Dienstleistungsorientierung kombiniert mit guten analytischen Fähigkeiten und selbstständige Arbeitsweise\n\n• Stilsicheres Deutsch, jede weitere Landessprache sowie Englisch sind von Vorteil\n\nDein Kontakt\n\nSenior Talent Acquisition Consultant: Philippe Frutiger (+41 44 628 32 20)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 70 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nReisetätigkeit: bis zu 10%\n\nHybride s Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "La scrittura aziendale è la tua passione? Hai già qualche anno di esperienza in questo settore e vorresti assumerti più responsabilità?\n\nNell'area di sottoscrizione P&C nel business nazionale dei clienti aziendali, stiamo cercando un sottoscritto esperto nel campo della proprietà e dell'assicurazione tecnica. In questa funzione, sei responsabile dell'offerta, supervisiona e consiglia le agenzie generali e i broker assegnati a te in modo indipendente e sono a loro disposizione come contatto professionale. Insieme al nostro team di vendita, risponderai alle esigenze dei nostri clienti e cercherai le migliori soluzioni assicurative.\n\nAlla ricerca della soluzione migliore per i nostri clienti e di essere disponibile come specialista ti motiva? La vostra esperienza e passione per il corporate banking sono la base per il successo in questa funzione.\n\nScopri qui perché Zurigo Svizzera è uno dei datori di lavoro \"Top 3\" in Svizzera. Diventare parte di esso e applicare come un (senior) assicurazione di proprietà sottoscritto nel business nazionale del cliente aziendale.\n\nCosa fai\n\n- Potrai elaborare indipendentemente le offerte da agenzie generali e broker per i clienti nuovi e esistenti\n\n- Identificare e valutare i rischi assicurativi e ottenere informazioni pertinenti per determinare i termini dell'offerta\n\n- Supporti clienti, agenzie generali e broker in domande tecniche e applicazioni di assicurazione di processo, tra cui compiti amministrativi\n\n- Partecipate all'attuazione delle misure di portafoglio\n\n- Mantenere il telefono e il contatto personale con clienti, agenzie e broker e agire come persona di contatto professionale\n\nCosa porti\n\n- Completata la formazione commerciale di base, preferibilmente integrata da un'ulteriore istruzione superiore nel settore assicurativo\n\n- Alcuni anni di esperienza professionale nel settore assicurativo, in particolare nella sottoscrizione o nell'assicurazione di proprietà e tecnica\n\n- Forte orientamento al cliente e al servizio combinato con buone competenze analitiche e metodi di lavoro indipendenti\n\n- Tedesco stilistico, ogni altra lingua nazionale e inglese sono vantaggiosi\n\nIl tuo contatto\n\nConsulente per l'acquisizione di talenti senior: Philippe Frutiger (+41 44 628 32 20)\n\nUlteriori informazioni\n\nTempo parziale o a tempo pieno: 70 - 100%\n\nLuogo di lavoro: Zurigo, Oerlikon\n\nAttività di viaggio: fino al 10%\n\nIbridi di lavoro: fino al 40%\n\n#LI-Hybrid #\n\nAttendiamo con ansia la vostra applicazione online – anche senza una lettera di richiesta.\nSiete invitati a convincerci della vostra motivazione durante un incontro personale.\n\nChi siamo\n\nZurigo è un marchio forte – oltre 1,4 milioni di clienti svizzeri si affidano ai nostri prodotti e servizi. La base del nostro successo è la nostra 53.000 dipendenti in tutto il mondo, che aiutano i nostri clienti in 210 paesi e territori a comprendere e proteggere meglio se stessi dai loro rischi. Al fine di fornire prestazioni quotidiane, offriamo ai nostri dipendenti modelli di lavoro flessibili e interessanti opportunità di formazione. Come dipendente di Zurigo, si beneficia di una moltitudine di vantaggi e di una forte cultura caratterizzata da accettazione, diversità e orientamento del team.\n\nA Zurigo, coltiviamo una cultura della diversità e dell'inclusione. I nostri obiettivi e valori sono progettati per proteggere i nostri dipendenti, promuovere la fiducia e aiutarli a raggiungere il loro pieno potenziale. Siamo per la giustizia e l'uguaglianza tra i nostri dipendenti, indipendentemente dal sesso, identità di genere, orientamento sessuale, origine, etnia, religione, ecc. L'acquisizione dei nostri talenti e dei processi di reclutamento riflettono questo impegno nella vita quotidiana. Unisciti a noi e diventare parte di questa cultura.\n\nPerché Zurigo ha avuto successo da oltre 150 anni? Vedere qui e diventare parte di esso.\n\nInformazioni per i reclutatori\n\nZurigo non accetta applicazioni non richieste dai reclutatori per questa posizione. Pertanto, i reclutatori non inviano documenti candidati ai nostri dipendenti o tramite il nostro portale di carriera online. Rifiutiamo ogni responsabilità per applicazioni non richieste e qualsiasi commissione e ringraziamo per la vostra comprensione.",
+        "en": "Corporate business underwriting is your passion? You already have some years of experience in this area and would like to take on more responsibility?\n\nIn the area of P&C underwriting in the national corporate customer business, we are looking for an experienced underwriter in the field of property and technical insurance. In this function, you are responsible for the offer, supervise and advise the general agencies and brokers assigned to you independently and are available to them as a professional contact. Together with our sales team, you will respond to the needs of our customers and look for the best insurance solutions.\n\nLooking for the best solution for our customers and being available as a specialist motivates you? Your experience and passion for corporate banking are the basis for success in this function.\n\nFind out here why Zurich Switzerland is one of the \"Top 3\" employers in Switzerland. Become part of it and apply as a (senior) underwriter property insurance in the national corporate customer business.\n\nWhat you do\n\n- You will independently process offers from general agencies and brokers for new and existing clients\n\n- You identify and assess insurance risks and obtain relevant information to determine the offer terms\n\n- You support clients, general agencies and brokers in technical questions and process insurance applications including administrative tasks\n\n- You participate in the implementation of portfolio measures\n\n- You maintain telephone and personal contact with customers, agencies and brokers and act as a professional contact person\n\nWhat you bring\n\n- Completed basic commercial training, preferably supplemented by further, higher education in the insurance industry\n\n- Some years of professional experience in the insurance sector, in particular in underwriting or in property and technical insurance\n\n- Strong customer and service orientation combined with good analytical skills and independent working methods\n\n- Stylistic German, every other national language and English are advantageous\n\nYour contact\n\nSenior Talent Acquisition Consultant: Philippe Frutiger (+41 44 628 32 20)\n\nAdditional information\n\nPart-time or full-time: 70 - 100%\n\nPlace of work: Zurich, Oerlikon\n\nTravel activity: up to 10%\n\nHybrids working: up to 40%\n\n#LI-Hybrid\n\nWe look forward to your online application – even without an application letter.\nYou are welcome to convince us of your motivation during a personal meeting.\n\nWho we are\n\nZurich is a strong brand – more than 1.4 million Swiss customers rely on our products and services. The basis of our success is our 53,000 employees worldwide, who help our customers in 210 countries and territories to better understand and protect themselves against their risks. In order to provide daily performance, we offer our employees flexible working models and interesting training opportunities. As a Zurich employee, you benefit from a multitude of advantages and a strong culture characterized by acceptance, diversity and team orientation.\n\nAt Zurich, we cultivate a culture of diversity and inclusion. Our goals and values are designed to protect our employees, promote trust and help them reach their full potential. We stand for justice and equality among our employees, regardless of gender, gender identity, sexual orientation, origin, ethnicity, religion, etc. The acquisition of our talents and the recruitment processes reflect this commitment in everyday life. Join us and become part of this culture.\n\nWhy has Zurich been successful for more than 150 years? See here and become part of it.\n\nInformation for recruiters\n\nZurich does not accept unsolicited applications from recruiters for this position. Therefore, recruiters do not submit applicant documents to our employees or via our online career portal. We reject any responsibility for unsolicited applications and any fees and thank you for your understanding.",
+        "de": "Das Firmenkundengeschäft-Underwriting ist deine Leidenschaft? Du hast bereits einige Jahre Erfahrung in diesem Bereich und möchtest gerne mehr Verantwortung übernehmen?\n\nIm Bereich P&C Underwriting im nationalen Firmenkundengeschäft suchen wir einen erfahrenen Underwriter im Bereich Sach- und Technische Versicherungen. In dieser Funktion bist du für das Offertwesen verantwortlich, betreust und berätst die dir zugewiesenen Generalagenturen und Broker selbstständig und stehst ihnen als fachliche Ansprechperson zur Verfügung. Gemeinsam mit unserem Vertrieb gehst du auf die Bedürfnisse unserer Kunden ein und suchst nach den besten Versicherungslösungen.\n\nFür unsere Kunden nach der besten Lösung zu suchen und dabei als Fachperson zur Verfügung zu stehen, motiviert dich? Deine Erfahrung und Leidenschaft für das Firmenkundengeschäft sind die Basis, um in dieser Funktion erfolgreich zu sein.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als (Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft.\n\nWas du tust\n\n• Du bearbeitest selbstständig Offertanfragen von Generalagenturen und Brokern für Neu- und Bestandes Kunden\n\n• Du identifizierst und beurteilst Versicherungsrisiken und holst relevante Informationen zur Festlegung der Offert Konditionen ein\n\n• Du unterstützt Kunden, Generalagenturen und Broker in fachlichen Fragen und bearbeitest Versicherungsanträge inklusive administrativer Aufgaben\n\n• Du wirkst bei der Umsetzung von Portfoliomassnahmen mit\n\n• Du pflegst den telefonischen und persönlichen Kontakt zu Kunden, Agenturen und Brokern und agierst dabei als fachliche Ansprechperson\n\nWas du mitbringst\n\n• Abgeschlossene kaufmännische Grundausbildung, vorzugsweise ergänzt durch eine weiterführende, höhere Ausbildung in der Versicherungswirtschaft\n\n• Einige Jahre Berufserfahrung im Versicherungsumfeld, insbesondere im Underwriting oder in den Sach- und Technischen Versicherungen\n\n• Ausgeprägte Kunden- und Dienstleistungsorientierung kombiniert mit guten analytischen Fähigkeiten und selbstständige Arbeitsweise\n\n• Stilsicheres Deutsch, jede weitere Landessprache sowie Englisch sind von Vorteil\n\nDein Kontakt\n\nSenior Talent Acquisition Consultant: Philippe Frutiger (+41 44 628 32 20)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 70 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nReisetätigkeit: bis zu 10%\n\nHybride s Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+        "fr": "La souscription d'entreprise est votre passion ? Vous avez déjà quelques années d'expérience dans ce domaine et souhaitez assumer davantage de responsabilités?\n\nDans le domaine de la souscription P&C dans l'entreprise cliente nationale, nous recherchons un souscripteur expérimenté dans le domaine de la propriété et de l'assurance technique. Dans cette fonction, vous êtes responsable de l'offre, supervisez et conseillez les agences générales et les courtiers qui vous sont assignés indépendamment et sont à leur disposition comme un contact professionnel. Avec notre équipe commerciale, vous répondez aux besoins de nos clients et recherchez les meilleures solutions d'assurance.\n\nVous recherchez la meilleure solution pour nos clients et être disponible en tant que spécialiste vous motive? Votre expérience et votre passion pour la banque d'entreprise sont la base du succès dans cette fonction.\n\nDécouvrez ici pourquoi Zurich Suisse est l'un des employeurs \"Top 3\" en Suisse. Devenez membre de l'entreprise et appliquez-la en tant qu'assurance immobilière (de l'aîné) dans l'entreprise cliente nationale.\n\nCe que tu fais\n\n- Vous traiterez indépendamment les offres des agences générales et des courtiers pour les clients nouveaux et existants\n\n- Vous identifiez et évaluez les risques d'assurance et vous obtenez des informations pertinentes pour déterminer les conditions d'offre\n\n- Vous soutenez les clients, les agences générales et les courtiers dans les questions techniques et traitez les demandes d'assurance, y compris les tâches administratives\n\n- Vous participez à la mise en œuvre de mesures de portefeuille\n\n- Vous entretenez des contacts téléphoniques et personnels avec les clients, les agences et les courtiers et faites office de personne-ressource professionnelle\n\nCe que vous apportez\n\n- Achevé la formation commerciale de base, de préférence complétée par un enseignement supérieur dans le secteur des assurances\n\n- Quelques années d'expérience professionnelle dans le secteur de l'assurance, en particulier dans la souscription ou dans l'assurance immobilière et technique\n\n- Forte orientation client et service combiné avec de bonnes compétences analytiques et des méthodes de travail indépendantes\n\n- L'allemand styliste, toutes les autres langues nationales et l'anglais sont avantageux\n\nVotre contact\n\nSenior Talent Acquisition Consultant : Philippe Frutiger (+41 44 628 32 20)\n\nInformations complémentaires\n\nTemps partiel ou temps plein: 70 - 100%\n\nLieu de travail: Zurich, Oerlikon\n\nActivité de voyage: jusqu'à 10%\n\nHybrides fonctionnant: jusqu'à 40%\n\n#LI-Hybrid\n\nNous attendons avec impatience votre candidature en ligne – même sans lettre de candidature.\nVous êtes invités à nous convaincre de votre motivation lors d'une réunion personnelle.\n\nQui nous sommes\n\nZurich est une marque forte – plus de 1,4 million de clients suisses dépendent de nos produits et services. Notre succès repose sur nos 53 000 collaborateurs dans le monde entier, qui aident nos clients dans 210 pays et territoires à mieux comprendre et se protéger contre leurs risques. Afin de fournir des performances quotidiennes, nous offrons à nos employés des modèles de travail flexibles et des possibilités de formation intéressantes. En tant qu'employé de Zurich, vous bénéficiez d'une multitude d'avantages et d'une culture forte caractérisée par l'acceptation, la diversité et l'orientation de l'équipe.\n\nÀ Zurich, nous cultivons une culture de diversité et d'inclusion. Nos objectifs et nos valeurs sont conçus pour protéger nos employés, promouvoir la confiance et les aider à réaliser leur plein potentiel. Nous défendons la justice et l'égalité entre nos employés, quel que soit leur sexe, leur identité, leur orientation sexuelle, leur origine, leur appartenance ethnique, leur religion, etc. L'acquisition de nos talents et les processus de recrutement reflètent cet engagement dans la vie quotidienne. Rejoignez-nous et faites partie de cette culture.\n\nPourquoi Zurich réussit-elle depuis plus de 150 ans ? Voyez ici et devenez partie intégrante.\n\nInformation des recruteurs\n\nZurich n'accepte pas les candidatures spontanées des recruteurs pour ce poste. Par conséquent, les recruteurs ne soumettent pas de documents de candidature à nos employés ou via notre portail de carrière en ligne. Nous rejetons toute responsabilité pour les demandes non sollicitées et les frais et nous vous remercions de votre compréhension."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-%28Senior%29-Underwriter-Sachversicherungen-im-nationalen-Firmenkundengesch%C3%A4ft-%28mwd%29/1362687257/",
+      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-%28Senior%29-Underwriter-Sachversicherungen-im-nationalen-Firmenkundengesch%C3%A4ft-%28mwd%29/1362687257/",
+      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
+      "postedDate": "2026-07-06",
+      "datePosted": "2026-08-29",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Insurance",
+      "currency": "CHF",
+      "featured": false,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich",
+        "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich",
+          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
+        ],
+        "en": [
+          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
+        ],
+        "fr": [
+          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T15:48:04.514Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "company-fpoldl",
+      "slug": "assistenza-danni-francese-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li",
+      "slugByLocale": {
+        "it": "assistenza-danni-francese-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li",
+        "en": "damage-assistance-french-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybrid",
+        "de": "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl",
+        "fr": "assistance-en-dommages-interets-en-francais-m-f-j-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten"
+      },
+      "company": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "companyDomain": "zurich.ch",
+      "title": "Sachbearbeiter Schaden Assistance - Französisch (m/w/d) 80 - 100%",
+      "titleByLocale": {
+        "it": "Assistenza danni - Francese (m/f/d) 80 - 100%",
+        "en": "Damage Assistance - French (m/f/d) 80 - 100%",
+        "de": "Sachbearbeiter Schaden Assistance - Französisch (m/w/d) 80 - 100%",
+        "fr": "Assistance en dommages-intérêts en français (m/f/j) 80 - 100%"
+      },
+      "description": "Unser Bereich Schaden Assistance erfüllt einen operativen Auftrag in der Regulierung von Leistungsfällen im Bereich Reiseschutzversicherungen und Pannenhilfe. Du bist die direkte Ansprechperson für unsere Kunden. Mit deinen Kolleginnen und Kollegen beurteilst du insbesondere Leistungsfälle im Bereich Pannenhilfe, Annullationskosten und Reiseschutz.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als Sachbearbeiter Schaden Assistance (m/w/d).\n\nWas du tust\n\n• Aktive Bearbeitung von Reiseschadenfällen und Pannenfälle im In- und Ausland\n\n• Du bearbeitest im Team Schadenfälle in den unterschiedlichsten Sprachen\n\n• Du hast regelmässigen schriftlichen und telefonischen Kundenkontakt\n\n• Du kommunizierst mit Schnittstellen wie Partnern und Reisebüros\n\n• Du unterstützt die Underwriting- und Aussendienst Abteilungen\n\nWas du mitbringst\n\n• Kaufmännische Ausbildung (EFZ) oder gleichwertigen Abschluss\n\n• Mehrjährige Berufserfahrung, von Vorteil in der Versicherungs-, Reise- oder Tourismusbranche\n\n• Sehr gute Deutschkenntnisse und sehr gute Französischkenntnisse, jede weitere Fremdsprache wie z.B. Englisch, und sind von grossem Vorteil\n\n• Rasche Auffassungsgabe, belastbar und zuverlässig\n\n• Hohe Kunden-, Service- und Lösungsorientierung\n\n• Ausgeprägte MS Office Kenntnisse und Affinität im Umgang mit IT-Systemen\n\nDein Kontakt\n\nTalent Acquisition Consultant: Eleni Bourtzakis (+41 44 628 20 51)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybrides Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "Il nostro dipartimento di assistenza per danni svolge un compito operativo nella regolazione dei casi di prestazioni nel settore dell'assicurazione per la protezione dei viaggi e dell'assistenza stradale. Sei la persona di contatto diretta per i nostri clienti. In particolare, valuterai i casi di performance con i tuoi colleghi nel settore dell'assistenza stradale, dei costi di cancellazione e della protezione dei viaggi.\n\nScopri qui perché Zurigo Svizzera è uno dei datori di lavoro \"Top 3\" in Svizzera. Diventa parte di esso e si applica come assistenza ai danni dei dipendenti (m/f/d).\n\nCosa fai\n\n- Trattamento attivo delle richieste di viaggio e dei casi di guasto in Germania e all'estero\n\n- Lavori su casi di danno in diverse lingue\n\n- Hai un contatto telefonico e scritto regolarmente\n\n- Si comunica con interfacce come partner e agenzie di viaggio\n\n- Supporti i servizi di sottoscrizione e di assistenza sul campo\n\nCosa porti\n\n- Istruzione commerciale (EFZ) o equivalente\n\n- Diversi anni di esperienza professionale, benefica nel settore assicurativo, viaggi o turismo\n\n- Conoscenza molto buona della conoscenza tedesca e molto buona del francese, qualsiasi altra lingua straniera come l'inglese, e sono di grande vantaggio\n\n- Rapida comprensione, resiliente e affidabile\n\n- Alto orientamento clienti, servizi e soluzioni\n\n- MS forte Conoscenza e affinità degli uffici nel trattare i sistemi IT\n\nIl tuo contatto\n\nTalent Acquisizione Consulente: Eleni Bourtzakis (+41 44 628 20 51)\n\nUlteriori informazioni\n\nTempo parziale o a tempo pieno: 80 - 100%\n\nLuogo di lavoro: Zurigo, Oerlikon\n\nLavoro ibrido: fino al 40%\n\n#LI-Hybrid #\n\nAttendiamo con ansia la vostra applicazione online – anche senza una lettera di richiesta.\nSiete invitati a convincerci della vostra motivazione durante un incontro personale.\n\nChi siamo\n\nZurigo è un marchio forte – oltre 1,4 milioni di clienti svizzeri si affidano ai nostri prodotti e servizi. La base del nostro successo è la nostra 53.000 dipendenti in tutto il mondo, che aiutano i nostri clienti in 210 paesi e territori a comprendere e proteggere meglio se stessi dai loro rischi. Al fine di fornire prestazioni quotidiane, offriamo ai nostri dipendenti modelli di lavoro flessibili e interessanti opportunità di formazione. Come dipendente di Zurigo, si beneficia di una moltitudine di vantaggi e di una forte cultura caratterizzata da accettazione, diversità e orientamento del team.\n\nA Zurigo, coltiviamo una cultura della diversità e dell'inclusione. I nostri obiettivi e valori sono progettati per proteggere i nostri dipendenti, promuovere la fiducia e aiutarli a raggiungere il loro pieno potenziale. Siamo per la giustizia e l'uguaglianza tra i nostri dipendenti, indipendentemente dal sesso, identità di genere, orientamento sessuale, origine, etnia, religione, ecc. L'acquisizione dei nostri talenti e dei processi di reclutamento riflettono questo impegno nella vita quotidiana. Unisciti a noi e diventare parte di questa cultura.\n\nPerché Zurigo ha avuto successo da oltre 150 anni? Vedere qui e diventare parte di esso.\n\nInformazioni per i reclutatori\n\nZurigo non accetta applicazioni non richieste dai reclutatori per questa posizione. Pertanto, i reclutatori non inviano documenti candidati ai nostri dipendenti o tramite il nostro portale di carriera online. Rifiutiamo ogni responsabilità per applicazioni non richieste e qualsiasi commissione e ringraziamo per la vostra comprensione.",
+        "en": "Our Damage Assistance department performs an operational task in the regulation of benefits cases in the area of travel protection insurance and roadside assistance. You are the direct contact person for our customers. In particular, you will assess performance cases with your colleagues in the area of roadside assistance, cancellation costs and travel protection.\n\nFind out here why Zurich Switzerland is one of the \"Top 3\" employers in Switzerland. Become a part of it and apply as an employee damage assistance (m/f/d).\n\nWhat you do\n\n- Active processing of travel claims and breakdown cases in Germany and abroad\n\n- You work on damage cases in different languages\n\n- You have regular written and telephone customer contact\n\n- You communicate with interfaces such as partners and travel agencies\n\n- You support the underwriting and field service departments\n\nWhat you bring\n\n- Commercial education (EFZ) or equivalent\n\n- Several years of professional experience, beneficial in the insurance, travel or tourism sector\n\n- Very good knowledge of German and very good knowledge of French, any other foreign language such as English, and are of great advantage\n\n- Rapid comprehension, resilient and reliable\n\n- High customer, service and solution orientation\n\n- Strong MS Office knowledge and affinity in dealing with IT systems\n\nYour contact\n\nTalent Acquisition Consultant: Eleni Bourtzakis (+41 44 628 20 51)\n\nAdditional information\n\nPart-time or full-time: 80 - 100%\n\nPlace of work: Zurich, Oerlikon\n\nHybrid work: up to 40%\n\n#LI-Hybrid\n\nWe look forward to your online application – even without an application letter.\nYou are welcome to convince us of your motivation during a personal meeting.\n\nWho we are\n\nZurich is a strong brand – more than 1.4 million Swiss customers rely on our products and services. The basis of our success is our 53,000 employees worldwide, who help our customers in 210 countries and territories to better understand and protect themselves against their risks. In order to provide daily performance, we offer our employees flexible working models and interesting training opportunities. As a Zurich employee, you benefit from a multitude of advantages and a strong culture characterized by acceptance, diversity and team orientation.\n\nAt Zurich, we cultivate a culture of diversity and inclusion. Our goals and values are designed to protect our employees, promote trust and help them reach their full potential. We stand for justice and equality among our employees, regardless of gender, gender identity, sexual orientation, origin, ethnicity, religion, etc. The acquisition of our talents and the recruitment processes reflect this commitment in everyday life. Join us and become part of this culture.\n\nWhy has Zurich been successful for more than 150 years? See here and become part of it.\n\nInformation for recruiters\n\nZurich does not accept unsolicited applications from recruiters for this position. Therefore, recruiters do not submit applicant documents to our employees or via our online career portal. We reject any responsibility for unsolicited applications and any fees and thank you for your understanding.",
+        "de": "Unser Bereich Schaden Assistance erfüllt einen operativen Auftrag in der Regulierung von Leistungsfällen im Bereich Reiseschutzversicherungen und Pannenhilfe. Du bist die direkte Ansprechperson für unsere Kunden. Mit deinen Kolleginnen und Kollegen beurteilst du insbesondere Leistungsfälle im Bereich Pannenhilfe, Annullationskosten und Reiseschutz.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als Sachbearbeiter Schaden Assistance (m/w/d).\n\nWas du tust\n\n• Aktive Bearbeitung von Reiseschadenfällen und Pannenfälle im In- und Ausland\n\n• Du bearbeitest im Team Schadenfälle in den unterschiedlichsten Sprachen\n\n• Du hast regelmässigen schriftlichen und telefonischen Kundenkontakt\n\n• Du kommunizierst mit Schnittstellen wie Partnern und Reisebüros\n\n• Du unterstützt die Underwriting- und Aussendienst Abteilungen\n\nWas du mitbringst\n\n• Kaufmännische Ausbildung (EFZ) oder gleichwertigen Abschluss\n\n• Mehrjährige Berufserfahrung, von Vorteil in der Versicherungs-, Reise- oder Tourismusbranche\n\n• Sehr gute Deutschkenntnisse und sehr gute Französischkenntnisse, jede weitere Fremdsprache wie z.B. Englisch, und sind von grossem Vorteil\n\n• Rasche Auffassungsgabe, belastbar und zuverlässig\n\n• Hohe Kunden-, Service- und Lösungsorientierung\n\n• Ausgeprägte MS Office Kenntnisse und Affinität im Umgang mit IT-Systemen\n\nDein Kontakt\n\nTalent Acquisition Consultant: Eleni Bourtzakis (+41 44 628 20 51)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybrides Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
+        "fr": "Notre service d'aide aux dommages s'acquitte d'une tâche opérationnelle dans la réglementation des cas de prestations dans le domaine de l'assurance-voyage et de l'aide routière. Vous êtes la personne de contact directe pour nos clients. En particulier, vous évaluerez les cas de performance avec vos collègues dans le domaine de l'assistance routière, des coûts d'annulation et de la protection des voyages.\n\nDécouvrez ici pourquoi Zurich Suisse est l'un des employeurs \"Top 3\" en Suisse. Devenez partie intégrante et appliquez-vous comme aide aux dommages (m/f/d).\n\nCe que tu fais\n\n- Traitement actif des demandes de remboursement de frais de voyage et des cas de ventilation en Allemagne et à l'étranger\n\n- Vous travaillez sur des cas de dommages en différentes langues\n\n- Vous avez un contact régulier avec le client par écrit et par téléphone\n\n- Vous communiquez avec des interfaces telles que des partenaires et des agences de voyage\n\n- Vous soutenez les départements de souscription et de service sur le terrain\n\nCe que vous apportez\n\n- Enseignement commercial (EFZ) ou équivalent\n\n- Plusieurs années d'expérience professionnelle, bénéfique dans le secteur des assurances, des voyages ou du tourisme\n\n- Très bonne connaissance de l'allemand et très bonne connaissance du français, toute autre langue étrangère comme l'anglais, et sont d'un grand avantage\n\n- Compréhension rapide, résiliente et fiable\n\n- Orientation client, service et solution élevée\n\n- SEP forte Connaissances des bureaux et affinité dans le traitement des systèmes informatiques\n\nVotre contact\n\nConsultant en acquisition de talents : Eleni Bourtzakis (+41 44 628 20 51)\n\nInformations complémentaires\n\nTemps partiel ou temps plein: 80 - 100%\n\nLieu de travail: Zurich, Oerlikon\n\nTravail hybride: jusqu'à 40%\n\n#LI-Hybrid\n\nNous attendons avec impatience votre candidature en ligne – même sans lettre de candidature.\nVous êtes invités à nous convaincre de votre motivation lors d'une réunion personnelle.\n\nQui nous sommes\n\nZurich est une marque forte – plus de 1,4 million de clients suisses dépendent de nos produits et services. Notre succès repose sur nos 53 000 collaborateurs dans le monde entier, qui aident nos clients dans 210 pays et territoires à mieux comprendre et se protéger contre leurs risques. Afin de fournir des performances quotidiennes, nous offrons à nos employés des modèles de travail flexibles et des possibilités de formation intéressantes. En tant qu'employé de Zurich, vous bénéficiez d'une multitude d'avantages et d'une culture forte caractérisée par l'acceptation, la diversité et l'orientation de l'équipe.\n\nÀ Zurich, nous cultivons une culture de diversité et d'inclusion. Nos objectifs et nos valeurs sont conçus pour protéger nos employés, promouvoir la confiance et les aider à réaliser leur plein potentiel. Nous défendons la justice et l'égalité entre nos employés, quel que soit leur sexe, leur identité, leur orientation sexuelle, leur origine, leur appartenance ethnique, leur religion, etc. L'acquisition de nos talents et les processus de recrutement reflètent cet engagement dans la vie quotidienne. Rejoignez-nous et faites partie de cette culture.\n\nPourquoi Zurich réussit-elle depuis plus de 150 ans ? Voyez ici et devenez partie intégrante.\n\nInformation des recruteurs\n\nZurich n'accepte pas les candidatures spontanées des recruteurs pour ce poste. Par conséquent, les recruteurs ne soumettent pas de documents de candidature à nos employés ou via notre portail de carrière en ligne. Nous rejetons toute responsabilité pour les demandes non sollicitées et les frais et nous vous remercions de votre compréhension."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-Sachbearbeiter-Schaden-Assistance-Franz%C3%B6sisch-%28mwd%29-80-100/1365200757/",
+      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Sachbearbeiter-Schaden-Assistance-Franz%C3%B6sisch-%28mwd%29-80-100/1365200757/",
+      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
+      "postedDate": "2026-07-06",
+      "datePosted": "2026-08-27",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Insurance",
+      "currency": "CHF",
+      "featured": false,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri",
+        "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri",
+          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
+        ],
+        "en": [
+          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
+        ],
+        "fr": [
+          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T15:48:04.514Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "company-qerbe5",
       "slug": "gestionnaire-sinistres-maladie-m-w-d-bilingue-francais-allemand-80-100-zurich-insurance-sede-ticino-lugano",
       "slugByLocale": {
@@ -3235,7 +3412,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Crissier-Gestionnaire-sinistres-maladie-bilingue-fran%C3%A7ais-et-allemand-%28fhd%29-80-100/1362611857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-29",
       "addressLocality": "Crissier",
@@ -3312,7 +3489,7 @@
       "title": "Fach- und Verkaufstrainer Sales Academy (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Trainer Sales Academy Allbranchen (m/f/d) 80 - 100%",
-        "en": "Sales Academy (m/f/d) 80 - 100%",
+        "en": "Fach- und Verkaufstrainer Sales Academy (m/w/d) 80 - 100%",
         "de": "Fach- und Verkaufstrainer Sales Academy (m/w/d) 80 - 100%",
         "fr": "Trainer Sales Academy Allbranchen (m/f/j) 80 - 100%"
       },
@@ -3329,7 +3506,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Fach-und-Verkaufstrainer-Sales-Academy-%28mwd%29-80-100/1364829757/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-22",
       "addressLocality": "Zürich",
@@ -3345,6 +3522,7 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "trainer-sales-academy-allbranchen-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
       ],
@@ -3400,7 +3578,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Lead-Data-Solutions-Engineer-Einzelleben-%28mwd%29-80-100/1362412057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-27",
       "addressLocality": "Zürich",
@@ -3429,6 +3607,7 @@
           "Hervorragende Kommunikationsfähigkeiten in Deutsch und Englisch;"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "senior-data-solutions-engineer-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybride-s-arbeiten-bis-zu-40-li-hybrid"
       ],
@@ -3484,7 +3663,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Fachspezialist-Einzelleben-Neugesch%C3%A4ft-%28DEFR%29-%28mwd%29-80-100/1365689557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-04",
       "addressLocality": "Zürich",
@@ -3547,7 +3726,7 @@
       "title": "KMU-Trainer Sales Academy (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "PMI Trainer Sales Academy (m/f/d) 80 - 100%",
-        "en": "SME Trainer Sales Academy (m/f/d) 80 - 100%",
+        "en": "KMU-Trainer Sales Academy (m/w/d) 80 - 100%",
         "de": "KMU-Trainer Sales Academy (m/w/d) 80 - 100%",
         "fr": "Académie des ventes des formateurs de PME (m/f/d) 80 - 100%"
       },
@@ -3564,7 +3743,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-KMU-Trainer-Sales-Academy-%28mwd%29-80-100/1364814457/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-22",
       "addressLocality": "Zürich",
@@ -3580,6 +3759,7 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "kmu-trainer-sales-academy-m-w-d-80-100-zurich-insurance-sede-ticino-zurich",
         "kmu-trainer-sales-academy-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-3w6bu4"
@@ -3637,7 +3817,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Kriens-Spezialist-Kundenteam-KTG-%28mwd%29-80-100/826021702/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
+      "crawledAt": "2026-09-05T12:52:01.457Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-06",
       "addressLocality": "Kriens",
@@ -3681,165 +3861,6 @@
           "@type": "QuantitativeValue",
           "minValue": 69500,
           "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "company-qat1rm",
-      "slug": "senior-assicurazione-immobiliare-underwriter-in-corporate-banking-nazionale-m-f-d-70-100-zurich-insurance-sede-ticino",
-      "slugByLocale": {
-        "it": "senior-assicurazione-immobiliare-underwriter-in-corporate-banking-nazionale-m-f-d-70-100-zurich-insurance-sede-ticino",
-        "en": "senior-underwriter-property-insurance-in-national-corporate-banking-m-f-d-70-100-zurich-insurance-sede-ticino-zurich",
-        "de": "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm",
-        "fr": "aine-assurance-propriete-dans-les-banques-nationales-m-f-j-70-100-zurich-insurance-sede-ticino-zurich"
-      },
-      "company": "Zurich Insurance (sede Ticino)",
-      "companyKey": "zurich-insurance-sede-ticino",
-      "companyDomain": "zurich.ch",
-      "title": "(Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft (m/w/d)",
-      "titleByLocale": {
-        "it": "(Senior) Assicurazione immobiliare Underwriter in corporate banking nazionale (m/f/d) 70 - 100%",
-        "en": "(Senior) Underwriter Property insurance in national corporate banking (m/f/d) 70 - 100%",
-        "de": "(Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft (m/w/d)",
-        "fr": "(Aîné) Assurance propriété dans les banques nationales (m/f/j) 70 - 100%"
-      },
-      "description": "Das Firmenkundengeschäft-Underwriting ist deine Leidenschaft? Du hast bereits einige Jahre Erfahrung in diesem Bereich und möchtest gerne mehr Verantwortung übernehmen?\n\nIm Bereich P&C Underwriting im nationalen Firmenkundengeschäft suchen wir einen erfahrenen Underwriter im Bereich Sach- und Technische Versicherungen. In dieser Funktion bist du für das Offertwesen verantwortlich, betreust und berätst die dir zugewiesenen Generalagenturen und Broker selbstständig und stehst ihnen als fachliche Ansprechperson zur Verfügung. Gemeinsam mit unserem Vertrieb gehst du auf die Bedürfnisse unserer Kunden ein und suchst nach den besten Versicherungslösungen.\n\nFür unsere Kunden nach der besten Lösung zu suchen und dabei als Fachperson zur Verfügung zu stehen, motiviert dich? Deine Erfahrung und Leidenschaft für das Firmenkundengeschäft sind die Basis, um in dieser Funktion erfolgreich zu sein.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als (Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft.\n\nWas du tust\n\n• Du bearbeitest selbstständig Offertanfragen von Generalagenturen und Brokern für Neu- und Bestandes Kunden\n\n• Du identifizierst und beurteilst Versicherungsrisiken und holst relevante Informationen zur Festlegung der Offert Konditionen ein\n\n• Du unterstützt Kunden, Generalagenturen und Broker in fachlichen Fragen und bearbeitest Versicherungsanträge inklusive administrativer Aufgaben\n\n• Du wirkst bei der Umsetzung von Portfoliomassnahmen mit\n\n• Du pflegst den telefonischen und persönlichen Kontakt zu Kunden, Agenturen und Brokern und agierst dabei als fachliche Ansprechperson\n\nWas du mitbringst\n\n• Abgeschlossene kaufmännische Grundausbildung, vorzugsweise ergänzt durch eine weiterführende, höhere Ausbildung in der Versicherungswirtschaft\n\n• Einige Jahre Berufserfahrung im Versicherungsumfeld, insbesondere im Underwriting oder in den Sach- und Technischen Versicherungen\n\n• Ausgeprägte Kunden- und Dienstleistungsorientierung kombiniert mit guten analytischen Fähigkeiten und selbstständige Arbeitsweise\n\n• Stilsicheres Deutsch, jede weitere Landessprache sowie Englisch sind von Vorteil\n\nDein Kontakt\n\nSenior Talent Acquisition Consultant: Philippe Frutiger (+41 44 628 32 20)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 70 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nReisetätigkeit: bis zu 10%\n\nHybride s Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "La scrittura aziendale è la tua passione? Hai già qualche anno di esperienza in questo settore e vorresti assumerti più responsabilità?\n\nNell'area di sottoscrizione P&C nel business nazionale dei clienti aziendali, stiamo cercando un sottoscritto esperto nel campo della proprietà e dell'assicurazione tecnica. In questa funzione, sei responsabile dell'offerta, supervisiona e consiglia le agenzie generali e i broker assegnati a te in modo indipendente e sono a loro disposizione come contatto professionale. Insieme al nostro team di vendita, risponderai alle esigenze dei nostri clienti e cercherai le migliori soluzioni assicurative.\n\nAlla ricerca della soluzione migliore per i nostri clienti e di essere disponibile come specialista ti motiva? La vostra esperienza e passione per il corporate banking sono la base per il successo in questa funzione.\n\nScopri qui perché Zurigo Svizzera è uno dei datori di lavoro \"Top 3\" in Svizzera. Diventare parte di esso e applicare come un (senior) assicurazione di proprietà sottoscritto nel business nazionale del cliente aziendale.\n\nCosa fai\n\n- Potrai elaborare indipendentemente le offerte da agenzie generali e broker per i clienti nuovi e esistenti\n\n- Identificare e valutare i rischi assicurativi e ottenere informazioni pertinenti per determinare i termini dell'offerta\n\n- Supporti clienti, agenzie generali e broker in domande tecniche e applicazioni di assicurazione di processo, tra cui compiti amministrativi\n\n- Partecipate all'attuazione delle misure di portafoglio\n\n- Mantenere il telefono e il contatto personale con clienti, agenzie e broker e agire come persona di contatto professionale\n\nCosa porti\n\n- Completata la formazione commerciale di base, preferibilmente integrata da un'ulteriore istruzione superiore nel settore assicurativo\n\n- Alcuni anni di esperienza professionale nel settore assicurativo, in particolare nella sottoscrizione o nell'assicurazione di proprietà e tecnica\n\n- Forte orientamento al cliente e al servizio combinato con buone competenze analitiche e metodi di lavoro indipendenti\n\n- Tedesco stilistico, ogni altra lingua nazionale e inglese sono vantaggiosi\n\nIl tuo contatto\n\nConsulente per l'acquisizione di talenti senior: Philippe Frutiger (+41 44 628 32 20)\n\nUlteriori informazioni\n\nTempo parziale o a tempo pieno: 70 - 100%\n\nLuogo di lavoro: Zurigo, Oerlikon\n\nAttività di viaggio: fino al 10%\n\nIbridi di lavoro: fino al 40%\n\n#LI-Hybrid #\n\nAttendiamo con ansia la vostra applicazione online – anche senza una lettera di richiesta.\nSiete invitati a convincerci della vostra motivazione durante un incontro personale.\n\nChi siamo\n\nZurigo è un marchio forte – oltre 1,4 milioni di clienti svizzeri si affidano ai nostri prodotti e servizi. La base del nostro successo è la nostra 53.000 dipendenti in tutto il mondo, che aiutano i nostri clienti in 210 paesi e territori a comprendere e proteggere meglio se stessi dai loro rischi. Al fine di fornire prestazioni quotidiane, offriamo ai nostri dipendenti modelli di lavoro flessibili e interessanti opportunità di formazione. Come dipendente di Zurigo, si beneficia di una moltitudine di vantaggi e di una forte cultura caratterizzata da accettazione, diversità e orientamento del team.\n\nA Zurigo, coltiviamo una cultura della diversità e dell'inclusione. I nostri obiettivi e valori sono progettati per proteggere i nostri dipendenti, promuovere la fiducia e aiutarli a raggiungere il loro pieno potenziale. Siamo per la giustizia e l'uguaglianza tra i nostri dipendenti, indipendentemente dal sesso, identità di genere, orientamento sessuale, origine, etnia, religione, ecc. L'acquisizione dei nostri talenti e dei processi di reclutamento riflettono questo impegno nella vita quotidiana. Unisciti a noi e diventare parte di questa cultura.\n\nPerché Zurigo ha avuto successo da oltre 150 anni? Vedere qui e diventare parte di esso.\n\nInformazioni per i reclutatori\n\nZurigo non accetta applicazioni non richieste dai reclutatori per questa posizione. Pertanto, i reclutatori non inviano documenti candidati ai nostri dipendenti o tramite il nostro portale di carriera online. Rifiutiamo ogni responsabilità per applicazioni non richieste e qualsiasi commissione e ringraziamo per la vostra comprensione.",
-        "en": "Corporate business underwriting is your passion? You already have some years of experience in this area and would like to take on more responsibility?\n\nIn the area of P&C underwriting in the national corporate customer business, we are looking for an experienced underwriter in the field of property and technical insurance. In this function, you are responsible for the offer, supervise and advise the general agencies and brokers assigned to you independently and are available to them as a professional contact. Together with our sales team, you will respond to the needs of our customers and look for the best insurance solutions.\n\nLooking for the best solution for our customers and being available as a specialist motivates you? Your experience and passion for corporate banking are the basis for success in this function.\n\nFind out here why Zurich Switzerland is one of the \"Top 3\" employers in Switzerland. Become part of it and apply as a (senior) underwriter property insurance in the national corporate customer business.\n\nWhat you do\n\n- You will independently process offers from general agencies and brokers for new and existing clients\n\n- You identify and assess insurance risks and obtain relevant information to determine the offer terms\n\n- You support clients, general agencies and brokers in technical questions and process insurance applications including administrative tasks\n\n- You participate in the implementation of portfolio measures\n\n- You maintain telephone and personal contact with customers, agencies and brokers and act as a professional contact person\n\nWhat you bring\n\n- Completed basic commercial training, preferably supplemented by further, higher education in the insurance industry\n\n- Some years of professional experience in the insurance sector, in particular in underwriting or in property and technical insurance\n\n- Strong customer and service orientation combined with good analytical skills and independent working methods\n\n- Stylistic German, every other national language and English are advantageous\n\nYour contact\n\nSenior Talent Acquisition Consultant: Philippe Frutiger (+41 44 628 32 20)\n\nAdditional information\n\nPart-time or full-time: 70 - 100%\n\nPlace of work: Zurich, Oerlikon\n\nTravel activity: up to 10%\n\nHybrids working: up to 40%\n\n#LI-Hybrid\n\nWe look forward to your online application – even without an application letter.\nYou are welcome to convince us of your motivation during a personal meeting.\n\nWho we are\n\nZurich is a strong brand – more than 1.4 million Swiss customers rely on our products and services. The basis of our success is our 53,000 employees worldwide, who help our customers in 210 countries and territories to better understand and protect themselves against their risks. In order to provide daily performance, we offer our employees flexible working models and interesting training opportunities. As a Zurich employee, you benefit from a multitude of advantages and a strong culture characterized by acceptance, diversity and team orientation.\n\nAt Zurich, we cultivate a culture of diversity and inclusion. Our goals and values are designed to protect our employees, promote trust and help them reach their full potential. We stand for justice and equality among our employees, regardless of gender, gender identity, sexual orientation, origin, ethnicity, religion, etc. The acquisition of our talents and the recruitment processes reflect this commitment in everyday life. Join us and become part of this culture.\n\nWhy has Zurich been successful for more than 150 years? See here and become part of it.\n\nInformation for recruiters\n\nZurich does not accept unsolicited applications from recruiters for this position. Therefore, recruiters do not submit applicant documents to our employees or via our online career portal. We reject any responsibility for unsolicited applications and any fees and thank you for your understanding.",
-        "de": "Das Firmenkundengeschäft-Underwriting ist deine Leidenschaft? Du hast bereits einige Jahre Erfahrung in diesem Bereich und möchtest gerne mehr Verantwortung übernehmen?\n\nIm Bereich P&C Underwriting im nationalen Firmenkundengeschäft suchen wir einen erfahrenen Underwriter im Bereich Sach- und Technische Versicherungen. In dieser Funktion bist du für das Offertwesen verantwortlich, betreust und berätst die dir zugewiesenen Generalagenturen und Broker selbstständig und stehst ihnen als fachliche Ansprechperson zur Verfügung. Gemeinsam mit unserem Vertrieb gehst du auf die Bedürfnisse unserer Kunden ein und suchst nach den besten Versicherungslösungen.\n\nFür unsere Kunden nach der besten Lösung zu suchen und dabei als Fachperson zur Verfügung zu stehen, motiviert dich? Deine Erfahrung und Leidenschaft für das Firmenkundengeschäft sind die Basis, um in dieser Funktion erfolgreich zu sein.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als (Senior) Underwriter Sachversicherungen im nationalen Firmenkundengeschäft.\n\nWas du tust\n\n• Du bearbeitest selbstständig Offertanfragen von Generalagenturen und Brokern für Neu- und Bestandes Kunden\n\n• Du identifizierst und beurteilst Versicherungsrisiken und holst relevante Informationen zur Festlegung der Offert Konditionen ein\n\n• Du unterstützt Kunden, Generalagenturen und Broker in fachlichen Fragen und bearbeitest Versicherungsanträge inklusive administrativer Aufgaben\n\n• Du wirkst bei der Umsetzung von Portfoliomassnahmen mit\n\n• Du pflegst den telefonischen und persönlichen Kontakt zu Kunden, Agenturen und Brokern und agierst dabei als fachliche Ansprechperson\n\nWas du mitbringst\n\n• Abgeschlossene kaufmännische Grundausbildung, vorzugsweise ergänzt durch eine weiterführende, höhere Ausbildung in der Versicherungswirtschaft\n\n• Einige Jahre Berufserfahrung im Versicherungsumfeld, insbesondere im Underwriting oder in den Sach- und Technischen Versicherungen\n\n• Ausgeprägte Kunden- und Dienstleistungsorientierung kombiniert mit guten analytischen Fähigkeiten und selbstständige Arbeitsweise\n\n• Stilsicheres Deutsch, jede weitere Landessprache sowie Englisch sind von Vorteil\n\nDein Kontakt\n\nSenior Talent Acquisition Consultant: Philippe Frutiger (+41 44 628 32 20)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 70 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nReisetätigkeit: bis zu 10%\n\nHybride s Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-        "fr": "La souscription d'entreprise est votre passion ? Vous avez déjà quelques années d'expérience dans ce domaine et souhaitez assumer davantage de responsabilités?\n\nDans le domaine de la souscription P&C dans l'entreprise cliente nationale, nous recherchons un souscripteur expérimenté dans le domaine de la propriété et de l'assurance technique. Dans cette fonction, vous êtes responsable de l'offre, supervisez et conseillez les agences générales et les courtiers qui vous sont assignés indépendamment et sont à leur disposition comme un contact professionnel. Avec notre équipe commerciale, vous répondez aux besoins de nos clients et recherchez les meilleures solutions d'assurance.\n\nVous recherchez la meilleure solution pour nos clients et être disponible en tant que spécialiste vous motive? Votre expérience et votre passion pour la banque d'entreprise sont la base du succès dans cette fonction.\n\nDécouvrez ici pourquoi Zurich Suisse est l'un des employeurs \"Top 3\" en Suisse. Devenez membre de l'entreprise et appliquez-la en tant qu'assurance immobilière (de l'aîné) dans l'entreprise cliente nationale.\n\nCe que tu fais\n\n- Vous traiterez indépendamment les offres des agences générales et des courtiers pour les clients nouveaux et existants\n\n- Vous identifiez et évaluez les risques d'assurance et vous obtenez des informations pertinentes pour déterminer les conditions d'offre\n\n- Vous soutenez les clients, les agences générales et les courtiers dans les questions techniques et traitez les demandes d'assurance, y compris les tâches administratives\n\n- Vous participez à la mise en œuvre de mesures de portefeuille\n\n- Vous entretenez des contacts téléphoniques et personnels avec les clients, les agences et les courtiers et faites office de personne-ressource professionnelle\n\nCe que vous apportez\n\n- Achevé la formation commerciale de base, de préférence complétée par un enseignement supérieur dans le secteur des assurances\n\n- Quelques années d'expérience professionnelle dans le secteur de l'assurance, en particulier dans la souscription ou dans l'assurance immobilière et technique\n\n- Forte orientation client et service combiné avec de bonnes compétences analytiques et des méthodes de travail indépendantes\n\n- L'allemand styliste, toutes les autres langues nationales et l'anglais sont avantageux\n\nVotre contact\n\nSenior Talent Acquisition Consultant : Philippe Frutiger (+41 44 628 32 20)\n\nInformations complémentaires\n\nTemps partiel ou temps plein: 70 - 100%\n\nLieu de travail: Zurich, Oerlikon\n\nActivité de voyage: jusqu'à 10%\n\nHybrides fonctionnant: jusqu'à 40%\n\n#LI-Hybrid\n\nNous attendons avec impatience votre candidature en ligne – même sans lettre de candidature.\nVous êtes invités à nous convaincre de votre motivation lors d'une réunion personnelle.\n\nQui nous sommes\n\nZurich est une marque forte – plus de 1,4 million de clients suisses dépendent de nos produits et services. Notre succès repose sur nos 53 000 collaborateurs dans le monde entier, qui aident nos clients dans 210 pays et territoires à mieux comprendre et se protéger contre leurs risques. Afin de fournir des performances quotidiennes, nous offrons à nos employés des modèles de travail flexibles et des possibilités de formation intéressantes. En tant qu'employé de Zurich, vous bénéficiez d'une multitude d'avantages et d'une culture forte caractérisée par l'acceptation, la diversité et l'orientation de l'équipe.\n\nÀ Zurich, nous cultivons une culture de diversité et d'inclusion. Nos objectifs et nos valeurs sont conçus pour protéger nos employés, promouvoir la confiance et les aider à réaliser leur plein potentiel. Nous défendons la justice et l'égalité entre nos employés, quel que soit leur sexe, leur identité, leur orientation sexuelle, leur origine, leur appartenance ethnique, leur religion, etc. L'acquisition de nos talents et les processus de recrutement reflètent cet engagement dans la vie quotidienne. Rejoignez-nous et faites partie de cette culture.\n\nPourquoi Zurich réussit-elle depuis plus de 150 ans ? Voyez ici et devenez partie intégrante.\n\nInformation des recruteurs\n\nZurich n'accepte pas les candidatures spontanées des recruteurs pour ce poste. Par conséquent, les recruteurs ne soumettent pas de documents de candidature à nos employés ou via notre portail de carrière en ligne. Nous rejetons toute responsabilité pour les demandes non sollicitées et les frais et nous vous remercions de votre compréhension."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-%28Senior%29-Underwriter-Sachversicherungen-im-nationalen-Firmenkundengesch%C3%A4ft-%28mwd%29/1362687257/",
-      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-%28Senior%29-Underwriter-Sachversicherungen-im-nationalen-Firmenkundengesch%C3%A4ft-%28mwd%29/1362687257/",
-      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
-      "postedDate": "2026-07-06",
-      "datePosted": "2026-08-29",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Insurance",
-      "currency": "CHF",
-      "featured": false,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich",
-        "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich",
-          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
-        ],
-        "en": [
-          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
-        ],
-        "fr": [
-          "senior-underwriter-sachversicherungen-im-nationalen-firmenkundengeschaft-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-qat1rm"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T15:48:04.514Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "company-fpoldl",
-      "slug": "assistenza-danni-francese-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li",
-      "slugByLocale": {
-        "it": "assistenza-danni-francese-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li",
-        "en": "damage-assistance-french-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybrid",
-        "de": "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl",
-        "fr": "assistance-en-dommages-interets-en-francais-m-f-j-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten"
-      },
-      "company": "Zurich Insurance (sede Ticino)",
-      "companyKey": "zurich-insurance-sede-ticino",
-      "companyDomain": "zurich.ch",
-      "title": "Sachbearbeiter Schaden Assistance - Französisch (m/w/d) 80 - 100%",
-      "titleByLocale": {
-        "it": "Assistenza danni - Francese (m/f/d) 80 - 100%",
-        "en": "Damage Assistance - French (m/f/d) 80 - 100%",
-        "de": "Sachbearbeiter Schaden Assistance - Französisch (m/w/d) 80 - 100%",
-        "fr": "Assistance en dommages-intérêts en français (m/f/j) 80 - 100%"
-      },
-      "description": "Unser Bereich Schaden Assistance erfüllt einen operativen Auftrag in der Regulierung von Leistungsfällen im Bereich Reiseschutzversicherungen und Pannenhilfe. Du bist die direkte Ansprechperson für unsere Kunden. Mit deinen Kolleginnen und Kollegen beurteilst du insbesondere Leistungsfälle im Bereich Pannenhilfe, Annullationskosten und Reiseschutz.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als Sachbearbeiter Schaden Assistance (m/w/d).\n\nWas du tust\n\n• Aktive Bearbeitung von Reiseschadenfällen und Pannenfälle im In- und Ausland\n\n• Du bearbeitest im Team Schadenfälle in den unterschiedlichsten Sprachen\n\n• Du hast regelmässigen schriftlichen und telefonischen Kundenkontakt\n\n• Du kommunizierst mit Schnittstellen wie Partnern und Reisebüros\n\n• Du unterstützt die Underwriting- und Aussendienst Abteilungen\n\nWas du mitbringst\n\n• Kaufmännische Ausbildung (EFZ) oder gleichwertigen Abschluss\n\n• Mehrjährige Berufserfahrung, von Vorteil in der Versicherungs-, Reise- oder Tourismusbranche\n\n• Sehr gute Deutschkenntnisse und sehr gute Französischkenntnisse, jede weitere Fremdsprache wie z.B. Englisch, und sind von grossem Vorteil\n\n• Rasche Auffassungsgabe, belastbar und zuverlässig\n\n• Hohe Kunden-, Service- und Lösungsorientierung\n\n• Ausgeprägte MS Office Kenntnisse und Affinität im Umgang mit IT-Systemen\n\nDein Kontakt\n\nTalent Acquisition Consultant: Eleni Bourtzakis (+41 44 628 20 51)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybrides Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Il nostro dipartimento di assistenza per danni svolge un compito operativo nella regolazione dei casi di prestazioni nel settore dell'assicurazione per la protezione dei viaggi e dell'assistenza stradale. Sei la persona di contatto diretta per i nostri clienti. In particolare, valuterai i casi di performance con i tuoi colleghi nel settore dell'assistenza stradale, dei costi di cancellazione e della protezione dei viaggi.\n\nScopri qui perché Zurigo Svizzera è uno dei datori di lavoro \"Top 3\" in Svizzera. Diventa parte di esso e si applica come assistenza ai danni dei dipendenti (m/f/d).\n\nCosa fai\n\n- Trattamento attivo delle richieste di viaggio e dei casi di guasto in Germania e all'estero\n\n- Lavori su casi di danno in diverse lingue\n\n- Hai un contatto telefonico e scritto regolarmente\n\n- Si comunica con interfacce come partner e agenzie di viaggio\n\n- Supporti i servizi di sottoscrizione e di assistenza sul campo\n\nCosa porti\n\n- Istruzione commerciale (EFZ) o equivalente\n\n- Diversi anni di esperienza professionale, benefica nel settore assicurativo, viaggi o turismo\n\n- Conoscenza molto buona della conoscenza tedesca e molto buona del francese, qualsiasi altra lingua straniera come l'inglese, e sono di grande vantaggio\n\n- Rapida comprensione, resiliente e affidabile\n\n- Alto orientamento clienti, servizi e soluzioni\n\n- MS forte Conoscenza e affinità degli uffici nel trattare i sistemi IT\n\nIl tuo contatto\n\nTalent Acquisizione Consulente: Eleni Bourtzakis (+41 44 628 20 51)\n\nUlteriori informazioni\n\nTempo parziale o a tempo pieno: 80 - 100%\n\nLuogo di lavoro: Zurigo, Oerlikon\n\nLavoro ibrido: fino al 40%\n\n#LI-Hybrid #\n\nAttendiamo con ansia la vostra applicazione online – anche senza una lettera di richiesta.\nSiete invitati a convincerci della vostra motivazione durante un incontro personale.\n\nChi siamo\n\nZurigo è un marchio forte – oltre 1,4 milioni di clienti svizzeri si affidano ai nostri prodotti e servizi. La base del nostro successo è la nostra 53.000 dipendenti in tutto il mondo, che aiutano i nostri clienti in 210 paesi e territori a comprendere e proteggere meglio se stessi dai loro rischi. Al fine di fornire prestazioni quotidiane, offriamo ai nostri dipendenti modelli di lavoro flessibili e interessanti opportunità di formazione. Come dipendente di Zurigo, si beneficia di una moltitudine di vantaggi e di una forte cultura caratterizzata da accettazione, diversità e orientamento del team.\n\nA Zurigo, coltiviamo una cultura della diversità e dell'inclusione. I nostri obiettivi e valori sono progettati per proteggere i nostri dipendenti, promuovere la fiducia e aiutarli a raggiungere il loro pieno potenziale. Siamo per la giustizia e l'uguaglianza tra i nostri dipendenti, indipendentemente dal sesso, identità di genere, orientamento sessuale, origine, etnia, religione, ecc. L'acquisizione dei nostri talenti e dei processi di reclutamento riflettono questo impegno nella vita quotidiana. Unisciti a noi e diventare parte di questa cultura.\n\nPerché Zurigo ha avuto successo da oltre 150 anni? Vedere qui e diventare parte di esso.\n\nInformazioni per i reclutatori\n\nZurigo non accetta applicazioni non richieste dai reclutatori per questa posizione. Pertanto, i reclutatori non inviano documenti candidati ai nostri dipendenti o tramite il nostro portale di carriera online. Rifiutiamo ogni responsabilità per applicazioni non richieste e qualsiasi commissione e ringraziamo per la vostra comprensione.",
-        "en": "Our Damage Assistance department performs an operational task in the regulation of benefits cases in the area of travel protection insurance and roadside assistance. You are the direct contact person for our customers. In particular, you will assess performance cases with your colleagues in the area of roadside assistance, cancellation costs and travel protection.\n\nFind out here why Zurich Switzerland is one of the \"Top 3\" employers in Switzerland. Become a part of it and apply as an employee damage assistance (m/f/d).\n\nWhat you do\n\n- Active processing of travel claims and breakdown cases in Germany and abroad\n\n- You work on damage cases in different languages\n\n- You have regular written and telephone customer contact\n\n- You communicate with interfaces such as partners and travel agencies\n\n- You support the underwriting and field service departments\n\nWhat you bring\n\n- Commercial education (EFZ) or equivalent\n\n- Several years of professional experience, beneficial in the insurance, travel or tourism sector\n\n- Very good knowledge of German and very good knowledge of French, any other foreign language such as English, and are of great advantage\n\n- Rapid comprehension, resilient and reliable\n\n- High customer, service and solution orientation\n\n- Strong MS Office knowledge and affinity in dealing with IT systems\n\nYour contact\n\nTalent Acquisition Consultant: Eleni Bourtzakis (+41 44 628 20 51)\n\nAdditional information\n\nPart-time or full-time: 80 - 100%\n\nPlace of work: Zurich, Oerlikon\n\nHybrid work: up to 40%\n\n#LI-Hybrid\n\nWe look forward to your online application – even without an application letter.\nYou are welcome to convince us of your motivation during a personal meeting.\n\nWho we are\n\nZurich is a strong brand – more than 1.4 million Swiss customers rely on our products and services. The basis of our success is our 53,000 employees worldwide, who help our customers in 210 countries and territories to better understand and protect themselves against their risks. In order to provide daily performance, we offer our employees flexible working models and interesting training opportunities. As a Zurich employee, you benefit from a multitude of advantages and a strong culture characterized by acceptance, diversity and team orientation.\n\nAt Zurich, we cultivate a culture of diversity and inclusion. Our goals and values are designed to protect our employees, promote trust and help them reach their full potential. We stand for justice and equality among our employees, regardless of gender, gender identity, sexual orientation, origin, ethnicity, religion, etc. The acquisition of our talents and the recruitment processes reflect this commitment in everyday life. Join us and become part of this culture.\n\nWhy has Zurich been successful for more than 150 years? See here and become part of it.\n\nInformation for recruiters\n\nZurich does not accept unsolicited applications from recruiters for this position. Therefore, recruiters do not submit applicant documents to our employees or via our online career portal. We reject any responsibility for unsolicited applications and any fees and thank you for your understanding.",
-        "de": "Unser Bereich Schaden Assistance erfüllt einen operativen Auftrag in der Regulierung von Leistungsfällen im Bereich Reiseschutzversicherungen und Pannenhilfe. Du bist die direkte Ansprechperson für unsere Kunden. Mit deinen Kolleginnen und Kollegen beurteilst du insbesondere Leistungsfälle im Bereich Pannenhilfe, Annullationskosten und Reiseschutz.\n\nErfahre hier , weshalb Zurich Schweiz zu den «Top 3» Arbeitgebern der Schweiz zählt. Werde auch du Teil davon und bewirb dich als Sachbearbeiter Schaden Assistance (m/w/d).\n\nWas du tust\n\n• Aktive Bearbeitung von Reiseschadenfällen und Pannenfälle im In- und Ausland\n\n• Du bearbeitest im Team Schadenfälle in den unterschiedlichsten Sprachen\n\n• Du hast regelmässigen schriftlichen und telefonischen Kundenkontakt\n\n• Du kommunizierst mit Schnittstellen wie Partnern und Reisebüros\n\n• Du unterstützt die Underwriting- und Aussendienst Abteilungen\n\nWas du mitbringst\n\n• Kaufmännische Ausbildung (EFZ) oder gleichwertigen Abschluss\n\n• Mehrjährige Berufserfahrung, von Vorteil in der Versicherungs-, Reise- oder Tourismusbranche\n\n• Sehr gute Deutschkenntnisse und sehr gute Französischkenntnisse, jede weitere Fremdsprache wie z.B. Englisch, und sind von grossem Vorteil\n\n• Rasche Auffassungsgabe, belastbar und zuverlässig\n\n• Hohe Kunden-, Service- und Lösungsorientierung\n\n• Ausgeprägte MS Office Kenntnisse und Affinität im Umgang mit IT-Systemen\n\nDein Kontakt\n\nTalent Acquisition Consultant: Eleni Bourtzakis (+41 44 628 20 51)\n\nZusätzliche Informationen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Zürich, Oerlikon\n\nHybrides Arbeiten: bis zu 40%\n\n#LI-Hybrid\n\nWir freuen uns auf deine Onlinebewerbung – auch ohne Bewerbungsschreiben.\nGerne kannst du uns bei einem persönlichen Kennenlernen von deiner Motivation überzeugen.\n\nWer wir sind\n\nZurich ist eine starke Marke – mehr als 1,4 Millionen Schweizer Kundinnen und Kunden vertrauen auf unsere Produkte und Dienstleistungen. Die Basis unseres Erfolgs bilden unsere 53‘000 Mitarbeitenden weltweit, die unseren Kunden in 210 Ländern und Gebieten helfen, ihre Risiken besser zu verstehen und sich gegen diese zu schützen. Um die tägliche Leistung zu erbringen, bieten wir unseren Mitarbeitenden flexible Arbeitsmodelle und interessante Weiterbildungsmöglichkeiten. Als Zurich-Mitarbeitender profitierst du von einer Vielzahl an Vorteilen und einer starken Kultur, geprägt von Akzeptanz, Vielfältigkeit und Teamorientierung.\n\nBei Zurich pflegen wir eine Kultur der Vielfalt und Inklusion. Unsere Ziele und Werte sind geschaffen, um unsere Mitarbeitenden zu schützen, Vertrauen zu fördern und zu helfen, ihr volles Potential auszuschöpfen. Wir stehen ein für Gerechtigkeit und Gleichheit unter unseren Angestellten, unabhängig vom Geschlecht, Geschlechtsidentität, sexueller Orientierung, Herkunft, ethnischer Zugehörigkeit, Religion, etc. Die Gewinnung unserer Talente sowie die Rekrutierungsprozesse spiegeln dieses Bekenntnis im Alltag. Steige bei uns ein und werde Teil dieser Kultur.\n\nWeshalb ist Zurich seit über 150 Jahren erfolgreich? Siehe hier selbst und werde Teil davon .\n\nInformation für Personalvermittler\n\nZurich nimmt für diese Position keine unaufgeforderten Bewerbungen von Personalvermittlern entgegen. Personalvermittler reichen daher bitte keine Bewerberunterlagen an unsere Mitarbeitenden oder über unser Online-Karriere-Portal ein. Wir lehnen jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen sowie etwaige Gebühren ab und danken für das Verständnis.",
-        "fr": "Notre service d'aide aux dommages s'acquitte d'une tâche opérationnelle dans la réglementation des cas de prestations dans le domaine de l'assurance-voyage et de l'aide routière. Vous êtes la personne de contact directe pour nos clients. En particulier, vous évaluerez les cas de performance avec vos collègues dans le domaine de l'assistance routière, des coûts d'annulation et de la protection des voyages.\n\nDécouvrez ici pourquoi Zurich Suisse est l'un des employeurs \"Top 3\" en Suisse. Devenez partie intégrante et appliquez-vous comme aide aux dommages (m/f/d).\n\nCe que tu fais\n\n- Traitement actif des demandes de remboursement de frais de voyage et des cas de ventilation en Allemagne et à l'étranger\n\n- Vous travaillez sur des cas de dommages en différentes langues\n\n- Vous avez un contact régulier avec le client par écrit et par téléphone\n\n- Vous communiquez avec des interfaces telles que des partenaires et des agences de voyage\n\n- Vous soutenez les départements de souscription et de service sur le terrain\n\nCe que vous apportez\n\n- Enseignement commercial (EFZ) ou équivalent\n\n- Plusieurs années d'expérience professionnelle, bénéfique dans le secteur des assurances, des voyages ou du tourisme\n\n- Très bonne connaissance de l'allemand et très bonne connaissance du français, toute autre langue étrangère comme l'anglais, et sont d'un grand avantage\n\n- Compréhension rapide, résiliente et fiable\n\n- Orientation client, service et solution élevée\n\n- SEP forte Connaissances des bureaux et affinité dans le traitement des systèmes informatiques\n\nVotre contact\n\nConsultant en acquisition de talents : Eleni Bourtzakis (+41 44 628 20 51)\n\nInformations complémentaires\n\nTemps partiel ou temps plein: 80 - 100%\n\nLieu de travail: Zurich, Oerlikon\n\nTravail hybride: jusqu'à 40%\n\n#LI-Hybrid\n\nNous attendons avec impatience votre candidature en ligne – même sans lettre de candidature.\nVous êtes invités à nous convaincre de votre motivation lors d'une réunion personnelle.\n\nQui nous sommes\n\nZurich est une marque forte – plus de 1,4 million de clients suisses dépendent de nos produits et services. Notre succès repose sur nos 53 000 collaborateurs dans le monde entier, qui aident nos clients dans 210 pays et territoires à mieux comprendre et se protéger contre leurs risques. Afin de fournir des performances quotidiennes, nous offrons à nos employés des modèles de travail flexibles et des possibilités de formation intéressantes. En tant qu'employé de Zurich, vous bénéficiez d'une multitude d'avantages et d'une culture forte caractérisée par l'acceptation, la diversité et l'orientation de l'équipe.\n\nÀ Zurich, nous cultivons une culture de diversité et d'inclusion. Nos objectifs et nos valeurs sont conçus pour protéger nos employés, promouvoir la confiance et les aider à réaliser leur plein potentiel. Nous défendons la justice et l'égalité entre nos employés, quel que soit leur sexe, leur identité, leur orientation sexuelle, leur origine, leur appartenance ethnique, leur religion, etc. L'acquisition de nos talents et les processus de recrutement reflètent cet engagement dans la vie quotidienne. Rejoignez-nous et faites partie de cette culture.\n\nPourquoi Zurich réussit-elle depuis plus de 150 ans ? Voyez ici et devenez partie intégrante.\n\nInformation des recruteurs\n\nZurich n'accepte pas les candidatures spontanées des recruteurs pour ce poste. Par conséquent, les recruteurs ne soumettent pas de documents de candidature à nos employés ou via notre portail de carrière en ligne. Nous rejetons toute responsabilité pour les demandes non sollicitées et les frais et nous vous remercions de votre compréhension."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-Sachbearbeiter-Schaden-Assistance-Franz%C3%B6sisch-%28mwd%29-80-100/1365200757/",
-      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Sachbearbeiter-Schaden-Assistance-Franz%C3%B6sisch-%28mwd%29-80-100/1365200757/",
-      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:32.263Z",
-      "postedDate": "2026-07-06",
-      "datePosted": "2026-08-27",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Insurance",
-      "currency": "CHF",
-      "featured": false,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri",
-        "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri",
-          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
-        ],
-        "en": [
-          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
-        ],
-        "fr": [
-          "sachbearbeiter-schaden-assistance-franzosisch-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybri-fpoldl"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T15:48:04.514Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }

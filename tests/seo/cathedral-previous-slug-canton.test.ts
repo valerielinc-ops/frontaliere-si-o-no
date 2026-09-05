@@ -4,6 +4,7 @@ import * as path from 'node:path';
 
 import { makeKey } from '@/services/previousSlugWinners';
 import { readJobsDataset } from '../helpers/jobsDataset';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const REPO_ROOT = path.resolve(__dirname, '../..');
 const DIST = path.join(REPO_ROOT, 'dist');
@@ -127,7 +128,7 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
   //    legacy /<locale>/<legacy-TI-section>/<oldSlug>/ — so pre-cathedral
   //    indexed URLs still serve real content. Both must have the same
   //    canton-aware canonical so Google consolidates link equity. ──
-  it('non-TI canton bridges (incl. legacy TI emit) canonicalize to the canton-aware URL', () => {
+  it('non-TI canton bridges (incl. legacy TI emit) canonicalize to the canton-aware URL', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return; // offline-skip
     const jobs = readJobs();
     if (!jobs) return;
@@ -190,7 +191,7 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
   //    HTML file at /<locale>/<legacy-TI-section>/<oldSlug>/ for non-TI jobs
   //    that have a per-locale previous slug. This prevents the gap where the
   //    pre-cathedral indexed URL falls through to the noindex tombstone. ──
-  it('non-TI jobs with previousSlugsByLocale emit a bridge at the legacy TI section', () => {
+  it('non-TI jobs with previousSlugsByLocale emit a bridge at the legacy TI section', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return; // offline-skip
     const jobs = readJobs();
     if (!jobs) return;

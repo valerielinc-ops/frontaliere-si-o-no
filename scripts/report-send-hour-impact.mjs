@@ -92,7 +92,12 @@
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
+import {
+  twoProportionTest,
+  hasEnoughPowerForTest,
+  MIN_COMPARISON_SENDS,
+  MIN_EXPECTED_PER_CELL,
+} from '../services/newsletter-ab-stats.mjs';
 import { MissingIndexError } from './lib/missing-index-error.mjs';
 import { PREFERRED_SEND_MIN_EVENTS, PREFERRED_SEND_WINDOW_DAYS } from '../functions/src/lib/preferredSendHour.js';
 
@@ -138,6 +143,14 @@ export const MAX_SCHEDULE_LOOKAHEAD_MS = 3 * DAY_MS;
  * intent-to-treat rate should not be read as the feature's effect.
  */
 export const LOW_COVERAGE_WARN_RATIO = 0.8;
+
+/**
+ * Minimum deliveries PER GROUP below which a comparison prints no p-value
+ * (#7342 item 3). Alias of the shared arm-level floor: a delivery here is a
+ * send there, and the decision the number drives — keep or drop the 90-180
+ * day tail of #6469 — needs the same validity condition as the A/B readout.
+ */
+export const MIN_COMPARISON_DELIVERIES = MIN_COMPARISON_SENDS;
 
 export function argValue(args, flag) {
   const i = args.indexOf(flag);
@@ -271,10 +284,10 @@ export function computeFetchFloor(windowFloor) {
 export function effectiveDeliveryDate(data) {
   if (!data?.sent_at) return null;
   const sentAt = toDateSafe(data.sent_at);
-  if (Number.isNaN(sentAt.getTime())) return null;
+  if (!isUsableDate(sentAt)) return null;
   if (!data.scheduled_for) return sentAt;
   const scheduledFor = toDateSafe(data.scheduled_for);
-  if (Number.isNaN(scheduledFor.getTime())) return sentAt;
+  if (!isUsableDate(scheduledFor)) return sentAt;
   return scheduledFor > sentAt ? scheduledFor : sentAt;
 }
 
@@ -448,12 +461,12 @@ export function qualifiesOnlyViaTailWindow(eventTimes, sentAt) {
   // 180-day history is never read, so they would be judged on the report's own
   // window events alone and inflate this small-N bucket. Unclassifiable → keep
   // them in `personal`, where they were before #6550.
-  if (!(sentAt instanceof Date) || Number.isNaN(sentAt.getTime())) return false;
+  if (!isUsableDate(sentAt)) return false;
   if (!Array.isArray(eventTimes) || eventTimes.length === 0) return false;
   let within90 = 0;
   let within180 = 0;
   for (const t of eventTimes) {
-    if (!(t instanceof Date) || Number.isNaN(t.getTime()) || t >= sentAt) continue;
+    if (!isUsableDate(t) || t >= sentAt) continue;
     const daysBefore = (sentAt.getTime() - t.getTime()) / DAY_MS;
     if (daysBefore >= PREFERRED_SEND_WINDOW_DAYS) continue;
     within180++;
@@ -510,7 +523,7 @@ export function collectTailLookupFloors(deliveryDocs) {
     const email = normalizeEmail(d.email || doc.ref?.parent?.parent?.id || '');
     if (!email) continue;
     const sentAt = toDateSafe(d.sent_at);
-    if (Number.isNaN(sentAt?.getTime?.())) continue;
+    if (!isUsableDate(sentAt)) continue;
     const floor = new Date(sentAt.getTime() - PREFERRED_SEND_WINDOW_DAYS * DAY_MS);
     // `campaign_deliveries/{id}` → parent `.parent` is the subscriber doc and
     // its `.parent` the root collection. Absent (plain fixture docs), assume
@@ -653,6 +666,22 @@ function toDateSafe(v) {
   return typeof v?.toDate === 'function' ? v.toDate() : new Date(v);
 }
 
+/**
+ * The ONE predicate for "this value is a date we can compare against" (#7342).
+ * Duck-typed on `getTime` rather than `instanceof Date` on purpose: a
+ * Firestore `Timestamp.toDate()` coming from a mock, an adapter or another
+ * realm (vm context / duplicated module instance) produces a genuine date-like
+ * object that `instanceof` rejects. Two spellings of the same check in the
+ * same file diverge silently — `collectTailLookupFloors` would read a
+ * subscriber's 180-day history that `qualifiesOnlyViaTailWindow` then refuses
+ * to use, under-populating the very bucket #6550 exists to measure.
+ * @param {unknown} v
+ * @returns {boolean}
+ */
+export function isUsableDate(v) {
+  return typeof v?.getTime === 'function' && !Number.isNaN(v.getTime());
+}
+
 // Map<string, Date[]> instead of Set<string> (#3798 edge case): a key only
 // tells us an open/click ever happened for that campaign/alert::email or
 // message_id — crediting a delivery also needs to know WHEN, so it can require
@@ -722,6 +751,7 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
   let droppedOperatorVerification = 0;
   let droppedImmature = 0;
   let droppedBeforeWindow = 0;
+  let droppedUnparsableDate = 0;
 
   for (const doc of deliveryDocs) {
     const d = doc.data();
@@ -743,6 +773,19 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
     if (doc.id !== buildCanonicalDeliveryDocId(campaignId, email)) { droppedNonCanonical++; continue; }
 
     const sentAt = toDateSafe(d.sent_at);
+    // #7342: a `sent_at` that is truthy but unparsable passes the `!d.sent_at`
+    // drop above and reaches here as an Invalid Date. Every comparison against
+    // NaN is false, so such a doc was never filtered by the window/maturity
+    // cutoffs, never classified as tail (the guard in
+    // qualifiesOnlyViaTailWindow returns false) and never credited an open
+    // (`openedAt >= sentAt` is false by construction) — it landed in `personal`
+    // as a delivery with 0 opens, diluting downward the exact open-rate the
+    // report exists to judge. Unmeasurable ≠ unengaged: drop it and COUNT it,
+    // so the size of the blind spot is visible instead of silently priced into
+    // the denominator. Downstream `deliveredAt` is usable by construction once
+    // this passes — effectiveDeliveryDate returns `sentAt` or a `scheduled_for`
+    // it has itself validated with the same predicate.
+    if (!isUsableDate(sentAt)) { droppedUnparsableDate++; continue; }
     let groupKey = (d.send_time_source === 'personal' || d.send_time_source === 'global')
       ? d.send_time_source
       : IMMEDIATE_LABEL;
@@ -809,6 +852,7 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
     droppedOperatorVerification,
     droppedImmature,
     droppedBeforeWindow,
+    droppedUnparsableDate,
   };
 }
 
@@ -871,11 +915,18 @@ export function comparisonLine(label, cellA, cellB, nameA, nameB) {
   // fixed n<100 threshold: a 500-vs-500 comparison with near-identical rates
   // is genuinely not significant, while a 60-vs-60 comparison with a huge gap
   // can be — sample size alone answers neither question.
-  const test = twoProportionTest(
-    { sends: cellA.deliveries, opens: cellA.opens },
-    { sends: cellB.deliveries, opens: cellB.opens },
-  );
-  const sigFlag = test ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]` : '';
+  // ...but a test needs a sampling distribution to exist at all: below the
+  // validity floor (#7342 item 3) the rates above still print — they are
+  // descriptive — while the verdict is replaced by an explicit "n
+  // insufficiente" instead of a p-value nobody should act on. Applies to
+  // EVERY comparison line, not just the `personal_tail_90_180 vs global` one
+  // that surfaced it.
+  const armA = { sends: cellA.deliveries, opens: cellA.opens };
+  const armB = { sends: cellB.deliveries, opens: cellB.opens };
+  const test = hasEnoughPowerForTest(armA, armB) ? twoProportionTest(armA, armB) : null;
+  const sigFlag = test
+    ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]`
+    : ` [n insufficiente (${nameA}=${cellA.deliveries}, ${nameB}=${cellB.deliveries}) — no p-value below ${MIN_COMPARISON_DELIVERIES} deliveries/group or ${MIN_EXPECTED_PER_CELL} expected opens]`;
   const sign = (n) => (n >= 0 ? '+' : '');
   return `${label}: open rate ${sign(openDelta)}${openDelta.toFixed(1)}pp (${rateA.toFixed(1)}% vs ${rateB.toFixed(1)}%), click rate ${sign(clickDelta)}${clickDelta.toFixed(1)}pp (${clickRateA.toFixed(1)}% vs ${clickRateB.toFixed(1)}%)${sigFlag}`;
 }
@@ -1022,6 +1073,7 @@ async function main() {
     droppedOperatorVerification,
     droppedImmature,
     droppedBeforeWindow,
+    droppedUnparsableDate,
   } = aggregate(deliveryDocs, eventDocs, SINCE_DATE, { maturityCutoff, windowFloor, subscriberEventTimes });
 
   if (JSON_OUT) {
@@ -1039,6 +1091,7 @@ async function main() {
       droppedOperatorVerificationDocs: droppedOperatorVerification,
       droppedImmatureDocs: droppedImmature,
       droppedBeforeWindowDocs: droppedBeforeWindow,
+      droppedUnparsableDateDocs: droppedUnparsableDate,
       segments,
     }, null, 2));
     return;
@@ -1051,7 +1104,7 @@ async function main() {
     printSegment(`Last ${DAYS} day(s)`, segments.combined);
   }
 
-  console.log(`\n(Fallback per-subscriber query used: ${usedFallback ? 'yes' : 'no'}; ${droppedNonCanonical} non-canonical duplicate delivery doc(s) ignored; ${droppedTransactional} transactional (calculator/LAMal) delivery doc(s) excluded; ${droppedOperatorVerification} operator-verification delivery doc(s) excluded; ${droppedImmature} delivery doc(s) excluded as too fresh (< ${MATURITY_HOURS}h since release); ${droppedBeforeWindow} delivery doc(s) excluded as delivered before the window floor.)\n`);
+  console.log(`\n(Fallback per-subscriber query used: ${usedFallback ? 'yes' : 'no'}; ${droppedNonCanonical} non-canonical duplicate delivery doc(s) ignored; ${droppedTransactional} transactional (calculator/LAMal) delivery doc(s) excluded; ${droppedOperatorVerification} operator-verification delivery doc(s) excluded; ${droppedImmature} delivery doc(s) excluded as too fresh (< ${MATURITY_HOURS}h since release); ${droppedBeforeWindow} delivery doc(s) excluded as delivered before the window floor; ${droppedUnparsableDate} delivery doc(s) excluded for an unparsable sent_at.)\n`);
 }
 
 // Run only when invoked directly (node scripts/report-send-hour-impact.mjs);

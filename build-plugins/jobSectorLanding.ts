@@ -674,6 +674,24 @@ export interface SectorCountableJob {
 }
 
 /** Keyword patterns per sector (case-insensitive, multilingual). */
+/**
+ * Il separatore fra due parole di un termine composto, in UNA sola definizione.
+ *
+ * I matcher scritti a mano usavano `[ -]`: esattamente UN carattere, spazio o
+ * trattino. Un titolo reale non e' cosi' regolare — `Information  Security
+ * Officer` arriva col doppio spazio da un copia-incolla, `Information/Security
+ * Officer` con lo slash, e gli annunci tradotti portano spazi non-ASCII. Su un
+ * matcher ordinario il costo e' un match mancato; sul LOOKBEHIND di `sicurezza`
+ * il costo e' peggiore, perche' l'esclusione non scatta e lo stesso annuncio
+ * ricompare su DUE landing indicizzate — cioe' il difetto che quel lookbehind
+ * esiste per chiudere. `\\s` in JS include gia' NBSP e gli spazi tipografici,
+ * quindi il non-ASCII e' coperto senza enumerarlo.
+ *
+ * `{1,3}` e non `+`: basta per doppio spazio e per ` / `, e tenere un tetto
+ * evita che due parole lontane si "tocchino" attraverso mezza riga di rumore.
+ */
+const SEC_SEP = '[\\s\\-–—/_.]{1,3}';
+
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
   // NOTE: do NOT add 3-letter abbreviations like \bris\b or \blis\b here —
@@ -714,7 +732,21 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   fisioterapisti: /fisioterapist|physiotherap|physioth[eé]rap|kinesith[eé]rap|\bphysio\b/i,
   farmacisti: /farmacist|pharmazeut|apotheker|pharmacist|pharmacien|\bfarmacia\b|\bpharmacy\b/i,
   'data-scientist': /data[ -]scientist|data[ -]analyst|machine[ -]learning|\bml[ -]engineer|data[ -]engineer|analista[ -]dati|datenanalyst|\bbig[ -]data\b/i,
-  cybersecurity: /cybersecurity|cyber[ -]security|sicurezza[ -]informatic|security[ -]engineer|security[ -]analyst|informationssicherheit|s[eé]curit[eé][ -]informatique|penetration[ -]test|\bsoc[ -]analyst/i,
+  // Il lessico enumerava due soli suffissi di ruolo, quindi la landing
+  // risultava a 0 match per assenza di LESSICO e non di annunci (#5321).
+  // `security guard` / `security officer` restano fuori di proposito: sono il
+  // guardiano fisico e vivono in `sicurezza`, che li esclude con il lookbehind
+  // simmetrico a questo quando li precede una qualificazione informatica.
+  cybersecurity: new RegExp(
+    'cybersecurity|cyber' + SEC_SEP + 'security'
+    + '|sicurezza' + SEC_SEP + 'informatic'
+    + '|security' + SEC_SEP + '(?:engineer|analyst|architect|specialist|consultant)'
+    + `|(?:information|it|cloud|network)${SEC_SEP}security`
+    + '|informationssicherheit|sicherheitsarchitekt'
+    + '|s[eé]curit[eé]' + SEC_SEP + 'informatique'
+    + '|penetration' + SEC_SEP + 'test|\\bpentester\\b|\\bsoc' + SEC_SEP + 'analyst',
+    'i',
+  ),
   'project-manager': /project[ -]manager|projektleiter|projektmanager|chef[ -]de[ -]projet|capo[ -]progetto|program[ -]manager|scrum[ -]master|\bpmo\b/i,
   contabili: /contabil|buchhalter|\baccountant\b|comptable|\bbookkeep|fiduciar|treuhand|revisore[ -]contabil|\bcontroller\b/i,
   banca: /\bbanca\b|\bbancar|\bbank\b|\bbanking\b|finanz|wealth[ -]management|asset[ -]management|private[ -]bank|gestione[ -]patrimonial|\btrader\b|relationship[ -]manager/i,
@@ -752,7 +784,22 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
-  sicurezza: /\bsicurezza[ -](?:privata|fisica)|\bsecurity[ -](?:guard|officer)|\bsicherheitsdienst|\bwachmann|\bvigilanz|\bguardia[ -]giurat|\bagent[ -]de[ -]s[eé]curit|\bsorvegli/i,
+  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network
+  // Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
+  // l'allargamento del lessico `cybersecurity` sopra lo farebbe comparire su
+  // ENTRAMBE le landing. Usa `SEC_SEP` come tutti gli altri: un lookbehind con
+  // un separatore fisso non vede `Information  Security Officer` col doppio
+  // spazio ne' `Information/Security Officer`, e proprio quei casi tornano a
+  // comparire su due landing — cioe' il difetto che il lookbehind chiude.
+  sicurezza: new RegExp(
+    '\\bsicurezza' + SEC_SEP + '(?:privata|fisica)'
+    + `|(?<!\\b(?:information|it|cloud|network)${SEC_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
+    + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
+    + '|\\bguardia' + SEC_SEP + 'giurat'
+    + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
+    + '|\\bsorvegli',
+    'i',
+  ),
   scuola: /\bscuola\b|\bscolastic|\binsegnant|\bdocente\b|\blehrer|\bteacher\b|\benseignant|\bma[iî]tre[ -]d|\bprofessore\b|\bschule\b|\bkindergarten\b|\bdoposcuola/i,
   designer: /\bdesigner\b|\bgrafico\b|\bgraphic[ -]design|\bgrafik|\bux[ -]|\bui[ -]design|\bgraphiste|\bweb[ -]design|\bproduct[ -]design|\bgestalter/i,
   architetti: /\barchitet|\barchitect\b|\barchitekt|\barchitecte\b|\bbauzeichner|\bdisegnatore[ -]edil|\bdessinateur/i,

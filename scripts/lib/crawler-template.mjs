@@ -185,6 +185,7 @@ export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-poli
  * Trims at word boundary when the cap would split a token.
  */
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { restoreExistingSlugIdentity } from './slug-history-journal.mjs';
 
 export function slugify(text = '', maxLength = 90) {
   const base = String(text || '')
@@ -842,74 +843,21 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
 }
 
 /**
- * Restore the active slug identity of jobs already present in the crawler
- * slice. This is intentionally opt-in: most crawlers should let a material
- * title/location correction mint a new slug and retain the old one as a
- * redirect. A crawler can use this stricter policy when the corrected field is
- * display metadata and changing an already-published URL would be needless.
+ * Restore the active slug identity of jobs already present in a crawler slice.
  *
- * Matching is by the stable job ID which mergePreserveLocaleData has already
- * carried forward. Fresh jobs are untouched. Existing history is restored
- * verbatim so an intermediate hardening pass cannot turn a transient derived
- * slug into a permanent redirect.
+ * The implementation lives in `scripts/lib/slug-history-journal.mjs` (issue
+ * #6908): it is the one operation that writes the slug fields backwards, from
+ * the previous on-disk version onto the fresh one, so it belongs with the
+ * other journal primitives and not here. This re-export exists so the five
+ * existing call sites (this module, `assemble-jobs-dataset.mjs`,
+ * `update-ibsa-jobs.mjs` and the crawler tests) keep their import path — and,
+ * more to the point, so there is no second copy for them to reach instead.
  *
- * @param {object[]} existingJobs
- * @param {object[]} currentJobs
- * @returns {{ jobs: object[], restored: number }}
+ * Do not reinline it. `tests/slug-write-encapsulation.test.ts` no longer pins
+ * a direct-write budget for this module, so a reinlined copy fails the ratchet
+ * as a brand-new unjournaled slug writer.
  */
-export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = []) {
-  const counts = new Map();
-  for (const job of existingJobs) {
-    const id = String(job?.id || '').trim();
-    if (id) counts.set(id, (counts.get(id) || 0) + 1);
-  }
-  const existingById = new Map();
-  for (const job of existingJobs) {
-    const id = String(job?.id || '').trim();
-    if (id && counts.get(id) === 1) existingById.set(id, job);
-  }
-
-  let restored = 0;
-  const jobs = currentJobs.map((job) => {
-    const id = String(job?.id || '').trim();
-    const old = id ? existingById.get(id) : null;
-    if (!old) return job;
-
-    const next = { ...job };
-    const oldSlug = String(old.slug || '').trim();
-    if (oldSlug && oldSlug !== String(next.slug || '').trim()) {
-      next.slug = oldSlug;
-      restored++;
-    }
-    if (old.slugByLocale && typeof old.slugByLocale === 'object') {
-      const currentByLocale = next.slugByLocale && typeof next.slugByLocale === 'object'
-        ? next.slugByLocale
-        : {};
-      const restoredByLocale = { ...old.slugByLocale };
-      for (const [locale, slug] of Object.entries(currentByLocale)) {
-        if (!(locale in restoredByLocale)) restoredByLocale[locale] = slug;
-      }
-      if (JSON.stringify(restoredByLocale) !== JSON.stringify(currentByLocale)) restored++;
-      next.slugByLocale = restoredByLocale;
-    }
-
-    if (Array.isArray(old.previousSlugs)) next.previousSlugs = [...old.previousSlugs];
-    else delete next.previousSlugs;
-    if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
-      next.previousSlugsByLocale = Object.fromEntries(
-        Object.entries(old.previousSlugsByLocale).map(([locale, slugs]) => [
-          locale,
-          Array.isArray(slugs) ? [...slugs] : slugs,
-        ]),
-      );
-    } else {
-      delete next.previousSlugsByLocale;
-    }
-    return next;
-  });
-
-  return { jobs, restored };
-}
+export { restoreExistingSlugIdentity };
 
 /* ── Pipeline ───────────────────────────────────────────────────────── */
 

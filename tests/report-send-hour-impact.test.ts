@@ -26,6 +26,7 @@ import {
   MAX_SCHEDULE_LOOKAHEAD_MS,
   qualifiesOnlyViaTailWindow,
   collectTailLookupFloors,
+  isUsableDate,
 } from '../scripts/report-send-hour-impact.mjs';
 
 // ── Fixture helpers ──────────────────────────────────────────────────────
@@ -414,6 +415,64 @@ describe('aggregate — canonical vs non-canonical delivery doc dedup', () => {
     const stub = { id: buildCanonicalDeliveryDocId(CAMPAIGN, 'stub@x.com'), data: () => ({ email: 'stub@x.com', campaign_id: CAMPAIGN, sent_at: null }) };
     const { segments } = aggregate([stub], [], null);
     expect(segments.combined.personal.deliveries + segments.combined.global.deliveries + segments.combined[IMMEDIATE_LABEL].deliveries).toBe(0);
+  });
+
+  // #7342: truthy-but-unparsable `sent_at` used to survive the `!d.sent_at`
+  // drop and land in `personal` as a delivery with 0 opens — every NaN
+  // comparison being false meant it was neither filtered by the window nor
+  // ever credited an open. Its only effect was to dilute the denominator of
+  // the cohort the report exists to price.
+  it('drops (and counts) a delivery whose sent_at is truthy but unparsable, instead of diluting personal with 0 opens', () => {
+    const sentAt = new Date('2026-07-05T10:00:00Z');
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'ok@x.com', sentAt, sendTimeSource: 'personal', opened: true }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'broken@x.com', sentAt: new Date('not-a-date'), sendTimeSource: 'personal' }),
+    ];
+    const { segments, droppedUnparsableDate } = aggregate(deliveries, [], null);
+    expect(droppedUnparsableDate).toBe(1);
+    expect(segments.combined.personal.deliveries).toBe(1);
+    expect(segments.combined.personal.opens).toBe(1);
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(0);
+  });
+
+  it('reports zero unparsable drops when every sent_at is usable', () => {
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'ok@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), sendTimeSource: 'global' }),
+    ];
+    expect(aggregate(deliveries, [], null).droppedUnparsableDate).toBe(0);
+  });
+});
+
+// #7342 item 2: one predicate for both tail-classification guards. `instanceof
+// Date` rejected a date-like value from another realm/adapter that
+// collectTailLookupFloors' duck-typed check accepted — the two disagreed and
+// the tail bucket silently lost those subscribers.
+describe('isUsableDate — single date predicate shared by the tail guards (#7342)', () => {
+  // A Firestore Timestamp mock whose toDate() returns a date-like object from
+  // "another realm": real getTime, but not an instance of THIS realm's Date.
+  const foreignDate = (ms: number) => ({ getTime: () => ms, valueOf: () => ms });
+
+  it('accepts a real Date and a duck-typed date-like value, rejects unusable ones', () => {
+    expect(isUsableDate(new Date('2026-07-05T10:00:00Z'))).toBe(true);
+    expect(isUsableDate(foreignDate(Date.parse('2026-07-05T10:00:00Z')))).toBe(true);
+    expect(isUsableDate(new Date('not-a-date'))).toBe(false);
+    expect(isUsableDate(null)).toBe(false);
+    expect(isUsableDate(undefined)).toBe(false);
+    expect(isUsableDate('2026-07-05T10:00:00Z')).toBe(false);
+  });
+
+  it('collectTailLookupFloors and qualifiesOnlyViaTailWindow agree on a realm-foreign sent_at', () => {
+    const sentMs = Date.parse('2026-07-05T10:00:00Z');
+    const doc = {
+      id: buildCanonicalDeliveryDocId(CAMPAIGN, 'foreign@x.com'),
+      data: () => ({ email: 'foreign@x.com', campaign_id: CAMPAIGN, send_time_source: 'personal', sent_at: { toDate: () => foreignDate(sentMs) } }),
+    };
+    // Read side: the 180-day history IS looked up for this subscriber…
+    expect(collectTailLookupFloors([doc]).has('foreign@x.com')).toBe(true);
+    // …and the classification side no longer throws it away.
+    const daysBefore = (n: number) => foreignDate(sentMs - n * 24 * 60 * 60 * 1000);
+    const tailOnly = [daysBefore(100), daysBefore(120), daysBefore(150)];
+    expect(qualifiesOnlyViaTailWindow(tailOnly as unknown as Date[], foreignDate(sentMs) as unknown as Date)).toBe(true);
   });
 });
 
@@ -837,6 +896,50 @@ describe('significance testing — real two-proportion z-test, not a fixed n<100
     const line = comparisonLine('x', a, b, 'a', 'b');
     expect(line).toContain('[significant');
     expect(line).not.toContain('not significant');
+  });
+
+  it('comparisonLine suppresses the p-value below the per-group delivery floor (#7342 item 3)', () => {
+    // The case the reviewer flagged: a thin `personal_tail_90_180` cohort
+    // against a large `global` one. A p-value here invites a keep/drop
+    // decision on the 90-180 day tail that the sample cannot support.
+    const thin = { deliveries: 12, opens: 3, clicks: 1 };
+    const wide = { deliveries: 980, opens: 300, clicks: 40 };
+    const line = comparisonLine('  \u2192 personal_tail_90_180 vs global', thin, wide, 'personal_tail_90_180', 'global');
+    expect(line).toContain('n insufficiente (personal_tail_90_180=12, global=980)');
+    expect(line).not.toMatch(/p=\d/);
+    expect(line).not.toContain('significant');
+    // Descriptive rates still print — they are observations, not inferences.
+    expect(line).toContain('open rate');
+  });
+
+  it('comparisonLine suppresses the p-value when the expected-count rule fails despite N >= floor', () => {
+    // 40 vs 40 clears MIN_COMPARISON_DELIVERIES, but a pooled rate of 2.5%
+    // expects 1 open per group: the normal approximation has no basis.
+    const a = { deliveries: 40, opens: 0, clicks: 0 };
+    const b = { deliveries: 40, opens: 2, clicks: 0 };
+    const line = comparisonLine('x', a, b, 'a', 'b');
+    expect(line).toContain('n insufficiente');
+    expect(line).not.toMatch(/p=\d/);
+  });
+
+  it('comparisonLine applies the floor to EVERY comparison line, not just the tail one', () => {
+    const thin = { deliveries: 5, opens: 2, clicks: 0 };
+    const wide = { deliveries: 500, opens: 150, clicks: 20 };
+    for (const [label, x, y] of [
+      ['  \u2192 personal vs immediate', thin, wide],
+      ['  \u2192 global vs immediate  ', wide, thin],
+      ['  \u2192 personal vs global   ', thin, wide],
+    ] as const) {
+      expect(comparisonLine(label, x, y, 'a', 'b')).toContain('n insufficiente');
+    }
+  });
+
+  it('comparisonLine keeps the p-value once both groups clear the floor', () => {
+    const a = { deliveries: 60, opens: 50, clicks: 10 };
+    const b = { deliveries: 60, opens: 5, clicks: 1 };
+    const line = comparisonLine('x', a, b, 'a', 'b');
+    expect(line).not.toContain('n insufficiente');
+    expect(line).toMatch(/p=\d\.\d{3}/);
   });
 
   it('comparisonLine reports the p-value inline', () => {

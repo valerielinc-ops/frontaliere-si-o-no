@@ -98,6 +98,7 @@ import {
   findCurrentBuildJob,
 } from './report-validate-dist-failure.mjs';
 import { TITLE_RE } from './close-recovered-failure-issues.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -423,7 +424,7 @@ export function reportMode({ dryRun }) {
   const diagFile = process.env.DIAG_FILE || '';
   const logFromJob = process.env.LOG_FROM_JOB || '';
   const closedBy = process.env.CLOSED_BY || '';
-  const priority = Number(process.env.ISSUE_PRIORITY || '2') || 2;
+  const priority = intFromEnv('ISSUE_PRIORITY', 2) || 2;
   // REOPEN_WITHIN_HOURS assente/vuoto → `null` → il creator applica
   // DEFAULT_REOPEN_WITHIN_HOURS (720h). Il fallback `|| '6') || 6` che stava
   // qui era il secondo DEFAULT OMBRA di questa catena: nessun chiamante di

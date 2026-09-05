@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swica",
-  "assembledAt": "2026-09-04T23:08:12.422Z",
+  "assembledAt": "2026-09-05T12:51:29.698Z",
   "jobs": [
     {
       "id": "swica-c77bbc77017c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/7d81878c-e2d8-4eba-9819-013813722c42",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:54.446Z",
+      "crawledAt": "2026-09-05T12:51:26.358Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Bahnhofstrasse 8",
@@ -54,12 +54,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-agentur-alle-swica-schaffhausen",
-        "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen"
+        "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen",
+        "capo-dell-agenzia-tutti-swica-gesundheitsorganisation-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-agentur-alle-swica-schaffhausen",
-          "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen"
+          "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen",
+          "capo-dell-agenzia-tutti-swica-gesundheitsorganisation-schaffhausen"
         ],
         "en": [
           "leiter-agentur-alle-swica-schaffhausen"
@@ -115,7 +117,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:53.918Z",
+      "crawledAt": "2026-09-05T12:51:25.856Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -138,7 +140,8 @@
         "team-leader-case-management-tutti-swica-gesundheitsorganisation-winterthur",
         "team-leader-case-management-all-swica-gesundheitsorganisation-winterthur",
         "teamleiter-fallmanagement-alle-swica-winterthur",
-        "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur"
+        "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur",
+        "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -146,7 +149,8 @@
           "team-leader-case-management-tutti-swica-gesundheitsorganisation-winterthur",
           "team-leader-case-management-all-swica-gesundheitsorganisation-winterthur",
           "teamleiter-fallmanagement-alle-swica-winterthur",
-          "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur"
+          "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur",
+          "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur",
@@ -207,7 +211,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/2429d8ab-a822-4d37-a3a7-f7d3e0e5f248",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:53.445Z",
+      "crawledAt": "2026-09-05T12:51:25.376Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -226,11 +230,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen"
+        "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen",
+        "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen"
+          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen",
+          "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-st-gallen"
         ],
         "en": [
           "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen"
@@ -286,7 +292,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/teamleiter-in-leistungsmanagement-krankentaggeld-alle/61ce51ab-69fd-4be4-9384-29a6f5542be6",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:52.967Z",
+      "crawledAt": "2026-09-05T12:51:24.862Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -305,11 +311,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel"
+        "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel",
+        "team-leader-nella-gestione-delle-prestazioni-malattia-indennita-giornaliera-tutti-swica-gesundheitsorganisation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel"
+          "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel",
+          "team-leader-nella-gestione-delle-prestazioni-malattia-indennita-giornaliera-tutti-swica-gesundheitsorganisation-basel"
         ],
         "en": [
           "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel"
@@ -365,7 +373,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle/54f8d0fa-5f51-43e2-ac48-835cdd912422",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:52.475Z",
+      "crawledAt": "2026-09-05T12:51:24.300Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -384,11 +392,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern"
+        "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern",
+        "indennita-giornaliera-medica-ktg-tutti-swica-gesundheitsorganisation-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern"
+          "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern",
+          "indennita-giornaliera-medica-ktg-tutti-swica-gesundheitsorganisation-bern"
         ],
         "en": [
           "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern"
@@ -444,7 +454,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gesundheitsberater-mit-sehr-guten-deutsch-und-italienischkenntnissen-alle/f5fc704c-ae39-4afa-8e6c-2dae4ec93423",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:52.113Z",
+      "crawledAt": "2026-09-05T12:51:23.861Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -475,7 +485,8 @@
         "sachbearbeiter-kundensupport-sante24-con-sehr-guten-deutsch-franzosisch-e-italienischkenntnissen-alle-sante24-winterthur",
         "customer-support-sante24-with-very-good-knowledge-of-german-french-and-italian-all-sante24-winterthur",
         "sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzosisch-und",
-        "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24"
+        "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24",
+        "gesundheitsberater-con-sehr-guten-deutsch-e-italienischkenntnissen-alle-sante24-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -491,7 +502,8 @@
           "sachbearbeiter-kundensupport-sante24-con-sehr-guten-deutsch-franzosisch-e-italienischkenntnissen-alle-sante24-winterthur",
           "customer-support-sante24-with-very-good-knowledge-of-german-french-and-italian-all-sante24-winterthur",
           "sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzosisch-und",
-          "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24"
+          "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24",
+          "gesundheitsberater-con-sehr-guten-deutsch-e-italienischkenntnissen-alle-sante24-winterthur"
         ],
         "en": [
           "gesundheitsberater-mit-sehr-guten-deutsch-und-italienischkenntnissen-alle-swica-winterthur",
@@ -558,7 +570,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle/a181c04c-48de-43d7-b831-d504c04bc2d8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:51.612Z",
+      "crawledAt": "2026-09-05T12:51:23.359Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -577,11 +589,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur"
+        "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur",
+        "psicoterapeuta-nella-formazione-avanzata-tutti-sante24-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur"
+          "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur",
+          "psicoterapeuta-nella-formazione-avanzata-tutti-sante24-winterthur"
         ],
         "en": [
           "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur"
@@ -631,12 +645,13 @@
         "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\nWas du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
         "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons ! Ce que vous apprenez et faites avec nous\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données Ce que vous apportez\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide Pourquoi SWICA\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour. Danielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/126b47f4-f1c5-43e8-8656-249b202fab69",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:51.106Z",
+      "crawledAt": "2026-09-05T12:51:22.800Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -655,11 +670,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-luzern"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern"
@@ -709,12 +726,13 @@
         "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\nWas du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
         "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons ! Ce que vous apprenez et faites avec nous\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données Ce que vous apportez\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide Pourquoi SWICA\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour. Danielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/efd07509-7cff-45b0-bae4-0828f8d56e18",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:50.744Z",
+      "crawledAt": "2026-09-05T12:51:22.303Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -733,11 +751,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-st-gallen"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st"
@@ -787,12 +807,13 @@
         "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\nWas du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
         "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons ! Ce que vous apprenez et faites avec nous\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données Ce que vous apportez\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide Pourquoi SWICA\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour. Danielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/a907bcd5-9060-474f-8660-4ca18d3d63a9",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:50.356Z",
+      "crawledAt": "2026-09-05T12:51:21.791Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -811,11 +832,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-zurich"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich"
@@ -865,12 +888,13 @@
         "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\nWas du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
         "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons ! Ce que vous apprenez et faites avec nous\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données Ce que vous apportez\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide Pourquoi SWICA\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour. Danielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/25201503-b1ea-4c26-ab8e-1d096e3b305e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:49.992Z",
+      "crawledAt": "2026-09-05T12:51:21.291Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -889,11 +913,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-basel"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel"
@@ -943,12 +969,13 @@
         "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\nWas du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
         "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons ! Ce que vous apprenez et faites avec nous\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données Ce que vous apportez\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide Pourquoi SWICA\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour. Danielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/01c12200-43f3-4044-9a15-2ff1e584af40",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:49.603Z",
+      "crawledAt": "2026-09-05T12:51:20.787Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hirschengraben 8",
@@ -971,7 +998,8 @@
         "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
         "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-ls90xu",
         "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-2",
-        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -979,7 +1007,8 @@
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
           "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-ls90xu",
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-2",
-          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-bern"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-bern",
@@ -1011,9 +1040,9 @@
       "id": "swica-7eac9ee4588b",
       "slug": "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation",
       "slugByLocale": {
-        "de": "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
         "it": "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation",
         "en": "apprenticeship-as-a-merchant-merchant-efz-health-and-social-insurance-2027-swica-gesundheitsorganisation-winterthur",
+        "de": "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
         "fr": "apprentissage-en-tant-que-commercant-vendeur-efz-sante-et-assurance-sociale-2027-swica-gesundheitsorganisation"
       },
       "company": "SWICA Gesundheitsorganisation",
@@ -1021,24 +1050,25 @@
       "companyDomain": "swica.ch",
       "title": "Lehre als Kauffrau/Kaufmann EFZ \"Kranken- und Sozialversicherungen\", 2027",
       "titleByLocale": {
-        "de": "Lehre als Kauffrau/Kaufmann EFZ \"Kranken- und Sozialversicherungen\", 2027",
         "it": "Apprendistato come commerciante/mercante EFZ \"Salute e Assicurazione Sociale\", 2027",
         "en": "Apprenticeship as a merchant/merchant EFZ \"Health and Social Insurance\", 2027",
+        "de": "Lehre als Kauffrau/Kaufmann EFZ \"Kranken- und Sozialversicherungen\", 2027",
         "fr": "Apprentissage en tant que commerçant/vendeur EFZ \"Santé et assurance sociale\", 2027"
       },
       "description": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\n Was du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\n Was du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\n Warum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\n Danielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
       "descriptionByLocale": {
-        "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\n Was du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\n Was du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\n Warum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\n Danielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
-        "it": "Addio scuola, ciao mondo professionale. O ancora meglio: Ciao SWICA! Ci piace formare giovani come te per tutta la vita. Ecco perché facciamo del nostro meglio per rendere più facile per voi iniziare la vostra carriera. Dalla settimana introduttiva all'esame finale: lo imballiamo insieme!\n Cosa impari e fai con noi\n\n• Si prende cura di tutte le richieste del cliente (al bancone, per telefono o per posta)\n• Sai quali servizi sono coperti dall'assicurazione\n• È possibile vedere i collegamenti tra la sicurezza sociale\n• Imparerai sulle diverse leggi e regolamenti\n• Gestisci i dossier dei clienti e mantieni i dati\n Cosa porti\n\n• Buona prestazione in tutti i principali soggetti (D/F/E/M) al più alto livello di scuola elementare o al 10. Anno scolastico (classi 4,5 o superiore)\n• Nel Multicheck Economy e Amministrazione si raggiungono almeno 50 punti\n• Sei interessato all'assicurazione e all'assistenza sanitaria\n• Sei affidabile, amichevole e comunicativo e godere del contatto con le persone\n• Hai un aspetto sicuro e curato e buone maniere\n• Hai talento nel trattare con i numeri e avere una rapida comprensione\n Perché SWICA\n\n• Inizia la tua vita professionale in modo ottimale: Nella settimana introduttiva, conoscere l'intera SWICA e i tuoi compagni di studio.\n• Un programma di formazione ben pensato con un sacco di varietà e approfondimenti in diversi dipartimenti e aree.\n• I formatori professionali che vi accompagnano con competenza e vi sostengono con consigli e azioni.\n• Cliente del settore interno, in modo da poter fare il passo dalla teoria alla pratica in anticipo e \"lavorare correttamente\".\n• Opportunità interessanti per il tempo dopo il vostro grado di insegnamento di successo – soggiorno di lingua straniera incluso.\n• Uno spirito di squadra forte tra i circa 60 studenti (KV e IT) e in tutto SWICA – siete con tutti dal primo giorno.\n Danielle Grimm, Responsible Department of Professional Education and Training, è lieta di fornirvi informazioni.",
-        "en": "Goodbye school, hello professional world. Or even better: Hello SWICA! We like to train young people like you for life. That is why we really do our best to make it easy for you to start your career. From the introductory week to the final exam: we pack it together!\n What you learn and do with us\n\n• You take care of all customer requests (at the counter, by phone or by mail)\n• You know which services are covered by the insurance\n• You can see the connections between social security\n• You will learn about the different laws and regulations\n• You manage customer dossiers and maintain the data\n What you bring\n\n• Good performance in all major subjects (D/F/E/M) at the highest elementary school level or at the 10. School year (grades 4.5 or higher)\n• In the Multicheck Economy and Administration you reach at least 50 points\n• You are interested in insurance and health care\n• You are reliable, friendly and communicative and enjoy contact with people\n• You have a safe and well-groomed appearance and pleasant manners\n• You have talent in dealing with numbers and have a quick understanding\n Why SWICA\n\n• Start your professional life optimally: In the introductory week, get to know the whole SWICA and your fellow learners.\n• A well thought-out training program with lots of variety and insights into different departments and areas.\n• Vocational trainers who accompany you competently and also support you with advice and deeds.\n• Internal industry customer, so that you can make the step from theory to practice early on and \"work properly\".\n• Interesting opportunities for the time after your successful teaching degree – foreign language stay included.\n• A strong team spirit among the approximately 60 learners (KV and IT) and throughout SWICA – you are with everyone from day one.\n Danielle Grimm, Responsible Department of Vocational Education and Training, is happy to provide you with information.",
-        "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons !\n Ce que vous apprenez et faites avec nous\n\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données\n Ce que vous apportez\n\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide\n Pourquoi SWICA\n\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour.\n Danielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
+        "it": "Addio scuola, ciao mondo professionale. O ancora meglio: Ciao SWICA! Ci piace formare giovani come te per tutta la vita. Ecco perché facciamo del nostro meglio per rendere più facile per voi iniziare la vostra carriera. Dalla settimana introduttiva all'esame finale: lo imballiamo insieme!\nCosa impari e fai con noi\n\n• Si prende cura di tutte le richieste del cliente (al bancone, per telefono o per posta)\n• Sai quali servizi sono coperti dall'assicurazione\n• È possibile vedere i collegamenti tra la sicurezza sociale\n• Imparerai sulle diverse leggi e regolamenti\n• Gestisci i dossier dei clienti e mantieni i dati\nCosa porti\n\n• Buona prestazione in tutti i principali soggetti (D/F/E/M) al più alto livello di scuola elementare o al 10. Anno scolastico (classi 4,5 o superiore)\n• Nel Multicheck Economy e Amministrazione si raggiungono almeno 50 punti\n• Sei interessato all'assicurazione e all'assistenza sanitaria\n• Sei affidabile, amichevole e comunicativo e godere del contatto con le persone\n• Hai un aspetto sicuro e curato e buone maniere\n• Hai talento nel trattare con i numeri e avere una rapida comprensione\nPerché SWICA\n\n• Inizia la tua vita professionale in modo ottimale: Nella settimana introduttiva, conoscere l'intera SWICA e i tuoi compagni di studio.\n• Un programma di formazione ben pensato con un sacco di varietà e approfondimenti in diversi dipartimenti e aree.\n• I formatori professionali che vi accompagnano con competenza e vi sostengono con consigli e azioni.\n• Cliente del settore interno, in modo da poter fare il passo dalla teoria alla pratica in anticipo e \"lavorare correttamente\".\n• Opportunità interessanti per il tempo dopo il vostro grado di insegnamento di successo – soggiorno di lingua straniera incluso.\n• Uno spirito di squadra forte tra i circa 60 studenti (KV e IT) e in tutto SWICA – siete con tutti dal primo giorno.\nDanielle Grimm, Responsible Department of Professional Education and Training, è lieta di fornirvi informazioni.",
+        "en": "Goodbye school, hello professional world. Or even better: Hello SWICA! We like to train young people like you for life. That is why we really do our best to make it easy for you to start your career. From the introductory week to the final exam: we pack it together!\nWhat you learn and do with us\n\n• You take care of all customer requests (at the counter, by phone or by mail)\n• You know which services are covered by the insurance\n• You can see the connections between social security\n• You will learn about the different laws and regulations\n• You manage customer dossiers and maintain the data\nWhat you bring\n\n• Good performance in all major subjects (D/F/E/M) at the highest elementary school level or at the 10. School year (grades 4.5 or higher)\n• In the Multicheck Economy and Administration you reach at least 50 points\n• You are interested in insurance and health care\n• You are reliable, friendly and communicative and enjoy contact with people\n• You have a safe and well-groomed appearance and pleasant manners\n• You have talent in dealing with numbers and have a quick understanding\nWhy SWICA\n\n• Start your professional life optimally: In the introductory week, get to know the whole SWICA and your fellow learners.\n• A well thought-out training program with lots of variety and insights into different departments and areas.\n• Vocational trainers who accompany you competently and also support you with advice and deeds.\n• Internal industry customer, so that you can make the step from theory to practice early on and \"work properly\".\n• Interesting opportunities for the time after your successful teaching degree – foreign language stay included.\n• A strong team spirit among the approximately 60 learners (KV and IT) and throughout SWICA – you are with everyone from day one.\nDanielle Grimm, Responsible Department of Vocational Education and Training, is happy to provide you with information.",
+        "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\nWas du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
+        "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons !\nCe que vous apprenez et faites avec nous\n\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données\nCe que vous apportez\n\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide\nPourquoi SWICA\n\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour.\nDanielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/d9b59a00-40b6-4691-b04d-be9202aff934",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:49.253Z",
+      "crawledAt": "2026-09-05T12:51:20.317Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Widnauerstrasse 1",
@@ -1055,13 +1085,17 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/d9b59a00-40b6-4691-b04d-be9202aff934",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+        "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
-          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+          "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica"
@@ -1070,10 +1104,7 @@
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica"
         ]
       },
-      "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
-        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
-      ],
+      "firstSeenAt": "2026-09-04T23:07:49.253Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1086,8 +1117,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-04T23:07:49.253Z"
+      }
     },
     {
       "id": "swica-9bfea1ac00d2",
@@ -1115,12 +1145,13 @@
         "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Das erste Semester (6 Monate) verbringst du beim ZLI in Zürich, um dir dein Basiswissen zu erarbeiten\n• Ab dem zweiten Semester arbeitest du aktiv in den Fachabteilungen bei SWICA\n• Du installierst und konfigurierst Benutzerendgeräte der Informations- und Kommunikationstechnologie (ICT) und stellst deren Betrieb und Netzinfrastruktur sicher\n• Du bindest ICT- Benutzerendgeräte an Servicedienstleistungen an und gewährleistest die Sicherheit der Geräte im Betrieb\n• Du erkennst Kundenbedürfnisse rasch und bearbeitest Problemstellungen auf den ersten beiden Kundendienst- Stufen (First- und Second- Level-Support)\n• Du instruierst und unterstützt Benutzer im Umgang mit ICT- Mitteln und deren Standardanwendung\nWas du mitbringst\n\n• Du bringst gute Leistungen in der Sekundarschule B oder des 10. Schuljahres mit (Noten 4.5 oder höher)\n• Beim Multicheck ICT Fachfrau / Fachmann erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen innerhalb der Informatik und verfügst über eine rasche Auffassungsgabe\n• Du bist praktisch begabt und besitzt technisches Flair\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes und lehrreiches Ausbildungsprogramm. Du wirst schon früh, \"richtig\" mitarbeiten können.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA - du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
         "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons ! Ce que vous apprenez et faites avec nous\n• Vous passez le premier semestre (6 mois) au ZLI à Zurich pour développer vos connaissances de base\n• A partir du deuxième semestre, vous travaillerez activement dans les départements spécialisés de SWICA\n• Vous installez et configurez des terminaux utilisateurs de technologies de l'information et de la communication (TIC) et assurez leur fonctionnement et leur infrastructure réseau\n• Vous connectez les terminaux utilisateurs des TIC aux services et assurez la sécurité des appareils en fonctionnement\n• Vous reconnaissez rapidement les besoins des clients et traitez les problèmes aux deux premiers niveaux de service à la clientèle (assistance de premier et deuxième niveaux)\n• Vous instruisez et aidez les utilisateurs à gérer les moyens TIC et leur application standard Ce que vous apportez\n• Vous vous portez bien au lycée B ou à 10 ans. Année scolaire avec (grades 4.5 ou plus)\n• Avec l'expert en TIC Multicheck vous pouvez atteindre au moins 50 points\n• Vous êtes intéressé par les sujets en informatique et avez une compréhension rapide\n• Vous êtes pratiquement doué et avez une touche technique\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables Pourquoi SWICA\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme bien pensé et éducatif. Vous pourrez travailler \"à droite\" tôt.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA - vous êtes avec tout le monde dès le premier jour. Danielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-ict-fachfrau-fachmann-efz-2027/d24b501f-dfd4-4755-89c7-5e8b1b9b275d",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:48.865Z",
+      "crawledAt": "2026-09-05T12:51:19.814Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1139,11 +1170,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur"
+        "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur",
+        "apprendistato-come-ict-fachfrau-fachmann-cfc-2027-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur"
+          "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur",
+          "apprendistato-come-ict-fachfrau-fachmann-cfc-2027-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur"
@@ -1182,7 +1215,7 @@
       "title": "Care Manager Privatkunden",
       "titleByLocale": {
         "it": "Care Manager Clienti privati",
-        "en": "Care Manager Private Clients",
+        "en": "Care Manager Privatkunden",
         "de": "Care Manager Privatkunden",
         "fr": "Gestionnaire de soins Clients privés"
       },
@@ -1193,12 +1226,13 @@
         "de": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\nSo gestaltest du Gesundheit mit\n\n• Unterstützung und Begleitung von erkrankten oder verunfallten Versicherten sowie deren Angehörigen in schwierigen und belastenden Lebenslagen\n• Frühes Intervenieren durch rechtzeitiges Erkennen einer komplexen Erkrankung oder Unfalls\n• Koordinieren der Behandlungsschritte der am Genesungsprozess beteiligten Partner\n• Vermittlung von geeigneten Netzwerkpartnern und Therapeuten\n• Erarbeitung von gemeinsamen, tragfähigen Lösungsansätzen auf dem Weg zur Genesung\n• Unterstützung für die berufliche und soziale Wiedereingliederung\n• Koordination mit externen und internen Netzwerkpartner\nDas zeichnet dich aus\n\n• Fundierte medizinische Ausbildung und Fachwissen (z.B. Pflege)\n• Von Vorteil ist eine abgeschlossene Fach- oder Hochschulausbildung in den Bereichen Sozialarbeit, Psychologie, Coaching, Health oder Care Management u.ä.\n• Mehrjährige operative Erfahrung im Care Management, idealerweise im Sozial- oder Krankenversicherungsbereich\n• Deine Persönlichkeit zeichnet sich durch lösungs- und kundenorientiertes Denken aus\n• Begeisterungsfähige, verantwortungsbewusste und belastbare Persönlichkeit\n• Sehr gute kommunikative Fähigkeiten, schriftlich und mündlich, sowie repräsentative Persönlichkeit mit einwandfreier, situationsgerechter Auftrittskompetenz\n• Stilsicheres Deutsch, Italienisch und Englisch, jede weitere Sprache ist von Vorteil\n• Einen gültigen Führerschein ist zwingend notwendig\nWarum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\nPaola Rauch, HR Recruiting, gibt dir gerne Auskunft.",
         "fr": "Nous sommes attachés à la santé – car la santé est tout. Nous nous y engageons, aussi en tant qu'employeur. Nous sommes convaincus : Ce n'est que dans un monde du travail sain que les meilleurs talents se sentent à l'aise et progressent : professionnellement et personnellement. Pour cela, nous donnons tout.\nVoilà comment vous façonnez la santé\n\n• Assistance et soutien aux assurés malades ou blessés et à leurs proches dans des circonstances difficiles et pénibles\n• Intervention précoce par détection rapide d'une maladie ou d'un accident complexe\n• Coordination des étapes de traitement des partenaires impliqués dans le processus de rétablissement\n• Médiation de partenaires de réseau et de thérapeutes appropriés\n• Développer des solutions communes et viables sur la voie du relèvement\n• Appui à la réinsertion professionnelle et sociale\n• Coordination avec les partenaires externes et internes du réseau\nCela vous distingue\n\n• Bonne éducation et expertise médicale (p. ex. soins)\n• Un avantage est une formation technique ou universitaire dans les domaines du travail social, de la psychologie, du coaching, de la gestion de la santé ou des soins, etc.\n• Plusieurs années d'expérience opérationnelle dans la gestion des soins, idéalement dans le secteur de l'assurance sociale ou de la santé\n• Votre personnalité se caractérise par une pensée axée sur la solution et le client\n• Personnalité enthousiaste, responsable et résiliente\n• Très bonnes compétences en communication, écrite et orale, ainsi qu'une personnalité représentative avec des compétences de performance impeccables et situationnelles\n• Allemand styliste, italien et anglais, toutes les autres langues sont un avantage\n• Un permis de conduire valide est obligatoire\nPourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous nous concentrons sur l'ouverture, le respect et la confiance dans notre travail quotidien. Nous assumons la responsabilité et pensons en termes de solutions – ensemble, pour nos clients. C'est aussi la raison pour laquelle nous sommes le numéro 1 en satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous donnons de l'espace. Avec des heures de travail annuelles, au moins 5 semaines de vacances et sur demande achat de vacances. Avec des modèles à temps partiel et un bureau à domicile généreux dans le cadre des possibilités de l'emploi, vous rendez votre vie quotidienne largement flexible.\n• Nous apprécions et récompensons votre travail – avec un salaire basé sur le marché, jusqu'à 1.500 francs frais annuels pour les souhaits personnels et une participation généreuse à l'assurance de base et supplémentaire pour vous et votre famille.\n• Nous vous offrons des perspectives. Avec une réglementation de formation généreuse, nous soutenons votre développement professionnel et personnel – pour votre rôle aujourd'hui et pour vos objectifs de demain.\n• Parce que la santé est tout. Avec notre entreprise de gestion de la santé et des offres spécifiques à la région, nous prenons soin de votre bien-être. Et s'il en est autrement : 100% de salaire net continu.\n• Nous pensons à long terme. Avec trois régimes d'épargne, une déduction de coordination dépendante du capital-investissement et des avantages bien au-dessus du minimum légal, vous assurez le bien pour votre avenir.\nPaola Rauch, Recrutement RH, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.swica.ch/offene-stellen/care-manager-privatkunden/98824056-e64d-4f18-825b-aa901ef30d5f",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:48.490Z",
+      "crawledAt": "2026-09-05T12:51:19.489Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -1221,14 +1255,16 @@
         "care-manager-privatkunden-swica-gesundheitsorganisation-luzern",
         "care-manager-enterprise-client-swica-gesundheitsorganisation-luzern",
         "care-manager-in-unternehmenskunden-swica-luzern",
-        "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern"
+        "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern",
+        "care-manager-clienti-privati-swica-gesundheitsorganisation-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "care-manager-privatkunden-swica-luzern",
           "care-manager-enterprise-client-swica-gesundheitsorganisation-luzern",
           "care-manager-in-unternehmenskunden-swica-luzern",
-          "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern"
+          "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern",
+          "care-manager-clienti-privati-swica-gesundheitsorganisation-luzern"
         ],
         "en": [
           "care-manager-privatkunden-swica-luzern",
@@ -1289,7 +1325,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-quereinstieg-alle/1bd55bc3-8057-4b0a-869b-2664d77e5be7",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:48.012Z",
+      "crawledAt": "2026-09-05T12:51:19.102Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Aarbergstrasse 121",
@@ -1308,11 +1344,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "versicherungsberater-quereinstieg-alle-swica-biel"
+        "versicherungsberater-quereinstieg-alle-swica-biel",
+        "versicherungsberater-cambio-carriera-alle-swica-gesundheitsorganisation-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-quereinstieg-alle-swica-biel"
+          "versicherungsberater-quereinstieg-alle-swica-biel",
+          "versicherungsberater-cambio-carriera-alle-swica-gesundheitsorganisation-biel"
         ],
         "en": [
           "versicherungsberater-quereinstieg-alle-swica-biel"
@@ -1362,12 +1400,13 @@
         "de": "Eine Beratungsleistung, die Empathie und Kompetenz verbindet, macht den Unterschied. Als Kundenberater oder Berater bei SWICA beteiligen Sie sich aktiv an der Zufriedenheit unserer Kunden. Auch Ihre persönliche Entwicklung ist uns wichtig. Mit der SWICA Market Academy und der Unterstützung des AFA-Versicherungsvermittlerstudiums wird Ihre Entwicklung kontinuierlich verlaufen – in einem motivierten Team, in dem Ihre Ideen berücksichtigt werden und mit Ihnen wachsen können.\nHier ist, wie Sie zur Gesundheit beitragen\n\n• Verwalten Sie die Kontaktstellen innerhalb der Zeitgrenzen in den Bereichen Telefonie, E-Mail, NPA, CRM-Verarbeitung, physische Post\n• Beratung und Verkauf von Versicherungslösungen, die auf die Kundenbedürfnisse zugeschnitten sind\n• Sicherstellung einer optimalen Kundenzufriedenheit und Portfoliopflege\n• Erstellung von Angeboten und Korrespondenz im Privatkundenbereich\n• Überwachung und aktive Bearbeitung der übermittelten Angebote\n• Maßnahmen ergreifen, um das Portfolio zu erhalten und Kunden zurückzugewinnen\n• Risikoanalyseentscheidungen an Kunden kommunizieren\nWas dich von anderen unterscheidet\n\n• SWC Berufstätige oder gleichwertige Ausbildung\n• Erfahrung in Versicherungen oder Brokerage\n• AFA-Zertifizierung\n• Strafregisterauszug und Blankoskanzlei\n• Ausgezeichnete mündliche und schriftliche Kommunikation in Französisch und Englisch, Deutsch ein Asset\n• Sehr gute Beherrschung von gängigen Computer-Tools\n• Gefühl der Diskretion und Vertraulichkeit\n• Fähigkeit, leicht zu kommunizieren, Beziehung Leichtigkeit\n• Autonomie, professionelles Bewusstsein und Führung\nWarum SWICA\n\n• Wir glauben an Wohlwollen. Deshalb stellen wir Offenheit, Respekt und Vertrauen in den Mittelpunkt unseres beruflichen Alltags. Wir handeln, übernehmen Verantwortung und konzentrieren uns auf Lösungen. Hand in Hand, mit unseren Kunden. Deshalb sind wir seit Jahren die Nummer eins in der Kundenzufriedenheit.\n• Wir vertrauen Ihnen und fördern Ihre Autonomie. Mit annualisierter Arbeitszeit, mindestens fünf Wochen Urlaubszeit und der Möglichkeit, unbezahlten Urlaub zu nehmen, haben Sie Zeit für sich, wenn Sie es brauchen.\n• Wir schätzen Ihre Arbeit und belohnen sie mit einem Flottenrabatt von verschiedenen Automobilherstellern, einem Jahrespaket und einem großzügigen Anteil an den Kosten der Grund- und Zusatzversicherung für Sie und Ihre Familie.\n• Wir bieten Ihnen Perspektiven. Mit unserem großzügigen Weiterbildungsprogramm unterstützen wir Ihre berufliche und persönliche Entwicklung, in Ihren aktuellen Funktionen und für Ihre zukünftigen Ambitionen.\n• Weil Gesundheit an erster Stelle steht. Mit unserem betrieblichen Gesundheitsmanagementsystem und regionalen Angeboten sorgen wir für Ihr Wohlbefinden. Und im Falle eines gesundheitlichen Problems: 100% Beibehaltung des Nettogehalts.\n• Wir denken langfristig. Mit drei Sparplänen, einem Koordinationsabzug nach Belegungsquote und Leistungen deutlich über dem gesetzlichen Minimum ist Ihre Vorsorge gut versichert.\nVéronique Gessler informiert Sie gerne.",
         "fr": "Une prestation de conseil alliant empathie et compétence fait toute la différence. En tant que conseillère ou conseiller clientèle chez SWICA, vous participez activement à la satisfaction de nos clientes et clients. Votre développement personnel nous tient également à cœur. Avec la SWICA Market Academy et le soutien apporté pour l'obtention du diplôme d'intermédiaire d'assurance AFA, votre évolution sera continue – au sein d'une équipe motivée, où vos idées seront prises en compte et pourront grandir avec vous.\nVoici comment vous contribuez à la santé\n\n• Gérer des points de contact dans les délais impartis dans les domaines de la téléphonie, de l'e-mail, des NPA, du traitement des tâches provenant du CRM, du courrier physique\n• Conseiller et vendre des solutions d'assurance adaptées en fonction des besoins du client\n• Assurer un service optimal visant à la satisfaction de la clientèle et au maintien du portefeuille\n• Etablir les offres et la correspondance dans le secteur de la clientèle privée\n• Suivi et traitement actif des offres envoyées\n• Appliquer les mesures visant le maintien du portefeuille et la reconquête des clients\n• Communiquer aux clients les décisions concernant l'analyse du risque\nCe qui vous distingue des autres\n\n• CFC Employé/e de commerce ou formation équivalente\n• Expérience dans le domaine de l'assurance ou du courtage\n• Certification AFA\n• Extrait de casier judiciaire et office des poursuites vierges\n• Excellente communication orale et écrite en français et anglais, allemand un atout\n• Très bonne maîtrise des outils informatiques usuels\n• Sens de la discrétion et de la confidentialité\n• Capacités à communiquer facilement, aisance relationnelle\n• Autonomie, conscience professionnelle et prise d'initiative\nPourquoi SWICA\n\n• Nous croyons à la bienveillance. C'est pourquoi nous plaçons l'ouverture d'esprit, le respect et la confiance au cœur de notre quotidien professionnel. Nous agissons, prenons nos responsabilités et orientons nos réflexions sur les solutions. Main dans la main, avec nos clientes et clients. C'est pourquoi nous sommes depuis des années numéro 1 de la satisfaction clientèle.\n• Nous vous faisons confiance et encourageons votre autonomie. Avec le temps de travail annualisé, au moins cinq semaines de vacances et la possibilité de prendre des congés non payés, vous bénéficiez de temps pour vous quand vous en avez besoin.\n• Nous estimons votre travail et le récompensons, avec un rabais de flotte chez divers constructeurs automobiles, un forfait annuel et une participation généreuse aux coûts de l'assurance de base et des assurances complémentaires, pour vous et votre famille.\n• Nous vous offrons des perspectives. Avec notre généreux programme de formation continue, nous soutenons votre évolution professionnelle et personnelle, dans vos fonctions actuelles et pour vos ambitions futures.\n• Parce que la santé passe avant tout. Avec notre dispositif de gestion de la santé en entreprise et des offres régionales, nous veillons à votre bien-être. Et en cas de problème de santé: 100% de maintien du salaire net.\n• Nous pensons à long terme. Avec trois plans d'épargne, une déduction de coordination en fonction du taux d'occupation et des prestations nettement supérieures au minimum légal, votre prévoyance est bien assurée.\nVéronique Gessler se fera un plaisir de vous renseigner."
       },
+      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobs.swica.ch/offene-stellen/conseiller-service-clientele-tous/8e099772-e43d-41f8-a8ee-ec993d7f0976",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:07:47.658Z",
+      "crawledAt": "2026-09-05T12:51:18.794Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -1386,11 +1425,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-service-clientele-tous-swica-lausanne"
+        "conseiller-service-clientele-tous-swica-lausanne",
+        "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-service-clientele-tous-swica-lausanne"
+          "conseiller-service-clientele-tous-swica-lausanne",
+          "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-lausanne"
         ],
         "en": [
           "conseiller-service-clientele-tous-swica-lausanne"
@@ -1446,7 +1487,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/teamleiter-fallmanagement-alle/a6c7db74-4031-46d6-ae15-c6c6d5dfa44b",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:47.166Z",
+      "crawledAt": "2026-09-05T12:51:18.400Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -1465,11 +1506,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-fallmanagement-alle-swica-zurich"
+        "teamleiter-fallmanagement-alle-swica-zurich",
+        "team-leader-case-management-tutti-swica-gesundheitsorganisation-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-fallmanagement-alle-swica-zurich"
+          "teamleiter-fallmanagement-alle-swica-zurich",
+          "team-leader-case-management-tutti-swica-gesundheitsorganisation-zurich"
         ],
         "en": [
           "teamleiter-fallmanagement-alle-swica-zurich"
@@ -1525,7 +1568,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/4a20b326-701a-4e76-9267-b642ca623147",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:46.693Z",
+      "crawledAt": "2026-09-05T12:51:18.005Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 38",
@@ -1548,7 +1591,8 @@
         "customer-consultant-de-fr-all-swica-gesundheitsorganisation-winterthur",
         "kundenberater-in-de-fr-alle-swica-winterthur",
         "consultant-client-de-fr-tous-swica-gesundheitsorganisation-winterthur",
-        "kundenberater-alle-swica-winterthur"
+        "kundenberater-alle-swica-winterthur",
+        "consulente-clienti-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1556,7 +1600,8 @@
           "customer-consultant-de-fr-all-swica-gesundheitsorganisation-winterthur",
           "kundenberater-in-de-fr-alle-swica-winterthur",
           "consultant-client-de-fr-tous-swica-gesundheitsorganisation-winterthur",
-          "kundenberater-alle-swica-winterthur"
+          "kundenberater-alle-swica-winterthur",
+          "consulente-clienti-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "customer-consultant-de-fr-all-swica-gesundheitsorganisation-winterthur",
@@ -1600,7 +1645,7 @@
       "title": "Senior Workplace Engineer (alle)",
       "titleByLocale": {
         "it": "Senior Workplace Ingegnere (alle)",
-        "en": "Senior Workplace Engineer (all)",
+        "en": "Senior Workplace Engineer (alle)",
         "de": "Senior Workplace Ingenieur (alle)",
         "fr": "Senior Workplace Ingénieur (alle)"
       },
@@ -1617,7 +1662,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-workplace-engineer-alle/ed094537-c2e7-44d6-ad07-a117739f6e23",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:46.341Z",
+      "crawledAt": "2026-09-05T12:51:17.685Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1639,14 +1684,16 @@
         "senior-workplace-engineer-alle-swica-winterthur",
         "senior-application-ingegnere-syrius-alle-swica-gesundheitsorganisation-winterthur",
         "senior-application-engineer-syrius-alle-swica-winterthur",
-        "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur"
+        "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur",
+        "senior-workplace-ingegnere-alle-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-workplace-engineer-alle-swica-winterthur",
           "senior-application-ingegnere-syrius-alle-swica-gesundheitsorganisation-winterthur",
           "senior-application-engineer-syrius-alle-swica-winterthur",
-          "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur"
+          "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur",
+          "senior-workplace-ingegnere-alle-swica-gesundheitsorganisation-winterthur"
         ],
         "de": [
           "senior-application-engineer-syrius-alle-swica-winterthur"
@@ -1686,7 +1733,7 @@
       "title": "Senior Cyber Security Engineer – Schwerpunkt Incident Response and Threat Intelligence (alle)",
       "titleByLocale": {
         "it": "Senior Cyber Security Ingegnere – Schwerpunkt Incident Response and Threat Intelligence (alle)",
-        "en": "Senior Cyber Security Engineer – Focus on incident response and threat intelligence (all)",
+        "en": "Senior Cyber Security Engineer – Schwerpunkt Incident Response and Threat Intelligence (alle)",
         "de": "Senior Cyber Security Ingenieur – Schwerpunkt Incident Response and Threat Intelligence (alle)",
         "fr": "Senior Cyber Security Ingénieur – Schwerpunkt Incident Response and Threat Intelligence (alle)"
       },
@@ -1703,7 +1750,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle/96a5872e-0819-4463-95cf-9cdb48427046",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:45.851Z",
+      "crawledAt": "2026-09-05T12:51:17.279Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1722,11 +1769,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
+        "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle",
+        "senior-cyber-security-ingegnere-schwerpunkt-incident-response-and-threat-intelligence-alle-swica-gesundheitsorganisation"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
+          "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle",
+          "senior-cyber-security-ingegnere-schwerpunkt-incident-response-and-threat-intelligence-alle-swica-gesundheitsorganisation"
         ],
         "fr": [
           "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
@@ -1779,7 +1828,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gestionnaire-sante-stationnaire-tous/031d6446-0d71-454b-8fe7-e9a609fb4be8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:07:45.365Z",
+      "crawledAt": "2026-09-05T12:51:16.875Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -1799,12 +1848,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-sante-stationnaire-tous-swica-lausanne",
-        "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne"
+        "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne",
+        "manager-di-health-stationary-tutti-swica-gesundheitsorganisation-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-sante-stationnaire-tous-swica-lausanne",
-          "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne"
+          "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne",
+          "manager-di-health-stationary-tutti-swica-gesundheitsorganisation-lausanne"
         ],
         "en": [
           "gestionnaire-sante-stationnaire-tous-swica-lausanne"
@@ -1860,7 +1911,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-spezialist-compensation-benefits-alle/24fe2d2a-2e7d-437c-b63e-eec3a88be807",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:44.837Z",
+      "crawledAt": "2026-09-05T12:51:16.477Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1879,11 +1930,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+        "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
+        "compensazione-e-benefici-degli-specialisti-senior-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+          "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
+          "compensazione-e-benefici-degli-specialisti-senior-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
@@ -1939,7 +1992,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungen-ausland-alle/0f0ca9a5-8730-47fb-97c8-4ef72ddd5cb1",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:44.349Z",
+      "crawledAt": "2026-09-05T12:51:16.082Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -1962,7 +2015,8 @@
         "senior-clerk-services-abroad-all-swica-gesundheitsorganisation-basel",
         "senior-sachbearbeiter-leistungen-ausland-alle-swica-basel",
         "services-de-commis-principal-a-l-etranger-tous-swica-gesundheitsorganisation-basel",
-        "sachbearbeiter-leistungen-ausland-alle-swica-basel"
+        "sachbearbeiter-leistungen-ausland-alle-swica-basel",
+        "servizi-del-personale-all-estero-tutti-swica-gesundheitsorganisation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1970,7 +2024,8 @@
           "senior-clerk-services-abroad-all-swica-gesundheitsorganisation-basel",
           "senior-sachbearbeiter-leistungen-ausland-alle-swica-basel",
           "services-de-commis-principal-a-l-etranger-tous-swica-gesundheitsorganisation-basel",
-          "sachbearbeiter-leistungen-ausland-alle-swica-basel"
+          "sachbearbeiter-leistungen-ausland-alle-swica-basel",
+          "servizi-del-personale-all-estero-tutti-swica-gesundheitsorganisation-basel"
         ],
         "en": [
           "senior-clerk-services-abroad-all-swica-gesundheitsorganisation-basel",
@@ -2025,12 +2080,13 @@
         "de": "Führung wirksam machen. Entwicklung nachhaltig gestalten.\nBei SWICA gestaltest du die Führungskultur von morgen aktiv mit. Du entwickelst innovative Leadership-Angebote, begleitest Führungskräfte in anspruchsvollen Veränderungsprozessen und bringst strategische HR-Themen mit direktem Business-Nutzen voran. Wenn du Leadership nicht nur vermitteln, sondern wirksam verankern möchtest, freuen wir uns darauf, dich kennenzulernen.\nSo gestaltest du Gesundheit mit\n\n• Du entwickelst das Leadership-Development-Angebot entlang der Unternehmensstrategie und der Bedürfnisse des Business kontinuierlich weiter\n• Du konzipierst, pilotierst und implementierst neue Leadership Development-Formate\n• Du verantwortest die Planung, Steuerung und Weiterentwicklung von Leadership-Trainings und Curricula in Zusammenarbeit mit externen Partnern\n• Du identifizierst relevante Trends und Best Practices im Leadership Development und entwickelst daraus wirksame Lösungen für SWICA\n• Du konzipierst und moderierst Interventionen zur Stärkung der Zusammenarbeit in Teams sowie der bereichsübergreifenden Zusammenarbeit\n• Du berätst Führungskräfte gemeinsam mit den HR Business Partnern und entwickelst bedarfsgerechte Leadership-Development-Lösungen\n• Du leitest zentrale strategische Leadership-Initiativen oder arbeitest massgeblich darin mit – wie z. B. strategisches Denken & End-to-End-Verantwortung stärken, Führungskräfte für AI, Unsicherheit und Veränderung befähigen sowie die Operationalisierung unseres Führungsverständnisses\nDas zeichnet dich aus\n\n• Hochschulabschluss in Psychologie, Betriebswirtschaft, Human Resources, Erwachsenenbildung oder einem vergleichbaren Fachgebiet\n• Mehrjährige Erfahrung in einer internen Leadership-Development- oder Organisationsentwicklungsfunktion, du kennst die Herausforderungen einer Unternehmensorganisation aus eigener Praxiserfahrung und hast Führungskräfte in diesem Umfeld erfolgreich begleitet\n• Fundierte Beratungskompetenz und ausgeprägte Moderations- und Präsentationsfähigkeiten\n• Know-how in der Entwicklung, Steuerung und Implementierung wirksamer Lern- und Entwicklungsangebote\n• Umsetzungsstärke sowie eine pragmatische und selbständige Arbeitsweise\n• Ausgeprägte Teamorientierung und Freude an enger, partnerschaftlicher Zusammenarbeit – innerhalb des Teams sowie mit HR Business Partnern und dem Business\n• Deutsch auf Muttersprachniveau sowie verhandlungssicheres Englisch\nWarum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\nVeronica Massarelli, HR Recruiting, gibt dir gerne Auskunft.",
         "fr": "Rendre le leadership efficace. Développement durable.\nChez SWICA, vous façonnez activement demain la culture du leadership. Vous développez des offres de leadership innovatrices, accompagnez les cadres supérieurs dans des processus de changement stimulants et faites progresser les sujets stratégiques des RH avec des avantages commerciaux directs. Si vous voulez non seulement transmettre le leadership, mais l'ancrer efficacement, nous sommes impatients de vous connaître.\nVoilà comment vous façonnez la santé\n\n• Vous développerez continuellement l'offre de perfectionnement en leadership ainsi que la stratégie d'entreprise et les besoins de l'entreprise\n• Vous concevez, pilotez et implémentez de nouveaux formats de développement du leadership\n• Vous êtes responsable de la planification, de la gestion et du développement des formations et des programmes de leadership en coopération avec des partenaires extérieurs\n• Identifier les tendances pertinentes et les meilleures pratiques en matière de développement du leadership et élaborer des solutions efficaces pour SWICA\n• Vous concevez des interventions modérées pour renforcer la collaboration d'équipe et la collaboration interfonctionnelle\n• Vous conseillez les cadres en collaboration avec des partenaires d'affaires des RH et développez des solutions de perfectionnement en leadership axées sur les besoins\n• Vous dirigez des initiatives centrales de leadership stratégique ou y jouez un rôle clé – comme : B. Renforcer la pensée stratégique et la responsabilité de bout en bout, donner aux dirigeants les moyens de s'occuper de l'IA, de l'incertitude et du changement, et rendre opérationnelle notre compréhension du leadership\nCela vous distingue\n\n• Diplôme universitaire en psychologie, administration des affaires, ressources humaines, éducation des adultes ou un domaine d'expertise comparable\n• Expérience éprouvée en matière de développement du leadership, de conseil des gestionnaires et de développement de solutions axées sur les besoins pour les gestionnaires et les équipes\n• Des compétences de conseil solides et une forte modération et des compétences de présentation\n• Savoir-faire dans le développement, le contrôle et la mise en œuvre d'offres efficaces d'apprentissage et de développement\n• Force de mise en œuvre et méthode de travail pragmatique et indépendante\n• Forte orientation de l'équipe et la jouissance d'une coopération étroite et coopérative – au sein de l'équipe ainsi qu'avec les partenaires d'affaires RH et l'entreprise\n• Allemand au niveau de la langue maternelle ainsi que l'anglais négociable\nPourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous nous concentrons sur l'ouverture, le respect et la confiance dans notre travail quotidien. Nous assumons la responsabilité et pensons en termes de solutions – ensemble, pour nos clients. C'est aussi la raison pour laquelle nous sommes le numéro 1 en satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous donnons de l'espace. Avec des heures de travail annuelles, au moins 5 semaines de vacances et sur demande achat de vacances. Avec des modèles à temps partiel et un bureau à domicile généreux dans le cadre des possibilités de l'emploi, vous rendez votre vie quotidienne largement flexible.\n• Nous apprécions et récompensons votre travail – avec un salaire basé sur le marché, jusqu'à 1.500 francs frais annuels pour les souhaits personnels et une participation généreuse à l'assurance de base et supplémentaire pour vous et votre famille.\n• Nous vous offrons des perspectives. Avec une réglementation de formation généreuse, nous soutenons votre développement professionnel et personnel – pour votre rôle aujourd'hui et pour vos objectifs de demain.\n• Parce que la santé est tout. Avec notre entreprise de gestion de la santé et des offres spécifiques à la région, nous prenons soin de votre bien-être. Et s'il en est autrement : 100% de salaire net continu.\n• Nous pensons à long terme. Avec trois régimes d'épargne, une déduction de coordination dépendante du capital-investissement et des avantages bien au-dessus du minimum légal, vous assurez le bien pour votre avenir.\nVeronica Massarelli, Recrutement RH, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://jobs.swica.ch/offene-stellen/senior-specialist-leadership-development-alle/0d308122-71ad-45ee-b65b-1e432f23a302",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:43.968Z",
+      "crawledAt": "2026-09-05T12:51:15.767Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2049,11 +2105,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-leadership-development-alle-swica-winterthur"
+        "senior-specialist-leadership-development-alle-swica-winterthur",
+        "senior-specialista-leadership-development-alle-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-leadership-development-alle-swica-winterthur"
+          "senior-specialist-leadership-development-alle-swica-winterthur",
+          "senior-specialista-leadership-development-alle-swica-gesundheitsorganisation-winterthur"
         ],
         "fr": [
           "senior-specialist-leadership-development-alle-swica-winterthur"
@@ -2106,7 +2164,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzoesisch-und-italienischkenntnissen-alle/3259240d-a237-4992-b4a9-3962f305e9b9",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:43.439Z",
+      "crawledAt": "2026-09-05T12:51:15.372Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2185,7 +2243,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/conseiller-service-clientele-tous/25c1343f-7369-4f28-be27-083e48f37c83",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T23:07:42.958Z",
+      "crawledAt": "2026-09-05T12:51:14.946Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de Lausanne 80",
@@ -2204,11 +2262,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-service-clientele-tous-swica-geneve"
+        "conseiller-service-clientele-tous-swica-geneve",
+        "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-service-clientele-tous-swica-geneve"
+          "conseiller-service-clientele-tous-swica-geneve",
+          "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve"
         ],
         "en": [
           "conseiller-service-clientele-tous-swica-geneve"
@@ -2264,7 +2324,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/spezialist-vertrauensaerztlicher-dienst-alle/6bfa6aca-0ab1-4c95-b059-34dd124800b9",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:42.582Z",
+      "crawledAt": "2026-09-05T12:51:14.392Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2286,14 +2346,16 @@
         "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
         "responsible-department-of-trusted-medical-service-swica-gesundheitsorganisation-winterthur",
         "verantwortlicher-fachbereich-vertrauensarztlicher-dienst-swica-winterthur",
-        "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur"
+        "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur",
+        "specialist-trusted-medical-service-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
           "responsible-department-of-trusted-medical-service-swica-gesundheitsorganisation-winterthur",
           "verantwortlicher-fachbereich-vertrauensarztlicher-dienst-swica-winterthur",
-          "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur"
+          "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur",
+          "specialist-trusted-medical-service-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
@@ -2336,10 +2398,10 @@
       "companyDomain": "swica.ch",
       "title": "Leiter Agentur (alle)",
       "titleByLocale": {
-        "it": "Leiter Agentur (alle)",
-        "en": "Leiter Agentur (alle)",
+        "it": "Capo dell'Agenzia (tutti)",
+        "en": "Head of Agency (all)",
         "de": "Leiter Agentur (alle)",
-        "fr": "Leiter Agentur (alle)"
+        "fr": "Chef de l'Agence (tous)"
       },
       "description": "Nähe ist in unserer DNA. Bei SWICA können wir in den Agenturen entscheiden, wie wir unseren Versicherten am Besten helfen. Kurze Wege, schnelle Entscheide: Du bist mittendrin, arbeitest an vielfältigen Projekten und gestaltest Lösungen aktiv mit. Du bringst deine Ideen direkt ein und siehst, wie sie Wirkung entfalten. Das macht den Unterschied.\n So gestaltest du Gesundheit mit\n\n• Hauptverantwortung für die personelle und ergebnisorientierte Führung der Agentur Frauenfeld\n• Führen, coachen und entwickeln der unterstellten Mitarbeitenden\n• Verantwortung für die Erreichung der quantitativen und qualitativen Ziele im Privat- und Unternehmenskundengeschäft\n• Umsetzung der notwendigen Massnahmen zur Erreichung der definierten Kundenzufriedenheit\n• Verantwortung für das Lead- und Kampagnenmanagement inklusive der Erstellung und Umsetzung einer Verkaufs- und Massnahmenplanung für das zugewiesene Agenturgebiet\n• Ausbau und Pflege deines lokalen Kunden- und Businessnetzwerks\n Das zeichnet dich aus\n\n• Du besitzt sehr gute Verkaufs-/Führungsqualitäten und unterstützt dein Team mit Umsicht und Wertschätzung\n• Weiterbildung im Versicherungsbereich und/oder Verkaufsmanagement erwünscht. Zusätzlich ist eine VBV- oder vergleichbare Zertifizierung erforderlich.\n• Du verfügst über mehrjährige Berufserfahrung in der Schweizer Versicherungsbranche und einen überzeugenden Leistungsausweis im Verkauf und der Verkaufsführung.\n• Du bist in der Region Frauenfeld wohnhaft und pflegst aktiv ein breites Beziehungsnetz\n• Du überzeugst durch dein Verhandlungsgeschickt, lösungsorientiertem sowie unternehmerischem Denken und Handeln, einer vernetzten Denkweise sowie einer konsequenten Zielstrebigkeit\n• Du bist eine gewinnende Persönlichkeit mit einem sicheren Auftreten, hoher Dienstleistungsbereitschaft und einem ausgeprägten Kundenfokus\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Loredana Bishat, HR Recruiting, gibt dir gerne Auskunft.",
       "descriptionByLocale": {
@@ -2354,7 +2416,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/ea1d7774-446c-4dbc-8b8a-45d805024f45",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:42.196Z",
+      "crawledAt": "2026-09-05T12:51:13.994Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "streetAddress": "Bahnhofstrasse 86",
@@ -2409,10 +2471,10 @@
       "companyDomain": "swica.ch",
       "title": "Praktikum Leistungen ambulante Pflege (alle)",
       "titleByLocale": {
-        "it": "Praktikum Leistungen ambulante Pflege (alle)",
-        "en": "Praktikum Leistungen ambulante Pflege (alle)",
+        "it": "Servizi di stage assistenza ambulatoria (tutti)",
+        "en": "Internship services ambulatory care (all)",
         "de": "Praktikum Leistungen ambulante Pflege (alle)",
-        "fr": "Praktikum Leistungen ambulante Pflege (alle)"
+        "fr": "Services de stages ambulatoires (tous)"
       },
       "description": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\nIn dieser Funktion setzt du ein Konzept operativ um und arbeitest an dessen Weiterentwicklung mit. Damit leistest du einen wichtigen Beitrag zur Qualitätssicherung und Weiterentwicklung der Entscheidungsgrundlagen in unserem Bereich Leistungen und Medizin.\n So gestaltest du Gesundheit mit\n\n• Schriftliche Kontaktaufnahme mit Leistungserbringern sowie Führen der daraus entstehenden Pendenzen\n• Selbstständige formale Prüfung und Bearbeitung eingehender Rückmeldungen nach definierten Kriterien\n• Erste Anlaufstelle für Rückfragen der Leistungserbringer\n• Mitarbeit bei der Auswertung der Ergebnisse und der Ableitung von Empfehlungen zur Weiterentwicklung des Projekts\n• Dokumentation und Aufbereitung von Resultaten als Grundlage für die Steuerung und Bewertung des Pilotprojekts\n• Sicherstellung eines einheitlichen und nachvollziehbaren Vorgehens\n• Organisation und Koordination von Austauschterminen sowie aktive Weitergabe relevanter Erkenntnisse innerhalb des Teams\n Das zeichnet dich aus\n\n• Laufendes Bachelorstudium mit juristischem, politischem oder wirtschaftlichem Hintergrund\n• Interesse an Fragestellungen der Krankenversicherung, insbesondere in den Bereichen Leistungen und ambulante Pflegeleistungen\n• Erfahrung im Verfassen professioneller Korrespondenz und im schriftlichen Austausch mit verschiedenen Anspruchsgruppen\n• Lernbereitschaft, Offenheit für neue Themen und die Fähigkeit, dich in komplexe Fragestellungen einzuarbeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Jahresarbeitszeit, mindestens 5 Wochen Ferien, Teilzeitmodelle und grosszügiges Home Office im Rahmen der Möglichkeiten der Stelle – du gestaltest deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit mit einem marktgerechten Lohn.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden – damit du gesund und mit Energie bei der Sache bist.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Andri Kömeter, HR Recruiting, gibt dir gerne Auskunft.",
       "descriptionByLocale": {
@@ -2427,7 +2489,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/praktikum-leistungen-ambulante-pflege-alle/158efa06-a700-46d2-9af5-d0cfd470e4c6",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:41.791Z",
+      "crawledAt": "2026-09-05T12:51:13.596Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -2492,7 +2554,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-krankentaggeld-service-support-alle/5f9b5f12-4347-40b9-82f9-59e8cb00a6ac",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:41.385Z",
+      "crawledAt": "2026-09-05T12:51:13.195Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -2557,7 +2619,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-integration-engineer-azure-mulesoft-alle/384943df-f393-414e-bf7a-03fa1c4facce",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:40.905Z",
+      "crawledAt": "2026-09-05T12:51:12.792Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2576,11 +2638,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur"
+        "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur",
+        "senior-integration-ingegnere-azure-mulesoft-alle-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur"
+          "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur",
+          "senior-integration-ingegnere-azure-mulesoft-alle-swica-gesundheitsorganisation-winterthur"
         ],
         "fr": [
           "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur"
@@ -2633,7 +2697,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/arzt-aerztin-telemedizin-alle/841d2cc0-3ea4-4918-8288-93d443706025",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:07:40.424Z",
+      "crawledAt": "2026-09-05T12:51:12.379Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2654,13 +2718,15 @@
       "previousSlugs": [
         "doctor-telemedicine-all-sante24-winterthur",
         "docteur-telemedecine-tous-sante24-winterthur",
-        "arzt-arztin-telemedizin-alle-swica-winterthur"
+        "arzt-arztin-telemedizin-alle-swica-winterthur",
+        "dottor-telemedicina-tutti-sante24-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doctor-telemedicine-all-sante24-winterthur",
           "docteur-telemedecine-tous-sante24-winterthur",
-          "arzt-arztin-telemedizin-alle-swica-winterthur"
+          "arzt-arztin-telemedizin-alle-swica-winterthur",
+          "dottor-telemedicina-tutti-sante24-winterthur"
         ],
         "en": [
           "arzt-arztin-telemedizin-alle-swica-winterthur"

@@ -129,6 +129,7 @@ import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
 import { withProfile, profileSummaryPlugin } from './build-plugins/profilePlugin';
+import { withPhaseTiming, buildPhaseTimingPlugin } from './build-plugins/buildPhaseTimingPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -615,7 +616,11 @@ export default defineConfig(({ mode }) => {
  // il bundle di Vite/Rollup, che finisce PRIMA del primo closeBundle. Un
  // campionatore armato solo in closeBundle non la vedrebbe mai.
  // Soglie e derivazione: build-plugins/shared/buildMemoryGuard.ts.
- buildMemoryGuardPlugin(),
+ // #7303 — the four entries registered outside `allPlugins` are wrapped
+ // individually: they are the same class of unmeasured hook, and
+ // `withPhaseTiming` preserves `enforce`/`order`/`sequential`, so the ordering
+ // invariants the comments above and below protect are unchanged.
+ withPhaseTiming(buildMemoryGuardPlugin()),
  // Resets the cross-plugin write registry at every buildStart so watch-mode
  // rebuilds don't carry stale claims. Must run before any plugin's closeBundle
  // starts calling claim() — i.e. before every EMITTER. `buildMemoryGuardPlugin`
@@ -623,21 +628,30 @@ export default defineConfig(({ mode }) => {
  // writes dist/build-memory-peak.json with plain fs, outside the registry), so
  // the invariant this comment protects is unchanged. Also configures the
  // per-build content dump dir from WRITE_COLLISION_DUMP env var.
- writeRegistryResetPlugin({ rootDir: __dirname }),
- ...allPlugins.map(withProfile),
+ withPhaseTiming(writeRegistryResetPlugin({ rootDir: __dirname })),
+ // #7303 — `withPhaseTiming` sits INSIDE `withProfile` so it measures the
+ // plugin's own hook, not the hook plus the forced GC + logging that
+ // `withProfile` adds around closeBundle. It also reaches the hooks
+ // `withProfile` never saw (transform/load/resolveId/renderChunk), which is
+ // where the Rollup half of the ~80-min IT leg was hiding.
+ ...allPlugins.map((p) => withProfile(withPhaseTiming(p))),
  // #5001 punto 2 — genera le hero card richieste dalle famiglie SEO statiche.
  // DEVE stare dopo `allPlugins`: legge il registry che `renderSeoHeroImage`
  // riempie mentre gli emettitori scrivono il markup, quindi se girasse prima
  // troverebbe il registry vuoto (e lo dice, invece di non fare nulla in
  // silenzio).
- seoHeroCardsPlugin(__dirname),
+ withPhaseTiming(seoHeroCardsPlugin(__dirname)),
  // Prints the collision summary and writes dist/.write-collisions.json after
  // every other plugin's closeBundle has flushed. enforce/order makes it the
  // last hook in the chain.
- writeRegistryReportPlugin({ rootDir: __dirname }),
+ withPhaseTiming(writeRegistryReportPlugin({ rootDir: __dirname })),
  // Emits `[profile-total] ...` after every wrapped plugin's closeBundle has
  // resolved. No-op when BUILD_PROFILE=0.
  profileSummaryPlugin(),
+ // #7303 — per-hook attribution + ordered top-N recap. Last in the array so
+ // its `closeBundle` (enforce post, order post, sequential) runs after every
+ // measured hook, profileSummaryPlugin's own included.
+ buildPhaseTimingPlugin(),
  ],
  // No build-time `define`: nothing volatile is injected into the bundle.
  // Build id / commit hash are emitted as dist/build-id.txt + commit-hash.txt

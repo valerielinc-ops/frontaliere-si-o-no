@@ -5,6 +5,15 @@ export const SOURCE_DETAIL_EVIDENCE_FORMAT = 'frontaliere.source-detail-observat
 export const SOURCE_DETAIL_EVIDENCE_BUNDLE_FORMAT = 'frontaliere.source-detail-observation-bundle/v1';
 export const SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT = 'frontaliere.source-detail-observation-bundle-error/v1';
 
+/**
+ * Below this, a fetched detail page carries no body a published description
+ * can be contradicted by: `descriptionMismatch` is then false for every
+ * possible published value, so the comparison is structurally unable to fail.
+ * Exported so the audit scores that case as its own outcome using the very
+ * same number instead of a second copy that can drift away from this one.
+ */
+export const COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS = 200;
+
 function sha256(value) {
   return createHash('sha256').update(String(value)).digest('hex');
 }
@@ -76,7 +85,7 @@ export function classifySourceDetailObservation(observation) {
     throw new SourceDetailEvidenceError('invalid-observation', 'description overlap exceeds the published word set');
   }
   const overlapRatio = publishedWordCount ? overlapWordCount / publishedWordCount : 0;
-  const descriptionMismatch = sourceDescriptionLength >= 200
+  const descriptionMismatch = sourceDescriptionLength >= COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS
     && (publishedDescriptionLength < 100
       || publishedDescriptionLength < sourceDescriptionLength * 0.45
       || overlapRatio < 0.35);
@@ -212,6 +221,39 @@ function requestedSampleCommitments(expected) {
   });
 }
 
+/**
+ * The request manifest as the artifact carries it.
+ *
+ * `requestedSampleCommitments()` needs the raw request URLs, which the audit
+ * has and a reader of the published artifact does not — the bundle emits
+ * digests precisely so it can be published. Before #7352 that meant the
+ * end-to-end replay of a real artifact stopped at `missing-evidence`: the
+ * receipts were verifiable one by one, but the claim «these are the 1075
+ * samples that were requested, in this order, none dropped» rested on a manifest
+ * nobody had. Persisting the commitments closes it — and they stay honest
+ * because `requestSha256` and `bundleSha256` both seal them.
+ */
+function persistedRequestCommitments(bundle) {
+  const manifest = bundle?.requestedSamples;
+  if (!Array.isArray(manifest) || manifest.length === 0) {
+    throw new SourceDetailEvidenceError('missing-evidence', 'expected.requestedSamples are required');
+  }
+  const seen = new Set();
+  return manifest.map((sample, index) => {
+    if (sample?.index !== index) {
+      throw new SourceDetailEvidenceError('missing-evidence', 'source detail request manifest order is incomplete');
+    }
+    const crawlerKey = requiredString(sample?.crawlerKey, `requestedSamples[${index}].crawlerKey`);
+    const requestUrlSha256 = requiredSha256(sample?.requestUrlSha256, `requestedSamples[${index}].requestUrlSha256`);
+    const identity = `${crawlerKey}:${requestUrlSha256}`;
+    if (seen.has(identity)) {
+      throw new SourceDetailEvidenceError('duplicate-evidence', 'source detail request manifest contains a duplicate identity');
+    }
+    seen.add(identity);
+    return { index, crawlerKey, requestUrlSha256 };
+  });
+}
+
 function sourceResultCommitment(result, expectedSample, expected) {
   const index = expectedSample.index;
   const crawlerKey = requiredString(result?.crawlerKey, `samples[${index}].crawlerKey`);
@@ -292,6 +334,9 @@ export function createSourceDetailEvidenceBundle(sourceResults, expected) {
       normalizer: requiredString(expected?.versions?.normalizer, 'expected.versions.normalizer'),
     },
     requestedCount: requestedSamples.length,
+    // The manifest travels WITH the bundle: `requestSha256` alone is a promise
+    // about a list the artifact did not carry (#7352).
+    requestedSamples,
     requestSha256: documentSha256(requestedSamples),
     replayableCount: samples.filter((sample) => sample.outcome === 'replayable').length,
     samplesSha256: documentSha256(samples),
@@ -335,7 +380,13 @@ export function replaySourceDetailEvidenceBundle(bundle, expected) {
     throw new SourceDetailEvidenceError('tampered-evidence', 'source detail evidence bundle digest does not match');
   }
   verifyExpectedContext({ provenance: bundle.provenance, versions: bundle.versions }, expected);
-  const requestedSamples = requestedSampleCommitments(expected);
+  // A caller holding the original request URLs still checks against those; a
+  // reader with nothing but the published artifact checks against the manifest
+  // the artifact carries. Either way the next line re-derives `requestSha256`,
+  // so a manifest that does not hash to the sealed digest is rejected.
+  const requestedSamples = Array.isArray(expected?.requestedSamples)
+    ? requestedSampleCommitments(expected)
+    : persistedRequestCommitments(bundle);
   if (requestedSamples.length !== bundle.requestedCount
     || documentSha256(requestedSamples) !== bundle.requestSha256) {
     throw new SourceDetailEvidenceError('request-mismatch', 'source detail evidence request manifest does not match');

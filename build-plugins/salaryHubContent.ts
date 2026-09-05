@@ -17,6 +17,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { buildNearestExchangeAmountPath } from '../services/exchangeSsgPaths';
+import { renderScenarioLeverComparison } from './shared/scenarioLeverComparison';
 import {
   renderSalaryLandingShell,
   type SalaryLandingData,
@@ -659,8 +660,22 @@ export function generatePageHtml(
   // 2. The 5 long-form explanations + related grid + tail AdSense slot
   //    become the "long prose" block rendered at the bottom of the shell
   //    (CLAUDE.md rule 16 — filler below the data area, never above the fold).
+  // The one block on the page that its 400+ siblings cannot carry: the weight
+  // ORDER of the levers around this exact combination (issue #7385). Everything
+  // else here differs from the siblings only in figures, and figures are masked
+  // by the information-gain engine by construction — see
+  // shared/scenarioLeverComparison.ts.
+  const leverHtml = renderScenarioLeverComparison({
+    scenario,
+    allScenarios,
+    chResidentNetAnnual: result.chResident.netIncomeAnnual,
+    itResidentNetAnnual: result.itResident.netIncomeAnnual,
+    locale,
+  });
+
   const editorialHtml = `<section class="salary-hub-page">
     <h2>${l.howToCalcTitle}</h2><p>${l.howToCalc(scenario.salary, scenario, result)}</p>
+    ${leverHtml}
     <h2>${l.regimeTitle}</h2><p>${l.regimeExplain(scenario, result)}</p>
     <h2>${l.familyTitle}</h2><p>${l.familyExplain(scenario, result)}</p>
     <h2>${l.distanceTitle}</h2><p>${l.distanceExplain(scenario, result)}</p>

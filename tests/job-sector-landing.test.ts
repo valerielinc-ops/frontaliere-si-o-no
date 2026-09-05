@@ -216,6 +216,102 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Caissier supermarché' }, 'case-anziani')).toBe(false);
   });
 
+  // ── Lessico cybersecurity vs sicurezza fisica (issue #5321) ──────────────
+  //
+  // La landing `/cerca-lavoro-ticino/cybersecurity/` risultava a 0 match reali
+  // non perche' mancassero gli annunci ma perche' il matcher enumerava DUE soli
+  // suffissi di ruolo (`engineer`, `analyst`). I titoli qui sotto sono presi
+  // verbatim dagli annunci vivi: se il lessico si restringe di nuovo, questo
+  // test lo dice prima che la pagina torni vuota. I conteggi che hanno
+  // motivato la modifica stanno nel body della PR, dove restano datati invece
+  // di invecchiare in silenzio dentro il sorgente.
+  it('classifica i ruoli cyber reali come cybersecurity, non come sicurezza fisica (#5321)', () => {
+    for (const title of [
+      'IT SECURITY ARCHITECT',
+      'Cloud Security Architect',
+      'Senior IT Security Architect',
+      'Information Security Specialista  -  ref. 1108',
+      'Information Security Officer',
+      'Security Specialist Vulnerability Management (m/w/d)',
+      'Cloud Security Consultant / Manager 80-100%',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `non fisica: ${title}`).toBe(false);
+    }
+  });
+
+  it('tiene la sicurezza FISICA fuori da cybersecurity, e viceversa (#5321)', () => {
+    // Il verso opposto: allargare un lessico senza guardare l'altro produce lo
+    // stesso job su due landing indicizzate diverse. `security officer` da solo
+    // resta il guardiano; e' `information/it/cloud/network security officer` che
+    // non lo e', e il lookbehind in SECTOR_MATCHERS.sicurezza li separa.
+    for (const title of ['Security Guard notturno', 'Security Officer', 'Guardia giurata Lugano',
+      'Agent de sécurité', 'Sicherheitsdienst Mitarbeiter']) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `fisica: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `non cyber: ${title}`).toBe(false);
+    }
+  });
+
+  // ── Il separatore non e' sempre uno spazio singolo (follow-up di #7496) ──
+  //
+  // Il lookbehind di `sicurezza` esiste per impedire che UNO stesso annuncio
+  // compaia su DUE landing indicizzate. Scritto con un separatore fisso non
+  // vede il doppio spazio di un copia-incolla, lo slash, o lo spazio
+  // tipografico di un titolo tradotto — e in quei casi il doppio landing
+  // torna, cioe' il difetto che il lookbehind doveva chiudere. `SEC_SEP`
+  // generalizza il separatore su ENTRAMBI i lati, e questi casi lo pinnano.
+  it('separa cyber e fisica su ogni forma di separatore, non solo lo spazio singolo', () => {
+    const forme = [
+      'Information Security Officer',        // spazio singolo
+      'Information  Security Officer',       // doppio spazio (copia-incolla)
+      'Information/Security Officer',        // slash
+      'Information\u00a0Security Officer',   // NBSP: separatore non-ASCII
+      'Information-Security Officer',        // trattino
+      'IT  Security Officer',
+      'Cloud/Security Officer',
+    ];
+    for (const title of forme) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${JSON.stringify(title)}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `NON doppio landing: ${JSON.stringify(title)}`).toBe(false);
+    }
+  });
+
+  it('nessun annuncio puo\' matchare cybersecurity E sicurezza insieme', () => {
+    // L'invariante che i due casi sopra servono: qualunque titolo, se cade in
+    // entrambi i settori finisce su due landing. Qui si esercita sull'unione
+    // dei casi limite dei tre test precedenti.
+    for (const title of [
+      'Information Security Officer', 'Information  Security Officer',
+      'Information/Security Officer', 'IT Security Officer', 'Cloud Security Officer',
+      'Network Security Officer', 'Security Officer', 'Security Guard notturno',
+      'IT SECURITY ARCHITECT', 'Guardia giurata Lugano', 'Sicherheitsdienst Mitarbeiter',
+      'AI Security \u2013 Consultant / Manager 80-100%',
+    ]) {
+      const both = jobMatchesSector({ title }, 'cybersecurity') && jobMatchesSector({ title }, 'sicurezza');
+      expect(both, `doppio landing su ${JSON.stringify(title)}`).toBe(false);
+    }
+  });
+
+  // ── L'hub di «Esplora annunci simili» cambia, ed e' voluto (#7496 punto 3) ──
+  //
+  // `jobsSeoPagesPlugin.ts` sceglie l'hub con `SECTOR_HUB_KEYS.find(...)`, cioe'
+  // il PRIMO settore che matcha nell'ordine dell'array, e `cybersecurity`
+  // precede sia `architetti` sia `consulenza`. Un `Cloud Security Architect`
+  // prima finiva su `architetti` — che matcha `\barchitect\b` e intendeva
+  // l'architetto edile — e un `Cyber Security Advisor` su `consulenza`. Ora
+  // vanno sul settore giusto. Il test pinna la SCELTA, non l'ordine: se un
+  // domani si riordina l'array, qui si vede subito.
+  it('manda i security architect su cybersecurity, non su architetti (#7496)', () => {
+    const hubFor = (title: string) =>
+      SECTOR_HUB_KEYS.find((s) => jobMatchesSector({ title }, s));
+    expect(hubFor('Cloud Security Architect')).toBe('cybersecurity');
+    expect(hubFor('IT SECURITY ARCHITECT')).toBe('cybersecurity');
+    expect(hubFor('Cyber Security Advisor')).toBe('cybersecurity');
+    // Controllo negativo: l'architetto edile vero resta dov'era.
+    expect(hubFor('Architetto progettista edile')).toBe('architetti');
+    expect(hubFor('Bauzeichner/in Architektur')).toBe('architetti');
+  });
+
   it('rejects three-letter false positives that previously inflated the count', () => {
     // The regex used to contain bare \bris\b|\blis\b which matched ~1,000+ unrelated
     // jobs (any English/Italian word containing standalone "ris" or "lis"). After

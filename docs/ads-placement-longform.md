@@ -16,8 +16,11 @@ che non era importato da nessun modulo di produzione, è stato rimosso — issue
 - **Densità**: un ad prima di ogni confine H2 e uno a fine segmento, subordinati
   a un gap minimo di `AD_MIN_WORD_GAP = 200` parole di contenuto dall'ad
   precedente.
-- **Tetto per articolo**: `ARTICLE_INLINE_AD_CAP = 8`, uniforme su tutti gli
-  articoli (~4 ad su 1500 parole, ~7-8 su 3000).
+- **Tetto per articolo**: `ARTICLE_INLINE_AD_CAP = 8` sul formato breve (~4 ad
+  su 1500 parole, ~7-8 su 3000). Dal 2026-09-05 (issue #7336) non è più
+  uniforme: il tetto e il gap escono da `services/articleAdDensity.ts`
+  (`resolveArticleAdDensity`), che seleziona il profilo longform di §3 su un
+  corpo con ≥7 sezioni `## `.
 - **Eleggibilità**: ≥3 segmenti di corpo, ≥220 parole e ≥1400 caratteri
   (`adEligible`), soglia unica per tutti i formati ads.
 - **Confini strutturali**: l'unica protezione è il rinvio dell'ad quando la
@@ -27,9 +30,9 @@ che non era importato da nessun modulo di produzione, è stato rimosso — issue
 Questa strategia è corretta per il formato attuale (articoli brevi, singolo
 tema, nessuna tabella/mappa) ed è una decisione di revenue esistente — **non va
 toccata per il corpus attuale** (AGENTS.md #7, mai degradare la
-monetizzazione). Il problema è che non esiste una modalità alternativa per un
-formato strutturalmente diverso (longform multi-sezione con tabelle/mappe),
-che oggi erediterebbe la stessa densità massima.
+monetizzazione): il profilo standard resta identico per ogni articolo che non è
+longform. La modalità alternativa per il formato strutturalmente diverso, che
+prima non esisteva ed ereditava la stessa densità massima, è il profilo di §3.
 
 ## 2. Principi per un longform (dal benchmark, adattati)
 
@@ -101,12 +104,38 @@ esistente sullo stesso periodo. Nessuna di queste è misurabile prima che
 esista un longform pubblicato: per questo resta in `## Non implementato
 (ancora)` della PR, non è ignorata.
 
-## 6. Cosa NON fa questo documento
+## 6. Stato di implementazione
 
-Non introduce un nuovo componente/variante a densità ridotta. Il profilo
-longform, quando verrà costruito, va nel placer reale
-(`components/community/BlogArticles.tsx`, vedi §1) e non in un modulo di
-placement separato: quello che esisteva (`services/articleAdSlots.ts`) non era
-importato dalla produzione e modificarlo non avrebbe cambiato una sola
-impression. Il mapping sopra è la spec pronta da implementare quando il primo
-longform reale esiste da renderizzare.
+Il profilo longform è nel placer reale (`components/community/BlogArticles.tsx`,
+vedi §1) e non in un modulo di placement separato: quello che esisteva
+(`services/articleAdSlots.ts`) non era importato dalla produzione e modificarlo
+non avrebbe cambiato una sola impression. La selezione del profilo (predicato
+puro + le due coppie tetto/gap) sta in `services/articleAdDensity.ts`, il
+piazzamento resta nel renderer.
+
+Costruito il 2026-09-05 (issue #7336) perché il consumatore esisteva già nel
+corpus pubblicato: **402 articoli `it` su 3779** hanno ≥7 sezioni `## ` (mediana
+10 sezioni, 1634 parole). Misura sul corpus, ad inline in-content: **1647 →
+1105** su quei 402 (media 4,10 → 2,75; 342 su 402 arrivano ai 3 di §3), **9599
+invariati** sui 3377 non-longform. Il gap longform è 300 parole, non di più:
+il credito parole riparte a ogni segmento di corpo (mediana 3 segmenti), quindi
+un gap da 500 scenderebbe a una media di 1,57 ad — sotto i 3 della spec, cioè
+un taglio di densità invece del profilo specificato.
+
+Resta non misurabile finché non esiste un longform *nuovo* pubblicato: le
+metriche di §5 (CLS/LCP/INP, viewability, RPM, scroll depth) vanno confrontate
+contro la media del formato breve sullo stesso periodo.
+
+### Delta residuo rispetto a §2/§3
+
+Chiuso: il profilo di densità longform (#7336, sopra) e il rinvio dell'ad che
+cadrebbe a cavallo di una tabella (#7337). Restano aperti, e sono solo questi:
+
+- **Citazioni e liste operative** non hanno una protezione di confine dedicata:
+  l'unico blocco riconosciuto da `tryEmitAd` è la tabella. Un ad può ancora
+  cadere prima di una citazione lunga.
+- **Guscio mappa condiviso** (#7339): `leaflet`/`react-leaflet` sono installati
+  e usati da sei componenti, ma senza un componente comune con altezza
+  riservata un longform non può ospitare una mappa senza CLS — è un
+  prerequisito di layout di §3, non un lavoro ads.
+- **Metriche di §5**, non misurabili prima del primo longform pubblicato.

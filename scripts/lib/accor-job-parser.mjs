@@ -281,7 +281,8 @@ async function fetchJobListings({ fetchImpl = fetch } = {}) {
       if (!page.ok || !page.body) {
         const reason = page.blockedByRobots ? 'blocked by robots.txt'
           : page.policyBlocked ? (page.error || 'blocked by public URL policy')
-            : `HTTP ${page.status || 0}`;
+            : page.status ? `HTTP ${page.status}`
+              : `transport ${page.transportError || 'other'}`;
         throw new Error(`Accor listing pagination fetch failed for ${page.url || url}: ${reason}`);
       }
       return page;

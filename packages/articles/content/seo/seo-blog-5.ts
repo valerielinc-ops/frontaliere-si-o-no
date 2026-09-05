@@ -86378,6 +86378,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-cantiere-corsie-ztl': {
+    title: 'Como, disastro traffico: aperte corsie e ZTL | Frontaliere Ticino',
+    description: 'Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, disastro, traffico, aperte',
+    ogTitle: 'Como, disastro traffico: aperte corsie e ZTL',
+    ogDescription: 'Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.',
+    canonicalPath: '/articoli-frontaliere/como-cantiere-corsie-ztl',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, disastro traffico: aperte corsie e ZTL",
+      "description": "Il Comune di Como ha aperto corsie preferenziali e zone di ZTL per i veicoli verso la Svizzera. Ecco i percorsi autorizzati e come muoversi durante il cantiere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-cantiere-corsie-ztl.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico intenso sulla strada verso Como con cantiere e segnali di avvertimento arancioni"
+      },
+      "datePublished": "2026-09-05T12:43:23+00:00",
+      "dateModified": "2026-09-05T12:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-cantiere-corsie-ztl/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lungolago-como-chiusura-traffico': {
+    title: 'Lungolago di Como chiuso: code infinite e attese fino a 150 minuti',
+    description: 'La chiusura del lungolago di Como ha causato enormi disagi per il traffico, con code infinite e attese fino a 150 minuti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, lungolago, como, chiuso, code',
+    ogTitle: 'Lungolago di Como chiuso: code infinite e attese fino a 150 minuti',
+    ogDescription: 'La chiusura del lungolago di Como ha causato enormi disagi per il traffico, con code infinite e attese fino a 150 minuti. I sindaci dei paesi interessati hanno chiesto un incontro immediato per discutere la situazione e trovare una soluzione.',
+    canonicalPath: '/articoli-frontaliere/lungolago-como-chiusura-traffico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lungolago di Como chiuso: code infinite e attese fino a 150 minuti",
+      "description": "La chiusura del lungolago di Como ha causato enormi disagi per il traffico, con code infinite e attese fino a 150 minuti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lungolago-como-chiusura-traffico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lungolago chiuso a Como con traffico congestionato e lunghe code"
+      },
+      "datePublished": "2026-09-05T13:52:19+00:00",
+      "dateModified": "2026-09-05T13:52:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lungolago-como-chiusura-traffico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-forum-teha-cernobbio-2026': {
+    title: 'Cernobbio capitale del mondo: a Villa d’Este il Forum Teha',
+    description: 'Dal 4 al 6 settembre 2026, Villa d’Este ospiterà il 52esimo Forum TEHA con leader politici e economisti internazionali. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cernobbio, capitale, mondo, villa',
+    ogTitle: 'Forum TEHA a Villa d’Este: Leader e Ministri Internazionali',
+    ogDescription: 'Dal 4 al 6 settembre 2026, Villa d’Este ospiterà il 52esimo Forum TEHA con leader politici e economisti internazionali. Discussioni su geopolitica, economia, tecnologia e società.',
+    canonicalPath: '/articoli-frontaliere/forum-teha-cernobbio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cernobbio capitale del mondo: a Villa d’Este il Forum Teha",
+      "description": "Dal 4 al 6 settembre 2026, Villa d’Este ospiterà il 52esimo Forum TEHA con leader politici e economisti internazionali. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/forum-teha-cernobbio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa d’Este a Cernobbio, Italia"
+      },
+      "datePublished": "2026-09-05T14:02:58+00:00",
+      "dateModified": "2026-09-05T14:02:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/forum-teha-cernobbio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giardino-cure-intense-clinica-moncucco': {
+    title: 'La ripresa dei pazienti passa dal Giardino delle cure intense',
+    description: 'La Clinica Moncucco inaugura un nuovo spazio terapeutico e riabilitativo, unico nel panorama sanitario svizzero. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ripresa, pazienti, passa, giardino',
+    ogTitle: 'La ripresa dei pazienti passa dal Giardino delle cure intense',
+    ogDescription: 'La Clinica Moncucco ha inaugurato un nuovo spazio terapeutico e riabilitativo, unico nel panorama sanitario svizzero, dedicato alla ripresa dei pazienti delle cure intense.',
+    canonicalPath: '/articoli-frontaliere/giardino-cure-intense-clinica-moncucco',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La ripresa dei pazienti passa dal Giardino delle cure intense",
+      "description": "La Clinica Moncucco inaugura un nuovo spazio terapeutico e riabilitativo, unico nel panorama sanitario svizzero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giardino-cure-intense-clinica-moncucco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giardino terapeutico alla Clinica Moncucco a Lugano"
+      },
+      "datePublished": "2026-09-05T14:12:09+00:00",
+      "dateModified": "2026-09-05T14:12:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giardino-cure-intense-clinica-moncucco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-venegono-inferiore-lavorare-ticino': {
+    title: 'Vivere a Venegono Inferiore e lavorare in Ticino da frontaliere',
+    description: 'Guida per frontalieri: regole fiscali, nuovo accordo 2024, franchigie e gestione del lavoro tra Venegono Inferiore e il Canton Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, venegono, inferiore, lavorare',
+    ogTitle: 'Vivere a Venegono Inferiore e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutto quello che i frontalieri devono sapere sul nuovo accordo fiscale, la tassazione e la vita tra Venegono Inferiore e il Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-venegono-inferiore-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Venegono Inferiore e lavorare in Ticino da frontaliere",
+      "description": "Guida per frontalieri: regole fiscali, nuovo accordo 2024, franchigie e gestione del lavoro tra Venegono Inferiore e il Canton Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-venegono-inferiore-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica della regione di confine tra Italia e Svizzera vicino a Mendrisio."
+      },
+      "datePublished": "2026-09-05T14:23:49+00:00",
+      "dateModified": "2026-09-05T14:23:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-venegono-inferiore-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-figino-serenza-frontaliere-ticino': {
+    title: 'Figino Serenza: guida per frontalieri in Ticino',
+    description: 'Vivere a Figino Serenza e lavorare in Ticino: permesso G, tassazione frontalieri, LAMal, AVS, costi e procedura step-by-step per trasferirsi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, figino, serenza, permesso, tassazione',
+    ogTitle: 'Figino Serenza: guida per frontalieri in Ticino',
+    ogDescription: 'Trasferirsi a Figino Serenza e lavorare nel Ticino: scopri permesso G, tassazione frontalieri, LAMal obbligatoria, AVS/LPP, costi pendolarismo e valichi da usare. Guida completa.',
+    canonicalPath: '/articoli-frontaliere/figino-serenza-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Figino Serenza: guida per frontalieri in Ticino",
+      "description": "Vivere a Figino Serenza e lavorare in Ticino: permesso G, tassazione frontalieri, LAMal, AVS, costi e procedura step-by-step per trasferirsi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/figino-serenza-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con il lago al tramonto, destinazione lavorativa tipica di frontalieri residenti in Lombardia."
+      },
+      "datePublished": "2026-09-05T16:55:44+00:00",
+      "dateModified": "2026-09-05T16:55:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/figino-serenza-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

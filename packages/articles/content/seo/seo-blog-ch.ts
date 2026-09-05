@@ -72053,6 +72053,435 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-canton-zugo-contratti': {
+    title: 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    description: 'Come funziona il mercato del lavoro svizzero: contratti collettivi, tassazione cantonale, salari per livello di formazione. Guida pratica per il Canton Zugo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    ogDescription: 'Scopri come funziona il mercato del lavoro nel Canton Zugo: quali contratti collettivi vigono, come la tassazione cantonale e il livello di formazione influenzano i salari, e quali strumenti usare per calcolare il tuo stipendio netto in Svizzera.',
+    canonicalPath: '/articoli-svizzera/salari-canton-zugo-contratti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro canton Zugo: settori e livelli",
+      "description": "Come funziona il mercato del lavoro svizzero: contratti collettivi, tassazione cantonale, salari per livello di formazione. Guida pratica per il Canton Zugo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-canton-zugo-contratti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero moderno con professionisti di diverse discipline al lavoro, finestre ampie con vista sul paesaggio alpino"
+      },
+      "datePublished": "2026-09-05T12:52:10+00:00",
+      "dateModified": "2026-09-05T12:52:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-canton-zugo-contratti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-zugo-aliquote': {
+    title: 'Imposta successione Zugo: aliquote e esenzioni',
+    description: 'Imposta di successione e donazione nel Zugo: aliquote per parentela, esenzioni coniuge e figli, dichiarazione e termini di versamento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, zugo, aliquote',
+    ogTitle: 'Imposta successione Zugo: aliquote e esenzioni',
+    ogDescription: 'Nel Cantone Zugo, l\'imposta di successione e donazione è materia cantonale. Scopri le aliquote per grado di parentela, le esenzioni per coniuge e discendenti, e come presentare la dichiarazione di successione all\'ufficio tributario.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-zugo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione Zugo: aliquote e esenzioni",
+      "description": "Imposta di successione e donazione nel Zugo: aliquote per parentela, esenzioni coniuge e figli, dichiarazione e termini di versamento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-zugo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio tributario cantonale: documenti di successione e moduli fiscali su una scrivania amministrativa svizzera."
+      },
+      "datePublished": "2026-09-05T13:12:53+00:00",
+      "dateModified": "2026-09-05T13:12:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-zugo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-medici-specialisti-fatturazioni-svizzera': {
+    title: 'Alcuni medici specialisti esagerano con le fatturazioni',
+    description: 'Saskia Schenker, direttrice di Prioswiss, critica le pratiche di fatturazione di alcuni medici specialisti in Svizzera. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, alcuni, medici, specialisti, esagerano',
+    ogTitle: 'Alcuni medici specialisti esagerano con le fatturazioni',
+    ogDescription: 'Scopri come alcuni medici specialisti in Svizzera stanno esagerando con le fatturazioni delle loro prestazioni secondo Saskia Schenker, direttrice di Prioswiss.',
+    canonicalPath: '/articoli-svizzera/medici-specialisti-fatturazioni-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alcuni medici specialisti esagerano con le fatturazioni",
+      "description": "Saskia Schenker, direttrice di Prioswiss, critica le pratiche di fatturazione di alcuni medici specialisti in Svizzera. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/medici-specialisti-fatturazioni-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio medico a Lugano con attrezzature e grafici"
+      },
+      "datePublished": "2026-09-05T13:45:01+00:00",
+      "dateModified": "2026-09-05T13:45:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/medici-specialisti-fatturazioni-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prio-swiss-medici-specialisti-tardoc': {
+    title: 'Prio.swiss: alcuni medici specialisti esagerano con Tardoc',
+    description: 'L\'associazione degli assicuratori-malattia svizzeri rileva che alcune specialità mediche superano i limiti del nuovo modello tariffario Tardoc. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, prio, swiss, alcuni, medici',
+    ogTitle: 'Prio.swiss: alcuni medici specialisti esagerano con Tardoc',
+    ogDescription: 'L\'associazione degli assicuratori-malattia svizzeri rileva che alcune specialità mediche superano i limiti del nuovo modello tariffario Tardoc. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/prio-swiss-medici-specialisti-tardoc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prio.swiss: alcuni medici specialisti esagerano con Tardoc",
+      "description": "L'associazione degli assicuratori-malattia svizzeri rileva che alcune specialità mediche superano i limiti del nuovo modello tariffario Tardoc. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prio-swiss-medici-specialisti-tardoc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un medico specialista in un ambiente professionale svizzero."
+      },
+      "datePublished": "2026-09-05T13:56:33+00:00",
+      "dateModified": "2026-09-05T13:56:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prio-swiss-medici-specialisti-tardoc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-morte-mongolfiera-ticino': {
+    title: 'Di più TG: colpito a morte da cesto di mongolfiera',
+    description: 'Un 86enne tedesco è morto ieri a fine pomeriggio colpito da un cesto di una mongolfiera nella campagna turgoviese. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, colpito, morte, cesto, mongolfiera',
+    ogTitle: 'Di più TG: colpito a morte da cesto di mongolfiera',
+    ogDescription: 'Un 86enne tedesco è morto ieri a fine pomeriggio colpito da un cesto di una mongolfiera nella campagna turgoviese. L\'indagine è in corso.',
+    canonicalPath: '/articoli-svizzera/morte-mongolfiera-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più TG: colpito a morte da cesto di mongolfiera",
+      "description": "Un 86enne tedesco è morto ieri a fine pomeriggio colpito da un cesto di una mongolfiera nella campagna turgoviese. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/morte-mongolfiera-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un pallone aerostatico sopra la campagna svizzera, con una scena di incidente in primo piano."
+      },
+      "datePublished": "2026-09-05T14:06:08+00:00",
+      "dateModified": "2026-09-05T14:06:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/morte-mongolfiera-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incendio-notturno-scuola-professionale-biasca': {
+    title: 'Fiamme in piena notte alla scuola professionale UPSA di Biasca',
+    description: 'Incendio notturno alla scuola professionale UPSA di Biasca, fiamme domate rapidamente dai pompieri, nessun ferito o intossicato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiamme, piena, notte, alla',
+    ogTitle: 'Fiamme in piena notte alla scuola professionale UPSA di Biasca',
+    ogDescription: 'Un incendio notturno si è verificato al primo piano dell\'edificio che ospita SPAI e SAMS. I pompieri del Centro di Soccorso Cantonale di Biasca sono intervenuti rapidamente e hanno domato le fiamme, evitando la propagazione ai locali adiacenti',
+    canonicalPath: '/articoli-svizzera/incendio-notturno-scuola-professionale-biasca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiamme in piena notte alla scuola professionale UPSA di Biasca",
+      "description": "Incendio notturno alla scuola professionale UPSA di Biasca, fiamme domate rapidamente dai pompieri, nessun ferito o intossicato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-notturno-scuola-professionale-biasca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio notturno alla scuola professionale UPSA di Biasca"
+      },
+      "datePublished": "2026-09-05T14:17:14+00:00",
+      "dateModified": "2026-09-05T14:17:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incendio-notturno-scuola-professionale-biasca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-falso-allarme-goldach': {
+    title: 'Falso allarme per presunti spari durante una festa scolastica',
+    description: 'Circa 300 persone evacuate a Goldach, nel canton San Gallo, dopo segnalazioni di presunti spari durante una festa scolastica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, falso, allarme, presunti, spari',
+    ogTitle: 'Falso allarme per presunti spari durante una festa scolastica',
+    ogDescription: 'Circa 300 persone evacuate a Goldach, nel canton San Gallo, dopo segnalazioni di presunti spari durante una festa scolastica. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/falso-allarme-goldach/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Falso allarme per presunti spari durante una festa scolastica",
+      "description": "Circa 300 persone evacuate a Goldach, nel canton San Gallo, dopo segnalazioni di presunti spari durante una festa scolastica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/falso-allarme-goldach.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa scolastica con polizia e soccorritori"
+      },
+      "datePublished": "2026-09-05T14:27:14+00:00",
+      "dateModified": "2026-09-05T14:27:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/falso-allarme-goldach/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-controlli-minori': {
+    title: 'Asilo nido: le lacune nei controlli sui minori',
+    description: 'Un educatore segnalato per pedopornografia ha lavorato in un asilo nido per due anni. Come e perché i controlli istituzionali hanno fallato in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, lacune, controlli',
+    ogTitle: 'Asilo nido: le lacune nei controlli sui minori',
+    ogDescription: 'Un educatore segnalato per pedopornografia ha lavorato in un asilo nido per due anni. Come e perché i controlli istituzionali hanno fallato in Svizzera.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-controlli-minori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido: le lacune nei controlli sui minori",
+      "description": "Un educatore segnalato per pedopornografia ha lavorato in un asilo nido per due anni. Come e perché i controlli istituzionali hanno fallato in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-controlli-minori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esterno di un asilo nido svizzero con area gioco, architettura moderna, fotografia documentaristica"
+      },
+      "datePublished": "2026-09-05T16:05:02+00:00",
+      "dateModified": "2026-09-05T16:05:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-controlli-minori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-friburgo-requisiti-rinnovo': {
+    title: 'Permesso di dimora B Friburgo: requisiti e rinnovo',
+    description: 'Guida al permesso B a Friburgo: requisiti per UE/AELS e Paesi terzi, procedure di rinnovo, documenti necessari e ruoli della SEM e amministrazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, friburgo, requisiti',
+    ogTitle: 'Permesso di dimora B Friburgo: requisiti e rinnovo',
+    ogDescription: 'Scopri come funziona il permesso B a Friburgo: criteri della SEM, ruolo dell\'amministrazione cantonale, modalità di rinnovo e checklist completa dei documenti per stranieri UE/AELS e Paesi terzi.',
+    canonicalPath: '/articoli-svizzera/permesso-b-friburgo-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B Friburgo: requisiti e rinnovo",
+      "description": "Guida al permesso B a Friburgo: requisiti per UE/AELS e Paesi terzi, procedure di rinnovo, documenti necessari e ruoli della SEM e amministrazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-friburgo-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio dell'amministrazione cantonale: sportello per il rilascio e rinnovo di permessi di dimora."
+      },
+      "datePublished": "2026-09-05T16:17:35+00:00",
+      "dateModified": "2026-09-05T16:17:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-friburgo-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-vallese-riduzione': {
+    title: 'Premi LAMal nel Vallese: fasce e riduzioni 2026',
+    description: 'Guida completa ai premi obbligatori LAMal nel canton Vallese: franchigie disponibili, modelli assicurativi, procedure e criteri per ottenere sussidi cantonali',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, vallese, fasce',
+    ogTitle: 'Premi LAMal Vallese: riduzioni e franchigie 2026',
+    ogDescription: 'Nel canton Vallese la LAMal è obbligatoria. Scopri le franchigie disponibili (CHF 300–2.500), come funziona la riduzione dei premi tramite sussidi cantonali, i modelli assicurativi e la procedura per accedere ai benefici.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-vallese-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal nel Vallese: fasce e riduzioni 2026",
+      "description": "Guida completa ai premi obbligatori LAMal nel canton Vallese: franchigie disponibili, modelli assicurativi, procedure e criteri per ottenere sussidi cantonali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-vallese-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale del Vallese con informazioni su premi LAMal, franchigie e programmi di riduzione"
+      },
+      "datePublished": "2026-09-05T16:42:46+00:00",
+      "dateModified": "2026-09-05T16:42:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-vallese-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-vallese-b-procedure': {
+    title: 'Permesso B Vallese: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Guida completa al rinnovo del permesso di dimora B nel Vallese: requisiti, documenti necessari e procedura presso l\'Ufficio cantonale della migrazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, vallese, requisiti, rinnovo',
+    ogTitle: 'Permesso B Vallese: come rinnovarlo',
+    ogDescription: 'Scopri tutti i requisiti, i documenti necessari e la procedura per rinnovare il permesso di dimora B nel Cantone Vallese. Guida pratica aggiornata per gli stranieri residenti.',
+    canonicalPath: '/articoli-svizzera/permesso-vallese-b-procedure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Vallese: requisiti e rinnovo",
+      "description": "Guida completa al rinnovo del permesso di dimora B nel Vallese: requisiti, documenti necessari e procedura presso l'Ufficio cantonale della migrazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-vallese-b-procedure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e moduli per il permesso di dimora B presso un ufficio cantonale svizzero"
+      },
+      "datePublished": "2026-09-05T17:13:22+00:00",
+      "dateModified": "2026-09-05T17:13:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-vallese-b-procedure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

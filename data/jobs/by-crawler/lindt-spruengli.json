@@ -1,13 +1,13 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-09-04T23:18:15.113Z",
+  "assembledAt": "2026-09-05T13:01:45.687Z",
   "jobs": [
     {
       "id": "lindt-spruengli-481b4299ca0f",
       "slug": "elettricista-di-impianti-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "it": "elettricista-di-impianti-lindt-sprungli-kilchberg",
-        "en": "business-electrician-lindt-sprungli-kilchberg",
+        "en": "betriebselektriker-in-lindt-sprungli-kilchberg",
         "de": "betriebselektriker-in-lindt-spruengli-kilchberg",
         "fr": "electricien-d-affaires-lindt-sprungli-kilchberg"
       },
@@ -17,7 +17,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista industriale",
-        "en": "Business electrician*",
+        "en": "Betriebselektriker*in",
         "de": "Betriebselektriker*in",
         "fr": "Électricien industriel"
       },
@@ -33,7 +33,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:11.533Z",
+      "crawledAt": "2026-09-05T13:01:41.334Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -54,14 +54,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betriebselektriker-in-lindt-spruengli-kilchberg",
-        "betriebselektriker-in-lindt-sprungli-kilchberg"
+        "betriebselektriker-in-lindt-sprungli-kilchberg",
+        "business-electrician-lindt-sprungli-kilchberg",
+        "elettricista-di-impianti-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-lindt-spruengli-kilchberg",
-          "betriebselektriker-in-lindt-sprungli-kilchberg"
+          "betriebselektriker-in-lindt-sprungli-kilchberg",
+          "elettricista-di-impianti-lindt-sprungli-kilchberg"
         ],
         "en": [
+          "business-electrician-lindt-sprungli-kilchberg",
           "betriebselektriker-in-lindt-sprungli-kilchberg"
         ],
         "fr": [
@@ -69,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:22.956Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -89,7 +94,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -114,7 +119,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:18:10.881Z",
+      "crawledAt": "2026-09-05T13:01:40.628Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -145,6 +150,8 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
+        "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
@@ -159,7 +166,8 @@
           "servicemitarbeiter-in-lindt-spruengli-kilchberg",
           "personnel-militaire-lindt-sprungli-kilchberg",
           "servicemitarbeiter-in-lindt-sprungli-kilchberg",
-          "patissier-in-90-lindt-sprungli-kilchberg"
+          "patissier-in-90-lindt-sprungli-kilchberg",
+          "domanda-non-richiesta-lindt-sprungli-kilchberg"
         ],
         "en": [
           "patissian-90-lindt-sprungli-kilchberg"
@@ -167,6 +175,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
+          "unerbetene-anwendung-lindt-sprungli-kilchberg",
           "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
@@ -175,6 +184,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:19.739Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -220,7 +230,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR102511-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:10.225Z",
+      "crawledAt": "2026-09-05T13:01:39.944Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -246,7 +256,8 @@
         "production-area-manager-lindt-sprungli-kilchberg",
         "produktionsbereichsleiter-in-lindt-spruengli-kilchberg",
         "directeur-de-zone-de-production-lindt-sprungli-kilchberg",
-        "produktionsbereichsleiter-in-lindt-sprungli-kilchberg"
+        "produktionsbereichsleiter-in-lindt-sprungli-kilchberg",
+        "fabbricazione-di-base-per-l-operatore-di-impianto-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -256,7 +267,8 @@
           "production-area-manager-lindt-sprungli-kilchberg",
           "produktionsbereichsleiter-in-lindt-spruengli-kilchberg",
           "directeur-de-zone-de-production-lindt-sprungli-kilchberg",
-          "produktionsbereichsleiter-in-lindt-sprungli-kilchberg"
+          "produktionsbereichsleiter-in-lindt-sprungli-kilchberg",
+          "fabbricazione-di-base-per-l-operatore-di-impianto-lindt-sprungli-kilchberg"
         ],
         "en": [
           "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg",
@@ -316,7 +328,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Polymechaniker-in-EFZ---Lehrbeginn-ab-Sommer-2027_JR102080",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:09.577Z",
+      "crawledAt": "2026-09-05T13:01:39.243Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -340,7 +352,8 @@
         "apprendistato-come-automatiker-in-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg",
         "apprenticeship-as-an-automatic-engineer-efz-start-of-apprenticeship-from-summer-2027-lindt-sprungli-kilchberg",
         "lehrstelle-als-automatiker-in-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli-kilchberg",
-        "apprentissage-comme-ingenieur-automatique-efz-debut-de-l-apprentissage-a-partir-de-l-ete-2027-lindt-sprungli-kilchberg"
+        "apprentissage-comme-ingenieur-automatique-efz-debut-de-l-apprentissage-a-partir-de-l-ete-2027-lindt-sprungli-kilchberg",
+        "apprendistato-come-polymechaniker-in-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -348,7 +361,8 @@
           "apprendistato-come-automatiker-in-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg",
           "apprenticeship-as-an-automatic-engineer-efz-start-of-apprenticeship-from-summer-2027-lindt-sprungli-kilchberg",
           "lehrstelle-als-automatiker-in-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli-kilchberg",
-          "apprentissage-comme-ingenieur-automatique-efz-debut-de-l-apprentissage-a-partir-de-l-ete-2027-lindt-sprungli-kilchberg"
+          "apprentissage-comme-ingenieur-automatique-efz-debut-de-l-apprentissage-a-partir-de-l-ete-2027-lindt-sprungli-kilchberg",
+          "apprendistato-come-polymechaniker-in-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
         ],
         "en": [
           "lehrstelle-als-polymechaniker-in-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli-kilchberg",
@@ -363,6 +377,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:11.891Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -408,7 +423,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:08.890Z",
+      "crawledAt": "2026-09-05T13:01:38.536Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -428,11 +443,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf"
+        "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf",
+        "apprendistato-come-logistiker-in-cfc-lehrbeginn-sommer-2027-lindt-sprungli-altendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf"
+          "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf",
+          "apprendistato-come-logistiker-in-cfc-lehrbeginn-sommer-2027-lindt-sprungli-altendorf"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf"
@@ -487,7 +504,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:08.240Z",
+      "crawledAt": "2026-09-05T13:01:37.832Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -508,11 +525,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli",
-        "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
+        "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg",
+        "apprendistato-come-lebensmitteltechnologe-login-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli"
+          "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli",
+          "apprendistato-come-lebensmitteltechnologe-login-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
         ],
         "en": [
           "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
@@ -522,6 +541,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:10.494Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -567,7 +587,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:07.586Z",
+      "crawledAt": "2026-09-05T13:01:37.128Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -588,11 +608,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
-        "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
+        "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg",
+        "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli"
+          "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
+          "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
         ],
         "en": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
@@ -647,7 +669,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Spreitenbach-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop-Tivoli--20--40--_JR102201-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:06.924Z",
+      "crawledAt": "2026-09-05T13:01:36.414Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -667,11 +689,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-tivoli-20-40-lindt-spruengli-spreitenbach"
+        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-tivoli-20-40-lindt-spruengli-spreitenbach",
+        "lindt-chocolate-consulente-verkaufer-in-lindt-shop-tivoli-20-40-lindt-sprungli-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-tivoli-20-40-lindt-spruengli-spreitenbach"
+          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-tivoli-20-40-lindt-spruengli-spreitenbach",
+          "lindt-chocolate-consulente-verkaufer-in-lindt-shop-tivoli-20-40-lindt-sprungli-spreitenbach"
         ],
         "en": [
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-tivoli-20-40-lindt-spruengli-spreitenbach"
@@ -681,6 +705,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:16.577Z",
+      "needsRetranslation": true,
       "salaryMin": 29600,
       "salaryMax": 45400,
       "salarySource": "estimated",
@@ -726,7 +751,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Altendorf---Plant/Befr-Mitarbeiter-in-Kommi---Lager_JR102524-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:06.280Z",
+      "crawledAt": "2026-09-05T13:01:35.718Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -746,11 +771,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf"
+        "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf",
+        "befr-collaboratore-trice-in-kommi-magazzino-lindt-sprungli-altendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf"
+          "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf",
+          "befr-collaboratore-trice-in-kommi-magazzino-lindt-sprungli-altendorf"
         ],
         "en": [
           "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf"
@@ -806,7 +833,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-E-Shop-Logistik_JR102831-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:05.629Z",
+      "crawledAt": "2026-09-05T13:01:34.960Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -827,12 +854,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aushilfsmitarbeiter-in-e-shop-logistik-lindt-spruengli-kilchberg",
-        "aushilfsmitarbeiter-in-e-shop-logistik-okt-bis-dez-2026-lindt-spruengli-kilchberg"
+        "aushilfsmitarbeiter-in-e-shop-logistik-okt-bis-dez-2026-lindt-spruengli-kilchberg",
+        "dipendenti-in-e-shop-logistics-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfsmitarbeiter-in-e-shop-logistik-lindt-spruengli-kilchberg",
-          "aushilfsmitarbeiter-in-e-shop-logistik-okt-bis-dez-2026-lindt-spruengli-kilchberg"
+          "aushilfsmitarbeiter-in-e-shop-logistik-okt-bis-dez-2026-lindt-spruengli-kilchberg",
+          "dipendenti-in-e-shop-logistics-lindt-sprungli-kilchberg"
         ],
         "en": [
           "aushilfsmitarbeiter-in-e-shop-logistik-lindt-spruengli-kilchberg"
@@ -842,6 +871,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:37:04.637Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -871,7 +901,7 @@
       "title": "Lindt Chocolate Advisor 50-60%",
       "titleByLocale": {
         "it": "Lindt Chocolate Consulente 50-60%",
-        "en": "Lindt Chocolate Advisor 50-60 %",
+        "en": "Lindt Chocolate Advisor 50-60%",
         "de": "Lindt Chocolate Berater 50-60%",
         "fr": "Lindt Chocolate Conseiller"
       },
@@ -887,7 +917,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Spreitenbach-Switzerland/Lindt-Chocolate-Advisor_JR101008",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:04.965Z",
+      "crawledAt": "2026-09-05T13:01:34.266Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -908,18 +938,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lindt-chocolate-advisor-lindt-spruengli-spreitenbach",
-        "lindt-chocolate-advisor-50-60-lindt-spruengli-spreitenbach"
+        "lindt-chocolate-advisor-50-60-lindt-spruengli-spreitenbach",
+        "lindt-chocolate-consulente-lindt-sprungli-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lindt-chocolate-advisor-lindt-spruengli-spreitenbach",
-          "lindt-chocolate-advisor-50-60-lindt-spruengli-spreitenbach"
+          "lindt-chocolate-advisor-50-60-lindt-spruengli-spreitenbach",
+          "lindt-chocolate-consulente-lindt-sprungli-spreitenbach"
         ],
         "fr": [
           "lindt-chocolate-advisor-lindt-spruengli-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-07-30T22:32:15.917Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
@@ -949,7 +982,7 @@
       "title": "Experience & Shop Manager Luzern",
       "titleByLocale": {
         "it": "Esperienza e Shop Manager Lucerne",
-        "en": "Experience & Shop Manager Lucerne",
+        "en": "Experience & Shop Manager Luzern",
         "de": "Experience & Shop Manager Luzern",
         "fr": "Experience & Shop Manager Lucerne"
       },
@@ -965,7 +998,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:04.293Z",
+      "crawledAt": "2026-09-05T13:01:33.560Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -985,14 +1018,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experience-shop-manager-luzern-lindt-spruengli-luzern"
+        "experience-shop-manager-luzern-lindt-spruengli-luzern",
+        "esperienza-e-shop-manager-lucerne-lindt-sprungli-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experience-shop-manager-luzern-lindt-spruengli-luzern"
+          "experience-shop-manager-luzern-lindt-spruengli-luzern",
+          "esperienza-e-shop-manager-lucerne-lindt-sprungli-luzern"
         ]
       },
       "firstSeenAt": "2026-08-13T10:25:35.277Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -1038,7 +1074,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-Personalrestaurant_JR102161-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:03.612Z",
+      "crawledAt": "2026-09-05T13:01:32.791Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1059,11 +1095,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aushilfsmitarbeiter-in-personalrestaurant-lindt-spruengli-kilchberg",
-        "aushilfsmitarbeiter-in-personalrestaurant-lindt-sprungli-kilchberg"
+        "aushilfsmitarbeiter-in-personalrestaurant-lindt-sprungli-kilchberg",
+        "ristorante-per-dipendenti-temporanei-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfsmitarbeiter-in-personalrestaurant-lindt-spruengli-kilchberg"
+          "aushilfsmitarbeiter-in-personalrestaurant-lindt-spruengli-kilchberg",
+          "ristorante-per-dipendenti-temporanei-lindt-sprungli-kilchberg"
         ],
         "en": [
           "aushilfsmitarbeiter-in-personalrestaurant-lindt-sprungli-kilchberg"
@@ -1119,7 +1157,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:02.956Z",
+      "crawledAt": "2026-09-05T13:01:32.080Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1141,12 +1179,14 @@
       "previousSlugs": [
         "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
         "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten",
-        "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten"
+        "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten",
+        "apprendistato-come-praticante-alimentare-eba-inizio-dell-apprendistato-dall-estate-2027-lindt-sprungli-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
-          "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten"
+          "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten",
+          "apprendistato-come-praticante-alimentare-eba-inizio-dell-apprendistato-dall-estate-2027-lindt-sprungli-olten"
         ],
         "en": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten"
@@ -1184,24 +1224,24 @@
       "companyDomain": "lindt-spruengli.com",
       "title": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop",
       "titleByLocale": {
-        "it": "Lindt Chocolate Consulente - Verkäufer*in Lindt Shop",
-        "en": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop",
+        "it": "Lindt Chocolate Advisor - venditore in Lindt Shop",
+        "en": "Lindt Chocolate Advisor - seller in Lindt Shop",
         "de": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop",
-        "fr": "Lindt Chocolate Conseiller - Verkäufer*in Lindt Shop"
+        "fr": "Lindt Chocolate Advisor - vendeur à Lindt Shop"
       },
       "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
       "descriptionByLocale": {
-        "it": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "en": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+        "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. A Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti da oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• Consulenza di vendita di prima classe per i nostri clienti internazionali\n\n• Merchandising degli scaffali di vendita (compresi i controlli di freschezza)\n\n• Operazione del registro di cassa\n\n• Assistenza nella gestione del magazzino\n\n• Preparazione dei conti\n\nQuando ci si adatta:\n\n• Completata la formazione al dettaglio e/o l'esperienza in settori simili, principalmente orientati al servizio, come la ristorazione e l'ospitalità\n\n• Convincente venditore con un alto livello di orientamento del cliente\n\n• Flessibile nel tempo e pronto a prendere le assegnazioni del fine settimana\n\n• Flusso tedesco e buone abilità inglesi, altre lingue benefiche\n\n• Personalità capace di squadra, impegnata e aperta\n\n• Passione per il nostro cioccolato premium e per l'attenzione ai dettagli\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
+        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• First-class sales advice for our international customers\n\n• Merchandising of sales shelves (including freshness checks)\n\n• Cash register operation\n\n• Assistance in warehouse management\n\n• Preparation of accounts\n\nWhen you fit in with us:\n\n• Completed retail training and/or experience in similar, mainly service-oriented branches, such as catering and hospitality\n\n• Convincing salesperson with a high level of customer orientation\n\n• Flexible in time and ready to take on weekend assignments\n\n• Flowing German and good English skills, other languages beneficial\n\n• Team-capable, committed and open personality\n\n• Passion for our premium chocolate and for the attention to detail\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
         "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "fr": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung."
+        "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège social et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous gérons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, y compris des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• Conseils commerciaux de première classe pour nos clients internationaux\n\n• Marchandise des tablettes de vente (y compris les contrôles de la fraîcheur)\n\n• Opérations de caisse\n\n• Assistance à la gestion des entrepôts\n\n• Établissement des comptes\n\nLorsque vous entrez avec nous:\n\n• Formation au commerce de détail et/ou expérience dans des secteurs similaires, principalement axés sur les services, tels que la restauration et l'accueil\n\n• Convaincre le vendeur avec un haut niveau d'orientation client\n\n• Flexible dans le temps et prêt à effectuer des affectations le week-end\n\n• L'allemand et de bonnes compétences en anglais, d'autres langues bénéfiques\n\n• Personnalité capable d'équipe, engagée et ouverte\n\n• Passion pour notre chocolat haut de gamme et pour l'attention au détail\n\nNous sommes tous uniques !\n\nNous recrutons sans préjugés et considérons les compétences et les qualifications qui ne sont pas affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement familial - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, du bureau à domicile et du travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours de vacances.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
       },
       "location": "Kilchberg",
       "canton": "ZH",
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:02.300Z",
+      "crawledAt": "2026-09-05T13:01:31.377Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1221,17 +1261,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg",
+        "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg",
+          "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:27:06.080Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -1261,24 +1302,24 @@
       "companyDomain": "lindt-spruengli.com",
       "title": "Deputy Shop Manager",
       "titleByLocale": {
-        "it": "Deputy Shop Manager",
+        "it": "Direttore commerciale aggiunto",
         "en": "Deputy Shop Manager",
         "de": "Deputy Shop Manager",
-        "fr": "Deputy Shop Manager"
+        "fr": "Directeur adjoint de la boutique"
       },
       "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Team- und Shopleitung in Abwesenheit des Shop Managers\n\n• Unterstützung bei der Rekrutierung und bei der Erstellung von Schichtplänen\n\n• Erstklassige Verkaufsberatung unserer lokalen und internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Unterstützung des Shop-Managers in der Führung des Teams\n\n• Mitverantwortung für den gesamten Ablauf des Shop-Betriebs\n\nWann du zu uns passt:\n\n• Ausbildung zum Detailhandelsfachmann/-frau EFZ oder eine vergleichbare Ausbildung\n\n• Mindestens 2-3 Jahre Berufs- und Führungserfahrung in einer vergleichbaren Funktion\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Gepflegtes Erscheinungsbild sowie eine freundliche und proaktive Wesensart\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
       "descriptionByLocale": {
-        "it": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Team- und Shopleitung in Abwesenheit des Shop Managers\n\n• Unterstützung bei der Rekrutierung und bei der Erstellung von Schichtplänen\n\n• Erstklassige Verkaufsberatung unserer lokalen und internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Unterstützung des Shop-Managers in der Führung des Teams\n\n• Mitverantwortung für den gesamten Ablauf des Shop-Betriebs\n\nWann du zu uns passt:\n\n• Ausbildung zum Detailhandelsfachmann/-frau EFZ oder eine vergleichbare Ausbildung\n\n• Mindestens 2-3 Jahre Berufs- und Führungserfahrung in einer vergleichbaren Funktion\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Gepflegtes Erscheinungsbild sowie eine freundliche und proaktive Wesensart\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "en": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Team- und Shopleitung in Abwesenheit des Shop Managers\n\n• Unterstützung bei der Rekrutierung und bei der Erstellung von Schichtplänen\n\n• Erstklassige Verkaufsberatung unserer lokalen und internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Unterstützung des Shop-Managers in der Führung des Teams\n\n• Mitverantwortung für den gesamten Ablauf des Shop-Betriebs\n\nWann du zu uns passt:\n\n• Ausbildung zum Detailhandelsfachmann/-frau EFZ oder eine vergleichbare Ausbildung\n\n• Mindestens 2-3 Jahre Berufs- und Führungserfahrung in einer vergleichbaren Funktion\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Gepflegtes Erscheinungsbild sowie eine freundliche und proaktive Wesensart\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+        "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. A Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti da oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• Team e gestione del negozio in assenza del direttore del negozio\n\n• Sostegno al reclutamento e alla creazione di piani a turni\n\n• Consulenza di vendita di prima classe per i nostri clienti locali e internazionali\n\n• Merchandising degli scaffali di vendita (compresi i controlli di freschezza)\n\n• Operazione del registro di cassa\n\n• Assistenza nella gestione del magazzino\n\n• Supporto del direttore del negozio nella leadership del team\n\n• Co-responsabilità per l'intero funzionamento del negozio\n\nQuando ci si adatta:\n\n• Formazione come specialista al dettaglio EFZ o formazione comparabile\n\n• Almeno 2-3 anni di esperienza professionale e manageriale in una funzione paragonabile\n\n• Convincente venditore con un alto livello di orientamento del cliente\n\n• Flessibile nel tempo e pronto a prendere le assegnazioni del fine settimana\n\n• Personalità capace di squadra, impegnata e aperta\n\n• Passione per il nostro cioccolato premium e per l'attenzione ai dettagli\n\n• Flusso tedesco e buone abilità inglesi, altre lingue benefiche\n\n• aspetto attento e natura amichevole e proattiva\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
+        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• Team and shop management in the absence of the shop manager\n\n• Support in recruitment and in the creation of shift plans\n\n• First-class sales advice for our local and international customers\n\n• Merchandising of sales shelves (including freshness checks)\n\n• Cash register operation\n\n• Assistance in warehouse management\n\n• Support of the shop manager in the leadership of the team\n\n• Co-responsibility for the entire operation of the shop\n\nWhen you fit in with us:\n\n• Training as a retail specialist EFZ or comparable training\n\n• At least 2-3 years of professional and managerial experience in a comparable function\n\n• Convincing salesperson with a high level of customer orientation\n\n• Flexible in time and ready to take on weekend assignments\n\n• Team-capable, committed and open personality\n\n• Passion for our premium chocolate and for the attention to detail\n\n• Flowing German and good English skills, other languages beneficial\n\n• Careful appearance and a friendly and proactive nature\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
         "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Team- und Shopleitung in Abwesenheit des Shop Managers\n\n• Unterstützung bei der Rekrutierung und bei der Erstellung von Schichtplänen\n\n• Erstklassige Verkaufsberatung unserer lokalen und internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Unterstützung des Shop-Managers in der Führung des Teams\n\n• Mitverantwortung für den gesamten Ablauf des Shop-Betriebs\n\nWann du zu uns passt:\n\n• Ausbildung zum Detailhandelsfachmann/-frau EFZ oder eine vergleichbare Ausbildung\n\n• Mindestens 2-3 Jahre Berufs- und Führungserfahrung in einer vergleichbaren Funktion\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Gepflegtes Erscheinungsbild sowie eine freundliche und proaktive Wesensart\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "fr": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Team- und Shopleitung in Abwesenheit des Shop Managers\n\n• Unterstützung bei der Rekrutierung und bei der Erstellung von Schichtplänen\n\n• Erstklassige Verkaufsberatung unserer lokalen und internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Unterstützung des Shop-Managers in der Führung des Teams\n\n• Mitverantwortung für den gesamten Ablauf des Shop-Betriebs\n\nWann du zu uns passt:\n\n• Ausbildung zum Detailhandelsfachmann/-frau EFZ oder eine vergleichbare Ausbildung\n\n• Mindestens 2-3 Jahre Berufs- und Führungserfahrung in einer vergleichbaren Funktion\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Gepflegtes Erscheinungsbild sowie eine freundliche und proaktive Wesensart\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung."
+        "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège social et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous gérons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, y compris des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• Gestion d'équipe et de magasin en l'absence du directeur de magasin\n\n• Appui au recrutement et à la création de plans de roulement\n\n• Conseils commerciaux de première classe pour nos clients locaux et internationaux\n\n• Marchandise des tablettes de vente (y compris les contrôles de la fraîcheur)\n\n• Opérations de caisse\n\n• Assistance à la gestion des entrepôts\n\n• Soutien du directeur du magasin dans la direction de l'équipe\n\n• Coresponsabilité pour toute l'exploitation de l'atelier\n\nLorsque vous entrez avec nous:\n\n• Formation en tant que spécialiste du commerce de détail EFZ ou formation comparable\n\n• Au moins 2-3 ans d'expérience professionnelle et de gestion dans une fonction comparable\n\n• Convaincre le vendeur avec un haut niveau d'orientation client\n\n• Flexible dans le temps et prêt à effectuer des affectations le week-end\n\n• Personnalité capable d'équipe, engagée et ouverte\n\n• Passion pour notre chocolat haut de gamme et pour l'attention au détail\n\n• L'allemand et de bonnes compétences en anglais, d'autres langues bénéfiques\n\n• Une apparence soignée et une nature amicale et proactive\n\nNous sommes tous uniques !\n\nNous recrutons sans préjugés et considérons les compétences et les qualifications qui ne sont pas affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement familial - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, du bureau à domicile et du travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours de vacances.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
       },
       "location": "Kilchberg",
       "canton": "ZH",
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Deputy-Shop-Manager_JR103264-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:01.664Z",
+      "crawledAt": "2026-09-05T13:01:30.677Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1344,7 +1385,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Group-Communications-Manager-with-focus-on-Sustainability_JR102846-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T23:18:01.014Z",
+      "crawledAt": "2026-09-05T13:01:29.969Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1364,14 +1405,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg"
+        "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg",
+        "group-communications-manager-con-focus-sulla-sostenibilita-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg"
+          "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg",
+          "group-communications-manager-con-focus-sulla-sostenibilita-lindt-sprungli-kilchberg"
         ]
       },
       "firstSeenAt": "2026-08-21T21:58:39.091Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1400,24 +1444,24 @@
       "companyDomain": "lindt-spruengli.com",
       "title": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop Basel (50% - 60%)",
       "titleByLocale": {
-        "it": "Lindt Chocolate Consulente - Verkäufer*in Lindt Shop Basel (50% - 60%)",
-        "en": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop Basel (50% - 60%)",
+        "it": "Lindt Chocolate Advisor - venditore in Lindt Shop Basel (50% - 60%)",
+        "en": "Lindt Chocolate Advisor - seller in Lindt Shop Basel (50% - 60%)",
         "de": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop Basel (50% - 60%)",
-        "fr": "Lindt Chocolate Conseiller - Verkäufer*in Lindt Shop Basel (50% - 60%)"
+        "fr": "Lindt Chocolate Advisor - vendeur à Lindt Shop Basel (50% - 60%)"
       },
       "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
       "descriptionByLocale": {
-        "it": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "en": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+        "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. A Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti da oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• Consulenza di vendita di prima classe per i nostri clienti internazionali\n\n• Merchandising degli scaffali di vendita (compresi i controlli di freschezza)\n\n• Operazione del registro di cassa\n\n• Assistenza nella gestione del magazzino\n\n• Preparazione dei conti\n\nQuando ci si adatta:\n\n• Completata la formazione al dettaglio e/o l'esperienza in settori simili, principalmente orientati al servizio, come la ristorazione e l'ospitalità\n\n• Convincente venditore con un alto livello di orientamento del cliente\n\n• Flessibile nel tempo e pronto a prendere le assegnazioni del fine settimana\n\n• Flusso tedesco e buone abilità inglesi, altre lingue benefiche\n\n• Personalità capace di squadra, impegnata e aperta\n\n• Passione per il nostro cioccolato premium e per l'attenzione ai dettagli\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
+        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• First-class sales advice for our international customers\n\n• Merchandising of sales shelves (including freshness checks)\n\n• Cash register operation\n\n• Assistance in warehouse management\n\n• Preparation of accounts\n\nWhen you fit in with us:\n\n• Completed retail training and/or experience in similar, mainly service-oriented branches, such as catering and hospitality\n\n• Convincing salesperson with a high level of customer orientation\n\n• Flexible in time and ready to take on weekend assignments\n\n• Flowing German and good English skills, other languages beneficial\n\n• Team-capable, committed and open personality\n\n• Passion for our premium chocolate and for the attention to detail\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
         "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "fr": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung."
+        "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège social et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous gérons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, y compris des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• Conseils commerciaux de première classe pour nos clients internationaux\n\n• Marchandise des tablettes de vente (y compris les contrôles de la fraîcheur)\n\n• Opérations de caisse\n\n• Assistance à la gestion des entrepôts\n\n• Établissement des comptes\n\nLorsque vous entrez avec nous:\n\n• Formation au commerce de détail et/ou expérience dans des secteurs similaires, principalement axés sur les services, tels que la restauration et l'accueil\n\n• Convaincre le vendeur avec un haut niveau d'orientation client\n\n• Flexible dans le temps et prêt à effectuer des affectations le week-end\n\n• L'allemand et de bonnes compétences en anglais, d'autres langues bénéfiques\n\n• Personnalité capable d'équipe, engagée et ouverte\n\n• Passion pour notre chocolat haut de gamme et pour l'attention au détail\n\nNous sommes tous uniques !\n\nNous recrutons sans préjugés et considérons les compétences et les qualifications qui ne sont pas affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement familial - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, du bureau à domicile et du travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours de vacances.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
       },
       "location": "Basel",
       "canton": "BS",
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Basel-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop-Basel--50----60--_JR103262-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:18:00.367Z",
+      "crawledAt": "2026-09-05T13:01:29.264Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -1437,17 +1481,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel"
+        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel",
+        "lindt-chocolate-consulente-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel"
+          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel",
+          "lindt-chocolate-consulente-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel"
         ],
         "fr": [
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T08:59:13.326Z",
       "salaryMin": 44400,
       "salaryMax": 68100,
@@ -1494,7 +1539,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Servicemitarbeiter-in-80-_JR103301-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:17:59.697Z",
+      "crawledAt": "2026-09-05T13:01:28.569Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1514,11 +1559,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicemitarbeiter-in-80-lindt-spruengli-kilchberg"
+        "servicemitarbeiter-in-80-lindt-spruengli-kilchberg",
+        "servicemitarbeiter-in-80-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicemitarbeiter-in-80-lindt-spruengli-kilchberg"
+          "servicemitarbeiter-in-80-lindt-spruengli-kilchberg",
+          "servicemitarbeiter-in-80-lindt-sprungli-kilchberg"
         ]
       },
       "needsRetranslation": true,
@@ -1568,7 +1615,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Project-Manager-B2B-mit-Fokus-Marketing_JR103280-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:17:59.027Z",
+      "crawledAt": "2026-09-05T13:01:27.860Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1602,163 +1649,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "lindt-spruengli-1c9162f00d64",
-      "slug": "maitre-cioccolato-100-lindt-sprungli-kilchberg",
-      "slugByLocale": {
-        "it": "maitre-cioccolato-100-lindt-sprungli-kilchberg",
-        "en": "maitre-chocolatier-100-lindt-spruengli-kilchberg",
-        "de": "maitre-chocolatier-100-lindt-spruengli-kilchberg",
-        "fr": "maitre-chocolatier-100-lindt-spruengli-kilchberg"
-      },
-      "company": "Lindt & Sprüngli",
-      "companyKey": "lindt-spruengli",
-      "companyDomain": "lindt-spruengli.com",
-      "title": "Maître Chocolatier 100%",
-      "titleByLocale": {
-        "it": "Maître cioccolato 100%",
-        "en": "Maître Chocolatier 100%",
-        "de": "Maître Chocolatier 100%",
-        "fr": "Maître Chocolatier 100%"
-      },
-      "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nFür unsere Chocolateria im Lindt Home of Chocolate suchen wir per 1.Oktober 2026 oder nach Vereinbarung eine zuverlässige und engagierte Unterstützung.\n\nWas du bei uns machst:\n\n• Planen, Vorbereiten und Durchführen von Schokoladenkursen in der exklusiven Lindt Chocolateria\n\n• Sicherstellen des professionellen und effizienten Betriebs\n\n• Kreative Inspirationsquelle für unsere Gäste\n\n• Unterstützen unserer Gäste beim Kreieren ihrer eigenen Meisterwerke\n\n• Botschafter der Marke Lindt\n\n• Mitwirkung an innovativen Projekten\n\nWenn du zu uns passt:\n\n• Erfahrung in der Verarbeitung von hochwertiger Schokolade\n\n• Ausbildung zum Confiseur\n\n• Sehr gute Deutschkenntnisse sowie gute mündliche Englischkenntnisse\n\n• HACCP Kenntnisse\n\n• Bereit bist auch Einsätze am Wochenende zu leisten\n\n• Freude im Umgang mit anderen Menschen und Kulturen\n\n• Selbständige, flexible und kommunikative Persönlichkeit gepaart mit Teamfähigkeit\n\n• Ausgeprägte Dienstleistungsorientierung und organisatorisches Flair\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. A Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti da oltre 50 nazioni contribuiscono al nostro successo.\n\nPer la nostra Chocolateria presso la Lindt Home del Cioccolato, stiamo cercando un supporto affidabile e impegnato il 1 ottobre 2026 o su appuntamento.\n\nCosa fai con noi:\n\n• Pianificazione, preparazione e conduzione di classi di cioccolato nell'esclusiva Lindt Chocolateria\n\n• Garantire un funzionamento professionale ed efficiente\n\n• Fonte creativa di ispirazione per i nostri ospiti\n\n• Sostenere i nostri ospiti nella creazione dei propri capolavori\n\n• Ambasciatore del marchio Lindt\n\n• Partecipazione a progetti innovativi\n\nSe ci sta bene...\n\n• Esperienza nella lavorazione di cioccolato di alta qualità\n\n• Formazione di fiducia\n\n• Conoscenza molto buona di tedesco e buona orale inglese\n\n• Conoscenza HACCP\n\n• Siete anche pronti a fare incarichi nel fine settimana\n\n• Gioia nel trattare con altre persone e culture\n\n• Personalità indipendente, flessibile e comunicativa unita al lavoro di squadra\n\n• Forte orientamento al servizio e tocco organizzativo\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
-        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nFor our Chocolateria at the Lindt Home of Chocolate, we are looking for reliable and committed support on October 1, 2026 or by appointment.\n\nWhat you do with us:\n\n• Planning, preparing and conducting chocolate classes in the exclusive Lindt Chocolateria\n\n• Ensuring professional and efficient operation\n\n• Creative source of inspiration for our guests\n\n• Support our guests in creating their own masterpieces\n\n• Ambassador of the Lindt brand\n\n• Participation in innovative projects\n\nIf you suit us:\n\n• Experience in processing high-quality chocolate\n\n• Confiser training\n\n• Very good knowledge of German and good oral English\n\n• HACCP knowledge\n\n• You are also ready to make assignments at the weekend\n\n• Joy in dealing with other people and cultures\n\n• Independent, flexible and communicative personality coupled with teamwork\n\n• Strong service orientation and organisational flair\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
-        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nFür unsere Chocolateria im Lindt Home of Chocolate suchen wir per 1.Oktober 2026 oder nach Vereinbarung eine zuverlässige und engagierte Unterstützung.\n\nWas du bei uns machst:\n\n• Planen, Vorbereiten und Durchführen von Schokoladenkursen in der exklusiven Lindt Chocolateria\n\n• Sicherstellen des professionellen und effizienten Betriebs\n\n• Kreative Inspirationsquelle für unsere Gäste\n\n• Unterstützen unserer Gäste beim Kreieren ihrer eigenen Meisterwerke\n\n• Botschafter der Marke Lindt\n\n• Mitwirkung an innovativen Projekten\n\nWenn du zu uns passt:\n\n• Erfahrung in der Verarbeitung von hochwertiger Schokolade\n\n• Ausbildung zum Confiseur\n\n• Sehr gute Deutschkenntnisse sowie gute mündliche Englischkenntnisse\n\n• HACCP Kenntnisse\n\n• Bereit bist auch Einsätze am Wochenende zu leisten\n\n• Freude im Umgang mit anderen Menschen und Kulturen\n\n• Selbständige, flexible und kommunikative Persönlichkeit gepaart mit Teamfähigkeit\n\n• Ausgeprägte Dienstleistungsorientierung und organisatorisches Flair\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège social et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous gérons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, y compris des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nPour notre Chocolatria à la maison Lindt de chocolat, nous recherchons un soutien fiable et engagé le 1er octobre 2026 ou sur rendez-vous.\n\nCe que vous faites de nous :\n\n• Planification, préparation et organisation de cours de chocolat dans la Chocolatrie Lindt exclusive\n\n• Assurer un fonctionnement professionnel et efficace\n\n• Source créative d'inspiration pour nos invités\n\n• Soutenez nos invités dans la création de leurs propres chefs-d'œuvre\n\n• Ambassadeur de la marque Lindt\n\n• Participation à des projets innovants\n\nSi vous nous convenez :\n\n• Expérience dans le traitement du chocolat de haute qualité\n\n• Formation à la confiserie\n\n• Très bonne connaissance de l'allemand et de l'anglais oral\n\n• Connaissances HACCP\n\n• Vous êtes également prêt à faire des missions le week-end\n\n• La joie de traiter avec d'autres personnes et cultures\n\n• Personnalité indépendante, flexible et communicative associée au travail d'équipe\n\n• Une orientation et une organisation solides\n\nNous sommes tous uniques !\n\nNous recrutons sans préjugés et considérons les compétences et les qualifications qui ne sont pas affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement familial - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, du bureau à domicile et du travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours de vacances.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
-      },
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Matre-Chocolatier-100-_JR102667-1",
-      "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:35:25.920Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "streetAddress": "Seestrasse 204",
-      "postalCode": "8802",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Matre-Chocolatier-100-_JR102667-1",
-      "jobReqId": "JR102667",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maitre-chocolatier-100-lindt-spruengli-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maitre-chocolatier-100-lindt-spruengli-kilchberg"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-29T11:56:03.974Z",
-      "salaryMin": 76000,
-      "salaryMax": 102500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 102500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "lindt-spruengli-7344758eec3f",
-      "slug": "lucerna-degustazione-welcome-desk-40-80-lindt-sprungli-luzern",
-      "slugByLocale": {
-        "it": "lucerna-degustazione-welcome-desk-40-80-lindt-sprungli-luzern",
-        "en": "lucerne-degustation-welcome-desk-40-80-lindt-sprungli-luzern",
-        "de": "mitarbeiter-in-luzern-degustation-welcome-desk-40-80-lindt-spruengli-luzern",
-        "fr": "lucerne-degustation-welcome-desk-40-80-lindt-sprungli-luzern"
-      },
-      "company": "Lindt & Sprüngli",
-      "companyKey": "lindt-spruengli",
-      "companyDomain": "lindt-spruengli.com",
-      "title": "Mitarbeiter*in Luzern - Degustation / Welcome Desk 40-80%",
-      "titleByLocale": {
-        "it": "Lucerna - Degustazione / Welcome Desk 40-80 %",
-        "en": "Lucerne - Degustation / Welcome Desk 40-80 %",
-        "de": "Mitarbeiter*in Luzern - Degustation / Welcome Desk 40-80%",
-        "fr": "Lucerne - Degustation / Welcome Desk 40-80 %"
-      },
-      "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Du empfängst unsere Gäste mit viel Charme und gibst kompetente Auskunft zu den Degustationsprodukten sowie zu den Themen unserer Ausstellung.\n\n• Du vertrittst die Marke Lindt auftrittssicher und trägst als Maître Chocolatier zur besonderen Atmosphäre in der Lindt Chocolate Experience bei.\n\n• Du schaffst unvergessliche Momente, indem du Gastgeschenke übergibst und unsere Gäste bei persönlichen Erinnerungsfotos zur Seite stehst.\n\n• Du behältst jederzeit den Überblick und stellst einen reibungslosen Ablauf sicher.\n\n• Optional unterstützt du zusätzlich im Lindt Shop oder am Welcome Desk und begleitest unsere Gäste vom Ticketkauf bis zur individuellen Beratung mit höchstem Serviceanspruch.\nWenn du zu uns passt:\n\n• Du bringst eine abgeschlossene Berufsausbildung (z.B. in Gastronomie, Hotellerie, Retail, Tourismus oder vergleichbar) mit.\n\n• Du sprichst sehr gut Deutsch und Englisch und trittst im Umgang mit internationalen Gästen souverän auf – weitere Sprachen sind ein Plus.\n\n• Du hast ausgeprägte Freude am Gästekontakt, überzeugst mit einem herzlichen und gepflegten Auftreten und behältst auch in lebhaften Situationen stets den Überblick.\n\n• Du identifizierst dich mit Premiumschokolade, hast ein ausgeprägtes Gespür für Details und gehst mit viel Freude auf Menschen zu.\n\n• Du bist flexibel einsetzbar (Montag bis Sonntag zwischen 08:00 und 20:00 Uhr).\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. A Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti da oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• Riceverete i nostri ospiti con un sacco di fascino e fornire informazioni competenti sui prodotti di degustazione così come i temi della nostra mostra.\n\n• Tu rappresenti il marchio Lindt con fiducia e come Maître Chocolatier contribuisci alla speciale atmosfera della Lindt Chocolate Experience.\n\n• Crea momenti indimenticabili regalando regali e aiutando i nostri ospiti con foto di souvenir personali.\n\n• Tenere una panoramica in ogni momento e garantire un processo regolare.\n\n• Facoltativamente, è anche possibile fornire supporto nel negozio Lindt o presso il banco di benvenuto e accompagnare i nostri ospiti dall'acquisto di biglietti a consulenza individuale con il più alto livello di servizio.\nSe ci sta bene...\n\n• Portate una formazione professionale completa (ad esempio in gastronomia, industria alberghiera, vendita al dettaglio, turismo o simili).\n\n• Si parla tedesco e inglese molto bene e sono sicuri di trattare con gli ospiti internazionali – altre lingue sono un vantaggio.\n\n• Hai pronunciato piacere nel contatto degli ospiti, convinci con un aspetto caldo e curato e tieni sempre una panoramica anche in situazioni vivaci.\n\n• Si identifica con il cioccolato premium, hanno un forte senso di dettaglio e avvicinare le persone con grande piacere.\n\n• Sei flessibile (da lunedì a domenica tra le 08:00 e le 20:00).\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
-        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• You will receive our guests with a lot of charm and provide competent information about the tasting products as well as the topics of our exhibition.\n\n• You represent the Lindt brand with confidence and as a Maître Chocolatier you contribute to the special atmosphere in the Lindt Chocolate Experience.\n\n• You create unforgettable moments by giving gifts and helping our guests with personal souvenir photos.\n\n• You keep an overview at all times and ensure a smooth process.\n\n• Optionally, you can also provide support in the Lindt Shop or at the Welcome Desk and accompany our guests from ticket purchase to individual advice with the highest level of service.\nIf you suit us:\n\n• You bring a completed vocational training (e.g. in gastronomy, hotel industry, retail, tourism or similar).\n\n• You speak German and English very well and are confident in dealing with international guests – other languages are a plus.\n\n• You have pronounced pleasure in guest contact, convince with a warm and well-groomed appearance and always keep an overview even in lively situations.\n\n• You identify with premium chocolate, have a strong sense of detail and approach people with great pleasure.\n\n• You are flexible (Monday to Sunday between 08:00 and 20:00).\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
-        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Du empfängst unsere Gäste mit viel Charme und gibst kompetente Auskunft zu den Degustationsprodukten sowie zu den Themen unserer Ausstellung.\n\n• Du vertrittst die Marke Lindt auftrittssicher und trägst als Maître Chocolatier zur besonderen Atmosphäre in der Lindt Chocolate Experience bei.\n\n• Du schaffst unvergessliche Momente, indem du Gastgeschenke übergibst und unsere Gäste bei persönlichen Erinnerungsfotos zur Seite stehst.\n\n• Du behältst jederzeit den Überblick und stellst einen reibungslosen Ablauf sicher.\n\n• Optional unterstützt du zusätzlich im Lindt Shop oder am Welcome Desk und begleitest unsere Gäste vom Ticketkauf bis zur individuellen Beratung mit höchstem Serviceanspruch.\nWenn du zu uns passt:\n\n• Du bringst eine abgeschlossene Berufsausbildung (z.B. in Gastronomie, Hotellerie, Retail, Tourismus oder vergleichbar) mit.\n\n• Du sprichst sehr gut Deutsch und Englisch und trittst im Umgang mit internationalen Gästen souverän auf – weitere Sprachen sind ein Plus.\n\n• Du hast ausgeprägte Freude am Gästekontakt, überzeugst mit einem herzlichen und gepflegten Auftreten und behältst auch in lebhaften Situationen stets den Überblick.\n\n• Du identifizierst dich mit Premiumschokolade, hast ein ausgeprägtes Gespür für Details und gehst mit viel Freude auf Menschen zu.\n\n• Du bist flexibel einsetzbar (Montag bis Sonntag zwischen 08:00 und 20:00 Uhr).\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège social et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous gérons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, y compris des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• Vous recevrez nos invités avec beaucoup de charme et fournir des informations compétentes sur les produits de dégustation ainsi que les sujets de notre exposition.\n\n• Vous représentez la marque Lindt avec confiance et en tant que Maître Chocolatier, vous contribuez à l'atmosphère particulière de l'expérience chocolatée Lindt.\n\n• Vous créez des moments inoubliables en donnant des cadeaux et en aidant nos invités avec des photos souvenirs personnelles.\n\n• Vous gardez une vue d'ensemble en tout temps et assurez un processus en douceur.\n\n• En option, vous pouvez également fournir un soutien dans la boutique Lindt ou au Welcome Desk et accompagner nos clients de l'achat de billets à des conseils individuels avec le plus haut niveau de service.\nSi vous nous convenez :\n\n• Vous apportez une formation professionnelle complète (par exemple dans la gastronomie, l'hôtellerie, le commerce de détail, le tourisme ou similaire).\n\n• Vous parlez très bien l'allemand et l'anglais et êtes confiants dans les relations avec les invités internationaux – d'autres langues sont un plus.\n\n• Vous avez prononcé le plaisir dans le contact avec les invités, convaincre avec une apparence chaleureuse et soignée et toujours garder un aperçu même dans des situations animées.\n\n• Vous vous identifiez au chocolat haut de gamme, avez un fort sens des détails et approchez les gens avec grand plaisir.\n\n• Vous êtes flexible (du lundi au dimanche entre 08:00 et 20:00).\n\nNous sommes tous uniques !\n\nNous recrutons sans préjugés et considérons les compétences et les qualifications qui ne sont pas affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement familial - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, du bureau à domicile et du travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours de vacances.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Luzern-Switzerland/Mitarbeiter-in-Luzern---Degustation---Welcome-Desk-40-80-_JR103022-1",
-      "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:35:17.803Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-02",
-      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Luzern-Switzerland/Mitarbeiter-in-Luzern---Degustation---Welcome-Desk-40-80-_JR103022-1",
-      "jobReqId": "JR103022",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-luzern-degustation-welcome-desk-40-80-lindt-spruengli-luzern",
-        "collaboratore-trice-in-luzern-degustation-welcome-desk-40-80-lindt-sprungli-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-luzern-degustation-welcome-desk-40-80-lindt-spruengli-luzern",
-          "collaboratore-trice-in-luzern-degustation-welcome-desk-40-80-lindt-sprungli-luzern"
-        ],
-        "en": [
-          "mitarbeiter-in-luzern-degustation-welcome-desk-40-80-lindt-spruengli-luzern"
-        ],
-        "fr": [
-          "mitarbeiter-in-luzern-degustation-welcome-desk-40-80-lindt-spruengli-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-09-02T13:53:38.404Z",
-      "salaryMin": 55600,
-      "salaryMax": 84800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55600,
-          "maxValue": 84800,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

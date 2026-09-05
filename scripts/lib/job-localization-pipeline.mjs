@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
+import { intFromEnv } from './int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -54,13 +55,13 @@ function getConfig() {
   return {
     enabled: String(process.env.JOBS_LOCALIZATION_LOCAL_ENABLED || '1') !== '0',
     memoryPath: path.resolve(process.env.JOBS_LOCALIZATION_MEMORY_PATH || DEFAULT_MEMORY_PATH),
-    memoryMaxEntries: Math.max(200, Math.min(100000, Number(process.env.JOBS_LOCALIZATION_MEMORY_MAX_ENTRIES || 30000))),
+    memoryMaxEntries: Math.max(200, Math.min(100000, intFromEnv('JOBS_LOCALIZATION_MEMORY_MAX_ENTRIES', 30000))),
     nllbEndpoint: normalizeSpace(process.env.JOBS_NLLB_ENDPOINT || ''),
     libreEndpoint: normalizeSpace(process.env.JOBS_LIBRETRANSLATE_ENDPOINT || process.env.LIBRETRANSLATE_URL || ''),
     libreApiKey: normalizeSpace(process.env.JOBS_LIBRETRANSLATE_API_KEY || ''),
     ollamaEndpoint: normalizeSpace(process.env.JOBS_OLLAMA_ENDPOINT || 'http://127.0.0.1:11434/api/generate'),
     ollamaModel: normalizeSpace(process.env.JOBS_OLLAMA_MODEL || ''),
-    requestTimeoutMs: Math.max(2000, Math.min(120000, Number(process.env.JOBS_LOCALIZATION_TIMEOUT_MS || 30000))),
+    requestTimeoutMs: Math.max(2000, Math.min(120000, intFromEnv('JOBS_LOCALIZATION_TIMEOUT_MS', 30000))),
   };
 }
 

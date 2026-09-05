@@ -33,6 +33,7 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const REPO_ROOT = resolve(__dirname, '..', '..');
 const AUDITOR = resolve(REPO_ROOT, 'scripts/audit-duplicate-meta-description.mjs');
@@ -76,7 +77,7 @@ process.stdout.write(JSON.stringify({
 `;
 
 describe('duplicate-meta-description — the sample must not retain its page', () => {
-  it(`keeps far less than one page per entry across ${PAGES} distinct descriptions`, () => {
+  it(`keeps far less than one page per entry across ${PAGES} distinct descriptions`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const out = execFileSync(process.execPath, ['--expose-gc', '--input-type=module', '-e', PROBE], {
       cwd: REPO_ROOT,
       encoding: 'utf8',

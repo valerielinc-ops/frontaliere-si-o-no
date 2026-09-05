@@ -101,9 +101,13 @@ async function fetchRuntimePage(url, urlPolicy, runtime) {
     headers: runtime.headers,
   });
   if (result.ok) return result;
+  // `HTTP 0` names the layer, not the cause. `politeFetch` now carries the
+  // transport kind, so a failure that never reached a status says dns/tls/
+  // timeout/reset instead of a zero nobody can act on (#7351).
   const reason = result.blockedByRobots
     ? 'blocked by robots.txt'
-    : result.policyBlocked ? (result.error || 'blocked by public URL policy') : `HTTP ${result.status}`;
+    : result.policyBlocked ? (result.error || 'blocked by public URL policy')
+      : result.status ? `HTTP ${result.status}` : `transport ${result.transportError || 'other'}`;
   const error = Object.assign(
     new Error(`Prospector fetch failed for ${result.url || url}: ${reason}`),
     {

@@ -5,6 +5,8 @@ import { describe, it, expect } from 'vitest';
 import {
   computeJobQualityScore,
   computeCrawlerQualityAggregate,
+  descriptionRestatesTitle,
+  evaluateJobQuality,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 // ─── Helper: minimal job factory ─────────────────────────────────────
@@ -199,5 +201,64 @@ describe('computeCrawlerQualityAggregate', () => {
     expect(result.breakdown).toHaveProperty('completeness');
     // Each dimension average should be roughly equal for identical jobs
     expect(result.breakdown.cleanliness).toBeGreaterThan(0);
+  });
+});
+
+
+describe('a description that only restates the title is not a description', () => {
+  // Every row below is copied verbatim from `data/jobs/by-crawler/` as
+  // published on 2026-09-05 (dataset 44187f6). They come from SIX unrelated
+  // crawler families — rexx, the IKEA feed, umantis, inrecruiting, ServiceNow —
+  // which is why the guard lives in the shared publish gate and not in the one
+  // adapter the ticket happened to name. `recruitingapp-2563` is the case that
+  // proves a character floor can never catch this class: its placeholder is 148
+  // chars, comfortably over the 120-char `minDescriptionChars`.
+  const published = [
+    {
+      crawler: 'kantonsspital-uri',
+      title: 'Unterassistenten Innere Medizin',
+      company: 'Kantonsspital Uri',
+      description: 'Unterassistenten Innere Medizin — Kantonsspital Uri',
+    },
+    {
+      crawler: 'ikea',
+      title: 'Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling)',
+      company: 'IKEA',
+      description: 'Lehrstelle Polydesigner:in 3D EFZ (01.08.2027-31.07.2031, Schwerpunkt Styling) — IKEA',
+    },
+    {
+      crawler: 'recruitingapp-2563',
+      title: 'Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich',
+      company: 'Switch Bewerbermanagement Stellen',
+      description: 'Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen',
+    },
+    {
+      crawler: 'a-group',
+      title: 'Booking & Revenue Specialist – Luxury Hospitality',
+      company: 'A-Group',
+      description: 'Booking & Revenue Specialist – Luxury Hospitality',
+    },
+  ];
+
+  it.each(published)('rejects the $crawler placeholder before it is published', (row) => {
+    expect(descriptionRestatesTitle(row)).toBe(true);
+    const verdict = evaluateJobQuality(row, { minQualityScore: 0, minDescriptionChars: 0 });
+    expect(verdict.accepted).toBe(false);
+    expect(verdict.reasons).toContain('description_restates_title');
+  });
+
+  it('lets a real source body through, however short', () => {
+    const row = {
+      title: 'Physiotherapeut:in (w/m/d) 70-100%',
+      company: 'Kantonsspital Uri',
+      description: 'DEINE AUFGABEN: • Du setzt deine fachlichen Stärken gezielt ein, um unsere Patient:innen zu behandeln und zu betreuen.',
+    };
+    expect(descriptionRestatesTitle(row)).toBe(false);
+    expect(evaluateJobQuality(row, { minQualityScore: 0, minDescriptionChars: 0 }).accepted).toBe(true);
+  });
+
+  it('does not fire on an empty title or an empty description', () => {
+    expect(descriptionRestatesTitle({ title: '', company: 'X', description: 'X' })).toBe(false);
+    expect(descriptionRestatesTitle({ title: 'X', company: 'X', description: '' })).toBe(false);
   });
 });

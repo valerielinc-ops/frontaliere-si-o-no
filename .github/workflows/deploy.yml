@@ -567,12 +567,17 @@ jobs:
           peak=''
           peak_anon=''
           avail=''
+          headroom=''
           swap_free=''
           if [ -f /tmp/build-memory-peak.json ]; then
             breach=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.breach??""))' || true)
             peak=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.peakRssMb??""))' || true)
             peak_anon=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.peakAnonMb??""))' || true)
             avail=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minHostAvailMb??""))' || true)
+            # L'headroom anonimo (MemAvailable + evizione accreditata) e' la
+            # quantita' che il pavimento host confronta davvero dal 2026-09-05
+            # (#5899): la storicizziamo perche' e' quella su cui si ricalibra.
+            headroom=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minHostHeadroomMb??""))' || true)
             swap_free=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minSwapFreeMb??""))' || true)
             cat /tmp/build-memory-peak.json
           else
@@ -583,6 +588,7 @@ jobs:
             echo "peak_rss_mb=$peak"
             echo "peak_anon_mb=$peak_anon"
             echo "min_host_avail_mb=$avail"
+            echo "min_host_headroom_mb=$headroom"
             echo "min_swap_free_mb=$swap_free"
           } >> "$GITHUB_OUTPUT"
 
@@ -689,6 +695,7 @@ jobs:
           ROW_PEAK_ANON: ${{ steps.memguard.outputs.peak_anon_mb }}
           ROW_PEAK_RSS: ${{ steps.memguard.outputs.peak_rss_mb }}
           ROW_AVAIL: ${{ steps.memguard.outputs.min_host_avail_mb }}
+          ROW_HEADROOM: ${{ steps.memguard.outputs.min_host_headroom_mb }}
           ROW_SWAP: ${{ steps.memguard.outputs.min_swap_free_mb }}
           ROW_WALL: ${{ steps.build_step.outputs.wall_seconds }}
         run: |
@@ -697,9 +704,11 @@ jobs:
             echo "[build-history] nessun referto memguard (host-kill o guard mai armato), niente da appendere"
             exit 0
           fi
-          mkdir -p data/build-history
+          # Append + commit + push-con-rebase stanno in uno script condiviso
+          # da quando "Append post-build phase timings row" (in fondo al job,
+          # #7301) e' il secondo produttore di righe: il retry ha un solo
+          # posto in cui cambiare.
           node -e '
-            const fs = require("fs");
             const num = (v) => (v === undefined || v === "" ? null : Number(v));
             const row = {
               ts: new Date().toISOString(),
@@ -710,37 +719,14 @@ jobs:
               peak_anon_mb: num(process.env.ROW_PEAK_ANON),
               peak_rss_mb: num(process.env.ROW_PEAK_RSS),
               min_host_avail_mb: num(process.env.ROW_AVAIL),
+              min_host_headroom_mb: num(process.env.ROW_HEADROOM),
               min_swap_free_mb: num(process.env.ROW_SWAP),
               wall_seconds: num(process.env.ROW_WALL),
             };
-            fs.appendFileSync("data/build-history/memory-peaks.jsonl", JSON.stringify(row) + "\n");
-          '
-          git config user.name "build-history-bot"
-          git config user.email "build-history-bot@frontaliereticino.ch"
-          git add data/build-history/memory-peaks.jsonl
-          git commit -m "chore(build-history): append ${ROW_LOCALE} leg run ${ROW_RUN_ID}"
-          bash scripts/lib/configure-main-push-auth.sh
-          # Stesso retry-con-rebase di "Commit dist-size-history row" sopra
-          # (5 tentativi, backoff 5/10/15/25/40s): 4 leg concorrenti + gli
-          # altri produttori su main (crawlers/thin-promotions/fuel/weather)
-          # regolarmente out-race una finestra piu' corta.
-          for i in 1 2 3 4 5; do
-            if git -c rebase.autoStash=true -c rebase.backend=merge \
-                pull --rebase origin main \
-                && git push origin HEAD:main; then
-              echo "[build-history] pushed on attempt $i"
-              exit 0
-            fi
-            git rebase --abort 2>/dev/null || true
-            case "$i" in
-              1) sleep 5 ;;
-              2) sleep 10 ;;
-              3) sleep 15 ;;
-              4) sleep 25 ;;
-              5) sleep 40 ;;
-            esac
-          done
-          echo "::warning::[build-history] push failed after 5 attempts — this leg's memory-peak row will not be in history"
+            process.stdout.write(JSON.stringify(row));
+          ' | HISTORY_LABEL=build-history \
+              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} leg run ${ROW_RUN_ID}" \
+              bash scripts/lib/append-build-history-row.sh
 
       # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
       # Push each oversized job-board section (ticino/svizzera/zurigo) to its
@@ -889,6 +875,13 @@ jobs:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
+          # Wall-time della fase (#7301): `SECONDS` riparte da 0 a ogni step (ogni
+          # `run:` e' una bash nuova) e il trap EXIT lo emette su OGNI uscita —
+          # inclusa quella fatale sull'ordering qui sotto — cosi' la storia non
+          # perde la fase proprio quando e' andata storta. Stesso pattern dello
+          # step `Build` (`wall_seconds`), letto da "Append post-build phase
+          # timings row" in fondo al job.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           # Each section pushes to its OWN shard repo — one section's push
           # failure (e.g. a corrupted remote clone) must never skip the
           # others. bp_run_bounded records each failing section instead of
@@ -1024,6 +1017,7 @@ jobs:
       # step `if:`) since each section has its own repo variable.
       - name: Pack section shard dist (tar) for post-deploy validation
         if: matrix.locale == 'it'
+        id: pack-section-shards-it
         continue-on-error: true
         env:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
@@ -1055,6 +1049,9 @@ jobs:
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           set -uo pipefail
+          # Wall-time della fase (#7301) — vedi lo step di push sopra per il
+          # perche' del trap EXIT invece di un echo finale.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           # Bounded-parallel (cap 4, mirrors the push step above): tar +
           # file-count-verify is CPU/IO-bound and independent per section
           # (each reads/writes its own $RUNNER_TEMP/<section>-* paths, no
@@ -1719,6 +1716,13 @@ jobs:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
+          # Wall-time della fase (#7301): `SECONDS` riparte da 0 a ogni step (ogni
+          # `run:` e' una bash nuova) e il trap EXIT lo emette su OGNI uscita —
+          # inclusa quella fatale sull'ordering qui sotto — cosi' la storia non
+          # perde la fase proprio quando e' andata storta. Stesso pattern dello
+          # step `Build` (`wall_seconds`), letto da "Append post-build phase
+          # timings row" in fondo al job.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           loc="${{ matrix.locale }}"
           # Each section pushes to its OWN shard repo — one section's push
           # failure (e.g. a corrupted remote clone) must never skip the
@@ -1814,6 +1818,7 @@ jobs:
       # variable.
       - name: Pack section shard dist (tar) for post-deploy validation
         if: matrix.locale != 'it'
+        id: pack-section-shards-nonit
         continue-on-error: true
         env:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
@@ -1845,6 +1850,9 @@ jobs:
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           set -uo pipefail
+          # Wall-time della fase (#7301) — vedi lo step di push sopra per il
+          # perche' del trap EXIT invece di un echo finale.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           loc="${{ matrix.locale }}"
           # Bounded-parallel (cap 4) — see the IT leg's "Pack section shard
           # dist" step above for the full rationale. Same shared
@@ -2104,12 +2112,16 @@ jobs:
       # validate-dist side untars it straight into dist/ (no extra cp copy).
       - name: Pack locale shard dist (tar) for post-deploy validation
         if: matrix.locale != 'it'
+        id: pack-locale-shard
         # continue-on-error for the same reason as the upload+push steps: a pack
         # failure must degrade to validate-dist's git-clone fallback, never flip
         # build-locale.result→failure (which would block the Pages publish).
         continue-on-error: true
         run: |
           set -euo pipefail
+          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
+          # per il perche' del trap EXIT invece di un echo finale.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           members=( "${{ matrix.locale }}" )
           # dist/<loc>.html (= the /{loc} homepage) is normally present; guard so
           # a future strip that drops it can't make tar exit non-zero. NB: use a
@@ -2283,7 +2295,12 @@ jobs:
           SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
           SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
-        run: bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+        run: |
+          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
+          # per il perche' del trap EXIT. Il trap non altera l'exit code dello
+          # script, che resta quello dello step.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
 
       # ── Purge the ORIGIN key, because that is where the bytes just changed ─
       #
@@ -2571,6 +2588,9 @@ jobs:
             - **Picco del footprint anonimo (RSS+VmSwap):** ${{ steps.memguard.outputs.peak_anon_mb }} MB
             - **Picco RSS del processo di build:** ${{ steps.memguard.outputs.peak_rss_mb }} MB
             - **MemAvailable minimo dell'host:** ${{ steps.memguard.outputs.min_host_avail_mb }} MB
+            - **Headroom anonimo minimo dell'host** (MemAvailable + evizione
+              accreditata, è la quantità che il pavimento host confronta):
+              ${{ steps.memguard.outputs.min_host_headroom_mb }} MB
             - **SwapFree minimo dell'host:** ${{ steps.memguard.outputs.min_swap_free_mb }} MB
             - Il build è stato fermato di proposito **prima** che l'host lo uccidesse.
               Un kill dell'host lascia lo step su `in_progress` senza exit code, e in
@@ -2586,8 +2606,10 @@ jobs:
             - Le soglie e la loro derivazione stanno in
               `build-plugins/shared/buildMemoryGuard.ts`. **Non alzarle**: il tetto è
               una frazione della capacità anonima dell'host (RAM+swap, credito cappato)
-              confrontata col footprint RSS+VmSwap del processo, e i pavimenti su
-              MemAvailable/SwapFree sono l'ultima linea prima del kill opaco. Se questa
+              confrontata col footprint RSS+VmSwap del processo, il pavimento host
+              guarda l'headroom anonimo (MemAvailable + evizione accreditata, non la
+              sola RAM libera — #5899) e quello su SwapFree presidia lo spazio di
+              evizione: insieme sono l'ultima linea prima del kill opaco. Se questa
               issue è aperta, la strada è ridurre la retention (vedi i checkpoint
               `[mem]` di jobsSeoPagesPlugin), non allargare le soglie.
 
@@ -2620,6 +2642,74 @@ jobs:
             --title "CI Failure (build): ${{ github.workflow }}" \
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # Wall-time delle fasi POST-build del leg (#7301). Non possono essere
+      # chiavi della riga di "Append build memory history row": quello step sta
+      # a meta' job, e push shard + pack tar finiscono molto dopo — sul run
+      # 33833300860 valgono 23 min + 5 min dei 130 min totali del leg IT. Senza
+      # questa riga l'unica fonte su quelle fasi e' l'API Actions run-per-run,
+      # soggetta a retention e ai run cancellati, quindi nessuna ottimizzazione
+      # del leg IT ha una misura prima/dopo verificabile dal repo.
+      #
+      # ULTIMO step del job, non subito dopo il tar: e' strumentazione, e uno
+      # step con fino a ~95s di backoff non deve mai stare sul percorso critico
+      # del publish (stessa ragione per cui la riga di memoria sta dopo la CDN
+      # push, vedi il commento di quello step).
+      #
+      # Riga SEPARATA nello stesso JSONL, non uno schema unico: le due righe
+      # hanno produttori e momenti diversi, e le 294 righe gia' committate non
+      # avranno mai queste chiavi. Chi legge il file discrimina sulla presenza
+      # della chiave.
+      - name: Append post-build phase timings row
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          ROW_LOCALE: ${{ matrix.locale }}
+          ROW_RUN_ID: ${{ github.run_id }}
+          ROW_SHA: ${{ github.sha }}
+          # Le due coppie IT / non-IT sono step distinti con `if:` opposti:
+          # in un dato leg esattamente una delle due e' valorizzata. Passarle
+          # entrambe ed effettuare la scelta in node evita il ternario
+          # `A && B || C` di GitHub Actions, che su A vuoto cade sul ramo
+          # sbagliato invece di restare vuoto.
+          ROW_PUSH_SHARDS_IT: ${{ steps.push-section-shards-it.outputs.wall_seconds }}
+          ROW_PUSH_SHARDS_NONIT: ${{ steps.push-section-shards-nonit.outputs.wall_seconds }}
+          ROW_PACK_TAR_IT: ${{ steps.pack-section-shards-it.outputs.wall_seconds }}
+          ROW_PACK_TAR_NONIT: ${{ steps.pack-section-shards-nonit.outputs.wall_seconds }}
+          # Le due fasi post-build dello shard di LOCALE: girano solo sui leg
+          # non-IT (l'apex IT pubblica via Pages), quindi sono chiavi proprie e
+          # non un `pick` sopra le due di sezione. Stessa classe di buco —
+          # fase post-build senza wall-time committato — quindi stesso fix.
+          ROW_PUSH_LOCALE_SHARD: ${{ steps.push-shard.outputs.wall_seconds }}
+          ROW_PACK_LOCALE_TAR: ${{ steps.pack-locale-shard.outputs.wall_seconds }}
+        run: |
+          set -o pipefail
+          node -e '
+            const pick = (...names) => {
+              const v = names.map((n) => process.env[n]).find((x) => x);
+              return v === undefined ? null : Number(v);
+            };
+            const phases = {
+              push_shards_seconds: pick("ROW_PUSH_SHARDS_IT", "ROW_PUSH_SHARDS_NONIT"),
+              pack_tar_seconds: pick("ROW_PACK_TAR_IT", "ROW_PACK_TAR_NONIT"),
+              push_locale_shard_seconds: pick("ROW_PUSH_LOCALE_SHARD"),
+              pack_locale_tar_seconds: pick("ROW_PACK_LOCALE_TAR"),
+            };
+            // Tutte assenti = nessuna fase post-build ha girato su questo leg
+            // (shard non provisionati, o job morto prima). Riga vuota = rumore
+            // nella storia: meglio niente.
+            if (Object.values(phases).every((v) => v === null)) process.exit(0);
+            process.stdout.write(JSON.stringify({
+              ts: new Date().toISOString(),
+              locale: process.env.ROW_LOCALE,
+              run_id: process.env.ROW_RUN_ID,
+              sha: process.env.ROW_SHA,
+              ...phases,
+            }));
+          ' | HISTORY_LABEL=build-history-phases \
+              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} post-build phase timings run ${ROW_RUN_ID}" \
+              bash scripts/lib/append-build-history-row.sh
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant

@@ -12,9 +12,10 @@
  * browser takes, and the alternative (deny on error) would silently zero out
  * discovery whenever a CDN hiccups.
  */
+import { fetch as undiciFetch } from 'undici';
 import { UA, HOST_DELAY_MS, FETCH_TIMEOUT_MS } from './config.mjs';
 import { normalizeHost } from './registrable.mjs';
-import { RETRYABLE_STATUS } from '../transient-fetch.mjs';
+import { RETRYABLE_STATUS, transportErrorKind } from '../transient-fetch.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirectsWithUrl,
@@ -280,6 +281,7 @@ export async function politeFetch(url, opts = {}) {
           url: error instanceof RobotsDeniedError ? error.url : url,
           body: '',
           host,
+          transportError: transportErrorKind(error),
           ...(error instanceof RobotsDeniedError ? { blockedByRobots: true } : {}),
           ...(isPublicFetchPolicyError(error)
             ? { policyBlocked: true, error: String(error?.message || error) }
@@ -306,6 +308,7 @@ export async function politeFetch(url, opts = {}) {
       url,
       body: '',
       host,
+      transportError: transportErrorKind(error),
       ...(isPublicFetchPolicyError(error)
         ? { policyBlocked: true, error: String(error?.message || error) }
         : {}),
@@ -351,8 +354,20 @@ async function fetchOnce(url, opts) {
       clearTimeout(timer);
     }
   };
+  // undici's own `fetch`, not the global one, because the dispatcher that
+  // `createSpecUrlPolicy` hands us is an `Agent` from the npm `undici` copy.
+  // Node's BUILT-IN fetch decompresses a response inside its own bundled
+  // undici; give it a dispatcher from a different copy and that step is
+  // skipped without a word — `res.text()` then returns the raw gzip bytes and
+  // every extractor downstream reads them as an empty page. Measured on this
+  // machine (Node 26.4.0, undici 7.24.5) against
+  // stellen.ksuri.ch/...-de-j34.html: global fetch + npm Agent -> 104'169
+  // bytes starting `1f 8b 08` (gzip); global fetch with no dispatcher ->
+  // 163'938 chars of HTML; undici fetch + the same npm Agent -> 163'938 chars
+  // of HTML. Same-copy is the whole fix, and `scripts/resolve-company-website.mjs`
+  // already imports `fetch` from undici for exactly this reason.
   const fetchImpl = (hopUrl, init = {}) => withNetworkTimeout(
-    () => (opts.fetchImpl || fetch)(hopUrl, { ...init, signal }),
+    () => (opts.fetchImpl || undiciFetch)(hopUrl, { ...init, signal }),
   );
   const { response: res, effectiveUrl } = await fetchFollowingValidatedRedirectsWithUrl(url, {
     fetchImpl,

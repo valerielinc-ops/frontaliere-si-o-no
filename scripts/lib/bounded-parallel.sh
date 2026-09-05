@@ -64,6 +64,17 @@
 #     recorded, one item per line, in `$BP_FAILED_FILE` when that variable is
 #     set and non-empty. `bp_run_bounded` returns 1 if any item failed, 0
 #     otherwise.
+#   - Every item's wall time is attributed to it: `bp_run_bounded` prints one
+#     `[shard-timing] <item> <seconds>` line per item as it finishes, plus a
+#     `[shard-timing-summary]` recap (fan-out wall, summed work, slowest
+#     first) after the last one. Issue #7302: with a sliding window at cap 4
+#     the STEP's wall is only the tail of the window, so a step that measured
+#     23 min on run 33833300860, 36 min on 33820358352 and 43 min on
+#     33843039530 said nothing about WHICH section moved it — the per-section
+#     durations in this file's own header had to be reconstructed by hand from
+#     log timestamps, and only for a run whose batches were still readable.
+#     Measurement only: the cap (#4734) and the longest-first order (#5130)
+#     are untouched, and the worker is called exactly as before.
 #   - `bp_section_order <dist_dir> <locale>` prints EXACTLY the sections
 #     `deploy-shard-sections.sh` prints — same set, no drops, no dupes — only
 #     reordered. That equality is asserted, and a mismatch is a HARD ERROR
@@ -90,11 +101,18 @@ bp_run_bounded() {
   local max="$1" fn="$2"
   shift 2
   local failed_file="${BP_FAILED_FILE:-}"
-  local item
+  local item timing_file fanout_start wall work ran
 
   if [ -n "$failed_file" ]; then
     : > "$failed_file"
   fi
+
+  # Per-item durations land here (one short line per worker, appended under
+  # PIPE_BUF so concurrent workers cannot interleave — same argument as
+  # $BP_FAILED_FILE). Unlike that one this file is private to the call: it
+  # backs the recap below and nothing outside reads it.
+  timing_file="$(mktemp "${RUNNER_TEMP:-/tmp}/bp-timings-XXXXXX")" || timing_file=""
+  fanout_start="$SECONDS"
 
   for item in "$@"; do
     bp_wait_slot "$max"
@@ -108,8 +126,17 @@ bp_run_bounded() {
     # post-deploy-validate-dist.yml's `spawn_capped`).
     (
       set +e
+      bp_t0=$(date +%s)
       "$fn" "$item"
       rc=$?
+      # Emitted by the driver that CALLS the worker, so "item ran without a
+      # timing line" is not representable — including for a worker that
+      # failed, which is exactly the one whose cost is worth knowing.
+      bp_dt=$(( $(date +%s) - bp_t0 ))
+      printf '[shard-timing] %s %s\n' "$item" "$bp_dt"
+      if [ -n "$timing_file" ]; then
+        printf '%s\t%s\n' "$bp_dt" "$item" >> "$timing_file"
+      fi
       if [ "$rc" -ne 0 ] && [ -n "$failed_file" ]; then
         # One short line written with a single append-mode printf: under
         # PIPE_BUF this is atomic, so concurrent workers cannot interleave.
@@ -119,6 +146,20 @@ bp_run_bounded() {
     ) &
   done
   wait
+
+  # Recap on a DIFFERENT prefix: `grep '[shard-timing]'` must stay one line
+  # per item. wall vs work is the whole point — work/wall > 1 is the window
+  # doing its job, and the top line names the section that owns the tail.
+  if [ -n "$timing_file" ] && [ -s "$timing_file" ]; then
+    wall=$(( SECONDS - fanout_start ))
+    work="$(awk -F'\t' '{ s += $1 } END { print s + 0 }' "$timing_file")"
+    ran="$(wc -l < "$timing_file" | tr -d ' ')"
+    printf '[shard-timing-summary] fan-out wall %ss for %ss of work across %s items (cap %s) — slowest first:\n' \
+      "$wall" "$work" "$ran" "$max"
+    sort -k1,1nr -k2,2 "$timing_file" \
+      | awk -F'\t' '{ printf "[shard-timing-summary]   %s %ss\n", $2, $1 }'
+  fi
+  if [ -n "$timing_file" ]; then rm -f "$timing_file"; fi
 
   if [ -n "$failed_file" ] && [ -s "$failed_file" ]; then
     return 1
