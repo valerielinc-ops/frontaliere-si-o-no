@@ -1,18 +1,19 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-09-05T12:58:35.932Z",
-  "total": 10,
+  "generatedAt": "2026-09-05T23:00:38.732Z",
+  "total": 9,
   "discovered": null,
-  "written": 10,
+  "written": 9,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4911,
-  "avgDurationMs": 4911,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5590,
+  "avgDurationMs": 5590,
   "durationHistory": [
-    4911
+    5590
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +30,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/2-apprentis-employes-hf-de-commerce-cfc",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.104Z",
+      "crawledAt": "2026-09-05T23:00:31.567Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +67,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/chef-de-lunite-facturation-hf-a-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.124Z",
+      "crawledAt": "2026-09-05T23:00:31.586Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +104,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/cheffe-de-clinique-hf-aux-permanences-medicales-de-monthey-et-vevey-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.127Z",
+      "crawledAt": "2026-09-05T23:00:31.589Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -140,7 +141,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-medical-hf-en-urologie-ambulatoire-a-60-80",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.129Z",
+      "crawledAt": "2026-09-05T23:00:31.593Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -177,7 +178,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/atsso-ou-aide-de-salle-doperation-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.132Z",
+      "crawledAt": "2026-09-05T23:00:31.598Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -214,7 +215,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-en-sante-communautaire-assc-hf-en-chirurgie-a-60",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.134Z",
+      "crawledAt": "2026-09-05T23:00:31.601Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -251,7 +252,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/specialiste-en-activite-physique-adaptee-hf-a-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.136Z",
+      "crawledAt": "2026-09-05T23:00:31.604Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -288,7 +289,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/physiotherapeute-hf-a-60-80",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.138Z",
+      "crawledAt": "2026-09-05T23:00:31.608Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -325,7 +326,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-et-sante-communautaire-assc-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:58:33.140Z",
+      "crawledAt": "2026-09-05T23:00:31.614Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -350,8 +351,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hrc-cb661a105a08",
       "slug": "fisioterapia-100-m-f-hopital-riviera-chablais-hrc-rennaz",
@@ -392,5 +392,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
