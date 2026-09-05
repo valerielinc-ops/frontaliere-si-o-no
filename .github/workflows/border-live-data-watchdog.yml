@@ -71,22 +71,6 @@ jobs:
           STALE_HOURS: '6'
         run: npx --no-install tsx scripts/check-border-data-health.mjs
 
-      # Il push su `main` qui sotto ha bisogno di una credenziale che bypassi il
-      # ruleset: l'ambient `GITHUB_TOKEN` viene rifiutato con GH013, quindi
-      # `contents: write` da solo NON basta. Stesso pattern di
-      # campaign-goal-check.yml / monitor-gsc-seo.yml: App token come identita'
-      # primaria, PAT come fallback, e `git-push-with-retry.sh` fail-closed su
-      # quelle env. `continue-on-error` perche' il mint non deve far fallire il
-      # watchdog: senza credenziale il push esce col suo `--soft-fail-exhausted`.
-      - name: Mint App token (primary identity, PAT fallback)
-        if: always() && steps.health.conclusion != 'skipped'
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
       # Persist the per-webcam state regardless of the health verdict: a
       # DEGRADED run is exactly when the transitions are most interesting, and
       # the file is what makes the next run's recovery alert possible at all.
