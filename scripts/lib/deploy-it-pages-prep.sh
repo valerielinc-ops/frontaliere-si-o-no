@@ -160,11 +160,17 @@ _publish_cdn_r2() {
     # --retry: a bare Recv-failure/Connection-reset on this single-shot download
     # (transient network blip, e.g. #run-28599750786) previously failed the
     # WHOLE deploy prep step (no fallback) even though nothing else was wrong.
+    # #7503: `unzip` exits 1 for NON-fatal warnings with the member extracted
+    # anyway (>= 2 are the real errors), so gating the install on rc == 0
+    # threw away a working binary and skipped the whole R2 sync. The binary on
+    # disk is the contract, not unzip's exit code.
     if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors \
-         https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip" \
-       && unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin"; then
-      chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null || true
-      export PATH="$rtmp/rclone-bin:$PATH"
+         https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip"; then
+      unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin" || true
+      if [ -f "$rtmp/rclone-bin/rclone" ]; then
+        chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null || true
+        export PATH="$rtmp/rclone-bin:$PATH"
+      fi
     fi
     command -v rclone >/dev/null 2>&1 || { echo "::error::CDN_TARGET=r2 but rclone install failed — cannot sync to R2"; return 0; }
   fi

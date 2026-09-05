@@ -74,7 +74,16 @@ function downloadAndExtract() {
   const dir = mkdtempSync(join(tmpdir(), 'avam-'));
   const xlsxPath = join(dir, 'avam.xlsx');
   execFileSync('curl', ['-sL', '-o', xlsxPath, AVAM_URL]);
-  execFileSync('unzip', ['-q', xlsxPath, '-d', dir]);
+  // #7503: `unzip` exits 1 for NON-fatal warnings with the members extracted
+  // anyway (>= 2 are the real errors), and execFileSync throws on any of them.
+  // Il contratto e' la parte estratta, non l'exit code: se il warning avesse
+  // davvero perso un membro, loadSharedStrings() muore su ENOENT poco sotto.
+  try {
+    execFileSync('unzip', ['-q', xlsxPath, '-d', dir]);
+  } catch (err) {
+    if (err?.status >= 2 || err?.status === undefined) throw err;
+    console.warn(`[avam] unzip reported warnings (exit ${err.status}) — continuing`);
+  }
   return dir;
 }
 

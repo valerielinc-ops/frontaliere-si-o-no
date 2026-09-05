@@ -153,6 +153,46 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(/\n\s*(continue|exit)\b/.exec(nonExpiry)?.[1]).toBe('exit');
   });
 
+  it('#7503 — a unzip WARNING (exit 1) does not discard a valid artifact', () => {
+    // `unzip` exits 1 when it extracted everything but had a warning to
+    // report (extra bytes before the central directory, an odd attribute),
+    // and reserves >= 2 for the real errors. Testing `-ne 0` walked back onto
+    // an OLDER deploy for a benign warning — the same silent-wrong-answer
+    // class the download branch is deliberately fatal about.
+    const code = codeOnly(ACTION_PATH);
+    expect(code).not.toMatch(/\[\s*"\$uzrc"\s+-ne\s+0\s*\]/);
+    expect(code).toMatch(/\[\s*"\$uzrc"\s+-eq\s+1\s*\]/);
+    expect(code).toMatch(/\[\s*"\$uzrc"\s+-ge\s+2\s*\]/);
+    // Only the >= 2 branch may walk back, and the artifact.tar contract check
+    // must survive as the thing that catches a warning that DID lose the file.
+    const warnBranch = code.slice(code.indexOf('-eq 1'), code.indexOf('-ge 2'));
+    expect(warnBranch).not.toMatch(/\n\s*continue\b/);
+    expect(code).toMatch(/if \[ ! -f "\$OUTDIR\/artifact\.tar" \]/);
+  });
+
+  it('#7503 — no shell gates an extraction on `unzip` exiting 0', () => {
+    // Every call must capture the exit code (`|| uzrc=$?`, `|| true`) and
+    // decide on it, or on the extracted file. A bare call under `set -e`, and
+    // one chained with `&&` into the success path, both read a warning as a
+    // failed extraction.
+    const files = [
+      ...allGithubShellFiles(),
+      'scripts/lib/deploy-it-pages-prep.sh',
+      'scripts/lib/upload-cdn-file.sh',
+    ];
+    const offenders: string[] = [];
+    for (const f of files) {
+      for (const line of codeOnly(f).split('\n')) {
+        // Command position only (line start, `&&`, `||`, `;`, subshell) —
+        // the word also appears inside log messages. `unzip -p`/`-Z` only
+        // read the archive; they extract nothing.
+        if (!/(?:^|&&|\|\||;|\()\s*unzip\s+-(?![pZ]\b)/.test(line)) continue;
+        if (!line.includes('||')) offenders.push(`${f}: ${line.trim()}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('#7397 — the chosen run is logged with its created_at', () => {
     expect(actionSource).toContain('created_at');
     expect(actionSource).toMatch(/Using deploy run \$cand \(created_at \$created/);

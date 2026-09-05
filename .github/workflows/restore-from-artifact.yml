@@ -47,7 +47,20 @@ jobs:
             exit 1
           fi
           gh api repos/${{ github.repository }}/actions/artifacts/${ARTIFACT_ID}/zip > _restore/artifact.zip
-          cd _restore && unzip -q artifact.zip
+          # #7503, same class as the composite action: `unzip` exits 1 for
+          # NON-fatal warnings with the members extracted anyway, and reserves
+          # >= 2 for real errors. Under `set -e` a bare call turned a benign
+          # warning on a >1 GB archive into a dead restore. The upload step
+          # below has `if-no-files-found: error` on `_restore/artifact.tar`,
+          # so a warning that really lost the file still fails the job.
+          uzrc=0
+          (cd _restore && unzip -q artifact.zip) || uzrc=$?
+          if [ "$uzrc" -eq 1 ]; then
+            echo "::warning::unzip of artifact ${ARTIFACT_ID} reported warnings (exit 1) — proceeding; the artifact.tar upload below is the contract"
+          elif [ "$uzrc" -ge 2 ]; then
+            echo "::error::unzip of artifact ${ARTIFACT_ID} failed with exit ${uzrc}"
+            exit 1
+          fi
 
       - name: Re-upload as fresh github-pages artifact
         uses: actions/upload-artifact@v7
