@@ -5512,6 +5512,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-vaud-zone.title': 'Vaud canton transport subscriptions: zones and rates',
     'blog.article.abbonamenti-trasporti-vaud-zone.excerpt': 'Monthly, annual, half-price and General Subscriptions in Swiss public transport. How fare zones and student discounts work.',
     'blog.article.abbonamenti-trasporti-vaud-zone.imageAlt': 'Swiss public transport station with tram, passengers and ticket vending machines',
+    'blog.article.franco-euro-analisi-cambio-dati.title': 'Franco-euro: what the data says',
+    'blog.article.franco-euro-analisi-cambio-dati.excerpt': 'Swiss inflation 0.4%, Eurozone 2.9%: economic divergence between SNB and ECB exchange rate guide. Implications for border workers, businesses, and families.',
+    'blog.article.franco-euro-analisi-cambio-dati.imageAlt': 'Swiss franc and euro banknotes with Lake Lugano sunset view',
 };
 
 export default blogMetaChEn;

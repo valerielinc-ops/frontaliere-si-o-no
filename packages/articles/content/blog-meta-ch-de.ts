@@ -5512,6 +5512,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-vaud-zone.title': 'Verkehrstickets Kanton Waadt: Zonen und Tarife',
     'blog.article.abbonamenti-trasporti-vaud-zone.excerpt': 'Monats-, Jahres-, Halbtax- und General Abonnement-Abonnements im öffentlichen Verkehr der Schweiz. Wie Tarifzonen und Studentenrabatte funktionieren.',
     'blog.article.abbonamenti-trasporti-vaud-zone.imageAlt': 'Schweizer Nahverkehrsstation mit Straßenbahn, Fahrgästen und Fahrkartautomaten',
+    'blog.article.franco-euro-analisi-cambio-dati.title': 'Franco-Euro: Was die Daten sagen',
+    'blog.article.franco-euro-analisi-cambio-dati.excerpt': 'Inflation Schweiz 0,4%, Eurozone 2,9%: Wirtschaftliche Divergenz zwischen SNB und EZB führt den Wechselkurs an. Auswirkungen für Grenzgänger, Unternehmen, Familien.',
+    'blog.article.franco-euro-analisi-cambio-dati.imageAlt': 'Schweizer Franken und Euro Banknoten mit Lugano-See Sonnenuntergang Blick',
 };
 
 export default blogMetaChDe;

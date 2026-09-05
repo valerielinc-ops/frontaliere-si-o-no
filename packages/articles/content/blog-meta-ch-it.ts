@@ -5512,6 +5512,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-vaud-zone.title': 'Abbonamenti trasporti canton Vaud: zone e tariffe',
     'blog.article.abbonamenti-trasporti-vaud-zone.excerpt': 'Abbonamenti mensili, annuali, metà-prezzo e Generale Abonnement nei trasporti pubblici svizzeri. Come funzionano le zone tariffarie e gli sconti per studenti.',
     'blog.article.abbonamenti-trasporti-vaud-zone.imageAlt': 'Stazione di trasporto pubblico svizzero con tram, passeggeri e distributori automatici di biglietti',
+    'blog.article.franco-euro-analisi-cambio-dati.title': 'Franco-euro: cosa dicono i dati',
+    'blog.article.franco-euro-analisi-cambio-dati.excerpt': 'Inflazione Svizzera 0,4%, Eurozona 2,9%: divergenza economica tra BNS e BCE guida cambio. Implicazioni per frontalieri, imprese, famiglie.',
+    'blog.article.franco-euro-analisi-cambio-dati.imageAlt': 'Banconote di franco svizzero ed euro con vista sul lago Lugano al tramonto',
 };
 
 export default blogMetaChIt;
