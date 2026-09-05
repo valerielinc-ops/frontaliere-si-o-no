@@ -27,6 +27,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, join, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatString } from './lib/flat-string.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -84,7 +85,10 @@ function extractUrlsFromSitemap(xml) {
   const urls = new Set();
   let m;
   while ((m = LOC_RX.exec(xml)) !== null) {
-    const norm = normalizePath(m[1]);
+    // flatString: la capture affetta DENTRO l'intero XML dello shard, e
+    // `allUrls` sopravvive a tutti gli shard del run — vedi
+    // scripts/lib/flat-string.mjs (issue #7419).
+    const norm = flatString(normalizePath(m[1]));
     if (norm) urls.add(norm);
   }
   return urls;
