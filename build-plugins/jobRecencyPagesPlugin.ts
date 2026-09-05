@@ -54,15 +54,11 @@ import { renderRecencyHubProse } from './shared/jobListingProse';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { windowDaysForVariant } from './jobRecencyLanding';
 import { buildDayStampIso } from './shared/buildDayStamp';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
-const SECTION_BY_LOCALE: Record<JobLandingLocale, string> = {
-  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
-  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
-  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
-  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
-};
+const SECTION_BY_LOCALE: Record<JobLandingLocale, string> = SECTION_LEGACY_TI;
 
 const LOCALE_PREFIX: Record<JobLandingLocale, string> = {
   it: '',

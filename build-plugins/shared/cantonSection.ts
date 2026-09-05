@@ -18,6 +18,16 @@ export const AGGREGATE_KEY = CORE_AGGREGATE_KEY;
  */
 export const SECTION_LEGACY_TI: Record<CantonLocale, string> = CORE_SECTION_LEGACY_TI;
 
+/** `/cerca-lavoro-ticino`, `/en/find-jobs-ticino`, … — the same table with the SPA locale prefix, no trailing slash. */
+export const SECTION_LEGACY_TI_ROOT: Record<CantonLocale, string> = Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI).map(([loc, segment]) => [loc, `${loc === 'it' ? '' : `/${loc}`}/${segment}`]),
+) as Record<CantonLocale, string>;
+
+/** The same roots with the trailing slash the emitters build hrefs from. */
+export const SECTION_LEGACY_TI_PATH: Record<CantonLocale, string> = Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI_ROOT).map(([loc, root]) => [loc, `${root}/`]),
+) as Record<CantonLocale, string>;
+
 // The resolver logic itself lives in the runtime-agnostic single source of
 // truth `cantonResolvers.mjs`, so the raw-`node` migration script
 // `scripts/migrate-all-known-job-slugs-canton-aware.mjs` shares the EXACT same

@@ -25,6 +25,7 @@ import { loadArticleRedirects, assertNoCrossSourceChains, assertNoInternalChains
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
@@ -477,12 +478,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  for (const job of jobs) {
  const canton = resolveJobCanton(job);
  if (canton === 'TI') continue;
- const legacyTI: Record<CantonLocale, string> = {
- it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
- en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
- de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
- fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
- };
+ const legacyTI: Record<CantonLocale, string> = SECTION_LEGACY_TI;
  for (const locale of locales) {
  const slug = job.slugByLocale?.[locale] || job.slug;
  if (!slug) continue;
