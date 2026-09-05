@@ -5509,6 +5509,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-vaud.title': 'AVS et prestations complémentaires : Vaud',
     'blog.article.avs-prestazioni-complementari-vaud.excerpt': 'Comment fonctionne le premier pilier dans le canton de Vaud. Guide de la caisse de compensation cantonale, lacunes contributives et prestations complémentaires pour le minimum vital.',
     'blog.article.avs-prestazioni-complementari-vaud.imageAlt': 'Couple de retraités consultant les documents de rente au bord d\'un lac suisse, paysage naturel serein',
+    'blog.article.abbonamenti-trasporti-vaud-zone.title': 'Abonnements transports canton de Vaud : zones et tarifs',
+    'blog.article.abbonamenti-trasporti-vaud-zone.excerpt': 'Abonnements mensuels, annuels, demi-tarif et Général Abonnement dans les transports publics suisses. Comment fonctionnent les zones tarifaires et les réductions pour les étudiants.',
+    'blog.article.abbonamenti-trasporti-vaud-zone.imageAlt': 'Station de transport public suisse avec tram, passagers et distributeurs de titres',
 };
 
 export default blogMetaChFr;

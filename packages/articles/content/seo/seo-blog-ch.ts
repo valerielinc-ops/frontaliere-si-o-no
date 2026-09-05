@@ -71507,6 +71507,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abbonamenti-trasporti-vaud-zone': {
+    title: 'Abbonamenti trasporti canton Vaud: zone e tariffe',
+    description: 'Abbonamenti mensili, annuali, metà-prezzo e Generale Abonnement nei trasporti pubblici svizzeri. Come funzionano le zone tariffarie e gli sconti per studenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, canton, vaud',
+    ogTitle: 'Abbonamenti trasporti canton Vaud: zone e tariffe',
+    ogDescription: 'Abbonamenti mensili, annuali, metà-prezzo e Generale Abonnement nei trasporti pubblici svizzeri. Come funzionano le zone tariffarie e gli sconti per studenti.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-trasporti-vaud-zone/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti canton Vaud: zone e tariffe",
+      "description": "Abbonamenti mensili, annuali, metà-prezzo e Generale Abonnement nei trasporti pubblici svizzeri. Come funzionano le zone tariffarie e gli sconti per studenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-trasporti-vaud-zone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di trasporto pubblico svizzero con tram, passeggeri e distributori automatici di biglietti"
+      },
+      "datePublished": "2026-09-05T05:50:23+00:00",
+      "dateModified": "2026-09-05T05:50:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-trasporti-vaud-zone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

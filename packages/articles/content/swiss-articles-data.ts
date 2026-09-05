@@ -16525,6 +16525,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'abbonamenti-trasporti-vaud-zone',
+    category: 'pratico',
+    date: '2026-09-05T05:50:23.197Z',
+    image: '/images/blog/abbonamenti-trasporti-vaud-zone.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

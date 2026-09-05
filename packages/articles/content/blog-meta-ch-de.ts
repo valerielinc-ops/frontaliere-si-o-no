@@ -5509,6 +5509,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-vaud.title': 'AHV und Ergänzungsleistungen: Waadt',
     'blog.article.avs-prestazioni-complementari-vaud.excerpt': 'Wie funktioniert die erste Säule im Kanton Waadt? Leitfaden zur kantonalen Ausgleichskasse, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.avs-prestazioni-complementari-vaud.imageAlt': 'Rentnerpaar bespricht Rentendokumente an einem Schweizer Seeufer, ruhige Naturkulisse',
+    'blog.article.abbonamenti-trasporti-vaud-zone.title': 'Verkehrstickets Kanton Waadt: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-vaud-zone.excerpt': 'Monats-, Jahres-, Halbtax- und General Abonnement-Abonnements im öffentlichen Verkehr der Schweiz. Wie Tarifzonen und Studentenrabatte funktionieren.',
+    'blog.article.abbonamenti-trasporti-vaud-zone.imageAlt': 'Schweizer Nahverkehrsstation mit Straßenbahn, Fahrgästen und Fahrkartautomaten',
 };
 
 export default blogMetaChDe;
