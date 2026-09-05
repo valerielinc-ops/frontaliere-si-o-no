@@ -71936,6 +71936,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-junge-tat-zurigo': {
+    title: 'Processo Junge Tat: Procura chiede condanna, difesa assoluzione',
+    description: 'Sei membri del gruppo di estrema destra \'Junge Tat\' sono comparsi davanti alla giustizia zurighese con l\'accusa di discriminazione e incitamento all\'odio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, junge, procura, chiede',
+    ogTitle: 'Processo Junge Tat: Procura chiede condanna, difesa assoluzione',
+    ogDescription: 'Sei membri del gruppo di estrema destra \'Junge Tat\' sono comparsi davanti alla giustizia zurighese con l\'accusa di discriminazione e incitamento all\'odio. La procura ha chiesto pene detentive per i principali imputati, mentre la difesa ha invocato',
+    canonicalPath: '/articoli-svizzera/processo-junge-tat-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo Junge Tat: Procura chiede condanna, difesa assoluzione",
+      "description": "Sei membri del gruppo di estrema destra 'Junge Tat' sono comparsi davanti alla giustizia zurighese con l'accusa di discriminazione e incitamento all'odio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/processo-junge-tat-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula di tribunale affollata con giornalisti e manifestanti antifascisti all'esterno."
+      },
+      "datePublished": "2026-09-05T10:54:48+00:00",
+      "dateModified": "2026-09-05T10:54:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/processo-junge-tat-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

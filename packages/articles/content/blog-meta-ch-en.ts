@@ -5542,6 +5542,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.intervento-polizia-goldach-scuola.title': 'Police intervention in Goldach: no gunfire',
     'blog.article.intervento-polizia-goldach-scuola.excerpt': 'After the police intervention in Goldach at a high school: 300 people evacuated due to pyrotechnic noises mistaken for gunshots.',
     'blog.article.intervento-polizia-goldach-scuola.imageAlt': 'Swiss police car in front of a school building at night',
+    'blog.article.processo-junge-tat-zurigo.title': 'Junge Tat trial: Prosecutor asks for conviction, acquittal defense',
+    'blog.article.processo-junge-tat-zurigo.excerpt': 'Six members of the far-right group \'Junge Tat\' appeared before the Zurich justice on charges of discrimination and incitement to hatred.',
+    'blog.article.processo-junge-tat-zurigo.imageAlt': 'Crowded courtroom with journalists and anti-fascist protesters outside.',
 };
 
 export default blogMetaChEn;
