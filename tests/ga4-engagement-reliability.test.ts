@@ -5,6 +5,7 @@ import {
   dailyEngagementConsistency,
   engagementUnreliableNote,
   engagementUnreliableNoteFromReason,
+  GA4_ENGAGED_SESSION_MIN_SECONDS,
   MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS,
   MIN_SESSIONS_FOR_VERDICT,
 } from '../scripts/lib/ga4-engagement-reliability.mjs';
@@ -319,5 +320,27 @@ describe("le tabelle bounce e il delta WoW marcano l'affidabilita' della finestr
     expect(src).toContain("log('🚪', 'Top landing pages (dove entrano gli utenti):');");
     expect(src).toContain('Diagnostica landing page vuota');
     expect(src).toContain('deltas.ga4 = {');
+  });
+});
+
+// scripts/looker-dashboard.gs e' un template da incollare INTERO nell'editor
+// Apps Script, un runtime senza module resolution: non puo' importare il
+// modulo qui sopra, quindi ne rispecchia formula e soglie. La duplicazione e'
+// imposta dal runtime, ma il drift no — questo test la pinna (#7509).
+describe('il mirror Apps Script della soglia di affidabilita non drifta', () => {
+  const gs = readFileSync(
+    new URL('../scripts/looker-dashboard.gs', import.meta.url),
+    'utf8',
+  );
+
+  it('le tre soglie coincidono con quelle del modulo', () => {
+    expect(gs).toContain(`const GA4_ENGAGED_SESSION_MIN_SECONDS = ${GA4_ENGAGED_SESSION_MIN_SECONDS};`);
+    expect(gs).toContain(`const MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS = ${MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS};`);
+    expect(gs).toContain(`const MIN_SESSIONS_FOR_VERDICT = ${MIN_SESSIONS_FOR_VERDICT};`);
+  });
+
+  it('i quattro fogli che espongono un Bounce Rate scrivono l’avvertenza', () => {
+    expect(gs.match(/writeEngagementWarning\(sheet, \d+, startDate, endDate\);/g) ?? []).toHaveLength(4);
+    expect(gs).toContain('function windowEngagementVerdict(startDate, endDate) {');
   });
 });

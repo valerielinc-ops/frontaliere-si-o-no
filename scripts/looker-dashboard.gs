@@ -166,6 +166,83 @@ function writeTable(sheet, startRow, startCol, headers, data) {
   return startRow + 1 + data.length;
 }
 
+// ════════════════════════════════════════════
+// ENGAGEMENT RELIABILITY (#6703 / #7509)
+// ════════════════════════════════════════════
+//
+// Mirror di scripts/lib/ga4-engagement-reliability.mjs — la formula e le tre
+// soglie sono le stesse. Duplicato e non importato perché questo file è un
+// template da incollare INTERO nell'editor Apps Script, un runtime che non
+// risolve gli import ESM: qui non c'è nulla da riusare. Se la soglia cambia
+// nel modulo Node, cambia anche qui — è l'unico punto di questo file.
+//
+// Cosa risolve: sui giorni GA4 non ancora elaborati (lag 24-48h) bounceRate ed
+// engagementRate contraddicono averageSessionDuration, e ogni tabella "Bounce
+// Rate" di questa dashboard stampava quelle cifre come un dato buono. Il
+// numero resta — viene ANNOTATO, non soppresso.
+
+const GA4_ENGAGED_SESSION_MIN_SECONDS = 10;
+const MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS = 3600;
+const MIN_SESSIONS_FOR_VERDICT = 30;
+
+let ENGAGEMENT_VERDICT_CACHE = null;
+
+/** Verdetto sulla finestra: le sessioni engaged durano 10s+ per definizione GA4. */
+function engagementConsistency(sessions, engagementRate, averageSessionDuration) {
+  const ok = { reliable: true, reason: null };
+  if (typeof engagementRate !== 'number' || typeof averageSessionDuration !== 'number') return ok;
+  if (engagementRate < 0 || engagementRate > 1 || averageSessionDuration < 0) return ok;
+  if (typeof sessions === 'number' && sessions < MIN_SESSIONS_FOR_VERDICT) return ok;
+
+  const implied = engagementRate === 0
+    ? (averageSessionDuration > GA4_ENGAGED_SESSION_MIN_SECONDS ? Infinity : 0)
+    : (averageSessionDuration - GA4_ENGAGED_SESSION_MIN_SECONDS * (1 - engagementRate)) / engagementRate;
+
+  if (!(implied > MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS)) return ok;
+
+  const impliedTxt = isFinite(implied) ? `${Math.round(implied)}s` : '∞';
+  return {
+    reliable: false,
+    reason: `engagement rate ${(engagementRate * 100).toFixed(1)}% con averageSessionDuration ` +
+      `${Math.round(averageSessionDuration)}s implica ${impliedTxt} medi per sessione engaged ` +
+      `(tetto ${MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS}s): metriche GA4 mutuamente incoerenti, ` +
+      'tipicamente elaborazione incompleta sui giorni più freschi (lag 24-48h)',
+  };
+}
+
+/** Verdetto della finestra, calcolato una volta sola e riusato dai quattro fogli. */
+function windowEngagementVerdict(startDate, endDate) {
+  const key = `${startDate}→${endDate}`;
+  if (ENGAGEMENT_VERDICT_CACHE && ENGAGEMENT_VERDICT_CACHE.key === key) return ENGAGEMENT_VERDICT_CACHE.verdict;
+
+  let verdict = { reliable: true, reason: null };
+  try {
+    const rows = runGA4Report(
+      CONFIG.GA4_PROPERTY_ID,
+      [{ startDate, endDate }],
+      [],
+      ['sessions', 'engagementRate', 'averageSessionDuration']
+    );
+    if (rows.length > 0) verdict = engagementConsistency(rows[0][0], rows[0][1], rows[0][2]);
+  } catch (e) {
+    // Un sanity-check che fallisce non deve inventare allarmi né bloccare il foglio.
+    verdict = { reliable: true, reason: null };
+  }
+
+  ENGAGEMENT_VERDICT_CACHE = { key: key, verdict: verdict };
+  return verdict;
+}
+
+/** Scrive l'avvertenza nella riga indicata quando il verdetto è falso. No-op altrimenti. */
+function writeEngagementWarning(sheet, row, startDate, endDate) {
+  const verdict = windowEngagementVerdict(startDate, endDate);
+  if (verdict.reliable) return;
+  sheet.getRange(row, 1)
+    .setValue(`⚠️ engagement inaffidabile — ${verdict.reason}`)
+    .setFontSize(9)
+    .setFontColor('#b00020');
+}
+
 function runGA4Report(propertyId, dateRanges, dimensions, metrics, options = {}) {
   const request = {
     dateRanges: dateRanges,
@@ -250,6 +327,8 @@ function fetchOverview(startDate, endDate) {
   sheet.getRange('A2').setValue('📊 Analytics Dashboard — Frontaliere Ticino').setFontSize(16).setFontWeight('bold');
   sheet.getRange('A3').setValue(`Period: ${startDate} → ${endDate}`).setFontSize(10).setFontColor('#666');
 
+  writeEngagementWarning(sheet, 4, startDate, endDate);
+
   // KPI scorecards
   const kpiData = runGA4Report(
     CONFIG.GA4_PROPERTY_ID,
@@ -328,6 +407,7 @@ function fetchTrafficSources(startDate, endDate) {
   if (!sheet) return;
 
   sheet.getRange('A1').setValue('🚦 Traffic Sources').setFontSize(14).setFontWeight('bold');
+  writeEngagementWarning(sheet, 2, startDate, endDate);
 
   // Channel groups
   const channelData = runGA4Report(
@@ -376,6 +456,7 @@ function fetchContentPages(startDate, endDate) {
   if (!sheet) return;
 
   sheet.getRange('A1').setValue('📄 Content & Pages').setFontSize(14).setFontWeight('bold');
+  writeEngagementWarning(sheet, 2, startDate, endDate);
 
   // Top pages
   const pageData = runGA4Report(
@@ -780,6 +861,7 @@ function fetchUsers(startDate, endDate) {
   if (!sheet) return;
 
   sheet.getRange('A1').setValue('👥 Users & Technology').setFontSize(14).setFontWeight('bold');
+  writeEngagementWarning(sheet, 2, startDate, endDate);
 
   let nextRow = 3;
 
