@@ -11389,6 +11389,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mezzo-in-fiamme-vergiate-besnate.title': 'A vehicle caught fire on the highway between Vergiate and Besnate.',
     'blog.article.mezzo-in-fiamme-vergiate-besnate.excerpt': 'A burning vehicle blocked motorway traffic between Vergiate and Besnate, causing serious inconvenience to traffic.',
     'blog.article.mezzo-in-fiamme-vergiate-besnate.imageAlt': 'Burning vehicle on the highway between Vergiate and Besnate',
+    'blog.article.treno-dei-bambini-gallarate-piombino.title': 'When the \'children\'s train\' brought striking workers\' kids to Gallarate',
+    'blog.article.treno-dei-bambini-gallarate-piombino.excerpt': 'In the summer of 1911, the children of the striking workers in Piombino were welcomed in Gallarate as a form of solidarity.',
+    'blog.article.treno-dei-bambini-gallarate-piombino.imageAlt': 'Gallarate train station with the arrival of the children\'s train',
 };
 
 export default blogMetaEn;

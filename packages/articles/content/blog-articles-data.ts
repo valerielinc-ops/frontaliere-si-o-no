@@ -34023,6 +34023,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'treno-dei-bambini-gallarate-piombino',
+ category: 'novita',
+ date: '2026-09-05T09:59:38.670Z',
+ image: '/images/blog/treno-dei-bambini-gallarate-piombino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
