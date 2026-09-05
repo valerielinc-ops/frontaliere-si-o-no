@@ -28,8 +28,37 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(expectedCtrForPosition(25)).toBe(0.006);
     });
 
-    it('rounds fractional positions to the nearest integer bucket', () => {
-      expect(expectedCtrForPosition(7.4)).toBe(expectedCtrForPosition(7));
+    it('interpolates fractional positions between the integer buckets', () => {
+      // bucket 7 = 0.037, bucket 8 = 0.032 → 40% of the way down
+      expect(expectedCtrForPosition(7.4)).toBeCloseTo(0.037 + 0.4 * (0.032 - 0.037), 12);
+      expect(expectedCtrForPosition(7.4)).toBeLessThan(expectedCtrForPosition(7));
+      expect(expectedCtrForPosition(7.4)).toBeGreaterThan(expectedCtrForPosition(8));
+    });
+
+    it('keeps the integer buckets on their exact benchmark values', () => {
+      expect(expectedCtrForPosition(6)).toBe(0.044);
+      expect(expectedCtrForPosition(7)).toBe(0.037);
+      expect(expectedCtrForPosition(20)).toBe(0.008);
+      expect(expectedCtrForPosition(21)).toBe(0.006);
+    });
+
+    it('fades into the tail CTR over the last position instead of stepping onto it', () => {
+      expect(expectedCtrForPosition(20.5)).toBeCloseTo(0.007, 12);
+      expect(expectedCtrForPosition(20.9)).toBeGreaterThan(0.006);
+      expect(expectedCtrForPosition(21)).toBe(0.006);
+    });
+
+    it('has no cliff: nearby positions give nearby expected CTRs (issue #7412)', () => {
+      // The old Math.round curve jumped 0.037 → 0.044 (+19%) across 6.5, so a
+      // hundredth of a position IMPROVEMENT moved the derived alarm floor by
+      // 19%. Interpolated, no step anywhere on the curve exceeds what the
+      // bucket gap itself justifies.
+      for (let p = 1; p <= 22; p += 0.01) {
+        const here = expectedCtrForPosition(p);
+        const next = expectedCtrForPosition(p + 0.01);
+        expect(next).toBeLessThanOrEqual(here + 1e-12); // monotonically non-increasing
+        expect(Math.abs(next - here)).toBeLessThan(0.002); // continuous, no bucket cliff
+      }
     });
 
     it('clamps non-finite / sub-1 positions to position 1', () => {
@@ -234,8 +263,18 @@ describe('seo-ctr-curve (issue #4300)', () => {
     const staticFamily = { id: 'y', targetCtr: 0.03 };
 
     it('derives the target from the position curve when a multiple is declared', () => {
-      // expectedCtrForPosition(8.61) → bucket 9 → 0.028; 1.9 × 0.028 = 0.0532
-      expect(effectiveTargetCtr(curveFamily, 8.61)).toBeCloseTo(1.9 * 0.028, 10);
+      // expectedCtrForPosition(8.61) interpolates bucket 8 (0.032) → 9 (0.028)
+      const expected = 0.032 + 0.61 * (0.028 - 0.032);
+      expect(effectiveTargetCtr(curveFamily, 8.61)).toBeCloseTo(1.9 * expected, 10);
+    });
+
+    it('does not spike the floor when the position improves across a bucket edge (issue #7412)', () => {
+      // Fuel families sit at ~6.5. Under the rounded curve, 6.51 → 6.49 (a
+      // BETTER ranking) lifted the floor from 1.9 × 0.037 to 1.9 × 0.044.
+      const worse = effectiveTargetCtr(curveFamily, 6.51);
+      const better = effectiveTargetCtr(curveFamily, 6.49);
+      expect(better).toBeGreaterThanOrEqual(worse);
+      expect(better / worse).toBeLessThan(1.01);
     });
 
     it('moves the target with the position instead of freezing it', () => {
