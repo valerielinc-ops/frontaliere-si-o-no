@@ -1048,3 +1048,115 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
     expect(state.lastNonZeroJobs).toBe(4);
   });
 });
+
+describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & al.)', () => {
+  // Nine crawlers reported the identical "N consecutive runs returned 0 jobs"
+  // on 2026-09-05. Measured against the live sources that same day, four of
+  // them still carried open positions the run had actually seen —
+  // spital-schwyz 19, kantonsspital-uri 26, cnp 26, pole-sante-pays-enhaut 4 —
+  // and their crawler aborted on a fail-closed gate instead of publishing. The
+  // slice the monitor read was written by the process-exit guard, whose
+  // `total: 0` is a placeholder, not an observation of the source.
+  //
+  // The reported reason drives the issue body's triage ("patch the parser",
+  // "retire the crawler"). Both are the wrong place to look for an aborted run,
+  // and following them is what burned three autonomous attempts on #7319,
+  // #7320 and #7321.
+  function abortedObs(jobCount: number) {
+    return {
+      slug: 'not-on-any-allowlist',
+      jobCount,
+      freshnessAt: NOW_ISO,
+      freshnessSource: 'summary' as const,
+      generatedAt: NOW_ISO,
+      assembledAt: NOW_ISO,
+      discovered: null,
+      written: 0,
+      earlyExit: true,
+      exitCode: 0,
+    };
+  }
+
+  const brokenEligiblePrev = {
+    lastSuccessfulRunAt: null,
+    lastNonZeroJobs: 19,
+    consecutiveEmptyRuns: 2,
+    lastFailureReason: null,
+    status: 'healthy',
+    _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    _lastObservedJobs: 0,
+    _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+  };
+
+  it('still flags an aborting crawler as broken — the marker never masks it', () => {
+    const { status, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      abortedObs(0),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state._abortedRun).toBe(true);
+  });
+
+  it('does not claim the source returned 0 jobs when the run never published', () => {
+    const { reason } = nextCrawlerState(brokenEligiblePrev, abortedObs(0), NOW_ISO, NOW_MS);
+    expect(reason).not.toMatch(/returned 0 jobs/);
+    expect(reason).toMatch(/aborted before publishing/);
+    expect(reason).toMatch(/exitCode=0/);
+  });
+
+  it('never reports a missing exitCode as a clean bail-out', () => {
+    // Review finding on #7585: a corpus-sourced observation used to arrive
+    // without `exitCode`, and a `?? 0` fallback turned "unknown" into
+    // "deliberate exit 0" — asserting a clean bail-out on a possible crash,
+    // the same placeholder-as-evidence substitution this change exists to stop.
+    const { reason } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), exitCode: undefined },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(reason).toMatch(/exitCode=unknown/);
+    expect(reason).not.toMatch(/exitCode=0/);
+  });
+
+  it('reports a crash exit code as itself, not as a bail-out', () => {
+    const { reason } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), exitCode: 1 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(reason).toMatch(/exitCode=1/);
+  });
+
+  it('keeps saying "returned 0 jobs" for a zero the pipeline really published', () => {
+    // Same streak, same counts — only the guard marker differs. A published
+    // zero IS a statement about the source, so the parser/retire triage stays
+    // correct and must not be reworded.
+    const { status, reason, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), earlyExit: false, exitCode: null },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(reason).toMatch(/returned 0 jobs/);
+    expect(state._abortedRun).toBe(false);
+  });
+
+  it('leaves the #7324 proof authoritative for any slug, guard marker or not', () => {
+    // Class check, not an ocst check: the source-proven empty state stays
+    // healthy for an arbitrary slug, and the aborted-run branch must not have
+    // introduced a path that re-breaks it.
+    const { status, reason } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), earlyExit: false, exitCode: null, discovered: 0, authoritativeEmpty: true },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+  });
+});

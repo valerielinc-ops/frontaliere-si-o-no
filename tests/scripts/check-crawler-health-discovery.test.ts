@@ -149,4 +149,52 @@ describe('inspectCrawler', () => {
 
     expect(observation.authoritativeEmpty).toBe(false);
   });
+
+  // #7461/#7459/#7457/#7460/#7320: the exit guard writes this shape whenever
+  // `runStandardCrawlerPipeline` returns before publishing — a connection-level
+  // fetch failure, an exhausted anti-bot fence, or a fail-closed parser abort.
+  // It is NOT an observation that the source is empty, and `discovered` is null
+  // so neither the #5945 nor the #7324 rule can classify it. Carry the marker
+  // or nextCrawlerState cannot tell it from a published zero.
+  it('carries the exit-guard marker from a slice the pipeline never published', async () => {
+    readFile.mockImplementation(async (file: string) => {
+      if (isSummaryDir(file)) {
+        return JSON.stringify({
+          generatedAt: '2026-09-05T12:48:33.705Z',
+          total: 0,
+          discovered: null,
+          written: 0,
+          earlyExit: true,
+          exitCode: 0,
+        });
+      }
+      throw enoent();
+    });
+    stat.mockRejectedValue(enoent());
+
+    const observation = await inspectCrawler('spital-schwyz');
+
+    expect(observation.earlyExit).toBe(true);
+    expect(observation.exitCode).toBe(0);
+  });
+
+  it('leaves the exit-guard marker false for a slice the pipeline did publish', async () => {
+    readFile.mockImplementation(async (file: string) => {
+      if (isSummaryDir(file)) {
+        return JSON.stringify({
+          generatedAt: '2026-09-05T13:00:33.510Z',
+          total: 0,
+          discovered: 0,
+          written: 0,
+        });
+      }
+      throw enoent();
+    });
+    stat.mockRejectedValue(enoent());
+
+    const observation = await inspectCrawler('albergo-gardenia');
+
+    expect(observation.earlyExit).toBe(false);
+    expect(observation.exitCode).toBeNull();
+  });
 });

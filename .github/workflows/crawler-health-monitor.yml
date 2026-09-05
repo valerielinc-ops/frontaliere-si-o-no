@@ -223,6 +223,12 @@ jobs:
           Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}
 
           Triage:
+          0. Read the Reason above FIRST. Steps 3 and 4 assume the run observed
+             the source and found it empty. If the Reason says the runs *aborted
+             before publishing*, they did not: the slice came from the exit guard,
+             the previous jobs are still live, and the source is usually still
+             full. Look for the crawler's own bail-out — a fail-closed \`return []\`
+             in its parser or family lib — not for a dead selector or a dead source.
           1. Open \`data/jobs/by-crawler/${slug}.json\` and inspect last entries.
           2. Run the crawler locally to reproduce.
           3. If the source HTML changed, patch the parser.
