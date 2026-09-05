@@ -72404,6 +72404,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-vallese-riduzione': {
+    title: 'Premi LAMal nel Vallese: fasce e riduzioni 2026',
+    description: 'Guida completa ai premi obbligatori LAMal nel canton Vallese: franchigie disponibili, modelli assicurativi, procedure e criteri per ottenere sussidi cantonali',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, vallese, fasce',
+    ogTitle: 'Premi LAMal Vallese: riduzioni e franchigie 2026',
+    ogDescription: 'Nel canton Vallese la LAMal è obbligatoria. Scopri le franchigie disponibili (CHF 300–2.500), come funziona la riduzione dei premi tramite sussidi cantonali, i modelli assicurativi e la procedura per accedere ai benefici.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-vallese-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal nel Vallese: fasce e riduzioni 2026",
+      "description": "Guida completa ai premi obbligatori LAMal nel canton Vallese: franchigie disponibili, modelli assicurativi, procedure e criteri per ottenere sussidi cantonali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-vallese-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale del Vallese con informazioni su premi LAMal, franchigie e programmi di riduzione"
+      },
+      "datePublished": "2026-09-05T16:42:46+00:00",
+      "dateModified": "2026-09-05T16:42:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-vallese-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
