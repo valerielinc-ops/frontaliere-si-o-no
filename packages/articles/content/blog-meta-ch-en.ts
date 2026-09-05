@@ -5578,6 +5578,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Residence Permit B Freiburg: Requirements and Renewal',
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Permit B in Freiburg: requirements for EU/EFTA and third countries, renewal procedures, necessary documents and roles of the SEM and cantonal administration.',
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Cantonal administrative office counter for residence permit processing.',
+    'blog.article.premi-lamal-vallese-riduzione.title': 'LAMal awards in Valais: bands and reductions 2026',
+    'blog.article.premi-lamal-vallese-riduzione.excerpt': 'Guide to compulsory sick pay premiums in the canton of Valais: deductibles available, insurance models, premium reduction and procedure for obtaining cantonal subsidies.',
+    'blog.article.premi-lamal-vallese-riduzione.imageAlt': 'Valais cantonal office with information on LAMal premiums, deductibles and reduction programs',
 };
 
 export default blogMetaChEn;

@@ -16732,6 +16732,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-lamal-vallese-riduzione',
+    category: 'pratico',
+    date: '2026-09-05T16:42:46.103Z',
+    image: '/images/blog/premi-lamal-vallese-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

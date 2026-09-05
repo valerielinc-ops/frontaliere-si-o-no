@@ -5578,6 +5578,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Permis de séjour B Fribourg : exigences et renouvellement',
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Permis B à Fribourg : exigences pour l\'UE/AELE et les pays tiers, procédures de renouvellement, documents nécessaires et rôles du SEM et de l\'administration cantonale.',
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Bureau administratif cantonal pour le traitement des permis de séjour.',
+    'blog.article.premi-lamal-vallese-riduzione.title': 'Primes LAMal en Valais : fourchettes et réductions 2026',
+    'blog.article.premi-lamal-vallese-riduzione.excerpt': 'Guide des primes obligatoires d\'assurance-maladie dans le canton du Valais : franchises disponibles, modèles d\'assurance, réduction des primes et procédure d\'obtention des allocations cantonales.',
+    'blog.article.premi-lamal-vallese-riduzione.imageAlt': 'Bureau cantonal du Valais avec informations sur les primes LAMal, franchises et programmes de réduction',
 };
 
 export default blogMetaChFr;

@@ -5578,6 +5578,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.title': 'Permesso di dimora B Friburgo: requisiti e rinnovo',
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.excerpt': 'Permesso B a Friburgo: requisiti per UE/AELS e Paesi terzi, procedure di rinnovo, documenti necessari e ruoli della SEM e amministrazione cantonale.',
     'blog.article.permesso-b-friburgo-requisiti-rinnovo.imageAlt': 'Ufficio dell\'amministrazione cantonale: sportello per il rilascio e rinnovo di permessi di dimora.',
+    'blog.article.premi-lamal-vallese-riduzione.title': 'Premi LAMal nel Vallese: fasce e riduzioni 2026',
+    'blog.article.premi-lamal-vallese-riduzione.excerpt': 'Guida ai premi obbligatori di cassa malati nel canton Vallese: franchigie disponibili, modelli assicurativi, riduzione premi e procedura per ottenere sussidi cantonali.',
+    'blog.article.premi-lamal-vallese-riduzione.imageAlt': 'Ufficio cantonale del Vallese con informazioni su premi LAMal, franchigie e programmi di riduzione',
 };
 
 export default blogMetaChIt;
