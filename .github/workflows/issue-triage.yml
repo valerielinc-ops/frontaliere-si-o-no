@@ -25,8 +25,23 @@ on:
 
 # Anti-storm: una run triage alla volta. I monitor (post-deploy validate,
 # crawler-health) aprono issue in burst; serializzare evita race sul routing.
+# Chiave per-issue sugli eventi issue, gruppo unico condiviso per gli sweep.
+# Stessa classe di `issue-fix.yml` e `issue-decompose.yml`: `concurrency` e'
+# valutata a livello di workflow, prima dell'`if:` del job, quindi con un gruppo
+# costante due issue APERTE nello stesso minuto si sfrattavano e l'issue
+# sfrattata non veniva mai instradata — `issues:[opened]` e' one-shot e nessuno
+# la ri-arma. Misurato il 2026-09-05: 26 `cancelled` su 61 run il 09-04, 20 su
+# 77 il 09-01, cioe' nei giorni di picco un quarto delle issue nuove rischiava
+# di restare senza routing.
+#
+# Il fallback NON e' `github.run_id` come negli altri due: qui i trigger sono
+# tre, e per `schedule`/`workflow_dispatch` non c'e' nessuna issue nel payload.
+# Con `run_id` ogni sweep avrebbe una chiave propria e due sweep potrebbero
+# girare insieme instradando la stessa coda due volte; la costante `sweep` li
+# tiene serializzati fra loro come prima, e li tiene fuori dalla coda degli
+# eventi per-issue.
 concurrency:
-  group: issue-triage
+  group: issue-triage-${{ github.event.issue.number || 'sweep' }}
   cancel-in-progress: false
 
 permissions:

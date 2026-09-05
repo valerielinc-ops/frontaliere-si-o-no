@@ -11409,6 +11409,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assemblea-centro-iva-avs.title': 'Versammlung Zentrum genehmigt AHV-Finanzierung mit MwSt.',
     'blog.article.assemblea-centro-iva-avs.excerpt': 'Das Zentrum unterstützt die Finanzierung der 13. AHV-Rente durch Erhöhung der Mehrwertsteuer um 0,4%. Ich stimme am 29. November ab. Was ändert sich für Grenzgänger?',
     'blog.article.assemblea-centro-iva-avs.imageAlt': 'Luftaufnahme von Lugano, Herz des Tessins und Ziel von Grenzpendlern',
+    'blog.article.como-cantiere-corsie-ztl.title': 'Como, Verkehrskatastrophe: offene Fahrspuren und ZTL',
+    'blog.article.como-cantiere-corsie-ztl.excerpt': 'Die Gemeinde Como hat Vorzugsspuren und ZTL-Zonen für Fahrzeuge in die Schweiz eröffnet. Hier sind die genehmigten Routen und wie Sie sich während der Baustelle bewegen können.',
+    'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Dichter Verkehr auf der Straße nahe Como mit Baustelle und orangefarbenen Warnschildern',
 };
 
 export default blogMetaDe;

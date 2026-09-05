@@ -1,44 +1,42 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-04T22:55:17.198Z",
-  "total": 379,
+  "generatedAt": "2026-09-05T12:39:12.019Z",
+  "total": 378,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 99116,
-  "avgDurationMs": 99116,
+  "unchangedCount": 0,
+  "durationMs": 111299,
+  "avgDurationMs": 111299,
   "durationHistory": [
-    99116
+    111299
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Assistente di farmacia AFC",
-      "company": "Coop Vitality  (Galenica)",
+      "company": "Amavita (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692378",
-      "location": "Egerkingen",
-      "canton": "SO",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692206",
+      "location": "Brugg",
+      "canton": "AG",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Egerkingen, Gäupark, Hausimollstrasse 3, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692378-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-egerkingen-so-coop-vitality?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Brugg, Neumarktplatz 16, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692206-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-brugg-ag-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-egerkingen",
-      "id": "galenica-ec68e47686d2",
+      "slug": "galenica-amavita-assistente-di-farmacia-afc-brugg",
+      "id": "galenica-c617ac484e35",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "addressLocality": "Egerkingen",
-      "addressRegion": "SO",
+      "addressLocality": "Brugg",
+      "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
       "_qualityScore": 78,
@@ -49,5 +47,7 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

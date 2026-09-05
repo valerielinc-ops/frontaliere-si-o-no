@@ -5551,6 +5551,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zugo-salari-occupazione-guida.title': 'Mercato del lavoro Zugo: salari, settori e formazione',
     'blog.article.zugo-salari-occupazione-guida.excerpt': 'Guida pratica ai salari e alle opportunità di occupazione nel cantone di Zugo: livelli salariali per formazione, diritti dei lavoratori e calcolo dello stipendio netto in Svizzera.',
     'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Uffici svizzeri e spazi di lavoro che rappresentano il mercato occupazionale e le opportunità nel settore privato',
+    'blog.article.salari-canton-zugo-contratti.title': 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    'blog.article.salari-canton-zugo-contratti.excerpt': 'Mercato del lavoro svizzero: come funziona la determinazione dei salari tra contratti collettivi, tassazione cantonale e livelli di formazione.',
+    'blog.article.salari-canton-zugo-contratti.imageAlt': 'Ufficio svizzero moderno con professionisti di diverse discipline al lavoro, finestre ampie con vista sul paesaggio alpino',
+    'blog.article.imposta-successione-zugo-aliquote.title': 'Imposta successione Zugo: aliquote e esenzioni',
+    'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Nel Cantone Zugo, le imposte di successione e donazione sono materia cantonale. Esenzioni per coniuge e discendenti, aliquote per grado di parentela: come funziona la dichiarazione.',
+    'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Ufficio tributario cantonale: documenti di successione e moduli fiscali su una scrivania amministrativa svizzera.',
 };
 
 export default blogMetaChIt;

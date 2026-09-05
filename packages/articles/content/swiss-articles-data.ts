@@ -16651,6 +16651,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salari-canton-zugo-contratti',
+    category: 'pratico',
+    date: '2026-09-05T12:52:10.533Z',
+    image: '/images/blog/salari-canton-zugo-contratti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'imposta-successione-zugo-aliquote',
+    category: 'fiscale',
+    date: '2026-09-05T13:12:53.765Z',
+    image: '/images/blog/imposta-successione-zugo-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

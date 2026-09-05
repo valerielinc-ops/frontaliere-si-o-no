@@ -183,7 +183,7 @@ function matchKnownTemplate(links, templateRx, host) {
 export async function runSpecInProduction(spec, runtime = {}) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
-  const templateRx = spec.detailTemplate ? templateToRegex(spec.detailTemplate) : null;
+  const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
 
   for (const seed of spec.seedUrls || []) {
@@ -317,17 +317,23 @@ export async function runSpecInProduction(spec, runtime = {}) {
  * `*` stands for one variable segment and `#` for a numeric one — the same two
  * placeholders `pathTemplate()` emits, so a template always round-trips.
  *
- * @param {string} template
+ * A spec may declare several templates: a multilingual site publishes the same
+ * listing page under one URL shape per language (okjob links both
+ * `/offres-demplois/<slug>/` and `/de/jobangebote/<slug>/` from the same seed),
+ * and a single shape would silently drop every vacancy of the other languages.
+ *
+ * @param {string | string[]} template
  * @returns {RegExp}
  */
 export function templateToRegex(template) {
-  const body = template
+  const templates = (Array.isArray(template) ? template : [template]).filter(Boolean);
+  const bodies = templates.map((one) => String(one)
     .split('/')
     .map((seg) => {
       if (seg === '*') return '[^/]+';
       if (seg === '#') return '\\d+';
       return seg.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     })
-    .join('/');
-  return new RegExp(`^${body}/?$`);
+    .join('/'));
+  return new RegExp(`^(?:${bodies.join('|')})/?$`);
 }

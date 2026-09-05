@@ -134,3 +134,73 @@ describe('latestFixOutcomeFromComments — accetta anche la forma REST', () => {
     expect(latestFixOutcomeFromComments(rest)).toBe('blocked-secrets');
   });
 });
+
+describe('UNPARK-NO-VERDICT — una parked senza verdetto non ha mai avuto un tentativo', () => {
+  // Il difetto, misurato il 2026-09-05: `issue-fix.yml` serializzava su un
+  // `concurrency` group costante, quindi ogni promozione oltre la prima moriva
+  // `cancelled` prima di eseguire uno step. Il RESCUE la ritrovava `agent:fix`
+  // orfana e le addebitava un `fu-attempt`; tre giri e la issue era `fu-parked`
+  // + `fu-attempt:3` con ZERO commenti `FIX_OUTCOME`. 88 delle 167 parked
+  // aperte erano così, 84 parcheggiate il solo 09-04, con 276 label
+  // `fu-attempt:*` applicate per tentativi mai avvenuti. Il dry-run di questo
+  // passo ne ha contate 71 da ri-accodare (88 nel pool, 17 con un verdetto
+  // vero, che restano dove sono) — la stessa cifra citata in
+  // `followup-drainer.mjs`, misurata il 2026-09-05 poco prima del merge. Le 88
+  // della riga sopra sono la popolazione TOTALE delle parked senza verdetto; il
+  // pool e' piu' stretto perche' esclude `needs-human`, stadio decompose e
+  // `maybe-resolved`. Un solo numero da confrontare col log: 71.
+  const src = readFileSync(DRAINER_SRC, 'utf8');
+
+  it('il predicato è «nessun verdetto», non «nessuna PR» né uno stato', () => {
+    // Leggere uno stato al posto della prova è l'errore che qui ha già
+    // cancellato 848 iscritti («pending» letto come «non confermato»). Un
+    // verdetto è la sola prova che una run ha eseguito.
+    expect(src).toContain('if (outcome === null && !isUnparkedOnce(iss)) {');
+  });
+
+  it('una lettura commenti fallita non ri-accoda al buio', () => {
+    // `issueComments` rende `null` sul glitch e `[]` sull'assenza:
+    // `latestFixOutcome` le confonde entrambe in `null`, e su quella confusione
+    // un errore di rete diventerebbe un ri-accodo di massa.
+    const glitchGuard = src.indexOf('if (comments === null) continue;');
+    const decision = src.indexOf('if (outcome === null && !isUnparkedOnce(iss)) {');
+    expect(glitchGuard, 'guardia sul glitch gh assente').toBeGreaterThan(-1);
+    expect(glitchGuard, 'la guardia deve precedere la decisione').toBeLessThan(decision);
+  });
+
+  it('azzera il contatore falso e rimette in coda, marcando il giro', () => {
+    // Senza `fu-unparked` una issue che tornasse parked-senza-verdetto
+    // rientrerebbe in coda a ogni tick per sempre: un livelock al posto di un
+    // backlog, cioè un guasto più difficile da vedere e non meno grave.
+    const branch = src.slice(
+      src.indexOf('if (outcome === null && !isUnparkedOnce(iss)) {'),
+      src.indexOf('const d = verdictExitDecision(outcome, {'),
+    );
+    expect(branch).toContain('add: [LBL_QUEUED, LBL_UNPARKED]');
+    expect(branch).toContain('remove: [LBL_PARKED,');
+    expect(branch).toContain('/^fu-attempt:\\d+$/');
+  });
+});
+
+describe('la guardia dell\'idempotenza dell\'UNPARK tollera la vecchia forma con suffisso', () => {
+  // Review #7497, 🟡 L390: `fu-unparked:1` aveva la forma `nome:N` dei contatori
+  // `fu-attempt:N` pur essendo un letterale fisso, e la guardia era un
+  // `includes()` esatto. Bastava che qualcuno la leggesse come contatore e
+  // scrivesse `fu-unparked:2` perché l'idempotenza saltasse in SILENZIO e la
+  // issue rientrasse in coda a ogni tick — il livelock che il passo esiste per
+  // non avere. Il nome perde il suffisso; la guardia accetta comunque le issue
+  // etichettate nella finestra fra il merge di #7497 e questa fix.
+  const re = /^fu-unparked(?::\d+)?$/;
+
+  it('riconosce il nome nuovo e ogni forma numerata della vecchia', () => {
+    for (const n of ['fu-unparked', 'fu-unparked:1', 'fu-unparked:2', 'fu-unparked:10']) {
+      expect(re.test(n), n).toBe(true);
+    }
+  });
+
+  it('non cattura label vicine: la tolleranza non diventa un match largo', () => {
+    for (const n of ['fu-unparked-manual', 'fu-parked', 'fu-attempt:1', 'unparked', 'fu-unparked:x']) {
+      expect(re.test(n), n).toBe(false);
+    }
+  });
+});

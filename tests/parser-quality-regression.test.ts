@@ -23,9 +23,12 @@ import { normalizeDescriptionBullets } from '../scripts/lib/crawler-template.mjs
 import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 import {
   applySourceDetailResults,
+  fetchFailureCause,
   sourceDetailSeverity,
+  tenantConstantSourceLocations,
 } from '../scripts/audit-parser-quality.mjs';
 import {
+  classifySourceDetailObservation,
   createSourceDetailEvidence,
   createSourceDetailEvidenceBundle,
   replaySourceDetailEvidenceBundle,
@@ -182,5 +185,203 @@ describe('parser-quality regression — source-detail artifact replay', () => {
       result.evidenceProvenance.repoHeadSha === fixture.provenance.repoHeadSha
       && result.evidenceProvenance.datasetCommitSha === fixture.provenance.datasetLastCommit.sha
     ))).toBe(true);
+  });
+});
+
+describe('parser-quality regression — an unobservable source-detail sample is not a pass', () => {
+  // Verbatim observations from the three crawlers named by the cluster, replayed
+  // locally against the live detail pages on 2026-09-05: `jobs.coopjobs.ch`,
+  // `jobs.fenaco.com` and `stellen.ksuri.ch` all answered 200 with a body, and
+  // the extractor read NOTHING out of any of them — no source location, zero
+  // chars of source description. Before this guard all six samples scored as a
+  // clean pass and the audit printed "0 critical" for all three crawlers, which
+  // is how a source-detail run can be green while proving nothing. The same
+  // shape covers 208 of the 924 fetched samples of CI run 33953283741.
+  const unobservable = [
+    { crawlerKey: 'jumbo', published: 'Bern Marktgasse', publishedDescriptionLength: 1013, publishedWordCount: 77 },
+    { crawlerKey: 'jumbo', published: 'Baden-Dättwil', publishedDescriptionLength: 1013, publishedWordCount: 77 },
+    { crawlerKey: 'volg-fenaco', published: 'Wetzikon', publishedDescriptionLength: 1452, publishedWordCount: 109 },
+    { crawlerKey: 'volg-fenaco', published: 'Höri', publishedDescriptionLength: 1256, publishedWordCount: 89 },
+    { crawlerKey: 'kantonsspital-uri', published: 'Altdorf', publishedDescriptionLength: 51, publishedWordCount: 4 },
+    { crawlerKey: 'kantonsspital-uri', published: 'Altdorf', publishedDescriptionLength: 65, publishedWordCount: 4 },
+  ];
+
+  function resultsFrom(samples: typeof unobservable) {
+    return samples.map((sample, index) => ({
+      crawlerKey: sample.crawlerKey,
+      url: `https://evidence.invalid/${sample.crawlerKey}/${index}`,
+      ...classifySourceDetailObservation({
+        location: {
+          checked: false,
+          matchesPublished: false,
+          inconclusive: false,
+          evidence: 'generic',
+          authority: 'source-detail',
+          published: sample.published,
+          source: '',
+        },
+        description: {
+          publishedDescriptionLength: sample.publishedDescriptionLength,
+          sourceDescriptionLength: 0,
+          publishedWordCount: sample.publishedWordCount,
+          overlapWordCount: 0,
+        },
+      }),
+    }));
+  }
+
+  it('counts a fetched-but-unreadable sample as unobserved instead of swallowing it', () => {
+    const results = resultsFrom(unobservable);
+    const report: Record<string, any> = {
+      jumbo: { total: 178, issues: [] },
+      'volg-fenaco': { total: 553, issues: [] },
+      'kantonsspital-uri': { total: 26, issues: [] },
+    };
+    const summary = applySourceDetailResults(report, results, results.length);
+
+    // The old counters: every one of these six still scores zero, which is
+    // precisely why they have to be counted somewhere else.
+    expect(summary.fetched).toBe(6);
+    expect(summary.locationMismatches).toBe(0);
+    expect(summary.descriptionMismatches).toBe(0);
+    expect(summary.authoritativeLocationChecks).toBe(0);
+    expect(summary.inconclusiveLocationObservations).toBe(0);
+
+    expect(summary.unobserved).toBe(6);
+    for (const key of Object.keys(report)) {
+      const issue = report[key].issues.find((i: any) => i.type === 'source-detail-unobserved');
+      expect(issue, `${key} must report its unobservable samples`).toBeTruthy();
+      expect(issue.count).toBe(2);
+      expect(issue.details).toHaveLength(2);
+    }
+  });
+
+  it('leaves a sample that actually observed something out of the unobserved count', () => {
+    // Same ksuri page, read correctly: 1685 chars of source description against
+    // the 51 published. That is a real finding and must stay a mismatch, not be
+    // reclassified as "nothing was observed".
+    const observed = [{
+      crawlerKey: 'kantonsspital-uri',
+      url: 'https://evidence.invalid/kantonsspital-uri/observed',
+      ...classifySourceDetailObservation({
+        location: {
+          checked: false, matchesPublished: false, inconclusive: false,
+          evidence: 'generic', authority: 'source-detail', published: 'Altdorf', source: '',
+        },
+        description: {
+          publishedDescriptionLength: 51,
+          sourceDescriptionLength: 1685,
+          publishedWordCount: 4,
+          overlapWordCount: 0,
+        },
+      }),
+    }];
+    const report: Record<string, any> = { 'kantonsspital-uri': { total: 26, issues: [] } };
+    const summary = applySourceDetailResults(report, observed, observed.length);
+    expect(summary.unobserved).toBe(0);
+    expect(summary.descriptionMismatches).toBe(1);
+    expect(report['kantonsspital-uri'].issues.some((i: any) => i.type === 'source-detail-unobserved')).toBe(false);
+  });
+});
+
+
+describe('parser-quality regression — a location repeated across different workplaces is the tenant address', () => {
+  // Verbatim from run 33953283741. The two jumbo vacancies are different
+  // stores and `jobs.coopjobs.ch` declares Coop's own Reservatstrasse site for
+  // both: at most one of two different workplaces can sit at one address, so
+  // the value carries no per-vacancy information and must not accuse either.
+  function observation(crawlerKey: string, published: string, source: string, matches: boolean) {
+    return {
+      crawlerKey,
+      url: `https://evidence.invalid/${crawlerKey}/${published}`,
+      ...classifySourceDetailObservation({
+        location: {
+          checked: true, matchesPublished: matches, inconclusive: false,
+          evidence: 'jsonld', authority: 'source-detail', published, source,
+        },
+        description: {
+          publishedDescriptionLength: 900, sourceDescriptionLength: 900,
+          publishedWordCount: 60, overlapWordCount: 55,
+        },
+      }),
+    };
+  }
+
+  it('demotes the repeated tenant address to inconclusive instead of accusing both stores', () => {
+    const results = [
+      observation('jumbo', 'Bern Marktgasse', 'Dietikon, Dietikon', false),
+      observation('jumbo', 'Baden-Dättwil', 'Dietikon, Dietikon', false),
+    ];
+    expect(tenantConstantSourceLocations(results).size).toBe(1);
+
+    const report: Record<string, any> = { jumbo: { total: 178, issues: [] } };
+    const summary = applySourceDetailResults(report, results, results.length);
+    expect(summary.locationMismatches).toBe(0);
+    expect(summary.tenantConstantLocationObservations).toBe(2);
+    expect(summary.inconclusiveLocationObservations).toBe(2);
+    expect(sourceDetailSeverity(report.jumbo)).toBe(null);
+    const issue = report.jumbo.issues.find((i: any) => i.type === 'source-detail-unobserved');
+    expect(issue.tenantConstantObservations).toBe(2);
+  });
+
+  it('keeps the mismatch when one vacancy sharing that source location does agree with it', () => {
+    // agroscope on the same run: the source says Wädenswil, one record
+    // publishes Wädenswil correctly and the other publishes Zürich. The value
+    // is a real workplace, so the disagreement is a finding — this is the case
+    // the rule's `everMatched` guard exists to protect, and without it the
+    // detector silently ate a genuine red.
+    const results = [
+      observation('agroscope', 'Wädenswil', 'Wädenswil, Wädenswil', true),
+      observation('agroscope', 'Zürich', 'Wädenswil, Wädenswil', false),
+    ];
+    expect(tenantConstantSourceLocations(results).size).toBe(0);
+
+    const report: Record<string, any> = { agroscope: { total: 40, issues: [] } };
+    const summary = applySourceDetailResults(report, results, results.length);
+    expect(summary.locationMismatches).toBe(1);
+    expect(summary.tenantConstantLocationObservations).toBe(0);
+    expect(sourceDetailSeverity(report.agroscope)).toBe('CRITICAL');
+  });
+
+  it('does not fire on two vacancies genuinely in the same town', () => {
+    const results = [
+      observation('psgn', 'Pfäfers', 'Pfäfers, Pfäfers', true),
+      observation('psgn', 'Pfäfers', 'Pfäfers, Pfäfers', true),
+    ];
+    expect(tenantConstantSourceLocations(results).size).toBe(0);
+  });
+});
+
+
+describe('parser-quality regression — a fetch failure says why, not just that', () => {
+  it('splits the aggregate into causes that demand different responses', () => {
+    // Statuses taken from the non-replayable samples of run 33953283741: a
+    // vacancy that is simply gone is expected churn, a 403 is coverage we have
+    // lost, and `fetchFailed` alone cannot tell them apart.
+    const results = [
+      { crawlerKey: 'a', url: 'https://evidence.invalid/a/1', fetchFailed: true, status: 404 },
+      { crawlerKey: 'a', url: 'https://evidence.invalid/a/2', fetchFailed: true, status: 403 },
+      { crawlerKey: 'a', url: 'https://evidence.invalid/a/3', fetchFailed: true, status: 403 },
+      { crawlerKey: 'a', url: 'https://evidence.invalid/a/4', fetchFailed: true, status: 0 },
+      { crawlerKey: 'a', url: 'https://evidence.invalid/a/5', fetchFailed: true, status: 503 },
+      { crawlerKey: 'a', url: 'https://evidence.invalid/a/6', fetchFailed: true, status: 429 },
+    ];
+    const report: Record<string, any> = { a: { total: 10, issues: [] } };
+    const summary = applySourceDetailResults(report, results, results.length);
+    expect(summary.fetchFailed).toBe(6);
+    expect(summary.fetchFailureCauses).toEqual({
+      'expired-vacancy': 1,
+      'blocked-by-source': 2,
+      transport: 1,
+      'source-server-error': 1,
+      'rate-limited': 1,
+    });
+  });
+
+  it('names every cause it can be handed', () => {
+    expect(fetchFailureCause(410)).toBe('expired-vacancy');
+    expect(fetchFailureCause(401)).toBe('blocked-by-source');
+    expect(fetchFailureCause(undefined)).toBe('transport');
+    expect(fetchFailureCause(418)).toBe('http-418');
   });
 });

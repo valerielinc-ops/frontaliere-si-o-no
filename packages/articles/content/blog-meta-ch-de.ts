@@ -5551,6 +5551,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zugo-salari-occupazione-guida.title': 'Arbeitsmarkt Zug: Löhne, Branchen und Ausbildung',
     'blog.article.zugo-salari-occupazione-guida.excerpt': 'Praktischer Leitfaden zu Löhnen und Beschäftigungsmöglichkeiten im Kanton Zug: Ausbildungslöhne, Arbeitnehmerrechte und Nettolohnberechnung in der Schweiz.',
     'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Schweizer Bürogebäude und Arbeitsbereiche, die den Arbeitsmarkt und Beschäftigungsmöglichkeiten darstellen',
+    'blog.article.salari-canton-zugo-contratti.title': 'Löhne und Arbeitsmarkt Kanton Zug: Branchen und Niveaus',
+    'blog.article.salari-canton-zugo-contratti.excerpt': 'Schweizer Arbeitsmarkt: Wie funktioniert die Lohnfindung zwischen Tarifverträgen, kantonaler Besteuerung und Bildungsniveau?',
+    'blog.article.salari-canton-zugo-contratti.imageAlt': 'Modernes Schweizer Büro mit Fachleuten verschiedener Sektoren bei der Arbeit, große Fenster mit Blick auf Alpenlandschaft',
+    'blog.article.imposta-successione-zugo-aliquote.title': 'Erbschaftssteuer Zug: Steuersätze und Befreiungen',
+    'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Im Kanton Zug sind Erbschafts- und Schenkungssteuern kantonale Angelegenheiten. Steuerbefreiungen für Ehegatten und Nachkommen, Steuersätze nach Verwandtschaftsgrad: Wie funktioniert die Erklärung?',
+    'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Kantonales Finanzamt: Erbschaftsdokumente und Steuererklärungen auf einem administrativen Schreibtisch.',
 };
 
 export default blogMetaChDe;

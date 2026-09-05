@@ -1,7 +1,7 @@
 {
   "key": "gemeinde-st-moritz",
   "label": "Gemeinde St. Moritz",
-  "generatedAt": "2026-09-04T23:08:11.859Z",
+  "generatedAt": "2026-09-05T12:51:41.634Z",
   "total": 5,
   "discovered": null,
   "written": 5,
@@ -9,16 +9,16 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14891,
-  "avgDurationMs": 14891,
+  "durationMs": 13408,
+  "avgDurationMs": 13408,
   "durationHistory": [
-    14891
+    13408
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "gemeinde-st-moritz-652da9e3f0ab",
-      "slug": "kosmetikerin-massagetherapeutin-m-w-d-40-100-befristet-gemeinde-st-moritz",
+      "slug": "kosmetikerin-massagetherapeutin-m-w-d-40-100-befristet-gemeinde-st-moritz-ch",
       "company": "Gemeinde St. Moritz",
       "companyKey": "gemeinde-st-moritz",
       "companyDomain": "gemeinde-stmoritz.ch",
@@ -28,7 +28,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/kosmetikerin-massagetherapeutin-m-w-d-40-100-befristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:00.966Z",
+      "crawledAt": "2026-09-05T12:51:31.767Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -42,19 +42,18 @@
       "featured": false,
       "postedDate": "2026-08-27",
       "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/kosmetikerin-massagetherapeutin-m-w-d-40-100-befristet",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:34:24.661Z",
-      "_qualityScore": 61,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "gemeinde-st-moritz-0afd693f6279",
-      "slug": "mitarbeitende-reinigung-100-m-w-d-unbefristet-gemeinde-st-moritz",
+      "slug": "mitarbeitende-reinigung-100-m-w-d-unbefristet-gemeinde-st-moritz-ch",
       "company": "Gemeinde St. Moritz",
       "companyKey": "gemeinde-st-moritz",
       "companyDomain": "gemeinde-stmoritz.ch",
@@ -64,7 +63,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/mitarbeitende-reinigung-100-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:03.023Z",
+      "crawledAt": "2026-09-05T12:51:33.481Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,13 +77,12 @@
       "featured": false,
       "postedDate": "2026-08-27",
       "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/mitarbeitende-reinigung-100-m-w-d-unbefristet",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:34:26.471Z",
-      "_qualityScore": 61,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -100,7 +98,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindeschreiber-100-m-w",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:04.859Z",
+      "crawledAt": "2026-09-05T12:51:35.195Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -135,7 +133,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:08.445Z",
+      "crawledAt": "2026-09-05T12:51:38.664Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,7 +168,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T23:08:06.624Z",
+      "crawledAt": "2026-09-05T12:51:36.937Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",

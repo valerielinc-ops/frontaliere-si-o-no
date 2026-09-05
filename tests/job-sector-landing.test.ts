@@ -216,6 +216,42 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Caissier supermarché' }, 'case-anziani')).toBe(false);
   });
 
+  // ── Lessico cybersecurity vs sicurezza fisica (issue #5321) ──────────────
+  //
+  // La landing `/cerca-lavoro-ticino/cybersecurity/` risultava a 0 match reali
+  // non perche' mancassero gli annunci ma perche' il matcher enumerava DUE soli
+  // suffissi di ruolo (`engineer`, `analyst`). Misurato su data/jobs.json del
+  // 2026-09-05 (25.593 job, 901 TI): 8 titoli TI contenevano una radice
+  // `security`/`sicurezza` senza matchare nessuno dei due settori. I titoli qui
+  // sotto sono presi verbatim da quel dataset — se il lessico si restringe di
+  // nuovo, questo test lo dice prima che la pagina torni vuota.
+  it('classifica i ruoli cyber reali come cybersecurity, non come sicurezza fisica (#5321)', () => {
+    for (const title of [
+      'IT SECURITY ARCHITECT',
+      'Cloud Security Architect',
+      'Senior IT Security Architect',
+      'Information Security Specialista  -  ref. 1108',
+      'Information Security Officer',
+      'Security Specialist Vulnerability Management (m/w/d)',
+      'Cloud Security Consultant / Manager 80-100%',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `non fisica: ${title}`).toBe(false);
+    }
+  });
+
+  it('tiene la sicurezza FISICA fuori da cybersecurity, e viceversa (#5321)', () => {
+    // Il verso opposto: allargare un lessico senza guardare l'altro produce lo
+    // stesso job su due landing indicizzate diverse. `security officer` da solo
+    // resta il guardiano; e' `information/it/cloud/network security officer` che
+    // non lo e', e il lookbehind in SECTOR_MATCHERS.sicurezza li separa.
+    for (const title of ['Security Guard notturno', 'Security Officer', 'Guardia giurata Lugano',
+      'Agent de sécurité', 'Sicherheitsdienst Mitarbeiter']) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `fisica: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `non cyber: ${title}`).toBe(false);
+    }
+  });
+
   it('rejects three-letter false positives that previously inflated the count', () => {
     // The regex used to contain bare \bris\b|\blis\b which matched ~1,000+ unrelated
     // jobs (any English/Italian word containing standalone "ris" or "lis"). After
