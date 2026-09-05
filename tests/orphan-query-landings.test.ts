@@ -292,7 +292,13 @@ describe('cluster-orphan-queries.mjs — deterministic output', () => {
     execFileSync('node', ['scripts/cluster-orphan-queries.mjs'], {
       cwd: ROOT,
       stdio: 'pipe',
-      env: { ...process.env, GSC_ORPHAN_CLUSTERS_OUT: redirect },
+      env: {
+        ...process.env,
+        GSC_ORPHAN_CLUSTERS_OUT: redirect,
+        // In CI l'override vuole un opt-in esplicito: senza, lo script scrive
+        // il percorso canonico (scripts/lib/resolve-output-path.mjs).
+        GSC_ORPHAN_CLUSTERS_OUT_ALLOW_CI: '1',
+      },
     });
 
     expect(fs.existsSync(redirect), 'lo script ha ignorato GSC_ORPHAN_CLUSTERS_OUT').toBe(true);
@@ -308,7 +314,7 @@ describe('cluster-orphan-queries.mjs — deterministic output', () => {
     execFileSync('node', ['scripts/cluster-orphan-queries.mjs'], {
       cwd: ROOT,
       stdio: 'pipe',
-      env: { ...process.env, GSC_ORPHAN_CLUSTERS_OUT: outputPath },
+      env: { ...process.env, GSC_ORPHAN_CLUSTERS_OUT: outputPath, GSC_ORPHAN_CLUSTERS_OUT_ALLOW_CI: '1' },
     });
     const parsed = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
     expect(parsed).toHaveProperty('generatedAt');
