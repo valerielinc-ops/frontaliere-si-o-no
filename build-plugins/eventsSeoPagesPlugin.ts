@@ -2535,12 +2535,17 @@ function buildLadderAlternates(canton: string, comune: string | undefined, page:
  * weight (issue #7329). Carries ONLY the index rows for its slice plus the
  * ladder nav; the cards, stats, FAQ and methodology stay on the base page.
  *
- * `noindex,follow` by construction, not by word count: this is a crawl surface
- * for events that already have their own indexable detail page, so indexing it
- * would publish a near-contentless list — while `follow` is exactly what makes
- * every row reachable, which is the #5434 invariant. Being noindex it is also
- * deliberately absent from `sitemap-eventi.xml` (same treatment as the
- * recently-ended bridge pages).
+ * Indexable under the ordinary `MIN_INDEXABLE_WORDS` gate, exactly like the
+ * bucket/hub/digest siblings — NOT `noindex` by construction. A ladder page is
+ * the ONLY inbound link of the rows it carries (rows past
+ * `OVERFLOW_ROWS_PER_PAGE` moved off the base page), and both reachability
+ * auditors treat a noindex page as a bridge that stops the walk:
+ * `scripts/audit-orphan-pages-in-sitemaps.mjs` (`if (htmlHasNoindex(html)) {
+ * noindexCount += 1; continue; }`) and `scripts/audit-bfs-depth.mjs`
+ * (`if (htmlHasNoindex(html)) continue;`) both skip link extraction. A noindex
+ * ladder would therefore re-orphan every row it transports — precisely the
+ * #5434 regression this overflow block exists to prevent. For the same reason
+ * the ladder URLs ARE listed in `sitemap-eventi.xml` (see `buildSitemap`).
  *
  * BFS: linked from the CANTON HUB (`renderHubLadderIndex`), not only from the
  * base page, so a ladder page sits at the same depth as the base page and its
@@ -2610,14 +2615,14 @@ export function renderOverflowLadderPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: false })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: oCopy.ladderTitle(label, page, pageCount),
     description: oCopy.ladderDesc(label, page, pageCount),
     canonicalUrl,
     hreflangHtml: buildLadderAlternates(canton, comune, page),
-    robots: 'noindex,follow',
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [breadcrumbLd],
@@ -3406,7 +3411,13 @@ export function renderDigestPage(params: {
 // mirroring the existing `data/seo-404-compat/part-*.json` sharding pattern
 // used elsewhere in this codebase for the same class of problem.
 function buildSitemap(
-  perCanton: Array<{ canton: string; comuni: string[]; digests: DigestDef[]; hasOtherEvents?: boolean }>,
+  perCanton: Array<{
+    canton: string;
+    comuni: string[];
+    digests: DigestDef[];
+    hasOtherEvents?: boolean;
+    ladders?: Array<{ comune: string | undefined; pageCount: number }>;
+  }>,
   dateStamp: string,
   detailEntries: Array<{ canton: string; comune: string; slug: string }> = [],
 ): string {
@@ -3416,7 +3427,7 @@ function buildSitemap(
   // Swiss-wide index page is always emitted too (see the `renderEventsIndexPage`
   // loop there), so it always belongs in the sitemap.
   const entries: string[] = [nationalIndexSitemapUrl(dateStamp)];
-  for (const { canton, comuni, digests, hasOtherEvents } of perCanton) {
+  for (const { canton, comuni, digests, hasOtherEvents, ladders } of perCanton) {
     // Hub
     entries.push(sitemapUrl(canton, undefined, dateStamp, '0.7'));
     // Time-window digests (only the indexable ones)
@@ -3424,6 +3435,11 @@ function buildSitemap(
     for (const comune of comuni) entries.push(sitemapUrl(canton, comune, dateStamp, '0.5'));
     // "Other events" bucket page (comune-less events, see renderOtherEventsPage)
     if (hasOtherEvents) entries.push(sitemapUrl(canton, OTHER_EVENTS_COMUNE_KEY, dateStamp, '0.5'));
+    // Overflow ladder pages of the buckets that have one (page 1 IS the bucket
+    // page already pushed above, so the ladder starts at 2).
+    for (const { comune, pageCount } of ladders ?? []) {
+      for (let page = 2; page <= pageCount; page += 1) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
+    }
   }
   // Per-event detail pages
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp));
@@ -3446,6 +3462,19 @@ function digestSitemapUrl(canton: string, slug: Record<Locale, string>, dateStam
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForDigest('it', canton, slug)}" />`)
     .join('\n');
   return `  <url>\n    <loc>${BASE_URL}${pathForDigest('it', canton, slug)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+}
+
+// Overflow ladder page (`<bucket>/page-N/`, issue #7329). Sitemapped like any
+// other indexable surface: it is the only inbound link of the rows past
+// `OVERFLOW_ROWS_PER_PAGE`, so leaving it out would hide exactly the rows it
+// exists to carry. Priority 0.4: below the 0.5 bucket page it continues.
+function ladderSitemapUrl(canton: string, comune: string | undefined, page: number, dateStamp: string): string {
+  const alternates = LOCALES.map(
+    (locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${overflowLadderPath(locale, canton, comune, page)}" />`,
+  )
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${overflowLadderPath('it', canton, comune, page)}" />`)
+    .join('\n');
+  return `  <url>\n    <loc>${BASE_URL}${overflowLadderPath('it', canton, comune, page)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`;
 }
 
 function sitemapUrl(canton: string, comune: string | undefined, dateStamp: string, priority: string): string {
@@ -3677,7 +3706,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         pagesWritten += 1;
       };
 
-      const perCantonSitemap: Array<{ canton: string; comuni: string[]; digests: DigestDef[]; hasOtherEvents: boolean }> = [];
+      const perCantonSitemap: Array<{
+        canton: string;
+        comuni: string[];
+        digests: DigestDef[];
+        hasOtherEvents: boolean;
+        ladders: Array<{ comune: string | undefined; pageCount: number }>;
+      }> = [];
       // Per-canton aggregates for the Swiss-wide index hub (issue #3645, F3)
       // — filled alongside `perCantonSitemap` in the same loop below so both
       // stay derived from the identical per-canton data, never a second pass
@@ -3735,7 +3770,8 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             const list = byComune.get(comune)!;
             emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref }));
             // Overflow index past page 1 (issue #7329) — same rows, bounded
-            // pages. Not sitemapped: every ladder page is noindex,follow.
+            // pages. Sitemapped alongside the bucket (see `perCantonSitemap`
+            // below): the ladder is the only inbound of the rows it carries.
             for (let page = 2; page <= overflowLadderPageCount(list, EVENT_CARD_CAP, detailHref); page += 1) {
               emit(renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref }));
             }
@@ -3799,11 +3835,28 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           }
         }
 
+        // Ladder page counts for the sitemap. Computed on the `it` detailHref
+        // because that is the locale every `<loc>` in this sitemap is written
+        // in (the other locales ride along as `xhtml:link` alternates), and
+        // `overflowRows` only uses `detailHref` to drop events that have no
+        // detail page at all — a locale-independent property.
+        const sitemapDetailHref = detailHrefFor('it');
+        const ladders: Array<{ comune: string | undefined; pageCount: number }> = [];
+        for (const comune of comuni) {
+          const pageCount = overflowLadderPageCount(byComune.get(comune)!, EVENT_CARD_CAP, sitemapDetailHref);
+          if (pageCount > 1) ladders.push({ comune, pageCount });
+        }
+        if (otherEvents.length > 0) {
+          const pageCount = overflowLadderPageCount(otherEvents, OTHER_EVENTS_CARD_CAP, sitemapDetailHref);
+          if (pageCount > 1) ladders.push({ comune: OTHER_EVENTS_COMUNE_KEY, pageCount });
+        }
+
         perCantonSitemap.push({
           canton,
           comuni,
           digests: DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0),
           hasOtherEvents: otherEvents.length > 0,
+          ladders,
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
       }
