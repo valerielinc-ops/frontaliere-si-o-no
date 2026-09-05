@@ -17,6 +17,7 @@ import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { extractStackFrameOrigins, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { abstainIfSourceDead } from './lib/source-liveness.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 export function truncate(value, n) {
   const str = String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -47,8 +48,8 @@ export async function main() {
   const PID = process.env.POSTHOG_PROJECT_ID;
   const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
   const WINDOW_DAYS = process.env.WINDOW_DAYS || '7';
-  const MIN_COUNT = Number(process.env.POSTHOG_ERROR_MIN_COUNT || 5);
-  const MAX_ISSUES = Number(process.env.POSTHOG_ERROR_MAX_ISSUES || 5);
+  const MIN_COUNT = intFromEnv('POSTHOG_ERROR_MIN_COUNT', 5);
+  const MAX_ISSUES = intFromEnv('POSTHOG_ERROR_MAX_ISSUES', 5);
 
   if (!KEY || !PID) {
     console.log('[posthog-error-issue-sync] POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing — skip');

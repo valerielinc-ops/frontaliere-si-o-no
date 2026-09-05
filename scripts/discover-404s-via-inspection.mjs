@@ -38,6 +38,7 @@ import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -58,12 +59,14 @@ function buildCantonLocalePrefixes(cantonCode) {
 }
 
 const DRY_RUN = process.argv.includes('--dry-run');
-const BATCH_SIZE = Number(
-  process.env.BATCH_SIZE ||
-  (process.argv.find((a) => a.startsWith('--batch-size=')) || '').split('=')[1] ||
-  1500,
-);
-const MIN_AGE_DAYS = Number(process.env.MIN_AGE_DAYS || 14);
+// `intFromEnv` due volte, annidato: l'argomento di riga di comando ha
+// esattamente la stessa classe di guasto della variabile d'ambiente (una
+// stringa che puo' non essere un numero), quindi passa dallo stesso predicato
+// invece di essere dato in pasto a `Number` cosi' com'e' — issue #7344.
+const BATCH_SIZE = intFromEnv('BATCH_SIZE', intFromEnv('--batch-size', 1500, {
+  env: { '--batch-size': (process.argv.find((a) => a.startsWith('--batch-size=')) || '').split('=')[1] },
+}));
+const MIN_AGE_DAYS = intFromEnv('MIN_AGE_DAYS', 14);
 const MIN_AGE_MS = MIN_AGE_DAYS * 24 * 60 * 60 * 1000;
 
 const GSC_CLIENT_ID = process.env.GSC_CLIENT_ID || '';
