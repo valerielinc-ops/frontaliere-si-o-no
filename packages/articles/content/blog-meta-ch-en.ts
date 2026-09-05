@@ -5557,6 +5557,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-zugo-aliquote.title': 'Zug inheritance tax: rates and exemptions',
     'blog.article.imposta-successione-zugo-aliquote.excerpt': 'In the Canton of Zug, inheritance and gift taxes are cantonal matters. Spouse and descendant exemptions, kinship rates: how the declaration works.',
     'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Cantonal tax office: succession documents and fiscal forms on Swiss administrative desk.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.title': 'Some medical specialists exaggerate with billings',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.excerpt': 'According to Saskia Schenker, director of Prioswiss, some medical specialists are overcharging for their services.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.imageAlt': 'Doctor\'s office in Lugano with medical equipment and charts',
 };
 
 export default blogMetaChEn;

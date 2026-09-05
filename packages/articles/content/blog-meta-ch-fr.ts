@@ -5557,6 +5557,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-zugo-aliquote.title': 'Impôt succession Zoug : taux et exonérations',
     'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Dans le canton de Zoug, les droits de succession et de donation sont cantonaux. Exemptions pour conjoint et descendants, taux par degré de parenté : comment fonctionne la déclaration.',
     'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Bureau d\'impôts cantonal: documents de succession et formulaires fiscaux sur un bureau suisse.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.title': 'Certains médecins spécialistes exagèrent avec les factures',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.excerpt': 'Selon Saskia Schenker, directrice de Prioswiss, certains médecins spécialistes exagèrent les factures de leurs prestations.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.imageAlt': 'Cabinet médical à Lugano avec équipement médical et graphiques',
 };
 
 export default blogMetaChFr;

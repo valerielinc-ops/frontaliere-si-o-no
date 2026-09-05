@@ -1878,6 +1878,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zugo-salari-occupazione-guida': { it: 'zugo-salari-occupazione-guida', en: 'zugo-salary-occupation-guide', de: 'zugo-loehne-arbeitsmarkt-leitfaden', fr: 'zugo-salaires-marche-travail-guide' },
  'salari-canton-zugo-contratti': { it: 'salari-canton-zugo-contratti', en: 'salary-zug-canton-employment', de: 'lohn-kanton-zug-collective', fr: 'salaires-canton-zug-collective' },
  'imposta-successione-zugo-aliquote': { it: 'imposta-successione-zugo-aliquote', en: 'inheritance-tax-canton-zug-rates', de: 'erbschaftssteuer-kanton-zug-saetze', fr: 'impot-succession-canton-zoug-taux' },
+ 'medici-specialisti-fatturazioni-svizzera': { it: 'medici-specialisti-fatturazioni-svizzera', en: 'specialist-doctors-billing-switzerland', de: 'facharzt-abrechnungen-schweiz', fr: 'facturation-medecins-specialistes-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

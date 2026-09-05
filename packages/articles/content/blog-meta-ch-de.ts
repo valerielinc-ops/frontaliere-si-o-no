@@ -5557,6 +5557,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-zugo-aliquote.title': 'Erbschaftssteuer Zug: Steuersätze und Befreiungen',
     'blog.article.imposta-successione-zugo-aliquote.excerpt': 'Im Kanton Zug sind Erbschafts- und Schenkungssteuern kantonale Angelegenheiten. Steuerbefreiungen für Ehegatten und Nachkommen, Steuersätze nach Verwandtschaftsgrad: Wie funktioniert die Erklärung?',
     'blog.article.imposta-successione-zugo-aliquote.imageAlt': 'Kantonales Finanzamt: Erbschaftsdokumente und Steuererklärungen auf einem administrativen Schreibtisch.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.title': 'Einige Fachärzte übertreiben mit den Abrechnungen',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.excerpt': 'Laut Saskia Schenker, Geschäftsführerin von Prioswiss, übertreiben einige Fachärzte bei der Abrechnung ihrer Leistungen.',
+    'blog.article.medici-specialisti-fatturazioni-svizzera.imageAlt': 'Arztpraxis in Lugano mit medizinischer Ausrüstung und Diagrammen',
 };
 
 export default blogMetaChDe;
