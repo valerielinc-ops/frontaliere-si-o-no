@@ -299,3 +299,226 @@ describe('l\'allowlist è un contratto, non un\'euristica', () => {
     }).action).toBe('keep');
   });
 });
+
+/**
+ * ## Il riconoscimento del registro di VISION.md (#7280)
+ *
+ * Questi casi girano sul `VISION.md` REALE del repo, non su una fixture. È
+ * deliberato: il difetto che chiudono non è «il parser sbaglia una tabella
+ * inventata», è «il pre-pass legge male le righe che il proprietario ha
+ * davvero scritto». Una fixture direbbe di sì a qualunque criterio.
+ *
+ * Il rischio del dato vivo — una riga riscritta rende rosso un test — è quello
+ * giusto da correre: se la riga di #6280 smette di essere un sì pieno, il
+ * criterio DEVE tornare a farsi guardare.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import {
+  parseVisionRegistry,
+  matchRegistry,
+  registryRowState,
+  registryRowScope,
+  citedRefs,
+  blockedRefs,
+  prepassNote,
+  noteMarker,
+} from '../scripts/ci/needs-human-prepass.mjs';
+
+const VISION = fs.readFileSync(path.resolve(__dirname, '..', 'VISION.md'), 'utf-8');
+const REGISTRY = parseVisionRegistry(VISION);
+
+/** L'esito del pre-pass su un corpo che cita `#n`, senza altri segnali. */
+function verdictFor(n: number) {
+  const g = matchRegistry(`Scheda\n\nContesto: vedi #${n} per la decisione.`, REGISTRY, { homeScope: 'site' });
+  if (!g.unconditional.length && !g.conditional.length) return 'nessuna-riga';
+  return g.unconditional.length && !g.conditional.length ? 'sblocca' : 'annota';
+}
+
+describe('registro di VISION.md — incondizionata vs condizionata (i casi reali)', () => {
+  it('il registro si legge davvero: la tabella non è vuota', () => {
+    expect(REGISTRY.length).toBeGreaterThan(10);
+  });
+
+  it('#6280 (candidatura assistita): «SÌ, procedi» è un sì pieno → SBLOCCA', () => {
+    expect(verdictFor(6280)).toBe('sblocca');
+  });
+
+  it('#4854 (aste targhe): «SÌ, procedi» → SBLOCCA', () => {
+    expect(verdictFor(4854)).toBe('sblocca');
+  });
+
+  it('#5995 (repo weight): leve 2 e 5 «non autorizzate» → NON sblocca da solo', () => {
+    // È la trappola centrale: una regola «cita una riga registrata → requeue»
+    // riaprirebbe qui lavoro che il proprietario ha esplicitamente negato.
+    expect(verdictFor(5995)).toBe('annota');
+    const row = REGISTRY.find((r) => r.refs.includes(5995))!;
+    expect(row.state).toBe('conditional');
+    expect(row.why.join(' ')).toMatch(/NON è autorizzata|BACKLOG/);
+  });
+
+  it('#5983 (gate SEO): è un NO → NON sblocca', () => {
+    expect(verdictFor(5983)).toBe('annota');
+    expect(REGISTRY.find((r) => r.refs.includes(5983))!.why).toContain('decisione negativa');
+  });
+
+  it('#5681 (re-permission consensi): «NON si fa, per ora» → NON sblocca', () => {
+    expect(verdictFor(5681)).toBe('annota');
+  });
+
+  it('#5926 (CMP unificata): «SÌ, con vincolo esplicito» → NON sblocca', () => {
+    // Un sì che porta un requisito tecnico non è un via libera automatico: chi
+    // lo implementa deve leggere il vincolo, e il pre-pass non sa leggerlo.
+    expect(verdictFor(5926)).toBe('annota');
+  });
+
+  it('#5705 (avvisi di lavoro): famiglia job-alert riservata → NON sblocca', () => {
+    expect(verdictFor(5705)).toBe('annota');
+  });
+
+  it('una issue che non cita nessuna riga non aggancia niente', () => {
+    expect(verdictFor(999999)).toBe('nessuna-riga');
+  });
+});
+
+describe('registryRowState — il criterio, non i suoi esempi', () => {
+  it('il silenzio non è un sì: senza marcatore affermativo la riga è condizionata', () => {
+    // L'asimmetria è la stessa dell'allowlist di famiglie: l'assenza di prova
+    // non è prova. Un default «incondizionata» renderebbe pericolosa ogni riga
+    // futura scritta in fretta.
+    const r = registryRowState('Publisher doppio sulla stessa coda: spento lo schedule del sito');
+    expect(r.state).toBe('conditional');
+    expect(r.why[0]).toMatch(/nessun marcatore affermativo/);
+  });
+
+  it('`si` pronome NON è un sì: ogni riga negativa lo contiene', () => {
+    // Un `/\bsi\b/i` leggerebbe come affermative esattamente le righe che negano.
+    expect(registryRowState('NON si fa, per ora').state).toBe('conditional');
+    expect(registryRowState('Le issue della famiglia job-alert si lasciano stare').state).toBe('conditional');
+  });
+
+  it('«non solo per questa issue» resta un sì pieno (#5928)', () => {
+    // Un qualificatore su `\bnon\b` spegnerebbe il riconoscimento proprio sulle
+    // righe più larghe, che sono quelle che vale di più riconoscere.
+    expect(registryRowState('**SÌ, e i futuri deploy sono autonomi da ora** — non solo per questa issue').state)
+      .toBe('unconditional');
+  });
+
+  it('«opzione A» sceglie fra alternative: non autorizza in blocco', () => {
+    expect(registryRowState('#6227 (bande salariali stimate): **opzione A** — scrivere `salarySource`').state)
+      .toBe('conditional');
+  });
+});
+
+describe('numerazione: due repo, un registro', () => {
+  it('`AGENTS.md #1` non è la issue #1', () => {
+    // Senza il lookbehind la riga del 2026-08-20 entrava nel registro come una
+    // decisione sulla issue #1 — un numero che qualunque corpo può nominare.
+    expect([...citedRefs('vedi AGENTS.md #1 per il dettaglio')]).toEqual([]);
+    expect([...citedRefs('vedi la issue #1 per il dettaglio')]).toEqual([1]);
+  });
+
+  it('una riga che parla del corpus non decide su un numero del sito', () => {
+    // `VISION.md` sta sul sito ma registra il ciclo intero: le righe del
+    // 2026-09-05 decidono su #727/#814/#832, che sono numeri del CORPUS.
+    expect(registryRowScope('Obiettivo crawler-goal RIATTIVATO (#727 piano, #728 audit, corpus)')).toBe('corpus');
+    expect(registryRowScope('#6280 (candidatura assistita): **SÌ, procedi**')).toBe('site');
+
+    const corpusRow = { date: '2026-09-05', decision: 'x', source: '', refs: [832], scope: 'corpus', state: 'unconditional', why: [] };
+    expect(matchRegistry('vedi #832', [corpusRow], { homeScope: 'site' }).refs).toEqual([]);
+    expect(matchRegistry('vedi nanakokyobashi-rgb/frontaliere-articles#832', [corpusRow], { homeScope: 'site' }).refs)
+      .toEqual([832]);
+    expect(matchRegistry('vedi #832', [corpusRow], { homeScope: 'corpus' }).refs).toEqual([832]);
+  });
+
+  it('un riferimento a un terzo repo non conta', () => {
+    expect([...citedRefs('facebook/react#1234', { repo: 'valerielinc-ops/frontaliere-si-o-no' })]).toEqual([]);
+  });
+});
+
+describe('il registro non scavalca i verdetti che questo stadio non sa cambiare', () => {
+  const yes = REGISTRY.filter((r) => r.refs.includes(6280));
+
+  it('riga incondizionata + nessun verdetto → requeue col registro citato', () => {
+    const d = prepassDecision({ title: 'candidatura assistita: checkout', body: 'vedi #6280', registry: REGISTRY });
+    expect(d.action).toBe('requeue');
+    expect(d.reason).toMatch(/registro di `VISION\.md`/);
+  });
+
+  it('`max-turns` batte il registro: la decisione non accorcia la run già morta', () => {
+    const d = prepassDecision({
+      title: 'candidatura assistita: checkout', body: 'vedi #6280', registry: REGISTRY, verdict: 'max-turns',
+    });
+    expect(d.action).not.toBe('requeue');
+  });
+
+  it('una riga sola condizionata basta a fermare lo sblocco, anche accanto a un sì pieno', () => {
+    // Un corpo a cavallo fra #6280 (sì) e #5995 (leve non autorizzate) descrive
+    // un lavoro che sta su entrambe: nel dubbio non si sblocca.
+    expect(yes.length).toBeGreaterThan(0);
+    const d = prepassDecision({ title: 'lavoro misto', body: 'tocca #6280 e #5995', registry: REGISTRY });
+    expect(d.action).toBe('keep');
+    expect(d.note).toMatch(/condizionata o negativa/);
+  });
+
+  it('la riga condizionata viene ALLEGATA: la issue non è più indistinguibile nel keep', () => {
+    const d = prepassDecision({ title: 'repo weight', body: 'leva 2 di #5995', registry: REGISTRY });
+    expect(d.action).toBe('keep');
+    expect(d.note).toContain('Registro di `VISION.md`');
+    expect(d.note).toMatch(/2026-08-24/);
+    expect(d.marker).toBe('<!-- PREPASS_NOTE: r=5995 -->');
+  });
+
+  it('il tracker permanente non si annota (il digest cambia corpo ogni lunedì)', () => {
+    const d = prepassDecision({
+      title: '🧭 Decisioni del proprietario — digest', body: 'vedi #5995',
+      labels: ['agent:no-age-out'], registry: REGISTRY,
+    });
+    expect(d.action).toBe('keep');
+    expect(d.note).toBeUndefined();
+  });
+});
+
+describe('blocchi scaduti — la forma reale di nanako#471', () => {
+  const BODY = [
+    'Scope residuo dal body di PR #433.',
+    '',
+    '## 1. Gemello sito non ancora portato — blocked su PR esterna aperta',
+    '',
+    'Stato dichiarato nel body: `PR concatenata valerielinc-ops/frontaliere-si-o-no#6023`, non ancora mergiata.',
+    '',
+    '## 2. Ledger diagnostico — nessun blocco qui',
+    '',
+    'Si fa nello stesso giro, vedi #999.',
+  ].join('\n');
+
+  it('il riferimento sta tre paragrafi sotto la parola `blocked`: la riga non basta, la sezione sì', () => {
+    const refs = blockedRefs(BODY, { homeScope: 'corpus' });
+    expect(refs.map((r) => r.key)).toEqual(['valerielinc-ops/frontaliere-si-o-no#6023']);
+  });
+
+  it('una sezione senza `blocked` non contribuisce riferimenti', () => {
+    expect(blockedRefs(BODY, { homeScope: 'corpus' }).some((r) => r.number === 999)).toBe(false);
+  });
+
+  it('un corpo che non nomina mai `blocked` costa zero letture', () => {
+    expect(blockedRefs('nessun blocco qui, solo #123', { homeScope: 'site' })).toEqual([]);
+  });
+
+  it('la nota dice stato e data, e il blocco scaduto da solo NON instrada', () => {
+    // Il titolo qui NON è di famiglia monitor apposta: `follow-up(#433):` lo
+    // sarebbe e il `requeue` verrebbe da lì, non dal blocco scaduto — cioè il
+    // test non proverebbe niente su questo meccanismo.
+    const stale = [{ key: 'a#1', link: 'valerielinc-ops/frontaliere-si-o-no#6023', state: 'MERGED', at: '2026-08-18' }];
+    const d = prepassDecision({ title: 'gemello sito ai-models.mjs non portato', staleBlocks: stale });
+    expect(d.action).toBe('keep');
+    expect(d.note).toContain('MERGED');
+    expect(d.note).toContain('2026-08-18');
+    expect(noteMarker({ refs: [] }, stale)).toBe('<!-- PREPASS_NOTE: b=a#1 -->');
+  });
+
+  it('senza righe e senza blocchi non si scrive niente (nessun commento a vuoto)', () => {
+    expect(prepassNote({ unconditional: [], conditional: [], refs: [] }, [])).toBeNull();
+    expect(noteMarker({ refs: [] }, [])).toBeNull();
+  });
+});
