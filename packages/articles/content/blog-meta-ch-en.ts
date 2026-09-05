@@ -5551,6 +5551,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zugo-salari-occupazione-guida.title': 'Zug Labour Market: Wages, Sectors and Training',
     'blog.article.zugo-salari-occupazione-guida.excerpt': 'Practical guide to wages and employment opportunities in the canton of Zug: wage levels for training, workers\' rights and net wage calculation in Switzerland.',
     'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Swiss office buildings and workspaces representing labor market opportunities and employment landscape',
+    'blog.article.salari-canton-zugo-contratti.title': 'Wages and the labour market in the canton of Zug: sectors and levels',
+    'blog.article.salari-canton-zugo-contratti.excerpt': 'Swiss labour market: how wage determination works between collective agreements, cantonal taxation and education levels.',
+    'blog.article.salari-canton-zugo-contratti.imageAlt': 'Modern Swiss office with professionals from multiple sectors working at desks, large windows overlooking Alpine landscape',
 };
 
 export default blogMetaChEn;

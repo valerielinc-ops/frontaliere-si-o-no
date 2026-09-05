@@ -1876,6 +1876,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'processo-junge-tat-zurigo': { it: 'processo-junge-tat-zurigo', en: 'junge-tat-trial-zurich', de: 'junge-tat-prozess-zurich', fr: 'proces-junge-tat-zurich' },
  'mezzo-miliardo-contadini-mercosur': { it: 'mezzo-miliardo-contadini-mercosur', en: 'half-billion-for-farmers-mercosur', de: 'halb-milliarden-fuer-bauern-mercosur', fr: 'un-milliard-pour-les-agriculteurs-mercosur' },
  'zugo-salari-occupazione-guida': { it: 'zugo-salari-occupazione-guida', en: 'zugo-salary-occupation-guide', de: 'zugo-loehne-arbeitsmarkt-leitfaden', fr: 'zugo-salaires-marche-travail-guide' },
+ 'salari-canton-zugo-contratti': { it: 'salari-canton-zugo-contratti', en: 'salary-zug-canton-employment', de: 'lohn-kanton-zug-collective', fr: 'salaires-canton-zug-collective' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

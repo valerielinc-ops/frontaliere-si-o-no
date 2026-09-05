@@ -72053,6 +72053,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-canton-zugo-contratti': {
+    title: 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    description: 'Come funziona il mercato del lavoro svizzero: contratti collettivi, tassazione cantonale, salari per livello di formazione. Guida pratica per il Canton Zugo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro canton Zugo: settori e livelli',
+    ogDescription: 'Scopri come funziona il mercato del lavoro nel Canton Zugo: quali contratti collettivi vigono, come la tassazione cantonale e il livello di formazione influenzano i salari, e quali strumenti usare per calcolare il tuo stipendio netto in Svizzera.',
+    canonicalPath: '/articoli-svizzera/salari-canton-zugo-contratti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro canton Zugo: settori e livelli",
+      "description": "Come funziona il mercato del lavoro svizzero: contratti collettivi, tassazione cantonale, salari per livello di formazione. Guida pratica per il Canton Zugo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-canton-zugo-contratti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero moderno con professionisti di diverse discipline al lavoro, finestre ampie con vista sul paesaggio alpino"
+      },
+      "datePublished": "2026-09-05T12:52:10+00:00",
+      "dateModified": "2026-09-05T12:52:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-canton-zugo-contratti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

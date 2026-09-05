@@ -16651,6 +16651,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salari-canton-zugo-contratti',
+    category: 'pratico',
+    date: '2026-09-05T12:52:10.533Z',
+    image: '/images/blog/salari-canton-zugo-contratti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
