@@ -16705,6 +16705,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'falso-allarme-goldach',
+    category: 'novita',
+    date: '2026-09-05T14:27:14.765Z',
+    image: '/images/blog/falso-allarme-goldach.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
