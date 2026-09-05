@@ -11412,6 +11412,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-cantiere-corsie-ztl.title': 'Como, Verkehrskatastrophe: offene Fahrspuren und ZTL',
     'blog.article.como-cantiere-corsie-ztl.excerpt': 'Die Gemeinde Como hat Vorzugsspuren und ZTL-Zonen für Fahrzeuge in die Schweiz eröffnet. Hier sind die genehmigten Routen und wie Sie sich während der Baustelle bewegen können.',
     'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Dichter Verkehr auf der Straße nahe Como mit Baustelle und orangefarbenen Warnschildern',
+    'blog.article.lungolago-como-chiusura-traffico.title': 'Lungolago di Como chiuso: code e attese fino a 150 min',
+    'blog.article.lungolago-como-chiusura-traffico.excerpt': 'Die Schließung der Comer Seepromenade verursachte enorme Unannehmlichkeiten für den Verkehr, mit endlosen Warteschlangen und Wartezeiten von bis zu 150 Minuten.',
+    'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Luftaufnahme des geschlossenen Lungolago in Como mit Verkehrsstau und langen Schlangen',
 };
 
 export default blogMetaDe;

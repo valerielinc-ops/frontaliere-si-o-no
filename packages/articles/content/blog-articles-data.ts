@@ -34095,6 +34095,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lungolago-como-chiusura-traffico',
+ category: 'pratico',
+ date: '2026-09-05T13:52:19.669Z',
+ image: '/images/blog/lungolago-como-chiusura-traffico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

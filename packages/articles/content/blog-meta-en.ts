@@ -11413,6 +11413,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-cantiere-corsie-ztl.title': 'Como, traffic disaster: open lanes and ZTL',
     'blog.article.como-cantiere-corsie-ztl.excerpt': 'The Municipality of Como has opened preferential lanes and ZTL zones for vehicles to Switzerland. Here are the authorized routes and how to move around the construction site.',
     'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Heavy traffic on highway near Como with construction barriers and orange warning signs',
+    'blog.article.lungolago-como-chiusura-traffico.title': 'Como lakefront closed: infinite queues and waits up to 150 minutes',
+    'blog.article.lungolago-como-chiusura-traffico.excerpt': 'The closure of the Como lakefront caused huge inconvenience for traffic, with endless queues and waits of up to 150 minutes.',
+    'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Aerial view of the closed lungolago in Como with traffic congestion and long queues',
 };
 
 export default blogMetaEn;

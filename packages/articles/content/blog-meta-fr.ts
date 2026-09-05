@@ -11415,6 +11415,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-cantiere-corsie-ztl.title': 'Côme, catastrophe routière : voies ouvertes et ZTL',
     'blog.article.como-cantiere-corsie-ztl.excerpt': 'La municipalité de Côme a ouvert des voies préférentielles et des zones de ZTL pour les véhicules vers la Suisse. Voici les itinéraires autorisés et comment se déplacer sur le chantier.',
     'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Trafic intense sur la route près de Como avec chantier et panneaux d\'avertissement orange',
+    'blog.article.lungolago-como-chiusura-traffico.title': 'Lungolago de Côme fermé : files et attente jusqu\'à 150 min',
+    'blog.article.lungolago-como-chiusura-traffico.excerpt': 'La fermeture du bord du lac de Côme a causé d\'énormes désagréments pour la circulation, avec des files d\'attente interminables et des attentes allant jusqu\'à 150 minutes.',
+    'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Vue aérienne du lungolago fermé à Côme avec embouteillages et longues files d\'attente',
 };
 
 export default blogMetaFr;
