@@ -742,7 +742,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:11:50.827Z",
-      "needsRetranslation": true,
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -1323,7 +1322,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:49:51.686Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1583,7 +1581,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:01:06.158Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3279,7 +3276,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:05.470Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3359,7 +3355,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:05.463Z",
-      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "salarySource": "estimated",
@@ -3594,7 +3589,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:05.456Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -4343,8 +4337,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
