@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllHofweissbadJobs,
   isHofweissbadJob,
@@ -25,6 +26,13 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllHofweissbadJobs,
   isCompanyJob: isHofweissbadJob,
+  // Publish a zero only when the source itself proved it is empty (issue
+  // #7458/#6660 class). An unproven zero keeps the previous slice, so a
+  // broken crawler stays visibly unhealthy instead of being masked by an
+  // `EMPTY_OK_CRAWLERS` entry.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(HOFWEISSBAD_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'de',
 }).catch((err) => {

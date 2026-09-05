@@ -49,6 +49,8 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { collectJobsChVacancyUrls, parseVacancyLinks } from './jobs-ch-company-pages.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import {
@@ -71,7 +73,6 @@ const HQ = getCompanyDefaults(STRABAG_KEY) || {
   addressRegion: 'ZH',
 };
 
-const BASE_URL = 'https://www.jobs.ch';
 
 // Known jobs.ch company profiles for STRABAG's Swiss legal entities.
 const COMPANY_TARGETS = [
@@ -81,16 +82,9 @@ const COMPANY_TARGETS = [
 
 /* ── Listing pages ────────────────────────────────────────── */
 
-export function parseVacancyLinks(html = '') {
-  if (!html) return [];
-  const urls = new Set();
-  const re = /href="(\/en\/vacancies\/detail\/[a-f0-9-]+\/)"/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    urls.add(`${BASE_URL}${m[1]}`);
-  }
-  return Array.from(urls);
-}
+// Re-exported from the shared jobs.ch reader so the four company-page
+// crawlers cannot drift apart on the link shape (AGENTS.md #6).
+export { parseVacancyLinks };
 
 /* ── Detail page parser ───────────────────────────────────── */
 
@@ -249,31 +243,21 @@ export function isTrustedDomain(rawUrl = '') {
  * Returns an array of ParsedJob objects with source-locale fields only.
  * Other locales are filled by the shared AI localization step.
  */
-export async function fetchAllStrabagJobs() {
+export async function fetchAllStrabagJobs({ fetchPage = fetchHtml } = {}) {
   console.log('🏗️  Fetching STRABAG AG jobs from jobs.ch company pages');
-  const vacancyUrls = new Set();
+  const { vacancyUrls, provenEmpty, evidence } = await collectJobsChVacancyUrls(
+    COMPANY_TARGETS,
+    { fetchPage, pathSuffix: 'vacancies/' },
+  );
 
-  for (const target of COMPANY_TARGETS) {
-    // locale-segment-ok: '/en/' is jobs.ch's own external site-language path, not our site locale route
-    const companyPageUrl = `${BASE_URL}/en/companies/${target.path}/vacancies/`;
-    let html = '';
-    try {
-      html = await fetchHtml(companyPageUrl);
-    } catch (err) {
-      console.warn(`  ⚠️ Company page fetch failed for ${target.label} (${companyPageUrl}): ${err?.message || err}`);
-      continue;
-    }
-    const links = parseVacancyLinks(html);
-    console.log(`  📄 ${target.label}: ${links.length} vacancy link(s)`);
-    for (const link of links) vacancyUrls.add(link);
-  }
-
-  if (!vacancyUrls.size) {
+  if (!vacancyUrls.length) {
     console.warn('⚠️ No STRABAG vacancy URLs found on jobs.ch');
-    return [];
+    if (!provenEmpty) return [];
+    console.log(`  🧩 Source-proven zero: ${evidence}`);
+    return markAuthoritativeEmptySnapshot([], evidence);
   }
 
-  console.log(`  📋 Total unique vacancy URLs: ${vacancyUrls.size}\n`);
+  console.log(`  📋 Total unique vacancy URLs: ${vacancyUrls.length}\n`);
 
   const jobs = [];
   for (const jobUrl of vacancyUrls) {

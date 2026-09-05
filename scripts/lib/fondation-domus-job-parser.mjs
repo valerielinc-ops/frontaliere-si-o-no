@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -219,6 +220,56 @@ async function fetchCareerPage() {
  * Parse job listings from the career page HTML.
  * Returns array of { title, location, percentage, contractType, date, applyUrl }.
  */
+/**
+ * Headings that live on the vacancy board but are not vacancies: the standing
+ * "Postulation spontanée" card and the page's own section titles.
+ *
+ * Single definition on purpose — `parseJobsFromHtml` skips them and
+ * `parseVacancyBoardEvidence` needs the exact same predicate to state "every
+ * rendered card is a non-vacancy". Two copies would drift and the empty proof
+ * would stop matching what the parser actually publishes.
+ *
+ * @param {string} title
+ */
+export function isNonVacancyHeading(title = '') {
+  const t = String(title || '').trim();
+  if (!t || t.length < 5) return true;
+  return /postulation spontan/i.test(t)
+    || /^postes?\s+ouverts?$/i.test(t)
+    || /^offres?\s+d['’]emploi$/i.test(t)
+    || /^emploi\s+(?:et\s+)?formation$/i.test(t)
+    || /^nos\s+offres$/i.test(t)
+    || /^rejoignez/i.test(t);
+}
+
+/**
+ * Evidence that the vacancy board itself rendered, and what it rendered.
+ *
+ * The board is a Joomla XML-feed module: `<div id="mod-xml-loader" class="jobs">`
+ * wrapping one `<div class="job">` per card. That container is the difference
+ * between "the source says there is nothing open" and "we never saw the source":
+ * a WAF shell, a 200 on a moved URL or a dead feed loader all lose it, while a
+ * genuinely empty board still renders it around the standing spontaneous-
+ * application card.
+ *
+ * Measured on the live page 2026-09-05: container present, exactly one card,
+ * titled "Postulation spontanée".
+ *
+ * @param {string} html
+ * @returns {{ boardRendered: boolean, cardTitles: string[] }}
+ */
+export function parseVacancyBoardEvidence(html = '') {
+  const source = String(html || '');
+  const board = /<div\b[^>]*\bid=["']mod-xml-loader["'][^>]*>/i.exec(source);
+  if (!board) return { boardRendered: false, cardTitles: [] };
+  const cards = source.slice(board.index + board[0].length).split(/<div\b[^>]*\bclass=["'][^"']*\bjob\b[^"']*["'][^>]*>/i);
+  const cardTitles = cards.slice(1).map((card) => {
+    const heading = /<h3[^>]*>([\s\S]*?)<\/h3>/i.exec(card);
+    return heading ? normalizeSpace(stripHtml(heading[1])) : '';
+  });
+  return { boardRendered: true, cardTitles };
+}
+
 export function parseJobsFromHtml(html = '') {
   const listings = [];
 
@@ -240,16 +291,7 @@ export function parseJobsFromHtml(html = '') {
     const block = html.substring(startIdx, endIdx);
     const title = normalizeSpace(h3Positions[i].title);
 
-    // Skip non-job headings (navigation, section titles, generic pages)
-    if (!title || title.length < 5) continue;
-    // Skip "Postulation spontanée" (open applications)
-    if (/postulation spontan/i.test(title)) continue;
-    // Skip generic section headings that aren't actual job titles
-    if (/^postes?\s+ouverts?$/i.test(title)) continue;
-    if (/^offres?\s+d['']emploi$/i.test(title)) continue;
-    if (/^emploi\s+(?:et\s+)?formation$/i.test(title)) continue;
-    if (/^nos\s+offres$/i.test(title)) continue;
-    if (/^rejoignez/i.test(title)) continue;
+    if (isNonVacancyHeading(title)) continue;
 
     // Extract location: look for "Lieu de travail" followed by text
     let location = '';
@@ -353,16 +395,34 @@ async function fetchJobUpDescription(jobUpUrl) {
  *   3. For each listing with a JobUp URL, fetch the detail description
  *   4. Build ParsedJob objects
  */
-export async function fetchAllFondationDomusJobs() {
+export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage } = {}) {
   console.log(`🔍 Fetching Fondation Domus jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const html = await fetchCareerPage();
+  const html = await fetchPage();
   const listings = parseJobsFromHtml(html);
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on career page.');
-    return [];
+    const { boardRendered, cardTitles } = parseVacancyBoardEvidence(html);
+    // A rendered board with zero cards is NOT proof: a dead XML feed loader
+    // renders the same empty container. The standing spontaneous-application
+    // card is what shows the feed itself came through.
+    const provenEmpty = boardRendered
+      && cardTitles.length > 0
+      && cardTitles.every((title) => isNonVacancyHeading(title));
+    if (!provenEmpty) {
+      console.warn(
+        `  ⚠️ Vacancy board did not prove an empty state`
+        + ` (rendered=${boardRendered}, cards=${cardTitles.length}). Keeping existing jobs.`,
+      );
+      return [];
+    }
+    console.log(`  🧩 Source-proven zero: board rendered ${cardTitles.length} non-vacancy card(s) only`);
+    return markAuthoritativeEmptySnapshot(
+      [],
+      `fondation-domus vacancy board rendered with no vacancy card (only: ${cardTitles.join(' | ')})`,
+    );
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);

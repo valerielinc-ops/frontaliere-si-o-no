@@ -39,6 +39,8 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { collectJobsChVacancyUrls, parseVacancyLinks } from './jobs-ch-company-pages.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -47,7 +49,6 @@ export const HOFWEISSBAD_KEY = 'hofweissbad';
 export const HOFWEISSBAD_COMPANY_NAME = 'Resort Hof Weissbad';
 export const HOFWEISSBAD_COMPANY_DOMAIN = 'hofweissbad.ch';
 
-const JOBS_CH_BASE = 'https://www.jobs.ch';
 
 // Known jobs.ch company profile for Hof Weissbad AG. The older numeric
 // `134218-hof-weissbad-ag` slug 301-redirects to this canonical UUID one —
@@ -147,16 +148,9 @@ function detectExperienceLevel(title = '') {
 
 /* ── Listing pages ─────────────────────────────────────────────── */
 
-export function parseVacancyLinks(html = '') {
-  if (!html) return [];
-  const urls = new Set();
-  const re = /href="(\/en\/vacancies\/detail\/[a-f0-9-]+\/)"/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    urls.add(`${JOBS_CH_BASE}${m[1]}`);
-  }
-  return Array.from(urls);
-}
+// Re-exported from the shared jobs.ch reader so the company-page crawlers
+// cannot drift apart on the link shape (AGENTS.md #6).
+export { parseVacancyLinks };
 
 /* ── Detail page parser ───────────────────────────────────────── */
 
@@ -193,31 +187,22 @@ export function extractJobPostingJsonLd(html = '') {
  * IMPORTANT: Only source-locale (`de`) fields are populated here; other
  * locales are filled by the shared AI localization step.
  */
-export async function fetchAllHofweissbadJobs() {
+export async function fetchAllHofweissbadJobs({ fetchPage = fetchHtml } = {}) {
   console.log('🏢 Fetching Hof Weissbad jobs from jobs.ch company page');
 
-  const vacancyUrls = new Set();
-  for (const target of COMPANY_TARGETS) {
-    // locale-segment-ok: '/en/' is jobs.ch's own external site-language path, not a site locale route
-    const vacanciesUrl = `${JOBS_CH_BASE}/en/companies/${target.path}/vacancies/`;
-    let html = '';
-    try {
-      html = await fetchHtml(vacanciesUrl);
-    } catch (err) {
-      console.warn(`  ⚠️ Failed to fetch ${target.label} vacancies page: ${err?.message || err}`);
-      continue;
-    }
-    const links = parseVacancyLinks(html);
-    console.log(`  📋 ${target.label}: ${links.length} open vacancy link(s)`);
-    for (const link of links) vacancyUrls.add(link);
-  }
+  const { vacancyUrls, provenEmpty, evidence } = await collectJobsChVacancyUrls(
+    COMPANY_TARGETS,
+    { fetchPage, pathSuffix: 'vacancies/' },
+  );
 
-  if (!vacancyUrls.size) {
+  if (!vacancyUrls.length) {
     console.warn('⚠️ No Hof Weissbad vacancy URLs found on jobs.ch');
-    return [];
+    if (!provenEmpty) return [];
+    console.log(`  🧩 Source-proven zero: ${evidence}`);
+    return markAuthoritativeEmptySnapshot([], evidence);
   }
 
-  console.log(`  📋 Total unique vacancy URLs: ${vacancyUrls.size}\n`);
+  console.log(`  📋 Total unique vacancy URLs: ${vacancyUrls.length}\n`);
 
   const jobs = [];
   for (const jobUrl of vacancyUrls) {

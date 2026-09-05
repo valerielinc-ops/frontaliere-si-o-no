@@ -2,6 +2,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllStrabagJobs,
   isStrabagJob,
@@ -19,6 +20,14 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllStrabagJobs,
   isCompanyJob: isStrabagJob,
+  // Publish a zero only when the jobs.ch profile itself renders a zero
+  // vacancy counter (issue #7458 class). `empty-only` keeps the ordinary
+  // miss-grace path for a non-empty batch; an unproven zero keeps the
+  // previous slice, so a broken crawler stays visibly unhealthy instead of
+  // being masked by an `EMPTY_OK_CRAWLERS` entry.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(STRABAG_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'de',
 }).catch((err) => {
