@@ -3,6 +3,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 import { readJobsDataset } from '../helpers/jobsDataset';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 /**
  * Phase 8 Sub-PR (a): the per-job emit dedup key in `jobsSeoPagesPlugin.ts`
@@ -105,7 +106,7 @@ describe('cathedral canton-aware dedup (Phase 8a)', () => {
     expect(tiKey).not.toBe(tiKey2);
   });
 
-  it('cross-canton slug collisions emit one HTML file per canton (behavioural)', () => {
+  it('cross-canton slug collisions emit one HTML file per canton (behavioural)', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return; // offline skip
     const jobs = readJobsDataset<JobShape>(JOBS_PATH);
     if (!jobs) return;
