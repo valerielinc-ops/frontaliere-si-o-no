@@ -1871,6 +1871,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantonali-vallese-aliquote-deduzioni': { it: 'imposte-cantonali-vallese-aliquote-deduzioni', en: 'cantonal-taxes-valais-tax-rates-deductions', de: 'kantonale-steuern-wallis-steuersatze-abzuge', fr: 'impots-cantonaux-valais-taux-dedeductions' },
  'osce-conferenza-berna': { it: 'osce-conferenza-berna', en: 'osce-conference-berne', de: 'osce-konferenz-berne', fr: 'conference-osce-berne' },
  'manifestazione-anti-g7-dispositivo-lecito': { it: 'manifestazione-anti-g7-dispositivo-lecito', en: 'anti-g7-demonstration-containment-measure-legal', de: 'anti-g7-demonstration-einsatzmassnahme-rechtmaessig', fr: 'manifestation-anti-g7-mesure-de-confinement-legale' },
+ 'svizzera-treno-oggetti-binari': { it: 'svizzera-treno-oggetti-binari', en: 'switzerland-train-objects-on-tracks', de: 'schweiz-zug-gegenstaende-auf-gleisen', fr: 'suisse-train-objets-sur-les-rails' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -5536,6 +5536,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Manifestation anti-G7, le dispositif de confinement était licite',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'Le Département cantonal des institutions et du numérique a confirmé la licéité du dispositif de confinement lors de la manifestation No G7 à Genève.',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Manifestation anti-G7 à Genève avec la police contrôlant la situation.',
+    'blog.article.svizzera-treno-oggetti-binari.title': 'Des « ivrognes trempés » entassent des objets sur les rails et le train arrive',
+    'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Des adolescents entassent des objets sur les rails, déraillement d\'un Interregio à 110 km/h, dégâts pour 141 369 francs.',
+    'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Train déraillé à cause d\'objets sur les rails en Suisse',
 };
 
 export default blogMetaChFr;

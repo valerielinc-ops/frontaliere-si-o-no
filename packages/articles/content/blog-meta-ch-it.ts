@@ -5536,6 +5536,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Manifestazione anti-G7, il dispositivo di contenimento era lecito',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'Il Dipartimento cantonale delle istituzioni e del digitale ha confermato la liceità del dispositivo di contenimento durante la manifestazione No G7 a Ginevra.',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Manifestazione anti-G7 a Ginevra con la polizia che controlla la situazione.',
+    'blog.article.svizzera-treno-oggetti-binari.title': '«Ubriachi fradici» accatastano oggetti sui binari e arriva il treno',
+    'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Adolescenti accatastano oggetti sui binari, deragliamento di un Interregio a 110 km/h, danni per 141.369 franchi.',
+    'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Treno deragliato a causa di oggetti sui binari in Svizzera',
 };
 
 export default blogMetaChIt;

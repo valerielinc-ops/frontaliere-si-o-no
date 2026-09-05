@@ -5536,6 +5536,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Anti-G7 manifestation, the containment device was lawful',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'The cantonal Department of Institutions and Digital confirmed the legality of the containment device during the No G7 event in Geneva.',
     'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Anti-G7 demonstration in Geneva with police controlling the situation.',
+    'blog.article.svizzera-treno-oggetti-binari.title': '"Soaked drunk" they stack objects on the tracks and the train arrives',
+    'blog.article.svizzera-treno-oggetti-binari.excerpt': 'Adolescents stack objects on the tracks, derailment of an Interregio at 110 km/h, damage for 141,369 francs.',
+    'blog.article.svizzera-treno-oggetti-binari.imageAlt': 'Train derailed due to objects on the tracks in Switzerland',
 };
 
 export default blogMetaChEn;
