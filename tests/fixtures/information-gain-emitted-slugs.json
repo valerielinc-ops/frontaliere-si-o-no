@@ -1,0 +1,57 @@
+{
+  "_readme": [
+    "Slug REALMENTE emessi dalle tre famiglie inventariate in KNOWN_LOW_GAIN_COHORTS",
+    "(scripts/audit-information-gain.mjs). Serve a verificare che ogni chiave",
+    "d'inventario coincida con l'etichetta che commonPathPrefix() produce sui path",
+    "veri, invece che su coppie sintetiche (issue #7383).",
+    "urlPaths elenca i membri della COORTE (stesso skeletonHash), non l'intera",
+    "sitemap: per la famiglia BFS le pagine per-livello-di-istruzione",
+    "(/stipendio-svizzera-*, /de/lohn-schweiz-*) hanno uno scheletro di heading",
+    "diverso e formano coorti proprie, quindi non entrano nell'etichetta di questa.",
+    "Rinfrescare con il comando in `command`, poi ri-eseguire",
+    "npx vitest run tests/information-gain-metric.test.ts."
+  ],
+  "extractedAt": "2026-09-05",
+  "command": "curl -s https://frontaliereticino.ch/<sitemap> | tr '<' '\\n<' | grep -o 'https://frontaliereticino.ch/[a-z0-9/-]*' | sed 's|https://frontaliereticino.ch/||' | sort -u",
+  "families": [
+    {
+      "inventoryKey": "it:/stipendio-medio-svizzera-",
+      "sitemap": "sitemap-bfs-salary.xml",
+      "observedMedianIgsPct": 0,
+      "urlPaths": [
+        "/stipendio-medio-svizzera-20-anni/",
+        "/stipendio-medio-svizzera-30-anni/",
+        "/stipendio-medio-svizzera-40-anni/",
+        "/stipendio-medio-svizzera-50-anni/",
+        "/stipendio-medio-svizzera-60-anni/"
+      ]
+    },
+    {
+      "inventoryKey": "de:/de/durchschnittslohn-schweiz-",
+      "sitemap": "sitemap-bfs-salary.xml",
+      "observedMedianIgsPct": 0,
+      "urlPaths": [
+        "/de/durchschnittslohn-schweiz-20-jahre/",
+        "/de/durchschnittslohn-schweiz-30-jahre/",
+        "/de/durchschnittslohn-schweiz-40-jahre/",
+        "/de/durchschnittslohn-schweiz-50-jahre/",
+        "/de/durchschnittslohn-schweiz-60-jahre/"
+      ]
+    },
+    {
+      "inventoryKey": "it:/vivere-in-austria-lavorare-in-svizzera/",
+      "sitemap": "sitemap-comuni-austria.xml",
+      "observedMedianIgsPct": 4.17,
+      "urlPaths": [
+        "/vivere-in-austria-lavorare-in-svizzera/altach/",
+        "/vivere-in-austria-lavorare-in-svizzera/feldkirch/",
+        "/vivere-in-austria-lavorare-in-svizzera/frastanz/",
+        "/vivere-in-austria-lavorare-in-svizzera/hochst/",
+        "/vivere-in-austria-lavorare-in-svizzera/hohenems/",
+        "/vivere-in-austria-lavorare-in-svizzera/koblach/",
+        "/vivere-in-austria-lavorare-in-svizzera/lustenau/",
+        "/vivere-in-austria-lavorare-in-svizzera/nenzing/"
+      ]
+    }
+  ]
+}
