@@ -42,7 +42,7 @@ import {
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
-import { engagementConsistency } from './lib/ga4-engagement-reliability.mjs';
+import { engagementConsistency, dailyEngagementConsistency } from './lib/ga4-engagement-reliability.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -771,6 +771,46 @@ async function reportGA4(token) {
     'file_download',
   ]);
 
+  // #6703: la coerenza engagement/durata va misurata per-giorno, non
+  // sull'aggregato della finestra — su 30 giorni le giornate sane annegano
+  // quelle in lag e il verdetto sarebbe sempre "affidabile". Si interroga la
+  // stessa finestra con la dimensione `date` una volta sola e si riusa il
+  // verdetto sui consumer qui sotto (riepilogo e canale AI).
+  let dailyEngagement = { reliable: true, reason: null, unreliableDates: [] };
+  try {
+    const res = await fetchRetry(
+      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          ...baseRequest,
+          dimensions: [{ name: 'date' }],
+          metrics: [
+            { name: 'sessions' },
+            { name: 'engagedSessions' },
+            { name: 'averageSessionDuration' },
+          ],
+        }),
+      }
+    );
+    if (res.ok) {
+      const data = await res.json();
+      dailyEngagement = dailyEngagementConsistency(
+        (data.rows || []).map((r) => ({
+          date: r.dimensionValues?.[0]?.value || '?',
+          sessions: parseInt(r.metricValues?.[0]?.value || '0', 10),
+          engagedSessions: parseInt(r.metricValues?.[1]?.value || '0', 10),
+          averageSessionDuration: parseFloat(r.metricValues?.[2]?.value || '0'),
+        }))
+      );
+    } else {
+      log('⚠️', `GA4 engagement per-giorno: ${res.status} — sanity-check #6703 non applicato`);
+    }
+  } catch (e) {
+    log('⚠️', `GA4 engagement per-giorno: ${e.message} — sanity-check #6703 non applicato`);
+  }
+
   // ── 3a. Overall metrics ─────────────────
   try {
     const res = await fetchRetry(
@@ -819,11 +859,16 @@ async function reportGA4(token) {
     // Sanity-check #6703: sui giorni non ancora elaborati GA4 riporta
     // engagedSessions/bounceRate che contraddicono averageSessionDuration.
     // Marcarli qui evita che il riepilogo li mostri come un dato buono.
-    const engagementVerdict = engagementConsistency({
+    // Il verdetto per-giorno prevale su quello dell'aggregato: è l'aggregato a
+    // nascondere la contraddizione, non a rivelarla (vedi
+    // `dailyEngagementConsistency`). L'aggregato resta come secondo canale,
+    // per il caso in cui la richiesta per-giorno non sia disponibile.
+    const aggregateVerdict = engagementConsistency({
       sessions: result.summary.sessions,
       engagedSessions: result.summary.engagedSessions,
       averageSessionDuration: result.summary.avgSessionDuration,
     });
+    const engagementVerdict = dailyEngagement.reliable ? aggregateVerdict : dailyEngagement;
     result.summary.engagementReliable = engagementVerdict.reliable;
     result.summary.engagementUnreliableReason = engagementVerdict.reason;
 
@@ -1400,11 +1445,14 @@ async function reportGA4(token) {
       // #6703: la history è un file committato — un engagement rate prodotto da
       // un giorno non ancora elaborato ci resterebbe per sempre e falserebbe
       // ogni delta week-over-week successivo. Si annota e non si appende.
-      const engagementVerdict = engagementConsistency({
+      // Come per il riepilogo: il rate qui è l'aggregato della finestra, che
+      // diluisce il giorno in lag. Il verdetto per-giorno è quello che decide.
+      const aggregateVerdict = engagementConsistency({
         sessions,
         engagedSessions,
         averageSessionDuration: avgSessionDuration,
       });
+      const engagementVerdict = dailyEngagement.reliable ? aggregateVerdict : dailyEngagement;
 
       const todayStr = fmtDate(endDate);
       const priorEntries = readJsonlSafe(AI_CHANNEL_HISTORY_PATH)

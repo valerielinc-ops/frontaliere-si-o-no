@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   engagementConsistency,
+  dailyEngagementConsistency,
   engagementUnreliableNote,
   MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS,
   MIN_SESSIONS_FOR_VERDICT,
@@ -106,6 +107,54 @@ describe('engagementConsistency — casi limite del rate', () => {
     });
     expect(v.reliable).toBe(false);
     expect(v.engagementRate).toBeCloseTo(0.022, 6);
+  });
+});
+
+describe('dailyEngagementConsistency — la finestra non deve annegare il giorno in lag', () => {
+  // 28 giornate sane più le 2 in lag reali della property: è la forma esatta
+  // della finestra a 30 giorni che i report interrogano.
+  const healthy = Array.from({ length: 28 }, (_, i) => ({
+    date: `202608${String(i + 1).padStart(2, '0')}`,
+    sessions: 4000,
+    engagedSessions: 1800,
+    averageSessionDuration: 100,
+  }));
+  const lagging = [
+    { date: '20260904', sessions: 7943, engagedSessions: 125, averageSessionDuration: 236.47 },
+    { date: '20260830', sessions: 2135, engagedSessions: 53, averageSessionDuration: 373 },
+  ];
+
+  it("sull'aggregato pesato la stessa finestra risulta coerente — per questo l'aggregato non basta", () => {
+    // Regressione del difetto: valutare la coerenza sul totale della finestra
+    // rende il giorno contaminato invisibile, quindi il guardrail non scatta
+    // mai sui numeri che i call-site producono davvero.
+    const days = [...healthy, ...lagging];
+    const sessions = days.reduce((s, d) => s + d.sessions, 0);
+    const engagedSessions = days.reduce((s, d) => s + d.engagedSessions, 0);
+    const averageSessionDuration =
+      days.reduce((s, d) => s + d.averageSessionDuration * d.sessions, 0) / sessions;
+    expect(engagementConsistency({ sessions, engagedSessions, averageSessionDuration }).reliable).toBe(true);
+  });
+
+  it('per-giorno marca la finestra e nomina le giornate incoerenti', () => {
+    const v = dailyEngagementConsistency([...healthy, ...lagging]);
+    expect(v.reliable).toBe(false);
+    expect(v.unreliableDates).toEqual(['20260904', '20260830']);
+    expect(v.reason).toContain('20260904');
+    expect(v.reason).toContain('elaborazione incompleta');
+  });
+
+  it('una finestra di sole giornate sane resta affidabile', () => {
+    const v = dailyEngagementConsistency(healthy);
+    expect(v.reliable).toBe(true);
+    expect(v.reason).toBeNull();
+    expect(v.unreliableDates).toEqual([]);
+  });
+
+  it('input assente o righe vuote non producono un verdetto', () => {
+    expect(dailyEngagementConsistency([]).reliable).toBe(true);
+    expect(dailyEngagementConsistency().reliable).toBe(true);
+    expect(dailyEngagementConsistency([null, undefined]).reliable).toBe(true);
   });
 });
 

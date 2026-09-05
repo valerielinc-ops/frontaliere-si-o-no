@@ -102,6 +102,43 @@ export function engagementConsistency({
 }
 
 /**
+ * Verdetto sulla finestra a partire dalle sue giornate.
+ *
+ * Serve perché la contraddizione è una proprietà del SINGOLO giorno, mentre i
+ * report la valutavano sull'aggregato della finestra — dove si annega: con 28
+ * giornate sane (rate ~45%, durata ~100s) e le 1-2 in lag (rate ~2%, durata
+ * ~236s) il rate pesato resta ~42% e la durata ~109s, quindi implied ~245s,
+ * ben sotto il tetto di 3600s. Cioè sull'aggregato il verdetto è `reliable`
+ * anche quando la finestra contiene esattamente il giorno che #6703 voleva
+ * intercettare. Qui si guarda giorno per giorno e si marca la finestra se una
+ * qualsiasi giornata è incoerente: l'aggregato che il report espone (o appende
+ * alla history) è comunque calcolato su quel giorno contaminato.
+ *
+ * @param {Array<{date?: string} & Parameters<typeof engagementConsistency>[0]>} days
+ * @returns {{reliable: boolean, reason: string|null, unreliableDates: string[]}}
+ */
+export function dailyEngagementConsistency(days = []) {
+  const unreliable = [];
+  for (const day of Array.isArray(days) ? days : []) {
+    if (!day) continue;
+    const verdict = engagementConsistency(day);
+    if (!verdict.reliable) unreliable.push({ date: day.date || '?', reason: verdict.reason });
+  }
+
+  if (unreliable.length === 0) return { reliable: true, reason: null, unreliableDates: [] };
+
+  const dates = unreliable.map((u) => u.date);
+  const plural = dates.length > 1;
+  return {
+    reliable: false,
+    unreliableDates: dates,
+    reason:
+      `${dates.length} giornat${plural ? 'e' : 'a'} incoerent${plural ? 'i' : 'e'} nella finestra ` +
+      `(${dates.join(', ')}) — ${unreliable[0].reason}`,
+  };
+}
+
+/**
  * Etichetta breve da appendere a un valore di engagement in un report.
  * `null` quando il dato è coerente, così il call-site non stampa rumore.
  */
