@@ -83,6 +83,7 @@ import {
   decideNeedsHumanPass,
   renderReopenBudget,
 } from './lib/reopen-breaker.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -91,14 +92,14 @@ const MAX_PER_RUN = 10;
 // Costo tipico di una PR nel loop, misurato sui run reali (fase di lavoro
 // 19-114s per 1-10 PR): ~30s copre il caso normale con margine. È una STIMA per
 // decidere se COMINCIARE, non un timer: nessuna PR viene interrotta a metà.
-const PR_COST_MS = Number(process.env.AUTOREBASE_PR_COST_MS || 30_000);
+const PR_COST_MS = intFromEnv('AUTOREBASE_PR_COST_MS', 30_000);
 // Sezione critica NON atomica: `gh pr close` + `gh pr reopen`. Se il job muore
 // fra le due la PR resta CHIUSA e nessuno la riapre (vedi reopenToRetrigger).
 // Non si entra senza il tempo di uscirne — con margine largo rispetto a due
 // chiamate API che nel caso peggiore ritentano.
 /** Tentativi di reopen e pausa fra uno e l'altro — vedi reopenToRetrigger. */
-const REOPEN_ATTEMPTS = Number(process.env.AUTOREBASE_REOPEN_ATTEMPTS || 4);
-const REOPEN_RETRY_SLEEP_S = Number(process.env.AUTOREBASE_REOPEN_RETRY_SLEEP_S || 5);
+const REOPEN_ATTEMPTS = intFromEnv('AUTOREBASE_REOPEN_ATTEMPTS', 4);
+const REOPEN_RETRY_SLEEP_S = intFromEnv('AUTOREBASE_REOPEN_RETRY_SLEEP_S', 5);
 /**
  * DERIVATO dai due sopra, non scritto a mano: il guard vale solo se il tempo
  * riservato copre davvero il peggior caso della sezione critica. Con un numero
@@ -107,8 +108,7 @@ const REOPEN_RETRY_SLEEP_S = Number(process.env.AUTOREBASE_REOPEN_RETRY_SLEEP_S 
  * job muore fra `close` e `reopen` lasciando la PR chiusa.
  * close + N chiamate reopen (≈3s l'una, generoso su un'API degradata) + le pause.
  */
-const REOPEN_COST_MS = Number(process.env.AUTOREBASE_REOPEN_COST_MS
-  || 3_000 + REOPEN_ATTEMPTS * 3_000 + (REOPEN_ATTEMPTS - 1) * REOPEN_RETRY_SLEEP_S * 1_000);
+const REOPEN_COST_MS = intFromEnv('AUTOREBASE_REOPEN_COST_MS', 3_000 + REOPEN_ATTEMPTS * 3_000 + (REOPEN_ATTEMPTS - 1) * REOPEN_RETRY_SLEEP_S * 1_000);
 /**
  * Etichetta che dice al worktree-branch-janitor di NON cancellare l'head ref di
  * questa PR. Si applica solo quando la coppia close+reopen si è rotta a metà:
@@ -116,7 +116,7 @@ const REOPEN_COST_MS = Number(process.env.AUTOREBASE_REOPEN_COST_MS
  */
 const REOPEN_FAILED_LABEL = 'autorebase-reopen-failed';
 /** Tetto di riaperture sullo STESSO stato — vedi lib/reopen-breaker.mjs. */
-const MAX_REOPENS = Number(process.env.AUTOREBASE_MAX_REOPENS || DEFAULT_MAX_REOPENS);
+const MAX_REOPENS = intFromEnv('AUTOREBASE_MAX_REOPENS', DEFAULT_MAX_REOPENS);
 
 const budget = runBudgetFromEnv();
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
@@ -149,7 +149,7 @@ const STUCK_RED_MARKER = '<!-- AUTOREBASE_STUCK_RED_RESCUE -->';
 // vecchio di N ore va ri-verificato una volta anche senza prova di main-rosso
 // (copre i fallimenti INFRA, es. #5019: `RPC failed; curl 56` + runner shutdown
 // durante il checkout, zero test eseguiti, con main verde in quel momento).
-const STUCK_RED_STALE_H = Number(process.env.AUTOREBASE_STUCK_RED_STALE_H || 24);
+const STUCK_RED_STALE_H = intFromEnv('AUTOREBASE_STUCK_RED_STALE_H', 24);
 // Re-trigger one-shot per il rosso da REVIEW GATE (#7429). Dall'unificazione
 // tests+review del 2026-08-26 il job `vitest (unit + integration)` è rosso anche
 // quando i test passano e a fallire è lo step `Require approving Claude review`:
@@ -168,7 +168,7 @@ const STUCK_RED_STALE_H = Number(process.env.AUTOREBASE_STUCK_RED_STALE_H || 24)
 // non-fast-forward push is rejected, and they must fetch+reset+cherry-pick to
 // recover (observed on #1616 this session). The rebase isn't urgent — main is
 // always seconds-fresh — so deferring one tick (~30m) is free. 0 disables.
-const ACTIVITY_GUARD_MIN = Number(process.env.AUTOREBASE_ACTIVITY_GUARD_MIN || 6);
+const ACTIVITY_GUARD_MIN = intFromEnv('AUTOREBASE_ACTIVITY_GUARD_MIN', 6);
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
