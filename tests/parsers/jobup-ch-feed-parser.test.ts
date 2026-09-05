@@ -428,7 +428,14 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     expect(jobs[0].location).not.toContain('&#');
   });
 
-  it('invalidates the whole batch when a sibling row has unresolved source geography', async () => {
+  /**
+   * Until #7459 this pinned batch-wide invalidation: one row with unresolved
+   * geography discarded its siblings too. That is what took `kantonsspital-uri`
+   * and the jobup tenants to `0 jobs` for weeks — 25 live vacancies dropped for
+   * one. The protective half is unchanged and asserted here: the contradicted
+   * row is never published. Only its siblings are no longer collateral.
+   */
+  it('quarantines the row with unresolved source geography without dropping its siblings', async () => {
     const foreignJob = {
       ...JOBUP_FEED_JOB,
       titre: 'Médecin chef·fe de clinique',
@@ -436,6 +443,25 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
       lieu: 'Berlin',
     };
     stubJobupSource(() => new Response(RICH_JOBUP_DETAIL, { status: 200 }), [JOBUP_FEED_JOB, foreignJob]);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs.map((job) => job.url)).toEqual([JOBUP_DETAIL_URL]);
+    expect(jobs.every((job) => job.canton !== '' && job.country === 'CH')).toBe(true);
+  });
+
+  it('still invalidates the whole batch when the unresolved rows are a systemic share of it', async () => {
+    const foreignRow = (n: number) => ({
+      ...JOBUP_FEED_JOB,
+      titre: `Médecin chef·fe de clinique ${n}`,
+      link: `${SECOND_JOBUP_DETAIL_URL.replace(/\/$/, '')}-${n}/`,
+      lieu: 'Berlin',
+    });
+    stubJobupSource(
+      () => new Response(RICH_JOBUP_DETAIL, { status: 200 }),
+      [JOBUP_FEED_JOB, foreignRow(1), foreignRow(2)],
+    );
     const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
 
     await expect(parser.fetchAllJobs()).resolves.toEqual([]);

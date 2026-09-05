@@ -306,6 +306,77 @@ describe('Kantonsspital Uri shared rexx parser', () => {
     await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
   });
 
+  /**
+   * #7459: the location gate was batch-wide. `kantonsspital-uri` published 26
+   * listings, ONE of them (j210) sat at an address the source contradicts, and
+   * the parser returned `[]` — 25 live vacancies discarded, three consecutive
+   * empty runs, `crawler unhealthy`. A record the source proves is elsewhere is
+   * an exclusion of that record only.
+   */
+  it('quarantines only the record whose source workplace is contradicted and publishes its siblings', async () => {
+    const FOREIGN_URL = 'https://stellen.ksuri.ch/Pflegefachperson-de-j210.html';
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/stellenangebote.html')) {
+        return new Response(listingFixture([
+          { url: DETAIL_URL, title: TITLE },
+          { url: SECOND_DETAIL_URL, title: 'Pflegefachperson HF 80–100%' },
+          { url: FOREIGN_URL, title: 'Pflegefachperson Hamburg 100%' },
+        ]), { status: 200 });
+      }
+      if (url === FOREIGN_URL) {
+        return new Response(realRexxDetailFixture({
+          title: 'Pflegefachperson Hamburg 100%',
+          locality: 'Hamburg',
+          region: 'Hamburg',
+          postalCode: '20095',
+          addressCountry: 'DE',
+        }), { status: 200 });
+      }
+      if (url === SECOND_DETAIL_URL) {
+        return new Response(realRexxDetailFixture({ title: 'Pflegefachperson HF 80–100%' }), { status: 200 });
+      }
+      if (url === DETAIL_URL) return new Response(realRexxDetailFixture(), { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+
+    const jobs = await fetchAllKantonsspitalUriJobs();
+
+    expect(jobs.map((job: { url: string }) => job.url)).toEqual([DETAIL_URL, SECOND_DETAIL_URL]);
+  });
+
+  it('still fails closed when the contradicted records are systemic rather than outliers', async () => {
+    const foreignUrls = ['j210', 'j211'].map((id) => `https://stellen.ksuri.ch/Pflegefachperson-de-${id}.html`);
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/stellenangebote.html')) {
+        return new Response(listingFixture([
+          { url: DETAIL_URL, title: TITLE },
+          { url: SECOND_DETAIL_URL, title: 'Pflegefachperson HF 80–100%' },
+          ...foreignUrls.map((foreign, i) => ({ url: foreign, title: `Pflegefachperson Hamburg ${i} 100%` })),
+        ]), { status: 200 });
+      }
+      if (foreignUrls.includes(url)) {
+        return new Response(realRexxDetailFixture({
+          title: `Pflegefachperson Hamburg ${foreignUrls.indexOf(url)} 100%`,
+          locality: 'Hamburg',
+          region: 'Hamburg',
+          postalCode: '20095',
+          addressCountry: 'DE',
+        }), { status: 200 });
+      }
+      if (url === SECOND_DETAIL_URL) {
+        return new Response(realRexxDetailFixture({ title: 'Pflegefachperson HF 80–100%' }), { status: 200 });
+      }
+      if (url === DETAIL_URL) return new Response(realRexxDetailFixture(), { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+
+    // 2 of 4 rejected: at the systemic threshold the configured headquarters or
+    // the parser has drifted, so the previously published slice stays intact.
+    await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
+  });
+
   it('fails closed when a detail request times out', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
       const url = String(input);
