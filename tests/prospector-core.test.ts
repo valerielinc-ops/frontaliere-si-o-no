@@ -1688,6 +1688,19 @@ describe('production spec runtime', () => {
     expect(templateToRegex('/job/#').test('/job/12345')).toBe(true);
     expect(templateToRegex('/job/#').test('/job/about')).toBe(false);
   });
+
+  it('accepts every shape of a multilingual template list', () => {
+    // Un sito multilingue pubblica lo stesso annuncio sotto una forma di URL
+    // per lingua: con una forma sola le altre lingue sparivano in silenzio e
+    // il crawler pubblicava zero annunci (okjob, issue #6638).
+    const rx = templateToRegex(['/offres-demplois/*/', '/de/jobangebote/*/']);
+    expect(rx.test('/offres-demplois/mecatronicien-automobile-yverdon-les-bains/')).toBe(true);
+    expect(rx.test('/de/jobangebote/leitung-pflege-zuerich/')).toBe(true);
+    // La lista allarga le forme ammesse, non allenta il filtro: la chrome del
+    // sito resta fuori.
+    expect(rx.test('/contact')).toBe(false);
+    expect(rx.test('/de/jobangebote/a/b/')).toBe(false);
+  });
 });
 
 describe('classificazione degli errori di sintesi', () => {

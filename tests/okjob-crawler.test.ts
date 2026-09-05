@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   OKJOB_KEY,
   OKJOB_COMPANY_NAME,
+  extractOkjobDetailFields,
   isOkjobJob,
   isTrustedDomain,
 } from '../scripts/lib/okjob-job-parser.mjs';
@@ -36,6 +37,66 @@ describe('OK Job SA, succursale di Mendrisio crawler parser', () => {
       expect(isOkjobJob(null)).toBe(false);
       expect(isOkjobJob(undefined)).toBe(false);
       expect(isOkjobJob({})).toBe(false);
+    });
+  });
+
+  // ── extractOkjobDetailFields ──
+  describe('extractOkjobDetailFields', () => {
+    const detailPage = (title: string) => `<!doctype html><html><head><title>${title}</title>`
+      + `<meta property="og:title" content="${title}"></head>`
+      + '<body><h1>Mécatronicien automobile</h1><p>Mandaté par un de nos clients nous recherchons '
+      + 'un mécatronicien automobile expérimenté pour un poste fixe. Vous assurez le diagnostic, '
+      + "l'entretien et la réparation des véhicules de la clientèle de notre partenaire.</p></body></html>";
+
+    it('deriva il comune dal titolo di marca della pagina di dettaglio', () => {
+      // Unica evidenza di localita' sul dettaglio okjob: senza, il gate
+      // geografico scartava ogni riga e il crawler pubblicava zero annunci.
+      const detail = extractOkjobDetailFields(
+        detailPage('Emploi Mécatronicien automobile - Yverdon-les-Bains | Okjob'),
+        'https://www.okjob.ch/offres-demplois/mecatronicien-automobile-yverdon-les-bains/?ref=41867',
+      );
+      expect(detail.location).toBe('Yverdon-les-Bains');
+      expect(detail.addressLocality).toBe('Yverdon-les-Bains');
+      expect(detail.locationCandidates).toEqual([
+        { location: 'Yverdon-les-Bains', addressLocality: 'Yverdon-les-Bains', addressCountry: '' },
+      ]);
+    });
+
+    it('legge anche il prefisso tedesco dello stesso schema', () => {
+      const detail = extractOkjobDetailFields(
+        detailPage('Stellenangebote Leitung Pflege - Zurich | Okjob'),
+        'https://www.okjob.ch/de/jobangebote/leitung-pflege-zuerich/?ref=41880',
+      );
+      expect(detail.location).toBe('Zurich');
+    });
+
+    it('non inventa una localita\' senza il suffisso di marca', () => {
+      // Un titolo qualunque contiene un trattino: senza `| Okjob` la coda non
+      // e' evidenza di niente e la riga deve restare senza geografia.
+      const detail = extractOkjobDetailFields(
+        detailPage('Offre - Postulez maintenant'),
+        'https://www.okjob.ch/offres-demplois/offre/',
+      );
+      expect(detail.location).toBeFalsy();
+      expect(detail.locationCandidates ?? []).toHaveLength(0);
+    });
+
+    it('non sovrascrive una localita\' gia\' estratta dalla pagina', () => {
+      const html = '<!doctype html><html><head><title>Emploi Test - Yverdon-les-Bains | Okjob</title>'
+        + '</head><body><script type="application/ld+json">'
+        + JSON.stringify({
+          '@type': 'JobPosting',
+          title: 'Test',
+          description: 'Une description de poste suffisamment longue pour passer le seuil du gate.',
+          jobLocation: { address: { addressLocality: 'Neuchâtel', addressCountry: 'CH' } },
+        })
+        + '</script></body></html>';
+      const detail = extractOkjobDetailFields(html, 'https://www.okjob.ch/offres-demplois/test/');
+      expect(detail.location).not.toBe('Yverdon-les-Bains');
+    });
+
+    it('gestisce un HTML vuoto senza rompersi', () => {
+      expect(() => extractOkjobDetailFields('', 'https://www.okjob.ch/offres-demplois/x/')).not.toThrow();
     });
   });
 
