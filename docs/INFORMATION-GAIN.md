@@ -246,6 +246,57 @@ dataset dà popolazione, distanza su strada e valico più vicino, e il blocco de
 confronto le espone già tutte e tre. Alzare quella coorte vuol dire trovare un
 fatto per-comune che oggi non abbiamo, non riscrivere quello che c'è.
 
+## Cosa è cambiato con #7386 — le quattro famiglie a payload numerico
+
+Le quattro famiglie residue dei 37 offender (le 22 coorti dei calcolatori
+restano su #7385) hanno preso
+`build-plugins/shared/peerCohortComparison.ts`: dove la pagina sta nella
+classifica della sua coorte su UNA cifra reale, con i vicini **nominati**.
+
+È lo stesso movimento di `nearestMunicipalityComparison.ts` con una relazione
+di vicinato diversa. Quelle famiglie sono luoghi e il vicino si calcola con
+`haversineKm`; qui la pagina è una cella di una griglia — un valico, un cantone
+× una fascia d'età, una città × una settimana, una professione in un cantone —
+e non ha coordinate. Il vicino è la riga accanto nella classifica.
+
+Perché sopravvive alle maschere: la n. 1 azzera le cifre, la n. 2 azzera i token
+identitari **della pagina stessa**, mai quelli delle sorelle. Il nome del vicino
+resta in piedi, e la FINESTRA attorno alla riga corrente è diversa per ogni
+pagina della coorte per costruzione.
+
+| famiglia | metrica | coorte | rango 1 |
+|---|---|---|---|
+| `/tempi-attesa-dogana/` | valore centrale della fascia tipica del mattino (`data/borderCrossings.ts`) | gli altri valichi dello **stesso corridoio** | attesa più breve |
+| `/premi-cassa-malati/` | premio mediano della fascia d'età | gli altri cantoni con dati per quella fascia | premio più basso |
+| `/aziende-che-assumono/` | posizioni aperte nella settimana | le altre città della **stessa settimana** | più posizioni |
+| `it:/lavoro-` × cantone | offerte attive per quella professione | gli altri cantoni che pubblicano una pagina per quella professione | più offerte |
+
+Due scelte che non sono di stile:
+
+- **Una finestra, non una classifica intera.** La pagina dei premi portava una
+  tabella di tutti i cantoni, **identica byte per byte** su tutte le pagine di
+  una fascia d'età, cioè il blocco più grande della pagina con gain zero: è il
+  difetto `RELATED.slice(0, N)` che #5107 ha tolto agli articoli e #5002 a
+  quattro famiglie comunali. Quella tabella è stata **sostituita** dalla
+  finestra; la classifica completa resta sull'hub cantonale, che è la pagina
+  il cui mestiere è quello.
+- **La cifra che ordina dev'essere stabile fra i deploy.** Il blocco emette
+  link interni: ordinare i valichi sulla lettura live di Firestore avrebbe
+  rimescolato il grafo dei link di ogni pagina più volte al giorno. Si ordina
+  sul valore centrale della fascia tipica pubblicata, che cambia solo quando
+  qualcuno modifica il dataset. Per lo stesso motivo ogni ordinamento rompe i
+  pari merito su `key`, e il rango si conta come «quanti sono strettamente
+  avanti», mai come indice dell'array.
+
+L'aggregato regionale `ticino` delle settimanali non è un pari delle città: è
+la loro unione, quindi sarebbe primo per costruzione ogni settimana senza dire
+niente. Non entra nella coorte e non porta il blocco.
+
+Osservatore: `tests/peer-cohort-comparison.test.ts` fissa le due proprietà che
+fanno funzionare il blocco — la prosa di due pagine sorelle della stessa coorte
+dev'essere DIVERSA, e l'HTML dev'essere identico a parità di dati comunque
+siano ordinate le righe in ingresso.
+
 ## La catena automatica
 
 Il gate su `dist/` risponde a «l'emissione si è rotta?» e blocca. Non risponde
