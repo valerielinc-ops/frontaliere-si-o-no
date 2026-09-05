@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-05T12:36:57.306Z",
-  "total": 10,
+  "generatedAt": "2026-09-05T22:44:57.027Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 2825,
-  "avgDurationMs": 2825,
+  "durationMs": 3162,
+  "avgDurationMs": 3162,
   "durationHistory": [
-    2825
+    3162
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -268,42 +268,6 @@
       }
     },
     {
-      "title": "Postdoktorand/-in im Bereich Phytopathologie / Pflanzenmolekularbiologie",
-      "slug": "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon",
-      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie/e82f1edc-2335-4028-99b1-1bec965a495e",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19948",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Nyon, Schweiz",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-13",
-      "validThrough": "2026-09-05",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-fcf66a02688e",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-13T22:01:06.821Z",
-      "salarySource": "reported",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "title": "Wissenschaftliche/r Mitarbeiter/in: Verantwortliche/r Saatgutprüflabor",
       "slug": "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz",
       "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutprueflabor/9fd07e5d-ac8f-4da1-9b8f-a6781dac85ce",
@@ -340,7 +304,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Postdoktorand/-in im Bereich Phytopathologie / Pflanzenmolekularbiologie",
+      "slug": "ricercatore-post-dottorato-in-phytopathology-plant-biology-molecolare-confederazione-svizzera-nyon",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie/e82f1edc-2335-4028-99b1-1bec965a495e",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19948",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Nyon, Schweiz",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-13",
+      "validThrough": "2026-09-05",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-fcf66a02688e",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-13T22:01:06.821Z",
+      "salarySource": "reported",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Futtermittelinspektor/in",
