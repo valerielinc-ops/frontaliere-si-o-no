@@ -149,6 +149,9 @@ describe('main()', () => {
     process.env.POSTHOG_PERSONAL_API_KEY = 'test-key';
     process.env.POSTHOG_PROJECT_ID = '123';
     process.env.CWV_MONITOR_HISTORY_FILE = '/tmp/cwv-monitor-check-test-history.json';
+    // In CI l'override vuole un opt-in esplicito, altrimenti main() scrive il
+    // file TRACCIATO data/cwv-monitor-history.json (resolve-output-path.mjs).
+    process.env.CWV_MONITOR_HISTORY_FILE_ALLOW_CI = '1';
   });
 
   afterEach(() => {

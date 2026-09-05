@@ -47,6 +47,7 @@
  *   GITHUB_REPOSITORY required in CI (provided by Actions)
  *   GH_TOKEN          token with `actions: read`
  *   CRON_DISPATCH_HISTORY_FILE  optional, default data/cron-dispatch-history.jsonl
+ *                               (in CI richiede CRON_DISPATCH_HISTORY_FILE_ALLOW_CI=1)
  *   CANARY_EVENT      optional, defaults to $GITHUB_EVENT_NAME — only `schedule`
  *                     runs are recorded (a workflow_dispatch has no nominal slot
  *                     to be late against; recording it would poison the median)
@@ -55,6 +56,7 @@
 import { appendFileSync, existsSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveOutputPath } from '../lib/resolve-output-path.mjs';
 
 export const DEFAULT_HISTORY_FILE = 'data/cron-dispatch-history.jsonl';
 
@@ -189,7 +191,14 @@ async function main() {
     repo,
   });
 
-  const file = process.env.CRON_DISPATCH_HISTORY_FILE || DEFAULT_HISTORY_FILE;
+  // Il default e' un file TRACCIATO: un override d'ambiente rediregge la
+  // scrittura fuori dal repo senza lasciare traccia (issue #7291).
+  const file = resolveOutputPath({
+    label: 'probe-cron-dispatch-delay',
+    envVar: 'CRON_DISPATCH_HISTORY_FILE',
+    canonicalPath: DEFAULT_HISTORY_FILE,
+    root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'),
+  });
   appendRecord(file, record);
 
   console.log(`📌 slot ${record.slot} → dispatched ${record.dispatch_delay_minutes} min late, effective start ${record.effective_start_utc} UTC${record.suspect ? ' (SUSPECT: >12h, likely a skipped occurrence)' : ''}`);

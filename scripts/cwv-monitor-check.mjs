@@ -22,10 +22,13 @@
  *   POSTHOG_HOST             — optional, default https://eu.posthog.com
  *   CWV_MONITOR_WINDOW_DAYS  — optional, default 7 (HogQL lookback per query)
  *   CWV_MONITOR_HISTORY_FILE — optional, default data/cwv-monitor-history.json
+ *                              (in CI richiede CWV_MONITOR_HISTORY_FILE_ALLOW_CI=1,
+ *                               vedi scripts/lib/resolve-output-path.mjs)
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { dirname } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { resolveOutputPath } from './lib/resolve-output-path.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { runHogQL } from './lib/posthog-client.mjs';
 import { abstainIfSourceDead } from './lib/source-liveness.mjs';
@@ -49,6 +52,7 @@ export const TARGET_PAGES = [
   { key: 'home', path: '/', cls: 0.1 },
 ];
 
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_HISTORY_FILE = 'data/cwv-monitor-history.json';
 
 /**
@@ -133,7 +137,15 @@ export async function main() {
   const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
   const WINDOW_DAYS = process.env.CWV_MONITOR_WINDOW_DAYS || '7';
 const MIN_SAMPLES_PER_METRIC = 30;
-  const HISTORY_FILE = process.env.CWV_MONITOR_HISTORY_FILE || DEFAULT_HISTORY_FILE;
+  // Stessa classe dell'override di cluster-orphan-queries.mjs: il default e'
+  // un file TRACCIATO e la variabile esiste per i test, quindi il percorso
+  // risolto va sempre a log e in CI l'override vuole un opt-in esplicito.
+  const HISTORY_FILE = resolveOutputPath({
+    label: 'cwv-monitor-check',
+    envVar: 'CWV_MONITOR_HISTORY_FILE',
+    canonicalPath: DEFAULT_HISTORY_FILE,
+    root: ROOT,
+  });
 
   if (!KEY || !PID) {
     console.log('[cwv-monitor-check] POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing — skip');

@@ -36,6 +36,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
+import { resolveOutputPath, describePath } from './lib/resolve-output-path.mjs';
 import {
   normalize,
   tokenize,
@@ -76,9 +77,15 @@ function main() {
   // working tree: `git status` sporco a fine suite, e — con un `git add -A`
   // in una sessione agent — un file di cron committato dentro una PR che non
   // c'entra niente. Il cron in produzione non passa la variabile e continua a
-  // scrivere il percorso canonico.
-  const outputPath = process.env.GSC_ORPHAN_CLUSTERS_OUT
-    || path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.json');
+  // scrivere il percorso canonico — e ora il percorso risolto e' SEMPRE nel
+  // log, cosi' una redirezione (Remote Config, `export` residuo) e' leggibile
+  // invece che invisibile: vedi scripts/lib/resolve-output-path.mjs.
+  const outputPath = resolveOutputPath({
+    label: 'cluster-orphan-queries',
+    envVar: 'GSC_ORPHAN_CLUSTERS_OUT',
+    canonicalPath: path.join('data', 'gsc-orphan-queries-clusters.json'),
+    root: ROOT,
+  });
 
   const input = readJsonSafe(inputPath);
   if (!input || typeof input !== 'object') {
@@ -88,7 +95,7 @@ function main() {
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
       fs.writeFileSync(outputPath, JSON.stringify(empty, null, 2) + '\n');
     }
-    console.log('[cluster-orphan-queries] wrote 0 clusters');
+    console.log(`[cluster-orphan-queries] wrote 0 clusters to ${describePath(ROOT, outputPath)}`);
     return;
   }
 
@@ -207,11 +214,11 @@ function main() {
   };
 
   if (DRY_RUN) {
-    console.log('[cluster-orphan-queries] DRY RUN — would write', clusters.length, 'clusters');
+    console.log(`[cluster-orphan-queries] DRY RUN — would write ${clusters.length} clusters to ${describePath(ROOT, outputPath)}`);
   } else {
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, JSON.stringify(out, null, 2) + '\n');
-    console.log(`[cluster-orphan-queries] wrote ${clusters.length} clusters to ${path.relative(ROOT, outputPath)}`);
+    console.log(`[cluster-orphan-queries] wrote ${clusters.length} clusters to ${describePath(ROOT, outputPath)}`);
   }
 
   if (clusters.length > 0) {

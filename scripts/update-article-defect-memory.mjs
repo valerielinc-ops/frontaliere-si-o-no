@@ -39,7 +39,9 @@
  * no action surface. See docs/ARTICLE-LEARNING-LOOP.md §4.2 and §5.9.
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { resolveOutputPath } from './lib/resolve-output-path.mjs';
 import {
   DEFAULT_MEMORY_FILE,
   loadDefectMemory,
@@ -75,7 +77,12 @@ const value = (name, fallback = null) => {
 
 const APPLY = flag('--apply');
 const STRICT = flag('--strict');
-const MEMORY_FILE = value('--memory', process.env.ARTICLE_DEFECT_MEMORY_FILE || DEFAULT_MEMORY_FILE);
+const MEMORY_FILE = value('--memory', null) || resolveOutputPath({
+  label: 'update-article-defect-memory',
+  envVar: 'ARTICLE_DEFECT_MEMORY_FILE',
+  canonicalPath: DEFAULT_MEMORY_FILE,
+  root: resolve(dirname(fileURLToPath(import.meta.url)), '..'),
+});
 const RUN_REPORT = value('--from-run');
 const FROM_CORPUS = flag('--from-corpus');
 const REVIEW = flag('--review');
@@ -84,7 +91,15 @@ const LIMIT = Number(value('--limit', '25')) || 25;
 const CONFIRM = value('--confirm');
 const CLEAR = value('--clear');
 const REASON = value('--reason', '');
-const HISTORY_FILE = value('--history', process.env.ARTICLE_DEFECT_HISTORY_FILE || DEFAULT_HISTORY_FILE);
+// `--history` resta esplicito e prevale; l'override d'ambiente invece e'
+// invisibile per natura, quindi passa dal resolver condiviso (issue #7291):
+// percorso sempre a log, e in CI onorato solo con l'opt-in dichiarato.
+const HISTORY_FILE = value('--history', null) || resolveOutputPath({
+  label: 'update-article-defect-memory',
+  envVar: 'ARTICLE_DEFECT_HISTORY_FILE',
+  canonicalPath: DEFAULT_HISTORY_FILE,
+  root: resolve(dirname(fileURLToPath(import.meta.url)), '..'),
+});
 const TRENDS = flag('--trends');
 const WINDOW_DAYS = Number(value('--window', '7')) || 7;
 const NOW = new Date().toISOString();
