@@ -651,6 +651,10 @@ describe('Fust post-crawl reconciliation', () => {
     expect(writtenSummary).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
     expect(writtenSummary).not.toHaveProperty('authoritativeEmptyPending');
     expect(writtenSummary).toMatchObject({ authoritativeEmptyConfirmed: true });
+    // #7324: check-crawler-health.mjs reads `authoritativeEmptySnapshot`, not
+    // Fust's own confirmation bookkeeping. Without it this proven zero is
+    // indistinguishable from a dead selector and accrues a broken streak.
+    expect(writtenSummary).toMatchObject({ authoritativeEmptySnapshot: true });
   });
 
   it('makes the third and later durable zero observations confirmed no-ops', async () => {
@@ -719,6 +723,7 @@ describe('Fust post-crawl reconciliation', () => {
     expect(summaryState).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
     expect(summaryState).not.toHaveProperty('authoritativeEmptyPending');
     expect(summaryState).not.toHaveProperty('authoritativeEmptyConfirmed');
+    expect(summaryState).not.toHaveProperty('authoritativeEmptySnapshot');
 
     expect(await handleFustEmptyDiscovery(discovery, prior, snapshotJobSlugs(prior), options))
       .toEqual({ confirmed: false, total: 1, archived: 0 });
@@ -773,6 +778,7 @@ describe('Fust post-crawl reconciliation', () => {
     expect(summaryState).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
     expect(summaryState).not.toHaveProperty('authoritativeEmptyPending');
     expect(summaryState).not.toHaveProperty('authoritativeEmptyConfirmed');
+    expect(summaryState).not.toHaveProperty('authoritativeEmptySnapshot');
   });
 
   it('degrades to "no prior confirmation" instead of crashing on an unreadable summary slice', () => {

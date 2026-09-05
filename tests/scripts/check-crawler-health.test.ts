@@ -960,3 +960,91 @@ describe('nextCrawlerState — discovered/written auto-classification (#5945)', 
     expect(state._lastObservedWrittenCount).toBe(5);
   });
 });
+
+describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () => {
+  // Complementary to #5945 above. Crawlers whose parser proves the empty
+  // state at the source (`validateAuthoritativeSnapshot` matched the page's
+  // explicit "no open positions" marker — ocst, artisa, cippatrasporti, …)
+  // report `discovered: 0` legitimately, so the filtered-empty rule can never
+  // fire for them. Before this signal existed they accrued a broken streak
+  // that no parser fix could clear, and the only escape was an
+  // EMPTY_OK_CRAWLERS entry that also masks the source once it really dies.
+  function obsWithProof(jobCount: number, authoritativeEmpty: boolean | undefined) {
+    return {
+      slug: 'not-on-any-allowlist',
+      jobCount,
+      freshnessAt: NOW_ISO,
+      freshnessSource: 'summary' as const,
+      generatedAt: NOW_ISO,
+      assembledAt: NOW_ISO,
+      discovered: 0,
+      written: 0,
+      authoritativeEmpty,
+    };
+  }
+
+  const brokenEligiblePrev = {
+    lastSuccessfulRunAt: null,
+    lastNonZeroJobs: 0,
+    consecutiveEmptyRuns: 2,
+    lastFailureReason: null,
+    status: 'healthy',
+    _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    _lastObservedJobs: 0,
+    _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+  };
+
+  it('clears a broken-eligible streak when the run proves the source is empty', () => {
+    const { status, reason, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      obsWithProof(0, true),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(state._lastObservedEmptyOk).toBe(true);
+    expect(state._authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('still flags broken when the same zero run carries no proof', () => {
+    const { status, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      obsWithProof(0, undefined),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state._authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('keeps the empty-ok advisory net armed instead of masking a dead source forever', () => {
+    // Unlike an EMPTY_OK_CRAWLERS entry the proof does not silence the
+    // long-run counter: it keeps climbing and raises the #6496 advisory.
+    const { status, state } = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        consecutiveEmptyRuns: 0,
+        consecutiveEmptyOkRuns: 40,
+      },
+      obsWithProof(0, true),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(state.advisory).toBe(true);
+    expect(state.consecutiveEmptyOkRuns).toBe(41);
+  });
+
+  it('does not mark the proof on a run that actually published jobs', () => {
+    const { state } = nextCrawlerState(
+      undefined,
+      { ...obsWithProof(4, true), discovered: 4, written: 4 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(state._authoritativeEmptySnapshot).toBe(false);
+    expect(state.lastNonZeroJobs).toBe(4);
+  });
+});
