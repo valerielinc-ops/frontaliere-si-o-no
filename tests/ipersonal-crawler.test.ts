@@ -13,7 +13,7 @@ import {
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
 
-describe('iPersonal AG crawler parser', () => {
+describe('MediPersonal crawler parser', () => {
   describe('shared Simple Job Board detail boundary', () => {
     it('preserves legacy arrow lists and stops before application boilerplate', () => {
       const html = `
@@ -118,7 +118,7 @@ describe('iPersonal AG crawler parser', () => {
           </div></section>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
       };
       const spec = {
-        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
       } as any;
       const runtime = {
@@ -185,7 +185,7 @@ describe('iPersonal AG crawler parser', () => {
           </div></section>`, { status: 200 });
       };
       const jobs = await runIpersonalSpecInProduction({
-        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
       } as any, {
         fetchImpl: fetchImpl as typeof fetch,
@@ -232,7 +232,7 @@ describe('iPersonal AG crawler parser', () => {
           </div></section>`, { status: 200 });
       };
       const jobs = await runIpersonalSpecInProduction({
-        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
       } as any, {
         fetchImpl: fetchImpl as typeof fetch,
@@ -269,7 +269,7 @@ describe('iPersonal AG crawler parser', () => {
           </div></section>`, { status: 200 });
       };
       const jobs = await runIpersonalSpecInProduction({
-        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
       } as any, {
         fetchImpl: fetchImpl as typeof fetch,
@@ -327,7 +327,7 @@ describe('iPersonal AG crawler parser', () => {
       };
       const jobs = await runIpersonalSpecInProduction({
         companyKey: 'ipersonal',
-        companyName: 'iPersonal AG',
+        companyName: 'MediPersonal',
         platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl],
         mode: 'template',
@@ -390,7 +390,7 @@ describe('iPersonal AG crawler parser', () => {
       };
       const jobs = await runIpersonalSpecInProduction({
         companyKey: 'ipersonal',
-        companyName: 'iPersonal AG',
+        companyName: 'MediPersonal',
         platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl],
         mode: 'template',
@@ -455,7 +455,7 @@ describe('iPersonal AG crawler parser', () => {
       };
       const jobs = await runIpersonalSpecInProduction({
         companyKey: 'ipersonal',
-        companyName: 'iPersonal AG',
+        companyName: 'MediPersonal',
         platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl],
         mode: 'template',
@@ -509,7 +509,7 @@ describe('iPersonal AG crawler parser', () => {
       };
       const jobs = await runIpersonalSpecInProduction({
         companyKey: 'ipersonal',
-        companyName: 'iPersonal AG',
+        companyName: 'MediPersonal',
         platform: 'med-ipersonal.ch',
         seedUrls: [seedUrl, emptySeedUrl],
         mode: 'template',
@@ -535,7 +535,7 @@ describe('iPersonal AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(IPERSONAL_KEY).toBe('ipersonal');
-    expect(IPERSONAL_COMPANY_NAME).toBe('iPersonal AG');
+    expect(IPERSONAL_COMPANY_NAME).toBe('MediPersonal');
   });
 
   // ── isCompanyJob ──
@@ -545,7 +545,7 @@ describe('iPersonal AG crawler parser', () => {
     });
 
     it('matches by company name', () => {
-      expect(isIpersonalJob({ company: 'iPersonal AG' })).toBe(true);
+      expect(isIpersonalJob({ company: 'MediPersonal' })).toBe(true);
     });
 
     it('matches by URL domain', () => {
@@ -611,7 +611,7 @@ describe('iPersonal AG crawler parser', () => {
       id: 'ipersonal-abc123',
       slug: 'test-position-ipersonal-ch',
       slugByLocale: { de: 'test-position-ipersonal-ch' },
-      company: 'iPersonal AG',
+      company: 'MediPersonal',
       companyKey: 'ipersonal',
       title: 'Test Position',
       titleByLocale: { de: 'Test Position' },
@@ -620,7 +620,7 @@ describe('iPersonal AG crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://med-ipersonal.ch/jobs/test',
-      source: 'iPersonal AG Dedicated Parser',
+      source: 'MediPersonal Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
     };
