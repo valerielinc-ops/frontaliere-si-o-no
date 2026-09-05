@@ -10,6 +10,7 @@ import {
   finalizeTranslationObservabilityReport,
   unpackTranslationObservabilityState,
 } from './lib/translation-observability.mjs';
+import { readRunPhases } from './lib/translate-run-clock.mjs';
 
 const SELF = fileURLToPath(import.meta.url);
 function args(argv) {
@@ -67,6 +68,8 @@ function run(argv) {
       before, final, runId: value.runId,
       startedAt: value.startedAt, finishedAt, sourceCommit: value.sourceCommit, outcome: value.outcome,
       generationObservation: observation,
+      // Written by the translate steps into RUNNER_TEMP; empty on a local run.
+      runPhases: readRunPhases(),
     });
     const finalized = finalizeTranslationObservabilityReport(report, null);
     writeJsonAtomic(value.output, finalized, { compact: true });

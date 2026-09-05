@@ -39,6 +39,23 @@ import path from 'node:path';
 
 const MARKER_DIR = process.env.RUNNER_TEMP || os.tmpdir();
 export const MARKER_PATH = path.join(MARKER_DIR, 'translate-pending-run-start.txt');
+export const RUN_PHASES_PATH = path.join(MARKER_DIR, 'translate-pending-phases.json');
+
+// A translate run is a sequence of steps in ONE job, and each step is a separate
+// process: no step can see how long the others took. That blindness is why the
+// cascade's window used to be unreadable — its deadline is measured from
+// RUN_START_MS (published by the FIRST translation step, normally the Argos bulk
+// pass), so the window it actually receives is whatever the earlier phases left,
+// and a run where they left nothing looked, from the outside, exactly like a run
+// where the cascade simply found little to do. Each phase appends one entry here;
+// the observability collector reads them back at the end of the job and puts the
+// window in the report, so a starved run is visible without opening the log.
+//
+// Timestamps are ELAPSED MILLISECONDS SINCE RUN START, not epochs: that is the
+// quantity every consumer wants, it stays comparable across runs, and it keeps a
+// wall clock out of an artifact that is committed to history.
+const MAX_RUN_PHASES = 32;
+
 
 /**
  * Publish the run-start epoch (ms), WRITE-ONCE: a no-op when a valid marker
@@ -56,6 +73,41 @@ export function markRunStart(epochMs) {
   } catch {
     // Best-effort: a marker-write failure must never break the step. The reader
     // will simply fall back to its own start as the reference.
+  }
+}
+
+/**
+ * Append one phase entry. Named recordRunPhase, not recordPhase: this repo
+ * already exports a recordPhase from build-plugins/shared/jobsSeoProfiler.ts, an
+ * in-process hrtime profiler for a Vite build. Same word, unrelated lifetime and
+ * storage — the distinct name keeps the two from reading as one utility. Best-effort exactly like markRunStart: instrumentation
+ * must never be able to fail a translation step. The cap is not defensive
+ * bookkeeping — the observability report is hard-capped at 1 MiB, so an unbounded
+ * append is a way to break the report from a script that only meant to measure it.
+ */
+export function recordRunPhase(entry) {
+  try {
+    if (!entry || typeof entry.name !== 'string' || !entry.name) return;
+    const phases = readRunPhases();
+    if (phases.length >= MAX_RUN_PHASES) return;
+    phases.push(entry);
+    fs.writeFileSync(RUN_PHASES_PATH, JSON.stringify(phases), 'utf-8');
+  } catch {
+    // Best-effort: a sidecar write failure must never break the step.
+  }
+}
+
+/**
+ * Read the phase entries recorded so far, in the order they ran. Always an array:
+ * a local run, a missing marker or a corrupt sidecar yields an empty one, and the
+ * collector then simply reports no phases rather than failing the run.
+ */
+export function readRunPhases() {
+  try {
+    const parsed = JSON.parse(fs.readFileSync(RUN_PHASES_PATH, 'utf-8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
   }
 }
 

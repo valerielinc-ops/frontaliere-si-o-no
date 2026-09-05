@@ -157,6 +157,10 @@ export function createTranslationObservabilitySnapshot(document, { now = Date.no
   };
 }
 
+function finiteOrNull(value) {
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+}
+
 function assertHash(value, field) {
   if (!HASH_PATTERN.test(value || '')) throw new TypeError(`Invalid ${field} SHA-256`);
 }
@@ -443,7 +447,64 @@ function boundedCompanies(companies) {
 }
 
 /** Combine two same-run snapshots and cross-generation shadow evidence. */
-export function buildTranslationObservabilityReport({ before, final, runId, startedAt, finishedAt = new Date().toISOString(), sourceCommit, outcome = 'unknown', generationObservation = null }) {
+/**
+ * Summarize the per-phase sidecar written by the translate steps.
+ *
+ * The one number this exists for is `cascade.windowMs`. The cascade's deadline is
+ * measured from the run start published by the FIRST translation step, so the
+ * window it receives is the remainder of what the earlier phases left. When the
+ * bulk pass runs long the remainder is zero or negative, the cascade stops before
+ * touching a single company, and nothing in the committed history says so —
+ * `jobsCleared: 0` reads identically to a run that simply had nothing to do.
+ *
+ * Returns null (never an empty object) when no phase was recorded, so a consumer
+ * cannot mistake "not instrumented" for "instrumented and idle".
+ */
+export function summarizeRunPhases(phases) {
+  if (!Array.isArray(phases)) return null;
+  const clean = phases
+    .filter((phase) => phase && typeof phase.name === 'string' && phase.name)
+    .map((phase) => ({
+      name: phase.name,
+      startedAtMs: finiteOrNull(phase.startedAtMs),
+      endedAtMs: finiteOrNull(phase.endedAtMs),
+      elapsedMs: finiteOrNull(phase.endedAtMs) === null || finiteOrNull(phase.startedAtMs) === null
+        ? null
+        : finiteOrNull(phase.endedAtMs) - finiteOrNull(phase.startedAtMs),
+      jobsCleared: finiteOrNull(phase.jobsCleared),
+      stopReason: typeof phase.stopReason === 'string' ? phase.stopReason : null,
+    }));
+  if (clean.length === 0) return null;
+  const recorded = phases.find((phase) => phase?.name === 'cascade') || null;
+  const startedAtMs = finiteOrNull(recorded?.startedAtMs);
+  const windowMs = finiteOrNull(recorded?.windowMs);
+  const jobsCleared = finiteOrNull(recorded?.jobsCleared);
+  return {
+    phases: clean,
+    cascade: recorded === null ? null : {
+      windowMs,
+      // Zero or negative: the earlier phases spent the whole deadline, so the
+      // cascade was over its limit before its first company.
+      starved: windowMs === null ? null : windowMs <= 0,
+      // What the phases before it consumed — the "who ate the window" number.
+      consumedBeforeMs: startedAtMs,
+      deadlineMs: finiteOrNull(recorded?.deadlineMs),
+      jobsCleared,
+      companiesQueued: finiteOrNull(recorded?.companiesQueued),
+      stopReason: typeof recorded?.stopReason === 'string' ? recorded.stopReason : null,
+      // The only figure comparable across runs: a run given 38 minutes and one
+      // given 2 cannot be compared on jobs alone, and dividing by the NOMINAL
+      // deadline instead of the granted window is what produced the bogus
+      // "102 seconds per job" this instrumentation replaces. Null, never 0, when
+      // there was no window to divide by.
+      jobsPerWindowMinute: windowMs === null || windowMs <= 0 || jobsCleared === null
+        ? null
+        : Math.round((jobsCleared / (windowMs / 60_000)) * 1000) / 1000,
+    },
+  };
+}
+
+export function buildTranslationObservabilityReport({ before, final, runId, startedAt, finishedAt = new Date().toISOString(), sourceCommit, outcome = 'unknown', generationObservation = null, runPhases = null }) {
   const previous = states(before);
   const current = states(final);
   const delta = { added: 0, removed: 0, persisted: 0, transitions: { complete: 0, flagged: 0, incomplete: 0 }, ingress: 0, drain: 0 };
@@ -495,6 +556,7 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
       trueFinal: final.languageQuality || unmeasuredLanguageQuality(),
     },
     continuity: { ...observation.continuity, fingerprints: boundedFingerprints([...fingerprints, ...(observation.identityHashes || [])]) },
+    runPhases: summarizeRunPhases(runPhases),
   };
   report.digest = digestDocument(report);
   return report;
