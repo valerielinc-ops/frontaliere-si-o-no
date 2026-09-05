@@ -1,18 +1,19 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-09-05T12:41:15.482Z",
+  "generatedAt": "2026-09-05T22:49:48.802Z",
   "total": 2,
   "discovered": null,
   "written": 2,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4993,
-  "avgDurationMs": 4993,
+  "durationMs": 7719,
+  "avgDurationMs": 7719,
   "durationHistory": [
-    4993
+    7719
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +42,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-m-w-d-70-tourist-information-sils",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:41:12.666Z",
+      "crawledAt": "2026-09-05T22:49:39.615Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T21:56:51.841Z",
       "_qualityScore": 85,
@@ -77,7 +78,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:41:13.128Z",
+      "crawledAt": "2026-09-05T22:49:40.142Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:09:22.701Z",
       "_qualityScore": 83,

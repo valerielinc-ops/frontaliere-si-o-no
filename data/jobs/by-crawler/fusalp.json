@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-09-05T12:41:23.316Z",
+  "assembledAt": "2026-09-05T22:49:51.029Z",
   "jobs": [
     {
       "id": "fusalp-375e9ddc749d",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:41:10.258Z",
+      "crawledAt": "2026-09-05T22:49:35.955Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -66,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:23:06.096Z",
+      "needsRetranslation": true,
       "salaryMin": 57600,
       "salaryMax": 88800,
       "salarySource": "estimated",
@@ -112,7 +113,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:41:09.269Z",
+      "crawledAt": "2026-09-05T22:49:35.002Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -145,6 +146,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:23:04.982Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -191,7 +193,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/ales-associate-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:41:08.269Z",
+      "crawledAt": "2026-09-05T22:49:34.020Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -208,6 +210,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-28T05:23:03.917Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -240,7 +243,7 @@
         "it": "ASSISTANT STORE MANAGER M/F - Dal 26 al 27 aprile al 100%",
         "en": "ASSISTANT STORE MANAGER M/W - Déc 26 to April 27 - 100%",
         "de": "Assistent STORE MANAGER M/W - Déc 26 to April 27 - 100%",
-        "fr": "MANAGER ASSISTANT H/F - Déc 26 au 27 avril - 100%"
+        "fr": "ASSISTANT STORE MANAGER M/W - Déc 26 to April 27 - 100%"
       },
       "description": "Lead by example on the sales floor and deliver an exceptional client experience. Drive sales, clienteling and boutique KPIs, turning performance indicators into concrete actions. Coach and support Sales Associates through daily feedback and hands-on guidance. Support the Store Manager in organising daily activity and maintaining strong operational standards. Take ownership of the boutique when required, including opening and closing procedures. Ensure Fusalp's visual merchandising and presentation standards are consistently maintained. Work alongside the team on stock, deliveries, replenishment, inventories and daily operations What will help you succeed Here, experience matters. We are looking for someone who can bring proven premium retail expertise and support the team from day one. This is a hands-on leadership role. You will lead from the floor, stay close to clients and the team, and step into operations whenever needed. During peak periods, the boutique requires calm, decisive and reliable leadership. Must-have Solid experience in premium or luxury retail. Previous responsibility for a team, sales floor or boutique operations. Strong understanding of clienteling, sales targets and retail KPIs. The ability to coach others and raise team performance. Confidence to make decisions and take ownership when the Store Manager is absent. English is required. Availability to work a flexible rota, including weekends, public holidays and peak trading periods. Nice-to-have German, French or any additional language. Experience in luxury fashion, ski, outdoor or performance apparel. Previous Assistant Store Manager or Supervisor experience. What you’ll love working here Seasonal 100% contract from December 2026 to 15 April 2027. CHF 5,000 per month + bonus. The salary is flexible and may be adjusted based on the candidate’s profile, qualifications, and experience. Leadership, product and client-experience development. The opportunity to take a key role in one of Fusalp’s strategic Alpine boutiques.",
       "descriptionByLocale": {
@@ -254,7 +257,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:41:07.348Z",
+      "crawledAt": "2026-09-05T22:49:33.030Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -270,15 +273,18 @@
       "applyUrl": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-31T17:09:40.027Z",
+      "previousSlugs": [
+        "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen",
+        "assistant-store-manager-m-f-dal-26-al-27-aprile-al-100-fusalp-saanen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen"
+          "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen",
+          "assistant-store-manager-m-f-dal-26-al-27-aprile-al-100-fusalp-saanen"
         ]
       },
-      "previousSlugs": [
-        "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen"
-      ],
+      "firstSeenAt": "2026-08-31T17:09:40.027Z",
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -325,7 +331,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:41:05.155Z",
+      "crawledAt": "2026-09-05T22:49:31.595Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
