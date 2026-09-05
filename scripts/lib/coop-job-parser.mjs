@@ -406,15 +406,46 @@ export function applyCoopSourceDetailToJob(job, jsonLd) {
   return updated;
 }
 
-/** Fetch and strictly apply all detail payloads with bounded concurrency. */
+// Statuses where the detail page — the authority for this vacancy — says the
+// vacancy no longer exists: withdrawn or expired, not a failed fetch. Those are
+// dropped from the enriched batch (the reconcile/archive path downstream then
+// retires them) instead of aborting the crawl: a single expired posting used to
+// throw `HTTP 410` and kill the whole run with the other ~97 vacancies already
+// parsed, which is what made `Run fust` a chronic failure (#6659). Every other
+// non-ok status still fails the batch closed.
+const GONE_STATUS = new Set([404, 410]);
+// Past this share of the batch "the vacancies expired" stops being a credible
+// reading — that is source drift (host migration, ATS switch), and publishing a
+// gutted slice would be exactly the partial batch this enricher exists to
+// prevent. Fail closed instead.
+const GONE_ABORT_RATIO = 0.5;
+// …but a ratio alone is meaningless on a tiny batch: with a single job in
+// `input`, one withdrawn vacancy is 100% and would throw «source drift», i.e.
+// exactly the dead crawl this enricher exists to prevent. Interdiscount and
+// Volg do publish slices this small (`fetchAllInterdiscountJobs()` hands its
+// whole batch straight over), so the ratio only governs batches where it is
+// statistically meaningful — below this floor a gone page is read as expiry.
+const GONE_ABORT_FLOOR = 1;
+
+/**
+ * Fetch and strictly apply all detail payloads with bounded concurrency.
+ *
+ * `onGone` receives the detail URLs whose page reported the vacancy gone
+ * (404/410) and were therefore dropped from the returned batch. Callers that
+ * hold a listing-derived source-of-truth need it: dropping the job here is only
+ * half the retirement, the URL must also leave their authoritative set, or a
+ * downstream completeness check still counts it as a failed parse.
+ */
 export async function enrichCoopSourceBackedJobs(jobs, {
   fetchImpl = undiciFetch,
   allowedHosts = ['jobs.coopjobs.ch', 'jobs.fust.ch', 'jobs.fenaco.com'],
   concurrency = 6,
   timeoutMs = 20000,
+  onGone = null,
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
   const output = new Array(input.length);
+  const gone = [];
   const validateUrl = createSpecUrlPolicy({
     seedUrls: allowedHosts.map((hostname) => `https://${hostname}`),
   });
@@ -451,13 +482,28 @@ export async function enrichCoopSourceBackedJobs(jobs, {
           clearTimeout(timer);
         }
       }, { label: `coop-detail:${url.hostname}` });
-      if (!response?.ok) throw new Error(`HTTP ${response?.status || 'unknown'}`);
+      if (!response?.ok) {
+        if (GONE_STATUS.has(response?.status)) {
+          gone.push({ url: url.toString(), status: response.status });
+          continue;
+        }
+        throw new Error(`HTTP ${response?.status || 'unknown'}`);
+      }
       const jsonLd = extractJsonLd(await response.text());
       output[index] = applyCoopSourceDetailToJob(job, jsonLd);
     }
   });
   await Promise.all(workers);
-  return output;
+  if (gone.length === 0) return output;
+  if (gone.length > GONE_ABORT_FLOOR && gone.length > input.length * GONE_ABORT_RATIO) {
+    throw new Error(
+      `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410) — source drift, not vacancy expiry`,
+    );
+  }
+  const goneLabels = gone.map(({ url, status }) => `${url} (HTTP ${status})`);
+  console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${goneLabels.join(', ')}`);
+  if (typeof onGone === 'function') onGone(gone.map(({ url }) => url));
+  return output.filter((job) => job !== undefined);
 }
 
 // ─────────────────────────────────────────────────────────────

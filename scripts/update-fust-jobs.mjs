@@ -703,8 +703,16 @@ function buildFustSlug(job, title, location, locale = '') {
  * generic engine merge. This removes stale prior URLs and generic-discovery
  * noise, while preserving the stable id/slug/history of every still-listed
  * job matched by the UUID embedded in its canonical detail URL.
+ *
+ * `goneUrls` are detail URLs the source-detail enricher found withdrawn
+ * (HTTP 404/410) and dropped from `jobs`. The listing still advertises them —
+ * that lag is the whole of #6659 — so they must leave the authoritative set
+ * here too, before the completeness check: otherwise a vacancy retired at the
+ * source counts as a job we failed to parse and throws the run dead, which is
+ * the same crash the enricher's drop was meant to remove. Dropping the key also
+ * takes the job out of the returned slice, so the archive path retires it.
  */
-export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = []) {
+export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = [], { goneUrls = [] } = {}) {
   const sourceByKey = new Map();
   for (const url of discovery?.urls || []) {
     if (!isCanonicalFustDetailUrl(url)) {
@@ -715,6 +723,11 @@ export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = []) 
       throw new Error(`Fust discovery contains a duplicate/unstable identity: ${url}`);
     }
     sourceByKey.set(key, { url, meta: discovery?.seedMetaByUrl?.[url] || {} });
+  }
+
+  for (const url of Array.isArray(goneUrls) ? goneUrls : []) {
+    const key = fustStableKey(url);
+    if (key) sourceByKey.delete(key);
   }
 
   const crawledByKey = new Map();
@@ -885,13 +898,15 @@ function readScratchJobs() {
 
 async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource = true } = {}) {
   const scratchJobs = readScratchJobs();
+  const goneUrls = [];
   const sourceBackedJobs = refreshSource && scratchJobs.length > 0
     ? await enrichCoopSourceBackedJobs(scratchJobs, {
         allowedHosts: ['jobs.fust.ch'],
         concurrency: 4,
+        onGone: (urls) => goneUrls.push(...urls),
       })
     : scratchJobs;
-  const reconciled = reconcileFustJobsWithDiscovery(sourceBackedJobs, discovery, priorJobs);
+  const reconciled = reconcileFustJobsWithDiscovery(sourceBackedJobs, discovery, priorJobs, { goneUrls });
   const stable = ensureUniqueFustSlugs(reconciled, priorJobs);
   writeJsonAtomic(DATA_JOBS, stable);
   console.log(`🧭 Fust authoritative reconciliation: ${scratchJobs.length} parsed/retained → ${stable.length} canonical identities, stable slugs enforced.`);

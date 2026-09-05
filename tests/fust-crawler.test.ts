@@ -440,6 +440,25 @@ describe('Fust post-crawl reconciliation', () => {
       .toThrow(/completeness invariant failed: 1\/4/);
   });
 
+  it('retires a vacancy the detail page reported gone instead of counting it unparsed (#6659)', () => {
+    const goneUrl = discovery.urls[3];
+    // Same input as the completeness test above — the job the enricher dropped
+    // is still advertised by the listing. Declaring it gone must retire it, not
+    // throw: that throw is the crash the 404/410 drop exists to remove.
+    const reconciled = reconcileFustJobsWithDiscovery(crawled.slice(0, 3), discovery, [], {
+      goneUrls: [goneUrl],
+    });
+    expect(reconciled).toHaveLength(3);
+    expect(reconciled.map((job: { url: string }) => job.url)).not.toContain(goneUrl);
+    expect(reconciled.map((job: { url: string }) => job.url)).toEqual(discovery.urls.slice(0, 3));
+  });
+
+  it('still fails closed for a job that is merely unparsed, not reported gone', () => {
+    expect(() => reconcileFustJobsWithDiscovery(crawled.slice(0, 2), discovery, [], {
+      goneUrls: [discovery.urls[3]],
+    })).toThrow(/completeness invariant failed: 1\/3/);
+  });
+
   it('treats the historical 327-row snapshot as contamination, not a coverage baseline', () => {
     const crossBrandNoise = Array.from({ length: 323 }, (_, index) => ({
       id: `coop-${index}`,

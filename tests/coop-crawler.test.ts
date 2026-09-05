@@ -902,6 +902,81 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(jobs.every((job) => job.description === 'listing fallback')).toBe(true);
   });
 
+  it('drops a withdrawn vacancy (HTTP 410) instead of failing the whole crawl (#6659)', async () => {
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => String(input).includes('22222222')
+      ? new Response(null, { status: 410 })
+      : new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 });
+
+    const enriched = await enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 });
+    expect(enriched).toHaveLength(jobs.length - 1);
+    expect(enriched.map((job) => job.id)).not.toContain('interdiscount-stable');
+    // Survivors are source-backed, never the listing fallback.
+    expect(enriched.every((job) => job.location === 'Oberbüren' && job._enrichedFromDetail)).toBe(true);
+  });
+
+  it('reports the gone detail URLs so a listing-derived source-of-truth can retire them', async () => {
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => String(input).includes('22222222')
+      ? new Response(null, { status: 410 })
+      : new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 });
+
+    const gone: string[] = [];
+    await enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2, onGone: (urls) => gone.push(...urls) });
+    expect(gone).toEqual([jobs.find((job) => job.url.includes('22222222'))!.url]);
+  });
+
+  it('reads a single gone page on a tiny batch as expiry, not drift', async () => {
+    // One withdrawn vacancy out of one is 100% of the batch: the ratio alone
+    // would abort the crawl on the most banal case the drop exists to survive.
+    const [companyKey, url] = cases[2];
+    const job = {
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    };
+    const fetchImpl = async () => new Response(null, { status: 410 });
+
+    const gone: string[] = [];
+    const enriched = await enrichCoopSourceBackedJobs([job], {
+      fetchImpl, allowedHosts: ['jobs.coopjobs.ch'], onGone: (urls) => gone.push(...urls),
+    });
+    expect(enriched).toEqual([]);
+    expect(gone).toEqual([url]);
+  });
+
+  it('fails closed when most detail pages are gone — source drift, not expiry', async () => {
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => String(input).includes('11111111')
+      ? new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 })
+      : new Response(null, { status: 404 });
+
+    await expect(enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 }))
+      .rejects.toThrow(/3\/4 pages gone/);
+    expect(jobs.every((job) => job.description === 'listing fallback')).toBe(true);
+  });
+
+  it('still fails the batch on a non-gone error status', async () => {
+    const jobs = cases.slice(0, 2).map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => String(input).includes('22222222')
+      ? new Response(null, { status: 403 })
+      : new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 });
+
+    await expect(enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 }))
+      .rejects.toThrow(/HTTP 403/);
+  });
+
   it('rejects a cross-host redirect before fetching or publishing its payload', async () => {
     const job = {
       id: 'stable', companyKey: 'jumbo', url: cases[2][1], title: 'Verkäuferin Verkäufer',
