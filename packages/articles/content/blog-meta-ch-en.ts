@@ -5581,6 +5581,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-vallese-riduzione.title': 'LAMal awards in Valais: bands and reductions 2026',
     'blog.article.premi-lamal-vallese-riduzione.excerpt': 'Guide to compulsory sick pay premiums in the canton of Valais: deductibles available, insurance models, premium reduction and procedure for obtaining cantonal subsidies.',
     'blog.article.premi-lamal-vallese-riduzione.imageAlt': 'Valais cantonal office with information on LAMal premiums, deductibles and reduction programs',
+    'blog.article.permesso-vallese-b-procedure.title': 'Permit B Valais: requirements and renewal',
+    'blog.article.permesso-vallese-b-procedure.excerpt': 'How to renew the residence permit B in Valais: the requirements, the necessary documents and the procedures at the Cantonal Office of Migration.',
+    'blog.article.permesso-vallese-b-procedure.imageAlt': 'Residence permit B documents and forms at a Swiss cantonal migration office',
 };
 
 export default blogMetaChEn;
