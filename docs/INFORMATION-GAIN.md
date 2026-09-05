@@ -136,7 +136,7 @@ coprono tutti gli offender, nessuno resta fuori.
 
 | Famiglia | Coorti | Mediana | Cos'è la pagina |
 |---|---|---|---|
-| Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) | 22 | 0–4 % | una combinazione RAL × figli × stato civile × regime frontaliero |
+| Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) — **risolta, vedi sotto** | 22 | 0–4 % → **6,5–19,4 %** | una combinazione RAL × figli × stato civile × regime frontaliero |
 | Tempi di attesa alla dogana (`/tempi-attesa-dogana/` e traduzioni) | 4 | 0 % | un valico, 13–18 segmenti in tutto |
 | Premi cassa malati (`/premi-cassa-malati/` e traduzioni) | 4 | 2,6–2,7 % | un cantone × una fascia d'età |
 | Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) | 4 | 2,8–4,9 % | una città × una settimana |
@@ -245,6 +245,45 @@ un unico spiegatore legale che è **identicamente vero** per ogni comune — ~29
 dataset dà popolazione, distanza su strada e valico più vicino, e il blocco del
 confronto le espone già tutte e tre. Alzare quella coorte vuol dire trovare un
 fatto per-comune che oggi non abbiamo, non riscrivere quello che c'è.
+
+## I calcolatori di stipendio: le leve, non le cifre (#7385)
+
+La più grande delle cinque famiglie qui sopra — 22 coorti su 37 — è stata
+alzata per prima. Il difetto era quello descritto nella tabella: la pagina È
+una combinazione RAL × figli × stato civile × regime frontaliero, quindi
+**tutto ciò che la distingue dalle sorelle è numerico**, e i numeri sono
+mascherati a `#` per costruzione. Su una coorte da 54 pagine (3 combinazioni ×
+18 gradini di RAL) 36 non aggiungevano **una frase**.
+
+`build-plugins/shared/scenarioLeverComparison.ts` fa per le combinazioni quello
+che `nearestMunicipalityComparison.ts` fa per i comuni: i "vicini" qui sono le
+combinazioni adiacenti — un figlio in più, l'altro stato civile, l'altro regime,
+il gradino di RAL sopra e sotto — e la prosa non ripete le cifre, dice **quale
+leva pesa di più, in che ordine, e di quante volte**. L'ordine delle leve e i
+rapporti fra i loro pesi cambiano lungo la scala delle RAL, quindi cambiano in
+PAROLE esattamente sull'asse su cui le sorelle si distinguevano solo in cifre.
+
+Le fasce qualitative (`il doppio di quanto pesa`, `circa la metà`, `poco meno di
+un punto percentuale`) sono grossolane di proposito: sono categorie di prosa,
+non un modo di riscrivere un numero in lettere per aggirare la maschera — le
+cifre restano in tabella, dove `distinctDataValues` le conta una volta sola.
+Il titolo di sezione è **fisso per locale**: un `h2` che variasse per pagina
+frantumerebbe la famiglia in coorti da una pagina, che il motore non punteggia,
+cioè un IGS "risolto" facendo sparire la misura.
+
+Effetto misurato il 2026-09-05 rendendo tutte le 432 combinazioni in tutti e
+quattro i locali e ripassandole al motore (48 coorti, 12 per locale):
+
+| | prima | dopo |
+|---|---|---|
+| coorte peggiore | 0,0 % | **6,5 %** |
+| coorte migliore | 6,0 % | **19,4 %** |
+| pagine a gain zero | fino a 36 su 54 per coorte | **0 ovunque** |
+
+L'osservatore pre-merge è `tests/information-gain-salary-hub-floor.test.ts`,
+che fa la stessa misura del gate ma sull'output del plugin, su tutti e quattro i
+locali, con soglia 5,5 % (il misurato meno un punto, e comunque sopra il floor
+5 % del gate).
 
 ## La catena automatica
 
