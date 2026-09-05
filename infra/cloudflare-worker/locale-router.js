@@ -1223,6 +1223,23 @@ export const EDGE_RETIRED_PATHS = {
   '/en/swiss-articles/a-union-of-four-construction-companies-in-vallemaggia/': '/en/cross-border-articles/vallemaggia-business-merger-100-jobs/',
   '/de/schweiz-artikel/eine-verbindung-von-vier-bauunternehmen-in-vallemaggia/': '/de/grenzgaenger-artikel/vallemaggia-firmenfusion-100-jobs/',
   '/fr/articles-suisse/un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia/': '/fr/articles-frontalier/fusion-entreprise-vallemaggia-100-emplois/',
+  // ── 301 — same-section duplicate retirements, nanako#915 + nanako#943 (8 URLs).
+  // Two frontaliere articles withdrawn in favour of a factually correct twin in
+  // the same section; bridge declared in build-plugins/legacyRedirectsPlugin.ts.
+  // The shard that serves the eight article prefixes is append-only, so without
+  // these eight rows the withdrawn pages keep answering 200 with `robots: index`
+  // no matter what the corpus does — this table is the only layer that retires
+  // the URL. Targets verified against the published slugs.json (manifest commit
+  // 6dfde254) on 2026-09-05, not against the HTML: the CDN answers 200 with a
+  // shell on paths that do not exist, so an HTML 200 proves nothing.
+  '/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/': '/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere/',
+  '/en/cross-border-articles/courmayeur-work-vallese-frontalier/': '/en/cross-border-articles/living-in-courmayeur-and-working-in-vallese-as-a-cross-border-worker/',
+  '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/': '/de/grenzgaenger-artikel/wohnen-in-courmayeur-und-arbeiten-in-vallese-as-grenzganger/',
+  '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/': '/fr/articles-frontalier/vivre-a-courmayeur-et-travailler-a-vallese-en-tant-que-travailleur-frontalier/',
+  '/articoli-frontaliere/vivere-tovo-lavorare-grigioni/': '/articoli-frontaliere/vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere/',
+  '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-grigioni-as-a-border-worker/',
+  '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-grigioni-als-grenzarbeiter/',
+  '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grigioni-comme-travailleur-frontalier/',
 };
 
 // Cache-Control for a retirement 301. Longer than NOT_FOUND_CACHE_CONTROL on

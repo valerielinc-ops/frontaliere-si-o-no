@@ -52,8 +52,27 @@ import { EDGE_RETIRED_PATHS, retiredEdgeResponse } from '../infra/cloudflare-wor
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain .mjs module, no type declarations.
 import { EXTERNALLY_SERVED_PREFIXES } from '../scripts/lib/externally-served-paths.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — plain .mjs module, no type declarations.
+import {
+  ARTICLE_SECTION_KEYS,
+  articlePathsFor,
+  parseSlugRegistry,
+} from '../scripts/lib/article-slug-registry.mjs';
 
 const REPO = path.resolve(__dirname, '..');
+
+/**
+ * Where each section's slug registry lives, by the same section keys
+ * scripts/lib/corpus-removal-guard.mjs uses. The literal path, not the
+ * `services/` symlink ARTICLE_REGISTRY_FILES names: in a sparse checkout that
+ * symlink dangles whenever packages/articles/content/ is excluded, and a
+ * dangling read would make the assertion below throw instead of assert.
+ */
+const REGISTRY_BY_SECTION: Record<string, { file: string; constName: string }> = {
+  frontaliere: { file: 'packages/articles/content/routerBlogData.ts', constName: 'BLOG_SLUGS' },
+  svizzera: { file: 'packages/articles/content/routerSwissData.ts', constName: 'SWISS_SLUGS' },
+};
 const APEX = 'https://frontaliereticino.ch';
 
 const PREFIXES: readonly string[] = EXTERNALLY_SERVED_PREFIXES;
@@ -239,17 +258,65 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     ).toEqual([]);
   });
 
+  it('bridges all four locale URLs of a retirement, not just the canonical IT one', () => {
+    // THE HOLE THIS CLOSES. Everything above derives what to expect FROM
+    // declaredRedirects(), so a retirement declared in only one locale is green
+    // by construction: nothing is expected for the three URLs nobody declared.
+    // And scripts/lib/corpus-removal-guard.mjs lets that through — it gates the
+    // removal on the canonical IT path alone (`ledgered = retiredPaths.has(
+    // canonical)`) and merely console.warns about `unbridgedLocalePaths`. So a
+    // half-declared retirement is APPROVED: pull-articles-corpus.mjs deletes the
+    // bodies and the registry rows, the append-only article shard keeps serving
+    // the EN/DE/FR pages 200 with `robots: index`, and the corpus's decision to
+    // withdraw the article is honoured in Italian only.
+    //
+    // The check is local because of the ordering the guard enforces: the sync
+    // refuses to prune until the bridge exists, so at the moment a retirement is
+    // declared the registries STILL carry all four slugs of the article. Hence:
+    // if any of an article's four locale URLs is bridged, all four must be — and
+    // all four must be answered at the edge, which is the only layer that can
+    // actually stop the shard from serving them.
+    const declaredFrom = new Set(declaredRedirects().keys());
+    const partial: string[] = [];
+    for (const section of ARTICLE_SECTION_KEYS as readonly string[]) {
+      const { file, constName } = REGISTRY_BY_SECTION[section];
+      const registry = parseSlugRegistry(
+        fs.readFileSync(path.join(REPO, file), 'utf-8'),
+        constName,
+      ) as Record<string, Record<string, string>>;
+      // Same anti-vacuity floor as liveCorpusSlugs(): an emit-shape change that
+      // broke the parse would otherwise turn this into a test of nothing.
+      expect(Object.keys(registry).length, `${file} parsed empty`).toBeGreaterThan(100);
+      for (const [id, slugMap] of Object.entries(registry)) {
+        const paths = articlePathsFor(section, slugMap) as string[];
+        if (!paths.some((p) => declaredFrom.has(p))) continue;
+        const unbridged = paths.filter((p) => !declaredFrom.has(p));
+        const unserved = paths.filter((p) => !(p in RETIRED_TABLE));
+        const missing = [...new Set([...unbridged, ...unserved])];
+        if (missing.length) partial.push(`${section}/${id}\n    ${missing.join('\n    ')}`);
+      }
+    }
+    expect(
+      partial,
+      'These articles are retired in some locales and still served in the others. '
+        + 'The shard is append-only, so every URL below keeps answering 200 with the '
+        + 'withdrawn article until it is declared in BOTH legacyRedirectsPlugin.ts and '
+        + `EDGE_RETIRED_PATHS:\n${partial.join('\n')}`,
+    ).toEqual([]);
+  });
+
   it('pins the measured shape of the 2026-08-14 repair', () => {
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
     // 4 retired-with-no-substitute + 20 alias orphans; 34 declared redirects
     // under the eight prefixes + 3 from data/article-redirects.json + 12 for
     // the nanako#356 cross-section duplicate retirements (bridge in
-    // legacyRedirectsPlugin.ts, same day).
+    // legacyRedirectsPlugin.ts, same day) + 8 for the nanako#915 / nanako#943
+    // same-section duplicate retirements of 2026-09-05.
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 73,
+      total: 81,
       gone: 24,
-      moved: 49,
+      moved: 57,
     });
   });
 });
