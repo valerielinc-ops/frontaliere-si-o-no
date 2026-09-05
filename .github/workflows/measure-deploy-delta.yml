@@ -127,9 +127,11 @@ jobs:
             picked=()
             while IFS=$'\t' read -r r created; do
               [ -n "$r" ] || continue
-              # #7501: this used to be `... 2>/dev/null || echo 0`, which maps
-              # ANY gh failure (502, timeout, a token without `actions: read`)
-              # onto "this run has no artifact". The candidate was dropped in
+              # #7501: this used to swallow gh's stderr and fall back to a
+              # zero count, which maps ANY gh failure (502, timeout, a token
+              # without `actions: read`) onto "this run has no artifact" —
+              # indistinguishable from a 2xx with an empty list. The candidate
+              # was dropped in
               # silence, the pair slid to two older deploys, and the workflow
               # reported a plausible delta between the WRONG two deploys. Same
               # class as #7393, and treated as fatal here exactly like
