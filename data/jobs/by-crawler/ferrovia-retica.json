@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-09-05T12:37:51.518Z",
+  "assembledAt": "2026-09-05T22:45:31.810Z",
   "jobs": [
     {
       "title": "IT Supporter/in (50-80%)",
@@ -112,7 +112,8 @@
       "firstSeenAt": "2026-08-31T17:03:14.233Z",
       "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1940
+      "localeMismatchSuppressedLen": 1940,
+      "needsRetranslation": true
     },
     {
       "title": "Rangiermitarbeiter/in (50-100%)",
@@ -337,7 +338,8 @@
       "salarySource": "estimated",
       "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1300
+      "localeMismatchSuppressedLen": 1300,
+      "needsRetranslation": true
     },
     {
       "title": "Auftragsleiter/in Komponenten (50-100 %)",
@@ -395,7 +397,8 @@
       "salarySource": "reported",
       "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2214
+      "localeMismatchSuppressedLen": 2214,
+      "needsRetranslation": true
     },
     {
       "title": "Auftragsleiter/in Anhängefahrzeuge (50-100%)",
@@ -453,7 +456,8 @@
       "salarySource": "reported",
       "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2293
+      "localeMismatchSuppressedLen": 2293,
+      "needsRetranslation": true
     },
     {
       "title": "Ausbildung als Lokführer/in (100%) Region Süd",
@@ -512,7 +516,8 @@
       "salarySource": "estimated",
       "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2228
+      "localeMismatchSuppressedLen": 2228,
+      "needsRetranslation": true
     },
     {
       "title": "Ausbildung als Lokführer/in (100%) Region Nord",
@@ -570,7 +575,8 @@
       "firstSeenAt": "2026-09-04T13:28:15.271Z",
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2208
+      "localeMismatchSuppressedLen": 2208,
+      "needsRetranslation": true
     }
   ]
 }

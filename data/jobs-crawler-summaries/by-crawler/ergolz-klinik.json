@@ -1,18 +1,19 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-09-05T12:37:27.217Z",
-  "total": 3,
+  "generatedAt": "2026-09-05T22:45:08.277Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
+  "written": 2,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5064,
-  "avgDurationMs": 5064,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4281,
+  "avgDurationMs": 4281,
   "durationHistory": [
-    5064
+    4281
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +30,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:37:24.158Z",
+      "crawledAt": "2026-09-05T22:45:03.564Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -66,7 +67,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:37:23.452Z",
+      "crawledAt": "2026-09-05T22:45:02.914Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -91,8 +92,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ergolz-klinik-6ec9804c71a1",
       "slug": "dipl-infermieristica-professionale-hf-50-100-occupazione-permanente-ergolz-klinik-liestal",
@@ -134,5 +134,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
