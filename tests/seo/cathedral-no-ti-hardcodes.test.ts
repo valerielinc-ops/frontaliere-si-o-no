@@ -172,6 +172,28 @@ const ALLOWLIST = [
   'tests/',                                          // tests reference literals for verification
 ];
 
+// ── Scan surface ────────────────────────────────────────────────────────────
+// Issue #7491: this guard used to grep only build-plugins/, services/ and
+// scripts/lib/. That was the whole defect. The TI section table had been
+// re-declared in 53 source files (78 declarations) and the guard could see
+// barely half of them, because the other half sat in scripts/ proper, in
+// components/, in App.tsx, in the Cloud Functions tree and in the Worker —
+// all outside those three directories. Every copy that grew, grew here.
+//
+// Adding a directory to this list is how the guard keeps up with the repo.
+// packages/articles/content/ is deliberately absent: it is generated article
+// prose that legitimately quotes TI job-board URLs by the hundred, and
+// dist/ + node_modules/ are build output.
+const SCAN_DIRS = [
+  'App.tsx',
+  'build-plugins/',
+  'components/',
+  'functions/src/',
+  'infra/',
+  'scripts/',
+  'services/',
+];
+
 // P1-E fix: parse grep output into (path, line, content) tuples and
 // match against allowlist with EXACT boundary, not startsWith — otherwise
 // `:772` matches `:7720`, `:7721`, …
@@ -219,14 +241,13 @@ function isAllowlisted(entry: { path: string; lineNo: number; content: string })
 describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-safe)', () => {
   for (const literal of FORBIDDEN) {
     // Explicit timeout (vs the 15000ms project default, vitest.config.ts) —
-    // this shells out to `grep -rn` synchronously over build-plugins/,
-    // services/, scripts/lib/; under CI's parallel test-worker contention
-    // that occasionally exceeds 15s even though the command itself runs in
-    // well under 1s in isolation (run 29904198494/job 88871620100 timed out
-    // here with no real hardcode offender — a CI-load timeout, not a
-    // genuine failure).
+    // this shells out to `grep -rn` synchronously over SCAN_DIRS; under CI's
+    // parallel test-worker contention that occasionally exceeds 15s even
+    // though the command itself runs in well under 1s in isolation (run
+    // 29904198494/job 88871620100 timed out here with no real hardcode
+    // offender — a CI-load timeout, not a genuine failure).
     it(`literal ${literal} appears only in allowlisted locations`, () => {
-      const cmd = `grep -rn -F ${JSON.stringify(literal)} build-plugins/ services/ scripts/lib/ || true`;
+      const cmd = `grep -rn -F ${JSON.stringify(literal)} ${SCAN_DIRS.join(' ')} || true`;
       const out = execSync(cmd, { encoding: 'utf8' });
       const offenders = out.split('\n').filter(Boolean)
         .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)
