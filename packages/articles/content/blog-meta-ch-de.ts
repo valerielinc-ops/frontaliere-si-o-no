@@ -5545,6 +5545,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.processo-junge-tat-zurigo.title': 'Junge Tat: Staatsanwaltschaft will Verurteilung, Verteidigung Freispruch',
     'blog.article.processo-junge-tat-zurigo.excerpt': 'Sechs Mitglieder der rechtsextremen Gruppe \'Junge Tat\' erschienen vor der Zürcher Justiz unter dem Vorwurf der Diskriminierung und Aufstachelung zum Hass.',
     'blog.article.processo-junge-tat-zurigo.imageAlt': 'Volles Gerichtszimmer mit Journalisten und antifaschistischen Demonstranten draußen.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Eine halbe Milliarde für die Bauern, um das Abkommen mit dem Mercosur zu retten',
+    'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'Die Aussenpolitische Kommission des Ständerates schlägt 517 Millionen Franken für die Schweizer Bauern vor.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Schweizer Bauern in einer Besprechung über ein Freihandelsabkommen.',
 };
 
 export default blogMetaChDe;

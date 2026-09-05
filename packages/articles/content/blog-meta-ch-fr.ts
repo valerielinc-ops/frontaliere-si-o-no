@@ -5545,6 +5545,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.processo-junge-tat-zurigo.title': 'Procès Junge Tat : Poursuite demande condamnation, défense acquittement',
     'blog.article.processo-junge-tat-zurigo.excerpt': 'Six membres du groupe d\'extrême droite \'Junge Tat\' ont comparu devant la justice zurichoise pour discrimination et incitation à la haine.',
     'blog.article.processo-junge-tat-zurigo.imageAlt': 'Salle d\'audience bondée avec des journalistes et des manifestants antifascistes à l\'extérieur.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Un demi-milliard aux paysans pour sauver l’entente avec le Mercosur',
+    'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'La Commission de la politique étrangère du Conseil des Etats propose 517 millions de francs pour les paysans suisses.',
+    'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Agriculteurs suisses en réunion pour discuter d\'un accord de libre-échange.',
 };
 
 export default blogMetaChFr;

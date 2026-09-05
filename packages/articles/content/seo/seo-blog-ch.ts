@@ -71975,6 +71975,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mezzo-miliardo-contadini-mercosur': {
+    title: 'Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur',
+    description: 'La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, mezzo, miliardo, contadini, salvare',
+    ogTitle: 'Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur',
+    ogDescription: 'La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri, con l\'obiettivo di salvare l\'accordo di libero scambio con il Mercosur.',
+    canonicalPath: '/articoli-svizzera/mezzo-miliardo-contadini-mercosur/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur",
+      "description": "La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mezzo-miliardo-contadini-mercosur.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agricoltori svizzeri in una riunione di discussione su un accordo di libero scambio."
+      },
+      "datePublished": "2026-09-05T11:11:31+00:00",
+      "dateModified": "2026-09-05T11:11:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mezzo-miliardo-contadini-mercosur/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
