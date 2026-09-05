@@ -6803,6 +6803,11 @@ export async function callLLM(messages, opts = {}) {
  * persistent buckets. Transient = quota/rate/cooldown/timeout/5xx/overloaded
  * (recovers on its own). Persistent = auth/credit/removed-model/payload/no-key
  * (needs intervention). Reasons matching neither are ignored in the tally.
+ *
+ * Il voto e' per CAUSA, non per riga, sul solo caso in cui le due cose
+ * divergono in modo misurabile: N modelli dello stesso host che riportano lo
+ * stesso status a body vuoto sono un gateway giu', e valgono un voto solo
+ * (`_hostFaultVoteKey`). Tutto il resto conta una riga = un voto, come prima.
  */
 /**
  * Lo status di un guasto che parla dell'HOST e non del modello, quando la riga
