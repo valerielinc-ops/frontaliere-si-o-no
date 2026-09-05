@@ -317,6 +317,15 @@ jobs:
             # questo carve-out puntuale.
             /docs/FIX-ISSUE-COMMAND.md
             /docs/preferred-sources-checklist.md
+            # Stesso punto cieco: tests/longform-docs-match-renderer.test.ts
+            # legge questi due doc con `readFileSync(join(process.cwd(), rel))`
+            # — un path runtime, invisibile all'analisi statica degli import.
+            # E' l'invariante doc<->renderer di #7359 (cap/gap/soglia H2 citati
+            # nella prosa devono coincidere con services/articleAdDensity.ts):
+            # senza il carve-out il file muore in import con ENOENT e il job
+            # esce rosso con «no tests» (osservato su #7555, 2026-09-05).
+            /docs/ads-placement-longform.md
+            /docs/editorial-longform-audit.md
             # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
             # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
             # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
@@ -993,6 +1002,18 @@ jobs:
         if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         background: true
         run: node scripts/ci/check-client-lookbehind.mjs
+
+      # Blocking gate (#7300 → #7344): forbid `Number(process.env.X || N)`. The
+      # fallback INSIDE Number() only applies when the variable is unset, so a
+      # non-numeric value yields NaN — which never throws and quietly removes
+      # caps, concurrency limits and deadlines. `Number(process.env.X) || N` is
+      # fine (NaN is falsy there). Correct form: intFromEnv() from
+      # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
+      # by tests/int-from-env.test.ts.
+      - name: Forbid the NaN-producing env fallback inside Number()
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        background: true
+        run: node scripts/ci/check-number-env-fallback.mjs
 
       # NB: niente `if:` qui, ed è una constatazione, non una dimenticanza. Un
       # primo tentativo gli aveva messo la stessa condizione dei due

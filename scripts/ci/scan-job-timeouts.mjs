@@ -120,10 +120,11 @@ import {
 // contenerlo (`Run .github/workflows/foo.yml`), quindi la redazione è applicata
 // al body INTERO — stessa regola e stessa funzione di `report-workflow-failure.mjs`.
 import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
-const LOOKBACK_MINUTES = Number(process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES || 75);
+const LOOKBACK_MINUTES = intFromEnv('TIMEOUT_SCAN_LOOKBACK_MINUTES', 75);
 // `updated_at` e' il clock dell'osservatore, ma l'API filtra solo `created`.
 // Non basta quindi sommare il timeout del singolo job: una run puo' aspettare
 // in coda, attraversare job `needs` e restare in attesa di un'approvazione.
@@ -144,7 +145,7 @@ const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum numb
 // anything that finished less than this ago; the 75m lookback is 15m wider than the
 // hourly cron, so the next scan still sees it. Cheap insurance against a false
 // host-kill issue on an ordinary red build.
-const HOST_KILL_SETTLE_MS = Number(process.env.HOST_KILL_SETTLE_MS || 120_000);
+const HOST_KILL_SETTLE_MS = intFromEnv('HOST_KILL_SETTLE_MS', 120_000);
 
 // Quanti step mostrare nell'attribuzione del tempo. Il body di una issue che
 // nessuno legge è inutile quanto uno vuoto: un job lungo ha decine di step e

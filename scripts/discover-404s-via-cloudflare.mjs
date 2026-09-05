@@ -48,6 +48,7 @@ import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths, COMPAT_SHARD_DIR } from './lib/compat-paths-store.mjs';
 import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -79,8 +80,8 @@ function parseArgs(argv) {
   // to the same ~48h/1h-window coverage instead of drifting independently.
   const opts = {
     dryRun: false,
-    windowHours: Number(process.env.CF_SWEEP_WINDOW_HOURS || 1),
-    windowCount: Number(process.env.CF_SWEEP_WINDOWS || 48),
+    windowHours: intFromEnv('CF_SWEEP_WINDOW_HOURS', 1),
+    windowCount: intFromEnv('CF_SWEEP_WINDOWS', 48),
     minCount: 2,
   };
   for (const arg of argv) {

@@ -21,7 +21,13 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
 import { readAttr } from './lib/html-attr.mjs';
+import {
+  findSwissCityInText,
+  isCantonOnlyLabel,
+  isKnownSwissMunicipality,
+} from './lib/target-swiss-locations.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
 import {
   COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS,
@@ -53,6 +59,11 @@ export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
   'scripts/audit-parser-quality.mjs',
   'scripts/lib/parser-quality-source-detail-replay.mjs',
   'scripts/lib/stable-stringify.mjs',
+  // `sourceLocationMatches` resolves both sides against the BFS municipality
+  // snapshot, so the list and its reader are normalizer inputs too — a replay
+  // recorded before a municipality merge must not silently compare differently.
+  'scripts/lib/target-swiss-locations.mjs',
+  'data/canton-municipalities.json',
 ]);
 
 function filesSha256(filePaths, readFile) {
@@ -335,6 +346,46 @@ function isUsableSourceLocation(value) {
 }
 
 /**
+ * Name of the BFS municipality a free-text location resolves to, or `''`.
+ *
+ * This is the difference between "one value contains the other" — a predicate
+ * that was tried, measured and reverted because it also accepted
+ * `Fribourg` ⊂ `Freiburg im Breisgau` — and "both values name the same
+ * commune". `findSwissCityInText` scans 3-, 2- and 1-word windows against the
+ * 2'110 BFS municipalities plus their aliases, so `Selzach Bohnackerweg 1`
+ * and `Baden 48 (Ärzte GAV & UA)` resolve to `selzach`/`baden` while a street,
+ * a site code or a German city resolves to nothing. Canton labels are rejected
+ * first, so `Basel-Landschaft` and `Appenzell Ausserrhoden` never collapse onto
+ * the municipality whose name they begin with.
+ */
+function swissMunicipalityKey(value) {
+  const text = plainText(value);
+  if (!text || isCantonOnlyLabel(text)) return '';
+  return findSwissCityInText(text);
+}
+
+/**
+ * A source candidate that repeats the published locality is the trailing
+ * region component — not the workplace — when an earlier candidate already
+ * named a different commune: `Winterthur, Zürich` and `Lyss, Bern Grossraum`
+ * are jobs in Winterthur and Lyss. A canton name in that earlier position is
+ * not such a commune even though BFS also lists it as one, because Workday
+ * writes the site group first: `Solothurn, Selzach Bohnackerweg 1` is Selzach.
+ */
+function precededByOtherLocality(sourceCandidates, sourceIndex, ownKey) {
+  return sourceCandidates.slice(0, sourceIndex).some((earlier) => {
+    const text = plainText(earlier);
+    if (!text || SWISS_REGION_NAMES.has(canonicalLocationTokens(earlier).join(' '))) return false;
+    const key = swissMunicipalityKey(earlier);
+    // `isKnownSwissMunicipality` also answers for the 161 BFS names that exist
+    // only in the disambiguated `<City> (XX)` form, whose bare spelling
+    // `swissMunicipalityKey` cannot resolve. An earlier `Carouge` must still
+    // demote a trailing `Genève`.
+    return key ? key !== ownKey : isKnownSwissMunicipality(text);
+  });
+}
+
+/**
  * Compare locality semantics rather than raw labels. Country/vendor prefixes,
  * postal addresses and the four Swiss language spellings are equivalent, but
  * a city is not allowed to match only the trailing canton component.
@@ -347,6 +398,7 @@ export function sourceLocationMatches(published, source) {
 
   const publishedCandidates = plainText(published).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
   const sourceCandidates = plainText(source).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
+  const publishedMunicipality = swissMunicipalityKey(published);
   for (const publishedCandidate of publishedCandidates) {
     const publishedTokens = canonicalLocationTokens(publishedCandidate);
     if (!publishedTokens.length) continue;
@@ -356,10 +408,18 @@ export function sourceLocationMatches(published, source) {
       if (!sourceTokens.length) continue;
       const publishedHasPostalCode = /\b\d{4,5}\b/.test(publishedCandidate);
       const candidateHasPostalCode = /\b\d{4,5}\b/.test(rawSourceCandidate);
+      const sourceMunicipality = swissMunicipalityKey(rawSourceCandidate);
+      const trailingRegion = sourceIndex > 0 && !candidateHasPostalCode
+        && precededByOtherLocality(sourceCandidates, sourceIndex, sourceMunicipality);
       // In structured `city, canton` values, a published city must not pass only
       // because it equals the trailing canton (Zürich vs Winterthur, Zürich).
+      // A canton name that no earlier candidate contradicts is the locality
+      // itself, so `CHE, Zürich, Bahnhofstrasse 20` still matches `Zürich`.
       if (sourceIndex > 0 && tokensEqual(sourceTokens, publishedTokens)
-        && !candidateHasPostalCode && SWISS_REGION_NAMES.has(publishedTokens.join(' '))) continue;
+        && !candidateHasPostalCode && SWISS_REGION_NAMES.has(publishedTokens.join(' '))
+        && trailingRegion) continue;
+      if (publishedMunicipality && publishedMunicipality === sourceMunicipality
+        && !trailingRegion) return true;
       if (tokensEqual(sourceTokens, publishedTokens)) return true;
       if (candidateHasPostalCode && endsWithTokens(sourceTokens, publishedTokens)) return true;
       if (publishedHasPostalCode && endsWithTokens(publishedTokens, sourceTokens)) return true;
@@ -571,9 +631,29 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     try {
       fetched = await fetchPage(item.url, { timeoutMs: 10000, retries: 1 });
     } catch (error) {
-      return { ...item, fetchFailed: true, status: 0, fetchError: sanitizeProcessingError(error) };
+      // A fetcher that THROWS instead of returning `{ ok: false }` used to land
+      // in the same nameless bucket #7351 removes; it carries the kind too.
+      return {
+        ...item,
+        fetchFailed: true,
+        status: 0,
+        fetchError: sanitizeProcessingError(error),
+        transportError: transportErrorKind(error),
+      };
     }
-    if (!fetched.ok || !fetched.body) return { ...item, fetchFailed: true, status: fetched.status || 0 };
+    if (!fetched.ok || !fetched.body) {
+      return {
+        ...item,
+        fetchFailed: true,
+        status: fetched.status || 0,
+        // Only meaningful when status is 0: `politeFetch` returns the transport
+        // kind (dns/tls/timeout/reset/refused) instead of dropping the error, so
+        // a status-less failure still says WHY (#7351).
+        transportError: fetched.transportError,
+        policyBlocked: fetched.policyBlocked || undefined,
+        blockedByRobots: fetched.blockedByRobots || undefined,
+      };
+    }
     try {
       const detail = extractDetail(fetched.body, fetched.url || item.url);
       const locationObservation = observeLocation(fetched.body, fetched.url || item.url);
@@ -672,14 +752,92 @@ export function tenantConstantSourceLocations(sourceResults) {
  * 401/403 refusals and only 6 genuinely expired vacancies — i.e. 13,8% of the
  * sample is missing for reasons that are ours to fix, not the source's.
  */
-export function fetchFailureCause(status) {
+export function fetchFailureCause(status, result = null) {
   const code = Number(status || 0);
   if (code === 404 || code === 410) return 'expired-vacancy';
   if (code === 401 || code === 403) return 'blocked-by-source';
   if (code === 429) return 'rate-limited';
   if (code >= 500) return 'source-server-error';
-  if (code === 0) return 'transport';
+  if (code === 0) {
+    // «transport» on its own is the same disease as «fetchFailed» on its own:
+    // an aggregate that names no cause. A DNS failure means the host is gone,
+    // a TLS failure means its certificate is broken, a timeout means we may be
+    // the ones too slow — three different answers, one old bucket.
+    if (result?.blockedByRobots) return 'blocked-by-robots';
+    if (result?.policyBlocked) return 'blocked-by-policy';
+    return `transport-${result?.transportError || 'other'}`;
+  }
   return `http-${code}`;
+}
+
+/**
+ * The family a cause belongs to, for the per-source pass below. Transport kinds
+ * collapse back together here on purpose: a source that is unreachable is one
+ * finding whether the socket died of DNS on one sample and of TLS on the next.
+ */
+export function fetchFailureFamily(cause) {
+  if (cause === 'expired-vacancy') return 'expired-vacancy';
+  // `blocked-by-policy` is OUR public-URL policy rejecting the request, not the
+  // source rejecting us: a crawler emitting non-public or non-canonical URLs
+  // would otherwise have its own bug promoted to «that source declines», be
+  // subtracted from the unexplained count and go invisible to --strict. It gets
+  // a family of its own so it can never be read as a statement by the source.
+  if (cause === 'blocked-by-policy') return 'refused-by-us';
+  if (String(cause).startsWith('blocked-')) return 'refused-by-source';
+  if (String(cause).startsWith('transport-')) return 'source-unreachable';
+  return String(cause);
+}
+
+/**
+ * How many sampled fetches a source must lose before «all of them failed» is
+ * evidence of anything. The source-detail sampler draws 2 details per crawler,
+ * so 2 is both the floor and the usual case; a single loss stays a per-vacancy
+ * failure, which is what keeps a flaky sample out of the source-level bucket.
+ */
+export const SOURCE_LEVEL_FAILURE_MIN_SAMPLES = 2;
+
+/**
+ * The share of the source-detail sample that may fail for a reason nothing
+ * explains. Above it the audit's own coverage claim is unproven: the run says
+ * «checked 1075» while some of those samples proved nothing and nobody can say
+ * why. Set at the 5 % the ticket asks for, against a measured 0,93 % — the
+ * headroom is deliberate, it is a floor under a regression, not a target.
+ */
+export const SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT = 5;
+
+/**
+ * Split failures the source explains from failures we still owe an answer for.
+ *
+ * A refusal is a POLICY of a source when EVERY detail page sampled from that
+ * source was refused the same way — 403 on 2 of 2 is that source declining our
+ * fetcher, not our parser breaking. The same reading applies to a host that is
+ * simply not there any more. What it deliberately does NOT cover is the
+ * scattered failure: one sample of two, on a source that answered the other —
+ * that one is ours, stays unexplained, and is the number the gate watches.
+ *
+ * Measured by replaying the 1075 sealed samples of artifact
+ * parser-quality-report-33969036485-1 (2026-09-05) through this function:
+ * 120/1075 failures = 6 expired vacancies + 104 samples over 52 sources that
+ * lost every detail they were sampled on + 10 scattered.
+ * Unexplained goes 10,60 % → 0,93 %.
+ */
+export function classifySourceLevelFailures(byKey) {
+  const sources = {};
+  let samples = 0;
+  for (const [key, info] of Object.entries(byKey)) {
+    if (info.checked < SOURCE_LEVEL_FAILURE_MIN_SAMPLES) continue;
+    if (info.fetchFailed !== info.checked) continue;
+    const families = Object.keys(info.failureFamilies || {});
+    if (families.length !== 1) continue;
+    const [family] = families;
+    // Neither an expiry nor a refusal of ours explains a coverage loss on the
+    // source's behalf: both stay out of the source-level bucket, and
+    // `refused-by-us` therefore stays counted as unexplained.
+    if (family === 'expired-vacancy' || family === 'refused-by-us') continue;
+    sources[key] = { family, samples: info.checked };
+    samples += info.checked;
+  }
+  return { sources, samples, sourceCount: Object.keys(sources).length };
 }
 
 export function applySourceDetailResults(report, sourceResults, requested = sourceResults.length) {
@@ -688,6 +846,10 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     fetched: 0,
     fetchFailed: 0,
     fetchFailureCauses: {},
+    expiredVacancies: 0,
+    sourceLevelFailures: { sourceCount: 0, samples: 0, sources: {} },
+    unexplainedFetchFailures: 0,
+    unexplainedFetchFailureRatePct: 0,
     processingFailed: 0,
     unobserved: 0,
     tenantConstantLocationObservations: 0,
@@ -705,7 +867,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
       descriptionMismatches: 0, unobserved: 0, tenantConstantObservations: 0,
-      unobservedDetails: [], details: [],
+      unobservedDetails: [], details: [], failureFamilies: {},
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
@@ -713,8 +875,11 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.fetchFailed) {
       info.fetchFailed++;
       sourceDetailSummary.fetchFailed++;
-      const cause = fetchFailureCause(result.status);
+      const cause = fetchFailureCause(result.status, result);
       sourceDetailSummary.fetchFailureCauses[cause] = (sourceDetailSummary.fetchFailureCauses[cause] || 0) + 1;
+      const family = fetchFailureFamily(cause);
+      info.failureFamilies[family] = (info.failureFamilies[family] || 0) + 1;
+      if (family === 'expired-vacancy') sourceDetailSummary.expiredVacancies++;
       continue;
     }
     if (result.processingFailed) {
@@ -796,6 +961,16 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       });
     }
   }
+  sourceDetailSummary.sourceLevelFailures = classifySourceLevelFailures(byKey);
+  sourceDetailSummary.unexplainedFetchFailures = Math.max(
+    0,
+    sourceDetailSummary.fetchFailed
+      - sourceDetailSummary.expiredVacancies
+      - sourceDetailSummary.sourceLevelFailures.samples,
+  );
+  sourceDetailSummary.unexplainedFetchFailureRatePct = requested
+    ? Number((100 * sourceDetailSummary.unexplainedFetchFailures / requested).toFixed(4))
+    : 0;
   return sourceDetailSummary;
 }
 
@@ -1331,6 +1506,9 @@ async function main() {
     const causes = Object.entries(sourceDetailSummary.fetchFailureCauses).sort((a, b) => b[1] - a[1]);
     if (causes.length > 0) {
       console.log(`Source detail fetch failures: ${sourceDetailSummary.fetchFailed}/${sourceDetailSummary.requested} — ${causes.map(([cause, count]) => `${count} ${cause}`).join(', ')}`);
+      const level = sourceDetailSummary.sourceLevelFailures;
+      console.log(`  explained: ${sourceDetailSummary.expiredVacancies} expired vacancies, ${level.samples} over ${level.sourceCount} source(s) that failed every sampled detail`);
+      console.log(`  unexplained: ${sourceDetailSummary.unexplainedFetchFailures}/${sourceDetailSummary.requested} (${sourceDetailSummary.unexplainedFetchFailureRatePct} %, ceiling ${SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT} %)`);
     }
     console.log('');
   }
@@ -1461,8 +1639,20 @@ export function finishAudit(report, {
   };
   fs.writeFileSync(outPath, JSON.stringify(jsonReport, null, 2));
   console.log(`\nJSON report saved to: ${path.relative(ROOT, outPath) || path.basename(outPath)}\n`);
-  if (strict && summary.critical > 0) {
-    console.error(`\n❌ --strict: ${summary.critical} critical crawler(s) found. Failing.`);
+  // The verdict is computed AFTER the JSON is on disk, and every failing
+  // condition is collected before returning: an early `return 1` here would
+  // hide the second reason from the run that has to act on it.
+  const failures = [];
+  if (summary.critical > 0) failures.push(`${summary.critical} critical crawler(s) found`);
+  if (sourceDetailSummary && sourceDetailSummary.unexplainedFetchFailureRatePct > SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT) {
+    failures.push(
+      `${sourceDetailSummary.unexplainedFetchFailures}/${sourceDetailSummary.requested} source detail fetches `
+      + `(${sourceDetailSummary.unexplainedFetchFailureRatePct} %) failed for reasons neither an expired vacancy `
+      + `nor a source-level refusal explains — over the ${SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT} % ceiling`,
+    );
+  }
+  if (strict && failures.length > 0) {
+    console.error(`\n❌ --strict: ${failures.join('; ')}. Failing.`);
     return 1;
   }
   return 0;

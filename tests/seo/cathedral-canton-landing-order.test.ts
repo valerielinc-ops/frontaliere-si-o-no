@@ -33,6 +33,7 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
@@ -99,7 +100,7 @@ describe('canton landing mobile-first element order (CLAUDE.md #17)', () => {
   const cantons = ['cerca-lavoro-zurigo', 'cerca-lavoro-ginevra', 'cerca-lavoro-vaud'];
 
   for (const canton of cantons) {
-    it(`${canton}/index.html order: H1 → tiles → CTA → listings → prose`, () => {
+    it(`${canton}/index.html order: H1 → tiles → CTA → listings → prose`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
       const file = path.join(DIST, canton, 'index.html');
       if (!fs.existsSync(file)) {
         // No dist/ in this run (e.g. unit-test-only CI shard) — silently

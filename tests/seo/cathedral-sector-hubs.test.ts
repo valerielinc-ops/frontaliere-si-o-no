@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
@@ -16,7 +17,7 @@ const DIST = path.resolve(__dirname, '../../dist');
  * sessions skip the full build), these tests are no-ops.
  */
 describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
-  it('per-canton sector hubs emit for at least one eligible non-TI canton', () => {
+  it('per-canton sector hubs emit for at least one eligible non-TI canton', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const nonTiSections = [
       'cerca-lavoro-zurigo',
@@ -65,7 +66,7 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
     expect(anyHub, 'No per-canton sector hub emitted under any sampled non-TI canton').toBe(true);
   });
 
-  it('non-TI canton × sector hubs have no job-count floor — every sampled combo is a real, indexed page, never a noindex bridge (owner decision 2026-07-16)', () => {
+  it('non-TI canton × sector hubs have no job-count floor — every sampled combo is a real, indexed page, never a noindex bridge (owner decision 2026-07-16)', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const nonTiSections = [
       'cerca-lavoro-zurigo',
@@ -120,7 +121,7 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
     expect(bridged, `sector-hub pages bridged (floor should be removed):\n${bridged.join('\n')}`).toEqual([]);
   });
 
-  it('TI sector hubs at /cerca-lavoro-ticino/{sectorSlug}/ stay intact', () => {
+  it('TI sector hubs at /cerca-lavoro-ticino/{sectorSlug}/ stay intact', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     // Pick a TI sector hub that the legacy emit owns. infermieri is the
     // canonical anchor and is emitted by jobSectorPagesPlugin.
@@ -141,7 +142,7 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
  * listings for jobs from that company in that specific canton.
  */
 describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
-  it('per-canton company hubs emit when canton has the company with ≥3 jobs', () => {
+  it('per-canton company hubs emit when canton has the company with ≥3 jobs', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const nonTiSections = [
       'cerca-lavoro-zurigo',
@@ -198,7 +199,7 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
     }
   });
 
-  it('every TI /cerca-lavoro-ticino/azienda-{slug}/ hub canonicalizes to TI-self or the Switzerland aggregator (never a foreign canton)', () => {
+  it('every TI /cerca-lavoro-ticino/azienda-{slug}/ hub canonicalizes to TI-self or the Switzerland aggregator (never a foreign canton)', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const tiDir = path.join(DIST, 'cerca-lavoro-ticino');
     if (!fs.existsSync(tiDir)) return;
@@ -259,7 +260,7 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
  * at /cerca-lavoro-{cantonSlug}/azienda-{companySlug}-{citySlug}/.
  */
 describe('cathedral — per-canton company × city hubs (Phase 3.4)', () => {
-  it('per-canton company × city hubs emit when canton+company+city has ≥2 jobs', () => {
+  it('per-canton company × city hubs emit when canton+company+city has ≥2 jobs', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const nonTiSections = [
       'cerca-lavoro-zurigo',

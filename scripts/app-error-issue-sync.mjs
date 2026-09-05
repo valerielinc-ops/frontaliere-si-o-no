@@ -20,10 +20,11 @@ import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { isIssueDenied, isSelfHealedPage404, syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const REPORT_PATH = process.env.ANALYTICS_REPORT_PATH || 'reports/analytics-latest.json';
-const MIN_COUNT = Number(process.env.APP_ERROR_MIN_COUNT || 5);
-const MAX_ISSUES = Number(process.env.APP_ERROR_MAX_ISSUES || 5);
+const MIN_COUNT = intFromEnv('APP_ERROR_MIN_COUNT', 5);
+const MAX_ISSUES = intFromEnv('APP_ERROR_MAX_ISSUES', 5);
 
 export function truncate(value, n) {
   const str = String(value ?? '').replace(/\s+/g, ' ').trim();

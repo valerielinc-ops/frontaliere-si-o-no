@@ -108,6 +108,9 @@ import {
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
+  loadGeocodeCache,
+  saveGeocodeCache,
+  enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
@@ -131,6 +134,11 @@ const RUN_BUDGET_MS = Number(process.env.GUIDLE_CRAWL_BUDGET_MS) || 8 * 60_000; 
 // budget. It survived only because myswitzerland, running after it, absorbed
 // the timeout instead. Capped here too, or fixing one just moves the overrun.
 const TRANSLATE_BUDGET_MS = Number(process.env.GUIDLE_TRANSLATE_BUDGET_MS) || 4 * 60_000;
+// Same shape again for the geo → comune/canton fallback pass (issue #7328):
+// 30 of the 1235 unattributed events are guidle's, so its share of the backlog
+// drains in a single paced run — the cap is there so a future guidle growth
+// spurt can't quietly eat the workflow's wall clock either.
+const GEO_COMUNE_BUDGET_MS = Number(process.env.GUIDLE_GEO_COMUNE_BUDGET_MS) || 2 * 60_000;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -571,6 +579,19 @@ async function main() {
     );
   }
 
+  // #7328: guidle's `CH-XX` canton hint plus venue/title text-matching still
+  // leaves events with no comune AND no canton, most of them carrying usable
+  // coordinates — resolve those from `geo` instead of dropping them into the
+  // unresolved-canton bucket page (same helper as crawl-myswitzerland-events.mjs).
+  const geocodeCache = loadGeocodeCache();
+  const geoStats = await enrichEventsWithGeoComune(events, geocodeCache, {
+    deadline: Date.now() + GEO_COMUNE_BUDGET_MS,
+  });
+  console.log(
+    `[guidle] geo fallback: ${geoStats.cantonFilled} canton / ${geoStats.comuneFilled} comune attributed ` +
+      `from coordinates (${geoStats.lookups} reverse-geocode lookup(s) this run)`,
+  );
+
   // #3741: guidle's it→en→de→fr locale-page merge very often carries the SAME
   // title/description text across locales (organizer never translated it)
   // instead of a missing locale — fill those gaps via the free-translate.mjs
@@ -590,6 +611,7 @@ async function main() {
 
   if (!limit && entries.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
   saveEventTitleTranslationCache(translationCache);
+  saveGeocodeCache(geocodeCache);
 
   if (events.length === 0 && goneIds.length === 0) {
     // Never overwrite a good slice with an empty run. Distinguish two causes:

@@ -1,11 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
 describe('sitemap shards partition jobs by canton (P1-C)', () => {
-  it('non-TI canton job URLs appear in the matching canton shard, not TI', () => {
+  it('non-TI canton job URLs appear in the matching canton shard, not TI', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const tiShardPath = path.join(DIST, 'sitemap-jobs-ticino.xml');
     const zhShardPath = path.join(DIST, 'sitemap-jobs-zurigo.xml');

@@ -17,6 +17,7 @@ import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { reduceSalaryToPartTime, matchesEstimateFingerprint } from './lib/structured-salary.mjs';
 import { sameLocalityAsHq } from './lib/dedicated-crawler-common.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -132,9 +133,9 @@ const KEYWORD_STOPWORDS = new Set([
 ]);
 
 const CANONICAL_AI_FALLBACK_ENABLED = /^(1|true|yes)$/i.test(String(process.env.JOBS_CANONICAL_AI_FALLBACK || '1'));
-const CANONICAL_AI_MAX_JOBS = Math.max(0, Number(process.env.JOBS_CANONICAL_AI_MAX_JOBS || 25));
-const CANONICAL_AI_TIMEOUT_MS = Math.max(3000, Number(process.env.JOBS_CANONICAL_AI_TIMEOUT_MS || 12000));
-const CANONICAL_AI_MIN_COVERAGE = Math.min(99, Math.max(30, Number(process.env.JOBS_CANONICAL_AI_MIN_COVERAGE || 65)));
+const CANONICAL_AI_MAX_JOBS = Math.max(0, intFromEnv('JOBS_CANONICAL_AI_MAX_JOBS', 25));
+const CANONICAL_AI_TIMEOUT_MS = Math.max(3000, intFromEnv('JOBS_CANONICAL_AI_TIMEOUT_MS', 12000));
+const CANONICAL_AI_MIN_COVERAGE = Math.min(99, Math.max(30, intFromEnv('JOBS_CANONICAL_AI_MIN_COVERAGE', 65)));
 const FORCE_REESTIMATE = /^(1|true|yes)$/i.test(String(process.env.FORCE_REESTIMATE || '0'));
 
 function cleanText(raw = '') {
