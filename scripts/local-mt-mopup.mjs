@@ -56,7 +56,7 @@ import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
 import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
-import { readRunStartMs, markRunStart, recordRunPhase } from './lib/translate-run-clock.mjs';
+import { readRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
@@ -754,7 +754,11 @@ if (invokedDirectly) {
   // recorded even when the pass itself failed — that is exactly the run whose
   // window someone will want to explain.
   const recordLocalMtPhase = () => recordRunPhase({
-    name: 'local-mt',
+    // Phase 2a and Phase 2c are the SAME script, so a bare 'local-mt' would put
+    // two identically named entries either side of the cascade and leave a reader
+    // to disambiguate by array index. The cascade's own entry is the divider:
+    // before it this pass is the bulk translator, after it the mop-up.
+    name: readRunPhases().some((phase) => phase?.name === 'cascade') ? 'local-mt-mopup' : 'local-mt-bulk',
     startedAtMs: PHASE_START_MS - RUN_START_MS,
     endedAtMs: Date.now() - RUN_START_MS,
     budgetMs: TIME_BUDGET_MS,
