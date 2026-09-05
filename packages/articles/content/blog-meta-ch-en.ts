@@ -5527,6 +5527,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-vaud.title': 'Tax succession and donation in the Canton of Vaud',
     'blog.article.imposta-successione-donazione-vaud.excerpt': 'Guide to rates and exemptions for heirs and donors in the tax system of the Canton of Vaud, with a focus on kinship relationships.',
     'blog.article.imposta-successione-donazione-vaud.imageAlt': 'Fiscal documents and wealth planning in Switzerland',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.title': 'Cantonal taxes in Valais: rates and deductions',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.excerpt': 'Find out about tax rates and deductions in the Canton of Valais, with details on deadlines and the tax administration\'s online portal.',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.imageAlt': 'Panoramic view of Lake Maggiore with Swiss mountains in the background',
 };
 
 export default blogMetaChEn;

@@ -1868,6 +1868,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-estero-vaud-conversione': { it: 'patente-estero-vaud-conversione', en: 'foreign-license-vaud-conversion', de: 'auslaendische-patente-waadt-umwandlung', fr: 'permis-etranger-vaud-conversion' },
  'patente-guida-canton-vaud-conversione-esami': { it: 'patente-guida-canton-vaud-conversione-esami', en: 'driving-license-canton-vaud-conversion-exams', de: 'fuhrerschein-kanton-waadt-umwandlung-pruefungen', fr: 'permis-de-conduire-canton-de-vaud-conversion-examens' },
  'imposta-successione-donazione-vaud': { it: 'imposta-successione-donazione-vaud', en: 'inheritance-gift-tax-vaud-canton', de: 'erbschaft-schenkungssteuer-kanton-waadt', fr: 'impot-succession-donation-canton-vaud' },
+ 'imposte-cantonali-vallese-aliquote-deduzioni': { it: 'imposte-cantonali-vallese-aliquote-deduzioni', en: 'cantonal-taxes-valais-tax-rates-deductions', de: 'kantonale-steuern-wallis-steuersatze-abzuge', fr: 'impots-cantonaux-valais-taux-dedeductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
