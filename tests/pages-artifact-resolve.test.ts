@@ -103,11 +103,26 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(actionSource).toContain('Walk-back cap reached');
   });
 
-  it('#7396 — a 410 during download re-enters the walk-back', () => {
+  it('#7396 — an EXPIRY during download re-enters the walk-back, nothing else does', () => {
     // The resolve and the download are separated by real time. An artifact at
     // the edge of its 8-day retention can die in between.
     expect(actionSource).toMatch(/HTTP 410/);
-    expect(actionSource).toMatch(/410\)\s*—\s*trying older/);
+    expect(actionSource).toMatch(/410 Gone\)\s*—\s*trying older/);
+    // The single grep that buys a walk-back, asserted on its own terms.
+    const walkBackGrep = /^\s*if grep .*dl\.err.*$/m.exec(actionSource)?.[0] ?? '';
+    expect(walkBackGrep).toContain('410');
+    // 404 must NOT be in it: on this endpoint GitHub answers 404 for a
+    // resource the token may not read, so accepting it would turn a missing
+    // `actions: read` on any caller into a silent audit of an older deploy.
+    expect(walkBackGrep).not.toContain('404');
+    // …and it must match gh's status line, not the substring anywhere in
+    // stderr, or an error body that merely contains "410" buys a walk-back.
+    expect(walkBackGrep).toContain('[[:space:]]*$');
+    // …and any non-expiry failure must exit, not continue. Anchored on the
+    // branch's structure — the first control-flow keyword after the error —
+    // so that rewording the message cannot flip this assertion.
+    const nonExpiry = actionSource.slice(actionSource.indexOf('is NOT an expiry'));
+    expect(/\n\s*(continue|exit)\b/.exec(nonExpiry)?.[1]).toBe('exit');
   });
 
   it('#7397 — the chosen run is logged with its created_at', () => {
@@ -147,8 +162,16 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
       const usesAt = src.indexOf('uses: ./.github/actions/fetch-pages-artifact');
       expect(checkoutAt, `${f}: no checkout step`).toBeGreaterThan(-1);
       expect(checkoutAt, `${f}: checkout must precede the action`).toBeLessThan(usesAt);
-      // A sparse checkout must actually include the action directory.
-      const sparse = /sparse-checkout:\s*\|([\s\S]*?)\n\s{0,10}[a-z-]+:/.exec(src);
+      // A sparse checkout must actually include the action directory — in
+      // BOTH YAML spellings. The block-scalar-only form of this regex skipped
+      // inspect-dist-composition.yml, whose `sparse-checkout: <path>` is the
+      // inline scalar, i.e. it skipped the one checkout this work added and
+      // the only one narrow enough to plausibly lose the action.
+      // Anchored at line start: the inline-scalar branch would otherwise match
+      // the string inside a prose comment (recover-prev-slugs.yml and
+      // audit-missing-company-logos.yml already contain one), and `.exec`
+      // takes the FIRST match in the file.
+      const sparse = /^[ \t]*sparse-checkout:[ \t]*(\|[\s\S]*?\n\s{0,10}[a-z-]+:|[^\n]+)/m.exec(src);
       if (sparse && !sparse[1].includes('/*')) {
         expect(sparse[1], `${f}: sparse checkout omits the action`).toContain(
           '.github/actions/fetch-pages-artifact',
