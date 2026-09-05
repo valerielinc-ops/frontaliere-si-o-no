@@ -93,16 +93,20 @@ export function tokenOverlap(needle, haystack) {
 
 /**
  * Firma stabile del testo di una pagina, per distinguere «N pagine diverse»
- * da «N copie della stessa pagina». djb2 sui primi 4000 caratteri normalizzati:
- * serve solo a confrontare pagine fra loro, non a identificarne il contenuto.
+ * da «N copie della stessa pagina». djb2 sul testo normalizzato: serve solo a
+ * confrontare pagine fra loro, non a identificarne il contenuto.
  *
  * @param {string} text
  * @returns {string}
  */
 export function bodySignature(text = '') {
-  const head = norm(text).slice(0, 4000);
+  // Sul testo INTERO, non su un prefisso: con nav e banner di consenso lunghi
+  // — i layout Umantis ne hanno — due annunci diversi condividono i primi
+  // migliaia di caratteri e collidono sulla stessa firma, cioe' proprio il
+  // falso «pagine identiche» che questa misura esiste per escludere.
+  const body = norm(text);
   let h = 5381;
-  for (let i = 0; i < head.length; i += 1) h = (((h << 5) + h) ^ head.charCodeAt(i)) >>> 0;
+  for (let i = 0; i < body.length; i += 1) h = (((h << 5) + h) ^ body.charCodeAt(i)) >>> 0;
   return h.toString(36);
 }
 

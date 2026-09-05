@@ -74,3 +74,30 @@ export function runtimeDetailFallbackUrl(spec, status, url) {
   if (!(code >= 300 && code < 400)) return '';
   return umantisDetailFallbackUrl(url) || '';
 }
+
+/**
+ * The location fields a listing row carries once the platform's own listing
+ * evidence is folded in.
+ *
+ * On Umantis the vacancy's location lives in the listing row, not on the
+ * detail page, and both the runtime and the synthesiser have to fold it in the
+ * same way — otherwise the validator grades rows poorer than the ones the
+ * crawler will publish. Row values always win: the listing evidence only fills
+ * what the generic extraction left empty.
+ *
+ * @param {Record<string, any>} row
+ * @param {Record<string, any>|undefined} evidence
+ * @returns {Record<string, any>} the fields to spread over the row, empty when there is no evidence
+ */
+export function listingEvidenceFields(row = {}, evidence) {
+  if (!evidence) return {};
+  return {
+    location: row.location || evidence.location || '',
+    addressLocality: row.addressLocality || evidence.addressLocality || '',
+    addressRegion: row.addressRegion || evidence.addressRegion || '',
+    addressCountry: row.addressCountry || evidence.addressCountry || '',
+    postalCode: row.postalCode || evidence.postalCode || '',
+    streetAddress: row.streetAddress || evidence.streetAddress || '',
+    locationCandidates: [...(row.locationCandidates || []), evidence],
+  };
+}

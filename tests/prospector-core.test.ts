@@ -21,7 +21,8 @@ import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
 import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
-import { tokenOverlap, gradeExtraction, isReadableText } from '../scripts/lib/prospector/validate.mjs';
+import { tokenOverlap, gradeExtraction, isReadableText, bodySignature } from '../scripts/lib/prospector/validate.mjs';
+import { extractRuntimeDetailFields, listingEvidenceFields } from '../scripts/lib/prospector/detail-extract.mjs';
 import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
@@ -1000,6 +1001,43 @@ describe('promotion gate', () => {
     expect(evaluatePromotion(legacyTemplate).passed).toBe(true);
     delete legacyTemplate.detailEnrichment;
     expect(evaluatePromotion(legacyTemplate).passed).toBe(true);
+  });
+
+  it('applica il merge Umantis in modo idempotente', () => {
+    // `runSpecInProduction` passa un `detailExtractor` custom e poi applica la
+    // stessa catena sopra il suo output: i parser tenant (recruitingapp-2649)
+    // finiscono percio' per attraversarla due volte, come gia' accadeva prima
+    // che l'estrazione fosse condivisa. Il secondo giro non deve cambiare
+    // nulla, altrimenti ri-deriva campi che il primo aveva deciso.
+    const html = '<html><body><h1>Posto</h1></body></html>';
+    const once = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, 'https://x.umantis.com/Vacancies/1/Description/1');
+    const twice = extractRuntimeDetailFields(
+      { platform: 'umantis.com' },
+      html,
+      'https://x.umantis.com/Vacancies/1/Description/1',
+      { detailExtractor: () => once },
+    );
+    expect(twice).toEqual(once);
+  });
+
+  it('lascia vincere la riga sull\'evidenza di listing', () => {
+    const merged = listingEvidenceFields(
+      { location: 'Bellinzona', locationCandidates: [{ location: 'Bellinzona' }] },
+      { location: 'Lugano', addressLocality: 'Lugano', postalCode: '6900' },
+    );
+    expect(merged.location).toBe('Bellinzona');
+    expect(merged.addressLocality).toBe('Lugano');
+    expect(merged.postalCode).toBe('6900');
+    expect(merged.locationCandidates).toHaveLength(2);
+    expect(listingEvidenceFields({ location: 'Bellinzona' }, undefined)).toEqual({});
+  });
+
+  it('firma le pagine sul testo intero, non su un prefisso condiviso', () => {
+    // Chrome lungo e identico, coda diversa: due annunci veri devono restare
+    // due firme diverse, o `detailDistinctRate` li legge come una pagina sola.
+    const chrome = 'menu contatti privacy cookie '.repeat(300);
+    expect(bodySignature(`${chrome} posto uno`)).not.toBe(bodySignature(`${chrome} posto due`));
+    expect(bodySignature(`${chrome} posto uno`)).toBe(bodySignature(`${chrome} posto uno`));
   });
 
   it('non punisce un datore che pubblica gli annunci in PDF', () => {

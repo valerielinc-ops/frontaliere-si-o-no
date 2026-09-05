@@ -21,6 +21,7 @@ import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
+import { listingEvidenceFields } from './detail-extract.mjs';
 
 /**
  * @typedef {Object} CrawlerSpec
@@ -225,15 +226,7 @@ export async function runSpec(spec, runtime = {}) {
         const evidence = listingEvidence.get(umantisVacancyIdentity(v.url));
         all.push({
           ...v,
-          ...(evidence ? {
-            location: v.location || evidence.location || '',
-            addressLocality: v.addressLocality || evidence.addressLocality || '',
-            addressRegion: v.addressRegion || evidence.addressRegion || '',
-            addressCountry: v.addressCountry || evidence.addressCountry || '',
-            postalCode: v.postalCode || evidence.postalCode || '',
-            streetAddress: v.streetAddress || evidence.streetAddress || '',
-            locationCandidates: [...(v.locationCandidates || []), evidence],
-          } : {}),
+          ...listingEvidenceFields(v, evidence),
           company: v.company || spec.companyName,
           companyKey: spec.companyKey,
           companyDomain: spec.companyHost,

@@ -32,7 +32,7 @@ import {
   extractUmantisListingEvidence,
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
-import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
+import { extractRuntimeDetailFields, listingEvidenceFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -228,16 +228,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
       bySlug.set(v.url, {
         title: v.title,
         url: v.url,
-        location: vacancy.location || listingEvidence?.location || '',
-        addressLocality: vacancy.addressLocality || listingEvidence?.addressLocality || '',
-        addressRegion: vacancy.addressRegion || listingEvidence?.addressRegion || '',
-        addressCountry: vacancy.addressCountry || listingEvidence?.addressCountry || '',
-        postalCode: vacancy.postalCode || listingEvidence?.postalCode || '',
-        streetAddress: vacancy.streetAddress || listingEvidence?.streetAddress || '',
-        locationCandidates: [
-          ...(vacancy.locationCandidates || []),
-          ...(listingEvidence ? [listingEvidence] : []),
-        ],
+        location: vacancy.location || '',
+        addressLocality: vacancy.addressLocality || '',
+        addressRegion: vacancy.addressRegion || '',
+        addressCountry: vacancy.addressCountry || '',
+        postalCode: vacancy.postalCode || '',
+        streetAddress: vacancy.streetAddress || '',
+        locationCandidates: [...(vacancy.locationCandidates || [])],
+        // Stessa piega dell'evidenza di listing che applica il sintetizzatore.
+        ...listingEvidenceFields(vacancy, listingEvidence),
         description: vacancy.description || '',
         postedAt: vacancy.postedDate || null,
         company: vacancy.company || spec.companyName,
