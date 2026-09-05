@@ -67,7 +67,7 @@
 import { appendFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
-import { BODY_DIRS, changedArticleIdsWorktree } from '../lib/blog-body-io.mjs';
+import { BODY_DIRS, changedArticleIdsWorktree, newArticleIdsWorktree } from '../lib/blog-body-io.mjs';
 import { scanFabricationPatterns, extractTextContentFromSource } from '../lib/article-fabrication-patterns.mjs';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 
@@ -100,6 +100,12 @@ const MAX_ARTICLES_IN_BODY = 30;
  */
 export function runFabricationScan() {
   const changedIds = changedArticleIdsWorktree();
+  // Gemello del filtro in report-synced-article-factuality.mjs (#5661): la
+  // scansione resta su tutto cio' che il sync ha toccato — la step summary non
+  // costa nulla — ma solo gli articoli NUOVI possono aprire una issue o
+  // fermare il sync. Un articolo pubblicato ad agosto e riscritto oggi da una
+  // PR di riparazione non e' una fabbricazione «ricomparsa».
+  const newIds = newArticleIdsWorktree();
   const diffUnavailable = changedIds === 'unavailable';
   const findings = [];
   let scanned = 0;
@@ -121,14 +127,33 @@ export function runFabricationScan() {
           const text = extractTextContentFromSource(readFileSync(filePath, 'utf-8'));
           const violations = scanFabricationPatterns(text, locale);
           if (violations.length) {
-            findings.push({ id, dir: bodyDir, locale, violations });
+            // `null` = distinzione non calcolabile (git muto): si escala come
+            // prima, mai un no-op silenzioso.
+            const isNew = newIds === 'unavailable' ? null : newIds.has(id);
+            findings.push({ id, dir: bodyDir, locale, violations, isNew });
           }
         }
       }
     }
   }
 
-  return { scanned, flagged: findings.length, diffUnavailable, findings };
+  return {
+    scanned,
+    flagged: findings.length,
+    escalatable: findings.filter(isEscalatableFinding).length,
+    diffUnavailable,
+    findings,
+  };
+}
+
+/**
+ * Un rilievo merita una issue (o di fermare il sync)? Solo su un articolo
+ * ammesso in QUESTO sync — o quando non e' possibile saperlo (#5661).
+ *
+ * @param {{ isNew?: boolean|null }} finding
+ */
+export function isEscalatableFinding(finding) {
+  return finding?.isNew !== false;
 }
 
 /** One markdown line per finding. */
@@ -145,12 +170,16 @@ function renderFinding(f) {
  * assert the shape without touching GitHub.
  */
 export function buildFindingsIssue(report, runUrl) {
-  const shown = report.findings.slice(0, MAX_ARTICLES_IN_BODY);
+  // Solo i rilievi escalabili: la issue dice «e' appena successo», quindi non
+  // puo' elencare articoli gia' pubblicati che il sync ha soltanto toccato
+  // (#5661). Restano tutti nella step summary.
+  const escalatable = report.findings.filter(isEscalatableFinding);
+  const shown = escalatable.slice(0, MAX_ARTICLES_IN_BODY);
   const head = [
     '## Articoli appena sincronizzati con pattern noti di fabbricazione',
     '',
     `\`tests/article-fabrication-guard.test.ts\` (via \`scripts/lib/article-fabrication-patterns.mjs\`) `
-    + `ha segnalato **${report.findings.length}** body-locale sui ${report.scanned} appena tirati dal `
+    + `ha segnalato **${escalatable.length}** body-locale sui ${report.scanned} appena tirati dal `
     + 'corpus (nanakokyobashi-rgb/frontaliere-articles) da `.github/workflows/sync-articles-sitemaps.yml`.',
     '',
     '**Nessuna pubblicazione è stata bloccata** a meno che la repository variable '
@@ -162,8 +191,8 @@ export function buildFindingsIssue(report, runUrl) {
 
   const body = shown.flatMap(renderFinding);
   const tail = [];
-  if (report.findings.length > shown.length) {
-    tail.push(`… altri ${report.findings.length - shown.length} body-locale segnalati in questo sync, non elencati qui.`, '');
+  if (escalatable.length > shown.length) {
+    tail.push(`… altri ${escalatable.length - shown.length} body-locale segnalati in questo sync, non elencati qui.`, '');
   }
   tail.push(
     '## Suggested action',
@@ -272,18 +301,18 @@ async function main() {
   resolveGithubIssue(FAILURE_ISSUE_TITLE, { workflow, runUrl: url });
 
   console.log(
-    `[fabrication-guard] ${report.scanned} body-locale sincronizzati, ${report.flagged} segnalati.`,
+    `[fabrication-guard] ${report.scanned} body-locale sincronizzati, ${report.flagged} segnalati, ${report.escalatable} escalabili (nuovi in questo sync).`,
   );
 
-  if (report.flagged) {
+  if (report.escalatable) {
     const { title, description } = buildFindingsIssue(report, url);
     await createGithubIssue({ title, description, priority: 2, labels: ['content-quality'], workflow });
   }
 
   const blocking = process.env.ARTICLE_FABRICATION_GUARD_BLOCKING === 'true';
-  if (report.flagged && blocking) {
+  if (report.escalatable && blocking) {
     console.error(
-      `🚫 ARTICLE_FABRICATION_GUARD_BLOCKING=true e ${report.flagged} body-locale segnalati — step in errore.`,
+      `🚫 ARTICLE_FABRICATION_GUARD_BLOCKING=true e ${report.escalatable} body-locale NUOVI segnalati — step in errore.`,
     );
     return 1;
   }
