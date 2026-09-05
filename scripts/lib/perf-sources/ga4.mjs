@@ -6,6 +6,7 @@
 // digits too, we prefix on the fly).
 
 import { windowDates } from './safe.mjs';
+import { engagementConsistency } from '../ga4-engagement-reliability.mjs';
 
 const SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
 
@@ -36,6 +37,11 @@ function normalizePropertyId(raw) {
 /**
  * Fetch per-pagePath views/engagement, newsletter-excluded.
  * Returns { rows, perPath: Map<pathname, {pageviews, engagementRate, avgScrollProxy}> }
+ *
+ * `engagementRate` è annotato con `engagementReliable`/`engagementUnreliableReason`
+ * (issue #6703): sui giorni non ancora elaborati GA4 riporta un engagement rate
+ * che contraddice `averageSessionDuration`, e senza il flag il valore viaggia a
+ * valle come se fosse buono.
  */
 export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTokenImpl = getToken } = {}) {
   const propertyId = normalizePropertyId(process.env.GA4_PROPERTY_ID);
@@ -83,10 +89,19 @@ export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTo
     const pageviews = Number(r.metricValues?.[0]?.value || 0);
     const engagement = Number(r.metricValues?.[1]?.value || 0);
     const avgDuration = Number(r.metricValues?.[2]?.value || 0);
+    const engagementRate = Number.isFinite(engagement) ? engagement : null;
+    const avgSessionDuration = Number.isFinite(avgDuration) ? avgDuration : null;
+    const verdict = engagementConsistency({
+      engagementRate,
+      averageSessionDuration: avgSessionDuration,
+      sampleSize: pageviews,
+    });
     perPath.set(path, {
       pageviews,
-      engagementRate: Number.isFinite(engagement) ? engagement : null,
-      avgSessionDuration: Number.isFinite(avgDuration) ? avgDuration : null,
+      engagementRate,
+      avgSessionDuration,
+      engagementReliable: verdict.reliable,
+      engagementUnreliableReason: verdict.reason,
     });
   }
   return { rows: rows.length, perPath };

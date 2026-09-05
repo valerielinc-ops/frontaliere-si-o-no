@@ -89,6 +89,7 @@ import { fileURLToPath } from 'node:url';
 import { AD_CLIENT } from '../services/adsenseSlots.ts';
 import { getAdSenseToken, last7Days } from './revenue-monitor.mjs';
 import { getServiceAccountToken, fetchRetry, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import { engagementConsistency } from './lib/ga4-engagement-reliability.mjs';
 import { runHogQL } from './lib/posthog-client.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -316,6 +317,14 @@ export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT)
     if (!row) return null;
     const v = row.metricValues || [];
     const num = (i) => (v[i]?.value != null ? Number(v[i].value) : null);
+    // #6703: sui giorni GA4 non ancora elaborati engagementRate/bounceRate
+    // contraddicono averageSessionDuration. Un guardrail A/B letto su quella
+    // finestra concluderebbe che il trattamento ha distrutto l'engagement.
+    const verdict = engagementConsistency({
+      sessions: num(0),
+      engagementRate: num(3),
+      averageSessionDuration: num(2),
+    });
     return {
       sessions: num(0),
       pageViews: num(1),
@@ -323,6 +332,8 @@ export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT)
       engagementRatePct: num(3) !== null ? Number((num(3) * 100).toFixed(1)) : null,
       bounceRatePct: num(4) !== null ? Number((num(4) * 100).toFixed(1)) : null,
       pageViewsPerSession: num(5) !== null ? Number(num(5).toFixed(2)) : null,
+      engagementReliable: verdict.reliable,
+      engagementUnreliableReason: verdict.reason,
     };
   };
   return { control: pick(experiment.control.path), treatment: pick(experiment.treatment.path) };
@@ -332,10 +343,13 @@ export function computeEngagementDeltas(control, treatment) {
   if (!control || !treatment) {
     return { avgSessionDurationPct: null, engagementRatePct: null, bounceRatePct: null, pageViewsPerSessionPct: null };
   }
+  // Se GA4 dichiara un engagement incoerente su uno dei due lati (#6703), il
+  // delta engagement/bounce non è un dato: resta null, come quando manca.
+  const engagementUsable = control.engagementReliable !== false && treatment.engagementReliable !== false;
   return {
     avgSessionDurationPct: pctDelta(treatment.avgSessionDurationSec, control.avgSessionDurationSec),
-    engagementRatePct: pctDelta(treatment.engagementRatePct, control.engagementRatePct),
-    bounceRatePct: pctDelta(treatment.bounceRatePct, control.bounceRatePct),
+    engagementRatePct: engagementUsable ? pctDelta(treatment.engagementRatePct, control.engagementRatePct) : null,
+    bounceRatePct: engagementUsable ? pctDelta(treatment.bounceRatePct, control.bounceRatePct) : null,
     pageViewsPerSessionPct: pctDelta(treatment.pageViewsPerSession, control.pageViewsPerSession),
   };
 }
@@ -784,6 +798,12 @@ async function main() {
   } else {
     try {
       engagement = await fetchGa4Engagement(ga4Token, experiment);
+      for (const [label, side] of [[experiment.control.label, engagement.control], [experiment.treatment.label, engagement.treatment]]) {
+        if (side && side.engagementReliable === false) {
+          warnings.push(`Engagement GA4 inaffidabile su ${label} — ${side.engagementUnreliableReason}. Δ engagement/bounce omessi (#6703).`);
+          log('⚠️', warnings[warnings.length - 1]);
+        }
+      }
     } catch (e) {
       warnings.push(`GA4 engagement fetch failed: ${e.message}`);
       log('⚠️', warnings[warnings.length - 1]);
