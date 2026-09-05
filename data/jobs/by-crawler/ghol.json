@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-09-05T12:51:48.247Z",
+  "assembledAt": "2026-09-05T22:56:11.139Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.063Z",
+      "crawledAt": "2026-09-05T22:56:04.324Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -76,11 +77,13 @@
       },
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
-        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
+          "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
           "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -106,8 +109,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -146,7 +149,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.060Z",
+      "crawledAt": "2026-09-05T22:56:04.323Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -174,18 +178,24 @@
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
@@ -249,17 +259,19 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.057Z",
+      "crawledAt": "2026-09-05T22:56:04.322Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
           "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -325,13 +337,16 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.052Z",
+      "crawledAt": "2026-09-05T22:56:04.321Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -400,7 +415,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.051Z",
+      "crawledAt": "2026-09-05T22:56:04.319Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -416,7 +431,8 @@
         "tecnico-a-in-radiologia-medica-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -433,7 +449,8 @@
           "tecnico-a-in-radiologia-medica-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -472,7 +489,7 @@
       "slugByLocale": {
         "it": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "emergency-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -482,7 +499,7 @@
       "titleByLocale": {
         "it": "Infermiera di emergenza",
         "en": "Emergency Nurse",
-        "de": "Notfallkrankenschwester",
+        "de": "Infirmier·ère urgentiste",
         "fr": "Infirmier·ère urgentiste"
       },
       "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\n Descriptif du service :\n Votre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\n Reconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\n Garant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\n Niveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\n Avantages :\n Vous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\n Vous aurez accès à une offre de formation continue interne variée et attractive.\n Au quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine",
@@ -511,14 +528,17 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.049Z",
+      "crawledAt": "2026-09-05T22:56:04.318Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -527,7 +547,8 @@
           "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -535,6 +556,7 @@
         ],
         "de": [
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "fr": [
@@ -601,14 +623,16 @@
       "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.045Z",
+      "crawledAt": "2026-09-05T22:56:04.317Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -677,14 +701,16 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.044Z",
+      "crawledAt": "2026-09-05T22:56:04.316Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+        "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+          "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -753,15 +779,17 @@
       "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:45.042Z",
+      "crawledAt": "2026-09-05T22:56:04.315Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"

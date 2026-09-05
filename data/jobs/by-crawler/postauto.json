@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-09-05T12:52:04.391Z",
+  "assembledAt": "2026-09-05T22:56:23.134Z",
   "jobs": [
     {
       "id": "posta-svizzera-centro-regionale-0fd41e8901e3",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-Auxiliaire-Transport-scolaire%2C-Canton-Vaud/74508-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:52:01.337Z",
+      "crawledAt": "2026-09-05T22:56:16.775Z",
       "addressLocality": "Belmont-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -56,14 +56,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne"
         ],
         "it": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
         ]
       },
       "previousSlugs": [
-        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
       ],
       "firstSeenAt": "2026-08-17T09:59:08.422Z",
       "datePosted": "2026-08-17",
@@ -112,7 +116,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Thierrens/74564-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:52:00.398Z",
+      "crawledAt": "2026-09-05T22:56:15.809Z",
       "addressLocality": "Thierrens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -135,12 +139,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-thierrens-post",
-        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+        "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-thierrens-post",
-          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+          "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
         ],
         "en": [
           "conductrice-conducteur-carpostal-thierrens-post"
@@ -154,6 +160,7 @@
       },
       "firstSeenAt": "2026-08-20T21:39:58.447Z",
       "datePosted": "2026-08-20",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -199,7 +206,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-St-Aubin-Sauges/74588-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:59.446Z",
+      "crawledAt": "2026-09-05T22:56:14.884Z",
       "addressLocality": "St-Aubin-Sauges",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -222,12 +229,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-        "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+        "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+        "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-          "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+          "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+          "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
         ],
         "fr": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-post"
@@ -235,6 +244,7 @@
       },
       "firstSeenAt": "2026-08-26T10:12:04.446Z",
       "datePosted": "2026-08-26",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -280,7 +290,7 @@
       "url": "https://job.post.ch/default/job/Responsable-d'%C3%A9quipe-Personnel-de-conduite%2C-Gland/74610-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:58.501Z",
+      "crawledAt": "2026-09-05T22:56:13.960Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -304,16 +314,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland"
         ],
         "it": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-post"
         ]
       },
       "previousSlugs": [
         "responsable-d-equipe-personnel-de-conduite-post",
-        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-post"
       ],
       "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "datePosted": "2026-08-26",
@@ -362,7 +376,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal%2C-Aubonne-Gimel-Gland/74652-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:57.579Z",
+      "crawledAt": "2026-09-05T22:56:13.057Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -430,7 +444,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-Auxiliaire-CarPostal%2C-Aubonne/74680-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:56.630Z",
+      "crawledAt": "2026-09-05T22:56:12.106Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -506,7 +520,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Yverdon-les-Bains/74682-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T12:51:55.701Z",
+      "crawledAt": "2026-09-05T22:56:11.168Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -532,7 +546,8 @@
         "carpostal-driver-carpostal-yverdon-les-bains",
         "carpostal-fahrer-carpostal-yverdon-les-bains",
         "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+        "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -540,7 +555,8 @@
           "carpostal-driver-carpostal-yverdon-les-bains",
           "carpostal-fahrer-carpostal-yverdon-les-bains",
           "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+          "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
         ],
         "en": [
           "carpostal-driver-carpostal-yverdon-les-bains",
@@ -600,7 +616,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:54.718Z",
+      "crawledAt": "2026-09-05T22:56:10.195Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -625,13 +641,15 @@
         "postauto-fahrer-in-postauto-reichenburg",
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg",
+        "postbus-driver-in-postauto-ag-reichenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-reichenburg",
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg"
+          "postbus-driver-in-postauto-reichenburg",
+          "postbus-driver-in-postauto-ag-reichenburg"
         ],
         "en": [
           "postauto-fahrer-in-postauto-reichenburg",
@@ -690,7 +708,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:53.797Z",
+      "crawledAt": "2026-09-05T22:56:09.298Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -778,7 +796,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74549-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:52.857Z",
+      "crawledAt": "2026-09-05T22:56:08.331Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -800,11 +818,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-chauffeur-in-postauto-bad-ragaz"
+        "postauto-chauffeur-in-postauto-bad-ragaz",
+        "postauto-chauffeur-in-post"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-chauffeur-in-postauto-bad-ragaz"
+          "postauto-chauffeur-in-postauto-bad-ragaz",
+          "postauto-chauffeur-in-post"
         ]
       },
       "needsRetranslation": true,
@@ -854,7 +874,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin-im-Stundenlohn/74565-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:51.915Z",
+      "crawledAt": "2026-09-05T22:56:07.382Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -880,13 +900,15 @@
         "postauto-fahrer-in-im-stundenlohn-post",
         "postbus-driver-nel-salario-orario-postauto-einsiedeln",
         "postbus-driver-in-the-hourly-wage-postauto-einsiedeln",
-        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln"
+        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln",
+        "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
           "postauto-fahrer-in-im-stundenlohn-post",
-          "postbus-driver-nel-salario-orario-postauto-einsiedeln"
+          "postbus-driver-nel-salario-orario-postauto-einsiedeln",
+          "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
         ],
         "en": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
@@ -946,7 +968,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:50.936Z",
+      "crawledAt": "2026-09-05T22:56:06.433Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -1014,7 +1036,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:50.007Z",
+      "crawledAt": "2026-09-05T22:56:05.525Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1039,13 +1061,15 @@
         "postauto-fahrer-in-postauto-ilanz",
         "postbus-driver-in-postauto-ilanz",
         "postauto-fahrer-in-post",
-        "pilote-postbus-in-postauto-ilanz"
+        "pilote-postbus-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-ilanz",
           "postbus-driver-in-postauto-ilanz",
-          "postauto-fahrer-in-post"
+          "postauto-fahrer-in-post",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postbus-driver-in-postauto-ilanz",
@@ -1104,7 +1128,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/74547-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:48.964Z",
+      "crawledAt": "2026-09-05T22:56:04.550Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1130,13 +1154,15 @@
         "fachspezialist-in-kundenservice-inkasso-post",
         "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
         "specialist-in-customer-service-debt-collection-postauto-zurich",
-        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich"
+        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich",
+        "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
           "fachspezialist-in-kundenservice-inkasso-post",
-          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich"
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
         ],
         "en": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
@@ -1196,7 +1222,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74626-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:48.035Z",
+      "crawledAt": "2026-09-05T22:56:03.639Z",
       "addressLocality": "Klosters",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1247,7 +1273,7 @@
       "companyDomain": "postauto.ch",
       "title": "Bid-Manager:in Markt (financial, technical)",
       "titleByLocale": {
-        "it": "Bid Manager: sul mercato (finanziario, tecnico)",
+        "it": "Bid-Manager:in Markt (financial, technical)",
         "en": "Bid Manager: in market (financial, technical)",
         "de": "Bid-Manager:in Markt (financial, technical)",
         "fr": "Gestionnaire de la soumission: sur le marché (financier, technique)"
@@ -1264,7 +1290,7 @@
       "url": "https://job.post.ch/default/job/Bid-Managerin-Markt-%28financial%2C-technical%29/74562-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:47.090Z",
+      "crawledAt": "2026-09-05T22:56:02.704Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -1287,12 +1313,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bid-manager-in-markt-financial-technical-post",
-        "bid-manager-in-markt-financial-technical-postauto-bern"
+        "bid-manager-in-markt-financial-technical-postauto-bern",
+        "bid-manager-sul-mercato-finanziario-tecnico-postauto-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bid-manager-in-markt-financial-technical-post",
-          "bid-manager-in-markt-financial-technical-postauto-bern"
+          "bid-manager-in-markt-financial-technical-postauto-bern",
+          "bid-manager-sul-mercato-finanziario-tecnico-postauto-ag-bern"
         ],
         "en": [
           "bid-manager-in-markt-financial-technical-post"
@@ -1352,7 +1380,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:46.148Z",
+      "crawledAt": "2026-09-05T22:56:01.795Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -1377,14 +1405,16 @@
         "postauto-fahrer-in-postauto-appenzell",
         "postauto-fahrer-in-post",
         "pilote-postbus-in-postauto-ag-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "postbus-driver-in-postauto-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-appenzell",
           "postauto-fahrer-in-post",
           "pilote-postbus-in-postauto-ag-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postbus-driver-in-postauto-ag-appenzell",
+          "postbus-driver-in-postauto-appenzell"
         ]
       },
       "needsRetranslation": true,
@@ -1434,7 +1464,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74660-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:45.194Z",
+      "crawledAt": "2026-09-05T22:56:00.853Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -1478,7 +1508,7 @@
         "it": "postauto-chauffeur-in-postauto-sarnen",
         "en": "postauto-chauffeur-in-postauto-sarnen",
         "de": "postauto-chauffeur-in-postauto-sarnen",
-        "fr": "postauto-chauffeur-in-postauto-sarnen"
+        "fr": "chauffeur-postauto-in-postauto-ag-sarnen"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1502,7 +1532,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74661-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:44.267Z",
+      "crawledAt": "2026-09-05T22:55:59.935Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -1584,7 +1614,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74691-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:43.378Z",
+      "crawledAt": "2026-09-05T22:55:58.947Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1676,7 +1706,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:42.445Z",
+      "crawledAt": "2026-09-05T22:55:58.032Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1699,14 +1729,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
           "security-specialist-in-public-transport-postauto-ag-winterthur",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
@@ -1723,7 +1755,9 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:06.691Z",
@@ -1772,7 +1806,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:41.578Z",
+      "crawledAt": "2026-09-05T22:55:57.079Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1799,7 +1833,8 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1807,7 +1842,8 @@
           "security-specialist-in-public-transport-postauto-ag-wallisellen",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
@@ -1865,7 +1901,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74425-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:40.646Z",
+      "crawledAt": "2026-09-05T22:55:56.181Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1949,7 +1985,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74422-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:39.703Z",
+      "crawledAt": "2026-09-05T22:55:55.248Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -2046,7 +2082,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Betriebssupport-Ladesysteme/74672-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:51:38.219Z",
+      "crawledAt": "2026-09-05T22:55:53.698Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -2068,11 +2104,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+        "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
+        "specialista-nei-sistemi-di-ricarica-del-supporto-operativo-postauto-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+          "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
+          "specialista-nei-sistemi-di-ricarica-del-supporto-operativo-postauto-ag-bern"
         ],
         "en": [
           "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
