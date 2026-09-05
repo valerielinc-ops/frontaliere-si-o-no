@@ -23,6 +23,24 @@
  * `provider_missing` are expected to sit at ~0 now, so any climb is the
  * regression itself, visible before anyone reads a rate off a broken denominator.
  *
+ * ── An instrument has to stay falsifiable, and this one twice did not ──────
+ *
+ * A counter that cannot rise is not a green light, it is a broken gauge, and
+ * both halves of this report had one (#6317, fixed 2026-09-05):
+ *
+ *   - `unmeasurable` was gated on a hard-coded date. It only counted messages
+ *     older than 2026-08-21T06:00Z while the window is the trailing 7 days, so
+ *     from 2026-08-28 it read 0 for every possible input. It is now the defect's
+ *     own signature instead — see `zeroEngagementCohorts`.
+ *   - the RATE baseline was "the most recent snapshot", which is whatever ran
+ *     last and is therefore falsifiable by anyone who runs the script. It was:
+ *     the scheduled run of 2026-08-31T10:05 no longer exists, overwritten by a
+ *     hand run 3 hours later under the same calendar-date document id. See
+ *     `pickBaseline`.
+ *
+ * The rule both fixes follow: prefer a predicate the defect itself must
+ * satisfy over a constant that happens to be true today.
+ *
  * ── What it measures, and the two traps it avoids ──────────────────────────
  *
  * DENOMINATOR = `send`, uniformly. Mailjet emits no `delivered` event at all,
@@ -76,29 +94,56 @@ const LOCALES = new Set(['it', 'en', 'de', 'fr', 'cs', 'pl', 'es', 'pt']);
 const TAG_NOISE = new Set(['lifecycle', 'transactional', 'marketing', 'newsletter', 'job']);
 
 /**
- * Only these two Maileroo email types had a lookup record before the
- * 2026-08-20 fix (#6195) wired `makeMailerooRefOnSent` into every sender.
- * Kept as an explicit list because it is what `unmeasurable` counts against
- * for messages from BEFORE that fix landed — see `WRITER_FIX_LANDED_AT`
- * below. It is NOT a config knob — do not add types here to silence the
- * counter for current traffic, that is the regression it exists to catch.
+ * A cohort smaller than this is not evidence: a handful of sends with nobody
+ * opening happens by chance on every one-off channel. The lowest real rate
+ * this report has measured on a cohort of that size is 7,4% (maileroo|winback,
+ * 7 opens on 95 sends), and at that rate 30 sends with zero opens lands around
+ * one week in ten — so 30 is a floor for SUSPICION, not for the alarm. The
+ * alarm stays MAX_UNMEASURABLE: several small broken cohorts sum past it, one
+ * unlucky small cohort does not.
  */
-const MAILEROO_HISTORICALLY_TRACKED = new Set(['job_alert', 'newsletter_weekly']);
+export const ZERO_ENGAGEMENT_MIN_SENDS = 30;
 
 /**
- * When the shared ref writer went live for every sender (commit ecefb10d9ae,
- * merged 2026-08-20T21:07:37Z), plus a margin for deploy-cloud-functions.yml
- * to roll it out. `unmeasurable` is only checked against the type allowlist
- * for messages seen BEFORE this instant.
+ * The signature of a sender whose engagement is being thrown away.
  *
- * Without this cutoff the counter regressed to a false positive the moment
- * the fix rolled out: a 7-day window straddling 2026-08-20 keeps counting
- * every onboarding_drip/welcome/confirmation/etc. Maileroo message as
- * unmeasurable by type alone, even though its own open/click rate in the
- * same report proves the ref resolved (a truly unmeasurable message can
- * never show an open — the webhook has nothing to attribute it to). #6317.
+ * A message the webhook cannot attribute can never show an open — there is
+ * nothing to attribute the open TO. So the defect does not look like a low
+ * rate, it looks like a whole provider×type cohort with real volume and
+ * LITERALLY zero opens and zero clicks. That is exactly how the August 2026
+ * defect read: `welcome` via Maileroo, 560 sends, 0,00% open, while the same
+ * type read 46,43% via Mailgun in the same window.
+ *
+ * This REPLACES a hard-coded `WRITER_FIX_LANDED_AT = 2026-08-21T06:00:00Z`
+ * cutoff, which only counted a message as unmeasurable if it was seen BEFORE
+ * that instant. The cutoff was right for exactly one week and then died: the
+ * report's window is the trailing 7 days, so from 2026-08-28 onward no message
+ * in any window could be older than the cutoff and `unmeasurable` could not
+ * return anything but 0. It read green because the predicate was dead, not
+ * because the defect was gone — and a NEW sender shipping via Maileroo without
+ * `maileroo_refs` would have been invisible to the one counter this report
+ * exists to carry. Measured 2026-09-05 on the same input, a cohort of 30 sends
+ * with zero engagement dated today: the cutoff returns 0, this rule returns 30.
+ * Date the identical cohort 2026-08-20 and the cutoff returns 30 — it was
+ * tracking the calendar, not the senders.
+ *
+ * The per-send-day history shows what the rule is meant to see: from 2026-08-15
+ * to 2026-08-20 the Maileroo lifecycle cohorts read exactly 0,00% open on ~200
+ * sends a day (onboarding_drip) and ~85 a day (welcome), then jumped to ~70% on
+ * 2026-08-21 when #6195 landed. Six consecutive days of a 200-message cohort at
+ * zero — this rule would have named it on day one. #6317.
+ *
+ * Provider-agnostic on purpose. The August defect was Maileroo-specific
+ * because of its recipient-less webhooks, but "engagement recorded for nobody"
+ * is not a Maileroo property, and checking every provider is less code than
+ * checking one.
  */
-export const WRITER_FIX_LANDED_AT = new Date('2026-08-21T06:00:00Z');
+export function zeroEngagementCohorts(byPair, minSends = ZERO_ENGAGEMENT_MIN_SENDS) {
+  return Object.entries(byPair || {})
+    .filter(([, c]) => c.sent >= minSends && c.opened === 0 && c.clicked === 0)
+    .map(([name, c]) => ({ name, sent: c.sent }))
+    .sort((a, b) => b.sent - a.sent);
+}
 
 /**
  * Recover the campaign from a raw provider event.
@@ -194,13 +239,10 @@ async function collectMessages(db, since) {
         : 'f:' + parent + '::' + email + '::' + (campaign || v.alert_id || '?');
 
       let m = msgs.get(key);
-      if (!m) { m = { provider, emailType, sent: 0, delivered: 0, open: 0, click: 0, bounce: 0, firstSeenAt: null }; msgs.set(key, m); }
+      if (!m) { m = { provider, emailType, sent: 0, delivered: 0, open: 0, click: 0, bounce: 0 }; msgs.set(key, m); }
       if (m.provider === 'unknown' && provider !== 'unknown') m.provider = provider;
       if ((m.emailType === 'unknown' || m.emailType === 'unattributed')
         && emailType !== 'unknown' && emailType !== 'unattributed') m.emailType = emailType;
-
-      const ts = typeof v.timestamp?.toDate === 'function' ? v.timestamp.toDate() : null;
-      if (ts && (!m.firstSeenAt || ts < m.firstSeenAt)) m.firstSeenAt = ts;
 
       if (v.event_type === 'send') m.sent++;
       else if (v.event_type === 'delivered') m.delivered++;
@@ -220,7 +262,7 @@ export function aggregateMessages(messages) {
   const cell = () => ({ sent: 0, delivered: 0, opened: 0, clicked: 0, bounced: 0 });
   const byProvider = {}, byType = {}, byPair = {};
   const totals = cell();
-  let unmeasurable = 0, unattributed = 0, orphanEngagement = 0;
+  let unattributed = 0, orphanEngagement = 0;
 
   for (const m of messages) {
     if (!(m.sent > 0 || m.delivered > 0)) {
@@ -228,9 +270,6 @@ export function aggregateMessages(messages) {
       continue;
     }
     if (m.emailType === 'unattributed') unattributed += 1;
-    const preWriterFix = !m.firstSeenAt || m.firstSeenAt < WRITER_FIX_LANDED_AT;
-    const measurable = !(m.provider === 'maileroo' && !MAILEROO_HISTORICALLY_TRACKED.has(m.emailType) && preWriterFix);
-    if (!measurable) { unmeasurable += 1; }
 
     for (const bucket of [
       (byProvider[m.provider] ||= cell()),
@@ -245,7 +284,11 @@ export function aggregateMessages(messages) {
       if (m.bounce > 0) bucket.bounced++;
     }
   }
-  return { totals, byProvider, byType, byPair, unmeasurable, unattributed, orphanEngagement };
+  // Cohort-level, so it has to run after every message is folded in.
+  const unmeasurableCohorts = zeroEngagementCohorts(byPair);
+  const unmeasurable = unmeasurableCohorts.reduce((n, c) => n + c.sent, 0);
+
+  return { totals, byProvider, byType, byPair, unmeasurable, unmeasurableCohorts, unattributed, orphanEngagement };
 }
 
 /**
@@ -280,6 +323,39 @@ export const REGRESSION_RULES = {
  * the non-cascade-ordered types (byPair is already computed by
  * aggregateMessages and otherwise unused here).
  */
+/**
+ * Pick the snapshot this window may honestly be compared against.
+ *
+ * "The most recent snapshot" is not a baseline — it is whatever ran last, and
+ * that is falsifiable by anyone who runs the script. It already happened: the
+ * scheduled run of 2026-08-31T10:05 (19'596 invii, the numbers posted on
+ * #6317) is not in Firestore. The document `engagement_snapshots/2026-08-31`
+ * holds a hand run from 13:34 the same day (16'875 invii) instead, because the
+ * id was the calendar date and the write merged into it. Every [rate] alert on
+ * that issue was therefore measured against a baseline nobody could identify.
+ *
+ * Two predicates, both cheap:
+ *
+ *   - same `window_days`, because a 30-day window and a 7-day one do not
+ *     measure the same population and their rates are not each other's
+ *     baseline;
+ *   - old enough that the two windows are essentially disjoint. Half a window
+ *     is the tolerance: it rejects the same-day ad-hoc run (whose window is
+ *     ~95% the current one, so any "drop" is noise on the remaining 5%) while
+ *     surviving the hours of cron lag that move a weekly run around.
+ *
+ * Filtered in JS on the last few documents rather than in the query: an
+ * equality on `window_days` next to `orderBy('generated_at')` is the second
+ * field Firestore would want a composite index for, and there are never enough
+ * snapshots for the difference to matter.
+ */
+export function pickBaseline(snapshots, windowDays, generatedAt, minAgeFraction = 0.5) {
+  const cutoff = Date.parse(generatedAt) - windowDays * 24 * 60 * 60 * 1000 * minAgeFraction;
+  return (snapshots || [])
+    .filter((s) => s && s.window_days === windowDays && Date.parse(s.generated_at) <= cutoff)
+    .sort((a, b) => Date.parse(b.generated_at) - Date.parse(a.generated_at))[0] || null;
+}
+
 function providerRatesExcludingJobAlert(byPair) {
   const out = {};
   for (const [key, cell] of Object.entries(byPair || {})) {
@@ -305,7 +381,9 @@ export function detectRegressions(current, previous, rules = REGRESSION_RULES) {
       kind: 'integrity',
       metric: 'unmeasurable',
       detail: `${current.integrity.unmeasurable} messaggi con engagement scartato (soglia ${rules.MAX_UNMEASURABLE}). `
-        + 'Un sender sta inviando via Maileroo senza scrivere maileroo_refs: vedi functions/src/lib/mailerooRef.js.',
+        + `Cohorte a zero aperture E zero click: ${(current.integrity.unmeasurableCohorts || []).map((c) => `${c.name} (${c.sent})`).join(', ') || 'n/d'}. `
+        + 'Un sender sta inviando senza scrivere i maileroo_refs che il webhook usa per attribuire: '
+        + 'vedi functions/src/lib/mailerooRef.js.',
     });
   }
   if (current.integrity.unattributed > rules.MAX_UNATTRIBUTED) {
@@ -389,6 +467,7 @@ async function main() {
       providerMissing: counters.providerMissing,
       recoveredCampaign: counters.recoveredCampaign,
       unmeasurable: agg.unmeasurable,
+      unmeasurableCohorts: agg.unmeasurableCohorts,
       unattributed: agg.unattributed,
       orphanEngagement: agg.orphanEngagement,
     },
@@ -397,8 +476,16 @@ async function main() {
   const metaRef = db.collection('newsletter_subscribers').doc('_meta_').collection(SNAPSHOT_COLLECTION);
   let previous = null;
   try {
-    const prevSnap = await metaRef.orderBy('generated_at', 'desc').limit(1).get();
-    if (!prevSnap.empty) previous = prevSnap.docs[0].data();
+    const prevSnap = await metaRef.orderBy('generated_at', 'desc').limit(10).get();
+    const candidates = prevSnap.docs.map((d) => d.data());
+    previous = pickBaseline(candidates, DAYS, snapshot.generated_at);
+    if (!previous && candidates.length) {
+      // Say why out loud. A silent `previous = null` reads exactly like "no
+      // regressions" in the report and in the issue body the workflow opens.
+      console.warn(`⚠️  ${candidates.length} snapshot letti, nessuno confrontabile con una finestra di ${DAYS} giorni `
+        + `chiusa il ${snapshot.generated_at}: servono window_days === ${DAYS} e generated_at anteriore di almeno `
+        + `${DAYS / 2} giorni. Nessun confronto sui tassi in questa run.`);
+    }
   } catch (e) {
     console.warn('⚠️  Nessuno snapshot precedente leggibile:', e?.message || e);
   }
@@ -416,7 +503,8 @@ async function main() {
     + ' newsletter_weekly, che non e ordinata, regge il confronto.)'));
 
   console.log('\n=== INTEGRITA DELLA MISURA (attesi ~0) ===');
-  console.log(`  engagement scartato (unmeasurable): ${agg.unmeasurable}`);
+  console.log(`  engagement scartato (unmeasurable): ${agg.unmeasurable}`
+    + (agg.unmeasurableCohorts.length ? `  [${agg.unmeasurableCohorts.map((c) => `${c.name}=${c.sent}`).join(', ')}]` : ''));
   console.log(`  attribuzione persa (unattributed):  ${agg.unattributed}`);
   console.log(`  eventi senza provider:              ${counters.providerMissing} su ${counters.scanned}`);
   console.log(`  aperture senza invio in finestra:   ${agg.orphanEngagement}  (normale: email spedite prima della finestra)`);
@@ -430,8 +518,13 @@ async function main() {
 
   if (WRITE_SNAPSHOT) {
     try {
-      await metaRef.doc(snapshot.generated_at.slice(0, 10)).set(snapshot, { merge: true });
-      console.log(`\n💾 Snapshot salvato: _meta_/${SNAPSHOT_COLLECTION}/${snapshot.generated_at.slice(0, 10)}`);
+      // One document per RUN, not per day, and no merge. With the calendar
+      // date as id a second run the same day overwrote the week's snapshot —
+      // and `{ merge: true }` made the survivor a union of two windows, since
+      // a byPair/byType key present only in the older run lived on inside the
+      // newer one's totals. Both were live defects, see `pickBaseline`.
+      await metaRef.doc(snapshot.generated_at).set(snapshot);
+      console.log(`\n💾 Snapshot salvato: _meta_/${SNAPSHOT_COLLECTION}/${snapshot.generated_at}`);
     } catch (e) {
       console.warn('⚠️  Salvataggio snapshot fallito:', e?.message || e);
     }
