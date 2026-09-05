@@ -194,5 +194,11 @@ export async function fetchAllGmoJobs() {
   }
 
   console.log(`\n📋 Total gmo jobs discovered: ${jobs.length}`);
+  // Pre-filter candidate count (issue #5945, mirrors kudelski-nagra) — lets the
+  // crawler-template pipeline report "found N listings, 0 Swiss after
+  // filtering" as healthy instead of broken (check-crawler-health.mjs
+  // autoFilteredEmpty), instead of a 3-run empty streak that cannot tell a
+  // genuinely non-Swiss source state apart from a selector break.
+  jobs.discoveredCount = listings.length;
   return jobs;
 }

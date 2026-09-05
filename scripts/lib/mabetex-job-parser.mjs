@@ -289,5 +289,12 @@ export async function fetchAllMabetexJobs() {
   }
 
   console.log(`  Total Mabetex jobs discovered: ${jobs.length}`);
+  // Pre-filter candidate count (issue #5945, mirrors kudelski-nagra) — lets the
+  // crawler-template pipeline report "found N listings, 0 Swiss after
+  // filtering" as healthy instead of broken (check-crawler-health.mjs
+  // autoFilteredEmpty). The career page currently carries a single vacancy
+  // ("Project Manager" / "Southwest Africa") that the Swiss-only geography gate
+  // correctly retires; that is the source's genuine state, not a selector break.
+  jobs.discoveredCount = listings.length;
   return jobs;
 }
