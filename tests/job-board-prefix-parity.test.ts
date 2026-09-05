@@ -17,7 +17,7 @@ import { JOB_BOARD_SECTION_PREFIX_SOURCE } from '../scripts/lib/jobBoardSections
  * Job-board prefix parity — issue #7306.
  *
  * The issue counted four literal copies of the same prefix table. Measured on
- * origin/main 2026-09-05 there are EIGHT, in two live forms that differ only in
+ * origin/main 2026-09-05 there are ELEVEN, in two live forms that differ only in
  * the DE prefix — which is why nobody noticed: each author copied whichever
  * neighbour they were reading.
  *
@@ -28,17 +28,20 @@ import { JOB_BOARD_SECTION_PREFIX_SOURCE } from '../scripts/lib/jobBoardSections
  *   3. build-plugins/shared/cantonResolvers.mjs
  *   4. scripts/ingest-gsc-job-orphans.mjs
  *   5. scripts/cathedral-noindex-flip.mjs
+ *   6. scripts/ingest-gsc-company-hubs.mjs
+ *   7. scripts/ingest-gsc-location-hubs.mjs
+ *   8. scripts/ingest-gsc-orphans-into-candidates.mjs
  *
  * CH-canton page form (`de: 'jobs-im'`, the URLs production actually serves):
- *   6. build-plugins/shared/cantonJobBoardPrefix.ts — now DERIVES from (1)
- *   7. scripts/lib/orphan-canton-paths.mjs     — `sync-gsc-orphans.yml` runs
+ *   9. build-plugins/shared/cantonJobBoardPrefix.ts — now DERIVES from (1)
+ *  10. scripts/lib/orphan-canton-paths.mjs     — `sync-gsc-orphans.yml` runs
  *      its consumer under plain `node`, not `tsx`: it cannot import (1) either
  *
  * And the alternation of both:
- *   8. scripts/lib/jobBoardSections.mjs        — regex form for the GSC audit
+ *  11. scripts/lib/jobBoardSections.mjs        — regex form for the GSC audit
  *      classifiers
  *
- * (6) can no longer drift by construction. The rest can, and this file is what
+ * (9) can no longer drift by construction. The rest can, and this file is what
  * stops them: the assertions below read their real source and fail with the
  * exact string that must change — and, more usefully, force the next author to
  * declare WHICH of the two forms their copy belongs to.
@@ -94,6 +97,9 @@ describe('job-board prefix parity (issue #7306)', () => {
     ['build-plugins/shared/cantonResolvers.mjs', 'SECTION_PREFIX_BY_LOCALE'],
     ['scripts/ingest-gsc-job-orphans.mjs', 'SECTION_PREFIX'],
     ['scripts/cathedral-noindex-flip.mjs', 'SECTION_PREFIX_BY_LOCALE'],
+    ['scripts/ingest-gsc-company-hubs.mjs', 'SECTION_PREFIX_BY_LOCALE'],
+    ['scripts/ingest-gsc-location-hubs.mjs', 'SECTION_PREFIX_BY_LOCALE'],
+    ['scripts/ingest-gsc-orphans-into-candidates.mjs', 'SECTION_PREFIX'],
   ] as const;
 
   it.each(ROUTER_FORM_COPIES)('%s keeps the router-form canton prefixes', (file, constName) => {

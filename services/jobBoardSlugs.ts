@@ -61,10 +61,10 @@ export const JOB_BOARD_PREFIX_LEGACY_DE = 'jobs-im-'; // legacy TI-only
 
 /**
  * Both constants above are EXPORTED (issue #7306) because this table was one
- * of EIGHT literal copies of the same prefixes in the repo — the issue counted
+ * of ELEVEN literal copies of the same prefixes in the repo — the issue counted
  * four; the sibling sweep on that fix found the rest. This is the canonical
  * one. `build-plugins/shared/cantonJobBoardPrefix.ts` now derives from it; the
- * six that cannot import it (a Cloud Functions deploy boundary, and `.mjs`
+ * nine that cannot import it (a Cloud Functions deploy boundary, and `.mjs`
  * scripts their workflows launch under plain `node` rather than `tsx`) are held
  * to it by `tests/job-board-prefix-parity.test.ts`, which also records which of
  * the two live DE forms each copy belongs to. Change a prefix here and that
