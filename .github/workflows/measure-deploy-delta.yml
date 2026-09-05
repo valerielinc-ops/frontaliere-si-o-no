@@ -127,8 +127,20 @@ jobs:
             picked=()
             while IFS=$'\t' read -r r created; do
               [ -n "$r" ] || continue
+              # #7501: this used to be `... 2>/dev/null || echo 0`, which maps
+              # ANY gh failure (502, timeout, a token without `actions: read`)
+              # onto "this run has no artifact". The candidate was dropped in
+              # silence, the pair slid to two older deploys, and the workflow
+              # reported a plausible delta between the WRONG two deploys. Same
+              # class as #7393, and treated as fatal here exactly like
+              # .github/actions/fetch-pages-artifact/action.yml does.
+              rc=0
               has=$(gh api "repos/$GH_REPO/actions/runs/$r/artifacts" \
-                --jq '[.artifacts[]|select(.name=="github-pages" and .expired==false)]|length' 2>/dev/null || echo 0)
+                --jq '[.artifacts[]|select(.name=="github-pages" and .expired==false)]|length') || rc=$?
+              if [ "$rc" -ne 0 ]; then
+                echo "::error::gh api failed while listing artifacts of run $r (exit $rc). This is an API/token failure, NOT 'this run has no artifact'."
+                exit 1
+              fi
               if [ "${has:-0}" -gt 0 ]; then
                 echo "  keeping run $r ($created)"
                 picked+=("$r")
