@@ -280,6 +280,40 @@ export function finalizeMopupTranslation({
  *   'skip:candidate-untranslated'. languageDriven marks the decisions the
  *   language arm made, the ones the rollout switch gates.
  */
+/**
+ * Il nome con cui questo entry point chiede la sua politica di corsia.
+ *
+ * La politica vera (`freshFirst: true`) sta in `TRAFFIC_PRIORITY_LANES` dentro
+ * `scripts/lib/job-traffic-priority.mjs`: qui si dichiara solo CHI siamo. Prima
+ * la scelta era un `freshFirst: true` letterale dentro `main()`, osservabile
+ * solo da una regex sul sorgente di questo file (issue #7361).
+ *
+ * Perche' accesa QUI e solo qui. Questo e' il percorso gratuito — Argos locale,
+ * cap 6.000 job per esecuzione, cinque esecuzioni al giorno — cioe' l'unico che
+ * abbia la capacita' per il vincolo delle 24 ore: contro un ingresso di ~1.421
+ * annunci al giorno la coorte fresca sta dentro un singolo passaggio e non
+ * affama le altre due corsie. Il cascade AI (`relocalize-pending-jobs.mjs`) la
+ * lascia spenta apposta: processa 53 job in 90 minuti per deadline, quindi una
+ * testa fresca da 1.308 job gli mangerebbe ogni slot di ogni run senza nemmeno
+ * smaltirla.
+ */
+export const MOPUP_TRAFFIC_LANE = 'local-mt-mopup';
+
+/**
+ * L'ordinamento del mop-up, estratto da `main()` perche' le opzioni che passa
+ * siano OSSERVABILI da un test con uno spy invece che da una regex sul file.
+ *
+ * `cap` e' lo stesso numero con cui la libreria taglia `selected`: e' un taglio
+ * solo, quindi il tetto della testa fresca (`freshHeadCeiling`) e la fetta
+ * realmente presa non possono piu' divergere. Serve perche' se un re-crawl
+ * completo o una rigenerazione del dataset resetta `firstSeenAt` in massa, la
+ * coorte fresca supera il cap e senza quel numero si prenderebbe ogni slot del
+ * passaggio, lasciando zero slot alla riserva oldest-first.
+ */
+export function orderMopupJobsByTraffic(jobs, popularity, cap) {
+  return buildTrafficPriority(jobs, popularity, { cap, lane: MOPUP_TRAFFIC_LANE });
+}
+
 export function classifyMopupWrite({
   job,
   locale,
@@ -462,28 +496,11 @@ async function main() {
     console.warn(`⚠️  [local-mt] ${TRAFFIC_SOURCE_PATH} missing/unreadable — ordering this pass oldest-first instead (still fair, just not traffic-weighted).`);
     popularity = {};
   }
-  // `freshFirst` è ACCESO qui e solo qui. Questo è il percorso gratuito —
-  // Argos locale, cap 6.000 job per esecuzione, cinque esecuzioni al giorno —
-  // cioè l'unico che abbia la capacità per il vincolo delle 24 ore: contro un
-  // ingresso di ~1.421 annunci al giorno, la coorte fresca sta comodamente
-  // dentro un singolo passaggio e non affama le altre due corsie.
-  //
-  // Il cascade AI (`relocalize-pending-jobs.mjs`) lo lascia spento apposta:
-  // processa 53 job in 90 minuti per deadline, quindi una testa fresca da
-  // 1.308 job gli mangerebbe tutti gli slot di ogni run senza nemmeno
-  // smaltirla.
-  //
-  // `cap` è lo stesso MAX_JOBS con cui si affetta `order` qui sotto, ed è quello
-  // che rende la testa limitata dal CODICE e non dal rapporto misurato fra
-  // ingresso e cap: se un re-crawl completo o una rigenerazione del dataset
-  // resetta `firstSeenAt` in massa, la coorte fresca supera il cap e senza
-  // questo numero si prenderebbe ogni slot del passaggio, lasciando zero slot
-  // alla riserva oldest-first.
-  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity, { cap: MAX_JOBS, freshFirst: true });
+  const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(candidates.map((c) => c.job), popularity, MAX_JOBS);
   for (const line of formatPriorityReport(stats)) console.log(line);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
-  const selected = order.slice(0, MAX_JOBS).map((job) => byJob.get(job)).filter(Boolean);
+  const selected = selectedJobs.map((job) => byJob.get(job)).filter(Boolean);
 
   // Build the batch: a flat list of translation requests + back-references so we
   // can write each result into the right { file, jobIndex, locale, field }.
