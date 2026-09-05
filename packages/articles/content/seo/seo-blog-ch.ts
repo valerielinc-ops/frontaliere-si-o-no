@@ -71468,6 +71468,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-vaud': {
+    title: 'AVS e prestazioni complementari: Vaud | Frontaliere Ticino',
+    description: 'Come funziona il primo pilastro nel Canton Vaud. Guida alla cassa di compensazione cantonale, lacune contributive e prestazioni complementari per il minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, vaud, funziona',
+    ogTitle: 'AVS e prestazioni complementari: Vaud',
+    ogDescription: 'Come funziona il primo pilastro nel Canton Vaud. Guida alla cassa di compensazione cantonale, lacune contributive e prestazioni complementari per il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari: Vaud",
+      "description": "Come funziona il primo pilastro nel Canton Vaud. Guida alla cassa di compensazione cantonale, lacune contributive e prestazioni complementari per il minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coppia di pensionati consulta documenti sulla rendita presso una riva lacustre svizzera, paesaggio naturale tranquillo"
+      },
+      "datePublished": "2026-09-05T05:31:19+00:00",
+      "dateModified": "2026-09-05T05:31:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

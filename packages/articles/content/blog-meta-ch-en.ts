@@ -5506,6 +5506,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-vaud-diritti-locatari.title': 'Vaud rentals: tenant rights and security deposit',
     'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Right of lease in Vaud: security deposit, cancellation, dispute fee and conciliation authority according to the Federal Code of Obligations.',
     'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Residential street with apartment buildings typical of Swiss rental markets',
+    'blog.article.avs-prestazioni-complementari-vaud.title': 'AVS and complementary services: Vaud',
+    'blog.article.avs-prestazioni-complementari-vaud.excerpt': 'How the first pillar works in the Canton of Vaud. Cantonal Compensation Fund Guide, Contribution Gaps and Supplementary Benefits for Minimum Living.',
+    'blog.article.avs-prestazioni-complementari-vaud.imageAlt': 'Elderly retirees reviewing pension documents by a Swiss lake, peaceful natural landscape background',
 };
 
 export default blogMetaChEn;
