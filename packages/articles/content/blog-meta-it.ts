@@ -11405,6 +11405,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.title': 'Cristina zanini passa dal gran consiglio al cda aet',
     'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.excerpt': 'La deputata socialista ed ex municipale di Lugano, Cristina Zanini, ha deciso di lasciare il Gran Consiglio per entrare nel consiglio di amministrazione di Aet, l\'Azienda elettrica ticinese.',
     'blog.article.cristina-zanini-grande-consiglio-azienda-elettrica-ticinese.imageAlt': 'Cristina Zanini lascia il Gran Consiglio per entrare nel Cda dell\'Azienda elettrica ticinese',
+    'blog.article.via-industria-caslano-iniziativa-popolare.title': 'Via Industria a Caslano, riuscita l\'iniziativa popolare',
+    'blog.article.via-industria-caslano-iniziativa-popolare.excerpt': 'Consegnate 530 firme per non allargare Via Industria a Caslano, 458 certificate alla Cancelleria.',
+    'blog.article.via-industria-caslano-iniziativa-popolare.imageAlt': 'Via Industria a Caslano vista dall\'alto',
 };
 
 export default blogMetaIt;
