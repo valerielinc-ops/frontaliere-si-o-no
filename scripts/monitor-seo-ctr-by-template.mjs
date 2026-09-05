@@ -105,7 +105,7 @@ function registerFamilyInAutoRegistry(family) {
   const claimed = new Set(current.flatMap((f) => familyPathPrefixes(f)));
   const alreadyThere =
     current.some((f) => f.id === family.id) ||
-    familyPathPrefixes(family).some((prefix) => claimed.has(prefix));
+    prefixes.some((prefix) => claimed.has(prefix));
   if (alreadyThere) {
     console.log(`   ↩︎ ${family.pathContains} già nel registro automatico, nessuna scrittura`);
     return;
