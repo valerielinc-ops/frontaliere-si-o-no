@@ -68,13 +68,11 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-nautiker-in-thun-bls-ch",
-        "metalworker-in-navigatore-in-thun-bls-ag-bern"
+        "metallbauer-in-nautiker-in-thun-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-nautiker-in-thun-bls-ch",
-          "metalworker-in-navigatore-in-thun-bls-ag-bern"
+          "metallbauer-in-nautiker-in-thun-bls-ch"
         ],
         "en": [
           "metallbauer-in-nautiker-in-thun-bls-ch"
@@ -165,13 +163,11 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-nautiker-in-interlaken-bls-ch",
-        "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
+        "metallbauer-in-nautiker-in-interlaken-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-nautiker-in-interlaken-bls-ch",
-          "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
+          "metallbauer-in-nautiker-in-interlaken-bls-ch"
         ],
         "en": [
           "metallbauer-in-nautiker-in-interlaken-bls-ch"
@@ -362,13 +358,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
-        "project-manager-in-project-management-office-pmo-bls-ag-bern"
+        "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
-          "project-manager-in-project-management-office-pmo-bls-ag-bern"
+          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
         ],
         "en": [
           "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
@@ -463,14 +457,12 @@
       },
       "previousSlugs": [
         "fachperson-reinigung-und-unterhalt-bls-ch",
-        "fachperson-reinigung-e-unterhalt-bls-ag-spiez",
-        "pulizia-e-manutenzione-specialistici-bls-ag-spiez"
+        "fachperson-reinigung-e-unterhalt-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-reinigung-und-unterhalt-bls-ch",
-          "fachperson-reinigung-e-unterhalt-bls-ag-spiez",
-          "pulizia-e-manutenzione-specialistici-bls-ag-spiez"
+          "fachperson-reinigung-e-unterhalt-bls-ag-spiez"
         ],
         "en": [
           "fachperson-reinigung-und-unterhalt-bls-ch"
@@ -560,13 +552,11 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-montage-bls-ch",
-        "mitarbeiter-in-montage-bls-ag-bonigen",
-        "collaboratore-trice-montage-bls-ag-bonigen"
+        "mitarbeiter-in-montage-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-montage-bls-ch",
-          "collaboratore-trice-montage-bls-ag-bonigen"
+          "mitarbeiter-in-montage-bls-ch"
         ],
         "en": [
           "mitarbeiter-in-montage-bls-ag-bonigen"
@@ -658,13 +648,11 @@
       },
       "previousSlugs": [
         "fachperson-mechanik-bls-ag-bonigen",
-        "fachperson-mechanik-bls-ch",
-        "meccanica-specialistica-bls-ag-bonigen"
+        "fachperson-mechanik-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-mechanik-bls-ch",
-          "meccanica-specialistica-bls-ag-bonigen"
+          "fachperson-mechanik-bls-ch"
         ],
         "en": [
           "fachperson-mechanik-bls-ch"
@@ -694,12 +682,12 @@
     },
     {
       "id": "bls-cfb68ecc4628",
-      "slug": "fahrzeugbereitsteller-in-bls-ag-spiez",
+      "slug": "fornitore-del-veicolo-in-bls-ag-spiez",
       "slugByLocale": {
-        "it": "fahrzeugbereitsteller-in-bls-ag-spiez",
-        "en": "fahrzeugbereitsteller-in-bls-ag-spiez",
+        "it": "fornitore-del-veicolo-in-bls-ag-spiez",
+        "en": "vehicle-supplier-in-bls-ag-spiez",
         "de": "fahrzeugbereitsteller-in-bls-ch",
-        "fr": "fahrzeugbereitsteller-in-bls-ag-spiez"
+        "fr": "fournisseur-du-vehicule-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -762,6 +750,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugbereitsteller-in-bls-ch",
+          "fahrzeugbereitsteller-in-bls-ag-spiez"
+        ],
+        "en": [
+          "fahrzeugbereitsteller-in-bls-ag-spiez"
+        ],
+        "fr": [
           "fahrzeugbereitsteller-in-bls-ag-spiez"
         ]
       },
@@ -851,8 +845,7 @@
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -862,8 +855,7 @@
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
         ],
         "en": [
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
@@ -955,16 +947,14 @@
         "instandhalter-in-schienenfahrzeuge-bls-ch",
         "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
         "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-        "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
+        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
           "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-          "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
+          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
         ],
         "en": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
@@ -1060,13 +1050,11 @@
       },
       "previousSlugs": [
         "flottenmanager-in-bahnproduktion-bls-ch",
-        "flottenmanager-in-bahnproduktion-bls-ag-bern",
-        "fleet-manager-nella-produzione-ferroviaria-bls-ag-bern"
+        "flottenmanager-in-bahnproduktion-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "flottenmanager-in-bahnproduktion-bls-ch",
-          "fleet-manager-nella-produzione-ferroviaria-bls-ag-bern"
+          "flottenmanager-in-bahnproduktion-bls-ch"
         ],
         "en": [
           "flottenmanager-in-bahnproduktion-bls-ch"
@@ -1162,15 +1150,13 @@
         "fachperson-fahrmotoren-bls-ag-bonigen",
         "polymechaniker-in-bls-ch",
         "fachperson-fahrmotoren-bls-ch",
-        "polymechaniker-in-bls-ag-bonigen",
-        "polimeccanico-in-bls-ag-bonigen"
+        "polymechaniker-in-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-bls-ch",
           "fachperson-fahrmotoren-bls-ch",
-          "polymechaniker-in-bls-ag-bonigen",
-          "polimeccanico-in-bls-ag-bonigen"
+          "polymechaniker-in-bls-ag-bonigen"
         ],
         "en": [
           "fachperson-fahrmotoren-bls-ch",
@@ -1267,15 +1253,13 @@
       "previousSlugs": [
         "fahrleitungsmonteur-in-bls-ch",
         "fahrleitungsmonteur-in-oder-handwerkliche-r-quereinsteiger-in-bls-ch",
-        "fahrleitungsmonteur-in-bls-ag-bern",
-        "fahrleitungsmonteur-in-o-handwerkliche-r-candidato-a-in-riqualificazione-bls-ag-bern"
+        "fahrleitungsmonteur-in-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-in-bls-ch",
           "fahrleitungsmonteur-in-oder-handwerkliche-r-quereinsteiger-in-bls-ch",
-          "fahrleitungsmonteur-in-bls-ag-bern",
-          "fahrleitungsmonteur-in-o-handwerkliche-r-candidato-a-in-riqualificazione-bls-ag-bern"
+          "fahrleitungsmonteur-in-bls-ag-bern"
         ],
         "de": [
           "fahrleitungsmonteur-in-bls-ch",
