@@ -171,7 +171,7 @@ const REQUESTED_MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
  * 2026-09-04 alle 09:05Z:
  *  - run `issue-fix` del 09-03 (cap 1): 195 totali, 31 `cancelled`, 55 success;
  *  - run `issue-fix` del 09-04 (cap 3): 1704 totali, 823 `cancelled`, 36 success;
- *  - 88 delle 167 issue `fu-parked` aperte non hanno NESSUN commento
+ *  - 88 delle 167 issue `fu-parked` aperte (popolazione totale) non hanno NESSUN commento
  *    `FIX_OUTCOME`, cioe' nessuna run le ha mai lavorate; di quelle 88, 84
  *    hanno preso `fu-parked` il 09-04 e 4 il 09-05, con 276 label
  *    `fu-attempt:*` applicate in totale.
@@ -387,7 +387,17 @@ const LBL_RESOLVED_AUTO = 'fu-resolved-auto';
 // issue è già stata ri-accodata una volta perché non aveva alcun verdetto».
 // Serve a rendere quel passo idempotente — senza, una issue che tornasse
 // parked-senza-verdetto rientrerebbe in coda a ogni tick, per sempre.
-const LBL_UNPARKED = 'fu-unparked:1';
+const LBL_UNPARKED = 'fu-unparked';
+// La guardia dell'idempotenza NON e' un match esatto su `LBL_UNPARKED`, ed e' la
+// differenza fra un passo idempotente e un livelock silenzioso (review #7497,
+// 🟡 L390). La label si chiamava `fu-unparked:1`: forma `nome:N` dei contatori
+// `fu-attempt:N`, ma letterale fisso — chi la leggesse come contatore e scrivesse
+// `fu-unparked:2` farebbe fallire un `includes()` esatto, e la issue rientrerebbe
+// in coda a ogni tick per sempre. Il nome perde il suffisso e la guardia accetta
+// comunque le due forme, cosi' le issue etichettate `fu-unparked:1` nella
+// finestra fra il merge di #7497 e questa fix restano riconosciute.
+const UNPARKED_RE = /^fu-unparked(?::\d+)?$/;
+const isUnparkedOnce = (iss) => names(iss).some((n) => UNPARKED_RE.test(n));
 let unparkLabelEnsured = false;
 // Quante candidate all'age-out possono essere rivalutate sull'ultimo evento
 // significativo in una run. Stesso modello del cap del PARKED-RETRY, e stesso
@@ -2239,6 +2249,14 @@ export function runDrain() {
       // `fu-attempt:*` applicate per tentativi che non sono avvenuti. Quelle
       // issue erano in uno stato terminale per un addebito falso.
       //
+      // Il numero che questo passo tocca e' PIU' PICCOLO di quelle 88, ed e' la
+      // sola cifra da confrontare col log per sapere se ha drenato: **71 su 88
+      // nel pool** al dry-run del 2026-09-05 (17 con un verdetto vero, che
+      // restano parked). Le 88 della riga sopra sono la popolazione totale, che
+      // include chi il pool esclude per costruzione — `needs-human`, stadio
+      // decompose, `maybe-resolved`. Entrambe scendono man mano che il passo
+      // gira: sono una fotografia, non un bersaglio.
+      //
       // Il predicato è «nessun verdetto», e deve restare quello: non «nessuna
       // PR», non «pending», non «nessun commento». Un verdetto è la sola prova
       // che una run ha eseguito; leggere uno stato al posto della prova è
@@ -2250,12 +2268,12 @@ export function runDrain() {
       // non tracker permanente. Chi ha una decisione umana addosso non viene
       // toccato.
       //
-      // `fu-unparked:1` rende il passo idempotente e non ciclico: una issue
+      // `fu-unparked` rende il passo idempotente e non ciclico: una issue
       // ri-accodata da qui che tornasse parked senza verdetto non verrebbe
       // ri-accodata una seconda volta. Senza il marker, un giorno in cui gli
       // sfratti tornassero produrrebbe un livelock invece di un backlog — un
       // guasto più difficile da vedere, non meno grave.
-      if (outcome === null && !has(iss, LBL_UNPARKED)) {
+      if (outcome === null && !isUnparkedOnce(iss)) {
         acted++;
         if (DRY) {
           console.log(`[dry] unpark #${iss.number} (parked senza alcun FIX_OUTCOME: nessun tentativo reale) — "${iss.title?.slice(0, 60)}"`);
