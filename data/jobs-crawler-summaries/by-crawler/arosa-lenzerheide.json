@@ -1,7 +1,7 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-09-04T22:54:34.049Z",
+  "generatedAt": "2026-09-05T12:38:33.637Z",
   "total": 3,
   "discovered": null,
   "written": 3,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7826,
-  "avgDurationMs": 7826,
+  "durationMs": 5450,
+  "avgDurationMs": 5450,
   "durationHistory": [
-    7826
+    5450
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:54:31.089Z",
+      "crawledAt": "2026-09-05T12:38:30.298Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T22:54:29.796Z",
+      "crawledAt": "2026-09-05T12:38:29.621Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -128,7 +128,7 @@
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
