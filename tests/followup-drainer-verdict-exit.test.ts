@@ -143,12 +143,13 @@ describe('UNPARK-NO-VERDICT — una parked senza verdetto non ha mai avuto un te
   // + `fu-attempt:3` con ZERO commenti `FIX_OUTCOME`. 88 delle 167 parked
   // aperte erano così, 84 parcheggiate il solo 09-04, con 276 label
   // `fu-attempt:*` applicate per tentativi mai avvenuti. Il dry-run di questo
-  // passo ne ha contate 71 da ri-accodare (88 nel pool, 17 con un verdetto
-  // vero, che restano dove sono) — la stessa cifra citata in
-  // `followup-drainer.mjs`, misurata il 2026-09-05 poco prima del merge. Le 88
-  // della riga sopra sono la popolazione TOTALE delle parked senza verdetto; il
-  // pool e' piu' stretto perche' esclude `needs-human`, stadio decompose e
-  // `maybe-resolved`. Un solo numero da confrontare col log: 71.
+  // passo ne ha contate 71 da ri-accodare, su un pool di 88 (gli altri 17 hanno
+  // un verdetto vero e restano dove sono), al dry-run del 2026-09-05. I due
+  // `88` di queste righe NON sono lo stesso insieme: quello sopra e' quante
+  // parked erano senza verdetto sull'insieme non filtrato di 167, questo e' la
+  // dimensione del pool dopo i filtri dello stadio. Valevano lo stesso numero
+  // lo stesso giorno, ed e' una coincidenza — non un'identita'. L'unica cifra
+  // da confrontare col log e' 71.
   const src = readFileSync(DRAINER_SRC, 'utf8');
 
   it('il predicato è «nessun verdetto», non «nessuna PR» né uno stato', () => {
@@ -191,6 +192,15 @@ describe('la guardia dell\'idempotenza dell\'UNPARK tollera la vecchia forma con
   // non avere. Il nome perde il suffisso; la guardia accetta comunque le issue
   // etichettate nella finestra fra il merge di #7497 e questa fix.
   const re = /^fu-unparked(?::\d+)?$/;
+
+  it('la regex esercitata qui e\' quella che gira davvero', () => {
+    // Senza questo caso i due sotto proverebbero una COPIA: se `UNPARKED_RE` in
+    // `followup-drainer.mjs` venisse ristretta a `/^fu-unparked$/`, resterebbero
+    // entrambi verdi mentre le issue con la vecchia label tornano in coda a ogni
+    // tick (review #7499, 🟡 L193). Il resto del file pinna il sorgente allo
+    // stesso modo.
+    expect(readFileSync(DRAINER_SRC, 'utf8')).toContain(`const UNPARKED_RE = ${String(re)};`);
+  });
 
   it('riconosce il nome nuovo e ogni forma numerata della vecchia', () => {
     for (const n of ['fu-unparked', 'fu-unparked:1', 'fu-unparked:2', 'fu-unparked:10']) {

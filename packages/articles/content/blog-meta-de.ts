@@ -11412,6 +11412,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-cantiere-corsie-ztl.title': 'Como, Verkehrskatastrophe: offene Fahrspuren und ZTL',
     'blog.article.como-cantiere-corsie-ztl.excerpt': 'Die Gemeinde Como hat Vorzugsspuren und ZTL-Zonen für Fahrzeuge in die Schweiz eröffnet. Hier sind die genehmigten Routen und wie Sie sich während der Baustelle bewegen können.',
     'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Dichter Verkehr auf der Straße nahe Como mit Baustelle und orangefarbenen Warnschildern',
+    'blog.article.lungolago-como-chiusura-traffico.title': 'Lungolago di Como chiuso: code e attese fino a 150 min',
+    'blog.article.lungolago-como-chiusura-traffico.excerpt': 'Die Schließung der Comer Seepromenade verursachte enorme Unannehmlichkeiten für den Verkehr, mit endlosen Warteschlangen und Wartezeiten von bis zu 150 Minuten.',
+    'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Luftaufnahme des geschlossenen Lungolago in Como mit Verkehrsstau und langen Schlangen',
+    'blog.article.forum-teha-cernobbio-2026.title': 'Cernobbio, Hauptstadt der Welt: in Villa d \'Este das Forum Teha',
+    'blog.article.forum-teha-cernobbio-2026.excerpt': 'Vom 4. bis 6. September 2026 findet in Villa d \'Este das 52. TEHA-Forum mit internationalen Politikern und Ökonomen statt.',
+    'blog.article.forum-teha-cernobbio-2026.imageAlt': 'Villa d’Este in Cernobbio, Italien',
+    'blog.article.giardino-cure-intense-clinica-moncucco.title': 'Die Genesung der Patienten erfolgt aus dem Garten der Intensivpflege',
+    'blog.article.giardino-cure-intense-clinica-moncucco.excerpt': 'Die Klinik Moncucco eröffnet einen neuen therapeutischen und rehabilitativen Raum, der in der Schweizer Gesundheitslandschaft einzigartig ist.',
+    'blog.article.giardino-cure-intense-clinica-moncucco.imageAlt': 'Therapeutischer Garten in der Klinik Moncucco in Lugano',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'In Venegono Inferiore leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für Pendler: Verbindungen, Steuern, neues Steuerabkommen und Lebensmanagement zwischen Venegono Inferiore und dem Kanton Tessin.',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Panoramablick auf die Grenzregion zwischen Italien und der Schweiz bei Mendrisio.',
 };
 
 export default blogMetaDe;

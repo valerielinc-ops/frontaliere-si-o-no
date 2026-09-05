@@ -11413,6 +11413,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-cantiere-corsie-ztl.title': 'Como, traffic disaster: open lanes and ZTL',
     'blog.article.como-cantiere-corsie-ztl.excerpt': 'The Municipality of Como has opened preferential lanes and ZTL zones for vehicles to Switzerland. Here are the authorized routes and how to move around the construction site.',
     'blog.article.como-cantiere-corsie-ztl.imageAlt': 'Heavy traffic on highway near Como with construction barriers and orange warning signs',
+    'blog.article.lungolago-como-chiusura-traffico.title': 'Como lakefront closed: infinite queues and waits up to 150 minutes',
+    'blog.article.lungolago-como-chiusura-traffico.excerpt': 'The closure of the Como lakefront caused huge inconvenience for traffic, with endless queues and waits of up to 150 minutes.',
+    'blog.article.lungolago-como-chiusura-traffico.imageAlt': 'Aerial view of the closed lungolago in Como with traffic congestion and long queues',
+    'blog.article.forum-teha-cernobbio-2026.title': 'Cernobbio, capital of the world: the Teha Forum in Villa d \'Este',
+    'blog.article.forum-teha-cernobbio-2026.excerpt': 'From 4 to 6 September 2026, Villa d \'Este will host the 52nd TEHA Forum with international political leaders and economists.',
+    'blog.article.forum-teha-cernobbio-2026.imageAlt': 'Villa d’Este in Cernobbio, Italy',
+    'blog.article.giardino-cure-intense-clinica-moncucco.title': 'Patient recovery moves from the Garden of Intense Care',
+    'blog.article.giardino-cure-intense-clinica-moncucco.excerpt': 'Clinica Moncucco inaugurates a new therapeutic and rehabilitation space, unique in the Swiss healthcare landscape.',
+    'blog.article.giardino-cure-intense-clinica-moncucco.imageAlt': 'Therapeutic garden at Clinica Moncucco in Lugano',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.title': 'Living in Venegono Inferiore and working in Ticino as a border worker',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.excerpt': 'Complete guide for commuters: connections, taxes, new tax agreement and life management between Venegono Inferiore and the Canton of Ticino.',
+    'blog.article.vivere-venegono-inferiore-lavorare-ticino.imageAlt': 'Panoramic view of the border region between Italy and Switzerland near Mendrisio.',
 };
 
 export default blogMetaEn;
