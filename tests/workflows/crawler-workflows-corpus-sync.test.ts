@@ -9,6 +9,8 @@ import {
   CORPUS_OBSERVER_FILES,
 } from '../../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 
+import { CRAWLER_GENERATION_TOKEN_EXPR as GENERATION_TOKEN_EXPR } from '../../scripts/generate-crawler-group-workflows.mjs';
+
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const workflowPath = path.join(ROOT, '.github/workflows/sync-crawler-workflows-to-corpus.yml');
 const scriptPath = path.join(ROOT, 'scripts/ci/sync-crawler-workflows-to-corpus.sh');
@@ -146,7 +148,7 @@ fi
         'crawler-workflows-lockstep-0123456789ab:.github/workflows/crawler-group-01.yml',
       ], { encoding: 'utf8' });
       expect(transportedGroup).toContain('sparse cross-repo execution');
-      expect(transportedGroup).toContain('crawler-generation-${{ inputs.generation_token }}-group-01');
+      expect(transportedGroup).toContain(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-01`);
       expect(transportedGroup).toContain('node scripts/crawler-group-generation-finalizer.mjs');
       expect(transportedGroup).toContain('uses: actions/upload-artifact@v7');
       expect(transportedGroup).toContain('retention-days: 14');
