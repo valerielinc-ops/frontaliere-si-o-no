@@ -11,6 +11,12 @@
  * The fixtures are hand-written HTML, not real dist pages: the assertions are
  * about the masking and cohorting rules, and a real page would make them
  * depend on whatever that page happens to say today.
+ *
+ * ONE deliberate exception, at the bottom of the file (issue #7383): the keys of
+ * `KNOWN_LOW_GAIN_COHORTS` are not a rule, they are a claim about the labels the
+ * build actually emits — so they are checked against a committed fixture of the
+ * slugs really emitted by those three families, not against synthetic pairs. The
+ * fixture is URL paths only, so it does not depend on what a page says today.
  */
 import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';

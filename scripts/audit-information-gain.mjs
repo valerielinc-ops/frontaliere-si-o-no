@@ -120,6 +120,18 @@ const MIN_COHORT_PAGES = 12;
  * exact flapping issue #7384 removed. Take the stem from the `label` of a
  * FULL-dist run, or cut the sampled label back to the last token the whole
  * family shares.
+ *
+ * AND THEN PROVE IT. Every key here is verified against the slugs the build
+ * really emits, not against the stem someone believed it had: the emitted paths
+ * of the three families live in `tests/fixtures/information-gain-emitted-slugs.json`
+ * (extraction command and date inside), and
+ * `tests/information-gain-metric.test.ts` re-derives each key with
+ * `commonPathPrefix()` over the full set, over every pair and over every
+ * leave-one-out subset — the subsets because a sampled run only ever sees part
+ * of the family, and a key that holds on the whole but not on a subset resolves
+ * on alternate runs. Adding a line here without adding its emitted slugs to the
+ * fixture fails that test on purpose (issue #7383): the first two keys had never
+ * been measured against a real slug, only against synthetic pairs.
  */
 const KNOWN_LOW_GAIN_COHORTS = new Map([
   // Salary landings built from one BFS row each: the row IS the page, and the
