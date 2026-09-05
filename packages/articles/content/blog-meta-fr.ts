@@ -11400,6 +11400,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.export-varese-record-2026.title': 'Export Varese : record lombard au premier trimestre 2026',
     'blog.article.export-varese-record-2026.excerpt': 'Varese leader régional avec +23 % à l\'exportation. Bien la Suisse (+21,2%), mais la CIGS progresse (+14,9%) signalant des réorganisations d\'entreprises en cours.',
     'blog.article.export-varese-record-2026.imageAlt': 'Analyse économique et données d\'exportation dans la région de Varèse.',
+    'blog.article.fiera-varese-schiranna-2026.title': 'Foire de Varèse 2026: 150 exposants à la Schiranna',
+    'blog.article.fiera-varese-schiranna-2026.excerpt': 'Du 11 au 20 septembre 2026, la 48e édition de la Foire de Varèse met l\'accent sur les entreprises, la culture et le sport avec le slogan « Choix de Varèse ».',
+    'blog.article.fiera-varese-schiranna-2026.imageAlt': 'Zone d\'exposition de la Foire de Varèse à Schiranna',
 };
 
 export default blogMetaFr;

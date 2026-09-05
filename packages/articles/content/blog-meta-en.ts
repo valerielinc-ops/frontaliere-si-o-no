@@ -11398,6 +11398,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.export-varese-record-2026.title': 'Export Varese: Lombardy record in the first quarter of 2026',
     'blog.article.export-varese-record-2026.excerpt': 'Varese regional leader with +23% in exports. Switzerland is doing well (+21.2%), but the CIGS is growing (+14.9%), a sign of ongoing corporate reorganisations.',
     'blog.article.export-varese-record-2026.imageAlt': 'Economic analysis and export data in the Varese region.',
+    'blog.article.fiera-varese-schiranna-2026.title': 'Varese Fair 2026: 150 exhibitors at Schiranna',
+    'blog.article.fiera-varese-schiranna-2026.excerpt': 'From 11 to 20 September 2026, the 48th edition of the Varese Fair focuses on business, culture and sport with the slogan \'Scelgo Varese\'.',
+    'blog.article.fiera-varese-schiranna-2026.imageAlt': 'Exhibition area of the Varese Fair at Schiranna',
 };
 
 export default blogMetaEn;
