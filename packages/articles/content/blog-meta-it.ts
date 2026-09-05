@@ -11387,6 +11387,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.autonomia-differenziata-lombardia-2026.title': 'Autonomia Lombardia: ok su salute e professioni',
     'blog.article.autonomia-differenziata-lombardia-2026.excerpt': 'La Commissione congiunta ha approvato la Risoluzione sull\'autonomia differenziata per la Lombardia, con implicazioni significative per i frontalieri.',
     'blog.article.autonomia-differenziata-lombardia-2026.imageAlt': 'Vista aerea di Bellinzona, Ticino, Svizzera, con le montagne circostanti e i castelli storici della città.',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.title': 'Mezzo in fiamme sull\'autostrada tra Vergiate e Besnate',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.excerpt': 'Un mezzo in fiamme ha bloccato il traffico autostradale tra Vergiate e Besnate, causando gravi disagi alla circolazione.',
+    'blog.article.mezzo-in-fiamme-vergiate-besnate.imageAlt': 'Veicolo in fiamme sull\'autostrada tra Vergiate e Besnate',
 };
 
 export default blogMetaIt;
