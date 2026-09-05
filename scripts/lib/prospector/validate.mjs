@@ -37,14 +37,13 @@
  */
 import { politeFetch } from './polite-fetch.mjs';
 import {
-  extractDetailFields,
   isSufficientVacancyDescription,
   textOf,
 } from './extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
-import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
+import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 
 /**
  * Whether a fetched body is text we can actually read.
@@ -93,10 +92,25 @@ export function tokenOverlap(needle, haystack) {
 }
 
 /**
+ * Firma stabile del testo di una pagina, per distinguere «N pagine diverse»
+ * da «N copie della stessa pagina». djb2 sui primi 4000 caratteri normalizzati:
+ * serve solo a confrontare pagine fra loro, non a identificarne il contenuto.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+export function bodySignature(text = '') {
+  const head = norm(text).slice(0, 4000);
+  let h = 5381;
+  for (let i = 0; i < head.length; i += 1) h = (((h << 5) + h) ^ head.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+
+/**
  * Grade ONE vacancy against its own detail page.
  *
  * @param {{ title: string, url: string, location?: string, description?: string }} vacancy
- * @param {{ urlPolicy?: any, dispatcher?: unknown, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, headers?: Record<string,string>, detailExtractor?: typeof extractDetailFields }} [fetchOptions]
+ * @param {{ urlPolicy?: any, dispatcher?: unknown, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, headers?: Record<string,string>, detailExtractor?: (html: string, url: string) => any }} [fetchOptions]
  * @returns {Promise<{ url: string, reachable: boolean, titleMatch: number, contentful: boolean, sourceBackedLocation: boolean, words: number, status: number, jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
  */
 export async function gradeVacancy(vacancy, fetchOptions = {}) {
@@ -118,7 +132,12 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   } catch {
     return out;
   }
-  const res = await politeFetch(vacancy.url, fetchOptions);
+  let res = await politeFetch(vacancy.url, fetchOptions);
+  if (!res.ok) {
+    // Stesso retry del runtime, o il gate boccia pagine che il crawler legge.
+    const fallbackUrl = runtimeDetailFallbackUrl(fetchOptions.spec || {}, res.status, vacancy.url);
+    if (fallbackUrl) res = await politeFetch(fallbackUrl, fetchOptions);
+  }
   out.status = res.status;
   if (!res.ok || res.body.length < 200) return out;
   out.reachable = true;
@@ -128,14 +147,19 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const heading = `${textOf(h1)} ${textOf(title)}`;
   const bodyText = textOf(res.body);
   out.titleMatch = Math.max(tokenOverlap(vacancy.title, heading), tokenOverlap(vacancy.title, bodyText.slice(0, 4000)));
-  const detail = (fetchOptions.detailExtractor || extractDetailFields)(
+  // Stessa catena del runtime: se il validatore grada con un estrattore piu'
+  // debole di quello che pubblichera', il gate misura un altro programma.
+  const detail = extractRuntimeDetailFields(
+    fetchOptions.spec || {},
     res.body,
     res.url || vacancy.url,
+    { detailExtractor: fetchOptions.detailExtractor },
   );
   out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
 
   const words = bodyText.split(/\s+/).filter(Boolean).length;
   out.words = words;
+  out.bodySignature = bodySignature(bodyText);
   // Grade the exact description the runtime would publish. Navigation/footer
   // prose must not make a description-less shell pass validation only to be
   // dropped by production under the shared sufficiency contract.
@@ -163,6 +187,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
  * @property {number} contentfulRate
  * @property {number} locationSourceRate
  * @property {number} distinctRate
+ * @property {number} detailDistinctRate quota di pagine campionate fra loro diverse
  * @property {number|null} jobLikeRate  `null` when no sample was readable text
  * @property {number} score           0..1, the gate value
  * @property {'good'|'weak'|'bad'|'insufficient'} verdict
@@ -200,14 +225,12 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   try {
     for (const v of picks) {
       graded.push(await gradeVacancy(v, {
+        spec,
         urlPolicy,
         dispatcher: urlPolicy.dispatcher,
         fetchImpl: opts.fetchImpl,
         sleepImpl: opts.sleepImpl,
-        ...(isPageExecutive ? {
-          headers: { 'Accept-Encoding': 'identity' },
-          detailExtractor: extractPageExecutiveDetailFields,
-        } : {}),
+        ...(isPageExecutive ? { headers: { 'Accept-Encoding': 'identity' } } : {}),
       }));
     }
   } finally {
@@ -216,6 +239,16 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
 
   const rate = (fn) => (graded.length ? graded.filter(fn).length / graded.length : 0);
   const reachableRate = rate((g) => g.reachable);
+  // Distinzione misurata sulle PAGINE, non sui titoli del listing. Un'agenzia
+  // interinale pubblica lo stesso ruolo per sedi diverse — anker-swiss.ch il
+  // 2026-09-05: 314 annunci, 314 URL, 73 titoli, «Maler 100%» x23, ognuno una
+  // localita' e una descrizione proprie — e sui soli titoli e' indistinguibile
+  // dal selettore che ha agganciato N copie di una riga di chrome. Le pagine
+  // lo dicono: nel primo caso sono diverse, nel secondo identiche.
+  const signed = graded.filter((g) => g.bodySignature);
+  const detailDistinctRate = signed.length
+    ? new Set(signed.map((g) => g.bodySignature)).size / signed.length
+    : 0;
   const contentfulRate = rate((g) => g.contentful);
   const locationSourceRate = rate((g) => g.sourceBackedLocation);
   const titleMatchRate = graded.length
@@ -262,6 +295,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
     reachableRate: Number(reachableRate.toFixed(3)),
     titleMatchRate: Number(titleMatchRate.toFixed(3)),
     contentfulRate: Number(contentfulRate.toFixed(3)),
+    detailDistinctRate: Number(detailDistinctRate.toFixed(3)),
     locationSourceRate: Number(locationSourceRate.toFixed(3)),
     distinctRate: Number(distinctRate.toFixed(3)),
     jobLikeRate: jobLikeRate === null ? null : Number(jobLikeRate.toFixed(3)),

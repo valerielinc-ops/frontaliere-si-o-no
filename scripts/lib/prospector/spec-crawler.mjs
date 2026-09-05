@@ -20,7 +20,6 @@ import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
 import {
   extractVacancies,
-  extractDetailFields,
   isSufficientVacancyDescription,
 } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
@@ -30,12 +29,10 @@ import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import {
-  extractUmantisDetailFields,
   extractUmantisListingEvidence,
-  umantisDetailFallbackUrl,
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
-import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
+import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -276,38 +273,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
         try {
           page = await fetchRuntimePage(row.url, validateUrl, runtime);
         } catch (error) {
-          const fallbackUrl = spec.platform === 'umantis.com'
-            && Number(error?.status) >= 300 && Number(error?.status) < 400
-            ? umantisDetailFallbackUrl(row.url)
-            : '';
+          // Stessa regola di retry del validatore — see detail-extract.mjs.
+          const fallbackUrl = runtimeDetailFallbackUrl(spec, error?.status, row.url);
           if (!fallbackUrl) throw error;
           page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
         }
-        const detailExtractor = typeof runtime.detailExtractor === 'function'
-          ? runtime.detailExtractor
-          : spec.platform === 'pageexecutive.com'
-            ? extractPageExecutiveDetailFields
-            : extractDetailFields;
-        const detail = detailExtractor(
-          page.body,
-          page.url || row.url,
-        );
-        if (spec.platform === 'umantis.com') {
-          const umantisDetail = extractUmantisDetailFields(page.body);
-          if (isSufficientVacancyDescription(umantisDetail.description)) {
-            detail.description = umantisDetail.description;
-          }
-          // A tenant-specific extractor that already rejected a verified
-          // candidate (e.g. Apleona's canton-suffix gate) must not have that
-          // rejection silently overridden by the generic Umantis re-derivation,
-          // which applies none of that tenant's verification.
-          if (!detail.locationGateRejected && !detail.locationCandidates.length && umantisDetail.locationCandidates.length) {
-            detail.locationCandidates = umantisDetail.locationCandidates;
-            const [candidate] = umantisDetail.locationCandidates;
-            detail.location = candidate.location;
-            detail.addressCountry = candidate.addressCountry;
-          }
-        }
+        // Same extractor the validator grades with — see detail-extract.mjs.
+        const detail = extractRuntimeDetailFields(spec, page.body, page.url || row.url, {
+          detailExtractor: runtime.detailExtractor,
+        });
         const decision = resolveDetailOrListingSwissGeography(detail, row);
         const geography = geographyFieldsForDecision(decision);
         const description = isSufficientVacancyDescription(detail.description)
