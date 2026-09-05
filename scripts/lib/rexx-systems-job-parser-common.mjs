@@ -354,8 +354,30 @@ export function createRexxSystemsParser(config) {
   const atsHostLower = String(atsHost).toLowerCase();
   const sourceUrlPolicy = createSpecUrlPolicy({ seedUrls: [LISTING_URL] });
 
+  /**
+   * Split the two outcomes a bare `null` used to conflate. Only the first is
+   * an assertion about ONE record, so only the first may be quarantined:
+   *
+   * - `provenExclusion: true` — the source itself places this vacancy away
+   *   from the configured workplace (explicit foreign country or subdivision,
+   *   or a tenant extractor that already verified and refused a candidate).
+   * - `provenExclusion: false` — nobody managed to place it: no address block
+   *   in the detail, a multi-canton homonym, an employer label the source
+   *   never corroborates. That is an assertion about the RUN, so the caller
+   *   stays atomic; dropping such a record would retire a live vacancy.
+   *
+   * @param {any} detail
+   * @returns {{
+   *   workplace: { location: string, canton: string, postalCode: string, streetAddress: string }|null,
+   *   provenExclusion: boolean,
+   * }}
+   */
   function resolveRexxWorkplace(detail) {
-    if (detail?.authoritativeLocationConflict) return null;
+    const unresolved = { workplace: null, provenExclusion: false };
+    const excluded = { workplace: null, provenExclusion: true };
+    // A tenant extractor that already refused a candidate (e.g. a canton
+    // suffix mismatch) is an authoritative conflict, not missing evidence.
+    if (detail?.authoritativeLocationConflict) return excluded;
     const candidates = Array.isArray(detail?.sourceAddresses) ? detail.sourceAddresses : [];
     const isEmployerLabel = (candidate) => {
       const locality = normalizeSpace(candidate?.addressLocality || candidate?.location || '');
@@ -371,40 +393,48 @@ export function createRexxSystemsParser(config) {
     });
     if (distinctCandidates.length) {
       const decision = evaluateSourceBackedSwissGeography(distinctCandidates);
-      if (!decision.geography) return null;
+      if (!decision.geography) return decision.explicitlyForeign ? excluded : unresolved;
       const locality = normalizeSpace(
         decision.candidate?.addressLocality || decision.geography.location || '',
       );
       return {
-        location: locality,
-        canton: decision.geography.canton,
-        postalCode: normalizeSpace(decision.candidate?.postalCode || ''),
-        streetAddress: normalizeSpace(decision.candidate?.streetAddress || ''),
+        workplace: {
+          location: locality,
+          canton: decision.geography.canton,
+          postalCode: normalizeSpace(decision.candidate?.postalCode || ''),
+          streetAddress: normalizeSpace(decision.candidate?.streetAddress || ''),
+        },
+        provenExclusion: false,
       };
     }
 
     const employerCandidate = candidates.find(isEmployerLabel);
-    if (!employerCandidate) return null;
+    if (!employerCandidate) return unresolved;
     const candidatePostalCode = normalizeSpace(employerCandidate?.postalCode || '');
     const region = normalizeSpace(employerCandidate?.addressRegion || '');
     const country = normalizeSpace(employerCandidate?.addressCountry || employerCandidate?.country || '');
-    if (country && !/^(?:ch|che|switzerland|schweiz|suisse|svizzera)$/i.test(country)) return null;
+    if (country && !/^(?:ch|che|switzerland|schweiz|suisse|svizzera)$/i.test(country)) return excluded;
     const postalCorroborates = Boolean(
       candidatePostalCode && defaultPostalCode && candidatePostalCode === defaultPostalCode,
     );
     const regionCorroborates = Boolean(region && inferAnyCanton(region) === defaultCanton);
-    if (!postalCorroborates && !regionCorroborates) return null;
+    if (!postalCorroborates && !regionCorroborates) return unresolved;
     const decision = evaluateSourceBackedSwissGeography([{
       ...employerCandidate,
       location: [defaultCity, region].filter(Boolean).join(', '),
       addressLocality: defaultCity,
     }]);
-    if (!decision.geography || decision.geography.canton !== defaultCanton) return null;
+    if (!decision.geography || decision.geography.canton !== defaultCanton) {
+      return decision.explicitlyForeign ? excluded : unresolved;
+    }
     return {
-      location: defaultCity,
-      canton: defaultCanton,
-      postalCode: candidatePostalCode,
-      streetAddress: normalizeSpace(employerCandidate?.streetAddress || ''),
+      workplace: {
+        location: defaultCity,
+        canton: defaultCanton,
+        postalCode: candidatePostalCode,
+        streetAddress: normalizeSpace(employerCandidate?.streetAddress || ''),
+      },
+      provenExclusion: false,
     };
   }
 
@@ -473,9 +503,14 @@ export function createRexxSystemsParser(config) {
       const title = detailTitle || entry.title;
       const description = detailDescription;
       const sourceLang = detectLang(description || title, defaultSourceLang);
-      const resolvedWorkplace = resolveRexxWorkplace(detail);
+      quarantine.observe();
+      const { workplace: resolvedWorkplace, provenExclusion } = resolveRexxWorkplace(detail);
       if (!resolvedWorkplace) {
-        quarantine.reject(`j${entry.id}`, 'detail location rejected: source contradicts configured headquarters');
+        if (!provenExclusion) {
+          console.log(`     ⚠ detail location unresolved for j${entry.id}: no source evidence places this vacancy`);
+          return [];
+        }
+        quarantine.reject(`j${entry.id}`, 'detail location rejected: source places this vacancy outside the configured workplace');
         continue;
       }
       const jobSlug = slugify(`${title} ${companyKey} ${defaultCity}`);

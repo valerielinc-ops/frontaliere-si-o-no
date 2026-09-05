@@ -451,6 +451,25 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     expect(jobs.every((job) => job.canton !== '' && job.country === 'CH')).toBe(true);
   });
 
+  /**
+   * The mirror invariant of the case above. `Suisse romande` is not a place
+   * the source excluded — it is a `lieu` the parser cannot resolve to a
+   * canton. Quarantining it would drop a live Swiss vacancy from the slice
+   * because the run failed to read it, so the batch must stay atomic.
+   */
+  it('invalidates the whole batch when a row lieu is unresolved rather than foreign', async () => {
+    const unplacedJob = {
+      ...JOBUP_FEED_JOB,
+      titre: 'Médecin chef·fe de clinique',
+      link: SECOND_JOBUP_DETAIL_URL,
+      lieu: 'Suisse romande',
+    };
+    stubJobupSource(() => new Response(RICH_JOBUP_DETAIL, { status: 200 }), [JOBUP_FEED_JOB, unplacedJob]);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    await expect(parser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
   it('still invalidates the whole batch when the unresolved rows are a systemic share of it', async () => {
     const foreignRow = (n: number) => ({
       ...JOBUP_FEED_JOB,

@@ -377,6 +377,48 @@ describe('Kantonsspital Uri shared rexx parser', () => {
     await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
   });
 
+  /**
+   * The other half of the #7459 split, and the one that is easy to get wrong:
+   * `resolveRexxWorkplace` returns nothing both when the source PROVES the
+   * vacancy is elsewhere and when nobody could place it (no address block, a
+   * multi-canton homonym like Buchs or Wald, an uncorroborated employer label).
+   * Only the first is a statement about that record. Quarantining the second
+   * would silently drop a live Swiss vacancy whose address the run simply
+   * failed to read — the same de-indexing loss #7459 is about, mirrored.
+   */
+  it('fails the whole batch closed when a record location is unresolved rather than contradicted', async () => {
+    const UNPLACED_URL = 'https://stellen.ksuri.ch/Pflegefachperson-de-j212.html';
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/stellenangebote.html')) {
+        return new Response(listingFixture([
+          { url: DETAIL_URL, title: TITLE },
+          { url: SECOND_DETAIL_URL, title: 'Pflegefachperson HF 80–100%' },
+          { url: UNPLACED_URL, title: 'Pflegefachperson Buchs 100%' },
+        ]), { status: 200 });
+      }
+      if (url === UNPLACED_URL) {
+        // Swiss country, but 'Buchs' alone is a multi-canton homonym and no
+        // canton or postal code corroborates it: an absence of evidence, not
+        // a foreign address the source asserted.
+        return new Response(realRexxDetailFixture({
+          title: 'Pflegefachperson Buchs 100%',
+          locality: 'Buchs',
+          region: '',
+          postalCode: '',
+          addressCountry: 'CH',
+        }), { status: 200 });
+      }
+      if (url === SECOND_DETAIL_URL) {
+        return new Response(realRexxDetailFixture({ title: 'Pflegefachperson HF 80–100%' }), { status: 200 });
+      }
+      if (url === DETAIL_URL) return new Response(realRexxDetailFixture(), { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+
+    await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
+  });
+
   it('fails closed when a detail request times out', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
       const url = String(input);

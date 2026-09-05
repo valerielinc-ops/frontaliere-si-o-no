@@ -39,12 +39,29 @@ function systemicRatio() {
 /**
  * @param {{ label: string, total: number }} options
  *   `label` names the source in the log line; `total` is the number of records
- *   the listing announced, i.e. the denominator of the systemic ratio.
+ *   the listing announced, used as the systemic-ratio denominator only for
+ *   callers that do not call `observe()`.
  */
 export function createSourceRecordQuarantine({ label, total }) {
   const rejected = [];
+  let observed = 0;
 
   return {
+    /**
+     * Count ONE record that actually reached the gate.
+     *
+     * The listing length is the wrong denominator: rows a parser skips before
+     * the gate (no link, duplicate, title too short) are never judged, and
+     * counting them dilutes the ratio — the dirtier the feed, the looser the
+     * fail-closed valve that protects the already published slice. With 10
+     * rows of which 4 are skipped, 3 rejected and 3 published, the listing
+     * denominator reads 0.30 and stays silent where the 6 records actually
+     * evaluated read 0.50, exactly the threshold.
+     */
+    observe() {
+      observed += 1;
+    },
+
     /**
      * Quarantine ONE record the source proved unpublishable.
      * @param {string} id record identifier for the log line
@@ -68,12 +85,13 @@ export function createSourceRecordQuarantine({ label, total }) {
     settle(jobs) {
       if (!rejected.length) return jobs;
 
-      const ratio = total > 0 ? rejected.length / total : 1;
+      const denominator = observed || total;
+      const ratio = denominator > 0 ? rejected.length / denominator : 1;
       const systemic = rejected.length >= 2 && ratio >= systemicRatio();
       if (systemic || !jobs.length) {
         const sample = rejected.slice(0, 5).map((r) => `- ${r.id}: ${r.reason}`).join('\n');
         console.log(
-          `\n⛔ ${label}: ${rejected.length}/${total} records rejected `
+          `\n⛔ ${label}: ${rejected.length}/${denominator} records rejected `
           + `(${(ratio * 100).toFixed(0)}% ≥ ${(systemicRatio() * 100).toFixed(0)}% systemic threshold) — `
           + 'that is a parser or headquarters drift, not per-record outliers. '
           + 'Publishing nothing so the previously published slice stays intact.\n'
@@ -83,7 +101,7 @@ export function createSourceRecordQuarantine({ label, total }) {
       }
 
       console.log(
-        `  ⚠ ${label}: ${rejected.length}/${total} record(s) quarantined — `
+        `  ⚠ ${label}: ${rejected.length}/${denominator} record(s) quarantined — `
         + `publishing the remaining ${jobs.length} (per-record gate, #7459).`
       );
       return jobs;

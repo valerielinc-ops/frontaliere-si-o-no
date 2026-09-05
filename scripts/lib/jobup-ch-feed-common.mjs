@@ -37,7 +37,7 @@ import { launchChromium } from './ensure-chromium.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 import { createSourceRecordQuarantine } from './source-record-quarantine.mjs';
 import {
@@ -525,16 +525,30 @@ export function createJobupChFeedParser(config) {
       // grounds municipality→canton matching in the locality jobup itself
       // separated from the postal prefix, instead of fuzzy-matching over the
       // full "<postal> <city>" text.
-      const geography = hasUnsupportedPostalPrefix
-        ? null
-        : resolveSourceBackedSwissGeography({
+      // `hasUnsupportedPostalPrefix` means the parser does not understand this
+      // `lieu` format, not that the source placed the row abroad, so it must
+      // never count as an exclusion the source proved.
+      const decision = hasUnsupportedPostalPrefix
+        ? { geography: null, explicitlyForeign: false }
+        : evaluateSourceBackedSwissGeography([{
             location: rawLieu,
             addressLocality: lieu.city,
             postalCode: lieu.postal,
-          });
+          }]);
+      const geography = decision.geography;
       const canton = geography?.canton || '';
+      quarantine.observe();
       if (!location || !canton) {
-        quarantine.reject(link, 'source location rejected: missing, foreign or unresolved lieu');
+        // Only a `lieu` the source itself places outside Switzerland is an
+        // exclusion of THAT row (quarantine, publish the siblings). A missing,
+        // unparsed or ambiguous `lieu` — 'Suisse romande', a multi-canton
+        // homonym, an unsupported postal prefix — is the run failing to place
+        // a row nobody ruled out, so the batch stays atomic (#7459 review).
+        if (!decision.explicitlyForeign) {
+          console.log(`     ⚠ source location unresolved for ${link}: lieu '${rawLieu || '(empty)'}' could not be placed`);
+          return [];
+        }
+        quarantine.reject(link, 'source location rejected: source places this row outside Switzerland');
         continue;
       }
       const postalCode = lieu.postal;
