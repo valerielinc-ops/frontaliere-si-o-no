@@ -5533,6 +5533,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.osce-conferenza-berna.title': 'OSZE-Konferenz in Bern: von Genf nach Helsinki',
     'blog.article.osce-conferenza-berna.excerpt': 'Bundesrat Ignazio Cassis sprach am 3. September 2026 in Bern über die Fähigkeit zur diplomatischen Zusammenarbeit trotz Meinungsverschiedenheiten.',
     'blog.article.osce-conferenza-berna.imageAlt': 'Luftaufnahme von Bern, Schweiz, mit dem Bundeshaus und der Aare.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Anti-G7-Demonstration, die Eindämmungsvorrichtung war erlaubt',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'Das kantonale Instituts- und Digitaldepartement bestätigte die Rechtmässigkeit der Eindämmungsvorrichtung während der Veranstaltung Nr. G7 in Genf.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Anti-G7-Demonstration in Genf mit der Polizei, die die Situation kontrolliert.',
 };
 
 export default blogMetaChDe;

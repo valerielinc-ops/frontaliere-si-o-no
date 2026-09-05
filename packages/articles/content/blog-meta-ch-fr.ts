@@ -5533,6 +5533,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.osce-conferenza-berna.title': 'Conférence de l\'OSCE à Berne : de Genève à Helsinki',
     'blog.article.osce-conferenza-berna.excerpt': 'Le Conseiller fédéral Ignazio Cassis s\'est exprimé à Berne le 3 septembre 2026 sur la capacité de coopération diplomatique malgré les désaccords.',
     'blog.article.osce-conferenza-berna.imageAlt': 'Vue aérienne de Berne, Suisse, avec le Palais fédéral et la rivière Aare.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.title': 'Manifestation anti-G7, le dispositif de confinement était licite',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.excerpt': 'Le Département cantonal des institutions et du numérique a confirmé la licéité du dispositif de confinement lors de la manifestation No G7 à Genève.',
+    'blog.article.manifestazione-anti-g7-dispositivo-lecito.imageAlt': 'Manifestation anti-G7 à Genève avec la police contrôlant la situation.',
 };
 
 export default blogMetaChFr;
