@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -26,7 +27,11 @@ function sitemapPages() {
   const xml = readFileSync(path.join(DIST, file), 'utf-8');
   if (xml.includes('<sitemapindex')) continue;
   for (const match of xml.matchAll(/<loc>\s*(https?:\/\/[^<]+)\s*<\/loc>/gi)) {
-   const url = match[1].trim();
+   // flatString: the `<loc>` capture slices INTO the whole sitemap XML,
+   // and this collection lives for the entire run — without it every URL
+   // kept one shard's XML resident. Same boundary already flattened in
+   // validate-sitemap-pages.mjs's four loaders (#7419).
+   const url = flatString(match[1].trim());
    if (!url.startsWith(BASE_URL) || url.endsWith('.xml')) continue;
    const relPath = (url.replace(BASE_URL, '') || '/').replace(/\/$/, '') || '/';
    if (path.extname(relPath)) continue;

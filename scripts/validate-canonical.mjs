@@ -18,6 +18,7 @@ import {
   isLegitLegacyAliasCanonicalization,
   isLegitJobCanonicalConsolidation,
 } from './lib/canonicalExemptions.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -35,7 +36,11 @@ function extractSitemapUrls() {
     const locRegex = /<loc>([^<]+)<\/loc>/g;
     let match;
     while ((match = locRegex.exec(content)) !== null) {
-      const url = match[1].trim();
+      // flatString: the `<loc>` capture slices INTO the whole sitemap XML and
+      // this Set lives for the entire run, so without it every URL kept one
+      // shard's XML resident. Same boundary already flattened in the
+      // consolidated gate's four loaders (validate-sitemap-pages.mjs).
+      const url = flatString(match[1].trim());
       if (url.startsWith(BASE_URL)) {
         urls.add(url);
       }
@@ -147,7 +152,10 @@ for (const url of sitemapUrls) {
       } else {
         errors.push({
           url,
-          issue: `Canonical mismatch: canonical → ${canonical} (different page)`,
+          // flatString: a multi-substitution template literal is a ConsString
+          // that keeps `canonical` — a capture into the page HTML — alive, so
+          // `errors` would pin one full document per mismatch. Paid per ERROR.
+          issue: flatString(`Canonical mismatch: canonical → ${canonical} (different page)`),
         });
       }
     }

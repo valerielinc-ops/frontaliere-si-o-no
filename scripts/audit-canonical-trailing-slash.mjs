@@ -41,6 +41,7 @@ import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
 import { readHeadOrAll } from './lib/readHead.mjs';
+import { flatString } from './lib/flat-string.mjs';
 
 // Bounded in-flight reads — same cap audit-hreflang and dropOverwrittenLocs
 // use for this workload (pure I/O over dist/ on a 4-vCPU runner).
@@ -212,7 +213,13 @@ async function main() {
       }
       const verdict = classifyCanonical(canonical);
       if (verdict === 'fail-no-slash') {
-        offenders.push({ category: 'fail-no-slash', file, canonical });
+        // flatString: `canonical` comes out of `extractCanonical(html)` as a
+        // regex capture, i.e. a SlicedString into the whole page, and
+        // `offenders` lives for the whole dist walk. This gate is
+        // 0-tolerance over the full corpus, so the degenerate case — a
+        // build-wide trailing-slash regression — is one retained document per
+        // offender and an OOM instead of the report. Paid per OFFENDER.
+        offenders.push({ category: 'fail-no-slash', file, canonical: flatString(canonical) });
       } else {
         okCount++;
       }
