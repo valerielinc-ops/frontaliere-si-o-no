@@ -5569,6 +5569,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incendio-notturno-scuola-professionale-biasca.title': 'Flames in the middle of the night at the UPSA vocational school in Biasca',
     'blog.article.incendio-notturno-scuola-professionale-biasca.excerpt': 'Night fire at the UPSA vocational school in Biasca, flames quickly tamed by firefighters, no one injured or intoxicated.',
     'blog.article.incendio-notturno-scuola-professionale-biasca.imageAlt': 'Nighttime fire at the UPSA professional school in Biasca',
+    'blog.article.falso-allarme-goldach.title': 'False alarm for alleged shootings during a school party',
+    'blog.article.falso-allarme-goldach.excerpt': 'About 300 people evacuated in Goldach, in the canton of St. Gallen, after reports of alleged gunfire.',
+    'blog.article.falso-allarme-goldach.imageAlt': 'School party with police and rescue services',
 };
 
 export default blogMetaChEn;

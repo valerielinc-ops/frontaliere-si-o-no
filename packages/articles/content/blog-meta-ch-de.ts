@@ -5569,6 +5569,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incendio-notturno-scuola-professionale-biasca.title': 'Flammen mitten in der Nacht an der AGVs Berufsschule in Biasca',
     'blog.article.incendio-notturno-scuola-professionale-biasca.excerpt': 'Nachtbrand in der AGVs Berufsschule in Biasca, Flammen schnell von der Feuerwehr gezähmt, keine Verletzten oder Vergiftungen.',
     'blog.article.incendio-notturno-scuola-professionale-biasca.imageAlt': 'Nachtsbrand an der Berufsschule UPSA in Biasca',
+    'blog.article.falso-allarme-goldach.title': 'Fehlalarm wegen angeblicher Schüsse während einer Schulfeier',
+    'blog.article.falso-allarme-goldach.excerpt': 'Rund 300 Personen wurden nach Berichten über mutmaßliche Schüsse nach Goldach im Kanton St. Gallen evakuiert.',
+    'blog.article.falso-allarme-goldach.imageAlt': 'Schulfest mit Polizei und Rettungsdiensten',
 };
 
 export default blogMetaChDe;

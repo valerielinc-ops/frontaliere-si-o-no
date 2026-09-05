@@ -5569,6 +5569,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incendio-notturno-scuola-professionale-biasca.title': 'Incendie en pleine nuit à l\'école professionnelle UPSA de Biasca',
     'blog.article.incendio-notturno-scuola-professionale-biasca.excerpt': 'Incendie nocturne à l\'école professionnelle UPSA de Biasca, flammes rapidement maîtrisées par les pompiers, aucun blessé ou intoxiqué.',
     'blog.article.incendio-notturno-scuola-professionale-biasca.imageAlt': 'Incendie nocturne à l\'école professionnelle UPSA de Biasca',
+    'blog.article.falso-allarme-goldach.title': 'Fausse alarme pour des coups de feu présumés lors d\'une fête scolaire',
+    'blog.article.falso-allarme-goldach.excerpt': 'Environ 300 personnes ont été évacuées à Goldach, dans le canton de Saint-Gall, après des informations faisant état de tirs présumés.',
+    'blog.article.falso-allarme-goldach.imageAlt': 'Fête scolaire avec police et services de secours',
 };
 
 export default blogMetaChFr;

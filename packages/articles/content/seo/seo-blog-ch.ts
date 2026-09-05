@@ -72287,6 +72287,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-falso-allarme-goldach': {
+    title: 'Falso allarme per presunti spari durante una festa scolastica',
+    description: 'Circa 300 persone evacuate a Goldach, nel canton San Gallo, dopo segnalazioni di presunti spari durante una festa scolastica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, falso, allarme, presunti, spari',
+    ogTitle: 'Falso allarme per presunti spari durante una festa scolastica',
+    ogDescription: 'Circa 300 persone evacuate a Goldach, nel canton San Gallo, dopo segnalazioni di presunti spari durante una festa scolastica. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/falso-allarme-goldach/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Falso allarme per presunti spari durante una festa scolastica",
+      "description": "Circa 300 persone evacuate a Goldach, nel canton San Gallo, dopo segnalazioni di presunti spari durante una festa scolastica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/falso-allarme-goldach.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa scolastica con polizia e soccorritori"
+      },
+      "datePublished": "2026-09-05T14:27:14+00:00",
+      "dateModified": "2026-09-05T14:27:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/falso-allarme-goldach/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

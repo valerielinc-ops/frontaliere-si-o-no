@@ -1882,6 +1882,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'prio-swiss-medici-specialisti-tardoc': { it: 'prio-swiss-medici-specialisti-tardoc', en: 'prio-swiss-specialist-doctors-tardoc', de: 'prio-swiss-facharzte-tardoc', fr: 'prio-swiss-medecins-specialistes-tardoc' },
  'morte-mongolfiera-ticino': { it: 'morte-mongolfiera-ticino', en: 'hot-air-balloon-tragedy-ticino', de: 'tragodie-mit-heissluftballon-tessin', fr: 'tragedie-ballon-a-air-chaud-tessin' },
  'incendio-notturno-scuola-professionale-biasca': { it: 'incendio-notturno-scuola-professionale-biasca', en: 'nighttime-fire-at-upsa-professional-school-biasca', de: 'nachtsbrand-an-der-berufsschule-upsa-in-biasca', fr: 'incendie-nocturne-a-l-ecole-professionnelle-upsa-de-biasca' },
+ 'falso-allarme-goldach': { it: 'falso-allarme-goldach', en: 'false-alarm-goldach', de: 'falscher-alarm-goldach', fr: 'faux-alarme-goldach' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
