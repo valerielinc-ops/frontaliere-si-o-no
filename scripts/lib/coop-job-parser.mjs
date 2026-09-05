@@ -419,13 +419,29 @@ const GONE_STATUS = new Set([404, 410]);
 // gutted slice would be exactly the partial batch this enricher exists to
 // prevent. Fail closed instead.
 const GONE_ABORT_RATIO = 0.5;
+// …but a ratio alone is meaningless on a tiny batch: with a single job in
+// `input`, one withdrawn vacancy is 100% and would throw «source drift», i.e.
+// exactly the dead crawl this enricher exists to prevent. Interdiscount and
+// Volg do publish slices this small (`fetchAllInterdiscountJobs()` hands its
+// whole batch straight over), so the ratio only governs batches where it is
+// statistically meaningful — below this floor a gone page is read as expiry.
+const GONE_ABORT_FLOOR = 1;
 
-/** Fetch and strictly apply all detail payloads with bounded concurrency. */
+/**
+ * Fetch and strictly apply all detail payloads with bounded concurrency.
+ *
+ * `onGone` receives the detail URLs whose page reported the vacancy gone
+ * (404/410) and were therefore dropped from the returned batch. Callers that
+ * hold a listing-derived source-of-truth need it: dropping the job here is only
+ * half the retirement, the URL must also leave their authoritative set, or a
+ * downstream completeness check still counts it as a failed parse.
+ */
 export async function enrichCoopSourceBackedJobs(jobs, {
   fetchImpl = undiciFetch,
   allowedHosts = ['jobs.coopjobs.ch', 'jobs.fust.ch', 'jobs.fenaco.com'],
   concurrency = 6,
   timeoutMs = 20000,
+  onGone = null,
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
   const output = new Array(input.length);
@@ -468,7 +484,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
       }, { label: `coop-detail:${url.hostname}` });
       if (!response?.ok) {
         if (GONE_STATUS.has(response?.status)) {
-          gone.push(`${url.toString()} (HTTP ${response.status})`);
+          gone.push({ url: url.toString(), status: response.status });
           continue;
         }
         throw new Error(`HTTP ${response?.status || 'unknown'}`);
@@ -479,12 +495,14 @@ export async function enrichCoopSourceBackedJobs(jobs, {
   });
   await Promise.all(workers);
   if (gone.length === 0) return output;
-  if (gone.length > input.length * GONE_ABORT_RATIO) {
+  if (gone.length > GONE_ABORT_FLOOR && gone.length > input.length * GONE_ABORT_RATIO) {
     throw new Error(
       `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410) — source drift, not vacancy expiry`,
     );
   }
-  console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${gone.join(', ')}`);
+  const goneLabels = gone.map(({ url, status }) => `${url} (HTTP ${status})`);
+  console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${goneLabels.join(', ')}`);
+  if (typeof onGone === 'function') onGone(gone.map(({ url }) => url));
   return output.filter((job) => job !== undefined);
 }
 

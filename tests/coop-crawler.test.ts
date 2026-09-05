@@ -918,6 +918,38 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(enriched.every((job) => job.location === 'Oberbüren' && job._enrichedFromDetail)).toBe(true);
   });
 
+  it('reports the gone detail URLs so a listing-derived source-of-truth can retire them', async () => {
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => String(input).includes('22222222')
+      ? new Response(null, { status: 410 })
+      : new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 });
+
+    const gone: string[] = [];
+    await enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2, onGone: (urls) => gone.push(...urls) });
+    expect(gone).toEqual([jobs.find((job) => job.url.includes('22222222'))!.url]);
+  });
+
+  it('reads a single gone page on a tiny batch as expiry, not drift', async () => {
+    // One withdrawn vacancy out of one is 100% of the batch: the ratio alone
+    // would abort the crawl on the most banal case the drop exists to survive.
+    const [companyKey, url] = cases[2];
+    const job = {
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    };
+    const fetchImpl = async () => new Response(null, { status: 410 });
+
+    const gone: string[] = [];
+    const enriched = await enrichCoopSourceBackedJobs([job], {
+      fetchImpl, allowedHosts: ['jobs.coopjobs.ch'], onGone: (urls) => gone.push(...urls),
+    });
+    expect(enriched).toEqual([]);
+    expect(gone).toEqual([url]);
+  });
+
   it('fails closed when most detail pages are gone — source drift, not expiry', async () => {
     const jobs = cases.map(([companyKey, url]) => ({
       id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
