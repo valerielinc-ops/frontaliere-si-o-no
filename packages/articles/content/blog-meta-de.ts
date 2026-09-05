@@ -11406,6 +11406,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.via-industria-caslano-iniziativa-popolare.title': 'Via Industria in Caslano, Volksinitiative erfolgreich',
     'blog.article.via-industria-caslano-iniziativa-popolare.excerpt': 'Übergeben Sie 530 Unterschriften, um die Via Industria in Caslano nicht zu erweitern, 458 sind bei der Kanzlei beglaubigt.',
     'blog.article.via-industria-caslano-iniziativa-popolare.imageAlt': 'Luftaufnahme von Via Industria in Caslano',
+    'blog.article.assemblea-centro-iva-avs.title': 'Versammlung Zentrum genehmigt AHV-Finanzierung mit MwSt.',
+    'blog.article.assemblea-centro-iva-avs.excerpt': 'Das Zentrum unterstützt die Finanzierung der 13. AHV-Rente durch Erhöhung der Mehrwertsteuer um 0,4%. Ich stimme am 29. November ab. Was ändert sich für Grenzgänger?',
+    'blog.article.assemblea-centro-iva-avs.imageAlt': 'Luftaufnahme von Lugano, Herz des Tessins und Ziel von Grenzpendlern',
 };
 
 export default blogMetaDe;

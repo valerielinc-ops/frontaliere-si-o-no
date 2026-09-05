@@ -11407,6 +11407,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.via-industria-caslano-iniziativa-popolare.title': 'Via Industria in Caslano, the popular initiative was successful',
     'blog.article.via-industria-caslano-iniziativa-popolare.excerpt': 'Delivered 530 signatures not to enlarge Via Industria in Caslano, 458 certificates to the Registry.',
     'blog.article.via-industria-caslano-iniziativa-popolare.imageAlt': 'Aerial view of Via Industria in Caslano',
+    'blog.article.assemblea-centro-iva-avs.title': 'Center Assembly approves AVS financing with VAT',
+    'blog.article.assemblea-centro-iva-avs.excerpt': 'The Centre supports the financing of the 13th AVS annuity through a 0.4% VAT increase. Vote on 29 November. What changes for border workers?',
+    'blog.article.assemblea-centro-iva-avs.imageAlt': 'Lugano view, heart of Ticino and destination of Swiss border commuters',
 };
 
 export default blogMetaEn;

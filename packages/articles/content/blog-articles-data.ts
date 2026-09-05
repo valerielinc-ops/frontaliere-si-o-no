@@ -34077,6 +34077,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'assemblea-centro-iva-avs',
+ category: 'pensione',
+ date: '2026-09-05T11:17:38.396Z',
+ image: '/images/blog/assemblea-centro-iva-avs.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
