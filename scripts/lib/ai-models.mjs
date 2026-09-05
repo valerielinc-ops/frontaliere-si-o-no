@@ -2201,6 +2201,34 @@ const _pendingCounterDeltas = new Map();
 const _runOutcomes = new Map();
 
 let _firestoreDb = null;     // Firestore instance (null until initScoreStore)
+/**
+ * Modalita' SOLA LETTURA del ledger: quando e' attiva, lo store carica i
+ * punteggi da Firestore ma NON scrive mai su `ai_model_scores/_all`.
+ *
+ * ── Perche' non basta `recordScore: false` (issue #6611 / corpus#624) ──
+ *
+ * `DEFAULT_OPTS.recordScore` disattiva l'esito della SINGOLA chiamata
+ * (recordModelSuccess/recordModelFailure/markModelExhausted sui siti di call).
+ * Ma un processo diagnostico sporca il documento di produzione anche per vie
+ * che non passano da li':
+ *
+ *  - `discoverFreeModels()` marca `markModelExhausted(model, 'stale')` ogni id
+ *    che il listing live non offre piu' — e gira PRIMA di qualsiasi callLLM;
+ *  - `_learnRequestTokenLimit` / `_learnSchemaIncompatible` sporcano il modello
+ *    fuori dal ramo dell'esito;
+ *  - qualunque modello sporco viene poi riscritto da `_persistScoresToFirestore`
+ *    con lo `score` DECADUTO letto all'init e con `exhaustedUntil: null`, cioe'
+ *    con dati che il processo diagnostico non ha misurato.
+ *
+ * Il flag vive quindi all'unico imbuto che tutte queste vie attraversano (il
+ * persist), non sui singoli chiamanti: e' l'unico punto dove "0 scritture
+ * diagnostiche" e' vero per costruzione invece che per enumerazione dei siti.
+ * La LETTURA resta attiva di proposito: lo smoke test classifica
+ * `skipped_exhausted` leggendo l'esaurimento persistito, ed e' il segnale su cui
+ * poggia il gate Mistral `-latest` (#892/#1357).
+ */
+let _scoreStoreReadOnly = false;
+let _readOnlySkipLogged = false;
 let _firestoreFieldValue = null; // admin.firestore.FieldValue (atomic increments)
 let _storeInitialized = false;
 let _persistTimer = null;    // Debounce timer
@@ -2951,6 +2979,23 @@ export async function initScoreStore() {
  * @param {any} [fieldValue] object with .increment(n); null exercises the
  *                           absolute-write degraded path on purpose
  */
+/**
+ * Attiva/disattiva la modalita' sola lettura del ledger (vedi
+ * `_scoreStoreReadOnly`). Da chiamare PRIMA di `discoverFreeModels()` e della
+ * prima `callLLM()`: e' la discovery il primo scrittore del processo.
+ *
+ * Alternativa senza codice, per invocazioni una tantum:
+ * `AI_SCORE_STORE_READONLY=1 node scripts/<qualcosa>.mjs`.
+ */
+export function setScoreStoreReadOnly(enabled = true) {
+  _scoreStoreReadOnly = enabled !== false;
+}
+
+/** Whether the score store is in read-only (diagnostic) mode. */
+export function isScoreStoreReadOnly() {
+  return _scoreStoreReadOnly || /^(1|true|yes|on)$/i.test((process.env.AI_SCORE_STORE_READONLY || '').trim());
+}
+
 export function __installScoreStoreForTests(db, fieldValue = null) {
   _firestoreDb = db;
   _firestoreFieldValue = fieldValue;
@@ -2968,6 +3013,17 @@ export function __installScoreStoreForTests(db, fieldValue = null) {
  */
 async function _persistScoresToFirestore() {
   if (!_firestoreDb || _dirtyModels.size === 0) return;
+  // Modalita' diagnostica: nessuna scrittura sul ledger di produzione. Il set
+  // sporco NON viene svuotato — cosi' `getStats().dirtyModels` continua a dire
+  // quanto sarebbe stato scritto, e un eventuale ritorno in modalita' normale
+  // nello stesso processo non perde nulla.
+  if (isScoreStoreReadOnly()) {
+    if (!_readOnlySkipLogged) {
+      _readOnlySkipLogged = true;
+      console.warn(`⚠️  [ScoreStore] read-only: ${_dirtyModels.size} model(s) NOT persisted to ${FIRESTORE_COLLECTION}/${FIRESTORE_AGGREGATE_DOC} (diagnostic run)`);
+    }
+    return false;
+  }
 
   const now = new Date().toISOString();
   const toPersist = [..._dirtyModels];
@@ -3108,6 +3164,10 @@ async function _persistScoresToFirestore() {
 
 /** Schedule a debounced persist (resets timer on each call) */
 function _schedulePersist() {
+  // Read-only: nessun timer e nessun flush a soglia. Il guard nel persist e'
+  // gia' sufficiente a non scrivere; questo evita anche di tenere in piedi un
+  // timer e di stampare il warning a ogni mutazione.
+  if (isScoreStoreReadOnly()) return;
   _mutationCount++;
 
   // Immediate flush if mutation threshold reached
@@ -3154,6 +3214,11 @@ const EXIT_FLUSH_TIMEOUT_MS = 8_000;
  */
 export async function flushScoresBeforeExit(timeoutMs = EXIT_FLUSH_TIMEOUT_MS) {
   if (!_firestoreDb || (_dirtyModels.size === 0 && !_persistTimer)) return true;
+  // Read-only: non c'e' niente da persistere per definizione. Senza questo
+  // ritorno anticipato il flush finale cadrebbe sul `return false` del persist
+  // e stamperebbe un `::warning::` "model(s) remain pending" — un allarme in
+  // Checks/Annotations per una scrittura che stiamo omettendo di proposito.
+  if (isScoreStoreReadOnly()) return true;
   let timer = null;
   const pending = _dirtyModels.size;
   const startedAt = Date.now();
@@ -4013,6 +4078,8 @@ export function resetState() {
   _learnedRequestTokenLimits.clear();
   _learnedSchemaIncompatible.clear();
   _mutationCount = 0;
+  _scoreStoreReadOnly = false;
+  _readOnlySkipLogged = false;
   if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
   _stats.calls = 0;
   _stats.successes = 0;
