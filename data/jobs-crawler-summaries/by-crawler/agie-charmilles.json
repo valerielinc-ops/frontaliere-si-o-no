@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-09-05T12:44:54.146Z",
+  "generatedAt": "2026-09-05T22:53:53.460Z",
   "total": 32,
   "newCount": 0,
   "updatedCount": 25,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 50124,
-  "avgDurationMs": 50124,
+  "durationMs": 59621,
+  "avgDurationMs": 59621,
   "durationHistory": [
-    50124
+    59621
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -959,46 +959,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Impiegato di produzione 100%",
-      "slug": "impiegato-di-produzione-100-agie-charmilles-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-impiegato-di-produzione-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/a61857345ae5865dca2496d2222955e9c35e137cfbc59637f0422efb0fdc5662aa21834d2d6acebae7566cf215dccf8f77c46dba66717182c5b7382aa406ce",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-bbae1225c307",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "Via Goldau 7",
-      "postalCode": "6616",
-      "firstSeenAt": "2026-07-21T12:42:20.384Z",
-      "salarySource": "estimated",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

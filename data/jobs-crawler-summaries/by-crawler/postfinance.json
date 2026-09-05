@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-09-05T12:43:49.337Z",
+  "generatedAt": "2026-09-05T22:52:28.291Z",
   "total": 18,
   "newCount": 0,
   "updatedCount": 18,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 33090,
-  "avgDurationMs": 33090,
+  "durationMs": 39037,
+  "avgDurationMs": 39037,
   "durationHistory": [
-    33090
+    39037
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -103,7 +103,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "kubernetes-engineer-postfinance",
+      "slug": "kubernetes-ingegnere-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Informatik und Digital Services"
@@ -118,7 +118,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"

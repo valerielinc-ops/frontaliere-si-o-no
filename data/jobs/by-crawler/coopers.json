@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-09-05T12:44:33.484Z",
+  "assembledAt": "2026-09-05T22:53:19.703Z",
   "jobs": [
     {
       "id": "coopers-4c65b0608cd3",
@@ -17,7 +17,7 @@
       "title": "IT Business Applications Consultant (proALPHA) (m/w/d)",
       "titleByLocale": {
         "it": "IT Business Applications Consulente (proALPHA) (m/w/d)",
-        "en": "IT Business Applications Consultant (proALPHA) (m/f/d)",
+        "en": "IT Business Applications Consultant (proALPHA) (m/w/d)",
         "de": "IT Business Applications Berater (proALPHA) (m/w/d)",
         "fr": "Conseiller en applications d'affaires en TI (proALPHA) (h/f/d)"
       },
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:29.498Z",
+      "crawledAt": "2026-09-05T22:53:13.907Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:53.050Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -120,7 +121,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:28.617Z",
+      "crawledAt": "2026-09-05T22:53:13.013Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -188,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -217,7 +219,7 @@
       "title": "AI Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della Governance AI (m/f/d)",
-        "en": "AI Governance Manager (m/f/d)",
+        "en": "AI Governance Manager (m/w/d)",
         "de": "AI Governance Manager (m/w/d)",
         "fr": "Responsable de la gouvernance de l'IA (m/f/d)"
       },
@@ -233,7 +235,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OL0A91",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:27.724Z",
+      "crawledAt": "2026-09-05T22:53:12.091Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -282,6 +284,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:51.132Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -327,7 +330,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3N22VU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:26.886Z",
+      "crawledAt": "2026-09-05T22:53:11.144Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -380,6 +383,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:45.542Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -409,7 +413,7 @@
       "title": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
       "titleByLocale": {
         "it": "ICT System & Network Ingegnere 80 bis 100% (m/w/d)",
-        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 to 100% (m/f/d)",
+        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "de": "ICT Infrastructure Ingenieur (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "fr": "ICT System & Network Ingénieur 80 bis 100% (m/w/d)"
       },
@@ -425,7 +429,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:26.020Z",
+      "crawledAt": "2026-09-05T22:53:10.252Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -457,6 +461,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:23:50.233Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
@@ -500,7 +505,7 @@
       "title": "Monitoring & Alerting Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Zabbix Ingegnere (m/w/d)",
-        "en": "Monitoring and Alerting Engineer (m/f/d)",
+        "en": "Monitoring & Alerting Engineer (m/w/d)",
         "de": "Monitoring & Alerting Ingenieur (m/w/d)",
         "fr": "Zabbix Ingénieur (m/w/d)"
       },
@@ -516,7 +521,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:25.170Z",
+      "crawledAt": "2026-09-05T22:53:09.361Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -577,6 +582,7 @@
         "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-07-10T10:28:37.373Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -606,7 +612,7 @@
       "title": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
-        "en": "SHEQ Manager / Security Officer:r (SiBe) 100% (m/f/d)",
+        "en": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "de": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "fr": "SHEQ Gestionnaire / Agent de sécurité (SiBe) 100% (m/f/d)"
       },
@@ -622,7 +628,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3MQ82W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:24.313Z",
+      "crawledAt": "2026-09-05T22:53:08.472Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -670,6 +676,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:38:19.523Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -715,7 +722,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:23.379Z",
+      "crawledAt": "2026-09-05T22:53:07.467Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -764,6 +771,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:25:24.511Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -793,7 +801,7 @@
       "title": "Senior SAP BCS/4HANA Consultant (m/w/d)",
       "titleByLocale": {
         "it": "Senior SAP BCS/4HANA Consulente (m/w/d)",
-        "en": "Senior SAP BCS/4HANA Consultant (m/f/d)",
+        "en": "Senior SAP BCS/4HANA Consultant (m/w/d)",
         "de": "Senior SAP BCS/4HANA Berater (m/w/d)",
         "fr": "Conseiller principal SAP BCS/4HANA (m/f/d)"
       },
@@ -809,7 +817,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42QOW9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:22.441Z",
+      "crawledAt": "2026-09-05T22:53:06.515Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -859,6 +867,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:40:23.949Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -888,7 +897,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
+        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -904,7 +913,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:21.509Z",
+      "crawledAt": "2026-09-05T22:53:05.615Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -975,6 +984,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1004,7 +1014,7 @@
       "title": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
       "titleByLocale": {
         "it": "Senior SAP Banking & Payment Architetto (EBICS & ISO 20022) (m/w/d)",
-        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/f/d)",
+        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
         "de": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
         "fr": "Senior SAP Banking & Payment Architecte (EBICS & ISO 20022) (m/w/d)"
       },
@@ -1020,7 +1030,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BG26A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:20.642Z",
+      "crawledAt": "2026-09-05T22:53:04.723Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1100,7 +1110,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P5J50Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:19.776Z",
+      "crawledAt": "2026-09-05T22:53:03.830Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1134,6 +1144,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:18:31.261Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1163,7 +1174,7 @@
       "title": "M365 Engineer (m/w/d)",
       "titleByLocale": {
         "it": "M365 Ingegnere (m/w/d)",
-        "en": "M365 Engineer (m/f/d)",
+        "en": "M365 Engineer (m/w/d)",
         "de": "M365 Ingenieur (m/w/d)",
         "fr": "M365 Ingénieur (m/w/d)"
       },
@@ -1179,7 +1190,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=010VGG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:18.911Z",
+      "crawledAt": "2026-09-05T22:53:02.868Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1262,6 +1273,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:23.525Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1307,7 +1319,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:18.034Z",
+      "crawledAt": "2026-09-05T22:53:01.980Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1354,6 +1366,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:53:35.533Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
@@ -1383,7 +1396,7 @@
       "title": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Solution Architetto D365 & Power Platform 80 – 100 % (m/w/d)",
-        "en": "Solution Architect D365 & Power Platform 80 – 100% (m/f/d)",
+        "en": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "de": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "fr": "Solution Architecte D365 & Power Platform 80 – 100 % (m/w/d)"
       },
@@ -1399,7 +1412,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:17.185Z",
+      "crawledAt": "2026-09-05T22:53:01.080Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1480,7 +1493,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F26HA4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:16.353Z",
+      "crawledAt": "2026-09-05T22:53:00.187Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1584,7 +1597,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:15.509Z",
+      "crawledAt": "2026-09-05T22:52:59.288Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1638,6 +1651,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:53:46.212Z",
+      "needsRetranslation": true,
       "salaryMin": 22600,
       "salaryMax": 38400,
       "salarySource": "estimated",
@@ -1667,7 +1681,7 @@
       "title": "Test Manager (SAP RISE Migration) (m/w/d)",
       "titleByLocale": {
         "it": "Test Manager (Migrazione RISE SAP) (m/f/d)",
-        "en": "Test Manager (SAP RISE Migration) (m/f/d)",
+        "en": "Test Manager (SAP RISE Migration) (m/w/d)",
         "de": "Test Manager (SAP RISE Migration) (m/w/d)",
         "fr": "Gestionnaire de tests (Migration PAS RISE) (h/f/d)"
       },
@@ -1683,7 +1697,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=UC6N58",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:14.549Z",
+      "crawledAt": "2026-09-05T22:52:58.407Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1759,7 +1773,7 @@
       "title": "DevOps Engineer (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere (m/w/d)",
-        "en": "DevOps Engineer (m/f/d)",
+        "en": "DevOps Engineer (m/w/d)",
         "de": "DevOps Ingenieur (m/w/d)",
         "fr": "DevOps Ingénieur (m/w/d)"
       },
@@ -1775,7 +1789,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FG97O1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:13.705Z",
+      "crawledAt": "2026-09-05T22:52:57.511Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1878,7 +1892,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=A121LY",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:12.757Z",
+      "crawledAt": "2026-09-05T22:52:56.615Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1968,7 +1982,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:11.922Z",
+      "crawledAt": "2026-09-05T22:52:55.715Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2039,7 +2053,7 @@
       "title": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
       "titleByLocale": {
         "it": "Business Analista Self-Service BI (SSBI) (m/w/d)",
-        "en": "Business analyst self-service BI (SSBI) (m/f/d)",
+        "en": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
         "de": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
         "fr": "Business Analyste Self-Service BI (SSBI) (m/w/d)"
       },
@@ -2055,7 +2069,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V3LO54",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:11.061Z",
+      "crawledAt": "2026-09-05T22:52:54.833Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2147,7 +2161,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=06P8UJ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:10.220Z",
+      "crawledAt": "2026-09-05T22:52:53.947Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2227,7 +2241,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:09.298Z",
+      "crawledAt": "2026-09-05T22:52:53.048Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2323,7 +2337,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OZ155L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:08.374Z",
+      "crawledAt": "2026-09-05T22:52:52.121Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2392,6 +2406,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:15:03.492Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2437,7 +2452,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:07.505Z",
+      "crawledAt": "2026-09-05T22:52:51.165Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2531,7 +2546,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80VB8J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:06.644Z",
+      "crawledAt": "2026-09-05T22:52:50.271Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2609,7 +2624,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5F8Y1Q",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:05.741Z",
+      "crawledAt": "2026-09-05T22:52:49.368Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2687,7 +2702,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=43JYM0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:04.881Z",
+      "crawledAt": "2026-09-05T22:52:48.480Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2784,7 +2799,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4FAG76",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:03.972Z",
+      "crawledAt": "2026-09-05T22:52:47.598Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2879,7 +2894,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8SO7P0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:03.114Z",
+      "crawledAt": "2026-09-05T22:52:46.705Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2958,7 +2973,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OBI201",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:02.273Z",
+      "crawledAt": "2026-09-05T22:52:45.800Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3057,7 +3072,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=06XT3H",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:44:01.436Z",
+      "crawledAt": "2026-09-05T22:52:44.902Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3147,7 +3162,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:44:00.609Z",
+      "crawledAt": "2026-09-05T22:52:43.995Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3237,7 +3252,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:59.756Z",
+      "crawledAt": "2026-09-05T22:52:43.066Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3329,7 +3344,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AF31M1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:58.063Z",
+      "crawledAt": "2026-09-05T22:52:41.209Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3405,7 +3420,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=RHG048",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:57.207Z",
+      "crawledAt": "2026-09-05T22:52:40.311Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3483,7 +3498,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:56.354Z",
+      "crawledAt": "2026-09-05T22:52:39.395Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3578,7 +3593,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:55.396Z",
+      "crawledAt": "2026-09-05T22:52:38.406Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3672,7 +3687,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8I4I2V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:43:54.460Z",
+      "crawledAt": "2026-09-05T22:52:37.501Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3703,18 +3718,21 @@
           "Workplace, Identity Access Management"
         ]
       },
-      "firstSeenAt": "2026-09-04T23:00:41.148Z",
+      "previousSlugs": [
+        "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern",
+        "supporto-operativo-ict-digital-workplace-m-f-d-coopers-group-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern"
+          "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern",
+          "supporto-operativo-ict-digital-workplace-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "ict-betriebsunterstutzung-digital-workplace-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-09-04T23:00:41.148Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3760,7 +3778,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SEC718",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T12:43:53.589Z",
+      "crawledAt": "2026-09-05T22:52:36.573Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3808,8 +3826,8 @@
           "material-buyer-m-f-d-coopers-zug"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:32:09.513Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:32:09.513Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -3823,274 +3841,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "coopers-2836b2cb5815",
-      "slug": "release-train-ingegnere-m-w-d-coopers-group-ag-luzern",
-      "slugByLocale": {
-        "it": "release-train-ingegnere-m-w-d-coopers-group-ag-luzern",
-        "en": "release-train-ingegnere-m-w-d-coopers-group-ag-luzern",
-        "de": "release-train-engineer-m-w-d-coopers-luzern",
-        "fr": "release-train-ingenieur-m-w-d-coopers-group-ag-luzern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Release Train Engineer (m/w/d)",
-      "titleByLocale": {
-        "it": "Release Train Ingegnere (m/w/d)",
-        "en": "Release Train Engineer (m/f/d)",
-        "de": "Release Train Ingenieur (m/w/d)",
-        "fr": "Release Train Ingénieur (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (B4I17W)\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 100%\n\nAb sofort - 12 Monate mit Option auf Verlängerung\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nNel caso di domande via e-mail, il mittente o il mittente accetta che i dati trasmessi saranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfilo del lavoro (B4I17W)\n\n•\nIT - Project Management\n\n•\n\nLucerna\n\nContraente\n\nTempo parziale, 100%\n\nD'ora in poi - 12 mesi con opzione di estensione\n\nSAFe, agile, Project Management, Scrum Master\n\nPrestazioni di lavoro\n\n•\nAzienda portatile\n\n•\nCoopers Care\n\n•\nTermini di primo nome\n\n•\nGerarchia piatta\n\n•\nHome Ufficio\n\n•\nSpazio di lavoro moderno\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nIn the case of applications by e-mail, the sender or sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profile (B4I17W)\n\n•\nIT - Project Management\n\n•\n\nLucerne\n\nContracting\n\nPart time, 100%\n\nFrom now - 12 months with option of extension\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nFlat hierarchy\n\n•\nHome Office\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click.",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (B4I17W)\n\n•\n\nIT - Project Management\n\nLuzern\n\nContracting\n\nPart Time, 100%\n\nAb sofort - 12 Monate mit Option auf Verlängerung\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\nCompany laptop\n\nCoopers Care\n\nFirst-name terms\n\nFlat hierarchy\n\nHome Office\n\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nDans le cas des applications par e-mail, l'expéditeur ou l'expéditeur convient que les données transmises seront utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi peuvent être trouvées ici: coopers.ch\n\nProfil d'emploi (B4I17W)\n\n•\nTI - Gestion de projet\n\n•\n\nLucerne\n\nContrats\n\nTemps partiel, 100%\n\nA partir de maintenant - 12 mois avec option de prolongation\n\nSAFe, agile, Gestion de projet, Scrum Master\n\nPrestations d'emploi\n\n•\nOrdinateur portable de la société\n\n•\nSoins aux Coopers\n\n•\nTermes de prénom\n\n•\nHiérarchie plate\n\n•\nAccueil\n\n•\nEspace de travail moderne\n\nÇa semble intéressant ?\n\nIl suffit de cliquer."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:32:50.002Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
-      "requirements": [
-        "IT - Project Management",
-        "Luzern",
-        "Contracting",
-        "Part Time, 100%",
-        "Ab sofort - 12 Monate mit Option auf Verlängerung",
-        "SAFe, agile, Project Management, Scrum Master"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Project Management",
-          "Contracting",
-          "Part Time, 100%",
-          "Ab sofort - 12 Monate mit Option auf Verlängerung",
-          "SAFe, agile, Project Management, Scrum Master"
-        ]
-      },
-      "previousSlugs": [
-        "release-train-engineer-m-w-d-coopers-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "release-train-engineer-m-w-d-coopers-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T10:24:27.749Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-99a408ba1bdf",
-      "slug": "senior-categoria-manager-progetto-capex-m-f-d-coopers-group-ag-wallis",
-      "slugByLocale": {
-        "it": "senior-categoria-manager-progetto-capex-m-f-d-coopers-group-ag-wallis",
-        "en": "senior-category-manager-capex-project-m-f-d-coopers-wallis",
-        "de": "senior-category-manager-capex-project-m-f-d-coopers-wallis",
-        "fr": "gestionnaire-de-categorie-principal-projet-capex-h-f-d-coopers-group-ag-wallis"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Senior Category Manager (CAPEX project) (m/f/d)",
-      "titleByLocale": {
-        "it": "Senior Categoria Manager (progetto CAPEX) (m/f/d)",
-        "en": "Senior Category Manager (CAPEX project) (m/f/d)",
-        "de": "Senior Category Manager (CAPEX Projekt) (m/w/d)",
-        "fr": "Gestionnaire de catégorie principal (projet CAPEX) (h/f/d)"
-      },
-      "description": "For our client from the Pharma manufacturing, we are looking for a Senior Category Manager, who will act as a Lead for the development and execution of category strategies for Civil and CSA packages within CAPEX projects\n\nYour Tasks:\n\n• Define and deploy category strategy for CSA (civil works, structural steel, buildings)\n\n• Lead sourcing, tendering and supplier selection for CSA packages\n\n• Drive commercial negotiations including contracts, frameworks and pricing structures\n\n• Partner with Engineering, Construction and Project teams to ensure early procurement involvement\n\n• Manage strategic supplier relationships and contractor performance\n\n• Drive cost optimization, benchmarking and value engineering across projects\n\n• Ensure risk management for construction activities (schedule, cost, HSE and supply risk)\n\n• Ensure compliance with GMP, EHS and construction standards\n\n• Translate category strategies into project-specific sourcing and execution plans\n\n• Monitor contractor performance and implement continuous improvement initiatives\n\nYour Profile:\n\n• Degree in Engineering (Civil, Structural, Construction) or Business. Technical background strongly preferred.\n\n• 10–15 years experience in Procurement, Category Management or Construction sourcing\n\n• Strong experience in pharmaceutical / life sciences CAPEX projects\n\n• Proven experience in CSA / construction sourcing\n\n• Strong track record in complex negotiations and contract management\n\n• Experience in large CAPEX projects (greenfield / brownfield)\n\n• Solid understanding of construction execution, engineering and project lifecycle\n\n• Strong stakeholder management across Engineering, Construction and Project teams\n\n• Fluent English and German",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente dalla produzione di Pharma, stiamo cercando un Senior Categoria Manager, che fungerà da Lead per lo sviluppo e l'esecuzione di strategie di categoria per i pacchetti civili e CSA all'interno dei progetti CAPEX\n\nI vostri compiti:\n\n• Definire e distribuire la strategia di categoria per CSA (lavori civili, acciaio strutturale, edifici)\n\n• Sourcing piombo, tendering e selezione dei fornitori per i pacchetti CSA\n\n• Guidare i negoziati commerciali tra cui contratti, quadri e strutture tariffarie\n\n• Partner con i team Engineering, Construction e Project per garantire il coinvolgimento precoce degli appalti\n\n• Gestire le relazioni strategiche dei fornitori e le prestazioni degli appaltatori\n\n• Ottimizzazione dei costi di trasmissione, benchmarking e ingegneria del valore attraverso i progetti\n\n• Assicurare la gestione dei rischi per le attività di costruzione (schedule, cost, HSE e rischio di fornitura)\n\n• Assicurare il rispetto di GMP, EHS e standard di costruzione\n\n• Tradurre strategie di categoria in piani di approvvigionamento ed esecuzione specifici per il progetto\n\n• Monitorare le prestazioni e implementare iniziative di miglioramento continuo\n\nIl tuo profilo:\n\n• Laurea in Ingegneria (civile, strutturale, costruzione) o Business. Sfondo tecnico fortemente preferito.\n\n• 10–15 anni di esperienza in appalti, gestione della categoria o approvvigionamento di costruzioni\n\n• Forte esperienza nei progetti farmaceutici / life sciences CAPEX\n\n• Esperienza comprovata in CSA / sourcing costruzione\n\n• Forte track record in complesse trattative e gestione dei contratti\n\n• Esperienza nei grandi progetti CAPEX (greenfield / brownfield)\n\n• Solida comprensione dell'esecuzione delle costruzioni, dell'ingegneria e del ciclo di vita del progetto\n\n• Forte gestione delle parti interessate nei team di Ingegneria, Costruzione e Progetto\n\n• Inglese fluente e tedesco",
-        "en": "For our client from the Pharma manufacturing, we are looking for a Senior Category Manager, who will act as a Lead for the development and execution of category strategies for Civil and CSA packages within CAPEX projects\n\nYour Tasks:\n\n• Define and deploy category strategy for CSA (civil works, structural steel, buildings)\n\n• Lead sourcing, tendering and supplier selection for CSA packages\n\n• Drive commercial negotiations including contracts, frameworks and pricing structures\n\n• Partner with Engineering, Construction and Project teams to ensure early procurement involvement\n\n• Manage strategic supplier relationships and contractor performance\n\n• Drive cost optimization, benchmarking and value engineering across projects\n\n• Ensure risk management for construction activities (schedule, cost, HSE and supply risk)\n\n• Ensure compliance with GMP, EHS and construction standards\n\n• Translate category strategies into project-specific sourcing and execution plans\n\n• Monitor contractor performance and implement continuous improvement initiatives\n\nYour Profile:\n\n• Degree in Engineering (Civil, Structural, Construction) or Business. Technical background strongly preferred.\n\n• 10–15 years experience in Procurement, Category Management or Construction sourcing\n\n• Strong experience in pharmaceutical / life sciences CAPEX projects\n\n• Proven experience in CSA / construction sourcing\n\n• Strong track record in complex negotiations and contract management\n\n• Experience in large CAPEX projects (greenfield / brownfield)\n\n• Solid understanding of construction execution, engineering and project lifecycle\n\n• Strong stakeholder management across Engineering, Construction and Project teams\n\n• Fluent English and German",
-        "de": "Für unseren Kunden aus der Pharmaindustrie suchen wir einen Senior Category Manager, der als Lead für die Entwicklung und Ausführung von Kategoriestrategien für Civil- und CSA-Pakete innerhalb von CAPEX-Projekten fungieren wird.\n\nIhre Aufgaben:\n\n• Definition und Umsetzung der Kategoriestrategie für CSA (Zivilarbeiten, Baustahl, Gebäude)\n\n• Lead Sourcing, Ausschreibung und Lieferantenauswahl für CSA-Pakete\n\n• Förderung kommerzieller Verhandlungen einschließlich Verträgen, Rahmenbedingungen und Preisstrukturen\n\n• Partnerschaft mit Engineering-, Bau- und Projektteams zur Sicherstellung einer frühzeitigen Beschaffung\n\n• Verwalten Sie strategische Lieferantenbeziehungen und Leistung von Auftragnehmern\n\n• Kostenoptimierung, Benchmarking und Value Engineering projektübergreifend\n\n• Gewährleistung des Risikomanagements für Bautätigkeiten (Zeitplan, Kosten, HSE und Versorgungsrisiko)\n\n• Gewährleistung der Einhaltung von GMP, EHS und Baunormen\n\n• Übersetzen von Kategoriestrategien in projektspezifische Sourcing- und Ausführungspläne\n\n• Überwachung der Leistung der Auftragnehmer und Umsetzung kontinuierlicher Verbesserungsinitiativen\n\nIhr Profil:\n\n• Abschluss in Engineering (Zivil, Struktur, Bau) oder Business. Technischer Hintergrund stark bevorzugt.\n\n• 10-15 Jahre Erfahrung in Beschaffung, Category Management oder Baubeschaffung\n\n• Starke Erfahrung in pharmazeutischen / Life Sciences CAPEX Projekten\n\n• Nachgewiesene Erfahrung in CSA / Construction Sourcing\n\n• Starke Erfolgsbilanz in komplexen Verhandlungen und Vertragsmanagement\n\n• Erfahrung in großen CAPEX-Projekten (Greenfield / Brownfield)\n\n• Solides Verständnis von Bauausführung, Engineering und Projektlebenszyklus\n\n• Starkes Stakeholder-Management in allen Engineering-, Bau- und Projektteams\n\n• Fließend Englisch und Deutsch",
-        "fr": "Pour notre client de la fabrication Pharma, nous recherchons un gestionnaire de catégorie senior, qui agira comme chef de file pour le développement et l'exécution de stratégies de catégorie pour les paquets civils et CSA dans les projets CAPEX\n\nVos tâches :\n\n• Définir et déployer une stratégie de catégorie pour l'ASC (travaux civils, acier structurel, bâtiments)\n\n• Approvisionnement en chef, appel d'offres et sélection des fournisseurs pour les PAD\n\n• Encourager les négociations commerciales, y compris les contrats, les cadres et les structures de tarification\n\n• Partenariat avec les équipes du génie, de la construction et du projet pour assurer une participation précoce aux achats\n\n• Gérer les relations stratégiques avec les fournisseurs et le rendement des entrepreneurs\n\n• Optimisation des coûts, analyse comparative et ingénierie de la valeur des projets\n\n• Assurer la gestion des risques pour les activités de construction (tableau, coût, ESE et risque d'approvisionnement)\n\n• Assurer la conformité aux normes de BPF, d'EHS et de construction\n\n• Traduire les stratégies de catégorie en plans d'approvisionnement et d'exécution spécifiques au projet\n\n• Surveiller le rendement des entrepreneurs et mettre en oeuvre des initiatives d'amélioration continue\n\nVotre profil:\n\n• Diplôme en ingénierie (civil, structural, construction) ou en affaires. Contexte technique fortement préféré.\n\n• 10-15 ans d'expérience en approvisionnement, gestion de catégorie ou approvisionnement en construction\n\n• Forte expérience dans le domaine pharmaceutique / sciences de la vie Projets CAPEX\n\n• Expérience éprouvée en ASC / Approvisionnement en construction\n\n• Forte expérience des négociations complexes et de la gestion des contrats\n\n• Expérience dans les grands projets CAPEX (champ vert / frai)\n\n• Compréhension solide de l'exécution de la construction, de l'ingénierie et du cycle de vie des projets\n\n• Une gestion efficace des intervenants au sein des équipes du génie, de la construction et du projet\n\n• Anglais et allemand"
-      },
-      "location": "Wallis",
-      "canton": "VS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C81D9P",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:32:28.009Z",
-      "addressLocality": "Wallis",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=C81D9P",
-      "requirements": [
-        "Administration - Procurement",
-        "Wallis",
-        "Contracting",
-        "Full Time",
-        "asap - 12 months",
-        "CAPEX, Procurement"
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Administration - Procurement",
-          "Contracting",
-          "Full Time",
-          "asap - 12 months",
-          "CAPEX, Procurement"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T17:15:06.952Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-category-manager-capex-project-m-f-d-coopers-wallis"
-        ],
-        "fr": [
-          "senior-category-manager-capex-project-m-f-d-coopers-wallis"
-        ]
-      },
-      "previousSlugs": [
-        "senior-category-manager-capex-project-m-f-d-coopers-wallis"
-      ]
-    },
-    {
-      "id": "coopers-696ffdce7076",
-      "slug": "prozess-business-analista-in-schadenmigration-m-w-d-coopers-group-ag-basel-stadt",
-      "slugByLocale": {
-        "it": "prozess-business-analista-in-schadenmigration-m-w-d-coopers-group-ag-basel-stadt",
-        "en": "prozess-business-analyst-in-schadenmigration-m-w-d-coopers-basel-stadt",
-        "de": "prozess-business-analyst-in-schadenmigration-m-w-d-coopers-basel-stadt",
-        "fr": "prozess-business-analyste-in-schadenmigration-m-w-d-coopers-group-ag-basel-stadt"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Prozess/Business Analyst:in - Schadenmigration (m/w/d)",
-      "titleByLocale": {
-        "it": "Prozess/Business Analista:in - Schadenmigration (m/w/d)",
-        "en": "Prozess/Business Analyst:in - Schadenmigration (m/w/d)",
-        "de": "Prozess/Business Analyst:in - Schadenmigration (m/w/d)",
-        "fr": "Prozess/Business Analyste:in - Schadenmigration (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (0Z8NF6)\n\n•\n\t\t\t\t\t\t\tAdministration - Various\n\n•\n\nBasel-Stadt\n\nContracting\n\nPart Time, 80%\n\n01.10.2026 - 31.12.2026 mit Option auf Verlängerung\n\nBusiness Analyse, Schaden\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (0Z8NF6)\n\n•\nAdministration - Various\n\n•\n\nBasel-Stadt\n\nContracting\n\nPart Time, 80%\n\n01.10.2026 - 31.12.2026 mit Option auf Verlängerung\n\nBusiness Analyse, Schaden\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nFlat hierarchy\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (0Z8NF6)\n\n•\nAdministration - Various\n\n•\n\nBasel-Stadt\n\nContracting\n\nPart Time, 80%\n\n01.10.2026 - 31.12.2026 mit Option auf Verlängerung\n\nBusiness Analyse, Schaden\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nFlat hierarchy\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (0Z8NF6)\n\n•\n\nAdministration - Various\n\nBasel-Stadt\n\nContracting\n\nPart Time, 80%\n\n01.10.2026 - 31.12.2026 mit Option auf Verlängerung\n\nBusiness Analyse, Schaden\n\nJob benefits\n\nCompany laptop\n\nCoopers Care\n\nFirst-name terms\n\nFlat hierarchy\n\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (0Z8NF6)\n\n•\nAdministration - Various\n\n•\n\nBasel-Stadt\n\nContracting\n\nPart Time, 80%\n\n01.10.2026 - 31.12.2026 mit Option auf Verlängerung\n\nBusiness Analyse, Schaden\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nFlat hierarchy\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \""
-      },
-      "location": "Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0Z8NF6",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:32:16.051Z",
-      "addressLocality": "Basel-Stadt",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-02",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=0Z8NF6",
-      "requirements": [
-        "Candidates \n\t\t\t \n\t\t\t\t\t\t\t \n\t\t\t\t\t\n\n\t\t\t\t\t \n\t\t\t\t \n\t\t\t\t\t\t\t\n• \n\t\t \n\t\t\t \n\t\t\t\t Coopers Portal",
-        "Coopers Care",
-        "Specialization",
-        "Placements",
-        "Contracting",
-        "Payrolling",
-        "Refer a Friend"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Candidates • Coopers Portal",
-          "Coopers Care",
-          "Specialization",
-          "Placements",
-          "Contracting",
-          "Payrolling",
-          "Refer a Friend"
-        ]
-      },
-      "previousSlugs": [
-        "prozess-business-analyst-in-schadenmigration-m-w-d-coopers-basel-stadt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "prozess-business-analyst-in-schadenmigration-m-w-d-coopers-basel-stadt"
-        ],
-        "fr": [
-          "prozess-business-analyst-in-schadenmigration-m-w-d-coopers-basel-stadt"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-02T13:44:16.695Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
