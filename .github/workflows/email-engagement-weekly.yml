@@ -22,6 +22,16 @@ name: Email Engagement Weekly
 # snapshot settimanale sotto newsletter_subscribers/_meta_/engagement_snapshots,
 # che e anche la baseline del confronto. Niente file di storia nel repo, quindi
 # nessun commit su main e nessun gate data-refresh da soddisfare.
+#
+# Uno snapshot per RUN, con `generated_at` per intero come id del documento
+# (#6317). Prima l'id era la data di calendario e la scrittura faceva merge:
+# una seconda run nello stesso giorno sovrascriveva la baseline della settimana,
+# ed e successo — la run schedulata del 2026-08-31T10:05 (19'596 invii, i numeri
+# finiti sulla issue) non esiste piu, al suo posto c'e una run a mano delle
+# 13:34 (16'875 invii). Il confronto non prende comunque "l'ultimo snapshot":
+# `pickBaseline` accetta solo un window_days uguale e una distanza di almeno
+# mezza finestra, cosi una prova manuale non puo diventare il metro della
+# settimana dopo. Il flag --no-snapshot del dry-run resta la prima difesa.
 
 on:
   schedule:
