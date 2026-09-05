@@ -5497,6 +5497,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritto-locazione-canton-vaud.title': 'Loyers : le droit de location en Suisse',
     'blog.article.diritto-locazione-canton-vaud.excerpt': 'Caution, résiliation et contestation : les règles fédérales pour des loyers sûrs en Suisse, identiques dans chaque canton y compris le Vaud.',
     'blog.article.diritto-locazione-canton-vaud.imageAlt': 'Rue résidentielle suisse avec immeubles bien entretenus, symbole de la qualité du logement et des normes de location',
+    'blog.article.affitti-vaud-deposito-cauzionale.title': 'Loyers Canton de Vaud : droit de location et caution',
+    'blog.article.affitti-vaud-deposito-cauzionale.excerpt': 'Droit de la location dans le canton de Vaud : caution de 3 mois maximum, résiliation légale sur formulaire officiel et contestation auprès de l\'autorité de conciliation.',
+    'blog.article.affitti-vaud-deposito-cauzionale.imageAlt': 'Intérieur d\'un appartement suisse moderne avec vue sur le lac, symbole du marché locatif suisse',
 };
 
 export default blogMetaChFr;

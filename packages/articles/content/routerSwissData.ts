@@ -1858,6 +1858,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-vaud-ipoteca-costi': { it: 'comprare-casa-vaud-ipoteca-costi', en: 'buy-home-vaud-mortgage-costs', de: 'haus-kauf-vaud-hypothek-kosten', fr: 'acheter-maison-vaud-hypotheque-couts' },
  'custodia-bambini-zugo-tariffe-sussidi': { it: 'custodia-bambini-zugo-tariffe-sussidi', en: 'childcare-zugo-tariffs-subsidies', de: 'kinderbetreuung-zug-tarife-subventionen', fr: 'garde-enfants-zoug-tarifs-subventions' },
  'diritto-locazione-canton-vaud': { it: 'diritto-locazione-canton-vaud', en: 'rental-law-canton-vaud', de: 'mietrecht-kanton-waadt', fr: 'droit-location-canton-vaud' },
+ 'affitti-vaud-deposito-cauzionale': { it: 'affitti-vaud-deposito-cauzionale', en: 'vaud-rentals-deposit-rights', de: 'mietmarkt-waadt-mietkaution', fr: 'locations-vaud-depot-garantie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
