@@ -605,7 +605,11 @@ function runValidateCanonical() {
         if (isLegitJobConsolidation(url, canonical)) {
           bridgeSkipped++;
         } else {
-          errors.push({ url, issue: `Canonical mismatch: canonical → ${canonical} (different page)` });
+          // flatString: a multi-substitution template literal is a ConsString
+        // that keeps `canonical` — a capture into the page HTML — alive, so
+        // `errors` would pin one full document per mismatch, at the same
+        // boundary and for the same reason as check 1's `offenders` above.
+        errors.push({ url, issue: flatString(`Canonical mismatch: canonical → ${canonical} (different page)`) });
         }
       }
     }
