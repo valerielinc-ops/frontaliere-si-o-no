@@ -5503,6 +5503,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.locazione-vaud-deposito-cauzionale.title': 'Locazione Vaud: deposito, disdetta e conciliazione',
     'blog.article.locazione-vaud-deposito-cauzionale.excerpt': 'Diritti della locazione nel Vaud: deposito cauzionale, disdetta, contestazione canone e autorità di conciliazione secondo il diritto federale svizzero.',
     'blog.article.locazione-vaud-deposito-cauzionale.imageAlt': 'Contratto di locazione con chiavi di casa su scrivania con penna, stile fotorealistica DSLR.',
+    'blog.article.affitti-vaud-diritti-locatari.title': 'Affitti Vaud: diritti locatari e deposito cauzione',
+    'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Diritto di locazione in Vaud: deposito cauzionale, disdetta, contestazione canone e autorità conciliazione secondo il Codice delle Obbligazioni federale.',
+    'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Strada residenziale con edifici multifamiliari in Svizzera, rappresentativi del mercato degli affitti',
 };
 
 export default blogMetaChIt;

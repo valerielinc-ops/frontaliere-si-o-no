@@ -5503,6 +5503,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazione-vaud-deposito-cauzionale.title': 'Location Vaud : dépôt, résiliation et conciliation',
     'blog.article.locazione-vaud-deposito-cauzionale.excerpt': 'Droits de location en Vaud : caution, résiliation, contestation de la redevance et autorité de conciliation selon le droit fédéral suisse.',
     'blog.article.locazione-vaud-deposito-cauzionale.imageAlt': 'Contrat de bail avec clés de maison sur bureau suisse, style DSLR photoréaliste.',
+    'blog.article.affitti-vaud-diritti-locatari.title': 'Location Vaud : droits locataires et dépôt de caution',
+    'blog.article.affitti-vaud-diritti-locatari.excerpt': 'Droit de location en Vaud : caution, résiliation, contestation de redevance et autorité de conciliation selon le Code fédéral des obligations.',
+    'blog.article.affitti-vaud-diritti-locatari.imageAlt': 'Rue résidentielle avec immeubles collectifs, typiques du marché locatif suisse',
 };
 
 export default blogMetaChFr;
