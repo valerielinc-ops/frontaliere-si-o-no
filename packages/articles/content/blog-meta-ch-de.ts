@@ -5548,6 +5548,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Eine halbe Milliarde für die Bauern, um das Abkommen mit dem Mercosur zu retten',
     'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'Die Aussenpolitische Kommission des Ständerates schlägt 517 Millionen Franken für die Schweizer Bauern vor.',
     'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Schweizer Bauern in einer Besprechung über ein Freihandelsabkommen.',
+    'blog.article.zugo-salari-occupazione-guida.title': 'Arbeitsmarkt Zug: Löhne, Branchen und Ausbildung',
+    'blog.article.zugo-salari-occupazione-guida.excerpt': 'Praktischer Leitfaden zu Löhnen und Beschäftigungsmöglichkeiten im Kanton Zug: Ausbildungslöhne, Arbeitnehmerrechte und Nettolohnberechnung in der Schweiz.',
+    'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Schweizer Bürogebäude und Arbeitsbereiche, die den Arbeitsmarkt und Beschäftigungsmöglichkeiten darstellen',
 };
 
 export default blogMetaChDe;

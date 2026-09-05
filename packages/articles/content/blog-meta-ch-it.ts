@@ -5548,6 +5548,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mezzo-miliardo-contadini-mercosur.title': 'Mezzo miliardo ai contadini per salvare l’intesa con il Mercosur',
     'blog.article.mezzo-miliardo-contadini-mercosur.excerpt': 'La Commissione della politica estera del Consiglio degli Stati propone 517 milioni di franchi per i contadini svizzeri.',
     'blog.article.mezzo-miliardo-contadini-mercosur.imageAlt': 'Agricoltori svizzeri in una riunione di discussione su un accordo di libero scambio.',
+    'blog.article.zugo-salari-occupazione-guida.title': 'Mercato del lavoro Zugo: salari, settori e formazione',
+    'blog.article.zugo-salari-occupazione-guida.excerpt': 'Guida pratica ai salari e alle opportunità di occupazione nel cantone di Zugo: livelli salariali per formazione, diritti dei lavoratori e calcolo dello stipendio netto in Svizzera.',
+    'blog.article.zugo-salari-occupazione-guida.imageAlt': 'Uffici svizzeri e spazi di lavoro che rappresentano il mercato occupazionale e le opportunità nel settore privato',
 };
 
 export default blogMetaChIt;
