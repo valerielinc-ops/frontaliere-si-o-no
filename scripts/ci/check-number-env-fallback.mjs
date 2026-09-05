@@ -60,11 +60,39 @@ export function lineHasNumberEnvFallback(line) {
   return BAD_RE.test(code);
 }
 
-function gitGrepLines() {
+/**
+ * `[[:space:]]` e non `\s`. `git grep -E` usa il regex engine della piattaforma:
+ * `\s` e' un'estensione GNU che su Linux (i runner CI) funziona e su macOS
+ * (BSD) **non matcha niente**. La prima versione di questo gate lo usava e
+ * rendeva `0 violazioni` in locale mentre in CI ne trovava 5 — cioe' proprio il
+ * verde vacuo che questo gate esiste per impedire, in questo gate. La classe
+ * POSIX e' l'unica forma che significa la stessa cosa sui due sistemi.
+ */
+const GIT_GREP_PATTERN = 'Number\\([[:space:]]*process\\.env\\.[A-Za-z_0-9]+[[:space:]]*\\|\\|';
+
+/**
+ * CONTROLLO POSITIVO. `tests/int-from-env.test.ts` contiene per mestiere il
+ * costrutto vietato, nelle due spaziature che il pattern deve coprire
+ * (`Number(process.env.X || 8000)` e `Number( process.env.FOO_MS || 120_000 )`).
+ * Se la ricerca NON lo trova, l'albero non e' pulito: e' la ricerca a non aver
+ * guardato — motore di regex, pathspec o invocazione.
+ *
+ * Serve perche' un pattern rotto e un albero pulito producono lo stesso identico
+ * output, ed e' gia' successo A QUESTO GATE: la prima versione usava `\s`, che
+ * `git grep -E` risolve come estensione GNU su Linux e non risolve affatto su
+ * macOS. In locale rendeva `0 violazioni`, in CI ne trovava 5. Un gate che si
+ * spegne in silenzio e' peggio di nessun gate, perche' lo si legge come verde.
+ *
+ * `check-client-lookbehind.mjs` documenta di NON poter avere questo controllo
+ * («no guaranteed-present token exists»); qui il token esiste, quindi c'e'.
+ */
+const CANARY_FILE = 'tests/int-from-env.test.ts';
+
+function gitGrep(pattern) {
   try {
     const out = execFileSync(
       'git',
-      ['grep', '-nE', 'Number\\(\\s*process\\.env\\.[A-Za-z_0-9]+\\s*\\|\\|', '--', ...GLOBS],
+      ['grep', '-nE', pattern, '--', ...GLOBS],
       { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
     );
     return out.split('\n').filter(Boolean);
@@ -77,13 +105,37 @@ function gitGrepLines() {
   }
 }
 
+function gitGrepLines() {
+  const hits = gitGrep(GIT_GREP_PATTERN);
+  if (!hits.some((h) => h.startsWith(`${CANARY_FILE}:`))) {
+    throw new Error(
+      `check-number-env-fallback: il controllo positivo non ha trovato il costrutto in ${CANARY_FILE}, `
+      + 'dove c\'e\' di sicuro. La ricerca non ha guardato l\'albero (pathspec, motore di regex o '
+      + 'invocazione): zero violazioni qui NON significa pulito.',
+    );
+  }
+  return hits;
+}
+
 export function findViolations() {
   const violations = [];
   for (const hit of gitGrepLines()) {
     const m = hit.match(/^([^:]+):(\d+):(.*)$/);
     if (!m) continue;
     const [, file, lineno, content] = m;
-    if (!/\.(mjs|cjs|js|ts|tsx)$/.test(file)) continue;
+    // `.yml` incluso: lo script inline di `actions/github-script` e' JavaScript
+    // eseguito, con lo stesso identico guasto (misurato:
+    // `.github/workflows/job-title-locale-audit.yml` calcolava la soglia di
+    // allarme con questo costrutto). Escluderlo avrebbe lasciato fuori dal
+    // gate una meta' del reporting.
+    if (!/\.(mjs|cjs|js|ts|tsx|ya?ml)$/.test(file)) continue;
+    // Stessa esenzione di check-client-lookbehind: un test PUO' scrivere
+    // l'antipattern, e' il suo mestiere documentarlo.
+    if (file.includes('.test.') || file.includes('.spec.')) continue;
+    // E questo file scrive il costrutto nei propri messaggi d'errore. Senza
+    // l'esenzione il gate sarebbe rosso per sempre, il che lo renderebbe
+    // inutile — la sua correttezza e' pinnata da tests/int-from-env.test.ts.
+    if (file === 'scripts/ci/check-number-env-fallback.mjs') continue;
     if (lineHasNumberEnvFallback(content)) violations.push({ file, line: Number(lineno), content: content.trim() });
   }
   return violations.sort((a, b) => (a.file === b.file ? a.line - b.line : a.file < b.file ? -1 : 1));

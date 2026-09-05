@@ -997,7 +997,7 @@ jobs:
       # fine (NaN is falsy there). Correct form: intFromEnv() from
       # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
       # by tests/int-from-env.test.ts.
-      - name: Forbid Number(process.env.X || N)
+      - name: Forbid the NaN-producing env fallback inside Number()
         if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         background: true
         run: node scripts/ci/check-number-env-fallback.mjs
