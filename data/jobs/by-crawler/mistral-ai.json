@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mistral-ai-482e51677b31",
-      "slug": "research-engineer-forge-mistral-ai-ch",
+      "slug": "ricerca-ingegnere-forge-mistral-ai-zurich",
       "slugByLocale": {
         "en": "research-engineer-forge-mistral-ai-ch",
-        "it": "research-engineer-forge-mistral-ai-ch",
-        "de": "research-engineer-forge-mistral-ai-ch",
-        "fr": "research-engineer-forge-mistral-ai-ch"
+        "it": "ricerca-ingegnere-forge-mistral-ai-zurich",
+        "de": "forschung-ingenieur-forge-mistral-ai-zurich",
+        "fr": "recherche-ingenieur-forge-mistral-ai-zurich"
       },
       "company": "Mistral AI",
       "companyKey": "mistral-ai",
@@ -64,7 +64,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-04T23:12:47.693Z"
+      "firstSeenAt": "2026-09-04T23:12:47.693Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-engineer-forge-mistral-ai-ch"
+        ],
+        "de": [
+          "research-engineer-forge-mistral-ai-ch"
+        ],
+        "fr": [
+          "research-engineer-forge-mistral-ai-ch"
+        ]
+      },
+      "previousSlugs": [
+        "research-engineer-forge-mistral-ai-ch"
+      ]
     },
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -113,13 +127,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-scientist-research-engineer-emea-mistral-ai-ch",
-        "applied-scientist-ricerca-ingegnere-emea-mistral-ai-lausanne"
+        "applied-scientist-research-engineer-emea-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-scientist-research-engineer-emea-mistral-ai-ch",
-          "applied-scientist-ricerca-ingegnere-emea-mistral-ai-lausanne"
+          "applied-scientist-research-engineer-emea-mistral-ai-ch"
         ],
         "en": [
           "applied-scientist-research-engineer-emea-mistral-ai-ch"
@@ -197,16 +209,14 @@
         "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
         "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
         "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
-        "research-engineer-data-infrastructure-mistral-ai-ch",
-        "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich"
+        "research-engineer-data-infrastructure-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
           "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
           "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
-          "research-engineer-data-infrastructure-mistral-ai-ch",
-          "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich"
+          "research-engineer-data-infrastructure-mistral-ai-ch"
         ],
         "de": [
           "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
@@ -281,14 +291,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch",
-        "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch",
-        "applied-ai-technical-lead-forward-deployed-ai-ingegnere-mistral-ai-lausanne"
+        "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch",
-          "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch",
-          "applied-ai-technical-lead-forward-deployed-ai-ingegnere-mistral-ai-lausanne"
+          "applied-ai-technical-lead-forward-deployed-ai-engineer-emea-mistral-ai-ch"
         ],
         "de": [
           "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch"
@@ -357,13 +365,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
-        "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
+        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
-          "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
+          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
         ],
         "de": [
           "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
@@ -435,13 +441,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
-        "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
+        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
-          "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
+          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
         ],
         "de": [
           "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
@@ -513,13 +517,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-engineer-machine-learning-mistral-ai-ch",
-        "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
+        "research-engineer-machine-learning-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-engineer-machine-learning-mistral-ai-ch",
-          "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
+          "research-engineer-machine-learning-mistral-ai-ch"
         ],
         "de": [
           "research-engineer-machine-learning-mistral-ai-ch"
@@ -676,13 +678,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
-        "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne"
+        "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
-          "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne"
+          "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
         ],
         "de": [
           "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
@@ -754,13 +754,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-software-engineer-mistral-ai-ch",
-        "ricerca-software-ingegnere-mistral-ai-zurich"
+        "research-software-engineer-mistral-ai-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-software-engineer-mistral-ai-ch",
-          "ricerca-software-ingegnere-mistral-ai-zurich"
+          "research-software-engineer-mistral-ai-ch"
         ],
         "de": [
           "research-software-engineer-mistral-ai-ch"

@@ -55,14 +55,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt",
-        "collaboratore-trice-magazzino-con-fahreinsatzen-m-w-d-planzer-zermatt",
-        "cuscinetti-dipendenti-con-missioni-di-guida-m-f-d-planzer-zermatt"
+        "collaboratore-trice-magazzino-con-fahreinsatzen-m-w-d-planzer-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt",
-          "collaboratore-trice-magazzino-con-fahreinsatzen-m-w-d-planzer-zermatt",
-          "cuscinetti-dipendenti-con-missioni-di-guida-m-f-d-planzer-zermatt"
+          "collaboratore-trice-magazzino-con-fahreinsatzen-m-w-d-planzer-zermatt"
         ],
         "en": [
           "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt"
@@ -139,14 +137,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
-        "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
-        "selezione-dei-dipendenti-m-f-d-planzer-harkingen"
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
-          "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
-          "selezione-dei-dipendenti-m-f-d-planzer-harkingen"
+          "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
         ],
         "en": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
@@ -172,12 +168,12 @@
     },
     {
       "id": "planzer-acf643b541ef",
-      "slug": "paketzusteller-m-w-d-planzer-winterthur",
+      "slug": "consegna-del-pacchetto-m-f-d-planzer-winterthur",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-winterthur",
-        "it": "paketzusteller-m-w-d-planzer-winterthur",
-        "en": "paketzusteller-m-w-d-planzer-winterthur",
-        "fr": "paketzusteller-m-w-d-planzer-winterthur"
+        "it": "consegna-del-pacchetto-m-f-d-planzer-winterthur",
+        "en": "package-delivery-m-f-d-planzer-winterthur",
+        "fr": "livraison-de-colis-h-f-d-planzer-winterthur"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -235,7 +231,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T22:57:50.261Z"
+      "firstSeenAt": "2026-09-04T22:57:50.261Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-winterthur"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-winterthur"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-winterthur"
+      ]
     },
     {
       "id": "planzer-c550e27051ac",
@@ -289,13 +299,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-lager-m-w-d-planzer-wikon",
-        "collaboratore-trice-magazzino-m-w-d-planzer-wikon"
+        "mitarbeiter-lager-m-w-d-planzer-wikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-lager-m-w-d-planzer-wikon",
-          "collaboratore-trice-magazzino-m-w-d-planzer-wikon"
+          "mitarbeiter-lager-m-w-d-planzer-wikon"
         ],
         "en": [
           "mitarbeiter-lager-m-w-d-planzer-wikon"
@@ -325,8 +333,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon",
         "it": "collaboratore-trice-fuhrpark-m-w-d-planzer-schmerikon",
-        "en": "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon",
-        "fr": "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon"
+        "en": "employee-fleet-m-f-d-planzer-schmerikon",
+        "fr": "flotte-d-employes-h-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -373,6 +381,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
           "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon"
         ]
       },
@@ -446,14 +460,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken",
-        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken",
-        "apprendistato-professional-female-manutenzione-efz-planzer-daniken"
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken",
-          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken",
-          "apprendistato-professional-female-manutenzione-efz-planzer-daniken"
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken"
         ],
         "en": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken"
@@ -479,12 +491,12 @@
     },
     {
       "id": "planzer-3a02a80a522f",
-      "slug": "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach",
+      "slug": "amministrazione-logistica-del-personale-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach",
-        "it": "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach",
-        "en": "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach",
-        "fr": "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach"
+        "it": "amministrazione-logistica-del-personale-m-f-d-planzer-kallnach",
+        "en": "personnel-logistics-administration-m-f-d-planzer-kallnach",
+        "fr": "administration-logistique-du-personnel-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -542,16 +554,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T22:57:46.147Z"
+      "firstSeenAt": "2026-09-04T22:57:46.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-logistikadministration-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-b13bfeb06661",
-      "slug": "paketzusteller-m-w-d-planzer-zurich-altstetten",
+      "slug": "consegna-del-pacchetto-m-f-d-planzer-zurich-altstetten",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-zurich-altstetten",
-        "it": "paketzusteller-m-w-d-planzer-zurich-altstetten",
-        "en": "paketzusteller-m-w-d-planzer-zurich-altstetten",
-        "fr": "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        "it": "consegna-del-pacchetto-m-f-d-planzer-zurich-altstetten",
+        "en": "package-delivery-m-f-d-planzer-zurich-altstetten",
+        "fr": "livraison-de-colis-h-f-d-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -609,16 +635,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T22:57:45.134Z"
+      "firstSeenAt": "2026-09-04T22:57:45.134Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-zurich-altstetten"
+      ]
     },
     {
       "id": "planzer-77cc1be42746",
-      "slug": "disponent-m-w-d-planzer-zurich",
+      "slug": "traduzione-m-f-d-planzer-zurich",
       "slugByLocale": {
         "de": "disponent-m-w-d-planzer-zurich",
-        "it": "disponent-m-w-d-planzer-zurich",
+        "it": "traduzione-m-f-d-planzer-zurich",
         "en": "disponent-m-w-d-planzer-zurich",
-        "fr": "disponent-m-w-d-planzer-zurich"
+        "fr": "detenteur-h-f-d-planzer-zurich"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -676,16 +716,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T22:57:44.124Z"
+      "firstSeenAt": "2026-09-04T22:57:44.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-m-w-d-planzer-zurich"
+        ],
+        "fr": [
+          "disponent-m-w-d-planzer-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-m-w-d-planzer-zurich"
+      ]
     },
     {
       "id": "planzer-ae045d685e43",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-zurich",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-zurich",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-zurich",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
         "en": "chauffeur-kat-ce-m-w-d-planzer-zurich",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-zurich"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-zurich"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -747,16 +798,19 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
-          "chauffeur-kat-c-ce-springer-m-w-d-planzer-schmerikon"
+          "chauffeur-kat-c-ce-springer-m-w-d-planzer-schmerikon",
+          "chauffeur-kat-ce-m-w-d-planzer-zurich"
         ],
         "fr": [
           "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
-          "chauffeur-kat-c-ce-springer-m-w-d-planzer-schmerikon"
+          "chauffeur-kat-c-ce-springer-m-w-d-planzer-schmerikon",
+          "chauffeur-kat-ce-m-w-d-planzer-zurich"
         ]
       },
       "previousSlugs": [
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
-        "chauffeur-kat-c-ce-springer-m-w-d-planzer-schmerikon"
+        "chauffeur-kat-c-ce-springer-m-w-d-planzer-schmerikon",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich"
       ]
     },
     {

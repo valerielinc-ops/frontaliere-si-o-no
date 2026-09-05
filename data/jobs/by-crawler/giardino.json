@@ -90,7 +90,7 @@
       "slug": "capopartita-giardino-group-champfer",
       "slugByLocale": {
         "it": "capopartita-giardino-group-champfer",
-        "en": "chef-de-partie-giardino-group-champfer",
+        "en": "head-of-party-giardino-group-champfer",
         "de": "chef-de-partie-giardino-group-champfer",
         "fr": "chef-de-partie-giardino-group-champfer"
       },
@@ -152,17 +152,13 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-partie-giardino-group-champfer",
-        "head-of-party-giardino-group-champfer",
-        "capopartita-giardino-group-champfer"
+        "chef-de-partie-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-giardino-group-champfer",
-          "capopartita-giardino-group-champfer"
+          "chef-de-partie-giardino-group-champfer"
         ],
         "en": [
-          "head-of-party-giardino-group-champfer",
           "chef-de-partie-giardino-group-champfer"
         ]
       },
@@ -250,14 +246,12 @@
       },
       "previousSlugs": [
         "child-care-attendant-giardino-group-ascona",
-        "assistant-a-la-garde-d-enfants-giardino-group-ascona",
-        "assistente-per-la-cura-dei-bambini-giardino-group-ascona"
+        "assistant-a-la-garde-d-enfants-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "child-care-attendant-giardino-group-ascona",
-          "assistant-a-la-garde-d-enfants-giardino-group-ascona",
-          "assistente-per-la-cura-dei-bambini-giardino-group-ascona"
+          "assistant-a-la-garde-d-enfants-giardino-group-ascona"
         ],
         "fr": [
           "child-care-attendant-giardino-group-ascona"
@@ -451,13 +445,11 @@
         ]
       },
       "previousSlugs": [
-        "commis-de-rang-giardino-group-champfer",
-        "commissione-di-rang-giardino-group-champfer"
+        "commis-de-rang-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-rang-giardino-group-champfer",
-          "commissione-di-rang-giardino-group-champfer"
+          "commis-de-rang-giardino-group-champfer"
         ],
         "fr": [
           "commis-de-rang-giardino-group-champfer"
@@ -546,13 +538,11 @@
         ]
       },
       "previousSlugs": [
-        "bell-attendant-giardino-group-champfer",
-        "bellista-giardino-group-champfer"
+        "bell-attendant-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bell-attendant-giardino-group-champfer",
-          "bellista-giardino-group-champfer"
+          "bell-attendant-giardino-group-champfer"
         ],
         "fr": [
           "bell-attendant-giardino-group-champfer"
@@ -644,13 +634,11 @@
         ]
       },
       "previousSlugs": [
-        "assistant-concierge-giardino-group-champfer",
-        "assistente-giardino-group-champfer"
+        "assistant-concierge-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-concierge-giardino-group-champfer",
-          "assistente-giardino-group-champfer"
+          "assistant-concierge-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-29T11:34:41.921Z",
@@ -675,7 +663,7 @@
         "it": "addetto-alle-pulizie-giardino-group-ascona",
         "en": "housekeeping-waiting-giardino-group-ascona",
         "de": "housekeeping-attendant-giardino-group-ascona",
-        "fr": "housekeeping-attendant-giardino-group-ascona"
+        "fr": "employe-de-menage-giardino-group-ascona"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -736,18 +724,14 @@
       },
       "previousSlugs": [
         "housekeeping-attendant-giardino-group-ascona",
-        "agent-de-menage-giardino-group-ascona",
-        "employe-de-menage-giardino-group-ascona",
-        "addetto-alle-pulizie-giardino-group-ascona"
+        "agent-de-menage-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "housekeeping-attendant-giardino-group-ascona",
-          "addetto-alle-pulizie-giardino-group-ascona"
+          "housekeeping-attendant-giardino-group-ascona"
         ],
         "fr": [
           "agent-de-menage-giardino-group-ascona",
-          "employe-de-menage-giardino-group-ascona",
           "housekeeping-attendant-giardino-group-ascona"
         ]
       },
@@ -1054,7 +1038,7 @@
         "de": "staff-cook-giardino-group-champfer",
         "it": "staff-cook-giardino-group-champfer",
         "en": "staff-cook-giardino-group-champfer",
-        "fr": "staff-cook-giardino-group-champfer"
+        "fr": "cuisiniere-du-personnel-giardino-group-champfer"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -1128,9 +1112,6 @@
       "firstSeenAt": "2026-09-04T23:13:18.867Z",
       "previousSlugsByLocale": {
         "it": [
-          "cuisiniere-du-personnel-giardino-group-champfer"
-        ],
-        "fr": [
           "cuisiniere-du-personnel-giardino-group-champfer"
         ]
       },
@@ -1233,12 +1214,12 @@
     },
     {
       "id": "giardino-fdb8c9dbf902",
-      "slug": "restaurant-manager-giardino-group-champfer",
+      "slug": "responsabile-del-ristorante-giardino-group-champfer",
       "slugByLocale": {
         "de": "restaurant-manager-giardino-group-champfer",
-        "it": "restaurant-manager-giardino-group-champfer",
+        "it": "responsabile-del-ristorante-giardino-group-champfer",
         "en": "restaurant-manager-giardino-group-champfer",
-        "fr": "restaurant-manager-giardino-group-champfer"
+        "fr": "directeur-du-restaurant-giardino-group-champfer"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -1315,7 +1296,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T23:13:18.866Z"
+      "firstSeenAt": "2026-09-04T23:13:18.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurant-manager-giardino-group-champfer"
+        ],
+        "fr": [
+          "restaurant-manager-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "restaurant-manager-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-0b6bfc0edf27",

@@ -790,13 +790,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
-        "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
-          "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
         ],
         "en": [
           "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
@@ -879,8 +877,7 @@
         "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -892,8 +889,7 @@
           "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
         ],
         "en": [
           "railway-constructors-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -983,8 +979,7 @@
         "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-        "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1000,8 +995,7 @@
           "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-          "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
         ],
         "en": [
           "rail-project-manager-security-installations-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -1096,12 +1090,12 @@
     },
     {
       "id": "tl-lausanne-311961b39488",
-      "slug": "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "slug": "gestione-delle-pulci-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
-        "it": "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
-        "de": "gestionnaire-parc-vehicules-tl-lausanne-lausanne"
+        "it": "gestione-delle-pulci-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "fleet-manager-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "flottenmanager-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1147,11 +1141,19 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
+          "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        ],
+        "en": [
+          "gestionnaire-parc-vehicules-tl-lausanne-lausanne"
+        ],
+        "de": [
           "gestionnaire-parc-vehicules-tl-lausanne-lausanne"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-parc-vehicules-tl-lausanne-lausanne"
+        "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
+        "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
