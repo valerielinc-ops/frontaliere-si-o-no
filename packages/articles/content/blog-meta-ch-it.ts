@@ -5527,6 +5527,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-vaud.title': 'Imposta successione e donazione nel Cantone di Vaud',
     'blog.article.imposta-successione-donazione-vaud.excerpt': 'Guida alle aliquote e alle esenzioni per eredi e donatari nel sistema fiscale del Cantone di Vaud, con focus sui rapporti di parentela.',
     'blog.article.imposta-successione-donazione-vaud.imageAlt': 'Documenti fiscali e pianificazione patrimoniale in Svizzera',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.title': 'Imposte cantonali nel Vallese: aliquote e deduzioni',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.excerpt': 'Scopri le aliquote e le deduzioni fiscali nel Cantone Vallese, con dettagli su scadenze e portale online dell\'amministrazione fiscale.',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.imageAlt': 'Vista panoramica del Lago Maggiore con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaChIt;

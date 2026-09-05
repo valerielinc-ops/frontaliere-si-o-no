@@ -5527,6 +5527,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-vaud.title': 'Erbschafts- und Schenkungssteuer im Kanton Waadt',
     'blog.article.imposta-successione-donazione-vaud.excerpt': 'Leitfaden zu den Steuersätzen und Befreiungen für Erben und Schenkende im Steuersystem des Kantons Waadt mit Schwerpunkt auf Verwandtschaftsverhältnissen.',
     'blog.article.imposta-successione-donazione-vaud.imageAlt': 'Steuerunterlagen und Vermögensplanung in der Schweiz',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.title': 'Kantonale Steuern im Wallis: Sätze und Abzüge',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.excerpt': 'Entdecken Sie die Steuersätze und Steuerabzüge im Kanton Wallis, mit Details zu Fälligkeiten und dem Online-Portal der Steuerverwaltung.',
+    'blog.article.imposte-cantonali-vallese-aliquote-deduzioni.imageAlt': 'Panoramablick auf den Lago Maggiore mit den Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

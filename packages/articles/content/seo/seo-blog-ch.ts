@@ -71741,6 +71741,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-vallese-aliquote-deduzioni': {
+    title: 'Imposte cantonali nel Vallese: aliquote e deduzioni',
+    description: 'Scopri le aliquote e le deduzioni fiscali nel Cantone Vallese, con dettagli su scadenze e portale online dell\'amministrazione fiscale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, vallese, aliquote',
+    ogTitle: 'Imposte cantonali nel Vallese: aliquote e deduzioni',
+    ogDescription: 'Esplora le aliquote e le deduzioni fiscali nel Cantone Vallese, con informazioni su scadenze e portale online dell\'amministrazione fiscale.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-vallese-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali nel Vallese: aliquote e deduzioni",
+      "description": "Scopri le aliquote e le deduzioni fiscali nel Cantone Vallese, con dettagli su scadenze e portale online dell'amministrazione fiscale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-vallese-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago Maggiore con le montagne svizzere sullo sfondo"
+      },
+      "datePublished": "2026-09-05T09:53:45+00:00",
+      "dateModified": "2026-09-05T09:53:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-vallese-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
