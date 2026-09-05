@@ -11395,6 +11395,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.title': 'Living in Ponte Lambro and working in Ticino as a border worker',
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of living in Ponte Lambro and working in Ticino.',
     'blog.article.vivere-ponte-lambro-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
+    'blog.article.export-varese-record-2026.title': 'Export Varese: Lombardy record in the first quarter of 2026',
+    'blog.article.export-varese-record-2026.excerpt': 'Varese regional leader with +23% in exports. Switzerland is doing well (+21.2%), but the CIGS is growing (+14.9%), a sign of ongoing corporate reorganisations.',
+    'blog.article.export-varese-record-2026.imageAlt': 'Economic analysis and export data in the Varese region.',
 };
 
 export default blogMetaEn;
