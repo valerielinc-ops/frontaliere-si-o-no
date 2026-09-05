@@ -9663,9 +9663,6 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.allacasadicomunitalavenosegnala.title': 'Working at 37 degrees in Laveno, the union reports',
     'blog.article.allacasadicomunitalavenosegnala.excerpt': 'The union reports the case of a community house in Laveno where it works with high temperatures',
     'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'A community house in Ticino with high temperatures',
-    'blog.article.vivere-tovo-lavorare-grigioni.title': 'Living in Tovo di Sant\'Agata and working in Graubünden',
-    'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Practical guide for border workers: taxation, new agreement, deductibles and social security contributions for those who reside in Valtellina and work in the Canton of Graubünden.',
-    'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Panoramic view of a mountain road near the Italian-Swiss border',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Living in Saint-Rhémy-En-Bosses and working in Valais as a border worker',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'G permits, work in Valais, commuting and cost of living for border workers residing in Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontaliere with child leaving a border crossing',
@@ -9699,9 +9696,6 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontier in Valais: rules and taxation',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Operational guidance on the new tax agreement, income management and social security obligations for frontier workers in Switzerland.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Alpine mountain landscape with village',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Living in Courmayeur and working in Valais as a border worker',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Tax setting and permits for border workers living in Courmayeur and working in Valais',
-    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'A view of Courmayeur, an Italian city located on the border with Switzerland',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Living in Gignod and working in Valais as a border worker',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analysis of tax and operational constraints for cross-border commuting between Italy and Switzerland according to current agreements.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Swiss alpine landscape near the border',
@@ -11428,6 +11422,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.figino-serenza-frontaliere-ticino.title': 'Figino Serenza: guide for border workers in Ticino',
     'blog.article.figino-serenza-frontaliere-ticino.excerpt': 'Permit G, taxation, LAMal and costs: everything that changes if you live in Figino Serenza and work in the Canton of Ticino as a border worker.',
     'blog.article.figino-serenza-frontaliere-ticino.imageAlt': 'Aerial view of Lugano, Ticino and its lake at sunset, typical workplace destination for Italian cross-border commuters.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.title': 'Living in Bellagio, working in Ticino: border guide',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.excerpt': 'Moving to Bellagio and working in Ticino as a border worker: discover the tax regime, AVS contributions, LAMal and how to plan the transfer.',
+    'blog.article.vivere-bellagio-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lugano lake with mountains, representing a Ticino workplace for cross-border commuters',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.title': 'Living in Griante and working in Ticino as a border worker',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.excerpt': 'Benefits, procedures, costs and regulations for those who choose to live in Griante working in the Canton of Ticino as a border worker',
+    'blog.article.vivere-griante-lavorare-ticino-frontaliere.imageAlt': 'Lake Como view at Griante with residential buildings and mountain landscape',
 };
 
 export default blogMetaEn;
