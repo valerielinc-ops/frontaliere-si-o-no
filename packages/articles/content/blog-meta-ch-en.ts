@@ -5524,6 +5524,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-canton-vaud-conversione-esami.title': 'Driver\'s license in the Canton of Vaud: conversion, exams and compulsory courses',
     'blog.article.patente-guida-canton-vaud-conversione-esami.excerpt': 'Practical guide to the conversion of the foreign driver\'s license in the Canton of Vaud, including theoretical and practical exams, compulsory courses and the competent traffic office.',
     'blog.article.patente-guida-canton-vaud-conversione-esami.imageAlt': 'Swiss road with car approaching traffic office',
+    'blog.article.imposta-successione-donazione-vaud.title': 'Tax succession and donation in the Canton of Vaud',
+    'blog.article.imposta-successione-donazione-vaud.excerpt': 'Guide to rates and exemptions for heirs and donors in the tax system of the Canton of Vaud, with a focus on kinship relationships.',
+    'blog.article.imposta-successione-donazione-vaud.imageAlt': 'Fiscal documents and wealth planning in Switzerland',
 };
 
 export default blogMetaChEn;
