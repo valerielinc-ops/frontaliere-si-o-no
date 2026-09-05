@@ -4754,6 +4754,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "LU",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4804,9 +4806,7 @@
         "verkaufer-in-food-coop-meggen-luzern-j90fet",
         "verkaufer-in-food-coop-meggen-luzern",
         "venditore-in-food-coop-genossenschaft-meggen"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000
+      ]
     },
     {
       "id": "company-qh26l1",
@@ -8355,6 +8355,8 @@
       "addressLocality": "Ittigen",
       "sourceLang": "de",
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8367,6 +8369,11 @@
         }
       },
       "previousSlugsByLocale": {
+        "en": [
+          "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-t8o74u",
+          "kochin-koch-w-m-d-coop-genossenschaft-ittigen",
+          "chef-chef-m-f-d-coop-genossenschaft-ittigen-bern"
+        ],
         "it": [
           "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-t8o74u",
           "kochin-koch-m-w-d-coop-ristorante-ittigen-bern",
@@ -8374,16 +8381,11 @@
           "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb",
           "chef-cheffe-m-w-d-coop-genossenschaft-ittigen"
         ],
-        "en": [
-          "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-t8o74u",
-          "kochin-koch-w-m-d-coop-genossenschaft-ittigen",
-          "chef-chef-m-f-d-coop-genossenschaft-ittigen-bern"
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-t8o74u"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb"
-        ],
-        "fr": [
-          "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-t8o74u"
         ]
       },
       "previousSlugs": [
@@ -8393,9 +8395,7 @@
         "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb",
         "chef-cheffe-m-w-d-coop-genossenschaft-ittigen",
         "kochin-koch-w-m-d-coop-genossenschaft-ittigen"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-hm2mqa",
@@ -46030,7 +46030,7 @@
     },
     {
       "id": "company-njju4k",
-      "slug": "verkaufer-in-food-coop-subingen-solothurn-njju4k",
+      "slug": "venditore-in-food-coop-genossenschaft-subingen-solothurn",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Subingen, Solothurn",
@@ -46076,10 +46076,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-subingen-solothurn-njju4k",
-        "en": "verkaufer-in-food-coop-subingen-solothurn-njju4k",
+        "it": "venditore-in-food-coop-genossenschaft-subingen-solothurn",
+        "en": "seller-in-food-coop-genossenschaft-subingen-solothurn",
         "de": "verkaufer-in-food-coop-subingen-solothurn-njju4k",
-        "fr": "verkaufer-in-food-coop-subingen-solothurn-njju4k"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-subingen-solothurn"
       },
       "addressLocality": "Subingen",
       "sourceLang": "de",
@@ -46096,11 +46096,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-subingen-solothurn"
+        "verkaufer-in-food-coop-subingen-solothurn",
+        "verkaufer-in-food-coop-subingen-solothurn-njju4k"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-subingen-solothurn"
+          "verkaufer-in-food-coop-subingen-solothurn",
+          "verkaufer-in-food-coop-subingen-solothurn-njju4k"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-subingen-solothurn-njju4k"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-subingen-solothurn-njju4k"
         ]
       },
       "salarySource": "estimated",
@@ -46199,7 +46207,7 @@
     },
     {
       "id": "company-qm0l3o",
-      "slug": "verkaufer-in-food-coop-luzern-qm0l3o",
+      "slug": "venditore-in-food-coop-genossenschaft-luzern-c8c70f",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Luzern",
@@ -46245,10 +46253,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-luzern-qm0l3o",
-        "en": "verkaufer-in-food-coop-luzern-qm0l3o",
+        "it": "venditore-in-food-coop-genossenschaft-luzern-c8c70f",
+        "en": "seller-in-food-coop-genossenschaft-luzern-c8c70f",
         "de": "verkaufer-in-food-coop-luzern-qm0l3o",
-        "fr": "verkaufer-in-food-coop-luzern-qm0l3o"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-luzern-c8c70f"
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
@@ -46265,11 +46273,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-luzern"
+        "verkaufer-in-food-coop-luzern",
+        "verkaufer-in-food-coop-luzern-qm0l3o"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-luzern"
+          "verkaufer-in-food-coop-luzern",
+          "verkaufer-in-food-coop-luzern-qm0l3o"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-luzern-qm0l3o"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-luzern-qm0l3o"
         ]
       },
       "salarySource": "estimated",

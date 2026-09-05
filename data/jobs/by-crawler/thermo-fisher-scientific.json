@@ -424,12 +424,12 @@
     },
     {
       "id": "thermo-fisher-scientific-2bde9b3bb4fa",
-      "slug": "client-services-project-support-associate-thermo-fisher-scientific-ch",
+      "slug": "servizio-clienti-project-support-associate-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
       "slugByLocale": {
-        "it": "client-services-project-support-associate-thermo-fisher-scientific-ch",
+        "it": "servizio-clienti-project-support-associate-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "client-services-project-support-associate-thermo-fisher-scientific-ch",
         "de": "client-services-project-support-associate-thermo-fisher-scientific-ch",
-        "fr": "client-services-project-support-associate-thermo-fisher-scientific-ch"
+        "fr": "services-a-la-clientele-soutien-de-projet-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -484,7 +484,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-services-project-support-associate-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
+          "client-services-project-support-associate-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "client-services-project-support-associate-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-bf1333e1ef3d",

@@ -3617,11 +3617,11 @@
     },
     {
       "id": "hib-broye-800c9d9fde96",
-      "slug": "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac",
+      "slug": "dipendente-della-casa-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
       "slugByLocale": {
-        "it": "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac",
-        "en": "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac",
-        "de": "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac",
+        "it": "dipendente-della-casa-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "household-employee-from-50-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "hausangestellte-von-50-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "fr": "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -3676,7 +3676,21 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac"
+      ]
     },
     {
       "id": "hib-broye-21a640d65650",

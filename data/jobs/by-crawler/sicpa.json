@@ -218,10 +218,10 @@
     },
     {
       "id": "sicpa-dd5b0e9bd5d2",
-      "slug": "technicien-capteurs-sicpa-prilly",
+      "slug": "tecnica-capteurs-sicpa-sa-prilly",
       "slugByLocale": {
-        "it": "technicien-capteurs-sicpa-prilly",
         "en": "technicien-capteurs-sicpa-prilly",
+        "it": "tecnica-capteurs-sicpa-sa-prilly",
         "de": "technicien-capteurs-sicpa-prilly",
         "fr": "technicien-capteurs-sicpa-prilly"
       },
@@ -278,7 +278,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:46:55.780Z"
+      "firstSeenAt": "2026-09-04T13:46:55.780Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-capteurs-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-capteurs-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-2f1584b61371",
@@ -349,9 +357,6 @@
           "lieu-de-livraison-sicpa-sa-prilly",
           "automazione-tecnico-sicpa-sa-prilly"
         ],
-        "en": [
-          "delivery-lead-sicpa-prilly"
-        ],
         "de": [
           "technicien-de-maintenance-sicpa-sa-prilly",
           "lieferhinweis-sicpa-sa-prilly",
@@ -361,6 +366,9 @@
         "fr": [
           "technicien-de-maintenance-sicpa-prilly",
           "lieu-de-livraison-sicpa-sa-prilly"
+        ],
+        "en": [
+          "delivery-lead-sicpa-prilly"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:41.604Z",

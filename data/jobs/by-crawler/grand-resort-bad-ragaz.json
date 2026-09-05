@@ -1536,7 +1536,7 @@
         "it": "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
         "en": "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
         "de": "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+        "fr": "commission-des-communautes-europeennes-h-f-d-grand-resort-bad-ragaz-bad-ragaz"
       },
       "company": "Grand Resort Bad Ragaz",
       "companyKey": "grand-resort-bad-ragaz",
@@ -1595,9 +1595,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-9ad07742a751",
-      "slug": "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "commissione-di-cucina-igniv-m-f-d-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "commissione-di-cucina-igniv-m-f-d-grand-resort-bad-ragaz-bad-ragaz",
         "en": "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
         "de": "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
@@ -1655,7 +1655,15 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-b965661a90eb",

@@ -502,12 +502,12 @@
     },
     {
       "id": "vista-4ac77a84d3cf",
-      "slug": "medizinische-praxisassistenz-m-w-50-60-vista-binningen",
+      "slug": "assistente-medico-m-f-50-60-vista-augenpraxen-kliniken-binningen",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-m-w-50-60-vista-binningen",
-        "en": "medizinische-praxisassistenz-m-w-50-60-vista-binningen",
+        "it": "assistente-medico-m-f-50-60-vista-augenpraxen-kliniken-binningen",
+        "en": "medical-practice-assistant-m-f-50-60-vista-augenpraxen-kliniken-binningen",
         "de": "medizinische-praxisassistenz-m-w-50-60-vista-binningen",
-        "fr": "medizinische-praxisassistenz-m-w-50-60-vista-binningen"
+        "fr": "assistant-de-medecine-h-f-50-60-vista-augenpraxen-kliniken-binningen"
       },
       "company": "Vista Augenpraxen & Kliniken",
       "companyKey": "vista",
@@ -566,7 +566,21 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-m-w-50-60-vista-binningen"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-m-w-50-60-vista-binningen"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-m-w-50-60-vista-binningen"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-m-w-50-60-vista-binningen"
+      ]
     },
     {
       "id": "vista-2dec5b2bf0ec",

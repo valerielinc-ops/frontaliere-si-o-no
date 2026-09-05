@@ -4616,7 +4616,7 @@
         "it": "asset-servicing-internship-six-group-madrid",
         "en": "asset-servicing-internship-six-group-madrid",
         "de": "asset-servicing-internship-six-group-madrid",
-        "fr": "asset-servicing-internship-six-group-madrid"
+        "fr": "stage-de-service-des-biens-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4896,12 +4896,12 @@
     },
     {
       "id": "six-group-13ecd62166fc",
-      "slug": "head-product-management-funds-six-group-london",
+      "slug": "fondi-di-gestione-dei-prodotti-six-group-london",
       "slugByLocale": {
-        "it": "head-product-management-funds-six-group-london",
+        "it": "fondi-di-gestione-dei-prodotti-six-group-london",
         "en": "head-product-management-funds-six-group-london",
         "de": "head-product-management-funds-six-group-london",
-        "fr": "head-product-management-funds-six-group-london"
+        "fr": "fonds-de-gestion-des-produits-principaux-six-group-london"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4955,16 +4955,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-product-management-funds-six-group-london"
+        ],
+        "fr": [
+          "head-product-management-funds-six-group-london"
+        ]
+      },
+      "previousSlugs": [
+        "head-product-management-funds-six-group-london"
+      ]
     },
     {
       "id": "six-group-6403baccc8f4",
-      "slug": "head-business-architecture-six-group-london",
+      "slug": "architettura-aziendale-di-testa-six-group-london",
       "slugByLocale": {
-        "it": "head-business-architecture-six-group-london",
+        "it": "architettura-aziendale-di-testa-six-group-london",
         "en": "head-business-architecture-six-group-london",
         "de": "head-business-architecture-six-group-london",
-        "fr": "head-business-architecture-six-group-london"
+        "fr": "chef-de-l-architecture-des-affaires-six-group-london"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5019,7 +5030,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-business-architecture-six-group-london"
+        ],
+        "fr": [
+          "head-business-architecture-six-group-london"
+        ]
+      },
+      "previousSlugs": [
+        "head-business-architecture-six-group-london"
+      ]
     },
     {
       "id": "six-group-cf4cb8123866",

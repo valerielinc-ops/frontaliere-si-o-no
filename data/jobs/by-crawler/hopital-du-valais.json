@@ -2972,12 +2972,12 @@
     },
     {
       "id": "hopital-du-valais-8b8d9961a5a8",
-      "slug": "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig",
+      "slug": "assistente-medico-80-100-eta-psichiatria-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig",
-        "en": "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig",
+        "it": "assistente-medico-80-100-eta-psichiatria-hopital-du-valais-brig",
+        "en": "assistant-doctor-80-100-age-psychiatry-hopital-du-valais-brig",
         "de": "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig",
-        "fr": "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig"
+        "fr": "assistant-medecin-80-100-psychiatrie-de-l-age-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3024,20 +3024,24 @@
         "assistente-medico-80-100-oncologia-medica-hopital-du-valais-brig",
         "assistant-doctor-80-100-medical-oncology-hopital-du-valais-brig",
         "assistenzarztin-arzt-80-100-medizinische-onkologie-hopital-du-valais-brig",
-        "docteur-adjoint-80-100-oncologie-medicale-hopital-du-valais-brig"
+        "docteur-adjoint-80-100-oncologie-medicale-hopital-du-valais-brig",
+        "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-medico-80-100-oncologia-medica-hopital-du-valais-brig"
+          "assistente-medico-80-100-oncologia-medica-hopital-du-valais-brig",
+          "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig"
         ],
         "en": [
-          "assistant-doctor-80-100-medical-oncology-hopital-du-valais-brig"
+          "assistant-doctor-80-100-medical-oncology-hopital-du-valais-brig",
+          "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig"
         ],
         "de": [
           "assistenzarztin-arzt-80-100-medizinische-onkologie-hopital-du-valais-brig"
         ],
         "fr": [
-          "docteur-adjoint-80-100-oncologie-medicale-hopital-du-valais-brig"
+          "docteur-adjoint-80-100-oncologie-medicale-hopital-du-valais-brig",
+          "assistenzarztin-arzt-80-100-alterspsychiatrie-hopital-du-valais-brig"
         ]
       },
       "firstSeenAt": "2026-08-27T19:53:13.357Z",

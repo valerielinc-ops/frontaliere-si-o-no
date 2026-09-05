@@ -10167,12 +10167,12 @@
     },
     {
       "id": "ottos-241eda1e0eea",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis",
+      "slug": "aiuto-venditore-in-food-non-food-otto-s-ag-langnau-am-albis",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis",
+        "it": "aiuto-venditore-in-food-non-food-otto-s-ag-langnau-am-albis",
+        "en": "help-seller-in-food-non-food-otto-s-ag-langnau-am-albis",
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis"
+        "fr": "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-langnau-am-albis"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10232,7 +10232,21 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis"
+      ]
     },
     {
       "id": "ottos-2363aa048b1b",

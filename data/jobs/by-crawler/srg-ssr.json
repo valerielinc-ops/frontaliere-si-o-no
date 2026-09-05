@@ -1167,11 +1167,11 @@
     },
     {
       "id": "srg-ssr-6c08b6ba378b",
-      "slug": "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+      "slug": "presentatore-di-tempo-srg-ssr-bern",
       "slugByLocale": {
-        "it": "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-        "en": "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-        "de": "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+        "it": "presentatore-di-tempo-srg-ssr-bern",
+        "en": "weather-presenter-srg-ssr-bern",
+        "de": "wettermoderator-srg-ssr-bern",
         "fr": "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
       },
       "company": "SRG SSR",
@@ -1259,7 +1259,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        ],
+        "en": [
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        ],
+        "de": [
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-5f308f7330f9",
