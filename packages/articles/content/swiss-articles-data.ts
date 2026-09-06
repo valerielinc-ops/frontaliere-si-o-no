@@ -16984,6 +16984,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nuova-impresa-soletta-tassazione-costi',
+    category: 'pratico',
+    date: '2026-09-06T03:23:16.820Z',
+    image: '/images/blog/nuova-impresa-soletta-tassazione-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1913,6 +1913,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-soletta-commercio-costi': { it: 'aprire-attivita-soletta-commercio-costi', en: 'open-business-canton-soletta-commerce-registry', de: 'geschaft-eroffnen-kanton-solothurn-handelsregister', fr: 'ouvrir-entreprise-canton-soleure-registre-commerce' },
  'avviare-attivita-soletta-guida-completa': { it: 'avviare-attivita-soletta-guida-completa', en: 'start-business-soletta-complete-guide', de: 'geschaeft-gruenden-solothurn-vollstaendige-anleitung', fr: 'demarrer-activite-soleure-guide-complet' },
  'creare-attivita-soletta-checklist': { it: 'creare-attivita-soletta-checklist', en: 'create-business-soletta-checklist', de: 'unternehmen-grunden-solothurn-checkliste', fr: 'creer-entreprise-soleure-checklist' },
+ 'nuova-impresa-soletta-tassazione-costi': { it: 'nuova-impresa-soletta-tassazione-costi', en: 'opening-business-soletta-taxation-costs', de: 'neues-geschaeft-soletta-besteuerung-kosten', fr: 'nouvelle-entreprise-soletta-fiscalite-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

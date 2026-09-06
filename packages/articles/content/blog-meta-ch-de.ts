@@ -5662,6 +5662,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.creare-attivita-soletta-checklist.title': 'Betriebsstart in Solothurn: Kosten und Ablauf',
     'blog.article.creare-attivita-soletta-checklist.excerpt': 'Rechtsform, Handelsregistereintrag, Kantonssteuern und Vorsorgepflichten: Das Verfahren zur Aufnahme einer Tätigkeit im Kanton Solothurn.',
     'blog.article.creare-attivita-soletta-checklist.imageAlt': 'Unternehmer prüft Handelsregistrierungsdokumente bei Gründung im Kanton Solothurn.',
+    'blog.article.nuova-impresa-soletta-tassazione-costi.title': 'Geschäft in Solothurn eröffnen: Anmeldung und Kosten',
+    'blog.article.nuova-impresa-soletta-tassazione-costi.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Solothurn: Rechtsformen, Handelsregister, eidgenössische/kantonale Besteuerung und Versicherungspflichten.',
+    'blog.article.nuova-impresa-soletta-tassazione-costi.imageAlt': 'Schweizer Handelsregisteramt mit offiziellen Dokumenten und Holzschreibtisch.',
 };
 
 export default blogMetaChDe;
