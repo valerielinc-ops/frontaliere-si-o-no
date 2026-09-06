@@ -3319,7 +3319,7 @@
         "it": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
         "en": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
         "de": "betreuer-in-pdgr-ch",
-        "fr": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
+        "fr": "superviseur-interne-psychiatrische-dienste-graubunden-rothenbrunnen"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3396,12 +3396,12 @@
     },
     {
       "id": "pdgr-6d8acb259a82",
-      "slug": "stv-pflege-standortleiter-in-pdgr-ch",
+      "slug": "stv-allattamento-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "stv-pflege-standortleiter-in-pdgr-ch",
-        "en": "stv-pflege-standortleiter-in-pdgr-ch",
+        "it": "stv-allattamento-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
+        "en": "stv-nursing-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
         "de": "stv-pflege-standortleiter-in-pdgr-ch",
-        "fr": "stv-pflege-standortleiter-in-pdgr-ch"
+        "fr": "stv-infirmiere-gestionnaire-de-site-in-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3461,7 +3461,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-pflege-standortleiter-in-pdgr-ch"
+        ],
+        "en": [
+          "stv-pflege-standortleiter-in-pdgr-ch"
+        ],
+        "fr": [
+          "stv-pflege-standortleiter-in-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-pflege-standortleiter-in-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-9e79256dc3fc",

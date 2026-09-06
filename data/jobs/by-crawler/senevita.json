@@ -10050,12 +10050,12 @@
     },
     {
       "id": "senevita-314e33a7ef02",
-      "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich",
+      "slug": "apprendistato-salute-professionale-efz-senevita-zh-zurich",
       "slugByLocale": {
-        "it": "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich",
-        "en": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
+        "it": "apprendistato-salute-professionale-efz-senevita-zh-zurich",
+        "en": "apprenticeship-professional-health-efz-senevita-zh-zurich",
         "de": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
-        "fr": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
+        "fr": "apprentissage-sante-professionnelle-efz-senevita-zh-zurich"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -10099,10 +10099,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
+        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
+          "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
         ]
       },
@@ -14918,12 +14926,12 @@
     },
     {
       "id": "senevita-107ae6b8d72b",
-      "slug": "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen",
+      "slug": "driver-per-il-servizio-pasto-in-piscina-senevita-be-zollikofen",
       "slugByLocale": {
-        "it": "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen",
-        "en": "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen",
+        "it": "driver-per-il-servizio-pasto-in-piscina-senevita-be-zollikofen",
+        "en": "pool-meal-service-driver-senevita-be-zollikofen",
         "de": "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen",
-        "fr": "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen"
+        "fr": "conducteur-de-repas-en-piscine-senevita-be-zollikofen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -14979,7 +14987,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen"
+        ],
+        "en": [
+          "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen"
+        ],
+        "fr": [
+          "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "pool-mahlzeitendienstfahrer-in-senevita-be-zollikofen"
+      ]
     },
     {
       "id": "senevita-1a8a417beb6b",

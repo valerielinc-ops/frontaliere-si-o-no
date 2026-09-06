@@ -470,12 +470,12 @@
     },
     {
       "id": "spital-limmattal-0d6bf9326818",
-      "slug": "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch",
+      "slug": "medico-senior-ematologia-medico-senior-60-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch",
-        "en": "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch",
+        "it": "medico-senior-ematologia-medico-senior-60-spital-limmattal-schlieren",
+        "en": "senior-physician-senior-physician-hematology-60-spital-limmattal-schlieren",
         "de": "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch",
-        "fr": "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch"
+        "fr": "medecin-superieur-hematologie-du-medecin-superieur-60-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -532,7 +532,21 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-hamatologie-60-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-315da7e54413",
@@ -616,12 +630,12 @@
     },
     {
       "id": "spital-limmattal-acf3c744dca1",
-      "slug": "mpa-frauenklinik-spital-limmattal-ch",
+      "slug": "mpa-clinica-femminile-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "mpa-frauenklinik-spital-limmattal-ch",
-        "en": "mpa-frauenklinik-spital-limmattal-ch",
+        "it": "mpa-clinica-femminile-spital-limmattal-schlieren",
+        "en": "mpa-women-s-clinic-spital-limmattal-schlieren",
         "de": "mpa-frauenklinik-spital-limmattal-ch",
-        "fr": "mpa-frauenklinik-spital-limmattal-ch"
+        "fr": "mpa-clinique-pour-femmes-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -663,7 +677,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-clinica-femminile-spital-limmattal-schlieren",
         "mpa-women-s-clinic-spital-limmattal-schlieren",
         "mpa-clinique-pour-femmes-spital-limmattal-schlieren",
         "mpa-ospedale-ginecologico-spital-limmattal-schlieren",
@@ -671,11 +684,11 @@
         "pratica-di-emergenza-mpa-spital-limmattal-schlieren",
         "mpa-emergency-practice-spital-limmattal-schlieren",
         "mpa-notfallpraxis-spital-limmattal-ch",
-        "pratique-d-urgence-de-la-mpa-spital-limmattal-schlieren"
+        "pratique-d-urgence-de-la-mpa-spital-limmattal-schlieren",
+        "mpa-frauenklinik-spital-limmattal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-clinica-femminile-spital-limmattal-schlieren",
           "mpa-women-s-clinic-spital-limmattal-schlieren",
           "mpa-clinique-pour-femmes-spital-limmattal-schlieren",
           "mpa-ospedale-ginecologico-spital-limmattal-schlieren",
@@ -683,18 +696,19 @@
           "pratica-di-emergenza-mpa-spital-limmattal-schlieren",
           "mpa-emergency-practice-spital-limmattal-schlieren",
           "mpa-notfallpraxis-spital-limmattal-ch",
-          "pratique-d-urgence-de-la-mpa-spital-limmattal-schlieren"
+          "pratique-d-urgence-de-la-mpa-spital-limmattal-schlieren",
+          "mpa-frauenklinik-spital-limmattal-ch"
         ],
         "en": [
-          "mpa-women-s-clinic-spital-limmattal-schlieren",
-          "mpa-emergency-practice-spital-limmattal-schlieren"
+          "mpa-emergency-practice-spital-limmattal-schlieren",
+          "mpa-frauenklinik-spital-limmattal-ch"
         ],
         "de": [
           "mpa-notfallpraxis-spital-limmattal-ch"
         ],
         "fr": [
-          "mpa-clinique-pour-femmes-spital-limmattal-schlieren",
-          "pratique-d-urgence-de-la-mpa-spital-limmattal-schlieren"
+          "pratique-d-urgence-de-la-mpa-spital-limmattal-schlieren",
+          "mpa-frauenklinik-spital-limmattal-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T08:38:40.850Z",

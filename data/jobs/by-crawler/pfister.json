@@ -583,9 +583,9 @@
       "slug": "verkaufsleiterin-home-living-w-m-d-mobel-pfister-ag-thun",
       "slugByLocale": {
         "it": "verkaufsleiterin-home-living-w-m-d-mobel-pfister-ag-thun",
-        "en": "verkaufsleiterin-home-living-w-m-d-mobel-pfister-ag-thun",
+        "en": "sales-manager-home-living-m-f-d-mobel-pfister-ag-thun",
         "de": "verkaufsleiterin-home-living-w-m-d-pfister-thun",
-        "fr": "verkaufsleiterin-home-living-w-m-d-mobel-pfister-ag-thun"
+        "fr": "directeur-des-ventes-maison-et-vie-h-f-d-mobel-pfister-ag-thun"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -662,12 +662,12 @@
     },
     {
       "id": "pfister-fc2a0f1b6eec",
-      "slug": "verkauferin-kuchen-w-m-d-pfister-thun",
+      "slug": "venditore-in-cucine-m-f-d-mobel-pfister-ag-thun",
       "slugByLocale": {
-        "it": "verkauferin-kuchen-w-m-d-pfister-thun",
-        "en": "verkauferin-kuchen-w-m-d-pfister-thun",
+        "it": "venditore-in-cucine-m-f-d-mobel-pfister-ag-thun",
+        "en": "seller-in-kitchens-m-f-d-mobel-pfister-ag-thun",
         "de": "verkauferin-kuchen-w-m-d-pfister-thun",
-        "fr": "verkauferin-kuchen-w-m-d-pfister-thun"
+        "fr": "vendeur-dans-les-cuisines-h-f-d-mobel-pfister-ag-thun"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -725,7 +725,21 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-kuchen-w-m-d-pfister-thun"
+        ],
+        "en": [
+          "verkauferin-kuchen-w-m-d-pfister-thun"
+        ],
+        "fr": [
+          "verkauferin-kuchen-w-m-d-pfister-thun"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-kuchen-w-m-d-pfister-thun"
+      ]
     },
     {
       "id": "pfister-9c3ab52fa845",
@@ -811,12 +825,12 @@
     },
     {
       "id": "pfister-02549908b16a",
-      "slug": "abteilungsleiterin-mobel-w-m-d-pfister-thun",
+      "slug": "head-of-department-furniture-m-f-d-mobel-pfister-ag-thun",
       "slugByLocale": {
-        "it": "abteilungsleiterin-mobel-w-m-d-pfister-thun",
+        "it": "head-of-department-furniture-m-f-d-mobel-pfister-ag-thun",
         "en": "abteilungsleiterin-mobel-w-m-d-pfister-thun",
         "de": "abteilungsleiterin-mobel-w-m-d-pfister-thun",
-        "fr": "abteilungsleiterin-mobel-w-m-d-pfister-thun"
+        "fr": "chef-du-departement-mobilier-h-f-d-mobel-pfister-ag-thun"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -874,16 +888,27 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiterin-mobel-w-m-d-pfister-thun"
+        ],
+        "fr": [
+          "abteilungsleiterin-mobel-w-m-d-pfister-thun"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiterin-mobel-w-m-d-pfister-thun"
+      ]
     },
     {
       "id": "pfister-c52965588eb5",
-      "slug": "abteilungsleiterin-home-living-w-m-d-pfister-thun",
+      "slug": "capo-dipartimento-home-living-m-f-d-mobel-pfister-ag-thun",
       "slugByLocale": {
-        "it": "abteilungsleiterin-home-living-w-m-d-pfister-thun",
-        "en": "abteilungsleiterin-home-living-w-m-d-pfister-thun",
+        "it": "capo-dipartimento-home-living-m-f-d-mobel-pfister-ag-thun",
+        "en": "head-of-department-home-living-m-f-d-mobel-pfister-ag-thun",
         "de": "abteilungsleiterin-home-living-w-m-d-pfister-thun",
-        "fr": "abteilungsleiterin-home-living-w-m-d-pfister-thun"
+        "fr": "chef-du-departement-maison-et-vie-h-f-d-mobel-pfister-ag-thun"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -941,7 +966,21 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiterin-home-living-w-m-d-pfister-thun"
+        ],
+        "en": [
+          "abteilungsleiterin-home-living-w-m-d-pfister-thun"
+        ],
+        "fr": [
+          "abteilungsleiterin-home-living-w-m-d-pfister-thun"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiterin-home-living-w-m-d-pfister-thun"
+      ]
     },
     {
       "id": "pfister-2368951efda9",

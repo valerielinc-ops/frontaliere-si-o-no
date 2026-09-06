@@ -1965,11 +1965,11 @@
     },
     {
       "id": "liebherr-3a324cb795d3",
-      "slug": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
+      "slug": "posto-di-carico-gru-meccaniche-m-f-liebherr-daillens",
       "slugByLocale": {
-        "it": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
-        "en": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
-        "de": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
+        "it": "posto-di-carico-gru-meccaniche-m-f-liebherr-daillens",
+        "en": "mechanical-cranes-loading-place-m-f-liebherr-daillens",
+        "de": "maschinenkrane-ladeplatz-m-w-liebherr-daillens",
         "fr": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -2024,7 +2024,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
+        ],
+        "en": [
+          "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
+        ],
+        "de": [
+          "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
+      ]
     },
     {
       "id": "liebherr-250751af3911",

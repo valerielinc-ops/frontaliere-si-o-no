@@ -991,12 +991,12 @@
     },
     {
       "id": "ksow-32e90a8bf777",
-      "slug": "dipl-hebamme-hf-fh-100-ksow-sarnen",
+      "slug": "dipl-midwife-hf-fh-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "dipl-hebamme-hf-fh-100-ksow-sarnen",
+        "it": "dipl-midwife-hf-fh-100-kantonsspital-obwalden-sarnen",
         "en": "dipl-hebamme-hf-fh-100-ksow-sarnen",
         "de": "dipl-hebamme-hf-fh-100-ksow-sarnen",
-        "fr": "dipl-hebamme-hf-fh-100-ksow-sarnen"
+        "fr": "dipl-sage-femme-hf-fh-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -1051,7 +1051,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-hebamme-hf-fh-100-ksow-sarnen"
+        ],
+        "fr": [
+          "dipl-hebamme-hf-fh-100-ksow-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-hebamme-hf-fh-100-ksow-sarnen"
+      ]
     }
   ]
 }

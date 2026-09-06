@@ -3983,12 +3983,12 @@
     },
     {
       "id": "weisse-arena-dcd367cd4c47",
-      "slug": "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch",
+      "slug": "assistente-chef-galaaxy-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch",
-        "en": "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch",
+        "it": "assistente-chef-galaaxy-weisse-arena-gruppe-laax",
+        "en": "assistant-chef-galaaxy-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch",
-        "fr": "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch"
+        "fr": "chef-adjoint-galaaxy-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4046,16 +4046,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-galaaxy-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-cfe7e8f38692",
-      "slug": "hilfskoch-hilfskochin-hangar-weisse-arena-ch",
+      "slug": "assistente-cuoco-cuoco-ausiliario-hangar-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "hilfskoch-hilfskochin-hangar-weisse-arena-ch",
-        "en": "hilfskoch-hilfskochin-hangar-weisse-arena-ch",
+        "it": "assistente-cuoco-cuoco-ausiliario-hangar-weisse-arena-gruppe-laax",
+        "en": "assistant-cook-auxiliary-cook-hangar-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-hangar-weisse-arena-ch",
-        "fr": "hilfskoch-hilfskochin-hangar-weisse-arena-ch"
+        "fr": "pendentif-de-cuisinier-auxiliaire-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4113,16 +4127,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskoch-hilfskochin-hangar-weisse-arena-ch"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-hangar-weisse-arena-ch"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-hangar-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-hangar-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-d2e8206528c4",
-      "slug": "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch",
+      "slug": "coordinatore-operativo-in-stv-gestione-operativa-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch",
-        "en": "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch",
+        "it": "coordinatore-operativo-in-stv-gestione-operativa-weisse-arena-gruppe-laax",
+        "en": "operation-coordinator-in-stv-operational-management-weisse-arena-gruppe-laax",
         "de": "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch",
-        "fr": "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch"
+        "fr": "coordonnatrice-des-operations-gestion-operationnelle-in-stv-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4181,7 +4209,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch"
+        ],
+        "en": [
+          "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch"
+        ],
+        "fr": [
+          "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebskoordinator-in-stv-betriebsleitung-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-82f61ea395a4",

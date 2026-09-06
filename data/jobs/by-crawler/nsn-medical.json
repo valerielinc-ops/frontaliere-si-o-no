@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nsn-medical-f6ce5f68445e",
-      "slug": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+      "slug": "senior-doctor-doctor-oncology-zio-zurichsee-60-100-nsn-medical-group-onkologie",
       "slugByLocale": {
-        "it": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+        "it": "senior-doctor-doctor-oncology-zio-zurichsee-60-100-nsn-medical-group-onkologie",
         "en": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
         "de": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
-        "fr": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
+        "fr": "oncologie-senior-docteur-docteur-zio-zurichsee-60-100-nsn-medical-group-onkologie"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -63,7 +63,18 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
+        ],
+        "fr": [
+          "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
+      ]
     },
     {
       "id": "nsn-medical-a79485ca05f1",
@@ -136,13 +147,11 @@
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
-        "assistente-di-studio-medico-80-100-nsn-medical-group-onkologie"
+        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
-          "assistente-di-studio-medico-80-100-nsn-medical-group-onkologie"
+          "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:07.348Z",
@@ -240,13 +249,11 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn",
-        "medico-specialista-in-anestesiologia-con-responsabilita-di-leadership-vice-direttore-medico-nsn-medical-group-zurich"
+        "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn",
-          "medico-specialista-in-anestesiologia-con-responsabilita-di-leadership-vice-direttore-medico-nsn-medical-group-zurich"
+          "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:06.939Z",
@@ -349,8 +356,7 @@
         "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
         "dipl-pflegefachperson-onkologie-60-100-zurich-mit-perspektive-zurich-oerlikon-nsn-medical",
         "dipl-infirmier-en-oncologie-60-100-zurich-avec-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
-        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich",
-        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-onkologie"
+        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -359,8 +365,7 @@
           "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
           "dipl-pflegefachperson-onkologie-60-100-zurich-mit-perspektive-zurich-oerlikon-nsn-medical",
           "dipl-infirmier-en-oncologie-60-100-zurich-avec-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
-          "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich",
-          "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-onkologie"
+          "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich"
         ],
         "en": [
           "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie"
@@ -468,14 +473,12 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-onkologie-50-80-nsn-medical-onkologie",
-        "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil",
-        "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-onkologie"
+        "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-onkologie-50-80-nsn-medical-onkologie",
-          "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil",
-          "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-onkologie"
+          "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:05.135Z",
@@ -544,14 +547,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-fakturierung-100-nsn-medical-zurich",
-        "specialiste-facturation-100-nsn-medical-group-zurich",
-        "collaboratore-trice-fakturierung-100-nsn-medical-group-zurich"
+        "specialiste-facturation-100-nsn-medical-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-fakturierung-100-nsn-medical-zurich",
-          "specialiste-facturation-100-nsn-medical-group-zurich",
-          "collaboratore-trice-fakturierung-100-nsn-medical-group-zurich"
+          "specialiste-facturation-100-nsn-medical-group-zurich"
         ],
         "en": [
           "mitarbeiter-in-fakturierung-100-nsn-medical-zurich"
@@ -626,13 +627,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich",
-        "interno-interno-100-attenzione-con-attivita-di-ospitalita-nsn-medical-group-zurich"
+        "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich",
-          "interno-interno-100-attenzione-con-attivita-di-ospitalita-nsn-medical-group-zurich"
+          "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich"
         ]
       },
       "firstSeenAt": "2026-06-25T22:54:45.618Z",
@@ -700,14 +699,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-100-nsn-medical-onkologie",
-        "assistente-medico-100-nsn-medical-group-zurich",
-        "assistente-medico-100-nsn-medical-group-onkologie"
+        "assistente-medico-100-nsn-medical-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-100-nsn-medical-onkologie",
-          "assistente-medico-100-nsn-medical-group-zurich",
-          "assistente-medico-100-nsn-medical-group-onkologie"
+          "assistente-medico-100-nsn-medical-group-zurich"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-100-nsn-medical-onkologie"
@@ -782,14 +779,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
-        "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
-        "specialista-medico-fmh-zio-uster-60-100-nsn-medical-group-onkologie"
+        "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
-          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
-          "specialista-medico-fmh-zio-uster-60-100-nsn-medical-group-onkologie"
+          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
         ],
         "en": [
           "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
@@ -863,13 +858,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich",
-        "responsabile-del-controllo-sanitario-80-100-nsn-medical-group-zurich"
+        "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich",
-          "responsabile-del-controllo-sanitario-80-100-nsn-medical-group-zurich"
+          "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
         ],
         "en": [
           "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"

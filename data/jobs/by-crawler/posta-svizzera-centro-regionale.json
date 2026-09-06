@@ -1643,12 +1643,12 @@
         "de": "Stv. Teamleader:in Sortierlogistik",
         "fr": "Stv. Teamleader: dans la logistique de tri"
       },
-      "slug": "stv-teamleader-in-sortierlogistik-post",
+      "slug": "stv-teamleader-nella-gestione-della-logistica-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
-        "it": "stv-teamleader-in-sortierlogistik-post",
-        "en": "stv-teamleader-in-sortierlogistik-post",
+        "it": "stv-teamleader-nella-gestione-della-logistica-die-schweizerische-post-zurich-mulligen",
+        "en": "stv-teamleader-in-sorting-logistics-die-schweizerische-post-zurich-mulligen",
         "de": "stv-teamleader-in-sortierlogistik-post",
-        "fr": "stv-teamleader-in-sortierlogistik-post"
+        "fr": "stv-teamleader-dans-la-logistique-de-tri-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -1683,7 +1683,21 @@
       },
       "addressLocality": "Zürich-Mülligen",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-01T11:00:23.083Z"
+      "firstSeenAt": "2026-09-01T11:00:23.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleader-in-sortierlogistik-post"
+        ],
+        "en": [
+          "stv-teamleader-in-sortierlogistik-post"
+        ],
+        "fr": [
+          "stv-teamleader-in-sortierlogistik-post"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleader-in-sortierlogistik-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74666-de_DE",

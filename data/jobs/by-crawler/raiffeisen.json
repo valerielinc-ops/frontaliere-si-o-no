@@ -4431,7 +4431,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-firmenkundenberater-w-m-d-raiffeisen-zurich",
-        "senior-corporate-client-advisor-m-f-d-raiffeisen-zurich",
         "consulente-di-asset-senior-f-m-d-raiffeisen-zurich",
         "senior-asset-advisor-f-m-d-raiffeisen-zurich",
         "senior-vermogensberater-w-m-d-raiffeisen-zurich",
@@ -4440,7 +4439,6 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-firmenkundenberater-w-m-d-raiffeisen-zurich",
-          "senior-corporate-client-advisor-m-f-d-raiffeisen-zurich",
           "consulente-di-asset-senior-f-m-d-raiffeisen-zurich",
           "senior-asset-advisor-f-m-d-raiffeisen-zurich",
           "senior-vermogensberater-w-m-d-raiffeisen-zurich",
@@ -10044,11 +10042,11 @@
     },
     {
       "id": "raiffeisen-8a09e87a3dbe",
-      "slug": "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds",
+      "slug": "consulente-clienti-junior-raiffeisen-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds",
-        "en": "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds",
-        "de": "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds",
+        "it": "consulente-clienti-junior-raiffeisen-la-chaux-de-fonds",
+        "en": "customer-advisor-junior-placement-raiffeisen-la-chaux-de-fonds",
+        "de": "kundenberater-junior-platzierung-raiffeisen-la-chaux-de-fonds",
         "fr": "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds"
       },
       "company": "Raiffeisen",
@@ -10104,7 +10102,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds"
+        ],
+        "en": [
+          "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds"
+        ],
+        "de": [
+          "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-placement-junior-raiffeisen-la-chaux-de-fonds"
+      ]
     },
     {
       "id": "raiffeisen-6701e6d03b63",
@@ -10186,11 +10198,11 @@
     },
     {
       "id": "raiffeisen-378e1fd1e42a",
-      "slug": "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle",
+      "slug": "core-private-client-advisor-cpb-raiffeisen-le-locle",
       "slugByLocale": {
-        "it": "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle",
+        "it": "core-private-client-advisor-cpb-raiffeisen-le-locle",
         "en": "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle",
-        "de": "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle",
+        "de": "private-client-advisor-cpb-raiffeisen-le-locle",
         "fr": "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle"
       },
       "company": "Raiffeisen",
@@ -10246,7 +10258,18 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle"
+        ],
+        "de": [
+          "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle"
+      ]
     },
     {
       "id": "raiffeisen-1171a27363f5",

@@ -19113,7 +19113,7 @@
     },
     {
       "id": "company-59hjh1",
-      "slug": "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Gossau, Sankt Gallen",
@@ -19169,10 +19169,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1",
-        "en": "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-gossau-sankt-gallen",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-gossau-sankt-gallen",
         "de": "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1",
-        "fr": "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-gossau-sankt-gallen"
       },
       "addressLocality": "Gossau",
       "sourceLang": "de",
@@ -19191,12 +19191,21 @@
       },
       "previousSlugs": [
         "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen",
-        "verkaufer-in-kassen-services-coop-gossau-sankt-gallen"
+        "verkaufer-in-kassen-services-coop-gossau-sankt-gallen",
+        "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1",
+        "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen",
-          "verkaufer-in-kassen-services-coop-gossau-sankt-gallen"
+          "verkaufer-in-kassen-services-coop-gossau-sankt-gallen",
+          "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1"
         ]
       },
       "salaryMin": 57500,
@@ -19535,9 +19544,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-gossau-jvuwp1",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-jvuwp1",
+        "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-coop-grigioni",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-jvuwp1",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-jvuwp1"
+        "fr": "specialiste-du-commerce-de-detail-mann-efz-la-forme-des-experiences-de-shopping-coop-grigioni"
       },
       "needsRetranslation": true,
       "addressLocality": "Grigioni",
@@ -19556,12 +19565,19 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-3"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-3",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-jvuwp1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-3"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-jvuwp1"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-jvuwp1"
         ]
       },
       "salaryMin": 99000,

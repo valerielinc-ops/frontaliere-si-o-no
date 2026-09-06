@@ -3120,12 +3120,12 @@
     },
     {
       "id": "unibe-8ed5fec5e89e",
-      "slug": "leiter-in-studiendekanat-der-medizinischen-fakultat-universitat-bern",
+      "slug": "capo-del-decano-di-studi-della-facolta-di-medicina-universitat-bern-bern",
       "slugByLocale": {
-        "it": "leiter-in-studiendekanat-der-medizinischen-fakultat-universitat-bern",
-        "en": "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern",
+        "it": "capo-del-decano-di-studi-della-facolta-di-medicina-universitat-bern-bern",
+        "en": "head-of-the-dean-of-studies-of-the-faculty-of-medicine-universitat-bern-bern",
         "de": "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern",
-        "fr": "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern"
+        "fr": "chef-du-doyen-des-etudes-de-la-faculte-de-medecine-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3168,10 +3168,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern"
+        "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern",
+        "leiter-in-studiendekanat-der-medizinischen-fakultat-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern",
+          "leiter-in-studiendekanat-der-medizinischen-fakultat-universitat-bern"
+        ],
+        "en": [
+          "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern"
+        ],
+        "fr": [
           "leiter-in-studiendekanat-der-medizinischen-fakultat-unibe-bern"
         ]
       },

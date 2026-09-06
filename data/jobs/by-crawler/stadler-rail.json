@@ -10142,12 +10142,12 @@
     },
     {
       "id": "stadler-rail-ff2ecc0830fc",
-      "slug": "elektroingenieur-in-standardisierung-stadler-rail-ch",
+      "slug": "ingegnere-elettrico-in-standardizzazione-stadler-rail-st-margrethen",
       "slugByLocale": {
-        "it": "elektroingenieur-in-standardisierung-stadler-rail-ch",
-        "en": "elektroingenieur-in-standardisierung-stadler-rail-ch",
+        "it": "ingegnere-elettrico-in-standardizzazione-stadler-rail-st-margrethen",
+        "en": "electrical-engineer-in-standardization-stadler-rail-st-margrethen",
         "de": "elektroingenieur-in-standardisierung-stadler-rail-ch",
-        "fr": "elektroingenieur-in-standardisierung-stadler-rail-ch"
+        "fr": "ingenieur-electrique-en-normalisation-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -10202,7 +10202,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroingenieur-in-standardisierung-stadler-rail-ch"
+        ],
+        "en": [
+          "elektroingenieur-in-standardisierung-stadler-rail-ch"
+        ],
+        "fr": [
+          "elektroingenieur-in-standardisierung-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroingenieur-in-standardisierung-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-fa96bf6b12c7",

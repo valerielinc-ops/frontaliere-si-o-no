@@ -3832,7 +3832,6 @@
           "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-6od9ta"
         ],
         "fr": [
-          "conseiller-juridique-h-f-d-service-juridique-precaution-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia",
           "conseiller-juridique-m-f-d-service-juridique-fourniture-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia",
           "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
         ],
@@ -3842,7 +3841,6 @@
       },
       "previousSlugs": [
         "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
-        "conseiller-juridique-h-f-d-service-juridique-precaution-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia",
         "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-5yb796",
         "legal-counsel-m-f-d-legal-service-provision-corporate-clients-part-time-full-time-helvetia-versicherungen-basel",
         "conseiller-juridique-m-f-d-service-juridique-fourniture-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia",
@@ -6886,7 +6884,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "expert-tous-genres-entreprises-temps-plein-ou-partiel-helvetia-givisiez",
-        "esperto-tutti-i-tipi-imprese-tempo-pieno-o-parziale-helvetia-versicherungen-givisiez",
         "esperto-tutti-i-tipi-in-previsione-e-ricchezza-tempo-pieno-o-parziale-helvetia-versicherungen-givisiez",
         "expert-all-kinds-in-foresight-and-wealth-full-or-part-time-helvetia-versicherungen-givisiez",
         "experte-alle-arten-in-voraussicht-und-reichtum-vollzeit-oder-teilzeit-helvetia-versicherungen-givisiez",
@@ -6895,7 +6892,6 @@
       "previousSlugsByLocale": {
         "it": [
           "expert-tous-genres-entreprises-temps-plein-ou-partiel-helvetia-givisiez",
-          "esperto-tutti-i-tipi-imprese-tempo-pieno-o-parziale-helvetia-versicherungen-givisiez",
           "esperto-tutti-i-tipi-in-previsione-e-ricchezza-tempo-pieno-o-parziale-helvetia-versicherungen-givisiez",
           "expert-all-kinds-in-foresight-and-wealth-full-or-part-time-helvetia-versicherungen-givisiez",
           "experte-alle-arten-in-voraussicht-und-reichtum-vollzeit-oder-teilzeit-helvetia-versicherungen-givisiez",
@@ -9852,9 +9848,9 @@
     },
     {
       "id": "helvetia-f09898194043",
-      "slug": "working-student-group-sustainability-f-m-d-part-time-40-helvetia-basel-hauptsitz",
+      "slug": "gruppo-di-lavoro-sostenibilita-m-f-d-part-time-40-helvetia-versicherungen-basel-hauptsitz",
       "slugByLocale": {
-        "it": "working-student-group-sustainability-f-m-d-part-time-40-helvetia-basel-hauptsitz",
+        "it": "gruppo-di-lavoro-sostenibilita-m-f-d-part-time-40-helvetia-versicherungen-basel-hauptsitz",
         "en": "working-student-group-sustainability-f-m-d-part-time-40-helvetia-basel-hauptsitz",
         "de": "working-student-group-sustainability-f-m-d-teilzeit-40-helvetia-versicherungen-basel-hauptsitz",
         "fr": "working-student-group-sustainability-f-m-d-temps-partiel-40-helvetia-versicherungen-basel-hauptsitz"
@@ -9912,7 +9908,15 @@
           "maxValue": 49200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-group-sustainability-f-m-d-part-time-40-helvetia-basel-hauptsitz"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-group-sustainability-f-m-d-part-time-40-helvetia-basel-hauptsitz"
+      ]
     },
     {
       "id": "helvetia-f6259f1d2025",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "upd-f3b31e4d72e7",
-      "slug": "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "gestione-o-cogestione-pulizia-e-gestione-del-tessuto-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
-        "it": "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
-        "fr": "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+        "it": "gestione-o-cogestione-pulizia-e-gestione-del-tessuto-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "management-or-co-management-cleaning-textile-management-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "gestion-ou-cogestion-nettoyage-et-gestion-des-textiles-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
+          "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+        ],
+        "fr": [
           "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
         ]
       },
       "previousSlugs": [
-        "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+        "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
+        "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -124,13 +132,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberpsychologin-oberpsychologe-forensik-upd-bern",
-        "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern"
+        "oberpsychologin-oberpsychologe-forensik-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologe-forensik-upd-bern",
-          "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern"
+          "oberpsychologin-oberpsychologe-forensik-upd-bern"
         ],
         "en": [
           "oberpsychologin-oberpsychologe-forensik-upd-bern"

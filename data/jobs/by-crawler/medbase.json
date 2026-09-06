@@ -12012,12 +12012,12 @@
     },
     {
       "id": "medbase-c670801bf59a",
-      "slug": "apotheker-in-a-40-80-medbase-ch",
+      "slug": "farmacista-in-a-40-80-medbase-zurich",
       "slugByLocale": {
-        "it": "apotheker-in-a-40-80-medbase-ch",
-        "en": "apotheker-in-a-40-80-medbase-ch",
+        "it": "farmacista-in-a-40-80-medbase-zurich",
+        "en": "pharmacist-in-a-40-80-medbase-zurich",
         "de": "apotheker-in-a-40-80-medbase-ch",
-        "fr": "apotheker-in-a-40-80-medbase-ch"
+        "fr": "pharmacienne-en-a-40-80-medbase-zurich"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12072,7 +12072,21 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-a-40-80-medbase-ch"
+        ],
+        "en": [
+          "apotheker-in-a-40-80-medbase-ch"
+        ],
+        "fr": [
+          "apotheker-in-a-40-80-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-a-40-80-medbase-ch"
+      ]
     },
     {
       "id": "medbase-5cc54245e606",

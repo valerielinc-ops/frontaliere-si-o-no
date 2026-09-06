@@ -1026,12 +1026,12 @@
     },
     {
       "id": "privatklinik-bethanien-60d5f031094f",
-      "slug": "dipl-pflegefachperson-hf-fh-50-100-per-eine-interdisziplinare-bettenstation-con-schwerpunkt-orthopala-e-kardiologie-privatklinik-bethanien-zurich",
+      "slug": "dipl-specialista-hf-fh-50-100-per-un-letto-interdisciplinare-con-un-focus-su-ortopedia-e-cardiologia-privatklinik",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-50-100-per-eine-interdisziplinare-bettenstation-con-schwerpunkt-orthopala-e-kardiologie-privatklinik-bethanien-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien",
+        "it": "dipl-specialista-hf-fh-50-100-per-un-letto-interdisciplinare-con-un-focus-su-ortopedia-e-cardiologia-privatklinik",
+        "en": "dipl-care-specialist-hf-fh-50-100-for-an-interdisciplinary-bed-ward-with-a-focus-on-orthopaedics-and-cardiology",
         "de": "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien",
-        "fr": "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien"
+        "fr": "dipl-specialiste-des-soins-hf-fh-50-100-pour-une-chambre-interdisciplinaire-avec-un-accent-sur-l-orthopedie-et-la"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -1074,10 +1074,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien"
+        "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien",
+        "dipl-pflegefachperson-hf-fh-50-100-per-eine-interdisziplinare-bettenstation-con-schwerpunkt-orthopala-e-kardiologie-privatklinik-bethanien-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien",
+          "dipl-pflegefachperson-hf-fh-50-100-per-eine-interdisziplinare-bettenstation-con-schwerpunkt-orthopala-e-kardiologie-privatklinik-bethanien-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien"
         ]
       },

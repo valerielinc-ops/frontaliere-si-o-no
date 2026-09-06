@@ -558,12 +558,12 @@
     },
     {
       "id": "vitrea-gesundheit-b7fe43aa558a",
-      "slug": "apprendistato-restaurantfachperson-a-afp-cfc-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "specialista-del-ristorante-di-apprendistato-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
-        "it": "apprendistato-restaurantfachperson-a-afp-cfc-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "it": "specialista-del-ristorante-di-apprendistato-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "apprenticeship-restaurant-specialist-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "de": "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "fr": "specialiste-des-restaurants-d-apprentissage-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -605,10 +605,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "apprendistato-restaurantfachperson-a-afp-cfc-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "apprendistato-restaurantfachperson-a-afp-cfc-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "en": [
+          "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "fr": [
           "lehrstelle-restaurantfachperson-a-eba-efz-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
         ]
       },
