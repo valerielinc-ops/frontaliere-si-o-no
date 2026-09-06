@@ -1024,12 +1024,12 @@
     },
     {
       "id": "implenia-be4d589a15c3",
-      "slug": "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon",
+      "slug": "contabilita-finanziaria-m-f-d-implenia-glattpark-opfikon",
       "slugByLocale": {
-        "it": "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon",
-        "en": "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon",
+        "it": "contabilita-finanziaria-m-f-d-implenia-glattpark-opfikon",
+        "en": "financial-accountants-m-f-d-implenia-glattpark-opfikon",
         "de": "finanzbuchhalter-w-m-d-implenia-ch",
-        "fr": "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon"
+        "fr": "comptables-financiers-h-f-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1073,11 +1073,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "finanzbuchhalter-w-m-d-implenia-ch"
+          "finanzbuchhalter-w-m-d-implenia-ch",
+          "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "finanzbuchhalter-w-m-d-implenia-ch"
+        "finanzbuchhalter-w-m-d-implenia-ch",
+        "finanzbuchhalter-w-m-d-implenia-glattpark-opfikon"
       ],
       "firstSeenAt": "2026-09-01T07:28:38.207Z",
       "salaryMin": 113000,

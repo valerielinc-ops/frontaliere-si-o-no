@@ -57,7 +57,6 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "teamleiter-in-cloud-infrastructure-services-kanton-zuerich-zurich",
-        "leader-del-team-nei-servizi-di-infrastruttura-cloud-kantonale-verwaltung-zurich-zurich",
         "team-leader-in-servizi-della-piattaforma-dati-kantonale-verwaltung-zurich-zurich",
         "team-leader-in-data-platform-services-kantonale-verwaltung-zurich-zurich",
         "teamleiter-in-datenplattform-services-kanton-zuerich-zurich",
@@ -79,7 +78,6 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-cloud-infrastructure-services-kanton-zuerich-zurich",
-          "leader-del-team-nei-servizi-di-infrastruttura-cloud-kantonale-verwaltung-zurich-zurich",
           "team-leader-in-servizi-della-piattaforma-dati-kantonale-verwaltung-zurich-zurich",
           "team-leader-in-data-platform-services-kantonale-verwaltung-zurich-zurich",
           "teamleiter-in-datenplattform-services-kanton-zuerich-zurich",
@@ -2342,12 +2340,12 @@
     },
     {
       "id": "kanton-zuerich-c73c20ecae61",
-      "slug": "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil",
+      "slug": "segretario-notariale-assistente-notarile-kantonale-verwaltung-zurich-wadenswil",
       "slugByLocale": {
-        "it": "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil",
-        "en": "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil",
+        "it": "segretario-notariale-assistente-notarile-kantonale-verwaltung-zurich-wadenswil",
+        "en": "notarial-secretary-notarial-assistant-kantonale-verwaltung-zurich-wadenswil",
         "de": "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil",
-        "fr": "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil"
+        "fr": "secretaire-notarie-adjoint-notarie-kantonale-verwaltung-zurich-wadenswil"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2394,14 +2392,22 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kanton-zuerich"
+          "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kanton-zuerich",
+          "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil"
         ],
         "de": [
           "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kanton-zuerich"
+        ],
+        "en": [
+          "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil"
+        ],
+        "fr": [
+          "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil"
         ]
       },
       "previousSlugs": [
-        "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kanton-zuerich"
+        "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kanton-zuerich",
+        "notariatssekretar-in-mit-beurkundungsbefugnis-notariatsassistent-in-kantonale-verwaltung-zurich-wadenswil"
       ],
       "firstSeenAt": "2026-09-01T08:40:13.625Z",
       "salaryMin": 85000,
@@ -12484,7 +12490,6 @@
         ],
         "it": [
           "sozialarbeiter-in-im-kjz-dietikon-kanton-zuerich-dietikon",
-          "lavoratore-sociale-a-kjz-dietikon-kantonale-verwaltung-zurich-dietikon-22da4b",
           "lavoratore-sociale-a-kjz-dietikon-kantonale-verwaltung-zurich-dietikon",
           "social-worker-at-kjz-dietikon-kantonale-verwaltung-zurich-dietikon",
           "travailleur-social-au-kjz-dietikon-kantonale-verwaltung-zurich-dietikon",
@@ -12505,8 +12510,6 @@
       },
       "previousSlugs": [
         "sozialarbeiter-in-im-kjz-dietikon-kanton-zuerich-dietikon",
-        "sozialarbeiter-in-im-kjz-dietikon-kantonale-verwaltung-zurich-dietikon",
-        "lavoratore-sociale-a-kjz-dietikon-kantonale-verwaltung-zurich-dietikon-22da4b",
         "lavoratore-sociale-a-kjz-dietikon-kantonale-verwaltung-zurich-dietikon",
         "social-worker-at-kjz-dietikon-kantonale-verwaltung-zurich-dietikon",
         "travailleur-social-au-kjz-dietikon-kantonale-verwaltung-zurich-dietikon",

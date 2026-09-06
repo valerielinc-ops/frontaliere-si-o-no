@@ -3312,11 +3312,11 @@
     },
     {
       "id": "hopital-du-valais-2a9e1f457405",
-      "slug": "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny",
+      "slug": "infermieri-tra-80-100-per-i-servizi-medici-al-martigny-hospital-hopital-du-valais-martigny",
       "slugByLocale": {
-        "it": "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny",
-        "en": "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny",
-        "de": "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny",
+        "it": "infermieri-tra-80-100-per-i-servizi-medici-al-martigny-hospital-hopital-du-valais-martigny",
+        "en": "nurses-between-80-100-for-medical-services-at-martigny-hospital-hopital-du-valais-martigny",
+        "de": "krankenschwestern-zwischen-80-100-fur-medizinische-leistungen-im-martigny-hospital-hopital-du-valais-martigny",
         "fr": "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny"
       },
       "company": "Hôpital du Valais",
@@ -3376,7 +3376,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny"
+        ],
+        "en": [
+          "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny"
+        ],
+        "de": [
+          "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny"
+      ]
     },
     {
       "id": "hopital-du-valais-ed8e8c7d2ed2",

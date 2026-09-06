@@ -5284,12 +5284,12 @@
     },
     {
       "id": "emil-frey-ac096a24079b",
-      "slug": "automobil-diagnostiker-in-emil-frey-basel",
+      "slug": "diagnostica-automobilistica-in-emil-frey-basel",
       "slugByLocale": {
-        "it": "automobil-diagnostiker-in-emil-frey-basel",
-        "en": "automobil-diagnostiker-in-emil-frey-basel",
+        "it": "diagnostica-automobilistica-in-emil-frey-basel",
+        "en": "automotive-diagnostician-in-emil-frey-basel",
         "de": "automobil-diagnostiker-in-emil-frey-basel",
-        "fr": "automobil-diagnostiker-in-emil-frey-basel"
+        "fr": "diagnostic-automobile-in-emil-frey-basel"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -5345,16 +5345,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automobil-diagnostiker-in-emil-frey-basel"
+        ],
+        "en": [
+          "automobil-diagnostiker-in-emil-frey-basel"
+        ],
+        "fr": [
+          "automobil-diagnostiker-in-emil-frey-basel"
+        ]
+      },
+      "previousSlugs": [
+        "automobil-diagnostiker-in-emil-frey-basel"
+      ]
     },
     {
       "id": "emil-frey-18282c642204",
-      "slug": "zonenmanager-neuwagen-region-mitte-emil-frey-zurich",
+      "slug": "zone-manager-nuove-auto-regione-mitte-emil-frey-zurich",
       "slugByLocale": {
-        "it": "zonenmanager-neuwagen-region-mitte-emil-frey-zurich",
-        "en": "zonenmanager-neuwagen-region-mitte-emil-frey-zurich",
+        "it": "zone-manager-nuove-auto-regione-mitte-emil-frey-zurich",
+        "en": "zone-manager-new-cars-region-mitte-emil-frey-zurich",
         "de": "zonenmanager-neuwagen-region-mitte-emil-frey-zurich",
-        "fr": "zonenmanager-neuwagen-region-mitte-emil-frey-zurich"
+        "fr": "gestionnaire-de-zone-nouvelles-voitures-region-mitte-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -5409,7 +5423,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zonenmanager-neuwagen-region-mitte-emil-frey-zurich"
+        ],
+        "en": [
+          "zonenmanager-neuwagen-region-mitte-emil-frey-zurich"
+        ],
+        "fr": [
+          "zonenmanager-neuwagen-region-mitte-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "zonenmanager-neuwagen-region-mitte-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-5c7893681e00",

@@ -13835,7 +13835,7 @@
         "it": "senior-qa-expert-audit-management-80-100-lonza-ch",
         "en": "senior-qa-expert-audit-management-80-100-lonza-ch",
         "de": "senior-qa-expert-audit-management-80-100-lonza-ch",
-        "fr": "senior-qa-expert-audit-management-80-100-lonza-ch"
+        "fr": "expert-principal-en-gestion-de-la-verification-de-l-aq-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14932,12 +14932,12 @@
     },
     {
       "id": "lonza-32973ea73462",
-      "slug": "procurement-business-expert-sme-lonza-ch",
+      "slug": "esperto-commerciale-di-appalti-sme-lonza-ch",
       "slugByLocale": {
-        "it": "procurement-business-expert-sme-lonza-ch",
+        "it": "esperto-commerciale-di-appalti-sme-lonza-ch",
         "en": "procurement-business-expert-sme-lonza-ch",
         "de": "procurement-business-expert-sme-lonza-ch",
-        "fr": "procurement-business-expert-sme-lonza-ch"
+        "fr": "expert-en-achats-pme-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14991,7 +14991,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-business-expert-sme-lonza-ch"
+        ],
+        "fr": [
+          "procurement-business-expert-sme-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-business-expert-sme-lonza-ch"
+      ]
     },
     {
       "id": "lonza-56be2aacb6cd",

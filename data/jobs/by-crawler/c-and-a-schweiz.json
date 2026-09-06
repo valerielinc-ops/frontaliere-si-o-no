@@ -3926,10 +3926,10 @@
     },
     {
       "id": "c-and-a-schweiz-3a4ec45d289d",
-      "slug": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
+      "slug": "vendite-collaboratore-cdd-50-losanna-c-a-schweiz-lausanne-ch",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
-        "en": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
+        "it": "vendite-collaboratore-cdd-50-losanna-c-a-schweiz-lausanne-ch",
+        "en": "sales-collaborator-cdd-50-lausanne-c-a-schweiz-lausanne-ch",
         "de": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
         "fr": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
       },
@@ -3986,15 +3986,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-d6e51c29a054",
-      "slug": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
+      "slug": "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
-        "en": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
-        "de": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
+        "it": "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch",
+        "en": "sales-collaborator-csd-50-lausanne-c-a-schweiz-lausanne-ch",
+        "de": "vertriebsmitarbeiter-csd-50-lausanne-c-a-schweiz-lausanne-ch",
         "fr": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-ozgj4o"
       },
       "company": "C&A Schweiz",
@@ -4036,14 +4047,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
         ],
         "fr": [
           "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
+        ],
+        "de": [
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
         ]
       },
       "needsRetranslation": true,

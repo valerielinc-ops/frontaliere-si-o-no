@@ -402,11 +402,11 @@
     },
     {
       "id": "imad-f19f3f794a9d",
-      "slug": "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva",
+      "slug": "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva",
       "slugByLocale": {
-        "it": "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva",
-        "en": "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva",
-        "de": "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva",
+        "it": "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva",
+        "en": "internal-auditor-internal-audit-service-100-cdi-imad-geneva",
+        "de": "interner-auditor-internal-audit-service-100-cdi-imad-geneva",
         "fr": "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva"
       },
       "company": "imad",
@@ -462,7 +462,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-1fabfdf7f6cf",

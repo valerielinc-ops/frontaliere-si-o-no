@@ -16657,9 +16657,9 @@
       "slug": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
       "slugByLocale": {
         "it": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
-        "en": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+        "en": "sales-advisor-in-garden-and-plants-jumbo-arbon-df3732",
         "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-        "fr": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        "fr": "conseiller-commercial-en-jardin-et-plantes-jumbo-arbon-df3732"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16721,6 +16721,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
         ]
       },
       "needsRetranslation": true,
@@ -16741,12 +16747,12 @@
     },
     {
       "id": "jumbo-a45598e7-6c1",
-      "slug": "rayonleiter-in-do-it-jumbo-rickenbach",
+      "slug": "conduttore-rayon-in-do-it-jumbo-rickenbach",
       "slugByLocale": {
-        "it": "rayonleiter-in-do-it-jumbo-rickenbach",
-        "en": "rayonleiter-in-do-it-jumbo-rickenbach",
+        "it": "conduttore-rayon-in-do-it-jumbo-rickenbach",
+        "en": "rayon-conductor-in-do-it-jumbo-rickenbach",
         "de": "rayonleiter-in-do-it-jumbo-rickenbach",
-        "fr": "rayonleiter-in-do-it-jumbo-rickenbach"
+        "fr": "conducteur-de-rayon-en-do-it-jumbo-rickenbach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16817,16 +16823,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-do-it-jumbo-rickenbach"
+        ],
+        "en": [
+          "rayonleiter-in-do-it-jumbo-rickenbach"
+        ],
+        "fr": [
+          "rayonleiter-in-do-it-jumbo-rickenbach"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-do-it-jumbo-rickenbach"
+      ]
     },
     {
       "id": "jumbo-f79fcd0f-543",
-      "slug": "sachbearbeiter-in-kundendienst-jumbo-dietlikon",
+      "slug": "personale-nel-servizio-clienti-jumbo-dietlikon",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kundendienst-jumbo-dietlikon",
-        "en": "sachbearbeiter-in-kundendienst-jumbo-dietlikon",
+        "it": "personale-nel-servizio-clienti-jumbo-dietlikon",
+        "en": "personnel-in-customer-service-jumbo-dietlikon",
         "de": "sachbearbeiter-in-kundendienst-jumbo-dietlikon",
-        "fr": "sachbearbeiter-in-kundendienst-jumbo-dietlikon"
+        "fr": "personnel-en-service-a-la-clientele-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16895,7 +16915,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kundendienst-jumbo-dietlikon"
+        ],
+        "en": [
+          "sachbearbeiter-in-kundendienst-jumbo-dietlikon"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kundendienst-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kundendienst-jumbo-dietlikon"
+      ]
     },
     {
       "id": "jumbo-8a2ae303-c4e",

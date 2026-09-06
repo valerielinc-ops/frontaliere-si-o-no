@@ -4827,12 +4827,12 @@
     },
     {
       "id": "kanton-basel-landschaft-31fc3d35f050",
-      "slug": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
+      "slug": "assistenza-amministrativa-in-sede-giudiziaria-kantonale-verwaltung-basel-landschaft-arlesheim",
       "slugByLocale": {
-        "it": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
-        "en": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
+        "it": "assistenza-amministrativa-in-sede-giudiziaria-kantonale-verwaltung-basel-landschaft-arlesheim",
+        "en": "administrative-assistance-in-the-court-office-kantonale-verwaltung-basel-landschaft-arlesheim",
         "de": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
-        "fr": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
+        "fr": "assistance-administrative-au-greffe-kantonale-verwaltung-basel-landschaft-arlesheim"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4887,16 +4887,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
+        ],
+        "en": [
+          "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
+        ],
+        "fr": [
+          "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-7e177ebf1cb7",
       "slug": "apprendistato-come-kauffrau-cfc-kaufmann-cfc-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "it": "apprendistato-come-kauffrau-cfc-kaufmann-cfc-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "lehrstelle-als-kauffrau-efz-kaufmann-efz-kanton-basel-landschaft-liestal",
+        "en": "apprenticeship-as-a-businesswoman-efz-kaufmann-efz-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "lehrstelle-als-kauffrau-efz-kaufmann-efz-kanton-basel-landschaft-liestal",
-        "fr": "lehrstelle-als-kauffrau-efz-kaufmann-efz-kanton-basel-landschaft-liestal"
+        "fr": "apprentissage-en-tant-que-femme-d-affaires-efz-kaufmann-efz-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4945,6 +4959,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-efz-kaufmann-efz-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-efz-kaufmann-efz-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-efz-kaufmann-efz-kanton-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-09-01T07:31:10.932Z",
@@ -4964,12 +4984,12 @@
     },
     {
       "id": "kanton-basel-landschaft-ca47a436666a",
-      "slug": "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden",
+      "slug": "internship-social-work-integrazione-professionale-2-modulo-pratico-kantonale-verwaltung-basel-landschaft-birsfelden",
       "slugByLocale": {
-        "it": "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden",
-        "en": "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden",
+        "it": "internship-social-work-integrazione-professionale-2-modulo-pratico-kantonale-verwaltung-basel-landschaft-birsfelden",
+        "en": "internship-social-work-vocational-integration-2nd-practical-module-kantonale-verwaltung-basel-landschaft-birsfelden",
         "de": "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kanton-basel-landschaft",
-        "fr": "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden"
+        "fr": "stage-travail-social-integration-professionnelle-2e-module-pratique-kantonale-verwaltung-basel-landschaft-birsfelden"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5012,11 +5032,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kanton-basel-landschaft"
+        "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kanton-basel-landschaft",
+        "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kanton-basel-landschaft"
+          "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kanton-basel-landschaft",
+          "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden"
+        ],
+        "en": [
+          "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden"
+        ],
+        "fr": [
+          "praktikum-soziale-arbeit-berufsintegration-2-praxismodul-kantonale-verwaltung-basel-landschaft-birsfelden"
         ]
       },
       "firstSeenAt": "2026-09-01T07:31:10.931Z",

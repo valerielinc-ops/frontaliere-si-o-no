@@ -8833,12 +8833,12 @@
     },
     {
       "id": "ubs-526f25175a4b",
-      "slug": "etf-index-fund-sales-switzerland-ubs-zurich",
+      "slug": "etf-index-fund-vendite-svizzera-ubs-zurich",
       "slugByLocale": {
-        "it": "etf-index-fund-sales-switzerland-ubs-zurich",
+        "it": "etf-index-fund-vendite-svizzera-ubs-zurich",
         "en": "etf-index-fund-sales-switzerland-ubs-zurich",
         "de": "etf-index-fund-sales-switzerland-ubs-zurich",
-        "fr": "etf-index-fund-sales-switzerland-ubs-zurich"
+        "fr": "etf-index-fund-ventes-suisse-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -8900,7 +8900,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "etf-index-fund-sales-switzerland-ubs-zurich"
+        ],
+        "fr": [
+          "etf-index-fund-sales-switzerland-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "etf-index-fund-sales-switzerland-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-9a8dd5061134",

@@ -1385,11 +1385,11 @@
     },
     {
       "id": "sfs-group-1c777d348302",
-      "slug": "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates",
+      "slug": "consulente-vendite-esterno-m-f-d-sfs-group-plan-les-ouates",
       "slugByLocale": {
-        "it": "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates",
-        "en": "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates",
-        "de": "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates",
+        "it": "consulente-vendite-esterno-m-f-d-sfs-group-plan-les-ouates",
+        "en": "external-sales-advisor-m-f-d-sfs-group-plan-les-ouates",
+        "de": "externer-verkaufsberater-m-w-d-sfs-group-plan-les-ouates",
         "fr": "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
       },
       "company": "SFS Group",
@@ -1446,7 +1446,21 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+        ],
+        "en": [
+          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+        ],
+        "de": [
+          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+      ]
     },
     {
       "id": "sfs-group-8e63d8a49f76",

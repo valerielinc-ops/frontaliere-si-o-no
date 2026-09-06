@@ -1832,12 +1832,12 @@
     },
     {
       "id": "kanton-solothurn-f0ba162140a5",
-      "slug": "logopade-in-50-100-kanton-solothurn-olten",
+      "slug": "pedagoga-del-discorso-50-100-kanton-solothurn-olten",
       "slugByLocale": {
-        "it": "logopade-in-50-100-kanton-solothurn-olten",
-        "en": "logopade-in-50-100-kanton-solothurn-olten",
+        "it": "pedagoga-del-discorso-50-100-kanton-solothurn-olten",
+        "en": "speech-pedagogue-50-100-kanton-solothurn-olten",
         "de": "logopade-in-50-100-kanton-solothurn-olten",
-        "fr": "logopade-in-50-100-kanton-solothurn-olten"
+        "fr": "pedagogue-50-100-kanton-solothurn-olten"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1892,7 +1892,21 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "logopade-in-50-100-kanton-solothurn-olten"
+        ],
+        "en": [
+          "logopade-in-50-100-kanton-solothurn-olten"
+        ],
+        "fr": [
+          "logopade-in-50-100-kanton-solothurn-olten"
+        ]
+      },
+      "previousSlugs": [
+        "logopade-in-50-100-kanton-solothurn-olten"
+      ]
     },
     {
       "id": "kanton-solothurn-c2c34acc32f5",
@@ -2048,12 +2062,12 @@
     },
     {
       "id": "kanton-solothurn-5936b548bdb4",
-      "slug": "raumplaner-in-70-100-kanton-solothurn-solothurn",
+      "slug": "pianificatore-in-camera-70-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "raumplaner-in-70-100-kanton-solothurn-solothurn",
-        "en": "raumplaner-in-70-100-kanton-solothurn-solothurn",
+        "it": "pianificatore-in-camera-70-100-kanton-solothurn-solothurn",
+        "en": "room-planner-in-70-100-kanton-solothurn-solothurn",
         "de": "raumplaner-in-70-100-kanton-solothurn-solothurn",
-        "fr": "raumplaner-in-70-100-kanton-solothurn-solothurn"
+        "fr": "planificateur-in-70-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2109,7 +2123,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "raumplaner-in-70-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "raumplaner-in-70-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "raumplaner-in-70-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "raumplaner-in-70-100-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-08e839c46e43",

@@ -4623,12 +4623,12 @@
     },
     {
       "id": "ksml-aacab427faa5",
-      "slug": "stellvertretung-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern",
+      "slug": "rappresentanza-aggiunto-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40153",
       "slugByLocale": {
-        "it": "stellvertretung-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern",
-        "en": "stellvertretung-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40153",
+        "it": "rappresentanza-aggiunto-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40153",
+        "en": "deputy-representation-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40153",
         "de": "stellvertretung-5-6-klasse-primarschule-thierachern-thierachern-40153",
-        "fr": "stellvertretung-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40153"
+        "fr": "representation-adjointe-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40153"
       },
       "slugDisambiguator": "40153",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -4694,10 +4694,12 @@
           "2-lektionen-englisch-9-klasse-oberstufe-thierachern-thierachern-40129"
         ],
         "en": [
-          "2-english-lessons-grade-9-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40129"
+          "2-english-lessons-grade-9-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40129",
+          "stellvertretung-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40153"
         ],
         "fr": [
-          "2-cours-d-anglais-classe-9e-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40129"
+          "2-cours-d-anglais-classe-9e-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40129",
+          "stellvertretung-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thierachern-40153"
         ]
       },
       "firstSeenAt": "2026-09-01T10:24:06.051Z",
@@ -8863,12 +8865,12 @@
     },
     {
       "id": "ksml-694b234278c0",
-      "slug": "lehrperson-besondere-volksschule-40-12-lektionen-stiftung-lerchenbuhl-burgdorf-39710",
+      "slug": "insegnante-scuola-elementare-speciale-40-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-39710",
       "slugByLocale": {
-        "it": "lehrperson-besondere-volksschule-40-12-lektionen-stiftung-lerchenbuhl-burgdorf-39710",
-        "en": "lehrperson-besondere-volksschule-40-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-be-39710",
+        "it": "insegnante-scuola-elementare-speciale-40-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-39710",
+        "en": "teacher-special-elementary-school-40-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-39710",
         "de": "lehrperson-besondere-volksschule-40-12-lektionen-stiftung-lerchenbuhl-burgdorf-39710",
-        "fr": "lehrperson-besondere-volksschule-40-12-lektionen-stiftung-lerchenbuhl-burgdorf-39710"
+        "fr": "enseignant-ecole-primaire-speciale-40-12-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-39710"
       },
       "slugDisambiguator": "39710",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -8924,7 +8926,22 @@
           "maxValue": 43400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-besondere-volksschule-40-12-lektionen-stiftung-lerchenbuhl-burgdorf-39710"
+        ],
+        "en": [
+          "lehrperson-besondere-volksschule-40-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-be-39710"
+        ],
+        "fr": [
+          "lehrperson-besondere-volksschule-40-12-lektionen-stiftung-lerchenbuhl-burgdorf-39710"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-besondere-volksschule-40-12-lektionen-stiftung-lerchenbuhl-burgdorf-39710",
+        "lehrperson-besondere-volksschule-40-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-be-39710"
+      ]
     },
     {
       "id": "ksml-d338714f3cd9",

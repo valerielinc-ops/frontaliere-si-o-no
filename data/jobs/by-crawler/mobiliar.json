@@ -269,12 +269,12 @@
     },
     {
       "id": "mobiliar-92f45f760326",
-      "slug": "collaboratore-trice-verkaufsinnendienst-m-w-d-agenzia-generale-willisau-entlebuch-die-mobiliar-willisau",
+      "slug": "ufficio-vendite-del-dipendente-m-f-d-agenzia-generale-willisau-entlebuch-die-mobiliar-willisau",
       "slugByLocale": {
-        "it": "collaboratore-trice-verkaufsinnendienst-m-w-d-agenzia-generale-willisau-entlebuch-die-mobiliar-willisau",
-        "en": "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch",
+        "it": "ufficio-vendite-del-dipendente-m-f-d-agenzia-generale-willisau-entlebuch-die-mobiliar-willisau",
+        "en": "employee-sales-office-m-f-d-general-agency-willisau-entlebuch-die-mobiliar-willisau",
         "de": "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
+        "fr": "bureau-de-vente-des-employes-h-f-d-agence-generale-willisau-entlebuch-die-mobiliar-willisau"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -336,10 +336,18 @@
       },
       "sfJobId": "1165368855",
       "previousSlugs": [
-        "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
+        "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch",
+        "collaboratore-trice-verkaufsinnendienst-m-w-d-agenzia-generale-willisau-entlebuch-die-mobiliar-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch",
+          "collaboratore-trice-verkaufsinnendienst-m-w-d-agenzia-generale-willisau-entlebuch-die-mobiliar-willisau"
+        ],
+        "en": [
+          "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-verkaufsinnendienst-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
         ]
       },
@@ -1167,12 +1175,12 @@
     },
     {
       "id": "mobiliar-674495a15ced",
-      "slug": "responsabile-verkaufssupport-maklersupport-m-w-d-agenzia-generale-luzern-die-mobiliar-luzern",
+      "slug": "responsabile-del-supporto-vendite-brokerage-support-m-f-d-agenzia-generale-lucerne-die-mobiliar-luzern",
       "slugByLocale": {
-        "it": "responsabile-verkaufssupport-maklersupport-m-w-d-agenzia-generale-luzern-die-mobiliar-luzern",
-        "en": "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch",
+        "it": "responsabile-del-supporto-vendite-brokerage-support-m-f-d-agenzia-generale-lucerne-die-mobiliar-luzern",
+        "en": "head-of-sales-support-brokerage-support-m-f-d-general-agency-lucerne-die-mobiliar-luzern",
         "de": "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch",
-        "fr": "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch"
+        "fr": "responsable-du-support-des-ventes-et-du-courtage-h-f-d-agence-generale-lucerne-die-mobiliar-luzern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1229,10 +1237,18 @@
       },
       "sfJobId": "1165365755",
       "previousSlugs": [
-        "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch"
+        "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch",
+        "responsabile-verkaufssupport-maklersupport-m-w-d-agenzia-generale-luzern-die-mobiliar-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch",
+          "responsabile-verkaufssupport-maklersupport-m-w-d-agenzia-generale-luzern-die-mobiliar-luzern"
+        ],
+        "en": [
+          "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch"
+        ],
+        "fr": [
           "leiter-in-verkaufssupport-maklersupport-w-m-d-generalagentur-luzern-mobiliar-ch"
         ]
       },
@@ -1604,9 +1620,9 @@
     },
     {
       "id": "mobiliar-2b5820db6fa0",
-      "slug": "it-quality-master-w-m-d-mobiliar-ch",
+      "slug": "qualita-it-master-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "it-quality-master-w-m-d-mobiliar-ch",
+        "it": "qualita-it-master-m-f-d-die-mobiliar-bern",
         "en": "it-quality-master-w-m-d-die-mobiliar-bern",
         "de": "it-quality-master-w-m-d-mobiliar-ch",
         "fr": "it-qualite-master-w-m-d-die-mobiliar-bern"
@@ -1668,13 +1684,15 @@
       "previousSlugs": [
         "it-quality-master-w-m-d-mobiliar-ch-6zy447",
         "quality-master-w-m-d-die-mobiliar-bern",
-        "qualite-master-w-m-d-die-mobiliar-bern"
+        "qualite-master-w-m-d-die-mobiliar-bern",
+        "it-quality-master-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-quality-master-w-m-d-mobiliar-ch-6zy447",
           "quality-master-w-m-d-die-mobiliar-bern",
-          "qualite-master-w-m-d-die-mobiliar-bern"
+          "qualite-master-w-m-d-die-mobiliar-bern",
+          "it-quality-master-w-m-d-mobiliar-ch"
         ],
         "en": [
           "quality-master-w-m-d-die-mobiliar-bern"
@@ -1818,12 +1836,12 @@
     },
     {
       "id": "mobiliar-5fff252acdfd",
-      "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil",
+      "slug": "assicurazione-e-consigliere-pensioni-m-f-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil",
       "slugByLocale": {
-        "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil",
-        "en": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+        "it": "assicurazione-e-consigliere-pensioni-m-f-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil",
+        "en": "insurance-and-pension-advisor-m-f-d-general-agency-rapperswil-glarus-die-mobiliar-rapperswil",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
-        "fr": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+        "fr": "conseiller-en-assurance-et-pension-h-f-d-agence-generale-rapperswil-glarus-die-mobiliar-rapperswil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1881,10 +1899,18 @@
       },
       "sfJobId": "1165363955",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+        ],
+        "fr": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
         ]
       },

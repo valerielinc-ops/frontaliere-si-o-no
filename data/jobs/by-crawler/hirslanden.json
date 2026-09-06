@@ -26723,12 +26723,12 @@
     },
     {
       "id": "hirslanden-e3544f5692c1",
-      "slug": "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100",
+      "slug": "medico-senior-con-ulteriore-obiettivo-educativo-chirurgia-viscerale-focus-titolo-vch-a-80-100-hirslanden-klinik",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100",
-        "it": "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100",
-        "en": "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100",
-        "fr": "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100"
+        "it": "medico-senior-con-ulteriore-obiettivo-educativo-chirurgia-viscerale-focus-titolo-vch-a-80-100-hirslanden-klinik",
+        "en": "senior-physician-with-further-education-goal-visceral-surgery-focus-title-vch-a-80-100-hirslanden-klinik-hirslanden",
+        "fr": "medecin-principal-avec-objectif-de-formation-continue-chirurgie-viscerale-titre-de-la-cible-vch-a-80-100-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26782,7 +26782,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100"
+        ],
+        "en": [
+          "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-mit-weiterbildungsziel-viszeralchirurgie-schwerpunkttitel-vch-a-80-100"
+      ]
     },
     {
       "id": "hirslanden-a431a9dc2d40",

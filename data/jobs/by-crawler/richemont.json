@@ -11876,11 +11876,11 @@
     },
     {
       "id": "richemont-e4ba90da0971",
-      "slug": "chef-de-projets-production-f-h-x-cdm-richemont-le-locle",
+      "slug": "direttore-del-progetto-di-produzione-m-f-x-cdm-cartier-manufacture-le-locle",
       "slugByLocale": {
-        "it": "chef-de-projets-production-f-h-x-cdm-richemont-le-locle",
-        "en": "chef-de-projets-production-f-h-x-cdm-richemont-le-locle",
-        "de": "chef-de-projets-production-f-h-x-cdm-richemont-le-locle",
+        "it": "direttore-del-progetto-di-produzione-m-f-x-cdm-cartier-manufacture-le-locle",
+        "en": "production-project-manager-m-f-x-cdm-cartier-manufacture-le-locle",
+        "de": "produktionsprojektmanager-m-w-x-cdm-cartier-manufacture-le-locle",
         "fr": "chef-de-projets-production-f-h-x-cdm-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -11935,7 +11935,21 @@
           "maxValue": 91000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-production-f-h-x-cdm-richemont-le-locle"
+        ],
+        "en": [
+          "chef-de-projets-production-f-h-x-cdm-richemont-le-locle"
+        ],
+        "de": [
+          "chef-de-projets-production-f-h-x-cdm-richemont-le-locle"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-production-f-h-x-cdm-richemont-le-locle"
+      ]
     },
     {
       "id": "richemont-ec387a65902f",
@@ -12841,12 +12855,12 @@
     },
     {
       "id": "richemont-fde3a1c5fffa",
-      "slug": "executive-assistant-richemont-bellevue",
+      "slug": "assistente-esecutivo-richemont-bellevue",
       "slugByLocale": {
-        "it": "executive-assistant-richemont-bellevue",
+        "it": "assistente-esecutivo-richemont-bellevue",
         "en": "executive-assistant-richemont-bellevue",
         "de": "executive-assistent-richemont-bellevue",
-        "fr": "executive-assistant-richemont-bellevue"
+        "fr": "assistant-executif-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -12900,7 +12914,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-richemont-bellevue"
+        ],
+        "fr": [
+          "executive-assistant-richemont-bellevue"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-richemont-bellevue"
+      ]
     },
     {
       "id": "richemont-6c04a2f69673",
@@ -13210,11 +13235,11 @@
     },
     {
       "id": "richemont-66ae87cacc67",
-      "slug": "coordinateur-logistique-h-f-richemont-le-locle",
+      "slug": "coordinatore-della-logistica-m-f-cartier-manufacture-le-locle",
       "slugByLocale": {
-        "it": "coordinateur-logistique-h-f-richemont-le-locle",
-        "en": "coordinateur-logistique-h-f-richemont-le-locle",
-        "de": "coordinateur-logistique-h-f-richemont-le-locle",
+        "it": "coordinatore-della-logistica-m-f-cartier-manufacture-le-locle",
+        "en": "logistics-coordinator-m-f-cartier-manufacture-le-locle",
+        "de": "logistikkoordinator-m-w-cartier-manufacture-le-locle",
         "fr": "coordinateur-logistique-h-f-richemont-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -13269,7 +13294,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-logistique-h-f-richemont-le-locle"
+        ],
+        "en": [
+          "coordinateur-logistique-h-f-richemont-le-locle"
+        ],
+        "de": [
+          "coordinateur-logistique-h-f-richemont-le-locle"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-logistique-h-f-richemont-le-locle"
+      ]
     },
     {
       "id": "richemont-264182da7ab1",

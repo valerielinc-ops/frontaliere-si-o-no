@@ -3750,11 +3750,11 @@
     },
     {
       "id": "ehc-vd-4f9eed352e15",
-      "slug": "infirmier-soins-aigus-f-h-ehc-vd-morges",
+      "slug": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "infirmier-soins-aigus-f-h-ehc-vd-morges",
-        "en": "infirmier-soins-aigus-f-h-ehc-vd-morges",
-        "de": "infirmier-soins-aigus-f-h-ehc-vd-morges",
+        "it": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "nurse-acute-care-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-soins-aigus-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3810,7 +3810,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-soins-aigus-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "infirmier-soins-aigus-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "infirmier-soins-aigus-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-soins-aigus-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-dcbca43f4b16",

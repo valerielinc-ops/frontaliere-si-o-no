@@ -3739,11 +3739,11 @@
     },
     {
       "id": "hib-broye-e858b249a7de",
-      "slug": "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne",
+      "slug": "assistente-medico-o-assc-con-40-cfc-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
-        "it": "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne",
+        "it": "assistente-medico-o-assc-con-40-cfc-hopital-intercantonal-de-la-broye-hib-payerne",
         "en": "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne",
-        "de": "assistent-e-medical-e-ou-assc-avec-cfc-a-40-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "medizinische-assistenz-oder-assc-mit-40-cfc-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -3798,7 +3798,19 @@
           "maxValue": 43000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne"
+        ],
+        "de": [
+          "assistent-e-medical-e-ou-assc-avec-cfc-a-40-hopital-intercantonal-de-la-broye-hib-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne",
+        "assistent-e-medical-e-ou-assc-avec-cfc-a-40-hopital-intercantonal-de-la-broye-hib-payerne"
+      ]
     }
   ]
 }

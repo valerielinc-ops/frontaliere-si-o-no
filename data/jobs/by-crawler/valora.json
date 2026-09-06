@@ -3653,12 +3653,12 @@
     },
     {
       "id": "valora-cbcaf73abb03",
-      "slug": "lead-expansion-amp-lease-switzerland-valora-muttenz",
+      "slug": "expansion-lease-svizzera-valora-group-muttenz",
       "slugByLocale": {
-        "it": "lead-expansion-amp-lease-switzerland-valora-muttenz",
+        "it": "expansion-lease-svizzera-valora-group-muttenz",
         "en": "lead-expansion-amp-lease-switzerland-valora-muttenz",
         "de": "lead-expansion-amp-lease-switzerland-valora-muttenz",
-        "fr": "lead-expansion-amp-lease-switzerland-valora-muttenz"
+        "fr": "expansion-et-location-de-plomb-suisse-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3715,7 +3715,18 @@
           "maxValue": 88500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-expansion-amp-lease-switzerland-valora-muttenz"
+        ],
+        "fr": [
+          "lead-expansion-amp-lease-switzerland-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "lead-expansion-amp-lease-switzerland-valora-muttenz"
+      ]
     },
     {
       "id": "valora-fe89168cd526",

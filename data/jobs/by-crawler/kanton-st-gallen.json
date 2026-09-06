@@ -5058,12 +5058,12 @@
     },
     {
       "id": "kanton-st-gallen-abfe1984f1b2",
-      "slug": "responsabile-abteilung-support-m-w-d-kanton-st-gallen",
+      "slug": "testa-di-supporto-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "responsabile-abteilung-support-m-w-d-kanton-st-gallen",
-        "en": "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch",
+        "it": "testa-di-supporto-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "head-of-support-m-f-d-kanton-st-gallen-st-gallen",
         "de": "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch",
-        "fr": "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch"
+        "fr": "responsable-du-support-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5106,10 +5106,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch"
+        "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch",
+        "responsabile-abteilung-support-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch",
+          "responsabile-abteilung-support-m-w-d-kanton-st-gallen"
+        ],
+        "en": [
+          "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "leiter-in-abteilung-support-m-w-d-kanton-st-gallen-ch"
         ]
       },
@@ -5130,12 +5138,12 @@
     },
     {
       "id": "kanton-st-gallen-c9077950352c",
-      "slug": "projektleitung-betriebsentwicklung-e-grunpflege-m-w-d-kanton-st-gallen",
+      "slug": "gestione-del-progetto-sviluppo-operativo-e-cura-verde-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "projektleitung-betriebsentwicklung-e-grunpflege-m-w-d-kanton-st-gallen",
-        "en": "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch",
+        "it": "gestione-del-progetto-sviluppo-operativo-e-cura-verde-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "project-management-operational-development-and-green-care-m-f-d-kanton-st-gallen-st-gallen",
         "de": "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch",
-        "fr": "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch"
+        "fr": "gestion-de-projet-developpement-operationnel-et-soins-ecologiques-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5178,10 +5186,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch"
+        "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch",
+        "projektleitung-betriebsentwicklung-e-grunpflege-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch",
+          "projektleitung-betriebsentwicklung-e-grunpflege-m-w-d-kanton-st-gallen"
+        ],
+        "en": [
+          "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "projektleitung-betriebsentwicklung-und-grunpflege-m-w-d-kanton-st-gallen-ch"
         ]
       },

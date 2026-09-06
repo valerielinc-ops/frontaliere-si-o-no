@@ -1665,9 +1665,9 @@
     },
     {
       "id": "arsante-clinique-de-carouge-230c0865fa50",
-      "slug": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
+      "slug": "assistente-medico-arsante-clinique-de-carouge-centre-medical-du-leman-carouge",
       "slugByLocale": {
-        "it": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
+        "it": "assistente-medico-arsante-clinique-de-carouge-centre-medical-du-leman-carouge",
         "en": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
         "de": "assistent-e-medical-e-arsante-clinique-de-carouge-centre-medical-du-leman-carouge",
         "fr": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
@@ -1724,7 +1724,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
+      ]
     },
     {
       "id": "arsante-clinique-de-carouge-f9f1efac6b4a",

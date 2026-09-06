@@ -12719,12 +12719,12 @@
     },
     {
       "id": "spital-thurgau-ec436c21ff72",
-      "slug": "stationsleiter-in-chirurgie-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "responsabile-stazione-in-chirurgia-ortopedia-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "stationsleiter-in-chirurgie-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "stationsleiter-in-chirurgie-orthopadie-stgag-ch",
+        "it": "responsabile-stazione-in-chirurgia-ortopedia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "station-manager-in-surgery-orthopaedics-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "stationsleiter-in-chirurgie-orthopadie-stgag-ch",
-        "fr": "stationsleiter-in-chirurgie-orthopadie-stgag-ch"
+        "fr": "gestionnaire-de-poste-chirurgie-orthopedie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -12768,10 +12768,18 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "stationsleiter-in-chirurgie-orthopadie-stgag-ch"
+        "stationsleiter-in-chirurgie-orthopadie-stgag-ch",
+        "stationsleiter-in-chirurgie-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stationsleiter-in-chirurgie-orthopadie-stgag-ch",
+          "stationsleiter-in-chirurgie-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "stationsleiter-in-chirurgie-orthopadie-stgag-ch"
+        ],
+        "fr": [
           "stationsleiter-in-chirurgie-orthopadie-stgag-ch"
         ]
       },

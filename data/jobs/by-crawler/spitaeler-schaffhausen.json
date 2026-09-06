@@ -2234,7 +2234,6 @@
         "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-acf1a6",
         "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-5b56a9",
         "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen-5b56a9",
-        "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
         "dipl-infermieristica-professionale-hf-spitaler-schaffhausen-schaffhausen",
         "dipl-nursing-professional-hf-spitaler-schaffhausen-schaffhausen",
         "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
@@ -2257,7 +2256,6 @@
           "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-acf1a6",
           "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-5b56a9",
           "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen-5b56a9",
-          "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
           "dipl-infermieristica-professionale-hf-spitaler-schaffhausen-schaffhausen",
           "dipl-nursing-professional-hf-spitaler-schaffhausen-schaffhausen",
           "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
@@ -3199,12 +3197,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-089ab85277df",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-per-la-intensivstation-spitaler-schaffhausen",
+      "slug": "dipl-specialista-infermieristico-hf-per-unita-di-cura-intensiva-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-per-la-intensivstation-spitaler-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen",
+        "it": "dipl-specialista-infermieristico-hf-per-unita-di-cura-intensiva-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-nursing-specialist-hf-for-intensive-care-unit-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-pour-unite-de-soins-intensifs-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3247,10 +3245,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen",
+        "dipl-pflegefachfrau-pflegefachmann-hf-per-la-intensivstation-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen",
+          "dipl-pflegefachfrau-pflegefachmann-hf-per-la-intensivstation-spitaler-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fur-die-intensivstation-spitaeler-schaffhausen"
         ]
       },
@@ -3271,12 +3277,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-8c9dfe109508",
-      "slug": "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen",
+      "slug": "scuola-media-commerciale-di-tirocinio-1-anno-100-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen",
-        "en": "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen",
+        "it": "scuola-media-commerciale-di-tirocinio-1-anno-100-spitaler-schaffhausen-schaffhausen",
+        "en": "intern-internship-commercial-middle-school-1-year-100-spitaler-schaffhausen-schaffhausen",
         "de": "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen",
-        "fr": "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen"
+        "fr": "stage-stage-ecole-secondaire-commerciale-1-an-100-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3331,7 +3337,21 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-handelsmittelschule-1-jahr-100-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-825a352d197e",

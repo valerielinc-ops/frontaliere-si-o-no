@@ -22562,12 +22562,12 @@
     },
     {
       "id": "denner-51e704085690",
-      "slug": "franchisepartner-in-denner-partner-denner-erstfeld",
+      "slug": "partner-franchise-partner-denner-denner-erstfeld",
       "slugByLocale": {
-        "it": "franchisepartner-in-denner-partner-denner-erstfeld",
-        "en": "franchisepartner-in-denner-partner-denner-erstfeld",
+        "it": "partner-franchise-partner-denner-denner-erstfeld",
+        "en": "franchise-partner-denner-partner-denner-erstfeld",
         "de": "franchisepartner-in-denner-partner-denner",
-        "fr": "franchisepartner-in-denner-partner-denner-erstfeld"
+        "fr": "partenaire-franchise-partenaire-denner-denner-erstfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -22626,12 +22626,20 @@
       "crawledAt": "2026-09-05T22:50:44.217Z",
       "previousSlugs": [
         "franchisepartner-in-denner-partner-denner-2",
-        "franchisepartner-in-denner-partner-denner"
+        "franchisepartner-in-denner-partner-denner",
+        "franchisepartner-in-denner-partner-denner-erstfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "franchisepartner-in-denner-partner-denner-2",
-          "franchisepartner-in-denner-partner-denner"
+          "franchisepartner-in-denner-partner-denner",
+          "franchisepartner-in-denner-partner-denner-erstfeld"
+        ],
+        "en": [
+          "franchisepartner-in-denner-partner-denner-erstfeld"
+        ],
+        "fr": [
+          "franchisepartner-in-denner-partner-denner-erstfeld"
         ]
       },
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
@@ -22752,12 +22760,12 @@
     },
     {
       "id": "denner-f50a1ea5bb86",
-      "slug": "product-manager-schaumwein-denner",
+      "slug": "product-manager-vino-frizzante-denner-zurich",
       "slugByLocale": {
-        "it": "product-manager-schaumwein-denner",
-        "en": "product-manager-schaumwein-denner",
+        "it": "product-manager-vino-frizzante-denner-zurich",
+        "en": "product-manager-sparkling-wine-denner-zurich",
         "de": "product-manager-schaumwein-denner",
-        "fr": "product-manager-schaumwein-denner"
+        "fr": "chef-de-produit-vin-mousseux-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -22830,7 +22838,21 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-schaumwein-denner"
+        ],
+        "en": [
+          "product-manager-schaumwein-denner"
+        ],
+        "fr": [
+          "product-manager-schaumwein-denner"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-schaumwein-denner"
+      ]
     },
     {
       "id": "denner-1794ace26c8a",
