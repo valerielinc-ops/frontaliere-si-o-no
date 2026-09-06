@@ -5650,6 +5650,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.title': 'Opening a business in the Canton of Solothurn: Trade and Costs Register',
     'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.excerpt': 'Learn about the bureaucratic and financial steps to start a business in the Canton of Solothurn, including registration fees and insurance obligations.',
     'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.imageAlt': 'Business registration office in the Canton of Solothurn',
+    'blog.article.aprire-attivita-soletta-costi-procedure.title': 'Opening a business in Solothurn: costs and procedures',
+    'blog.article.aprire-attivita-soletta-costi-procedure.excerpt': 'From legal forms to the costs of registration in the commercial register, insurance obligations: how to start a business in the Canton of Soletta.',
+    'blog.article.aprire-attivita-soletta-costi-procedure.imageAlt': 'A modern Swiss office space with desk, computer, and business documents.',
 };
 
 export default blogMetaChEn;

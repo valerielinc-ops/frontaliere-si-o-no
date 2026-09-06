@@ -1909,6 +1909,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-soletta': { it: 'avs-prestazioni-complementari-soletta', en: 'avs-complementary-benefits-soletta', de: 'avs-zusatzleistungen-soletta', fr: 'avs-prestations-complementaires-soletta' },
  'avs-soletta-cassa-compensazione': { it: 'avs-soletta-cassa-compensazione', en: 'ahv-solothurn-compensation-fund', de: 'ahv-solothurn-ausgleichskasse', fr: 'avs-soleure-caisse-compensation' },
  'aprire-attivita-canton-soletta-registro-di-commercio-e-costi': { it: 'aprire-attivita-canton-soletta-registro-di-commercio-e-costi', en: 'starting-a-business-canton-solothurn-registration-costs', de: 'unternehmen-grunden-kanton-solothurn-eintragung-und-kosten', fr: 'creer-une-entreprise-canton-de-soleure-enregistrement-et-frais' },
+ 'aprire-attivita-soletta-costi-procedure': { it: 'aprire-attivita-soletta-costi-procedure', en: 'open-business-soletta-costs-procedures', de: 'betrieb-eroeffnen-solothurn-kosten-verfahren', fr: 'ouvrir-entreprise-solette-couts-procedures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
