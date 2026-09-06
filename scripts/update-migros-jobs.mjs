@@ -45,6 +45,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -164,7 +165,7 @@ export async function fetchMigrosJobDetailUrls() {
   // Uncapped: the loop below already terminates naturally when a page adds no
   // new URLs or the "next" button disappears, so this only guards against a
   // runaway pagination control. Was 25 → silently dropped ~380 of 1180 jobs.
-  const maxPages = Number(process.env.JOBS_MIGROS_MAX_PAGES) || 1000;
+  const maxPages = positiveIntFromEnv('JOBS_MIGROS_MAX_PAGES', 1000);
 
   const browser = await launchChromium({
     headless,

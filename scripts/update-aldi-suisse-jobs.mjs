@@ -56,6 +56,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -172,7 +173,7 @@ async function fetchAldiListings() {
 /* -- Detail page fetching & parsing ------------------------------------ */
 async function fetchAndParseDetailPages(listings) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-  const concurrency = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 3;
+  const concurrency = positiveIntFromEnv('JOBS_CRAWLER_CONCURRENCY', 3);
   const jobs = [];
   let droppedNoCanton = 0;
 

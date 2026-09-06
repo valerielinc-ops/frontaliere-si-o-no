@@ -55,6 +55,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { repairBurkhalterBoundarySlugs } from './lib/burkhalter-slug-boundary-repair.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -76,7 +77,7 @@ const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-const CONCURRENCY = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 4;
+const CONCURRENCY = positiveIntFromEnv('JOBS_CRAWLER_CONCURRENCY', 4);
 
 // Burkhalter spans all 26 Swiss cantons — accept any target canton. Canton scope
 // is governed by TARGET_CANTONS in scripts/lib/crawler-location-config.mjs.

@@ -194,6 +194,7 @@ import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
 // difetto che toglie (la query identificante buttata via) e per il ponte con
 // le voci gia' scritte.
 import { newsUrlKey, legacyNewsUrlKey, makeLedgerEntry, ledgerViewsForLookup } from './lib/news-url-key.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -9711,7 +9712,7 @@ const MAX_DUPLICATE_RETRIES = 8;
 // gate's classifier cost bounded — the pool already carries the direct-source
 // scan; this is a top-up of the frontaliere stories that only live on Google
 // News. Post-gate + dedup the effective count is far smaller.
-const GOOGLE_NEWS_INJECT_MAX = Number(process.env.GOOGLE_NEWS_INJECT_MAX) || 60;
+const GOOGLE_NEWS_INJECT_MAX = positiveIntFromEnv('GOOGLE_NEWS_INJECT_MAX', 60);
 
 // Global wall-clock budget (2026-06-15). The generator has no overall deadline,
 // so a pathological run (slow free-tier models + fact-check treadmill) can balloon

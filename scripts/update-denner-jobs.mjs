@@ -55,6 +55,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -147,7 +148,7 @@ export async function fetchDennerJobUrls() {
   const navTimeoutMs = Number(process.env.JOBS_DENNER_NAV_TIMEOUT_MS) || 30000;
   const paginationTimeoutMs = Number(process.env.JOBS_DENNER_PAGINATION_TIMEOUT_MS) || 2000;
   const paginationStallPolls = Math.max(1, Number(process.env.JOBS_DENNER_PAGINATION_STALL_POLLS) || 4);
-  const maxPages = Number(process.env.JOBS_DENNER_MAX_PAGES) || 200;
+  const maxPages = positiveIntFromEnv('JOBS_DENNER_MAX_PAGES', 200);
   const browserChannel = String(process.env.JOBS_DENNER_BROWSER_CHANNEL || '').trim();
   const browser = await launchChromium({
     headless,
@@ -243,7 +244,7 @@ export async function fetchDennerJobUrls() {
 /* -- Detail page fetching & parsing ------------------------------------ */
 async function fetchAndParseDetailPages(urls) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-  const concurrency = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 3;
+  const concurrency = positiveIntFromEnv('JOBS_CRAWLER_CONCURRENCY', 3);
   const jobs = [];
 
   for (let i = 0; i < urls.length; i += concurrency) {
