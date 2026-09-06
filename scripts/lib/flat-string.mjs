@@ -40,6 +40,15 @@
  * 405 ms per 40'000 on the same measurement). The cost is O(length of the
  * *substring*), not of the parent.
  *
+ * The CPU side of that trade is bounded by
+ * tests/seo/sitemap-loader-flatten-budget.test.ts, which measures the overhead
+ * against the cost of the parse loop it rides on. It exists because the hot
+ * callers flatten per-URL over the whole sitemap corpus, where a flattener of
+ * a different order (`split('').join('')` is 2.88x the Buffer round-trip's
+ * overhead ratio on that harness) would turn the OOM this helper prevents into
+ * a timeout. Measured verdict for the worst caller,
+ * scripts/validate-sitemap-pages.mjs: ~0.8 s on a 504-545 s gate.
+ *
  * The round-trip is content-exact for every caller here: the parents were read
  * with utf8 encoding, so they cannot contain lone surrogates for the encoder to
  * replace.
