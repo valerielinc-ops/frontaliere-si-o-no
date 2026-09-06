@@ -5704,6 +5704,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-argovia.title': 'Allocations familiales Argovie : montants et demande',
     'blog.article.assegni-familiari-argovia.excerpt': 'Guide complet : comment demander des allocations familiales dans le canton d\'Argovie, documents nécessaires, caisse de compensation et procédure étape par étape.',
     'blog.article.assegni-familiari-argovia.imageAlt': 'Bureau cantonal argovien pour les allocations familiales et prestations sociales',
+    'blog.article.borse-studio-canton-argovia.title': 'Bourses canton d\'Argovie : exigences et montants',
+    'blog.article.borse-studio-canton-argovia.excerpt': 'Guide complet des bourses d\'études dans le canton d\'Argovie : critères d\'admission, montants maximaux, procédure de demande et bureau cantonal compétent.',
+    'blog.article.borse-studio-canton-argovia.imageAlt': 'Salle d\'étude universitaire suisse avec des étudiants consultant des livres et des ordinateurs portables',
 };
 
 export default blogMetaChFr;

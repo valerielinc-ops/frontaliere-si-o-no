@@ -5704,6 +5704,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-argovia.title': 'Family allowances Aargau: amounts and demand',
     'blog.article.assegni-familiari-argovia.excerpt': 'Complete guide: how to request family allowances in the Canton of Aargau, necessary documents, compensation fund and step-by-step procedure.',
     'blog.article.assegni-familiari-argovia.imageAlt': 'Aargau cantonal office for family social benefits and family allowances',
+    'blog.article.borse-studio-canton-argovia.title': 'Scholarships canton Aargau: requirements and amounts',
+    'blog.article.borse-studio-canton-argovia.excerpt': 'Complete guide to scholarships in the Canton of Aargau: admission criteria, maximum amounts, application procedure and competent cantonal office.',
+    'blog.article.borse-studio-canton-argovia.imageAlt': 'Swiss university study room with students consulting books and using laptops',
 };
 
 export default blogMetaChEn;

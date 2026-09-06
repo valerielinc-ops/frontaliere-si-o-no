@@ -5704,6 +5704,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-argovia.title': 'Familienzulagen Aargau: Beträge und Antrag',
     'blog.article.assegni-familiari-argovia.excerpt': 'Vollständige Anleitung: So beantragen Sie Familienzulagen im Kanton Aargau, benötigte Unterlagen, Ausgleichskasse und Schritt-für-Schritt-Verfahren.',
     'blog.article.assegni-familiari-argovia.imageAlt': 'Aargauer Kantonsamt für Familienleistungen und Familienbeihilfen',
+    'blog.article.borse-studio-canton-argovia.title': 'Stipendien Kanton Aargau: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-canton-argovia.excerpt': 'Vollständiger Stipendienleitfaden im Kanton Aargau: Zulassungskriterien, Höchstbeträge, Bewerbungsverfahren und zuständige kantonale Stelle.',
+    'blog.article.borse-studio-canton-argovia.imageAlt': 'Universitätsstudiersaal in der Schweiz mit Studierenden, die Bücher lesen und Laptops nutzen',
 };
 
 export default blogMetaChDe;
