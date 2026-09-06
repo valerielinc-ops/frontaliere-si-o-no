@@ -5719,6 +5719,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Erutta un vulcano, sei aeroporti bloccati in Indonesia',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Sospensione delle attività aeroportuali in Indonesia a causa dell\'eruzione del vulcano Anak Krakatoa. Oltre 20\'000 passeggeri coinvolti.',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Vista aerea di un aeroporto svizzero con un\'eruzione vulcanica in lontananza',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Esercitazione di salvataggio nella galleria del Monte Ceneri',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Simulato incendio in un treno Giruno durante un\'esercitazione di salvataggio nella galleria del Monte Ceneri.',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Vista aerea della galleria del Monte Ceneri durante un\'esercitazione di sicurezza, con veicoli di emergenza e personale in azione.',
 };
 
 export default blogMetaChIt;

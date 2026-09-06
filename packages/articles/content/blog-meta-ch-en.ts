@@ -5719,6 +5719,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Volcano erupts, six airports blocked in Indonesia',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Suspension of airport activities in Indonesia due to the eruption of the Anak Krakatoa volcano. Over 20,000 passengers involved.',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Aerial view of a Swiss airport with a volcanic eruption in the background',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Rescue exercise in the Monte Ceneri tunnel',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Simulated fire in a Giruno train during a rescue exercise in the Monte Ceneri tunnel.',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Aerial view of the Monte Ceneri tunnel during a safety drill, with emergency vehicles and personnel in action.',
 };
 
 export default blogMetaChEn;

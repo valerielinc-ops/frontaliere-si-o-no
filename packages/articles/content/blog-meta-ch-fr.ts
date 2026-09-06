@@ -5719,6 +5719,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Éruption d\'un volcan, six aéroports bloqués en Indonésie',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Suspension des activités aéroportuaires en Indonésie en raison de l\'éruption du volcan Anak Krakatoa. Plus de 20\'000 passagers concernés.',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Vue aérienne d\'un aéroport suisse avec une éruption volcanique à l\'arrière-plan',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Exercice de sauvetage dans le tunnel du Monte Ceneri',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Incendie simulé dans un train Giruno lors d\'un exercice de sauvetage dans le tunnel du Monte Ceneri.',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Vue aérienne du tunnel du Monte Ceneri lors d\'un exercice de sécurité, avec des véhicules d\'urgence et du personnel en action.',
 };
 
 export default blogMetaChFr;

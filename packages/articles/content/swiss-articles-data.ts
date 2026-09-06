@@ -17155,6 +17155,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'esercitazione-salvataggio-monte-ceneri',
+    category: 'novita',
+    date: '2026-09-06T11:06:06.755Z',
+    image: '/images/blog/esercitazione-salvataggio-monte-ceneri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

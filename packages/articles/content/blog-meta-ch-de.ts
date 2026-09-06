@@ -5719,6 +5719,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Vulkanausbruch, sechs Flughäfen in Indonesien blockiert',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Einstellung des Flugbetriebs in Indonesien aufgrund des Ausbruchs des Vulkans Anak Krakatoa. Über 20\'000 Fahrgäste waren beteiligt.',
     'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Luftaufnahme eines Schweizer Flughafens mit einem Vulkanausbruch im Hintergrund',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Rettungsübung im Ceneri-Tunnel',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Simulierter Brand in einem Giruno-Zug während einer Rettungsübung im Ceneri-Tunnel.',
+    'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Luftaufnahme des Monte-Ceneri-Tunnels während einer Sicherheitsübung, mit Einsatzfahrzeugen und Personal im Einsatz.',
 };
 
 export default blogMetaChDe;
