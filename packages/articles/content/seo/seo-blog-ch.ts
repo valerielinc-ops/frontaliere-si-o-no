@@ -75017,6 +75017,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-svizzera-settori-formazione-contratti': {
+    title: 'Salari e mercato del lavoro: formazione, settori e livelli',
+    description: 'Scopri come si compone uno stipendio svizzero: lordo, deduzioni AVS/LPP/LAMal, netto. Salari per formazione e settore, contratti collettivi e come leggere',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, formazione',
+    ogTitle: 'Salari e mercato del lavoro in Svizzera: settori e formazione',
+    ogDescription: 'Come variano i salari svizzeri per grado di formazione e settore? Scopri la composizione di uno stipendio lordo/netto, deduzioni AVS/LPP/LAMal, contratti collettivi e come verificare il tuo stipendio con i dati SECO e UST.',
+    canonicalPath: '/articoli-svizzera/salari-svizzera-settori-formazione-contratti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro: formazione, settori e livelli",
+      "description": "Scopri come si compone uno stipendio svizzero: lordo, deduzioni AVS/LPP/LAMal, netto. Salari per formazione e settore, contratti collettivi e come leggere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-svizzera-settori-formazione-contratti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Colloquio professionale in ufficio svizzero: discussione su stipendio e contratto di lavoro tra colleghi."
+      },
+      "datePublished": "2026-09-06T20:02:14+00:00",
+      "dateModified": "2026-09-06T20:02:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-svizzera-settori-formazione-contratti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5779,6 +5779,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-neuchatel.title': 'Neuchâtel Scholarships: Requirements and Amounts',
     'blog.article.borse-studio-neuchatel.excerpt': 'Complete guide to scholarships in the Canton of Neuchâtel: award criteria, residency and academic merit requirements, application procedure and where to find updated calls.',
     'blog.article.borse-studio-neuchatel.imageAlt': 'Modern university library with students studying, representing access to higher education in Switzerland.',
+    'blog.article.salari-svizzera-settori-formazione-contratti.title': 'Wages and the labour market: training, sectors and levels',
+    'blog.article.salari-svizzera-settori-formazione-contratti.excerpt': 'The Swiss salary consists of gross, AVS/LPP/LAMal and net contributions. Learn how salaries vary by training, industry, and how to check your paycheck.',
+    'blog.article.salari-svizzera-settori-formazione-contratti.imageAlt': 'Professional salary discussion in a Swiss office workplace between two colleagues reviewing employment contract.',
 };
 
 export default blogMetaChEn;

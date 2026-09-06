@@ -17335,6 +17335,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salari-svizzera-settori-formazione-contratti',
+    category: 'pratico',
+    date: '2026-09-06T20:02:14.711Z',
+    image: '/images/blog/salari-svizzera-settori-formazione-contratti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

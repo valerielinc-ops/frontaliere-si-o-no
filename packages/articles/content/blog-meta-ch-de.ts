@@ -5779,6 +5779,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-neuchatel.title': 'Stipendien Neuenburg: Voraussetzungen und Beträge',
     'blog.article.borse-studio-neuchatel.excerpt': 'Vollständiger Leitfaden für Stipendien im Kanton Neuenburg: Vergabekriterien, Anforderungen an Wohnsitz und akademische Leistungen, Bewerbungsverfahren und wo aktualisierte Ausschreibungen zu finden sind.',
     'blog.article.borse-studio-neuchatel.imageAlt': 'Moderne Universitätsbibliothek mit lernenden Studierenden, symbolisiert den Zugang zur Hochschulbildung in der Schweiz.',
+    'blog.article.salari-svizzera-settori-formazione-contratti.title': 'Löhne und Arbeitsmarkt: Ausbildung, Branchen und Niveaus',
+    'blog.article.salari-svizzera-settori-formazione-contratti.excerpt': 'Der schweizerische Lohn setzt sich aus Brutto-, AHV/BVG/KVG- und Nettobeiträgen zusammen. Erfahren Sie, wie sich die Gehälter nach Ausbildung und Branche unterscheiden und wie Sie Ihre Gehaltsabrechnung überprüfen können.',
+    'blog.article.salari-svizzera-settori-formazione-contratti.imageAlt': 'Berufliches Gehaltsgesprach in einem Schweizer Büro zwischen Arbeitnehmer und Personalfachleuten.',
 };
 
 export default blogMetaChDe;
