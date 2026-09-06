@@ -29,20 +29,52 @@ const BRAND_BY_DOMAIN: Record<string, string> = {
   'ipersonal.ch': 'iPersonal AG',
 };
 
-function fold(value: string) {
+/**
+ * Tokens that carry no brand identity of their own: legal forms and the
+ * connectives that survive folding. Dropping them lets "iPersonal AG" compare
+ * equal to the host `ipersonal.ch` without ever letting a merely shared word
+ * ("bern", "zurich", "personal") glue two unrelated brands together.
+ */
+const GENERIC_TOKENS = new Set([
+  'ag', 'sa', 'sagl', 'sarl', 'gmbh', 'srl', 'spa', 'llc', 'inc', 'ltd', 'plc',
+  'kg', 'bv', 'nv', 'se', 'co', 'holding', 'group', 'groupe', 'gruppe',
+  'the', 'und', 'and', 'di', 'de', 'der', 'das',
+]);
+
+function identityTokens(value: string) {
   return value
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]/g, '');
+    .replace(/[\u0300-\u036f]/g, '')
+    .split(/[^a-z0-9]+/)
+    .filter((token) => token && !GENERIC_TOKENS.has(token));
 }
 
-function domainCore(domain: string) {
-  return fold(
+/** The brand reduced to its identity: a trailing qualifier in parentheses is noise. */
+function brandIdentity(name: string) {
+  return identityTokens(name.replace(/\s*\([^)]*\)\s*/g, ' ')).join('');
+}
+
+/** The host reduced to its identity: no crawler subdomain, no TLD. */
+function domainIdentity(domain: string) {
+  return identityTokens(
     domain
       .replace(/^(?:www|jobs|karriere|careers|recruitingapp-\d+)\./, '')
       .replace(/\.[a-z]{2,4}$/, ''),
-  );
+  ).join('');
+}
+
+/**
+ * A brand and a host name the same entity only when their identities are the
+ * SAME token sequence. The predicate used to be bidirectional containment on
+ * the folded strings (`name.includes(core) || core.includes(name)`), which has
+ * no token boundary: "Stadt Bern" claimed `bern.ch`, "Banque Cantonale
+ * Vaudoise" claimed `vaudoise.ch`, and 19 pairs of unrelated parsers sat one
+ * side away from the blocking `crossed && !straight` verdict (#7720). Equality
+ * on the identity is what makes the guard fire on a real swap only.
+ */
+function sameEntity(brand: string, host: string) {
+  return host.length > 3 && brand === host;
 }
 
 type ParserBrand = { file: string; name: string; domain: string };
@@ -115,30 +147,57 @@ describe('ipersonal / med-ipersonal brand ↔ source domain pairing', () => {
   });
 });
 
+function findSwappedPairs(brands: ParserBrand[]): string[] {
+  const swapped: string[] = [];
+  for (let i = 0; i < brands.length; i++) {
+    for (let j = i + 1; j < brands.length; j++) {
+      const a = brands[i];
+      const b = brands[j];
+      const [nameA, nameB] = [brandIdentity(a.name), brandIdentity(b.name)];
+      const [coreA, coreB] = [domainIdentity(a.domain), domainIdentity(b.domain)];
+      if (coreA === coreB) continue;
+      const crossed = sameEntity(nameA, coreB) && sameEntity(nameB, coreA);
+      const straight = sameEntity(nameA, coreA) && sameEntity(nameB, coreB);
+      if (crossed && !straight) {
+        swapped.push(`${a.file} (${a.name} / ${a.domain}) <=> ${b.file} (${b.name} / ${b.domain})`);
+      }
+    }
+  }
+  return swapped;
+}
+
 describe('dedicated crawler parsers, as a class', () => {
   it('has no pair of parsers whose brand labels are swapped with each other', () => {
     const brands = readParserBrands();
     expect(brands.length).toBeGreaterThan(400);
+    expect(findSwappedPairs(brands)).toEqual([]);
+  });
 
-    const matches = (name: string, core: string) =>
-      core.length > 3 && (name.includes(core) || core.includes(name));
+  it('still flags the pre-#7570 pair that really was crossed', () => {
+    // The guard has to stay a guard: hardening the predicate must not turn the
+    // one swap this suite exists for into something it can no longer see.
+    const swapped = findSwappedPairs([
+      { file: 'ipersonal-job-parser.mjs', name: 'iPersonal AG', domain: 'med-ipersonal.ch' },
+      { file: 'med-ipersonal-job-parser.mjs', name: 'MediPersonal', domain: 'ipersonal.ch' },
+    ]);
+    expect(swapped).toHaveLength(1);
+  });
 
-    const swapped: string[] = [];
-    for (let i = 0; i < brands.length; i++) {
-      for (let j = i + 1; j < brands.length; j++) {
-        const a = brands[i];
-        const b = brands[j];
-        const [nameA, nameB] = [fold(a.name), fold(b.name)];
-        const [coreA, coreB] = [domainCore(a.domain), domainCore(b.domain)];
-        if (coreA === coreB) continue;
-        const crossed = matches(nameA, coreB) && matches(nameB, coreA);
-        const straight = matches(nameA, coreA) && matches(nameB, coreB);
-        if (crossed && !straight) {
-          swapped.push(`${a.file} (${a.name} / ${a.domain}) <=> ${b.file} (${b.name} / ${b.domain})`);
-        }
-      }
-    }
-
-    expect(swapped).toEqual([]);
+  it('does not flag two brands that merely share a generic token with the other host', () => {
+    // Sharing "personal" is not a swap, and neither is sharing a city name:
+    // `Stadt Bern`/`bern.ch` vs `Universität Bern`/`unibe.ch` is one of the 19
+    // real pairs the old containment predicate left one side from red (#7720).
+    expect(
+      findSwappedPairs([
+        { file: 'a-job-parser.mjs', name: 'Personal Service AG', domain: 'x-personal.ch' },
+        { file: 'b-job-parser.mjs', name: 'MediPersonal', domain: 'personal-med.ch' },
+      ]),
+    ).toEqual([]);
+    expect(
+      findSwappedPairs([
+        { file: 'stadt-bern-job-parser.mjs', name: 'Stadt Bern', domain: 'bern.ch' },
+        { file: 'unibe-job-parser.mjs', name: 'Universität Bern', domain: 'unibe.ch' },
+      ]),
+    ).toEqual([]);
   });
 });
