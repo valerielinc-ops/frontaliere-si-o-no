@@ -64188,7 +64188,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere': {
-    title: 'Frontalieri Ticino: cosa cambia con il Nuovo Accordo 2024',
+    title: 'Vivere a Tovo di Sant\'Agata e lavorare in Grigioni da frontaliere',
     description: 'Il Nuovo Accordo Frontalieri del 2024 è entrato in vigore dal 1° gennaio 2024 e prevede l\'esenzione di € 7.500 per i vecchi frontalieri e di € 10.000',
     keywords: 'frontalieri, ticino, svizzera, italia, cosa, cambia, nuovo, accordo',
     ogTitle: 'Vivere a Tovo di Sant\'Agata e lavorare in Grigioni da frontaliere: cosa cambia con il Nuovo Accordo Frontalieri del 2024',
@@ -64197,7 +64197,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontalieri Ticino: cosa cambia con il Nuovo Accordo 2024",
+      "headline": "Vivere a Tovo di Sant'Agata e lavorare in Grigioni da frontaliere",
       "description": "Il Nuovo Accordo Frontalieri del 2024 è entrato in vigore dal 1° gennaio 2024 e prevede l'esenzione di € 7.500 per i vecchi frontalieri e di € 10.000",
       "image": {
         "@type": "ImageObject",
@@ -64657,7 +64657,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-valpelline-lavorare-vallese': {
-    title: 'Frontaliere in Vallese: regole e fiscalità | Frontaliere Ticino',
+    title: 'Vivere a Valpelline e lavorare in Vallese: regole e fiscalità',
     description: 'Scopri le regole fiscali, le trattenute previdenziali e le novità del nuovo accordo per i frontalieri che lavorano in Svizzera nel Vallese. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, vallese, regole, fiscalità, operativa',
     ogTitle: 'Frontaliere in Vallese: guida fiscale e regole 2024',
@@ -64666,7 +64666,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere in Vallese: regole e fiscalità",
+      "headline": "Vivere a Valpelline e lavorare in Vallese: regole e fiscalità",
       "description": "Scopri le regole fiscali, le trattenute previdenziali e le novità del nuovo accordo per i frontalieri che lavorano in Svizzera nel Vallese. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -70391,7 +70391,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-venegono-superiore-lavorare-ticino-frontaliere': {
-    title: 'Vivere a Venegono e lavorare in Ticino: guida fiscale 2024',
+    title: 'Vivere a Venegono Superiore e lavorare in Ticino: guida fiscale 2024',
     description: 'Guida completa per frontalieri tra Italia e Ticino: nuovo accordo 2024, tassazione, contributi AVS/LPP, LAMal, permesso G e dichiarazioni fiscali. Consulta',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, venegono, lavorare, fiscale',
     ogTitle: 'Vivere a Venegono e lavorare in Ticino: guida fiscale 2024',
@@ -70400,7 +70400,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Vivere a Venegono e lavorare in Ticino: guida fiscale 2024",
+      "headline": "Vivere a Venegono Superiore e lavorare in Ticino: guida fiscale 2024",
       "description": "Guida completa per frontalieri tra Italia e Ticino: nuovo accordo 2024, tassazione, contributi AVS/LPP, LAMal, permesso G e dichiarazioni fiscali. Consulta",
       "image": {
         "@type": "ImageObject",
@@ -73199,7 +73199,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-antrona-schieranco-lavorare-ticino-da-frontaliere': {
-    title: 'Vivere in Ticino, lavorare da frontaliere: vantaggi e svantaggi',
+    title: 'Vivere ad Antrona Schieranco e lavorare in Ticino da frontaliere',
     description: 'Collegamenti con il Ticino, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, lavorare, vantaggi, svantaggi',
     ogTitle: 'Vivere a Antrona Schieranco e lavorare in Ticino da frontaliere',
@@ -73208,7 +73208,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Vivere in Ticino, lavorare da frontaliere: vantaggi e svantaggi",
+      "headline": "Vivere ad Antrona Schieranco e lavorare in Ticino da frontaliere",
       "description": "Collegamenti con il Ticino, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
