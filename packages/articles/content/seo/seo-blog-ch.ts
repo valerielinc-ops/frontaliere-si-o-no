@@ -73145,6 +73145,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-vallese-importi': {
+    title: 'Assegni familiari Vallese: importi e procedura di domanda',
+    description: 'Scopri gli importi degli assegni familiari e di formazione nel Canton Vallese: 300 CHF per figlio e 440 CHF per la formazione. Guida alla domanda.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, vallese, importi',
+    ogTitle: 'Assegni familiari Canton Vallese: guida e importi',
+    ogDescription: 'Il sistema vallesano di sostegno alle famiglie: assegni da 300 CHF per figlio e 440 CHF per la formazione. Scopri come presentare la domanda tramite la cassa di compensazione.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-vallese-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Vallese: importi e procedura di domanda",
+      "description": "Scopri gli importi degli assegni familiari e di formazione nel Canton Vallese: 300 CHF per figlio e 440 CHF per la formazione. Guida alla domanda.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-vallese-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti relativi alle prestazioni sociali e assegni familiari nel Canton Vallese."
+      },
+      "datePublished": "2026-09-06T01:48:07+00:00",
+      "dateModified": "2026-09-06T01:48:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-vallese-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
