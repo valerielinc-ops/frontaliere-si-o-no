@@ -38,7 +38,6 @@
       },
       "firstSeenAt": "2026-08-21T22:03:26.436Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -129,8 +128,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -153,9 +151,9 @@
         "fr": "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
       },
       "titleByLocale": {
-        "it": "Global Wealth Management – Private Banker (Zurigo)",
-        "en": "Global Wealth Management.",
-        "de": "Global Wealth Management.",
+        "it": "Global Wealth Management – ​​Private Banker (Zurigo)",
+        "en": "Global Wealth Management – Private Banker (Zurich)",
+        "de": "Global Wealth Management – Private Banker (Zürich)",
         "fr": "Global Wealth Management – Private Banker (Zurigo)"
       },
       "sourceLang": "it",
@@ -186,10 +184,9 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 427,
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -229,9 +226,9 @@
         "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
-        "it": "Global Wealth Management – Private Banker (Lugano)",
-        "en": "Global Wealth Management.",
-        "de": "Global Wealth Management.",
+        "it": "Global Wealth Management – ​​Private Banker (Lugano)",
+        "en": "Global Wealth Management – ​​Private Banker (Lugano)",
+        "de": "Global Wealth Management – Privatbankier (Lugano)",
         "fr": "Global Wealth Management – Private Banker (Lugano)"
       },
       "sourceLang": "it",
@@ -276,10 +273,9 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 421,
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -358,7 +354,6 @@
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
