@@ -1911,6 +1911,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-canton-soletta-registro-di-commercio-e-costi': { it: 'aprire-attivita-canton-soletta-registro-di-commercio-e-costi', en: 'starting-a-business-canton-solothurn-registration-costs', de: 'unternehmen-grunden-kanton-solothurn-eintragung-und-kosten', fr: 'creer-une-entreprise-canton-de-soleure-enregistrement-et-frais' },
  'aprire-attivita-soletta-costi-procedure': { it: 'aprire-attivita-soletta-costi-procedure', en: 'open-business-soletta-costs-procedures', de: 'betrieb-eroeffnen-solothurn-kosten-verfahren', fr: 'ouvrir-entreprise-solette-couts-procedures' },
  'aprire-attivita-soletta-commercio-costi': { it: 'aprire-attivita-soletta-commercio-costi', en: 'open-business-canton-soletta-commerce-registry', de: 'geschaft-eroffnen-kanton-solothurn-handelsregister', fr: 'ouvrir-entreprise-canton-soleure-registre-commerce' },
+ 'avviare-attivita-soletta-guida-completa': { it: 'avviare-attivita-soletta-guida-completa', en: 'start-business-soletta-complete-guide', de: 'geschaeft-gruenden-solothurn-vollstaendige-anleitung', fr: 'demarrer-activite-soleure-guide-complet' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

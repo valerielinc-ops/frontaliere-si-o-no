@@ -5656,6 +5656,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-soletta-commercio-costi.title': 'Ein Geschäft im Kanton Solothurn eröffnen: Registerführer und Kosten',
     'blog.article.aprire-attivita-soletta-commercio-costi.excerpt': 'So gründen Sie eine Tätigkeit im Kanton Solothurn: Rechtsformen, Handelsregister, kantonale Besteuerung und obligatorische Vorsorge (AHV, BVG, KVG).',
     'blog.article.aprire-attivita-soletta-commercio-costi.imageAlt': 'Schweizer Handelsregisteramt mit moderner Empfangstheke und zeitgenössischer Architekturgestaltung',
+    'blog.article.avviare-attivita-soletta-guida-completa.title': 'Geschäfte in Solothurn eröffnen: Rechtsformen, Kosten und Verfahren',
+    'blog.article.avviare-attivita-soletta-guida-completa.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Solothurn: Wahl der Rechtsform, Eintragung ins Handelsregister, Steuern und Versicherungspflichten.',
+    'blog.article.avviare-attivita-soletta-guida-completa.imageAlt': 'Verwaltungsgebäude in einer Schweizer Stadt, Symbol für Geschäftsgründung und Handelsregistereintrag',
 };
 
 export default blogMetaChDe;
