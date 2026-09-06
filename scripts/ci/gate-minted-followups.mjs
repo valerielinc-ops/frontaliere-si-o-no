@@ -62,7 +62,7 @@ import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
-export const GATE_MARKER = '<!-- followup-mint-gate -->';
+export const MINT_GATE_MARKER = '<!-- followup-mint-gate -->';
 
 /**
  * Spezza il corpo coniato in testa + item, e partiziona gli item con l'oracolo
@@ -162,7 +162,7 @@ function main() {
         console.log(`#${iss.number} (PR #${pr}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
         if (d.action === 'skip' || d.action === 'keep') continue;
         const list = d.demoted.map((it) => `- «${itemHeadline(it)}»`).join('\n');
-        const why = `${GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — nessun token-codice distintivo in una riga \`Suggested action\`, quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
+        const why = `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — nessun token-codice distintivo in una riga \`Suggested action\`, quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
         if (DRY_RUN) { console.log(why); continue; }
         if (d.action === 'suppress') {
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
@@ -181,7 +181,7 @@ function main() {
           report.push(`- ✂️ #${iss.number} ${d.demoted.length} item demoti, ${d.valid.length} restano — PR #${pr}`);
         }
         gh(['pr', 'comment', String(pr), ...repoArgs, '--body',
-          `${GATE_MARKER}\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile), ma **conservati qui**, come i \`Live-verification\`:\n\n${list}\n\n${d.action === 'suppress' ? `Issue #${iss.number} chiusa in ingresso: non restava nessun item valido.` : `Issue #${iss.number} resta aperta con ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'}.`}`],
+          `${MINT_GATE_MARKER}\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile), ma **conservati qui**, come i \`Live-verification\`:\n\n${list}\n\n${d.action === 'suppress' ? `Issue #${iss.number} chiusa in ingresso: non restava nessun item valido.` : `Issue #${iss.number} resta aperta con ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'}.`}`],
           { allowFail: true });
       }
     } catch (e) {
