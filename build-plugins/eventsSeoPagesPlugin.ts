@@ -1663,9 +1663,15 @@ export function sitemapLadders(laddersByLocale: Map<Locale, LadderBucket[]>): La
 /**
  * URL of ladder page `page` (≥2) of a bucket: `<bucket-path>page-N/`.
  *
- * No collision with an event detail page under the same bucket:
- * `slugifyEvent()` always appends the ISO start date (`titolo-2026-07-04`),
- * so no assigned slug can ever be the literal `page-2`.
+ * No collision with any sibling segment, and the reason is not the ISO date the
+ * previous version of this note claimed. `comune` is optional here, so with a
+ * comune-less bucket the ladder is `<canton-base>/page-N/` — the same shape
+ * `pathFor()` mints for a comune bucket, where the date plays no part at all.
+ * Both segments (and the event detail slug, whose date part is empty when the
+ * event has no `startDate`) are minted through `slugifyComune()`, which
+ * reserves `RESERVED_EVENTS_SEGMENT_RE` (`^page-\d+$`) and disambiguates any
+ * input that normalizes to it. That is what makes the collision unrepresentable
+ * (issue #7743).
  */
 export function overflowLadderPath(locale: Locale, canton: string, comune: string | undefined, page: number): string {
   return `${pathFor(locale, canton, comune)}page-${page}/`;

@@ -338,15 +338,35 @@ export function normalizeText(value) {
     .trim();
 }
 
+/**
+ * Segment shape the events tree reserves for its own overflow ladder:
+ * `overflowLadderPath()` mints `<bucket-path>page-N/`, and the bucket path is
+ * `<canton-base>/` when the bucket has no comune, so a comune whose name
+ * normalizes to `page-N` would land on the very URL of ladder page N of the
+ * canton. The same shape is reachable from an event detail slug whose date part
+ * is empty. Both are minted through `slugifyComune()`, so reserving the shape
+ * there closes the collision by construction rather than by convention.
+ */
+export const RESERVED_EVENTS_SEGMENT_RE = /^page-\d+$/;
+
+/** Append `suffix` to a freshly minted segment that lands on the reserved
+ *  ladder shape. No comune of `data/canton-municipalities.json` (0 of 2110) and
+ *  no crawled event title normalizes to `page-N` today, so this never rewrites
+ *  a live URL — it only makes the collision unrepresentable. */
+function reserveLadderShape(slug, suffix) {
+  return RESERVED_EVENTS_SEGMENT_RE.test(slug) ? `${slug}-${suffix}` : slug;
+}
+
 /** Canonical URL slug for a comune name (diacritic-free, hyphenated, ascii). */
 export function slugifyComune(value) {
-  return String(value ?? '')
+  const slug = String(value ?? '')
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .replace(/['’]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+  return reserveLadderShape(slug, 'comune');
 }
 
 /**
@@ -354,11 +374,16 @@ export function slugifyComune(value) {
  * (title truncated at a word boundary). Deterministic from title+startDate so
  * the detail-page URL is stable across crawl runs. Collisions (same title+date
  * in the same comune) are disambiguated by the caller (the SSG emit loop).
+ *
+ * The reserved ladder shape is re-checked on the assembled slug, not only on
+ * the title: an event without a `startDate` has an empty date part, and the
+ * word-boundary truncation can cut a longer title down to the reserved shape
+ * after `slugifyComune()` has already cleared it.
  */
 export function slugifyEvent(event) {
   const titlePart = truncateSlugAtWordBoundary(slugifyComune(event?.title || ''), 60).replace(/-+$/, '');
   const datePart = String(event?.startDate || '').slice(0, 10);
-  const base = [titlePart, datePart].filter(Boolean).join('-');
+  const base = reserveLadderShape([titlePart, datePart].filter(Boolean).join('-'), 'evento');
   return base || `evento-${slugifyComune(event?.id || 'senza-data')}`;
 }
 
