@@ -139,7 +139,7 @@ coprono tutti gli offender, nessuno resta fuori.
 | Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) — **risolta, vedi sotto** | 22 | 0–4 % → **6,5–19,4 %** | una combinazione RAL × figli × stato civile × regime frontaliero |
 | Tempi di attesa alla dogana (`/tempi-attesa-dogana/` e traduzioni) | 4 | 0 % | un valico, 13–18 segmenti in tutto |
 | Premi cassa malati (`/premi-cassa-malati/` e traduzioni) | 4 | 2,6–2,7 % | un cantone × una fascia d'età |
-| Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) | 4 | 2,8–4,9 % | una città × una settimana |
+| Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) — **risolta, vedi sotto** | 4 | 2,8–4,9 % | una città × una settimana |
 | Landing professione × cantone flat-slug (`it:/lavoro-`, e le sue traduzioni) | 3 | 2,9–4,3 % | una professione in un cantone |
 
 Tutte e cinque hanno la stessa forma: **il payload per pagina è numerico**
@@ -284,6 +284,52 @@ L'osservatore pre-merge è `tests/information-gain-salary-hub-floor.test.ts`,
 che fa la stessa misura del gate ma sull'output del plugin, su tutti e quattro i
 locali, con soglia 5,5 % (il misurato meno un punto, e comunque sopra il floor
 5 % del gate).
+
+## Le settimanali «aziende che assumono»: le città pari (#7595)
+
+La leaf `/aziende-che-assumono/<città>/<settimana>/` è una cella di griglia —
+una città × una settimana — e tutto ciò che la distingueva dalle sorelle era un
+conteggio: annunci attivi, aziende, variazione sulla settimana prima. Dopo la
+maschera n. 1 non restava niente che appartenesse alla pagina: coorte
+`it:/aziende-che-assumono/~23cba1`, **4,6 % di mediana su 33 pagine**, sotto il
+floor del 5 %.
+
+`build-plugins/shared/peerCohortComparison.ts` è il modulo condiviso delle
+quattro famiglie a payload numerico: i "pari" di una pagina sono le righe
+accanto alla sua nella classifica della coorte, e il blocco le **nomina**. È il
+nome di una sorella a sopravvivere alla maschera n. 2, che folda solo i token
+identitari della pagina corrente — la stessa proprietà su cui poggia
+`nearestMunicipalityComparison.ts`.
+
+Il punto meccanico, valido per tutte e quattro le famiglie: dentro un segmento
+solo i NOMI possono differire fra sorelle, perché ogni cifra diventa `#`.
+Quindi differenzia solo un segmento che porta **più nomi in un ordine
+specifico della pagina**: «davanti in classifica, nell'ordine: A, B, C» è
+diverso su ogni pagina della coorte, mentre «A, due posizioni davanti, sei
+annunci in più» collassa sulla stessa stringa mascherata per ogni pagina che ha
+A davanti. Per questo la prosa emette i due roster (chi sta davanti, chi sta
+dietro) come frasi separate, non una riga di tabella per pari: le celle della
+tabella stanno sotto i 25 caratteri di `MIN_SEGMENT_CHARS` e non contano.
+
+Sulla griglia città × settimana la misura è:
+
+| | prima | dopo |
+|---|---|---|
+| mediana IGS, pagine live (`it`, 33 pagine) | 4,6 % | — (si misura al prossimo deploy) |
+| mediana IGS, fixture deterministica (36 pagine) | 2,7 % | **6,7 %** |
+
+L'hub regionale `ticino` non riceve il blocco: è la **somma** delle sue città,
+quindi metterlo in classifica con loro gli darebbe il primo posto per
+costruzione e non direbbe niente. Le sue pagine fanno coorte a parte, sotto il
+`MIN_COHORT_PAGES = 12` del gate.
+
+L'osservatore pre-merge è la famiglia `aziende-che-assumono` in
+`tests/information-gain-families-floor.test.ts` (soglia 5,7 %, il misurato meno
+un punto) più `tests/weekly-employers-peer-comparison.test.ts`, che fissa le tre
+proprietà da cui la misura dipende: il blocco nomina le sorelle, dice cose
+diverse a due sorelle della stessa settimana, ed è deterministico (emette link
+interni: un ordinamento instabile rimescolerebbe il link graph a ogni build, e
+i pareggi fra città con lo stesso numero di annunci sono la norma).
 
 ## La catena automatica
 

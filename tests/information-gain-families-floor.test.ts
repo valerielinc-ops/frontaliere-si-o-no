@@ -1,6 +1,6 @@
 /**
- * Le sei famiglie comunali stanno sopra il loro floor di information gain,
- * misurato sull'HTML che i plugin emettono ADESSO (issue #5002).
+ * Le famiglie a pagina-cella stanno sopra il loro floor di information gain,
+ * misurato sull'HTML che i plugin emettono ADESSO (issue #5002, poi #7595).
  *
  * PERCHÉ NON BASTA IL GATE SU dist/
  * ---------------------------------------------------------------------------
@@ -39,6 +39,7 @@ import { renderAboveFloorPage as renderLiechtenstein } from '@/build-plugins/lie
 import { MUNICIPALITIES } from '@/data/municipalities';
 import { renderPage as renderItalian } from '@/build-plugins/borderMunicipalityPagesPlugin';
 import { TICINO_VITA_CORRIDOR_PROVINCES } from '@/build-plugins/shared/borderMunicipalityCorridors';
+import { renderWeeklyEmployersCorpus } from './weekly-employers-peer-fixture';
 
 const DIST = '/tmp/information-gain-families';
 
@@ -95,6 +96,17 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
       ),
   },
   {
+    // Non è una famiglia comunale: è la griglia città × settimana di
+    // `/aziende-che-assumono/` (issue #7595), che aveva lo stesso difetto —
+    // payload interamente numerico, quindi invisibile dopo la maschera n. 1.
+    // Il corpus è una fixture deterministica (vedi il modulo importato): sulle
+    // pagine LIVE la mediana misurata era 4,6 %, sulla fixture 2,7 %, e il
+    // blocco del confronto fra città pari vale +4 punti su entrambe.
+    name: 'aziende-che-assumono',
+    minMedian: 5.7, // misurato 6,7 % sulla fixture (era 2,7 %)
+    render: () => renderWeeklyEmployersCorpus(),
+  },
+  {
     name: 'vivere-in-austria',
     // La sola famiglia sotto il floor del gate, e per questo INVENTARIATA con
     // 4,2 %: il corridoio non ha alcun regime frontalieri, quindi la pagina è
@@ -120,7 +132,7 @@ const measure = (pages: Rendered[]) => {
   return cohorts.slice().sort((a, b) => b.pages - a.pages)[0] ?? null;
 };
 
-describe('information gain delle sei famiglie comunali, misurato sull’output dei plugin', () => {
+describe('information gain delle famiglie a pagina-cella, misurato sull’output dei plugin', () => {
   for (const family of FAMILIES) {
     it(`${family.name} sta sopra ${family.minMedian} %`, () => {
       const cohort = measure(family.render());
