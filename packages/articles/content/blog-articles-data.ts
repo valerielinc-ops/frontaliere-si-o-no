@@ -34221,6 +34221,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'amazon-malpensa-trasferimento',
+ category: 'novita',
+ date: '2026-09-06T11:33:13.096Z',
+ image: '/images/blog/amazon-malpensa-trasferimento.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

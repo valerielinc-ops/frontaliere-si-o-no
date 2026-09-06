@@ -11459,6 +11459,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tagli-organici-scuola-lombardia.title': 'Réductions du personnel ATA : 205 collaborateurs en moins en Lombardie',
     'blog.article.tagli-organici-scuola-lombardia.excerpt': 'La loi de finances 2025 réduit les effectifs scolaires. Syndicats alarmés par la sécurité et les services dans les établissements.',
     'blog.article.tagli-organici-scuola-lombardia.imageAlt': 'Bâtiment scolaire en Lombardie',
+    'blog.article.amazon-malpensa-trasferimento.title': 'Amazon quitte Malpensa : Cub dénonce dix ans de travail précaire',
+    'blog.article.amazon-malpensa-trasferimento.excerpt': 'Amazon déplace ses activités logistiques du Terminal 2 de Malpensa à Brescia Montichiari, après dix ans de présence. La CUB dénonce l\'utilisation massive de contrats précaires.',
+    'blog.article.amazon-malpensa-trasferimento.imageAlt': 'Vue aérienne de l\'aéroport de Malpensa avec des avions cargo Amazon sur la piste',
 };
 
 export default blogMetaFr;

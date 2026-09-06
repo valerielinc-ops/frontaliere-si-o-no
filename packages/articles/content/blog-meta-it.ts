@@ -11458,6 +11458,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tagli-organici-scuola-lombardia.title': 'Tagli al personale ATA: 205 collaboratori in meno in Lombardia',
     'blog.article.tagli-organici-scuola-lombardia.excerpt': 'La legge di Bilancio 2025 riduce gli organici scolastici. Sindacati allarmati per la sicurezza e i servizi negli istituti.',
     'blog.article.tagli-organici-scuola-lombardia.imageAlt': 'Edificio scolastico in Lombardia',
+    'blog.article.amazon-malpensa-trasferimento.title': 'Amazon lascia Malpensa: la Cub denuncia dieci anni di lavoro precario',
+    'blog.article.amazon-malpensa-trasferimento.excerpt': 'Amazon sposta le attività logistiche dal Terminal 2 di Malpensa a Brescia Montichiari, dopo dieci anni di presenza. La Cub denuncia l\'uso massiccio di contratti precari.',
+    'blog.article.amazon-malpensa-trasferimento.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con aerei cargo Amazon sulla pista',
 };
 
 export default blogMetaIt;
