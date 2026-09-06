@@ -16975,6 +16975,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'creare-attivita-soletta-checklist',
+    category: 'pratico',
+    date: '2026-09-06T03:14:02.224Z',
+    image: '/images/blog/creare-attivita-soletta-checklist.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

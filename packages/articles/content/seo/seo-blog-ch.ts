@@ -73457,6 +73457,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-creare-attivita-soletta-checklist': {
+    title: 'Avviare attività a Soletta: costi e procedura | Frontaliere Ticino',
+    description: 'Registrazione al registro commercio, scelta forma giuridica, tasse cantonali e obblighi previdenziali: guida completa per aprire attività nel canton Soletta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, soletta, costi',
+    ogTitle: 'Aprire attività a Soletta: guida completa',
+    ogDescription: 'Come registrare una nuova attività nel canton Soletta: procedure federali e cantonali, registrazione al registro commercio, obblighi fiscali, AVS, LPP e assicurazioni. Checklist pratica per imprenditori che avviano attività.',
+    canonicalPath: '/articoli-svizzera/creare-attivita-soletta-checklist/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare attività a Soletta: costi e procedura",
+      "description": "Registrazione al registro commercio, scelta forma giuridica, tasse cantonali e obblighi previdenziali: guida completa per aprire attività nel canton Soletta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/creare-attivita-soletta-checklist.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprenditore che esamina documenti di registrazione commerciale durante l'avvio di attività nel canton Soletta."
+      },
+      "datePublished": "2026-09-06T03:14:02+00:00",
+      "dateModified": "2026-09-06T03:14:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/creare-attivita-soletta-checklist/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
