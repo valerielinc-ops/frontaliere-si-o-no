@@ -5791,6 +5791,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.title': 'Haus kaufen in Neuenburg: Preise und Hypothekendarlehen',
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.excerpt': 'Haus kaufen in Neuenburg: Eigenmittelberechnung, nachhaltiges Hypothekendarlehen, Durchgangssteuern und Notarkosten in der Schweiz.',
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.imageAlt': 'Modernes Steinhaus im Kanton Neuenburg mit Bergen im Hintergrund',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.title': 'Verkehrstickets Neuenburg: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.excerpt': 'Erfahren Sie, wie die Abos für den öffentlichen Verkehr im Kanton Neuenburg funktionieren: Tarifzonen, Halbtax, GA sowie Studenten- und Lehrlingsrabatte.',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.imageAlt': 'Schweizer Öffentlicher Verkehrsknotenpunkt mit Fahrplan- und Tarifzonenanzeigetafeln, Fahrgäste beim Einsteigen.',
 };
 
 export default blogMetaChDe;

@@ -5791,6 +5791,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.title': 'Buying a house in Neuchâtel: prices and mortgage',
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.excerpt': 'Buying a house in Neuchâtel: calculation of own funds, sustainable mortgage, transfer taxes and notary fees in Switzerland.',
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.imageAlt': 'Modern stone house in Neuchâtel canton with mountains in background',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.title': 'Neuchâtel transport subscriptions: zones and fares',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.excerpt': 'Find out how public transport passes work in the Canton of Neuchâtel: fare zones, half-price, GA and discounts for students and apprentices.',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.imageAlt': 'Swiss public transport station with digital displays showing fare zones and commuters boarding trains.',
 };
 
 export default blogMetaChEn;
