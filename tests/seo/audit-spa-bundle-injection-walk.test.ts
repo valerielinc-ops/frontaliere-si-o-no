@@ -232,3 +232,53 @@ describe('audit-spa-bundle-injection — directories past the walker high-water 
     expect(offenders(stdout)).toBe(WIDE / 2);
   });
 });
+
+/**
+ * The POST-WALK phase has to stay bounded too, or the OOM just moves one stage
+ * later. The per-area breakdown is keyed on the top 2 path segments — on a
+ * one-directory-per-page tree at depth 2 that key IS the page, so the map's
+ * cardinality grows with the offender population, not with a fixed number of
+ * areas, and three O(groups) copies run on it (sortedGroups, byFeature, the
+ * baseline JSON). Past GROUP_CAP the script folds the tail into `<other>`.
+ * What must NOT move is the count the ratchet gates on: it is accumulated live
+ * and is exact whether or not the breakdown was folded.
+ */
+describe('audit-spa-bundle-injection — offender groups past the breakdown cap', () => {
+  // GROUP_CAP in scripts/audit-spa-bundle-injection.mjs. One offender per
+  // top-2-segment directory, so PAGES distinct keys are minted.
+  const GROUP_CAP = 5_000;
+  const PAGES = GROUP_CAP + 200;
+  let manyWorkdir: string;
+
+  beforeAll(() => {
+    manyWorkdir = fs.mkdtempSync(path.join(os.tmpdir(), 'spa-bundle-groups-'));
+    for (let i = 0; i < PAGES; i++) {
+      const dir = path.join(manyWorkdir, 'dist', `area-${i}`, 'p');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'index.html'), '<html><body><h1>no bundle</h1></body></html>', 'utf8');
+    }
+  });
+
+  afterAll(() => {
+    fs.rmSync(manyWorkdir, { recursive: true, force: true });
+  });
+
+  it('keeps the exact count while bounding the breakdown', () => {
+    const { stdout } = run(manyWorkdir);
+    expect(counters(stdout).scanned).toBe(PAGES);
+    // The ratchet's number, unaffected by the fold.
+    expect(offenders(stdout)).toBe(PAGES);
+
+    const report = JSON.parse(
+      fs.readFileSync(path.join(REPORTS_DIR, 'spa-bundle-injection.json'), 'utf8'),
+    );
+    const featureKeys = Object.keys(report.byFeature);
+    expect(featureKeys.length).toBeLessThanOrEqual(GROUP_CAP + 1);
+    expect(featureKeys).toContain('<other>');
+    expect(report.byFeatureTruncated).toBe(true);
+    expect(report.offendersTotal).toBe(PAGES);
+    // The folded tail is accounted for, not dropped.
+    const summed = featureKeys.reduce((acc, k) => acc + report.byFeature[k], 0);
+    expect(summed).toBe(PAGES);
+  });
+});

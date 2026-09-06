@@ -332,6 +332,17 @@ const OFFENDER_RECORD_CAP = 50_000;
 const violations = [];
 // Violations grouped by top-2-segment directory, so we can show drift per area
 // in error / progress messages without dumping 100k paths.
+//
+// CAPPED too, for the same reason as the record list above: the key is only as
+// coarse as the tree is. On a one-directory-per-page tree at depth 2 the top-2
+// segments ARE the page, so the map's cardinality grows with the OFFENDER
+// population, not with a fixed number of areas — and three O(groups) copies run
+// on it below (sortedGroups, groupsObject, the baseline JSON). Past the cap we
+// stop minting keys and fold the tail into GROUP_OVERFLOW_KEY, which keeps the
+// breakdown honest (its count is still exact) at bounded memory. The ratchet
+// gates on violationsTotal, which never depended on this map.
+const GROUP_CAP = 5_000;
+const GROUP_OVERFLOW_KEY = '<other>';
 const groups = new Map();
 
 await scanIndexHtml(DIST, (relDir, html) => {
@@ -355,8 +366,12 @@ await scanIndexHtml(DIST, (relDir, html) => {
     return;
   }
   violationsTotal++;
-  const key = relDir.split('/').slice(0, 2).join('/') || '<root>';
+  let key = relDir.split('/').slice(0, 2).join('/') || '<root>';
   let group = groups.get(key);
+  if (!group && groups.size >= GROUP_CAP) {
+    key = GROUP_OVERFLOW_KEY;
+    group = groups.get(key);
+  }
   if (!group) {
     group = { count: 0, samples: [] };
     groups.set(key, group);
@@ -408,6 +423,11 @@ async function _emitReport(passed, baselineDelta) {
       offendersTotalExtrapolated: violationsTotal,
       offenderRecordsTruncated: violationsTotal > violations.length,
       offenderRecordCap: OFFENDER_RECORD_CAP,
+      // byFeature above is bounded the same way: past GROUP_CAP distinct keys
+      // the tail is folded into GROUP_OVERFLOW_KEY, so a consumer can tell a
+      // complete breakdown from a folded one.
+      byFeatureTruncated: groups.has(GROUP_OVERFLOW_KEY),
+      groupCap: GROUP_CAP,
     },
   });
 }
@@ -541,7 +561,12 @@ console.error(
 );
 console.error('');
 console.error('Affected directories (top 2 path segments):');
-for (const [key, { count, samples }] of sortedGroups) {
+// Sliced like the passing branch above: this is the branch that must survive a
+// dist/-scale regression to print its diagnostic, and printing 1-4 lines for
+// each of N groups is the "dumping 100k paths" the breakdown exists to avoid.
+// Groups are sorted by count, so the slice keeps the worst offenders.
+const REGRESSION_GROUPS_SHOWN = 50;
+for (const [key, { count, samples }] of sortedGroups.slice(0, REGRESSION_GROUPS_SHOWN)) {
   const baselineCount =
     baseline.groups && typeof baseline.groups[key] === 'number' ? baseline.groups[key] : 0;
   const groupDelta = count - baselineCount;
@@ -552,6 +577,17 @@ for (const [key, { count, samples }] of sortedGroups) {
       console.error(`           ${s}`);
     }
   }
+}
+if (sortedGroups.length > REGRESSION_GROUPS_SHOWN) {
+  console.error(
+    `  … ${sortedGroups.length - REGRESSION_GROUPS_SHOWN} more group(s) not shown (see the JSON report's byFeature breakdown)`,
+  );
+}
+if (groups.has(GROUP_OVERFLOW_KEY)) {
+  console.error(
+    `  note: past ${GROUP_CAP} distinct directories the breakdown folds the tail into ${GROUP_OVERFLOW_KEY}; ` +
+      `the ${current} total above is exact.`,
+  );
 }
 console.error('');
 console.error('What this means');
