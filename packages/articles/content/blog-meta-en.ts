@@ -11490,6 +11490,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Living in Ponte in Valtellina, working in Graubünden',
     'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Complete guide for border workers: source tax, G Permit, €10k deductible, AVS/LAMal, cost of living. Since 2024.',
     'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Alpine panorama of Ponte in Valtelline valley with views toward Grisons, border mountain landscape for cross-border workers.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontiere Poggiridenti-Grisioni: taxation and permits',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Living in Poggiridenti and working in Graubünden: G permit, tax at source, New Frontier Agreement 2024 and AVS/LPP contributions. Practical guide and checklist.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Alpine landscape at the Italy-Switzerland border with misty valleys and green slopes at sunset.',
 };
 
 export default blogMetaEn;

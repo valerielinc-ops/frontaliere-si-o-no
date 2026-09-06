@@ -11491,6 +11491,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Vivere a Ponte in Valtellina, lavorare nei Grigioni',
     'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Guida completa per frontalieri: imposta alla fonte, Permesso G, franchigia €10k, AVS/LAMal, costo della vita. Dal 2024.',
     'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Panorama alpino di Ponte in Valtellina con vista verso i Grigioni, paesaggio montano di confine tra Italia e Svizzera.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontaliere Poggiridenti-Grigioni: tassazione e permessi',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Vivere a Poggiridenti e lavorare nei Grigioni: permesso G, imposta alla fonte, Nuovo Accordo Frontalieri 2024 e contributi AVS/LPP. Guida pratica e checklist.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Paesaggio alpino al confine tra Italia e Svizzera, valli con nebbia e pendii verdi al tramonto.',
 };
 
 export default blogMetaIt;

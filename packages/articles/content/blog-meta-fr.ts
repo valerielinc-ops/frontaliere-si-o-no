@@ -11492,6 +11492,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Vivre à Ponte in Valtellina, travailler dans les Grisons',
     'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Guide complet pour frontaliers : taxe à la source, permis G, franchise € 10k, AVS/LAMal, coût de la vie. A partir de 2024.',
     'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Panorama alpin de Ponte en Valteline avec vue vers les Grisons, paysage montagneux de la frontière suisse-italienne.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontière Poggiridenti-Grisons : fiscalité et permis',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Vivre à Poggiridenti et travailler dans les Grisons : permis G, impôt à la source, nouvel accord frontalier 2024 et cotisations AVS/LPP. Guide pratique et checklist.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Paysage alpin à la frontière Italie-Suisse avec vallées brumeuses et pentes vertes.',
 };
 
 export default blogMetaFr;
