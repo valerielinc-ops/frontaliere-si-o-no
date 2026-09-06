@@ -5677,6 +5677,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-deposito-garanzia-locazione.title': 'Loyers Grisons : loyers moyens et droit locatif',
     'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Guide complet du droit de location dans les Grisons : redevances, dépôt de garantie, résiliation et contestation selon les règles fédérales suisses.',
     'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Rue résidentielle dans une ville suisse alpine avec immeubles modernes et architecture résidentielle typique.',
+    'blog.article.borse-studio-vallese-requisiti.title': 'Bourses cantonales valaisannes : comment les obtenir',
+    'blog.article.borse-studio-vallese-requisiti.excerpt': 'Guide des bourses d\'études dans le canton du Valais : exigences générales, où chercher des informations et comment postuler auprès des autorités cantonales.',
+    'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Étudiants étudiant en plein air dans un paysage alpin suisse avec des montagnes en arrière-plan.',
 };
 
 export default blogMetaChFr;
