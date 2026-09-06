@@ -181,6 +181,16 @@ const _cascadeStats = {
   // errore del motore — il motore ha risposto 200 — ma e' una NON-traduzione, e
   // confonderlo con un errore nasconderebbe l'unico numero che dice quanto
   // spesso questa guardia sta lavorando. Popolato pigramente per tier.
+  //
+  // COSA CONTA, esattamente: TENTATIVI di tier, non campi. Due moltiplicatori
+  // stanno sopra questo numero e vanno divisi prima di leggerlo come «quanti
+  // testi ha salvato la guardia»: la cascata prova piu' tier sullo stesso
+  // campo, e `freeTranslateWithRetry` rilancia l'intera cascata fino a
+  // `maxRetries` volte (3 passaggi col default). Un solo campo su un endpoint
+  // che risponde sempre con l'eco puo' quindi valere fino a 3 incrementi per
+  // tier. Il conteggio per CAMPO non e' ricavabile da qui e non lo invento:
+  // questo bucket dice se e dove il fenomeno esiste, non quante pagine ha
+  // salvato.
   tierPassthroughs: {},
   // Per-field-type split of calls/successes. The cumulative `successes` above is
   // summed across every field type, so a run that translates short titles fine
@@ -366,6 +376,32 @@ export function isSourcePassthrough(sourceText, translatedText) {
 }
 
 /**
+ * `isSourcePassthrough` piu' la contabilita', per i tier che il passthrough lo
+ * devono intercettare da soli.
+ *
+ * `tryTier` sarebbe l'unico posto necessario, ma DeepL e Azure ruotano fra piu'
+ * chiavi e usano l'esito della singola chiamata anche per decidere **su quale
+ * chiave restare** (`_deeplKeyIndex`/`_azureKeyIndex`): quella decisione avviene
+ * dentro il loop delle chiavi, prima che `tryTier` veda qualcosa. Passando di
+ * qui la FORMULA resta una sola — era duplicata a mano in sei tier, ed e' il
+ * tipo di duplicazione che deriva in silenzio — e soprattutto il conteggio
+ * finisce nello stesso bucket, invece che sparire: un passthrough consumato
+ * dentro il tier senza contarlo rendeva `tierPassthroughs` strutturalmente
+ * parziale, cieco proprio sui tier di qualita' migliore, e il numero su cui si
+ * decide la taratura sarebbe stato sbilanciato senza dirlo.
+ *
+ * @param {string} tierName
+ * @param {string} source  testo dato in pasto al motore
+ * @param {string} out     testo reso dal motore
+ * @returns {boolean} true se `out` e' la sorgente (e il tier e' stato contato)
+ */
+function rejectedAsPassthrough(tierName, source, out) {
+  if (!out || !isSourcePassthrough(source, out)) return false;
+  _cascadeStats.tierPassthroughs[tierName] = (_cascadeStats.tierPassthroughs[tierName] || 0) + 1;
+  return true;
+}
+
+/**
  * Split text into chunks ≤ maxChars at sentence boundaries.
  * Splits at: paragraph breaks (\n\n), newlines (\n), sentence-ending punctuation (. ! ?),
  * markdown headers (##), and list items (- *).
@@ -500,7 +536,10 @@ async function translateWithDeepL(text, sourceLang, targetLang) {
 
     try {
       const result = await _callDeepLWithKey(key, clean, srcCode, tgtCode);
-      if (result && result.toLowerCase() !== clean.toLowerCase()) {
+      // `rejectedAsPassthrough` e non un confronto scritto qui: la formula sta
+      // in un posto solo e il rifiuto finisce nel bucket invece di sparire.
+      // La rotazione delle chiavi resta identica — su un eco non ci si appiccica.
+      if (result && !rejectedAsPassthrough('deepl', clean, result)) {
         _deeplKeyIndex = idx; // stick with working key
         return result;
       }
@@ -826,7 +865,10 @@ async function translateWithAzure(text, sourceLang, targetLang) {
         if (chunks.length > 1) await delay(100);
       }
       const result = normalizeBlock(translated.join('\n\n'));
-      if (result && result.toLowerCase() !== clean.toLowerCase()) {
+      // Stessa ragione di DeepL: la scelta della chiave su cui restare avviene
+      // qui dentro, prima che `tryTier` veda l'uscita, quindi il passthrough va
+      // riconosciuto e CONTATO qui, non solo scartato.
+      if (result && !rejectedAsPassthrough('azure', clean, result)) {
         _azureKeyIndex = idx;
         return result;
       }
@@ -890,11 +932,13 @@ async function translateWithGoogleCloud(text, sourceLang, targetLang) {
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.data?.translations?.[0]?.translatedText || '');
-    if (translated && translated.toLowerCase() !== clean.toLowerCase()) {
-      _googleCloudDailyChars += clean.length;
-      return translated;
-    }
-    return '';
+    if (!translated) return '';
+    // Il contatore giornaliero sale anche su un eco: i caratteri li ha
+    // consumati la chiamata, non la qualita' della risposta, e non contarli
+    // faceva sforare il cap di 16K/giorno che questo contatore esiste per
+    // rispettare. Il giudizio «e' la sorgente?» e' salito in `tryTier`.
+    _googleCloudDailyChars += clean.length;
+    return translated;
   } catch {
     return '';
   }
@@ -928,8 +972,7 @@ async function translateWithHuggingFace(text, sourceLang, targetLang) {
     const translated = normalizeBlock(
       Array.isArray(data) ? data[0]?.translation_text || '' : data?.translation_text || ''
     );
-    if (translated && translated.toLowerCase() !== clean.toLowerCase()) return translated;
-    return '';
+    return translated; // il confronto con la sorgente e' salito in `tryTier`
   } catch {
     return '';
   }
@@ -955,8 +998,7 @@ async function translateWithGoogle(text, sourceLang, targetLang) {
   }
 
   const merged = normalizeBlock(translated.join('\n\n'));
-  if (!merged || merged.toLowerCase() === clean.toLowerCase()) return '';
-  return merged;
+  return merged; // il confronto con la sorgente e' salito in `tryTier`
 }
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
@@ -1131,10 +1173,7 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
       // proxy che risponde con l'eco) non e' la cascata che ha fallito. Se
       // rimandano la sorgente TUTTI, `freeTranslate` esce '' e il chiamante
       // legge quello che ha sempre letto: traduzione non avvenuta.
-      if (result && isSourcePassthrough(clean, result)) {
-        _cascadeStats.tierPassthroughs[tierName] = (_cascadeStats.tierPassthroughs[tierName] || 0) + 1;
-        return '';
-      }
+      if (rejectedAsPassthrough(tierName, clean, result)) return '';
       if (result) {
         _cascadeStats.tierHits[tierName] = (_cascadeStats.tierHits[tierName] || 0) + 1;
         _cascadeStats.successes++;
@@ -1212,9 +1251,10 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
       if (!mm || mm.includes('MYMEMORY WARNING')) return ''; // quota hit mid-chunk, abort
       parts.push(mm);
     }
-    const joined = normalizeBlock(parts.join(' '));
-    if (joined && joined.toLowerCase() !== clean.toLowerCase()) return joined;
-    return '';
+    // `return joined` e non un confronto locale: questo e' il ramo dei testi
+    // lunghi, cioe' dei body, cioe' esattamente dei 27 passthrough misurati.
+    // Consumandolo qui il bucket `tierPassthroughs` non li avrebbe visti mai.
+    return normalizeBlock(parts.join(' '));
   });
   if (t2) return finalize(t2);
 

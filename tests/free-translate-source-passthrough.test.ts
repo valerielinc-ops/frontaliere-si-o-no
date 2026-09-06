@@ -112,6 +112,32 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(statsSnapshot().passthroughs - before.passthroughs).toBe(1);
   });
 
+  it('conta il passthrough anche sul ramo a CHUNK, che e\' quello dei body lunghi', async () => {
+    // MyMemory passa al ramo a chunk sopra i 5000 caratteri. E' il ramo dei
+    // body — cioe' esattamente dei 27 passthrough misurati sul corpus — e la
+    // copia locale del confronto che stava li' li consumava prima di `tryTier`:
+    // il bucket non li avrebbe visti mai, e la riga `Tier passthrough` sarebbe
+    // stata cieca sul caso per cui e' stata scritta.
+    //
+    // Sorgente su UNA riga di proposito: il ramo a chunk riassembla con
+    // `parts.join(' ')`, quindi su un testo a piu' paragrafi l'uscita non e'
+    // mai byte-uguale all'ingresso nemmeno quando il motore l'ha ricopiata —
+    // limite dichiarato nel body della PR, non qualcosa che questo caso possa
+    // pinnare fingendo il contrario.
+    const frase = 'I frontalieri residenti entro venti chilometri dal confine restano nel vecchio regime fiscale e la soglia dei quarantacinque giorni di telelavoro vale dal primo gennaio. ';
+    const lungo = frase.repeat(40).trim();
+    expect(lungo.length).toBeGreaterThan(5000);
+    vi.mocked(translateWithMyMemory).mockImplementation(async (chunk: string) => chunk);
+    const before = statsSnapshot();
+
+    const out = await freeTranslate({ text: lungo, sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+    const after = statsSnapshot();
+
+    expect(out).toBe('');
+    expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.hits - before.hits).toBe(0);
+  });
+
   it('nomina il passthrough nel sommario della cascata', async () => {
     vi.mocked(translateWithMyMemory).mockResolvedValue(IT);
     await freeTranslate({ text: IT, sourceLang: 'it', targetLang: 'fr', fieldType: 'description' });
