@@ -89,3 +89,26 @@ export const POSTHOG_EMAIL_EXPERIMENT_ENV_KEYS = [
 export function stubNoPostHogEmailExperiment(): void {
   for (const key of POSTHOG_EMAIL_EXPERIMENT_ENV_KEYS) vi.stubEnv(key, '');
 }
+
+/**
+ * Every variable `resolveNewsletterTokenPolicy()`
+ * (functions/src/lib/newsletterActionToken.js) reads when no explicit policy is
+ * threaded through.
+ */
+export const NEWSLETTER_TOKEN_POLICY_ENV_KEYS = [
+  'NEWSLETTER_TOKEN_SCHEME',
+  'NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS',
+  'NEWSLETTER_TOKEN_LEGACY_SUNSET',
+] as const;
+
+/**
+ * Stub the action-token policy variables empty — the per-scope defaults the
+ * repository ships. An assertion about which format an unsubscribe link carries
+ * is an assertion about that policy: with `NEWSLETTER_TOKEN_SCHEME=v1` exported
+ * the senders mint v1 and the legacy `verifyHmacToken` refuses a token that is
+ * perfectly valid under the active policy — a red that describes the
+ * environment, not the code.
+ */
+export function stubDefaultNewsletterTokenPolicy(): void {
+  for (const key of NEWSLETTER_TOKEN_POLICY_ENV_KEYS) vi.stubEnv(key, '');
+}
