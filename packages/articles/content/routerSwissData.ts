@@ -1957,6 +1957,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-appenzello-esterno-requisiti-procedura': { it: 'naturalizzazione-appenzello-esterno-requisiti-procedura', en: 'naturalization-appenzell-ausserrhoden-requirements-procedure', de: 'einbuergerung-appenzell-ausserrhoden-anforderungen-verfahren', fr: 'naturalisation-appenzell-ausserrhoden-conditions-procedure' },
  'acquisto-casa-neuchatel-costi-mutuo': { it: 'acquisto-casa-neuchatel-costi-mutuo', en: 'buying-house-neuchatel-costs-mortgage', de: 'haus-kaufen-neuenburg-kosten-hypothek', fr: 'acheter-maison-neuchatel-couts-hypotheque' },
  'abbonamenti-trasporti-neuchatel-zone': { it: 'abbonamenti-trasporti-neuchatel-zone', en: 'public-transport-passes-neuchatel-zones', de: 'oepnv-abos-neuchatel-zonen', fr: 'abonnements-transports-neuchatel-zones' },
+ 'avs-prestazioni-complementari-appenzello-esterno': { it: 'avs-prestazioni-complementari-appenzello-esterno', en: 'avs-complementary-benefits-appenzell-outer-rhodes', de: 'avs-zusatzleistungen-appenzell-ausserrhoden', fr: 'avs-prestations-complementaires-appenzell-exterieur' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

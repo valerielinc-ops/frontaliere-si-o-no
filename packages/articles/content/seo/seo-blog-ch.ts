@@ -75212,6 +75212,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-appenzello-esterno': {
+    title: 'Gestione del primo pilastro AVS nel Cantone di Appenzello Esterno',
+    description: 'Scopri come il Cantone di Appenzello Esterno gestisce il primo pilastro AVS tramite una cassa di compensazione cantonale e le implicazioni per i contribuenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gestione, primo, pilastro, cantone',
+    ogTitle: 'Gestione del primo pilastro AVS nel Cantone di Appenzello Esterno',
+    ogDescription: 'Il Cantone di Appenzello Esterno gestisce il primo pilastro AVS tramite una cassa di compensazione cantonale, garantendo le prestazioni ai contribuenti e affrontando le lacune contributive.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gestione del primo pilastro AVS nel Cantone di Appenzello Esterno",
+      "description": "Scopri come il Cantone di Appenzello Esterno gestisce il primo pilastro AVS tramite una cassa di compensazione cantonale e le implicazioni per i contribuenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande in Bellinzona, Svizzera"
+      },
+      "datePublished": "2026-09-06T23:29:51+00:00",
+      "dateModified": "2026-09-06T23:29:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
