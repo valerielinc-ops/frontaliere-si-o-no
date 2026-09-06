@@ -11463,6 +11463,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.angera-corso-musei-demenza.title': 'Angera: free course on museums and dementia on 12 September',
     'blog.article.angera-corso-musei-demenza.excerpt': 'On September 12, the Archaeological Museum of Angera hosts a free course for professionals on museum accessibility for people with dementia.',
     'blog.article.angera-corso-musei-demenza.imageAlt': 'Civico Museo Archeologico di Angera',
+    'blog.article.colacem-sostenibilita-2025.title': 'Colacem: 46 million in environmental investments',
+    'blog.article.colacem-sostenibilita-2025.excerpt': 'In the three-year period 2023-2025, Colacem invested over 46 million euros in the environment, with a focus on recycled materials and alternative fuels.',
+    'blog.article.colacem-sostenibilita-2025.imageAlt': 'Aerial view of Colacem\'s Caravate plant in Varese, Italy, showcasing its industrial landscape and environmental initiatives.',
 };
 
 export default blogMetaEn;
