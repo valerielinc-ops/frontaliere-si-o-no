@@ -15,7 +15,9 @@
  *      - `passed` flag identical
  *      - `offendersTotal` identical
  *      - `topOffenders[].path` set identical (order may differ; we compare sets)
- *      - `byFeature` counts identical (ignoring keys with 0 in either side)
+ *      - `byFeature` counts identical (ignoring keys with 0 in either side,
+ *        and skipping the buckets a `byFeatureTruncated` fold makes
+ *        non-comparable — reported as notes, not failures)
  *      - `baselineDelta.regression` identical
  *      Non-deterministic fields (`ranAt`) are stripped before compare.
  *   4. Print pass/fail per audit + first 3 differences for any failure.
@@ -37,6 +39,7 @@
 
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { join, basename } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 function parseArgs() {
   const out = new Map();
@@ -61,23 +64,88 @@ function setOfOffenderPaths(report) {
   return new Set(arr.map((o) => (typeof o?.path === 'string' ? o.path : '')).filter(Boolean));
 }
 
-function diffReports(legacy, current) {
+/**
+ * The sentinel key an audit folds its `byFeature` tail into once the breakdown
+ * exceeds its own group cap (`audit-spa-bundle-injection`'s GROUP_OVERFLOW_KEY).
+ * `byFeature` keys are opaque labels, not paths — see the schema note in
+ * scripts/lib/auditReport.mjs.
+ */
+const OVERFLOW_KEY = '<other>';
+
+/** True when a report declares its `byFeature` breakdown folded. */
+function isFolded(report) {
+  return report?.byFeatureTruncated === true
+    || typeof report?.byFeature?.[OVERFLOW_KEY] === 'number';
+}
+
+/**
+ * Compare two `byFeature` breakdowns.
+ *
+ * A per-key delta only means something when both sides put that key in the SAME
+ * bucket, and a folded breakdown breaks that (same reasoning as the baseline
+ * comparison in scripts/audit-spa-bundle-injection.mjs, follow-up of #7679):
+ *
+ *   • `<other>` folds the tail of THIS run's key set; the other side folded the
+ *     tail of a different one, so the two buckets never describe the same
+ *     areas. Against an unfolded side there is no `<other>` entry at all and
+ *     `?? 0` reads the whole fold as a difference.
+ *   • a key ABSENT from a folded side means either "0 there" or "inside that
+ *     side's own `<other>`", and the report cannot tell the two apart.
+ *
+ * Neither is a legacy-vs-unified divergence, so both are reported as notes and
+ * never fail the run. Keys present on both sides carry exact retained counts
+ * and are still compared exactly as before.
+ *
+ * @returns {{ issues: string[], notes: string[] }}
+ */
+function diffByFeature(af, bf, aFolded, bFolded) {
   const issues = [];
+  const notes = [];
+  const allKeys = new Set([...Object.keys(af), ...Object.keys(bf)]);
+  for (const k of allKeys) {
+    if ((aFolded || bFolded) && k === OVERFLOW_KEY) {
+      notes.push(`byFeature["${OVERFLOW_KEY}"]: not compared — the two overflow buckets fold different key sets`);
+      continue;
+    }
+    const inA = typeof af[k] === 'number';
+    const inB = typeof bf[k] === 'number';
+    if (!inA && aFolded) {
+      notes.push(`byFeature["${k}"]: not compared — absent from a folded legacy breakdown (0 or inside its ${OVERFLOW_KEY})`);
+      continue;
+    }
+    if (!inB && bFolded) {
+      notes.push(`byFeature["${k}"]: not compared — absent from a folded current breakdown (0 or inside its ${OVERFLOW_KEY})`);
+      continue;
+    }
+    const av = af[k] ?? 0;
+    const bv = bf[k] ?? 0;
+    if (av !== bv) issues.push(`byFeature["${k}"]: legacy=${av} current=${bv}`);
+  }
+  return { issues, notes };
+}
+
+/** @returns {{ issues: string[], notes: string[] }} */
+export function diffReports(legacy, current) {
+  const issues = [];
+  const notes = [];
   const a = normalizeReport(legacy);
   const b = normalizeReport(current);
   if (a.passed !== b.passed) issues.push(`passed: legacy=${a.passed} current=${b.passed}`);
   if (a.offendersTotal !== b.offendersTotal) {
     issues.push(`offendersTotal: legacy=${a.offendersTotal} current=${b.offendersTotal}`);
   }
-  // byFeature: same set of keys with same counts (zero-count keys may differ).
+  // byFeature: same set of keys with same counts (zero-count keys may differ),
+  // minus the buckets a fold made non-comparable.
   const af = a.byFeature || {};
   const bf = b.byFeature || {};
-  const allKeys = new Set([...Object.keys(af), ...Object.keys(bf)]);
-  for (const k of allKeys) {
-    const av = af[k] ?? 0;
-    const bv = bf[k] ?? 0;
-    if (av !== bv) issues.push(`byFeature["${k}"]: legacy=${av} current=${bv}`);
+  const aFolded = isFolded(a);
+  const bFolded = isFolded(b);
+  if (aFolded !== bFolded) {
+    notes.push(`byFeature: only the ${aFolded ? 'legacy' : 'current'} breakdown is folded (byFeatureTruncated) — per-key coverage differs`);
   }
+  const feature = diffByFeature(af, bf, aFolded, bFolded);
+  issues.push(...feature.issues);
+  notes.push(...feature.notes);
   // baselineDelta.regression
   const ar = a.baselineDelta?.regression ?? 0;
   const br = b.baselineDelta?.regression ?? 0;
@@ -94,7 +162,7 @@ function diffReports(legacy, current) {
       `only-in-current=${onlyCurrent.length} (e.g. ${onlyCurrent.slice(0, 3).join(', ')})`,
     );
   }
-  return issues;
+  return { issues, notes };
 }
 
 async function listReports(dir) {
@@ -139,7 +207,9 @@ async function main() {
     if (!currentPath) { console.log(`⚠️  ${name}: missing in current — skipped`); continue; }
     const a = JSON.parse(await readFile(legacyPath, 'utf8'));
     const b = JSON.parse(await readFile(currentPath, 'utf8'));
-    const issues = diffReports(a, b);
+    const { issues, notes } = diffReports(a, b);
+    for (const n of notes.slice(0, 5)) console.log(`   ℹ️  ${name}: ${n}`);
+    if (notes.length > 5) console.log(`   ℹ️  ${name}: … and ${notes.length - 5} more non-comparable bucket(s)`);
     if (issues.length === 0) {
       console.log(`✅ ${name}: identical (passed=${b.passed}, offenders=${b.offendersTotal})`);
     } else {
@@ -164,7 +234,11 @@ async function main() {
   process.exit(1);
 }
 
-main().catch((err) => {
-  console.error('verify-l3-report-equivalence: fatal', err);
-  process.exit(2);
-});
+// Only run as a CLI. Importing the module (tests do) must not start a walk or
+// call process.exit().
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((err) => {
+    console.error('verify-l3-report-equivalence: fatal', err);
+    process.exit(2);
+  });
+}
