@@ -5638,6 +5638,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-vallese-importi.title': 'Familienzulagen Wallis: Beträge und Antragsverfahren',
     'blog.article.assegni-familiari-vallese-importi.excerpt': 'Im Kanton Wallis belaufen sich die Familienzulagen auf monatlich CHF 300 pro Kind, die Ausbildungszulage nach dem 16. Altersjahr auf CHF 440.',
     'blog.article.assegni-familiari-vallese-importi.imageAlt': 'Dokumente zu Sozialleistungen und Familienzulagen im Kanton Wallis.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Schulsystem Kanton Wallis: Zyklus- und Einschreibungsleitfaden',
+    'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Erfahren Sie, wie die Schulpflicht im Wallis funktioniert: von der Struktur der Schulzyklen bis hin zu praktischen Anmeldeverfahren für Familien.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Modernes Schulgebäude im Kanton Wallis',
 };
 
 export default blogMetaChDe;

@@ -73184,6 +73184,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-istruzione-obbligatoria-canton-vallese': {
+    title: 'Sistema scolastico Cantone Vallese: guida a cicli e iscrizioni',
+    description: 'Informazioni sull\'ordinamento scolastico nel Vallese: cicli di studio, procedure di iscrizione per le famiglie e requisiti per le scuole medie superiori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, cantone, vallese',
+    ogTitle: 'Sistema scolastico Cantone Vallese: guida a cicli e iscrizioni',
+    ogDescription: 'Guida pratica all\'istruzione obbligatoria nel Cantone Vallese: scopri la struttura dei cicli, le procedure di iscrizione e i requisiti per il passaggio ai livelli superiori.',
+    canonicalPath: '/articoli-svizzera/istruzione-obbligatoria-canton-vallese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema scolastico Cantone Vallese: guida a cicli e iscrizioni",
+      "description": "Informazioni sull'ordinamento scolastico nel Vallese: cicli di studio, procedure di iscrizione per le famiglie e requisiti per le scuole medie superiori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/istruzione-obbligatoria-canton-vallese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio scolastico moderno nel Cantone Vallese"
+      },
+      "datePublished": "2026-09-06T01:55:16+00:00",
+      "dateModified": "2026-09-06T01:55:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/istruzione-obbligatoria-canton-vallese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
