@@ -50,7 +50,10 @@ if (!entries.length) {
 }
 
 const store = loadCandidates();
-const { applied, skipped } = rejectCandidates(store, entries);
+// In dry-run la transizione si applica in memoria per poterla stampare, ma il
+// registro e' un file committato: non deve raccogliere prove di corse mai
+// avvenute.
+const { applied, skipped } = rejectCandidates(store, entries, { ledgerFile: dryRun ? null : undefined });
 
 console.log('═══ Prospector · REJECT ═══');
 for (const a of applied) console.log(`  ✗ ${a.key.padEnd(34)} ${a.from} → rejected   ${a.reason}`);

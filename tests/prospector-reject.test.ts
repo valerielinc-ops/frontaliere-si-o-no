@@ -26,10 +26,29 @@ const base = () => storeWith({
 describe('rejection con causa accertata', () => {
   it('risolve un ref sia per chiave candidato sia per chiave crawler', () => {
     const store = base();
-    expect(resolveCandidateRef(store, 'picks.ch')?.key).toBe('picks.ch');
-    expect(resolveCandidateRef(store, 'kinderspital-zurich')?.key).toBe('recruitingapp-2316@umantis.com');
-    expect(resolveCandidateRef(store, 'sconosciuto')).toBeNull();
-    expect(resolveCandidateRef(store, '')).toBeNull();
+    expect(resolveCandidateRef(store, 'picks.ch').candidate?.key).toBe('picks.ch');
+    expect(resolveCandidateRef(store, 'kinderspital-zurich').candidate?.key).toBe('recruitingapp-2316@umantis.com');
+    expect(resolveCandidateRef(store, 'sconosciuto').candidate).toBeNull();
+    expect(resolveCandidateRef(store, '').candidate).toBeNull();
+  });
+
+  it('rifiuta un ref che colpisce due record diversi invece di sceglierne uno', () => {
+    // Il caso reale che ha motivato la guardia: `vebego` e' insieme la chiave
+    // di un candidato `new` (stesso datore, visto solo per nome) e il
+    // crawlerKey della spec `vebego@castione` che occupa lo slot.
+    const store = storeWith({
+      'vebego@castione': { key: 'vebego@castione', status: 'promoted', crawlerKey: 'vebego' },
+      vebego: { key: 'vebego', status: 'new' },
+    });
+    const resolved = resolveCandidateRef(store, 'vebego');
+    expect(resolved.candidate).toBeNull();
+    expect(resolved.why).toContain('ambiguo');
+
+    const { applied, skipped } = reject(store, [{ ref: 'vebego', reason: 'UI agganciata' }]);
+    expect(applied).toEqual([]);
+    expect(skipped[0].why).toContain('ambiguo');
+    expect(store.candidates.vebego.status).toBe('new');
+    expect(store.candidates['vebego@castione'].status).toBe('promoted');
   });
 
   it('porta a rejected scrivendo la causa nel record', () => {
@@ -40,6 +59,14 @@ describe('rejection con causa accertata', () => {
     expect(store.candidates['picks.ch'].status).toBe('rejected');
     expect(store.candidates['picks.ch'].reason).toBe('aggregatore: annunci di altri datori');
     expect(store.candidates['picks.ch'].rejectedAt).toBeTruthy();
+  });
+
+  it('con ledgerFile null non scrive nessuna voce di registro (dry-run)', () => {
+    const store = base();
+    const silent = path.join(path.dirname(ledgerFile), 'mai-scritto.jsonl');
+    const { applied } = rejectCandidates(store, [{ ref: 'picks', reason: 'aggregatore' }], { ledgerFile: null });
+    expect(applied).toHaveLength(1);
+    expect(fs.existsSync(silent)).toBe(false);
   });
 
   it('non respinge senza causa: un rejected muto non e\' verificabile', () => {

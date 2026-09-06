@@ -33,17 +33,32 @@ export const SHIPPED_STATUSES = new Set(['production', 'promoting']);
  * il dominio registrabile, quella del crawler e' il nome della spec — e chi
  * indaga parte sempre dal report di validazione, che e' keyed sul crawler.
  *
+ * Un `ref` che colpisce due record DIVERSI non si risolve a maggioranza: nella
+ * coda convivono `vebego@castione` (la spec sintetizzata, `crawlerKey:
+ * 'vebego'`) e `vebego` (lo stesso datore visto solo per nome, ancora `new`).
+ * Preferire la chiave letterale respingerebbe in silenzio il record sbagliato e
+ * lascerebbe la spec a occupare il suo slot — cioe' il contrario del verdetto
+ * chiesto. Ambiguo = nessuna risposta, e chi chiama disambigua.
+ *
  * @param {{ candidates: Record<string, any> }} store
  * @param {string} ref
- * @returns {any|null}
+ * @returns {{ candidate: any|null, why: string|null }}
  */
 export function resolveCandidateRef(store, ref) {
   const wanted = String(ref || '').trim();
-  if (!wanted) return null;
-  const direct = store.candidates?.[wanted];
-  if (direct) return direct;
-  const byCrawler = Object.values(store.candidates || {}).filter((c) => c.crawlerKey === wanted);
-  return byCrawler.length === 1 ? byCrawler[0] : null;
+  if (!wanted) return { candidate: null, why: 'ref vuoto' };
+  const direct = store.candidates?.[wanted] || null;
+  const byCrawler = Object.values(store.candidates || {}).filter((c) => c.crawlerKey === wanted && c !== direct);
+  if (direct && byCrawler.length) {
+    const others = byCrawler.map((c) => c.key).join(', ');
+    return { candidate: null, why: `ref ambiguo: e' la chiave di ${wanted} ed e' il crawlerKey di ${others}` };
+  }
+  if (direct) return { candidate: direct, why: null };
+  if (byCrawler.length === 1) return { candidate: byCrawler[0], why: null };
+  if (byCrawler.length > 1) {
+    return { candidate: null, why: `crawlerKey condiviso da ${byCrawler.map((c) => c.key).join(', ')}` };
+  }
+  return { candidate: null, why: 'candidato non trovato' };
 }
 
 /**
@@ -70,8 +85,8 @@ export function rejectCandidates(store, entries, opts = {}) {
     // La causa E' il deliverable: un `rejected` senza motivo scritto non e'
     // verificabile a posteriori e riapre la stessa indagine fra un mese.
     if (!reason) { skipped.push({ ref, why: 'causa mancante' }); continue; }
-    const candidate = resolveCandidateRef(store, ref);
-    if (!candidate) { skipped.push({ ref, why: 'candidato non trovato' }); continue; }
+    const { candidate, why } = resolveCandidateRef(store, ref);
+    if (!candidate) { skipped.push({ ref, why }); continue; }
     if (SHIPPED_STATUSES.has(candidate.status)) {
       skipped.push({ ref, key: candidate.key, why: `stato ${candidate.status}: gia' spedito, si ritira il crawler` });
       continue;
