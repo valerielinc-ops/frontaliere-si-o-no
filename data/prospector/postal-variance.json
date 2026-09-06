@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2026-09-06T05:45:45.435Z",
+  "criterion": "NPA non presente su tutte le pagine di dettaglio dello stesso host",
+  "truthSource": "localita del listing graduata da resolveDetailOrListingSwissGeography",
+  "pagesPerHost": 5,
+  "totals": {
+    "hosts": 1,
+    "pages": 5,
+    "withTruth": 0,
+    "criterion": {
+      "hits": 0,
+      "misses": 0,
+      "noPrediction": 0,
+      "precision": null,
+      "recall": null
+    },
+    "baseline": {
+      "hits": 0,
+      "misses": 0,
+      "noPrediction": 0,
+      "precision": null,
+      "recall": null
+    }
+  },
+  "hosts": [
+    {
+      "companyKey": "recruitingapp-2649",
+      "companyHost": "recruitingapp-2649.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 5,
+      "fetched": 5,
+      "errors": [],
+      "pages": 5,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2649.umantis.com/Vacancies/3705/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2649.umantis.com/Vacancies/3948/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 5,
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    }
+  ],
+  "skipped": []
+}

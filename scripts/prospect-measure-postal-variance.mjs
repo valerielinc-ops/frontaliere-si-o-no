@@ -87,11 +87,21 @@ function sampleKeys() {
   return [...REQUIRED_KEYS, ...interleaved];
 }
 
-/** @param {Record<string, any>} row */
+/**
+ * The place the listing itself names, used as ground truth.
+ *
+ * Deliberately the raw listing string, not the resolver's verdict: the resolver
+ * drops rows it cannot certify as Swiss, and grading only the rows it kept
+ * would measure the criterion on the population where the problem is already
+ * solved. `accepted` records the resolver's opinion alongside, so the report
+ * can be re-read on the narrower population without re-crawling.
+ *
+ * @param {Record<string, any>} row
+ * @returns {{ truth: string, accepted: boolean }}
+ */
 function listingTruth(row) {
-  const geography = resolveDetailOrListingSwissGeography({}, row).geography;
-  if (!geography) return '';
-  return String(row.addressLocality || geography.location || '').trim();
+  const truth = String(row.addressLocality || row.location || '').replace(/\s+/g, ' ').trim();
+  return { truth, accepted: Boolean(resolveDetailOrListingSwissGeography({}, row).geography) };
 }
 
 /**
@@ -116,22 +126,27 @@ async function measureHost(key, pagesPerHost) {
       }
       pages.push({
         url: page.url || row.url,
-        truth: listingTruth(row),
+        ...listingTruth(row),
         mentions: freeTextPostalMentions(page.body || ''),
       });
     }
+    const fetched = pages.filter((p) => Array.isArray(p.mentions));
+    const summary = summarizeHostPostalVariance(pages);
     return {
       companyKey: key,
       companyHost: spec.companyHost || '',
       platform: spec.platform || '',
       listingRows: rows.length,
-      fetched: pages.filter((p) => Array.isArray(p.mentions)).length,
+      fetched: fetched.length,
       errors: pages.filter((p) => p.error).map((p) => ({ url: p.url, error: p.error })),
-      ...summarizeHostPostalVariance(pages),
-      perPage: pages.filter((p) => Array.isArray(p.mentions)).map((p) => ({
-        url: p.url,
-        truth: p.truth,
-        mentions: p.mentions.map((m) => ({ key: m.key, known: m.known, cantons: m.cantons })),
+      ...summary,
+      // Keep the raw pairs next to the verdict: a rate nobody can trace back to
+      // the pages it came from is not evidence the child issue can act on.
+      perPage: summary.perPage.map((page, index) => ({
+        ...page,
+        truthAcceptedByResolver: Boolean(fetched[index]?.accepted),
+        allMentions: (fetched[index]?.mentions || [])
+          .map((m) => ({ key: m.key, known: m.known, cantons: m.cantons })),
       })),
     };
   } finally {
@@ -194,14 +209,21 @@ function renderMarkdown(report) {
 async function main() {
   const pagesPerHost = positiveInt(arg('pages'), 6);
   const minHosts = positiveInt(arg('min-hosts'), 8);
-  const maxAttempts = positiveInt(arg('max-attempts'), minHosts * 3);
+  // Hosts alone do not make the measure: a spec whose vacancies are all abroad
+  // (recruitingapp-2649 is the Alexander von Humboldt-Stiftung, in Bonn)
+  // contributes pages and no gradable page at all. Keep drawing until enough
+  // pages carry a location to score against.
+  const minTruthPages = positiveInt(arg('min-truth-pages'), 25);
+  const maxAttempts = positiveInt(arg('max-attempts'), minHosts * 4);
   const keys = sampleKeys();
 
   const hosts = [];
   const skipped = [];
   let attempts = 0;
+  const enough = () => hosts.length >= minHosts
+    && hosts.reduce((sum, host) => sum + host.withTruth, 0) >= minTruthPages;
   for (const key of keys) {
-    if (hosts.length >= minHosts && !REQUIRED_KEYS.includes(key)) break;
+    if (enough() && !REQUIRED_KEYS.includes(key)) break;
     if (attempts >= maxAttempts) break;
     attempts += 1;
     process.stderr.write(`[postal-variance] ${key}…\n`);
@@ -237,8 +259,9 @@ async function main() {
   console.log(`[postal-variance] report: ${path.relative(process.cwd(), REPORT_JSON)}, ${path.relative(process.cwd(), REPORT_MD)}`);
   // The measurement reports; it does not judge. A host that cannot be reached
   // is data about the corpus, not a failure of the script.
-  if (report.totals.hosts < minHosts) {
-    process.stderr.write(`[postal-variance] attenzione: ${report.totals.hosts} host misurati su ${minHosts} richiesti\n`);
+  if (report.totals.hosts < minHosts || report.totals.withTruth < minTruthPages) {
+    process.stderr.write(`[postal-variance] attenzione: ${report.totals.hosts}/${minHosts} host,`
+      + ` ${report.totals.withTruth}/${minTruthPages} pagine con verità nota\n`);
   }
 }
 

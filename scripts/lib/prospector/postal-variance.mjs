@@ -23,6 +23,7 @@ import {
   normalizeSwissTargetLocationText,
   swissMunicipalityCantons,
 } from '../target-swiss-locations.mjs';
+import { decodeEntities } from './entities.mjs';
 
 /**
  * NPA followed by a capitalised place name, anywhere in the page text.
@@ -31,13 +32,13 @@ import {
  * only looks inside `<address>`/contact containers: the whole point of the
  * measurement is prose, where the vacancy's NPA usually is. Swiss NPAs are
  * 1000-9999, so a leading zero is not one.
+ *
+ * The name window stays on one line (`[^\S\n]`) because `htmlToText()` turns
+ * every tag into a newline: crossing it would glue `4528 Zuchwil` to whatever
+ * the next block happens to start with.
  */
 export const FREE_TEXT_POSTAL_RX =
-  /(?:^|[\s,;:(–—-])(?:CH[\s-]?)?([1-9]\d{3})\s+(\p{Lu}[\p{L}'’.-]*(?:[ -]\p{L}[\p{L}'’.-]*){0,3})/gu;
-
-const HTML_ENTITIES = {
-  nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", '#39': "'", '#039': "'",
-};
+  /(?:^|[\s,;:(–—-])(?:CH[\s-]?)?([1-9]\d{3})[^\S\n]+(\p{Lu}[\p{L}'’.-]*(?:[ -]\p{L}[\p{L}'’.-]*){0,3})/gu;
 
 /**
  * Render an HTML document down to its visible text.
@@ -50,18 +51,11 @@ const HTML_ENTITIES = {
  * @returns {string}
  */
 export function htmlToText(html = '') {
-  return String(html)
+  return decodeEntities(String(html)
     .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<[^>]*>/g, '\n')
-    .replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (raw, name) => {
-      const key = String(name).toLowerCase();
-      if (Object.hasOwn(HTML_ENTITIES, key)) return HTML_ENTITIES[key];
-      if (key.startsWith('#x')) return String.fromCodePoint(Number.parseInt(key.slice(2), 16) || 32);
-      if (key.startsWith('#')) return String.fromCodePoint(Number.parseInt(key.slice(1), 10) || 32);
-      return raw;
-    })
-    .replace(/[ \t ]+/g, ' ')
+    .replace(/<[^>]*>/g, '\n'))
+    .replace(/[ \t\u00a0]+/g, ' ')
     .replace(/\n{2,}/g, '\n');
 }
 
@@ -74,6 +68,29 @@ export function htmlToText(html = '') {
  */
 export function postalMentionKey(mention) {
   return `${mention.postalCode} ${normalizeSwissTargetLocationText(mention.locality)}`.trim();
+}
+
+/**
+ * Trim the captured name window down to the place it actually names.
+ *
+ * The window has to be several words wide — Swiss municipalities are called
+ * `La Chaux-de-Fonds`, `Balm bei Günsberg`, `St. Gallen` — but in prose that
+ * same width swallows the rest of the sentence (`4528 Zuchwil eine
+ * Verstärkung`). The gazetteer decides where the name ends: longest known
+ * prefix wins, and when no prefix is known the first word is kept as an
+ * unknown place so the noise stays visible in the report instead of vanishing.
+ *
+ * @param {string} window
+ * @returns {{ locality: string, cantons: string[] }}
+ */
+function resolveLocality(window) {
+  const words = window.replace(/[\s.]+$/, '').split(/\s+/).filter(Boolean);
+  for (let length = words.length; length > 0; length -= 1) {
+    const candidate = words.slice(0, length).join(' ');
+    const cantons = swissMunicipalityCantons(candidate);
+    if (cantons.length) return { locality: candidate, cantons };
+  }
+  return { locality: words[0] || '', cantons: [] };
 }
 
 /**
@@ -92,15 +109,12 @@ export function freeTextPostalMentions(html = '') {
   const out = [];
   const seen = new Set();
   for (const match of text.matchAll(FREE_TEXT_POSTAL_RX)) {
-    const postalCode = match[1];
-    const locality = match[2].replace(/[\s.]+$/, '').replace(/\s+/g, ' ').trim();
+    const { locality, cantons } = resolveLocality(match[2].replace(/\s+/g, ' ').trim());
     if (!locality) continue;
-    const mention = { postalCode, locality, key: '', cantons: [], known: false };
+    const mention = { postalCode: match[1], locality, key: '', cantons, known: cantons.length > 0 };
     mention.key = postalMentionKey(mention);
     if (seen.has(mention.key)) continue;
     seen.add(mention.key);
-    mention.cantons = swissMunicipalityCantons(locality);
-    mention.known = mention.cantons.length > 0;
     out.push(mention);
   }
   return out;
@@ -195,6 +209,7 @@ export function summarizeHostPostalVariance(pages = []) {
   return {
     pages: usable.length,
     measurable,
+    perPage,
     constant: [...constantKeys].sort(),
     variable: [...counts].filter(([key]) => !constantKeys.has(key)).map(([key]) => key).sort(),
     withTruth: usable.length - withoutTruth,
