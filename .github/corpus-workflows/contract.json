@@ -6,11 +6,11 @@
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 596,
+  "crawlerCount": 597,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:9782e1e37584f0dbd12baf5e0d0aca3f6ee0825aeab18d6dea96dd6be746ec9a",
+    "rosterDigest": "sha256:4fd8d1447a7f45eb8644cedd8c37f0982911ec6935b299986fe8e968d9439713",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -65,6 +65,7 @@
     "scripts/update-ameos-ch-jobs.mjs",
     "scripts/update-amina-bank-jobs.mjs",
     "scripts/update-amstein-walthert-jobs.mjs",
+    "scripts/update-anker-swiss-jobs.mjs",
     "scripts/update-answerconsulting-jobs.mjs",
     "scripts/update-anybotics-jobs.mjs",
     "scripts/update-apg-sga-jobs.mjs",
@@ -773,8 +774,8 @@
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "40a04bd52a6eb4a58c774679bd3f75963860cf57372a393508d459e496889d6a",
-      "artifactSha256": "96650a80d7b417f34d909629bb697799cc06f62a5c8d17e7346503abfda2738c",
+      "sourceSha256": "d2fd197cd545cfef714804a8db06d56f10e0c5ddc9146fbb5584b02bf52d2e58",
+      "artifactSha256": "a27244985f9828b46333baf28a485cad3c81736e71340737a0c56846e6b3904b",
       "members": [
         "spital-emmental",
         "swisslog",
@@ -800,7 +801,8 @@
         "citta-di-locarno",
         "deloitte",
         "clinica-varini",
-        "citta-di-lugano"
+        "citta-di-lugano",
+        "anker-swiss"
       ]
     },
     {

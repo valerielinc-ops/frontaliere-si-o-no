@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 596,
+  "crawlerCount": 597,
   "groups": {
     "10": [
       "berit-klinik",
@@ -561,6 +561,7 @@
       "transgourmet"
     ],
     "07": [
+      "anker-swiss",
       "citta-di-locarno",
       "citta-di-lugano",
       "clinica-varini",
@@ -670,6 +671,7 @@
     "amina-bank": "data/jobs/by-crawler/amina-bank.json",
     "amministrazione-cantonale-ti": "data/jobs/by-crawler/amministrazione-cantonale-ti.json",
     "amstein-walthert": "data/jobs/by-crawler/amstein-walthert.json",
+    "anker-swiss": "data/jobs/by-crawler/anker-swiss.json",
     "answerconsulting": "data/jobs/by-crawler/answerconsulting.json",
     "anybotics": "data/jobs/by-crawler/anybotics.json",
     "apg-sga": "data/jobs/by-crawler/apg-sga.json",
@@ -1244,5 +1246,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:9782e1e37584f0dbd12baf5e0d0aca3f6ee0825aeab18d6dea96dd6be746ec9a"
+  "digest": "sha256:4fd8d1447a7f45eb8644cedd8c37f0982911ec6935b299986fe8e968d9439713"
 }
