@@ -5773,6 +5773,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sciaffusa-canone-locazione-deposito-guida.title': 'Affitti Sciaffusa: canoni medi e diritto di locazione',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.excerpt': 'Le regole federali sulla locazione valgono in tutto il Canton Sciaffusa. Scopri deposito cauzionale, contestazione del canone e procedure di conciliazione.',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.imageAlt': 'Edificio residenziale in una città svizzera con citofoni e cassette postali',
+    'blog.article.beloved-richieste-settantina.title': 'Fondazione Beloved: settantina di richieste ricevute',
+    'blog.article.beloved-richieste-settantina.excerpt': 'La fondazione Beloved ha ricevuto 70 richieste dalle vittime dell\'incendio di Crans-Montana. Fornisce supporto psicologico, finanziario e riabilitativo.',
+    'blog.article.beloved-richieste-settantina.imageAlt': 'Veduta panoramica di Crans-Montana in Vallese con le Alpi innevate sullo sfondo',
 };
 
 export default blogMetaChIt;
