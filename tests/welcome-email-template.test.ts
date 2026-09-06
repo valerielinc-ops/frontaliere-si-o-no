@@ -15,8 +15,9 @@
  *  - every frontaliereticino.ch href is trailing-slashed;
  *  - <html lang> matches the requested locale.
  */
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { buildWelcomeEmail } from '../functions/src/lib/welcomeEmailTemplate.js';
+import { NEWSLETTER_SPONSORS } from '../functions/src/lib/recommendedBlock.js';
 
 const SEGMENTS = ['job', 'salary', 'utility', 'publisher', 'general'] as const;
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -152,7 +153,13 @@ describe('publisher segment — different audience (employer, not job seeker)', 
   it('non-publisher segments DO get the recommended block', () => {
     for (const segment of ['job', 'salary', 'utility', 'general'] as const) {
       const { html } = buildWelcomeEmail({ segment, locale: 'it', unsubscribeUrl: UNSUB_URL });
-      expect(html).toContain('/go/wise/');
+      // Asserisce il BLOCCO, non il partner: quale raccomandazione esca la
+      // decide `pickNewsletterRecommendation()`, e uno sponsor pagato attivo o
+      // un cambio di `priority` nel registry la sostituiscono legittimamente.
+      // Pinnare `/go/wise/` renderebbe rosso tests.yml su una decisione di
+      // revenue invece che su una regressione del template.
+      expect(html).toContain('Consigliato per te');
+      expect(extractHrefs(html).some((h) => h.includes('/go/') || h.includes('utm_campaign=welcome'))).toBe(true);
     }
   });
 });
@@ -333,6 +340,18 @@ describe('recommended block — uses the real, registry-backed renderRecommended
   // card — same selection/rotation logic as the weekly newsletter and
   // onboarding drip, so a partner disabled in the registry disappears from
   // this email too, with no separate parity check to keep in sync.
+  // Il ramo asserito qui e' quello AFFILIATO. Uno sponsor pagato attivo vince
+  // legittimamente sul partner e il blocco non contiene nessun /go/: senza
+  // neutralizzarlo, firmare un contratto sponsor renderebbe rosso tests.yml su
+  // ogni PR invece di segnalare una regressione del redirect.
+  let sponsors: (typeof NEWSLETTER_SPONSORS)[number][] = [];
+  beforeEach(() => {
+    sponsors = NEWSLETTER_SPONSORS.splice(0, NEWSLETTER_SPONSORS.length);
+  });
+  afterEach(() => {
+    NEWSLETTER_SPONSORS.push(...sponsors);
+  });
+
   it('non-publisher segments link through the /go/{id}/ redirect with utm_campaign=welcome', () => {
     for (const segment of ['job', 'salary', 'utility', 'general'] as const) {
       const { html } = buildWelcomeEmail({ segment, locale: 'it', unsubscribeUrl: UNSUB_URL });
