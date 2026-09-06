@@ -1900,6 +1900,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'reddito-risparmio-svizzeri-record': { it: 'reddito-risparmio-svizzeri-record', en: 'income-savings-swiss-record', de: 'einkommen-ersparnisse-schweizer-rekord', fr: 'revenu-epargne-suisses-record' },
  'naturalizzazione-canton-soletta-requisiti-procedura': { it: 'naturalizzazione-canton-soletta-requisiti-procedura', en: 'naturalization-canton-solothurn-requirements-procedure', de: 'einburgerung-kanton-solothurn-anforderungen-verfahren', fr: 'naturalisation-canton-de-soletta-requis-et-procedure' },
  'permesso-domicilio-c-canton-vallese-requisiti-domanda': { it: 'permesso-domicilio-c-canton-vallese-requisiti-domanda', en: 'permit-c-residence-canton-valais-requirements-application', de: 'aufenthaltsbewilligung-c-kanton-wallis-anforderungen-antrag', fr: 'permis-c-residence-canton-valais-conditions-demande' },
+ 'conferenza-osce-berna-2026': { it: 'conferenza-osce-berna-2026', en: 'osce-conference-berne-2026', de: 'osce-konferenz-berne-2026', fr: 'conference-osce-berne-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

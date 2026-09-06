@@ -5623,6 +5623,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Permesso di domicilio C nel Canton Vallese: requisiti e domanda',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Scopri i requisiti e la procedura per ottenere il permesso di domicilio C nel Canton Vallese, inclusi anni richiesti, criteri di integrazione e conoscenze linguistiche.',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo.',
+    'blog.article.conferenza-osce-berna-2026.title': 'Conferenza OSCE a Berna: riflessioni sulla sicurezza europea',
+    'blog.article.conferenza-osce-berna-2026.excerpt': 'La Presidenza svizzera dell\'OSCE ha organizzato a Berna una conferenza per discutere delle origini della CSCE e dell\'importanza dei suoi principi fondanti per la sicurezza europea.',
+    'blog.article.conferenza-osce-berna-2026.imageAlt': 'Vista aerea di Berna, Svizzera, con la bandiera svizzera che sventola, simbolo della conferenza dell\'OSCE.',
 };
 
 export default blogMetaChIt;

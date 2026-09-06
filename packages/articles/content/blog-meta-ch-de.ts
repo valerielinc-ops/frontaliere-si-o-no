@@ -5623,6 +5623,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Niederlassungsbewilligung C im Kanton Wallis: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren zur Erlangung der Niederlassungsbewilligung C im Kanton Wallis, einschliesslich erforderlicher Jahre, Integrationskriterien und Sprachkenntnisse.',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund.',
+    'blog.article.conferenza-osce-berna-2026.title': 'OSZE-Konferenz in Bern: Überlegungen zur europäischen Sicherheit',
+    'blog.article.conferenza-osce-berna-2026.excerpt': 'Der Schweizer OSZE-Vorsitz organisierte in Bern eine Konferenz, um die Ursprünge der KSZE und die Bedeutung ihrer Grundprinzipien für die europäische Sicherheit zu diskutieren.',
+    'blog.article.conferenza-osce-berna-2026.imageAlt': 'Luftaufnahme von Bern, Schweiz, mit der schweizerischen Flagge, die im Wind weht, Symbol der OSCE-Konferenz.',
 };
 
 export default blogMetaChDe;

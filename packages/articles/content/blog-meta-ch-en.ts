@@ -5623,6 +5623,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Residence permit C in the Canton of Valais: requirements and application',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Learn about the requirements and procedure for obtaining a residence permit C in the Canton of Valais, including the required years, integration criteria and language skills.',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background.',
+    'blog.article.conferenza-osce-berna-2026.title': 'OSCE Berne Conference: Reflections on European Security',
+    'blog.article.conferenza-osce-berna-2026.excerpt': 'The Swiss Chairmanship of the OSCE organized a conference in Bern to discuss the origins of the CSCE and the importance of its founding principles for European security.',
+    'blog.article.conferenza-osce-berna-2026.imageAlt': 'Aerial view of Berna, Switzerland, with the Swiss flag flying, symbolizing the OSCE conference.',
 };
 
 export default blogMetaChEn;

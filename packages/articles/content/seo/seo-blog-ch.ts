@@ -72989,6 +72989,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conferenza-osce-berna-2026': {
+    title: 'Conferenza OSCE a Berna: riflessioni sulla sicurezza europea',
+    description: 'La Presidenza svizzera dell\'OSCE ha organizzato a Berna una conferenza per discutere delle origini della CSCE e dell\'importanza dei suoi principi fondanti',
+    keywords: 'frontalieri, ticino, svizzera, italia, conferenza, osce, berna, riflessioni',
+    ogTitle: 'Conferenza OSCE a Berna: riflessioni sulla sicurezza europea',
+    ogDescription: 'La Presidenza svizzera dell\'OSCE ha organizzato a Berna una conferenza per discutere delle origini della CSCE e dell\'importanza dei suoi principi fondanti per la sicurezza europea. Tra i partecipanti figurano Ignazio Cassis e Feridun H. Sinirlioğlu.',
+    canonicalPath: '/articoli-svizzera/conferenza-osce-berna-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conferenza OSCE a Berna: riflessioni sulla sicurezza europea",
+      "description": "La Presidenza svizzera dell'OSCE ha organizzato a Berna una conferenza per discutere delle origini della CSCE e dell'importanza dei suoi principi fondanti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conferenza-osce-berna-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Berna, Svizzera, con la bandiera svizzera che sventola, simbolo della conferenza dell'OSCE."
+      },
+      "datePublished": "2026-09-06T01:22:17+00:00",
+      "dateModified": "2026-09-06T01:22:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/conferenza-osce-berna-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
