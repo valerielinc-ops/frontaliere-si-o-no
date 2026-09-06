@@ -535,6 +535,32 @@ describe('parser-quality regression — a source that refuses everything is not 
     expect(summary.unexplainedFetchFailureRatePct).toBeCloseTo(50, 4);
   });
 
+  it('never promotes a runner with no route to «that host is unreachable»', () => {
+    // #7536 follow-up: ENETUNREACH/EHOSTUNREACH is OUR runner saying it never
+    // reached the network, so it observed nothing about the source. Read as
+    // `source-unreachable` it became a source-level finding and was subtracted
+    // from the unexplained count — a failure of ours certifying itself as a
+    // property of the host, exactly the pattern this split exists to remove.
+    // A real DNS loss on the other host still is a source-level finding.
+    const results = [
+      sample('no-route-from-runner', 1, { status: 0, transportError: 'unreachable-network' }),
+      sample('no-route-from-runner', 2, { status: 0, transportError: 'unreachable-network' }),
+      sample('host-is-gone', 1, { status: 0, transportError: 'dns' }),
+      sample('host-is-gone', 2, { status: 0, transportError: 'dns' }),
+    ];
+    const report: Record<string, any> = {
+      'no-route-from-runner': { total: 2, issues: [] }, 'host-is-gone': { total: 2, issues: [] },
+    };
+    const summary = applySourceDetailResults(report, results, results.length);
+
+    expect(summary.fetchFailureCauses).toEqual({
+      'transport-unreachable-network': 2, 'transport-dns': 2,
+    });
+    expect(Object.keys(summary.sourceLevelFailures.sources)).toEqual(['host-is-gone']);
+    expect(summary.unexplainedFetchFailures).toBe(2);
+    expect(summary.unexplainedFetchFailureRatePct).toBeCloseTo(50, 4);
+  });
+
   it('refuses to call a single loss a source policy', () => {
     // The reclassification must not become a way to make the number go away:
     // one failure on a source that answered its other sample is a per-vacancy
