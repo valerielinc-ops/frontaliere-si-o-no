@@ -672,14 +672,32 @@ describe('Fust post-crawl reconciliation', () => {
     const result = await handleFustEmptyDiscovery(discovery, [], snapshotJobSlugs(prior), {
       readSummary: () => ({ total: 0, authoritativeEmptyConfirmed: true }),
       archive, writeSlice, writeSummary, writeScratch, assemble,
+      generatedAt: '2026-09-06T00:00:00.000Z',
     });
 
     expect(result).toEqual({ confirmed: true, total: 0, archived: 0, noop: true });
     expect(archive).not.toHaveBeenCalled();
     expect(writeSlice).not.toHaveBeenCalled();
-    expect(writeSummary).not.toHaveBeenCalled();
     expect(writeScratch).not.toHaveBeenCalled();
     expect(assemble).not.toHaveBeenCalled();
+
+    // #7706: no-op for the DATA, never for the REPORT. Skipping the summary
+    // write handed the slice to the process-exit guard, which publishes
+    // `earlyExit: true` and drops `authoritativeEmptySnapshot` — so from the
+    // third observation on, the proven zero was re-read as an aborted run and
+    // accrued the broken streak #7324 exists to prevent.
+    expect(writeSummary).toHaveBeenCalledTimes(1);
+    const [heartbeat] = writeSummary.mock.calls[0] ?? [];
+    expect(heartbeat).toMatchObject({
+      key: 'fust',
+      total: 0,
+      generatedAt: '2026-09-06T00:00:00.000Z',
+      authoritativeEmptyConfirmed: true,
+      authoritativeEmptySnapshot: true,
+    });
+    expect(heartbeat).not.toHaveProperty('earlyExit');
+    expect(heartbeat).not.toHaveProperty('authoritativeEmptyPending');
+    expect(heartbeat).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
   });
 
   it('keeps the full durable zero-state contract across independent processes (#6772)', async () => {
@@ -716,7 +734,15 @@ describe('Fust post-crawl reconciliation', () => {
     const writesAfterConfirmation = writeSummary.mock.calls.length;
     expect(await handleFustEmptyDiscovery(discovery, [], snapshotJobSlugs(prior), options))
       .toEqual({ confirmed: true, total: 0, archived: 0, noop: true });
-    expect(writeSummary).toHaveBeenCalledTimes(writesAfterConfirmation);
+    // The jobs slice, the archive and the dataset stay frozen; only the
+    // summary keeps beating, still carrying the proof (#7706).
+    expect(writeSummary).toHaveBeenCalledTimes(writesAfterConfirmation + 1);
+    expect(slice).toEqual([]);
+    expect(summaryState).toMatchObject({
+      total: 0,
+      authoritativeEmptyConfirmed: true,
+      authoritativeEmptySnapshot: true,
+    });
     expect(archive).toHaveBeenCalledTimes(1);
 
     await writeFustPublishPlan(buildFustPublishPlan(prior), options);
