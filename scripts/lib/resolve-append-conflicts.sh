@@ -54,7 +54,13 @@ resolve_append_conflicts() {
   echo "🔧 Auto-resolving conflicts in append-only files..."
   local ALL_RESOLVED=true
 
-  while IFS= read -r file; do
+  # #7505: the conflicted-file list on fd 9, not on stdin. With
+  # `done <<< "$CONFLICTED"` the here-string IS the loop's stdin, inherited
+  # by the `node` calls and by `git add` in the body: a byte read there is a
+  # path the next `read` never sees, so the resolution stops early and the
+  # remaining conflicted files are left with their markers in place while the
+  # function still reports success.
+  while IFS= read -r -u 9 file; do
     [ -z "$file" ] && continue
 
     if ! grep -q '<<<<<<<' "$file" 2>/dev/null; then
@@ -293,7 +299,7 @@ resolve_append_conflicts() {
 
     git add "$file"
     echo "  ✅ $file: resolved (both sides kept)"
-  done <<< "$CONFLICTED"
+  done 9<<< "$CONFLICTED"
 
   # Final cross-file integrity gate. Even when every individual file parses, a
   # keep-both merge can still (a) duplicate a localized slug in SWISS_SLUGS

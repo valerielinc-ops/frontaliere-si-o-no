@@ -139,7 +139,10 @@ jobs:
             echo "Candidates (id / created_at), client-sorted by created_at desc:"
             sed 's/^/  /' "$WORK/cands.tsv"
             picked=()
-            while IFS=$'\t' read -r r created; do
+            # #7505: candidate list on fd 9, not on stdin — the `gh api` in
+            # the body would otherwise inherit the file as its stdin and any
+            # byte it read would be a candidate the next `read` never sees.
+            while IFS=$'\t' read -r -u 9 r created; do
               [ -n "$r" ] || continue
               # #7501: this used to swallow gh's stderr and fall back to a
               # zero count, which maps ANY gh failure (502, timeout, a token
@@ -162,7 +165,7 @@ jobs:
                 picked+=("$r")
               fi
               [ "${#picked[@]}" -ge 2 ] && break
-            done < "$WORK/cands.tsv"
+            done 9< "$WORK/cands.tsv"
             if [ "${#picked[@]}" -lt 2 ]; then
               echo "::error::Could not find two deploy.yml runs on main with a non-expired github-pages artifact within the walk-back cap ($MAX_PAGES pages x $PER_PAGE runs). Pass run_a and run_b explicitly."
               exit 1

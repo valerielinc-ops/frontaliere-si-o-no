@@ -192,13 +192,17 @@ jobs:
           gh issue list --state open --limit 200 \
             --json number,title --jq '.[] | select(.title | test("^\\[autologin-rate\\] ")) | .number' \
             > /tmp/ac-issues.txt || true
-          while read -r num; do
+          # #7505: issue list on fd 9. With the file on stdin, the
+          # `gh issue close` below inherits it and anything it reads is an
+          # issue number the next `read` never sees — issues silently left
+          # open, with a log that claims the sweep ran to the end.
+          while read -r -u 9 num; do
             [ -n "$num" ] || continue
             echo "Chiudo #$num — nessun alert nell'ultimo giro."
             gh issue close "$num" --repo "$GH_REPO" \
               --comment "✅ Auto-chiusa: l'ultimo giro di \`autologin-refusal-monitor\` non ha alert (lockout rate sotto soglia). Storico: \`docs/autologin-refusal/history.json\`." \
               || echo "Chiusura di #$num fallita (continuo)."
-          done < /tmp/ac-issues.txt
+          done 9< /tmp/ac-issues.txt
 
       - name: Fail if threshold breached
         id: failgate
