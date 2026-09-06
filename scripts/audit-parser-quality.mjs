@@ -567,7 +567,15 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
   // canton, and only one of the two spellings is in the region set.
   if (SWISS_REGION_NAMES.has(canonicalLocationTokens(publishedLocation).join(' '))) return false;
-  const haystack = normalizePlace(`${detail?.title || ''} ${detail?.description || ''}`);
+  // The workplace is not always in the prose: the federal portal renders it as
+  // a labelled field (`Arbeitsort: Reckenholzstrasse 191, 8046 Zürich`) that
+  // neither the title nor the description contains, so the corroboration the
+  // page actually offers was unreadable here (#7711). The bare label stays in
+  // SOURCE_LOCATION_PLACEHOLDERS — it is the VALUE that is evidence.
+  const workplaceLabels = Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : [];
+  const haystack = normalizePlace(
+    [detail?.title || '', detail?.description || '', ...workplaceLabels].join(' '),
+  );
   if (!haystack) return false;
   return ` ${haystack} `.includes(` ${normalizedLocation} `);
 }
