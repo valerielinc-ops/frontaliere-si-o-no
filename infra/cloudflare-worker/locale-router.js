@@ -1284,7 +1284,11 @@ const GONE_COPY = {
 // and a miss on either would serve the retired article again — the whole defect.
 // hasOwnProperty, not `in`: a path like /articoli-frontaliere/constructor/ must
 // not inherit a match from Object.prototype.
-function lookupRetired(pathname) {
+// Exported because the sitemaps must answer the SAME question with the SAME
+// normalisation — see scripts/lib/sitemap-retired-urls.mjs. A second copy of
+// the three-form rule would drift, and a sitemap that disagrees with the edge
+// about which URLs are dead is exactly the defect of issue #7670.
+export function lookupRetired(pathname) {
   const own = (key) => Object.prototype.hasOwnProperty.call(EDGE_RETIRED_PATHS, key);
   if (own(pathname)) return EDGE_RETIRED_PATHS[pathname];
   if (!pathname.endsWith('/') && own(`${pathname}/`)) return EDGE_RETIRED_PATHS[`${pathname}/`];

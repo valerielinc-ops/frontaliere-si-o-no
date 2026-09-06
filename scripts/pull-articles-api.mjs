@@ -49,6 +49,7 @@ import path from 'node:path';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
+import { dropRetiredSitemapUrlBlocks } from './lib/sitemap-retired-urls.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -473,6 +474,20 @@ for (const name of SITEMAPS) {
     log(`${name}: de-listing ${loc} — canonicalises elsewhere (canonical override)`);
   }
 
+  // Same posture for URLs the edge already answers 301/410 (issue #7670). The
+  // publisher has no way to know about EDGE_RETIRED_PATHS — it is this repo's
+  // table — so left alone it re-lists every retired article on every sync, and
+  // the site's own index keeps asking Google to crawl pages the Worker refuses
+  // to serve. Pruning HERE is what makes the reintroduction impossible; the
+  // retirement commit itself prunes the committed copy with
+  // scripts/prune-retired-sitemap-urls.mjs, which is what closes the ~12h
+  // cron window between the 301 going live and the next sync.
+  const deRetired = dropRetiredSitemapUrlBlocks(xml);
+  xml = deRetired.xml;
+  for (const loc of deRetired.dropped) {
+    log(`${name}: de-listing ${loc} — retired at the edge (301/410)`);
+  }
+
   const urls = countUrls(xml);
   const alts = countAlternates(xml);
   if (urls === 0) fail(`${name} has no <url> entries — refusing`);
@@ -480,7 +495,15 @@ for (const name of SITEMAPS) {
 
   const dest = path.join(PUBLIC_DIR, name);
   if (fs.existsSync(dest)) {
-    const current = fs.readFileSync(dest, 'utf-8');
+    // The committed copy is compared AFTER the same two de-listings, so the
+    // shrink guard measures what the publisher lost — not what this script
+    // deliberately removed. Without it, the first sync after a retirement reads
+    // its own pruning as the publisher dropping pages and refuses, freezing the
+    // whole surface. A no-op whenever the committed copy is already pruned,
+    // which is the steady state the gate enforces.
+    const current = dropRetiredSitemapUrlBlocks(
+      dropShadowedSitemapUrlBlocks(fs.readFileSync(dest, 'utf-8'), shadowedSitemapSlugs).xml,
+    ).xml;
     const curUrls = countUrls(current);
     const curAlts = countAlternates(current);
     // Shrinking either dimension drops pages or alternates from the index.
