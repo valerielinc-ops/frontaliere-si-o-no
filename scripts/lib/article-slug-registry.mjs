@@ -103,20 +103,50 @@ export function extractObjectLiteral(src, constName) {
 }
 
 /**
+ * Every `'<id>': { … }` row inside the literal, counted as loosely as the file
+ * allows: a quoted key opening a brace, nothing said about what is inside.
+ *
+ * This is the anti-vacuity yardstick for `parseSlugRegistry`. A flat floor
+ * ("more than 100 entries") cannot tell a healthy corpus from an emit change
+ * that broke the parse on 97% of the rows, because 100 is two orders of
+ * magnitude under the truth and stays green either way. The row count is the
+ * truth the parse must reach, and it scales with the corpus for free.
+ */
+export function countRegistryRows(src, constName) {
+  const block = extractObjectLiteral(src, constName);
+  return (block.match(/["'][^"'\n]+["']\s*:\s*\{/g) ?? []).length;
+}
+
+/**
  * Parse `{ '<id>': { it, en, de, fr } }` out of a registry source string.
- * Same shape the generator emits — key order is fixed, so the regex pins it
- * rather than parsing generically: a reordered emit is a generator change worth
- * noticing, not absorbing.
+ *
+ * The four locale keys are read BY NAME, in whatever order and across however
+ * many lines the row occupies. The earlier regex pinned the emit order on a
+ * single line on the argument that a reordered emit is "worth noticing, not
+ * absorbing" — but nothing was noticing: a reorder made this return `{}`, and
+ * every caller (the pre-write removal guard, the CI sitemap sync) fails OPEN on
+ * an empty registry. Noticing is now `countRegistryRows`'s job, which reports a
+ * shortfall loudly instead of an empty corpus quietly, so the parse itself can
+ * afford to be robust.
+ *
+ * A row still has to carry all four locales to count: a partial row is a broken
+ * row, and dropping it keeps it visible in the row-count comparison.
  */
 export function parseSlugRegistry(src, constName) {
   const block = extractObjectLiteral(src, constName);
-  const rx =
-    /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
+  const rowRx = /["']([^"'\n]+)["']\s*:\s*\{([^{}]*)\}/g;
   /** @type {Record<string, {it: string, en: string, de: string, fr: string}>} */
   const slugs = {};
-  let m;
-  while ((m = rx.exec(block)) !== null) {
-    slugs[m[1]] = { it: m[2], en: m[3], de: m[4], fr: m[5] };
+  let row;
+  while ((row = rowRx.exec(block)) !== null) {
+    /** @type {Record<string, string>} */
+    const entry = {};
+    const slugRx = /\b(it|en|de|fr)\s*:\s*["']([^"']+)["']/g;
+    let m;
+    while ((m = slugRx.exec(row[2])) !== null) entry[m[1]] = m[2];
+    if (LOCALES.every((locale) => entry[locale])) {
+      slugs[row[1]] = { it: entry.it, en: entry.en, de: entry.de, fr: entry.fr };
+    }
   }
   return slugs;
 }
@@ -130,6 +160,22 @@ export function readSlugRegistry(filePath, constName) {
     return {};
   }
   return parseSlugRegistry(src, constName);
+}
+
+/**
+ * Read a registry file once and report both the parse and the row count it had
+ * to reach. Callers that gate on a registry (the corpus sync) need the pair:
+ * the parse alone cannot say whether it was complete.
+ * Missing file → `{ registry: {}, rows: 0 }`, never a throw.
+ */
+export function readSlugRegistryWithRows(filePath, constName) {
+  let src;
+  try {
+    src = readFileSync(filePath, 'utf-8');
+  } catch {
+    return { registry: {}, rows: 0 };
+  }
+  return { registry: parseSlugRegistry(src, constName), rows: countRegistryRows(src, constName) };
 }
 
 /**

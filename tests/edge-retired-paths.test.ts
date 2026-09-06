@@ -57,6 +57,7 @@ import { EXTERNALLY_SERVED_PREFIXES } from '../scripts/lib/externally-served-pat
 import {
   ARTICLE_SECTION_KEYS,
   articlePathsFor,
+  countRegistryRows,
   parseSlugRegistry,
 } from '../scripts/lib/article-slug-registry.mjs';
 
@@ -69,6 +70,15 @@ const REPO = path.resolve(__dirname, '..');
  * symlink dangles whenever packages/articles/content/ is excluded, and a
  * dangling read would make the assertion below throw instead of assert.
  */
+/**
+ * Floor under which a registry row count is a truncated/unreadable file rather
+ * than a corpus. Same order of magnitude liveCorpusSlugs() uses (> 1000): the
+ * smaller of the two registries has carried four figures of rows for a year.
+ * The real anti-vacuity check is parsed === rows; this only rules out a file
+ * that has all but disappeared.
+ */
+const MIN_REGISTRY_ROWS = 1000;
+
 const REGISTRY_BY_SECTION: Record<string, { file: string; constName: string }> = {
   frontaliere: { file: 'packages/articles/content/routerBlogData.ts', constName: 'BLOG_SLUGS' },
   svizzera: { file: 'packages/articles/content/routerSwissData.ts', constName: 'SWISS_SLUGS' },
@@ -280,13 +290,16 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     const partial: string[] = [];
     for (const section of ARTICLE_SECTION_KEYS as readonly string[]) {
       const { file, constName } = REGISTRY_BY_SECTION[section];
-      const registry = parseSlugRegistry(
-        fs.readFileSync(path.join(REPO, file), 'utf-8'),
-        constName,
-      ) as Record<string, Record<string, string>>;
-      // Same anti-vacuity floor as liveCorpusSlugs(): an emit-shape change that
-      // broke the parse would otherwise turn this into a test of nothing.
-      expect(Object.keys(registry).length, `${file} parsed empty`).toBeGreaterThan(100);
+      const src = fs.readFileSync(path.join(REPO, file), 'utf-8');
+      const registry = parseSlugRegistry(src, constName) as Record<string, Record<string, string>>;
+      // Anti-vacuity, measured against the file itself rather than a constant:
+      // every `'<id>': {` row it carries must have parsed. A flat `> 100` floor
+      // passed with 100 of 3789 rows read, i.e. it would have stayed green
+      // through an emit change that broke the parse on 97% of the corpus —
+      // turning this into a test of nothing.
+      const rows = countRegistryRows(src, constName) as number;
+      expect(Object.keys(registry).length, `${file}: parse read part of the file`).toBe(rows);
+      expect(rows, `${file} parsed empty`).toBeGreaterThan(MIN_REGISTRY_ROWS);
       for (const [id, slugMap] of Object.entries(registry)) {
         const paths = articlePathsFor(section, slugMap) as string[];
         if (!paths.some((p) => declaredFrom.has(p))) continue;

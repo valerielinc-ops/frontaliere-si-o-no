@@ -71,7 +71,7 @@ import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
 import {
   ARTICLE_REGISTRY_FILES,
   ARTICLE_SECTION_KEYS,
-  readSlugRegistry,
+  readSlugRegistryWithRows,
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
@@ -127,14 +127,20 @@ function countFiles(dir) {
  * Read both slug registries out of a tree. `resolveFile` maps the site-relative
  * registry path onto wherever that tree keeps it — the corpus checkout is
  * `content/<name>.ts`, this repo is `packages/articles/content/<name>.ts`.
+ *
+ * Returns the parsed registries AND the row count each file carried, so the
+ * guard can tell a small corpus from a parse that only read part of a big one.
  */
 function readRegistries(resolveFile) {
-  const out = {};
+  const registries = {};
+  const rows = {};
   for (const section of ARTICLE_SECTION_KEYS) {
     const { file, constName } = ARTICLE_REGISTRY_FILES[section];
-    out[section] = readSlugRegistry(resolveFile(file), constName);
+    const read = readSlugRegistryWithRows(resolveFile(file), constName);
+    registries[section] = read.registry;
+    rows[section] = read.rows;
   }
-  return out;
+  return { registries, rows };
 }
 
 /**
@@ -316,8 +322,8 @@ try {
   // overwritten. `slugDataFile` names the `services/` symlink, which resolves to
   // the same bytes — but DEST is the directory mirrorTree writes, so reading it
   // directly keeps the comparison about the thing being changed.
-  const local = readRegistries((f) => path.join(DEST, path.basename(f)));
-  const incoming = readRegistries((f) => path.join(src, path.basename(f)));
+  const { registries: local, rows: localRows } = readRegistries((f) => path.join(DEST, path.basename(f)));
+  const { registries: incoming, rows: incomingRows } = readRegistries((f) => path.join(src, path.basename(f)));
 
   let ledgerSrc = '';
   try {
@@ -339,6 +345,7 @@ try {
     // the one being mirrored.
     manifestCounts:
       manifest?.counts && typeof manifest.counts === 'object' ? manifest.counts : null,
+    rowCounts: { local: localRows, incoming: incomingRows },
   });
 
   for (const section of ARTICLE_SECTION_KEYS) {
@@ -360,7 +367,8 @@ try {
   if (!verdict.ok) {
     for (const p of verdict.parseFailures) {
       console.error(
-        `::error::[pull-articles-corpus] ${p.side} ${p.section} registry parsed to ${p.size} entries — ` +
+        `::error::[pull-articles-corpus] ${p.side} ${p.section} registry parsed to ${p.size} entries` +
+        `${p.rows !== null && p.rows !== undefined ? ` out of ${p.rows} rows in the file` : ''} — ` +
         'that is a parse failure, not a corpus. The generator\'s emit shape most likely changed; ' +
         'fix scripts/lib/article-slug-registry.mjs before syncing, or this guard is blind.',
       );

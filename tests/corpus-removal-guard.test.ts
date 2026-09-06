@@ -37,6 +37,7 @@ import {
   ARTICLE_PATH_BASE,
   ARTICLE_REGISTRY_FILES,
   articlePathsFor,
+  countRegistryRows,
   parseSlugRegistry,
 } from '@/scripts/lib/article-slug-registry.mjs';
 import {
@@ -93,15 +94,49 @@ describe('article slug registry parser', () => {
     expect(parsed['lavoro-forzato-catene-svizzere'].en).toBe('forced-labour-swiss-supply-chains');
   });
 
-  it('parses the real registries to a plausible size, so the guard is never blind', () => {
+  it('reads a row whose locale keys are reordered or split across lines', () => {
+    // The emit order is not a contract the parse can rest on. It used to be
+    // pinned as `it, en, de, fr` on one line, so a generator that reordered the
+    // keys — or wrapped a long row — produced an EMPTY registry, and an empty
+    // registry is exactly what the removal guard fails open on.
+    const src = [
+      "export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {",
+      " 'permuted': { fr: 'fr-slug', it: 'it-slug', de: 'de-slug', en: 'en-slug' },",
+      "  'wrapped': {",
+      "    en: 'en-wrapped', it: 'it-wrapped',",
+      "    fr: 'fr-wrapped', de: 'de-wrapped' },",
+      "  'partial': { it: 'it-only', en: 'en-only' },",
+      '};',
+    ].join('\n');
+
+    const parsed = parseSlugRegistry(src, 'SWISS_SLUGS');
+    expect(parsed.permuted).toEqual({
+      it: 'it-slug', en: 'en-slug', de: 'de-slug', fr: 'fr-slug',
+    });
+    expect(parsed.wrapped).toEqual({
+      it: 'it-wrapped', en: 'en-wrapped', de: 'de-wrapped', fr: 'fr-wrapped',
+    });
+    // A row missing locales is NOT absorbed: it stays out of the registry and
+    // shows up as the parsed/rows shortfall the guard now refuses on.
+    expect(parsed.partial).toBeUndefined();
+    expect(countRegistryRows(src, 'SWISS_SLUGS')).toBe(3);
+  });
+
+  it('parses the real registries completely, so the guard is never blind', () => {
     for (const [section, { file, constName }] of Object.entries(ARTICLE_REGISTRY_FILES)) {
       const src = fs.readFileSync(path.join(ROOT, file), 'utf-8');
       const parsed = parseSlugRegistry(src, constName);
+      const rows = countRegistryRows(src, constName);
+      // Measured against the file, not against a constant: `> 100` on a
+      // 3789-row registry stayed green with 97% of the rows unread.
       expect(
         Object.keys(parsed).length,
-        `${section}: ${file} parsed to ${Object.keys(parsed).length} entries — the generator's ` +
-          'emit shape changed and the parser did not follow',
-      ).toBeGreaterThan(MIN_PARSED_REGISTRY_ENTRIES);
+        `${section}: ${file} parsed to ${Object.keys(parsed).length} of ${rows} rows — the ` +
+          "generator's emit shape changed and the parser did not follow",
+      ).toBe(rows);
+      expect(rows, `${section}: ${file} carries ${rows} rows`).toBeGreaterThan(
+        MIN_PARSED_REGISTRY_ENTRIES,
+      );
     }
   });
 

@@ -85,6 +85,12 @@ export function parseRedirectSources(src) {
  * "missing from incoming", and every deletion sails through unnoticed. Both
  * registries have been four figures (blog) and three (swiss) since long before
  * the cutover, so 100 is far under any plausible truth and far over zero.
+ *
+ * It is a BACKSTOP, not the real check: at 100 against a 3789-row registry an
+ * emit change that broke the parse on 97% of the rows still reads as a corpus.
+ * The real check is the row count (`args.rowCounts`), which is the same file's
+ * own answer to "how many rows should have parsed" and scales with the corpus.
+ * The constant only covers callers that cannot supply one.
  */
 export const MIN_PARSED_REGISTRY_ENTRIES = 100;
 
@@ -97,8 +103,17 @@ export const MIN_PARSED_REGISTRY_ENTRIES = 100;
  * @param {Set<string>} args.retiredPaths  Redirect-table source paths.
  * @param {{articles?: number, swissArticles?: number} | null} [args.manifestCounts]
  *   `counts` from the published manifest, or null when it could not be read.
+ * @param {{local?: Record<string, number>, incoming?: Record<string, number>} | null} [args.rowCounts]
+ *   `'<id>': {` rows each side's registry FILE carries, per section — the size
+ *   the parse had to reach. Omitted → only the absolute floor applies.
  */
-export function evaluateCorpusRemoval({ local, incoming, retiredPaths, manifestCounts = null }) {
+export function evaluateCorpusRemoval({
+  local,
+  incoming,
+  retiredPaths,
+  manifestCounts = null,
+  rowCounts = null,
+}) {
   const removals = [];
   const additions = {};
 
@@ -106,7 +121,13 @@ export function evaluateCorpusRemoval({ local, incoming, retiredPaths, manifestC
   for (const section of ARTICLE_SECTION_KEYS) {
     for (const [side, tree] of [['local', local], ['incoming', incoming]]) {
       const size = Object.keys(tree?.[section] ?? {}).length;
-      if (size < MIN_PARSED_REGISTRY_ENTRIES) parseFailures.push({ section, side, size });
+      // Two ways a registry is not a corpus: too small to be one at all, or
+      // smaller than the rows its own file carries — an incomplete parse, which
+      // is the failure a flat floor cannot see.
+      const rows = rowCounts?.[side]?.[section] ?? null;
+      if (size < MIN_PARSED_REGISTRY_ENTRIES || (rows !== null && size < rows)) {
+        parseFailures.push({ section, side, size, rows });
+      }
     }
   }
 
