@@ -25,6 +25,7 @@ import {
   addPreviousSlugForLocale,
   DEFAULT_PREV_SLUG_CAP,
   getPreviousSlugsForLocale,
+  isLegacyRouteCapRefusal,
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
@@ -299,8 +300,11 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
       // Only the legacy-bucket cap refusal is an expected outcome. Anything
       // else is a defect in the entry or in this code, and swallowing it would
       // make the component silently `unmergeable` — indistinguishable from a
-      // legitimate refusal, and invisible in the cron log.
-      if (!/Cannot preserve \d+ legacy routes/.test(String(error?.message || ''))) throw error;
+      // legitimate refusal, and invisible in the cron log. The refusal is
+      // recognised by TYPE, not by its message: the wording is a log string
+      // that no gate protects, so a reword would abort the whole archival step
+      // and an unrelated defect that happened to match would be swallowed.
+      if (!isLegacyRouteCapRefusal(error)) throw error;
       merged = false;
       capRefused += 1;
     }

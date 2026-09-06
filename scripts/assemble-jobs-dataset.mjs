@@ -767,6 +767,16 @@ const SHRINK_GUARD_SMALL_BASELINE_RATIO = 0.2;
  * Below MIN_BASELINE, a near-total (non-zero) drop is caught too, via a much
  * stricter ratio than the one used at/above baseline (#3840).
  */
+/**
+ * Machine-readable marker of the shrink-guard refusal, so a caller that can
+ * handle it (`writeJobsCrawlerSliceVerified`) recognises it by `code` and not
+ * by the `[shrink-guard]` prefix of the message. Same reason as
+ * `LegacyRouteCapError`: the wording is a log string no gate protects, so a
+ * reword would make the refusal unrecognisable and an unrelated defect whose
+ * message happened to start with the prefix would be handled as a refusal.
+ */
+export const SHRINK_GUARD_ERROR_CODE = 'SHRINK_GUARD_REFUSAL';
+
 export function shouldBlockShrink(priorCount, newCount) {
   if (priorCount > 0 && newCount === 0) return true;
   if (priorCount >= SHRINK_GUARD_MIN_BASELINE) {
@@ -964,7 +974,7 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
     return { written: true, shrinkAccepted: false };
   } catch (err) {
-    if (!String(err?.message || '').startsWith('[shrink-guard]')) throw err;
+    if (err?.code !== SHRINK_GUARD_ERROR_CODE) throw err;
 
     // Use the arrays the guard ACTUALLY measured, not this function's `jobs`
     // argument. writeJobsCrawlerSlice reassigns `jobs` internally
@@ -1918,6 +1928,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       // shrink entirely and see an empty diff — i.e. "nothing disappeared" —
       // which is vacuously true and would wave the write through with zero
       // evidence. Attaching the measured arrays makes that class impossible.
+      shrinkErr.code = SHRINK_GUARD_ERROR_CODE;
       shrinkErr.shrinkGuard = {
         crawlerKey,
         priorCount,

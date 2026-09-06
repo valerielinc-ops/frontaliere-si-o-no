@@ -5947,6 +5947,39 @@ export const LOCALES = ['it', 'en', 'de', 'fr'];
 export const DEFAULT_PREV_SLUG_CAP = 20;
 export const LEGACY_PREV_SLUGS_CAP = DEFAULT_PREV_SLUG_CAP * LOCALES.length;
 
+/**
+ * Refusal raised by `promotePreviousSlugToLegacy` when preserving one more
+ * unattributed legacy route would exceed `LEGACY_PREV_SLUGS_CAP`.
+ *
+ * It is an EXPECTED outcome, not a defect: a caller that can proceed without
+ * the promotion (see `collapseDuplicateRouteEntries`) may absorb it. That
+ * caller must recognise it by TYPE — or by `error.code` across a boundary
+ * where `instanceof` cannot hold — never by matching the message. The message
+ * is a log string: rewording it, or adding a second cap that throws its own
+ * text, would silently turn every legitimate refusal into an abort, while a
+ * genuine defect whose message happened to match would be swallowed.
+ */
+export const LEGACY_ROUTE_CAP_ERROR_CODE = 'LEGACY_PREV_SLUGS_CAP';
+
+export class LegacyRouteCapError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'LegacyRouteCapError';
+    this.code = LEGACY_ROUTE_CAP_ERROR_CODE;
+  }
+}
+
+/**
+ * Single place where "is this the cap refusal?" is decided, so no consumer has
+ * to re-derive it — and none can re-derive it from the message. `instanceof`
+ * covers the normal case; `code` covers a realm boundary (worker, second copy
+ * of this module) where the class identity would not hold.
+ */
+export function isLegacyRouteCapRefusal(error) {
+  return error instanceof LegacyRouteCapError
+    || error?.code === LEGACY_ROUTE_CAP_ERROR_CODE;
+}
+
 export function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
 
 export function dateOnly(input) {
@@ -7037,7 +7070,7 @@ export function promotePreviousSlugToLegacy(
   const added = !flat.has(norm);
   flat.add(norm);
   if (flat.size > cap) {
-    throw new Error(`Cannot preserve ${flat.size} legacy routes for ${job.id}; cap is ${cap}`);
+    throw new LegacyRouteCapError(`Cannot preserve ${flat.size} legacy routes for ${job.id}; cap is ${cap}`);
   }
   job.previousSlugs = [...flat];
   if (added) {
