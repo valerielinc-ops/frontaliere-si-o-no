@@ -5632,6 +5632,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Short-term permit L in the Canton of Valais: validity and extension',
     'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'The short-term L permit in the Canton of Valais is valid for a maximum of 1 year and can only be extended in specific cases.',
     'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Aerial view of the city of Sion in the canton of Valais, Switzerland',
+    'blog.article.assegni-familiari-canton-vallese.title': 'Family allowances in the Canton of Valais: amounts and application',
+    'blog.article.assegni-familiari-canton-vallese.excerpt': 'Find out the monthly amounts per child, the legal conditions and the application procedure for family allowances in the Canton of Valais.',
+    'blog.article.assegni-familiari-canton-vallese.imageAlt': 'Swiss family with children receiving family allowances',
 };
 
 export default blogMetaChEn;

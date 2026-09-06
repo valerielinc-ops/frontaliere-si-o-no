@@ -5632,6 +5632,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Kurzzeitbewilligung L im Kanton Wallis: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'Die Kurzzeitbewilligung L im Kanton Wallis ist maximal 1 Jahr gültig und kann nur in Einzelfällen verlängert werden.',
     'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Luftaufnahme der Stadt Sion im Kanton Wallis, Schweiz',
+    'blog.article.assegni-familiari-canton-vallese.title': 'Familienzulagen im Kanton Wallis: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-vallese.excerpt': 'Informieren Sie sich über die monatlichen Beträge pro Kind, die rechtlichen Voraussetzungen und das Antragsverfahren für Familienzulagen im Kanton Wallis.',
+    'blog.article.assegni-familiari-canton-vallese.imageAlt': 'Schweizer Familie mit Kindern, die Familienzulagen erhält',
 };
 
 export default blogMetaChDe;

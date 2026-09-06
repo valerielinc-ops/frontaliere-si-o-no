@@ -5632,6 +5632,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Permesso L di breve durata nel Canton Vallese: validità e proroga',
     'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'Il permesso L di breve durata nel Cantone di Vallese ha una validità massima di 1 anno e può essere prorogato solo in casi specifici.',
     'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Vista aerea della città di Sion nel canton Vallese, Svizzera',
+    'blog.article.assegni-familiari-canton-vallese.title': 'Assegni familiari nel Cantone di Vallese: importi e domanda',
+    'blog.article.assegni-familiari-canton-vallese.excerpt': 'Scopri gli importi mensili per figlio, le condizioni di diritto e la procedura di domanda per gli assegni familiari nel Cantone di Vallese.',
+    'blog.article.assegni-familiari-canton-vallese.imageAlt': 'Famiglia svizzera con bambini che riceve assegni familiari',
 };
 
 export default blogMetaChIt;
