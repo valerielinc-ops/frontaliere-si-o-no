@@ -1284,7 +1284,20 @@ describe('promotion gate', () => {
     expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
   });
 
-  it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
+  it('ignora anche il timestamp ISO con la T attaccata', () => {
+    // `2026-09-05T11:01:22`: fra `05` e `T` non c'e' confine di parola, quindi
+    // la regex data e quella orario non lo vedono. Se un layout stampa quella
+    // forma come data di generazione, quattro copie della stessa pagina
+    // firmano quattro volte diverso e `detailDistinctRate` legge 1.00.
+    const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
+    const copy = (n: number) => `${shell} generato il 2026-09-0${n}T1${n}:0${n}:2${n}`;
+    expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
+    // stesse varianti che i layout server-rendered serializzano
+    const withMillis = `${shell} generato il 2026-09-05T11:01:22.417Z`;
+    const withOffset = `${shell} generato il 2026-09-05T11:01+02:00`;
+    expect(bodySignature(withMillis)).toBe(bodySignature(withOffset));
+  });
+it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
     // Il rumore di coda si toglie sulle forme grezze (data, ora, contatore),
     // non su ogni token di cifre: NPA, pensum e numero di riferimento sono
     // contenuto, e se collassassero il promotion gate leggerebbe «pagine
