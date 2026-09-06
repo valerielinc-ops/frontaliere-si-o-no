@@ -5659,6 +5659,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-attivita-soletta-guida-completa.title': 'Ouvrir une entreprise à Soleure : formes juridiques, coûts et procédures',
     'blog.article.avviare-attivita-soletta-guida-completa.excerpt': 'Guide pratique pour la création d\'une entreprise dans le canton de Soleure : choix de la forme juridique, inscription au Registre du commerce, impôts et obligations d\'assurance.',
     'blog.article.avviare-attivita-soletta-guida-completa.imageAlt': 'Bâtiment administratif d\'une commune suisse, symbole de création d\'entreprise et enregistrement commercial',
+    'blog.article.creare-attivita-soletta-checklist.title': 'Démarrer des activités à Soleure : coûts et procédure',
+    'blog.article.creare-attivita-soletta-checklist.excerpt': 'Forme juridique, inscription au registre du commerce, taxes cantonales et obligations de prévoyance : la procédure pour ouvrir des activités dans le canton de Soleure.',
+    'blog.article.creare-attivita-soletta-checklist.imageAlt': 'Entrepreneur examine documents d\'enregistrement commercial et déclarations fiscales à Soleure.',
 };
 
 export default blogMetaChFr;
