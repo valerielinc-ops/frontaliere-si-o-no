@@ -11474,6 +11474,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sumirago-frontaliere.title': 'Vivre à Sumirago, travailler au Tessin : guide frontalier',
     'blog.article.vivere-sumirago-frontaliere.excerpt': 'Guide pratique pour vivre à Sumirago et travailler au Tessin : permis, fiscalité frontalière, procédures administratives et ce qu\'il faut prendre en compte avant le transfert.',
     'blog.article.vivere-sumirago-frontaliere.imageAlt': 'Route provinciale à la frontière entre Varèse et le Tessin avec panneaux routiers suisses',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno frontalier : guide des coûts et taxes 2024',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'À partir de 2024, la franchise pour les nouveaux frontaliers est de 10 000 € . Comment vivre à Garzeno et travailler au Tessin : impôt à la source, permis G, AVS, LAMal et procédures pratiques.',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Lac de Lugano depuis la Suisse, villages lombards au-delà de la frontière visibles, symbole du pendularisme transfrontalier.',
 };
 
 export default blogMetaFr;
