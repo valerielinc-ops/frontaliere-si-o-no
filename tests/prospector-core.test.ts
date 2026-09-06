@@ -1311,6 +1311,39 @@ describe('promotion gate', () => {
     }
   });
 
+  it('ignora il contatore visite anche quando il numero precede l\'etichetta', () => {
+    // «1.234 Aufrufe», «1'234 visualizzazioni», «3 456 Besucher»: e' la resa
+    // standard in tedesco e in francese. Denoisare solo «etichetta numero»
+    // lascia il contatore dentro l'hash proprio sui layout delle lingue che
+    // l'elenco delle etichette copre — quattro copie della stessa pagina
+    // firmano quattro volte diverso e `detailDistinctRate` legge 1.00.
+    const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
+    const renderings = [
+      (n: number) => `${shell} 1.23${n} Aufrufe`,
+      (n: number) => `${shell} 1'23${n} visualizzazioni`,
+      // migliaia separate da spazio: la testa del numero deve sparire con il resto
+      (n: number) => `${shell} 3 45${n} Besucher`,
+      (n: number) => `${shell} ${1000 + n} views`,
+      (n: number) => `${shell} ${1000 + n} hits`,
+    ];
+    for (const copy of renderings) {
+      expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
+    }
+  });
+
+  it('non denoisa il numero che precede un\'etichetta che in un annuncio e\' contenuto', () => {
+    // «25 consultations par jour» / «40 letture al mese» sono il carico
+    // dichiarato di un annuncio sanitario, non un contatore per-richiesta. Se
+    // il ramo «numero etichetta» le mordesse, due annunci template dello
+    // stesso datore che differiscono solo li' firmerebbero UGUALE e il
+    // promotion gate boccerebbe un datore valido.
+    const shell = `${'chrome '.repeat(900)}assistente di studio medico`;
+    expect(bodySignature(`${shell} 25 consultations par jour`))
+      .not.toBe(bodySignature(`${shell} 40 consultations par jour`));
+    expect(bodySignature(`${shell} 25 letture al mese`))
+      .not.toBe(bodySignature(`${shell} 40 letture al mese`));
+  });
+
   it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
     // Il rumore di coda si toglie sulle forme grezze (data, ora, contatore),
     // non su ogni token di cifre: NPA, pensum e numero di riferimento sono

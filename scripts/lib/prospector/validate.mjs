@@ -103,6 +103,30 @@ export function tokenOverlap(needle, haystack) {
  * Dopo `norm()` quella punteggiatura non c'e' piu' e restano token di sole
  * cifre indistinguibili dall'NPA, dal numero di riferimento e dal pensum.
  */
+// Le due rese del contatore per-richiesta. L'etichetta sta a destra del
+// numero tanto quanto a sinistra — «Aufrufe: 1.234» ma anche «1.234 Aufrufe»,
+// che e' la forma standard in tedesco e in francese — e denoisare un verso
+// solo lascia la classe aperta proprio sui layout delle lingue che l'elenco
+// delle etichette copre: il contatore torna dentro l'hash, N copie della
+// stessa pagina firmano N volte diverso e `detailDistinctRate` legge 1.00.
+//
+// Il numero e' obbligatorio da UNA delle due parti: l'etichetta nuda e' una
+// parola come le altre e toglierla dalla firma cancellerebbe contenuto.
+// I gruppi di migliaia separati da spazio («3 456 Besucher») fanno parte del
+// numero, altrimenti la testa resterebbe fuori e tornerebbe a far divergere
+// la firma a ogni richiesta.
+const COUNTER_NUMBER = "\\d[\\d'\u2019.,]*(?:[\\s\\u00a0\\u202f]\\d{3})*";
+// etichette non ambigue: in un annuncio sono un contatore e basta, quindi si
+// denoisano su entrambi i versi.
+const COUNTER_LABELS = '(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?|hits?|klicks?)';
+// etichette che in un annuncio possono essere anche CONTENUTO con un numero
+// attaccato («25 consultations par jour», «letture 3 al mese» in un profilo
+// sanitario): restano sul solo verso etichetta->numero, che e' quello gia'
+// coperto, perche' il ramo prefisso morderebbe il carico dichiarato e due
+// annunci template diversi firmerebbero UGUALE — il falso positivo che i
+// test su NPA/pensum/riferimento esistono per tenere chiuso.
+const AMBIGUOUS_COUNTER_LABELS = '(?:letture|consultazioni|consultations?)';
+
 const REQUEST_NOISE_PATTERNS = [
   // 2026-09-05T11:01:22, 2026-09-05T11:01:22.417Z, 2026-09-05T11:01+02:00.
   // Va PRIMA delle due regex qui sotto e in una passata sola: nella forma ISO
@@ -122,8 +146,13 @@ const REQUEST_NOISE_PATTERNS = [
   // «letture», «consultazioni», «consultations» — che sono lo stesso contatore
   // per-richiesta con un altro nome: se restano fuori, su quei layout il
   // contatore torna dentro l'hash e N copie della stessa pagina firmano N
-  // volte diverso.
-  /\b(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?|hits?|klicks?|letture|consultazioni|consultations?)\b[\s:]*\d[\d'’.,]*/gi,
+  // volte diverso. Entrambe le rese, «etichetta numero» e «numero etichetta».
+  new RegExp(
+    `\\b${COUNTER_LABELS}\\b[\\s:]*${COUNTER_NUMBER}`
+    + `|${COUNTER_NUMBER}[\\s:]*\\b${COUNTER_LABELS}\\b`
+    + `|\\b${AMBIGUOUS_COUNTER_LABELS}\\b[\\s:]*${COUNTER_NUMBER}`,
+    'gi',
+  ),
   // il progressivo stampato in coda dal layout: «annuncio n. 1234»,
   // «Inserat Nr. 1234». NON il numero di riferimento dell'annuncio
   // (`ref`/`riferimento`/`referenz`), che e' contenuto e distingue due
