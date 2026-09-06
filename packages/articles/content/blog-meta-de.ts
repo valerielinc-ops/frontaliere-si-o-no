@@ -11489,6 +11489,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Leben in Ponte in Valtellina, Arbeiten in Graubünden',
     'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Vollständiger Leitfaden für Grenzgänger: Quellensteuer, G-Bewilligung, € 10k-Franchise, AHV/KVG, Lebenshaltungskosten. Ab 2024.',
     'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Alpenpanorama von Ponte in der Veltlin mit Blick auf Graubünden, Berglandschaft an der Schweizer-italienischen Grenze.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Grenzgänger Wohnortstütze-Graubünden: Besteuerung und Bewilligungen',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Wohnen in Poggiridenti und Arbeiten in Graubünden: Bewilligung G, Quellensteuer, Neue Grenzgängervereinbarung 2024 und AHV/BVG-BEITRÄGE. Praktischer Leitfaden und Checkliste.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Alpines Berglandschaft an der Grenze zwischen Italien und der Schweiz mit nebligen Tälern.',
 };
 
 export default blogMetaDe;
