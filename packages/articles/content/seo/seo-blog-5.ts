@@ -86614,6 +86614,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedale-niguarda-istituto-tumori-emergenze-oncologici': {
+    title: 'Milano: Niguarda e Istituto Tumori uniscono le forze per le emergenze oncologiche',
+    description: 'L\'Ospedale Niguarda e l\'Istituto Nazionale dei Tumori di Milano hanno siglato un protocollo operativo per garantire la continuità assistenziale ai pazienti',
+    keywords: 'frontalieri, ticino, svizzera, italia, milano, niguarda, istituto, tumori',
+    ogTitle: 'Milano - Ospedale Niguarda e Istituto dei Tumori: un percorso condiviso per le emergenze nei pazienti oncologici',
+    ogDescription: 'Scopri come il protocollo operativo tra l\'Ospedale Niguarda e l\'Istituto Nazionale dei Tumori di Milano garantisce la continuità assistenziale ai pazienti oncologici in caso di emergenze.',
+    canonicalPath: '/articoli-frontaliere/ospedale-niguarda-istituto-tumori-emergenze-oncologici',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Milano: Niguarda e Istituto Tumori uniscono le forze per le emergenze oncologiche",
+      "description": "L'Ospedale Niguarda e l'Istituto Nazionale dei Tumori di Milano hanno siglato un protocollo operativo per garantire la continuità assistenziale ai pazienti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ospedale-niguarda-istituto-tumori-emergenze-oncologici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista dell'ospedale di Lugano, Ticino"
+      },
+      "datePublished": "2026-09-06T02:00:32+00:00",
+      "dateModified": "2026-09-06T02:00:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ospedale-niguarda-istituto-tumori-emergenze-oncologici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

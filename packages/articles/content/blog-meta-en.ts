@@ -11428,6 +11428,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-griante-lavorare-ticino-frontaliere.title': 'Living in Griante and working in Ticino as a border worker',
     'blog.article.vivere-griante-lavorare-ticino-frontaliere.excerpt': 'Benefits, procedures, costs and regulations for those who choose to live in Griante working in the Canton of Ticino as a border worker',
     'blog.article.vivere-griante-lavorare-ticino-frontaliere.imageAlt': 'Lake Como view at Griante with residential buildings and mountain landscape',
+    'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.title': 'Milan: Niguarda and Istituto Tumori join forces for oncological emergencies',
+    'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.excerpt': 'The Niguarda Hospital and the IRCCS Fondazione Istituto Nazionale dei Tumori in Milan have signed an operational protocol to ensure continuity of care for cancer patients in case of emergencies.',
+    'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.imageAlt': 'View of the hospital in Lugano, Ticino',
 };
 
 export default blogMetaEn;
