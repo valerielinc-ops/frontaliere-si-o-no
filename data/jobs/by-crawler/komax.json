@@ -98,7 +98,7 @@
       "title": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
       "titleByLocale": {
         "it": "Sales Switzerland / Technical Sales Ingegnere (w/m/d)",
-        "en": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
+        "en": "Sales Switzerland / Technical Sales Engineer (m/f/d)",
         "de": "Sales Switzerland / Technical Sales Ingenieur (w/m/d)",
         "fr": "Sales Switzerland / Technical Sales Ingénieur (w/m/d)"
       },
@@ -268,7 +268,7 @@
       "title": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
       "titleByLocale": {
         "it": "HR Operations Specialist 60-100% (Representazione della maternità)",
-        "en": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
+        "en": "HR Operations Specialist 60-100% (Maternity Representation)",
         "de": "Personalwesen Operations Spezialist 60-100% (Mutterschaftsvertretung)",
         "fr": "Spécialiste des opérations des RH 60-100% (Représentation de la maternité)"
       },
@@ -304,7 +304,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-05T12:55:54.537Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hr-operations-specialist-60-100-mutterschaftsvertretung-komax-ch"
@@ -394,7 +393,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -463,14 +461,29 @@
       "firstSeenAt": "2026-09-05T12:55:54.535Z",
       "previousSlugsByLocale": {
         "it": [
-          "development-engineer-electronics-with-emv-lead-komax-ch"
+          "development-engineer-electronics-with-emv-lead-komax-ch",
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
+          "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm",
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
+          "development-engineer-electronics-with-emv-lead-komax-dierikon",
+          "development-engineer-electronics-with-emv-lead-komax-ch-i11j51",
+          "development-engineer-electronics-with-emv-lead-komax-ch-2"
         ],
         "fr": [
           "development-engineer-electronics-with-emv-lead-komax-ch"
+        ],
+        "de": [
+          "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm"
         ]
       },
       "previousSlugs": [
-        "development-engineer-electronics-with-emv-lead-komax-ch"
+        "development-engineer-electronics-with-emv-lead-komax-ch",
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
+        "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm",
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
+        "development-engineer-electronics-with-emv-lead-komax-dierikon",
+        "development-engineer-electronics-with-emv-lead-komax-ch-i11j51",
+        "development-engineer-electronics-with-emv-lead-komax-ch-2"
       ],
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -593,7 +606,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -675,7 +687,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 70000,
       "salarySource": "estimated",
@@ -935,7 +946,7 @@
       "title": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
       "titleByLocale": {
         "it": "HR Operations Specialist 60-100% (Representazione della maternità)",
-        "en": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
+        "en": "HR Operations Specialist 60-100% (Maternity Representation)",
         "de": "Personalwesen Operations Spezialist 60-100% (Mutterschaftsvertretung)",
         "fr": "Spécialiste des opérations des RH 60-100% (Représentation de la maternité)"
       },
@@ -1011,8 +1022,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
