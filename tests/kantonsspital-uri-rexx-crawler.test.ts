@@ -264,6 +264,25 @@ describe('Kantonsspital Uri shared rexx parser', () => {
     await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
   });
 
+  it('still matches its own JobPosting when the structured title doubles an internal space', async () => {
+    // Live shape of #7461: `spital-schwyz` j549 published `Köchin  / Koch` with
+    // a double space in both the `<h1>` and the JSON-LD title. The rendered side
+    // is whitespace-collapsed before the identity comparison, the structured
+    // side is not, so the posting failed to match itself: no structured record,
+    // no address evidence, and the unresolved-location gate discarded all 18
+    // vacancies of the batch.
+    const SPACED_TITLE = 'Köchin  / Koch EFZ mit Berufsbildungsfunktion 80 - 100 %';
+    stubKantonsspitalSource(realRexxDetailFixture({ title: SPACED_TITLE }));
+
+    const detail = extractRexxDetail(realRexxDetailFixture({ title: SPACED_TITLE }), DETAIL_URL);
+    expect(detail.sourceAddresses).not.toHaveLength(0);
+
+    const jobs = await fetchAllKantonsspitalUriJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ location: 'Altdorf', canton: 'UR', postalCode: '6460' });
+  });
+
   it('lets an explicit different JobPosting URL override a coincidentally equal title', async () => {
     stubKantonsspitalSource(realRexxDetailFixture({
       structuredUrl: SECOND_DETAIL_URL,
