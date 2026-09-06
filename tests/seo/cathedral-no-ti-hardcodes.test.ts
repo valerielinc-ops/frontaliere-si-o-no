@@ -18,9 +18,12 @@ const FORBIDDEN = [
 // invisibile al guardiano, che quindi non poteva sostenere la claim «una
 // venticinquesima copia non puo' comparire in silenzio».
 //
-// Qui il segmento e' matchato indipendentemente dalla delimitazione, dentro un
-// literal di CODICE: stringa (`'x'`, `"x"`, `'/x'`, `'x/'`, `'/x/'`) o regex
-// (`/\/x\//`). Restano fuori per scelta le citazioni in PROSA — docblock con
+// Qui il segmento e' matchato indipendentemente dalla delimitazione e da cio'
+// che lo SEGUE, dentro un literal di CODICE: stringa (`'x'`, `"x"`, `'/x'`,
+// `'x/'`, `'/x/'`) o regex (`/\/x\//`), incluse le forme con sub-path
+// (`'/x/aziende/'`, `'/x/ultimi-3-giorni/'`) — href di nav, tabelle per-locale
+// e mappe di redirect, cioe' proprio la classe funnel-critical che il gate
+// esiste per fermare. Restano fuori per scelta le citazioni in PROSA — docblock con
 // backtick, commenti, copy editoriale — dove il literal e' la URL pubblica
 // citata, non una ri-dichiarazione della tabella: includerle porterebbe ~20
 // offender di sola documentazione e trasformerebbe il gate in rumore.
@@ -34,18 +37,25 @@ const TI_SECTION_SLUGS = [
 /**
  * ERE (valida sia per `grep -E` sia per `new RegExp`) che riconosce lo slug come
  * segmento intero dentro un literal di codice, con o senza slash delimitanti.
+ *
+ * L'alternativa 1 chiude su quote **o** slash: chiudere sulla sola quote
+ * (`/?${slug}/?['"]`) vedeva il segmento solo quando era l'INTERO literal e
+ * lasciava passare in silenzio ogni literal con sub-path. Lo slash finale non
+ * apre la prosa: la quote iniziale resta obbligatoria.
  */
 export function tiSegmentPattern(slug: string): string {
-  return `['"]/?${slug}/?['"]|\\\\/${slug}\\\\/`;
+  return `['"]/?${slug}(['"]|/)|\\\\/${slug}\\\\/`;
 }
 
 // ── Inventario congelato (ratchet, NON un esonero) ──────────────────────────
 // Le forme con slash non erano vigilate: al momento in cui lo diventano il
-// codice ne contiene 68 in 31 file, dai piu' innocui (un href al hub IT dentro
+// codice ne contiene 102 in 42 file, dai piu' innocui (un href al hub IT dentro
 // copy italiano) alle vere ri-dichiarazioni della tabella per-locale
 // (`services/analyticsPageContext.ts`, `scripts/lib/seo-ctr-curve.mjs`,
-// `infra/cloudflare-worker/locale-router.js`). Ripararle tutte non sta in una
-// PR chirurgica; lasciarle non vigilate era il difetto.
+// `infra/cloudflare-worker/locale-router.js`) e alle forme con sub-path
+// (`build-plugins/shared/relatedLinks.ts`, `build-plugins/legacyRedirectsPlugin.ts`).
+// Ripararle tutte non sta in una PR chirurgica; lasciarle non vigilate era il
+// difetto.
 //
 // Questo NON e' l'ALLOWLIST (che esonera per sempre) ne' il marker inline
 // (che esonera una riga con una ragione). E' un conteggio per file che puo'
@@ -53,34 +63,45 @@ export function tiSegmentPattern(slug: string): string {
 // hardcode NUOVO), sia se sta sotto (inventario stantio → si abbassa il
 // numero). Cosi' l'inventario converge a zero invece di marcire.
 const SEGMENT_BASELINE: Record<string, number> = {
-  'build-plugins/blogContextualLinksData.ts': 3,
-  'build-plugins/careerLandingsPlugin.ts': 1,
+  'build-plugins/blogContextualLinksData.ts': 4,
+  'build-plugins/careerLandingsPlugin.ts': 2,
+  'build-plugins/cityJobsHub.ts': 1,
   'build-plugins/editorialContent.ts': 2,
   'build-plugins/exchangeRatePagesPlugin.ts': 1,
   'build-plugins/frontalierePillarCopy.ts': 2,
+  'build-plugins/jobSectorLanding.ts': 1,
   'build-plugins/jobsSeoPagesPlugin.ts': 4,
+  'build-plugins/legacyRedirectsPlugin.ts': 7,
   'build-plugins/nursingLandingsPlugin.ts': 1,
   'build-plugins/pdfWhitepapersPlugin.ts': 1,
   'build-plugins/professionLandingsPlugin.ts': 1,
   'build-plugins/publisherAdPagesPlugin.ts': 1,
   'build-plugins/searchConsoleCompat.ts': 4,
   'build-plugins/selfCertificationFormsPlugin.ts': 1,
-  'build-plugins/staticPagesPlugin.ts': 10,
+  'build-plugins/seoHubsData.ts': 3,
+  'build-plugins/seoHubsPlugin.ts': 1,
+  'build-plugins/shared/relatedLinks.ts': 2,
+  'build-plugins/staticPagesPlugin.ts': 14,
   'components/shared/RelatedTools.tsx': 1,
   'components/tabs/CalcolatoreTabContent.tsx': 2,
   'functions/src/lib/newsletterUrlPaths.js': 2,
   'infra/cloudflare-worker/locale-router.js': 1,
   'scripts/adsense-format-ab-report.mjs': 1,
   'scripts/analytics-report.mjs': 2,
-  'scripts/audit-cls-live.mjs': 1,
+  'scripts/audit-cls-live.mjs': 2,
   'scripts/audit-cls-stripping.mjs': 1,
   'scripts/build-legacy-aliases.mjs': 1,
   'scripts/cwv-monitor-check.mjs': 1,
+  'scripts/lib/fixture-data-filter.mjs': 1,
   'scripts/lib/seo-ctr-curve.mjs': 4,
-  'scripts/monitor-cls-posthog.mjs': 2,
-  'scripts/seo-audit-employer-slugs.mjs': 4,
+  'scripts/monitor-cls-posthog.mjs': 4,
+  'scripts/monitor-sector-coverage.mjs': 1,
+  'scripts/newsletter-template.mjs': 3,
+  'scripts/reconcile-job-slugs.mjs': 1,
+  'scripts/refresh-noslash-keep.mjs': 1,
+  'scripts/seo-audit-employer-slugs.mjs': 6,
   'scripts/validate-spa-render.mjs': 4,
-  'scripts/verify-post-deploy-seo.mjs': 3,
+  'scripts/verify-post-deploy-seo.mjs': 4,
   'services/analyticsPageContext.ts': 4,
   'services/seo/seo-pages.ts': 1,
   'services/seoService.ts': 1,
@@ -264,6 +285,10 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
       `const s = '/cerca-lavoro-ticino/';`,
       `const s = "/cerca-lavoro-ticino/";`,
       `const re = /\\/cerca-lavoro-ticino\\/([^/]+)$/;`,
+      // Sub-path: href di nav, tabelle per-locale, mappe di redirect.
+      `{ href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },`,
+      `  it: '/cerca-lavoro-ticino/ultimi-3-giorni/',`,
+      `  '/cerca-lavoro-ticino/logistiker-in-efz-coop-grigioni/': '/cerca-lavoro-ticino/operatore-logistico-in-afc-coop-grigioni/',`,
     ];
     expect(recognised.filter((line) => !rx.test(line))).toEqual([]);
 
