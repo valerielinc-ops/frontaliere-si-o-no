@@ -5692,6 +5692,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-svizzera-prospeta.title': 'Neutralität reimt sich auf Wohlstand',
     'blog.article.neutralita-svizzera-prospeta.excerpt': 'Lorenzo Quadri diskutiert die Bedeutung der Schweizer Neutralität und ihre wirtschaftlichen und politischen Implikationen.',
     'blog.article.neutralita-svizzera-prospeta.imageAlt': 'Luftaufnahme von Mendrisio, Schweiz, mit Fokus auf die Architektur und die natürliche Umgebung.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Verwaltung der ersten AHV-Säule im Kanton Basel-Landschaft',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'Der Kanton Basel-Landschaft betreibt die erste AHV-Säule mit einer kantonalen Ausgleichskasse und sichert das Existenzminimum.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Schweizer Landschaft mit Fokus auf AVS-System und ergänzenden Leistungen',
 };
 
 export default blogMetaChDe;

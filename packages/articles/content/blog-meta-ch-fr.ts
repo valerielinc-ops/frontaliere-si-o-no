@@ -5692,6 +5692,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neutralita-svizzera-prospeta.title': 'Neutralité rime avec prospérité',
     'blog.article.neutralita-svizzera-prospeta.excerpt': 'Lorenzo Quadri discute de l\'importance de la neutralité suisse et de ses implications économiques et politiques.',
     'blog.article.neutralita-svizzera-prospeta.imageAlt': 'Vue aérienne de Mendrisio, Suisse, avec un focus sur l\'architecture et les environnements naturels.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Gestion du premier pilier AVS dans le canton de Bâle-Campagne',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'Le canton de Bâle-Campagne gère le premier pilier AVS avec une caisse de compensation cantonale, garantissant le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Paysage suisse avec focus sur le système AVS et les prestations complémentaires',
 };
 
 export default blogMetaChFr;
