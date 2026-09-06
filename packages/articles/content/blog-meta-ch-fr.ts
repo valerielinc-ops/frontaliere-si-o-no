@@ -5623,6 +5623,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Permis de séjour C dans le canton du Valais : exigences et demande',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Découvrez les conditions et la procédure d\'obtention du permis de séjour C dans le canton du Valais, y compris les années requises, les critères d\'intégration et les connaissances linguistiques.',
     'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes suisses en arrière-plan.',
+    'blog.article.conferenza-osce-berna-2026.title': 'Conférence OSCE à Berne : réflexions sur la sécurité européenne',
+    'blog.article.conferenza-osce-berna-2026.excerpt': 'La présidence suisse de l\'OSCE a organisé à Berne une conférence pour discuter des origines de la CSCE et de l\'importance de ses principes fondateurs pour la sécurité européenne.',
+    'blog.article.conferenza-osce-berna-2026.imageAlt': 'Vue aérienne de Berne, Suisse, avec le drapeau suisse flottant, symbole de la conférence de l\'OSCE.',
 };
 
 export default blogMetaChFr;
