@@ -1930,6 +1930,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-canton-argovia': { it: 'borse-studio-canton-argovia', en: 'scholarships-canton-aargau-requirements-amounts', de: 'stipendien-kanton-aargau-voraussetzungen-betrag', fr: 'bourses-canton-argovie-conditions-montants' },
  'comprare-casa-argovia-procedura': { it: 'comprare-casa-argovia-procedura', en: 'buy-house-canton-aargau-procedure', de: 'haus-kaufen-kanton-aargau-verfahren', fr: 'acheter-maison-canton-argovie' },
  'deposito-cauzione-argovia': { it: 'deposito-cauzione-argovia', en: 'deposit-guarantee-aargau', de: 'kaution-argovia-mietrecht', fr: 'depot-garantie-argovia-location' },
+ 'mercato-affitti-canton-argovia': { it: 'mercato-affitti-canton-argovia', en: 'rent-market-canton-aargau', de: 'mietmarkt-kanton-aargau', fr: 'marche-locatif-canton-argovie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

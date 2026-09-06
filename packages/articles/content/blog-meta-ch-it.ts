@@ -5713,6 +5713,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.deposito-cauzione-argovia.title': 'Affitti Argovia: canoni e diritto di locazione',
     'blog.article.deposito-cauzione-argovia.excerpt': 'Deposito max 3 mesi pigione e contestazione in 30 giorni: guida al diritto di locazione federale, valida in Argovia e in tutta la Svizzera.',
     'blog.article.deposito-cauzione-argovia.imageAlt': 'Edificio residenziale svizzero con annuncio di affitto, architettura moderna, luce naturale pomeridiana.',
+    'blog.article.mercato-affitti-canton-argovia.title': 'Mercato degli affitti nel Cantone di Argovia: canoni medi e diritto di locazione',
+    'blog.article.mercato-affitti-canton-argovia.excerpt': 'Scopri i canoni medi degli affitti nel Cantone di Argovia, le normative sul deposito di garanzia e i diritti degli inquilini.',
+    'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Vista panoramica del Cantone di Argovia con edifici residenziali',
 };
 
 export default blogMetaChIt;

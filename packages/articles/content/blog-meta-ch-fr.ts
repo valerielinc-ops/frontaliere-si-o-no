@@ -5713,6 +5713,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deposito-cauzione-argovia.title': 'Location Argovie : loyers et droit de location',
     'blog.article.deposito-cauzione-argovia.excerpt': 'Dépôt max 3 mois loyer et contestation en 30 jours : guide du droit fédéral de la location, valable en Argovie et dans toute la Suisse.',
     'blog.article.deposito-cauzione-argovia.imageAlt': 'Immeuble résidentiel suisse avec annonce de location, architecture moderne, éclairage naturel.',
+    'blog.article.mercato-affitti-canton-argovia.title': 'Marché locatif dans le canton d\'Argovie : loyers moyens et droit locatif',
+    'blog.article.mercato-affitti-canton-argovia.excerpt': 'Découvrez les loyers moyens dans le canton d\'Argovie, les réglementations sur le dépôt de garantie et les droits des locataires.',
+    'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Vue panoramique du canton d\'Argovie avec des bâtiments résidentiels',
 };
 
 export default blogMetaChFr;

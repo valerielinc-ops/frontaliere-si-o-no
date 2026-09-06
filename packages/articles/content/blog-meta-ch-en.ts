@@ -5713,6 +5713,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deposito-cauzione-argovia.title': 'Aargau rentals: fees and lease rights',
     'blog.article.deposito-cauzione-argovia.excerpt': 'Maximum deposit of 3 months\' rent and dispute in 30 days: guide to federal lease law, valid in Aargau and throughout Switzerland.',
     'blog.article.deposito-cauzione-argovia.imageAlt': 'Swiss residential building with To Let sign, modern architecture, natural afternoon lighting.',
+    'blog.article.mercato-affitti-canton-argovia.title': 'Rental market in the Canton of Aargau: average fees and rental rights',
+    'blog.article.mercato-affitti-canton-argovia.excerpt': 'Learn about average rental fees in the Canton of Aargau, security deposit regulations, and tenants\' rights.',
+    'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Panoramic view of the Canton of Aargau with residential buildings',
 };
 
 export default blogMetaChEn;
