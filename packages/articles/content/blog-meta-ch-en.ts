@@ -5731,6 +5731,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attacco-hacker-schweizerhof.title': 'Hacker attack on the hotel, about 10,000 customers alerted',
     'blog.article.attacco-hacker-schweizerhof.excerpt': 'The Hotel Schweizerhof in Lenzerheide was the victim of a hacker attack. Approximately 10,000 customers were alerted.',
     'blog.article.attacco-hacker-schweizerhof.imageAlt': 'Image of a Swiss hotel with a hacked computer in the foreground',
+    'blog.article.trasporti-pubblici-vallese-guida.title': 'Public transport in Valais: zones, fares and season tickets',
+    'blog.article.trasporti-pubblici-vallese-guida.excerpt': 'Practical guide to the Valais mobility system: how commuter and resident zones and passes work in compliance with federal directives.',
+    'blog.article.trasporti-pubblici-vallese-guida.imageAlt': 'Regional train crossing the mountainous landscape of Valais.',
 };
 
 export default blogMetaChEn;

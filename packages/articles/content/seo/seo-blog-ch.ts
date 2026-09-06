@@ -74393,6 +74393,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasporti-pubblici-vallese-guida': {
+    title: 'Trasporti pubblici in Vallese: zone, tariffe e abbonamenti',
+    description: 'Guida pratica al sistema di mobilità vallesano: come funzionano zone e abbonamenti per pendolari e residenti nel rispetto delle direttive federali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti, pubblici, vallese, zone',
+    ogTitle: 'Trasporti pubblici in Vallese: zone, tariffe e abbonamenti',
+    ogDescription: 'Scopri come funziona il sistema di trasporto pubblico nel Cantone di Vallese, dalla gestione delle zone alla scelta dell\'abbonamento ideale per pendolari e residenti.',
+    canonicalPath: '/articoli-svizzera/trasporti-pubblici-vallese-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti pubblici in Vallese: zone, tariffe e abbonamenti",
+      "description": "Guida pratica al sistema di mobilità vallesano: come funzionano zone e abbonamenti per pendolari e residenti nel rispetto delle direttive federali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasporti-pubblici-vallese-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale che attraversa il paesaggio montano del Vallese."
+      },
+      "datePublished": "2026-09-06T11:54:06+00:00",
+      "dateModified": "2026-09-06T11:54:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasporti-pubblici-vallese-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
