@@ -94,12 +94,16 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
     try {
       const discovered =
         counts && Number.isFinite(counts.discovered) ? counts.discovered : null;
+      // Post-parser count (#7707): an aborted run that had already parsed jobs
+      // must not leave a slice that reads as a geographic filter-empty.
+      const parsed = counts && Number.isFinite(counts.parsed) ? counts.parsed : null;
       writeSummaryCrawlerSlice({
         key,
         label: label || key,
         generatedAt: new Date().toISOString(),
         total: 0,
         discovered,
+        parsed,
         written: 0,
         newCount: 0,
         updatedCount: 0,
