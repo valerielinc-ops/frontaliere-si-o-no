@@ -71,8 +71,14 @@ function decodeEntities(s = '') {
     .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)));
 }
 
+// Every value compared through `normalize` on the rendered side has already
+// been through `normalizeSpace`, while the structured side (JSON-LD) is raw:
+// collapsing internal runs here keeps that comparison symmetric. A source that
+// writes `Köchin  / Koch` with a double space in its JSON-LD title used to
+// miss its own `<h1>`, leaving the posting unmatched and the vacancy with no
+// address evidence at all (#7461).
 function normalize(s = '') {
-  return String(s || '').trim().toLowerCase();
+  return normalizeSpace(s).toLowerCase();
 }
 
 function normalizeSpace(s = '') {
