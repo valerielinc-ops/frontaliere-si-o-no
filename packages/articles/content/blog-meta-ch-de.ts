@@ -5698,6 +5698,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.beloved-aiuto-vittime-crans-montana.title': 'Opferhilfe: 70 Anträge an die Beloved-Stiftung',
     'blog.article.beloved-aiuto-vittime-crans-montana.excerpt': 'Die vom Kanton Wallis gegründete Beloved-Stiftung hat 70 Hilfsgesuche bearbeitet. Bisher keine Ablehnung, zahlen Sie Zehntausende von Franken.',
     'blog.article.beloved-aiuto-vittime-crans-montana.imageAlt': 'Büro einer Stiftung mit Personal, das Opfern psychologische und finanzielle Unterstützung bietet',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.title': 'Einbürgerung Kanton Wallis: ordentliches Verfahren',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.excerpt': 'Vom Wohnsitz bis zum Sprach- und Integrationstest: Praktischer Leitfaden zur ordentlichen Einbürgerung im Wallis mit Fristen, Gebühren und Schritt-für-Schritt-Verfahren.',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.imageAlt': 'Alpines Schweizer Gemeindeverwaltungsgebäude mit klassischer Architektur, professionelle Amtsumgebung für Einbürgerungsverfahren.',
 };
 
 export default blogMetaChDe;

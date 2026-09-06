@@ -5698,6 +5698,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.beloved-aiuto-vittime-crans-montana.title': 'Aiuto alle vittime: 70 richieste alla Fondazione Beloved',
     'blog.article.beloved-aiuto-vittime-crans-montana.excerpt': 'La Fondazione Beloved, istituita dal Canton Vallese, ha gestito 70 richieste di aiuto. Finora nessun rifiuto, versate decine di migliaia di franchi.',
     'blog.article.beloved-aiuto-vittime-crans-montana.imageAlt': 'Ufficio di fondazione con personale che offre supporto psicologico e finanziario a vittime in Svizzera',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.title': 'Naturalizzazione canton Vallese: procedura ordinaria',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.excerpt': 'Dalla residenza al test di lingua e integrazione: guida pratica alla naturalizzazione ordinaria nel Vallese, con scadenze, tasse e procedura step-by-step.',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.imageAlt': 'Edificio amministrativo comunale alpino in Svizzera, con architettura classica e ambiente professionale per procedure ufficiali di naturalizzazione.',
 };
 
 export default blogMetaChIt;
