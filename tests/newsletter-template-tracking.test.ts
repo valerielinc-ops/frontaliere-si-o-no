@@ -347,26 +347,30 @@ describe('directUrl helper', () => {
   });
 });
 
+const buildPartnerNewsletter = async (locale: unknown = 'it') => {
+  const { buildNewsletter: buildLegacy } = await import('../scripts/newsletter-template.mjs');
+  // Niente `matchedJobs`: renderJobSection di questo modulo chiama un `esc()`
+  // che non esiste (ReferenceError) — segno che il modulo non viene eseguito
+  // da nessun invio. Il blocco partner, che e' cio' che qui si misura, si
+  // rende comunque.
+  // Nemmeno `featuredTool`: SAMPLE_TOOL viene dal modulo LIVE, che non porta il
+  // `buttonText` che renderFeaturedTool di questo modulo stampa — passarlo qui
+  // inietta un `undefined` nel corpo che non ha nulla a che vedere col
+  // template. Senza, il modulo sceglie da solo il tool da FEATURED_TOOLS_I18N,
+  // che e' anche uno dei lookup per-locale che i test qui sotto misurano.
+  return buildLegacy({
+    aiBriefing: '<p>Test.</p>',
+    exchangeRate: SAMPLE_EXCHANGE,
+    weeklyFact: SAMPLE_FACT,
+    locale,
+    unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+    resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+  });
+};
+
 // Le tre righe partner puntano tutte a `/go/{id}/` con gli stessi utm: senza un
 // parametro di posizione non si sa quale slot converte (#7527).
 describe('affiliate partner rows carry their position', () => {
-  const buildPartnerNewsletter = async () => {
-    const { buildNewsletter: buildLegacy } = await import('../scripts/newsletter-template.mjs');
-    // Niente `matchedJobs`: renderJobSection di questo modulo chiama un `esc()`
-    // che non esiste (ReferenceError) — segno che il modulo non viene eseguito
-    // da nessun invio. Il blocco partner, che e' cio' che qui si misura, si
-    // rende comunque.
-    return buildLegacy({
-      aiBriefing: '<p>Test.</p>',
-      exchangeRate: SAMPLE_EXCHANGE,
-      featuredTool: SAMPLE_TOOL,
-      weeklyFact: SAMPLE_FACT,
-      locale: 'it',
-      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
-      resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
-    });
-  };
-
   const goHrefs = (html: string) =>
     [...html.matchAll(/href="(https:\/\/frontaliereticino\.ch\/go\/[^"]+)"/g)].map((m) => m[1]);
 
@@ -388,5 +392,82 @@ describe('affiliate partner rows carry their position', () => {
       expect(params.get('utm_medium')).toBe('email');
       expect(params.get('utm_campaign')).toMatch(/^weekly_\d{4}-\d{2}-\d{2}$/);
     }
+  });
+});
+
+// Il fallback per-locale della riga partner (`p.desc[locale] || p.desc.it`)
+// esisteva senza osservatore: toglierlo non faceva fallire nulla, e la
+// copertura dei `desc` non era misurata da nessun gate (#7528). Due difetti
+// distinti, quindi due osservatori distinti:
+//   - il RAMO di fallback si misura solo chiamando renderAffiliatePartners
+//     direttamente, perche' buildNewsletter passa da nlNormLocale e non gli
+//     consegna mai un locale fuori da it|en|de|fr (verificato: togliere
+//     `|| p.desc.it` lascia verde ogni test che passa da buildNewsletter);
+//   - la COPERTURA dei `desc` si misura dal corpo email renderizzato, dove un
+//     buco di traduzione stampa la stringa `undefined` all'iscritto.
+describe('newsletter partner rows survive an unknown locale', () => {
+  // Una descrizione per partner e per locale, nell'ordine di
+  // AFFILIATE_PARTNERS_NL (wise, fineco, creditagricole).
+  const PARTNER_DESC: Record<string, string[]> = {
+    it: ['Tasso di cambio reale, commissioni trasparenti', 'Codice AA8381747 — bonus 50€', 'Buono Amazon 50€ con invito'],
+    en: ['Real exchange rate, transparent fees', 'Code AA8381747 — €50 bonus', '€50 Amazon voucher with invite'],
+    de: ['Echter Wechselkurs, transparente Gebühren', 'Code AA8381747 — 50€ Bonus', '50€ Amazon-Gutschein mit Einladung'],
+    fr: ['Taux de change réel, frais transparents', 'Code AA8381747 — bonus 50€', 'Bon Amazon 50€ avec invitation'],
+  };
+
+  const UNKNOWN_LOCALES: unknown[] = ['es', 'es-ES', 'zh-CN', 'pt_BR', '', undefined, null];
+
+  // L'unico test che fallisce se `|| p.desc.it` sparisce: il renderer riceve
+  // qui il locale grezzo, non quello gia' normalizzato da buildNewsletter.
+  it('renderAffiliatePartners falls back to Italian on a raw unknown locale', async () => {
+    const { renderAffiliatePartners } = await import('../scripts/newsletter-template.mjs');
+    for (const locale of UNKNOWN_LOCALES) {
+      const rows = renderAffiliatePartners({ campaign: 'weekly_2026-01-01', locale });
+      for (const desc of PARTNER_DESC.it) {
+        expect(rows, `locale=${String(locale)}`).toContain(desc);
+      }
+      expect(rows, `locale=${String(locale)}`).not.toContain('undefined');
+    }
+  });
+
+  it('falls back to the Italian description outside it|en|de|fr', async () => {
+    for (const locale of UNKNOWN_LOCALES) {
+      const html = await buildPartnerNewsletter(locale);
+      for (const desc of PARTNER_DESC.it) {
+        expect(html, `locale=${String(locale)}`).toContain(desc);
+      }
+    }
+  });
+
+  it('renders the translated partner row for every supported locale', async () => {
+    for (const [locale, descs] of Object.entries(PARTNER_DESC)) {
+      const html = await buildPartnerNewsletter(locale);
+      for (const desc of descs) {
+        expect(html, `locale=${locale}`).toContain(desc);
+      }
+    }
+  });
+
+  // L'assert vale sull'INTERO corpo, non solo sulla riga partner: copre in un
+  // colpo anche gli altri lookup per-locale del template (JOB_CTA,
+  // FEATURED_TOOLS_I18N, NL_TRANSLATIONS), tutti con fallback e tutti scoperti.
+  it('never prints the literal "undefined" in the email body', async () => {
+    for (const locale of [...Object.keys(PARTNER_DESC), ...UNKNOWN_LOCALES]) {
+      const html = await buildPartnerNewsletter(locale);
+      expect(html, `locale=${String(locale)}`).not.toContain('undefined');
+    }
+  });
+
+  // Canary di copertura: la tabella qui sopra deve elencare esattamente i
+  // locali che `nlNormLocale` sa produrre. Aggiungerne un quinto senza
+  // tradurre le righe partner le farebbe cadere sull'italiano in silenzio —
+  // il fallback maschera il buco, questo test no.
+  it('has partner copy for every locale nlNormLocale can produce', async () => {
+    const { nlNormLocale } = await import('../scripts/newsletter-template.mjs');
+    const produced = new Set(
+      ['it', 'en', 'de', 'fr', 'es', 'pt', 'zh', 'it-CH', 'en_GB', 'DE', '', undefined, null]
+        .map((raw) => nlNormLocale(raw)),
+    );
+    expect([...produced].sort()).toEqual(Object.keys(PARTNER_DESC).sort());
   });
 });

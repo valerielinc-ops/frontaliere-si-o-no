@@ -656,4 +656,9 @@ export function buildNewsletter(data) {
 </html>`;
 }
 
-export { FEATURED_TOOLS, FEATURED_TOOLS_I18N, utmUrl, escapeHtml, nlNormLocale };
+// `renderAffiliatePartners` e' esportato per il suo osservatore (#7528):
+// `buildNewsletter` normalizza il locale con `nlNormLocale`, quindi da li' il
+// ramo di fallback `p.desc[locale] || p.desc.it` non e' raggiungibile e
+// toglierlo non farebbe fallire nessun test. Chiamandolo direttamente con un
+// locale non normalizzato il ramo si misura.
+export { FEATURED_TOOLS, FEATURED_TOOLS_I18N, utmUrl, escapeHtml, nlNormLocale, renderAffiliatePartners };
