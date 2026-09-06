@@ -11483,6 +11483,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera Grenzgänger Tessin: Leitfaden 2026',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Leben in Valmadrera und Arbeiten im Tessin: Neue Vereinbarung für Grenzgänger, Selbstbehalt von 10.000 €, G-Bewilligung, Steuer- und Deklarationsverfahren.',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Aussicht vom Monte Generoso zum Intelvi-Tal und Tessiner Berge an der italienisch-schweizerischen Grenze',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: Leben und Arbeiten im Tessin',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Was es bedeutet, in Montescheno zu leben und als Grenzgänger im Tessin zu arbeiten. Führerschein G, Besteuerung, Lebenshaltungskosten und Verwaltungsverfahren.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Grenzgänger am Grenzübergang Montescheno-Tessin in der Morgenröte',
 };
 
 export default blogMetaDe;

@@ -11485,6 +11485,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera frontaliere Ticino: guida 2026',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Vivere a Valmadrera e lavorare in Ticino: il Nuovo Accordo Frontalieri, franchigia €10.000, Permesso G, fiscalità e procedura dichiarazione.',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Vista dal Monte Generoso verso la Valle d\'Intelvi e le montagne ticinesi al confine fra Italia e Svizzera',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: vivere e lavorare in Ticino',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Cosa significa vivere a Montescheno e lavorare come frontaliere in Ticino. Guida su Permesso G, tassazione, costo della vita e procedure amministrative.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Frontaliere in transito al valico di confine tra Montescheno e Ticino al tramonto',
 };
 
 export default blogMetaIt;

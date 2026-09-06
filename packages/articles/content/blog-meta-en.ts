@@ -11484,6 +11484,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera Ticino border commuters: 2026 guide',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Living in Valmadrera and working in Ticino: the New Frontier Agreement, €10,000 deductible, Permit G, taxation and declaration procedure.',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'View from Monte Generoso towards the Intelvi Valley and Ticino mountains at the Italy-Switzerland border',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: living and working in Ticino',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'What it means to live in Montescheno and work as a border worker in Ticino. Guidance on G Leave, Taxation, Cost of Living and Administrative Procedures.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Cross-border worker at the Montescheno-Ticino frontier crossing at sunrise',
 };
 
 export default blogMetaEn;
