@@ -951,6 +951,48 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
+  it('a THROWN policy or robots refusal keeps its own cause instead of «unreachable»', async () => {
+    // #7536 follow-up: the `catch` branch carried only `transportError`, so a
+    // fetcher that THROWS a public-fetch-policy error — our own bug, a
+    // non-public URL emitted by a crawler — collapsed to `transport-other`,
+    // landed in the `source-unreachable` family and was promoted to a
+    // source-level finding, i.e. subtracted from the number --strict watches.
+    const items = [
+      { crawlerKey: 'our-url-bug', url: 'https://example.test/policy/1', job: { location: 'Lugano' } },
+      { crawlerKey: 'our-url-bug', url: 'https://example.test/policy/2', job: { location: 'Lugano' } },
+      { crawlerKey: 'robots-says-no', url: 'https://example.test/robots/1', job: { location: 'Lugano' } },
+      { crawlerKey: 'robots-says-no', url: 'https://example.test/robots/2', job: { location: 'Lugano' } },
+    ];
+    const results = await checkSourceDetailsBatch(items, 2, {
+      fetchPage: async (url: string) => {
+        // Undici hides the real error one `.cause` link down: both must be
+        // recognised through the wrapper, not on the surface.
+        if (url.includes('/policy/')) {
+          throw new TypeError('fetch failed', {
+            cause: Object.assign(new Error('unsafe prospector target'), { code: 'ERR_PUBLIC_FETCH_POLICY' }),
+          });
+        }
+        throw new TypeError('fetch failed', {
+          cause: Object.assign(new Error(`robots.txt disallows prospector URL: ${url}`), { name: 'RobotsDeniedError' }),
+        });
+      },
+    });
+
+    expect(results.map((r: any) => [r.policyBlocked, r.blockedByRobots])).toEqual([
+      [true, undefined], [true, undefined], [undefined, true], [undefined, true],
+    ]);
+
+    const report = {
+      'our-url-bug': { total: 2, issues: [], severity: 'OK' },
+      'robots-says-no': { total: 2, issues: [], severity: 'OK' },
+    };
+    const summary = applySourceDetailResults(report, results, items.length);
+    expect(summary.fetchFailureCauses).toEqual({ 'blocked-by-policy': 2, 'blocked-by-robots': 2 });
+    // Only the source's own «no» is promoted; ours stays unexplained.
+    expect(Object.keys(summary.sourceLevelFailures.sources)).toEqual(['robots-says-no']);
+    expect(summary.unexplainedFetchFailures).toBe(2);
+  });
+
   it('accounts for worker exceptions separately from network failures and makes strict fail', async () => {
     const items = [
       { crawlerKey: 'fixture', url: 'https://example.test/network', job: { location: 'Lugano' } },
