@@ -17002,6 +17002,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-grigioni-mutuo-imposte',
+    category: 'pratico',
+    date: '2026-09-06T03:48:30.725Z',
+    image: '/images/blog/comprare-casa-grigioni-mutuo-imposte.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

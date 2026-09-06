@@ -5668,6 +5668,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-immobili-guida-mutuo.title': 'Haus kaufen in Graubünden: Preise, Eigenmittel und Hypotheken',
     'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Graubünden: Vorgehen, Kosten, Stempelsteuer, Notarkosten und Zugang zu einem tragfähigen Hypothekendarlehen',
     'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Modernes Haus an einem Berghang in den Schweizer Alpen mit schneebedeckten Gipfeln',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Graubünden Haus kaufen: Hypothek und Steuern',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Kaufen in Graubünden: Eigenmittel 20-30%, Hypothekendarlehen bis 80%, variable Transportsteuer pro Gemeinde, Notarkosten 1-2%. Vorgehensweise und Kosten erklärt.',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Traditionelles Holzhaus in Graubünden umgeben von Bergen und Alpenlandschaft',
 };
 
 export default blogMetaChDe;

@@ -5668,6 +5668,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-immobili-guida-mutuo.title': 'Comprare casa a Grigioni: prezzi, fondi propri e mutui',
     'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Guida all\'acquisto di immobili nel Canton Grigioni: procedura, costi, imposta sui trapassi, spese notarili e come accedere a un mutuo ipotecario sostenibile',
     'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Casa moderna su un pendio montagnoso nelle Alpi svizzere con vista su vette innevate',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Comprare casa Grigioni: mutuo e imposte',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Acquistare nel Grigioni: fondi propri 20-30%, mutuo ipotecario fino all\'80%, imposta trasporto variabile per comune, spese notarili 1-2%. Procedura e costi spiegati.',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Casa tradizionale in legno del Grigioni circondata da montagne e paesaggio alpino',
 };
 
 export default blogMetaChIt;
