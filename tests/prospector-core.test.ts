@@ -1088,6 +1088,21 @@ describe('promotion gate', () => {
     expect(listingEvidenceFields({ location: 'Bellinzona' }, undefined)).toEqual({});
   });
 
+  it('piegare due volte la stessa evidenza di listing non duplica i candidati', () => {
+    const evidence = { location: 'Bellinzona', addressLocality: 'Bellinzona', addressCountry: 'CH' };
+    const row = { title: 'Posto', url: 'https://x.umantis.com/Vacancies/1/Description/1' };
+    const once = { ...row, ...listingEvidenceFields(row, evidence) };
+    const twice = { ...once, ...listingEvidenceFields(once, evidence) };
+    expect(once.locationCandidates).toHaveLength(1);
+    expect(twice).toEqual(once);
+  });
+
+  it('non collassa due luoghi diversi della stessa riga', () => {
+    const row = { locationCandidates: [{ location: 'Lugano' }] };
+    const merged = listingEvidenceFields(row, { location: 'Bellinzona', addressLocality: 'Bellinzona' });
+    expect(merged.locationCandidates).toHaveLength(2);
+  });
+
   it('firma le pagine sul testo intero, non su un prefisso condiviso', () => {
     // Chrome lungo e identico, coda diversa: due annunci veri devono restare
     // due firme diverse, o `detailDistinctRate` li legge come una pagina sola.
