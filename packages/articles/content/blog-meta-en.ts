@@ -11454,6 +11454,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.adolescente-travolto-treno-berna.title': 'Teenager fatally hit by train in Bern',
     'blog.article.adolescente-travolto-treno-berna.excerpt': 'Saturday night in Bern: a teenager was hit by a train at the Europaplatz station.',
     'blog.article.adolescente-travolto-treno-berna.imageAlt': 'A teenager hit by a train in Bern',
+    'blog.article.tagli-organici-scuola-lombardia.title': 'ATA staff cuts: 205 fewer employees in Lombardy',
+    'blog.article.tagli-organici-scuola-lombardia.excerpt': 'The Budget Law 2025 reduces the number of school staff. Unions alarmed for safety and services in institutions.',
+    'blog.article.tagli-organici-scuola-lombardia.imageAlt': 'School building in Lombardy',
 };
 
 export default blogMetaEn;

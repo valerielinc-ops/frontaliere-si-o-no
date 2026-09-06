@@ -11456,6 +11456,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.adolescente-travolto-treno-berna.title': 'Adolescent écrasé mortellement par un train à Berne',
     'blog.article.adolescente-travolto-treno-berna.excerpt': 'Samedi soir sanglant à Berne : un adolescent a été renversé par un train à la gare d\'Europaplatz.',
     'blog.article.adolescente-travolto-treno-berna.imageAlt': 'Un adolescent percuté par un train à Berne',
+    'blog.article.tagli-organici-scuola-lombardia.title': 'Réductions du personnel ATA : 205 collaborateurs en moins en Lombardie',
+    'blog.article.tagli-organici-scuola-lombardia.excerpt': 'La loi de finances 2025 réduit les effectifs scolaires. Syndicats alarmés par la sécurité et les services dans les établissements.',
+    'blog.article.tagli-organici-scuola-lombardia.imageAlt': 'Bâtiment scolaire en Lombardie',
 };
 
 export default blogMetaFr;

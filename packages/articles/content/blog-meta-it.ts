@@ -11455,6 +11455,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.adolescente-travolto-treno-berna.title': 'Adolescente travolto mortalmente da un treno a Berna',
     'blog.article.adolescente-travolto-treno-berna.excerpt': 'Sabato sera di sangue a Berna: un adolescente è stato investito da un treno presso la stazione di Europaplatz.',
     'blog.article.adolescente-travolto-treno-berna.imageAlt': 'Un adolescente travolto da un treno a Berna',
+    'blog.article.tagli-organici-scuola-lombardia.title': 'Tagli al personale ATA: 205 collaboratori in meno in Lombardia',
+    'blog.article.tagli-organici-scuola-lombardia.excerpt': 'La legge di Bilancio 2025 riduce gli organici scolastici. Sindacati allarmati per la sicurezza e i servizi negli istituti.',
+    'blog.article.tagli-organici-scuola-lombardia.imageAlt': 'Edificio scolastico in Lombardia',
 };
 
 export default blogMetaIt;

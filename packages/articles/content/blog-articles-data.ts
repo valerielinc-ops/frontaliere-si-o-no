@@ -34212,6 +34212,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tagli-organici-scuola-lombardia',
+ category: 'pratico',
+ date: '2026-09-06T11:22:05.340Z',
+ image: '/images/blog/tagli-organici-scuola-lombardia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
