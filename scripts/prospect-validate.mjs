@@ -25,8 +25,12 @@ import { gradeExtraction } from './lib/prospector/validate.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
 import { loadSourceHostOwnership, matchExistingCrawler } from './lib/crawler-source-hosts.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
+assertKnownFlags(argv, ['key', 'limit', 'sample', 'dry-run']);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 

@@ -30,8 +30,12 @@ import { loadCandidates, saveCandidates, upsertCandidate, statusCounts, pruneTer
 import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/platform-registry.mjs';
 import { registrableDomain, sameOrg } from './lib/prospector/registrable.mjs';
 import { CANTONS } from './lib/prospector/config.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
+assertKnownFlags(argv, ['cantons', 'sources', 'pages', 'days', 'limit', 'osm-cantons', 'osm-offset', 'prune-days', 'dry-run']);
 const arg = (name, fallback) => {
   const hit = argv.find((a) => a.startsWith(`--${name}=`));
   return hit ? hit.slice(name.length + 3) : fallback;

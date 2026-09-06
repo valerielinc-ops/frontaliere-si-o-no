@@ -28,8 +28,14 @@
  */
 import { loadCandidates, saveCandidates, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { rejectCandidates } from './lib/prospector/reject-candidates.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
+const USAGE = "Usage: node scripts/prospect-reject.mjs <ref>='<causa>' [...] [--dry-run]";
 const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scriverebbe un verdetto
+// terminale che nessun comando sa disfare.
+assertKnownFlags(argv, ['dry-run'], USAGE);
 const dryRun = argv.includes('--dry-run');
 
 /** @type {{ ref: string, reason: string }[]} */
@@ -45,7 +51,7 @@ for (const a of argv) {
 }
 
 if (!entries.length) {
-  console.error("Usage: node scripts/prospect-reject.mjs <ref>='<causa>' [...] [--dry-run]");
+  console.error(USAGE);
   process.exit(2);
 }
 
