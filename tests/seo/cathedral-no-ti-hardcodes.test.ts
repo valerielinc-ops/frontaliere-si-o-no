@@ -29,12 +29,9 @@ const ALLOWLIST = [
   //
   // NON reintrodurre voci pinnate per numero di riga: si sfasano al primo
   // refactor e allora allowlistano la riga sbagliata.
-  // Le uniche voci per FILE che restano: due posti dove il marker inline non e'
-  // materialmente possibile.
+  // L'unica voce per FILE che resta: il solo posto dove il marker inline non
+  // e' materialmente esprimibile.
   //
-  // cantonSection.ts: e' lo shim tipizzato della tabella canonica e cita i
-  // quattro literal solo dentro i propri docblock, per spiegare cosa esporta.
-  'build-plugins/shared/cantonSection.ts',
   // section-shard-slugs.json: JSON non ammette commenti, quindi un marker
   // inline non e' esprimibile. Qui il literal E' il dato canonico del
   // meccanismo di shard per sezione, non un hardcode che scappa.
@@ -42,6 +39,14 @@ const ALLOWLIST = [
   // I test citano i literal per verificarli.
   'tests/',
 ];
+// Issue #7675: una voce SENZA `/` finale e' un FILE e vale per quel path
+// esatto. Prima era un `startsWith` indiscriminato, che esonerava (a) l'intero
+// file — un hardcode nuovo aggiunto li' fuori dai docblock passava muto — e
+// (b) qualunque path che cominciasse con quella stringa, quindi anche
+// `cantonSection.ts.bak`, `.orig`, `.new`. La voce per cartella (con `/`
+// finale, es. `tests/`) resta invece un prefisso, che e' cio' che significa.
+// `build-plugins/shared/cantonSection.ts` e' uscito da qui: i suoi due
+// docblock che citano i literal portano ora il marker inline.
 
 // ── Scan surface ────────────────────────────────────────────────────────────
 // Issue #7491: this guard used to grep only build-plugins/, services/ and
@@ -95,7 +100,7 @@ function hasInlineAllow(content: string): boolean {
   return INLINE_ALLOW_MARKER.test(content);
 }
 
-function isAllowlisted(entry: { path: string; lineNo: number; content: string }): boolean {
+export function isAllowlisted(entry: { path: string; lineNo: number; content: string }): boolean {
   // 1) Inline annotation — travels with the line, never drifts.
   if (hasInlineAllow(entry.content)) return true;
   // 2) Legacy line-pinned allowlist — kept as transitional safety net.
@@ -105,8 +110,13 @@ function isAllowlisted(entry: { path: string; lineNo: number; content: string })
       const [allowPath, allowLine] = allow.split(':');
       if (entry.path === allowPath && entry.lineNo === parseInt(allowLine, 10)) return true;
     }
-    // "path/" or "path" form — prefix match on path only (e.g. "tests/")
-    else if (entry.path.startsWith(allow)) return true;
+    // "path/" form — DIRECTORY, prefix match on path only (e.g. "tests/")
+    else if (allow.endsWith('/')) {
+      if (entry.path.startsWith(allow)) return true;
+    }
+    // "path" form — FILE, exact match. Mai `startsWith`: esonererebbe anche
+    // `<path>.bak`, `<path>.orig`, `<path>.new` (issue #7675).
+    else if (entry.path === allow) return true;
   }
   return false;
 }
@@ -129,4 +139,35 @@ describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-saf
       expect(offenders, `Unallowlisted hardcodes for ${literal}:\n${offenders.join('\n')}\n\nTo allowlist a NEW hardcode, append \` // cathedral-allow: <reason>\` to the offending line — do not add new line-pinned entries to ALLOWLIST.`).toEqual([]);
     }, 30000);
   }
+});
+
+// Issue #7675 — semantica delle voci di ALLOWLIST. Una voce-FILE vale per il
+// path esatto; solo una voce-CARTELLA (con `/` finale) esonera per prefisso.
+describe('isAllowlisted — voce-file esatta vs voce-cartella per prefisso', () => {
+  const at = (path: string) => ({ path, lineNo: 1, content: "  it: 'cerca-lavoro-ticino'," });
+
+  it('esonera il path esatto di una voce-file', () => {
+    expect(isAllowlisted(at('scripts/lib/section-shard-slugs.json'))).toBe(true);
+  });
+
+  it('NON esonera un path che ha la voce-file come semplice prefisso', () => {
+    expect(isAllowlisted(at('scripts/lib/section-shard-slugs.json.bak'))).toBe(false);
+    expect(isAllowlisted(at('build-plugins/shared/cantonSection.ts.bak'))).toBe(false);
+  });
+
+  it('NON esonera piu\' cantonSection.ts, migrato al marker inline', () => {
+    expect(isAllowlisted(at('build-plugins/shared/cantonSection.ts'))).toBe(false);
+  });
+
+  it('la voce-cartella resta un prefisso', () => {
+    expect(isAllowlisted(at('tests/seo/foo.test.ts'))).toBe(true);
+  });
+
+  it('il marker inline resta prioritario su qualunque path', () => {
+    expect(isAllowlisted({
+      path: 'build-plugins/shared/cantonSection.ts.bak',
+      lineNo: 1,
+      content: "  it: 'cerca-lavoro-ticino', // cathedral-allow: ragione",
+    })).toBe(true);
+  });
 });
