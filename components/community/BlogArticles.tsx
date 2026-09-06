@@ -388,6 +388,41 @@ function isListBlock(value: string): boolean {
  return value.split('\n').every(line => LIST_ITEM_RE.test(line.trim()) || line.trim() === '');
 }
 
+/** Matches a `1. ` / `1) ` ordered list item marker at line start. The renderer
+ *  paints such a block as a plain paragraph (only `- `/`* ` become a `<ul>`),
+ *  but for AD PLACEMENT a numbered block is the operative case: a procedure the
+ *  reader is stepping through. */
+const ORDERED_LIST_ITEM_RE = /^\d+[.)]\s+/;
+
+/** True when every non-blank line in a block is an ordered list item, and there
+ *  is at least one. Unlike `isListBlock` this rejects the empty block, because
+ *  its only caller asks the question about a block that may not exist. */
+function isOrderedListBlock(value: string): boolean {
+ const lines = value.split('\n').map(l => l.trim()).filter(Boolean);
+ return lines.length > 0 && lines.every(line => ORDERED_LIST_ITEM_RE.test(line));
+}
+
+/**
+ * True when an ad emitted immediately BEFORE this block would land inside a unit
+ * the reader consumes as one piece: a table, a blockquote, or a list of steps
+ * (`- `/`* ` bullets, or a numbered `1. ` procedure).
+ *
+ * `docs/ads-placement-longform.md` §2 rules out the straddle for tables (issue
+ * #7337); a citation and an operative list break the same way — the ad splits
+ * the content exactly where the reader is following it, which costs UX and, for
+ * the same reason, viewability. Lookahead-only, as `isTableBlock` is: it decides
+ * WHERE the ad goes, never whether the block renders.
+ *
+ * Exported for `tests/community/BlogArticles.ad-table-boundary.test.tsx`.
+ */
+export function isAdStraddleBlock(text: string): boolean {
+ const trimmed = text.trim();
+ if (!trimmed) return false;
+ if (isTableBlock(trimmed)) return true;
+ if (trimmed.startsWith('> ')) return true;
+ return isListBlock(trimmed) || isOrderedListBlock(trimmed);
+}
+
 /** AI-generated body copy sometimes tacks a decorative 📊/💡/⚠️ marker onto the
  *  end of a sentence instead of using it as a leading callout-box marker (the
  *  only place the renderer treats it as one) — strip the stray trailing glyph
@@ -465,12 +500,12 @@ export function renderFormattedContent(
  // The renderer enforces the per-article cap (returns null when capped).
  let wordsSinceLastAd = 0;
  let sawContent = false;
- // Ad deferred from a `## ` boundary whose section opens with a table: it is
- // re-tried at the first boundary AFTER the table, never dropped (see the H2
- // branch below).
+ // Ad deferred from a `## ` boundary whose section opens with a block an ad
+ // must not straddle (table, citation, list of steps): it is re-tried at the
+ // first boundary AFTER that block, never dropped (see the H2 branch below).
  let pendingAdKey: string | null = null;
  // Word credit already banked when the ad was deferred. The deferred ad may
- // only consume THAT much: the words accumulated while it waited (the table it
+ // only consume THAT much: the words accumulated while it waited (the blocks it
  // stepped over) belong to the next slot, exactly as they did before the
  // deferral existed. Without this the deferred ad eats the table's words and
  // the ad that used to follow it is never emitted — a removal, not a
@@ -533,12 +568,14 @@ export function renderFormattedContent(
  for (let idx = 0; idx < blocks.length; idx += 1) {
  const trimmed = blocks[idx].trim();
 
- // Flush an ad deferred by the H2 lookahead, once the table it would have
- // straddled is behind us. The gap predicate in tryEmitAd is monotone in
+ // Flush an ad deferred by the H2 lookahead, once the block it would have
+ // straddled is behind us. A run of consecutive straddle blocks (a citation
+ // followed by its list of steps) keeps the deferral open until the first
+ // block that is none of them. The gap predicate in tryEmitAd is monotone in
  // wordsSinceLastAd, so an ad eligible at the H2 is still eligible here. That
  // alone only saves the DEFERRED ad; flushPendingAd also returns the words the
- // table contributed, which is what saves the ad AFTER it.
- if (pendingAdKey && !isTableBlock(trimmed)) flushPendingAd();
+ // straddled blocks contributed, which is what saves the ad AFTER it.
+ if (pendingAdKey && !isAdStraddleBlock(trimmed)) flushPendingAd();
 
  // Heading: #### (H4 — sub-sub-heading)
  if (trimmed.startsWith('#### ')) {
@@ -579,14 +616,15 @@ export function renderFormattedContent(
  // Heading: ## — natural section boundary. Try emitting an ad BEFORE the H2
  // (so the ad sits between the previous section's end and this H2's title).
  if (trimmed.startsWith('## ')) {
- // Lookahead: when the section opens with a table, an ad emitted here lands
- // between the heading and the table it announces — the straddle that
- // `docs/ads-placement-longform.md` §2 rules out ("mai a cavallo di
- // tabella"). Defer it to after the table instead of suppressing it, so the
- // per-article ad count is unchanged (AGENTS.md #7: riposizionamento, non
- // rimozione).
- if (isTableBlock(blocks[idx + 1]?.trim() ?? '')) {
-  pendingAdKey = `post-table-h2-${idx}`;
+ // Lookahead: when the section opens with a table, a citation or a list of
+ // steps, an ad emitted here lands between the heading and the block it
+ // announces — the straddle that `docs/ads-placement-longform.md` §2 rules
+ // out ("mai a cavallo di tabella"), and that a blockquote or an operative
+ // list breaks the same way. Defer it to after that block instead of
+ // suppressing it, so the per-article ad count is unchanged (AGENTS.md #7:
+ // riposizionamento, non rimozione).
+ if (isAdStraddleBlock(blocks[idx + 1]?.trim() ?? '')) {
+  pendingAdKey = `post-block-h2-${idx}`;
   wordsAtDefer = wordsSinceLastAd;
  } else {
   tryEmitAd(`pre-h2-${idx}`);
@@ -752,9 +790,9 @@ export function renderFormattedContent(
  markContent(countWordsIn(cleanedParagraph));
  }
 
- // A deferral still open here means the table was the segment's last block:
- // flush it, then let the carried words compete for the final slot — the same
- // two chances the un-deferred path had.
+ // A deferral still open here means the straddled block was the segment's last
+ // one: flush it, then let the carried words compete for the final slot — the
+ // same two chances the un-deferred path had.
  flushPendingAd();
 
  // Final ad slot — the last section gets its own breakpoint at end-of-segment.
