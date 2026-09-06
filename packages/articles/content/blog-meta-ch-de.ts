@@ -5782,6 +5782,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-svizzera-settori-formazione-contratti.title': 'Löhne und Arbeitsmarkt: Ausbildung, Branchen und Niveaus',
     'blog.article.salari-svizzera-settori-formazione-contratti.excerpt': 'Der schweizerische Lohn setzt sich aus Brutto-, AHV/BVG/KVG- und Nettobeiträgen zusammen. Erfahren Sie, wie sich die Gehälter nach Ausbildung und Branche unterscheiden und wie Sie Ihre Gehaltsabrechnung überprüfen können.',
     'blog.article.salari-svizzera-settori-formazione-contratti.imageAlt': 'Berufliches Gehaltsgesprach in einem Schweizer Büro zwischen Arbeitnehmer und Personalfachleuten.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Löhne und Arbeit in Schaffhausen: Branchen, Ausbildung, Niveaus',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Löhne in Schaffhausen: Ausbildungsniveaus, Tarifverträge und Sozialbeiträge im Schweizer System.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Panoramablick auf das Wirtschaftszentrum Lugano mit modernen Gebäuden',
 };
 
 export default blogMetaChDe;

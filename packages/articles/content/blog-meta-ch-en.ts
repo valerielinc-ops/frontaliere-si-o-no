@@ -5782,6 +5782,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-svizzera-settori-formazione-contratti.title': 'Wages and the labour market: training, sectors and levels',
     'blog.article.salari-svizzera-settori-formazione-contratti.excerpt': 'The Swiss salary consists of gross, AVS/LPP/LAMal and net contributions. Learn how salaries vary by training, industry, and how to check your paycheck.',
     'blog.article.salari-svizzera-settori-formazione-contratti.imageAlt': 'Professional salary discussion in a Swiss office workplace between two colleagues reviewing employment contract.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Wages and work in Schaffhausen: sectors, training, levels',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Wages in the Schaffhausen: levels for training, collective agreements and social contributions in the Swiss system.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Panoramic view of Lugano economic center with modern buildings at sunset',
 };
 
 export default blogMetaChEn;
