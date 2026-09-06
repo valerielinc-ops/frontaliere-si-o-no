@@ -11439,6 +11439,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-daverio-lavorare-ticino-frontaliere.title': 'Wohnen in Daverio, Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-daverio-lavorare-ticino-frontaliere.excerpt': 'Vollständiger Leitfaden für italienische Grenzgänger: G-Bewilligung, Quellensteuer, Doppelbesteuerung, AHV, BVG und wie Sie Ihr Gehalt in der Schweiz maximieren können.',
     'blog.article.vivere-daverio-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee mit Alpen im Hintergrund, Finanzzentrum des Tessins für Grenzgänger',
+    'blog.article.bollettino-frontaliere-2026-09-06.title': 'Grenzgänger-Tagesbulletin – 6. September 2026: 362 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-06.excerpt': 'Die Zahlen von heute, 6. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-06.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 6. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-06.seoDescription': 'Grenzgänger-Bulletin vom 6. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-06.ogDescription': 'Die Zahlen vom 6. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
