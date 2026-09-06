@@ -20,8 +20,9 @@ const FORBIDDEN = [
 //
 // Qui il segmento e' matchato indipendentemente dalla delimitazione e da cio'
 // che lo SEGUE, dentro un literal di CODICE: stringa (`'x'`, `"x"`, `'/x'`,
-// `'x/'`, `'/x/'`), regex (`/\/x\//`), sub-path (`'/x/aziende/'`) e template
-// literal interpolato (`` `/x/${slug}/` ``, `` `${BASE_URL}/x/` ``) —
+// `'x/'`, `'/x/'`), regex (`/\/x\//`), sub-path (`'/x/aziende/'`),
+// prefisso locale (`'/en/x/'`) e template interpolato
+// (`` `/x/${slug}/` ``, `` `${BASE_URL}/x/` ``) —
 // href di nav, tabelle per-locale, mappe di redirect e builder di path, cioe'
 // proprio la classe funnel-critical che il gate esiste per fermare. Restano
 // fuori per scelta le citazioni in PROSA — docblock con backtick, commenti,
@@ -51,9 +52,13 @@ const TI_SECTION_SLUGS = [
  * `` `${BASE_URL}/x/` ``, la forma dominante di canonical/hreflang/JSON-LD.
  * Senza la 4, ogni template interpolato con prefisso restava invisibile.
  * Un template SENZA interpolazione (`` `/x/` ``) non matcha nessuna delle due.
+ *
+ * Le alternative 1/3/4 accettano un prefisso locale opzionale `(/[a-z]{2})?`
+ * prima dello slug: senza, `'/en/find-jobs-ticino/'` (href/redirect EN/DE/FR)
+ * restava invisibile — il delimitatore immediato vedeva `/en/` e basta.
  */
 export function tiSegmentPattern(slug: string): string {
-  return `['"]/?${slug}(['"]|/)|\\\\/${slug}\\\\/|\`/?${slug}/[^\`]*\\$\\{|\`[^\`]*\\$\\{[^\`]*\\}/?${slug}/`;
+  return `['"](/[a-z]{2})?/?${slug}(['"]|/)|\\\\/${slug}\\\\/|\`(/[a-z]{2})?/?${slug}/[^\`]*\\$\\{|\`[^\`]*\\$\\{[^\`]*\\}(/[a-z]{2})?/?${slug}/`;
 }
 
 /** JSON.stringify wraps in double quotes; bash still treats ` as command substitution inside them. */
@@ -62,14 +67,13 @@ function grepEreArg(pattern: string): string {
 }
 
 // ── Inventario congelato (ratchet, NON un esonero) ──────────────────────────
-// Le forme con slash/sub-path/template interpolato (suffisso e prefisso)
+// Le forme con slash/sub-path/template interpolato/prefisso locale
 // non erano vigilate: al momento in cui lo diventano il codice ne contiene
-// 142 in 53 file, dai piu' innocui (un href al hub IT dentro copy italiano)
-// alle vere ri-dichiarazioni della tabella per-locale, alle forme con
-// sub-path, ai template interpolati (`seoHubsPlugin.ts`, `employerLinks.ts`)
-// e ai `${BASE_URL}/x/` di canonical/hreflang/JSON-LD (`seo-pages.ts`,
-// `jobsSeoPagesPlugin.ts`, `telegram-templates.mjs`). Ripararle tutte non
-// sta in una PR chirurgica; lasciarle non vigilate era il difetto.
+// 235 in 54 file, dai href IT alle tabelle per-locale EN/DE/FR
+// (`'/en/find-jobs-ticino/'` in `staticPagesPlugin`, `legacyRedirectsPlugin`,
+// `blogContextualLinksData`) e ai `${BASE_URL}/x/` di canonical/hreflang.
+// Ripararle tutte non sta in una PR chirurgica; lasciarle non vigilate era
+// il difetto.
 //
 // Questo NON e' l'ALLOWLIST (che esonera per sempre) ne' il marker inline
 // (che esonera una riga con una ragione). E' un conteggio per file che puo'
@@ -77,50 +81,51 @@ function grepEreArg(pattern: string): string {
 // hardcode NUOVO), sia se sta sotto (inventario stantio → si abbassa il
 // numero). Cosi' l'inventario converge a zero invece di marcire.
 const SEGMENT_BASELINE: Record<string, number> = {
-  'build-plugins/blogContextualLinksData.ts': 4,
-  'build-plugins/careerLandingsPlugin.ts': 2,
+  'build-plugins/blogContextualLinksData.ts': 16,
+  'build-plugins/careerLandingsPlugin.ts': 8,
   'build-plugins/cityJobsHub.ts': 1,
-  'build-plugins/editorialContent.ts': 2,
-  'build-plugins/exchangeRatePagesPlugin.ts': 1,
-  'build-plugins/frontalierePillarCopy.ts': 2,
+  'build-plugins/editorialContent.ts': 5,
+  'build-plugins/exchangeRatePagesPlugin.ts': 4,
+  'build-plugins/frontalierePillarCopy.ts': 8,
   'build-plugins/jobSectorLanding.ts': 1,
-  'build-plugins/jobsSeoPagesPlugin.ts': 8,
-  'build-plugins/legacyRedirectsPlugin.ts': 7,
-  'build-plugins/nursingLandingsPlugin.ts': 1,
+  'build-plugins/jobsSeoPagesPlugin.ts': 16,
+  'build-plugins/legacyRedirectsPlugin.ts': 11,
+  'build-plugins/nursingLandingsPlugin.ts': 4,
   'build-plugins/pdfWhitepapersPlugin.ts': 1,
-  'build-plugins/professionLandingsPlugin.ts': 1,
-  'build-plugins/publisherAdPagesPlugin.ts': 1,
-  'build-plugins/searchConsoleCompat.ts': 4,
+  'build-plugins/professionLandingsPlugin.ts': 4,
+  'build-plugins/publisherAdPagesPlugin.ts': 2,
+  'build-plugins/searchConsoleCompat.ts': 6,
   'build-plugins/selfCertificationFormsPlugin.ts': 1,
-  'build-plugins/seoHubsData.ts': 3,
+  'build-plugins/seoHubsData.ts': 9,
   'build-plugins/seoHubsPlugin.ts': 3,
   'build-plugins/shared/companyHubFrontalierContext.ts': 1,
   'build-plugins/shared/employerLinks.ts': 1,
-  'build-plugins/shared/relatedLinks.ts': 2,
+  'build-plugins/shared/relatedLinks.ts': 8,
   'build-plugins/shared/trafficEvidenceFilter.ts': 1,
-  'build-plugins/staticPagesPlugin.ts': 14,
+  'build-plugins/staticPagesPlugin.ts': 32,
   'build-plugins/weeklyEmployersPlugin.ts': 1,
   'components/shared/RelatedTools.tsx': 1,
   'components/tabs/CalcolatoreTabContent.tsx': 2,
-  'functions/src/lib/newsletterUrlPaths.js': 2,
-  'infra/cloudflare-worker/locale-router.js': 1,
+  'functions/src/lib/newsletterUrlPaths.js': 5,
+  'infra/cloudflare-worker/locale-router.js': 4,
   'scripts/adsense-format-ab-report.mjs': 2,
   'scripts/analytics-report.mjs': 2,
+  'scripts/audit-404-risk.mjs': 1,
   'scripts/audit-cls-live.mjs': 2,
   'scripts/audit-cls-stripping.mjs': 1,
-  'scripts/build-legacy-aliases.mjs': 2,
+  'scripts/build-legacy-aliases.mjs': 3,
   'scripts/check-cwv-field-criterion.mjs': 3,
   'scripts/cwv-monitor-check.mjs': 1,
   'scripts/lib/fixture-data-filter.mjs': 1,
   'scripts/lib/job-alert-unsub-urls.mjs': 1,
-  'scripts/lib/orphan-canton-paths.mjs': 2,
+  'scripts/lib/orphan-canton-paths.mjs': 5,
   'scripts/lib/seo-ctr-curve.mjs': 4,
   'scripts/lib/telegram-templates.mjs': 1,
   'scripts/monitor-cls-posthog.mjs': 4,
   'scripts/monitor-sector-coverage.mjs': 2,
   'scripts/newsletter-qa.mjs': 1,
   'scripts/newsletter-template.mjs': 4,
-  'scripts/reconcile-job-slugs.mjs': 1,
+  'scripts/reconcile-job-slugs.mjs': 2,
   'scripts/refresh-noslash-keep.mjs': 1,
   'scripts/send-saved-jobs-digest.mjs': 3,
   'scripts/seo-audit-employer-slugs.mjs': 8,
@@ -340,6 +345,12 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
     // E niente match parziale su uno slug piu' lungo che contiene il segmento.
     expect(rx.test(`const s = '/cerca-lavoro-ticino-nord/';`)).toBe(false);
     expect(rx.test('const s = `${BASE_URL}/cerca-lavoro-ticino-nord/`;')).toBe(false);
+
+    // Prefisso locale EN/DE/FR: `'/en/find-jobs-ticino/'` (redirect/nav).
+    const rxEn = new RegExp(tiSegmentPattern('find-jobs-ticino'));
+    expect(rxEn.test("'/en/find-jobs-ticino/'")).toBe(true);
+    expect(rxEn.test("'/en/job-search-ticino/': '/en/find-jobs-ticino/'")).toBe(true);
+    expect(rxEn.test("'/en/find-jobs-ticino-nord/'")).toBe(false);
   });
 
   it('nessun hardcode con slash oltre l\'inventario congelato', () => {
