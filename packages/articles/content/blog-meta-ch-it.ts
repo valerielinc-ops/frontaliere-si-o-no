@@ -5647,6 +5647,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-soletta-cassa-compensazione.title': 'AVS e prestazioni complementari nel Soletta',
     'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Cassa di compensazione, calcolo rendita AVS e prestazioni complementari nel Cantone Soletta: come funziona il sistema previdenziale locale.',
     'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Ufficio amministrativo cantonale svizzero con cittadini anziani che discutono documentazione pensionistica.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.title': 'Aprire un\'attività nel Cantone di Soletta: Registro di Commercio e Costi',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.excerpt': 'Scopri i passaggi burocratici e finanziari per avviare un\'attività nel Cantone di Soletta, inclusi costi di iscrizione e obblighi assicurativi.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.imageAlt': 'Ufficio di registrazione commerciale nel Cantone di Soletta',
 };
 
 export default blogMetaChIt;

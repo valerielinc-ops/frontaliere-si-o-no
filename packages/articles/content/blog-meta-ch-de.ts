@@ -5647,6 +5647,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-soletta-cassa-compensazione.title': 'AHV und Ergänzungsleistungen in Solothurn',
     'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen im Kanton Solothurn: So funktioniert das lokale Vorsorgesystem.',
     'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Schweizer Kantonsamt mit älteren Bürgern, die Rentendokumentation und Formulare besprechen.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.title': 'Geschäft im Kanton Solothurn eröffnen: Handels- und Kostenregister',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.excerpt': 'Erfahren Sie mehr über die bürokratischen und finanziellen Schritte zur Gründung eines Unternehmens im Kanton Solothurn, einschließlich Anmeldekosten und Versicherungspflichten.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.imageAlt': 'Geschäftsregistrierungsbüro im Kanton Solothurn',
 };
 
 export default blogMetaChDe;

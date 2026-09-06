@@ -5647,6 +5647,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-soletta-cassa-compensazione.title': 'AVS and complementary performance in the Insole',
     'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Compensation fund, calculation of AVS annuity and complementary benefits in the Canton of Solothurn: how the local social security system works.',
     'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Swiss cantonal office with elderly residents discussing pension documentation and paperwork.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.title': 'Opening a business in the Canton of Solothurn: Trade and Costs Register',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.excerpt': 'Learn about the bureaucratic and financial steps to start a business in the Canton of Solothurn, including registration fees and insurance obligations.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.imageAlt': 'Business registration office in the Canton of Solothurn',
 };
 
 export default blogMetaChEn;

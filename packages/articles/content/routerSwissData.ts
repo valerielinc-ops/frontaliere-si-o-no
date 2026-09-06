@@ -1908,6 +1908,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'istruzione-obbligatoria-canton-vallese': { it: 'istruzione-obbligatoria-canton-vallese', en: 'compulsory-education-canton-valais', de: 'schulpflicht-kanton-wallis', fr: 'scolarite-obligatoire-canton-valais' },
  'avs-prestazioni-complementari-soletta': { it: 'avs-prestazioni-complementari-soletta', en: 'avs-complementary-benefits-soletta', de: 'avs-zusatzleistungen-soletta', fr: 'avs-prestations-complementaires-soletta' },
  'avs-soletta-cassa-compensazione': { it: 'avs-soletta-cassa-compensazione', en: 'ahv-solothurn-compensation-fund', de: 'ahv-solothurn-ausgleichskasse', fr: 'avs-soleure-caisse-compensation' },
+ 'aprire-attivita-canton-soletta-registro-di-commercio-e-costi': { it: 'aprire-attivita-canton-soletta-registro-di-commercio-e-costi', en: 'starting-a-business-canton-solothurn-registration-costs', de: 'unternehmen-grunden-kanton-solothurn-eintragung-und-kosten', fr: 'creer-une-entreprise-canton-de-soleure-enregistrement-et-frais' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
