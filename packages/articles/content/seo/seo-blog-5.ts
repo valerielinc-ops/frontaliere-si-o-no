@@ -87277,6 +87277,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-valmadrera-lavorare-ticino-frontaliere': {
+    title: 'Valmadrera frontaliere Ticino: guida 2026 | Frontaliere Ticino',
+    description: 'Vivere a Valmadrera e lavorare in Ticino da frontaliere: scopri il Nuovo Accordo, franchigia €10.000, Permesso G, fiscalità, AVS e procedura dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, valmadrera, vivere, lavorare, nuovo',
+    ogTitle: 'Valmadrera frontaliere Ticino: guida fiscale',
+    ogDescription: 'Guida completa 2026 per chi abita a Valmadrera e lavora in Canton Ticino. Scopri il Nuovo Accordo Frontalieri, franchigia €10.000, come ottenere il Permesso G, dichiarare il reddito e gestire AVS/LAMal/LPP. Procedure step-by-step e calcolo netto',
+    canonicalPath: '/articoli-frontaliere/vivere-valmadrera-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Valmadrera frontaliere Ticino: guida 2026",
+      "description": "Vivere a Valmadrera e lavorare in Ticino da frontaliere: scopri il Nuovo Accordo, franchigia €10.000, Permesso G, fiscalità, AVS e procedura dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valmadrera-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista dal Monte Generoso verso la Valle d'Intelvi e le montagne ticinesi al confine fra Italia e Svizzera"
+      },
+      "datePublished": "2026-09-06T19:53:39+00:00",
+      "dateModified": "2026-09-06T19:53:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valmadrera-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

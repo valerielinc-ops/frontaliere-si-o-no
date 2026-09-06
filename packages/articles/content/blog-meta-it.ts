@@ -11482,6 +11482,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino, incendio in galleria a bordo di un treno: ma è un\'esercitazione',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Esercitazione di salvataggio nella galleria del Monte Ceneri con 50 comparse e 100 soccorritori.',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Esercitazione di salvataggio nella galleria del Monte Ceneri',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera frontaliere Ticino: guida 2026',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Vivere a Valmadrera e lavorare in Ticino: il Nuovo Accordo Frontalieri, franchigia €10.000, Permesso G, fiscalità e procedura dichiarazione.',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Vista dal Monte Generoso verso la Valle d\'Intelvi e le montagne ticinesi al confine fra Italia e Svizzera',
 };
 
 export default blogMetaIt;
