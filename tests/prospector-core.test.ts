@@ -1305,7 +1305,7 @@ describe('promotion gate', () => {
     // firmavano quattro volte diverso — lo stesso 1.00 fasullo di
     // `detailDistinctRate` che il denoise esiste per evitare.
     const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
-    for (const label of ['hits', 'Klicks', 'letture', 'consultazioni', 'consultations']) {
+    for (const label of ['hits', 'Klicks', 'letture', 'consultazioni', 'consultations', 'visite']) {
       const copy = (n: number) => `${shell} ${label}: ${1000 + n}`;
       expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
     }
@@ -1342,6 +1342,12 @@ describe('promotion gate', () => {
       .not.toBe(bodySignature(`${shell} 40 consultations par jour`));
     expect(bodySignature(`${shell} 25 letture al mese`))
       .not.toBe(bodySignature(`${shell} 40 letture al mese`));
+    // «visite» e' l'italiano di «consultations»: in un annuncio di cure a
+    // domicilio del Ticino «10 visite al giorno» e' il carico dichiarato.
+    expect(bodySignature(`${shell} 10 visite al giorno`))
+      .not.toBe(bodySignature(`${shell} 14 visite al giorno`));
+    expect(bodySignature(`${shell} 12 visite domiciliari settimanali`))
+      .not.toBe(bodySignature(`${shell} 18 visite domiciliari settimanali`));
   });
 
   it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {

@@ -118,14 +118,19 @@ export function tokenOverlap(needle, haystack) {
 const COUNTER_NUMBER = "\\d[\\d'\u2019.,]*(?:[\\s\\u00a0\\u202f]\\d{3})*";
 // etichette non ambigue: in un annuncio sono un contatore e basta, quindi si
 // denoisano su entrambi i versi.
-const COUNTER_LABELS = '(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?|hits?|klicks?)';
+const COUNTER_LABELS = '(?:visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?|hits?|klicks?)';
 // etichette che in un annuncio possono essere anche CONTENUTO con un numero
 // attaccato («25 consultations par jour», «letture 3 al mese» in un profilo
 // sanitario): restano sul solo verso etichetta->numero, che e' quello gia'
 // coperto, perche' il ramo prefisso morderebbe il carico dichiarato e due
 // annunci template diversi firmerebbero UGUALE — il falso positivo che i
 // test su NPA/pensum/riferimento esistono per tenere chiuso.
-const AMBIGUOUS_COUNTER_LABELS = '(?:letture|consultazioni|consultations?)';
+// `visite` sta qui e non fra le non ambigue: e' l'italiano di
+// `consultazioni`/`consultations`, e in un annuncio sanitario o di cure a
+// domicilio «10 visite al giorno» e' il carico dichiarato, non un contatore
+// per-richiesta. Sul verso etichetta->numero («visite: 1.234») resta
+// denoisato come prima.
+const AMBIGUOUS_COUNTER_LABELS = '(?:visite|letture|consultazioni|consultations?)';
 
 const REQUEST_NOISE_PATTERNS = [
   // 2026-09-05T11:01:22, 2026-09-05T11:01:22.417Z, 2026-09-05T11:01+02:00.
