@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 06 Sep 2026 02:46:15 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2026 02:54:21 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,62 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Opening a canton business Slab: register guide and costs</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/open-business-canton-soletta-commerce-registry/</link>
+      <description><![CDATA[How to start a business in the canton of Solothurn: legal forms, business registration, cantonal taxation and compulsory social security (AVS, LPP, LAMal).]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- The main legal forms are sole proprietorship, public limited company and SARL
+- Registration in the commercial register is mandatory for SA, SARL and SNC
+- Taxation operates on 3 levels: federal, cantonal and municipal
+- Social security (AVS, LPP, LAMal) and SUVA are mandatory at start-up
+
+## Key facts
+- **What**: Start a business by choosing a legal form and registering with the trade register
+- Where: Canton Solothurn, at the cantonal office of the commercial register
+- Who: Individual entrepreneurs, commercial companies (SA, SARL, SNC)
+- Main legal forms: Sole proprietorship (DI), Public limited company (SA), Limited liability company (SARL)
+- Tax levels: Direct Federal Tax (DFI), cantonal tax, municipal tax
+- Social security obligations: AVS, LPP if income exceeds threshold, LAMal within 3 months, SUVA if employees
+
+Opening a business in the canton of Solothurn requires a conscious choice of legal form, registration in the federal trade register, payment of social security contributions and affiliation to compulsory social insurance. Switzerland applies a tax system divided into 3 levels — federal, cantonal and municipal — and social security integrates Old Age and Survivors Insurance (AVS/AHV), Pension Fund (LPP/BVG) and Health Insurance (LAMal/KVG) as mandatory pillars managed at federal and cantonal level.
+
+### Legal forms: which one to choose
+
+The legal forms
+### Registration in the commercial register: process and timeline
+
+Registration in the commercial register is the first concrete step after choosing the legal form. In the canton of Solothurn, as in all cantons, the process takes place at the cantonal commercial register office or through a decentralized municipal office. The applicant completes the registration form (available in paper or digital format), attaches the required documents — articles of association (for SA/SARL), identity of the owner or legal representative, proof of address of the registered office — and submits it to the competent authority.
+
+The timeline is generally quick: 1-2 weeks from the submission of a correct and complete application. Once approved, the Federal Customs and Tax Administration (AFC/ESTV) receives the data and assigns the UID number, valid nationwide. This number is essential for all subsequent obligations. Registration is mandatory for SA, SARL, and SNC; for sole proprietorship, it is optional if the annual turnover does not exceed a certain threshold determined by federal law.
+
+### Taxation: federal, cantonal, and municipal
+
+Switzerland applies a three-tier tax system. The **federal direct tax** (IFD) is managed by AFC/ESTV and affects business income and profits according to federal progressive rates. Each canton of Solothurn adds a cantonal tax on business income with its own rates. Finally, the municipalities of the canton apply an additional local tax, often determined as a multiplier of the cantonal tax, which varies from municipality to municipality.
+
+A business registered in Solothurn will pay the federal IFD, the cantonal tax, and the municipal tax of the registered office. The annual declaration is made to the cantonal administration, which transmits the data to the federal administration. VAT (value-added tax), managed by AFC/ESTV, also becomes mandatory if annual revenues exceed CHF 100,000. This three-tier structure applies to all cantons, but the rates and deductions vary by canton and municipality.
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Social security and insurance obligations
+
+Social security is one of the pillars of Switzerland. Each activity must comply with the obligations of the first pillar (AVS/AHV), managed by the Federal Office of Social Insurance (UFAS/BSV), which covers old-age, disability and survivors' pensions. An individual entrepreneur pays a contribution calculated on a percentage of the coordinated income. If the business generates income above a certain threshold, indexed every year, the obligation of affiliation to the second pillar (LPP/BVG), mandatory pension fund, is triggered.
+
+Health insurance (LAMal/KVG) is private — not a wage tax, but a contract signed with a cantonal or national insurer. The law requires registration within 3 months of the start of business for every resident in Switzerland. The SUVA (Central Compensation Office for Accident Insurance) is mandatory if the employer employs employees. The employer pays a premium calculated on the basis of salary and sector risk. If the entrepreneur only carries out self-employed activities without employees, SUVA may be optional.
+
+### Operating procedure: from the project to the first turnover
+
+1. **Choose the legal form ** — sole proprietorship, SA or SARL based on volume, shareholders and expected growth
+2. Register with the commercial register — at the cantonal office of Solettese or at the delegated municipal counter
+3. Open company bank account — required with number
+
+Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter gross salary, marital status and municipality for a detailed breakdown.]]></content:encoded>
+      <pubDate>Sun, 06 Sep 2026 02:54:21 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/aprire-attivita-soletta-commercio-costi</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-attivita-soletta-commercio-costi.webp" medium="image"/>
+    </item>
     <item>
       <title>Opening a business in Solothurn: costs and procedures</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/open-business-soletta-costs-procedures/</link>
@@ -3347,78 +3403,6 @@ Contact the Vaud fund or consult the [AHV calculator for an estimate of the pens
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avs-prestazioni-complementari-vaud</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-complementari-vaud.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Vaud rentals: tenant rights and security deposit</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/rentals-vaud-tenant-rights/</link>
-      <description><![CDATA[Right of lease in Vaud: security deposit, cancellation, dispute fee and conciliation authority according to the Federal Code of Obligations.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Maximum security deposit of 3 months' rent, held in an account in the tenant's name
-- Notice of termination valid only with the official form of the canton, with terms varying by years of tenancy
-- Challenge initial rent within 30 days with the cantonal conciliation authority
-- Federal tenancy law (CO art. 253 ff.) is the same in all cantons, including Vaud
-
-## Key facts
-- **What**: Regulation of rents, security deposits, and termination procedures in tenancy matters
-- When: Permanent federal regulation in the Swiss Code of Obligations
-- Where: Canton of Vaud (and throughout Switzerland, according to federal regulations)
-- Who: Tenants and landlords subject to Swiss federal law
-- Rules: Code of Obligations art. 253 ff.; cantonal procedures for termination and conciliation
-- Deposit amount: Maximum equivalent to 3 months' rent
-- Challenge deadline: 30 days from notification of initial rent
-
-In the Canton of Vaud, as in the rest of Switzerland, tenancy law is a federal matter. The law governing rents, security deposits, terminations, and disputes between tenants and landlords is found in the Swiss Code of Obligations (CO), articles 253 and following. This legislation applies identically in every canton, including Vaud.
-
-Anyone renting a home in Vaud is protected by specific rules on three crucial aspects: the initial payment that the landlord can request (security deposit), the terms and methods for terminating the contract, and the mechanism for challenging a rent deemed unfair. [Understanding tenancy rules is essential for managing one of the major expenses in the life of those residing in Switzerland](nav:cost-of-living).
-
-### The security deposit: limits and constraints
-
-The landlord can request a security deposit, but not unlimitedly. The maximum is set at three months' rent. The money must not remain with the landlord: it must be deposited in a blocked account (extinguishing or with a bank/institution) in the tenant's name. This protects the tenant in case of the landlord's insolvency and makes the deposit unavailable to the landlord for other expenses.
-
-The procedure is simple: the landlord opens a blocked account in the tenant's name and provides a receipt. At the end of the tenancy, the deposit (minus any damages or overdue rents attributable to the tenant) is returned within legal deadlines. If the landlord withholds amounts deemed unfair, the tenant can appeal to the conciliation authority in tenancy matters.
-### Cancellation procedure: terms and cantonal forms
-
-The cancellation must be notified in writing using the official form of the Canton of Vaud. The form ensures that all mandatory information is included and that the communication is legitimate. There is a federal scheme, but each canton has a local variant: Vaud provides its own form.
-
-The terms depend on the seniority of the relationship:
-- First year of lease: 1 month's notice from the day the cancellation is notified
-- From the second to the ninth year: 2 months' notice
-- From the tenth year onwards: 3 months' notice
-
-A tenant who has occupied the accommodation for 5 years and intends to cancel by 15 June must notify the owner with 2 months' notice (deadline: 15 August), with effect from the end of August. The owner, in turn, can only cancel if he has a "legitimate reason" (e.g. personal need for the property, sale of the property, non-payment of rent). In the absence of a legitimate reason, the owner's cancellation is null and void.
-
-### Dispute of the initial rent
-
-The tenant is not obliged to accept a rent that he considers too high. He has 30 days from the notification of the initial rent to appeal to the cantonal conciliation authority in housing matters. The authority examines whether the rent is in line with comparable market prices. If the owner has not adequately documented the reasonableness of the rent, the authority may order a reduction.
-
-[Discover how to manage your cost of living in Switzerland, including the housing sector](nav:cost-of-living).
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-### Conciliation authority: the procedure
-
-In Vaud, as in other cantons, there is a conciliation authority dedicated to rental matters. Tenants and landlords can turn to this authority for disputes over:
-- Initial rent considered excessive
-- Unjustified withholding of the security deposit
-- Other lease agreement disputes
-
-The procedure is free or low-cost, much faster than a judicial appeal. The request must be submitted within the set deadlines (e.g., 30 days to contest the rent). The authority hears both parties, verifies the documents, and issues a binding decision.
-
-### Operational steps for the tenant
-
-1. Read the contract and verify the rent: compare with similar accommodations in the area to assess fairness.
-2. Keep documents: copy of the contract, receipt of the security deposit, rent payment receipts, photographs of the initial/final state of the accommodation.
-3. Timely appeal: if the rent is contested, turn to the conciliation authority within 30 days of notification.
-4. Correct termination: use the official Vaud form, respect the notice periods based on the years of tenancy, send by registered mail or certified delivery.
-
-The Federal Code of Obligations guarantees all tenants in Switzerland — including Vaud — identical rights. It is therefore not a regional peculiarity, but standard national protections that every tenant should know to protect themselves. To delve deeper and plan your housing budget, [consult the data on the cost of living in Switzerland](nav:cost-of-living), which includes detailed analyses of regional rents.
-
-Discover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swiss companies hiring cross-border workers.]]></content:encoded>
-      <pubDate>Sat, 05 Sep 2026 04:57:26 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/affitti-vaud-diritti-locatari</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/affitti-vaud-diritti-locatari.webp" medium="image"/>
     </item>
   </channel>
 </rss>
