@@ -5755,6 +5755,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.successione-donazione-vallese-guida.title': 'Impôt succession Valais : taux et exonérations',
     'blog.article.successione-donazione-vallese-guida.excerpt': 'Imposition successorale en Valais : taux par degré de parenté, exonérations pour conjoint et descendants, déclaration et délais à respecter.',
     'blog.article.successione-donazione-vallese-guida.imageAlt': 'Bureau de notaire avec documents de succession et formulaires fiscaux sur table',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.title': 'Droit locatif Schaffhouse : dépôt et contestation',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.excerpt': 'Dépôt maximum 3 mois, compte lié, résiliation sur formulaire officiel : guide du droit fédéral de la location dans le canton de Schaffhouse avec procédures et délais.',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.imageAlt': 'Entrée d\'un immeuble résidentiel suisse avec porte et boîte aux lettres',
 };
 
 export default blogMetaChFr;

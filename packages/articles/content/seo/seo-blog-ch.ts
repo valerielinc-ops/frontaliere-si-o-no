@@ -74705,6 +74705,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-sciaffusa-deposito-contestazione': {
+    title: 'Diritto locazione Sciaffusa: deposito e contestazione',
+    description: 'Deposito max 3 mesi, disdetta su modulo ufficiale, contestazione in 30 giorni: tutto il diritto federale di locazione nel Canton Sciaffusa con procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, sciaffusa, deposito',
+    ogTitle: 'Diritto di locazione nel Canton Sciaffusa: guida pratica',
+    ogDescription: 'Deposito cauzionale massimo 3 mesi, disdetta solo su modulo ufficiale, contestazione entro 30 giorni: le regole federali di locazione nel Canton Sciaffusa spiegate.',
+    canonicalPath: '/articoli-svizzera/affitti-sciaffusa-deposito-contestazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto locazione Sciaffusa: deposito e contestazione",
+      "description": "Deposito max 3 mesi, disdetta su modulo ufficiale, contestazione in 30 giorni: tutto il diritto federale di locazione nel Canton Sciaffusa con procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-sciaffusa-deposito-contestazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingresso di un edificio residenziale svizzero con porta e cassetta postale"
+      },
+      "datePublished": "2026-09-06T17:23:58+00:00",
+      "dateModified": "2026-09-06T17:23:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-sciaffusa-deposito-contestazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

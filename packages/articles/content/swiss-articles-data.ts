@@ -17263,6 +17263,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'affitti-sciaffusa-deposito-contestazione',
+    category: 'pratico',
+    date: '2026-09-06T17:23:58.033Z',
+    image: '/images/blog/affitti-sciaffusa-deposito-contestazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5755,6 +5755,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.successione-donazione-vallese-guida.title': 'Erbschaftssteuer Wallis: Steuersätze und Befreiungen',
     'blog.article.successione-donazione-vallese-guida.excerpt': 'Erbschaftssteuer im Wallis: Sätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen, Erklärung und einzuhaltende Fristen.',
     'blog.article.successione-donazione-vallese-guida.imageAlt': 'Schreibtisch mit Erbschaftsdokumenten und Steuerfomularen im Notariatsburo',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.title': 'Mietrecht Schaffhausen: Einreichung und Anfechtung',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.excerpt': 'Maximale Kaution 3 Monate, gebundenes Konto, Kündigung auf amtlichem Formular: Anleitung zum Bundesmietrecht im Kanton Schaffhausen mit Verfahren und Fristen.',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.imageAlt': 'Eingang eines Schweizer Wohngebäudes mit Tür und Postkasten',
 };
 
 export default blogMetaChDe;
