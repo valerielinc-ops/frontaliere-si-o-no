@@ -5686,6 +5686,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Démarrer une entreprise à Grisons : coûts et procédure',
     'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Guide complet : formes juridiques, inscription au registre du commerce, impôts fédéraux et cantonaux, TVA, obligations AVS, SUVA, LAMal. Procédure étape par étape.',
     'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Bureau et enseigne commerciale d\'une entreprise enregistrée dans le canton des Grisons',
+    'blog.article.affittare-bene-immobili-ticino.title': 'Bien louer un bien immobilier : stratégies et conseils aux propriétaires',
+    'blog.article.affittare-bene-immobili-ticino.excerpt': 'Louer rapidement ne signifie pas bien louer. Découvrez comment protéger votre investissement et choisir des locataires fiables.',
+    'blog.article.affittare-bene-immobili-ticino.imageAlt': 'Vue aérienne de Lugano avec des appartements modernes et un marché animé',
 };
 
 export default blogMetaChFr;

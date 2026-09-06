@@ -5686,6 +5686,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Avviare un\'attività a Grigioni: costi e procedura',
     'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Guida completa: forme giuridiche, iscrizione al registro di commercio, imposte federali e cantonali, IVA, obblighi AVS, SUVA, LAMal. Procedura step-by-step.',
     'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Ufficio e insegna commerciale di una piccola azienda registrata nel Cantone Grigioni',
+    'blog.article.affittare-bene-immobili-ticino.title': 'Affittare bene un immobile: strategie e consigli per proprietari',
+    'blog.article.affittare-bene-immobili-ticino.excerpt': 'Affittare rapidamente non significa affittare bene. Scopri come proteggere il tuo investimento e scegliere inquilini affidabili.',
+    'blog.article.affittare-bene-immobili-ticino.imageAlt': 'Vista aerea di Lugano con appartamenti moderni e un mercato vivace',
 };
 
 export default blogMetaChIt;
