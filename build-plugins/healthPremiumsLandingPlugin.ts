@@ -63,6 +63,7 @@ import {
   type BracketTrend,
 } from './healthPremiumsData';
 import { generateRelatedLinksBlock, SWITZERLAND_JOB_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
+import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -574,7 +575,6 @@ interface LeafCopy {
   advice: HpAdviceCopy;
   tableHeaders: { rank: string; insurer: string; premium: string };
   top20Title: (canton: string, age: string) => string;
-  rankingTitle: string;
   editorialTitle: string;
   editorial: (canton: string, age: string, median: string, year: number) => string;
   derivationNote: string;
@@ -584,7 +584,13 @@ interface LeafCopy {
   faqTitle: string;
   faq: Array<{ q: (canton: string, age: string) => string; a: (canton: string, age: string, median: string, min: string, max: string) => string }>;
   priceUnit: string;
-  rankingIntro: (canton: string) => string;
+  /**
+   * Anchor text for the link out to the national table. The 26-canton ranking
+   * used to sit inline on every leaf, byte-identical across the 26 pages of a
+   * bracket; the root hub is the page whose job it is, so the leaf keeps the
+   * affordance as one link instead of the whole block.
+   */
+  fullRankingLink: string;
   /** Localised copy for the "Variazione vs {priorYear}" section (F2 A3). */
   yoy: {
     sectionTitle: (priorYear: number) => string;
@@ -760,7 +766,6 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     },
     tableHeaders: { rank: 'Posizione', insurer: 'Cassa Malati', premium: 'Premio mensile' },
     top20Title: (c, a) => `Top 20 casse malati in ${c} — ${a}`,
-    rankingTitle: 'Confronto con i cantoni limitrofi',
     editorialTitle: 'Come funziona il premio LAMal in questa fascia',
     editorial: (c, a, median, year) =>
       `Sotto la legge LAMal svizzera, tutti i residenti devono stipulare un'assicurazione malattia di base. Il premio varia per cantone, regione premi e cassa, ma è uniforme tra tutti gli adulti dai 26 anni in su: non esistono aumenti legati all'età in senso stretto come nelle assicurazioni complementari. Per ${c} nel ${year}, la mediana della fascia ${a} si attesta su ${median} CHF/mese. I frontalieri residenti in Italia che lavorano in Svizzera possono scegliere il regime sanitario tra LAMal svizzera o SSN italiano (diritto di opzione), un passaggio che va valutato con un consulente autorizzato. Chi opta per la LAMal paga il premio indicato e riceve le prestazioni di base in Svizzera; chi sceglie il SSN italiano resta coperto in Italia ma perde la rete di fornitori svizzeri. La scelta dipende dall'età, dallo stato di salute, dal luogo di residenza e dalla famiglia. Le casse più economiche nella fascia di età che ti interessa variano ogni anno: usa la tabella sopra per identificarle e confrontale con il nostro strumento.`,
@@ -798,8 +803,7 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       },
     ],
     priceUnit: 'CHF/mese',
-    rankingIntro: (c) =>
-      `Ecco come si posiziona ${c} rispetto agli altri cantoni target per la stessa fascia di età. I premi LAMal variano significativamente tra cantoni anche all'interno della stessa regione linguistica.`,
+    fullRankingLink: 'Classifica completa dei 26 cantoni',
     yoy: {
       sectionTitle: (py) => `Variazione rispetto al ${py}`,
       summary: (c, a, medPct, py, n) =>
@@ -840,7 +844,6 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     },
     tableHeaders: { rank: 'Rank', insurer: 'Health fund', premium: 'Monthly premium' },
     top20Title: (c, a) => `Top 20 health funds in ${c} — ${a}`,
-    rankingTitle: 'Benchmark vs neighbouring cantons',
     editorialTitle: 'How the LAMal premium works in this bracket',
     editorial: (c, a, m, year) =>
       `Under Swiss LAMal law, every resident must hold a basic health insurance. The premium varies by canton, premium region and health fund, but it is flat across all adults aged 26 and over — there is no age-based increase inside LAMal itself (unlike supplementary LCA cover). In ${c} for ${year}, the median for bracket ${a} is ${m} CHF/month. Cross-border workers living in Italy can elect either the Swiss LAMal or the Italian SSN under the "right of option" — this choice depends on age, health status, residence and family situation and should be evaluated with a licensed adviser. Use the table above to identify the cheapest funds in the age bracket and compare them using our interactive comparator below.`,
@@ -878,8 +881,7 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       },
     ],
     priceUnit: 'CHF/month',
-    rankingIntro: (c) =>
-      `Here is how ${c} ranks against the other target cantons for the same age bracket. LAMal premiums vary significantly across cantons even within the same language region.`,
+    fullRankingLink: 'Full ranking of all 26 cantons',
     yoy: {
       sectionTitle: (py) => `Change vs ${py}`,
       summary: (c, a, medPct, py, n) =>
@@ -920,7 +922,6 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     },
     tableHeaders: { rank: 'Rang', insurer: 'Krankenkasse', premium: 'Monatsprämie' },
     top20Title: (c, a) => `Top 20 Krankenkassen in ${c} — ${a}`,
-    rankingTitle: 'Vergleich mit Nachbarkantonen',
     editorialTitle: 'Wie die KVG-Prämie in dieser Gruppe funktioniert',
     editorial: (c, a, m, year) =>
       `Nach dem Schweizer KVG müssen alle Einwohner eine Grundversicherung abschliessen. Die Prämie variiert nach Kanton, Prämienregion und Krankenkasse, ist aber für alle Erwachsenen ab 26 Jahren einheitlich — innerhalb des KVG selbst gibt es keinen altersbedingten Prämienanstieg (im Gegensatz zur Zusatzversicherung VVG). In ${c} beträgt der Median für die Kategorie ${a} im Jahr ${year} ${m} CHF/Monat. Grenzgänger mit Wohnsitz in Italien können zwischen Schweizer KVG und italienischem SSN wählen (Optionsrecht). Nutzen Sie die Tabelle oben, um die günstigsten Kassen für Ihre Altersgruppe zu identifizieren, und vergleichen Sie sie über unser interaktives Tool.`,
@@ -958,8 +959,7 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       },
     ],
     priceUnit: 'CHF/Monat',
-    rankingIntro: (c) =>
-      `So positioniert sich ${c} gegenüber den anderen Zielkantonen für dieselbe Altersgruppe. KVG-Prämien unterscheiden sich auch innerhalb derselben Sprachregion erheblich zwischen den Kantonen.`,
+    fullRankingLink: 'Vollständiges Ranking aller 26 Kantone',
     yoy: {
       sectionTitle: (py) => `Veränderung gegenüber ${py}`,
       summary: (c, a, medPct, py, n) =>
@@ -1000,7 +1000,6 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     },
     tableHeaders: { rank: 'Rang', insurer: 'Caisse maladie', premium: 'Prime mensuelle' },
     top20Title: (c, a) => `Top 20 caisses maladie à ${c} — ${a}`,
-    rankingTitle: 'Comparatif avec les cantons voisins',
     editorialTitle: 'Comment la prime LAMal fonctionne dans cette tranche',
     editorial: (c, a, m, year) =>
       `Selon la loi suisse LAMal, tout résident doit souscrire une assurance maladie de base. La prime varie selon le canton, la région de prime et la caisse, mais elle est forfaitaire pour tous les adultes dès 26 ans — aucune hausse liée à l'âge dans la LAMal elle-même (contrairement à la LCA complémentaire). À ${c} en ${year}, la médiane pour la tranche ${a} s'établit à ${m} CHF/mois. Les frontaliers résidant en Italie peuvent choisir entre la LAMal suisse et le SSN italien (droit d'option). Utilisez le tableau ci-dessus pour repérer les caisses les moins chères dans votre tranche d'âge, puis comparez-les avec notre outil interactif.`,
@@ -1038,8 +1037,7 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
       },
     ],
     priceUnit: 'CHF/mois',
-    rankingIntro: (c) =>
-      `Voici comment ${c} se positionne par rapport aux autres cantons cibles pour la même tranche d'âge. Les primes LAMal varient sensiblement d'un canton à l'autre, même au sein d'une même région linguistique.`,
+    fullRankingLink: 'Classement complet des 26 cantons',
     yoy: {
       sectionTitle: (py) => `Variation par rapport à ${py}`,
       summary: (c, a, medPct, py, n) =>
@@ -2194,22 +2192,58 @@ function renderLeafPage(inp: LeafInputs): string {
     if (b.price === null) return -1;
     return a.price - b.price;
   });
-  const rankingHtml = `<table class="s-tbl" style="font-size:14px">
-    <thead><tr>
-      <th class="s-thd">#</th>
-      <th class="s-thd">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
-      <th class="s-thd" style="text-align:right">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
-    </tr></thead>
-    <tbody>${rankingRows
-      .map(
-        (r, i) => `<tr class="s-UGbkWC"${r.canton === canton ? '' : ''}>
-        <td class="s-tcl" style="font-variant-numeric:tabular-nums">${i + 1}</td>
-        <td class="s-tcl"${r.canton === canton ? ' style="font-weight:700"' : ''}>${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
-        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
-      </tr>`,
-      )
-      .join('')}</tbody>
-  </table>`;
+  // The 26-canton table this replaces was byte-identical on all 26 canton
+  // pages of a bracket — the biggest block on the page and worth zero
+  // Information Gain, the same `RELATED.slice(0, N)` defect #5002 removed from
+  // four municipality families and #5107 from the articles. A window around
+  // THIS canton, with the neighbours named, moves with the page instead
+  // (shared/peerCohortComparison.ts; docs/INFORMATION-GAIN.md, «I 37 offender
+  // del 2026-09-01», median IGS 2,6-2,7 % on this family). The full ranking
+  // stays one click away on the root hub, which is the page whose job it is
+  // (`renderRootHubPage` is where the 26-canton table actually lives).
+  const peerRows: PeerRow[] = rankingRows.map((r) => ({
+    key: r.canton,
+    name: HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton],
+    href: buildHealthPremiumsLeafPath(locale, r.canton, age),
+    value: r.price,
+  }));
+  const peerCopy: Record<HealthPremiumLocale, { heading: string; metricLabel: string; peerNoun: string }> = {
+    it: { heading: `${cantonLabel} nel confronto fra cantoni (${ageLabel})`, metricLabel: 'premio mediano', peerNoun: 'cantoni' },
+    en: { heading: `${cantonLabel} against the other cantons (${ageLabel})`, metricLabel: 'median premium', peerNoun: 'cantons' },
+    de: { heading: `${cantonLabel} im Kantonsvergleich (${ageLabel})`, metricLabel: 'Medianprämie', peerNoun: 'Kantonen' },
+    fr: { heading: `${cantonLabel} face aux autres cantons (${ageLabel})`, metricLabel: 'prime médiane', peerNoun: 'cantons' },
+  };
+  // Provenance line, extended with the two funds that bracket the local
+  // spread. The peer prose alone names the two neighbouring CANTONS and
+  // nothing else — one sentence out of ~24 on the page, which is why the
+  // family measured 4,2 % after the window replaced the table and still
+  // under the 5 % floor. The cheapest and dearest fund is the other
+  // per-page fact that survives both masks: fund NAMES differ from canton
+  // to canton (mask no. 2 folds only the page's own canton), and the figure
+  // is read off `perInsurer`, not composed. It is the same fact the top-20
+  // table already carries in cells too short to count as prose
+  // (MIN_SEGMENT_CHARS = 25 in scripts/lib/informationGain.mjs).
+  const byPrice = perInsurer.slice().sort((a, b) => a.price - b.price || (a.insurerName < b.insurerName ? -1 : a.insurerName > b.insurerName ? 1 : 0));
+  const cheapestIns = byPrice[0];
+  const dearestIns = byPrice[byPrice.length - 1];
+  const spreadNote = cheapestIns && dearestIns && cheapestIns.insurerId !== dearestIns.insurerId
+    ? {
+        it: `Dentro ${cantonLabel} la cassa più economica per questa fascia è ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}), la più cara ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}).`,
+        en: `Inside ${cantonLabel} the cheapest fund for this bracket is ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}), the dearest ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}).`,
+        de: `Innerhalb von ${cantonLabel} ist ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}) die günstigste Kasse dieser Altersgruppe, ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}) die teuerste.`,
+        fr: `À l’intérieur de ${cantonLabel}, la caisse la moins chère pour cette tranche est ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}), la plus chère ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}).`,
+      }[locale]
+    : undefined;
+  const rankingHtml = renderPeerComparison({
+    locale,
+    currentKey: canton,
+    rows: peerRows,
+    labels: peerCopy[locale] ?? peerCopy.it,
+    formatValue: (value) => `${formatCHF(value, locale)} ${copy.priceUnit}`,
+    // Cheapest first: on a premium, rank 1 is the lowest figure.
+    higherIsBetter: false,
+    sourceNote: spreadNote,
+  });
 
   // Stats cards — when YoY data is available for the current bracket we
   // append a fifth tile showing the median delta. Only rendered when the
@@ -2432,11 +2466,8 @@ function renderLeafPage(inp: LeafInputs): string {
     ${tableHtml}
     ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p class="s-iFFsKs">${esc(copy.derivationNote)}</p>` : ''}
   </section>
-  <section class="s-ziawP1" aria-labelledby="ranking">
-    <h2 id="ranking" style="${H2_STYLE}">${esc(copy.rankingTitle)}</h2>
-    <p class="s-1j3K91">${esc(copy.rankingIntro(cantonLabel))}</p>
-    ${rankingHtml}
-  </section>
+  ${rankingHtml}
+  <p class="s-1j3K91"><a href="${esc(buildHealthPremiumsRootPath(locale))}">${esc(copy.fullRankingLink)}</a></p>
   ${yoyHtml}
   ${triYearHtml}
   ${DRIVEBY_AD_SNIPPET}
