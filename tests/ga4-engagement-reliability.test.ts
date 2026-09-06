@@ -343,4 +343,9 @@ describe('il mirror Apps Script della soglia di affidabilita non drifta', () => 
     expect(gs.match(/writeEngagementWarning\(sheet, \d+, startDate, endDate\);/g) ?? []).toHaveLength(4);
     expect(gs).toContain('function windowEngagementVerdict(startDate, endDate) {');
   });
+
+  it('windowEngagementVerdict interroga GA4 per giornata, non sull aggregato', () => {
+    expect(gs).toContain("['date']");
+    expect(gs).toContain('engagementConsistency(rows[i][1], rows[i][2], rows[i][3])');
+  });
 });

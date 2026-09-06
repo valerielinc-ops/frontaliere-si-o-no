@@ -217,13 +217,29 @@ function windowEngagementVerdict(startDate, endDate) {
 
   let verdict = { reliable: true, reason: null };
   try {
+    // Per-day, not the window aggregate: 28 sane days drown 1-2 lag days
+    // (dailyEngagementConsistency in ga4-engagement-reliability.mjs).
     const rows = runGA4Report(
       CONFIG.GA4_PROPERTY_ID,
       [{ startDate, endDate }],
-      [],
+      ['date'],
       ['sessions', 'engagementRate', 'averageSessionDuration']
     );
-    if (rows.length > 0) verdict = engagementConsistency(rows[0][0], rows[0][1], rows[0][2]);
+    const bad = [];
+    for (let i = 0; i < rows.length; i++) {
+      const day = engagementConsistency(rows[i][1], rows[i][2], rows[i][3]);
+      if (!day.reliable) bad.push({ date: String(rows[i][0]), reason: day.reason });
+    }
+    if (bad.length > 0) {
+      const dates = bad.map(function (u) { return u.date; });
+      const plural = bad.length > 1;
+      verdict = {
+        reliable: false,
+        reason: bad.length + ' giornat' + (plural ? 'e' : 'a') +
+          ' incoerent' + (plural ? 'i' : 'e') + ' nella finestra (' +
+          dates.join(', ') + ') — ' + bad[0].reason,
+      };
+    }
   } catch (e) {
     // Un sanity-check che fallisce non deve inventare allarmi né bloccare il foglio.
     verdict = { reliable: true, reason: null };
