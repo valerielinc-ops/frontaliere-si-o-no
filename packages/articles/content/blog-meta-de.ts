@@ -11465,6 +11465,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.colacem-sostenibilita-2025.title': 'Colacem: 46 Millionen in Umweltinvestitionen',
     'blog.article.colacem-sostenibilita-2025.excerpt': 'Im Dreijahreszeitraum 2023-2025 investierte Colacem mehr als 46 Millionen Euro in die Umwelt, wobei der Schwerpunkt auf recycelten Materialien und alternativen Kraftstoffen lag.',
     'blog.article.colacem-sostenibilita-2025.imageAlt': 'Luftaufnahme des Colacem-Werks in Caravate, Varese, Italien, das seine industrielle Landschaft und Umweltinitiativen zeigt.',
+    'blog.article.giussano-como-ticino-frontaliere.title': 'Leben in Giussano, Arbeiten im Tessin: Grenzgängerführer',
+    'blog.article.giussano-como-ticino-frontaliere.excerpt': 'Bewilligung G, Quellensteuer, AHV, KVG: Kompletter Leitfaden für Grenzgänger aus Giussano (Como), die im Tessin arbeiten. Steuern, Zeiten, Kosten.',
+    'blog.article.giussano-como-ticino-frontaliere.imageAlt': 'Luftaufnahme von Lugano am Luganersee mit Alpen im Hintergrund, ein wichtiges Arbeitszentrum für Grenzgänger Giussano-Tessin',
 };
 
 export default blogMetaDe;

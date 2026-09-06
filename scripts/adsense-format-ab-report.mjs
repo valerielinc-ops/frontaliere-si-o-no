@@ -89,7 +89,7 @@ import { fileURLToPath } from 'node:url';
 import { AD_CLIENT } from '../services/adsenseSlots.ts';
 import { getAdSenseToken, last7Days } from './revenue-monitor.mjs';
 import { getServiceAccountToken, fetchRetry, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
-import { engagementConsistency } from './lib/ga4-engagement-reliability.mjs';
+import { engagementConsistency, fetchDailyEngagementVerdict } from './lib/ga4-engagement-reliability.mjs';
 import { runHogQL } from './lib/posthog-client.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -286,6 +286,12 @@ const GA4_SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
 export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT) {
   const { start, end } = last7Days();
   const url = `https://analyticsdata.googleapis.com/v1beta/${DEFAULT_GA4_PROPERTY_ID}:runReport`;
+  const runReport = (payload) =>
+    fetchRetry(url, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
   const body = {
     dateRanges: [{ startDate: start, endDate: end }],
     dimensions: [{ name: 'pagePath' }],
@@ -304,14 +310,22 @@ export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT)
       },
     },
   };
-  const res = await fetchRetry(url, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
+  const res = await runReport(body);
   if (!res.ok) throw new Error(`ga4 engagement ${res.status}: ${(await res.text()).slice(0, 300)}`);
   const data = await res.json();
   const rows = data.rows || [];
+
+  // #7511: la contraddizione #6703 e' una proprieta' del SINGOLO giorno, e la
+  // richiesta qui sopra e' aggregata sui 7 giorni della finestra — dove la
+  // giornata in lag annega fra le sane e il verdetto per-lato torna
+  // `reliable` proprio nel caso da intercettare. Stessa finestra e stesso
+  // filtro (le due pagine dell'esperimento), aggregate per sola `date`: ~7
+  // righe, nessun prodotto con `pagePath`.
+  const dailyEngagement = await fetchDailyEngagementVerdict({
+    runReport,
+    dateRanges: body.dateRanges,
+    dimensionFilter: body.dimensionFilter,
+  });
   const pick = (path) => {
     const row = rows.find((r) => r.dimensionValues?.[0]?.value === path);
     if (!row) return null;
@@ -325,6 +339,10 @@ export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT)
       engagementRate: num(3),
       averageSessionDuration: num(2),
     });
+    // Il verdetto per-giorno prevale su quello dell'aggregato: e' l'aggregato
+    // a nascondere la contraddizione, non a rivelarla. Quello per-lato resta
+    // come secondo canale, per quando la finestra e' pulita.
+    const effective = dailyEngagement.reliable ? verdict : dailyEngagement;
     return {
       sessions: num(0),
       pageViews: num(1),
@@ -332,11 +350,15 @@ export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT)
       engagementRatePct: num(3) !== null ? Number((num(3) * 100).toFixed(1)) : null,
       bounceRatePct: num(4) !== null ? Number((num(4) * 100).toFixed(1)) : null,
       pageViewsPerSession: num(5) !== null ? Number(num(5).toFixed(2)) : null,
-      engagementReliable: verdict.reliable,
-      engagementUnreliableReason: verdict.reason,
+      engagementReliable: effective.reliable,
+      engagementUnreliableReason: effective.reason,
     };
   };
-  return { control: pick(experiment.control.path), treatment: pick(experiment.treatment.path) };
+  return {
+    control: pick(experiment.control.path),
+    treatment: pick(experiment.treatment.path),
+    windowEngagement: dailyEngagement,
+  };
 }
 
 export function computeEngagementDeltas(control, treatment) {

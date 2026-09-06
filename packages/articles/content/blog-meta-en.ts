@@ -11466,6 +11466,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.colacem-sostenibilita-2025.title': 'Colacem: 46 million in environmental investments',
     'blog.article.colacem-sostenibilita-2025.excerpt': 'In the three-year period 2023-2025, Colacem invested over 46 million euros in the environment, with a focus on recycled materials and alternative fuels.',
     'blog.article.colacem-sostenibilita-2025.imageAlt': 'Aerial view of Colacem\'s Caravate plant in Varese, Italy, showcasing its industrial landscape and environmental initiatives.',
+    'blog.article.giussano-como-ticino-frontaliere.title': 'Living in Giussano, working in Ticino: frontier guide',
+    'blog.article.giussano-como-ticino-frontaliere.excerpt': 'Permit G, tax at source, AVS, LAMal: complete guide for border workers from Giussano (Como) working in Ticino. Taxation, time, costs.',
+    'blog.article.giussano-como-ticino-frontaliere.imageAlt': 'Aerial view of Lugano on Lake Ceresio with the Alps in the background, a major work hub for Giussano-Ticino commuters',
 };
 
 export default blogMetaEn;
