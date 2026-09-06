@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
-import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { dedupeLocationCandidates, evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, createSpecUrlPolicy } from './prospector/spec-crawler.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 import { extractLinks } from './prospector/careers-trail.mjs';
@@ -178,10 +178,13 @@ export async function fetchJobListings(runtime = {}) {
       if (generic.authoritativeLocationConflict) {
         throw new Error(`Recruitingapp-1123 detail location evidence conflicts for vacancy ${listing.vacancyId}`);
       }
-      const rawCandidates = [
+      // The generic cascade and the Umantis extractor read the same detail
+      // page: when both recognise the workplace the candidate arrives twice,
+      // and a duplicate is not corroboration.
+      const rawCandidates = dedupeLocationCandidates([
         ...(generic.locationCandidates || []),
         ...(umantis.locationCandidates || []),
-      ];
+      ]);
       if (rawCandidates.length === 0) {
         throw new Error(`Recruitingapp-1123 detail location is missing for vacancy ${listing.vacancyId}`);
       }

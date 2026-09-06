@@ -252,6 +252,48 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
 }
 
 /**
+ * Stable identity of a location evidence candidate: the six address fields
+ * that make two candidates the same place. Anything else a producer hangs on
+ * the object (source url, extractor name) is provenance, not identity.
+ *
+ * Exported because folding evidence into a row has to be idempotent: the
+ * accumulator and the voter must agree on what "already there" means, or
+ * `f(f(row))` grows the array while the vote sees one candidate.
+ *
+ * @param {any} candidate
+ * @returns {string}
+ */
+export function locationEvidenceKey(candidate) {
+  if (typeof candidate === 'string') return [candidate.trim(), '', '', '', '', ''].join('\u0000');
+  return [
+    String(candidate?.location || '').trim(),
+    String(candidate?.addressCountry || candidate?.country || '').trim(),
+    String(candidate?.addressLocality || '').trim(),
+    String(candidate?.addressRegion || '').trim(),
+    String(candidate?.postalCode || '').trim(),
+    String(candidate?.streetAddress || '').trim(),
+  ].join('\u0000');
+}
+
+/**
+ * Drop candidates that repeat a place already present, keeping the first
+ * occurrence and the original objects untouched. No filtering, no
+ * normalisation: this is deduplication, the grading stays with the voter.
+ *
+ * @param {any[]} candidates
+ * @returns {any[]}
+ */
+export function dedupeLocationCandidates(candidates = []) {
+  const seen = new Set();
+  return candidates.filter((candidate) => {
+    const key = locationEvidenceKey(candidate);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/**
  * @param {any} record
  * @returns {LocationEvidenceCandidate[]}
  */
@@ -284,14 +326,7 @@ export function locationEvidenceCandidates(record = {}) {
         })
     .filter((candidate) => {
       if (!candidate.location && !candidate.addressCountry) return false;
-      const key = [
-        candidate.location,
-        candidate.addressCountry,
-        candidate.addressLocality,
-        candidate.addressRegion,
-        candidate.postalCode,
-        candidate.streetAddress,
-      ].join('\u0000');
+      const key = locationEvidenceKey(candidate);
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
