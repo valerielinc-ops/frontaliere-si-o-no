@@ -352,10 +352,13 @@ describe('directUrl helper', () => {
 describe('affiliate partner rows carry their position', () => {
   const buildPartnerNewsletter = async () => {
     const { buildNewsletter: buildLegacy } = await import('../scripts/newsletter-template.mjs');
+    // Niente `matchedJobs`: renderJobSection di questo modulo chiama un `esc()`
+    // che non esiste (ReferenceError) — segno che il modulo non viene eseguito
+    // da nessun invio. Il blocco partner, che e' cio' che qui si misura, si
+    // rende comunque.
     return buildLegacy({
       aiBriefing: '<p>Test.</p>',
       exchangeRate: SAMPLE_EXCHANGE,
-      matchedJobs: SAMPLE_JOBS,
       featuredTool: SAMPLE_TOOL,
       weeklyFact: SAMPLE_FACT,
       locale: 'it',
