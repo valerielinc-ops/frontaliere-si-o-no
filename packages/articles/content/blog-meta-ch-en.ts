@@ -5728,6 +5728,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-canton-vallese.title': 'AVS and complementary services in the Canton of Valais: practical guide',
     'blog.article.avs-prestazioni-complementari-canton-vallese.excerpt': 'Find out how the AVS and complementary services work in the Canton of Valais, with a focus on the cantonal compensation fund and the calculation of the annuity.',
     'blog.article.avs-prestazioni-complementari-canton-vallese.imageAlt': 'Panoramic view of Lake Lugano with Monte San Salvatore',
+    'blog.article.attacco-hacker-schweizerhof.title': 'Hacker attack on the hotel, about 10,000 customers alerted',
+    'blog.article.attacco-hacker-schweizerhof.excerpt': 'The Hotel Schweizerhof in Lenzerheide was the victim of a hacker attack. Approximately 10,000 customers were alerted.',
+    'blog.article.attacco-hacker-schweizerhof.imageAlt': 'Image of a Swiss hotel with a hacked computer in the foreground',
 };
 
 export default blogMetaChEn;

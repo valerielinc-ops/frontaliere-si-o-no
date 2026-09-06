@@ -5728,6 +5728,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-canton-vallese.title': 'AHV und Ergänzungsleistungen im Kanton Wallis: Praxisleitfaden',
     'blog.article.avs-prestazioni-complementari-canton-vallese.excerpt': 'Erfahren Sie, wie die AHV und die Ergänzungsleistungen im Kanton Wallis funktionieren, mit Fokus auf die kantonale Ausgleichskasse und die Rentenberechnung.',
     'blog.article.avs-prestazioni-complementari-canton-vallese.imageAlt': 'Panoramablick auf den Luganersee mit dem Monte San Salvatore',
+    'blog.article.attacco-hacker-schweizerhof.title': 'Hackerangriff auf Hotel, ca. 10\'000 Kunden alarmiert',
+    'blog.article.attacco-hacker-schweizerhof.excerpt': 'Das Hotel Schweizerhof in Lenzerheide wurde Opfer eines Hackerangriffs. Rund 10\'000 Kunden wurden alarmiert.',
+    'blog.article.attacco-hacker-schweizerhof.imageAlt': 'Bild eines Schweizer Hotels mit einem gehackten Computer im Vordergrund',
 };
 
 export default blogMetaChDe;

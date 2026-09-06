@@ -74354,6 +74354,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attacco-hacker-schweizerhof': {
+    title: 'Attacco hacker all\'hotel, allertati circa 10\'000 clienti',
+    description: 'L\'Hotel Schweizerhof di Lenzerheide è stato vittima di un attacco hacker. Circa 10\'000 clienti sono stati allertati. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, hacker, hotel, allertati',
+    ogTitle: 'Attacco hacker all\'hotel, allertati circa 10\'000 clienti',
+    ogDescription: 'L\'Hotel Schweizerhof di Lenzerheide è stato vittima di un attacco hacker. Circa 10\'000 clienti sono stati allertati. I truffatori chiedono dati personali e numeri di carte di credito via WhatsApp.',
+    canonicalPath: '/articoli-svizzera/attacco-hacker-schweizerhof/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco hacker all'hotel, allertati circa 10'000 clienti",
+      "description": "L'Hotel Schweizerhof di Lenzerheide è stato vittima di un attacco hacker. Circa 10'000 clienti sono stati allertati. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attacco-hacker-schweizerhof.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un hotel svizzero con un computer hackerato in primo piano"
+      },
+      "datePublished": "2026-09-06T11:37:02+00:00",
+      "dateModified": "2026-09-06T11:37:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-hacker-schweizerhof/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
