@@ -11476,6 +11476,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno frontaliere: guida a costi e tasse 2024',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'Dal 2024 la franchigia per i nuovi frontalieri è €10.000. Come vivere a Garzeno e lavorare in Ticino: imposta alla fonte, permesso G, AVS, LAMal e procedure pratiche.',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Veduta del Lago di Lugano dal Ticino svizzero, con villages lombardi sullo sfondo, simbolo del pendolarismo transfrontaliero tra la Svizzera e l\'Italia.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Vivere a Pianello del Lario e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita, le zone consigliate e i vantaggi/svantaggi del trasferimento.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaIt;

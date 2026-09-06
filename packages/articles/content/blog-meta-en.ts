@@ -11475,6 +11475,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno border: cost and tax guide 2024',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'From 2024, the deductible for new frontier workers is €10,000. How to live in Garzeno and work in Ticino: tax at source, G permit, AVS, LAMal and practical procedures.',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Lake Como view from Swiss Ticino, showing Lombardy villages across the border, a symbol of daily commuting between Switzerland and Italy.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Living in Pianello del Lario and working in Ticino as a border worker',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Find out about the connections, journey times, cost of living, recommended areas and the advantages/disadvantages of the transfer.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with Swiss mountains in the background',
 };
 
 export default blogMetaEn;

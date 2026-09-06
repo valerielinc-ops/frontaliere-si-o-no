@@ -11477,6 +11477,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno frontalier : guide des coûts et taxes 2024',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'À partir de 2024, la franchise pour les nouveaux frontaliers est de 10 000 € . Comment vivre à Garzeno et travailler au Tessin : impôt à la source, permis G, AVS, LAMal et procédures pratiques.',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Lac de Lugano depuis la Suisse, villages lombards au-delà de la frontière visibles, symbole du pendularisme transfrontalier.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Vivre à Pianello del Lario et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie, les zones recommandées et les avantages/inconvénients du transfert.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes suisses en arrière-plan',
 };
 
 export default blogMetaFr;

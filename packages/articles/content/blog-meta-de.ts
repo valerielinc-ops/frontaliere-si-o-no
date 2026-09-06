@@ -11474,6 +11474,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno frontier: Leitfaden zu Kosten und Gebühren 2024',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'Ab 2024 beträgt die Selbstbeteiligung für neue Grenzgänger € 10.000. Wie man in Garzeno lebt und im Tessin arbeitet: Quellensteuer, G-Genehmigung, AHV, KVG und praktische Verfahren.',
     'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Blick auf den Luganersee von der Schweizer Seite, mit lombardischen Dörfern jenseits der Grenze sichtbar—Symbol des Grenzpendels.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Wohnen in Pianello del Lario und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten, die empfohlenen Gebiete und die Vor-/Nachteile des Transfers.',
+    'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;
