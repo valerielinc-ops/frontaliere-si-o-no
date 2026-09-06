@@ -50,7 +50,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './lib/target-swiss-locations.mjs';
-import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
+import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -508,6 +508,7 @@ function parseCsodJob(rawJob) {
   // New API: externalDescription; old: description/jobDescription
   const descriptionRaw = rawJob.externalDescription || rawJob.description || rawJob.jobDescription || rawJob.shortDescription || '';
   const descriptionText = stripHtml(descriptionRaw);
+ let cityFromVacancyText = '';
  if (!city) {
   // Groupe Mutuel's career portal is Swiss-only (no country facet to lean
   // on) — an unresolved city here is a parse failure, not evidence of a
@@ -515,7 +516,8 @@ function parseCsodJob(rawJob) {
   // assemble-jobs-dataset.mjs's canton rescue: a real Swiss city named in
   // the description, falling back to Groupe Mutuel's HQ (Martigny) rather
   // than dropping the listing outright.
-  city = rescueSwissCityFromText(descriptionText) || COMPANY_HQ[GROUPE_MUTUEL_KEY].city;
+  cityFromVacancyText = rescueSwissCityFromText(descriptionText);
+  city = cityFromVacancyText || COMPANY_HQ[GROUPE_MUTUEL_KEY].city;
  }
 
   const canton = inferCanton(city);
@@ -575,7 +577,7 @@ function parseCsodJob(rawJob) {
 
   if (requisitionId) job.jobReqId = requisitionId;
 
-  return job;
+  return cityFromVacancyText ? markLocationDerivedFromVacancyText(job) : job;
 }
 
 async function fetchGroupeMutuelJobs() {
