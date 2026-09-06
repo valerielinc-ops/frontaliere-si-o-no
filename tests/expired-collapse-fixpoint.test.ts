@@ -32,11 +32,23 @@ import multipassFixture from './__fixtures__/expired-collapse-multipass-coop-tic
 const MAX_COLLAPSE_PASSES = 8;
 
 /**
- * Caso peggiore MISURATO sulle 549 slice committate (2026-09-06). E' un
- * cricchetto: un fix che rende il collasso piu' idempotente lo lascia verde,
- * uno che allunga la cascata lo fa rosso prima del merge.
+ * Profilo MISURATO di ogni fixture (2026-09-06), letto come CRICCHETTO: ogni
+ * soglia e' un massimo, quindi un fix che collassa di piu' o converge prima
+ * resta verde, mentre uno che allunga la cascata, lascia piu' superstiti o
+ * moltiplica i rifiuti del cap diventa rosso prima del merge — che e' il
+ * segnale che qui manca(va) del tutto.
+ *
+ * Le soglie sono discriminanti, non decorative: verificato per mutazione il
+ * 2026-09-06 sul solo fixture a cascata — tenere le voci rifiutate a reclamare
+ * le proprie rotte (`keep(entry)` invece di `claimsRoutes: false`) porta i
+ * superstiti da 3 a 4, e togliere l'ordinamento canonico dell'input porta i
+ * rifiuti del cap da 1 a 2. Entrambe passavano con le sole asserzioni di
+ * convergenza.
  */
-const WORST_OBSERVED_PASSES = 3;
+const PROFILES: Record<string, { maxPasses: number; maxSurvivors: number; maxCapRefused: number }> = {
+  'cap refusal (roche)': { maxPasses: 1, maxSurvivors: 2, maxCapRefused: 1 },
+  'cascade (coop-ticino-locale-cache)': { maxPasses: 3, maxSurvivors: 3, maxCapRefused: 1 },
+};
 
 interface ArchiveEntry {
   companyKey?: string;
@@ -111,8 +123,9 @@ describe('collapseDuplicateRouteEntries fixed point', () => {
     ['cascade (coop-ticino-locale-cache)', multipassFixture as ArchiveEntry[]],
   ];
 
-  it.each(fixtures)('reaches a fixed point on %s, and never cycles', (_name, fixture) => {
+  it.each(fixtures)('reaches a fixed point on %s, and never cycles', (name, fixture) => {
     const probe = iterateToFixedPoint(fixture);
+    const profile = PROFILES[name];
 
     // La fixture deve ancora esercitare la forma DIFFICILE. Se un cambio la
     // rende fondibile, il test resterebbe verde senza piu' osservare nulla:
@@ -122,7 +135,9 @@ describe('collapseDuplicateRouteEntries fixed point', () => {
     // che si alternano riscrivono le slice a ogni cron per sempre.
     expect(probe.cycleLength, 'collapse oscillates between outputs').toBe(0);
     expect(probe.passes).toBeLessThanOrEqual(MAX_COLLAPSE_PASSES);
-    expect(probe.passes).toBeLessThanOrEqual(WORST_OBSERVED_PASSES);
+    expect(probe.passes, 'convergence got slower').toBeLessThanOrEqual(profile.maxPasses);
+    expect(probe.entries.length, 'fewer entries collapsed than before').toBeLessThanOrEqual(profile.maxSurvivors);
+    expect(probe.capRefusedFirstPass, 'more merges refused by the cap than before').toBeLessThanOrEqual(profile.maxCapRefused);
     expect(probe.routesLost).toEqual([]);
   });
 
