@@ -92,6 +92,11 @@
  * rosso. Mai fail-open: un rosso d'ambiente residuo è preferibile a un verde
  * che non ha misurato niente.
  *
+ * La degradazione vale SOLO in locale: sotto `GITHUB_ACTIONS` un probe sparse
+ * torna a essere exit 2, perché lì il checkout è sparse ma coi target dei
+ * symlink materializzati (profilo di `tests.yml`) e una misura degradata
+ * sarebbe un gate di merge abbassato senza che nessuno l'abbia deciso.
+ *
  * `--write-baseline` resta VIETATO in sparse (exit 2), issue #6061 item 2:
  * riscriverla lì cementerebbe ~126 falsi `TS2307` nel ratchet. Il divieto vale
  * finché il worktree è davvero parziale — non è una condizione che scade da
@@ -264,6 +269,24 @@ if (unknown.length) {
 }
 
 const sparse = isWorktreeIncomplete();
+
+// La modalità degradata è per il LOCALE. In CI resta l'abort di sempre: il job
+// `vitest (unit + integration)` gira su un checkout sparse anche lui, ma con i
+// target dei symlink materializzati file per file (`tests.yml`,
+// `/packages/articles/content/blog-articles-data.ts` & co.), quindi il probe è
+// falso e la misura è piena. Se un giorno quel profilo perdesse un carve-out,
+// senza questo guard il check che GOVERNA l'auto-merge scivolerebbe in silenzio
+// nella misura degradata — cioè un gate abbassato senza che nessuno l'abbia
+// deciso (non-negotiable #1). Meglio rosso e visibile.
+if (sparse && process.env.GITHUB_ACTIONS === 'true') {
+  console.error('✗ worktree incompleto in CI: data/blog-articles-data.ts non risolve.');
+  console.error('  Qui il checkout DEVE essere completo per i target dei symlink: la modalità degradata di #7677');
+  console.error('  è per il locale, non per il check che governa l’auto-merge.');
+  console.error('  Guarda il profilo sparse del job in .github/workflows/tests.yml: mancano i carve-out');
+  console.error('  file-scoped sotto /packages/articles/content/ (blog-articles-data.ts, swiss-articles-data.ts, …).');
+  process.exit(2);
+}
+
 const missingTracked = sparse ? trackedButAbsent(ROOT) : new Set();
 
 if (sparse && args.includes('--write-baseline')) {

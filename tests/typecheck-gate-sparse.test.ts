@@ -119,6 +119,16 @@ describe('contratto del gate in sparse (#7677)', () => {
     expect(GATE_SRC).toContain('classifySparseErrors');
   });
 
+  it('in CI la modalità degradata non si attiva: il gate di merge resta pieno', () => {
+    // `tests.yml` fa un checkout sparse anche in CI, ma materializza i target
+    // dei symlink file per file. Se quel profilo perdesse un carve-out, senza
+    // questo guard il check che governa l'auto-merge misurerebbe in modo
+    // degradato senza dirlo: un gate abbassato per errore (non-negotiable #1).
+    expect(GATE_SRC).toMatch(/if \(sparse && process\.env\.GITHUB_ACTIONS === 'true'\) \{/);
+    const guard = GATE_SRC.slice(GATE_SRC.indexOf("if (sparse && process.env.GITHUB_ACTIONS === 'true')"));
+    expect(guard.slice(0, guard.indexOf('const missingTracked'))).toContain('process.exit(2)');
+  });
+
   it('--write-baseline resta vietato in sparse e dice come verificare il blocco', () => {
     // VISION.md: un `blocked:` non scade da solo — il messaggio deve portare il
     // comando con cui si riconferma qui e ora, non solo l'affermazione.
