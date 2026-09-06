@@ -403844,7 +403844,8 @@
     "canonicalSlug": "tecnico-a-di-servizio-heizung-sanitar-100-angele-ag-feuer-luft-wasser-bronschhofen-sg",
     "slugByLocale": {
       "it": "tecnico-a-di-servizio-heizung-sanitar-100-angele-ag-feuer-luft-wasser-bronschhofen-sg",
-      "fr": "servicetechniker-in-heizung-sanitar-100-angele-ag-feuer-luft-wasser-bronschhofen-sg"
+      "fr": "servicetechniker-in-heizung-sanitar-100-angele-ag-feuer-luft-wasser-bronschhofen-sg",
+      "en": "service-technician-heating-sanitary-100-angele-ag-feuer-luft-wasser-bronschhofen-sg"
     },
     "createdAt": "2026-07-25",
     "canton": "SG"
@@ -403865,7 +403866,8 @@
     "slugByLocale": {
       "it": "heizungsinstallateur-in-100-demuth-ag-baden-dattwil",
       "en": "heating-installer-100-demuth-ag-baden-dattwil",
-      "fr": "installation-de-chauffage-100-demuth-ag-baden-dattwil"
+      "fr": "installation-de-chauffage-100-demuth-ag-baden-dattwil",
+      "de": "heizungsinstallation-in-100-demuth-ag-baden-dattwil"
     },
     "createdAt": "2026-07-25",
     "canton": "AG"
@@ -403875,7 +403877,8 @@
     "slugByLocale": {
       "it": "copritetto-100-sada-ag-glattpark-opfikon",
       "en": "roofing-100-sada-ag-glattpark-opfikon",
-      "fr": "dachdecker-in-100-sada-ag-glattpark-opfikon"
+      "fr": "dachdecker-in-100-sada-ag-glattpark-opfikon",
+      "de": "dachdecker-in-1010-sada-ag-glattpark-opfikon"
     },
     "createdAt": "2026-07-25",
     "canton": "ZH"
@@ -642542,7 +642545,10 @@
   "url|https://careers.marriott.com/cook-apprentice/job/f029723df783f9a0ba97365a6212533d": {
     "canonicalSlug": "cook-apprentice-marriott-geneva",
     "slugByLocale": {
-      "en": "cook-apprentice-marriott-geneva"
+      "en": "cook-apprentice-marriott-geneva",
+      "it": "cuocere-marriott-international-geneva",
+      "de": "kochlehrling-marriott-international-geneva",
+      "fr": "apprentis-cuisinier-marriott-international-geneva"
     },
     "createdAt": "2026-09-03",
     "canton": "GE"
@@ -644031,7 +644037,9 @@
     "canonicalSlug": "sachbearbeiter-in-administration-o-technischer-kaufmann-kauffrau-80-100-caviezel-ag-davos-platz",
     "slugByLocale": {
       "it": "sachbearbeiter-in-administration-o-technischer-kaufmann-kauffrau-80-100-caviezel-ag-davos-platz",
-      "de": "sachbearbeiter-in-administration-oder-technischer-kaufmann-kauffrau-80-100-caviezel-ag-davos-platz"
+      "de": "sachbearbeiter-in-administration-oder-technischer-kaufmann-kauffrau-80-100-caviezel-ag-davos-platz",
+      "en": "officer-administration-or-technical-merchant-businesswoman-80-100-caviezel-ag-davos-platz",
+      "fr": "agente-administration-ou-technique-merchant-entreprise-80-100-caviezel-ag-davos-platz"
     },
     "createdAt": "2026-09-05",
     "canton": "GR"
@@ -644644,5 +644652,134 @@
     },
     "createdAt": "2026-09-06",
     "canton": "FR"
+  },
+  "url|https://tether.recruitee.com/o/devops-engineer-100-remote-12": {
+    "canonicalSlug": "devops-ingegnere-100-remote-tether-operations-lugano",
+    "slugByLocale": {
+      "it": "devops-ingegnere-100-remote-tether-operations-lugano",
+      "en": "devops-engineer-100-remote-tether-ch",
+      "de": "devops-ingenieur-100-remote-tether-operations-lugano",
+      "fr": "devops-ingenieur-100-remote-tether-operations-lugano"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "TI"
+  },
+  "id|livit.ch|2f290c46-bc0c-4311-843d-2abe075cc985": {
+    "canonicalSlug": "responsabile-niederlassung-livit-ag-st-gallen",
+    "slugByLocale": {
+      "it": "responsabile-niederlassung-livit-ag-st-gallen",
+      "en": "head-in-office-livit-ag-st-gallen",
+      "de": "leiter-in-niederlassung-livit-st-gallen",
+      "fr": "chef-en-poste-livit-ag-st-gallen"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "SG"
+  },
+  "id|livit.ch|5c06f010-7f83-4eae-9d60-793a41a342c8": {
+    "canonicalSlug": "rivenditore-senior-in-livit-ag-luzern",
+    "slugByLocale": {
+      "it": "rivenditore-senior-in-livit-ag-luzern",
+      "en": "senior-marketer-in-livit-ag-luzern",
+      "de": "senior-vermarkter-in-livit-luzern",
+      "fr": "marche-senior-en-livit-ag-luzern"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "LU"
+  },
+  "id|livit.ch|741fca0a-c31c-499a-a663-e3cf8a4c3966": {
+    "canonicalSlug": "responsabile-della-proprieta-in-livit-ag-luzern",
+    "slugByLocale": {
+      "it": "responsabile-della-proprieta-in-livit-ag-luzern",
+      "en": "property-manager-in-livit-ag-luzern",
+      "de": "immobilienbewirtschafter-in-livit-luzern",
+      "fr": "gestionnaire-immobilier-in-livit-ag-luzern"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "LU"
+  },
+  "id|livit.ch|9512cc2f-5989-44a8-99d5-dfcb493fe13a": {
+    "canonicalSlug": "gestione-commerciale-del-noleggio-di-stage-2027-wms-o-hms-livit-ag-zurich",
+    "slugByLocale": {
+      "it": "gestione-commerciale-del-noleggio-di-stage-2027-wms-o-hms-livit-ag-zurich",
+      "en": "commercial-internship-rental-management-2027-wms-or-hms-livit-ag-zurich",
+      "de": "kaufmannisches-praktikum-vermietungsmanagement-2027-wms-oder-hms-livit-zurich",
+      "fr": "gestion-de-la-location-de-stages-commerciaux-2027-smf-ou-smh-livit-ag-zurich"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "ZH"
+  },
+  "id|livit.ch|77b53d0d-0fb1-4fcf-a560-26fb10bd922c": {
+    "canonicalSlug": "commercial-internship-real-estate-management-2027-wms-o-hms-livit-ag-basel",
+    "slugByLocale": {
+      "it": "commercial-internship-real-estate-management-2027-wms-o-hms-livit-ag-basel",
+      "en": "commercial-internship-real-estate-management-2027-wms-or-hms-livit-ag-basel",
+      "de": "kaufmannisches-praktikum-immobilienbewirtschaftung-2027-wms-oder-hms-livit-basel",
+      "fr": "gestion-immobiliere-des-stages-commerciaux-2027-smf-ou-sgh-livit-ag-basel"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "BS"
+  },
+  "id|livit.ch|858db28d-8ed5-48f0-9036-992e3325cbb0": {
+    "canonicalSlug": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen",
+    "slugByLocale": {
+      "it": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen",
+      "de": "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
+      "fr": "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-st-gallen"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "SG"
+  },
+  "id|livit.ch|251dc831-4d7b-4f9b-8ce3-b342f084dcfe": {
+    "canonicalSlug": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
+    "slugByLocale": {
+      "it": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
+      "de": "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
+      "fr": "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "SO"
+  },
+  "id|livit.ch|f22a899b-e63b-4a32-b987-de50d7e00d36": {
+    "canonicalSlug": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich",
+    "slugByLocale": {
+      "it": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich",
+      "de": "kaufmann-frau-efz-immobilien-august-2027-livit-zurich",
+      "fr": "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-zurich"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "ZH"
+  },
+  "id|livit.ch|9296f28a-b516-432c-82b3-40ba7a131a13": {
+    "canonicalSlug": "responsabile-della-proprieta-in-livit-ag-zurich",
+    "slugByLocale": {
+      "it": "responsabile-della-proprieta-in-livit-ag-zurich",
+      "en": "property-manager-in-livit-ag-zurich",
+      "de": "immobilienbewirtschafter-in-livit-zurich",
+      "fr": "gestionnaire-immobilier-in-livit-ag-zurich"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "ZH"
+  },
+  "id|livit.ch|d1500b2d-6ec6-4cd5-9ff8-c2a6a8d96645": {
+    "canonicalSlug": "senior-property-manager-in-livit-ag-zurich",
+    "slugByLocale": {
+      "it": "senior-property-manager-in-livit-ag-zurich",
+      "en": "senior-property-manager-in-livit-ag-zurich",
+      "de": "senior-immobilienbewirtschafter-in-livit-zurich",
+      "fr": "directeur-immobilier-principal-en-livit-ag-zurich"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "ZH"
+  },
+  "id|livit.ch|4503877a-c812-4d52-aded-0e401577b992": {
+    "canonicalSlug": "direttore-dell-edificio-commerciale-360-livit-ag-geneve",
+    "slugByLocale": {
+      "it": "direttore-dell-edificio-commerciale-360-livit-ag-geneve",
+      "en": "commercial-building-manager-360-livit-ag-geneve",
+      "de": "gewerblicher-gebaudemanager-360-livit-ag-geneve",
+      "fr": "gerant-e-d-immeubles-commercial-360-livit-geneve"
+    },
+    "createdAt": "2026-09-06",
+    "canton": "GE"
   }
 }

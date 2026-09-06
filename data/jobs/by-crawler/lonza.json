@@ -2452,7 +2452,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-operational-excellence-pmo-microbial-operations-lonza-visp"
+        ],
+        "fr": [
+          "directeur-operational-excellence-pmo-microbial-operations-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-operational-excellence-pmo-microbial-operations-lonza-visp"
+      ]
     },
     {
       "id": "lonza-ae1b4bd0dcae",
@@ -12605,11 +12616,13 @@
       "crawledAt": "2026-09-05T23:09:48.196Z",
       "jobReqId": "R78157",
       "previousSlugs": [
-        "laboratory-data-reviewer-in-qc-microbiology-f-m-d-80-100-lonza-ch"
+        "laboratory-data-reviewer-in-qc-microbiology-f-m-d-80-100-lonza-ch",
+        "laboratory-data-reviewer-in-qc-microbiology-f-m-d-80-100-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-data-reviewer-in-qc-microbiology-f-m-d-80-100-lonza-ch"
+          "laboratory-data-reviewer-in-qc-microbiology-f-m-d-80-100-lonza-ch",
+          "laboratory-data-reviewer-in-qc-microbiology-f-m-d-80-100-lonza-visp"
         ],
         "fr": [
           "laboratory-data-reviewer-in-qc-microbiology-f-m-d-80-100-lonza-ch"
