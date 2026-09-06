@@ -5767,6 +5767,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riflessione-neutralita-svizzera-delbiaggio.title': 'Neutralità svizzera: il pensiero di Elio Del Biaggio',
     'blog.article.riflessione-neutralita-svizzera-delbiaggio.excerpt': 'Elio Del Biaggio analizza il ruolo della neutralità come pilastro di stabilità, indipendenza e identità nazionale nel contesto geopolitico attuale.',
     'blog.article.riflessione-neutralita-svizzera-delbiaggio.imageAlt': 'Bandiera svizzera che sventola sopra le Alpi svizzere.',
+    'blog.article.hotel-lenzerheide-hacker-avviso.title': 'Attacco hacker Hotel Schweizerhof: 10.000 clienti avvisati',
+    'blog.article.hotel-lenzerheide-hacker-avviso.excerpt': 'L\'Hotel Schweizerhof di Lenzerheide vittima di attacco hacker. Circa 10.000 clienti avvisati di possibili tentativi di frode con offerta fittizia di 250 franchi.',
+    'blog.article.hotel-lenzerheide-hacker-avviso.imageAlt': 'Hotel di lusso svizzero con sfondo montagne in luce dorata alpina',
 };
 
 export default blogMetaChIt;

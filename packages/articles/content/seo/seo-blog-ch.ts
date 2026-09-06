@@ -74861,6 +74861,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hotel-lenzerheide-hacker-avviso': {
+    title: 'Attacco hacker Hotel Schweizerhof: 10.000 clienti avvisati',
+    description: 'L\'Hotel Schweizerhof di Lenzerheide avverte 10.000 clienti di un attacco hacker ai sistemi di prenotazione. Scopri come proteggerti dai tentativi di frode',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, hacker, hotel, schweizerhof',
+    ogTitle: 'Attacco hacker Hotel Schweizerhof: 10.000 clienti avvisati',
+    ogDescription: 'L\'Hotel Schweizerhof di Lenzerheide notifica circa 10.000 clienti di un attacco ai sistemi di prenotazione. I truffatori cercano dati personali con offerta fittizia di credito da 250 franchi. Ecco come proteggerti.',
+    canonicalPath: '/articoli-svizzera/hotel-lenzerheide-hacker-avviso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco hacker Hotel Schweizerhof: 10.000 clienti avvisati",
+      "description": "L'Hotel Schweizerhof di Lenzerheide avverte 10.000 clienti di un attacco hacker ai sistemi di prenotazione. Scopri come proteggerti dai tentativi di frode",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hotel-lenzerheide-hacker-avviso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Hotel di lusso svizzero con sfondo montagne in luce dorata alpina"
+      },
+      "datePublished": "2026-09-06T18:04:40+00:00",
+      "dateModified": "2026-09-06T18:04:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hotel-lenzerheide-hacker-avviso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
