@@ -5650,6 +5650,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.title': 'Ouvrir une entreprise à Soleure : Registre et coûts',
     'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.excerpt': 'Découvrez les étapes bureaucratiques et financières pour démarrer une entreprise dans le canton de Soleure, y compris les frais d\'inscription et les obligations d\'assurance.',
     'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.imageAlt': 'Bureau d\'enregistrement des entreprises dans le canton de Soleure',
+    'blog.article.aprire-attivita-soletta-costi-procedure.title': 'Ouvrir une entreprise à Soleure : coûts et procédures',
+    'blog.article.aprire-attivita-soletta-costi-procedure.excerpt': 'Des formes juridiques aux frais d\'inscription au registre du commerce, les obligations d\'assurance : comment démarrer une entreprise dans le canton de Soleure.',
+    'blog.article.aprire-attivita-soletta-costi-procedure.imageAlt': 'Un espace de bureau moderne suisse avec bureau, ordinateur et documents commerciaux.',
 };
 
 export default blogMetaChFr;
