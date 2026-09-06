@@ -34,6 +34,10 @@ import {
   goPathFromId,
   getEnabledPartner,
 } from './affiliatePartnersRegistry.js';
+import {
+  PLACEMENT_PARAM,
+  newsletterRecommendedPlacement,
+} from './newsletterPlacements.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -227,16 +231,23 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
   params.set('utm_medium', 'email');
   params.set('utm_campaign', campaign || 'recommended');
   params.set('utm_content', rec.id);
-  params.set('pos', placement || `${campaign || 'recommended'}-${rec.id}`);
+  params.set(PLACEMENT_PARAM, placement || `${campaign || 'recommended'}-${rec.id}`);
   if (acquisitionSource) params.set('as', String(acquisitionSource));
 
   if (rec.kind === 'affiliate' && rec.goId) {
-    // Placement slot, same shape as the newsletter partner rows
-    // (`nl-partner-<n>-<id>` in scripts/newsletter-template.mjs): utm_campaign
-    // says WHICH email, `pos` says WHERE inside it the click came from, so two
-    // links to the same /go/{id}/ stay attributable. The /go/ page is a static
-    // redirect that ignores the query today — the param is inert until it reads it.
-    params.set('pos', `nl-recommended-${rec.goId}`);
+    // Placement slot, same shape family as the newsletter partner rows
+    // (`nl-partner-<n>-<id>`): utm_campaign says WHICH email, the placement
+    // param says WHERE inside it the click came from, so two links to the same
+    // /go/{id}/ stay attributable. Both the param NAME and the shape come from
+    // newsletterPlacements.js, the single source shared with the consumer
+    // (build-plugins/affiliateRedirectPlugin.ts) — a divergence there produces
+    // an EMPTY pubref without failing, so it must not be spelled out twice.
+    // Un `placement` esplicito vince: e' il chiamante che dichiara lo slot.
+    // Senza, la forma canonica del blocco, che porta la campagna perche' le
+    // quattro superfici che lo rendono puntano tutte allo stesso /go/{goId}/.
+    if (!placement) {
+      params.set(PLACEMENT_PARAM, newsletterRecommendedPlacement(campaign, rec.goId));
+    }
     // goPathFromId already carries the canonical trailing slash before the query.
     return `${BASE_URL}${goPathFromId(rec.goId)}?${params.toString()}`;
   }
