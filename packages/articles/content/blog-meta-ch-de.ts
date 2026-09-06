@@ -5644,6 +5644,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-soletta.title': 'AHV und Ergänzungsleistungen im Kanton Solothurn',
     'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'Die kantonale Ausgleichskasse Solothurn betreibt die erste AHV-Säule und berechnet Renten und Ergänzungsleistungen zur Sicherung des Existenzminimums.',
     'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'Ansicht der Stadt Bellinzona mit ihren mittelalterlichen Burgen.',
+    'blog.article.avs-soletta-cassa-compensazione.title': 'AHV und Ergänzungsleistungen in Solothurn',
+    'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen im Kanton Solothurn: So funktioniert das lokale Vorsorgesystem.',
+    'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Schweizer Kantonsamt mit älteren Bürgern, die Rentendokumentation und Formulare besprechen.',
 };
 
 export default blogMetaChDe;

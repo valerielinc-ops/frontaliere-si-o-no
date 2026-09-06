@@ -5644,6 +5644,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-soletta.title': 'AVS and complementary services in the Canton of Solothurn',
     'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'The cantonal compensation fund of Solothurn manages the first AVS pillar, calculating complementary annuities and benefits to ensure the minimum living.',
     'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'View of the city of Bellinzona with its medieval castles.',
+    'blog.article.avs-soletta-cassa-compensazione.title': 'AVS and complementary performance in the Insole',
+    'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Compensation fund, calculation of AVS annuity and complementary benefits in the Canton of Solothurn: how the local social security system works.',
+    'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Swiss cantonal office with elderly residents discussing pension documentation and paperwork.',
 };
 
 export default blogMetaChEn;

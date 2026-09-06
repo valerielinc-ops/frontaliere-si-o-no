@@ -5644,6 +5644,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-soletta.title': 'AVS e prestazioni complementari nel Cantone di Soletta',
     'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'La cassa di compensazione cantonale di Soletta gestisce il primo pilastro AVS, calcolando rendite e prestazioni complementari per garantire il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'Vista della città di Bellinzona con i suoi castelli medievali.',
+    'blog.article.avs-soletta-cassa-compensazione.title': 'AVS e prestazioni complementari nel Soletta',
+    'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Cassa di compensazione, calcolo rendita AVS e prestazioni complementari nel Cantone Soletta: come funziona il sistema previdenziale locale.',
+    'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Ufficio amministrativo cantonale svizzero con cittadini anziani che discutono documentazione pensionistica.',
 };
 
 export default blogMetaChIt;
