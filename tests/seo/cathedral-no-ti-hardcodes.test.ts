@@ -9,6 +9,134 @@ const FORBIDDEN = [
   "'trouver-emploi-tessin'",
 ];
 
+// ── Forme derivate del literal TI (#7674) ───────────────────────────────────
+// FORBIDDEN sopra e' una lista di stringhe fisse **con gli apici gia' dentro**,
+// passate a `grep -F`: intercetta `'cerca-lavoro-ticino'` e `"..."` e nient'altro.
+// Ma la tabella che il codice copia a mano non e' solo SECTION_LEGACY_TI: e'
+// anche SECTION_LEGACY_TI_PATH, che emette `/cerca-lavoro-ticino/` — con gli
+// slash. Una copia scritta in quella forma non produceva nessun match e restava
+// invisibile al guardiano, che quindi non poteva sostenere la claim «una
+// venticinquesima copia non puo' comparire in silenzio».
+//
+// Qui il segmento e' matchato indipendentemente dalla delimitazione e da cio'
+// che lo SEGUE, dentro un literal di CODICE: stringa (`'x'`, `"x"`, `'/x'`,
+// `'x/'`, `'/x/'`), regex (`/\/x\//`), sub-path (`'/x/aziende/'`),
+// prefisso locale (`'/en/x/'`) e template interpolato
+// (`` `/x/${slug}/` ``, `` `${BASE_URL}/x/` ``) —
+// href di nav, tabelle per-locale, mappe di redirect e builder di path, cioe'
+// proprio la classe funnel-critical che il gate esiste per fermare. Restano
+// fuori per scelta le citazioni in PROSA — docblock con backtick, commenti,
+// copy editoriale — dove il literal e' la URL pubblica citata, non una
+// ri-dichiarazione della tabella: includerle porterebbe ~20 offender di sola
+// documentazione e trasformerebbe il gate in rumore. Un template SENZA
+// interpolazione (`` `/x/` ``) resta fuori per lo stesso motivo: e' citazione,
+// non costruzione.
+const TI_SECTION_SLUGS = [
+  'cerca-lavoro-ticino',
+  'find-jobs-ticino',
+  'jobs-im-tessin',
+  'trouver-emploi-tessin',
+];
+
+/**
+ * ERE (valida sia per `grep -E` sia per `new RegExp`) che riconosce lo slug come
+ * segmento intero dentro un literal di codice, con o senza slash delimitanti.
+ *
+ * L'alternativa 1 chiude su quote **o** slash: chiudere sulla sola quote
+ * (`/?${slug}/?['"]`) vedeva il segmento solo quando era l'INTERO literal e
+ * lasciava passare in silenzio ogni literal con sub-path. Lo slash finale non
+ * apre la prosa: la quote iniziale resta obbligatoria.
+ *
+ * L'alternativa 3 apre sul backtick e pretende `${` DOPO lo slug —
+ * `` `/x/${slug}/` ``. L'alternativa 4 pretente `${…}` PRIMA dello slug —
+ * `` `${BASE_URL}/x/` ``, la forma dominante di canonical/hreflang/JSON-LD.
+ * Senza la 4, ogni template interpolato con prefisso restava invisibile.
+ * Un template SENZA interpolazione (`` `/x/` ``) non matcha nessuna delle due.
+ *
+ * Le alternative 1/3/4 accettano un prefisso locale opzionale `(/[a-z]{2})?`
+ * prima dello slug: senza, `'/en/find-jobs-ticino/'` (href/redirect EN/DE/FR)
+ * restava invisibile — il delimitatore immediato vedeva `/en/` e basta.
+ */
+export function tiSegmentPattern(slug: string): string {
+  return `['"](/[a-z]{2})?/?${slug}(['"]|/)|\\\\/${slug}\\\\/|\`(/[a-z]{2})?/?${slug}/[^\`]*\\$\\{|\`[^\`]*\\$\\{[^\`]*\\}(/[a-z]{2})?/?${slug}/`;
+}
+
+/** JSON.stringify wraps in double quotes; bash still treats ` as command substitution inside them. */
+function grepEreArg(pattern: string): string {
+  return JSON.stringify(pattern).replace(/`/g, '\\`');
+}
+
+// ── Inventario congelato (ratchet, NON un esonero) ──────────────────────────
+// Le forme con slash/sub-path/template interpolato/prefisso locale
+// non erano vigilate: al momento in cui lo diventano il codice ne contiene
+// 235 in 54 file, dai href IT alle tabelle per-locale EN/DE/FR
+// (`'/en/find-jobs-ticino/'` in `staticPagesPlugin`, `legacyRedirectsPlugin`,
+// `blogContextualLinksData`) e ai `${BASE_URL}/x/` di canonical/hreflang.
+// Ripararle tutte non sta in una PR chirurgica; lasciarle non vigilate era
+// il difetto.
+//
+// Questo NON e' l'ALLOWLIST (che esonera per sempre) ne' il marker inline
+// (che esonera una riga con una ragione). E' un conteggio per file che puo'
+// solo SCENDERE: il test fallisce sia se un file supera il suo numero (un
+// hardcode NUOVO), sia se sta sotto (inventario stantio → si abbassa il
+// numero). Cosi' l'inventario converge a zero invece di marcire.
+const SEGMENT_BASELINE: Record<string, number> = {
+  'build-plugins/blogContextualLinksData.ts': 16,
+  'build-plugins/careerLandingsPlugin.ts': 8,
+  'build-plugins/cityJobsHub.ts': 1,
+  'build-plugins/editorialContent.ts': 5,
+  'build-plugins/exchangeRatePagesPlugin.ts': 4,
+  'build-plugins/frontalierePillarCopy.ts': 8,
+  'build-plugins/jobSectorLanding.ts': 1,
+  'build-plugins/jobsSeoPagesPlugin.ts': 16,
+  'build-plugins/legacyRedirectsPlugin.ts': 11,
+  'build-plugins/nursingLandingsPlugin.ts': 4,
+  'build-plugins/pdfWhitepapersPlugin.ts': 1,
+  'build-plugins/professionLandingsPlugin.ts': 4,
+  'build-plugins/publisherAdPagesPlugin.ts': 2,
+  'build-plugins/searchConsoleCompat.ts': 6,
+  'build-plugins/selfCertificationFormsPlugin.ts': 1,
+  'build-plugins/seoHubsData.ts': 9,
+  'build-plugins/seoHubsPlugin.ts': 3,
+  'build-plugins/shared/companyHubFrontalierContext.ts': 1,
+  'build-plugins/shared/employerLinks.ts': 1,
+  'build-plugins/shared/relatedLinks.ts': 8,
+  'build-plugins/shared/trafficEvidenceFilter.ts': 1,
+  'build-plugins/staticPagesPlugin.ts': 32,
+  'build-plugins/weeklyEmployersPlugin.ts': 1,
+  'components/shared/RelatedTools.tsx': 1,
+  'components/tabs/CalcolatoreTabContent.tsx': 2,
+  'functions/src/lib/newsletterUrlPaths.js': 5,
+  'infra/cloudflare-worker/locale-router.js': 4,
+  'scripts/adsense-format-ab-report.mjs': 2,
+  'scripts/analytics-report.mjs': 2,
+  'scripts/audit-404-risk.mjs': 1,
+  'scripts/audit-cls-live.mjs': 2,
+  'scripts/audit-cls-stripping.mjs': 1,
+  'scripts/build-legacy-aliases.mjs': 3,
+  'scripts/check-cwv-field-criterion.mjs': 3,
+  'scripts/cwv-monitor-check.mjs': 1,
+  'scripts/lib/fixture-data-filter.mjs': 1,
+  'scripts/lib/job-alert-unsub-urls.mjs': 1,
+  'scripts/lib/orphan-canton-paths.mjs': 5,
+  'scripts/lib/seo-ctr-curve.mjs': 4,
+  'scripts/lib/telegram-templates.mjs': 1,
+  'scripts/monitor-cls-posthog.mjs': 4,
+  'scripts/monitor-sector-coverage.mjs': 2,
+  'scripts/newsletter-qa.mjs': 1,
+  'scripts/newsletter-template.mjs': 4,
+  'scripts/reconcile-job-slugs.mjs': 2,
+  'scripts/refresh-noslash-keep.mjs': 1,
+  'scripts/send-saved-jobs-digest.mjs': 3,
+  'scripts/seo-audit-employer-slugs.mjs': 8,
+  'scripts/seo-audit-visual.mjs': 5,
+  'scripts/validate-spa-render.mjs': 4,
+  'scripts/verify-post-deploy-seo.mjs': 4,
+  'services/analyticsPageContext.ts': 4,
+  'services/seo/seo-pages.ts': 9,
+  'services/seoService.ts': 1,
+};
+
 // Allowlist — any line that legitimately references a TI legacy section
 // literal. Every TI hardcode below has been audited as either (a) a
 // fallback default in a per-plugin SECTION_SLUG table, or (b) a TI-only
@@ -171,3 +299,83 @@ describe('isAllowlisted — voce-file esatta vs voce-cartella per prefisso', () 
     })).toBe(true);
   });
 });
+
+describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)', () => {
+  // OSSERVATORE: il matcher e' verificato in memoria sulle forme che deve
+  // riconoscere, cosi' una futura restrizione del pattern rompe QUESTO test
+  // invece di rendere il gate cieco in silenzio (che e' esattamente com'e'
+  // nato il difetto: FORBIDDEN restava verde perche' non matchava nulla).
+  it('riconosce ogni delimitazione del segmento, non solo il nudo fra apici', () => {
+    const rx = new RegExp(tiSegmentPattern('cerca-lavoro-ticino'));
+    const recognised = [
+      `const s = 'cerca-lavoro-ticino';`,
+      `const s = "cerca-lavoro-ticino";`,
+      `const s = '/cerca-lavoro-ticino';`,
+      `const s = 'cerca-lavoro-ticino/';`,
+      `const s = '/cerca-lavoro-ticino/';`,
+      `const s = "/cerca-lavoro-ticino/";`,
+      `const re = /\\/cerca-lavoro-ticino\\/([^/]+)$/;`,
+      // Sub-path: href di nav, tabelle per-locale, mappe di redirect.
+      `{ href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },`,
+      `  it: '/cerca-lavoro-ticino/ultimi-3-giorni/',`,
+      `  '/cerca-lavoro-ticino/logistiker-in-efz-coop-grigioni/': '/cerca-lavoro-ticino/operatore-logistico-in-afc-coop-grigioni/',`,
+      // Template literal interpolato: builder di href/canonical, non citazione.
+      'const basePath = `/cerca-lavoro-ticino/${r.slug}/`;',
+      '          href: `/cerca-lavoro-ticino/${j.slug}/`,',
+      'return knownSlugs.has(slug) ? `/cerca-lavoro-ticino/azienda-${slug}/` : null;',
+      // Prefixed interpolation: canonical/hreflang/JSON-LD (`${BASE_URL}/x/`).
+      '"url": `${BASE_URL}/cerca-lavoro-ticino/,',
+      '  const landingXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/cerca-lavoro-ticino/" />`;',
+      'export const JOB_BOARD_HUB_URL = `${SITE_URL}/cerca-lavoro-ticino/`;',
+    ];
+    expect(recognised.filter((line) => !rx.test(line))).toEqual([]);
+    expect(rx.test('"url": `${BASE_URL}/cerca-lavoro-ticino/,')).toBe(true);
+
+    // La forma con slash e' proprio quella che il vecchio FORBIDDEN (stringhe
+    // fisse con gli apici dentro, grep -F) NON vedeva: se questa asserzione
+    // cade, il difetto #7674 e' stato riparato altrove e questo blocco puo'
+    // essere semplificato.
+    const slashForm = `const s = '/cerca-lavoro-ticino/';`;
+    expect(FORBIDDEN.filter((literal) => slashForm.includes(literal))).toEqual([]);
+
+    // Fuori per scelta: la citazione in prosa/docblock della URL pubblica.
+    expect(rx.test(' * canonical → section landing (`/cerca-lavoro-ticino/`)')).toBe(false);
+    // Template senza interpolazione = citazione, non costruzione.
+    expect(rx.test('const s = `/cerca-lavoro-ticino/`;')).toBe(false);
+    // E niente match parziale su uno slug piu' lungo che contiene il segmento.
+    expect(rx.test(`const s = '/cerca-lavoro-ticino-nord/';`)).toBe(false);
+    expect(rx.test('const s = `${BASE_URL}/cerca-lavoro-ticino-nord/`;')).toBe(false);
+
+    // Prefisso locale EN/DE/FR: `'/en/find-jobs-ticino/'` (redirect/nav).
+    const rxEn = new RegExp(tiSegmentPattern('find-jobs-ticino'));
+    expect(rxEn.test("'/en/find-jobs-ticino/'")).toBe(true);
+    expect(rxEn.test("'/en/job-search-ticino/': '/en/find-jobs-ticino/'")).toBe(true);
+    expect(rxEn.test("'/en/find-jobs-ticino-nord/'")).toBe(false);
+  });
+
+  it('nessun hardcode con slash oltre l\'inventario congelato', () => {
+    const counts: Record<string, number> = {};
+    const samples: Record<string, string[]> = {};
+    for (const slug of TI_SECTION_SLUGS) {
+      const cmd = `grep -rnE ${grepEreArg(tiSegmentPattern(slug))} ${SCAN_DIRS.join(' ')} || true`;
+      const out = execSync(cmd, { encoding: 'utf8' });
+      for (const entry of out.split('\n').filter(Boolean)
+        .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
+        if (isAllowlisted(entry)) continue;
+        counts[entry.path] = (counts[entry.path] ?? 0) + 1;
+        (samples[entry.path] ??= []).push(`${entry.path}:${entry.lineNo}: ${entry.content.trim().slice(0, 120)}`);
+      }
+    }
+
+    const grown = Object.keys(counts)
+      .filter((path) => counts[path] > (SEGMENT_BASELINE[path] ?? 0))
+      .map((path) => `${path}: ${counts[path]} > ${SEGMENT_BASELINE[path] ?? 0}\n${samples[path].join('\n')}`);
+    expect(grown, `Nuovi hardcode TI in forma con slash. Usa SECTION_LEGACY_TI_PATH da build-plugins/shared/cantonSection (o resolveCantonSection per codice canton-aware); se la riga e' legittima, appendi \` // cathedral-allow: <ragione>\`. NON alzare i numeri di SEGMENT_BASELINE:\n${grown.join('\n')}`).toEqual([]);
+
+    const stale = Object.keys(SEGMENT_BASELINE)
+      .filter((path) => (counts[path] ?? 0) < SEGMENT_BASELINE[path])
+      .map((path) => `${path}: ${counts[path] ?? 0} < ${SEGMENT_BASELINE[path]}`);
+    expect(stale, `Inventario stantio: questi file hanno meno hardcode del baseline. Abbassa i numeri in SEGMENT_BASELINE (o togli la voce a 0) — il ratchet esiste per convergere a zero:\n${stale.join('\n')}`).toEqual([]);
+  }, 30000);
+});
+
