@@ -1,19 +1,20 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-05T23:02:27.593Z",
+  "generatedAt": "2026-09-06T23:11:24.329Z",
   "total": 2,
   "discovered": null,
+  "parsed": 2,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8111,
-  "avgDurationMs": 8111,
+  "durationMs": 6324,
+  "avgDurationMs": 6324,
   "durationHistory": [
-    8111
+    6324
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://career.ricola.com/Vacancies/1063/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T23:02:19.335Z",
+      "crawledAt": "2026-09-06T23:11:17.930Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -68,7 +69,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T23:02:19.744Z",
+      "crawledAt": "2026-09-06T23:11:18.375Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
