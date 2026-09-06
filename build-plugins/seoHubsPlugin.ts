@@ -1314,7 +1314,22 @@ export function renderPagination(locale: HubLocale, basePath: string, current: n
   // Flat ladder — every page-N anchor, collapsed for mobile.
   // Skip when totalPages ≤ 1 (no pagination needed) or ≤ 5 (compact nav
   // already shows all pages, ladder would be redundant).
-  if (total <= 5) return compactNav;
+  //
+  // ALSO skip on every page but page-1 (issue #7662). The ladder is O(total)
+  // bytes; emitting it on all `total` pages made the archive O(total²) HTML,
+  // and at ~3 300 TI pages that put 885 `/tutti/page-N/` files at 282-284 KB
+  // against the 260 KB audit:page-weight budget — a treadmill that already
+  // burned three byte-shaves and two budget raises (200 → 215 → 260 KB, see
+  // the header of scripts/audit-page-weight.mjs).
+  // BFS-depth is unchanged BY CONSTRUCTION: `depthOf` is a shortest-path map,
+  // and page-1 (`basePath`) is the only entry point the parent hubs link, so
+  // every page-N already gets its minimum depth `depth(page-1) + 1` from
+  // page-1's ladder alone. A ladder on page-K (K > 1) can only ever offer
+  // `depth(page-K) + 1 ≥ depth(page-1) + 2`, i.e. it never lowered any depth
+  // and removing it never raises one. Leaves stay at `depth(page-1) + 2`.
+  // The compact nav above still carries prev/1/current±1/last/next on every
+  // page, so human navigation and the prev/next chain are untouched.
+  if (total <= 5 || current > 1) return compactNav;
   const flatLabel = {
     it: "Sfoglia tutto l'archivio per pagina",
     en: 'Browse the full archive by page',
@@ -1350,16 +1365,25 @@ export function renderPagination(locale: HubLocale, basePath: string, current: n
   // "browse by page" context, so the numbers stay understandable. Same
   // byte-shave class as the prior inline-style→class and BASE_URL-prefix drops
   // on this exact ladder; every anchor is preserved so BFS depth is unchanged.
+  //
+  // Per-anchor `class="hp"` / `class="hc"` dropped in favour of the container
+  // rule `.hpl a` / `.hpl strong` (public/assets/seo-static.css). Same
+  // byte-shave lineage as the inline-style→class, BASE_URL-prefix and word-
+  // prefix drops above, and the largest one left: 13 B × every anchor is
+  // ~43 KB on the 3 300-page TI ladder, paid once per page instead of once
+  // per anchor. Now that the ladder only ships on page-1 (see above) that
+  // page carries the whole O(total) cost alone, so the shave is what keeps it
+  // inside the 260 KB budget instead of ~10 KB over it.
   const flatAnchors: string[] = [];
   for (let p = 1; p <= total; p++) {
     const href = paginatedPath(basePath, p);
     if (p === current) {
-      flatAnchors.push(`<strong class="hc" aria-current="page">${p}</strong>`);
+      flatAnchors.push(`<strong aria-current="page">${p}</strong>`);
     } else {
-      flatAnchors.push(`<a href="${href}" class="hp">${p}</a>`);
+      flatAnchors.push(`<a href="${href}">${p}</a>`);
     }
   }
-  const flatNav = `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY">${flatAnchors.join('')}</div></details></nav>`;
+  const flatNav = `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY hpl">${flatAnchors.join('')}</div></details></nav>`;
 
   return `${compactNav}${flatNav}`;
 }
@@ -1696,13 +1720,43 @@ export function buildThinCantonHubHtml(args: {
     // can't drift its /tutti/page-N/ HTML over the 215 KB audit:page-weight
     // budget. The `<details><summary>` + `<nav aria-label>` give the "browse
     // by page" context. CLAUDE.md #6: fixed in lockstep with renderPagination.
+    //
+    // The full ladder ships on page-1 ONLY (issue #7662). It is O(totalPages)
+    // bytes, so emitting it on all `totalPages` pages made this archive
+    // O(totalPages²) HTML: at the TI canton's ~3 300 pages the ladder alone
+    // was ~219 KB and put 885 `/cerca-lavoro-ticino/tutti/page-N/` files at
+    // 282-284 KB against the 260 KB audit:page-weight budget (post-deploy
+    // runs 34011291194 / 34017536548 / 34024281159 / 34031601306).
+    // BFS-depth is unchanged BY CONSTRUCTION: `depthOf` in
+    // scripts/audit-bfs-depth.mjs (and `bfsReachableFromHome` in
+    // scripts/audit-orphan-pages-in-sitemaps.mjs) is a shortest-path map, and
+    // `basePath` (page-1) is the only entry point the canton landing links,
+    // so every page-N already took its minimum depth `depth(page-1) + 1` from
+    // page-1's ladder. A ladder on page-K (K > 1) could only ever offer
+    // `depth(page-K) + 1 ≥ depth(page-1) + 2` — it never lowered a depth, so
+    // dropping it never raises one, and job leaves stay at `depth(page-1) + 2`
+    // (= 4 from `/`, the audit's MAX_DEPTH).
+    // Page-N > 1 keeps a compact window (prev / 1 / current±1 / last / next),
+    // the same shape `renderPagination` uses on the master hubs, so humans and
+    // the prev/next chain still navigate the archive.
     const anchors: string[] = [];
-    for (let p = 1; p <= totalPages; p++) {
-      const href = p === 1 ? basePath : paginatedPath(basePath, p);
-      if (p === page) {
-        anchors.push(`<strong class="thc">${p}</strong>`);
-      } else {
-        anchors.push(`<a href="${href}" class="thp">${p}</a>`);
+    if (page === 1) {
+      // Per-anchor `class="thp"`/`class="thc"` dropped for the container rule
+      // `.hpl a` / `.hpl strong` (public/assets/seo-static.css): 13 B × every
+      // anchor is ~43 KB on the TI ladder, and page-1 now carries the whole
+      // O(totalPages) cost by itself. Same byte-shave lineage as the
+      // inline-style→class and word-prefix drops recorded above.
+      for (let p = 1; p <= totalPages; p++) {
+        const href = p === 1 ? basePath : paginatedPath(basePath, p);
+        if (p === page) anchors.push(`<strong>${p}</strong>`);
+        else anchors.push(`<a href="${href}">${p}</a>`);
+      }
+    } else {
+      const windowPages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
+      for (const p of [...windowPages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
+        const href = p === 1 ? basePath : paginatedPath(basePath, p);
+        if (p === page) anchors.push(`<strong>${p}</strong>`);
+        else anchors.push(`<a href="${href}">${p}</a>`);
       }
     }
     // Always-open <details> so the BFS walker (and crawlers) see every <a>
@@ -1710,7 +1764,8 @@ export function buildThinCantonHubHtml(args: {
     // are still parsed by Googlebot, but the audit walker reads raw HTML
     // and would still discover them either way — `open` is for UX so the
     // ladder is visible on first paint.
-    paginationHtml = `<nav class="s-ay7Grc" aria-label="${esc(paginationLabel)}"><details class="s-Ery2Xe" open><summary class="s-goeAUL">${esc(paginationLabel)} (${totalPages})</summary><div class="s-6_t7LY">${anchors.join('')}</div></details></nav>`;
+    const summaryCount = page === 1 ? totalPages : anchors.length;
+    paginationHtml = `<nav class="s-ay7Grc" aria-label="${esc(paginationLabel)}"><details class="s-Ery2Xe" open><summary class="s-goeAUL">${esc(paginationLabel)} (${summaryCount})</summary><div class="s-6_t7LY hpl">${anchors.join('')}</div></details></nav>`;
   }
 
   // Engaging card layout: aziende → entity card with logo, settori → emoji
