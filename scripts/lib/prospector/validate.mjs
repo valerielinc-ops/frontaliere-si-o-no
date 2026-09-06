@@ -97,6 +97,29 @@ export function tokenOverlap(needle, haystack) {
 }
 
 /**
+ * Le sole forme di coda che cambiano a ogni richiesta sullo stesso annuncio,
+ * riconosciute sul testo GREZZO: hanno ancora la punteggiatura che le rende
+ * identificabili («05.09.2026», «15:04», «visite 1234», «annuncio n. 1234»).
+ * Dopo `norm()` quella punteggiatura non c'e' piu' e restano token di sole
+ * cifre indistinguibili dall'NPA, dal numero di riferimento e dal pensum.
+ */
+const REQUEST_NOISE_PATTERNS = [
+  // 05.09.2026, 5/9/26, 05-09-2026
+  /\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b/g,
+  // 2026-09-05
+  /\b\d{4}[./-]\d{1,2}[./-]\d{1,2}\b/g,
+  // 15:04, 15:04:22
+  /\b\d{1,2}:\d{2}(?::\d{2})?\b/g,
+  // contatore visite, nelle lingue dei layout che incontriamo
+  /\b(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?)\b[\s:]*\d[\d'’.,]*/gi,
+  // il progressivo stampato in coda dal layout: «annuncio n. 1234»,
+  // «Inserat Nr. 1234». NON il numero di riferimento dell'annuncio
+  // (`ref`/`riferimento`/`referenz`), che e' contenuto e distingue due
+  // annunci template altrimenti identici.
+  /\b(?:annuncio|inserzione|inserat|stellenangebot|annonce)\b\.?\s*(?:n[or]?\.?|°|nr\.?|#)\s*\d[\d'’.,-]*/gi,
+];
+
+/**
  * Firma stabile del testo di una pagina, per distinguere «N pagine diverse»
  * da «N copie della stessa pagina». djb2 sul testo normalizzato: serve solo a
  * confrontare pagine fra loro, non a identificarne il contenuto.
@@ -114,12 +137,17 @@ export function bodySignature(text = '') {
   // mettono il rumore per-richiesta: data/ora di generazione nel footer,
   // contatore visite, «annuncio n. 1234». Con quello dentro l'hash, N copie
   // della stessa pagina firmano N volte diverso e `detailDistinctRate` legge
-  // 1.00 proprio sul caso che esiste per bocciare. `norm` ha gia' ridotto date
-  // e ore a gruppi di cifre isolati («05.09.2026 15:04» -> «05 09 2026 15 04»),
-  // quindi togliere i token di sole cifre li copre tutti con una regola sola.
-  // Le cifre dentro una parola (id12345, 100pct) restano: quelle sono
-  // contenuto, e toglierle avvicinerebbe fra loro annunci davvero diversi.
-  const body = norm(text).replace(/\b\d+\b/g, ' ').replace(/\s+/g, ' ').trim();
+  // 1.00 proprio sul caso che esiste per bocciare.
+  //
+  // Quelle forme si tolgono PRIMA di `norm()`, una per una: dopo la
+  // normalizzazione sono token di sole cifre come l'NPA («8004 Zürich» /
+  // «8005 Zürich»), il numero di riferimento e il pensum («80%»), e una regola
+  // unica su `\b\d+\b` cancellerebbe anche quelli — due annunci template dello
+  // stesso datore che differiscono solo li' firmerebbero UGUALE e il promotion
+  // gate boccerebbe un datore valido. Il resto dell'output di `norm()` resta
+  // intatto: le cifre sono contenuto quando non sono rumore di coda.
+  const denoised = REQUEST_NOISE_PATTERNS.reduce((acc, re) => acc.replace(re, ' '), String(text));
+  const body = norm(denoised);
   let h = 5381;
   for (let i = 0; i < body.length; i += 1) h = (((h << 5) + h) ^ body.charCodeAt(i)) >>> 0;
   return h.toString(36);

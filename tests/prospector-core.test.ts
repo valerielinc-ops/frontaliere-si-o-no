@@ -1215,6 +1215,21 @@ describe('promotion gate', () => {
     expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
   });
 
+  it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
+    // Il rumore di coda si toglie sulle forme grezze (data, ora, contatore),
+    // non su ogni token di cifre: NPA, pensum e numero di riferimento sono
+    // contenuto, e se collassassero il promotion gate leggerebbe «pagine
+    // identiche» su un datore valido e non lo crawlerebbe piu'.
+    const shell = `${'chrome '.repeat(900)}assistente amministrativa sede`;
+    const ad = (npa: string, pensum: string, ref: string) =>
+      `${shell} ${npa} Zürich pensum ${pensum}% riferimento ${ref} ultimo aggiornamento 05.09.2026 11:01 visite 1234`;
+    const signatures = new Set([
+      bodySignature(ad('8004', '80', '1001')),
+      bodySignature(ad('8005', '60', '1002')),
+    ]);
+    expect(signatures.size).toBe(2);
+  });
+
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
     // `null` = misurato, byte illeggibili. Diverso da assente.
     const pdf = graded(2);
