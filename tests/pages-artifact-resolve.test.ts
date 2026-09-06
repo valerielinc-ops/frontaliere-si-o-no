@@ -110,6 +110,33 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     }
   });
 
+  it('#7504 — every deploy-run page is shape-checked before it is counted', () => {
+    // A 2xx body is not necessarily a runs collection: the secondary-rate-limit
+    // guard answers HTTP 200 with an object carrying `message`, and a truncated
+    // response is not JSON at all. `jq '.workflow_runs | length'` then prints
+    // `null`, and `[ null -lt 50 ]` exits 2 — invisible to `set -e` as the FIRST
+    // member of an `&&` list, so the loop kept paginating and the failure
+    // surfaced downstream as a raw jq error instead of the ::error:: built for
+    // it. Same class as #7393, through a different door.
+    const offenders: string[] = [];
+    for (const f of allGithubShellFiles()) {
+      const src = codeOnly(f);
+      if (!/\.workflow_runs\s*\|\s*length/.test(src)) continue;
+      // The shape check has to come BEFORE the count, on the same file.
+      const guard = src.search(/has\("workflow_runs"\)/);
+      const count = src.search(/\.workflow_runs\s*\|\s*length/);
+      if (guard < 0 || guard > count) offenders.push(f);
+    }
+    expect(offenders).toEqual([]);
+    // …and both files that page deploy runs say which failure it is.
+    for (const f of [ACTION_PATH, join(WORKFLOWS_DIR, 'measure-deploy-delta.yml')]) {
+      const src = codeOnly(f);
+      expect(src, f).toMatch(/2xx body without a \.workflow_runs array/);
+      const after = src.slice(src.indexOf('2xx body without a .workflow_runs array'));
+      expect(/\n\s*(continue|exit)\b/.exec(after)?.[1], f).toBe('exit');
+    }
+  });
+
   it('#7394 — every walk-back orders candidates on created_at client-side', () => {
     // The two files that still list deploy runs themselves. The REST endpoint
     // does not contract `created_at desc`; the old code relied on having
