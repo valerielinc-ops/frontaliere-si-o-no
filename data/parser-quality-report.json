@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-09-05T18:45:00.963Z",
+  "timestamp": "2026-09-06T09:49:52.943Z",
   "datasetProvenance": {
-    "repoHeadSha": "460b0de35fb71df6e21bc58dbe571b0c084e7240",
+    "repoHeadSha": "ed997a3e04793753c8e8a23a9ed0feff0973757b",
     "datasetLastCommit": {
-      "sha": "9aa99227a3aa70cbf5adf3b20809b3ad1ed4252d",
-      "committedAt": "2026-09-05T17:32:01Z"
+      "sha": "61d0480e856d406e3926c5c95e205ca150620caf",
+      "committedAt": "2026-09-06T07:49:06Z"
     }
   },
   "crawlersChecked": 1,
@@ -29,19 +29,20 @@
     "authoritativeLocationChecks": 2,
     "locationMatches": 1,
     "locationMismatches": 1,
+    "sourceCorroboratedLocationObservations": 1,
     "inconclusiveLocationObservations": 0,
     "descriptionMismatches": 2
   },
   "sourceDetailEvidence": {
     "format": "frontaliere.source-detail-observation-bundle/v1",
     "provenance": {
-      "repoHeadSha": "460b0de35fb71df6e21bc58dbe571b0c084e7240",
-      "datasetCommitSha": "9aa99227a3aa70cbf5adf3b20809b3ad1ed4252d",
-      "datasetCommittedAt": "2026-09-05T17:32:01Z"
+      "repoHeadSha": "ed997a3e04793753c8e8a23a9ed0feff0973757b",
+      "datasetCommitSha": "61d0480e856d406e3926c5c95e205ca150620caf",
+      "datasetCommittedAt": "2026-09-06T07:49:06Z"
     },
     "versions": {
-      "extractor": "5981d06f26936534bf71ea12db1d173ba7c1afc53fb587b24a845b368f4651c2",
-      "normalizer": "22d6695bc93e489adf284edc1657cf12826c8d8d5b1942d0f7d966c0e150e526"
+      "extractor": "97079112ada739d1d93dfff735d0cd950d8183fd11535cb5a7cb99dd16c1d102",
+      "normalizer": "22403a13f26365262304c5540c7aee83fa74e69f2a0c574c4f4566ec17445b06"
     },
     "requestedCount": 2,
     "requestedSamples": [
@@ -58,7 +59,7 @@
     ],
     "requestSha256": "2dd8be52468e2d85523158ade5ef6cda691d762621586f1586c009f707269e6f",
     "replayableCount": 2,
-    "samplesSha256": "c68738bbb74aeff645bbd056c3e5f974c57affde847b7e7e2ec903a7a90d504d",
+    "samplesSha256": "75d5ada894cf3234aa076c5eaa542d841ff728283c26bb8f6c5d95c9f8befe0c",
     "samples": [
       {
         "index": 0,
@@ -70,13 +71,13 @@
           "format": "frontaliere.source-detail-observation/v1",
           "crawlerKey": "agroscope",
           "provenance": {
-            "repoHeadSha": "460b0de35fb71df6e21bc58dbe571b0c084e7240",
-            "datasetCommitSha": "9aa99227a3aa70cbf5adf3b20809b3ad1ed4252d",
-            "datasetCommittedAt": "2026-09-05T17:32:01Z"
+            "repoHeadSha": "ed997a3e04793753c8e8a23a9ed0feff0973757b",
+            "datasetCommitSha": "61d0480e856d406e3926c5c95e205ca150620caf",
+            "datasetCommittedAt": "2026-09-06T07:49:06Z"
           },
           "versions": {
-            "extractor": "5981d06f26936534bf71ea12db1d173ba7c1afc53fb587b24a845b368f4651c2",
-            "normalizer": "22d6695bc93e489adf284edc1657cf12826c8d8d5b1942d0f7d966c0e150e526"
+            "extractor": "97079112ada739d1d93dfff735d0cd950d8183fd11535cb5a7cb99dd16c1d102",
+            "normalizer": "22403a13f26365262304c5540c7aee83fa74e69f2a0c574c4f4566ec17445b06"
           },
           "sourceUrlSha256": "19285b0cc42493429d35ae53898ceaf7a4179300a56cb80c696a925e9bd51d6c",
           "bodySha256": "b117b094c2725ae7e45d7c59eb5ed5c257ac43187a41fb8d718b34e2b7658984",
@@ -88,7 +89,7 @@
               "sourceDescriptionLength": 5644
             },
             "location": {
-              "authority": "source-detail",
+              "authority": "source-corroborated",
               "checked": true,
               "evidence": "jsonld",
               "inconclusive": false,
@@ -97,8 +98,8 @@
               "source": "Wädenswil, Wädenswil"
             }
           },
-          "observationSha256": "6167206c567d01eb619e99978a9e1141d2929efc536822568eac0ea507257719",
-          "recordSha256": "fba3b42bd4f3d43dbe0fcbdb2db1ca1c4fae68e304afef7246366d040ab2818b"
+          "observationSha256": "efab638f5dd5b37c01c6dca961f93d1ede9a8796840fa6249d6f67b3e948a143",
+          "recordSha256": "a939388006fdecd324590410f95f654a6c5e733a75c472d4257f541e636bc7ab"
         }
       },
       {
@@ -111,13 +112,13 @@
           "format": "frontaliere.source-detail-observation/v1",
           "crawlerKey": "agroscope",
           "provenance": {
-            "repoHeadSha": "460b0de35fb71df6e21bc58dbe571b0c084e7240",
-            "datasetCommitSha": "9aa99227a3aa70cbf5adf3b20809b3ad1ed4252d",
-            "datasetCommittedAt": "2026-09-05T17:32:01Z"
+            "repoHeadSha": "ed997a3e04793753c8e8a23a9ed0feff0973757b",
+            "datasetCommitSha": "61d0480e856d406e3926c5c95e205ca150620caf",
+            "datasetCommittedAt": "2026-09-06T07:49:06Z"
           },
           "versions": {
-            "extractor": "5981d06f26936534bf71ea12db1d173ba7c1afc53fb587b24a845b368f4651c2",
-            "normalizer": "22d6695bc93e489adf284edc1657cf12826c8d8d5b1942d0f7d966c0e150e526"
+            "extractor": "97079112ada739d1d93dfff735d0cd950d8183fd11535cb5a7cb99dd16c1d102",
+            "normalizer": "22403a13f26365262304c5540c7aee83fa74e69f2a0c574c4f4566ec17445b06"
           },
           "sourceUrlSha256": "793c46ebaed6f4778bc82ea40d2226d2049e14047cfeb252dc36e5a03b7681bc",
           "bodySha256": "e653115bdaba0ab17db865ebb9662168fca8dc017dba27017f45182933c23ab4",
@@ -139,18 +140,18 @@
             }
           },
           "observationSha256": "ef72cd71fc3664cf6691c434defeeac0147854c830a4c49c67f60b7d3c650756",
-          "recordSha256": "00af2d51110ece9e44821cbd98cef4203280ed20ea6be1bacf5d657a2a1d92cd"
+          "recordSha256": "96374433200f979327bc41276c22bf7ac07de3497b2d177eceddb7b814ad9338"
         }
       }
     ],
-    "bundleSha256": "e3e7e8dbcde498040c63b3f2e89363b8debfd4b4877acdaa62aa3e2518332cb7"
+    "bundleSha256": "7b9d13bb1ed35fcb3cabfd3ee5433b27a0a42859a0962c5c1033b3b933e1938a"
   },
   "crawlers": {
     "agroscope": {
-      "total": 10,
+      "total": 9,
       "population": {
-        "stored": 10,
-        "active": 10,
+        "stored": 9,
+        "active": 9,
         "excluded": {
           "grace": 0,
           "expired": 0,

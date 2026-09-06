@@ -15,7 +15,7 @@ import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
+import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
@@ -174,6 +174,28 @@ describe('vacancy extraction', () => {
     expect(detail.location).toBe('Winterthur');
     expect(detail.description).toContain('Coordinate inbound logistics');
     expect(detail.description).toContain('Work with the warehouse team');
+  });
+
+  // jobs.admin.ch/agroscope (#7711). Il luogo di lavoro vero sta solo in un
+  // campo etichettato renderizzato, che nessun record strutturato porta: senza
+  // estrarne il VALORE la pagina non corrobora nulla e l'audit legge un
+  // difetto del parser dove la fonte contraddice solo se stessa.
+  it('reads the value of a labelled workplace field in the three languages', () => {
+    const cases: Array<[string, string[]]> = [
+      [`<main><label>Arbeitsort:</label><span>Reckenholzstrasse 191, 8046 Zürich</span></main>`,
+        ['Reckenholzstrasse 191, 8046 Zürich']],
+      [`<main><p>Lieu de travail : 1201 Genève</p></main>`, ['1201 Genève']],
+      [`<main><dl><dt>Luogo di lavoro</dt><dd>6900 Lugano</dd></dl></main>`, ['6900 Lugano']],
+      // Etichetta nuda: non è un luogo, e non deve diventare una prova.
+      [`<main><label>Arbeitsort:</label><span></span></main>`, []],
+      [`<main><label>Arbeitsort:</label><label>Pensum:</label><span>80-100%</span></main>`, []],
+      // La sede dell'azienda nel chrome della pagina resta fuori scope.
+      [`<main><h1>Praktikum</h1></main><footer><p>Arbeitsort: 3003 Bern</p></footer>`, []],
+    ];
+    for (const [html, expected] of cases) {
+      expect(renderedWorkplaceLabelValues(html), html).toEqual(expected);
+      expect(extractDetailFields(html, 'https://jobs.admin.ch/x/y').workplaceLabels, html).toEqual(expected);
+    }
   });
 
   // Regressione arsante.ch/gmo (#7322). Il JobPosting reale non ha alcun

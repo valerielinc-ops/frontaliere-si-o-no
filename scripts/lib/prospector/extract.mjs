@@ -305,6 +305,7 @@ function selectDetailStructuredRecords(records, pageUrl, renderedTitle) {
  *     streetAddress?: string,
  *   }>,
  *   authoritativeLocationConflict: boolean,
+ *   workplaceLabels: string[],
  *   description: string,
  *   postedDate: string,
  *   employmentType: string,
@@ -431,9 +432,61 @@ export function extractDetailFields(html = '', pageUrl = '') {
     locationCandidates,
     authoritativeLocationConflict,
     description: descriptions[0] || '',
+    workplaceLabels: renderedWorkplaceLabelValues(html),
     postedDate: structuredRecords.find((record) => record.postedDate)?.postedDate || '',
     employmentType: structuredRecords.find((record) => record.employmentType)?.employmentType || '',
   };
+}
+
+/**
+ * Rendered field labels that introduce the vacancy's workplace, in the three
+ * national languages. This is a LABEL vocabulary, not the CSS-class one of
+ * {@link ADDRESS_BLOCK_CLASS_RX}: `jobs.admin.ch` writes the workplace as
+ * `<label>Arbeitsort:</label><span>Reckenholzstrasse 191, 8046 Zürich</span>`,
+ * a node pair no class name marks and no structured record carries.
+ */
+const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?|lieux? de travail|luog(?:o|hi) di lavoro)\s*:?\s*/i;
+
+/** A workplace is an address, not a paragraph: longer values are prose. */
+const MAX_WORKPLACE_LABEL_VALUE = 120;
+
+/**
+ * Values of a labelled workplace field rendered in the vacancy body, in
+ * document order. The federal portal states the real workplace only there —
+ * its JobPosting JSON-LD carries the publishing office's seat (Wädenswil) for
+ * an Agroscope vacancy worked at `Reckenholzstrasse 191, 8046 Zürich` — so
+ * without this the page corroborates nothing and the audit reads a parser
+ * defect where the source merely disagrees with itself (#7711).
+ *
+ * The bare label is never a value: `Arbeitsort:` with nothing after it, or
+ * followed by another label, yields nothing and the caller keeps its finding.
+ *
+ * @param {string} html
+ * @returns {string[]}
+ */
+export function renderedWorkplaceLabelValues(html = '') {
+  const segments = vacancyContentRegion(html)
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .split(/<[^>]*>/)
+    .map((part) => textOf(part))
+    .filter(Boolean);
+  const out = [];
+  const seen = new Set();
+  for (let i = 0; i < segments.length; i++) {
+    if (!WORKPLACE_LABEL_RX.test(segments[i])) continue;
+    // `Arbeitsort: <value>` in one text node, or the label alone with the
+    // value in the next one (the `<label>`/`<span>` pair the portal renders).
+    const inline = segments[i].replace(WORKPLACE_LABEL_RX, '').trim();
+    const value = inline || (segments[i + 1] || '').trim();
+    if (!value || value.length > MAX_WORKPLACE_LABEL_VALUE) continue;
+    if (WORKPLACE_LABEL_RX.test(value) || value.endsWith(':')) continue;
+    const key = value.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(value);
+  }
+  return out;
 }
 
 /**
