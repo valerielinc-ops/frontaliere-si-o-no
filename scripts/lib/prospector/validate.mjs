@@ -117,8 +117,13 @@ const REQUEST_NOISE_PATTERNS = [
   /\b\d{4}[./-]\d{1,2}[./-]\d{1,2}\b/g,
   // 15:04, 15:04:22
   /\b\d{1,2}:\d{2}(?::\d{2})?\b/g,
-  // contatore visite, nelle lingue dei layout che incontriamo
-  /\b(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?)\b[\s:]*\d[\d'’.,]*/gi,
+  // contatore visite, nelle lingue dei layout che incontriamo. L'elenco copre
+  // anche le etichette non letterali del «visitatore» — «hits», «klicks»,
+  // «letture», «consultazioni», «consultations» — che sono lo stesso contatore
+  // per-richiesta con un altro nome: se restano fuori, su quei layout il
+  // contatore torna dentro l'hash e N copie della stessa pagina firmano N
+  // volte diverso.
+  /\b(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?|hits?|klicks?|letture|consultazioni|consultations?)\b[\s:]*\d[\d'’.,]*/gi,
   // il progressivo stampato in coda dal layout: «annuncio n. 1234»,
   // «Inserat Nr. 1234». NON il numero di riferimento dell'annuncio
   // (`ref`/`riferimento`/`referenz`), che e' contenuto e distingue due

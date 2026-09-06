@@ -1297,7 +1297,21 @@ describe('promotion gate', () => {
     const withOffset = `${shell} generato il 2026-09-05T11:01+02:00`;
     expect(bodySignature(withMillis)).toBe(bodySignature(withOffset));
   });
-it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
+
+  it('ignora il contatore visite anche quando il layout lo chiama in un altro modo', () => {
+    // L'elenco delle etichette era chiuso su «visite/views/besucher...»: su un
+    // layout che scrive «hits», «klicks», «letture» o «consultazioni» il
+    // contatore restava dentro l'hash e quattro copie della stessa pagina
+    // firmavano quattro volte diverso — lo stesso 1.00 fasullo di
+    // `detailDistinctRate` che il denoise esiste per evitare.
+    const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
+    for (const label of ['hits', 'Klicks', 'letture', 'consultazioni', 'consultations']) {
+      const copy = (n: number) => `${shell} ${label}: ${1000 + n}`;
+      expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
+    }
+  });
+
+  it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
     // Il rumore di coda si toglie sulle forme grezze (data, ora, contatore),
     // non su ogni token di cifre: NPA, pensum e numero di riferimento sono
     // contenuto, e se collassassero il promotion gate leggerebbe «pagine
