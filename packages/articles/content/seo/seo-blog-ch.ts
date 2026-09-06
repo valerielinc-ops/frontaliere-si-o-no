@@ -73769,6 +73769,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avviare-azienda-grigioni-registro-commercio': {
+    title: 'Avviare un\'attività a Grigioni: costi e procedura',
+    description: 'Guida completa: forme giuridiche (ditta, Srl, SA), iscrizione Registro commercio, tasse federali, cantonali, IVA, obblighi AVS, SUVA, LAMal. Step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, grigioni, costi',
+    ogTitle: 'Aprire attività Grigioni: costi e procedura',
+    ogDescription: 'Come avviare un\'attività nel Cantone Grigioni: forma giuridica (ditta, Srl, SA), iscrizione Registro commercio, imposte federali e cantonali, IVA, contributi AVS, SUVA, LAMal e checklist pratica completa.',
+    canonicalPath: '/articoli-svizzera/avviare-azienda-grigioni-registro-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività a Grigioni: costi e procedura",
+      "description": "Guida completa: forme giuridiche (ditta, Srl, SA), iscrizione Registro commercio, tasse federali, cantonali, IVA, obblighi AVS, SUVA, LAMal. Step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-azienda-grigioni-registro-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio e insegna commerciale di una piccola azienda registrata nel Cantone Grigioni"
+      },
+      "datePublished": "2026-09-06T05:52:46+00:00",
+      "dateModified": "2026-09-06T05:52:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-azienda-grigioni-registro-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5683,6 +5683,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Haus kaufen Wallis: Preise, Hypothek und Kosten',
     'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Leitfaden für den Immobilienkauf im Wallis: Eigenmittelbedarf, Tragbarkeit des Darlehens, Abgaben und Notargebühren.',
     'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Hypothekendokumente und Immobilienmaklerverträge auf Holzschreibtisch mit Schweizer Alpenhaus im Hintergrund',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Ein Unternehmen in Graubünden gründen: Kosten und Ablauf',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Vollständiger Leitfaden: Rechtsformen, Handelsregistereintrag, eidgenössische und kantonale Steuern, Mehrwertsteuer, AHV-, Suva-, KVG-Pflichten. Schritt-für-Schritt-Verfahren.',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Büro und Geschäftsschild eines in Graubünden eingetragenen Unternehmens',
 };
 
 export default blogMetaChDe;
