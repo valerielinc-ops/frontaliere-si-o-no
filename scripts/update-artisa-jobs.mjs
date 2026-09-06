@@ -271,8 +271,36 @@ function updateAdapterConfig(jobs) {
   });
 }
 
+/**
+ * Read the jobs this run is about to publish.
+ *
+ * NOT `readExistingCrawlerJobs()`: that helper answers "what is published
+ * today?" and prefers the on-disk slice of the PREVIOUS run whenever it is
+ * non-empty, falling back to `DATA_JOBS` only when the slice is empty or
+ * absent. That is the right answer before `mergeJobs()` (it is where the prior
+ * identities come from) and the WRONG one after it — every post-merge step
+ * that re-read through it got last run's jobs back and then wrote them over
+ * this run's working set.
+ *
+ * Observed on the proven-empty branch (issue #7706, item 3): the careers page
+ * proved zero vacancies, `mergeJobs([])` emptied `DATA_JOBS`, and the locale
+ * repair below resurrected the three retired jobs from the published slice.
+ * They were archived as expired AND re-published as active, and the summary
+ * went out with `total: 3` next to `authoritativeEmptySnapshot: true` — a
+ * combination `nextCrawlerState()` (check-crawler-health.mjs) reads as "proof
+ * present but jobCount > 0", so it discards the proof. The per-run evidence
+ * #7537 added to this runner never reached the monitor.
+ */
+function readCurrentRunJobs() {
+  if (fs.existsSync(DATA_JOBS)) {
+    const raw = readJson(DATA_JOBS, []);
+    return Array.isArray(raw) ? raw : [];
+  }
+  return readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+}
+
 function repairLocalizedDescriptions() {
-  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const jobs = readCurrentRunJobs();
   let repaired = 0;
   const nextJobs = jobs.map((job) => {
     if (!isTargetJob(job)) return job;
@@ -401,4 +429,19 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'Artisa Group'));
+// Only run main() when invoked as a script, not when imported by tests. Same
+// guard as update-fust-jobs.mjs: without it this runner had no unit-test
+// surface at all, which is why the slice resurrection above shipped unseen.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((error) => exitCrawlerOnError(error, 'Artisa Group'));
+}
+
+export { isTargetJob, readCurrentRunJobs, repairLocalizedDescriptions };
