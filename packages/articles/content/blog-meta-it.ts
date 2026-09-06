@@ -11488,6 +11488,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: vivere e lavorare in Ticino',
     'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Cosa significa vivere a Montescheno e lavorare come frontaliere in Ticino. Guida su Permesso G, tassazione, costo della vita e procedure amministrative.',
     'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Frontaliere in transito al valico di confine tra Montescheno e Ticino al tramonto',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Vivere a Ponte in Valtellina, lavorare nei Grigioni',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Guida completa per frontalieri: imposta alla fonte, Permesso G, franchigia €10k, AVS/LAMal, costo della vita. Dal 2024.',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Panorama alpino di Ponte in Valtellina con vista verso i Grigioni, paesaggio montano di confine tra Italia e Svizzera.',
 };
 
 export default blogMetaIt;
