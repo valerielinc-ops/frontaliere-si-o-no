@@ -341,9 +341,71 @@ const violations = [];
 // stop minting keys and fold the tail into GROUP_OVERFLOW_KEY, which keeps the
 // breakdown honest (its count is still exact) at bounded memory. The ratchet
 // gates on violationsTotal, which never depended on this map.
+//
+// WHICH keys keep a bucket is a DELIBERATE CHOICE, not the arrival order
+// (follow-up of #7679). Folding "every key minted after the cap is full" made
+// the retained set a function of DISCOVERY ORDER, which is LIFO plus inline
+// descent past DIR_STACK_HIGH_WATER and therefore depends on how the 24 walkers
+// interleave: two runs over the SAME dist/ could publish two different
+// byFeature breakdowns, so the per-area numbers were not comparable run over run
+// (the verdict never was affected — violationsTotal is accumulated live).
+// The retained set is now "the GROUP_CAP smallest keys in UTF-16 code-unit
+// order", a function of the key SET alone: when a new key arrives with the map
+// full and it sorts BELOW the current maximum, that maximum is evicted into
+// GROUP_OVERFLOW_KEY and the new key takes its place. An evicted key is never
+// re-minted (every key still held sorts below it, so the maximum only ever
+// decreases), which is what keeps each retained count EXACT rather than partial.
+// Ordering by key and not by count is also deliberate: an exact top-N by count
+// under a memory cap is the heavy-hitters problem, and its approximate counters
+// (Misra-Gries et al.) would trade the exactness of the retained numbers for the
+// ranking. Only the `samples` of the overflow bucket stay arrival-ordered —
+// they are cosmetic, like the offender order already is.
 const GROUP_CAP = 5_000;
 const GROUP_OVERFLOW_KEY = '<other>';
 const groups = new Map();
+// Max-heap over the retained keys (GROUP_OVERFLOW_KEY excluded — the overflow
+// bucket is never evicted). A heap, not a sorted array: eviction needs only the
+// current maximum, so push/pop cost O(log GROUP_CAP) instead of the O(GROUP_CAP)
+// splice or rescan a sorted structure would pay on every one of them, and a
+// descending-order dist/ evicts once per distinct key.
+const retainedKeys = [];
+const heapPush = (key) => {
+  retainedKeys.push(key);
+  let i = retainedKeys.length - 1;
+  while (i > 0) {
+    const parent = (i - 1) >> 1;
+    if (retainedKeys[parent] >= retainedKeys[i]) break;
+    [retainedKeys[parent], retainedKeys[i]] = [retainedKeys[i], retainedKeys[parent]];
+    i = parent;
+  }
+};
+const heapPopMax = () => {
+  const max = retainedKeys[0];
+  const last = retainedKeys.pop();
+  if (retainedKeys.length > 0) {
+    retainedKeys[0] = last;
+    for (let i = 0; ; ) {
+      const left = i * 2 + 1;
+      const right = left + 1;
+      let largest = i;
+      if (left < retainedKeys.length && retainedKeys[left] > retainedKeys[largest]) largest = left;
+      if (right < retainedKeys.length && retainedKeys[right] > retainedKeys[largest]) largest = right;
+      if (largest === i) break;
+      [retainedKeys[i], retainedKeys[largest]] = [retainedKeys[largest], retainedKeys[i]];
+      i = largest;
+    }
+  }
+  return max;
+};
+/** The overflow bucket, minted on first use so `groups.has()` stays meaningful. */
+const overflowGroup = () => {
+  let group = groups.get(GROUP_OVERFLOW_KEY);
+  if (!group) {
+    group = { count: 0, samples: [] };
+    groups.set(GROUP_OVERFLOW_KEY, group);
+  }
+  return group;
+};
 
 await scanIndexHtml(DIST, (relDir, html) => {
   if (SKIP_PATHS.has(relDir)) {
@@ -366,15 +428,34 @@ await scanIndexHtml(DIST, (relDir, html) => {
     return;
   }
   violationsTotal++;
-  let key = relDir.split('/').slice(0, 2).join('/') || '<root>';
+  const key = relDir.split('/').slice(0, 2).join('/') || '<root>';
   let group = groups.get(key);
-  if (!group && groups.size >= GROUP_CAP) {
-    key = GROUP_OVERFLOW_KEY;
-    group = groups.get(key);
-  }
   if (!group) {
-    group = { count: 0, samples: [] };
-    groups.set(key, group);
+    if (retainedKeys.length < GROUP_CAP) {
+      group = { count: 0, samples: [] };
+      groups.set(key, group);
+      heapPush(key);
+    } else if (key >= retainedKeys[0]) {
+      // Sorts at or above the current maximum: it never belonged to the
+      // retained set, so it folds straight into the overflow bucket.
+      group = overflowGroup();
+    } else {
+      // Sorts below the maximum: that maximum is not one of the GROUP_CAP
+      // smallest keys after all — fold everything it had counted so far into
+      // the overflow bucket and give its slot to this key.
+      const evicted = heapPopMax();
+      const evictedGroup = groups.get(evicted);
+      groups.delete(evicted);
+      const overflow = overflowGroup();
+      overflow.count += evictedGroup.count;
+      for (const sample of evictedGroup.samples) {
+        if (overflow.samples.length >= 3) break;
+        overflow.samples.push(sample);
+      }
+      group = { count: 0, samples: [] };
+      groups.set(key, group);
+      heapPush(key);
+    }
   }
   group.count++;
   if (group.samples.length < 3) group.samples.push(relDir + '/');
