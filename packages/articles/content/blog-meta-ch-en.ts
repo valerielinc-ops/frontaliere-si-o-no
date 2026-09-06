@@ -5764,6 +5764,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-sciaffusa-canoni-deposito.title': 'Schaffhausen rentals: fees, deposit and rental rights',
     'blog.article.affitti-sciaffusa-canoni-deposito.excerpt': 'Practical guide to lease rights in Schaffhausen: security deposit, dispute fees, cancellation and procedures with the conciliation authority.',
     'blog.article.affitti-sciaffusa-canoni-deposito.imageAlt': 'Swiss rental contract and key on desk with legal real estate documentation',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.title': 'Swiss neutrality: the thought of Elio Del Biaggio',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.excerpt': 'Elio Del Biaggio analyses the role of neutrality as a pillar of stability, independence and national identity in the current geopolitical context.',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.imageAlt': 'Swiss flag waving over the Swiss Alps.',
 };
 
 export default blogMetaChEn;

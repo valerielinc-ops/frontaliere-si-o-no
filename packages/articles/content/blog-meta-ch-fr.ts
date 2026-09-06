@@ -5764,6 +5764,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-sciaffusa-canoni-deposito.title': 'Location Schaffhouse : loyers, caution et droit de location',
     'blog.article.affitti-sciaffusa-canoni-deposito.excerpt': 'Guide pratique des droits de location à Schaffhouse : dépôt de garantie, contestation des redevances, résiliation et procédures auprès de l\'autorité de conciliation.',
     'blog.article.affitti-sciaffusa-canoni-deposito.imageAlt': 'Contrat de location suisse et clé sur bureau avec documents immobiliers légaux',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.title': 'Neutralité suisse : la pensée d\'Elio Del Biaggio',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.excerpt': 'Elio Del Biaggio analyse le rôle de la neutralité en tant que pilier de stabilité, d\'indépendance et d\'identité nationale dans le contexte géopolitique actuel.',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.imageAlt': 'Drapeau suisse flottant au-dessus des Alpes suisses.',
 };
 
 export default blogMetaChFr;
