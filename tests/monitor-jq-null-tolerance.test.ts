@@ -19,7 +19,7 @@ const WORKFLOWS_DIR = join(process.cwd(), '.github/workflows');
 // `.campo | join(`, `.campo["x"] | map(`, `.campo.sub | to_entries` — dove il
 // campo NON è già protetto da un `// default` racchiuso fra parentesi.
 const RAW_FIELD_INTO_COLLECTION_OP =
-  /(^|[^)\w])\.[A-Za-z_][\w]*(?:\.[A-Za-z_][\w]*|\[["'][^"']+["']\])*\s*\|\s*(?:join|map|to_entries)\b/;
+  /(^|[^)\w])\.[A-Za-z_][\w]*(?:\.[A-Za-z_][\w]*|\[["'][^"']+["']\])*(\[\])?\s*\|\s*(?:join|map|to_entries|sort_by|add|group_by)\b/;
 
 function issueOpeningSteps(text: string): string[] {
   return text
@@ -28,8 +28,11 @@ function issueOpeningSteps(text: string): string[] {
 }
 
 function jqExpressions(step: string): string[] {
-  // le sole invocazioni jq del blocco, con l'espressione fra apici singoli o doppi
-  return [...step.matchAll(/jq\s+(?:-[a-zA-Z]+\s+)*(['"])([\s\S]*?)\1/g)].map((m) => m[2]);
+  // Intero blocco `run:` dello step, non le sole stringhe quotate: un
+  // `'"'"'` bash (o un apice escaped) tronca `[\s\S]*?` al primo closer e
+  // nasconde il `| map(...) | join` che segue (glossario-definitions-monitor,
+  // persist-job-stats).
+  return [step];
 }
 
 describe('monitor: le estrazioni jq che alimentano una issue non muoiono su campo assente', () => {
@@ -40,6 +43,13 @@ describe('monitor: le estrazioni jq che alimentano una issue non muoiono su camp
       issueOpeningSteps(readFileSync(join(WORKFLOWS_DIR, f), 'utf8')).length > 0,
     );
     expect(withSteps.length).toBeGreaterThan(0);
+  });
+
+  it('lo scan vede il map/join dopo un apice bash escaped (non tronca al primo closer)', () => {
+    const text = readFileSync(join(WORKFLOWS_DIR, 'glossario-definitions-monitor.yml'), 'utf8');
+    const steps = issueOpeningSteps(text);
+    expect(steps.join('\n')).toContain('map("- " + .url) | join("\\n")');
+    expect(steps.join('\n')).toContain('(.flagged | type) == "array"');
   });
 
   it('nessun campo grezzo entra in join/map/to_entries in uno step che apre issue', () => {

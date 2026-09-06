@@ -83,7 +83,7 @@ jobs:
           # un report malformato uscirebbe da questa guardia come "niente da
           # segnalare" e il degrado passerebbe muto. `?` non è `0`, la guardia non
           # scatta, l'issue si apre e dice che il campo manca.
-          count=$(jq -r 'if has("flagged") then (.flagged | length) else "?" end' "$report")
+          count=$(jq -r 'if (.flagged | type) == "array" then (.flagged | length) else "?" end' "$report")
           if [ "$count" = "0" ]; then
             echo "No placeholders flagged (only fetch errors) — skipping issue creation."
             exit 0
