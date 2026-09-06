@@ -5770,6 +5770,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.hotel-lenzerheide-hacker-avviso.title': 'Attacco hacker Hotel Schweizerhof: 10.000 clienti avvisati',
     'blog.article.hotel-lenzerheide-hacker-avviso.excerpt': 'L\'Hotel Schweizerhof di Lenzerheide vittima di attacco hacker. Circa 10.000 clienti avvisati di possibili tentativi di frode con offerta fittizia di 250 franchi.',
     'blog.article.hotel-lenzerheide-hacker-avviso.imageAlt': 'Hotel di lusso svizzero con sfondo montagne in luce dorata alpina',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.title': 'Affitti Sciaffusa: canoni medi e diritto di locazione',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.excerpt': 'Le regole federali sulla locazione valgono in tutto il Canton Sciaffusa. Scopri deposito cauzionale, contestazione del canone e procedure di conciliazione.',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.imageAlt': 'Edificio residenziale in una città svizzera con citofoni e cassette postali',
 };
 
 export default blogMetaChIt;

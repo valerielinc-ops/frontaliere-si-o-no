@@ -5770,6 +5770,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.hotel-lenzerheide-hacker-avviso.title': 'Hackerangriff Hotel Schweizerhof: 10.000 gewarnte Kunden',
     'blog.article.hotel-lenzerheide-hacker-avviso.excerpt': 'Das Hotel Schweizerhof in Lenzerheide wurde Opfer eines Hackerangriffs. Rund 10.000 Kunden wurden vor möglichen Betrugsversuchen mit einem fiktiven Angebot von 250 Franken gewarnt.',
     'blog.article.hotel-lenzerheide-hacker-avviso.imageAlt': 'Schweizer Luxushotel mit Berghintergrund im alpinen Goldlicht',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.title': 'Mieten Schaffhausen: Durchschnittsmieten und Mietrecht',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.excerpt': 'Die eidgenössischen Mietregeln gelten im ganzen Kanton Schaffhausen. Entdecken Sie die Kaution, die Anfechtung der Gebühr und das Schlichtungsverfahren.',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.imageAlt': 'Schweizer Wohngebäude mit Briefkästen und Eingang',
 };
 
 export default blogMetaChDe;

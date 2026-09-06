@@ -74900,6 +74900,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciaffusa-canone-locazione-deposito-guida': {
+    title: 'Affitti Sciaffusa: canoni medi e diritto di locazione',
+    description: 'Guida completa al mercato della locazione nel Canton Sciaffusa. Regole su canone, deposito, disdetta e autorità di conciliazione per affitti e inquilini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, sciaffusa, canoni, medi',
+    ogTitle: 'Affitti Sciaffusa: canoni e diritto di locazione',
+    ogDescription: 'Nel Canton Sciaffusa gli affitti seguono il diritto federale svizzero. Scopri i diritti dell\'inquilino, come contestare il canone e le procedure di conciliazione.',
+    canonicalPath: '/articoli-svizzera/sciaffusa-canone-locazione-deposito-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Sciaffusa: canoni medi e diritto di locazione",
+      "description": "Guida completa al mercato della locazione nel Canton Sciaffusa. Regole su canone, deposito, disdetta e autorità di conciliazione per affitti e inquilini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciaffusa-canone-locazione-deposito-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale in una città svizzera con citofoni e cassette postali"
+      },
+      "datePublished": "2026-09-06T18:12:37+00:00",
+      "dateModified": "2026-09-06T18:12:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sciaffusa-canone-locazione-deposito-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

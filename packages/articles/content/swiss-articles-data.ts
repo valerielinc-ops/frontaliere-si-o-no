@@ -17308,6 +17308,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sciaffusa-canone-locazione-deposito-guida',
+    category: 'pratico',
+    date: '2026-09-06T18:12:37.124Z',
+    image: '/images/blog/sciaffusa-canone-locazione-deposito-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

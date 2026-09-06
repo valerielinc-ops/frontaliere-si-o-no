@@ -1949,6 +1949,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-sciaffusa-canoni-deposito': { it: 'affitti-sciaffusa-canoni-deposito', en: 'schaffhausen-rental-deposits-canons', de: 'schaffhausen-mietkaution-nebenkosten', fr: 'schaffhouse-loyers-depot-garantie' },
  'riflessione-neutralita-svizzera-delbiaggio': { it: 'riflessione-neutralita-svizzera-delbiaggio', en: 'swiss-neutrality-reflection-delbiaggio', de: 'schweizer-neutralitaet-reflexion-delbiaggio', fr: 'reflexion-neutralite-suisse-delbiaggio' },
  'hotel-lenzerheide-hacker-avviso': { it: 'hotel-lenzerheide-hacker-avviso', en: 'hotel-lenzerheide-hacker-warning', de: 'hotel-lenzerheide-hacker-warnung', fr: 'hotel-lenzerheide-hacker-avertissement' },
+ 'sciaffusa-canone-locazione-deposito-guida': { it: 'sciaffusa-canone-locazione-deposito-guida', en: 'schaffhausen-rental-lease-guide', de: 'schaffhausen-mietrecht-kaution', fr: 'schaffhouse-loyer-locaction-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
