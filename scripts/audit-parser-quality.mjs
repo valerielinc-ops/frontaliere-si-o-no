@@ -1112,6 +1112,45 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
 }
 
 /**
+ * Render the source-detail counters that `applySourceDetailResults` writes and
+ * nothing used to read. Until #7714 the whole location-observation family —
+ * and with it `sourceCorroboratedLocationObservations`, the pass opened by
+ * #7579 — was written, serialized into the JSON report and never printed: a
+ * pass earned because the page names the published place elsewhere looked
+ * exactly like a pass earned by the two location fields agreeing. The share
+ * over the authoritative checks is the number that says whether the
+ * corroboration rule is turning into a free pass, so it is printed, not left
+ * to be recomputed by hand from the report.
+ */
+export function formatSourceDetailObservationLines(summary = {}) {
+  const count = (value) => (Number.isFinite(value) ? value : 0);
+  const authoritative = count(summary.authoritativeLocationChecks);
+  const inconclusive = count(summary.inconclusiveLocationObservations);
+  const descriptionMismatches = count(summary.descriptionMismatches);
+  const processingFailed = count(summary.processingFailed);
+  const lines = [];
+  if (authoritative > 0 || inconclusive > 0) {
+    const matches = count(summary.locationMatches);
+    const mismatches = count(summary.locationMismatches);
+    const corroborated = count(summary.sourceCorroboratedLocationObservations);
+    const tenantConstant = count(summary.tenantConstantLocationObservations);
+    const share = authoritative
+      ? (100 * corroborated / authoritative).toFixed(1)
+      : '0.0';
+    lines.push(`Source detail location observations: ${matches}/${authoritative} authoritative checks matched, ${mismatches} mismatched`);
+    lines.push(`  corroborated by other page evidence: ${corroborated}/${authoritative} (${share} % of authoritative checks)`);
+    lines.push(`  inconclusive: ${inconclusive} (${tenantConstant} tenant-constant)`);
+  }
+  if (descriptionMismatches > 0) {
+    lines.push(`Source detail description mismatches: ${descriptionMismatches}`);
+  }
+  if (processingFailed > 0) {
+    lines.push(`Source detail processing failures: ${processingFailed}/${count(summary.requested)}`);
+  }
+  return lines;
+}
+
+/**
  * Persist either a complete request-bound bundle or an explicit invalid
  * artifact. Bundle failures become CRITICAL parser findings before the common
  * report writer runs, so missing provenance or a tampered/partial result can
@@ -1640,6 +1679,7 @@ async function main() {
       const rate = (sourceDetailSummary.unobserved / sourceDetailSummary.fetched * 100).toFixed(1);
       console.log(`Source detail observability: ${sourceDetailSummary.fetched - sourceDetailSummary.unobserved}/${sourceDetailSummary.fetched} fetched pages yielded an observable field (${rate}% proved nothing)`);
     }
+    for (const line of formatSourceDetailObservationLines(sourceDetailSummary)) console.log(line);
     const causes = Object.entries(sourceDetailSummary.fetchFailureCauses).sort((a, b) => b[1] - a[1]);
     if (causes.length > 0) {
       console.log(`Source detail fetch failures: ${sourceDetailSummary.fetchFailed}/${sourceDetailSummary.requested} — ${causes.map(([cause, count]) => `${count} ${cause}`).join(', ')}`);
