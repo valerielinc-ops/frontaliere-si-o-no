@@ -118,3 +118,16 @@ jobs:
             --priority 3 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      # Il rosso del run, DOPO l'apertura della issue: `continue-on-error` sullo
+      # step di backfill tiene vivo il job perche' il reporter possa girare, non per
+      # dichiarare verde un run fallito. `close-recovered-failure-issues.yml`
+      # chiude `CI Failure: <workflow>` sulla premessa «ultimo run completato
+      # success dopo l'apertura»: con un run verde per costruzione la issue si
+      # chiude come recuperata al giro dopo, guasto ancora in piedi. Stesso idiom
+      # di `location-quality-audit.yml` (#7379, item 3).
+      - name: Fail job if the backfill step failed
+        if: steps.backfill.outcome == 'failure'
+        run: |
+          echo "::error::backfill delle correzioni di settore fallito — vedi l'issue aperta sopra."
+          exit 1
