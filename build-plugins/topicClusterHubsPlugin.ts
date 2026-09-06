@@ -470,15 +470,26 @@ function renderPagination(
     de: 'Vollständiges Archiv nach Seite durchsuchen',
     fr: 'Parcourir toutes les archives par page',
   }[locale];
+  // Page-1 only (issue #7662, in lockstep with the two `/tutti/` ladders in
+  // seoHubsPlugin — AGENTS.md #6, same bug class): the ladder is O(totalPages)
+  // bytes, so shipping it on every page made each hub O(totalPages²) HTML.
+  // BFS-depth is unchanged by construction — the audits' BFS is a
+  // shortest-path map and page-1 is the hub's only entry point, so every
+  // page-N already took `depth(page-1) + 1` from page-1's ladder; a ladder on
+  // page-K > 1 could only ever offer a strictly larger depth. The prev/next
+  // compact nav above still chains the pages for humans.
+  // Per-anchor `class="hp"`/`class="hc"` dropped for the container rule
+  // `.hpl a` / `.hpl strong` (public/assets/seo-static.css) — same byte-shave.
+  if (page > 1) return compactNav;
   const flatAnchors: string[] = [];
   for (let p = 1; p <= totalPages; p++) {
     if (p === page) {
-      flatAnchors.push(`<strong class="hc" aria-current="page">${p}</strong>`);
+      flatAnchors.push(`<strong aria-current="page">${p}</strong>`);
     } else {
-      flatAnchors.push(`<a href="${esc(buildTopicHubPath(locale, section, topicKey, p))}" class="hp">${p}</a>`);
+      flatAnchors.push(`<a href="${esc(buildTopicHubPath(locale, section, topicKey, p))}">${p}</a>`);
     }
   }
-  const flatNav = `<nav class="s-4nYHgH" aria-label="${esc(flatLabel)}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${esc(flatLabel)} (${totalPages})</summary><div class="s-6_t7LY">${flatAnchors.join('')}</div></details></nav>`;
+  const flatNav = `<nav class="s-4nYHgH" aria-label="${esc(flatLabel)}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${esc(flatLabel)} (${totalPages})</summary><div class="s-6_t7LY hpl">${flatAnchors.join('')}</div></details></nav>`;
 
   return `${compactNav}${flatNav}`;
 }
