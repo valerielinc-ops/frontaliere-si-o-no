@@ -12,7 +12,7 @@ export const AGGREGATE_KEY = CORE_AGGREGATE_KEY;
 /**
  * The canonical TI legacy section table (issue #7491), typed and re-exported so
  * the SPA and the build plugins can IMPORT it instead of hand-copying
- * `{ it: 'cerca-lavoro-ticino', en: 'find-jobs-ticino', … }` — which is what 53
+ * `{ it: 'cerca-lavoro-ticino', en: 'find-jobs-ticino', … }` — which is what 53 cathedral-allow: docblock che descrive la tabella canonica, non una ri-dichiarazione
  * source files were doing when the issue was measured. The values live once, in
  * `cantonResolvers.mjs`; raw-`node` scripts import them straight from there.
  */
@@ -50,7 +50,7 @@ export function resolveCantonSection(locale: CantonLocale, cantonCode: string): 
  * in a given locale. Returns e.g. `/cerca-lavoro-ticino` (IT) or
  * `/en/find-jobs-ticino` (EN). Use this when a caller would otherwise
  * inline the ternary
- * `locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : ...`
+ * `locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : ...` cathedral-allow: docblock che mostra il ternario da NON scrivere, non una ri-dichiarazione
  * — the literal slugs stay encapsulated here, so other build-plugin files
  * never carry the TI hardcodes (and never trip
  * `tests/seo/cathedral-no-ti-hardcodes.test.ts`).
