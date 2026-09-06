@@ -431,15 +431,33 @@ export function freeTextPostalCandidates(text = '') {
 }
 
 /**
- * The postal locations an employer prints on EVERY one of its pages — its own
- * seat, in other words, not the workplace of any single vacancy. Measured on
+ * The share of an employer's pages a postal location has to appear on before it
+ * counts as boilerplate. A FRACTION, not "all of them": strict membership makes
+ * the set shrink monotonically with the number of pages observed, and the two
+ * callers do not observe the same number — `gradeExtraction()` samples
+ * `sampleSize` pages, `crawlSpec()` walks the whole listing. A seat printed on
+ * 6/6 sampled pages but missing from one of N production pages (a variant
+ * footer, a layout that answers without the contact block) would leave the set
+ * exactly where the sample cannot see it, and on a page whose only pair IS that
+ * seat `variablePostalGeography()` would then publish the employer's address as
+ * the vacancy's workplace. A ratio is scale-invariant: sample and full run
+ * classify the same location the same way.
+ */
+const BOILERPLATE_PAGE_SHARE = 0.6;
+
+/**
+ * The postal locations an employer prints on most of its pages — its own seat,
+ * in other words, not the workplace of any single vacancy. Measured on
  * physioswiss.ch on 2026-09-06: six detail pages, `3013 Bern` (the
  * association's seat) on all six, one further pair per page and each of them
  * the vacancy's actual town.
  *
- * Pages with no pair at all are excluded from the intersection: they say
- * nothing about what is boilerplate, and counting them would empty the set and
- * let the seat through as if it were the workplace.
+ * Pages with no pair at all are excluded from the count: they say nothing about
+ * what is boilerplate, and counting them in the denominator would push every
+ * location below quorum and let the seat through as if it were the workplace.
+ *
+ * The quorum floor of 2 keeps the two-page case as strict as it was: one page
+ * out of two is variance, not repetition.
  *
  * Returns `null` — not `[]` — when fewer than two pages carry a pair: the
  * criterion is variance across pages, and with one page there is no variance
@@ -453,8 +471,14 @@ export function constantPostalLocations(pages = []) {
     .map((page) => new Set((page || []).map((candidate) => String(candidate?.location || '').toLowerCase())))
     .filter((page) => page.size > 0);
   if (withEvidence.length < 2) return null;
-  const [first, ...rest] = withEvidence;
-  return [...first].filter((location) => rest.every((page) => page.has(location)));
+  const pagesSeenOn = new Map();
+  for (const page of withEvidence) {
+    for (const location of page) pagesSeenOn.set(location, (pagesSeenOn.get(location) || 0) + 1);
+  }
+  const quorum = Math.max(2, Math.ceil(withEvidence.length * BOILERPLATE_PAGE_SHARE));
+  return [...pagesSeenOn.entries()]
+    .filter(([, seenOn]) => seenOn >= quorum)
+    .map(([location]) => location);
 }
 
 /**

@@ -454,11 +454,37 @@ describe('vacancy extraction', () => {
       expect(freeTextPostalCandidates('Postfach 9490 Vaduz')).toEqual([]);
     });
 
-    it('riconosce come boilerplate solo l\'NPA presente su ogni pagina', () => {
+    it('riconosce come boilerplate l\'NPA che il datore ripete sulle sue pagine', () => {
       expect(constantPostalLocations(perPage)).toEqual(['3013 bern']);
       // Una pagina sola non ha varianza da osservare: `null`, non «niente e'
       // boilerplate», o la sede passerebbe per posto di lavoro.
       expect(constantPostalLocations(perPage.slice(0, 1))).toBeNull();
+    });
+
+    it('tiene la sede fra i boilerplate anche se una pagina non la stampa', () => {
+      // Il quorum e' una FRAZIONE delle pagine, non «tutte»: con l'apparteneza
+      // stretta bastava un footer variante — qui la sesta pagina, che nomina
+      // solo l'annuncio — per far uscire `3013 Bern` dal set. E il set stretto
+      // si restringe col numero di pagine, che validatore (campione) e runtime
+      // (listing intero) NON vedono uguale: il fallimento viveva esattamente
+      // dove il campione non arriva.
+      const conVariante = [
+        ...pages,
+        'Wir suchen fuer 8004 Zürich eine Fachperson. Physioswiss, 3013 Bern',
+        'Praxis in 2552 Orpund. Physioswiss, 3013 Bern',
+        'Stelle in 8618 Oetwil am See. Bewerbung an unsere Geschaeftsstelle',
+      ].map((text) => freeTextPostalCandidates(text));
+      const boilerplate = constantPostalLocations(conVariante);
+      expect(boilerplate).toContain('3013 bern');
+      // E' questa la riga che prima pubblicava la sede del datore come posto
+      // di lavoro: la sua unica coppia e' il boilerplate.
+      expect(variablePostalGeography(
+        freeTextPostalCandidates('Offene Stelle. Physioswiss, Centralbahnplatz, 3013 Bern'),
+        boilerplate,
+      ).geography).toBeNull();
+      // Scala-invariante: il campione a 3 pagine e il run intero a 6 danno lo
+      // stesso verdetto sulla sede.
+      expect(constantPostalLocations(perPage)).toContain('3013 bern');
     });
 
     it('accetta l\'NPA variabile dell\'annuncio e rifiuta quello costante di boilerplate', () => {

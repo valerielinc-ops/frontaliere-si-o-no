@@ -324,8 +324,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
   const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
   await Promise.all(Array.from({ length: concurrency }, worker));
   // Stesso criterio del validatore — vedi `constantPostalLocations()`: cio' che
-  // il datore ripete su ogni pagina e' la sua sede, cio' che varia e' il posto
-  // di lavoro dell'annuncio. Il resto della decisione resta la guardia
+  // il datore ripete sulla maggioranza delle sue pagine e' la sua sede, cio'
+  // che varia e' il posto di lavoro dell'annuncio. Il quorum e' una frazione
+  // proprio perche' qui le pagine sono il listing intero e la' un campione. Il resto della decisione resta la guardia
   // source-backed di sempre.
   const boilerplatePostalLocations = constantPostalLocations(pageCandidates.filter(Boolean));
   for (const { index, publishable, postalTextCandidates } of pendingGeography) {
