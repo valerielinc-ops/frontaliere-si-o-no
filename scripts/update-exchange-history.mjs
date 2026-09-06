@@ -32,8 +32,12 @@ const PERIODS = [
 
 function getDateRange(months) {
   const end = new Date();
-  const start = new Date();
-  start.setMonth(end.getMonth() - months);
+  // Calendario UTC su entrambi i lati (issue #7694): gli estremi sono formattati
+  // con `toISOString()`, quindi `setMonth`/`getMonth` (locali) facevano scivolare
+  // lo start di un giorno con `TZ` non-UTC — la gemella di `getHistoryDateRange`
+  // in `services/exchangeRateService.ts`.
+  const start = new Date(end);
+  start.setUTCMonth(end.getUTCMonth() - months);
   return {
     startStr: start.toISOString().slice(0, 10),
     endStr: end.toISOString().slice(0, 10),
@@ -51,7 +55,7 @@ async function fetchFromFrankfurter(startStr, endStr) {
       let chunkStart = new Date(startDate);
       while (chunkStart < endDate) {
         const chunkEnd = new Date(chunkStart);
-        chunkEnd.setFullYear(chunkEnd.getFullYear() + 1);
+        chunkEnd.setUTCFullYear(chunkEnd.getUTCFullYear() + 1);
         if (chunkEnd > endDate) chunkEnd.setTime(endDate.getTime());
 
         const cs = chunkStart.toISOString().slice(0, 10);
@@ -69,7 +73,10 @@ async function fetchFromFrankfurter(startStr, endStr) {
           }
         }
         chunkStart = new Date(chunkEnd);
-        chunkStart.setDate(chunkStart.getDate() + 1);
+        // #7694: passo sul calendario UTC, lo stesso in cui i bordi del chunk
+        // vengono formattati qui sopra — con `setDate` locale un salto DST
+        // ripete o salta una giornata al bordo.
+        chunkStart.setUTCDate(chunkStart.getUTCDate() + 1);
       }
 
       allPoints.sort((a, b) => a.date.localeCompare(b.date));

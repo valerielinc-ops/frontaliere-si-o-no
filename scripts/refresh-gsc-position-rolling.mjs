@@ -21,6 +21,7 @@
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const SITE = 'sc-domain:frontaliereticino.ch';
 const OUT  = 'data/gsc-position-rolling.json';
@@ -63,8 +64,8 @@ const fmt = (d) => d.toISOString().slice(0, 10);
 
 const token = await getToken();
 const today = new Date();
-const start = new Date(today); start.setDate(start.getDate() - 9);
-const end   = new Date(today); end.setDate(end.getDate() - 2);
+const start = utcDaysBefore(today, 9);
+const end   = utcDaysBefore(today, 2);
 
 const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
 const res = await fetch(url, {

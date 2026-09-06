@@ -39,7 +39,7 @@ import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
-import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
+import { loadCampaignVariantTotals, previousCampaignIds, weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
@@ -64,6 +64,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
 import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -784,8 +785,7 @@ async function fetchExchangeHistory(days = 120) {
   // 2. Fallback: Frankfurter API (only if Firestore is empty/unavailable)
   console.log('⚠️ Falling back to Frankfurter API for history');
   const end = new Date();
-  const start = new Date(end);
-  start.setDate(end.getDate() - days);
+  const start = utcDaysBefore(end, days);
   const startStr = start.toISOString().slice(0, 10);
   const endStr = end.toISOString().slice(0, 10);
   const endpoints = [
@@ -2090,11 +2090,10 @@ async function main() {
     const tools = getFeaturedTools(locale);
     return tools[toolIndex % tools.length];
   };
-  // Campaign ID anchored to the week's Monday so multi-day sends share the same ID
-  const now = new Date();
-  const monday = new Date(now);
-  monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
-  const campaignId = `weekly_${monday.toISOString().split('T')[0]}`;
+  // Campaign ID anchored to the week's Monday (UTC, like the id's own format —
+  // see weeklyCampaignId) so multi-day sends share the same ID and the resume
+  // below finds what the previous run already delivered.
+  const campaignId = weeklyCampaignId();
   const alreadySentForCampaign = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
   const isResume = alreadySentForCampaign.size > 0;
   const featuredArticle = await pickFeaturedArticle();

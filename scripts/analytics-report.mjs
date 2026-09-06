@@ -43,7 +43,7 @@ import {
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { engagementConsistency, dailyEngagementConsistency, engagementUnreliableNoteFromReason } from './lib/ga4-engagement-reliability.mjs';
-import { settledDays, settledEndDate, fmtUtcDate } from './lib/analytics-settled-window.mjs';
+import { settledDays, settledEndDate, fmtUtcDate, utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -382,10 +382,9 @@ async function reportGSC(token) {
     'Content-Type': 'application/json',
   };
 
-  const endDate = new Date();
-  endDate.setDate(endDate.getDate() - 2); // GSC data has 2-day lag
-  const startDate = new Date(endDate);
-  startDate.setDate(startDate.getDate() - DAYS);
+  // #7694: aritmetica sul calendario UTC, lo stesso in cui `fmtDate` formatta.
+  const endDate = utcDaysBefore(new Date(), 2); // GSC data has 2-day lag
+  const startDate = utcDaysBefore(endDate, DAYS);
 
   const baseBody = {
     startDate: fmtDate(startDate),
@@ -753,8 +752,9 @@ async function reportGA4(token) {
   };
 
   const endDate = new Date();
-  const startDate = new Date();
-  startDate.setDate(startDate.getDate() - DAYS);
+  // #7694: `startDate` si sposta sul calendario UTC come `settledEndDate()`,
+  // altrimenti il confronto stringa qui sotto mette a paragone due calendari.
+  const startDate = utcDaysBefore(endDate, DAYS);
 
   const baseRequest = {
     dateRanges: [{ startDate: fmtDate(startDate), endDate: fmtDate(endDate) }],
@@ -2853,9 +2853,11 @@ async function reportGA4(token) {
   // ── 3k. Week-over-week growth ───────────
   try {
     const thisWeekEnd = new Date();
-    const thisWeekStart = new Date(); thisWeekStart.setDate(thisWeekStart.getDate() - 7);
-    const prevWeekEnd = new Date(thisWeekStart); prevWeekEnd.setDate(prevWeekEnd.getDate() - 1);
-    const prevWeekStart = new Date(prevWeekEnd); prevWeekStart.setDate(prevWeekStart.getDate() - 6);
+    // #7694: finestre sul calendario UTC (`fmtDate` formatta in UTC), così le
+    // due settimane restano di 7 giorni pieni anche a cavallo di un salto DST.
+    const thisWeekStart = utcDaysBefore(thisWeekEnd, 7);
+    const prevWeekEnd = utcDaysBefore(thisWeekStart, 1);
+    const prevWeekStart = utcDaysBefore(prevWeekEnd, 6);
 
     const res = await fetchRetry(
       `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,

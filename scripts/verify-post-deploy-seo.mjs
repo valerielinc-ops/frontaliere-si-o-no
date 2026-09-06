@@ -25,6 +25,7 @@
 
 import { readFileSync, existsSync, appendFileSync } from 'node:fs';
 import { createSign } from 'node:crypto';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const LISTING_PATH = '/cerca-lavoro-ticino/';
@@ -107,8 +108,7 @@ async function getTopJobPages(accessToken, siteUrl) {
   };
 
   const endDate = new Date();
-  const startDate = new Date();
-  startDate.setDate(startDate.getDate() - 28);
+  const startDate = utcDaysBefore(endDate, 28);
   const fmt = d => d.toISOString().split('T')[0];
 
   try {

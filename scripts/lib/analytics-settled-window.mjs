@@ -22,15 +22,34 @@ export const ANALYTICS_PROCESSING_LAG_DAYS = 2;
 export const fmtUtcDate = (d) => d.toISOString().slice(0, 10);
 
 /**
+ * `date` spostata indietro di `days` giornate sul calendario UTC.
+ *
+ * Perché non `setDate`/`getDate` (issue #7694): quelli leggono e scrivono il
+ * calendario LOCALE, mentre ogni data di questi report viene poi formattata in
+ * UTC da `fmtUtcDate`. Con `TZ` non-UTC la differenza è invisibile finché non
+ * cade un salto DST dentro la finestra: `setDate` conserva l'ora di parete
+ * locale, quindi l'istante UTC scivola di un'ora e — se l'ora UTC è a ridosso
+ * della mezzanotte — la data formattata scivola di un giorno. La finestra
+ * interrogata smette di coincidere con quella dichiarata, e il confronto con
+ * `settledEndDate()` (già UTC) confronta due calendari diversi.
+ * @param {Date} date
+ * @param {number} days
+ * @returns {Date}
+ */
+export function utcDaysBefore(date, days) {
+  const shifted = new Date(date.getTime());
+  shifted.setUTCDate(shifted.getUTCDate() - days);
+  return shifted;
+}
+
+/**
  * Ultimo giorno considerato assestato rispetto a `now`.
  * @param {Date} [now]
  * @param {number} [lagDays]
  * @returns {Date}
  */
 export function settledEndDate(now = new Date(), lagDays = ANALYTICS_PROCESSING_LAG_DAYS) {
-  const end = new Date(now.getTime());
-  end.setUTCDate(end.getUTCDate() - lagDays);
-  return end;
+  return utcDaysBefore(now, lagDays);
 }
 
 /**
@@ -41,8 +60,7 @@ export function settledEndDate(now = new Date(), lagDays = ANALYTICS_PROCESSING_
  */
 export function settledWindow({ days = 7, now = new Date(), lagDays = ANALYTICS_PROCESSING_LAG_DAYS } = {}) {
   const end = settledEndDate(now, lagDays);
-  const start = new Date(end.getTime());
-  start.setUTCDate(start.getUTCDate() - (Math.max(1, days) - 1));
+  const start = utcDaysBefore(end, Math.max(1, days) - 1);
   return { start: fmtUtcDate(start), end: fmtUtcDate(end) };
 }
 

@@ -21,6 +21,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
 import { buildNearWinQueries } from './lib/analytics-opportunity-utils.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const SITE = 'sc-domain:frontaliereticino.ch';
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -96,8 +97,8 @@ async function main() {
 
   const token = await getToken();
   const today = new Date();
-  const end = new Date(today); end.setDate(end.getDate() - 2); // GSC ha un ritardo di 2 giorni
-  const start = new Date(end); start.setDate(start.getDate() - days);
+  const end = utcDaysBefore(today, 2); // GSC ha un ritardo di 2 giorni
+  const start = utcDaysBefore(end, days);
 
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
   const res = await fetch(url, {

@@ -51,6 +51,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -227,8 +228,7 @@ async function fetchPosthog(startDate, endDate) {
 async function main() {
   const today = new Date();
   const endDate = today.toISOString().slice(0, 10);
-  const startD = new Date(today);
-  startD.setDate(startD.getDate() - days);
+  const startD = utcDaysBefore(today, days);
   const startDate = startD.toISOString().slice(0, 10);
 
   console.error(`[indexed-cluster-urls] lookback ${startDate} → ${endDate} (${days} days), min impressions/views = ${minImpressions}`);

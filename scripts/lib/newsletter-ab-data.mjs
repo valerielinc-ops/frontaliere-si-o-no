@@ -105,6 +105,40 @@ export async function loadCampaignVariantTotals(db, campaignId) {
 }
 
 /**
+ * The Monday that opens `date`'s week, on the UTC calendar.
+ *
+ * UTC and not the local calendar (issue #7694) because the campaign id built
+ * from it is formatted with `toISOString()`: `setDate`/`getDay()` read and
+ * write the LOCAL calendar, so with a non-UTC `TZ` two runs of the same weekly
+ * campaign land on two different formatted dates (e.g. `TZ=Europe/Zurich`, run
+ * at 00:30 local on Mon 2026-03-30 = 22:30Z of the 29th → `weekly_2026-03-29`;
+ * run at 10:00 local → `weekly_2026-03-30`). Two ids means `fetchAlreadySent`
+ * finds nothing and the daily cron's resume re-sends to people who already got
+ * the issue. UTC is also the calendar `previousCampaignIds` walks and the one
+ * `backfill-newsletter-campaign-ids.mjs` (`mondayOfWeek`) rewrites ids onto, so
+ * the producer and the normalizer of an id now agree.
+ * @param {Date} date
+ * @returns {Date}
+ */
+export function utcMondayOfWeek(date) {
+  const d = new Date(date.getTime());
+  // (getUTCDay()+6)%7 = days since Monday. The naive `getUTCDate()-getUTCDay()+1`
+  // resolves to NEXT Monday on Sundays, i.e. an id that was never sent.
+  d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+  return d;
+}
+
+/**
+ * The `weekly_YYYY-MM-DD` id of the campaign whose week contains `now`, anchored
+ * to that week's Monday so multi-day sends of the same issue share one id.
+ * @param {Date} [now]
+ * @returns {string}
+ */
+export function weeklyCampaignId(now = new Date()) {
+  return `weekly_${utcMondayOfWeek(now).toISOString().slice(0, 10)}`;
+}
+
+/**
  * The `weekly_YYYY-MM-DD` campaign ids for the `count` Mondays BEFORE the given
  * campaign (most recent first). Used to pool recent history for promotion.
  * @param {string} campaignId e.g. "weekly_2026-06-15"
