@@ -226,6 +226,26 @@ class RobotsDeniedError extends Error {
 }
 
 /**
+ * Whether an error is a robots denial, read through every wrapper the way
+ * `isPublicFetchPolicyError()` already reads its own. A robots «no» is a
+ * statement BY the source; miss it and the failure falls back to a nameless
+ * transport bucket that reads as «the host is unreachable», which is a claim
+ * about the source we never verified (#7536).
+ *
+ * @param {unknown} error
+ */
+export function isRobotsDeniedError(error) {
+  const seen = new Set();
+  let current = error;
+  while (current && (typeof current === 'object' || typeof current === 'function') && !seen.has(current)) {
+    seen.add(current);
+    if (current instanceof RobotsDeniedError || current.name === 'RobotsDeniedError') return true;
+    current = current.cause;
+  }
+  return false;
+}
+
+/**
  * Fetch a URL politely. Never throws: a failure is a result with `ok:false`,
  * because at prospector scale an exception per unreachable SME site would turn
  * every run into an error-handling exercise instead of a discovery run.
@@ -278,11 +298,11 @@ export async function politeFetch(url, opts = {}) {
         last = {
           ok: false,
           status: 0,
-          url: error instanceof RobotsDeniedError ? error.url : url,
+          url: isRobotsDeniedError(error) ? (error.url || url) : url,
           body: '',
           host,
           transportError: transportErrorKind(error),
-          ...(error instanceof RobotsDeniedError ? { blockedByRobots: true } : {}),
+          ...(isRobotsDeniedError(error) ? { blockedByRobots: true } : {}),
           ...(isPublicFetchPolicyError(error)
             ? { policyBlocked: true, error: String(error?.message || error) }
             : {}),
@@ -309,6 +329,7 @@ export async function politeFetch(url, opts = {}) {
       body: '',
       host,
       transportError: transportErrorKind(error),
+      ...(isRobotsDeniedError(error) ? { blockedByRobots: true } : {}),
       ...(isPublicFetchPolicyError(error)
         ? { policyBlocked: true, error: String(error?.message || error) }
         : {}),

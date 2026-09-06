@@ -26,7 +26,8 @@ import {
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
 } from './lib/target-swiss-locations.mjs';
-import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { isRobotsDeniedError, mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
 import {
@@ -654,13 +655,21 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       fetched = await fetchPage(item.url, { timeoutMs: 10000, retries: 1 });
     } catch (error) {
       // A fetcher that THROWS instead of returning `{ ok: false }` used to land
-      // in the same nameless bucket #7351 removes; it carries the kind too.
+      // in the same nameless bucket #7351 removes; it carries the kind too —
+      // AND the two refusal flags, because a thrown `public-fetch-policy` or
+      // robots error carried only its transport kind, collapsed to
+      // `transport-other`, and was read downstream as «the source is
+      // unreachable»: our own URL bug promoted to a statement by the source,
+      // which is the exact hole `fetchFailureFamily()` closes on the
+      // non-throwing branch (#7536).
       return {
         ...item,
         fetchFailed: true,
         status: 0,
         fetchError: sanitizeProcessingError(error),
         transportError: transportErrorKind(error),
+        policyBlocked: isPublicFetchPolicyError(error) || undefined,
+        blockedByRobots: isRobotsDeniedError(error) || undefined,
       };
     }
     if (!fetched.ok || !fetched.body) {
@@ -803,9 +812,29 @@ export function fetchFailureFamily(cause) {
   // a family of its own so it can never be read as a statement by the source.
   if (cause === 'blocked-by-policy') return 'refused-by-us';
   if (String(cause).startsWith('blocked-')) return 'refused-by-source';
+  // `unreachable-network` (ENETUNREACH/EHOSTUNREACH) is the runner saying it has
+  // NO ROUTE — it never reached the network, so it observed nothing about the
+  // source. Left in `source-unreachable` it would be promoted to a source-level
+  // finding and subtracted from the unexplained count: a failure of ours
+  // certifying itself as a property of the host, which is the self-certifying
+  // pattern the source-level split exists to remove (#7536).
+  if (cause === 'transport-unreachable-network') return 'unreachable-from-us';
   if (String(cause).startsWith('transport-')) return 'source-unreachable';
   return String(cause);
 }
+
+/**
+ * Families that can NEVER be promoted to a source-level finding: an expiry is
+ * churn, and the two `*-by-us`/`from-us` families are our own faults — reading
+ * either as «that source declines» would subtract our bug from the number the
+ * `--strict` gate watches, i.e. hide a broken parser behind a host we never
+ * actually contacted.
+ */
+export const NON_SOURCE_LEVEL_FAILURE_FAMILIES = new Set([
+  'expired-vacancy',
+  'refused-by-us',
+  'unreachable-from-us',
+]);
 
 /**
  * How many sampled fetches a source must lose before «all of them failed» is
@@ -849,10 +878,10 @@ export function classifySourceLevelFailures(byKey) {
     const families = Object.keys(info.failureFamilies || {});
     if (families.length !== 1) continue;
     const [family] = families;
-    // Neither an expiry nor a refusal of ours explains a coverage loss on the
-    // source's behalf: both stay out of the source-level bucket, and
-    // `refused-by-us` therefore stays counted as unexplained.
-    if (family === 'expired-vacancy' || family === 'refused-by-us') continue;
+    // Neither an expiry nor a failure of ours explains a coverage loss on the
+    // source's behalf: all of them stay out of the source-level bucket, and
+    // therefore stay counted as unexplained.
+    if (NON_SOURCE_LEVEL_FAILURE_FAMILIES.has(family)) continue;
     sources[key] = { family, samples: info.checked };
     samples += info.checked;
   }
