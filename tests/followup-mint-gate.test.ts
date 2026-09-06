@@ -29,6 +29,7 @@ import {
   demotedBlock,
   isLosslessSplit,
 } from '../scripts/ci/gate-minted-followups.mjs';
+import { citedTokens, hasFalsifiableAcceptance, splitFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
 
 const GATE_SRC = fileURLToPath(new URL('../scripts/ci/gate-minted-followups.mjs', import.meta.url));
 const WORKFLOW = fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url));
@@ -196,6 +197,25 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(src).toContain('MINT_GATE_TALLY');
     expect(src).toMatch(/demoted=\$\{t\.demoted\}/);
     expect(src).toMatch(/demotedTotal/);
+  });
+
+  it('PIN: la misura che regge la clausola «formula poi giudica» è vera oggi, e la clausola c\'è', () => {
+    // Questo test PARTE dalla misura, così se la clausola sparisce dal prompt cade
+    // citando il perché invece di dire soltanto «manca una stringa».
+    // Il metro NON si applica al bullet grezzo: lì `suggestedActionText()` ricade
+    // sull'intero testo e i backtick destinati a `Original text` fanno sembrare l'item
+    // ammissibile, mentre alla chiusura quella regione è esclusa per costruzione.
+    const bullet = 'Nessun gate rilegge `manifest.counts` dopo il transport, quindi un set troncato passa.';
+    const coniato = `### 1. x\n- Original text:\n  > ${bullet}\n- Suggested action: valutare se serve un controllo esplicito\n`;
+    expect(citedTokens(bullet)).toEqual(['manifest.counts']); // ammissione col metro whole-body
+    expect(citedTokens(splitFollowupItems(coniato)[0])).toEqual([]); // chiusura: regione esclusa
+    // La cintura che rende innocua la divergenza per il predicato di ammissione:
+    // `holds()` esige la regione, quindi dal gate quel fallback non è raggiungibile.
+    expect(hasFalsifiableAcceptance(bullet)).toBe(false);
+    // E il prompt del conio porta la clausola che chiude la classe a monte.
+    const wf = readFileSync(WORKFLOW, 'utf-8');
+    expect(wf).toContain('PRIMA FORMULA L\'AZIONE, POI GIUDICA QUELLA');
+    expect(wf).toMatch(/DERIVALO invece di scartarlo/);
   });
 
   it('PIN: lo step gira nel workflow, zero-Claude, DOPO il conio e senza poterlo far cadere', () => {

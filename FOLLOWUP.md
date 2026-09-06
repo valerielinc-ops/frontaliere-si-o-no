@@ -110,6 +110,8 @@ Dal 2026-09-06 lo step `Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`,
 
 Conseguenza pratica per chi conia: un item scritto senza `- Suggested action:` con un token-codice non sopravvive al gate. Scrivi il simbolo, la costante o il path che un `grep` futuro dovrà trovare.
 
+**Il metro si applica alla tua `Suggested action`, non al bullet grezzo — e il token si DERIVA, non si aspetta.** Sul bullet grezzo `suggestedActionText()` ricade sull'intero testo, quindi i backtick che finiranno in `Original text` fanno sembrare l'item ammissibile; alla chiusura quella regione è esclusa per costruzione e l'item vale `no-valid-item`, cioè è nato già non chiudibile. Misurato eseguendo le funzioni sullo stesso item: `citedTokens()` sul bullet grezzo dà `["manifest.counts"]`, sull'item coniato dà `[]`. Perciò prima formuli l'azione, poi giudichi quella; e se l'item è azionabile ma la frase non porta un token, vai a cercare il file, il simbolo o il campo da toccare e scrivilo (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1` — mai un identificatore nudo né un path nudo, che `isDistinctiveToken()` rifiuta per scelta esplicita). Un item funnel-critico scartato per forma è il caso peggiore: ha codice da cambiare e finisce in un commento che nessun reconciler drena. La rinuncia vale solo quando non c'è niente da toccare.
+
 ## Dedup
 
 Tre livelli, in quest'ordine:
