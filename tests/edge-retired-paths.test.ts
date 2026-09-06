@@ -59,6 +59,13 @@ import {
   articlePathsFor,
   parseSlugRegistry,
 } from '../scripts/lib/article-slug-registry.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — plain .mjs module, no type declarations.
+import {
+  MIN_PINNED_GROUPS,
+  RETIRED_LOCALE_GROUPS_FILE,
+  parseRetiredLocaleGroups,
+} from '../scripts/lib/retired-locale-groups.mjs';
 
 const REPO = path.resolve(__dirname, '..');
 
@@ -167,6 +174,16 @@ function liveCorpusSlugs(): Set<string> {
   return out;
 }
 
+/**
+ * The four locale URLs of every article already pruned from the registries.
+ * Read, not derived: after the prune this file is the ONLY place they exist.
+ */
+function pinnedRetiredGroups(): Map<string, string[]> {
+  return parseRetiredLocaleGroups(
+    fs.readFileSync(path.join(REPO, RETIRED_LOCALE_GROUPS_FILE), 'utf-8'),
+  ) as Map<string, string[]>;
+}
+
 /** `data/legacy-aliases.json` orphanPaths under a section prefix. */
 function declaredAliasOrphans(): string[] {
   const file = JSON.parse(fs.readFileSync(path.join(REPO, 'data/legacy-aliases.json'), 'utf-8')) as {
@@ -270,14 +287,38 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     // the EN/DE/FR pages 200 with `robots: index`, and the corpus's decision to
     // withdraw the article is honoured in Italian only.
     //
-    // The check is local because of the ordering the guard enforces: the sync
-    // refuses to prune until the bridge exists, so at the moment a retirement is
-    // declared the registries STILL carry all four slugs of the article. Hence:
-    // if any of an article's four locale URLs is bridged, all four must be — and
-    // all four must be answered at the edge, which is the only layer that can
-    // actually stop the shard from serving them.
+    // WHERE THE POPULATION COMES FROM, AND WHY NOT FROM THE REGISTRIES.
+    // This used to iterate `Object.entries(registry)` on the LIVE registries,
+    // on the reasoning that the guard enforces an ordering — bridge first, prune
+    // some sync cycles later — so a freshly declared retirement is still in
+    // them. Nothing imposed that ordering across COMMITS, and the population
+    // decayed anyway as the sync pruned: measured 2026-09-06, **0** of the 81
+    // declared retirements were still visited. The check was green because it
+    // checked nothing (issue #7669).
+    //
+    // So the population is the PIN — data/retired-article-locale-groups.json,
+    // written by pull-articles-corpus.mjs at the moment it prunes a row, which
+    // is the last moment the article's four locale slugs exist together — plus
+    // whatever the live registries still carry, which is the case the pin
+    // cannot cover yet (a bridge declared before the sync that prunes it).
     const declaredFrom = new Set(declaredRedirects().keys());
-    const partial: string[] = [];
+    const live = liveCorpusSlugs();
+    const pinned = pinnedRetiredGroups();
+    // Anti-vacuity floor: an emptied or truncated pin must redden this test,
+    // not silence it. Being silenced IS the defect.
+    expect(pinned.size, `${RETIRED_LOCALE_GROUPS_FILE} lost its retirements`)
+      .toBeGreaterThanOrEqual(MIN_PINNED_GROUPS);
+
+    // A PINNED group carries the slugs the article had when it was retired, and
+    // a rename that only moved some locales left the others unchanged and
+    // alive — so a path whose slug the corpus publishes again is not a retired
+    // URL and must not be demanded a bridge. `never lists a URL the corpus still
+    // publishes`, above, owns that direction. A LIVE registry row is the
+    // opposite case: every one of its four slugs is by definition in the corpus,
+    // so the whole group is in scope the moment any of it is bridged.
+    const groups = new Map<string, string[]>();
+    for (const [key, paths] of pinned) groups.set(key, paths.filter((p) => !live.has(lastSegment(p))));
+
     for (const section of ARTICLE_SECTION_KEYS as readonly string[]) {
       const { file, constName } = REGISTRY_BY_SECTION[section];
       const registry = parseSlugRegistry(
@@ -290,11 +331,17 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
       for (const [id, slugMap] of Object.entries(registry)) {
         const paths = articlePathsFor(section, slugMap) as string[];
         if (!paths.some((p) => declaredFrom.has(p))) continue;
-        const unbridged = paths.filter((p) => !declaredFrom.has(p));
-        const unserved = paths.filter((p) => !(p in RETIRED_TABLE));
-        const missing = [...new Set([...unbridged, ...unserved])];
-        if (missing.length) partial.push(`${section}/${id}\n    ${missing.join('\n    ')}`);
+        groups.set(`${section}/${id}`, paths);
       }
+    }
+
+    const partial: string[] = [];
+    for (const [key, dead] of groups) {
+      if (!dead.some((p) => declaredFrom.has(p))) continue;
+      const unbridged = dead.filter((p) => !declaredFrom.has(p));
+      const unserved = dead.filter((p) => !(p in RETIRED_TABLE));
+      const missing = [...new Set([...unbridged, ...unserved])];
+      if (missing.length) partial.push(`${key}\n    ${missing.join('\n    ')}`);
     }
     expect(
       partial,

@@ -204,7 +204,14 @@ describe('evaluateCorpusRemoval', () => {
     expect(v.removals[0].unbridgedLocalePaths).toEqual([]);
   });
 
-  it('allows an IT-only bridge but names the locale URLs left to 404', () => {
+  it('refuses an IT-only bridge and names the locale URLs left to 404', () => {
+    // Issue #7669. This used to pass with a console.warn: the IT bridge alone
+    // was "proof enough" and the sync pruned the row. That row is the last place
+    // the four locale slugs exist together, so after the prune the EN/DE/FR URLs
+    // cannot be named from anything in this repo — the append-only shard keeps
+    // serving them 200 with `robots: index`, and tests/edge-retired-paths.test.ts
+    // has no id left to visit. Half-recorded decisions are refused, not warned
+    // about.
     const incoming = { frontaliere: base.frontaliere, svizzera: padRegistry({}) };
     const v = evaluateCorpusRemoval({
       local: base,
@@ -212,7 +219,12 @@ describe('evaluateCorpusRemoval', () => {
       retiredPaths: new Set(['/articoli-svizzera/rimborsi-730-sostituti-imposta/']),
     });
 
-    expect(v.ok).toBe(true);
+    expect(v.ok).toBe(false);
+    expect(v.partiallyBridged.map((r) => r.id)).toEqual(['rimborsi-730-sostituti-imposta']);
+    // Still ledgered: a human DID decide the withdrawal — what is missing is the
+    // other three quarters of the record, not the decision itself.
+    expect(v.removals[0].ledgered).toBe(true);
+    expect(v.removals[0].fullyBridged).toBe(false);
     expect(v.removals[0].unbridgedLocalePaths).toEqual([
       '/en/swiss-articles/tax-refunds-730-substitute-taxes/',
       '/de/schweiz-artikel/steuerrueckerstattungen-730-ersatzsteuern/',
