@@ -308,4 +308,79 @@ describe('audit-spa-bundle-injection — offender groups past the breakdown cap'
     for (const key of retained) expect(report.byFeature[key]).toBe(1);
     expect(report.byFeature['<other>']).toBe(PAGES - GROUP_CAP);
   });
+
+  /**
+   * The regression branch's per-group delta is `count - baseline.groups[key]`,
+   * and that subtraction only means something when both runs put the key in the
+   * same bucket. The GROUP_CAP fold breaks that for two kinds of key (follow-up
+   * of #7679), and both used to print a wrong number in silence:
+   *
+   *   • `<other>` — this run folds the tail of ITS key set, the baseline folded
+   *     the tail of a different one (or, as here, was not folded at all and has
+   *     no `<other>` entry, so the lookup reads 0 and the whole fold is
+   *     reported as a `+count` regression of a single "area");
+   *   • any key ABSENT from a folded baseline — absent is "0 offenders then" OR
+   *     "inside the baseline's own `<other>` then", and the file cannot tell
+   *     the two apart, so reading it as 0 invents a regression.
+   *
+   * Both now print `baseline=n/a, delta=n/a` with the reason. Comparable keys
+   * keep their exact numeric delta.
+   */
+  it('prints no delta for <other> against an unfolded baseline, and keeps it for the comparable keys', () => {
+    // The repo baseline (total=5, groups={}) is well under PAGES, so this run
+    // takes the regression branch — the only one that prints per-group deltas.
+    const { stdout } = run(manyWorkdir);
+    expect(stdout).toMatch(/regression: \d+ files missing the SPA bundle/);
+
+    const otherLine = stdout.split('\n').find((l) => l.includes('× <other>'));
+    expect(otherLine).toBeDefined();
+    expect(otherLine).toContain('baseline=n/a, delta=n/a: overflow bucket');
+    // The bug being fixed: `<other>` reported as a +200 regression of one area.
+    expect(otherLine).not.toMatch(/delta=[+-]?\d/);
+
+    // A retained key is a homologous bucket — its exact delta is unchanged.
+    expect(stdout).toMatch(/× area-\d+\/p {2}\(baseline=0, delta=\+1\)/);
+  });
+
+  it('prints no delta for a key that a FOLDED baseline can only report as "0 or <other>"', () => {
+    const original = fs.readFileSync(BASELINE, 'utf8');
+    try {
+      // A baseline that was itself folded. EVEN-indexed keys are real entries;
+      // odd-indexed ones are either genuinely absent or inside its `<other>`,
+      // and the file cannot say which. Half and half because the regression
+      // branch only prints the top REGRESSION_GROUPS_SHOWN groups and every
+      // fixture key ties at count 1, so which keys land in that slice is not
+      // fixed — this way the slice contains both kinds whatever it holds.
+      const foldedGroups: Record<string, number> = { '<other>': 4 };
+      for (let i = 0; i < PAGES; i += 2) foldedGroups[`area-${i}/p`] = 1;
+      fs.writeFileSync(
+        BASELINE,
+        JSON.stringify({
+          total: 5,
+          groups: foldedGroups,
+          byFeatureTruncated: true,
+          groupCap: GROUP_CAP,
+        }),
+        'utf8',
+      );
+      const { stdout } = run(manyWorkdir);
+      expect(stdout).toMatch(/regression: \d+ files missing the SPA bundle/);
+
+      // Absent from a folded baseline → no delta, with the reason.
+      expect(stdout).toMatch(
+        /× area-\d+\/p {2}\(baseline=n\/a, delta=n\/a: absent from a folded baseline/,
+      );
+      // Present in it → still compared exactly (1 offender now, 1 then).
+      expect(stdout).toMatch(/× area-\d+\/p {2}\(baseline=1, delta=0\)/);
+      // And every shown key that carries a delta is one the baseline knows.
+      for (const line of stdout.split('\n')) {
+        const m = line.match(/× (area-\d+\/p) {2}\(baseline=(\d+),/);
+        if (m) expect(foldedGroups[m[1]]).toBe(Number(m[2]));
+      }
+      // And the footer says the breakdown carries un-comparable buckets.
+      expect(stdout).toMatch(/group\(s\) above carry no delta/);
+    } finally {
+      fs.writeFileSync(BASELINE, original, 'utf8');
+    }
+  });
 });
