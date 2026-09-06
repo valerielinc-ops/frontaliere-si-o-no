@@ -1939,6 +1939,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'trasporti-pubblici-vallese-guida': { it: 'trasporti-pubblici-vallese-guida', en: 'public-transport-valais-guide', de: 'oeffentlicher-verkehr-wallis-leitfaden', fr: 'transports-publics-valais-guide' },
  'avviare-attivita-vallese-registro-commercio': { it: 'avviare-attivita-vallese-registro-commercio', en: 'start-business-canton-valais-commerce-registry', de: 'betrieb-eroffnen-wallis-handelsregister', fr: 'demarrer-activite-canton-valais-registre-commerce' },
  'conversione-patente-vallese': { it: 'conversione-patente-vallese', en: 'conversion-driving-license-valais', de: 'umwandlung-fuehrerschein-wallis', fr: 'conversion-permis-conduire-valais' },
+ 'imposta-successione-vallese-aliquote': { it: 'imposta-successione-vallese-aliquote', en: 'estate-tax-donation-valais-canton-rates', de: 'erbschaftssteuer-donationen-kanton-wallis-saetze', fr: 'impot-succession-donations-canton-valais-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

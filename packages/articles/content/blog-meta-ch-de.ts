@@ -5740,6 +5740,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.conversione-patente-vallese.title': 'Umtausch ausländischer Führerscheine im Kanton Wallis: Fahren',
     'blog.article.conversione-patente-vallese.excerpt': 'Umwandlungspflicht des ausländischen Führerscheins innerhalb von 12 Monaten für Neubürger im Wallis: Hier das Verfahren und die von der kantonalen Behörde geforderten Unterlagen.',
     'blog.article.conversione-patente-vallese.imageAlt': 'Schweizer Führerschein auf einem Holztisch',
+    'blog.article.imposta-successione-vallese-aliquote.title': 'Erbschafts- und Schenkungssteuer im Wallis: Steuersätze',
+    'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Leitfaden zur Erbschafts- und Schenkungssteuer im Kanton Wallis: Kantonsstruktur, Freistellungen für Ehegatten und Kinder, Erklärung und Amtsfristen.',
+    'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Verwaltungsgebäude des Kantons Wallis mit Alpenpanorama im Hintergrund',
 };
 
 export default blogMetaChDe;

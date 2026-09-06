@@ -74510,6 +74510,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-vallese-aliquote': {
+    title: 'Imposta di successione e donazione nel Vallese: aliquote',
+    description: 'Guida alle imposte di successione e donazione nel Cantone Vallese: struttura cantonale, esenzioni per coniuge e figli, dichiarazione e termini ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, vallese',
+    ogTitle: 'Imposta di successione e donazione nel Vallese: aliquote',
+    ogDescription: 'Guida alle imposte di successione e donazione nel Cantone Vallese: struttura cantonale, esenzioni per coniuge e figli, dichiarazione e termini ufficiali.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-vallese-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione nel Vallese: aliquote",
+      "description": "Guida alle imposte di successione e donazione nel Cantone Vallese: struttura cantonale, esenzioni per coniuge e figli, dichiarazione e termini ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-vallese-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo cantonale in Vallese con montagne sullo sfondo, rappresenta l'amministrazione fiscale svizzera"
+      },
+      "datePublished": "2026-09-06T13:30:06+00:00",
+      "dateModified": "2026-09-06T13:30:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-vallese-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

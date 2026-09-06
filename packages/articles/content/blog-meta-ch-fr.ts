@@ -5740,6 +5740,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.conversione-patente-vallese.title': 'Conversion permis étranger dans le canton du Valais : guide',
     'blog.article.conversione-patente-vallese.excerpt': 'Obligation de conversion du permis étranger dans les 12 mois pour les nouveaux résidents en Valais : voici la procédure et les documents requis par l\'autorité cantonale.',
     'blog.article.conversione-patente-vallese.imageAlt': 'Permis de conduire suisse sur une table en bois',
+    'blog.article.imposta-successione-vallese-aliquote.title': 'Droits de succession et de donation en Valais : taux',
+    'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guide des droits de succession et de donation dans le canton du Valais : structure cantonale, exonérations pour conjoint et enfants, déclaration et délais officiels.',
+    'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Bâtiment administratif du canton du Valais avec paysage alpin en arrière-plan',
 };
 
 export default blogMetaChFr;
