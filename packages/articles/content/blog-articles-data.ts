@@ -34239,6 +34239,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'colacem-sostenibilita-2025',
+ category: 'novita',
+ date: '2026-09-06T11:58:59.045Z',
+ image: '/images/blog/colacem-sostenibilita-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
