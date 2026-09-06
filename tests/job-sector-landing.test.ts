@@ -312,6 +312,59 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(hubFor('Bauzeichner/in Architektur')).toBe('architetti');
   });
 
+  // ── L'architetto IT non e' l'architetto edile (#7547) ──
+  //
+  // `\barchitect\b`/`\barchitekt` sono omonimi: sul dataset riassemblato
+  // pescavano 168 titoli, 136 dei quali software/solution/cloud/ICT. Solo la
+  // fetta `security` era gia' altrove (cybersecurity precede architetti in
+  // SECTOR_HUB_KEYS), tutto il resto finiva sulla landing dell'architetto
+  // edile. Il veto e' ADIACENTE: guarda il token attaccato al sostantivo, non
+  // l'intera stringa title+category+tags.
+  it('tiene gli architetti IT fuori dal settore architetti (#7547)', () => {
+    for (const title of [
+      'Software Architect',
+      'Solution Architect SAP PS & SD',
+      'Data Architect – Artificial Intelligence & Data',
+      'Enterprise Architect Business Applications',
+      'ICT-Architekt/-in Senior (740)',
+      'Systems Architect (80-100%)',
+      'Software  Architekt:in im Steuerbereich 80-100 %',   // doppio spazio
+      'Global IT/OT Network Architect (a), 100%',           // slash
+      'Public Cloud Architekt/-in',
+      'Integrations-Architekt/-in',
+      'Senior GPU Networking Architect',                    // flessione del qualificatore
+      'Architetto software',                                // qualificatore posposto (IT)
+      'Architecte logiciel',                                // qualificatore posposto (FR)
+    ]) {
+      expect(jobMatchesSector({ title }, 'architetti'), `IT: ${title}`).toBe(false);
+    }
+  });
+
+  it('non tocca gli architetti edili veri (#7547)', () => {
+    for (const title of [
+      'Architetto qualificato',
+      'Architetto progettista edile',
+      'Dipl. Architekt/In - GIM',
+      'Architekt/-in als Bauberater/-in',
+      'Bauzeichner/in Architektur',
+      'Dessinateur en génie civil 80-100% (f/m/d)',
+      'Disegnatore edile CFC',
+      'Architecte EPF',
+    ]) {
+      expect(jobMatchesSector({ title }, 'architetti'), `edile: ${title}`).toBe(true);
+    }
+  });
+
+  // Il veto NON puo' essere sull'intera stringa: `jobMatchesSectorCanonical`
+  // concatena title + category + tags, e una parola del lessico tecnico in un
+  // tag scarterebbe un architetto edile vero.
+  it('non scarta un architetto edile per un qualificatore lontano dal sostantivo (#7547)', () => {
+    expect(jobMatchesSector(
+      { title: 'Architetto qualificato', category: 'Edilizia', tags: ['test', 'AutoCAD', 'data entry'] },
+      'architetti',
+    )).toBe(true);
+  });
+
   it('rejects three-letter false positives that previously inflated the count', () => {
     // The regex used to contain bare \bris\b|\blis\b which matched ~1,000+ unrelated
     // jobs (any English/Italian word containing standalone "ris" or "lis"). After

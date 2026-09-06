@@ -809,9 +809,11 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // Il separatore e' `SEC_SEP` come in `sicurezza`, cosi' `ICT-Architekt`,
   // `IT/OT Architect` e `Software  Architect` col doppio spazio sono lo stesso
   // caso. Il `\w*` nel lookahead consuma la coda del sostantivo, perche' il
-  // gambo italiano `architet` da solo si ferma prima di `to software`.
+  // gambo italiano `architet` da solo si ferma prima di `to software`. Il
+  // `\\w*` nel lookbehind copre le flessioni del qualificatore che il
+  // lessico condiviso enumera al singolare (`Networking`, `Integrationen`).
   architetti: new RegExp(
-    `(?<!${ARCHITECT_TECH_QUALIFIER_SRC}${SEC_SEP})`
+    `(?<!${ARCHITECT_TECH_QUALIFIER_SRC}\\w*${SEC_SEP})`
     + '\\b(?:architet|architect\\b|architekt|architecte\\b)'
     + `(?!\\w*${SEC_SEP}${ARCHITECT_TECH_QUALIFIER_SRC})`
     + '|\\bbauzeichner|\\bdisegnatore[ -]edil|\\bdessinateur',
