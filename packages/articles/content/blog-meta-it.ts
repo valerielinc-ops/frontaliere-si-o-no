@@ -11479,6 +11479,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Vivere a Pianello del Lario e lavorare in Ticino da frontaliere',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita, le zone consigliate e i vantaggi/svantaggi del trasferimento.',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino, incendio in galleria a bordo di un treno: ma è un\'esercitazione',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Esercitazione di salvataggio nella galleria del Monte Ceneri con 50 comparse e 100 soccorritori.',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Esercitazione di salvataggio nella galleria del Monte Ceneri',
 };
 
 export default blogMetaIt;

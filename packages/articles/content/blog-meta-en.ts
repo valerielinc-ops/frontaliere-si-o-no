@@ -11478,6 +11478,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Living in Pianello del Lario and working in Ticino as a border worker',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Find out about the connections, journey times, cost of living, recommended areas and the advantages/disadvantages of the transfer.',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with Swiss mountains in the background',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino, tunnel fire on board a train: but it\'s a drill',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Rescue exercise in the Monte Ceneri tunnel with 50 extras and 100 rescuers.',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Rescue exercise in the Monte Ceneri tunnel',
 };
 
 export default blogMetaEn;
