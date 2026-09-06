@@ -5665,6 +5665,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nuova-impresa-soletta-tassazione-costi.title': 'Geschäft in Solothurn eröffnen: Anmeldung und Kosten',
     'blog.article.nuova-impresa-soletta-tassazione-costi.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Solothurn: Rechtsformen, Handelsregister, eidgenössische/kantonale Besteuerung und Versicherungspflichten.',
     'blog.article.nuova-impresa-soletta-tassazione-costi.imageAlt': 'Schweizer Handelsregisteramt mit offiziellen Dokumenten und Holzschreibtisch.',
+    'blog.article.grigioni-immobili-guida-mutuo.title': 'Haus kaufen in Graubünden: Preise, Eigenmittel und Hypotheken',
+    'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Graubünden: Vorgehen, Kosten, Stempelsteuer, Notarkosten und Zugang zu einem tragfähigen Hypothekendarlehen',
+    'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Modernes Haus an einem Berghang in den Schweizer Alpen mit schneebedeckten Gipfeln',
 };
 
 export default blogMetaChDe;

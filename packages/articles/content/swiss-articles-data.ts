@@ -16993,6 +16993,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'grigioni-immobili-guida-mutuo',
+    category: 'pratico',
+    date: '2026-09-06T03:38:10.766Z',
+    image: '/images/blog/grigioni-immobili-guida-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

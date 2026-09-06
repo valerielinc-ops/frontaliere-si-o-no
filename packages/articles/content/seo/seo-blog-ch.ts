@@ -73535,6 +73535,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-immobili-guida-mutuo': {
+    title: 'Comprare casa a Grigioni: prezzi, fondi propri e mutui',
+    description: 'Come comprare casa nel Canton Grigioni: procedura, costi d\'acquisto, imposta sui trapassi, spese notarili, mutui ipotecari e criteri bancari di sostenibilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, grigioni, prezzi',
+    ogTitle: 'Comprare casa a Grigioni: prezzi, fondi propri e mutui',
+    ogDescription: 'Guida completa all\'acquisto di immobili nel Canton Grigioni: procedura, costi accessori, imposte sui trapassi, spese notarili, mutui ipotecari e sostenibilità finanziaria con la regola del 33%',
+    canonicalPath: '/articoli-svizzera/grigioni-immobili-guida-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Grigioni: prezzi, fondi propri e mutui",
+      "description": "Come comprare casa nel Canton Grigioni: procedura, costi d'acquisto, imposta sui trapassi, spese notarili, mutui ipotecari e criteri bancari di sostenibilità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-immobili-guida-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna su un pendio montagnoso nelle Alpi svizzere con vista su vette innevate"
+      },
+      "datePublished": "2026-09-06T03:38:10+00:00",
+      "dateModified": "2026-09-06T03:38:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-immobili-guida-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
