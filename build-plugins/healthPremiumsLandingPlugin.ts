@@ -2213,6 +2213,27 @@ function renderLeafPage(inp: LeafInputs): string {
     de: { heading: `${cantonLabel} im Kantonsvergleich (${ageLabel})`, metricLabel: 'Medianprämie', peerNoun: 'Kantonen' },
     fr: { heading: `${cantonLabel} face aux autres cantons (${ageLabel})`, metricLabel: 'prime médiane', peerNoun: 'cantons' },
   };
+  // Provenance line, extended with the two funds that bracket the local
+  // spread. The peer prose alone names the two neighbouring CANTONS and
+  // nothing else — one sentence out of ~24 on the page, which is why the
+  // family measured 4,2 % after the window replaced the table and still
+  // under the 5 % floor. The cheapest and dearest fund is the other
+  // per-page fact that survives both masks: fund NAMES differ from canton
+  // to canton (mask no. 2 folds only the page's own canton), and the figure
+  // is read off `perInsurer`, not composed. It is the same fact the top-20
+  // table already carries in cells too short to count as prose
+  // (MIN_SEGMENT_CHARS = 25 in scripts/lib/informationGain.mjs).
+  const byPrice = perInsurer.slice().sort((a, b) => a.price - b.price || (a.insurerName < b.insurerName ? -1 : a.insurerName > b.insurerName ? 1 : 0));
+  const cheapestIns = byPrice[0];
+  const dearestIns = byPrice[byPrice.length - 1];
+  const spreadNote = cheapestIns && dearestIns && cheapestIns.insurerId !== dearestIns.insurerId
+    ? {
+        it: `Dentro ${cantonLabel} la cassa più economica per questa fascia è ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}), la più cara ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}).`,
+        en: `Inside ${cantonLabel} the cheapest fund for this bracket is ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}), the dearest ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}).`,
+        de: `Innerhalb von ${cantonLabel} ist ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}) die günstigste Kasse dieser Altersgruppe, ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}) die teuerste.`,
+        fr: `À l’intérieur de ${cantonLabel}, la caisse la moins chère pour cette tranche est ${cheapestIns.insurerName} (${formatCHF(cheapestIns.price, locale)}), la plus chère ${dearestIns.insurerName} (${formatCHF(dearestIns.price, locale)}).`,
+      }[locale]
+    : undefined;
   const rankingHtml = renderPeerComparison({
     locale,
     currentKey: canton,
@@ -2221,6 +2242,7 @@ function renderLeafPage(inp: LeafInputs): string {
     formatValue: (value) => `${formatCHF(value, locale)} ${copy.priceUnit}`,
     // Cheapest first: on a premium, rank 1 is the lowest figure.
     higherIsBetter: false,
+    sourceNote: spreadNote,
   });
 
   // Stats cards — when YoY data is available for the current bracket we
