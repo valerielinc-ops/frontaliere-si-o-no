@@ -11429,6 +11429,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-griante-lavorare-ticino-frontaliere.title': 'Vivere a Griante e lavorare in Ticino da frontaliere',
     'blog.article.vivere-griante-lavorare-ticino-frontaliere.excerpt': 'Vantaggi, procedure, costi e normativa per chi sceglie di vivere a Griante lavorando nel Canton Ticino come frontaliere',
     'blog.article.vivere-griante-lavorare-ticino-frontaliere.imageAlt': 'Vista del lago di Como a Griante con edifici residenziali e paesaggio montano',
+    'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.title': 'Milano: Niguarda e Istituto Tumori uniscono le forze per le emergenze oncologiche',
+    'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.excerpt': 'L\'Ospedale Niguarda e la Fondazione IRCCS Istituto Nazionale dei Tumori di Milano hanno siglato un protocollo operativo per garantire la continuità assistenziale ai pazienti oncologici in caso di emergenze.',
+    'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.imageAlt': 'Vista dell\'ospedale di Lugano, Ticino',
 };
 
 export default blogMetaIt;
