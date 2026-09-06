@@ -68,22 +68,45 @@
  * Exit: 0 = nessuna regressione bloccante; 1 = regressione; 2 = errore d'uso
  *       o `tsc` non eseguibile (MAI fail-open: se non si misura, si fallisce).
  *
- * NOTA per chi lo lancia in locale: in un worktree sparse `data/` e `public/`
- * non esistono, e mancano ~160 moduli importati → il gate va rosso per motivi
- * d'ambiente, non di codice. Vedi CLAUDE.md, «Stato macchina». In CI il
- * checkout è pieno e il confronto è valido.
+ * WORKTREE SPARSE: SI MISURA LO STESSO, DICHIARANDO COSA NON SI È MISURATO
+ * -------------------------------------------------------------------------
+ * In un worktree sparse `data/` e `public/` non sono materializzati e ~160
+ * moduli importati non risolvono. Fino a #7677 il gate trattava quel worktree
+ * come «ambiente rotto» e usciva 2 PRIMA di lanciare `tsc`, sulla base di un
+ * solo probe. Siccome questo repo si lavora quasi sempre in sparse (CLAUDE.md:
+ * un checkout pieno costa ~3,9 GB), il risultato era ZERO typecheck in locale,
+ * con il gate vivo solo in CI — cioè mai prima di aprire una PR, su codice che
+ * decide rotte indicizzate.
  *
- * Questo vale anche se il pattern sparse aggiunge a mano la sola
- * `data/typecheck-baseline.json` (issue #6061 item 2): il file esiste, ma
- * `data/blog-articles-data.ts` & co. restano non risolti, quindi `tsc`
- * produce ~126 falsi `TS2307` che finiscono nella baseline appena riscritta.
- * `isWorktreeIncomplete()` sotto intercetta anche questo caso, prima di
- * lanciare `tsc` in QUALUNQUE modalità (gate, --list, --json, --write-baseline).
+ * Ora il gate GIRA anche lì, in modalità DEGRADATA e dichiarata
+ * (`scripts/ci/lib/typecheck-sparse.mjs`):
+ *   - i `TS2307` il cui specificatore relativo risolve a un path che git
+ *     TRACCIA ma che il worktree non ha vengono classificati come ambiente:
+ *     esclusi dalla misura, contati e stampati a parte;
+ *   - i file della baseline non materializzati sono dichiarati «non misurati».
+ *     Zero errori su un file che `tsc` non ha nemmeno letto non è un
+ *     miglioramento, quindi in sparse il ratchet sui cali tace del tutto;
+ *   - il verdetto resta quello di CI: regressione per-file → exit 1, altrimenti 0.
+ * La classificazione è STRETTA di proposito: un errore a valle di un modulo
+ * assente (un `TS2339` su un tipo diventato `any`) NON viene scusato e resta
+ * rosso. Mai fail-open: un rosso d'ambiente residuo è preferibile a un verde
+ * che non ha misurato niente.
+ *
+ * `--write-baseline` resta VIETATO in sparse (exit 2), issue #6061 item 2:
+ * riscriverla lì cementerebbe ~126 falsi `TS2307` nel ratchet. Il divieto vale
+ * finché il worktree è davvero parziale — non è una condizione che scade da
+ * sola, e il messaggio d'errore stampa i due comandi con cui si verifica qui e
+ * ora se vale ancora.
  */
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { classifySparseErrors, trackedButAbsent, unmeasurableBaselineFiles } from './lib/typecheck-sparse.mjs';
+// Lettore sparse-immune già esistente e documentato come tale: legge il file
+// dal working tree quando c'è, altrimenti dall'oggetto git. La baseline vive
+// sotto `data/`, che è proprio ciò che un worktree sparse non materializza.
+import { readSiteText } from './corpus-ahead-check.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BASELINE_PATH = path.join(ROOT, 'data', 'typecheck-baseline.json');
@@ -106,6 +129,10 @@ const GLOBAL_ERROR_RE = /^error (?<code>TS\d+): (?<msg>.*)$/;
  * importa (es. `data/blog-articles-data.ts`, symlink a
  * `packages/articles/content/`). `fs.existsSync` su un symlink segue il
  * target: se il target manca (worktree sparse), torna `false`.
+ *
+ * Dal #7677 il verdetto di questo probe NON è più «fermati»: accende la
+ * modalità degradata qui sotto (ed è l'unica cosa che paga la scansione di
+ * `git ls-files`, che su un checkout pieno non viene mai eseguita).
  */
 function isWorktreeIncomplete() {
   return !fs.existsSync(path.join(ROOT, 'data', 'blog-articles-data.ts'));
@@ -188,13 +215,17 @@ function tscVersion() {
 }
 
 function readBaseline() {
-  if (!fs.existsSync(BASELINE_PATH)) {
-    console.error(`✗ baseline assente: ${path.relative(ROOT, BASELINE_PATH)}`);
-    console.error('  In un worktree sparse `data/` non è materializzata — è un problema di ambiente, non di codice.');
-    console.error('  Per crearla ex-novo: node scripts/ci/check-typecheck-baseline.mjs --write-baseline');
+  // In un worktree sparse `data/typecheck-baseline.json` è TRACCIATA ma non
+  // materializzata: leggerla solo dal disco significherebbe «assente», cioè un
+  // exit 2 d'ambiente sul file che serve proprio a evitarlo. `readSiteText`
+  // ricade sull'oggetto git, che c'è sotto qualunque profilo sparse.
+  const raw = readSiteText(path.relative(ROOT, BASELINE_PATH).split(path.sep).join('/'));
+  if (raw === null) {
+    console.error(`✗ baseline assente: ${path.relative(ROOT, BASELINE_PATH)} (né nel worktree né in HEAD).`);
+    console.error('  Per crearla ex-novo, da un checkout PIENO: node scripts/ci/check-typecheck-baseline.mjs --write-baseline');
     process.exit(2);
   }
-  return JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf8'));
+  return JSON.parse(raw);
 }
 
 function writeBaseline(current, errors) {
@@ -232,15 +263,38 @@ if (unknown.length) {
   process.exit(2);
 }
 
-if (isWorktreeIncomplete()) {
-  console.error('✗ worktree incompleto: data/blog-articles-data.ts non risolve (worktree sparse, `data/` e `packages/articles/content/` non materializzati).');
-  console.error('  È un problema di ambiente, non di codice: `tsc` produrrebbe decine di falsi TS2307 su moduli mancanti.');
-  console.error('  Riproduci con un checkout PIENO (non un worktree sparse): npm run typecheck / typecheck:gate');
+const sparse = isWorktreeIncomplete();
+const missingTracked = sparse ? trackedButAbsent(ROOT) : new Set();
+
+if (sparse && args.includes('--write-baseline')) {
+  console.error('✗ --write-baseline è vietato in un worktree sparse: la baseline registrerebbe ~126 falsi TS2307');
+  console.error('  su moduli non materializzati, cementandoli nel ratchet (issue #6061 item 2).');
+  console.error('  Il blocco NON scade da solo: verifica qui e ora se vale ancora, con');
+  console.error('    git config core.sparseCheckout      # `true` = worktree sparse');
+  console.error('    ls -l data/blog-articles-data.ts    # il symlink deve risolvere a un file leggibile');
+  console.error('  Se il target risolve, il worktree è pieno e il comando torna lecito. Altrimenti rigenerala');
+  console.error('  da un checkout pieno (o lascia che lo faccia la CI): il GATE, invece, gira anche di qua —');
+  console.error('    node scripts/ci/check-typecheck-baseline.mjs');
   process.exit(2);
 }
 
 const output = runTsc();
-const { errors, skipped } = parseTsc(output);
+const parsed = parseTsc(output);
+const skipped = parsed.skipped;
+let errors = parsed.errors;
+let environmentErrors = [];
+
+if (sparse) {
+  const split = classifySparseErrors(parsed.errors, missingTracked);
+  errors = split.measured;
+  environmentErrors = split.environment;
+  console.log(
+    `⚠️ worktree sparse: misura DEGRADATA — ${missingTracked.size} file tracciati non materializzati, ` +
+      `${environmentErrors.length} errori TS2307 verso di loro esclusi dalla misura.`,
+  );
+  console.log('   Il verdetto vale sulle REGRESSIONI per-file; i cali qui non provano niente e non stringono il ratchet.');
+}
+
 const current = tally(errors);
 
 if (skipped) {
@@ -249,13 +303,17 @@ if (skipped) {
 }
 
 if (args.includes('--json')) {
-  console.log(JSON.stringify({ ...current, errors }, null, 2));
+  console.log(JSON.stringify({ ...current, errors, sparse, environmentErrors }, null, 2));
   process.exit(0);
 }
 
 if (args.includes('--list')) {
   for (const e of errors) console.log(`${e.file}(${e.line}): ${e.code}: ${e.msg}`);
   console.log(`\n${current.total} errori — bloccanti ${current.total - current.advisoryTotal}, tests/ ${current.advisoryTotal}`);
+  if (environmentErrors.length) {
+    console.log(`\n${environmentErrors.length} errori d'ambiente (moduli tracciati ma non materializzati), esclusi dal conteggio:`);
+    for (const e of environmentErrors) console.log(`  ~ ${e.file}(${e.line}): ${e.code}: ${e.msg}`);
+  }
   process.exit(0);
 }
 
@@ -291,13 +349,24 @@ if (current.advisoryTotal > (baseline.advisoryTotal ?? 0)) {
   );
 }
 
-if (improvements.length) {
+if (improvements.length && !sparse) {
   const saved = improvements.reduce((s, i) => s + (i.allowed - i.count), 0);
   console.log(
     `::warning title=Baseline typecheck stantia::${saved} errori bloccanti in meno rispetto alla baseline ` +
       `(${improvements.length} file). Rigenera per stringere il ratchet: npm run typecheck:baseline`,
   );
   for (const i of improvements) console.log(`  ↓ ${i.file}: ${i.allowed} → ${i.count}`);
+} else if (improvements.length) {
+  // In sparse un calo non è un progresso provato: può essere un file che `tsc`
+  // non ha letto, o un errore riclassificato come ambiente. Dirlo, non contarlo.
+  const unmeasurable = unmeasurableBaselineFiles(baseBlocking, missingTracked);
+  console.log(
+    `ⓘ ${improvements.length} file della baseline mostrano meno errori qui: NON è un miglioramento misurato ` +
+      `(worktree sparse), e il ratchet non si stringe da un checkout parziale.`,
+  );
+  if (unmeasurable.length) {
+    console.log(`  ${unmeasurable.length} di questi non sono proprio materializzati: ${unmeasurable.slice(0, 5).join(', ')}${unmeasurable.length > 5 ? ' …' : ''}`);
+  }
 }
 
 if (regressions.length) {
@@ -310,7 +379,11 @@ if (regressions.length) {
     }
   }
   console.error(
-    '\nRiproduci in locale con un checkout PIENO (non un worktree sparse):  npm run typecheck\n' +
+    (sparse
+      ? '\nWorktree sparse: gli errori qui sopra NON sono stati scusati come ambiente (solo i TS2307 verso\n' +
+        'moduli tracciati e non materializzati lo sono). Se sospetti il contrario, riconferma da un checkout\n' +
+        'PIENO prima di toccare il codice:  npm run typecheck\n'
+      : '\nRiproduci in locale con un checkout PIENO (non un worktree sparse):  npm run typecheck\n') +
       'Non allargare la baseline per far passare la CI: la baseline registra il debito già misurato\n' +
       'il 2026-08-10, non è un posto dove metterne di nuovo.',
   );
