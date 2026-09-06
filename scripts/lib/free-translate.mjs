@@ -176,6 +176,12 @@ const _cascadeStats = {
   failures: 0,
   tierHits: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, libreTranslateSelfHosted: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
   tierErrors: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, libreTranslateSelfHosted: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  // Tier che hanno risposto rimandando indietro la SORGENTE (`isSourcePassthrough`).
+  // Bucket separato da `tierErrors` di proposito: un passthrough non e' un
+  // errore del motore — il motore ha risposto 200 — ma e' una NON-traduzione, e
+  // confonderlo con un errore nasconderebbe l'unico numero che dice quanto
+  // spesso questa guardia sta lavorando. Popolato pigramente per tier.
+  tierPassthroughs: {},
   // Per-field-type split of calls/successes. The cumulative `successes` above is
   // summed across every field type, so a run that translates short titles fine
   // but has every (long) description rejected by all providers still reports
@@ -238,6 +244,13 @@ export function logCascadeSummary() {
   if (errs.length) {
     console.log('   Tier errors: ' + errs.map(([k, v]) => `${k}=${v}`).join(', '));
   }
+  // Stampato a ogni run come gli altri due bucket: e' il numero da cui si
+  // decidera' se la guardia e' tarata bene, e senza stamparlo la prossima
+  // soglia si sceglierebbe a intuizione invece che su un dato.
+  const pass = Object.entries(s.tierPassthroughs).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  if (pass.length) {
+    console.log('   Tier passthrough (sorgente resa verbatim, scartata): ' + pass.map(([k, v]) => `${k}=${v}`).join(', '));
+  }
   const health = getInstanceHealthStats();
   const down = Object.entries(health).filter(([, h]) => h.failures >= HEALTH_FAILURE_THRESHOLD);
   const degraded = Object.entries(health).filter(([, h]) => h.failures > 0 && h.failures < HEALTH_FAILURE_THRESHOLD);
@@ -290,6 +303,66 @@ function normalizeBlock(s) {
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+/**
+ * Un motore che rende la SORGENTE non ha tradotto: dirlo, invece di rendere un
+ * testo che a valle sembra valido.
+ *
+ * ── PERCHE' STA QUI E NON NEI CHIAMANTI ────────────────────────────────────
+ *
+ * Il predicato di scarto a valle (`translateFieldFreeMt` in
+ * `scripts/lib/article-free-mt.mjs`, `hasUsableContentText`) scarta il vuoto,
+ * il marker `null` e la sentinella nav mangled. Un passthrough italiano e'
+ * testo perfettamente valido per tutti e tre: passa. Ogni scrittore doveva
+ * quindi difendersi da solo, e il 2026-09-06 nessuno dei tre lo faceva —
+ * `retranslate-blocking-bodies.mjs` (nanako#994),
+ * `repair-object-object-bodies.mjs` (#7704) e `batch-add-faq-to-articles.mjs`
+ * (#7710) hanno preso la stessa classe di difetto separatamente. Il quarto
+ * scrittore nascerebbe con lo stesso buco. La cascata e' il punto per cui
+ * passano tutti: qui la classe si chiude una volta, senza toccare un chiamante
+ * e senza cambiare la firma che 14 script leggono come `Promise<string>`.
+ *
+ * Misura sul corpus pubblicato (2026-09-06, `content/blog-body{,-ch}` del repo
+ * pubblicatore): 27 campi body su 51'141 sono l'italiano verbatim sotto
+ * `/en/`, `/de/`, `/fr/`. Questo predicato ne intercetta 27 su 27.
+ *
+ * ── PERCHE' L'UGUAGLIANZA E NON LA LUNGHEZZA ───────────────────────────────
+ *
+ * Il pavimento di lunghezza contro il testo PUBBLICATO non vede un troncamento
+ * che vecchio e nuovo CONDIVIDONO (misurato: rapporto 1,00, nessun rifiuto,
+ * mentre contro l'italiano lo stesso campo sta a 0,25 e viene rifiutato), e fra
+ * lingue diverse il rapporto oscilla troppo per stringere la soglia. Il
+ * riferimento che non mente e' la sorgente, e contro la sorgente la relazione
+ * da misurare non e' «quanto e' lungo» ma «e' lo stesso testo».
+ *
+ * NESSUNA soglia di lunghezza minima, a differenza del controllo di LINGUA che
+ * sotto i ~50 caratteri non ha segnale (misurato: col pavimento a 50 zero falsi
+ * positivi su 8 traduzioni buone e 3 italiane su 4 intercettate; alzandolo a 80
+ * il controllo si spegne). L'uguaglianza non e' una stima: non ha bisogno di
+ * segnale statistico e su un titolo di 12 caratteri vale quanto su un body.
+ *
+ * Confronto NORMALIZZATO e case-insensitive, non `===` nudo: un motore che
+ * rimanda indietro la sorgente le cambia spesso la spaziatura o la
+ * capitalizzazione della prima lettera, e un `===` lo lascerebbe passare.
+ *
+ * FALSI POSITIVI: un testo legittimamente identico nelle due lingue (nomi
+ * propri, «Bellinzona, Ticino») viene rifiutato. Misurati 55 campi meta
+ * identici it/en su 17'138 (0,32%), tutti `imageAlt` corti e per meta' nomi di
+ * luogo. Il costo e' nullo in byte pubblicati: il chiamante che riceve `''`
+ * ricade sulla sorgente italiana, cioe' scrive lo STESSO testo che il
+ * passthrough avrebbe scritto, pagando al piu' un tentativo di recovery in
+ * piu'. Il costo del verso opposto e' un body italiano intero pubblicato sotto
+ * `/de/` come traduzione.
+ *
+ * @param {string} sourceText      testo dato in pasto al motore
+ * @param {string} translatedText  testo reso dal motore
+ * @returns {boolean} true se il motore NON ha tradotto
+ */
+export function isSourcePassthrough(sourceText, translatedText) {
+  const src = normalizeBlock(sourceText).toLowerCase();
+  if (!src) return false;
+  return src === normalizeBlock(translatedText).toLowerCase();
 }
 
 /**
@@ -1045,10 +1118,23 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
     protectedTokens,
   });
 
-  /** Try a tier: track success/error, return result or '' */
+  /** Try a tier: track success/error/passthrough, return result or '' */
   async function tryTier(tierName, fn) {
     try {
       const result = await fn();
+      // Un tier che rimanda indietro `clean` non ha tradotto: non e' un hit, ed
+      // e' l'UNICO posto in cui questa cascata puo' accorgersene — a valle il
+      // passthrough e' testo valido e nessun predicato lo scarta (vedi
+      // `isSourcePassthrough`). Vale un MISS e non un `return ''` da
+      // `freeTranslate`: gli altri motori non hanno ancora provato, e uno solo
+      // che rimanda la sorgente (MyMemory su un segmento che non conosce, il
+      // proxy che risponde con l'eco) non e' la cascata che ha fallito. Se
+      // rimandano la sorgente TUTTI, `freeTranslate` esce '' e il chiamante
+      // legge quello che ha sempre letto: traduzione non avvenuta.
+      if (result && isSourcePassthrough(clean, result)) {
+        _cascadeStats.tierPassthroughs[tierName] = (_cascadeStats.tierPassthroughs[tierName] || 0) + 1;
+        return '';
+      }
       if (result) {
         _cascadeStats.tierHits[tierName] = (_cascadeStats.tierHits[tierName] || 0) + 1;
         _cascadeStats.successes++;
@@ -1111,8 +1197,11 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
       if (!mm) return '';
       // Check for quota warning in single-call path too (was only checked in chunked path)
       if (mm.includes('MYMEMORY WARNING') || mm.includes('PLEASE CONTACT')) return '';
-      if (normalizeBlock(mm).toLowerCase() !== clean.toLowerCase()) return normalizeBlock(mm);
-      return '';
+      // Il controllo «uguale alla sorgente» che stava qui e' salito in
+      // `tryTier`: era la stessa formula, ma valeva SOLO per MyMemory e solo
+      // sul ramo a chiamata singola — gli altri dodici tier e il ramo a chunk
+      // restavano scoperti. Ora vale per tutti e conta anche la statistica.
+      return normalizeBlock(mm);
     }
     // Chunk long text at sentence/paragraph boundaries
     const chunks = _chunkAtSentences(clean, 4800);
