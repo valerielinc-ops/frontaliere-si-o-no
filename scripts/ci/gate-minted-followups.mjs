@@ -1,0 +1,201 @@
+#!/usr/bin/env node
+/**
+ * gate-minted-followups.mjs — gate DETERMINISTICO in ingresso sul conio delle follow-up.
+ *
+ * Il problema che chiude. `post-merge-followup.yml` conia una issue aggregata per PR
+ * mergiata. Il divieto di mintare item senza condizione di accettazione falsificabile
+ * esiste già, ma vive SOLO nel prompt Claude (`FOLLOWUP.md` → «Hard-exclude:
+ * no-acceptance-condition»): è una richiesta a un LLM, non un invariante. Misurato il
+ * 2026-09-06 sul sito, ultimi 7 giorni: 164 aggregate coniate, 91 (55% = 13,0/giorno)
+ * strutturalmente immortali — 76 senza NEMMENO un item con condizione falsificabile
+ * (`no-valid-item`) e 15 con un corpo che non si lascia spezzare in item
+ * (`aggregate-unparsed`). Una `no-valid-item` non si chiude mai: `aggregateCloseGate()`
+ * la blocca per costruzione (chiuderla sarebbe chiudere su evidenza assente, incidente
+ * #5849), e nessun umano arriva. Nasce già morta e resta in coda per sempre.
+ *
+ * Cosa fa, dopo il conio e a zero-Claude:
+ *   - rilegge il corpo della issue appena creata e lo spezza con `splitFollowupItems()`;
+ *   - DEMOTE gli item che non passano `hasFalsifiableAcceptance()`: li toglie dal corpo
+ *     (rinumerando i superstiti) e li riscrive nel commento di summary della PR, dove
+ *     restano leggibili — esattamente il trattamento già riservato ai `Live-verification`;
+ *   - SOPPRIME la issue (close + citazione) quando non resta nessun item valido: quella
+ *     issue non sarebbe mai potuta uscire dalla coda.
+ *
+ * DIREZIONE DI SICUREZZA (il vincolo centrale di #7587). Il criterio in ingresso è lo
+ * STESSO oracolo che chiude l'item, importato verbatim da `followup-resolution-match.mjs`
+ * e mai reimplementato qui: usarne uno più PERMISSIVO in apertura è precisamente ciò che
+ * ha prodotto la coda immortale. Non nasce nessun predicato nuovo. E la soglia del token
+ * (`isDistinctiveToken()`) NON si tocca: allentarla è stato misurato e ritirato il
+ * 2026-09-06 — ammetteva +93 item, ma 32 dei 45 nuovi verificabili (71%) portavano un
+ * token GIA' presente nel file citato, cioè `detectAlreadyResolved()` avrebbe letto
+ * «fatto» su lavoro pendente (classe #1647, REVIEW.md L92).
+ *
+ * IL PREZZO, dichiarato. Un item demoto che era lavoro vero esce dal tracciamento e
+ * sopravvive solo nel commento della PR. Succede: #7646 item 1 cita due path e
+ * `CRAWLER_GENERATION_TOKEN` ma nudi, fuori da una riga `Suggested action`; #6192 item 1
+ * cita `SYSTEMIC_RATE_CEILING` e `post-deploy-validate-dist.yml`. Il verso è deliberato:
+ * un item che nessun check potrà mai dichiarare affrontato non è lavoro tracciabile ma un
+ * promemoria, e 13 promemoria al giorno in coda hanno un costo che si misura.
+ *
+ * PROCEED-SAFE / TOTALE: qualunque errore su una issue (parse, rete, gh) è swallowed e
+ * lascia la issue INTATTA. Un corpo senza struttura a item (`splitFollowupItems() === []`)
+ * non viene MAI soppresso: «non so leggerlo» non è «è vuoto» (stessa regola di
+ * `aggregateCloseGate`).
+ *
+ * Env:
+ *   BATCH_PRS       csv dei numeri di PR triagiati (output di collect-followup-batch).
+ *   GH_REPO         `owner/repo` (default: inferito da gh).
+ *   GH_TOKEN        richiesto per le scritture.
+ *   DRY_RUN         "1" → stampa il verdetto, nessuna scrittura.
+ *   GATE_MAX_AGE_MIN  età massima (minuti) della issue su cui agire (default 240). Un
+ *                   backfill via workflow_dispatch su una PR vecchia non deve poter
+ *                   riscrivere una issue che nel frattempo un umano ha curato.
+ */
+
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { hasFalsifiableAcceptance, splitFollowupItems } from './followup-resolution-match.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
+
+const DRY_RUN = process.env.DRY_RUN === '1';
+const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
+export const GATE_MARKER = '<!-- followup-mint-gate -->';
+
+/**
+ * Spezza il corpo coniato in testa + item, e partiziona gli item con l'oracolo
+ * condiviso. Puro.
+ *
+ * @param {string} body
+ * @returns {{ head: string, valid: string[], demoted: string[], unparsed: boolean }}
+ */
+export function partitionMintedItems(body) {
+  const src = String(body || '');
+  const items = splitFollowupItems(src);
+  if (!items.length) return { head: src, valid: [], demoted: [], unparsed: true };
+  const head = src.split(/^### \d+\./m)[0];
+  const valid = [];
+  const demoted = [];
+  for (const it of items) (hasFalsifiableAcceptance(it) ? valid : demoted).push(it);
+  return { head, valid, demoted, unparsed: false };
+}
+
+/**
+ * Verdetto per una issue appena coniata. Puro — nessuna I/O, così il test lo esercita
+ * senza rete.
+ *
+ * @param {{body: string, createdAt?: string}} issue
+ * @param {{now?: number, maxAgeMin?: number}} [opts]
+ * @returns {{ action: 'suppress'|'demote'|'keep'|'skip', reason: string,
+ *             valid: string[], demoted: string[], body: string|null }}
+ */
+export function decideMintGate(issue, opts = {}) {
+  const now = opts.now ?? Date.now();
+  const maxAgeMin = opts.maxAgeMin ?? MAX_AGE_MIN;
+  const createdAt = issue?.createdAt ? Date.parse(issue.createdAt) : NaN;
+  if (Number.isFinite(createdAt) && now - createdAt > maxAgeMin * 60_000) {
+    return { action: 'skip', reason: 'not-freshly-minted', valid: [], demoted: [], body: null };
+  }
+  const { head, valid, demoted, unparsed } = partitionMintedItems(issue?.body || '');
+  // «Non so leggerlo» non è «è vuoto»: un corpo senza struttura a item resta intatto.
+  if (unparsed) return { action: 'skip', reason: 'aggregate-unparsed', valid: [], demoted: [], body: null };
+  if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid, demoted, body: null };
+  if (!demoted.length) return { action: 'keep', reason: 'all-items-falsifiable', valid, demoted, body: null };
+  return { action: 'demote', reason: 'some-items-not-falsifiable', valid, demoted, body: rebuildBody(head, valid) };
+}
+
+/** Ricompone il corpo con i soli item validi, rinumerati (formato uniforme per il fixer). */
+export function rebuildBody(head, valid) {
+  return `${head.replace(/\s+$/, '')}\n\n${valid.map((it, i) => `### ${i + 1}.${it.replace(/\s+$/, '')}`).join('\n\n')}\n`;
+}
+
+/** Titolo con il conteggio item riallineato (`N item deferred` → `M item deferred`). */
+export function retitle(title, n) {
+  return String(title || '').replace(/\b\d+\s+(item|verifiche)\b/i, `${n} $1`);
+}
+
+/** Prima riga di un item, per l'elenco nel commento della PR. */
+export function itemHeadline(itemText) {
+  return String(itemText || '').split('\n')[0].trim().replace(/^[-–—\s]+/, '') || '(senza titolo)';
+}
+
+function gh(args, { allowFail = false } = {}) {
+  try {
+    return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 1 << 26 });
+  } catch (e) {
+    if (allowFail) {
+      console.log(`gh ${args.slice(0, 3).join(' ')} → fallito: ${e?.message?.split('\n')[0]}`);
+      return '';
+    }
+    throw e;
+  }
+}
+
+function writeBodyFile(text) {
+  const p = path.join(os.tmpdir(), `mint-gate-${process.pid}-${Math.random().toString(36).slice(2)}.md`);
+  fs.writeFileSync(p, text);
+  return p;
+}
+
+function main() {
+  const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
+  const prs = String(process.env.BATCH_PRS || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => /^\d+$/.test(s));
+  if (!prs.length) {
+    console.log('gate-minted-followups: batch vuoto, niente da controllare.');
+    return;
+  }
+  const report = [];
+  for (const pr of prs) {
+    try {
+      const raw = gh(['issue', 'list', ...repoArgs, '--label', 'follow-up', '--state', 'open',
+        '--search', `in:title "follow-up(#${pr})"`, '--limit', '20',
+        '--json', 'number,title,body,createdAt'], { allowFail: true });
+      const issues = (JSON.parse(raw || '[]') || []).filter((i) => String(i.title || '').startsWith(`follow-up(#${pr})`));
+      if (!issues.length) { console.log(`PR #${pr}: nessuna issue coniata → niente da fare.`); continue; }
+      for (const iss of issues) {
+        const d = decideMintGate(iss);
+        console.log(`#${iss.number} (PR #${pr}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
+        if (d.action === 'skip' || d.action === 'keep') continue;
+        const list = d.demoted.map((it) => `- «${itemHeadline(it)}»`).join('\n');
+        const why = `${GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — nessun token-codice distintivo in una riga \`Suggested action\`, quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
+        if (DRY_RUN) { console.log(why); continue; }
+        if (d.action === 'suppress') {
+          gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
+            `${why}\n\nNessun item valido resta: questa issue non sarebbe mai potuta uscire dalla coda (\`aggregateCloseGate()\` la blocca per costruzione). Chiusa in ingresso; il testo resta qui e nel commento di summary della PR #${pr}. Se un item era lavoro vero, riaprilo come issue autonoma con una riga \`Suggested action\` che citi il simbolo da cercare.`],
+            { allowFail: true });
+          gh(['issue', 'close', String(iss.number), ...repoArgs, '--reason', 'not planned'], { allowFail: true });
+          report.push(`- 🚫 #${iss.number} soppressa in ingresso (${d.demoted.length} item senza condizione di accettazione) — PR #${pr}`);
+        } else {
+          const bf = writeBodyFile(d.body);
+          gh(['issue', 'edit', String(iss.number), ...repoArgs, '--body-file', bf,
+            '--title', retitle(iss.title, d.valid.length)], { allowFail: true });
+          fs.rmSync(bf, { force: true });
+          gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
+            `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.`],
+            { allowFail: true });
+          report.push(`- ✂️ #${iss.number} ${d.demoted.length} item demoti, ${d.valid.length} restano — PR #${pr}`);
+        }
+        gh(['pr', 'comment', String(pr), ...repoArgs, '--body',
+          `${GATE_MARKER}\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile), ma **conservati qui**, come i \`Live-verification\`:\n\n${list}\n\n${d.action === 'suppress' ? `Issue #${iss.number} chiusa in ingresso: non restava nessun item valido.` : `Issue #${iss.number} resta aperta con ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'}.`}`],
+          { allowFail: true });
+      }
+    } catch (e) {
+      // Proceed-safe: un guasto su una PR non deve toccare le altre né far cadere il triage.
+      console.log(`PR #${pr}: gate saltato (${e?.message?.split('\n')[0]}) — issue lasciata intatta.`);
+    }
+  }
+  const summary = `Gate sul conio: ${report.length} issue toccate${DRY_RUN ? ' (dry-run)' : ''}.`;
+  console.log(summary);
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${report.join('\n')}\n`);
+  }
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main();
+}

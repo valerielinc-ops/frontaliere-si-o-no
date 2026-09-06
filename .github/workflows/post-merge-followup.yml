@@ -396,6 +396,29 @@ jobs:
       # `## Post-merge follow-up triage`) salta le PR già processate e riprende le altre.
       # Retry at-least-once by-construction, senza ricorsione né `actions: write`.
 
+      # Gate DETERMINISTICO in ingresso sul conio (zero-Claude). Il divieto di mintare
+      # item senza condizione di accettazione falsificabile esiste gia' sopra, ma vive
+      # SOLO nel prompt: e' una richiesta a un LLM, non un invariante. Misurato il
+      # 2026-09-06 sul sito, ultimi 7 giorni: 164 aggregate coniate, 91 (55% = 13,0/giorno)
+      # strutturalmente immortali — 76 `no-valid-item` (nessun item falsificabile: non si
+      # chiudono MAI, `aggregateCloseGate()` le blocca per costruzione) + 15
+      # `aggregate-unparsed`. Questo step rilegge la issue appena coniata con lo STESSO
+      # oracolo che poi la chiude (`hasFalsifiableAcceptance()` da
+      # `scripts/ci/followup-resolution-match.mjs`, importato verbatim — mai un predicato
+      # nuovo, e mai piu' largo: e' il vincolo di #7587), demota gli item che non passano
+      # nel commento di summary della PR, e sopprime la issue quando non ne resta nessuno.
+      # `if: always()` perche' il gate deve girare anche se lo step Claude e' finito in
+      # timeout DOPO aver creato una issue; `continue-on-error` perche' un guasto qui non
+      # deve poter far cadere il triage (la issue resta intatta, e' il verso sicuro).
+      - name: Gate sul conio — demota gli item senza condizione di accettazione (zero-Claude)
+        if: always() && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+        run: node scripts/ci/gate-minted-followups.mjs
+
       - name: Claude usage metrics
         if: always()
         # Exact token/cost for this run (replaces estimates). Writes a table to the run
