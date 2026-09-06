@@ -31,6 +31,14 @@
 //
 //   - `metric` carries whatever the audit measures (bytes for page-weight,
 //     ratio for text-html-ratio, depth for bfs-depth, count for orphans).
+//   - `byFeature` keys are OPAQUE LABELS chosen by the audit, never a path
+//     contract: some are path-shaped (`spa-bundle-injection` uses the first two
+//     dist/ segments), others are sitemap names, issue codes or angle-bracket
+//     sentinels — `<root>` for a file at the top of dist/, `<other>` for the
+//     tail an audit folded once its breakdown exceeded its own group cap. A
+//     consumer must treat any key as a label and, when the audit declares
+//     `byFeatureTruncated`, must NOT read a missing key as 0 (it is 0 OR inside
+//     `<other>`) nor compare two `<other>` buckets: they fold different sets.
 //   - `ratio` is only set when meaningful (currently text-html-ratio).
 //   - `topOffenders` is capped at 100 entries to keep individual report files
 //     well under 1 MB even on regression-heavy runs. `topOffendersTruncated`
@@ -114,7 +122,11 @@ export function auditReportPath(audit) {
  *        breakdown; if omitted, derived from `offenders[].feature`.
  * @param {object} [params.extra]                        free-form extra fields
  *        merged at the top level (e.g. `psiRaw` for CLS, sitemap names for
- *        bfs-depth). Reserved field names are not allowed.
+ *        bfs-depth). Spread LAST, so a key that collides with a field computed
+ *        here wins — `spa-bundle-injection` relies on that to restore the exact
+ *        `offendersTotal` its capped offender list would understate. Overriding
+ *        a computed field is therefore a deliberate act, not an accident to
+ *        guard against: only pass a reserved name when you mean to replace it.
  * @returns {Promise<string|null>} resolved path on success, null on write failure
  */
 export async function writeAuditReport(params) {
