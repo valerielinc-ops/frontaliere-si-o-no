@@ -56,6 +56,7 @@ import {
 } from './lib/axa-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
+import { jobUrlHost } from './lib/job-url-host.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
@@ -117,12 +118,8 @@ function isTargetJob(job = {}) {
 }
 
 function isTrustedDomain(url = '') {
-  try {
-    const host = new URL(url).hostname.replace(/^www\./, '');
-    return host === COMPANY_HOST || host.endsWith(`.${COMPANY_DOMAIN}`);
-  } catch {
-    return false;
-  }
+  const host = jobUrlHost(url).replace(/^www\./, '');
+  return host === COMPANY_HOST || host.endsWith(`.${COMPANY_DOMAIN}`);
 }
 
 async function fetchText(url, retries = 2) {

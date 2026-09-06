@@ -12,6 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { jobUrlHost } from './job-url-host.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec } from './prospector/spec-crawler.mjs';
@@ -76,12 +77,8 @@ export function isMedIpersonalJob(job) {
  * Validate that a URL belongs to iPersonal AG's domain.
  */
 export function isTrustedDomain(rawUrl = '') {
-  try {
-    const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'ipersonal.ch' || host.endsWith('.ipersonal.ch');
-  } catch {
-    return false;
-  }
+  const host = jobUrlHost(rawUrl);
+  return host === 'ipersonal.ch' || host.endsWith('.ipersonal.ch');
 }
 
 /* ── Category Detection ────────────────────────────────────── */
