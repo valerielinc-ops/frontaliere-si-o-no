@@ -1052,7 +1052,10 @@ function renderSourceAttribution(events: SiteEvent[], copy: Copy, dateStamp: str
   return `${esc(copy.updated)}: <time datetime="${dateStamp}">${dateStamp}</time> · ${esc(copy.source)}: ${links}`;
 }
 
-function pathFor(locale: Locale, canton: string, comune?: string): string {
+/** Canonical path of a bucket page: `<canton-base>/<comune>/` (or the canton
+ *  base itself for the comune-less bucket). Exported so the ladder test can
+ *  assert the two path families never collide (#7743). */
+export function pathFor(locale: Locale, canton: string, comune?: string): string {
   const base = basePathFor(canton)[locale];
   if (!comune) return `${base}/`;
   const segment = comune === OTHER_EVENTS_COMUNE_KEY ? OTHER_EVENTS_SEGMENT[locale] : slugifyComune(comune);

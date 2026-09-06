@@ -42,6 +42,7 @@ import {
   renderOverflowLadderPage,
   overflowLadderPageCount,
   overflowLadderPath,
+  pathFor,
   cantonLadders,
   sitemapLadders,
 } from '../build-plugins/eventsSeoPagesPlugin';
@@ -384,6 +385,34 @@ describe('the overflow ladder keeps the rows it carries reachable (#7329)', () =
     const linked = hrefs(ladderPage(2).html);
     for (let page = 3; page <= pageCount; page += 1) {
       expect(linked).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, page));
+    }
+  });
+
+  /**
+   * `comune` is optional in `overflowLadderPath`, so the ladder of a
+   * comune-less bucket is `<canton-base>/page-N/` — the same shape `pathFor()`
+   * mints for a comune bucket. Whoever is emitted second overwrites the first:
+   * either the ladder page or a whole comune bucket disappears. The guard is
+   * `slugifyComune()` reserving `^page-\d+$`, so this asserts the two path
+   * families are disjoint over the real comuni AND over the adversarial names
+   * that used to collide (#7743).
+   */
+  it('no ladder page ever lands on a comune bucket path', () => {
+    const comuni = [
+      ...Object.values(
+        (JSON.parse(readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8')).cantons ?? {}) as Record<
+          string,
+          { municipalities?: string[] }
+        >,
+      ).flatMap((c) => c.municipalities ?? []),
+      'Page 2',
+      'Page-3',
+      'PAGE 07',
+    ];
+    const bucketPaths = new Set(comuni.map((c) => pathFor('it', 'altri-cantoni', c)));
+    expect(bucketPaths.size).toBeGreaterThan(2000);
+    for (let page = 2; page <= 40; page += 1) {
+      expect(bucketPaths).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, page));
     }
   });
 });
