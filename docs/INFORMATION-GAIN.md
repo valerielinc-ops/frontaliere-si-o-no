@@ -138,7 +138,7 @@ coprono tutti gli offender, nessuno resta fuori.
 |---|---|---|---|
 | Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) — **risolta, vedi sotto** | 22 | 0–4 % → **6,5–19,4 %** | una combinazione RAL × figli × stato civile × regime frontaliero |
 | Tempi di attesa alla dogana (`/tempi-attesa-dogana/` e traduzioni) | 4 | 0 % | un valico, 13–18 segmenti in tutto |
-| Premi cassa malati (`/premi-cassa-malati/` e traduzioni) | 4 | 2,6–2,7 % | un cantone × una fascia d'età |
+| Premi cassa malati (`/premi-cassa-malati/` e traduzioni) — **risolta, vedi sotto** | 4 | 2,6–2,7 % → **5,6 %** | un cantone × una fascia d'età |
 | Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) | 4 | 2,8–4,9 % | una città × una settimana |
 | Landing professione × cantone flat-slug (`it:/lavoro-`, e le sue traduzioni) | 3 | 2,9–4,3 % | una professione in un cantone |
 
@@ -284,6 +284,59 @@ L'osservatore pre-merge è `tests/information-gain-salary-hub-floor.test.ts`,
 che fa la stessa misura del gate ma sull'output del plugin, su tutti e quattro i
 locali, con soglia 5,5 % (il misurato meno un punto, e comunque sopra il floor
 5 % del gate).
+
+## Cosa è cambiato con #7594 — la prima famiglia a payload numerico
+
+`build-plugins/shared/peerCohortComparison.ts` dice dove la pagina sta nella
+classifica della sua coorte su UNA cifra reale, con i vicini **nominati**. È
+arrivato con `/premi-cassa-malati/` (#7594, sotto il contenitore #7386); le
+altre tre famiglie a payload numerico lo adottano nelle rispettive issue
+(#7593 dogane, #7595 aziende-che-assumono, professione × cantone).
+
+È lo stesso movimento di `nearestMunicipalityComparison.ts` con una relazione
+di vicinato diversa. Quelle famiglie sono luoghi e il vicino si calcola con
+`haversineKm`; qui la pagina è una cella di una griglia — un cantone × una
+fascia d'età — e non ha coordinate. Il vicino è la riga accanto nella
+classifica.
+
+Perché sopravvive alle maschere: la n. 1 azzera le cifre, la n. 2 azzera i token
+identitari **della pagina stessa**, mai quelli delle sorelle. Il nome del vicino
+resta in piedi, e la FINESTRA attorno alla riga corrente è diversa per ogni
+pagina della coorte per costruzione.
+
+Per i premi: metrica = premio mediano della fascia d'età, coorte = gli altri
+cantoni con dati per quella fascia, rango 1 = premio più basso.
+
+Tre scelte che non sono di stile:
+
+- **Una finestra, non una classifica intera.** La pagina portava una tabella di
+  tutti i 26 cantoni, **identica byte per byte** su tutte le pagine di una
+  fascia d'età, cioè il blocco più grande della pagina con gain zero: è il
+  difetto `RELATED.slice(0, N)` che #5107 ha tolto agli articoli e #5002 a
+  quattro famiglie comunali. Quella tabella è stata **sostituita** dalla
+  finestra; la classifica completa resta sull'hub radice
+  (`renderRootHubPage`), che è la pagina il cui mestiere è quello, e la foglia
+  ci tiene un link.
+- **La finestra da sola non bastava.** Le righe della tabella sono celle sotto
+  i 25 caratteri di `MIN_SEGMENT_CHARS`, quindi non contano come prosa: della
+  finestra sopravvive alla misura **una** frase, quella che nomina i due
+  cantoni vicini, e la famiglia si fermava a 4,2 %. La riga di provenienza
+  porta perciò anche la cassa più economica e la più cara del cantone per
+  quella fascia — nomi che cambiano di cantone in cantone e che la maschera
+  n. 2 non tocca, letti da `perInsurer` e non composti. Con quella: 5,6 %.
+- **La cifra che ordina dev'essere stabile fra i deploy.** Il blocco emette
+  link interni. Ogni ordinamento rompe i pari merito su `key`, e il rango si
+  conta come «quanti sono strettamente avanti», mai come indice dell'array:
+  senza, l'HTML emesso — e con esso il grafo dei link — si rimescolerebbe a
+  ogni build.
+
+Osservatori: `tests/peer-cohort-comparison.test.ts` fissa le due proprietà che
+fanno funzionare il blocco — la prosa di due pagine sorelle della stessa coorte
+dev'essere DIVERSA, e l'HTML dev'essere identico a parità di dati comunque
+siano ordinate le righe in ingresso. `tests/information-gain-families-floor.test.ts`
+misura la famiglia pre-merge sull'output del plugin e sul dataset reale
+(`data/health-premiums/2026.json`), con la soglia pinnata al misurato meno un
+punto.
 
 ## La catena automatica
 
