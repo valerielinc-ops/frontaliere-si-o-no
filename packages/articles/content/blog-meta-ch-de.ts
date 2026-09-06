@@ -5743,6 +5743,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-vallese-aliquote.title': 'Erbschafts- und Schenkungssteuer im Wallis: Steuersätze',
     'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Leitfaden zur Erbschafts- und Schenkungssteuer im Kanton Wallis: Kantonsstruktur, Freistellungen für Ehegatten und Kinder, Erklärung und Amtsfristen.',
     'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Verwaltungsgebäude des Kantons Wallis mit Alpenpanorama im Hintergrund',
+    'blog.article.eredita-donazioni-vallese-guida.title': 'Erbschaftssteuer im Wallis: Sätze und Verfahren',
+    'blog.article.eredita-donazioni-vallese-guida.excerpt': 'Die Erbschaft im Wallis unterliegt kantonalen Steuern, die nach Verwandtschaftsgrad berechnet werden. Ehepartner und Nachkommen haben spezifische Ausnahmen. Hier ist, wie es funktioniert und welche Schritte zu befolgen sind.',
+    'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Walliser Notariatsbüro mit Erbschaftsdokumenten und Alpenblick',
+    'blog.article.imposta-successione-vallese-dichiarazione.title': 'Erbschaftssteuer im Wallis: Sätze und Deklaration',
+    'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'Die Erbschafts- und Schenkungssteuer ist kantonal geregelt: Das Wallis hat eigene Regeln zu Verwandtschaftsgraden, Befreiungen und Meldefristen.',
+    'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Luftaufnahme eines traditionellen Walliser Dorfes mit Steinarchitektur und Alpenbergen.',
+    'blog.article.svizzera-mondo-multipolare.title': 'Die Direktorin des Seco warnt vor den Gefahren einer «multipolaren Welt»',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda warnt vor einem stärkeren inneren Zusammenhalt und einer aktiveren internationalen Rolle der Schweiz.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Luftaufnahme des Finanzdistrikts von Zürich, Schweiz',
+    'blog.article.successione-donazione-vallese-guida.title': 'Erbschaftssteuer Wallis: Steuersätze und Befreiungen',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Erbschaftssteuer im Wallis: Sätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen, Erklärung und einzuhaltende Fristen.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Schreibtisch mit Erbschaftsdokumenten und Steuerfomularen im Notariatsburo',
 };
 
 export default blogMetaChDe;

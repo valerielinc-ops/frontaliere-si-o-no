@@ -74549,6 +74549,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eredita-donazioni-vallese-guida': {
+    title: 'Imposta di successione nel Vallese: aliquote e procedure',
+    description: 'Successione nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedimenti di dichiarazione e scadenze presso l\'Amministrazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, vallese, aliquote',
+    ogTitle: 'Successione e donazione nel Vallese',
+    ogDescription: 'Nel Vallese, la successione è tassata secondo il grado di parentela. Coniuge e discendenti beneficiano di esenzioni specifiche. Scopri le aliquote cantonali, le procedure di dichiarazione e i termini da rispettare presso l\'Amministrazione tributaria',
+    canonicalPath: '/articoli-svizzera/eredita-donazioni-vallese-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione nel Vallese: aliquote e procedure",
+      "description": "Successione nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedimenti di dichiarazione e scadenze presso l'Amministrazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eredita-donazioni-vallese-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio notarile vallese con documenti legali di successione e vista sulle Alpi"
+      },
+      "datePublished": "2026-09-06T14:17:14+00:00",
+      "dateModified": "2026-09-06T14:17:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eredita-donazioni-vallese-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-vallese-dichiarazione': {
+    title: 'Imposta di successione nel Vallese: aliquote e dichiarazione',
+    description: 'Scopri come funziona l\'imposta di successione e donazione nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e figli, dichiarazione e termini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, vallese, aliquote',
+    ogTitle: 'Imposta di successione nel Vallese: aliquote e dichiarazione',
+    ogDescription: 'L\'imposta di successione e donazione nel Vallese: come funziona la tassazione per grado di parentela, quali sono le esenzioni per coniuge e discendenti, come e quando dichiarare. Guida completa.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-vallese-dichiarazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione nel Vallese: aliquote e dichiarazione",
+      "description": "Scopri come funziona l'imposta di successione e donazione nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e figli, dichiarazione e termini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-vallese-dichiarazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di un tradizionale villaggio vallesano con architettura in pietra e montagne alpine."
+      },
+      "datePublished": "2026-09-06T14:55:30+00:00",
+      "dateModified": "2026-09-06T14:55:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-vallese-dichiarazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-mondo-multipolare': {
+    title: 'La direttrice della Seco mette in guardia dai rischi di un «mondo multipolare»',
+    description: 'Helene Budliger Artieda avverte della necessità di una maggiore coesione interna e di un ruolo internazionale più attivo per la Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, direttrice, seco, mette, guardia',
+    ogTitle: 'La direttrice della Seco mette in guardia dai rischi di un «mondo multipolare»',
+    ogDescription: 'Helene Budliger Artieda avverte della necessità di una maggiore coesione interna e di un ruolo internazionale più attivo per la Svizzera. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/svizzera-mondo-multipolare/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La direttrice della Seco mette in guardia dai rischi di un «mondo multipolare»",
+      "description": "Helene Budliger Artieda avverte della necessità di una maggiore coesione interna e di un ruolo internazionale più attivo per la Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-mondo-multipolare.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro finanziario di Zurigo, Svizzera"
+      },
+      "datePublished": "2026-09-06T15:10:22+00:00",
+      "dateModified": "2026-09-06T15:10:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-mondo-multipolare/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-successione-donazione-vallese-guida': {
+    title: 'Imposta successione Vallese: aliquote e esenzioni',
+    description: 'Tassazione successoria nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini da rispettare. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, vallese, aliquote',
+    ogTitle: 'Imposta successione Vallese: aliquote e esenzioni',
+    ogDescription: 'Tassazione successoria nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini da rispettare.',
+    canonicalPath: '/articoli-svizzera/successione-donazione-vallese-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione Vallese: aliquote e esenzioni",
+      "description": "Tassazione successoria nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini da rispettare. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/successione-donazione-vallese-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio notarile con documenti di successione e moduli fiscali su scrivania in legno"
+      },
+      "datePublished": "2026-09-06T15:34:18+00:00",
+      "dateModified": "2026-09-06T15:34:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/successione-donazione-vallese-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

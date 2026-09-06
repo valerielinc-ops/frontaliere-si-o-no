@@ -5743,6 +5743,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-vallese-aliquote.title': 'Inheritance and gift tax in Valais: rates',
     'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guide to inheritance and gift taxes in the Valais Canton: cantonal structure, exemptions for spouse and children, official declaration and terms.',
     'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Cantonal tax office building in Valais Canton with Alpine mountains in the background, Swiss fiscal administration',
+    'blog.article.eredita-donazioni-vallese-guida.title': 'Inheritance tax in Valais: rates and procedures',
+    'blog.article.eredita-donazioni-vallese-guida.excerpt': 'Succession in Valais is subject to cantonal taxes calculated by degree of kinship. Spouse and descendants have specific exemptions. Here\'s how it works and what procedures to follow.',
+    'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Valais notary office with succession legal documents and Alpine mountain views',
+    'blog.article.imposta-successione-vallese-dichiarazione.title': 'Inheritance tax in Valais: rates and declaration',
+    'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'The inheritance and gift tax is regulated at the cantonal level: Valais has its own rules on degrees of kinship, exemptions and terms of declaration.',
+    'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Aerial view of a traditional Valais village with stone architecture and Alpine mountains.',
+    'blog.article.svizzera-mondo-multipolare.title': 'The director of Seco warns of the risks of a "multipolar world"',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda warns of the need for greater internal cohesion and a more active international role for Switzerland.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Aerial view of Zurich financial district, Switzerland',
+    'blog.article.successione-donazione-vallese-guida.title': 'Valais inheritance tax: rates and exemptions',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Inheritance taxation in Valais: rates for degree of kinship, exemptions for spouse and descendants, declaration and deadlines to be respected.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Notary office desk with succession documents and tax forms on wooden table',
 };
 
 export default blogMetaChEn;

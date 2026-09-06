@@ -1940,6 +1940,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avviare-attivita-vallese-registro-commercio': { it: 'avviare-attivita-vallese-registro-commercio', en: 'start-business-canton-valais-commerce-registry', de: 'betrieb-eroffnen-wallis-handelsregister', fr: 'demarrer-activite-canton-valais-registre-commerce' },
  'conversione-patente-vallese': { it: 'conversione-patente-vallese', en: 'conversion-driving-license-valais', de: 'umwandlung-fuehrerschein-wallis', fr: 'conversion-permis-conduire-valais' },
  'imposta-successione-vallese-aliquote': { it: 'imposta-successione-vallese-aliquote', en: 'estate-tax-donation-valais-canton-rates', de: 'erbschaftssteuer-donationen-kanton-wallis-saetze', fr: 'impot-succession-donations-canton-valais-taux' },
+ 'eredita-donazioni-vallese-guida': { it: 'eredita-donazioni-vallese-guida', en: 'inheritance-donations-valais-guide', de: 'erbschaft-schenkung-wallis-leitfaden', fr: 'heritage-donations-valais-guide' },
+ 'imposta-successione-vallese-dichiarazione': { it: 'imposta-successione-vallese-dichiarazione', en: 'succession-tax-valais-declaration', de: 'erbschaftssteuer-wallis-erklaerung', fr: 'impot-succession-valais-declaration' },
+ 'svizzera-mondo-multipolare': { it: 'svizzera-mondo-multipolare', en: 'switzerland-multipolar-world', de: 'schweiz-multipolare-welt', fr: 'suisse-monde-multipolaire' },
+ 'successione-donazione-vallese-guida': { it: 'successione-donazione-vallese-guida', en: 'succession-donation-valais-guide', de: 'erbschaft-schenkung-wallis-anleitung', fr: 'succession-donation-valais-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

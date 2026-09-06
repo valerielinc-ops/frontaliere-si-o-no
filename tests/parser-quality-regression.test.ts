@@ -17,6 +17,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { extractEpflDetailDescription } from '../scripts/lib/epfl-job-parser.mjs';
 import { extractEthZurichDetailDescription } from '../scripts/lib/eth-zurich-job-parser.mjs';
@@ -573,5 +574,105 @@ describe('parser-quality regression — a source that refuses everything is not 
     const summary = applySourceDetailResults(report, results, results.length);
     expect(summary.sourceLevelFailures.sourceCount).toBe(0);
     expect(summary.unexplainedFetchFailures).toBe(1);
+  });
+});
+
+describe('parser-quality regression — the pinned bundle is a real published artifact', () => {
+  // #7630 item 3. Until now every end-to-end replay test built its own bundle
+  // with `createSourceDetailEvidenceBundle()`, so it proved that the writer and
+  // the reader agree with each other — not that either agrees with what CI
+  // actually publishes. A writer bug that also convinced the reader would have
+  // been invisible. This fixture is the `sourceDetailEvidence` object of
+  // `parser-quality-report-34037001871-1` (run 34037001871, 2026-09-06T14:00Z),
+  // byte-for-byte: 1077 requested samples, 958 replayable receipts, 119 fetch
+  // failures, sealed by the run itself. It is stored gzipped because the
+  // uncompressed object is 1,44 MB and gzip is lossless — the digests below are
+  // computed on the decompressed bytes, so any re-encoding that changed a byte
+  // would fail the first assertion.
+  //
+  // The `expected` context is written out here on purpose instead of being read
+  // back from the bundle: replaying an artifact against its own claims proves
+  // nothing. These are the commits and version digests the run declared.
+  const BUNDLE_JSON_SHA256 = 'c65112edd3c903ef4709b936092e0ebd63c7aee81e560c731fa0776b9ab206ea';
+  const BUNDLE_SHA256 = '9d310f53a6e5e50aba899a9f2c7048424cdc412d922a08839de6df142cd5cc0d';
+  const expected = {
+    provenance: {
+      repoHeadSha: 'd4a10ca3fd967a7aca4681a11ceb0b0a9b07c314',
+      datasetLastCommit: {
+        sha: '285b365a84b43490a4d9a411403cf328ffec39af',
+        committedAt: '2026-09-06T13:15:25Z',
+      },
+    },
+    versions: {
+      extractor: 'a38f3598d4566f5a2127ed091e952b6a5cf09efd2cee8bec2c008af53b913401',
+      normalizer: '6896f4850190f599e6fac0fb309b149ff1c2f040108ec9ad11fbdc6d19739101',
+    },
+  };
+
+  function loadPublishedBundle() {
+    const gz = fs.readFileSync(path.join(FIXTURE_DIR, 'source-detail-bundle-34037001871.json.gz'));
+    const json = zlib.gunzipSync(gz).toString('utf8');
+    expect(createHash('sha256').update(json).digest('hex')).toBe(BUNDLE_JSON_SHA256);
+    return JSON.parse(json);
+  }
+
+  it('replays the whole published corpus with nothing but the artifact', () => {
+    const bundle = loadPublishedBundle();
+    // The seal is pinned separately from the content: a bundle re-sealed around
+    // doctored samples verifies internally, and would only be caught here.
+    expect(bundle.bundleSha256).toBe(BUNDLE_SHA256);
+    expect(bundle).toMatchObject({ requestedCount: 1077, replayableCount: 958 });
+    expect(bundle.requestedSamples).toHaveLength(1077);
+    // No raw URL survived into the published artifact, manifest included.
+    expect(JSON.stringify(bundle.requestedSamples)).not.toMatch(/https?:\/\//);
+
+    const replayed = replaySourceDetailEvidenceBundle(bundle, expected);
+    expect(replayed).toHaveLength(1077);
+    expect(replayed.filter((r: any) => r.replayed && !r.fetchFailed && !r.processingFailed)).toHaveLength(958);
+    expect(replayed.filter((r: any) => r.fetchFailed)).toHaveLength(119);
+    expect(replayed.every((r: any) => (
+      r.evidenceProvenance.repoHeadSha === expected.provenance.repoHeadSha
+      && r.evidenceProvenance.datasetCommitSha === expected.provenance.datasetLastCommit.sha
+    ))).toBe(true);
+    // Deterministic: the same artifact read twice yields the same verdicts.
+    expect(replaySourceDetailEvidenceBundle(bundle, expected)).toEqual(replayed);
+  });
+
+  it('rejects the published artifact when a single real sample is edited', () => {
+    const bundle = loadPublishedBundle();
+    const index = bundle.samples.findIndex((s: any) => s.outcome === 'fetch-failed');
+    expect(index).toBeGreaterThanOrEqual(0);
+    const tampered = {
+      ...bundle,
+      samples: bundle.samples.map((s: any, i: number) => (
+        i === index ? { ...s, status: 200 } : s
+      )),
+    };
+    expect(() => replaySourceDetailEvidenceBundle(tampered, expected))
+      .toThrow(/digest does not match/);
+  });
+
+  it('refuses to replay the published artifact against a different commit', () => {
+    const bundle = loadPublishedBundle();
+    expect(() => replaySourceDetailEvidenceBundle(bundle, {
+      ...expected,
+      provenance: { ...expected.provenance, repoHeadSha: 'f'.repeat(40) },
+    })).toThrow(/does not match the requested replay/);
+  });
+
+  it('feeds the audit the same source-level verdicts the run published', () => {
+    // The replay is only worth pinning if the audit reads it the same way the
+    // live run did. `applySourceDetailResults` is the consumer, so the fixture
+    // goes through it end to end instead of stopping at the digest check.
+    const bundle = loadPublishedBundle();
+    const replayed = replaySourceDetailEvidenceBundle(bundle, expected);
+    const report: Record<string, any> = {};
+    for (const sample of bundle.samples) {
+      report[sample.crawlerKey] ??= { total: 1, issues: [] };
+    }
+    const summary = applySourceDetailResults(report, replayed, replayed.length);
+    expect(summary.requested).toBe(1077);
+    expect(summary.fetched).toBe(958);
+    expect(summary.fetchFailed).toBe(119);
   });
 });

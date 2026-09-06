@@ -281,4 +281,31 @@ describe('audit-spa-bundle-injection — offender groups past the breakdown cap'
     const summed = featureKeys.reduce((acc, k) => acc + report.byFeature[k], 0);
     expect(summed).toBe(PAGES);
   });
+
+  /**
+   * WHICH keys survive the fold must not depend on the walk (follow-up of
+   * #7679): discovery order is LIFO plus inline descent past
+   * DIR_STACK_HIGH_WATER, so it depends on how the 24 walkers interleave. When
+   * the retained set follows arrival order, two runs over the same dist/ can
+   * publish two different byFeature breakdowns and the per-area numbers stop
+   * being comparable run over run. The retained set is the GROUP_CAP smallest
+   * keys in UTF-16 code-unit order — a function of the key SET alone, which
+   * this test computes independently from the fixture.
+   */
+  it('retains the GROUP_CAP smallest keys, not the first ones discovered', () => {
+    run(manyWorkdir);
+    const report = JSON.parse(
+      fs.readFileSync(path.join(REPORTS_DIR, 'spa-bundle-injection.json'), 'utf8'),
+    );
+
+    const allKeys = Array.from({ length: PAGES }, (_, i) => `area-${i}/p`).sort();
+    const expected = allKeys.slice(0, GROUP_CAP);
+    const retained = Object.keys(report.byFeature).filter((k) => k !== '<other>').sort();
+    expect(retained).toEqual(expected);
+
+    // Retained buckets hold every hit of their key, not a partial count: a key
+    // evicted to make room is never re-minted, so no count is split in two.
+    for (const key of retained) expect(report.byFeature[key]).toBe(1);
+    expect(report.byFeature['<other>']).toBe(PAGES - GROUP_CAP);
+  });
 });

@@ -5743,6 +5743,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-vallese-aliquote.title': 'Droits de succession et de donation en Valais : taux',
     'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guide des droits de succession et de donation dans le canton du Valais : structure cantonale, exonérations pour conjoint et enfants, déclaration et délais officiels.',
     'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Bâtiment administratif du canton du Valais avec paysage alpin en arrière-plan',
+    'blog.article.eredita-donazioni-vallese-guida.title': 'Droit de succession en Valais : taux et procédures',
+    'blog.article.eredita-donazioni-vallese-guida.excerpt': 'La succession en Valais est soumise à des impôts cantonaux calculés par degré de parenté. Le conjoint et les descendants bénéficient d\'exemptions spécifiques. Voici comment cela fonctionne et quelles procédures suivre.',
+    'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Bureau notarial valaisan avec documents de succession et vue sur les Alpes',
+    'blog.article.imposta-successione-vallese-dichiarazione.title': 'Droit de succession en Valais : taux et déclaration',
+    'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'L\'impôt sur les successions et les donations est réglementé au niveau cantonal : le Valais a ses propres règles sur les degrés de parenté, les exemptions et les délais de déclaration.',
+    'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Vue aerienne d\'un village traditionnel du Valais avec architecture en pierre et montagnes.',
+    'blog.article.svizzera-mondo-multipolare.title': 'La SECO met en garde contre un « monde multipolaire »',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda met en garde contre la nécessité d\'une plus grande cohésion interne et d\'un rôle international plus actif pour la Suisse.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Vue aérienne du quartier financier de Zurich, Suisse',
+    'blog.article.successione-donazione-vallese-guida.title': 'Impôt succession Valais : taux et exonérations',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Imposition successorale en Valais : taux par degré de parenté, exonérations pour conjoint et descendants, déclaration et délais à respecter.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Bureau de notaire avec documents de succession et formulaires fiscaux sur table',
 };
 
 export default blogMetaChFr;

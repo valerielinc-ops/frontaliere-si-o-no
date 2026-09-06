@@ -17227,6 +17227,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'eredita-donazioni-vallese-guida',
+    category: 'fiscale',
+    date: '2026-09-06T14:17:14.380Z',
+    image: '/images/blog/eredita-donazioni-vallese-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'imposta-successione-vallese-dichiarazione',
+    category: 'fiscale',
+    date: '2026-09-06T14:55:30.618Z',
+    image: '/images/blog/imposta-successione-vallese-dichiarazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'svizzera-mondo-multipolare',
+    category: 'fiscale',
+    date: '2026-09-06T15:10:22.595Z',
+    image: '/images/blog/svizzera-mondo-multipolare.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'successione-donazione-vallese-guida',
+    category: 'fiscale',
+    date: '2026-09-06T15:34:18.889Z',
+    image: '/images/blog/successione-donazione-vallese-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

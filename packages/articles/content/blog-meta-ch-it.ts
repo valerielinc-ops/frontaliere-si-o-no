@@ -5743,6 +5743,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-vallese-aliquote.title': 'Imposta di successione e donazione nel Vallese: aliquote',
     'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guida alle imposte di successione e donazione nel Cantone Vallese: struttura cantonale, esenzioni per coniuge e figli, dichiarazione e termini ufficiali.',
     'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Edificio amministrativo cantonale in Vallese con montagne sullo sfondo, rappresenta l\'amministrazione fiscale svizzera',
+    'blog.article.eredita-donazioni-vallese-guida.title': 'Imposta di successione nel Vallese: aliquote e procedure',
+    'blog.article.eredita-donazioni-vallese-guida.excerpt': 'La successione nel Vallese è soggetta a imposte cantonali calcolate per grado di parentela. Coniuge e discendenti hanno esenzioni specifiche. Ecco come funziona e quali procedimenti seguire.',
+    'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Ufficio notarile vallese con documenti legali di successione e vista sulle Alpi',
+    'blog.article.imposta-successione-vallese-dichiarazione.title': 'Imposta di successione nel Vallese: aliquote e dichiarazione',
+    'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'L\'imposta di successione e donazione è disciplinata a livello cantonale: il Vallese ha norme proprie su gradi di parentela, esenzioni e termini di dichiarazione.',
+    'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Veduta aerea di un tradizionale villaggio vallesano con architettura in pietra e montagne alpine.',
+    'blog.article.svizzera-mondo-multipolare.title': 'La direttrice della Seco mette in guardia dai rischi di un «mondo multipolare»',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda avverte della necessità di una maggiore coesione interna e di un ruolo internazionale più attivo per la Svizzera.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Vista aerea del centro finanziario di Zurigo, Svizzera',
+    'blog.article.successione-donazione-vallese-guida.title': 'Imposta successione Vallese: aliquote e esenzioni',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Tassazione successoria nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini da rispettare.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Studio notarile con documenti di successione e moduli fiscali su scrivania in legno',
 };
 
 export default blogMetaChIt;
