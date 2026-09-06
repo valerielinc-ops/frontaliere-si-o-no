@@ -17236,6 +17236,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposta-successione-vallese-dichiarazione',
+    category: 'fiscale',
+    date: '2026-09-06T14:55:30.618Z',
+    image: '/images/blog/imposta-successione-vallese-dichiarazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

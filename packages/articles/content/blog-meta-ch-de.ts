@@ -5746,6 +5746,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eredita-donazioni-vallese-guida.title': 'Erbschaftssteuer im Wallis: Sätze und Verfahren',
     'blog.article.eredita-donazioni-vallese-guida.excerpt': 'Die Erbschaft im Wallis unterliegt kantonalen Steuern, die nach Verwandtschaftsgrad berechnet werden. Ehepartner und Nachkommen haben spezifische Ausnahmen. Hier ist, wie es funktioniert und welche Schritte zu befolgen sind.',
     'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Walliser Notariatsbüro mit Erbschaftsdokumenten und Alpenblick',
+    'blog.article.imposta-successione-vallese-dichiarazione.title': 'Erbschaftssteuer im Wallis: Sätze und Deklaration',
+    'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'Die Erbschafts- und Schenkungssteuer ist kantonal geregelt: Das Wallis hat eigene Regeln zu Verwandtschaftsgraden, Befreiungen und Meldefristen.',
+    'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Luftaufnahme eines traditionellen Walliser Dorfes mit Steinarchitektur und Alpenbergen.',
 };
 
 export default blogMetaChDe;
