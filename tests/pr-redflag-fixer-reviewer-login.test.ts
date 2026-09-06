@@ -49,4 +49,12 @@ describe('pr-redflag-fixer job-level reviewer filter matches tests.yml bot set',
     expect(testsYml).toMatch(/frontaliere-automation\\?\[bot\\?\]/);
     expect(preflightIf()).toContain('frontaliere-automation[bot]');
   });
+
+  it('the collect-review jq uses the same bot set, not claude-only', () => {
+    const yaml = readFileSync(FIXER, 'utf8');
+    expect(yaml).toContain(
+      'select(.user.login|test("^(claude|frontaliere-automation)";"i"))',
+    );
+    expect(yaml).not.toContain('select(.user.login|test("claude";"i"))');
+  });
 });
