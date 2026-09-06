@@ -9,6 +9,11 @@
  *   const html = buildNewsletter({ exchangeRate, topArticles, weeklyFact, latestArticle, featuredTool, unsubscribeUrl, locale });
  */
 
+import {
+  PLACEMENT_PARAM,
+  newsletterPartnerPlacement,
+} from '../functions/src/lib/newsletterPlacements.js';
+
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_BLUE = '#2563EB';
 const BRAND_DARK = '#0f172a';
@@ -219,9 +224,11 @@ function nlT(locale, key) {
 
 function utmUrl(path, campaign, extraParams) {
   const sep = path.includes('?') ? '&' : '?';
-  // `extraParams` porta gli identificatori che utm non copre — oggi `pos`, lo
-  // slot di piazzamento della riga (vedi renderAffiliatePartners): senza, due
-  // link allo stesso `/go/{id}/` dallo stesso invio sono indistinguibili.
+  // `extraParams` porta gli identificatori che utm non copre — oggi il
+  // parametro di piazzamento della riga (vedi renderAffiliatePartners): senza,
+  // due link allo stesso `/go/{id}/` dallo stesso invio sono indistinguibili.
+  // Il NOME del parametro non e' scritto qui: viene da PLACEMENT_PARAM, la
+  // stessa costante che legge la pagina /go/ (functions/src/lib/newsletterPlacements.js).
   const extra = Object.entries(extraParams || {})
     .filter(([, v]) => v !== undefined && v !== null && v !== '')
     .map(([k, v]) => `&${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
@@ -522,13 +529,15 @@ function renderAffiliatePartners({ campaign, locale }) {
     // Posizione della riga nel blocco: `nl-partner-<indice 1-based>-<id>`.
     // L'indice viene dall'ordine di AFFILIATE_PARTNERS_NL, cioe' dall'ordine
     // in cui le righe compaiono nell'email, quindi lo slot resta identificabile
-    // anche se il partner che lo occupa cambia. La pagina /go/{id}/ oggi ignora
-    // la query (redirect statico) — il parametro e' inerte finche' non lo legge.
-    const pos = `nl-partner-${i + 1}-${goIdFromPath(p.goUrl)}`;
+    // anche se il partner che lo occupa cambia. La forma NON e' composta qui:
+    // la produce newsletterPlacements.js, l'unica sorgente condivisa con la
+    // pagina /go/{id}/ che la trasforma in `pubref` — scriverla a mano la fa
+    // divergere in silenzio, cioe' con un pubref vuoto e nessun rosso.
+    const pos = newsletterPartnerPlacement(i + 1, goIdFromPath(p.goUrl));
     return `
       <tr>
         <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
-          <a target="_blank" rel="noopener noreferrer" href="${utmUrl(p.goUrl, campaign, { pos })}" style="text-decoration:none;">
+          <a target="_blank" rel="noopener noreferrer" href="${utmUrl(p.goUrl, campaign, { [PLACEMENT_PARAM]: pos })}" style="text-decoration:none;">
             <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${p.emoji} ${escapeHtml(p.name)}</div>
             <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${escapeHtml(desc)}</div>
           </a>
