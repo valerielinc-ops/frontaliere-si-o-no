@@ -9,6 +9,14 @@ import {
   MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS,
   MIN_SESSIONS_FOR_VERDICT,
 } from '../scripts/lib/ga4-engagement-reliability.mjs';
+import {
+  ANALYTICS_PROCESSING_LAG_DAYS,
+  fmtUtcDate,
+  isSettledDate,
+  settledDays,
+  settledEndDate,
+  settledWindow,
+} from '../scripts/lib/analytics-settled-window.mjs';
 
 // Numeri reali della property 524485296 (issue #6703). Le tre righe
 // "as-letto" sono ciò che GA4 riportava il 2026-08-30 e il 2026-09-05 sui
@@ -214,9 +222,13 @@ describe("le raccomandazioni da bounce/durata sono gatate sul verdetto d'affidab
     );
   });
 
-  it('il ramo criticalBounce (>70% bounce, >=50 sessioni) consulta engagementReliable', () => {
+  // #7510: questo ramo legge il verdetto delle sole giornate ASSESTATE, non
+  // quello della finestra piena — la richiesta per-path ora interroga la
+  // finestra assestata, e giudicarla coi giorni in lag la sopprimeva sempre.
+  // Resta un gate: se anche la finestra assestata e' incoerente, non esce.
+  it('il ramo criticalBounce (>70% bounce, >=50 sessioni) consulta il verdetto assestato', () => {
     expect(src).toContain(
-      'if (result.summary?.engagementReliable !== false && result.highBouncePaths',
+      'if (settledEngagementVerdict().reliable && result.highBouncePaths',
     );
   });
 
@@ -347,5 +359,112 @@ describe('il mirror Apps Script della soglia di affidabilita non drifta', () => 
   it('windowEngagementVerdict interroga GA4 per giornata, non sull aggregato', () => {
     expect(gs).toContain("['date']");
     expect(gs).toContain('engagementConsistency(rows[i][1], rows[i][2], rows[i][3])');
+  });
+});
+
+// #7510: il verdetto di finestra e' all-or-nothing (una giornata incoerente
+// marca tutta la finestra) e la finestra finiva a OGGI, cioe' conteneva per
+// costruzione i giorni in lag 24-48h. Risultato: le `highBouncePaths` genuine
+// venivano soppresse in blocco praticamente sempre. La cura e' interrogare e
+// giudicare la finestra ASSESTATA, non sopprimere a valle.
+describe('finestra assestata — il lag di elaborazione vive in un helper solo', () => {
+  const now = new Date('2026-09-06T10:00:00Z');
+
+  it('il lag di default e di 2 giorni', () => {
+    expect(ANALYTICS_PROCESSING_LAG_DAYS).toBe(2);
+    expect(fmtUtcDate(settledEndDate(now))).toBe('2026-09-04');
+  });
+
+  it('la finestra di 7 giorni termina sull ultimo giorno assestato, estremi inclusi', () => {
+    expect(settledWindow({ days: 7, now })).toEqual({ start: '2026-08-29', end: '2026-09-04' });
+  });
+
+  it('i giorni in lag 24-48h non sono assestati', () => {
+    expect(isSettledDate('20260906', { now })).toBe(false); // oggi
+    expect(isSettledDate('20260905', { now })).toBe(false); // ieri
+    expect(isSettledDate('20260904', { now })).toBe(true);
+    expect(isSettledDate('2026-09-04', { now })).toBe(true); // formato GSC/AdSense
+  });
+
+  it('una data assente o malformata non passa per assestata', () => {
+    expect(isSettledDate('?', { now })).toBe(false);
+    expect(isSettledDate(undefined, { now })).toBe(false);
+  });
+
+  it('settledDays scarta le giornate fresche e tiene le altre', () => {
+    const days = [
+      { date: '20260903', sessions: 1 },
+      { date: '20260904', sessions: 2 },
+      { date: '20260905', sessions: 3 },
+      { date: '20260906', sessions: 4 },
+    ];
+    expect(settledDays(days, { now }).map((d) => d.date)).toEqual(['20260903', '20260904']);
+  });
+
+  it('la finestra assestata salva le highBouncePaths quando l incoerenza e solo nei giorni in lag', () => {
+    // 28 giornate sane + le 2 in lag coi numeri reali del 04/09 e del 30/08.
+    const healthy = Array.from({ length: 28 }, (_, i) => ({
+      date: `202608${String(i + 8).padStart(2, '0')}`,
+      sessions: 4116,
+      engagedSessions: 1841,
+      averageSessionDuration: 74.98,
+    }));
+    const lagging = [
+      { date: '20260905', sessions: 7943, engagedSessions: 125, averageSessionDuration: 236.47 },
+      { date: '20260906', sessions: 2135, engagedSessions: 53, averageSessionDuration: 373 },
+    ];
+    const all = [...healthy, ...lagging];
+
+    // Prima: la finestra intera e inaffidabile → guard all-or-nothing → 0 path.
+    expect(dailyEngagementConsistency(all).reliable).toBe(false);
+    // Dopo: sulle sole giornate assestate il verdetto regge → i path escono.
+    expect(dailyEngagementConsistency(settledDays(all, { now })).reliable).toBe(true);
+  });
+});
+
+describe('analytics-report interroga e giudica la finestra assestata per il canale per-path', () => {
+  const src = readFileSync(
+    new URL('../scripts/analytics-report.mjs', import.meta.url),
+    'utf8',
+  );
+
+  it('la finestra assestata deriva dall helper condiviso, non da un calcolo locale', () => {
+    expect(src).toContain("from './lib/analytics-settled-window.mjs'");
+    expect(src).toContain('const settledEnd = fmtUtcDate(settledEndDate(endDate));');
+  });
+
+  it('la richiesta high-bounce non usa piu la finestra che finisce a oggi', () => {
+    const start = src.indexOf('// ── 3s. Exit pages analysis');
+    const end = src.indexOf('// ── 3o.', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const block = src.slice(start, end);
+    expect(block).toContain('...settledRequest,');
+    expect(block).not.toContain('...baseRequest,');
+    expect(block).toContain('result.highBouncePaths = highBouncePages;');
+  });
+
+  it('il guard delle raccomandazioni legge il verdetto delle giornate assestate', () => {
+    expect(src).toContain('if (settledEngagementVerdict().reliable && result.highBouncePaths');
+    expect(src).toContain('settledDays(dailyEngagementRows, { now: endDate })');
+  });
+
+  it('senza righe per-giorno si ricade sul verdetto del riepilogo, dove non-calcolato vale negativo', () => {
+    const start = src.indexOf('const settledEngagementVerdict = () => {');
+    const block = src.slice(start, src.indexOf('};', start));
+    expect(block).toContain('result.summary?.engagementReliable !== false');
+  });
+});
+
+describe('il lag di revenue-monitor e lo stesso helper, non una copia', () => {
+  const src = readFileSync(
+    new URL('../scripts/revenue-monitor.mjs', import.meta.url),
+    'utf8',
+  );
+
+  it('last7Days delega alla finestra assestata condivisa', () => {
+    expect(src).toContain("from './lib/analytics-settled-window.mjs'");
+    expect(src).toContain('return settledWindow({ days: 7 });');
+    expect(src).not.toContain('leave 2-day lag for late-arriving data');
   });
 });

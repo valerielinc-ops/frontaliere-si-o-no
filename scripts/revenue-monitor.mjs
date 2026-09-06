@@ -43,6 +43,7 @@ import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
 // Canonical canary-ad gate (scripts/lib/canaryAd.mjs — single source of truth,
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
+import { settledWindow } from './lib/analytics-settled-window.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -148,13 +149,11 @@ export async function getAdSenseToken() {
 }
 
 // ── Date helpers ────────────────────────────────────────────
-const fmtDate = (d) => d.toISOString().slice(0, 10);
+// Il lag di 2 giorni vive in `lib/analytics-settled-window.mjs` (#7510): era
+// copiato a mano qui e in analytics-report, dove la copia mancante faceva
+// finire la finestra a oggi.
 export function last7Days() {
-  const end = new Date();
-  end.setUTCDate(end.getUTCDate() - 2); // leave 2-day lag for late-arriving data
-  const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - 6);
-  return { start: fmtDate(start), end: fmtDate(end) };
+  return settledWindow({ days: 7 });
 }
 
 // ── AdSense (reports:generate) ──────────────────────────────
