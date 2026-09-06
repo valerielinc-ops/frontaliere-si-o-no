@@ -22,6 +22,7 @@
  * The file is single-use and unlinked after read by the commit script.
  */
 import fs from 'node:fs';
+import { diffLocaleKeys } from './locale-map-diff.mjs';
 
 /** @type {Array<{ts:number,jobId:string,locale:string|null,slug:string,action:string,source:string,reason?:string}>} */
 const _events = [];
@@ -162,15 +163,20 @@ export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = [],
       for (const [locale, slug] of Object.entries(currentByLocale)) {
         if (!(locale in restoredByLocale)) restoredByLocale[locale] = slug;
       }
-      if (JSON.stringify(restoredByLocale) !== JSON.stringify(currentByLocale)) {
+      // Counter and journal must come from ONE comparison. `JSON.stringify(a)
+      // !== JSON.stringify(b)` is key-order sensitive, so a map rebuilt as
+      // `{ ...old }` + the current-only keys could serialise differently while
+      // holding the identical pairs: `restored` incremented and the per-locale
+      // loop below, which compares field by field, recorded nothing — the two
+      // telling contradictory stories about the same restore (follow-up #7492).
+      const changedLocales = diffLocaleKeys(restoredByLocale, currentByLocale);
+      if (changedLocales.length > 0) {
         restored++;
-        for (const [locale, slug] of Object.entries(restoredByLocale)) {
-          if (currentByLocale[locale] !== slug) {
-            recordSlugMutation({
-              jobId: id, locale, slug, action: 'restore', source,
-              reason: `per-locale slug reverted to the published value (was ${String(currentByLocale[locale] || '') || '<absent>'})`,
-            });
-          }
+        for (const locale of changedLocales) {
+          recordSlugMutation({
+            jobId: id, locale, slug: restoredByLocale[locale], action: 'restore', source,
+            reason: `per-locale slug reverted to the published value (was ${String(currentByLocale[locale] || '') || '<absent>'})`,
+          });
         }
       }
       next.slugByLocale = restoredByLocale;

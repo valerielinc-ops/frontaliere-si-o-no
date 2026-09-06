@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { addPreviousSlugForLocale, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { localeMapsEqual } from './lib/locale-map-diff.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -160,11 +161,17 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // independent of this list's headroom accuracy.
   const hasMissingBridgesPreRename = collectMissingAssembledBridges(sliceJob, assembled).length > 0;
 
-  // Compare locale fields — only update if they changed
+  // Compare locale fields — only update if they changed. Field-by-field via
+  // `localeMapsEqual`, NOT `JSON.stringify` (follow-up #7492): the assembled
+  // side and the slice side build their locale maps independently, so the same
+  // it/en/de/fr pairs can serialise in a different key order and a raw string
+  // comparison then reports a change that isn't one — a rewrite of every job in
+  // the slice, and a `changed` flag that contradicts the per-locale rename loop
+  // below, which compares values one locale at a time.
   const changed =
-    JSON.stringify(assembled.titleByLocale) !== JSON.stringify(sliceJob.titleByLocale) ||
-    JSON.stringify(assembled.descriptionByLocale) !== JSON.stringify(sliceJob.descriptionByLocale) ||
-    JSON.stringify(assembled.slugByLocale) !== JSON.stringify(sliceJob.slugByLocale) ||
+    !localeMapsEqual(assembled.titleByLocale, sliceJob.titleByLocale) ||
+    !localeMapsEqual(assembled.descriptionByLocale, sliceJob.descriptionByLocale) ||
+    !localeMapsEqual(assembled.slugByLocale, sliceJob.slugByLocale) ||
     hasMissingBridgesPreRename;
 
   if (!changed) return { job: sliceJob, changed: false };

@@ -46,6 +46,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
+import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
@@ -2919,7 +2920,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
 
     // Mark as ghost
-    ghostIds.add(ej.slug || ej.id || JSON.stringify(ej.slugByLocale));
+    ghostIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
 
     // Merge expired slugs into active job's previousSlugs (journaled + capped,
     // matching the write path everywhere else — see addPreviousSlugForLocale).
@@ -2947,7 +2948,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 
   // Filter out ghosts
   const cleanedExpired = expiredJobs.filter(ej => {
-    const id = ej.slug || ej.id || JSON.stringify(ej.slugByLocale);
+    const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
     return !ghostIds.has(id);
   });
 
@@ -2969,7 +2970,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       const slice = readJson(fp, null);
       if (!Array.isArray(slice)) continue;
       const cleaned = slice.filter(ej => {
-        const id = ej.slug || ej.id || JSON.stringify(ej.slugByLocale);
+        const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
         return !ghostIds.has(id);
       });
       if (cleaned.length < slice.length) {

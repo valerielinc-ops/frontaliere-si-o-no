@@ -124,6 +124,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/crawler-generation-token.mjs',
   'scripts/lib/job-match-key.mjs',
   'scripts/lib/job-url-key.mjs',
+  'scripts/lib/locale-map-diff.mjs',
   'scripts/lib/slug-history-journal.mjs',
   'scripts/lib/slug-preservation-guard.mjs',
 ]);

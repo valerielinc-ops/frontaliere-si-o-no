@@ -37,6 +37,7 @@ import {
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
+import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1007,7 +1008,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
 
     // Already reconciled: slugs are known to an active job — remove from expired
     if (expSlugs.some((s) => index.allSlugSet.has(s))) {
-      reconciledIds.add(ej.slug || ej.id || JSON.stringify(ej.slugByLocale));
+      reconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
       skippedCount++;
       continue;
     }
@@ -1096,7 +1097,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
 
     for (const s of uniqueNew) index.allSlugSet.add(s);
     updatedJobs.set(resolveJobDiffKey(job), job);
-    reconciledIds.add(ej.slug || ej.id || JSON.stringify(ej.slugByLocale));
+    reconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
     mergedCount++;
 
     const prefix = dryRun ? '⏭️ [dry-run]' : '✅';
@@ -1109,7 +1110,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
   const updatedExpired = dryRun
     ? expiredJobs
     : expiredJobs.filter((ej) => {
-        const id = ej.slug || ej.id || JSON.stringify(ej.slugByLocale);
+        const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
         return !reconciledIds.has(id);
       });
 
@@ -1202,7 +1203,7 @@ function updateExpiredCrawlerSlices(reconciledIds) {
     if (!Array.isArray(entries) || entries.length === 0) continue;
 
     const filtered = entries.filter((ej) => {
-      const id = ej.slug || ej.id || JSON.stringify(ej.slugByLocale);
+      const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
       return !reconciledIds.has(id);
     });
 
