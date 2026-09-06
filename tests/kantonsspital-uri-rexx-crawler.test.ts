@@ -386,7 +386,9 @@ describe('Kantonsspital Uri shared rexx parser', () => {
   });
 
   it('still fails closed when the contradicted records are systemic rather than outliers', async () => {
-    const foreignUrls = ['j210', 'j211'].map((id) => `https://stellen.ksuri.ch/Pflegefachperson-de-${id}.html`);
+    // Four rejected records out of six: above the sample floor the ratio can
+    // tell drift from outliers, so the batch still fails closed (#7702).
+    const foreignUrls = ['j210', 'j211', 'j212', 'j213'].map((id) => `https://stellen.ksuri.ch/Pflegefachperson-de-${id}.html`);
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
       const url = String(input);
       if (url.endsWith('/stellenangebote.html')) {
@@ -412,8 +414,8 @@ describe('Kantonsspital Uri shared rexx parser', () => {
       return new Response('', { status: 404 });
     }));
 
-    // 2 of 4 rejected: at the systemic threshold the configured headquarters or
-    // the parser has drifted, so the previously published slice stays intact.
+    // 4 of 6 rejected: over the systemic threshold the configured headquarters
+    // or the parser has drifted, so the previously published slice stays intact.
     await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
   });
 
