@@ -43,12 +43,11 @@ export function systemicRatio() {
  * A ratio needs a sample. On a listing of three rows, two vacancies the source
  * legitimately places abroad read as 67% — over the 50% systemic threshold —
  * and the valve suppresses the one live Swiss vacancy too, which is the exact
- * traffic loss #7459 closed, just restricted to small tenants. Measured on the
- * jobup.ch feed tenants the follow-up names: six of the eight publish four
- * records or fewer (`city-pop` 1, `josef-mueller` 1, `cham-swiss-properties`
- * 2, `croix-rouge-fribourgeoise` 4, `pole-sante-pays-enhaut` 4, `dic-sa` 0;
- * only `cnp` 25 and `fondation-soins-lausanne` 11 are large), so on this
- * source family the ratio is below its own sample floor most of the time.
+ * traffic loss #7459 closed, just restricted to small tenants. Measured over
+ * the eight jobup.ch feed tenants (`data/jobs/by-crawler`, 2026-09-06): six of
+ * them publish four records or fewer and only two are in double digits, so on
+ * this source family the ratio sits below its own sample floor most of the
+ * time. Per-tenant counts in the #7702 PR body.
  *
  * Same idiom the sibling gates in `dedicated-crawler-common.mjs` already use
  * (`JOBS_SYSTEMIC_MIN_TOTAL` on the thin-source ratio, `BOILERPLATE_MIN_ELIGIBLE`
