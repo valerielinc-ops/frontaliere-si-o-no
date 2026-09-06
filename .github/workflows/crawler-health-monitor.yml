@@ -288,7 +288,11 @@ jobs:
             echo "No open [crawler-health] issues."
             exit 0
           fi
-          while IFS=$'\t' read -r num open_title; do
+          # #7505: issue list on fd 9. With the file on stdin, the `node`
+          # resolver below inherits it and anything it reads is an issue the
+          # next `read` never sees — crawlers left flagged unhealthy after
+          # they recovered.
+          while IFS=$'\t' read -r -u 9 num open_title; do
             slug=$(printf '%s' "$open_title" | sed -E 's/^\[crawler-health\] ([^:]+):.*/\1/')
             status=$(jq -r --arg s "$slug" '.crawlers[$s].status // "unknown"' data/crawler-health.json)
             # `advisory` (#6496) rides on `status: "healthy"` by design (the
@@ -307,7 +311,7 @@ jobs:
             else
               echo "Keeping #$num — ${slug} status=${status} advisory=${advisory}."
             fi
-          done < /tmp/health-issues.tsv
+          done 9< /tmp/health-issues.tsv
 
       - name: Fail if any crawler stale
         id: failgate

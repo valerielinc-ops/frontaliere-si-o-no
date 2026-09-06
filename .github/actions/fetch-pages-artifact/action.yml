@@ -136,7 +136,16 @@ runs:
         mkdir -p "$OUTDIR"
         FOUND=""
         FOUND_AT=""
-        while IFS=$'\t' read -r cand created sha; do
+        # #7505: the walk-back reads its candidate list on fd 9, not on stdin.
+        # With `done < "$CANDS"` the loop's stdin IS the candidate file, and
+        # every external command in the body below — two `gh api` calls and
+        # `unzip` — inherits it. Any byte one of them decides to read is a
+        # candidate the next `read` never sees, so the walk-back would stop
+        # early and fail with "no successful deploy.yml run … still has a
+        # 'github-pages' artifact": a wrong diagnosis indistinguishable from
+        # the real thing. Whether `gh`/`unzip` touch stdin today is not a
+        # contract they publish — a dedicated fd makes the question moot.
+        while IFS=$'\t' read -r -u 9 cand created sha; do
           [ -n "$cand" ] || continue
           rc=0
           # #7502: `name=` + `per_page=100`. This listing used to run on the
@@ -243,7 +252,7 @@ runs:
           FOUND_AT="$created"
           echo "Using deploy run $cand (created_at $created, sha $sha), github-pages artifact $ARTIFACT_ID"
           break
-        done < "$CANDS"
+        done 9< "$CANDS"
 
         if [ -z "$FOUND" ]; then
           if [ -n "$PINNED" ]; then
