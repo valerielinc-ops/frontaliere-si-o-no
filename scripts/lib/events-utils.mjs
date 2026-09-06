@@ -843,6 +843,20 @@ export function eventReferralUrl(rawUrl, event) {
 const GEOCODE_CACHE_PATH = path.join(REPO_ROOT, 'data', 'events-geocode-cache.json');
 const NOMINATIM_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 
+/**
+ * True when a HTTP-200 Nominatim body is a server-side failure rather than an
+ * answer: the API replies to an internal error with `{"error": "Unable to
+ * geocode"}` (or `{"error": {code, message}}`), which parses as a perfectly
+ * ordinary JSON object. Both cached geocoders below persist their negatives to
+ * disk (`data/events-geocode-cache.json`, committed by crawl-events.yml), so
+ * reading such a body as "no match" would turn a transient hiccup into a
+ * PERMANENT null: that venue/coordinate would never be looked up again. Treat
+ * it like a non-200 — return null WITHOUT caching, retry next run.
+ */
+function isNominatimErrorPayload(data) {
+  return !data || typeof data !== 'object' || 'error' in data;
+}
+
 /** Load the on-disk geocode cache (`{ [normalizedQuery]: {lat,lng} | null }`). */
 export function loadGeocodeCache() {
   try {
@@ -865,8 +879,9 @@ export function saveGeocodeCache(cache) {
  * search API, restricted to Switzerland. Cached in `cache` (pass the object
  * returned by `loadGeocodeCache`, mutated in place — caller saves it once
  * after a run, not per-call). A cached `null` (no match found previously) is
- * honored without a repeat network call. Never fabricates coordinates: any
- * failure or no-result returns/`caches` `null`.
+ * honored without a repeat network call. Never fabricates coordinates: a
+ * genuine no-result caches `null`, while a failure (non-200, error payload,
+ * network/timeout) returns `null` WITHOUT caching, so it is retried.
  */
 export async function geocodeVenue(query, cache, fetchImpl = fetch) {
   const key = normalizeText(query);
@@ -881,7 +896,9 @@ export async function geocodeVenue(query, cache, fetchImpl = fetch) {
     });
     if (!res.ok) return null; // transient failure — don't cache, retry next run
     const data = await res.json();
-    const hit = Array.isArray(data) ? data[0] : null;
+    // 200 + error payload (or any non-array body): a failure, not a no-match.
+    if (isNominatimErrorPayload(data) || !Array.isArray(data)) return null;
+    const hit = data[0] ?? null;
     const lat = hit ? Number.parseFloat(hit.lat) : NaN;
     const lng = hit ? Number.parseFloat(hit.lon) : NaN;
     const geo = Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lng } : null;
@@ -979,7 +996,14 @@ export async function reverseGeocodeComune(geo, cache, fetchImpl = fetch) {
     });
     if (!res.ok) return null; // transient failure — don't cache, retry next run
     const data = await res.json();
-    const address = data?.address ?? {};
+    // 200 + error payload, or a body without `addressdetails` at all: the
+    // lookup failed server-side. Checked BEFORE the country branch below,
+    // which would otherwise read an empty address as "not in Switzerland"
+    // and cache that null forever.
+    if (isNominatimErrorPayload(data) || !data.address || typeof data.address !== 'object') {
+      return null; // transient failure — don't cache, retry next run
+    }
+    const address = data.address;
     // Events abroad exist in these feeds (guidle indexes border regions): a
     // non-CH point has no canton, and must never be forced into one.
     if (String(address.country_code || '').toLowerCase() !== 'ch') {
