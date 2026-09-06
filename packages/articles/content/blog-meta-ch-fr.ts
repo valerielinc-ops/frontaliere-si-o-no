@@ -5752,6 +5752,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-mondo-multipolare.title': 'La SECO met en garde contre un « monde multipolaire »',
     'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda met en garde contre la nécessité d\'une plus grande cohésion interne et d\'un rôle international plus actif pour la Suisse.',
     'blog.article.svizzera-mondo-multipolare.imageAlt': 'Vue aérienne du quartier financier de Zurich, Suisse',
+    'blog.article.successione-donazione-vallese-guida.title': 'Impôt succession Valais : taux et exonérations',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Imposition successorale en Valais : taux par degré de parenté, exonérations pour conjoint et descendants, déclaration et délais à respecter.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Bureau de notaire avec documents de succession et formulaires fiscaux sur table',
 };
 
 export default blogMetaChFr;
