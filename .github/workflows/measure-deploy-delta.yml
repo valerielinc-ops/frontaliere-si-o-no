@@ -110,6 +110,20 @@ jobs:
                 echo "::error::gh api failed while listing deploy.yml runs (page $page). This is an API/token failure, NOT 'no deploy has an artifact'."
                 exit 1
               fi
+              # #7504: a 2xx body is not necessarily a runs collection. The
+              # secondary-rate-limit / abuse-detection guard answers HTTP 200 with an
+              # OBJECT carrying `message`/`documentation_url`, and a truncated response
+              # is not JSON at all — in both cases `gh` exits 0 and the count below
+              # yields `null`. `[ null -lt 50 ]` then exits 2 ("integer expression
+              # expected"), but as the FIRST member of an `&&` list that exit code is
+              # invisible to `set -e`: the loop kept paginating and the failure
+              # surfaced far downstream as a raw jq error instead of the ::error::
+              # built right above. Same class as #7393. Validate the SHAPE first.
+              if ! jq -e 'type == "object" and has("workflow_runs") and (.workflow_runs | type == "array")' \
+                   "$WORK/page-$page.json" >/dev/null 2>&1; then
+                echo "::error::gh api returned a 2xx body without a .workflow_runs array (page $page). This is an API failure, NOT 'no deploy has an artifact'."
+                exit 1
+              fi
               got=$(jq '.workflow_runs | length' "$WORK/page-$page.json")
               [ "$got" -lt "$PER_PAGE" ] && break
               page=$((page + 1))
