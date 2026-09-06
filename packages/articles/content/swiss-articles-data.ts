@@ -16876,6 +16876,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'polizia-operazione-goldach',
+    category: 'novita',
+    date: '2026-09-06T01:27:55.515Z',
+    image: '/images/blog/polizia-operazione-goldach.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
