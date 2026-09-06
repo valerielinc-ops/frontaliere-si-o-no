@@ -23,6 +23,7 @@ import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoConten
 import { firstParsableMs } from './shared/firstParsableDate';
 import { assertLocaleTablesComplete, findMissingLocaleTableEntries } from './shared/localeTableCompleteness';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { ARCHITECT_TECH_QUALIFIER_SRC } from './shared/architectTechQualifier';
 
 export type SectorHubKey =
   | 'infermieri'
@@ -688,6 +689,28 @@ export interface SectorCountableJob {
  */
 const SEC_SEP = '[\\s\\-–—/_.]{1,3}';
 
+/**
+ * Come `SEC_SEP`, ma NON attraversa il confine fra due campi.
+ *
+ * `jobMatchesSectorCanonical` concatena title + category + tags con `' \n '`
+ * — tre caratteri whitespace, che `SEC_SEP` matcha per intero. Dentro un
+ * LOOKAROUND questo e' un difetto: il veto vede l'ultima parola del campo
+ * precedente (o la prima del successivo) come se fosse attaccata al
+ * sostantivo, e scarta l'annuncio. `Architetto` con il tag `test`, o
+ * `Security Guard` in una category preceduta da `IT` nel titolo, uscivano
+ * cosi' dalla loro landing: la perdita di annunci veri e' lo stesso danno di
+ * traffico che i due veti esistono per evitare, in direzione opposta.
+ *
+ * `\n` compare SOLO nel joiner, mai dentro un campo, quindi basta escluderlo:
+ * `[^\S\n]` e' "whitespace tranne newline" (NBSP e spazi tipografici
+ * inclusi, come in `SEC_SEP`) e l'alternativa tiene la punteggiatura dei
+ * composti intra-campo (`ICT-Architekt`, `IT/OT Architect`).
+ *
+ * Solo per i lookaround: nei matcher POSITIVI il salto di campo e' voluto
+ * (`Security` nel titolo + `Officer` nella category e' un match legittimo).
+ */
+const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
+
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
   // NOTE: do NOT add 3-letter abbreviations like \bris\b or \blis\b here —
@@ -783,13 +806,14 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network
   // Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
   // l'allargamento del lessico `cybersecurity` sopra lo farebbe comparire su
-  // ENTRAMBE le landing. Usa `SEC_SEP` come tutti gli altri: un lookbehind con
-  // un separatore fisso non vede `Information  Security Officer` col doppio
-  // spazio ne' `Information/Security Officer`, e proprio quei casi tornano a
-  // comparire su due landing — cioe' il difetto che il lookbehind chiude.
+  // ENTRAMBE le landing. Il separatore del lookbehind e' `INTRA_FIELD_SEP`: un
+  // separatore fisso non vedrebbe `Information  Security Officer` col doppio
+  // spazio ne' `Information/Security Officer` (e proprio quei casi tornerebbero
+  // a comparire su due landing), ma `SEC_SEP` matcherebbe anche il joiner di
+  // campo e vieterebbe un `Security Guard` in category dopo un `IT` nel titolo.
   sicurezza: new RegExp(
     '\\bsicurezza' + SEC_SEP + '(?:privata|fisica)'
-    + `|(?<!\\b(?:information|it|cloud|network)${SEC_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
+    + `|(?<!\\b(?:information|it|cloud|network)${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
@@ -798,7 +822,29 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   ),
   scuola: /\bscuola\b|\bscolastic|\binsegnant|\bdocente\b|\blehrer|\bteacher\b|\benseignant|\bma[iî]tre[ -]d|\bprofessore\b|\bschule\b|\bkindergarten\b|\bdoposcuola/i,
   designer: /\bdesigner\b|\bgrafico\b|\bgraphic[ -]design|\bgrafik|\bux[ -]|\bui[ -]design|\bgraphiste|\bweb[ -]design|\bproduct[ -]design|\bgestalter/i,
-  architetti: /\barchitet|\barchitect\b|\barchitekt|\barchitecte\b|\bbauzeichner|\bdisegnatore[ -]edil|\bdessinateur/i,
+  // `architect`/`Architekt`/`architetto` nominano anche il progettista di
+  // sistemi informatici: sul dataset riassemblato 136 dei 168 titoli catturati
+  // portano un qualificatore tecnico, e finivano tutti sulla landing
+  // dell'architetto edile (intento di ricerca sbagliato, e `SECTOR_HUB_KEYS`
+  // sceglie l'hub sullo stesso lessico). Il veto e' ADIACENTE, non sull'intera
+  // stringa: qui il pattern gira su title+category+tags concatenati, e un veto
+  // globale scarterebbe un architetto edile per la parola `test` in un tag.
+  // Il separatore e' `INTRA_FIELD_SEP`, cosi' `ICT-Architekt`, `IT/OT
+  // Architect` e `Software  Architect` col doppio spazio sono lo stesso caso,
+  // mentre il veto non puo' scavalcare il joiner ` \n ` fra due campi (con
+  // `SEC_SEP`, che matcha quei tre whitespace, `Architetto` + tag `test`
+  // usciva dal settore). Il `\w*` nel lookahead consuma la coda del
+  // sostantivo, perche' il
+  // gambo italiano `architet` da solo si ferma prima di `to software`. Il
+  // `\\w*` nel lookbehind copre le flessioni del qualificatore che il
+  // lessico condiviso enumera al singolare (`Networking`, `Integrationen`).
+  architetti: new RegExp(
+    `(?<!${ARCHITECT_TECH_QUALIFIER_SRC}\\w*${INTRA_FIELD_SEP})`
+    + '\\b(?:architet|architect\\b|architekt|architecte\\b)'
+    + `(?!\\w*${INTRA_FIELD_SEP}${ARCHITECT_TECH_QUALIFIER_SRC})`
+    + '|\\bbauzeichner|\\bdisegnatore[ -]edil|\\bdessinateur',
+    'i',
+  ),
   agricoltura: /\bagricol|\blandwirt|\bagriculture\b|\bagriculteur|\bcontadin|\bgartenbau|\bgiardinier|\bgärtner|\bvivaist|\bviticol/i,
   energia: /\benergi|\benergy\b|\b[eé]nergie\b|\belettricit[aà][ -]produzion|\bsolare\b|\bphotovoltaik|\bfotovoltaic|\bwind[ -]energy|\bversorgung/i,
   // bare `\bmedia\b` matches the Italian "scuola media" (middle school →
