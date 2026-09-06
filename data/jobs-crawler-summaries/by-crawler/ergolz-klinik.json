@@ -1,19 +1,20 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-09-05T22:45:08.277Z",
+  "generatedAt": "2026-09-06T22:47:20.545Z",
   "total": 2,
   "discovered": null,
+  "parsed": 2,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4281,
-  "avgDurationMs": 4281,
+  "durationMs": 5139,
+  "avgDurationMs": 5139,
   "durationHistory": [
-    4281
+    5139
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:45:03.564Z",
+      "crawledAt": "2026-09-06T22:47:15.793Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -67,7 +68,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:45:02.914Z",
+      "crawledAt": "2026-09-06T22:47:15.052Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -92,48 +93,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "ergolz-klinik-6ec9804c71a1",
-      "slug": "dipl-infermieristica-professionale-hf-50-100-occupazione-permanente-ergolz-klinik-liestal",
-      "company": "Ergolz Klinik",
-      "companyKey": "ergolz-klinik",
-      "companyDomain": "ergolz.cardiance.com",
-      "title": "Dipl. Pflegefachfrau/Pflegefachmann HF, 50-100% Festanstellung",
-      "needsRetranslation": false,
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/07/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026-1.pdf",
-      "source": "Ergolz Klinik Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:27:48.172Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-17",
-      "applyUrl": "https://ergolz.cardiance.com/karriere/",
-      "firstSeenAt": "2026-07-17T10:56:48.617Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
