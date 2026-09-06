@@ -5680,6 +5680,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-vallese-requisiti.title': 'Stipendien Kanton Wallis: Wie bekomme ich sie?',
     'blog.article.borse-studio-vallese-requisiti.excerpt': 'Leitfaden für Stipendien im Kanton Wallis: Allgemeine Anforderungen, wo Sie nach Informationen suchen und wie Sie sich bei den kantonalen Behörden bewerben können.',
     'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Studenten, die in einer Schweizer Alplandschaft mit Bergen im Hintergrund im Freien lernen.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Haus kaufen Wallis: Preise, Hypothek und Kosten',
+    'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Leitfaden für den Immobilienkauf im Wallis: Eigenmittelbedarf, Tragbarkeit des Darlehens, Abgaben und Notargebühren.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Hypothekendokumente und Immobilienmaklerverträge auf Holzschreibtisch mit Schweizer Alpenhaus im Hintergrund',
 };
 
 export default blogMetaChDe;

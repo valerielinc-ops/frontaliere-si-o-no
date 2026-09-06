@@ -73730,6 +73730,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-vallese-mutuo-costi': {
+    title: 'Comprare casa Vallese: prezzi, mutuo e costi | Frontaliere Ticino',
+    description: 'Acquistare casa in Vallese: fondi propri richiesti, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese notarili. Guida pratica svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, vallese, prezzi',
+    ogTitle: 'Comprare casa Vallese: prezzi, mutuo e costi',
+    ogDescription: 'Scopri come comprare casa in Vallese: fondi propri richiesti, criteri di sostenibilità del mutuo, imposte sui trapassi e spese notarili. Procedura step-by-step e documenti essenziali.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-vallese-mutuo-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Vallese: prezzi, mutuo e costi",
+      "description": "Acquistare casa in Vallese: fondi propri richiesti, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese notarili. Guida pratica svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-vallese-mutuo-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di mutuo e contratti immobiliari su scrivania di legno con casa svizzera sullo sfondo"
+      },
+      "datePublished": "2026-09-06T05:04:05+00:00",
+      "dateModified": "2026-09-06T05:04:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-vallese-mutuo-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

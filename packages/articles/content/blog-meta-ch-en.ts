@@ -5680,6 +5680,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-vallese-requisiti.title': 'Canton Valais Scholarships: how to get them',
     'blog.article.borse-studio-vallese-requisiti.excerpt': 'Guide to scholarships in the canton of Valais: general requirements, where to look for information and how to apply to the cantonal authorities.',
     'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Students studying outdoors in a Swiss Alpine landscape with mountains in the background.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Buying a Valais house: prices, mortgage and costs',
+    'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Guide to buying property in Valais: own funds required, mortgage sustainability, transfer taxes and notary fees.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Mortgage documents and real estate contracts on wooden desk with Swiss alpine house in background',
 };
 
 export default blogMetaChEn;

@@ -5680,6 +5680,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-vallese-requisiti.title': 'Borse di studio canton Vallese: come ottenerle',
     'blog.article.borse-studio-vallese-requisiti.excerpt': 'Guida alle borse di studio nel canton Vallese: requisiti generali, dove cercare informazioni e come presentare domanda alle autorità cantonali.',
     'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Studenti che studiano all\'aperto in un paesaggio alpino svizzero con montagne sullo sfondo.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Comprare casa Vallese: prezzi, mutuo e costi',
+    'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Guida all\'acquisto immobiliare in Vallese: fondi propri richiesti, sostenibilità del mutuo, imposte sui trapassi e spese notarili.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Documenti di mutuo e contratti immobiliari su scrivania di legno con casa svizzera sullo sfondo',
 };
 
 export default blogMetaChIt;
