@@ -433,6 +433,109 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-detail');
   });
 
+  it('reads the provenance the parsers actually stamp', async () => {
+    const { markLocationDerivedFromVacancyText } = await import('../../scripts/lib/crawler-location-config.mjs');
+    const job = markLocationDerivedFromVacancyText({
+      addressLocality: 'Horgen',
+      sourceLang: 'de',
+      description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+    });
+    const result = compareSourceDetail(
+      job,
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: `Unser Team in Horgen sucht Verstärkung. ${'Ausführliche Stellenbeschreibung '.repeat(20)}`,
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('circular');
+  });
+
+  it('does not let the description corroborate a locality the parser derived from it', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: `Unser Team in Horgen sucht Verstärkung. ${'Ausführliche Stellenbeschreibung '.repeat(20)}`,
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    // Circular: the only field that names Horgen is the field the locality was
+    // extracted from, so the sample proves nothing either way.
+    expect(result.locationAuthority).toBe('circular');
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationChecked).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
+  });
+
+  it('still corroborates a text-derived locality when an independent field names it', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in im kjz Horgen',
+        location: 'Dietikon',
+        description: `Unser Team in Horgen sucht Verstärkung. ${'Ausführliche Stellenbeschreibung '.repeat(20)}`,
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationMismatch).toBe(false);
+  });
+
+  it('keeps the mismatch on a text-derived locality the page never names', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-detail');
+    expect(result.locationMismatch).toBe(true);
+  });
+
+  it('leaves a structured-field locality corroborated by the same description', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: `Unser Team in Horgen sucht Verstärkung. ${'Ausführliche Stellenbeschreibung '.repeat(20)}`,
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationMismatch).toBe(false);
+  });
+
   it('corroborates the published workplace on every crawler with the same JSON-LD behaviour', async () => {
     const html = fs.readFileSync(
       path.join(process.cwd(), 'tests/fixtures/kanton-zuerich-source-detail-admin-location.html'),

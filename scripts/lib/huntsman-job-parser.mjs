@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -297,9 +298,10 @@ export async function fetchAllHuntsmanJobs() {
     // canton rescue: a real Swiss city named in the description, falling
     // back to Huntsman's documented main Swiss site (Monthey) rather than
     // dropping a listing the API itself already confirmed is Swiss.
-    const city = resolveSwissCity(detail, listing)
-      || rescueSwissCityFromText(stripHtml(info.jobDescription || ''))
-      || 'Monthey';
+    const cityFromSource = resolveSwissCity(detail, listing);
+    const cityFromVacancyText = cityFromSource
+      ? '' : rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
+    const city = cityFromSource || cityFromVacancyText || 'Monthey';
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -351,6 +353,7 @@ export async function fetchAllHuntsmanJobs() {
 
     if (jobReqId) job.jobReqId = jobReqId;
 
+    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));
   }

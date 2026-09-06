@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
 import {
   buildWorkdayApiBase,
@@ -272,13 +273,15 @@ export async function fetchAllLogitechJobs() {
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
 
+    let locationFromVacancyText = '';
     if (!location) {
       // isSwissLocation() already confirmed this listing is Swiss before it
       // was kept; a location string that failed to parse doesn't mean it's
       // foreign — try a real Swiss city in the detail description before
       // skipping, same second-chance anchor as assemble-jobs-dataset.mjs's
       // canton rescue, falling back to Logitech's Lausanne HQ.
-      location = rescueSwissCityFromText(detailDescription) || 'Lausanne';
+      locationFromVacancyText = rescueSwissCityFromText(detailDescription);
+      location = locationFromVacancyText || 'Lausanne';
     }
     const canton = inferSwissTargetCanton(location) || 'VD';
     // Same defect as scripts/lib/nestle-job-parser.mjs, same repair: Workday
@@ -344,6 +347,7 @@ export async function fetchAllLogitechJobs() {
       requirementsByLocale: { [sourceLang]: [] },
     };
 
+    if (locationFromVacancyText) markLocationDerivedFromVacancyText(job);
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }

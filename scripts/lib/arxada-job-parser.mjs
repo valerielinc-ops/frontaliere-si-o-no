@@ -19,6 +19,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -300,9 +301,10 @@ export async function fetchAllArxadaJobs() {
     // Arxada's documented main Swiss site (Visp) rather than dropping a
     // listing the API itself already confirmed is Swiss.
     const locationRaw = info.location || listing.locationsText || '';
-    const city = parseWorkdayLocation(locationRaw)
-      || rescueSwissCityFromText(stripHtml(info.jobDescription || ''))
-      || 'Visp';
+    const cityFromSource = parseWorkdayLocation(locationRaw);
+    const cityFromVacancyText = cityFromSource
+      ? '' : rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
+    const city = cityFromSource || cityFromVacancyText || 'Visp';
 
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';
@@ -358,6 +360,7 @@ export async function fetchAllArxadaJobs() {
 
     if (jobReqId) job.jobReqId = jobReqId;
 
+    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));
   }

@@ -11,6 +11,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -294,9 +295,11 @@ export async function fetchAllLonzaJobs() {
  // assemble-jobs-dataset.mjs's canton rescue: a real Swiss city named in
  // the description, falling back to Lonza's main Swiss site (Visp)
  // rather than dropping a listing the facet already confirmed is Swiss.
+ let cityFromVacancyText = '';
  let resolvedLocation = resolveWorkdayLocation(info, listing);
  if (!resolvedLocation) {
-  const rescueCity = rescueSwissCityFromText(stripHtml(info.jobDescription || '')) || 'Visp';
+   cityFromVacancyText = rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
+   const rescueCity = cityFromVacancyText || 'Visp';
   resolvedLocation = { city: rescueCity, canton: inferCanton(rescueCity) || 'VS' };
  }
  const { city, canton } = resolvedLocation;
@@ -360,6 +363,7 @@ export async function fetchAllLonzaJobs() {
 
     if (jobReqId) job.jobReqId = jobReqId;
 
+    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));
   }

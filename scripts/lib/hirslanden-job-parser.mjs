@@ -32,6 +32,7 @@ import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from '.
 import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
@@ -642,6 +643,11 @@ export async function fetchAllHirslandenJobs() {
         requirementsByLocale: { de: [] },
       };
 
+      // The `Arbeitsort:` fallback above reads the locality out of the
+      // vacancy's own description: declare it, so the corroboration in
+      // audit-parser-quality.mjs does not accept that same description as
+      // evidence for a value it produced (issue #7712).
+      if (detail?.locationEvidence === 'description') markLocationDerivedFromVacancyText(job);
       jobs.push(job);
       console.log(`  ✅ ${title.substring(0, 60)} — ${location}`);
     } catch (err) {

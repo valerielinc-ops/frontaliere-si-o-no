@@ -22,6 +22,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -296,8 +297,10 @@ export async function fetchAllSiegfriedJobs() {
     // a real Swiss city named in the description, falling back to
     // Siegfried's main Swiss site (Evionnaz) rather than dropping a
     // listing the facet already confirmed is Swiss.
+    let cityFromVacancyText = '';
     if (!city) {
-      city = rescueSwissCityFromText(stripHtml(info.jobDescription || '')) || 'Evionnaz';
+      cityFromVacancyText = rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
+      city = cityFromVacancyText || 'Evionnaz';
     }
 
     // Skip foreign locations that slipped through Workday's country filter
@@ -366,6 +369,7 @@ export async function fetchAllSiegfriedJobs() {
     if (jobReqId) job.jobReqId = jobReqId;
     if (hiringOrg !== SIEGFRIED_COMPANY_NAME) job.hiringOrganization = hiringOrg;
 
+    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }

@@ -62,6 +62,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -377,6 +378,7 @@ export async function fetchAllSwisslogJobs() {
     const realCityText = normalizeSpace(listing.cityRaw || listing.locationLabel || '');
     let canton = resolveCanton(city, region, realCityText);
     const descriptionCore = stripHtml(listing.descriptionHtml || '');
+    let cityFromVacancyText = '';
     if (canton === null) {
       // The batch-level Swiss facet (see swissItems above) already scoped
       // this listing to Switzerland — a scraped city that doesn't resolve
@@ -392,6 +394,7 @@ export async function fetchAllSwisslogJobs() {
       }
       canton = rescueCanton;
       location = rescueCity;
+      cityFromVacancyText = rescueCity;
     }
     const descriptionParts = [descriptionCore, listing.boilerplate].filter(Boolean);
     const descriptionRaw = descriptionParts.join('\n\n')
@@ -448,6 +451,7 @@ export async function fetchAllSwisslogJobs() {
       requirementsByLocale: { [sourceLang]: [] },
     };
 
+    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
     jobs.push(job);
   }
 
