@@ -41,6 +41,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, workloadPercent } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
+import { jobUrlHost } from './job-url-host.mjs';
 import { decodeHtmlEntities } from './decode-html-entities.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -287,14 +288,8 @@ export function isKomaxJob(job) {
   const company = normalize(job.company || '');
   if (companyKey === KOMAX_KEY) return true;
   if (company.includes('komax')) return true;
-  try {
-    if (job.url) {
-      const host = new URL(job.url).hostname.toLowerCase();
-      if (host === KOMAX_COMPANY_DOMAIN || host.endsWith(`.${KOMAX_COMPANY_DOMAIN}`)) return true;
-    }
-  } catch {
-    // ignore invalid URL
-  }
+  const host = jobUrlHost(job.url);
+  if (host === KOMAX_COMPANY_DOMAIN || host.endsWith(`.${KOMAX_COMPANY_DOMAIN}`)) return true;
   return false;
 }
 

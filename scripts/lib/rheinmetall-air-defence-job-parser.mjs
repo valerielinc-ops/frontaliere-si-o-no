@@ -32,6 +32,7 @@
  * endpoint — /de/career/vacancies 404s), so sourceLang is 'de'.
  */
 import { createHash } from 'node:crypto';
+import { jobUrlHost } from './job-url-host.mjs';
 import {
   slugify,
   stripHtml,
@@ -228,20 +229,11 @@ export function isRheinmetallAirDefenceJob(job) {
   if (job.companyKey === RHEINMETALL_AIR_DEFENCE_KEY) return true;
   const company = normalizeSpace(job.company || '').toLowerCase();
   if (company === RHEINMETALL_AIR_DEFENCE_COMPANY_NAME.toLowerCase()) return true;
-  try {
-    const host = new URL(job.url || '').hostname.replace(/^www\./, '');
-    if (host === RHEINMETALL_AIR_DEFENCE_COMPANY_DOMAIN && company.includes('rheinmetall')) return true;
-  } catch {
-    /* invalid URL, ignore */
-  }
+  const host = jobUrlHost(job.url).replace(/^www\./, '');
+  if (host === RHEINMETALL_AIR_DEFENCE_COMPANY_DOMAIN && company.includes('rheinmetall')) return true;
   return false;
 }
 
 export function isTrustedDomain(url) {
-  try {
-    const host = new URL(url).hostname;
-    return TRUSTED_HOSTS.has(host);
-  } catch {
-    return false;
-  }
+  return TRUSTED_HOSTS.has(jobUrlHost(url));
 }

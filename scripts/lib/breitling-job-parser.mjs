@@ -75,6 +75,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { jobUrlHost } from './job-url-host.mjs';
 import { fetchHtml, decodeEntities, normalizeSpace as normalizeSpaceRaw } from './hospital-custom-html-helpers.mjs';
 
 export const BREITLING_KEY = 'breitling';
@@ -150,12 +151,8 @@ export function isBreitlingJob(job) {
   if (company === 'breitling' || /\bbreitling\b/.test(company)) return true;
   if (url.includes('careers.breitling.com')) return true;
 
-  try {
-    const host = new URL(job?.url || '').hostname.toLowerCase();
-    if (host === 'breitling.com' || host.endsWith('.breitling.com')) return true;
-  } catch {
-    // ignore invalid URL
-  }
+  const host = jobUrlHost(job?.url);
+  if (host === 'breitling.com' || host.endsWith('.breitling.com')) return true;
 
   return false;
 }
