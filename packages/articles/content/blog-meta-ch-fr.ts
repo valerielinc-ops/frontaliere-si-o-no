@@ -5716,6 +5716,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-affitti-canton-argovia.title': 'Marché locatif dans le canton d\'Argovie : loyers moyens et droit locatif',
     'blog.article.mercato-affitti-canton-argovia.excerpt': 'Découvrez les loyers moyens dans le canton d\'Argovie, les réglementations sur le dépôt de garantie et les droits des locataires.',
     'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Vue panoramique du canton d\'Argovie avec des bâtiments résidentiels',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Éruption d\'un volcan, six aéroports bloqués en Indonésie',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Suspension des activités aéroportuaires en Indonésie en raison de l\'éruption du volcan Anak Krakatoa. Plus de 20\'000 passagers concernés.',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Vue aérienne d\'un aéroport suisse avec une éruption volcanique à l\'arrière-plan',
 };
 
 export default blogMetaChFr;

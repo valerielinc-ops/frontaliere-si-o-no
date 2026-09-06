@@ -17146,6 +17146,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'eruzione-vulcano-aeroporti-indonesia',
+    category: 'novita',
+    date: '2026-09-06T10:56:39.339Z',
+    image: '/images/blog/eruzione-vulcano-aeroporti-indonesia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -74198,6 +74198,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eruzione-vulcano-aeroporti-indonesia': {
+    title: 'Erutta un vulcano, sei aeroporti bloccati in Indonesia',
+    description: 'L\'eruzione del vulcano Anak Krakatoa ha causato la sospensione delle attività aeroportuali in Indonesia, con oltre 20\'000 passeggeri coinvolti. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, erutta, vulcano, aeroporti, bloccati',
+    ogTitle: 'Erutta un vulcano, sei aeroporti bloccati in Indonesia',
+    ogDescription: 'L\'eruzione del vulcano Anak Krakatoa ha portato alla chiusura di sei aeroporti in Indonesia, con oltre 20\'000 passeggeri colpiti. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/eruzione-vulcano-aeroporti-indonesia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Erutta un vulcano, sei aeroporti bloccati in Indonesia",
+      "description": "L'eruzione del vulcano Anak Krakatoa ha causato la sospensione delle attività aeroportuali in Indonesia, con oltre 20'000 passeggeri coinvolti. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eruzione-vulcano-aeroporti-indonesia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un aeroporto svizzero con un'eruzione vulcanica in lontananza"
+      },
+      "datePublished": "2026-09-06T10:56:39+00:00",
+      "dateModified": "2026-09-06T10:56:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eruzione-vulcano-aeroporti-indonesia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

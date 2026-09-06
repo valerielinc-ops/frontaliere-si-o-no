@@ -5716,6 +5716,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-affitti-canton-argovia.title': 'Rental market in the Canton of Aargau: average fees and rental rights',
     'blog.article.mercato-affitti-canton-argovia.excerpt': 'Learn about average rental fees in the Canton of Aargau, security deposit regulations, and tenants\' rights.',
     'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Panoramic view of the Canton of Aargau with residential buildings',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Volcano erupts, six airports blocked in Indonesia',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Suspension of airport activities in Indonesia due to the eruption of the Anak Krakatoa volcano. Over 20,000 passengers involved.',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Aerial view of a Swiss airport with a volcanic eruption in the background',
 };
 
 export default blogMetaChEn;
