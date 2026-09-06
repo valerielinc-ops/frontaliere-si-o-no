@@ -413,6 +413,19 @@ const EMPTY_OK_CRAWLERS = new Set([
   // The factory's drift-vs-empty telemetry distinguishes a department-label
   // rename from this legitimate-zero state in the run logs.
   'klinik-siloah',
+  // Clinique de Montchoisi (Swiss Medical Network, Lausanne VD): same SMN
+  // clinic factory, same legitimate zero. Verified live 2026-09-06 against the
+  // tenant API — 99 active CH postings, none under the "Clinique de Montchoisi"
+  // department, and no `CDM` value in the Brands custom field; the public
+  // swissmedical.net/fr/carriere/offres-emploi?clinic=CDM page renders "Aucun
+  // résultat trouvé". The department itself is NOT gone: the tenant department
+  // directory (/v1/companies/SwissMedicalNetwork1/departments) still lists
+  // "Clinique de Montchoisi" (id 5485890, archived:false), so this is an empty
+  // board, not a rename — the clinic's last own-department posting
+  // (744000134770892, Technicien(ne) en radiologie médicale) simply closed
+  // after 2026-08-28. Parser healthy; re-arms when Montchoisi publishes again
+  // (issue #7320).
+  'clinique-de-montchoisi',
   // Bally (Swiss luxury leather-goods house, HQ Caslano TI): the crawler was
   // fixed (#3797) to pull from the real source — the SmartRecruiters tenant
   // "Bally" (https://jobs.smartrecruiters.com/Bally), replacing the 4 dead
