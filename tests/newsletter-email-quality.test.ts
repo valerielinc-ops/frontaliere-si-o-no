@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
+import { decodeEntities } from '../scripts/lib/prospector/entities.mjs';
+
 const {
   buildNewsletter,
   localizedUrl,
@@ -269,8 +271,18 @@ describe('renderJobs uses word-boundary truncation (no ellipsis)', () => {
 // quindi il detector non gira mai sul loro copy.
 // Il detector gira sul TESTO visibile, non sul markup: attributi, utm e
 // classi non sono copy e non devono ne' accendere ne' spegnere il gate.
+//
+// Togliere i tag non basta: il testo visibile puo' arrivare codificato
+// (`Keine Geb&uuml;hren`, `&#98;onus`, `zero&nbsp;commissioni`). Il template lo
+// renderizza leggibile all'utente, ma un match sul sorgente grezzo resterebbe
+// verde — un'evasione silenziosa del gate, non rumorosa. Quindi: prima i tag,
+// poi le entita' (decoder condiviso di scripts/lib/prospector/entities.mjs), poi la
+// collassatura degli spazi — `&#160;` decodifica in NBSP e romperebbe da solo
+// le alternative con lo spazio letterale («zero commissioni»).
 function stripHtmlTags(html: string): string {
-  return String(html).replace(/<[^>]*>/g, ' ');
+  return decodeEntities(String(html).replace(/<[^>]*>/g, ' '))
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 const WISE_BONUS_PROMISE_RE = new RegExp(
@@ -311,6 +323,31 @@ describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
     ]) {
       expect(WISE_BONUS_PROMISE_RE.test(removed)).toBe(true);
     }
+  });
+
+  // Contro-prova dell'evasione: la stessa promessa scritta con le entita' che
+  // un template puo' emettere resta visibile all'utente e deve restare visibile
+  // al detector. Senza la decodifica in `stripHtmlTags()` questi passavano
+  // (verde) pur promettendo un bonus.
+  it('il detector riconosce la promessa anche codificata in entita HTML', () => {
+    for (const encoded of [
+      '<p>Keine Geb&uuml;hren bis CHF 600</p>',
+      '<span>&#98;onus di benvenuto Wise</span>',
+      '<td>Carta gratuita e zero&nbsp;commissioni</td>',
+      '<td>zero&#160;commissioni fino a CHF&#160;600</td>',
+    ]) {
+      expect(
+        WISE_BONUS_PROMISE_RE.test(stripHtmlTags(encoded)),
+        `promessa codificata non intercettata: ${encoded}`,
+      ).toBe(true);
+    }
+  });
+
+  // Il markup resta fuori dal copy anche dopo la decodifica: `&lt;b&gt;` e' del
+  // testo che l'utente legge come `<b>`, non un tag da rimuovere — decodificare
+  // PRIMA di togliere i tag lo cancellerebbe, riaprendo il buco dall'altro lato.
+  it('il testo scritto come markup codificato resta nel copy visibile', () => {
+    expect(stripHtmlTags('<p>&lt;bonus&gt;</p>')).toBe('<bonus>');
   });
 
   it('il copy email del partner Wise non promette un bonus in nessun locale', async () => {
