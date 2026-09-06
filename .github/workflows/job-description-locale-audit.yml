@@ -304,8 +304,20 @@ jobs:
             --run-url "$RUN_URL" \
             --workflow "${{ github.workflow }}"
 
+      # `failure() ||` NON e' ridondante, e' l'unica meta' che funziona quando il
+      # rosso arriva PRIMA dello step `audit`. Un `if:` che non chiama
+      # `failure()`/`always()` porta con se' un `success()` implicito: se
+      # `Install dependencies` o `Assemble jobs dataset` esce non-zero, questo
+      # step viene SALTATO e il run muore in silenzio, senza aprire niente.
+      # E' esattamente cosi' che questo audit e' rimasto rosso e invisibile dal
+      # 2026-09-01 al 2026-09-06 (run 33518486066, `ERR_MODULE_NOT_FOUND:
+      # undici`): il reporter c'era, ma era raggiungibile solo dal ramo che non
+      # si era verificato. `steps.audit.outcome != 'success'` resta perche'
+      # copre il caso opposto — lo step `audit` e' `continue-on-error: true`,
+      # quindi fallisce SENZA rendere rosso il job e `failure()` da solo non lo
+      # vedrebbe. Servono entrambi.
       - name: Report audit crash to GitHub Issues
-        if: steps.audit.outcome != 'success'
+        if: failure() || steps.audit.outcome != 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}

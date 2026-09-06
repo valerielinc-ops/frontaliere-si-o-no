@@ -270,6 +270,46 @@ describe('job-title-locale-audit.yml — issue contract', () => {
   });
 });
 
+describe('gli audit del dataset job restano VISIBILI quando il rosso precede lo step audit', () => {
+  // Il 2026-09-01 la run 33518486066 e' morta su `Assemble jobs dataset`
+  // (`ERR_MODULE_NOT_FOUND: undici`) e nessuna issue e' stata aperta: lo step
+  // che riporta il crash era gated sul solo `steps.audit.outcome`, e un `if:`
+  // senza `failure()`/`always()` porta un `success()` implicito — quindi
+  // veniva saltato proprio nel caso in cui serviva. L'audit e' rimasto rosso e
+  // invisibile per cinque giorni. Questa e' la classe, non il singolo file:
+  // tutti e tre gli audit che assemblano `data/jobs.json` la condividevano.
+  const AUDIT_WORKFLOWS = [
+    'job-title-locale-audit.yml',
+    'job-description-locale-audit.yml',
+    'location-quality-audit.yml',
+  ];
+
+  it.each(AUDIT_WORKFLOWS)('%s apre la issue di crash anche se il job muore prima dello step audit', (file) => {
+    const yml = fs.readFileSync(path.join(ROOT, '.github', 'workflows', file), 'utf-8');
+    const reporter = yml.match(/- name: Report audit crash to GitHub Issues\n\s+if: (.+)/);
+    expect(reporter, `${file}: nessuno step di report del crash`).toBeTruthy();
+    const condition = reporter![1];
+    // `failure()` copre il rosso PRIMA dello step audit (install/assemble).
+    expect(condition, `${file}: senza failure() il reporter e' irraggiungibile su crash pre-audit`).toContain('failure()');
+    // `steps.audit.outcome` copre il caso opposto: lo step audit e'
+    // `continue-on-error: true`, quindi puo' fallire senza rendere rosso il
+    // job, e li' `failure()` da solo non vedrebbe niente.
+    expect(condition, `${file}: senza steps.audit.outcome il crash continue-on-error resta muto`).toContain("steps.audit.outcome != 'success'");
+  });
+
+  it.each(AUDIT_WORKFLOWS)('%s installa le dipendenze prima di assemblare il dataset', (file) => {
+    const yml = fs.readFileSync(path.join(ROOT, '.github', 'workflows', file), 'utf-8');
+    const install = yml.indexOf('npm ci');
+    const assemble = yml.indexOf('node scripts/assemble-jobs-dataset.mjs');
+    expect(install, `${file}: nessun npm ci`).toBeGreaterThan(-1);
+    expect(assemble, `${file}: nessun assemble del dataset`).toBeGreaterThan(-1);
+    // `assemble-jobs-dataset.mjs` importa transitivamente `undici` via
+    // `scripts/lib/prospector/public-fetch-policy.mjs` (#6807): senza install
+    // esce ERR_MODULE_NOT_FOUND prima di produrre qualunque misura.
+    expect(install, `${file}: npm ci deve precedere l'assemble`).toBeLessThan(assemble);
+  });
+});
+
 describe('mark-mistranslated-jobs — idempotent title marking', () => {
   it('selects a job with a wrong-language title', () => {
     const sel = selectMistranslatedJobs([brokenJob]);
