@@ -39,7 +39,7 @@ import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
-import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
+import { loadCampaignVariantTotals, previousCampaignIds, weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
@@ -2090,11 +2090,10 @@ async function main() {
     const tools = getFeaturedTools(locale);
     return tools[toolIndex % tools.length];
   };
-  // Campaign ID anchored to the week's Monday so multi-day sends share the same ID
-  const now = new Date();
-  const monday = new Date(now);
-  monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
-  const campaignId = `weekly_${monday.toISOString().split('T')[0]}`;
+  // Campaign ID anchored to the week's Monday (UTC, like the id's own format —
+  // see weeklyCampaignId) so multi-day sends share the same ID and the resume
+  // below finds what the previous run already delivered.
+  const campaignId = weeklyCampaignId();
   const alreadySentForCampaign = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
   const isResume = alreadySentForCampaign.size > 0;
   const featuredArticle = await pickFeaturedArticle();

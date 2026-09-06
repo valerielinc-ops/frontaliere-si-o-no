@@ -32,8 +32,12 @@ const PERIODS = [
 
 function getDateRange(months) {
   const end = new Date();
-  const start = new Date();
-  start.setMonth(end.getMonth() - months);
+  // Calendario UTC su entrambi i lati (issue #7694): gli estremi sono formattati
+  // con `toISOString()`, quindi `setMonth`/`getMonth` (locali) facevano scivolare
+  // lo start di un giorno con `TZ` non-UTC — la gemella di `getHistoryDateRange`
+  // in `services/exchangeRateService.ts`.
+  const start = new Date(end);
+  start.setUTCMonth(end.getUTCMonth() - months);
   return {
     startStr: start.toISOString().slice(0, 10),
     endStr: end.toISOString().slice(0, 10),

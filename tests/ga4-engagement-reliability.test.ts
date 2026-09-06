@@ -718,6 +718,12 @@ describe('finestra assestata — aritmetica UTC, non locale (TZ/DST)', () => {
 });
 
 describe('le finestre dei report non mescolano calendario locale e formato UTC', () => {
+  // La classe #7694 non è solo `setDate(getDate() - …)`: lo stesso scivolamento
+  // arriva da `setMonth`/`setFullYear` letti sul calendario locale (è l'idioma
+  // che questa PR corregge in `exchangeRateService.ts`, `update-exchange-history.mjs`
+  // e `snapshot-exchange-history.mjs`), quindi il guard copre tutti e tre i setter.
+  const LOCAL_DATE_ARITHMETIC = /set(?:UTC)?(?:Date|Month|FullYear)\((?:\w+\.)?get(?!UTC)(?:Date|Month|FullYear)\(\)\s*-/;
+
   // Ogni file qui formatta le date con `toISOString()`, quindi in UTC: usare
   // `setDate`/`getDate` (locali) per costruirle rimette in scena #7694.
   const files = [
@@ -730,6 +736,15 @@ describe('le finestre dei report non mescolano calendario locale e formato UTC',
     'monitor-gsc-job-indexation.mjs',
     'verify-post-deploy-seo.mjs',
     'submit-google-indexing.js',
+    'send-newsletter.mjs',
+  ];
+
+  // Stessa invariante, ma questi costruiscono le finestre con i setter UTC
+  // nativi invece che con l'helper condiviso: qui vale solo il divieto.
+  const filesWithoutHelper = [
+    '../scripts/update-exchange-history.mjs',
+    '../scripts/snapshot-exchange-history.mjs',
+    '../services/exchangeRateService.ts',
   ];
 
   for (const file of files) {
@@ -737,7 +752,14 @@ describe('le finestre dei report non mescolano calendario locale e formato UTC',
       const src = readFileSync(new URL(`../scripts/${file}`, import.meta.url), 'utf8');
       expect(src).toContain("from './lib/analytics-settled-window.mjs'");
       expect(src).toContain('utcDaysBefore(');
-      expect(src).not.toMatch(/set(?:UTC)?Date\((?:\w+\.)?get(?!UTC)Date\(\)\s*-/);
+      expect(src).not.toMatch(LOCAL_DATE_ARITHMETIC);
+    });
+  }
+
+  for (const file of filesWithoutHelper) {
+    it(`${file} non costruisce le finestre con aritmetica di calendario locale`, () => {
+      const src = readFileSync(new URL(file, import.meta.url), 'utf8');
+      expect(src).not.toMatch(LOCAL_DATE_ARITHMETIC);
     });
   }
 });

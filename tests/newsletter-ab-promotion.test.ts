@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 
 const {
@@ -13,6 +14,8 @@ const { DEFAULT_EPSILON, listVariantIds } = await import('@/services/newsletter-
 const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
 const {
   previousCampaignIds,
+  weeklyCampaignId,
+  utcMondayOfWeek,
   aggregateSegmentReport,
   unsubscribeGuardBreaches,
   UNSUB_RATE_CAP_PCT,
@@ -160,6 +163,57 @@ describe('assignSubjectVariant epsilon-greedy promotion', () => {
 
   it('backward compatible: a plain 2-arg call is the uniform baseline', () => {
     expect(typeof assignSubjectVariant('x@y.com', 'weekly_2026-06-15')).toBe('string');
+  });
+});
+
+// #7694: l'id di campagna è formattato con `toISOString()` (UTC) ma il lunedì
+// era ancorato con `setDate`/`getDay()` (calendario LOCALE). Con `TZ` avanti a
+// UTC due run dello stesso lunedì locale producono due id diversi, quindi
+// `fetchAlreadySent(campaignId)` torna vuoto e il resume del cron giornaliero
+// ri-invia a chi ha già ricevuto l'issue.
+describe('weeklyCampaignId', () => {
+  it('ancora il lunedì della settimana, domenica inclusa', () => {
+    // lun 2026-06-15 → se stesso; dom 2026-06-21 → il lunedì della SUA settimana
+    // (non quello successivo, che sarebbe un id mai inviato).
+    expect(weeklyCampaignId(new Date('2026-06-15T00:00:00Z'))).toBe('weekly_2026-06-15');
+    expect(weeklyCampaignId(new Date('2026-06-18T12:00:00Z'))).toBe('weekly_2026-06-15');
+    expect(weeklyCampaignId(new Date('2026-06-21T23:59:59Z'))).toBe('weekly_2026-06-15');
+  });
+
+  it('non muta la Date ricevuta', () => {
+    const now = new Date('2026-06-18T12:00:00Z');
+    utcMondayOfWeek(now);
+    expect(now.toISOString()).toBe('2026-06-18T12:00:00.000Z');
+  });
+
+  it("l'id non dipende dalla TZ del processo, e i run della stessa settimana UTC lo condividono", () => {
+    // La TZ va imposta al PROCESSO (il calendario locale di V8 si fissa
+    // all'avvio), quindi il caso reale — una macchina non-UTC — si riproduce
+    // solo in un processo figlio. `TZ=Europe/Zurich`: le 22:30Z di dom 29 marzo
+    // sono già lo 00:30 di lun 30 in locale, e il vecchio idioma le formattava
+    // `weekly_2026-03-29` mentre il run delle 08:00Z di lunedì dava
+    // `weekly_2026-03-30` — due id per un solo invio, e il resume ripartiva da zero.
+    const libUrl = new URL('../scripts/lib/newsletter-ab-data.mjs', import.meta.url).href;
+    const inTz = (tz: string, iso: string) =>
+      execFileSync(process.execPath, ['--input-type=module', '-e', `
+        const { weeklyCampaignId } = await import(${JSON.stringify(libUrl)});
+        console.log(weeklyCampaignId(new Date(${JSON.stringify(iso)})));
+      `], { encoding: 'utf8', env: { ...process.env, TZ: tz } }).trim();
+
+    // Precondizione: la TZ è davvero applicata (su un'immagine senza tzdata il
+    // caso degenererebbe in UTC e le asserzioni passerebbero a vuoto).
+    expect(
+      execFileSync(process.execPath, ['-e', "console.log(new Date('2026-03-29T22:30:00Z').getDay())"],
+        { encoding: 'utf8', env: { ...process.env, TZ: 'Europe/Zurich' } }).trim(),
+    ).toBe('1');
+
+    for (const tz of ['UTC', 'Europe/Zurich', 'Pacific/Auckland', 'America/Los_Angeles']) {
+      // Domenica tarda in UTC: appartiene ancora alla settimana del 23, in ogni TZ.
+      expect(inTz(tz, '2026-03-29T22:30:00Z')).toBe('weekly_2026-03-23');
+      // I due run del cron dello stesso invio (lunedì e mercoledì) → un solo id.
+      expect(inTz(tz, '2026-03-30T08:00:00Z')).toBe('weekly_2026-03-30');
+      expect(inTz(tz, '2026-04-01T22:30:00Z')).toBe('weekly_2026-03-30');
+    }
   });
 });
 
