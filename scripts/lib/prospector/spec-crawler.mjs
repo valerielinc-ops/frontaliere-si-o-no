@@ -88,8 +88,15 @@ export function geographyFieldsForDecision(decision = {}) {
   };
 }
 
-/** @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime */
-async function fetchRuntimePage(url, urlPolicy, runtime) {
+/**
+ * Fetch one page on the spec's polite, public-network-only transport.
+ *
+ * Exported so offline analyses reach the same pages through the same robots,
+ * redirect and DNS checks the promoted crawler goes through.
+ *
+ * @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime
+ */
+export async function fetchRuntimePage(url, urlPolicy, runtime) {
   const result = await politeFetch(url, {
     urlPolicy,
     dispatcher: urlPolicy.dispatcher,
@@ -160,35 +167,24 @@ function matchKnownTemplate(links, templateRx, host) {
 }
 
 /**
- * Run a spec and return listing rows in the shape the generated parser's
- * `fetchJobListings()` contract expects.
+ * Listing rows a spec yields, before any detail-page enrichment.
  *
- * Rows the spec's own detail template rejects are dropped: the template is the
- * one piece of evidence that a link belongs to the listing rather than to the
- * navigation around it, and in production — unattended — a chrome link becomes
- * a published fake vacancy.
+ * Extracted from `runSpecInProduction()` because the offline measurements have
+ * to read the same rows production reads: an analysis that re-implements the
+ * listing cascade measures a different program than the one that publishes
+ * (see `scripts/prospect-measure-postal-variance.mjs`). The URL policy is
+ * passed in and its dispatcher is closed by the caller, which is what lets the
+ * caller keep fetching detail pages on the same polite transport.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {Promise<Array<Record<string, any> & {
- *   title: string,
- *   url: string,
- *   location: string,
- *   description: string,
- *   postedAt: string|null,
- *   company: string,
- *   addressLocality?: string,
- *   addressRegion?: string,
- *   addressCountry?: string,
- *   country?: string,
- *   postalCode?: string,
- *   streetAddress?: string,
- * }>>}
+ * @param {Record<string, any>} runtime
+ * @param {any} validateUrl URL policy from `createSpecUrlPolicy()`
+ * @returns {Promise<Array<Record<string, any>>>}
  */
-export async function runSpecInProduction(spec, runtime = {}) {
+export async function collectSpecListingRows(spec, runtime, validateUrl) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
-  const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
 
   for (const seed of spec.seedUrls || []) {
     let page;
@@ -247,7 +243,37 @@ export async function runSpecInProduction(spec, runtime = {}) {
       });
     }
   }
-  const rows = [...bySlug.values()];
+  return [...bySlug.values()];
+}
+
+/**
+ * Run a spec and return listing rows in the shape the generated parser's
+ * `fetchJobListings()` contract expects.
+ *
+ * Rows the spec's own detail template rejects are dropped: the template is the
+ * one piece of evidence that a link belongs to the listing rather than to the
+ * navigation around it, and in production — unattended — a chrome link becomes
+ * a published fake vacancy.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {Promise<Array<Record<string, any> & {
+ *   title: string,
+ *   url: string,
+ *   location: string,
+ *   description: string,
+ *   postedAt: string|null,
+ *   company: string,
+ *   addressLocality?: string,
+ *   addressRegion?: string,
+ *   addressCountry?: string,
+ *   country?: string,
+ *   postalCode?: string,
+ *   streetAddress?: string,
+ * }>>}
+ */
+export async function runSpecInProduction(spec, runtime = {}) {
+  const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
+  const rows = await collectSpecListingRows(spec, runtime, validateUrl);
   if (!needsDetailEnrichment(spec, rows)) {
     const safeRows = rows.flatMap((row) => {
       const fields = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
