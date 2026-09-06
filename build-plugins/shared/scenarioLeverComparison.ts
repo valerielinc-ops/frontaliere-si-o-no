@@ -591,6 +591,23 @@ function buildLevers(scenario: SalaryHubScenario, copy: LeverCopy): Lever[] {
   );
 }
 
+/**
+ * Il gradino di RAL di riferimento: fra `salaryUp` e `salaryDown`, quello di
+ * magnitudine maggiore. Definizione UNICA per le due frasi che parlano del
+ * gradino — `stepVsOther` ne stampa il rapporto, `heavierThanStep` decide chi
+ * lo batte: prendere «il primo che c'è» di qua e il massimo di là dava due
+ * gradini diversi ogni volta che `|salaryDown| > |salaryUp|`, cioè su 228
+ * delle 432 combinazioni pubblicate.
+ */
+function referenceStepLever(levers: readonly Lever[]): Lever | null {
+  let best: Lever | null = null;
+  for (const lever of levers) {
+    if (lever.key !== 'salaryUp' && lever.key !== 'salaryDown') continue;
+    if (best === null || Math.abs(lever.deltaCHF) > Math.abs(best.deltaCHF)) best = lever;
+  }
+  return best;
+}
+
 /** Enumerazione localizzata: "a, b e c". */
 function joinList(items: string[], and: string): string {
   if (items.length <= 1) return items[0] ?? '';
@@ -646,7 +663,7 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
   // loro rapporto è la grandezza che cambia più in fretta lungo i 18 gradini,
   // cioè l'asse su cui le sorelle di una stessa combinazione si distinguevano
   // finora solo in cifre.
-  const step = levers.find((x) => x.key === 'salaryUp') ?? levers.find((x) => x.key === 'salaryDown');
+  const step = referenceStepLever(levers);
   const other = levers.find((x) => x.key !== 'salaryUp' && x.key !== 'salaryDown');
   if (step && other && Math.abs(other.deltaCHF) > 0 && Math.abs(step.deltaCHF) > 0) {
     // `ratioBuckets` descrive un rapporto >= 1 ("pesa il doppio di"), e la
@@ -673,12 +690,7 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
   // Quali leve battono un gradino di stipendio: l'insieme cambia con la RAL
   // (a 40 000 CHF un figlio vale più di 5 000 CHF di lordo, a 150 000 no), ed è
   // la domanda che il lettore del calcolatore si pone davvero.
-  const stepMagnitude = Math.max(
-    ...levers
-      .filter((x) => x.key === 'salaryUp' || x.key === 'salaryDown')
-      .map((x) => Math.abs(x.deltaCHF)),
-    0,
-  );
+  const stepMagnitude = step ? Math.abs(step.deltaCHF) : 0;
   const heavier = levers.filter(
     (x) => x.key !== 'salaryUp' && x.key !== 'salaryDown' && Math.abs(x.deltaCHF) > stepMagnitude,
   );
