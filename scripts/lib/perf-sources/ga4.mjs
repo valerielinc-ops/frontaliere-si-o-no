@@ -6,7 +6,7 @@
 // digits too, we prefix on the fly).
 
 import { windowDates } from './safe.mjs';
-import { engagementConsistency } from '../ga4-engagement-reliability.mjs';
+import { engagementConsistency, dailyEngagementConsistency } from '../ga4-engagement-reliability.mjs';
 
 const SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
 
@@ -35,13 +35,63 @@ function normalizePropertyId(raw) {
 }
 
 /**
+ * Verdetto di finestra a partire dalle sue giornate (una sola richiesta GA4
+ * aggregata per `date`, senza `pagePath`).
+ *
+ * Su errore NON si fa fail-open: «verdetto non calcolato» è un verdetto
+ * negativo, non un'assenza (stesso contratto di `analytics-report.mjs`, #7508).
+ * Un `reliable: true` di default lascerebbe passare come buono proprio il caso
+ * in cui la rilevazione è rotta.
+ */
+async function fetchDailyEngagement({ runReport, start, end, dimensionFilter }) {
+  const notComputed = (cause) => ({
+    reliable: false,
+    reason: `verdetto non calcolato: ${cause}`,
+    unreliableDates: [],
+  });
+  try {
+    const res = await runReport({
+      dateRanges: [{ startDate: start, endDate: end }],
+      dimensions: [{ name: 'date' }],
+      metrics: [
+        { name: 'sessions' },
+        { name: 'engagedSessions' },
+        { name: 'averageSessionDuration' },
+      ],
+      dimensionFilter,
+    });
+    if (!res.ok) return notComputed(`HTTP ${res.status}`);
+    const data = await res.json();
+    return dailyEngagementConsistency(
+      (data.rows || []).map((r) => ({
+        date: r.dimensionValues?.[0]?.value || '?',
+        sessions: Number(r.metricValues?.[0]?.value || 0),
+        engagedSessions: Number(r.metricValues?.[1]?.value || 0),
+        averageSessionDuration: Number(r.metricValues?.[2]?.value || 0),
+      })),
+    );
+  } catch (err) {
+    return notComputed(err && err.message ? err.message : String(err));
+  }
+}
+
+/**
  * Fetch per-pagePath views/engagement, newsletter-excluded.
- * Returns { rows, perPath: Map<pathname, {pageviews, engagementRate, avgScrollProxy}> }
+ * Returns { rows, perPath: Map<pathname, {pageviews, engagementRate, avgScrollProxy}>,
+ *   engagement: {reliable, reason, unreliableDates} }
  *
  * `engagementRate` è annotato con `engagementReliable`/`engagementUnreliableReason`
  * (issue #6703): sui giorni non ancora elaborati GA4 riporta un engagement rate
  * che contraddice `averageSessionDuration`, e senza il flag il valore viaggia a
  * valle come se fosse buono.
+ *
+ * La contraddizione è però una proprietà del SINGOLO giorno: valutata sulla
+ * finestra aggregata annega (28 giornate sane diluiscono la giornata in lag) e
+ * il verdetto per-path tornava `reliable` proprio nel caso che #6703 vuole
+ * intercettare. Si emette quindi una SECONDA richiesta aggregata per sola
+ * `date` — ~`windowDays` righe, non `pagePath × date`, quindi nessuna
+ * pressione sul `limit: 10000` — e il suo verdetto prevale su quello per-path
+ * quando marca la finestra, come già fa `scripts/analytics-report.mjs` (#7511).
  */
 export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTokenImpl = getToken } = {}) {
   const propertyId = normalizePropertyId(process.env.GA4_PROPERTY_ID);
@@ -54,6 +104,22 @@ export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTo
 
   // Filter: NOT (sessionMedium == "newsletter")
   // GA4 uses dimensionFilter with notExpression.
+  const newsletterExcluded = {
+    notExpression: {
+      filter: {
+        fieldName: 'sessionMedium',
+        stringFilter: { value: 'newsletter', matchType: 'EXACT' },
+      },
+    },
+  };
+
+  const runReport = (body) =>
+    fetchImpl(url, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
   const requestBody = {
     dateRanges: [{ startDate: start, endDate: end }],
     dimensions: [{ name: 'pagePath' }],
@@ -62,25 +128,16 @@ export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTo
       { name: 'engagementRate' },
       { name: 'averageSessionDuration' },
     ],
-    dimensionFilter: {
-      notExpression: {
-        filter: {
-          fieldName: 'sessionMedium',
-          stringFilter: { value: 'newsletter', matchType: 'EXACT' },
-        },
-      },
-    },
+    dimensionFilter: newsletterExcluded,
     limit: 10000,
   };
 
-  const res = await fetchImpl(url, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(requestBody),
-  });
+  const res = await runReport(requestBody);
   if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
   const data = await res.json();
   const rows = data.rows || [];
+
+  const dailyEngagement = await fetchDailyEngagement({ runReport, start, end, dimensionFilter: newsletterExcluded });
 
   const perPath = new Map();
   for (const r of rows) {
@@ -96,13 +153,17 @@ export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTo
       averageSessionDuration: avgSessionDuration,
       sampleSize: pageviews,
     });
+    // Il verdetto per-giorno prevale: è l'aggregato di finestra a nascondere la
+    // contraddizione, non a rivelarla. Quello per-path resta come secondo
+    // canale, per quando la finestra è pulita.
+    const effective = dailyEngagement.reliable ? verdict : dailyEngagement;
     perPath.set(path, {
       pageviews,
       engagementRate,
       avgSessionDuration,
-      engagementReliable: verdict.reliable,
-      engagementUnreliableReason: verdict.reason,
+      engagementReliable: effective.reliable,
+      engagementUnreliableReason: effective.reason,
     });
   }
-  return { rows: rows.length, perPath };
+  return { rows: rows.length, perPath, engagement: dailyEngagement };
 }
