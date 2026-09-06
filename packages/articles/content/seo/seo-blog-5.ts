@@ -86731,6 +86731,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-daverio-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Daverio, lavorare in Ticino da frontaliere',
+    description: 'Guida completa per frontalieri: permesso G, imposta alla fonte, doppia imposizione, AVS/LPP e credito d\'imposta per chi abita a Daverio e lavora in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, daverio, lavorare, completa',
+    ogTitle: 'Vivere a Daverio, lavorare in Ticino da frontaliere',
+    ogDescription: 'Sei un frontaliere italiano? Scopri come funziona la fiscalità, quali sono i permessi, come massimizzare lo stipendio lordo in Svizzera e ottenere i ristorni. Guida completa per chi abita a Daverio e lavora in Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-daverio-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Daverio, lavorare in Ticino da frontaliere",
+      "description": "Guida completa per frontalieri: permesso G, imposta alla fonte, doppia imposizione, AVS/LPP e credito d'imposta per chi abita a Daverio e lavora in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-daverio-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le Alpi sullo sfondo, centro finanziario ticinese dove lavorano i frontalieri"
+      },
+      "datePublished": "2026-09-06T09:06:14+00:00",
+      "dateModified": "2026-09-06T09:06:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-daverio-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
