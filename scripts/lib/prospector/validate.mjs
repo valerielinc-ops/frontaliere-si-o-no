@@ -104,6 +104,13 @@ export function tokenOverlap(needle, haystack) {
  * cifre indistinguibili dall'NPA, dal numero di riferimento e dal pensum.
  */
 const REQUEST_NOISE_PATTERNS = [
+  // 2026-09-05T11:01:22, 2026-09-05T11:01:22.417Z, 2026-09-05T11:01+02:00.
+  // Va PRIMA delle due regex qui sotto e in una passata sola: nella forma ISO
+  // non c'e' confine di parola fra la data e la `T`, quindi ne' `\b...\d{1,2}\b`
+  // ne' `\b\d{1,2}:\d{2}` mordono i pezzi, e il timestamp di generazione
+  // resterebbe dentro l'hash — N copie della stessa pagina tornerebbero a
+  // firmare diverso, che e' il caso che il gate esiste per bocciare.
+  /\b\d{4}-\d{2}-\d{2}[Tt ]\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?(?:Z|[+-]\d{2}:?\d{2})?/g,
   // 05.09.2026, 5/9/26, 05-09-2026
   /\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b/g,
   // 2026-09-05
