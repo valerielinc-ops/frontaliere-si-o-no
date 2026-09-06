@@ -5791,6 +5791,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.title': 'Acheter une maison à Neuchâtel : prix et hypothèque',
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.excerpt': 'Acheter une maison à Neuchâtel : calcul des fonds propres, hypothèque durable, taxes de passage et frais de notaire en Suisse.',
     'blog.article.acquisto-casa-neuchatel-costi-mutuo.imageAlt': 'Maison moderne en pierre dans le canton de Neuchâtel avec montagnes en arrière-plan',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.title': 'Abonnements transports Neuchâtel : zones et tarifs',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.excerpt': 'Découvrez comment fonctionnent les abonnements aux transports en commun dans le canton de Neuchâtel : zones tarifaires, demi-tarif, GA et réductions pour étudiants et apprentis.',
+    'blog.article.abbonamenti-trasporti-neuchatel-zone.imageAlt': 'Hub de transports publics suisse avec affichages de zones tarifaires et voyageurs avec titres de transport validés.',
 };
 
 export default blogMetaChFr;

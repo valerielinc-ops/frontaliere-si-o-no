@@ -1956,6 +1956,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sciaffusa-lavoro-contratti-collettivi': { it: 'sciaffusa-lavoro-contratti-collettivi', en: 'schaffhausen-work-collective-labour-agreements', de: 'schaffhausen-arbeit-kollektivvertrage', fr: 'schaffhouse-travail-conventions-collectives' },
  'naturalizzazione-appenzello-esterno-requisiti-procedura': { it: 'naturalizzazione-appenzello-esterno-requisiti-procedura', en: 'naturalization-appenzell-ausserrhoden-requirements-procedure', de: 'einbuergerung-appenzell-ausserrhoden-anforderungen-verfahren', fr: 'naturalisation-appenzell-ausserrhoden-conditions-procedure' },
  'acquisto-casa-neuchatel-costi-mutuo': { it: 'acquisto-casa-neuchatel-costi-mutuo', en: 'buying-house-neuchatel-costs-mortgage', de: 'haus-kaufen-neuenburg-kosten-hypothek', fr: 'acheter-maison-neuchatel-couts-hypotheque' },
+ 'abbonamenti-trasporti-neuchatel-zone': { it: 'abbonamenti-trasporti-neuchatel-zone', en: 'public-transport-passes-neuchatel-zones', de: 'oepnv-abos-neuchatel-zonen', fr: 'abonnements-transports-neuchatel-zones' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
