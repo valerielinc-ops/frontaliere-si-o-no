@@ -517,6 +517,46 @@ function nearestCrossingSlugs(
   );
 }
 
+/**
+ * `hours` resolved for display.
+ *
+ * 25 of the 138 registry rows store an i18n KEY in `hours`
+ * ('border.hours.unspecified' and three siblings) because the SPA renders that
+ * field through `t()` — see `components/guide/FrontierGuide.tsx`. The static
+ * pages have no `t()`, so they were printing the key verbatim in the "Info
+ * valico" list. Left alone, the comparison block below would have repeated it
+ * on up to five peer rows per page. The four values are copied here rather
+ * than imported: pulling `services/locales/*-core.ts` into a build plugin
+ * drags the whole SPA translation bundle in for four strings.
+ */
+const CROSSING_HOURS_KEY_COPY: Record<string, Record<BorderWaitLocale, string>> = {
+  'border.hours.closed': { it: 'Chiuso', en: 'Closed', de: 'Geschlossen', fr: 'Fermé' },
+  'border.hours.pedestrianOnly': {
+    it: 'Solo pedonale',
+    en: 'Pedestrian only',
+    de: 'Nur Fussgänger',
+    fr: 'Piétons uniquement',
+  },
+  'border.hours.unconfirmed': {
+    it: 'Orario non confermato',
+    en: 'Hours not confirmed',
+    de: 'Öffnungszeiten nicht bestätigt',
+    fr: 'Horaires non confirmés',
+  },
+  'border.hours.unspecified': {
+    it: 'Orario non verificato',
+    en: 'Hours not verified',
+    de: 'Öffnungszeiten nicht verifiziert',
+    fr: 'Horaires non vérifiés',
+  },
+};
+
+/** Opening hours as text: the 24h label, a resolved key, or the raw string. */
+function crossingHoursLabel(registry: BorderCrossing, locale: BorderWaitLocale, copy: Copy): string {
+  if (registry.open24h) return copy.open24h;
+  return CROSSING_HOURS_KEY_COPY[registry.hours]?.[locale] ?? registry.hours;
+}
+
 /** Copy for the comparison block. Local map, same idiom as `altLabelByLocale`. */
 const NEARBY_CROSSINGS_COPY: Record<
   BorderWaitLocale,
@@ -573,13 +613,19 @@ const NEARBY_CROSSINGS_COPY: Record<
   },
 };
 
+/** Peers shown in the comparison table, and used to compute the spread. */
+const NEARBY_CROSSINGS_LIMIT = 5;
+
 /**
  * The block itself.
  *
- * The "morning average" column is emitted only when at least TWO rows of the
- * group actually carry the figure: a column reading 'n.d.' on every row of a
- * German-border cohort is noise, and a spread sentence needs two values to
- * state a spread at all.
+ * The "morning average" column is emitted only when at least TWO of the rows
+ * ACTUALLY SHOWN carry the figure. Counting over the whole pool instead would
+ * be wrong for a page whose corridor is too small to fill the pool: Samnaun –
+ * Spiss falls back to every crossing, 27 of which have the figure, while none
+ * of its five real neighbours does — the column would print 'n.d.' six times.
+ * The rows are resolved here with the SAME relation and limit the block uses,
+ * so the two lists cannot disagree.
  */
 function renderNearbyCrossingsComparison(
   locale: BorderWaitLocale,
@@ -591,11 +637,13 @@ function renderNearbyCrossingsComparison(
   if (!current) return '';
   const pool = corridorPool(region);
   const labels = NEARBY_CROSSINGS_COPY[locale];
-  const withWait = [current, ...pool].filter(
-    (place, index, rows) =>
-      rows.findIndex((other) => other.slug === place.slug) === index &&
-      avgWaitMorningMinutes(place.registry) !== null,
-  ).length;
+  const shown = [
+    current,
+    ...nearestComparablePlaces(current, pool, (place) => place.slug, NEARBY_CROSSINGS_LIMIT).map(
+      (entry) => entry.place,
+    ),
+  ];
+  const withWait = shown.filter((place) => avgWaitMorningMinutes(place.registry) !== null).length;
 
   const columns = [
     {
@@ -604,13 +652,19 @@ function renderNearbyCrossingsComparison(
     },
     {
       header: copy.hoursLabel,
-      value: (place: CrossingPlace) => (place.registry.open24h ? copy.open24h : place.registry.hours),
+      value: (place: CrossingPlace) => crossingHoursLabel(place.registry, locale, copy),
     },
     ...(withWait >= 2
       ? [
           {
             header: labels.colWait,
-            value: (place: CrossingPlace) => place.registry.avgWaitMorning?.trim() || labels.notAvailable,
+            // '---' is how two rows spell "unknown" in the dataset. Anything
+            // `avgWaitMorningMinutes` refuses is shown as unavailable rather
+            // than printed raw, so the column never mixes bands with dashes.
+            value: (place: CrossingPlace) =>
+              avgWaitMorningMinutes(place.registry) === null
+                ? labels.notAvailable
+                : place.registry.avgWaitMorning!.trim(),
             numeric: (place: CrossingPlace) => avgWaitMorningMinutes(place.registry),
             spreadLabel: labels.waitSpreadLabel,
             formatNumeric: (value: number) => `${Math.round(value)} min`,
@@ -626,7 +680,7 @@ function renderNearbyCrossingsComparison(
     columns,
     hrefFor: (place) => buildOggiPath(locale, place.slug),
     keyOf: (place) => place.slug,
-    limit: 5,
+    limit: NEARBY_CROSSINGS_LIMIT,
     labels: {
       heading: labels.heading,
       colPlace: labels.colPlace,
@@ -2017,7 +2071,7 @@ function renderLeafPage(inp: LeafInputs): string {
       )}:</strong> ${esc(copy.crossingTypeLabel[reg.type])}</li>`,
     );
     infoRows.push(
-      `<li class="s-IHVixW"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
+      `<li class="s-IHVixW"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(crossingHoursLabel(reg, locale, copy))}</li>`,
     );
     infoRows.push(
       `<li class="s-IHVixW"><strong>${esc(
@@ -2180,7 +2234,9 @@ function renderLeafPage(inp: LeafInputs): string {
             }
           : {
               '@type': 'OpeningHoursSpecification',
-              description: reg.hours,
+              // Same resolution as the visible list: a raw 'border.hours.*' key
+              // in structured data is worse than in prose — it goes to Google.
+              description: crossingHoursLabel(reg, locale, copy),
               dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
             },
         amenityFeature: [

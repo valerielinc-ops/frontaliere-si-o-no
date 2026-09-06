@@ -39,6 +39,7 @@ import { renderAboveFloorPage as renderLiechtenstein } from '@/build-plugins/lie
 import { MUNICIPALITIES } from '@/data/municipalities';
 import { renderPage as renderItalian } from '@/build-plugins/borderMunicipalityPagesPlugin';
 import { TICINO_VITA_CORRIDOR_PROVINCES } from '@/build-plugins/shared/borderMunicipalityCorridors';
+import { generateBorderWaitPages } from '@/build-plugins/borderWaitPagesPlugin';
 
 const DIST = '/tmp/information-gain-families';
 
@@ -143,5 +144,75 @@ describe('information gain delle sei famiglie comunali, misurato sull’output d
       .filter((r) => (r.cohort?.zeroGainPages ?? 0) > 0)
       .map((r) => `${r.name}: ${r.cohort!.zeroGainPages}/${r.cohort!.pages}`);
     expect(offenders).toEqual([]);
+  });
+});
+
+/**
+ * La settima famiglia: i valichi (issue #7593).
+ *
+ * PERCHÉ NON STA NELL'ARRAY QUI SOPRA
+ * ---------------------------------------------------------------------------
+ * `measure()` prende la coorte PIÙ POPOLOSA perché per le sei famiglie
+ * comunali la coorte È la famiglia. Qui no: le 143 leaf italiane si spezzano
+ * in una ventina di coorti (lo scheletro cambia con webcam, grafico orario,
+ * grafico settimanale, percorsi alternativi), e la coorte peggiore — 15 minori
+ * valichi tedeschi, mediana 1,3 % con 5 pagine a gain ZERO — non era la più
+ * popolosa a pari merito. Guardare una coorte sola avrebbe misurato quella
+ * sbagliata.
+ *
+ * Quindi qui si asserisce quello che asserisce il gate post-deploy: OGNI
+ * coorte abbastanza grande da essere gatata (`MIN_COHORT_PAGES = 12` in
+ * `scripts/audit-information-gain.mjs`) sta sopra il floor, e nessuna pagina
+ * della famiglia — gatata o no — resta a gain zero.
+ */
+const BORDER_WAIT_GATED_MIN_PAGES = 12;
+/** Misurato 6,2 % sulla coorte peggiore il 2026-09-06, meno 1 punto di margine. */
+const BORDER_WAIT_MIN_MEDIAN = 5.2;
+
+const measureBorderWaitCohorts = () => {
+  const pages = generateBorderWaitPages({
+    current: { perCrossing: {} } as never,
+    today: new Date('2026-09-06T08:00:00Z'),
+  });
+  const leaves = Object.entries(pages).filter(([urlPath]) =>
+    /^\/traffico-dogane\/[^/]+\/oggi\/$/.test(urlPath),
+  );
+  const fingerprints = leaves.map(([urlPath, html]) =>
+    fingerprintPage(`${urlPath.replace(/^\//, '').replace(/\/$/, '')}/index.html`, html),
+  );
+  // minCohortPages 2 per VEDERE anche le coorti piccole: il floor lo si applica
+  // solo a quelle gatate, ma il conteggio delle pagine a gain zero le copre
+  // tutte — una pagina senza niente di proprio è un difetto anche in una
+  // coorte da 3, e il gate la vedrebbe appena il dataset cresce.
+  return scoreCohorts(fingerprints, { minCohortPages: 2 }).cohorts;
+};
+
+describe('information gain delle pagine-valico, misurato sull’output del plugin', () => {
+  it(`ogni coorte gatata sta sopra ${BORDER_WAIT_MIN_MEDIAN} %`, () => {
+    const gated = measureBorderWaitCohorts().filter(
+      (cohort) => cohort.pages >= BORDER_WAIT_GATED_MIN_PAGES,
+    );
+    expect(gated.length, 'nessuna coorte gatata: il plugin non ha reso le leaf').toBeGreaterThan(0);
+    const offenders = gated
+      .filter((cohort) => cohort.medianIgs < BORDER_WAIT_MIN_MEDIAN)
+      .map((cohort) => `${cohort.key}: ${cohort.medianIgs.toFixed(1)} % su ${cohort.pages} pagine`);
+    expect(
+      offenders,
+      'Il blocco di confronto fra valichi del corridoio non sta più aggiungendo\n' +
+        'prosa page-specific. Controlla `renderNearbyCrossingsComparison` in\n' +
+        'borderWaitPagesPlugin.ts: il pool del corridoio è ancora popolato?\n' +
+        '`limit` > 2? I nomi dei valichi vicini finiscono ancora nella prosa?\n' +
+        'Se il calo è voluto la misura va rifatta e va aggiornato anche\n' +
+        'docs/INFORMATION-GAIN.md, che riporta gli stessi numeri.',
+    ).toEqual([]);
+  });
+
+  it('nessuna pagina-valico resta senza niente di proprio', () => {
+    // È il numero che conta più della percentuale: prima della fix 25 delle 143
+    // leaf italiane non aggiungevano UNA frase che le sorelle non avessero già.
+    const zeroGain = measureBorderWaitCohorts()
+      .filter((cohort) => cohort.zeroGainPages > 0)
+      .map((cohort) => `${cohort.key}: ${cohort.zeroGainPages}/${cohort.pages}`);
+    expect(zeroGain).toEqual([]);
   });
 });
