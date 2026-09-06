@@ -18,8 +18,16 @@ import SNAPSHOT from '../data/canton-municipalities.json';
 const manual = MANUAL_ALIASES as Record<string, unknown>;
 const snapshotCantons = SNAPSHOT.cantons as Record<string, { aliases?: string[] }>;
 
-/** Chiavi non-cantone del file manuale (metadati), ignorate dal generatore. */
-const isCantonKey = (key: string) => /^[A-Z]{2}$/.test(key);
+/**
+ * Chiavi di metadato del file manuale (`_comment`), le uniche legittimamente assenti
+ * dallo snapshot. Denylist e non `/^[A-Z]{2}$/`: il generatore itera i codici BFS reali
+ * e legge `aliases[code]`, quindi ignora in silenzio QUALSIASI chiave che non sia un
+ * cantone — `"ti"`, `"TIC"`, `"T1"` incluse. Filtrare per FORMA del codice renderebbe
+ * il gate cieco proprio sui refusi più probabili (casing, lunghezza).
+ */
+const isMetaKey = (key: string) => key.startsWith('_');
+
+const manualCantonKeys = (): string[] => Object.keys(manual).filter((key) => !isMetaKey(key));
 
 const manualAliasesFor = (canton: string): string[] => {
   const value = manual[canton];
@@ -44,7 +52,7 @@ describe('canton aliases ↔ snapshot drift (rigenerazione idempotente)', () => 
 
   it('ogni alias manuale è già nello snapshot (snapshot non rigenerato)', () => {
     const missing: string[] = [];
-    for (const canton of Object.keys(manual).filter(isCantonKey)) {
+    for (const canton of manualCantonKeys()) {
       const inSnapshot = new Set(snapshotAliasesFor(canton));
       for (const alias of manualAliasesFor(canton)) {
         if (!inSnapshot.has(alias)) missing.push(`${canton}/${alias}`);
@@ -56,9 +64,7 @@ describe('canton aliases ↔ snapshot drift (rigenerazione idempotente)', () => 
   });
 
   it('ogni chiave cantone del file manuale esiste nello snapshot', () => {
-    const unknown = Object.keys(manual)
-      .filter(isCantonKey)
-      .filter((canton) => !(canton in snapshotCantons));
+    const unknown = manualCantonKeys().filter((canton) => !(canton in snapshotCantons));
     // Una chiave che non è un cantone BFS è un refuso: il generatore la ignora
     // in silenzio e gli alias sotto di essa non arrivano mai al matching.
     expect(unknown).toEqual([]);
