@@ -297,6 +297,34 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  // ── Il token corto `it` ancorato da un lato solo (#7553, round 2) ──
+  //
+  // `CYBER_QUALIFIER_SRC` non portava i propri `\b`: il veto di `sicurezza` li
+  // aggiungeva al call site, l'alternativa positiva di `cybersecurity` no.
+  // Quindi ogni parola che FINISCE in `it` davanti a `Security Guard/Officer`
+  // matchava il lessico cyber senza far scattare il veto fisico — lo stesso
+  // doppio-landing di #7553, per divergenza sull'ancoraggio invece che sul
+  // lessico. Ora i `\b` stanno dentro la costante e i due lati non possono
+  // divergere nemmeno li'.
+  it('non scambia per cyber una parola che finisce in `it` (#7553)', () => {
+    for (const title of [
+      'Transit Security Officer', 'Unit Security Guard', 'Audit Security Officer',
+      'Summit Security Guard', 'Deposit Security Officer', 'Sicherheit Security Guard',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `non cyber: ${title}`).toBe(false);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `resta fisica: ${title}`).toBe(true);
+    }
+    // Il verso opposto dello stesso ancoraggio: `\bit\b` chiuso anche in coda
+    // toglie dal veto un `it` che non e' una parola, e l'annuncio non sparisce
+    // dalla sua landing fisica.
+    expect(jobMatchesSector({ title: 'Italia Security Guard' }, 'sicurezza')).toBe(true);
+    // Il qualificatore vero resta cyber, su tutte le forme.
+    for (const title of ['IT Security Officer', 'IT/Security Guard', 'It  Security Officer']) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `NON doppio landing: ${title}`).toBe(false);
+    }
+  });
+
   it('nessun annuncio puo\' matchare cybersecurity E sicurezza insieme', () => {
     // L'invariante che i due casi sopra servono: qualunque titolo, se cade in
     // entrambi i settori finisce su due landing. Qui si esercita sull'unione
@@ -308,6 +336,8 @@ describe('jobSectorLanding — sector match regex', () => {
       'IT SECURITY ARCHITECT', 'Guardia giurata Lugano', 'Sicherheitsdienst Mitarbeiter',
       'Cyber Security Officer', 'Cyber Security Guard', 'Cyber-Security Officer',
       'AI Security \u2013 Consultant / Manager 80-100%',
+      'Transit Security Officer', 'Unit Security Guard', 'Audit Security Officer',
+      'Summit Security Guard', 'Deposit Security Officer', 'Italia Security Guard',
     ]) {
       const both = jobMatchesSector({ title }, 'cybersecurity') && jobMatchesSector({ title }, 'sicurezza');
       expect(both, `doppio landing su ${JSON.stringify(title)}`).toBe(false);

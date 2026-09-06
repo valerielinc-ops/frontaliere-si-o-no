@@ -723,8 +723,20 @@ const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
  * doppio contenuto che il lookbehind esiste per impedire (#7553). Con la
  * costante condivisa la divergenza non e' piu' esprimibile, come per
  * `ARCHITECT_TECH_QUALIFIER_SRC`.
+ *
+ * I `\b` stanno DENTRO la costante, non ai call site, per lo stesso motivo:
+ * una sorgente unica che non porta i propri confini lascia i due lati liberi
+ * di divergere sull'ANCORAGGIO invece che sul lessico, ed e' lo stesso
+ * doppio-landing. Col `\b` solo sul veto, `it` era ancorato di la' e nudo
+ * nell'alternativa positiva: ogni parola che finisce in `it` — `Transit`,
+ * `Unit`, `Audit`, `Summit`, `Deposit` — davanti a `Security Guard/Officer`
+ * matchava `cybersecurity` senza far scattare il veto, cioe' cadeva su
+ * ENTRAMBE le landing. `\bit\b` (chiuso anche in coda, come in
+ * `ARCHITECT_TECH_QUALIFIER_SRC`) tiene fuori pure il verso opposto: un
+ * `Italia Security Guard` vetato dalla sua landing fisica per un `it` che
+ * non e' una parola.
  */
-const CYBER_QUALIFIER_SRC = '(?:information|it|cloud|network|cyber)';
+const CYBER_QUALIFIER_SRC = '(?:\\binformation|\\bit\\b|\\bcloud|\\bnetwork|\\bcyber)';
 
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
@@ -828,10 +840,11 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // campo e vieterebbe un `Security Guard` in category dopo un `IT` nel titolo.
   // L'alternanza del veto e' `CYBER_QUALIFIER_SRC`, la STESSA costante del
   // lessico positivo di `cybersecurity`: le due liste, scritte a mano, erano
-  // gia' divergite su `cyber` (#7553).
+  // gia' divergite su `cyber` (#7553). Il `\b` iniziale NON e' qui ma dentro
+  // la costante, cosi' i due lati non divergono nemmeno sull'ancoraggio.
   sicurezza: new RegExp(
     '\\bsicurezza' + SEC_SEP + '(?:privata|fisica)'
-    + `|(?<!\\b${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
+    + `|(?<!${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
