@@ -5740,6 +5740,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.conversione-patente-vallese.title': 'Foreign driver\'s license conversion in the Valais Canton: guide',
     'blog.article.conversione-patente-vallese.excerpt': 'Obligation to convert the foreign license within 12 months for new residents in Valais: here is the procedure and documents required by the cantonal authority.',
     'blog.article.conversione-patente-vallese.imageAlt': 'Swiss driver\'s license on a wooden table',
+    'blog.article.imposta-successione-vallese-aliquote.title': 'Inheritance and gift tax in Valais: rates',
+    'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guide to inheritance and gift taxes in the Valais Canton: cantonal structure, exemptions for spouse and children, official declaration and terms.',
+    'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Cantonal tax office building in Valais Canton with Alpine mountains in the background, Swiss fiscal administration',
 };
 
 export default blogMetaChEn;

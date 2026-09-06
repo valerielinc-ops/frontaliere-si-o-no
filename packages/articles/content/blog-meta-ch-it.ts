@@ -5740,6 +5740,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.conversione-patente-vallese.title': 'Conversione patente estera nel Cantone Vallese: guida',
     'blog.article.conversione-patente-vallese.excerpt': 'Obbligo di conversione della patente estera entro 12 mesi per i nuovi residenti nel Vallese: ecco la procedura e i documenti richiesti dall\'autorità cantonale.',
     'blog.article.conversione-patente-vallese.imageAlt': 'Patente di guida svizzera su un tavolo di legno',
+    'blog.article.imposta-successione-vallese-aliquote.title': 'Imposta di successione e donazione nel Vallese: aliquote',
+    'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guida alle imposte di successione e donazione nel Cantone Vallese: struttura cantonale, esenzioni per coniuge e figli, dichiarazione e termini ufficiali.',
+    'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Edificio amministrativo cantonale in Vallese con montagne sullo sfondo, rappresenta l\'amministrazione fiscale svizzera',
 };
 
 export default blogMetaChIt;
