@@ -105,6 +105,32 @@ export interface NeighbourEntry<T extends ComparablePlace> {
   distanceKm: number;
 }
 
+/**
+ * Per-family overrides for the strings this module would otherwise hardcode.
+ *
+ * The six families it was written for are all municipalities, so the defaults
+ * in `COPY` say "comuni" / "towns" / "Gemeinden" / "communes". A seventh
+ * caller landed whose rows are border crossings (issue #7593): the geometry,
+ * the determinism and the prose shape are identical — only the noun changes.
+ * Overriding four strings is cheaper, and keeps one implementation, versus a
+ * second copy of the module that would drift from this one on the next fix.
+ *
+ * Every field is ALREADY localised by the caller, exactly like
+ * `ComparisonColumn.header`, so a family keeps all of its copy in its own
+ * `COPY[locale]` block instead of a second table inside this module. Omitted
+ * fields keep the municipality wording.
+ */
+export interface ComparisonLabels {
+  /** `<h2>` of the block. */
+  heading?: string;
+  /** Header of the first column (the place name). */
+  colPlace?: string;
+  /** Plural noun for the neighbours in the lead sentence ("valichi"). */
+  peerNoun?: string;
+  /** Provenance line replacing the "town-centre coordinates" one. */
+  provenance?: string;
+}
+
 const COPY = {
   heading: {
     it: 'Confronto con i comuni più vicini',
@@ -123,6 +149,12 @@ const COPY = {
     en: 'Distance from here',
     de: 'Entfernung von hier',
     fr: 'Distance d’ici',
+  },
+  peerNoun: {
+    it: 'comuni',
+    en: 'towns',
+    de: 'Gemeinden',
+    fr: 'communes',
   },
   thisPlace: {
     it: 'qui',
@@ -205,9 +237,12 @@ export function buildComparisonProse<T extends ComparablePlace>(params: {
   neighbours: Array<NeighbourEntry<T>>;
   keyOf: (place: T) => string;
   spreadColumn?: ComparisonColumn<T>;
+  /** Plural noun for the neighbours, ALREADY localised. Defaults to "comuni". */
+  peerNoun?: string;
 }): string[] {
   const { locale, current, neighbours, keyOf, spreadColumn } = params;
   if (neighbours.length === 0) return [];
+  const peerNoun = params.peerNoun ?? COPY.peerNoun[locale];
 
   const radius = formatDistanceKm(neighbours[neighbours.length - 1].distanceKm, locale);
   const names = joinNames(
@@ -217,10 +252,10 @@ export function buildComparisonProse<T extends ComparablePlace>(params: {
   const count = neighbours.length;
 
   const lead: Record<ComparisonLocale, string> = {
-    it: `Entro ${radius} da ${current.name} ci sono ${count} comuni con una pagina su questo sito: ${names}.`,
-    en: `Within ${radius} of ${current.name} there are ${count} towns with a page on this site: ${names}.`,
-    de: `Innerhalb von ${radius} um ${current.name} liegen ${count} Gemeinden mit einer Seite auf dieser Website: ${names}.`,
-    fr: `Dans un rayon de ${radius} autour de ${current.name}, ${count} communes ont une page sur ce site : ${names}.`,
+    it: `Entro ${radius} da ${current.name} ci sono ${count} ${peerNoun} con una pagina su questo sito: ${names}.`,
+    en: `Within ${radius} of ${current.name} there are ${count} ${peerNoun} with a page on this site: ${names}.`,
+    de: `Innerhalb von ${radius} um ${current.name} liegen ${count} ${peerNoun} mit einer Seite auf dieser Website: ${names}.`,
+    fr: `Dans un rayon de ${radius} autour de ${current.name}, ${count} ${peerNoun} ont une page sur ce site : ${names}.`,
   };
   const sentences = [lead[locale]];
 
@@ -312,6 +347,8 @@ export function renderNearestComparison<T extends ComparablePlace>(params: {
   spreadColumnIndex?: number;
   /** Extra provenance line for family-specific figures. */
   sourceNote?: string;
+  /** Per-family wording overrides — see `ComparisonLabels`. */
+  labels?: ComparisonLabels;
   /**
    * Family-specific computed claims, appended after the standard sentences.
    *
@@ -327,7 +364,7 @@ export function renderNearestComparison<T extends ComparablePlace>(params: {
     neighbours: Array<NeighbourEntry<T>>;
   }) => string[];
 }): string {
-  const { locale, current, pool, columns, hrefFor, keyOf, limit = 6, sourceNote, extraProse } = params;
+  const { locale, current, pool, columns, hrefFor, keyOf, limit = 6, sourceNote, labels, extraProse } = params;
   const neighbours = nearestComparablePlaces(current, pool, keyOf, limit);
   if (neighbours.length < 2) return '';
 
@@ -337,14 +374,14 @@ export function renderNearestComparison<T extends ComparablePlace>(params: {
       : columns.find((column) => column.numeric && column.spreadLabel);
 
   const prose = [
-    ...buildComparisonProse({ locale, current, neighbours, keyOf, spreadColumn }),
+    ...buildComparisonProse({ locale, current, neighbours, keyOf, spreadColumn, peerNoun: labels?.peerNoun }),
     ...(extraProse?.({ locale, current, neighbours }) ?? []),
   ]
     .map((sentence) => `<p class="mt-2 text-sm text-body">${esc(sentence)}</p>`)
     .join('\n        ');
 
   const headerCells = [
-    `<th scope="col" class="px-3 py-2 text-left font-semibold">${esc(COPY.colPlace[locale])}</th>`,
+    `<th scope="col" class="px-3 py-2 text-left font-semibold">${esc(labels?.colPlace ?? COPY.colPlace[locale])}</th>`,
     `<th scope="col" class="px-3 py-2 text-right font-semibold">${esc(COPY.colDistance[locale])}</th>`,
     ...columns.map(
       (column) =>
@@ -367,13 +404,12 @@ export function renderNearestComparison<T extends ComparablePlace>(params: {
     ...neighbours.map((entry) => row(entry.place, formatDistanceKm(entry.distanceKm, locale), false)),
   ].join('\n            ');
 
-  const provenance = sourceNote
-    ? `${COPY.provenance[locale]} ${sourceNote}`
-    : COPY.provenance[locale];
+  const baseProvenance = labels?.provenance ?? COPY.provenance[locale];
+  const provenance = sourceNote ? `${baseProvenance} ${sourceNote}` : baseProvenance;
 
   return `
       <section data-nearest-comparison="1" class="mt-6 rounded-md border border-edge bg-surface p-5">
-        <h2 class="text-xl font-bold text-heading">${esc(COPY.heading[locale])}</h2>
+        <h2 class="text-xl font-bold text-heading">${esc(labels?.heading ?? COPY.heading[locale])}</h2>
         ${prose}
         <div class="mt-4 overflow-x-auto">
           <table class="w-full min-w-[32rem] border-collapse text-sm">

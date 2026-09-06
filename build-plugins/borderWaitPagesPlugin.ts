@@ -75,6 +75,7 @@ import {
   type BorderWaitLocale,
 } from './borderWaitData';
 import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
+import { nearestComparablePlaces, renderNearestComparison } from './shared/nearestMunicipalityComparison';
 import {
   BORDER_WAIT_HYDRATION_JS,
   BORDER_WAIT_HYDRATION_ASSET_PATH,
@@ -414,6 +415,225 @@ function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined 
   return borderCrossings.find(
     (c) => slugifyCrossingName(c.name) === slug,
   );
+}
+
+// ── Corridor peer comparison ──────────────────────────────────
+//
+// The `/oggi/` leaf of a crossing carried, as its ONLY per-page payload,
+// FIGURES: the live wait, the typical band, the hourly and weekly charts.
+// Mask no. 1 of `scripts/lib/informationGain.mjs` reduces every figure to `#`
+// and mask no. 2 folds the page's own name to `@`, so after masking nothing on
+// the page belonged to the page: the cohort of 15 minor German-border leaves
+// measured a median Information Gain of 1,3 % with 5 pages at exactly zero,
+// under the 5 % floor of `audit-information-gain.mjs` (issue #7593).
+//
+// What differentiates a leaf, and survives both masks, is the NAMES of its
+// neighbouring crossings: mask no. 2 folds only the current page's identity, a
+// sibling's name is left standing by design. The old "Percorsi alternativi"
+// section already did this — but only for the ELEVEN crossings hand-listed in
+// `ALT_ROUTES`, all of them Ticino. The other 132 leaves, which are exactly the
+// under-floor cohort, emitted nothing at all there.
+//
+// So the neighbour set is COMPUTED from the checked-in coordinates instead of
+// curated, and rendered through `shared/nearestMunicipalityComparison.ts` —
+// the same module the six municipality families use since #5002, not a second
+// copy of it. `data/borderCrossings.ts` carries `lat`/`lng` for every crossing;
+// `avgWaitMorning`, which the issue's card proposed as the ranking value, does
+// NOT (27 of 138 rows have it, and ZERO of the 15 in the offending cohort), so
+// it can only be an optional column, never the ordering key.
+
+/** A crossing as the comparison module wants it: a named place with coordinates. */
+interface CrossingPlace {
+  slug: BorderCrossingSlug;
+  name: string;
+  lat: number;
+  lng: number;
+  registry: BorderCrossing;
+}
+
+/**
+ * Below this many crossings a regional corridor cannot supply the 2 neighbours
+ * the block needs (`grigioni-liechtenstein` has ONE), so the pool widens to
+ * every crossing. Widening is safe because neighbours are picked by distance:
+ * a Vallese page still gets Vallese neighbours, it just stops being told there
+ * are none.
+ */
+const CORRIDOR_POOL_MIN = 4;
+
+let allCrossingPlacesCache: CrossingPlace[] | null = null;
+
+/** Every crossing with usable coordinates, ordered by slug so ties are stable. */
+function allCrossingPlaces(): CrossingPlace[] {
+  if (allCrossingPlacesCache) return allCrossingPlacesCache;
+  allCrossingPlacesCache = BORDER_WAIT_CROSSINGS.map((slug) => {
+    const registry = crossingRegistry(slug);
+    const name = BORDER_CROSSING_DISPLAY[slug];
+    if (!registry || !name || !Number.isFinite(registry.lat) || !Number.isFinite(registry.lng)) return null;
+    return { slug, name, lat: registry.lat, lng: registry.lng, registry } satisfies CrossingPlace;
+  })
+    .filter((place): place is CrossingPlace => place !== null)
+    .sort((a, b) => (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
+  return allCrossingPlacesCache;
+}
+
+/** The peers of a crossing: its own corridor, widened when the corridor is tiny. */
+function corridorPool(region: BorderCrossingRegion): CrossingPlace[] {
+  const all = allCrossingPlaces();
+  const inRegion = all.filter((place) => CROSSING_TO_REGION[place.slug] === region);
+  return inRegion.length >= CORRIDOR_POOL_MIN ? inRegion : all;
+}
+
+/**
+ * `avgWaitMorning` as a comparable number of minutes.
+ *
+ * The field is prose in the dataset ('8-15 min', '2-5 min', and '---' for two
+ * rows that mean "unknown"), so a band becomes its midpoint and anything
+ * without a digit becomes `null` — a `null` keeps the row out of the spread
+ * sentence rather than pretending the wait is zero.
+ */
+function avgWaitMorningMinutes(registry: BorderCrossing | undefined): number | null {
+  const found = registry?.avgWaitMorning?.match(/\d+(?:[.,]\d+)?/g);
+  if (!found || found.length === 0) return null;
+  const values = found.map((n) => Number(n.replace(',', '.'))).filter((n) => Number.isFinite(n));
+  if (values.length === 0) return null;
+  return values.reduce((sum, n) => sum + n, 0) / values.length;
+}
+
+/**
+ * The nearest crossings of `crossing`, as slugs, in distance order.
+ *
+ * Same relation and same tie-break as the comparison block, so the block and
+ * the planning prose below it never name two different sets of alternates.
+ */
+function nearestCrossingSlugs(
+  crossing: BorderCrossingSlug,
+  region: BorderCrossingRegion,
+  limit: number,
+): BorderCrossingSlug[] {
+  const current = allCrossingPlaces().find((place) => place.slug === crossing);
+  if (!current) return [];
+  return nearestComparablePlaces(current, corridorPool(region), (place) => place.slug, limit).map(
+    (entry) => entry.place.slug,
+  );
+}
+
+/** Copy for the comparison block. Local map, same idiom as `altLabelByLocale`. */
+const NEARBY_CROSSINGS_COPY: Record<
+  BorderWaitLocale,
+  {
+    heading: string;
+    colPlace: string;
+    peerNoun: string;
+    provenance: string;
+    colType: string;
+    colWait: string;
+    waitSpreadLabel: string;
+    notAvailable: string;
+  }
+> = {
+  it: {
+    heading: 'Confronto con i valichi più vicini',
+    colPlace: 'Valico',
+    peerNoun: 'valichi',
+    provenance: 'Distanze in linea d’aria calcolate dalle coordinate dei valichi nel nostro dataset.',
+    colType: 'Tipo',
+    colWait: 'Media mattina',
+    waitSpreadLabel: 'l’attesa media del mattino',
+    notAvailable: 'n.d.',
+  },
+  en: {
+    heading: 'Compared with the nearest crossings',
+    colPlace: 'Crossing',
+    peerNoun: 'crossings',
+    provenance: 'Straight-line distances computed from the crossing coordinates in our dataset.',
+    colType: 'Type',
+    colWait: 'Morning average',
+    waitSpreadLabel: 'the typical morning wait',
+    notAvailable: 'n/a',
+  },
+  de: {
+    heading: 'Vergleich mit den nächsten Übergängen',
+    colPlace: 'Übergang',
+    peerNoun: 'Übergänge',
+    provenance: 'Luftlinien-Entfernungen, berechnet aus den Übergangs-Koordinaten unseres Datensatzes.',
+    colType: 'Typ',
+    colWait: 'Morgen-Durchschnitt',
+    waitSpreadLabel: 'die übliche Wartezeit am Morgen',
+    notAvailable: 'k.A.',
+  },
+  fr: {
+    heading: 'Comparaison avec les postes les plus proches',
+    colPlace: 'Poste',
+    peerNoun: 'postes',
+    provenance: 'Distances à vol d’oiseau calculées depuis les coordonnées des postes de notre jeu de données.',
+    colType: 'Type',
+    colWait: 'Moyenne matin',
+    waitSpreadLabel: 'l’attente moyenne du matin',
+    notAvailable: 'n.d.',
+  },
+};
+
+/**
+ * The block itself.
+ *
+ * The "morning average" column is emitted only when at least TWO rows of the
+ * group actually carry the figure: a column reading 'n.d.' on every row of a
+ * German-border cohort is noise, and a spread sentence needs two values to
+ * state a spread at all.
+ */
+function renderNearbyCrossingsComparison(
+  locale: BorderWaitLocale,
+  crossing: BorderCrossingSlug,
+  region: BorderCrossingRegion,
+  copy: Copy,
+): string {
+  const current = allCrossingPlaces().find((place) => place.slug === crossing);
+  if (!current) return '';
+  const pool = corridorPool(region);
+  const labels = NEARBY_CROSSINGS_COPY[locale];
+  const withWait = [current, ...pool].filter(
+    (place, index, rows) =>
+      rows.findIndex((other) => other.slug === place.slug) === index &&
+      avgWaitMorningMinutes(place.registry) !== null,
+  ).length;
+
+  const columns = [
+    {
+      header: labels.colType,
+      value: (place: CrossingPlace) => copy.crossingTypeLabel[place.registry.type],
+    },
+    {
+      header: copy.hoursLabel,
+      value: (place: CrossingPlace) => (place.registry.open24h ? copy.open24h : place.registry.hours),
+    },
+    ...(withWait >= 2
+      ? [
+          {
+            header: labels.colWait,
+            value: (place: CrossingPlace) => place.registry.avgWaitMorning?.trim() || labels.notAvailable,
+            numeric: (place: CrossingPlace) => avgWaitMorningMinutes(place.registry),
+            spreadLabel: labels.waitSpreadLabel,
+            formatNumeric: (value: number) => `${Math.round(value)} min`,
+          },
+        ]
+      : []),
+  ];
+
+  return renderNearestComparison<CrossingPlace>({
+    locale,
+    current,
+    pool,
+    columns,
+    hrefFor: (place) => buildOggiPath(locale, place.slug),
+    keyOf: (place) => place.slug,
+    limit: 5,
+    labels: {
+      heading: labels.heading,
+      colPlace: labels.colPlace,
+      peerNoun: labels.peerNoun,
+      provenance: labels.provenance,
+    },
+  });
 }
 
 // Color tokens — CSS custom properties so dark mode works automatically.
@@ -1845,36 +2065,19 @@ function renderLeafPage(inp: LeafInputs): string {
     'camedo': ['piaggio-valmara', 'zenna-dirinella', 'biegno-indemini'],
     'piaggio-valmara': ['camedo', 'zenna-dirinella', 'biegno-indemini'],
   };
-  const altLabelByLocale: Record<BorderWaitLocale, { h2: string; lead: string }> = {
-    it: { h2: 'Percorsi alternativi', lead: 'Se questo valico è congestionato, questi passaggi vicini sono spesso più fluidi:' },
-    en: { h2: 'Alternative routes', lead: 'If this crossing is congested, these nearby passages are often smoother:' },
-    de: { h2: 'Alternative Routen', lead: 'Wenn dieser Übergang überlastet ist, sind diese nahegelegenen Pässe oft fliessender:' },
-    fr: { h2: 'Itinéraires alternatifs', lead: "Si ce poste est congestionné, ces passages voisins sont souvent plus fluides :" },
-  };
-  const altSlugs = ALT_ROUTES[crossing];
-  const alternativeRoutesHtml = altSlugs && altSlugs.length
-    ? (() => {
-        const { h2, lead } = altLabelByLocale[locale];
-        const items = altSlugs
-          .map((slug) => {
-            const altReg = crossingRegistry(slug);
-            if (!altReg) return '';
-            const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
-            const altDisp = BORDER_CROSSING_DISPLAY[slug];
-            const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning ?? 'n.d.')}`;
-            return `<li class="s-card" style="border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div class="s-otj8TI">${detail}</div></li>`;
-          })
-          .filter(Boolean)
-          .join('');
-        return items
-          ? `<section class="s-ziawP1" aria-labelledby="altRoutes">
-    <h2 id="altRoutes" style="${H2_STYLE}">${esc(h2)}</h2>
-    <p class="s-sau7he">${esc(lead)}</p>
-    <ul class="s-eeWB4A">${items}</ul>
-  </section>`
-          : '';
-      })()
-    : '';
+  // The curated list stays the FIRST choice for the eleven high-volume Ticino
+  // crossings — it encodes rerouting knowledge distance alone does not have
+  // (Crociale dei Mulini is the answer for Brogeda because it is a different
+  // motorway approach, not because it is the closest dot). Everywhere else the
+  // corridor's nearest crossings take over, so the 132 leaves that used to get
+  // an EMPTY alternates set now name real siblings here and in the planning
+  // prose below — see the comparison-block comment near `corridorPool`.
+  const altSlugs: readonly BorderCrossingSlug[] =
+    ALT_ROUTES[crossing] ?? nearestCrossingSlugs(crossing, region, 3);
+  // The alternates are rendered by the shared comparison block: prose naming
+  // the neighbours, then a table with the distance from here plus the static
+  // facts the old bespoke <ul> carried (type, hours, morning average).
+  const alternativeRoutesHtml = renderNearbyCrossingsComparison(locale, crossing, region, copy);
 
   // FAQ
   const faqItems = copy.faq;
@@ -2109,9 +2312,7 @@ function renderLeafPage(inp: LeafInputs): string {
     crossingDisplay,
     region,
     reg?.peak ?? '',
-    (ALT_ROUTES[crossing] ?? [])
-      .map((s) => BORDER_CROSSING_DISPLAY[s])
-      .filter(Boolean),
+    altSlugs.map((s) => BORDER_CROSSING_DISPLAY[s]).filter(Boolean),
   )}
   <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
     <p class="s-yOfiVn">${esc(paragraph)}</p>
