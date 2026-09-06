@@ -5671,6 +5671,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Comprare casa Grigioni: mutuo e imposte',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Acquistare nel Grigioni: fondi propri 20-30%, mutuo ipotecario fino all\'80%, imposta trasporto variabile per comune, spese notarili 1-2%. Procedura e costi spiegati.',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Casa tradizionale in legno del Grigioni circondata da montagne e paesaggio alpino',
+    'blog.article.apprendistato-formazione-canton-vallese.title': 'Apprendistato e formazione professionale nel Canton Vallese',
+    'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Canton Vallese.',
+    'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'Un apprendista in un laboratorio nel Canton Vallese, Svizzera.',
 };
 
 export default blogMetaChIt;

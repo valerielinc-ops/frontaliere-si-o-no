@@ -5671,6 +5671,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Buying Casa Grisioni: mortgage and taxes',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Purchase in Graubünden: own funds 20-30%, mortgage loan up to 80%, variable transport tax per municipality, notary fees 1-2%. Explained procedure and costs.',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Traditional wooden house in Grisons surrounded by mountains and alpine landscape',
+    'blog.article.apprendistato-formazione-canton-vallese.title': 'Apprenticeship and vocational training in the canton of Valais',
+    'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Learn how to find an internship, contract details, and apprenticeship pay in the Valais Canton.',
+    'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'An apprentice in a workshop in the Canton of Valais, Switzerland.',
 };
 
 export default blogMetaChEn;

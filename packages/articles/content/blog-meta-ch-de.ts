@@ -5671,6 +5671,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Graubünden Haus kaufen: Hypothek und Steuern',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Kaufen in Graubünden: Eigenmittel 20-30%, Hypothekendarlehen bis 80%, variable Transportsteuer pro Gemeinde, Notarkosten 1-2%. Vorgehensweise und Kosten erklärt.',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Traditionelles Holzhaus in Graubünden umgeben von Bergen und Alpenlandschaft',
+    'blog.article.apprendistato-formazione-canton-vallese.title': 'Lehre und Berufsausbildung im Kanton Wallis',
+    'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Erfahren Sie, wie Sie im Kanton Wallis eine Lehrstelle finden, die Vertragsdetails und die Entlohnung der Lernenden.',
+    'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'Ein Lehrling in einer Werkstatt im Kanton Wallis, Schweiz.',
 };
 
 export default blogMetaChDe;
