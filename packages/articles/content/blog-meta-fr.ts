@@ -11480,6 +11480,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Vivre à Pianello del Lario et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie, les zones recommandées et les avantages/inconvénients du transfert.',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes suisses en arrière-plan',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino : incendie dans un tunnel, exercice',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Exercice de sauvetage dans le tunnel du Monte Ceneri avec 50 figurants et 100 sauveteurs.',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Exercice de sauvetage dans le tunnel du Monte Ceneri',
 };
 
 export default blogMetaFr;

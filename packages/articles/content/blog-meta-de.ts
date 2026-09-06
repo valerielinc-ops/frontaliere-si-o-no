@@ -11477,6 +11477,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.title': 'Wohnen in Pianello del Lario und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten, die empfohlenen Gebiete und die Vor-/Nachteile des Transfers.',
     'blog.article.vivere-pianello-del-lario-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Alpen im Hintergrund',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Kanton Tessin, Tunnelbrand an Bord eines Zuges: aber es ist eine Übung',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Rettungsübung im Ceneri-Tunnel mit 50 Komparsen und 100 Rettungskräften.',
+    'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Rettungsübung im Monte-Ceneri-Tunnel',
 };
 
 export default blogMetaDe;
