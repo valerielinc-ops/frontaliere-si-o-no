@@ -1699,6 +1699,45 @@ export function canPushWorkflows(env = process.env) {
 }
 
 /**
+ * Le due sorgenti di capacità, indicizzate per IDENTITÀ che le possiede.
+ *
+ * `canPushWorkflows()` è l'OR: risponde «esiste, in questo env, un'identità che
+ * può pushare `.github/workflows/**`?». È la domanda giusta dove l'identità che
+ * pusherà non è ancora scelta al momento della lettura — il pre-flight del
+ * drainer decide se promuovere una follow-up a `issue-fix`, e quale delle due
+ * credenziali userà quel run lo sa `issue-fix.yml`, non il drainer.
+ *
+ * Non è la domanda giusta dove il job ha GIÀ fissato l'identità di push. Lì
+ * l'OR può dire `true` per una credenziale che quel `git push` non userà mai,
+ * e il guasto arriva TARDI — dopo lo scaffolding, al push — travestito da
+ * problema di generazione. È lo stesso difetto di forma di #5288 spostato di un
+ * passo: là si deduceva la capacità dalla PRESENZA del token, qui la si legge
+ * bene ma per il token sbagliato.
+ */
+export const WORKFLOWS_CAPABILITY_SOURCES = Object.freeze({
+  app: 'APP_TOKEN_WORKFLOWS',
+  pat: 'PAT_WORKFLOWS_SCOPE',
+});
+
+/**
+ * Capacità di pushare `.github/workflows/**` con UNA identità dichiarata.
+ *
+ * Da usare nei job che hanno già pinnato la credenziale di push (es. lo step
+ * «Promote validated crawlers» di `prospector-loop.yml`, che riscrive il remote
+ * su `x-access-token:${APP_TOKEN}`): una sola sorgente per identità, così la
+ * capacità letta e l'identità che pusha non possono divergere.
+ *
+ * FAIL-CLOSED: identità assente, vuota o non riconosciuta → `false`. Un job che
+ * non dichiara con cosa pusha non ottiene il permesso per default — al più
+ * rinuncia a un passo opzionale, che è il costo giusto rispetto a scoprire il
+ * rifiuto dopo aver lavorato.
+ */
+export function canPushWorkflowsAs(identity, env = process.env) {
+  const key = WORKFLOWS_CAPABILITY_SOURCES[String(identity ?? '').trim().toLowerCase()];
+  return key ? env?.[key] === 'true' : false;
+}
+
+/**
  * Capability-guard UNICO per il parked-retry: WF-scope **o** secrets-scope, con una
  * sola `gh issue view` invece di due.
  *

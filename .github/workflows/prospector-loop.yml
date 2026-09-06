@@ -201,6 +201,20 @@ jobs:
           # `.github/workflows/**` e vuole lo scope `workflows` del token App,
           # non il PAT.
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # L'IDENTITA' con cui questo step pusha, dichiarata accanto al token
+          # che la porta. `prospect-promote.mjs` legge la capacita' `workflows`
+          # SOLO dalla sorgente di questa identita' (`app` → APP_TOKEN_WORKFLOWS),
+          # non dall'OR delle due: il remote qui sotto e' riscritto su
+          # `x-access-token:${APP_TOKEN}`, quindi una capacita' letta su un PAT
+          # non descriverebbe questo push.
+          #
+          # NON cablare qui `probe-workflow-scope.mjs` lasciando `app`: quella
+          # sonda scrive `PAT_WORKFLOWS_SCOPE` per l'identita' di `PUSH_TOKEN`, e
+          # con l'OR il gate direbbe `true` mentre a pushare resta la App — il
+          # rifiuto arriverebbe al push, DOPO lo scaffolding di N crawler. Se un
+          # giorno il push passa al PAT, si cambiano INSIEME il token del remote
+          # e questo valore (`pat`), che e' il punto di averne uno solo.
+          WORKFLOWS_PUSH_IDENTITY: app
           GITHUB_REPOSITORY: ${{ github.repository }}
           PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}
           # Il cron non passa mai questo input, quindi resta 2: la leva e'

@@ -75,7 +75,7 @@ import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
 // effects.test.ts` ricalcola la chiusura transitiva di QUESTO file a ogni run e
 // importa ogni modulo sotto l'argv del prospector, cosi' il primo modulo nuovo
 // che sporca il load-time si ferma li' e non nel job.
-import { canPushWorkflows } from './ci/followup-drainer.mjs';
+import { canPushWorkflowsAs } from './ci/followup-drainer.mjs';
 
 const argv = process.argv.slice(2);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
@@ -390,14 +390,22 @@ try {
 // manifest) e resta solo da schedulare — una PR in meno di valore, non una PR
 // bloccata.
 //
-// `canPushWorkflows()` e non `process.env.APP_TOKEN_WORKFLOWS` diretto: quella
-// env descrive UNA sola identita' (la GitHub App), e leggerla da sola e' la
-// stessa forma di difetto corretta il 2026-09-04 nel pre-flight del drainer —
-// dove sul corpus, che pusha con un PAT classico con scope `workflow`, la
-// risposta era `false` per costruzione. Qui oggi il risultato non cambia (il
-// loop del prospector gira con la App e non scrive `PAT_WORKFLOWS_SCOPE`), ma
-// la capacita' si legge da entrambe le sorgenti in un posto solo.
-const canWriteWorkflows = canPushWorkflows();
+// La capacita' si legge PER L'IDENTITA' CHE PUSHA, non per una qualunque.
+//
+// Lo step che lancia questo script ha gia' fissato la credenziale: riscrive il
+// remote su `x-access-token:${APP_TOKEN}`, quindi il push e' della GitHub App e
+// la sola sorgente che lo descrive e' `APP_TOKEN_WORKFLOWS`. `canPushWorkflows()`
+// e' invece l'OR delle due sorgenti, e accetta anche `PAT_WORKFLOWS_SCOPE`: oggi
+// e' inerte (la sonda PAT non gira in quel job), ma basterebbe cablarla li' — con
+// un `PUSH_TOKEN` PAT mentre il push resta della App — perche' il gate dicesse
+// `true` per l'identita' sbagliata. Il fallimento arriverebbe solo al push, DOPO
+// lo scaffolding, e nel log somiglierebbe a un problema di generazione dei gruppi
+// invece che di credenziale: esattamente la trappola documentata sopra.
+//
+// L'identita' la dichiara il job in `WORKFLOWS_PUSH_IDENTITY`, accanto al token
+// che usa: una sola sorgente per identita', e le due non possono piu' divergere.
+// Fail-closed anche qui — variabile assente o ignota → niente rigenerazione.
+const canWriteWorkflows = canPushWorkflowsAs(process.env.WORKFLOWS_PUSH_IDENTITY);
 let groupsRegenerated = false;
 if (canWriteWorkflows) {
   try {
@@ -408,7 +416,8 @@ if (canWriteWorkflows) {
     console.log(`\n⚠️ rigenerazione gruppi fallita: ${String(err.stderr || err.message).slice(0, 200)}`);
   }
 } else {
-  console.log('\n⚠️ niente permesso `workflows` su questo token: i gruppi NON vengono rigenerati.');
+  const wfIdentity = process.env.WORKFLOWS_PUSH_IDENTITY || '(non dichiarata)';
+  console.log(`\n⚠️ niente permesso \`workflows\` per l'identita' di push \`${wfIdentity}\`: i gruppi NON vengono rigenerati.`);
   console.log('   I crawler entrano comunque; restano da schedulare.');
 }
 
