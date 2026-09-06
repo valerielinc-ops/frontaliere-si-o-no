@@ -139,6 +139,58 @@ export function dailyEngagementConsistency(days = []) {
 }
 
 /**
+ * Verdetto di finestra a partire da UNA richiesta GA4 aggregata per sola
+ * `date` (nessun prodotto con `pagePath`: ~un giorno per riga).
+ *
+ * Esiste perché ogni consumer che interroga GA4 per pagina ha lo stesso
+ * difetto di diluizione (#7511): il verdetto va emesso sulle giornate, non
+ * sull'aggregato della finestra, ma la richiesta per-giorno è identica ovunque
+ * — stessa finestra e stesso `dimensionFilter` del report che si sta
+ * giudicando, altrimenti si giudica traffico diverso da quello esposto.
+ *
+ * Su errore NON si fa fail-open: «verdetto non calcolato» è un verdetto
+ * negativo, non un'assenza (#7508). Un `reliable: true` di default lascerebbe
+ * passare come buono proprio il caso in cui la rilevazione è rotta.
+ *
+ * @param {object} input
+ * @param {(body: object) => Promise<{ok: boolean, status: number, json: () => Promise<any>}>} input.runReport
+ * @param {Array<{startDate: string, endDate: string}>} input.dateRanges
+ * @param {object} [input.dimensionFilter] lo STESSO del report giudicato
+ * @returns {Promise<{reliable: boolean, reason: string|null, unreliableDates: string[]}>}
+ */
+export async function fetchDailyEngagementVerdict({ runReport, dateRanges, dimensionFilter } = {}) {
+  const notComputed = (cause) => ({
+    reliable: false,
+    reason: `verdetto non calcolato: ${cause}`,
+    unreliableDates: [],
+  });
+  try {
+    const res = await runReport({
+      dateRanges,
+      dimensions: [{ name: 'date' }],
+      metrics: [
+        { name: 'sessions' },
+        { name: 'engagedSessions' },
+        { name: 'averageSessionDuration' },
+      ],
+      ...(dimensionFilter ? { dimensionFilter } : {}),
+    });
+    if (!res.ok) return notComputed(`HTTP ${res.status}`);
+    const data = await res.json();
+    return dailyEngagementConsistency(
+      (data.rows || []).map((r) => ({
+        date: r.dimensionValues?.[0]?.value || '?',
+        sessions: Number(r.metricValues?.[0]?.value || 0),
+        engagedSessions: Number(r.metricValues?.[1]?.value || 0),
+        averageSessionDuration: Number(r.metricValues?.[2]?.value || 0),
+      })),
+    );
+  } catch (err) {
+    return notComputed(err && err.message ? err.message : String(err));
+  }
+}
+
+/**
  * Etichetta breve a partire da un `reason` già calcolato.
  *
  * Serve perché il verdetto che i report propagano non nasce sempre
