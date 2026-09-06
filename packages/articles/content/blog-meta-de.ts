@@ -11444,6 +11444,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-06.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 6. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-06.seoDescription': 'Grenzgänger-Bulletin vom 6. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-06.ogDescription': 'Die Zahlen vom 6. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.title': 'Investition in Büste Arsizio: 28-Jähriger ins Krankenhaus gebracht',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.excerpt': 'An einem Verkehrsunfall in Busto Arsizio war ein 28-jähriger Junge beteiligt, der in gelbem Code ins Krankenhaus gebracht wurde.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.imageAlt': 'Krankenwagen und Polizei in Busto Arsizio',
 };
 
 export default blogMetaDe;
