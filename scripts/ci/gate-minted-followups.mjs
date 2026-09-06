@@ -210,6 +210,7 @@ function main() {
   // lasciare che il no-op sembri una conferma.
   if (open.length >= 200) console.log(`⚠️ lista al tetto (${open.length}): una issue coniata potrebbe non comparire — se un no-op sorprende, alzare il limite.`);
   const report = [];
+  const tally = [];
   for (const pr of prs) {
     try {
       const found = open.filter((i) => String(i.title || '').startsWith(`follow-up(#${pr})`));
@@ -222,6 +223,7 @@ function main() {
       for (const iss of issues) {
         const d = decideMintGate(iss);
         console.log(`#${iss.number} (PR #${pr}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
+        tally.push({ pr, issue: iss.number, action: d.action, demoted: d.demoted.length, kept: d.valid.length });
         if (d.action === 'skip' || d.action === 'keep') continue;
         const list = d.demoted.map((it) => `- «${itemHeadline(it)}»`).join('\n');
         // Il TESTO INTEGRALE, non il titolo. Nel ramo `demote` il corpo della issue viene
@@ -268,7 +270,16 @@ function main() {
       console.log(`PR #${pr}: gate saltato (${e?.message?.split('\n')[0]}) — issue lasciata intatta.`);
     }
   }
-  const summary = `Gate sul conio: ${report.length} issue toccate${DRY_RUN ? ' (dry-run)' : ''}.`;
+  // Il drop deve lasciare traccia CONTABILE. Un item scartato a torto che sopravvive solo
+  // in prosa dentro un commento non lo conta nessuno, e senza quel numero non si potrà mai
+  // mostrare che il filtro non è troppo aggressivo: «atteso zero» diventerebbe una misura
+  // su un lato solo. Riga a formato fisso, grep-abile sui log di tutte le run (stessa
+  // convenzione di `CLAUDE_USAGE` in claude-usage-summary.mjs).
+  for (const t of tally) {
+    console.log(`MINT_GATE_TALLY pr=${t.pr} issue=${t.issue} action=${t.action} demoted=${t.demoted} kept=${t.kept}`);
+  }
+  const demotedTotal = tally.reduce((a, t) => a + t.demoted, 0);
+  const summary = `Gate sul conio: ${report.length} issue toccate, ${demotedTotal} item demoti${DRY_RUN ? ' (dry-run)' : ''}.`;
   console.log(summary);
   if (process.env.GITHUB_STEP_SUMMARY) {
     fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${report.join('\n')}\n`);

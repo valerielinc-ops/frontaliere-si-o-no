@@ -183,6 +183,17 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(src).toMatch(/d\.action === 'demote' && posted === null/);
   });
 
+  it('PIN: ogni demozione lascia una traccia CONTABILE, non solo prosa in un commento', () => {
+    const src = readFileSync(GATE_SRC, 'utf-8');
+    // Senza un conteggio grep-abile, un item scartato a torto sparisce e nessuno può
+    // mostrare che il filtro non è troppo aggressivo: «atteso zero» diventerebbe una
+    // misura su un lato solo. Nessun caso comportamentale vede la sparizione di questa
+    // riga, perché non cambia nessuna decisione.
+    expect(src).toContain('MINT_GATE_TALLY');
+    expect(src).toMatch(/demoted=\$\{t\.demoted\}/);
+    expect(src).toMatch(/demotedTotal/);
+  });
+
   it('PIN: lo step gira nel workflow, zero-Claude, DOPO il conio e senza poterlo far cadere', () => {
     const wf = readFileSync(WORKFLOW, 'utf-8');
     // Direzione 2: lo step viene tolto o spostato prima del conio. Nessun test
