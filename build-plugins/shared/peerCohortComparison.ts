@@ -155,12 +155,27 @@ export interface PeerComparisonLabels {
   heading: string;
   /** Noun phrase for the metric ("le posizioni aperte"), localised, lowercase. */
   metricLabel: string;
-  /** Plural noun for the cohort members ("valichi", "cantoni"), localised. */
+  /**
+   * Plural noun for the cohort members ("valichi", "cantoni"), localised.
+   *
+   * In `de` it must be the DATIVE plural ("Kantonen", "Berufen", i.e. the -n
+   * form), because the German template consumes it inside the prepositional
+   * phrase "Von ${total} vergleichbaren ${peerNoun}", which governs the
+   * dative. The nominative reads as broken grammar on every page of the
+   * family, and it does so silently — this line is the contract, the two
+   * callers of the module diverged on it once (#7596).
+   */
   peerNoun: string;
 }
 
 /**
  * The page-specific sentences.
+ *
+ * The metric label always enters as an APPOSITION ("… ${metricLabel}: da X a
+ * Y"), never as the subject or the object of a verb. A family passes it a bare
+ * plural noun ("offerte attive") as readily as a singular one ("l'attesa"), and
+ * a template with a verb agreeing with one of the two produces broken grammar
+ * for the other — in four languages, silently, on a thousand pages.
  *
  * Three claims, all computed and all falsifiable from the cohort: where this
  * page sits, who is immediately on either side of it (named), and how wide the
@@ -173,8 +188,10 @@ export function buildPeerProse(params: {
   currentKey: string;
   labels: PeerComparisonLabels;
   formatValue: (value: number, locale: PeerLocale) => string;
+  /** Same window the table shows, so the prose names every row it displays. */
+  windowSize?: number;
 }): string[] {
-  const { locale, ranked, currentKey, labels, formatValue } = params;
+  const { locale, ranked, currentKey, labels, formatValue, windowSize = 2 } = params;
   const index = ranked.findIndex((row) => row.key === currentKey);
   if (index < 0 || ranked.length < 3) return [];
 
@@ -188,7 +205,7 @@ export function buildPeerProse(params: {
   const position: Record<PeerLocale, string> = {
     it: `Su ${total} ${peerNoun} confrontabili, questa pagina è ${ordinal} per ${metricLabel}, con ${fmt(current.value)}.`,
     en: `Of ${total} comparable ${peerNoun}, this page ranks ${current.rank} on ${metricLabel}, at ${fmt(current.value)}.`,
-    de: `Von ${total} vergleichbaren ${peerNoun} steht diese Seite bei ${metricLabel} auf Rang ${current.rank}, mit ${fmt(current.value)}.`,
+    de: `Von ${total} vergleichbaren ${peerNoun} steht diese Seite auf Rang ${current.rank} — ${metricLabel}: ${fmt(current.value)}.`,
     fr: `Sur ${total} ${peerNoun} comparables, cette page est ${ordinal} pour ${metricLabel}, avec ${fmt(current.value)}.`,
   };
   sentences.push(position[locale]);
@@ -226,24 +243,51 @@ export function buildPeerProse(params: {
     sentences.push(lead[locale]);
   }
 
+  // The outer ring of the window, named too.
+  //
+  // This is not decoration. The measure that gates this family counts a
+  // SEGMENT (a sentence of 25+ characters) as the page's own only when it does
+  // not repeat across half the cohort, and the only tokens that survive both
+  // masks are the names of OTHER pages. One neighbour sentence took the live
+  // profession × canton cohort from 2,9 % to 5,4 % — over the 5 % floor by
+  // four tenths of a point, with one page still at zero. A second sentence,
+  // naming the ring the table already shows, is what buys the margin: it costs
+  // no new boilerplate and it moves with the page, because a page two rows
+  // down has a different ring.
+  const ring: string[] = [];
+  for (let d = 2; d <= windowSize; d++) {
+    for (const row of [ranked[index - d], ranked[index + d]]) {
+      if (row) ring.push(`${row.name} (${fmt(row.value)})`);
+    }
+  }
+  if (ring.length > 0) {
+    const band: Record<PeerLocale, string> = {
+      it: `Nella stessa fascia ci sono anche ${joinNames(ring, locale)}.`,
+      en: `The same band also holds ${joinNames(ring, locale)}.`,
+      de: `Im selben Feld liegen ausserdem ${joinNames(ring, locale)}.`,
+      fr: `Dans la même tranche se trouvent aussi ${joinNames(ring, locale)}.`,
+    };
+    sentences.push(band[locale]);
+  }
+
   const first = ranked[0];
   const last = ranked[ranked.length - 1];
   if (first.value !== last.value) {
     const spread: Record<PeerLocale, string> = {
-      it: `Sull’intero gruppo ${metricLabel} va da ${fmt(first.value)} (${first.name}) a ${fmt(last.value)} (${last.name}).`,
-      en: `Across the whole group ${metricLabel} runs from ${fmt(first.value)} (${first.name}) to ${fmt(last.value)} (${last.name}).`,
-      de: `Über die ganze Gruppe reicht ${metricLabel} von ${fmt(first.value)} (${first.name}) bis ${fmt(last.value)} (${last.name}).`,
-      fr: `Sur l’ensemble du groupe, ${metricLabel} va de ${fmt(first.value)} (${first.name}) à ${fmt(last.value)} (${last.name}).`,
+      it: `Sull’intero gruppo ${metricLabel}: da ${fmt(first.value)} (${first.name}) a ${fmt(last.value)} (${last.name}).`,
+      en: `Across the whole group ${metricLabel}: from ${fmt(first.value)} (${first.name}) to ${fmt(last.value)} (${last.name}).`,
+      de: `Über die ganze Gruppe ${metricLabel}: von ${fmt(first.value)} (${first.name}) bis ${fmt(last.value)} (${last.name}).`,
+      fr: `Sur l’ensemble du groupe ${metricLabel} : de ${fmt(first.value)} (${first.name}) à ${fmt(last.value)} (${last.name}).`,
     };
     sentences.push(spread[locale]);
   } else {
     // A flat cohort is itself information: it says this figure is not the lever
     // to move on — the opposite of what a page showing the figure alone implies.
     const flat: Record<PeerLocale, string> = {
-      it: `Su questo gruppo ${metricLabel} è identica ovunque (${fmt(first.value)}): qui non è la voce che fa la differenza.`,
-      en: `Across this group ${metricLabel} is the same everywhere (${fmt(first.value)}): it is not the line that makes the difference here.`,
-      de: `In dieser Gruppe ist ${metricLabel} überall gleich (${fmt(first.value)}): Hier ist es nicht der entscheidende Posten.`,
-      fr: `Dans ce groupe, ${metricLabel} est identique partout (${fmt(first.value)}) : ce n’est pas ce poste qui fait la différence ici.`,
+      it: `Su questo gruppo ${metricLabel}: stesso valore ovunque (${fmt(first.value)}), qui non è la voce che fa la differenza.`,
+      en: `Across this group ${metricLabel}: the same everywhere (${fmt(first.value)}), so it is not the line that makes the difference here.`,
+      de: `In dieser Gruppe ${metricLabel}: überall gleich (${fmt(first.value)}) — hier ist es nicht der entscheidende Posten.`,
+      fr: `Dans ce groupe ${metricLabel} : identique partout (${fmt(first.value)}), ce n’est pas ce poste qui fait la différence ici.`,
     };
     sentences.push(flat[locale]);
   }
@@ -276,7 +320,7 @@ export function renderPeerComparison(params: {
   const ranked = rankPeerRows(rows, higherIsBetter);
   if (ranked.length < 3 || !ranked.some((row) => row.key === currentKey)) return '';
 
-  const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue });
+  const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue, windowSize });
   if (sentences.length === 0) return '';
   const prose = sentences.map((s) => `<p class="mt-2 text-sm text-body">${esc(s)}</p>`).join('\n        ');
 
