@@ -356,13 +356,38 @@ describe('jobSectorLanding — sector match regex', () => {
   });
 
   // Il veto NON puo' essere sull'intera stringa: `jobMatchesSectorCanonical`
-  // concatena title + category + tags, e una parola del lessico tecnico in un
-  // tag scarterebbe un architetto edile vero.
-  it('non scarta un architetto edile per un qualificatore lontano dal sostantivo (#7547)', () => {
+  // concatena title + category + tags con `' \n '`, e una parola del lessico
+  // tecnico in un altro campo scarterebbe un architetto edile vero.
+  //
+  // Il titolo e' SECCO di proposito: con `Architetto qualificato` la parola
+  // `qualificato` interpone un token non-lessicale fra il sostantivo e il
+  // joiner, e il test resta verde anche se il separatore del lookaround
+  // attraversa il confine di campo (era il buco di questo stesso test).
+  it('non scarta un architetto edile per un qualificatore in un altro campo (#7547)', () => {
+    expect(jobMatchesSector({ title: 'Architetto', tags: ['test'] }, 'architetti')).toBe(true);
+    expect(jobMatchesSector({ title: 'Architetto', category: 'Data entry' }, 'architetti')).toBe(true);
+    expect(jobMatchesSector({ title: 'Architekt/-in', tags: ['IT'] }, 'architetti')).toBe(true);
     expect(jobMatchesSector(
       { title: 'Architetto qualificato', category: 'Edilizia', tags: ['test', 'AutoCAD', 'data entry'] },
       'architetti',
     )).toBe(true);
+    // Intra-campo il veto deve continuare a scattare.
+    expect(jobMatchesSector({ title: 'Software Architect' }, 'architetti')).toBe(false);
+    expect(jobMatchesSector({ title: 'ICT-Architekt', category: 'Edilizia' }, 'architetti')).toBe(false);
+  });
+
+  // Stessa classe sul lookbehind gemello di `sicurezza`: il veto
+  // `Information/IT/Cloud/Network Security Officer` non deve scavalcare il
+  // joiner e scartare una guardia vera per un token in un campo adiacente.
+  it('non scarta una guardia vera per un qualificatore cyber in un altro campo (#7547)', () => {
+    expect(jobMatchesSector(
+      { title: 'Supporto IT', category: 'Security Guard' },
+      'sicurezza',
+    )).toBe(true);
+    expect(jobMatchesSector({ title: 'Security Officer' }, 'sicurezza')).toBe(true);
+    // Intra-campo il veto resta.
+    expect(jobMatchesSector({ title: 'IT Security Officer' }, 'sicurezza')).toBe(false);
+    expect(jobMatchesSector({ title: 'Information/Security Officer' }, 'sicurezza')).toBe(false);
   });
 
   it('rejects three-letter false positives that previously inflated the count', () => {
