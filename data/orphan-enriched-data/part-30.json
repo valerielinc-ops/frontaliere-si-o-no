@@ -909,10 +909,10 @@
         "fr": "addetto-a-alle-vendite-food-coop-genossenschaft-dietikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/addetto-a-alle-vendite-food-coop-genossenschaft-dietikon",
-        "en": "/en/find-jobs-aargau/addetto-a-alle-vendite-food-coop-genossenschaft-dietikon",
+        "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-dietikon",
+        "en": "/en/find-jobs-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-dietikon",
         "de": "/de/jobs-im-bern/addetto-a-alle-vendite-food-coop-genossenschaft-dietikon",
-        "fr": "/fr/trouver-emploi-argovie/addetto-a-alle-vendite-food-coop-genossenschaft-dietikon"
+        "fr": "/fr/trouver-emploi-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-dietikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -2314,6 +2314,98 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia/"
+      },
+      "queries": [
+        {
+          "query": "centro sanitario bregaglia",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "offerte di lavoro presso centro sanitario bregaglia",
+          "clicks": 1,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro bregaglia",
+          "clicks": 1,
+          "impressions": 2
+        },
+        {
+          "query": "centro sanitario bregaglia offerte di lavoro",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "ristrutturazione cucina ticino",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "bregaglia lavoro",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cerco governante",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cucina ticinese bellinzona centro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 23,
+      "totalClicks": 2,
+      "topQuery": "centro sanitario bregaglia",
+      "title": "Aiuto cucina al 50 centro sanitario bregaglia bregaglia",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia",
+        "en": "aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia",
+        "de": "aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia",
+        "fr": "aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia",
+        "en": "/en/find-jobs-graubunden/aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia",
+        "de": "/de/jobs-im-graubunden/aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia",
+        "fr": "/fr/trouver-emploi-grisons/aiuto-cucina-al-50-centro-sanitario-bregaglia-bregaglia"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -12203,9 +12295,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "boucles-d-oreille-pemsa-bellinzona",
-        "en": "boucles-d-oreille-pemsa-bellinzona",
-        "de": "boucles-d-oreille-pemsa-bellinzona",
+        "it": "macchinista-pemsa-bellinzona",
+        "en": "earrings-pemsa-bellinzona",
+        "de": "ohrringe-pemsa-bellinzona",
         "fr": "boucles-d-oreille-pemsa-bellinzona"
       },
       "localePaths": {
@@ -12214,12 +12306,13 @@
         "de": "/de/jobs-im-tessin/boucles-d-oreille-pemsa-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/boucles-d-oreille-pemsa-bellinzona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/macchinista-2692448",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -34537,6 +34630,63 @@
       ]
     },
     {
+      "slug": "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel/"
+      },
+      "queries": [
+        {
+          "query": "emploi cnp",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "emploi cnp",
+      "title": "Infermiera centre neuchatelois de psychiatrie cnp neuchatel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "en": "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "fr": "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "en": "/en/find-jobs-neuchatel/infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "/de/jobs-im-neuenburg/infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "fr": "/fr/trouver-emploi-neuchatel/infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "infermiera-certificata-a-postpartum-chirurgia-al-100-hirslanden-klinik-st-gallen",
       "locale": "it",
       "path": "/cerca-lavoro-san-gallo/infermiera-certificata-a-postpartum-chirurgia-al-100-hirslanden-klinik-st-gallen",
@@ -44524,10 +44674,10 @@
         "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen",
-        "en": "/en/find-jobs-zurich/medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen",
+        "it": "/cerca-lavoro-turgovia/medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen",
+        "en": "/en/find-jobs-thurgau/medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen",
         "de": "/de/jobs-im-st-gallen/medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen",
-        "fr": "/fr/trouver-emploi-zurich/medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen"
+        "fr": "/fr/trouver-emploi-thurgovie/medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-im-medizinischen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -45988,10 +46138,10 @@
         "fr": "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
-        "en": "/en/find-jobs-bern/montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
+        "it": "/cerca-lavoro-san-gallo/montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
+        "en": "/en/find-jobs-st-gallen/montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
         "de": "/de/jobs-im-bern/montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
-        "fr": "/fr/trouver-emploi-berne/montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg"
+        "fr": "/fr/trouver-emploi-saint-gall/montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -57971,10 +58121,10 @@
         "fr": "sales-associate-food-coop-genossenschaft-zurich-195e28"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-associate-food-coop-genossenschaft-zurich-195e28",
-        "en": "/en/find-jobs-ticino/sales-associate-food-coop-genossenschaft-zurich-195e28",
-        "de": "/de/jobs-im-tessin/sales-associate-food-coop-genossenschaft-zurich-195e28",
-        "fr": "/fr/trouver-emploi-tessin/sales-associate-food-coop-genossenschaft-zurich-195e28"
+        "it": "/cerca-lavoro-zurigo/sales-associate-food-coop-genossenschaft-zurich-195e28",
+        "en": "/en/find-jobs-zurich/sales-associate-food-coop-genossenschaft-zurich-195e28",
+        "de": "/de/jobs-in-zurich/sales-associate-food-coop-genossenschaft-zurich-195e28",
+        "fr": "/fr/trouver-emploi-zurich/sales-associate-food-coop-genossenschaft-zurich-195e28"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -58249,10 +58399,10 @@
         "fr": "sales-manager-sulzer-ch-4"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-manager-sulzer-ch-4",
-        "en": "/en/find-jobs-ticino/sales-manager-sulzer-ch-4",
-        "de": "/de/jobs-im-tessin/sales-manager-sulzer-ch-4",
-        "fr": "/fr/trouver-emploi-tessin/sales-manager-sulzer-ch-4"
+        "it": "/cerca-lavoro-zurigo/sales-manager-sulzer-ch-4",
+        "en": "/en/find-jobs-zurich/sales-manager-sulzer-ch-4",
+        "de": "/de/jobs-in-zurich/sales-manager-sulzer-ch-4",
+        "fr": "/fr/trouver-emploi-zurich/sales-manager-sulzer-ch-4"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60115,10 +60265,10 @@
         "fr": "seller-in-hourly-wage-denner-ag-cham-3hwpq1"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/seller-in-hourly-wage-denner-ag-cham-3hwpq1",
-        "en": "/en/find-jobs-basel/seller-in-hourly-wage-denner-ag-cham-3hwpq1",
-        "de": "/de/jobs-in-basel/seller-in-hourly-wage-denner-ag-cham-3hwpq1",
-        "fr": "/fr/trouver-emploi-bale/seller-in-hourly-wage-denner-ag-cham-3hwpq1"
+        "it": "/cerca-lavoro-zurigo/seller-in-hourly-wage-denner-ag-cham-3hwpq1",
+        "en": "/en/find-jobs-zurich/seller-in-hourly-wage-denner-ag-cham-3hwpq1",
+        "de": "/de/jobs-in-zurich/seller-in-hourly-wage-denner-ag-cham-3hwpq1",
+        "fr": "/fr/trouver-emploi-zurich/seller-in-hourly-wage-denner-ag-cham-3hwpq1"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73092,10 +73242,10 @@
         "fr": "vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf",
-        "en": "/en/find-jobs-zurich/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf",
-        "de": "/de/jobs-in-zurich/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf"
+        "it": "/cerca-lavoro-lucerna/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf",
+        "en": "/en/find-jobs-lucerne/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf",
+        "de": "/de/jobs-in-luzern/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf",
+        "fr": "/fr/trouver-emploi-lucerne/vendeur-en-non-alimentaire-coop-genossenschaft-regensdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73537,10 +73687,10 @@
         "fr": "vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3",
-        "en": "/en/find-jobs-ticino/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3",
-        "de": "/de/jobs-im-tessin/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3"
+        "it": "/cerca-lavoro-zurigo/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3",
+        "en": "/en/find-jobs-zurich/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3",
+        "de": "/de/jobs-in-zurich/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-euse-food-coop-genossenschaft-zurich-sv7yc3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75796,10 +75946,10 @@
         "fr": "venditore-nel-salario-orario-denner-ag-breitenbach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/venditore-nel-salario-orario-denner-ag-breitenbach",
-        "en": "/en/find-jobs-basel/venditore-nel-salario-orario-denner-ag-breitenbach",
+        "it": "/cerca-lavoro-berna/venditore-nel-salario-orario-denner-ag-breitenbach",
+        "en": "/en/find-jobs-bern/venditore-nel-salario-orario-denner-ag-breitenbach",
         "de": "/de/jobs-im-solothurn/venditore-nel-salario-orario-denner-ag-breitenbach",
-        "fr": "/fr/trouver-emploi-bale/venditore-nel-salario-orario-denner-ag-breitenbach"
+        "fr": "/fr/trouver-emploi-berne/venditore-nel-salario-orario-denner-ag-breitenbach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76653,10 +76803,10 @@
         "fr": "verkaufer-in-denner-sulgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/verkaufer-in-denner-sulgen",
-        "en": "/en/find-jobs-st-gallen/verkaufer-in-denner-sulgen",
-        "de": "/de/jobs-in-st-gallen/verkaufer-in-denner-sulgen",
-        "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-denner-sulgen"
+        "it": "/cerca-lavoro-turgovia/verkaufer-in-denner-sulgen",
+        "en": "/en/find-jobs-thurgau/verkaufer-in-denner-sulgen",
+        "de": "/de/jobs-im-thurgau/verkaufer-in-denner-sulgen",
+        "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-denner-sulgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76708,10 +76858,10 @@
         "fr": "verkaufer-in-denner-zug"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/verkaufer-in-denner-zug",
-        "en": "/en/find-jobs-st-gallen/verkaufer-in-denner-zug",
+        "it": "/cerca-lavoro-zugo/verkaufer-in-denner-zug",
+        "en": "/en/find-jobs-zug/verkaufer-in-denner-zug",
         "de": "/de/jobs-im-bern/verkaufer-in-denner-zug",
-        "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-denner-zug"
+        "fr": "/fr/trouver-emploi-zoug/verkaufer-in-denner-zug"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77555,6 +77705,63 @@
         "en": "/en/find-jobs-ticino/verkaufer-in-kassen-services-coop-genossenschaft-pfaffikon-7t4s8s",
         "de": "/de/jobs-im-tessin/verkaufer-in-kassen-services-coop-genossenschaft-pfaffikon-7t4s8s",
         "fr": "/fr/trouver-emploi-tessin/verkaufer-in-kassen-services-coop-genossenschaft-pfaffikon-7t4s8s"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "verkaufer-in-kassen-services-coop-genossenschaft-unterageri",
+      "locale": "en",
+      "path": "/en/find-jobs-zug/verkaufer-in-kassen-services-coop-genossenschaft-unterageri/",
+      "observedPaths": {
+        "en": "/en/find-jobs-zug/verkaufer-in-kassen-services-coop-genossenschaft-unterageri/"
+      },
+      "queries": [
+        {
+          "query": "coop unterageri",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop unterageri",
+      "title": "Verkaufer in kassen services coop genossenschaft unterageri",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "verkaufer-in-kassen-services-coop-genossenschaft-unterageri",
+        "en": "verkaufer-in-kassen-services-coop-genossenschaft-unterageri",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-unterageri",
+        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-unterageri"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zugo/verkaufer-in-kassen-services-coop-genossenschaft-unterageri",
+        "en": "/en/find-jobs-zug/verkaufer-in-kassen-services-coop-genossenschaft-unterageri",
+        "de": "/de/jobs-im-zug/verkaufer-in-kassen-services-coop-genossenschaft-unterageri",
+        "fr": "/fr/trouver-emploi-zoug/verkaufer-in-kassen-services-coop-genossenschaft-unterageri"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
