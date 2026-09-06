@@ -23,6 +23,7 @@ import { describe, it, expect } from 'vitest';
 import {
   fingerprintPage,
   scoreCohorts,
+  MIN_COHORT_PAGES,
   maskSegment,
   entityTokensFrom,
   commonPathPrefix,
@@ -133,7 +134,7 @@ describe('information-gain: coorti e soglie', () => {
     const three = ['alfa', 'beta', 'gamma'].map((slug) =>
       fingerprintPage(`fam/${slug}/index.html`, mailMergePage(slug[0].toUpperCase() + slug.slice(1), '0,5%')),
     );
-    const { cohorts } = scoreCohorts(three, { minCohortPages: 12 });
+    const { cohorts } = scoreCohorts(three, { minCohortPages: MIN_COHORT_PAGES });
     expect(cohorts).toHaveLength(1);
     expect(cohorts[0].gated).toBe(false);
   });
