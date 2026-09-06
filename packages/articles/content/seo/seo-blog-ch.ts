@@ -74120,6 +74120,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deposito-cauzione-argovia': {
+    title: 'Affitti Argovia: canoni e diritto di locazione',
+    description: 'Guida completa al diritto di locazione in Argovia: deposito max 3 mesi, disdetta e procedure di contestazione secondo il Codice delle obbligazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, argovia, canoni, diritto',
+    ogTitle: 'Affitti Argovia: canoni e diritto di locazione',
+    ogDescription: 'Scopri come funziona il diritto di locazione in Argovia: regole sul deposito cauzionale, procedure di contestazione e disdetta secondo il Codice delle obbligazioni federale. Guida pratica per inquilini e locatori.',
+    canonicalPath: '/articoli-svizzera/deposito-cauzione-argovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Argovia: canoni e diritto di locazione",
+      "description": "Guida completa al diritto di locazione in Argovia: deposito max 3 mesi, disdetta e procedure di contestazione secondo il Codice delle obbligazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deposito-cauzione-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero con annuncio di affitto, architettura moderna, luce naturale pomeridiana."
+      },
+      "datePublished": "2026-09-06T10:35:27+00:00",
+      "dateModified": "2026-09-06T10:35:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/deposito-cauzione-argovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5710,6 +5710,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-argovia-procedura.title': 'Acheter une maison en Argovie : prix et hypothèque',
     'blog.article.comprare-casa-argovia-procedura.excerpt': 'Guide d\'achat immobilier dans le canton d\'Argovie : prix, fonds propres, hypothèque, taxe de passage et frais de notaire. Procédure étape par étape.',
     'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Quartier résidentiel suisse avec maisons modernes et jardins verts, communauté d\'habitation type suisse',
+    'blog.article.deposito-cauzione-argovia.title': 'Location Argovie : loyers et droit de location',
+    'blog.article.deposito-cauzione-argovia.excerpt': 'Dépôt max 3 mois loyer et contestation en 30 jours : guide du droit fédéral de la location, valable en Argovie et dans toute la Suisse.',
+    'blog.article.deposito-cauzione-argovia.imageAlt': 'Immeuble résidentiel suisse avec annonce de location, architecture moderne, éclairage naturel.',
 };
 
 export default blogMetaChFr;
