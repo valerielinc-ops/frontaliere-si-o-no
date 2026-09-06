@@ -42,7 +42,7 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { classifyIssue } from '../lib/classify-issue.mjs';
+import { classifyIssue, isFixerExempt } from '../lib/classify-issue.mjs';
 import {
   CODE_PATH_RE,
   detectWorkflowScoped,
@@ -2700,8 +2700,13 @@ export function runDrain() {
   // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
   // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
   // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
+  // `!isQueueManaged` è il complemento di `stuckFix`, e da quando un pin
+  // `keep-open`/`agent:no-age-out` porta `route='none'` quel complemento non è
+  // più «i crawler» ma «i crawler PIÙ i pinnati»: senza questa esclusione il
+  // rescue crawler ri-armerebbe proprio le issue che il pin toglie dal ciclo,
+  // per la sola ragione che non sono queue-managed (#7648).
   const crawlerFix = rescueSafe ? allFix.filter(
-    (i) => !isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !has(i, 'needs-human')
+    (i) => !isQueueManaged(i) && !isFixerExempt(names(i)) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !has(i, 'needs-human')
       && !isDecomposedParent(i)
   ) : [];
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
@@ -3070,6 +3075,25 @@ export function runDrain() {
     // comment+edit di park. Senza tempo per la coppia si esce: la coda resta
     // intatta e il tick successivo riparte dallo stesso primo candidato.
     if (!budget.take(`#${cand.number} (drain)`, ITEM_COST_MS)) break;
+
+    // Check: pin fuori dal ciclo (`FIXER_EXEMPT_LABELS`, #7648) — label-only,
+    // nessuna chiamata gh extra. `classifyIssue` non le instrada PIÙ, ma quelle
+    // già in coda quando il pin è stato messo (o messo dopo l'accodamento) ci
+    // resterebbero per sempre: la coda si legge per label, non si ri-classifica.
+    // Le disaccodo invece di parcheggiarle — `fu-parked` significa «lavoro
+    // sospeso», e un tracker su causa esterna non è lavoro sospeso: è una
+    // condizione da osservare. Senza `agent:fix-queued` esce da qui e da ogni
+    // stadio del drainer, e resta aperta come il pin chiede.
+    if (isFixerExempt(names(cand))) {
+      const pins = names(cand).filter((n) => isFixerExempt([n])).join(', ');
+      console.log(`DISACCODO #${cand.number} (pin ${pins}) → tracker su causa esterna, nessun run del fixer`);
+      const note = `📌 **Pre-flight drainer (zero-Claude, #7648)**: questa issue porta \`${pins}\` — un pin che la dichiara tracker su una causa esterna al repository. Nessun turn-budget la chiude, perché l'input che manca non è codice; promuoverla spende un run Max per ri-scoprire ogni volta la stessa attesa, e rischia di chiudere ciò che il pin vuole tenere aperto.\n\n**Non promuovo e non parcheggio**: \`fu-parked\` vorrebbe dire «lavoro sospeso», e questo non lo è. Rimuovo solo le label di routing; la issue resta aperta e visibile. Togli il pin quando la causa esterna si sblocca e il triage la ri-accoda normalmente.\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+      if (DRY) { console.log(`[dry] disaccodo #${cand.number} (pin ${pins})`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
 
     // Check: compress-contract-docs ratchet (escalation #5523) — title-only, gira
     // PRIMA del fetch del body (nessuna chiamata gh extra). Mai chiusa dal fixer
