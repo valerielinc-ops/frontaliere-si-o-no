@@ -904,6 +904,12 @@ async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource 
         allowedHosts: ['jobs.fust.ch'],
         concurrency: 4,
         onGone: (urls) => goneUrls.push(...urls),
+        // A detail payload the enricher rejects one vacancy at a time leaves
+        // the authoritative set by the same door as a withdrawn one: the
+        // completeness check below cannot tell "dropped upstream" from "we
+        // failed to parse it", and the source-detail invariant in the mapper
+        // would throw on the very record the enricher just declined.
+        onRejected: (urls) => goneUrls.push(...urls),
       })
     : scratchJobs;
   const reconciled = reconcileFustJobsWithDiscovery(sourceBackedJobs, discovery, priorJobs, { goneUrls });
