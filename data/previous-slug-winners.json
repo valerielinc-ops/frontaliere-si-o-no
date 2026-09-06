@@ -413,6 +413,15 @@
     "candidatesCount": 1,
     "canton": "AG"
   },
+  "AG::de::verkaufer-in-im-aussendienst-localsearch-ch": {
+    "winnerJobIdentifier": "localsearch-46e35452a202",
+    "winnerCanonical": "verkaufer-in-im-aussendienst-localsearch-unterentfelden",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::de::verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-muri-ag-sgqcjf": {
     "winnerJobIdentifier": "company-900c1a",
     "winnerCanonical": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-muri-ag-900c1a",
@@ -3869,6 +3878,15 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::it::verkaufer-in-im-aussendienst-localsearch-ch": {
+    "winnerJobIdentifier": "localsearch-46e35452a202",
+    "winnerCanonical": "venditore-nel-settore-localsearch-unterentfelden",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::verkaufer-in-im-stundenlohn-denner": {
     "winnerJobIdentifier": "denner-8596044159c0",
     "winnerCanonical": "verkaufer-in-im-stundenlohn-denner-lenzburg",
@@ -4305,7 +4323,7 @@
     "winnerJobIdentifier": "company-3w4xj9",
     "winnerCanonical": "kundenberaterin-vermogende-privatkunden-basel-m-w-d-80-100-bank-cler-8440-mwst-che-3w4xj9-ywgi1y",
     "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-09-05T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -10512,38 +10530,38 @@
     "canton": "BE"
   },
   "BE::de::verkaufer-in-food-coop-bern-3": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "verkaufer-in-food-coop-bern-ati0lu",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2d3q8k",
+    "winnerCanonical": "verkaufer-in-food-sapori-coop-bern-2d3q8k",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::verkaufer-in-food-coop-bern-6lcjmi": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "verkaufer-in-food-coop-bern-ati0lu",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2d3q8k",
+    "winnerCanonical": "verkaufer-in-food-sapori-coop-bern-2d3q8k",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::verkaufer-in-food-coop-bern-aj6585": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "verkaufer-in-food-coop-bern-ati0lu",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2d3q8k",
+    "winnerCanonical": "verkaufer-in-food-sapori-coop-bern-2d3q8k",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::verkaufer-in-food-coop-bern-xfn54z": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "verkaufer-in-food-coop-bern-ati0lu",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2d3q8k",
+    "winnerCanonical": "verkaufer-in-food-sapori-coop-bern-2d3q8k",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -10944,11 +10962,11 @@
     "canton": "BE"
   },
   "BE::en::food-sales-assistant-coop-genossenschaft-saanen-bern-fpab4a": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "food-sales-associate-coop-genossenschaft-bern-632964",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "company-nf52q4",
+    "winnerCanonical": "food-sales-assistant-kiosk-coop-genossenschaft-bern",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -11520,20 +11538,20 @@
     "canton": "BE"
   },
   "BE::en::seller-in-food-coop-genossenschaft-bern-ace4ef": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "food-sales-associate-coop-genossenschaft-bern-632964",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "company-k3j38u",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-lengnau-a52433",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::seller-in-food-coop-genossenschaft-bern-e21b21": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "food-sales-associate-coop-genossenschaft-bern-632964",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "company-k3j38u",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-lengnau-a52433",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -13086,20 +13104,20 @@
     "canton": "BE"
   },
   "BE::fr::vendeur-dans-la-nourriture-coop-genossenschaft-bern-ace4ef": {
-    "winnerJobIdentifier": "company-78eft9",
-    "winnerCanonical": "vendeur-dans-la-nourriture-pain-produits-de-boulangerie-coop-genossenschaft-bern",
+    "winnerJobIdentifier": "company-k3j38u",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-lengnau-a52433",
     "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::vendeur-dans-la-nourriture-coop-genossenschaft-bern-e21b21": {
-    "winnerJobIdentifier": "company-78eft9",
-    "winnerCanonical": "vendeur-dans-la-nourriture-pain-produits-de-boulangerie-coop-genossenschaft-bern",
+    "winnerJobIdentifier": "company-k3j38u",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-lengnau-a52433",
     "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -15588,21 +15606,21 @@
     "canton": "BE"
   },
   "BE::it::lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-16": {
-    "winnerJobIdentifier": "bkw-80cabd4f4fb6",
-    "winnerCanonical": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-lengnau",
-    "decidedAt": "2026-08-07T00:00:00.000Z",
+    "winnerJobIdentifier": "bkw-c00624e705e6",
+    "winnerCanonical": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-ostermundigen",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.2,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17": {
-    "winnerJobIdentifier": "bkw-80cabd4f4fb6",
-    "winnerCanonical": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-lengnau",
-    "decidedAt": "2026-08-07T00:00:00.000Z",
+    "winnerJobIdentifier": "bkw-c00624e705e6",
+    "winnerCanonical": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-ostermundigen",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.2,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18": {
@@ -25982,6 +26000,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::it::arbeitsagoge-60-100-m-w-d-lups-st-urban": {
+    "winnerJobIdentifier": "lups-8252347e4944",
+    "winnerCanonical": "dipendente-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::assistant-physician-in-neurosurgery-orthopedics-schweizer-paraplegiker-zentrum-spz-nottwil": {
     "winnerJobIdentifier": "paraplegie-5f02343bc179",
     "winnerCanonical": "assistenzarzt-arztin-neurochirurgie-orthopadie-paraplegie-nottwil",
@@ -26262,12 +26289,12 @@
     "canton": "LU"
   },
   "LU::it::dipendente-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban": {
-    "winnerJobIdentifier": "lups-8252347e4944",
-    "winnerCanonical": "arbeitsagoge-60-100-m-w-d-lups-st-urban",
+    "winnerJobIdentifier": "lups-8357eea1ec87",
+    "winnerCanonical": "professionista-m-f-d-80-100-luzerner-psychiatrie-lups-luzern",
     "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.5385,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::dipl-infermieristica-specialista-hf-fh-medicina-interventistica-schweizer-paraplegiker-gruppe-nottwil": {
@@ -26387,12 +26414,30 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::it::employe-60-100-h-f-d-luzerner-psychiatrie-lups-st-urban": {
+    "winnerJobIdentifier": "lups-8252347e4944",
+    "winnerCanonical": "dipendente-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.6923,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::employe-en-restauration-80-100-viva-luzern-luzern": {
     "winnerJobIdentifier": "viva-luzern-5fdf2e703779",
     "winnerCanonical": "collaboratore-trice-restauration-80-100-viva-luzern",
     "decidedAt": "2026-08-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::employee-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban": {
+    "winnerJobIdentifier": "lups-8252347e4944",
+    "winnerCanonical": "dipendente-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.8333,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -40851,12 +40896,12 @@
     "canton": "TG"
   },
   "TG::en::lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-d1af47d67502",
-    "winnerCanonical": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-romanshorn",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-4fe850092126",
+    "winnerCanonical": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-sirnach",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.1667,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::lernender-detailhandel-m-w-d-aldi-suisse": {
@@ -41436,12 +41481,12 @@
     "canton": "TG"
   },
   "TG::fr::lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-d1af47d67502",
-    "winnerCanonical": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-dc870c",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-4fe850092126",
+    "winnerCanonical": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-a00092",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.0769,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::lernender-detailhandel-m-w-d-aldi-suisse": {
@@ -49950,12 +49995,12 @@
     "canton": "ZH"
   },
   "ZH::de::elektroinstallateur-in-fur-montage-und-fehlersuche-in-der-produktion-bremgarten-aargau": {
-    "winnerJobIdentifier": "fachkraft-0738dbb3362c",
-    "winnerCanonical": "elektroinstallateur-in-fur-montage-und-fehlersuche-in-der-produktion-fachkraft-ch-gmbh-bremgarten",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-3c88e32e2a4f",
+    "winnerCanonical": "elektroinstallateur-in-fur-montage-und-instandhaltung-fachkraft-ch",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.6923,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::ergoterapia-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -50121,12 +50166,12 @@
     "canton": "ZH"
   },
   "ZH::de::heizungsinstallateur-in-als-servicemonteur-bremgarten-aargau-fachkraft-ch": {
-    "winnerJobIdentifier": "fachkraft-733ff2323f21",
-    "winnerCanonical": "heizungsinstallateur-in-als-servicemonteur-fachkraft-ch-gmbh-bremgarten",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-36744974d5d9",
+    "winnerCanonical": "elektroinstallateur-in-als-servicemonteur-in-zurich-zurich-fachkraft-ch",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.7778,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::housing-advisor-coop-genossenschaft-winterthur": {
@@ -53903,6 +53948,24 @@
   "ZH::en::mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-46": {
     "winnerJobIdentifier": "rituals-cosmetics-c57ccd4e92e3",
     "winnerCanonical": "employees-moving-goods-m-f-d-rituals-cosmetics-switzerland-winterthur",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-49": {
+    "winnerJobIdentifier": "rituals-cosmetics-b38b799ac49f",
+    "winnerCanonical": "employees-moving-goods-m-f-d-rituals-cosmetics-switzerland-zurich",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-53": {
+    "winnerJobIdentifier": "rituals-cosmetics-b38b799ac49f",
+    "winnerCanonical": "employees-moving-goods-m-f-d-rituals-cosmetics-switzerland-zurich",
     "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.2667,
@@ -59517,12 +59580,12 @@
     "canton": "ZH"
   },
   "ZH::it::anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fur-rohrleitungsbau-bremgarten-aargau": {
-    "winnerJobIdentifier": "fachkraft-1081496c5d9f",
-    "winnerCanonical": "anlagen-e-apparatebauer-in-con-schweisskenntnissen-per-rohrleitungsbau-fachkraft-ch-gmbh-lugano",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-2aad864e2dc4",
+    "winnerCanonical": "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-lugano",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.2941,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::application-engineer-iii-swiss-re-ch": {
@@ -62406,30 +62469,30 @@
     "canton": "ZH"
   },
   "ZH::it::elektroinstallateur-in-fur-montage-und-fehlersuche-in-der-produktion-bremgarten-aargau": {
-    "winnerJobIdentifier": "fachkraft-0738dbb3362c",
-    "winnerCanonical": "elektroinstallateur-in-fur-montage-und-fehlersuche-in-der-produktion-fachkraft-ch",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-3c88e32e2a4f",
+    "winnerCanonical": "installatore-trice-elettrico-a-in-per-montage-e-instandhaltung-fachkraft-ch-gmbh-lugano",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.0952,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::elektroinstallateur-in-mit-eigenverantwortlicher-projektabwicklung-bremgarten-aargau": {
-    "winnerJobIdentifier": "fachkraft-3d1e2ccb3973",
-    "winnerCanonical": "installatore-trice-elettrico-a-in-con-eigenverantwortlicher-projektabwicklung-fachkraft-ch-gmbh-lugano",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-0380137c734e",
+    "winnerCanonical": "installatore-trice-elettrico-a-in-con-eigenverantwortlicher-arbeitsweise-fachkraft-ch-gmbh-lugano",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 2,
+    "score": 0.1176,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::elektroinstallateur-in-mit-erfahrung-im-industriellen-anlagenbau-bremgarten-aargau": {
-    "winnerJobIdentifier": "fachkraft-65fd05601602",
-    "winnerCanonical": "installatore-trice-elettrico-a-in-con-erfahrung-im-industriellen-anlagenbau-fachkraft-ch-gmbh-lugano",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-62da1c32fae3",
+    "winnerCanonical": "installatore-trice-elettrico-a-in-con-erfahrung-in-industriellen-anlagen-fachkraft-ch-gmbh-lugano",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.2778,
-    "candidatesCount": 2,
+    "score": 0.1579,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::elektroinstallateur-in-servicetechniker-in-fachkraft-ch": {
@@ -63279,12 +63342,12 @@
     "canton": "ZH"
   },
   "ZH::it::heizungsinstallateur-in-als-servicemonteur-bremgarten-aargau-fachkraft-ch": {
-    "winnerJobIdentifier": "fachkraft-733ff2323f21",
-    "winnerCanonical": "heizungsinstallateur-in-als-servicemonteur-fachkraft-ch",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-36744974d5d9",
+    "winnerCanonical": "elektroinstallateur-in-als-servicemonteur-in-fachkraft-ch",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.5556,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich": {
