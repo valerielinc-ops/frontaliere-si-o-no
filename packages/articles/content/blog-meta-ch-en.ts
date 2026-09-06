@@ -5665,6 +5665,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nuova-impresa-soletta-tassazione-costi.title': 'Opening a business in Solothurn: registration and costs',
     'blog.article.nuova-impresa-soletta-tassazione-costi.excerpt': 'Practical guide to opening a business in the canton of Solothurn: legal forms, business registration, federal/cantonal taxation and insurance obligations.',
     'blog.article.nuova-impresa-soletta-tassazione-costi.imageAlt': 'Swiss commercial registration office with official documents and wooden desk.',
+    'blog.article.grigioni-immobili-guida-mutuo.title': 'Buying a house in Graubünden: prices, equity and mortgages',
+    'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Guide to buying real estate in the Canton of Graubünden: procedure, costs, transfer tax, notary fees and how to access a sustainable mortgage loan',
+    'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Modern house on a mountainside in the Swiss Alps with snowy peaks in the background',
 };
 
 export default blogMetaChEn;

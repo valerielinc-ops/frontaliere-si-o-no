@@ -5665,6 +5665,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nuova-impresa-soletta-tassazione-costi.title': 'Aprire un\'attività a Soletta: registrazione e costi',
     'blog.article.nuova-impresa-soletta-tassazione-costi.excerpt': 'Guida pratica all\'apertura di un\'attività nel canton Soletta: forme giuridiche, registrazione commerciale, tassazione federale/cantonale e obblighi assicurativi.',
     'blog.article.nuova-impresa-soletta-tassazione-costi.imageAlt': 'Ufficio di registrazione commerciale del cantone svizzero, con documenti ufficiali e scrivania in legno.',
+    'blog.article.grigioni-immobili-guida-mutuo.title': 'Comprare casa a Grigioni: prezzi, fondi propri e mutui',
+    'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Guida all\'acquisto di immobili nel Canton Grigioni: procedura, costi, imposta sui trapassi, spese notarili e come accedere a un mutuo ipotecario sostenibile',
+    'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Casa moderna su un pendio montagnoso nelle Alpi svizzere con vista su vette innevate',
 };
 
 export default blogMetaChIt;

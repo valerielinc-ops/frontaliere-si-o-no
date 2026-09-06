@@ -5665,6 +5665,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nuova-impresa-soletta-tassazione-costi.title': 'Ouvrir une entreprise à Soleure : inscription et coûts',
     'blog.article.nuova-impresa-soletta-tassazione-costi.excerpt': 'Guide pratique pour l\'ouverture d\'une entreprise dans le canton de Soleure : formes juridiques, enregistrement commercial, fiscalité fédérale/cantonale et obligations d\'assurance.',
     'blog.article.nuova-impresa-soletta-tassazione-costi.imageAlt': 'Bureau d\'enregistrement commercial suisse avec documents officiels et bureau en bois.',
+    'blog.article.grigioni-immobili-guida-mutuo.title': 'Acheter une maison à Grisons : prix, fonds propres et prêts',
+    'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Guide d\'achat immobilier dans le canton des Grisons : procédure, coûts, taxe de passage, frais de notaire et accès à un prêt hypothécaire durable',
+    'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Maison moderne sur un versant montagneux des Alpes suisses avec des pics enneiges',
 };
 
 export default blogMetaChFr;
