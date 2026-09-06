@@ -76,8 +76,12 @@ import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
 // importa ogni modulo sotto l'argv del prospector, cosi' il primo modulo nuovo
 // che sporca il load-time si ferma li' e non nel job.
 import { canPushWorkflowsAs } from './ci/followup-drainer.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
+assertKnownFlags(argv, ['max', 'min-days', 'dry-run', 'open-pr']);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 

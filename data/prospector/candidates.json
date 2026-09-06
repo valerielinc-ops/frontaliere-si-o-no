@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-05T08:46:12.671Z",
+  "updatedAt": "2026-09-06T05:42:06.638Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1797,12 +1797,12 @@
     },
     "vebego@castione": {
       "key": "vebego@castione",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.373Z",
-      "updatedAt": "2026-09-05T07:53:22.362Z",
+      "updatedAt": "2026-09-06T05:42:06.597Z",
       "name": "Vebego AG, succursale Ticino",
       "city": "Castione",
       "zip": "6532",
@@ -1838,7 +1838,7 @@
       "mode": "template",
       "sourceLang": "it",
       "qualityScore": 1,
-      "qualityVerdict": "good",
+      "qualityVerdict": "rejected",
       "qualityProblems": [],
       "validationHistory": [
         {
@@ -1852,7 +1852,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "reason": "UI agganciata: la lista raccoglie pagine di navigazione (great-place-to-work, il-mondo-del-lavoro) e non annunci",
+      "rejectedAt": "2026-09-06T05:42:06.597Z"
     },
     "multiservice24@brissago": {
       "key": "multiservice24@brissago",
@@ -5470,12 +5472,12 @@
     },
     "baloise.ch": {
       "key": "baloise.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.223Z",
-      "updatedAt": "2026-09-05T08:43:21.846Z",
+      "updatedAt": "2026-09-06T05:42:06.535Z",
       "name": "Basilese",
       "domain": "baloise.ch",
       "city": "Mendrisio",
@@ -5505,7 +5507,7 @@
       "mode": "template",
       "sourceLang": "it",
       "qualityScore": 0.699,
-      "qualityVerdict": "weak",
+      "qualityVerdict": "rejected",
       "qualityProblems": [
         "pagine di dettaglio senza testo: probabile render lato client"
       ],
@@ -5616,7 +5618,9 @@
           "logoFound": true
         }
       ],
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "reason": "identita' del datore sbagliata: la spec estrae da helvetia.com (Basilese), non da Baloise",
+      "rejectedAt": "2026-09-06T05:42:06.535Z"
     },
     "centrolaserticino.ch": {
       "key": "centrolaserticino.ch",
@@ -138347,12 +138351,12 @@
     },
     "recruitingapp-2862@umantis.com": {
       "key": "recruitingapp-2862@umantis.com",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T18:43:50.539Z",
+      "updatedAt": "2026-09-06T05:42:06.633Z",
       "name": "Mammut eRecruiting Stellenmarkt",
       "tenantHost": "recruitingapp-2862.umantis.com",
       "platform": "umantis.com",
@@ -138367,7 +138371,7 @@
       "mode": "template",
       "sourceLang": "de",
       "qualityScore": 1,
-      "qualityVerdict": "good",
+      "qualityVerdict": "rejected",
       "qualityProblems": [],
       "validationHistory": [
         {
@@ -138392,7 +138396,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "reason": "datore estero: il tenant Mammut pubblica posti fuori dalla Svizzera (es. Outlet Metzingen), nessuna localita' source-backed",
+      "rejectedAt": "2026-09-06T05:42:06.633Z"
     },
     "recruitingapp-2896@umantis.com": {
       "key": "recruitingapp-2896@umantis.com",
@@ -138832,12 +138838,12 @@
     },
     "recruitingapp-2783@umantis.com": {
       "key": "recruitingapp-2783@umantis.com",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-09-05T08:45:45.268Z",
+      "updatedAt": "2026-09-06T05:42:06.623Z",
       "name": "kloeckner applicant management Stellen",
       "tenantHost": "recruitingapp-2783.umantis.com",
       "platform": "umantis.com",
@@ -138852,7 +138858,7 @@
       "mode": "template",
       "sourceLang": "de",
       "qualityScore": 0.803,
-      "qualityVerdict": "good",
+      "qualityVerdict": "rejected",
       "qualityProblems": [
         "pagine di dettaglio senza testo: probabile render lato client"
       ],
@@ -138908,7 +138914,9 @@
           "logoFound": true
         }
       ],
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "reason": "datore estero: tenant recruitingapp-2783.de.umantis.com (Kloeckner), annunci fuori dalla Svizzera",
+      "rejectedAt": "2026-09-06T05:42:06.623Z"
     },
     "recruitingapp-2788@umantis.com": {
       "key": "recruitingapp-2788@umantis.com",
@@ -141975,12 +141983,12 @@
     },
     "parkhoteldelta.ch": {
       "key": "parkhoteldelta.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.609Z",
-      "updatedAt": "2026-09-05T08:45:10.377Z",
+      "updatedAt": "2026-09-06T05:42:06.566Z",
       "name": "Parkhotel Delta",
       "domain": "parkhoteldelta.ch",
       "city": "",
@@ -142006,7 +142014,7 @@
       "mode": "template",
       "sourceLang": "de",
       "qualityScore": 0,
-      "qualityVerdict": "insufficient",
+      "qualityVerdict": "rejected",
       "qualityProblems": [],
       "validationHistory": [
         {
@@ -142111,7 +142119,9 @@
           "logoFound": true
         }
       ],
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "reason": "aggregatore: la spec legge hotelcareer.ch, portale di annunci di terzi, e non restituisce righe",
+      "rejectedAt": "2026-09-06T05:42:06.566Z"
     },
     "muntlareita.ch": {
       "key": "muntlareita.ch",
@@ -162845,12 +162855,12 @@
     },
     "115west.ch": {
       "key": "115west.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.270Z",
-      "updatedAt": "2026-09-05T08:42:51.038Z",
+      "updatedAt": "2026-09-06T05:42:06.612Z",
       "name": "115west",
       "domain": "115west.ch",
       "careersUrl": "https://www.115west.ch/office/portrait/jobs",
@@ -162869,7 +162879,7 @@
       "mode": "template",
       "sourceLang": "de",
       "qualityScore": 0.73,
-      "qualityVerdict": "weak",
+      "qualityVerdict": "rejected",
       "qualityProblems": [
         "pagine di dettaglio senza testo: probabile render lato client",
         "67% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
@@ -162981,7 +162991,9 @@
           "logoFound": true
         }
       ],
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "reason": "UI agganciata: pagine di dettaglio senza testo e 67% che non legge come annuncio di lavoro",
+      "rejectedAt": "2026-09-06T05:42:06.612Z"
     },
     "buerkigmbh.ch": {
       "key": "buerkigmbh.ch",
@@ -165550,12 +165562,12 @@
     },
     "picks.ch": {
       "key": "picks.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.302Z",
-      "updatedAt": "2026-09-05T08:45:23.819Z",
+      "updatedAt": "2026-09-06T05:42:06.546Z",
       "name": "picks",
       "domain": "picks.ch",
       "careersUrl": "https://picks.ch/de/jobs",
@@ -165575,7 +165587,7 @@
       "sourceLang": "de",
       "detailEnrichment": true,
       "qualityScore": 0.844,
-      "qualityVerdict": "good",
+      "qualityVerdict": "rejected",
       "qualityProblems": [
         "pagine di dettaglio senza testo: probabile render lato client"
       ],
@@ -165621,7 +165633,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "reason": "aggregatore: pubblica annunci di altri datori (Universitaetsspital Zuerich, Grand Hotel Montreux...), non i propri",
+      "rejectedAt": "2026-09-06T05:42:06.546Z"
     },
     "rubina.ch": {
       "key": "rubina.ch",
@@ -182059,12 +182073,12 @@
     },
     "azs.ch": {
       "key": "azs.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-22T04:07:44.194Z",
-      "updatedAt": "2026-09-05T08:43:10.757Z",
+      "updatedAt": "2026-09-06T05:42:06.576Z",
       "name": "Alterszentrum Schwanden",
       "domain": "azs.ch",
       "city": "",
@@ -182095,7 +182109,7 @@
       "sourceLang": "de",
       "detailEnrichment": true,
       "qualityScore": 0.574,
-      "qualityVerdict": "weak",
+      "qualityVerdict": "rejected",
       "qualityProblems": [
         "i titoli estratti non corrispondono alla pagina ufficiale",
         "pagine di dettaglio senza testo: probabile render lato client",
@@ -182169,7 +182183,9 @@
           "jobLikeRate": null,
           "logoFound": false
         }
-      ]
+      ],
+      "reason": "dettagli solo in PDF: pagine di dettaglio non leggibili come testo e titoli che non corrispondono alla pagina ufficiale glsc.ch",
+      "rejectedAt": "2026-09-06T05:42:06.576Z"
     },
     "brauereiadler.ch": {
       "key": "brauereiadler.ch",
@@ -182670,12 +182686,12 @@
     },
     "ibg.ch": {
       "key": "ibg.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-22T04:07:44.202Z",
-      "updatedAt": "2026-09-05T08:44:27.831Z",
+      "updatedAt": "2026-09-06T05:42:06.524Z",
       "name": "IBG Engineering AG",
       "domain": "ibg.ch",
       "city": "Niederurnen",
@@ -182706,7 +182722,7 @@
       "sourceLang": "de",
       "detailEnrichment": true,
       "qualityScore": 0.958,
-      "qualityVerdict": "good",
+      "qualityVerdict": "rejected",
       "qualityProblems": [],
       "validationHistory": [
         {
@@ -182763,7 +182779,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "reason": "identita' del datore sbagliata: la spec estrae da zhaw.ch, non da IBG Engineering AG",
+      "rejectedAt": "2026-09-06T05:42:06.524Z"
     },
     "avoi.ch": {
       "key": "avoi.ch",
@@ -186060,12 +186078,12 @@
     },
     "monopol.ch": {
       "key": "monopol.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-22T04:08:25.727Z",
-      "updatedAt": "2026-09-05T08:44:50.118Z",
+      "updatedAt": "2026-09-06T05:42:06.556Z",
       "name": "Monopol",
       "domain": "monopol.ch",
       "city": "St. Moritz",
@@ -186094,7 +186112,7 @@
       "sourceLang": "de",
       "detailEnrichment": true,
       "qualityScore": 0,
-      "qualityVerdict": "insufficient",
+      "qualityVerdict": "rejected",
       "qualityProblems": [],
       "validationHistory": [
         {
@@ -186138,7 +186156,9 @@
           "jobLikeRate": null,
           "logoFound": true
         }
-      ]
+      ],
+      "reason": "aggregatore: la spec legge hotelcareer.at, portale di annunci di terzi, e non restituisce righe",
+      "rejectedAt": "2026-09-06T05:42:06.556Z"
     },
     "solisbruecke.ch": {
       "key": "solisbruecke.ch",
@@ -216856,12 +216876,12 @@
     },
     "recruitingapp-2316@umantis.com": {
       "key": "recruitingapp-2316@umantis.com",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.141Z",
-      "updatedAt": "2026-09-05T08:44:44.957Z",
+      "updatedAt": "2026-09-06T05:42:06.587Z",
       "name": "Kinderspital Zürich",
       "tenantHost": "recruitingapp-2316.umantis.com",
       "platform": "umantis.com",
@@ -216876,7 +216896,7 @@
       "mode": "template",
       "sourceLang": "de",
       "qualityScore": 0.681,
-      "qualityVerdict": "weak",
+      "qualityVerdict": "rejected",
       "qualityProblems": [
         "pagine di dettaglio senza testo: probabile render lato client"
       ],
@@ -216987,7 +217007,9 @@
           "logoFound": true
         }
       ],
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "reason": "UI agganciata: pagine di dettaglio senza testo (render lato client), nessuna localita' source-backed",
+      "rejectedAt": "2026-09-06T05:42:06.587Z"
     },
     "recruitingapp-2761@umantis.com": {
       "key": "recruitingapp-2761@umantis.com",
