@@ -5785,6 +5785,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Löhne und Arbeit in Schaffhausen: Branchen, Ausbildung, Niveaus',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Löhne in Schaffhausen: Ausbildungsniveaus, Tarifverträge und Sozialbeiträge im Schweizer System.',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Panoramablick auf das Wirtschaftszentrum Lugano mit modernen Gebäuden',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.title': 'Einbürgerung im Kanton Appenzell Ausserrhoden: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.excerpt': 'Entdecken Sie die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Appenzell Ausserrhoden.',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.imageAlt': 'Bild einer schweizerischen nationalen/kantonalen Szene, die für den Einbürgerungsprozess relevant ist',
 };
 
 export default blogMetaChDe;

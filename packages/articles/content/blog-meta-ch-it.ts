@@ -5785,6 +5785,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Salari e lavoro in Sciaffusa: settori, formazione, livelli',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Salari in Sciaffusa: livelli per formazione, contratti collettivi e contributi sociali nel sistema svizzero.',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Panorama del centro economico di Lugano con edifici moderni al tramonto',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.title': 'Naturalizzazione nel cantone di Appenzello esterno: requisiti e procedura',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.excerpt': 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Appenzello Esterno.',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.imageAlt': 'Immagine di una scena svizzera nazionale/cantonale pertinente al tema della naturalizzazione',
 };
 
 export default blogMetaChIt;

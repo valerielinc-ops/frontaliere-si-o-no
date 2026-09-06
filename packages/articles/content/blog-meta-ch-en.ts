@@ -5785,6 +5785,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Wages and work in Schaffhausen: sectors, training, levels',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Wages in the Schaffhausen: levels for training, collective agreements and social contributions in the Swiss system.',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Panoramic view of Lugano economic center with modern buildings at sunset',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.title': 'Naturalization in the canton of outer Appenzell: requirements and procedure',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.excerpt': 'Learn about the requirements and procedure for ordinary naturalization in the Canton of Appenzello Outer.',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.imageAlt': 'Image of a Swiss national/cantonal scene relevant to the naturalization process',
 };
 
 export default blogMetaChEn;
