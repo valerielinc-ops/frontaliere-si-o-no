@@ -40,6 +40,15 @@
  *     de Moutier) match only when the posting's city is the clinic's
  *     own `defaultCity`, so shared-brand postings at the clinic's site
  *     are attributed to it without swallowing the whole network.
+ *
+ * Drift vs empty board: when a run matches zero postings the factory asks the
+ * tenant DEPARTMENT DIRECTORY (`/v1/companies/{tenant}/departments`) whether
+ * the configured label still exists and is non-archived. The postings payload
+ * alone cannot answer that — a renamed department and a clinic with no current
+ * openings both show up as "the label is nowhere in the payload" — and reading
+ * absence as a rename made the factory tell three consecutive autonomous fix
+ * runs to "update departmentLabels" on a board that was simply empty (#7320).
+ * See `classifyZeroMatchRun`.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -49,7 +58,10 @@ import {
   normalizeSpace,
   slugify,
 } from './swiss-medical-network-job-parser.mjs';
-import { fetchSmartRecruitersJobs } from './ats-clients/smartrecruiters-client.mjs';
+import {
+  fetchSmartRecruitersJobs,
+  fetchSmartRecruitersDepartments,
+} from './ats-clients/smartrecruiters-client.mjs';
 
 const SMN_HOST = 'https://www.swissmedical.net';
 const SR_PUBLIC_JOBS_BASE = 'https://jobs.smartrecruiters.com';
@@ -92,6 +104,80 @@ export function extractPostingDepartmentLabels(posting = {}) {
     }
   }
   return [...new Set(labels.map(normalizeClinicLabel).filter(Boolean))];
+}
+
+/**
+ * Classify a run that matched zero postings.
+ *
+ * The absence of the configured department label from the ACTIVE postings
+ * payload is not evidence of a rename: a clinic with no current openings looks
+ * exactly the same. Only the tenant department directory separates the two —
+ * a renamed department disappears from it (or is archived), a merely idle one
+ * is still listed. Guessing from the postings alone is what made the factory
+ * shout "likely ATS label drift — update departmentLabels" at clinics whose
+ * board was simply empty (issue #7320).
+ *
+ * Two distinct label sets go in, because the two checks do NOT have the same
+ * semantics. `targets` (own + city-scoped) is what attribution used on the
+ * payload, so it is what the `matched` branch must reuse. The directory
+ * comparison instead takes ONLY the clinic's own labels: city-scoped labels are
+ * network brands (e.g. "Réseau de l'Arc") that stay listed in the tenant
+ * directory whatever happens to the clinic, so feeding them to the directory
+ * check would answer "still listed" for a clinic that was genuinely renamed —
+ * i.e. permanently disable drift detection for every city-scoped clinic.
+ *
+ * @param {Object} input
+ * @param {Iterable<string>} input.targets          Configured labels, normalised.
+ * @param {Iterable<string>|null} [input.directoryTargets]
+ *                                                  Labels owned by the clinic,
+ *                                                  normalised, to compare against
+ *                                                  the directory. Defaults to
+ *                                                  `targets`.
+ * @param {Set<string>} input.seenLabels            Labels seen in the payload, normalised.
+ * @param {Set<string>|null} input.directoryLabels  Non-archived tenant departments,
+ *                                                  normalised; `null` when the
+ *                                                  directory could not be read.
+ * @returns {'matched'|'empty-board'|'label-drift'|'unverified'}
+ */
+export function classifyZeroMatchRun({
+  targets = [],
+  directoryTargets = null,
+  seenLabels = new Set(),
+  directoryLabels = null,
+} = {}) {
+  const configured = [...targets].filter(Boolean);
+  if (configured.some((target) => seenLabels.has(target))) return 'matched';
+  // An EMPTY directory is a non-observation, not evidence of a rename:
+  // `fetchListPage` warns and returns `[]` on an unexpected envelope instead of
+  // throwing (`assert-json-list-shape.mjs`), so a degraded fetch and a truly
+  // empty tenant directory are indistinguishable here. Calling it `label-drift`
+  // would resurrect the exact false warning this classifier exists to kill.
+  if (!directoryLabels || directoryLabels.size === 0) return 'unverified';
+  const owned = [...(directoryTargets ?? targets)].filter(Boolean);
+  if (owned.length === 0) return 'unverified';
+  return owned.some((target) => directoryLabels.has(target)) ? 'empty-board' : 'label-drift';
+}
+
+/**
+ * Directory labels that share a significant word with a configured label —
+ * the rename candidates to put in front of whoever reads the drift warning
+ * ("Clinique de Montchoisi" → "Centre Médical Montchoisi").
+ *
+ * @param {Iterable<string>} targets                 Configured labels, normalised.
+ * @param {Array<{ label: string }>} departments     Tenant department directory.
+ * @returns {string[]} Raw directory labels.
+ */
+export function suggestDirectoryLabels(targets, departments = []) {
+  const words = new Set();
+  for (const target of targets) {
+    for (const word of String(target || '').split(' ')) {
+      if (word.length >= 4) words.add(word);
+    }
+  }
+  if (words.size === 0) return [];
+  return departments
+    .filter(({ label }) => normalizeClinicLabel(label).split(' ').some((word) => words.has(word)))
+    .map(({ label }) => label);
 }
 
 /**
@@ -356,12 +442,45 @@ export function createSmnClinicParser(config) {
     }
 
     if (jobs.length === 0 && scannedPostings > 0) {
-      const anyTargetSeen = [...departmentTargets].some((t) => seenDepartmentLabels.has(t))
-        || [...cityScopedTargets].some((t) => seenDepartmentLabels.has(t));
-      if (!anyTargetSeen) {
-        console.warn(`⚠️ ${companyName}: 0/${scannedPostings} postings matched AND none of the configured department labels appear anywhere in the tenant payload — likely ATS label drift (department rename), NOT a legitimately empty board. Update departmentLabels. Labels seen: ${[...seenDepartmentLabels].slice(0, 25).join(' | ')}`);
-      } else {
-        console.log(`ℹ️ ${companyName}: 0 matches but a configured department label is present in the payload — treating as legitimately empty board.`);
+      const targets = [...departmentTargets, ...cityScopedTargets];
+      // The directory is only ever asked about the clinic's OWN labels — a
+      // city-scoped network brand is listed regardless of this clinic's fate.
+      const ownTargets = [...departmentTargets];
+      // Only the ambiguous case (no configured label anywhere in the payload)
+      // needs the extra directory call — one request, once per empty run.
+      let departments = null;
+      if (!targets.some((t) => seenDepartmentLabels.has(t))) {
+        try {
+          departments = await fetchSmartRecruitersDepartments(SMN_SR_COMPANY_ID);
+        } catch (err) {
+          console.warn(`   ⚠️ Tenant department directory unreachable: ${err?.message || err}`);
+        }
+      }
+      // An empty array is a non-observation (degraded fetch and empty tenant
+      // look identical), so it must stay `null` — see classifyZeroMatchRun.
+      const directoryLabels = departments && departments.length > 0
+        ? new Set(departments.map(({ label }) => normalizeClinicLabel(label)).filter(Boolean))
+        : null;
+
+      switch (classifyZeroMatchRun({
+        targets,
+        directoryTargets: ownTargets,
+        seenLabels: seenDepartmentLabels,
+        directoryLabels,
+      })) {
+        case 'matched':
+          console.log(`ℹ️ ${companyName}: 0 matches but a configured department label is present in the payload — treating as legitimately empty board.`);
+          break;
+        case 'empty-board':
+          console.log(`ℹ️ ${companyName}: 0/${scannedPostings} postings matched, but the configured department is still listed and non-archived in the tenant department directory — legitimately empty board (no current openings), NOT label drift. No config change needed.`);
+          break;
+        case 'label-drift': {
+          const candidates = suggestDirectoryLabels(ownTargets, departments || []);
+          console.warn(`⚠️ ${companyName}: 0/${scannedPostings} postings matched AND none of the configured department labels exist in the tenant department directory — ATS label drift (department rename), NOT a legitimately empty board. Update departmentLabels.${candidates.length > 0 ? ` Rename candidates: ${candidates.join(' | ')}` : ''} Labels seen: ${[...seenDepartmentLabels].slice(0, 25).join(' | ')}`);
+          break;
+        }
+        default:
+          console.warn(`⚠️ ${companyName}: 0/${scannedPostings} postings matched and none of the configured department labels appear in the tenant payload — drift-vs-empty UNVERIFIED (department directory unreachable, see above). Labels seen: ${[...seenDepartmentLabels].slice(0, 25).join(' | ')}`);
       }
     }
 
