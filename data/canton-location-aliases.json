@@ -6,11 +6,17 @@
     "Gentilino", "Montagnola", "Tesserete", "Mezzovico", "Ponte Tresa", "Capolago", "Maroggia",
     "Osogna", "Preonzo", "Cresciano", "Curio", "Novaggio", "Miglieglia", "Noranco", "Pazzallo",
     "Barbengo", "Agra", "Vaglio", "Sala Capriasca", "Lugaggia", "Croglio", "Sessa", "Astano",
-    "Ritom", "Piotta", "Rodi", "Ambrì", "Cadro", "Morcote", "Carona", "Viganello", "Moleno"
+    "Ritom", "Piotta", "Rodi", "Ambrì", "Cadro", "Morcote", "Carona", "Viganello", "Moleno",
+    "Quartino", "Molinazzo di Monteggio", "Castione-Arbedo", "Riazzino", "Morbio",
+    "Lugano Paradiso", "Lugano Agno", "Locarno-Monti", "Biasca Sud", "Mendrisio-Borgo",
+    "Giubiasco-Monte Carasso", "Cadro-Resega", "Melano", "Bellinzone"
   ],
   "GR": [
     "Coira", "Grigioni italiano", "Valposchiavo", "Bassa Mesolcina", "Moesa", "St Moritz",
-    "Saint-Moritz", "Obervaz"
+    "Saint-Moritz", "Obervaz",
+    "Sta. Maria", "Klosters Dorf", "Davos Platz", "Flims Dorf", "Nufenen", "Lumbrein",
+    "Lenzerheide", "Sils Maria", "Pany", "Klosters-Serneus", "Davos Glaris", "Laax Signina",
+    "Tenna GR", "Flims Waldhaus", "Tiefencastel", "Haldenstein", "Sankt Moritz", "Bernina"
   ],
   "VS": [
     "Naters", "Brig-Glis", "Gampel-Bratsch", "Raron", "Steg-Hohtenn", "Stalden",
@@ -20,14 +26,17 @@
     "Champéry", "Val-d'Illiez", "Troistorrents", "Collombey-Muraz",
     "Verbier", "Bagnes", "Orsières", "Liddes", "Bourg-Saint-Pierre",
     "Hérémence", "Evolène", "Arolla", "Grimentz", "Vissoie", "Chandolin",
-    "Oberwallis", "Haut-Valais", "Bas-Valais", "Chablais valaisan"
+    "Oberwallis", "Haut-Valais", "Bas-Valais", "Chablais valaisan",
+    "Gamsen", "Crans", "Collombey", "Oberwald", "Eyholz", "Reckingen", "Ulrichen", "Urswil"
   ],
   "ZH": [
     "Oerlikon", "Altstetten", "Schwamendingen", "Seebach", "Affoltern", "Höngg",
-    "Wipkingen", "Witikon", "Wollishofen", "Leimbach"
+    "Wipkingen", "Witikon", "Wollishofen", "Leimbach",
+    "Glattbrugg", "Zürich-Flughafen"
   ],
   "BE": [
-    "Wankdorf", "Muri bei Bern", "Belp", "Zollikofen", "Ittigen", "Worb"
+    "Wankdorf", "Muri bei Bern", "Belp", "Zollikofen", "Ittigen", "Worb",
+    "Jegensdorf", "Gstaad"
   ],
   "GE": [
     "Petit-Lancy", "Grand-Lancy", "Petit-Saconnex", "Grand-Saconnex",
@@ -35,9 +44,16 @@
   ],
   "VD": [
     "Prilly", "Pully", "Ecublens", "Lutry", "Chavannes-près-Renens",
-    "Crissier", "Bussigny"
+    "Crissier", "Bussigny",
+    "Villars-Ste-Croix", "Essert-s-Champvent"
   ],
   "NE": [
     "La Tène", "Marin-Epagnier"
+  ],
+  "GL": [
+    "Linthal", "Bilten", "Ennenda"
+  ],
+  "SG": [
+    "Salez", "Eggersriet SG"
   ]
 }

@@ -21,11 +21,17 @@ import { lookup as dnsLookup } from 'node:dns/promises';
 import {
   extractVacancies,
   isSufficientVacancyDescription,
+  textOf,
 } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
-import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
+import {
+  constantPostalLocations,
+  freeTextPostalCandidates,
+  resolveDetailOrListingSwissGeography,
+  variablePostalGeography,
+} from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import {
@@ -88,8 +94,15 @@ export function geographyFieldsForDecision(decision = {}) {
   };
 }
 
-/** @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime */
-async function fetchRuntimePage(url, urlPolicy, runtime) {
+/**
+ * Fetch one page on the spec's polite, public-network-only transport.
+ *
+ * Exported so offline analyses reach the same pages through the same robots,
+ * redirect and DNS checks the promoted crawler goes through.
+ *
+ * @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime
+ */
+export async function fetchRuntimePage(url, urlPolicy, runtime) {
   const result = await politeFetch(url, {
     urlPolicy,
     dispatcher: urlPolicy.dispatcher,
@@ -160,35 +173,24 @@ function matchKnownTemplate(links, templateRx, host) {
 }
 
 /**
- * Run a spec and return listing rows in the shape the generated parser's
- * `fetchJobListings()` contract expects.
+ * Listing rows a spec yields, before any detail-page enrichment.
  *
- * Rows the spec's own detail template rejects are dropped: the template is the
- * one piece of evidence that a link belongs to the listing rather than to the
- * navigation around it, and in production — unattended — a chrome link becomes
- * a published fake vacancy.
+ * Extracted from `runSpecInProduction()` because the offline measurements have
+ * to read the same rows production reads: an analysis that re-implements the
+ * listing cascade measures a different program than the one that publishes
+ * (see `scripts/prospect-measure-postal-variance.mjs`). The URL policy is
+ * passed in and its dispatcher is closed by the caller, which is what lets the
+ * caller keep fetching detail pages on the same polite transport.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {Promise<Array<Record<string, any> & {
- *   title: string,
- *   url: string,
- *   location: string,
- *   description: string,
- *   postedAt: string|null,
- *   company: string,
- *   addressLocality?: string,
- *   addressRegion?: string,
- *   addressCountry?: string,
- *   country?: string,
- *   postalCode?: string,
- *   streetAddress?: string,
- * }>>}
+ * @param {Record<string, any>} runtime
+ * @param {any} validateUrl URL policy from `createSpecUrlPolicy()`
+ * @returns {Promise<Array<Record<string, any>>>}
  */
-export async function runSpecInProduction(spec, runtime = {}) {
+export async function collectSpecListingRows(spec, runtime, validateUrl) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
-  const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
 
   for (const seed of spec.seedUrls || []) {
     let page;
@@ -247,7 +249,37 @@ export async function runSpecInProduction(spec, runtime = {}) {
       });
     }
   }
-  const rows = [...bySlug.values()];
+  return [...bySlug.values()];
+}
+
+/**
+ * Run a spec and return listing rows in the shape the generated parser's
+ * `fetchJobListings()` contract expects.
+ *
+ * Rows the spec's own detail template rejects are dropped: the template is the
+ * one piece of evidence that a link belongs to the listing rather than to the
+ * navigation around it, and in production — unattended — a chrome link becomes
+ * a published fake vacancy.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {Promise<Array<Record<string, any> & {
+ *   title: string,
+ *   url: string,
+ *   location: string,
+ *   description: string,
+ *   postedAt: string|null,
+ *   company: string,
+ *   addressLocality?: string,
+ *   addressRegion?: string,
+ *   addressCountry?: string,
+ *   country?: string,
+ *   postalCode?: string,
+ *   streetAddress?: string,
+ * }>>}
+ */
+export async function runSpecInProduction(spec, runtime = {}) {
+  const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
+  const rows = await collectSpecListingRows(spec, runtime, validateUrl);
   if (!needsDetailEnrichment(spec, rows)) {
     const safeRows = rows.flatMap((row) => {
       const fields = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
@@ -264,6 +296,13 @@ export async function runSpecInProduction(spec, runtime = {}) {
   // Workers complete out of order; index-addressed writes keep the listing
   // order deterministic so stable downstream sorts do not churn job slices.
   const enriched = new Array(rows.length);
+  // L'NPA scritto nella prosa e' evidenza solo confrontato con le ALTRE pagine
+  // del datore: la sede che compare su tutte non e' il posto di lavoro. Le
+  // pagine si visitano una volta sola, quindi le candidate si accumulano qui e
+  // le righe senza geografia strutturata aspettano il campione completo.
+  const pageCandidates = new Array(rows.length).fill(null);
+  /** @type {{ index: number, publishable: any, postalTextCandidates: any[] }[]} */
+  const pendingGeography = [];
   let geographyDrops = 0;
   let descriptionDrops = 0;
   let next = 0;
@@ -290,11 +329,14 @@ export async function runSpecInProduction(spec, runtime = {}) {
         const description = isSufficientVacancyDescription(detail.description)
           ? detail.description
           : row.description;
-        if (!geography) { geographyDrops++; continue; }
-        if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
-        enriched[index] = { ...row, ...geography, title: detail.title || row.title, description,
+        const postalTextCandidates = freeTextPostalCandidates(textOf(page.body));
+        pageCandidates[index] = postalTextCandidates;
+        const publishable = { ...row, title: detail.title || row.title, description,
           postedAt: detail.postedDate || row.postedAt,
           employmentType: detail.employmentType || row.employmentType };
+        if (!geography) { pendingGeography.push({ index, publishable, postalTextCandidates }); continue; }
+        if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
+        enriched[index] = { ...publishable, ...geography };
       } catch (err) {
         // A row without both source-backed fields must not be published with a
         // fabricated employer default. Keep already complete index rows only.
@@ -307,6 +349,20 @@ export async function runSpecInProduction(spec, runtime = {}) {
   };
   const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
   await Promise.all(Array.from({ length: concurrency }, worker));
+  // Stesso criterio del validatore — vedi `constantPostalLocations()`: cio' che
+  // il datore ripete sulla maggioranza delle sue pagine e' la sua sede, cio'
+  // che varia e' il posto di lavoro dell'annuncio. Il quorum e' una frazione
+  // proprio perche' qui le pagine sono il listing intero e la' un campione. Il resto della decisione resta la guardia
+  // source-backed di sempre.
+  const boilerplatePostalLocations = constantPostalLocations(pageCandidates.filter(Boolean));
+  for (const { index, publishable, postalTextCandidates } of pendingGeography) {
+    const geography = geographyFieldsForDecision(
+      variablePostalGeography(postalTextCandidates, boilerplatePostalLocations),
+    );
+    if (!geography) { geographyDrops++; continue; }
+    if (!isSufficientVacancyDescription(publishable.description)) { descriptionDrops++; continue; }
+    enriched[index] = { ...publishable, ...geography };
+  }
   reportDroppedRows(spec, geographyDrops, rows.length,
     'localita svizzera source-backed assente o non verificabile');
   reportDroppedRows(spec, descriptionDrops, rows.length,

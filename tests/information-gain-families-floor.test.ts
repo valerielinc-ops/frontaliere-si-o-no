@@ -1,5 +1,7 @@
 /**
- * Le sei famiglie comunali stanno sopra il loro floor di information gain,
+ * Le sei famiglie comunali — piu' `premi-cassa-malati/`, la prima delle
+ * famiglie a payload numerico (#7594) — stanno sopra il loro floor di
+ * information gain,
  * misurato sull'HTML che i plugin emettono ADESSO (issue #5002).
  *
  * PERCHÉ NON BASTA IL GATE SU dist/
@@ -39,8 +41,43 @@ import { renderAboveFloorPage as renderLiechtenstein } from '@/build-plugins/lie
 import { MUNICIPALITIES } from '@/data/municipalities';
 import { renderPage as renderItalian } from '@/build-plugins/borderMunicipalityPagesPlugin';
 import { TICINO_VITA_CORRIDOR_PROVINCES } from '@/build-plugins/shared/borderMunicipalityCorridors';
+import {
+  HEALTH_PREMIUM_CANTONS,
+  buildHealthPremiumsLeafPath,
+} from '@/build-plugins/healthPremiumsData';
+import {
+  generateHealthPremiumsPages,
+  type HealthPremiumsDataset,
+} from '@/build-plugins/healthPremiumsLandingPlugin';
+import { readFileSync } from 'node:fs';
 
 const DIST = '/tmp/information-gain-families';
+
+/**
+ * `premi-cassa-malati/<cantone>/<fascia>/` per UNA fascia: 26 celle che
+ * differiscono solo per il cantone, cioè la coorte più stretta della famiglia
+ * — quella su cui il gate post-deploy misurava 2,6 % (issue #7594).
+ *
+ * Il dataset è quello reale in `data/health-premiums/2026.json`, non uno stub:
+ * uno stub con premi generati da una progressione avrebbe estremi e vicini
+ * perfettamente regolari, cioè il caso facile per il blocco di confronto.
+ * La generazione è memoizzata perché il file è da ~5 MB e i test qui sotto
+ * rendono la famiglia due volte.
+ */
+let premiCassaMalatiPages: Rendered[] | null = null;
+const renderPremiCassaMalati = (): Rendered[] => {
+  if (premiCassaMalatiPages) return premiCassaMalatiPages;
+  const dataset = JSON.parse(
+    readFileSync('data/health-premiums/2026.json', 'utf-8'),
+  ) as HealthPremiumsDataset;
+  const { pages } = generateHealthPremiumsPages({ dataset, today: new Date('2026-08-24T00:00:00Z') });
+  premiCassaMalatiPages = HEALTH_PREMIUM_CANTONS.map((canton) =>
+    buildHealthPremiumsLeafPath('it', canton, '31-45'),
+  )
+    .filter((urlPath) => typeof pages[urlPath] === 'string')
+    .map((urlPath) => ({ urlPath, html: pages[urlPath] }));
+  return premiCassaMalatiPages;
+};
 
 type Rendered = { urlPath: string; html: string };
 
@@ -95,6 +132,14 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
       ),
   },
   {
+    name: 'premi-cassa-malati',
+    // L'unica famiglia qui che non e' comunale: la cella e' cantone x fascia.
+    // Misurata dopo la sostituzione della tabella dei 26 cantoni con la
+    // finestra di pari (#7594): prima 2,6 %, sotto il floor di 5 % del gate.
+    minMedian: 4.6, // misurato 5,6 % (era 2,6 %)
+    render: renderPremiCassaMalati,
+  },
+  {
     name: 'vivere-in-austria',
     // La sola famiglia sotto il floor del gate, e per questo INVENTARIATA con
     // 4,2 %: il corridoio non ha alcun regime frontalieri, quindi la pagina è
@@ -120,7 +165,7 @@ const measure = (pages: Rendered[]) => {
   return cohorts.slice().sort((a, b) => b.pages - a.pages)[0] ?? null;
 };
 
-describe('information gain delle sei famiglie comunali, misurato sull’output dei plugin', () => {
+describe('information gain delle famiglie a floor, misurato sull’output dei plugin', () => {
   for (const family of FAMILIES) {
     it(`${family.name} sta sopra ${family.minMedian} %`, () => {
       const cohort = measure(family.render());

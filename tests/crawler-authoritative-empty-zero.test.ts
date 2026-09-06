@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
-import { parseVacancyCountTab } from '../scripts/lib/jobs-ch-company-pages.mjs';
+import { parseVacancyCountTab, parseVacancyLinks } from '../scripts/lib/jobs-ch-company-pages.mjs';
 import { umantisListingStatesEmpty } from '../scripts/lib/umantis-empty-listing.mjs';
 import {
   fetchAllGimArchitektenJobs,
@@ -90,14 +90,19 @@ const jobsChProfile = (
   employer: string,
   count: number,
   links: string[] = [],
-  { canonicalSlug = `${employer.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-profile` } = {},
+  {
+    canonicalSlug = `${employer.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-profile`,
+    // The attribute delimiter is the serialiser's choice, not a fact about the
+    // page: `q` lets a fixture serve the exact same profile single-quoted.
+    q = '"',
+  } = {},
 ) => `<!doctype html><html><head>
-  <link rel="canonical" href="https://www.jobs.ch/en/companies/${canonicalSlug}/"/>
+  <link rel=${q}canonical${q} href=${q}https://www.jobs.ch/en/companies/${canonicalSlug}/${q}/>
 </head><body>
-  <ul><li><a class="d_flex" href="/en/companies/867-jobcloud-ag/vacancies/" data-discover="true">Jobs (0)</a></li></ul>
+  <ul><li><a class=${q}d_flex${q} href=${q}/en/companies/867-jobcloud-ag/vacancies/${q} data-discover=${q}true${q}>Jobs (0)</a></li></ul>
   <h1>${employer}</h1>
-  <ul><li><a class="d_flex" href="/en/companies/${canonicalSlug}/vacancies/" data-discover="true">Jobs (${count})</a></li></ul>
-  ${links.map((id) => `<a href="/en/vacancies/detail/${id}/">a job</a>`).join('')}
+  <ul><li><a class=${q}d_flex${q} href=${q}/en/companies/${canonicalSlug}/vacancies/${q} data-discover=${q}true${q}>Jobs (${count})</a></li></ul>
+  ${links.map((id) => `<a href=${q}/en/vacancies/detail/${id}/${q}>a job</a>`).join('')}
 </body></html>`;
 const gimProfile = (count: number, links: string[] = []) => jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, count, links);
 
@@ -248,6 +253,26 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     expect(parseVacancyCountTab(redirected)).toBe(0);
     const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => redirected });
     expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(true);
+  });
+
+  it('reads the counter and the links when jobs.ch single-quotes its attributes', async () => {
+    // `parseCanonicalCompanySlug` has always accepted both delimiters while the
+    // counter and the link reader demanded `href="`. On a single-quoted page
+    // that mismatch resolves the canonical fine and then reads `null` — the
+    // proof silently voided on all five jobs.ch company-page crawlers at once,
+    // with no drift on our side to point at.
+    const singleQuoted = jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, 0, [], { q: "'" });
+    expect(singleQuoted).toContain("href='/en/companies/");
+    expect(parseVacancyCountTab(singleQuoted)).toBe(0);
+    const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => singleQuoted });
+    expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(true);
+
+    // Same for the detail links: a single-quoted board must not read as empty.
+    const withLinks = jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, 2, ['aaaaaaaa-1111', 'bbbbbbbb-2222'], { q: "'" });
+    expect(parseVacancyLinks(withLinks)).toEqual([
+      'https://www.jobs.ch/en/vacancies/detail/aaaaaaaa-1111/',
+      'https://www.jobs.ch/en/vacancies/detail/bbbbbbbb-2222/',
+    ]);
   });
 
   it('gim-architekten refuses the proof when the counter contradicts the (drifted) link markup', async () => {

@@ -187,143 +187,163 @@ const REDIRECT_SHAPE_RX =
 // order of `offenders` in the JSON report, and which 3 paths a group prints as
 // `samples` on failure. No counter and no verdict depends on it.
 //
-// Concurrency constants mirror scripts/lib/audit-runner.mjs. The real ceiling
-// is libuv's default 4-thread fs pool; anything above it merely keeps that pool
-// saturated.
+// Concurrency mirrors scripts/lib/audit-runner.mjs. The real ceiling is libuv's
+// default 4-thread fs pool; anything above it merely keeps that pool saturated.
 const WALK_CONCURRENCY = 24;
-const READ_CONCURRENCY = 8;
 
-/**
- * FIFO with an O(1) `take()` that also releases the consumed prefix. A plain
- * `Array.shift()` is a memmove over the frontier (six figures of entries here);
- * a bare index cursor never frees, retaining one path string per directory ever
- * visited (~2M). This keeps live memory proportional to the frontier, which
- * matters under the pool's `--max-old-space-size=4096` cap.
- */
-function makeQueue() {
-  const items = [];
-  let head = 0;
-  return {
-    get size() {
-      return items.length - head;
-    },
-    push(v) {
-      items.push(v);
-    },
-    take() {
-      const v = items[head];
-      items[head++] = undefined;
-      if (head >= 4096 && head * 2 >= items.length) {
-        items.splice(0, head);
-        head = 0;
-      }
-      return v;
-    },
-  };
-}
+// ─── Why the frontier is BOUNDED, not merely "released as consumed" ──────────
+//
+// The first async version kept two FIFOs — one of `{dir, base}` records for the
+// directories still to read, one of `{absPath, relDir}` records for the
+// index.html still to read — and released each entry as it was consumed. That
+// bounds nothing: the walker (24 readdir in flight) enqueues far faster than the
+// reader (8 readFile in flight) drains, and on a one-directory-per-page tree the
+// breadth-first frontier IS the corpus. Live memory therefore grew with dist/
+// rather than with the working set, and run 33998018692 died at 618 s with
+//
+//   FATAL ERROR: Ineffective mark-compacts near heap limit — JavaScript heap
+//   out of memory        (Mark-Compact 4022.2 → 3910.2 MB, exit 134)
+//
+// against the step's `--max-old-space-size=4096`, on a dist/ of 4 440 067 HTML
+// files — 5.4× the 815 228 index.html of the 2026-08-09 baseline run. Nothing
+// about the gate had regressed: the corpus had outgrown a walker whose memory
+// was O(corpus). Raising the heap cap only moves the same wall further out.
+//
+// The walker below never holds more than a bounded slice of the tree:
+//   • sub-directories go on a shared LIFO stack only while it is under
+//     DIR_STACK_HIGH_WATER; above it the worker descends into them INLINE
+//     (depth-first), which costs recursion bounded by the tree DEPTH instead of
+//     one retained path per page;
+//   • there is no file queue at all: a worker that finds an index.html reads it
+//     and hands it to `onFile` before looking at its next entry, so pending
+//     reads are bounded by the worker count — that IS the backpressure the
+//     two-queue version lacked.
+//
+// What is left is O(widest directory) — one readdir() batch per worker — plus
+// O(tree depth) inline descent, instead of O(dist/). Streaming those batches
+// with opendir() would drop even that, but it was measured and rejected: on a
+// 120 000-page synthetic tree (one directory per page, the shape that matters
+// here) opendir()'s per-entry async iteration cost +62 % wall (18.4 s vs 11.4 s)
+// for 10 MB less peak RSS. This gate is the critical path of its step; the batch
+// readdir keeps the pre-fix wall (11.4 s vs 12.1 s for the two-FIFO version)
+// while cutting peak RSS from 285 MB to 107 MB, i.e. 2.7×.
+//
+// COVERAGE AND VERDICT ARE UNCHANGED, deliberately: same skipped directories
+// (assets / data / images), same descent into dot-directories, same "every entry
+// literally named index.html, no isFile() test", same fail-closed abort on a read
+// error, same counters and branches. Only DISCOVERY ORDER changes, and it reaches
+// exactly the two cosmetic places named above (offender order in the JSON report,
+// which 3 paths a group prints as samples). All of it is pinned by
+// tests/seo/audit-spa-bundle-injection-walk.test.ts.
+const DIR_STACK_HIGH_WATER = 4096;
 
 /**
  * Walk `root` and invoke `onFile(relDir, html)` for every `index.html`, with at
- * most WALK_CONCURRENCY readdir() and READ_CONCURRENCY readFile() in flight.
- * Rejects with the first error seen, after the in-flight operations drain.
+ * most WALK_CONCURRENCY directories being processed — and therefore at most that
+ * many reads in flight. Rejects with the first error seen, after the in-flight
+ * work has drained.
  *
  * @param {string} root
  * @param {(relDir: string, html: string) => void} onFile
  */
 async function scanIndexHtml(root, onFile) {
-  const dirs = makeQueue();
-  const files = makeQueue();
-  dirs.push({ dir: root, base: '' });
-
-  let dirsInFlight = 0;
-  let readsInFlight = 0;
+  /** Relative directory paths still to visit, LIFO (depth-first). */
+  const pending = [''];
+  let active = 0;
   let failure = null;
-  let settled = false;
+  /** @type {Array<() => void>} */
+  let waiters = [];
+  const wake = () => {
+    if (waiters.length === 0) return;
+    const woken = waiters;
+    waiters = [];
+    for (const resolve of woken) resolve();
+  };
 
-  await new Promise((resolve, reject) => {
-    const finish = () => {
-      if (settled) return;
-      settled = true;
-      if (failure) reject(failure);
-      else resolve();
-    };
-    // Termination. In the happy path both queues must be empty AND nothing in
-    // flight. Once a failure is recorded we stop scheduling, so the queues stay
-    // populated forever — the condition then has to be "everything in flight
-    // has drained", or the promise never settles and Node exits 13 with
-    // "unsettled top-level await" instead of surfacing the real error.
-    const idle = () =>
-      dirsInFlight === 0 && readsInFlight === 0 && (failure !== null || (dirs.size === 0 && files.size === 0));
-
-    const pump = () => {
-      if (settled) return;
-      // On the first failure we stop SCHEDULING, but let everything already in
-      // flight drain before rejecting, so no promise is left dangling.
-      if (!failure) {
-        while (dirsInFlight < WALK_CONCURRENCY && dirs.size > 0) {
-          const { dir, base } = dirs.take();
-          dirsInFlight++;
-          readdir(dir, { withFileTypes: true })
-            .then(
-              (entries) => {
-                for (const entry of entries) {
-                  if (entry.isDirectory()) {
-                    // Skip asset/data/image directories — they don't contain
-                    // index.html anyway, but skipping saves I/O on large trees.
-                    if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
-                    dirs.push({
-                      dir: path.join(dir, entry.name),
-                      base: path.posix.join(base, entry.name),
-                    });
-                  } else if (entry.name === 'index.html') {
-                    files.push({ absPath: path.join(dir, entry.name), relDir: base });
-                  }
-                }
-              },
-              (err) => {
-                failure ??= err;
-              },
-            )
-            .finally(() => {
-              dirsInFlight--;
-              pump();
-            });
+  /** @param {string} base */
+  const visit = async (base) => {
+    const abs = base ? path.join(root, base) : root;
+    const entries = await readdir(abs, { withFileTypes: true });
+    for (const entry of entries) {
+      if (failure) break;
+      if (entry.isDirectory()) {
+        // Skip asset/data/image directories — they don't contain index.html
+        // anyway, but skipping saves I/O on large trees.
+        if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
+        const child = base ? `${base}/${entry.name}` : entry.name;
+        if (pending.length < DIR_STACK_HIGH_WATER) {
+          pending.push(child);
+          wake();
+        } else {
+          await visit(child);
         }
-        while (readsInFlight < READ_CONCURRENCY && files.size > 0) {
-          const { absPath, relDir } = files.take();
-          readsInFlight++;
-          readFile(absPath, 'utf-8')
-            .then(
-              (html) => {
-                // onFile is the accumulator below; a throw in it is a bug, but
-                // it must surface as a rejection, not as an unhandled one.
-                try {
-                  onFile(relDir, html);
-                } catch (err) {
-                  failure ??= err;
-                }
-              },
-              (err) => {
-                failure ??= err;
-              },
-            )
-            .finally(() => {
-              readsInFlight--;
-              pump();
-            });
-        }
+      } else if (entry.name === 'index.html') {
+        // No isFile() test, exactly as the original synchronous walk: a
+        // symlinked index.html is still read. A read error propagates out of
+        // this loop and aborts the run — this gate fails closed.
+        onFile(base, await readFile(path.join(abs, entry.name), 'utf-8'));
       }
-      if (idle()) finish();
-    };
+    }
+  };
 
-    pump();
-  });
+  const worker = async () => {
+    for (;;) {
+      if (failure) return;
+      const base = pending.pop();
+      if (base === undefined) {
+        // Nothing queued: either the walk is over, or another worker is still
+        // streaming a directory that may yet push more.
+        if (active === 0) {
+          wake();
+          return;
+        }
+        await new Promise((resolve) => waiters.push(resolve));
+        continue;
+      }
+      active++;
+      try {
+        await visit(base);
+      } catch (err) {
+        // First error wins; the others stop scheduling and unwind.
+        failure ??= err;
+      } finally {
+        active--;
+        wake();
+      }
+    }
+  };
+
+  await Promise.all(Array.from({ length: WALK_CONCURRENCY }, () => worker()));
+  if (failure) throw failure;
 }
 
 let scanned = 0;
 let skippedExplicit = 0;
 let skippedRedirect = 0;
+// The COUNT the ratchet gates on, always exact.
+let violationsTotal = 0;
+// Offender RECORDS, for the JSON report only, and CAPPED. Everything the walk
+// keeps has to stay bounded, the post-walk phase included: a regression at
+// dist/ scale (millions of bundle-less pages) must fail with its diagnostic
+// instead of OOMing before it can print it — the failure mode this gate hit
+// from the other side in run 33998018692. The count above and the per-group
+// breakdown below are accumulated live, so neither depends on this cap.
+const OFFENDER_RECORD_CAP = 50_000;
 const violations = [];
+// Violations grouped by top-2-segment directory, so we can show drift per area
+// in error / progress messages without dumping 100k paths.
+//
+// CAPPED too, for the same reason as the record list above: the key is only as
+// coarse as the tree is. On a one-directory-per-page tree at depth 2 the top-2
+// segments ARE the page, so the map's cardinality grows with the OFFENDER
+// population, not with a fixed number of areas — and three O(groups) copies run
+// on it below (sortedGroups, groupsObject, the baseline JSON). Past the cap we
+// stop minting keys and fold the tail into GROUP_OVERFLOW_KEY, which keeps the
+// breakdown honest (its count is still exact) at bounded memory. The ratchet
+// gates on violationsTotal, which never depended on this map.
+const GROUP_CAP = 5_000;
+const GROUP_OVERFLOW_KEY = '<other>';
+const groups = new Map();
 
 await scanIndexHtml(DIST, (relDir, html) => {
   if (SKIP_PATHS.has(relDir)) {
@@ -345,24 +365,26 @@ await scanIndexHtml(DIST, (relDir, html) => {
     skippedRedirect++;
     return;
   }
-  violations.push({ relDir, size: html.length });
+  violationsTotal++;
+  let key = relDir.split('/').slice(0, 2).join('/') || '<root>';
+  let group = groups.get(key);
+  if (!group && groups.size >= GROUP_CAP) {
+    key = GROUP_OVERFLOW_KEY;
+    group = groups.get(key);
+  }
+  if (!group) {
+    group = { count: 0, samples: [] };
+    groups.set(key, group);
+  }
+  group.count++;
+  if (group.samples.length < 3) group.samples.push(relDir + '/');
+  if (violations.length < OFFENDER_RECORD_CAP) violations.push({ relDir, size: html.length });
 });
 
 console.log(
   `[audit:spa-bundle-injection] scanned ${scanned} index.html files (skipped ${skippedExplicit} via SKIP_PATHS, ${skippedRedirect} as redirect-shape)`,
 );
 
-// Group violations by top-2-segment directory so we can show drift per area
-// in error / progress messages without dumping 100k paths.
-const groups = new Map();
-for (const v of violations) {
-  const segments = v.relDir.split('/');
-  const key = segments.slice(0, 2).join('/') || '<root>';
-  if (!groups.has(key)) groups.set(key, { count: 0, samples: [] });
-  const entry = groups.get(key);
-  entry.count++;
-  if (entry.samples.length < 3) entry.samples.push(v.relDir + '/');
-}
 const sortedGroups = Array.from(groups.entries()).sort((a, b) => b[1].count - a[1].count);
 const groupsObject = Object.fromEntries(
   sortedGroups.map(([key, { count }]) => [key, count]),
@@ -390,7 +412,23 @@ async function _emitReport(passed, baselineDelta) {
     baselineDelta,
     offenders: offendersForReport,
     byFeature: groupsObject,
-    extra: { scanned, skippedExplicit, skippedRedirect },
+    extra: {
+      scanned,
+      skippedExplicit,
+      skippedRedirect,
+      // `offenders` above is the capped record list; these two keep the report's
+      // headline totals exact even when it is truncated (spread last in
+      // scripts/lib/auditReport.mjs, so they override the derived values).
+      offendersTotal: violationsTotal,
+      offendersTotalExtrapolated: violationsTotal,
+      offenderRecordsTruncated: violationsTotal > violations.length,
+      offenderRecordCap: OFFENDER_RECORD_CAP,
+      // byFeature above is bounded the same way: past GROUP_CAP distinct keys
+      // the tail is folded into GROUP_OVERFLOW_KEY, so a consumer can tell a
+      // complete breakdown from a folded one.
+      byFeatureTruncated: groups.has(GROUP_OVERFLOW_KEY),
+      groupCap: GROUP_CAP,
+    },
   });
 }
 
@@ -400,7 +438,7 @@ if (REBASELINE) {
     BASELINE_PATH,
     JSON.stringify(
       {
-        total: violations.length,
+        total: violationsTotal,
         scanned,
         skippedExplicit,
         skippedRedirect,
@@ -413,7 +451,7 @@ if (REBASELINE) {
     'utf-8',
   );
   console.log(
-    `[audit:spa-bundle-injection] baseline rebased → ${path.relative(ROOT, BASELINE_PATH)} (total=${violations.length})`,
+    `[audit:spa-bundle-injection] baseline rebased → ${path.relative(ROOT, BASELINE_PATH)} (total=${violationsTotal})`,
   );
   await _emitReport(true, null);
   process.exit(0);
@@ -466,7 +504,7 @@ if (!baseline) {
     BASELINE_PATH,
     JSON.stringify(
       {
-        total: violations.length,
+        total: violationsTotal,
         scanned,
         skippedExplicit,
         skippedRedirect,
@@ -480,14 +518,14 @@ if (!baseline) {
     'utf-8',
   );
   console.log(
-    `[audit:spa-bundle-injection] no baseline found — wrote initial baseline (total=${violations.length}). Commit ${path.relative(ROOT, BASELINE_PATH)}.`,
+    `[audit:spa-bundle-injection] no baseline found — wrote initial baseline (total=${violationsTotal}). Commit ${path.relative(ROOT, BASELINE_PATH)}.`,
   );
   await _emitReport(true, null);
   process.exit(0);
 }
 
 const baselineTotal = typeof baseline.total === 'number' ? baseline.total : -1;
-const current = violations.length;
+const current = violationsTotal;
 
 if (current === 0 && baselineTotal === 0) {
   console.log('[audit:spa-bundle-injection] ✅ every index.html contains the SPA bundle script');
@@ -523,7 +561,12 @@ console.error(
 );
 console.error('');
 console.error('Affected directories (top 2 path segments):');
-for (const [key, { count, samples }] of sortedGroups) {
+// Sliced like the passing branch above: this is the branch that must survive a
+// dist/-scale regression to print its diagnostic, and printing 1-4 lines for
+// each of N groups is the "dumping 100k paths" the breakdown exists to avoid.
+// Groups are sorted by count, so the slice keeps the worst offenders.
+const REGRESSION_GROUPS_SHOWN = 50;
+for (const [key, { count, samples }] of sortedGroups.slice(0, REGRESSION_GROUPS_SHOWN)) {
   const baselineCount =
     baseline.groups && typeof baseline.groups[key] === 'number' ? baseline.groups[key] : 0;
   const groupDelta = count - baselineCount;
@@ -534,6 +577,17 @@ for (const [key, { count, samples }] of sortedGroups) {
       console.error(`           ${s}`);
     }
   }
+}
+if (sortedGroups.length > REGRESSION_GROUPS_SHOWN) {
+  console.error(
+    `  … ${sortedGroups.length - REGRESSION_GROUPS_SHOWN} more group(s) not shown (see the JSON report's byFeature breakdown)`,
+  );
+}
+if (groups.has(GROUP_OVERFLOW_KEY)) {
+  console.error(
+    `  note: past ${GROUP_CAP} distinct directories the breakdown folds the tail into ${GROUP_OVERFLOW_KEY}; ` +
+      `the ${current} total above is exact.`,
+  );
 }
 console.error('');
 console.error('What this means');

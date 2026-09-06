@@ -34158,6 +34158,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'a8-busto-arsizio-chiusura-notte',
+ category: 'pratico',
+ date: '2026-09-06T08:27:53.195Z',
+ image: '/images/blog/a8-busto-arsizio-chiusura-notte.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

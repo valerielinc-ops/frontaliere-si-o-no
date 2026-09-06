@@ -73769,6 +73769,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avviare-azienda-grigioni-registro-commercio': {
+    title: 'Avviare un\'attività a Grigioni: costi e procedura',
+    description: 'Guida completa: forme giuridiche (ditta, Srl, SA), iscrizione Registro commercio, tasse federali, cantonali, IVA, obblighi AVS, SUVA, LAMal. Step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, grigioni, costi',
+    ogTitle: 'Aprire attività Grigioni: costi e procedura',
+    ogDescription: 'Come avviare un\'attività nel Cantone Grigioni: forma giuridica (ditta, Srl, SA), iscrizione Registro commercio, imposte federali e cantonali, IVA, contributi AVS, SUVA, LAMal e checklist pratica completa.',
+    canonicalPath: '/articoli-svizzera/avviare-azienda-grigioni-registro-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività a Grigioni: costi e procedura",
+      "description": "Guida completa: forme giuridiche (ditta, Srl, SA), iscrizione Registro commercio, tasse federali, cantonali, IVA, obblighi AVS, SUVA, LAMal. Step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-azienda-grigioni-registro-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio e insegna commerciale di una piccola azienda registrata nel Cantone Grigioni"
+      },
+      "datePublished": "2026-09-06T05:52:46+00:00",
+      "dateModified": "2026-09-06T05:52:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-azienda-grigioni-registro-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affittare-bene-immobili-ticino': {
+    title: 'Affittare bene un immobile: strategie e consigli per proprietari',
+    description: 'Scopri come affittare bene un immobile in Ticino, proteggere il tuo investimento e scegliere inquilini affidabili. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, affittare, bene, immobile, strategie',
+    ogTitle: 'Affittare bene un immobile: strategie e consigli per proprietari',
+    ogDescription: 'Affittare rapidamente non significa affittare bene. Scopri come proteggere il tuo investimento e scegliere inquilini affidabili in Ticino.',
+    canonicalPath: '/articoli-svizzera/affittare-bene-immobili-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affittare bene un immobile: strategie e consigli per proprietari",
+      "description": "Scopri come affittare bene un immobile in Ticino, proteggere il tuo investimento e scegliere inquilini affidabili. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affittare-bene-immobili-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con appartamenti moderni e un mercato vivace"
+      },
+      "datePublished": "2026-09-06T06:07:15+00:00",
+      "dateModified": "2026-09-06T06:07:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affittare-bene-immobili-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-neutralita-svizzera-prospeta': {
+    title: 'Neutralità fa rima con prosperità | Frontaliere Ticino',
+    description: 'Lorenzo Quadri discute l\'importanza della neutralità svizzera e le sue implicazioni economiche e politiche. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, rima, prosperità, lorenzo',
+    ogTitle: 'Neutralità fa rima con prosperità',
+    ogDescription: 'Lorenzo Quadri discute l\'importanza della neutralità svizzera e le sue implicazioni economiche e politiche. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/neutralita-svizzera-prospeta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità fa rima con prosperità",
+      "description": "Lorenzo Quadri discute l'importanza della neutralità svizzera e le sue implicazioni economiche e politiche. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralita-svizzera-prospeta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Svizzera, con focus sull'architettura e gli ambienti naturali."
+      },
+      "datePublished": "2026-09-06T07:05:05+00:00",
+      "dateModified": "2026-09-06T07:05:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-svizzera-prospeta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-basilea-campagna': {
+    title: 'Gestione del primo pilastro AVS nel Cantone di Basilea Campagna',
+    description: 'Scopri come il Cantone di Basilea Campagna gestisce il primo pilastro AVS e le prestazioni complementari per garantire il minimo vitale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, gestione, primo, pilastro, cantone',
+    ogTitle: 'Gestione del primo pilastro AVS nel Cantone di Basilea Campagna',
+    ogDescription: 'Il Cantone di Basilea Campagna gestisce il primo pilastro AVS attraverso una cassa di compensazione cantonale, garantendo il minimo vitale ai cittadini.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-basilea-campagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gestione del primo pilastro AVS nel Cantone di Basilea Campagna",
+      "description": "Scopri come il Cantone di Basilea Campagna gestisce il primo pilastro AVS e le prestazioni complementari per garantire il minimo vitale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-basilea-campagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio svizzero con focus sul sistema AVS e prestazioni complementari"
+      },
+      "datePublished": "2026-09-06T07:48:25+00:00",
+      "dateModified": "2026-09-06T07:48:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-basilea-campagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-beloved-aiuto-vittime-crans-montana': {
+    title: 'Aiuto alle vittime: 70 richieste alla Fondazione Beloved',
+    description: 'La Fondazione Beloved, istituita dal Canton Vallese, ha gestito 70 richieste di aiuto alle vittime di Crans-Montana. Nessun rifiuto finora, versate decine',
+    keywords: 'frontalieri, ticino, svizzera, italia, aiuto, alle, vittime, richieste',
+    ogTitle: 'Fondazione Beloved: aiuto alle vittime di Crans-Montana',
+    ogDescription: 'Una settantina di richieste di aiuto ricevute dalla Fondazione Beloved. Versate diverse decine di migliaia di franchi per supporto psicologico, educativo e finanziario. Budget totale di 24 milioni CHF dal Canton Vallese, Vaud, Crans-Montana',
+    canonicalPath: '/articoli-svizzera/beloved-aiuto-vittime-crans-montana/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aiuto alle vittime: 70 richieste alla Fondazione Beloved",
+      "description": "La Fondazione Beloved, istituita dal Canton Vallese, ha gestito 70 richieste di aiuto alle vittime di Crans-Montana. Nessun rifiuto finora, versate decine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/beloved-aiuto-vittime-crans-montana.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di fondazione con personale che offre supporto psicologico e finanziario a vittime in Svizzera"
+      },
+      "datePublished": "2026-09-06T07:55:34+00:00",
+      "dateModified": "2026-09-06T07:55:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/beloved-aiuto-vittime-crans-montana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-vallese-requisiti-procedura': {
+    title: 'Naturalizzazione canton Vallese: procedura ordinaria',
+    description: 'Naturalizzazione ordinaria nel Vallese: permesso C, 10 anni residenza, test lingua/integrazione, tasse comunali. Procedura step-by-step e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, vallese, procedura',
+    ogTitle: 'Naturalizzazione Canton Vallese: procedura ordinaria',
+    ogDescription: 'Diventare cittadini svizzeri nel Vallese: dalla domanda alla decisione federale. Scopri i requisiti federali (10 anni residenza + permesso C), test lingua/integrazione, tasse cantonali e procedura completa.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-vallese-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione canton Vallese: procedura ordinaria",
+      "description": "Naturalizzazione ordinaria nel Vallese: permesso C, 10 anni residenza, test lingua/integrazione, tasse comunali. Procedura step-by-step e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-vallese-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo comunale alpino in Svizzera, con architettura classica e ambiente professionale per procedure ufficiali di naturalizzazione."
+      },
+      "datePublished": "2026-09-06T08:23:19+00:00",
+      "dateModified": "2026-09-06T08:23:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-vallese-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

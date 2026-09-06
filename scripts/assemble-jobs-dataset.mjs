@@ -1951,6 +1951,14 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!process.env.SKIP_OWNERSHIP_GUARD && !options.skipOwnershipGuard) {
     try {
       const ownership = loadSourceHostOwnership(ROOT, { urls: true });
+      // The index is re-read at every write, so a key this same process wrote
+      // earlier in the run is an incumbent here — deliberately (issue #7618,
+      // item 2). Whoever writes first keeps the vacancy and it stays published
+      // exactly once; discounting the in-run gain would leave it ownerless and
+      // let this key publish a second copy of a URL already on disk. Moving a
+      // vacancy between keys is a hand-over, and a hand-over has to remove it
+      // from the losing slice: that is reconcile-crawler-company-ownership.mjs,
+      // not a write-time drop.
       const owned = dropForeignOwnedVacancies(crawlerKey, mergedJobs, ownership);
       if (owned.dropped.length > 0) {
         const byOwner = new Map();

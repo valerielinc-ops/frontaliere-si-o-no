@@ -1920,6 +1920,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'grigioni-deposito-garanzia-locazione': { it: 'grigioni-deposito-garanzia-locazione', en: 'grisons-deposit-guarantee-rental', de: 'graubuenden-kaution-miete', fr: 'grisons-depot-garantie-location' },
  'borse-studio-vallese-requisiti': { it: 'borse-studio-vallese-requisiti', en: 'vallese-scholarships-requirements', de: 'wallis-stipendien-anforderungen', fr: 'vallese-bourses-etudes-conditions' },
  'comprare-casa-vallese-mutuo-costi': { it: 'comprare-casa-vallese-mutuo-costi', en: 'buy-house-valais-prices-mortgage-costs', de: 'haus-kaufen-wallis-preise-hypothek-kosten', fr: 'acheter-maison-valais-prix-hypotheque-frais' },
+ 'avviare-azienda-grigioni-registro-commercio': { it: 'avviare-azienda-grigioni-registro-commercio', en: 'start-business-grisons-registration-costs', de: 'betrieb-gruendung-graubuenden-handelsregister', fr: 'demarrer-entreprise-grisons-registre-commerce' },
+ 'affittare-bene-immobili-ticino': { it: 'affittare-bene-immobili-ticino', en: 'renting-well-properties-ticino', de: 'gut-vermieten-immobilien-tessin', fr: 'louer-bien-biens-tessin' },
+ 'neutralita-svizzera-prospeta': { it: 'neutralita-svizzera-prospeta', en: 'swiss-neutrality-prosperity', de: 'schweizer-neutralitaet-wohlstand', fr: 'neutralite-suisse-prosperite' },
+ 'avs-prestazioni-complementari-basilea-campagna': { it: 'avs-prestazioni-complementari-basilea-campagna', en: 'avs-complementary-benefits-basel-countryside', de: 'avs-zusatzleistungen-baselland', fr: 'avs-prestations-complementaires-basel-campagne' },
+ 'beloved-aiuto-vittime-crans-montana': { it: 'beloved-aiuto-vittime-crans-montana', en: 'beloved-assistance-victims-crans-montana', de: 'beloved-opferhilfe-crans-montana', fr: 'beloved-aide-victimes-crans-montana' },
+ 'naturalizzazione-vallese-requisiti-procedura': { it: 'naturalizzazione-vallese-requisiti-procedura', en: 'naturalization-canton-valais-requirements-procedure', de: 'einbuergerung-kanton-wallis-anforderungen-verfahren', fr: 'naturalisation-canton-valais-conditions-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

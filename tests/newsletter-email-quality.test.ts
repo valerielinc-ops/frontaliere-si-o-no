@@ -255,3 +255,173 @@ describe('renderJobs uses word-boundary truncation (no ellipsis)', () => {
     }
   });
 });
+
+// ── Wise: nessuna promessa di bonus nel corpo email (issue #7529) ──────
+//
+// `/go/wise/` e' un deeplink affiliato Partnerize che atterra su wise.com
+// SENZA offerta per l'utente (services/affiliateService.ts). La promessa
+// «carta gratuita / zero commissioni fino a CHF 600» valeva solo per il
+// vecchio invito personale ed e' stata tolta da #7288 — ma solo per
+// convenzione: nessun gate impediva di riscriverla. Questi test SONO il gate.
+//
+// Scope deliberato: la riga/blocco che linka Wise. Fineco (`bonus 50€`) e
+// Crédit Agricole (`buono Amazon 50€`) hanno un'offerta VERA e devono restare,
+// quindi il detector non gira mai sul loro copy.
+// Il detector gira sul TESTO visibile, non sul markup: attributi, utm e
+// classi non sono copy e non devono ne' accendere ne' spegnere il gate.
+function stripHtmlTags(html: string): string {
+  return String(html).replace(/<[^>]*>/g, ' ');
+}
+
+const WISE_BONUS_PROMISE_RE = new RegExp(
+  [
+    'bonus',
+    'cashback',
+    'carta gratuita',
+    'carte gratuite',
+    'free card',
+    'kostenlose karte',
+    'zero commissioni',
+    'senza commissioni',
+    'no fees',
+    'free transfers?',
+    'keine geb(?:ü|ue)hren',
+    'sans frais',
+    'CHF\\s?600',
+    '600\\s?CHF',
+    'buono',
+    'voucher',
+    'gutschein',
+    'omaggio',
+    'referral',
+    'codice invito',
+    'invite code',
+  ].join('|'),
+  'i',
+);
+
+describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
+  // Il detector deve accendersi sul testo davvero rimosso: senza questo
+  // controllo una regex che non matcha nulla renderebbe verdi tutti gli altri.
+  it('il detector riconosce la promessa rimossa da #7288', () => {
+    for (const removed of [
+      'Carta gratuita e zero commissioni fino a CHF 600',
+      'Free card and zero fees up to CHF 600',
+      'Bonus di benvenuto Wise',
+    ]) {
+      expect(WISE_BONUS_PROMISE_RE.test(removed)).toBe(true);
+    }
+  });
+
+  it('il copy email del partner Wise non promette un bonus in nessun locale', async () => {
+    const { NEWSLETTER_AFFILIATE_ENTRIES } = await import('@/services/newsletter/recommendedBlock.mjs');
+    const wise = NEWSLETTER_AFFILIATE_ENTRIES.find((e: { goId: string }) => e.goId === 'wise');
+    expect(wise).toBeDefined();
+    for (const loc of LOCALES) {
+      const copy = wise.copy[loc];
+      expect(copy, `copy ${loc} mancante`).toBeDefined();
+      for (const field of ['title', 'body', 'cta'] as const) {
+        expect(
+          WISE_BONUS_PROMISE_RE.test(copy[field]),
+          `wise.copy.${loc}.${field} promette un bonus: ${copy[field]}`,
+        ).toBe(false);
+      }
+    }
+  });
+
+  it('il blocco raccomandato renderizzato non promette un bonus quando linka Wise', async (ctx) => {
+    const { renderRecommendedBlock, NEWSLETTER_SPONSORS, NEWSLETTER_AFFILIATE_ENTRIES } = await import(
+      '@/services/newsletter/recommendedBlock.mjs'
+    );
+    const { getEnabledPartner } = await import('../functions/src/lib/affiliatePartnersRegistry.js');
+
+    // `pickNewsletterRecommendation()` sceglie UNA raccomandazione per invio:
+    // uno sponsor pagato attivo vince su ogni affiliato, e fra gli affiliati
+    // vincono interest-match + `priority` del registry. Contare i render che
+    // "capitano" di essere Wise legherebbe questo gate a decisioni di revenue:
+    // attivare uno sponsor — o alzare la priority di un altro partner — non
+    // riscrive il copy Wise ma spegnerebbe tests.yml su ogni PR.
+    // Forziamo quindi la selezione (nessuno sponsor, sola entry Wise in gara) e
+    // ripristiniamo subito: cosi' il render sotto e' sempre quello di Wise e
+    // l'invariante non e' mai vacua.
+    const wise = NEWSLETTER_AFFILIATE_ENTRIES.find((e: { goId: string }) => e.goId === 'wise');
+    expect(wise, 'entry Wise assente da NEWSLETTER_AFFILIATE_ENTRIES').toBeDefined();
+    // Unica dipendenza legittima: se il partner e' disabilitato nel registry
+    // non finisce in nessuna email e l'invariante non ha superficie da coprire.
+    if (!getEnabledPartner('wise')) ctx.skip();
+
+    const sponsors = NEWSLETTER_SPONSORS.splice(0, NEWSLETTER_SPONSORS.length);
+    const entries = NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
+    NEWSLETTER_AFFILIATE_ENTRIES.push(wise);
+    try {
+      for (const loc of LOCALES) {
+        for (const interest of [undefined, 'general', 'utility', 'jobs', 'articles']) {
+          const html = renderRecommendedBlock({ locale: loc, interest });
+          expect(html, `blocco Wise (${loc}/${interest}) non renderizzato`).toContain('/go/wise/');
+          expect(
+            WISE_BONUS_PROMISE_RE.test(stripHtmlTags(html)),
+            `blocco Wise (${loc}/${interest}) promette un bonus`,
+          ).toBe(false);
+        }
+      }
+    } finally {
+      NEWSLETTER_SPONSORS.push(...sponsors);
+      NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length, ...entries);
+    }
+  });
+
+  it('la riga Wise del blocco partner non promette un bonus, quelle Fineco/CA restano', async () => {
+    // Template legacy: non e' quello che spedisce (services/newsletter-template.mjs
+    // e' il live, vedi scripts/send-newsletter.mjs), ma e' il file che #7288 ha
+    // ripulito ed e' ancora importabile — l'invariante vale anche qui.
+    const { buildNewsletter: buildLegacy } = await import('../scripts/newsletter-template.mjs');
+    for (const loc of LOCALES) {
+      const html = buildLegacy({
+        locale: loc,
+        exchangeRate: { rate: 0.942, previousRate: 0.95 },
+        metrics: loadDashboardMetrics(),
+        matchedJobs: [],
+        totalJobs: 42,
+        issueNumber: 10,
+        unsubscribeUrl: 'https://frontaliereticino.ch/u/x',
+      });
+      const rows = html.split('<tr>');
+      const wiseRow = rows.find((r: string) => r.includes('/go/wise/'));
+      expect(wiseRow, `riga Wise assente nel locale ${loc}`).toBeDefined();
+      expect(
+        WISE_BONUS_PROMISE_RE.test(stripHtmlTags(wiseRow as string)),
+        `riga Wise (${loc}) promette un bonus`,
+      ).toBe(false);
+      // Contro-prova: i partner con un'offerta reale non vengono ripuliti. Sul
+      // TESTO visibile, non sul markup grezzo: un qualunque `50` in un padding
+      // o in un colore terrebbe verde la riga Crédit Agricole anche senza
+      // «Buono Amazon 50€» — cioe' proprio la sweep-troppo-larga che questa
+      // asserzione deve intercettare.
+      const finecoRow = rows.find((r: string) => r.includes('/go/fineco/'));
+      const caRow = rows.find((r: string) => r.includes('/go/creditagricole/'));
+      expect(finecoRow, `riga Fineco assente nel locale ${loc}`).toBeDefined();
+      expect(caRow, `riga Credit Agricole assente nel locale ${loc}`).toBeDefined();
+      expect(stripHtmlTags(finecoRow as string)).toMatch(/bonus/i);
+      expect(stripHtmlTags(caRow as string)).toMatch(/buono|voucher|gutschein|bon\b/i);
+      expect(stripHtmlTags(caRow as string)).toMatch(/50\s?€|€\s?50/);
+    }
+  });
+
+  it('nessuna chiave feature_wise_referral_bonus riesumata nei locali comparatori', async () => {
+    for (const loc of LOCALES) {
+      const mod = await import(`@/services/locales/${loc}-comparatori.ts`);
+      const t: Record<string, string> = mod.default;
+      expect(
+        Object.keys(t).filter((k) => /wise.*(referral|bonus)|bonus.*wise/i.test(k)),
+        `chiave bonus Wise riesumata in ${loc}-comparatori.ts`,
+      ).toEqual([]);
+      // Le due stringhe che alimentano il partner Wise (registry + email).
+      for (const key of ['affiliate.wise.tagline', 'affiliate.wise.description']) {
+        expect(
+          WISE_BONUS_PROMISE_RE.test(t[key] || ''),
+          `${key} (${loc}) promette un bonus: ${t[key]}`,
+        ).toBe(false);
+      }
+    }
+  });
+});

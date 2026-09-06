@@ -19,16 +19,22 @@ export const JOBS_CH_BASE_URL = 'https://www.jobs.ch';
 /**
  * Open vacancy detail links rendered on a company profile.
  *
+ * Quote-agnostic, like every other reader in this module: the attribute
+ * delimiter is the serialiser's choice, not a fact about the page. A reader
+ * that only accepts `href="` reads zero links the day jobs.ch ships
+ * single-quoted attributes — and on this surface "zero" is not inert, it is
+ * half of the emptiness proof.
+ *
  * @param {string} html
  * @returns {string[]} absolute jobs.ch URLs
  */
 export function parseVacancyLinks(html = '') {
   if (!html) return [];
   const urls = new Set();
-  const re = /href="(\/en\/vacancies\/detail\/[a-f0-9-]+\/)"/gi;
+  const re = /href=(["'])(\/en\/vacancies\/detail\/[a-f0-9-]+\/)\1/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
-    urls.add(`${JOBS_CH_BASE_URL}${m[1]}`);
+    urls.add(`${JOBS_CH_BASE_URL}${m[2]}`);
   }
   return Array.from(urls);
 }
@@ -90,12 +96,19 @@ export function parseVacancyCountTab(html = '') {
   const slug = parseCanonicalCompanySlug(source);
   if (!slug) return null;
   // locale-segment-ok: '/en/' is jobs.ch's own site-language path, not a site locale route
+  // Quote-agnostic on purpose, and matching `parseCanonicalCompanySlug`, which
+  // has always accepted both: the two readers look at the SAME markup, so a
+  // counter that only accepts `href="` would read `null` on a single-quoted
+  // page whose canonical the other reader parses fine — silently voiding the
+  // proof on all five jobs.ch company-page crawlers at once. The backreference
+  // keeps the opening and closing delimiter the same, so a `'` inside a
+  // double-quoted attribute cannot terminate it.
   const re = new RegExp(
-    `href="/[a-z]{2}/companies/${escapeRegExp(slug)}/vacancies/"[^>]*>\\s*Jobs\\s*\\((\\d+)\\)\\s*<`,
+    `href=(["'])/[a-z]{2}/companies/${escapeRegExp(slug)}/vacancies/\\1[^>]*>\\s*Jobs\\s*\\((\\d+)\\)\\s*<`,
     'i',
   );
   const m = re.exec(source);
-  return m ? Number(m[1]) : null;
+  return m ? Number(m[2]) : null;
 }
 
 /** @param {{ label: string, identity?: string }} target */
