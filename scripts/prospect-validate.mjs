@@ -30,7 +30,7 @@ import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
 // e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
-assertKnownFlags(argv, ['key', 'limit', 'sample', 'dry-run']);
+assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit', 'sample'] });
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 

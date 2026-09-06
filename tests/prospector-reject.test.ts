@@ -121,27 +121,45 @@ describe('rejection con causa accertata', () => {
   it('non ingoia un flag sconosciuto: --dryrun non e\' --dry-run', () => {
     // Il verdetto e' terminale e `setStatus` e' forward-only: un refuso sul
     // flag che decide se la corsa scrive non ha rimedio a valle.
-    expect(unknownFlags(['--dryrun', "picks='aggregatore'"], ['dry-run'])).toEqual(['--dryrun']);
-    expect(unknownFlags(['-n'], ['dry-run'])).toEqual(['-n']);
-    expect(unknownFlags(['--dry-run', "picks='aggregatore'"], ['dry-run'])).toEqual([]);
-    // Gli stadi con valore: `--limit=40` e' noto, `--limite=40` no.
-    expect(unknownFlags(['--limit=40', '--limite=40'], ['limit', 'dry-run'])).toEqual(['--limite=40']);
+    const rejectKnown = { booleans: ['dry-run'] };
+    expect(unknownFlags(['--dryrun', "picks='aggregatore'"], rejectKnown)).toEqual(['--dryrun']);
+    expect(unknownFlags(['-n'], rejectKnown)).toEqual(['-n']);
+    expect(unknownFlags(['--dry-run', "picks='aggregatore'"], rejectKnown)).toEqual([]);
+    // Valued di un booleano: `includes('--dry-run')` non lo vede, la corsa scriverebbe.
+    expect(unknownFlags(['--dry-run=1'], rejectKnown)).toEqual(['--dry-run=1']);
+    expect(unknownFlags(['--dry-run=true'], rejectKnown)).toEqual(['--dry-run=true']);
+    expect(unknownFlags(['--dry-run=false'], rejectKnown)).toEqual(['--dry-run=false']);
+    // `replace(/^-+/, '')` rendeva `-dry-run`/`---dry-run` uguali al nudo.
+    expect(unknownFlags(['-dry-run'], rejectKnown)).toEqual(['-dry-run']);
+    expect(unknownFlags(['---dry-run'], rejectKnown)).toEqual(['---dry-run']);
+    // Gli stadi con valore: `--limit=40` e' noto, `--limite=40` e `--limit` nudo no.
+    const mixed = { booleans: ['dry-run'], valued: ['limit'] };
+    expect(unknownFlags(['--limit=40', '--limite=40'], mixed)).toEqual(['--limite=40']);
+    expect(unknownFlags(['--limit'], mixed)).toEqual(['--limit']);
+    // Un call site che passa ancora l'array (vecchio contratto) fallisce chiuso.
+    expect(unknownFlags(['--dry-run'], ['dry-run'])).toEqual(['--dry-run']);
   });
 
-  it('il CLI esce 2 su --dryrun e non tocca candidates.json', () => {
-    // assertKnownFlags deve morire PRIMA di loadCandidates/saveCandidates: un
-    // refuso che arrivasse a setStatus scriverebbe un rejected terminale.
-    const candidates = path.join(ROOT, 'data/prospector/candidates.json');
-    const before = fs.statSync(candidates);
-    const res = spawnSync(
-      process.execPath,
-      ['scripts/prospect-reject.mjs', '--dryrun', "picks='aggregatore'"],
-      { cwd: ROOT, encoding: 'utf8' },
-    );
-    expect(res.status).toBe(2);
-    expect(res.stderr).toContain('Flag sconosciuto: --dryrun');
-    const after = fs.statSync(candidates);
-    expect(after.mtimeMs).toBe(before.mtimeMs);
-    expect(after.size).toBe(before.size);
-  });
+  it.each(['--dryrun', '--dry-run=1', '--dry-run=true', '--dry-run=false', '-dry-run', '---dry-run'])(
+    'il CLI esce 2 su %s e non tocca candidates.json ne\' il ledger',
+    (flag) => {
+      // assertKnownFlags deve morire PRIMA di loadCandidates/saveCandidates: un
+      // refuso che arrivasse a setStatus scriverebbe un rejected terminale.
+      const candidates = path.join(ROOT, 'data/prospector/candidates.json');
+      const size = (f: string) => (fs.existsSync(f) ? fs.statSync(f).size : -1);
+      const candBefore = fs.statSync(candidates);
+      const ledgerBefore = size(LEDGER_PATH);
+      const res = spawnSync(
+        process.execPath,
+        ['scripts/prospect-reject.mjs', flag, "picks='aggregatore'"],
+        { cwd: ROOT, encoding: 'utf8' },
+      );
+      expect(res.status).toBe(2);
+      expect(res.stderr).toContain(`Flag sconosciuto: ${flag}`);
+      const candAfter = fs.statSync(candidates);
+      expect(candAfter.mtimeMs).toBe(candBefore.mtimeMs);
+      expect(candAfter.size).toBe(candBefore.size);
+      expect(size(LEDGER_PATH)).toBe(ledgerBefore);
+    },
+  );
 });

@@ -35,7 +35,7 @@ const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
 // e' un flag diverso, e' nessun flag, e la corsa scriverebbe un verdetto
 // terminale che nessun comando sa disfare.
-assertKnownFlags(argv, ['dry-run'], USAGE);
+assertKnownFlags(argv, { booleans: ['dry-run'] }, USAGE);
 const dryRun = argv.includes('--dry-run');
 
 /** @type {{ ref: string, reason: string }[]} */
