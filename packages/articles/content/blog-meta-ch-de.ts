@@ -5749,6 +5749,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-vallese-dichiarazione.title': 'Erbschaftssteuer im Wallis: Sätze und Deklaration',
     'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'Die Erbschafts- und Schenkungssteuer ist kantonal geregelt: Das Wallis hat eigene Regeln zu Verwandtschaftsgraden, Befreiungen und Meldefristen.',
     'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Luftaufnahme eines traditionellen Walliser Dorfes mit Steinarchitektur und Alpenbergen.',
+    'blog.article.svizzera-mondo-multipolare.title': 'Die Direktorin des Seco warnt vor den Gefahren einer «multipolaren Welt»',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda warnt vor einem stärkeren inneren Zusammenhalt und einer aktiveren internationalen Rolle der Schweiz.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Luftaufnahme des Finanzdistrikts von Zürich, Schweiz',
 };
 
 export default blogMetaChDe;

@@ -5749,6 +5749,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-vallese-dichiarazione.title': 'Imposta di successione nel Vallese: aliquote e dichiarazione',
     'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'L\'imposta di successione e donazione è disciplinata a livello cantonale: il Vallese ha norme proprie su gradi di parentela, esenzioni e termini di dichiarazione.',
     'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Veduta aerea di un tradizionale villaggio vallesano con architettura in pietra e montagne alpine.',
+    'blog.article.svizzera-mondo-multipolare.title': 'La direttrice della Seco mette in guardia dai rischi di un «mondo multipolare»',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda avverte della necessità di una maggiore coesione interna e di un ruolo internazionale più attivo per la Svizzera.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Vista aerea del centro finanziario di Zurigo, Svizzera',
 };
 
 export default blogMetaChIt;
