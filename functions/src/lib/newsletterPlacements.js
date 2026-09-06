@@ -40,7 +40,22 @@ export const NEWSLETTER_PLACEMENT_PREFIX = 'nl-';
  * @returns {string}
  */
 export function newsletterPartnerPlacement(index, id) {
-  return `nl-partner-${index}-${id}`;
+  return `nl-partner-${placementSlot(index)}-${id}`;
+}
+
+/**
+ * Normalise a slot index to the 1-based integer the shapes above embed. A
+ * missing/invalid index falls back to 1 (the only slot a surface that renders
+ * the block once has), never to an empty segment: a placement with a hole in
+ * it would still pass the redirect's sanitiser and arrive at Partnerize as a
+ * different, unreadable key.
+ *
+ * @param {number|string} [index]
+ * @returns {number}
+ */
+export function placementSlot(index) {
+  const n = Math.floor(Number(index));
+  return Number.isFinite(n) && n > 0 ? n : 1;
 }
 
 /**
@@ -60,22 +75,27 @@ export function placementToken(raw) {
 }
 
 /**
- * Placement of the single "Consigliato per te" affiliate recommendation:
- * `nl-recommended-<campaign>-<goId>`.
+ * Placement of a "Consigliato per te" affiliate recommendation:
+ * `nl-recommended-<1-based slot>-<campaign>-<goId>`.
  *
- * The campaign is part of the slot, not decoration: the SAME block is rendered
- * by four surfaces (weekly newsletter, job alert, welcome, drip) and they all
- * link to the same `/go/{goId}/`. Keyed on the goId alone, those four collapse
- * into one indistinguishable `pubref` and no surface can be compared against
- * another — the exact ambiguity the partner rows already avoid by carrying
- * their slot index.
+ * Two dimensions, both needed, neither decoration:
+ *  - the CAMPAIGN, because the SAME block is rendered by four surfaces (weekly
+ *    newsletter, job alert, welcome, drip) all linking to the same
+ *    `/go/{goId}/`: keyed on the goId alone those four collapse into one
+ *    indistinguishable `pubref` and no surface is comparable to another;
+ *  - the SLOT index, because within a SINGLE send nothing stops a caller from
+ *    rendering the block twice (or two recommendations resolving to the same
+ *    goId), and campaign+goId are identical in both — the two clicks would come
+ *    back under one `pos` and the ambiguity the partner rows avoid by carrying
+ *    `nl-partner-<n>-<id>` would survive here. Same shape family, same reason.
  *
  * @param {string} campaign campaign of the surface rendering the block
  * @param {string} goId registry go id of the recommended partner
+ * @param {number} [slot=1] 1-based position of the block inside the send
  * @returns {string}
  */
-export function newsletterRecommendedPlacement(campaign, goId) {
-  return `nl-recommended-${placementToken(campaign || 'recommended')}-${goId}`;
+export function newsletterRecommendedPlacement(campaign, goId, slot) {
+  return `nl-recommended-${placementSlot(slot)}-${placementToken(campaign || 'recommended')}-${goId}`;
 }
 
 /**
@@ -84,4 +104,4 @@ export function newsletterRecommendedPlacement(campaign, goId) {
  * sanitiser and still be unreadable by the consumer — the test pins both sides
  * against this.
  */
-export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended-[a-z0-9_-]+)-[a-z0-9-]+$/;
+export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended-\d+-[a-z0-9_-]+)-[a-z0-9-]+$/;

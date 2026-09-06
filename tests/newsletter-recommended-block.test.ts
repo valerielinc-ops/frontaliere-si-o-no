@@ -52,7 +52,7 @@ describe('recommendedBlock selection', () => {
     // Placement slot: utm_campaign dice quale email, `pos` dove dentro (#7527).
     // La campagna e' dentro lo slot perche' quattro superfici rendono lo stesso
     // blocco verso lo stesso /go/{goId}/ (#7695).
-    expect(new URL(href).searchParams.get('pos')).toBe(`nl-recommended-weekly-${rec!.goId}`);
+    expect(new URL(href).searchParams.get('pos')).toBe(`nl-recommended-1-weekly-${rec!.goId}`);
   });
 
   it('lets a paid sponsor win over affiliate partners', () => {
@@ -144,7 +144,9 @@ describe('recommendedBlock render', () => {
     const weekly = new URL(buildRecommendedHref(rec!, { campaign: 'weekly-42' }));
     // Forma canonica del blocco (newsletterPlacements.js), non piu' il default
     // `<campagna>-<id>`: e' quella che il redirect /go/ pinna come pubref.
-    expect(weekly.searchParams.get('pos')).toBe(`nl-recommended-weekly-42-${rec!.goId}`);
+    // L'indice di slot e' 1 quando il chiamante non lo dichiara — una superficie
+    // che rende il blocco una volta sola non deve numerarlo.
+    expect(weekly.searchParams.get('pos')).toBe(`nl-recommended-1-weekly-42-${rec!.goId}`);
 
     // a different surface must not collapse into the same tracked slot
     const welcome = new URL(buildRecommendedHref(rec!, { campaign: 'welcome' }));
@@ -155,5 +157,31 @@ describe('recommendedBlock render', () => {
     expect(explicit.searchParams.get('pos')).toBe('nl-slot-1');
 
     expect(renderRecommendedBlock({ locale: 'it', interest: 'general', campaign: 'weekly-42' })).toContain('pos=');
+  });
+
+  it('numera gli slot: due blocchi nello stesso invio non collassano in un solo pos (#7695)', () => {
+    // Campagna e goId sono IDENTICI quando un invio rende il blocco due volte
+    // (o due raccomandazioni risolvono allo stesso partner): senza l'indice di
+    // slot i due click tornano sotto lo stesso `pos` e l'ambiguita' che le
+    // righe partner evitano con `nl-partner-<n>-<id>` resterebbe qui.
+    const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'general' });
+    expect(rec).not.toBeNull();
+
+    const first = new URL(buildRecommendedHref(rec!, { campaign: 'weekly-42', slot: 1 }));
+    const second = new URL(buildRecommendedHref(rec!, { campaign: 'weekly-42', slot: 2 }));
+    expect(first.searchParams.get('pos')).not.toBe(second.searchParams.get('pos'));
+    expect(second.searchParams.get('pos')).toBe(`nl-recommended-2-weekly-42-${rec!.goId}`);
+
+    // slot omesso/invalido → 1, mai un segmento vuoto: un `pos` con un buco
+    // supererebbe comunque il sanitiser del redirect e arriverebbe a Partnerize
+    // come una chiave diversa da quella emessa.
+    for (const slot of [undefined, 0, -3, Number.NaN, 'due' as unknown as number]) {
+      expect(new URL(buildRecommendedHref(rec!, { campaign: 'weekly-42', slot })).searchParams.get('pos'))
+        .toBe(first.searchParams.get('pos'));
+    }
+
+    // lo stesso indice attraversa il renderer, non solo il builder
+    const html = renderRecommendedBlock({ locale: 'it', interest: 'general', campaign: 'weekly-42', slot: 2 });
+    expect(html).toContain(`pos=nl-recommended-2-weekly-42-${rec!.goId}`);
   });
 });

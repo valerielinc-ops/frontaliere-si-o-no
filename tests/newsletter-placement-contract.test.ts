@@ -55,6 +55,7 @@ describe('newsletter placement contract', () => {
       newsletterPartnerPlacement(1, 'wise'),
       newsletterPartnerPlacement(3, 'creditagricole'),
       newsletterRecommendedPlacement('weekly_2026-09-06', 'cambiavalute'),
+      newsletterRecommendedPlacement('weekly_2026-09-06', 'cambiavalute', 2),
     ];
     for (const pos of placements) {
       expect(pos).toMatch(NEWSLETTER_PLACEMENT_RE);
@@ -76,6 +77,23 @@ describe('newsletter placement contract', () => {
       expect(pos).toMatch(NEWSLETTER_PLACEMENT_RE);
       // il sanitiser tronca a PUBREF_MAX_LEN: una forma piu' lunga arriverebbe
       // a Partnerize tagliata, cioe' diversa da quella emessa.
+      expect(sanitizePubref(pos)).toBe(pos);
+    }
+  });
+
+  it('two blocks in the same send do not collapse into one pubref', () => {
+    // Fra superfici basta la campagna; DENTRO un invio no: due blocchi resi
+    // dalla stessa campagna verso lo stesso `/go/{goId}/` hanno campagna e
+    // goId identici, e senza l'indice di slot tornano sotto un unico `pos`
+    // — la stessa ambiguita' che le righe partner evitano con l'indice.
+    const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'general' });
+    const positions = [1, 2, 3].map(
+      (slot) => new URL(buildRecommendedHref(rec!, { campaign: 'weekly_2026-09-06', slot }))
+        .searchParams.get(PLACEMENT_PARAM)!,
+    );
+    expect(new Set(positions).size).toBe(positions.length);
+    for (const pos of positions) {
+      expect(pos).toMatch(NEWSLETTER_PLACEMENT_RE);
       expect(sanitizePubref(pos)).toBe(pos);
     }
   });
