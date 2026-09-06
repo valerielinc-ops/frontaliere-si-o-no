@@ -11436,6 +11436,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Mailand-Varese, Ausfahrt Busto Arsizio für eine Nacht geschlossen',
     'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Schließung von 22 Uhr am 9. September bis 5 Uhr am 10. September für Arbeiten an den Sicherheitsbarrieren. Alternative Ausgänge Castellanza und Gallarate.',
     'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Ausfahrtsschild Busto Arsizio auf der A8-Autobahn Milano-Varese in der Abenddämmerung mit Hinweisen auf alternative Strecken.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.title': 'Wohnen in Daverio, Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.excerpt': 'Vollständiger Leitfaden für italienische Grenzgänger: G-Bewilligung, Quellensteuer, Doppelbesteuerung, AHV, BVG und wie Sie Ihr Gehalt in der Schweiz maximieren können.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee mit Alpen im Hintergrund, Finanzzentrum des Tessins für Grenzgänger',
 };
 
 export default blogMetaDe;
