@@ -18,6 +18,7 @@ import {
   PROFESSION_LOCALES,
   ALL_CANTON_PROFESSION_IDS,
   CANTON_ONLY_PROFESSION_IDS,
+  type AnyProfessionId,
 } from '../build-plugins/professionLandingsData';
 import {
   renderProfessionCantonPage,
@@ -110,6 +111,22 @@ describe('professionCanton — render', () => {
       expect(html).toMatch(/hreflang=["']?x-default["']?/);
       expect(html).not.toMatch(/\bdark:[a-z-]/);
     }
+  });
+  // Il blocco di confronto fra pari (#7596) inietta `peerNoun` del chiamante
+  // dentro «Von N vergleichbaren ${peerNoun}», sintagma che in tedesco regge
+  // il DATIVO: un nominativo («Berufe») uscirebbe rotto su ogni pagina DE
+  // della famiglia, e proprio sulla frase che il blocco esiste per far
+  // sopravvivere alle maschere della metrica.
+  it('names the DE peer cohort in the dative plural, not the nominative', () => {
+    const cohort: Partial<Record<AnyProfessionId, typeof SNAP>> = {};
+    ALL_CANTON_PROFESSION_IDS.forEach((id, i) => {
+      cohort[id] = { ...SNAP, liveCount: 5 + i };
+    });
+    const { html } = renderProfessionCantonPage({
+      locale: 'de', cantonKey: 'ZH', id: 'infermiere', snapshot: cohort.infermiere!, cantonProfessions: cohort, distDir: '',
+    });
+    expect(html).toMatch(/vergleichbaren Berufen\b/);
+    expect(html).not.toMatch(/vergleichbaren Berufe\b/);
   });
   it('renders the same invariants for the 5 canton-only professions (#3657)', () => {
     for (const id of CANTON_ONLY_PROFESSION_IDS) {
