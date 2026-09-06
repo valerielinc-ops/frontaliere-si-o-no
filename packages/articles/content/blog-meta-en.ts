@@ -11434,6 +11434,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavorare-arosio-ticino.title': 'Living in Arosio, working in Ticino: border guide',
     'blog.article.lavorare-arosio-ticino.excerpt': 'From geographical location to tax advantages: everything that those who want to move to Arosio and work in the Canton of Ticino need to know about the rights of the border worker.',
     'blog.article.lavorare-arosio-ticino.imageAlt': 'View of Lake Como from Arosio area, with Ticino border in background',
+    'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Milano-Varese, Busto Arsizio exit closed for one night',
+    'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Closure from 10 pm on 9 to 5 am on 10 September for work on safety barriers. Castellanza and Gallarate alternative exits.',
+    'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Highway exit sign for Busto Arsizio on A8 Milano-Varese motorway at dusk, showing alternative route directions.',
 };
 
 export default blogMetaEn;

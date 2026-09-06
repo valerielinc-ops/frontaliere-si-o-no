@@ -11435,6 +11435,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavorare-arosio-ticino.title': 'Vivere a Arosio, lavorare in Ticino: guida frontaliere',
     'blog.article.lavorare-arosio-ticino.excerpt': 'Dalla collocazione geografica ai vantaggi fiscali: tutto ciò che chi vuole trasferirsi ad Arosio e lavorare nel Cantone Ticino deve sapere sui diritti del frontaliere.',
     'blog.article.lavorare-arosio-ticino.imageAlt': 'Veduta del lago di Como da Arosio, con confine Ticino sullo sfondo',
+    'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Milano-Varese, chiusa per una notte l\'uscita di Busto Arsizio',
+    'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Chiusura dalle 22 del 9 alle 5 del 10 settembre per lavori alle barriere di sicurezza. Uscite alternative Castellanza e Gallarate.',
+    'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Segnale di uscita autostradale di Busto Arsizio sulla A8 Milano-Varese al tramonto, con indicazioni per percorsi alternativi.',
 };
 
 export default blogMetaIt;

@@ -86692,6 +86692,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a8-busto-arsizio-chiusura-notte': {
+    title: 'A8 Milano-Varese, chiusa per una notte l\'uscita di Busto Arsizio',
+    description: 'Chiusura dalle 22 del 9 alle 5 del 10 settembre per lavori alle barriere di sicurezza. Uscite alternative Castellanza e Gallarate. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, milano-varese, chiusa, notte, uscita',
+    ogTitle: 'A8 Milano-Varese, chiusa per una notte l\'uscita di Busto',
+    ogDescription: 'Chiusura dalle 22 del 9 alle 5 del 10 settembre per lavori alle barriere di sicurezza. Uscite alternative Castellanza e Gallarate.',
+    canonicalPath: '/articoli-frontaliere/a8-busto-arsizio-chiusura-notte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8 Milano-Varese, chiusa per una notte l'uscita di Busto Arsizio",
+      "description": "Chiusura dalle 22 del 9 alle 5 del 10 settembre per lavori alle barriere di sicurezza. Uscite alternative Castellanza e Gallarate. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/a8-busto-arsizio-chiusura-notte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Segnale di uscita autostradale di Busto Arsizio sulla A8 Milano-Varese al tramonto, con indicazioni per percorsi alternativi."
+      },
+      "datePublished": "2026-09-06T08:27:53+00:00",
+      "dateModified": "2026-09-06T08:27:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a8-busto-arsizio-chiusura-notte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

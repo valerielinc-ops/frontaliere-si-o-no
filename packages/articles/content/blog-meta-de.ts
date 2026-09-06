@@ -11433,6 +11433,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavorare-arosio-ticino.title': 'Leben in Arosio, Arbeiten im Tessin: Grenzführer',
     'blog.article.lavorare-arosio-ticino.excerpt': 'Von der geografischen Lage bis zu den Steuervorteilen: Alles, was Sie über die Rechte des Grenzgängers wissen müssen, wenn Sie nach Arosio ziehen und im Kanton Tessin arbeiten möchten.',
     'blog.article.lavorare-arosio-ticino.imageAlt': 'Blick auf den Comer See aus der Gegend von Arosio mit Tessiner Grenze im Hintergrund',
+    'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Mailand-Varese, Ausfahrt Busto Arsizio für eine Nacht geschlossen',
+    'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Schließung von 22 Uhr am 9. September bis 5 Uhr am 10. September für Arbeiten an den Sicherheitsbarrieren. Alternative Ausgänge Castellanza und Gallarate.',
+    'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Ausfahrtsschild Busto Arsizio auf der A8-Autobahn Milano-Varese in der Abenddämmerung mit Hinweisen auf alternative Strecken.',
 };
 
 export default blogMetaDe;
