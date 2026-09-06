@@ -5620,6 +5620,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Naturalisation dans le canton de Soleure : exigences et procédure',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Découvrez les conditions et la procédure de naturalisation ordinaire dans le canton de Soleure, y compris les années de résidence, les tests d\'intégration et les taxes.',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Vue panoramique de Bellinzona, Suisse, avec le château en premier plan.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Permis de séjour C dans le canton du Valais : exigences et demande',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Découvrez les conditions et la procédure d\'obtention du permis de séjour C dans le canton du Valais, y compris les années requises, les critères d\'intégration et les connaissances linguistiques.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes suisses en arrière-plan.',
 };
 
 export default blogMetaChFr;

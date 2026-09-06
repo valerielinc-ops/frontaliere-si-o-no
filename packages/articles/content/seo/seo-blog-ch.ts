@@ -72950,6 +72950,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-domicilio-c-canton-vallese-requisiti-domanda': {
+    title: 'Permesso di domicilio C nel Canton Vallese: requisiti e domanda',
+    description: 'Scopri i requisiti e la procedura per ottenere il permesso di domicilio C nel Canton Vallese, inclusi anni richiesti, criteri di integrazione e conoscenze',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, canton, vallese',
+    ogTitle: 'Permesso di domicilio C nel Canton Vallese: requisiti e domanda',
+    ogDescription: 'Scopri i requisiti e la procedura per ottenere il permesso di domicilio C nel Canton Vallese, inclusi anni richiesti, criteri di integrazione e conoscenze linguistiche. Questo permesso permette di risiedere in Svizzera senza limiti di tempo',
+    canonicalPath: '/articoli-svizzera/permesso-domicilio-c-canton-vallese-requisiti-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C nel Canton Vallese: requisiti e domanda",
+      "description": "Scopri i requisiti e la procedura per ottenere il permesso di domicilio C nel Canton Vallese, inclusi anni richiesti, criteri di integrazione e conoscenze",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-domicilio-c-canton-vallese-requisiti-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo."
+      },
+      "datePublished": "2026-09-06T00:58:20+00:00",
+      "dateModified": "2026-09-06T00:58:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-domicilio-c-canton-vallese-requisiti-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

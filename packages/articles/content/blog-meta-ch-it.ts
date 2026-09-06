@@ -5620,6 +5620,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Naturalizzazione nel canton Soletta: requisiti e procedura',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Canton Soletta, inclusi anni di residenza, test di integrazione e tasse.',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Vista panoramica di Bellinzona, Svizzera, con il castello in primo piano.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Permesso di domicilio C nel Canton Vallese: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Scopri i requisiti e la procedura per ottenere il permesso di domicilio C nel Canton Vallese, inclusi anni richiesti, criteri di integrazione e conoscenze linguistiche.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo.',
 };
 
 export default blogMetaChIt;

@@ -5620,6 +5620,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Naturalization in the canton of Solothurn: requirements and procedure',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Learn about the requirements and procedure for ordinary naturalization in the Canton of Solothurn, including years of residence, integration tests, and taxes.',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Panoramic view of Bellinzona, Switzerland, with the castle in the foreground.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Residence permit C in the Canton of Valais: requirements and application',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Learn about the requirements and procedure for obtaining a residence permit C in the Canton of Valais, including the required years, integration criteria and language skills.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background.',
 };
 
 export default blogMetaChEn;
