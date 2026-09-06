@@ -87316,6 +87316,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-montescheno-frontaliere-ticino-guida': {
+    title: 'Montescheno: vivere e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Vivere a Montescheno e lavorare in Ticino: scopri le implicazioni fiscali, il Nuovo Accordo frontalieri 2024, i costi e le procedure per il Permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, montescheno, vivere, lavorare, cosa',
+    ogTitle: 'Montescheno: la guida del frontaliere Ticino',
+    ogDescription: 'Stai pensando di trasferire a Montescheno per lavorare in Ticino? Scopri cosa aspettarsi: Permesso G, Nuovo Accordo frontalieri 2024, tassazione, AVS e procedure amministrative.',
+    canonicalPath: '/articoli-frontaliere/montescheno-frontaliere-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Montescheno: vivere e lavorare in Ticino",
+      "description": "Vivere a Montescheno e lavorare in Ticino: scopri le implicazioni fiscali, il Nuovo Accordo frontalieri 2024, i costi e le procedure per il Permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/montescheno-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in transito al valico di confine tra Montescheno e Ticino al tramonto"
+      },
+      "datePublished": "2026-09-06T22:21:14+00:00",
+      "dateModified": "2026-09-06T22:21:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/montescheno-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

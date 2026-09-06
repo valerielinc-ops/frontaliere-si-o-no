@@ -11486,6 +11486,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera frontalier Tessin : guide 2026',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Vivre à Valmadrera et travailler au Tessin : le nouvel accord frontalier, franchise de 10 000 € , permis G, fiscalité et procédure de déclaration.',
     'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Vue depuis le Monte Generoso vers la vallée d\'Intelvi et les montagnes tessinoises à la frontière italo-suisse',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno : vivre et travailler au Tessin',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Que signifie vivre à Montescheno et travailler comme frontalier au Tessin ? Guide sur le permis G, la fiscalité, le coût de la vie et les procédures administratives.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Frontalier passant la frontière entre Montescheno et le Tessin le matin',
 };
 
 export default blogMetaFr;

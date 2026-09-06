@@ -34302,6 +34302,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'montescheno-frontaliere-ticino-guida',
+ category: 'pratico',
+ date: '2026-09-06T22:21:14.049Z',
+ image: '/images/blog/montescheno-frontaliere-ticino-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
