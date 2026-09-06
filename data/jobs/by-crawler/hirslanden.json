@@ -26928,11 +26928,11 @@
     },
     {
       "id": "hirslanden-3a9cb2719fb9",
-      "slug": "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+      "slug": "infermiera-in-oncologia-all-80-cdd-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
-        "de": "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
-        "it": "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
-        "en": "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+        "de": "krankenschwester-in-onkologie-bei-80-flexibler-cdd-hirslanden-klinik-hirslanden-clinique-cecil",
+        "it": "infermiera-in-oncologia-all-80-cdd-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "nurse-in-oncology-at-80-flexible-cdd-hirslanden-klinik-hirslanden-clinique-cecil",
         "fr": "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
@@ -26987,7 +26987,21 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-oncologie-en-cdd-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-f06063625fad",

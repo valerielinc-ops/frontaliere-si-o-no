@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "nestle-1369908233",
-      "slug": "stagiaire-ingenieur-engineering-h-f-d-nestle-ch",
+      "slug": "ingegneria-ingegneristica-interna-m-f-d-nestle-avenches",
       "slugByLocale": {
-        "it": "stagiaire-ingenieur-engineering-h-f-d-nestle-ch",
-        "en": "stagiaire-ingenieur-engineering-h-f-d-nestle-ch",
-        "de": "stagiaire-ingenieur-engineering-h-f-d-nestle-ch",
+        "it": "ingegneria-ingegneristica-interna-m-f-d-nestle-avenches",
+        "en": "intern-engineer-engineering-m-f-d-nestle-avenches",
+        "de": "intern-engineer-engineering-m-w-d-nestle-avenches",
         "fr": "stagiaire-ingenieur-engineering-h-f-d-nestle-ch"
       },
       "company": "Nestlé",
@@ -62,7 +62,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-ingenieur-engineering-h-f-d-nestle-ch"
+        ],
+        "en": [
+          "stagiaire-ingenieur-engineering-h-f-d-nestle-ch"
+        ],
+        "de": [
+          "stagiaire-ingenieur-engineering-h-f-d-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ingenieur-engineering-h-f-d-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1423268533",
@@ -2859,12 +2873,12 @@
     },
     {
       "id": "nestle-1432885433",
-      "slug": "instandhalter-in-mechanik-100-nestle-ch",
+      "slug": "manutenzione-in-meccanica-100-nestle-konolfingen",
       "slugByLocale": {
-        "it": "instandhalter-in-mechanik-100-nestle-ch",
-        "en": "instandhalter-in-mechanik-100-nestle-ch",
+        "it": "manutenzione-in-meccanica-100-nestle-konolfingen",
+        "en": "maintenance-in-mechanics-100-nestle-konolfingen",
         "de": "instandhalter-in-mechanik-100-nestle-ch",
-        "fr": "instandhalter-in-mechanik-100-nestle-ch"
+        "fr": "entretien-en-mecanique-100-nestle-konolfingen"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -2906,19 +2920,25 @@
       "previousSlugs": [
         "instandhalter-in-mechanik-nestle-konolfingen-ch",
         "instandhalterin-mechanik-nestle-ch",
-        "instandhalterin-mechanik-nestle-konolfingen-ch"
+        "instandhalterin-mechanik-nestle-konolfingen-ch",
+        "instandhalter-in-mechanik-100-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-mechanik-nestle-konolfingen-ch",
           "instandhalterin-mechanik-nestle-ch",
-          "instandhalterin-mechanik-nestle-konolfingen-ch"
+          "instandhalterin-mechanik-nestle-konolfingen-ch",
+          "instandhalter-in-mechanik-100-nestle-ch"
         ],
         "de": [
           "instandhalterin-mechanik-nestle-ch"
         ],
         "fr": [
-          "instandhalterin-mechanik-nestle-konolfingen-ch"
+          "instandhalterin-mechanik-nestle-konolfingen-ch",
+          "instandhalter-in-mechanik-100-nestle-ch"
+        ],
+        "en": [
+          "instandhalter-in-mechanik-100-nestle-ch"
         ]
       },
       "needsRetranslation": true,

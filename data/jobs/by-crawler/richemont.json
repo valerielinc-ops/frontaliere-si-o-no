@@ -161,11 +161,11 @@
     },
     {
       "id": "richemont-196cfd446d02",
-      "slug": "responsable-maintenance-richemont-glovelier",
+      "slug": "manutenzione-responsabile-richemont-glovelier",
       "slugByLocale": {
-        "it": "responsable-maintenance-richemont-glovelier",
-        "en": "responsable-maintenance-richemont-glovelier",
-        "de": "responsable-maintenance-richemont-glovelier",
+        "it": "manutenzione-responsabile-richemont-glovelier",
+        "en": "responsible-maintenance-richemont-glovelier",
+        "de": "verantwortungsvolle-wartung-richemont-glovelier",
         "fr": "responsable-maintenance-richemont-glovelier"
       },
       "company": "Richemont",
@@ -220,7 +220,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-maintenance-richemont-glovelier"
+        ],
+        "en": [
+          "responsable-maintenance-richemont-glovelier"
+        ],
+        "de": [
+          "responsable-maintenance-richemont-glovelier"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-maintenance-richemont-glovelier"
+      ]
     },
     {
       "id": "richemont-4cd8e26192e6",
@@ -1374,7 +1388,7 @@
         "it": "addetto-alle-vendite-senior-cartier-geneva",
         "en": "senior-sales-associate-cartier-geneva",
         "de": "leitender-vertriebsmitarbeiter-cartier-geneva",
-        "fr": "senior-sales-associate-richemont-geneva-n74jn7"
+        "fr": "senior-sales-associate-richemont-geneva"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -1493,8 +1507,7 @@
           "associe-de-vente-senior-cartier-geneva",
           "avocat-principal-cartier-geneva",
           "grand-vendeur-senior-sales-associate-richemont-geneva",
-          "senior-sales-associate-richemont-geneva-n74jn7",
-          "senior-sales-associate-richemont-geneva"
+          "senior-sales-associate-richemont-geneva-n74jn7"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.473Z",

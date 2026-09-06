@@ -8221,12 +8221,12 @@
     },
     {
       "id": "unispital-basel-9751ca60d3f8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1",
+      "slug": "dipl-infermieristica-hf-fh-funzione-aggiuntiva-formazione-professionale-1-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1",
+        "it": "dipl-infermieristica-hf-fh-funzione-aggiuntiva-formazione-professionale-1-universitatsspital-basel-basel",
+        "en": "dipl-nursing-specialist-hf-fh-additional-function-vocational-trainer-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-fonction-complementaire-formateur-professionnel-1-universitatsspital-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8280,7 +8280,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1"
+      ]
     },
     {
       "id": "unispital-basel-c4d8f55a082d",

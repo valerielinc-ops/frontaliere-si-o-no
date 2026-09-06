@@ -5692,12 +5692,12 @@
     },
     {
       "id": "pdag-57a08a42ccab",
-      "slug": "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-betreuung-o-stationshilfe-im-pflegepool-flex26-con-frei-wahlbaren-einsatzen-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "assistente-di-cura-assistente-di-cura-srk-in-servizio-anticipato-tardivo-1-1-assistenza-di-assistenza-o-stazione-nel",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-betreuung-o-stationshilfe-im-pflegepool-flex26-con-frei-wahlbaren-einsatzen-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im",
+        "it": "assistente-di-cura-assistente-di-cura-srk-in-servizio-anticipato-tardivo-1-1-assistenza-di-assistenza-o-stazione-nel",
+        "en": "care-assistant-care-assistant-srk-in-early-late-service-1-1-care-or-station-assistance-in-the-care-pool-flex26-with",
         "de": "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im",
-        "fr": "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im"
+        "fr": "assistant-de-soins-assistant-de-soins-srk-en-service-precoce-en-retard-1-1-soins-ou-assistance-de-poste-dans-la-piscine"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5740,10 +5740,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im"
+        "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im",
+        "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-betreuung-o-stationshilfe-im-pflegepool-flex26-con-frei-wahlbaren-einsatzen-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im",
+          "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-betreuung-o-stationshilfe-im-pflegepool-flex26-con-frei-wahlbaren-einsatzen-psychiatrische-dienste-aargau-pdag-windisch"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im"
+        ],
+        "fr": [
           "pflegehelferin-pflegehelfer-srk-im-fruh-spatdienst-1-1-betreuung-oder-stationshilfe-im"
         ]
       },
@@ -5764,12 +5772,12 @@
     },
     {
       "id": "pdag-598fd9441bbf",
-      "slug": "klassenassistentin-klassenassistent-pdag-windisch",
+      "slug": "assistente-di-classe-assistente-di-classe-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
-        "it": "klassenassistentin-klassenassistent-pdag-windisch",
-        "en": "klassenassistentin-klassenassistent-pdag-windisch",
+        "it": "assistente-di-classe-assistente-di-classe-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "class-assistant-class-assistant-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "klassenassistentin-klassenassistent-pdag-windisch",
-        "fr": "klassenassistentin-klassenassistent-pdag-windisch"
+        "fr": "assistant-de-classe-assistant-de-classe-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5824,7 +5832,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenassistentin-klassenassistent-pdag-windisch"
+        ],
+        "en": [
+          "klassenassistentin-klassenassistent-pdag-windisch"
+        ],
+        "fr": [
+          "klassenassistentin-klassenassistent-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "klassenassistentin-klassenassistent-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-021b37b02181",
@@ -6192,7 +6214,6 @@
       "firstSeenAt": "2026-09-05T23:02:16.667Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-dipl-infermieristica-hf-servizio-notturno-psychiatrische-dienste-aargau-pdag-windisch",
           "dipl-nurse-dipl-nursing-specialist-hf-night-service-br-in-the-neuropsychiatry-clinic-psychiatrische-dienste-aargau-pdag",
           "dipl-infirmiere-dipl-specialiste-des-soins-infirmiers-hf-service-de-nuit-br-a-la-clinique-de-neuropsychiatrie",
           "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-fh-br-nella-clinica-neuropsichiatria",
@@ -6206,16 +6227,13 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich"
         ],
         "en": [
-          "dipl-nurse-dipl-nursing-specialist-hf-night-service-br-in-the-neuropsychiatry-clinic-psychiatrische-dienste-aargau-pdag",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich"
         ],
         "fr": [
-          "dipl-infirmiere-dipl-specialiste-des-soins-infirmiers-hf-service-de-nuit-br-a-la-clinique-de-neuropsychiatrie",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich"
         ]
       },
       "previousSlugs": [
-        "dipl-infermiera-dipl-infermieristica-hf-servizio-notturno-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-nurse-dipl-nursing-specialist-hf-night-service-br-in-the-neuropsychiatry-clinic-psychiatrische-dienste-aargau-pdag",
         "dipl-infirmiere-dipl-specialiste-des-soins-infirmiers-hf-service-de-nuit-br-a-la-clinique-de-neuropsychiatrie",
         "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-fh-br-nella-clinica-neuropsichiatria",

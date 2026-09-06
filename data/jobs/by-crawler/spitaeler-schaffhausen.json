@@ -3355,12 +3355,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-825a352d197e",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
+        "it": "dipl-infermiera-infermiera-specialista-hf-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-nurse-nurse-specialist-hf-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-psychiatrie-a-long-terme-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3415,7 +3415,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-a1def60e8ac9",

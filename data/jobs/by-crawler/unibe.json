@@ -3282,12 +3282,12 @@
     },
     {
       "id": "unibe-b10cc6a3e01b",
-      "slug": "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
+      "slug": "assistente-veterinario-80-100-universitat-bern-bern",
       "slugByLocale": {
-        "it": "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
-        "en": "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
+        "it": "assistente-veterinario-80-100-universitat-bern-bern",
+        "en": "veterinary-assistant-80-100-universitat-bern-bern",
         "de": "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
-        "fr": "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern"
+        "fr": "assistant-veterinaire-80-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3333,13 +3333,21 @@
         "it": [
           "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
           "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern-lcqpzw",
-          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2"
+          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
+          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern"
+        ],
+        "en": [
+          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern"
+        ],
+        "fr": [
+          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
         "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
         "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern-lcqpzw",
-        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2"
+        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
+        "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern"
       ],
       "firstSeenAt": "2026-09-01T14:26:55.171Z",
       "salaryMin": 85000,
@@ -3362,7 +3370,7 @@
       "slugByLocale": {
         "it": "post-doc-unibe-bern",
         "en": "post-doc-unibe-bern",
-        "de": "post-doc-unibe-bern",
+        "de": "postdoc-universitat-bern-bern",
         "fr": "post-doc-unibe-bern"
       },
       "company": "Universität Bern",

@@ -76494,12 +76494,12 @@
     },
     {
       "id": "roche-544f4815f064",
-      "slug": "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch",
+      "slug": "produzione-esterna-leadership-dei-prodotti-tecnici-lead-strumenti-e-dispositivi-dc-roche-basel",
       "slugByLocale": {
-        "it": "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch",
+        "it": "produzione-esterna-leadership-dei-prodotti-tecnici-lead-strumenti-e-dispositivi-dc-roche-basel",
         "en": "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch",
-        "de": "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch",
-        "fr": "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch"
+        "de": "externe-fertigung-technical-product-leadership-lead-instrumente-gerate-dc-roche-basel",
+        "fr": "fabrication-externe-leadership-technique-des-produits-instruments-et-appareils-dc-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76552,7 +76552,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch"
+        ],
+        "de": [
+          "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch"
+        ],
+        "fr": [
+          "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "external-manufacturing-technical-product-leadership-lead-instruments-devices-dc-roche-ch"
+      ]
     },
     {
       "id": "roche-8cf4d686f834",
@@ -84612,9 +84626,9 @@
     },
     {
       "id": "roche-31f212ee36f6",
-      "slug": "intellectual-property-patent-attorney-roche-basel",
+      "slug": "proprieta-intellettuale-procuratore-di-brevetti-roche-basel",
       "slugByLocale": {
-        "it": "intellectual-property-patent-attorney-roche-basel",
+        "it": "proprieta-intellettuale-procuratore-di-brevetti-roche-basel",
         "en": "intellectual-property-patent-attorney-roche-ch",
         "de": "geistiges-eigentum-patentanwalt-roche-basel",
         "fr": "propriete-intellectuelle-procureur-en-brevets-roche-basel"
@@ -84658,12 +84672,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "intellectual-property-patent-attorney-roche-ch",
-        "proprieta-intellettuale-procuratore-di-brevetti-roche-basel"
+        "intellectual-property-patent-attorney-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "intellectual-property-patent-attorney-roche-ch",
-          "proprieta-intellettuale-procuratore-di-brevetti-roche-basel"
+          "intellectual-property-patent-attorney-roche-basel"
         ],
         "de": [
           "intellectual-property-patent-attorney-roche-ch"

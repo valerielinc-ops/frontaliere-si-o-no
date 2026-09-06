@@ -1434,12 +1434,12 @@
     },
     {
       "id": "empa-46b7ef97e349",
-      "slug": "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf",
+      "slug": "studente-di-dottorato-nella-sintesi-di-materiali-polimerici-empa-dubendorf",
       "slugByLocale": {
-        "it": "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf",
+        "it": "studente-di-dottorato-nella-sintesi-di-materiali-polimerici-empa-dubendorf",
         "en": "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf",
-        "de": "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf",
-        "fr": "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
+        "de": "doktorand-in-der-synthese-von-polymeren-materialien-empa-dubendorf",
+        "fr": "doctorant-en-synthese-des-materiaux-polymeres-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1496,7 +1496,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
+        ],
+        "de": [
+          "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
+        ],
+        "fr": [
+          "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
+      ]
     },
     {
       "id": "empa-96321f4a5541",

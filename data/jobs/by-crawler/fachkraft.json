@@ -8801,7 +8801,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zimmermann-zimmerin-fur-elementbau-fachkraft-ch",
-        "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-fachkraft-ch",
         "zimmermann-zimmerin-per-elementbau-fachkraft-ch-gmbh-lugano-2d0fkg",
         "zimmermann-zimmerin-hilfsarbeiter-in-elementbau-fachkraft-ch",
         "zimmermann-zimmerin-hilfsarbeiter-in-elementbau-wil-sg-st-gallen-fachkraft-ch",
@@ -30645,12 +30644,12 @@
     },
     {
       "id": "fachkraft-74e13b5d0644",
-      "slug": "schreiner-in-per-vielseitigen-innenausbau-fachkraft-ch-gmbh-horgen",
+      "slug": "carpenter-per-un-design-versatile-fachkraft-ch-gmbh-horgen-zurich",
       "slugByLocale": {
-        "it": "schreiner-in-per-vielseitigen-innenausbau-fachkraft-ch-gmbh-horgen",
-        "en": "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch",
+        "it": "carpenter-per-un-design-versatile-fachkraft-ch-gmbh-horgen-zurich",
+        "en": "carpenter-for-versatile-interior-design-fachkraft-ch-gmbh-horgen-zurich",
         "de": "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch",
-        "fr": "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch"
+        "fr": "charpentier-pour-un-design-d-interieur-polyvalent-fachkraft-ch-gmbh-horgen-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -30691,10 +30690,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch"
+        "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch",
+        "schreiner-in-per-vielseitigen-innenausbau-fachkraft-ch-gmbh-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch",
+          "schreiner-in-per-vielseitigen-innenausbau-fachkraft-ch-gmbh-horgen"
+        ],
+        "en": [
+          "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-vielseitigen-innenausbau-horgen-zurich-fachkraft-ch"
         ]
       },
@@ -85671,12 +85678,12 @@
     },
     {
       "id": "fachkraft-b310790e7cb5",
-      "slug": "polymechaniker-in-instandhaltung-per-anlagenunterhalt-fachkraft-ch-gmbh-schwyz",
+      "slug": "polymechanic-manutenzione-per-la-manutenzione-degli-impianti-fachkraft-ch-gmbh-schwyz-schwyz",
       "slugByLocale": {
-        "it": "polymechaniker-in-instandhaltung-per-anlagenunterhalt-fachkraft-ch-gmbh-schwyz",
-        "en": "polymechaniker-in-instandhaltung-fur-anlagenunterhalt-fachkraft-ch-gmbh-schwyz",
+        "it": "polymechanic-manutenzione-per-la-manutenzione-degli-impianti-fachkraft-ch-gmbh-schwyz-schwyz",
+        "en": "polymechanic-maintenance-for-plant-maintenance-fachkraft-ch-gmbh-schwyz-schwyz",
         "de": "polymechaniker-in-8211-instandhaltung-fur-anlagenunterhalt-schwyz-schwyz-fachkraft-ch",
-        "fr": "polymechaniker-in-instandhaltung-fur-anlagenunterhalt-fachkraft-ch-gmbh-schwyz"
+        "fr": "polymecanique-entretien-pour-l-entretien-des-installations-fachkraft-ch-gmbh-schwyz-schwyz"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -85717,11 +85724,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-8211-instandhaltung-fur-anlagenunterhalt-schwyz-schwyz-fachkraft-ch"
+        "polymechaniker-in-8211-instandhaltung-fur-anlagenunterhalt-schwyz-schwyz-fachkraft-ch",
+        "polymechaniker-in-instandhaltung-per-anlagenunterhalt-fachkraft-ch-gmbh-schwyz",
+        "polymechaniker-in-instandhaltung-fur-anlagenunterhalt-fachkraft-ch-gmbh-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-8211-instandhaltung-fur-anlagenunterhalt-schwyz-schwyz-fachkraft-ch"
+          "polymechaniker-in-8211-instandhaltung-fur-anlagenunterhalt-schwyz-schwyz-fachkraft-ch",
+          "polymechaniker-in-instandhaltung-per-anlagenunterhalt-fachkraft-ch-gmbh-schwyz"
+        ],
+        "en": [
+          "polymechaniker-in-instandhaltung-fur-anlagenunterhalt-fachkraft-ch-gmbh-schwyz"
+        ],
+        "fr": [
+          "polymechaniker-in-instandhaltung-fur-anlagenunterhalt-fachkraft-ch-gmbh-schwyz"
         ]
       },
       "needsRetranslation": true,
@@ -143479,12 +143495,12 @@
     },
     {
       "id": "fachkraft-0f37f88dfe7a",
-      "slug": "maler-in-per-renovationsarbeiten-e-spritzlackierungen-fachkraft-ch-gmbh-aarau",
+      "slug": "pittore-per-lavori-di-ristrutturazione-e-vernici-spray-fachkraft-ch-gmbh-aarau-aargau",
       "slugByLocale": {
-        "it": "maler-in-per-renovationsarbeiten-e-spritzlackierungen-fachkraft-ch-gmbh-aarau",
-        "en": "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-fachkraft-ch-gmbh-aarau",
+        "it": "pittore-per-lavori-di-ristrutturazione-e-vernici-spray-fachkraft-ch-gmbh-aarau-aargau",
+        "en": "painter-for-renovation-work-and-spray-painting-fachkraft-ch-gmbh-aarau-aargau",
         "de": "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-fachkraft-ch",
-        "fr": "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-fachkraft-ch-gmbh-aarau"
+        "fr": "peintre-pour-travaux-de-renovation-et-peinture-par-pulverisation-fachkraft-ch-gmbh-aarau-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -143525,11 +143541,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-fachkraft-ch"
+        "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-fachkraft-ch",
+        "maler-in-per-renovationsarbeiten-e-spritzlackierungen-fachkraft-ch-gmbh-aarau",
+        "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-fachkraft-ch-gmbh-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-fachkraft-ch"
+          "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-fachkraft-ch",
+          "maler-in-per-renovationsarbeiten-e-spritzlackierungen-fachkraft-ch-gmbh-aarau"
+        ],
+        "en": [
+          "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-fachkraft-ch-gmbh-aarau"
+        ],
+        "fr": [
+          "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-fachkraft-ch-gmbh-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T17:38:51.331Z",
@@ -185163,12 +185188,12 @@
     },
     {
       "id": "fachkraft-ded74af22400",
-      "slug": "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern",
+      "slug": "gardener-avanzi-con-esperienza-di-leadership-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
-        "it": "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern",
-        "en": "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern",
+        "it": "gardener-avanzi-con-esperienza-di-leadership-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "gardener-foremen-with-leadership-experience-fachkraft-ch-gmbh-luzern-luzern",
         "de": "gartner-in-8211-vorarbeiter-in-mit-fuhrungserfahrung-luzern-luzern-fachkraft-ch",
-        "fr": "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern"
+        "fr": "jardinier-contremaitres-ayant-une-experience-de-leadership-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -185209,11 +185234,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-8211-vorarbeiter-in-mit-fuhrungserfahrung-luzern-luzern-fachkraft-ch"
+        "gartner-in-8211-vorarbeiter-in-mit-fuhrungserfahrung-luzern-luzern-fachkraft-ch",
+        "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-8211-vorarbeiter-in-mit-fuhrungserfahrung-luzern-luzern-fachkraft-ch"
+          "gartner-in-8211-vorarbeiter-in-mit-fuhrungserfahrung-luzern-luzern-fachkraft-ch",
+          "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern"
+        ],
+        "fr": [
+          "gartner-in-vorarbeiter-in-mit-fuhrungserfahrung-fachkraft-ch-gmbh-luzern"
         ]
       },
       "needsRetranslation": true,

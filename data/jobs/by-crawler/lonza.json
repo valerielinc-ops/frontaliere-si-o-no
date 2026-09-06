@@ -13978,7 +13978,7 @@
         "it": "senior-scientist-qc-lonza-ch",
         "en": "senior-scientist-qc-lonza-ch",
         "de": "senior-scientist-qc-lonza-ch",
-        "fr": "senior-scientist-qc-lonza-ch"
+        "fr": "chercheur-principal-qc-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14176,12 +14176,12 @@
     },
     {
       "id": "lonza-573a53293479",
-      "slug": "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch",
+      "slug": "compliance-esperto-di-assicurazione-di-qualita-senior-servizi-di-prodotti-farmaceutici-lonza-ch",
       "slugByLocale": {
-        "it": "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch",
+        "it": "compliance-esperto-di-assicurazione-di-qualita-senior-servizi-di-prodotti-farmaceutici-lonza-ch",
         "en": "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch",
         "de": "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch",
-        "fr": "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch"
+        "fr": "conformite-des-experts-en-assurance-de-la-qualite-services-des-produits-pharmaceutiques-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14236,16 +14236,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch"
+        ],
+        "fr": [
+          "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-quality-assurance-expert-compliance-drug-product-services-lonza-ch"
+      ]
     },
     {
       "id": "lonza-d9fcf6828f12",
-      "slug": "operatore-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
+      "slug": "giorno-di-pesatura-dell-operatore-lavoro-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "operatore-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
-        "en": "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
+        "it": "giorno-di-pesatura-dell-operatore-lavoro-80-100-m-f-d-lonza-ch",
+        "en": "operator-weighing-day-work-80-100-m-f-d-lonza-ch",
         "de": "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
-        "fr": "operateur-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch"
+        "fr": "travail-de-jour-de-l-operateur-80-100-h-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14286,13 +14297,20 @@
       "crawledAt": "2026-09-05T23:09:30.590Z",
       "jobReqId": "R78374",
       "previousSlugs": [
-        "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch"
+        "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
+        "operatore-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
+        "operateur-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch"
+          "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
+          "operatore-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch"
         ],
         "fr": [
+          "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch",
+          "operateur-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
           "operator-verwiegung-tagesarbeit-80-100-m-w-d-lonza-ch"
         ]
       },

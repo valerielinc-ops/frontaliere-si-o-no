@@ -3851,12 +3851,12 @@
     },
     {
       "id": "kispi-1e14bd2aa360",
-      "slug": "applikationsverantwortliche-polypoint-pep-m-w-d-70-ressourcendispositions-e-personaleinsatzplanungssysteme-universitats-kinderspital-zurich",
+      "slug": "responsabile-dell-applicazione-polypoint-pep-m-f-70-disposizione-delle-risorse-e-sistemi-di-pianificazione-del-personale",
       "slugByLocale": {
-        "it": "applikationsverantwortliche-polypoint-pep-m-w-d-70-ressourcendispositions-e-personaleinsatzplanungssysteme-universitats-kinderspital-zurich",
-        "en": "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und",
+        "it": "responsabile-dell-applicazione-polypoint-pep-m-f-70-disposizione-delle-risorse-e-sistemi-di-pianificazione-del-personale",
+        "en": "application-responsible-polypoint-pep-m-f-70-resource-disposition-and-personnel-planning-systems-universitats",
         "de": "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und",
-        "fr": "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und"
+        "fr": "application-responsable-polypoint-pep-h-f-70-systemes-de-gestion-des-ressources-et-de-planification-du-personnel"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -3899,10 +3899,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und"
+        "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und",
+        "applikationsverantwortliche-polypoint-pep-m-w-d-70-ressourcendispositions-e-personaleinsatzplanungssysteme-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und",
+          "applikationsverantwortliche-polypoint-pep-m-w-d-70-ressourcendispositions-e-personaleinsatzplanungssysteme-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und"
+        ],
+        "fr": [
           "applikationsverantwortliche-polypoint-pep-m-w-70-ressourcendispositions-und"
         ]
       },

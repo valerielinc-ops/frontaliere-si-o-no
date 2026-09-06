@@ -3303,12 +3303,12 @@
     },
     {
       "id": "kanton-zuerich-cd4681572ec6",
-      "slug": "personalvermittler-in-stellenmeldezentrum-smz-befristet-per-ein-jahr-con-option-auf-festanstellung-kantonale-verwaltung-zurich",
+      "slug": "agenzia-di-reclutamento-centro-di-registrazione-del-lavoro-smz-per-un-periodo-di-un-anno-a-tempo-determinato-con-opzione",
       "slugByLocale": {
-        "it": "personalvermittler-in-stellenmeldezentrum-smz-befristet-per-ein-jahr-con-option-auf-festanstellung-kantonale-verwaltung-zurich",
-        "en": "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf",
+        "it": "agenzia-di-reclutamento-centro-di-registrazione-del-lavoro-smz-per-un-periodo-di-un-anno-a-tempo-determinato-con-opzione",
+        "en": "recruitment-agency-job-registration-centre-smz-for-a-fixed-term-period-of-one-year-with-permanent-employment-option",
         "de": "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf",
-        "fr": "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf"
+        "fr": "agence-de-recrutement-centre-d-inscription-au-poste-smz-pour-une-duree-determinee-d-un-an-avec-option-d-emploi-permanent"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3354,10 +3354,18 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf"
+        "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf",
+        "personalvermittler-in-stellenmeldezentrum-smz-befristet-per-ein-jahr-con-option-auf-festanstellung-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf",
+          "personalvermittler-in-stellenmeldezentrum-smz-befristet-per-ein-jahr-con-option-auf-festanstellung-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf"
+        ],
+        "fr": [
           "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf"
         ]
       },
@@ -3861,12 +3869,12 @@
     },
     {
       "id": "kanton-zuerich-f3d2ae2da5e5",
-      "slug": "it-supporter-in-kanton-zuerich-au-zh",
+      "slug": "supporto-it-kantonale-verwaltung-zurich-au-zh",
       "slugByLocale": {
-        "it": "it-supporter-in-kanton-zuerich-au-zh",
+        "it": "supporto-it-kantonale-verwaltung-zurich-au-zh",
         "en": "it-supporter-in-kanton-zuerich-au-zh",
         "de": "it-supporter-in-kantonale-verwaltung-zurich-au-zh",
-        "fr": "it-supporter-in-kanton-zuerich-au-zh"
+        "fr": "support-informatique-kantonale-verwaltung-zurich-au-zh"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3925,7 +3933,18 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-supporter-in-kanton-zuerich-au-zh"
+        ],
+        "fr": [
+          "it-supporter-in-kanton-zuerich-au-zh"
+        ]
+      },
+      "previousSlugs": [
+        "it-supporter-in-kanton-zuerich-au-zh"
+      ]
     },
     {
       "id": "kanton-zuerich-c7ec94bfc706",
@@ -6138,12 +6157,12 @@
     },
     {
       "id": "kanton-zuerich-a4006fce5d6b",
-      "slug": "responsabile-einschatzungsabteilung-kantonale-verwaltung-zurich",
+      "slug": "dipartimento-di-valutazione-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "responsabile-einschatzungsabteilung-kantonale-verwaltung-zurich",
-        "en": "leiter-in-einschatzungsabteilung-kantonale-verwaltung-zurich-zurich",
+        "it": "dipartimento-di-valutazione-kantonale-verwaltung-zurich-zurich",
+        "en": "head-in-assessment-department-kantonale-verwaltung-zurich-zurich",
         "de": "leiter-in-einschatzungsabteilung-kantonale-verwaltung-zurich-zurich",
-        "fr": "leiter-in-einschatzungsabteilung-kantonale-verwaltung-zurich-zurich"
+        "fr": "chef-du-service-d-evaluation-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6203,13 +6222,16 @@
           "sachbearbeiterin-oder-sachbearbeiter-eintragungsverfahren-kanton-zuerich-zurich",
           "agent-de-l-enregistrement-kantonale-verwaltung-zurich-zurich",
           "sachbearbeiterin-oder-sachbearbeiter-eintragungsverfahren-kantonale-verwaltung-zurich-zurich",
-          "sachbearbeiterin-o-sachbearbeiter-eintragungsverfahren-kantonale-verwaltung-zurich"
+          "sachbearbeiterin-o-sachbearbeiter-eintragungsverfahren-kantonale-verwaltung-zurich",
+          "responsabile-einschatzungsabteilung-kantonale-verwaltung-zurich"
         ],
         "en": [
-          "registration-officer-kantonale-verwaltung-zurich-zurich"
+          "registration-officer-kantonale-verwaltung-zurich-zurich",
+          "leiter-in-einschatzungsabteilung-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "agent-de-l-enregistrement-kantonale-verwaltung-zurich-zurich"
+          "agent-de-l-enregistrement-kantonale-verwaltung-zurich-zurich",
+          "leiter-in-einschatzungsabteilung-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -6219,7 +6241,9 @@
         "sachbearbeiterin-oder-sachbearbeiter-eintragungsverfahren-kanton-zuerich-zurich",
         "agent-de-l-enregistrement-kantonale-verwaltung-zurich-zurich",
         "sachbearbeiterin-oder-sachbearbeiter-eintragungsverfahren-kantonale-verwaltung-zurich-zurich",
-        "sachbearbeiterin-o-sachbearbeiter-eintragungsverfahren-kantonale-verwaltung-zurich"
+        "sachbearbeiterin-o-sachbearbeiter-eintragungsverfahren-kantonale-verwaltung-zurich",
+        "responsabile-einschatzungsabteilung-kantonale-verwaltung-zurich",
+        "leiter-in-einschatzungsabteilung-kantonale-verwaltung-zurich-zurich"
       ],
       "firstSeenAt": "2026-09-01T14:26:15.242Z",
       "salaryMin": 101500,
@@ -12749,9 +12773,9 @@
       "slug": "praktikant-in-content-management-per-la-standortforderung-kantonale-verwaltung-zurich",
       "slugByLocale": {
         "it": "praktikant-in-content-management-per-la-standortforderung-kantonale-verwaltung-zurich",
-        "en": "praktikant-in-content-management-fur-die-standortforderung-kantonale-verwaltung-zurich-zurich",
+        "en": "intern-in-content-management-for-location-promotion-kantonale-verwaltung-zurich-zurich",
         "de": "praktikant-in-content-management-fur-die-standortforderung-kantonale-verwaltung-zurich-zurich",
-        "fr": "praktikant-in-content-management-fur-die-standortforderung-kantonale-verwaltung-zurich-zurich"
+        "fr": "gestion-de-contenu-pour-la-promotion-de-l-emplacement-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12803,10 +12827,17 @@
         ],
         "it": [
           "praktikant-in-content-management-fur-die-standortforderung-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "praktikant-in-content-management-fur-die-standortforderung-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "praktikant-in-content-management-fur-die-standortforderung-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-content-management-fur-die-standortforderung-kanton-zuerich-zurich"
+        "praktikant-in-content-management-fur-die-standortforderung-kanton-zuerich-zurich",
+        "praktikant-in-content-management-fur-die-standortforderung-kantonale-verwaltung-zurich-zurich"
       ],
       "firstSeenAt": "2026-09-02T23:23:56.393Z",
       "salaryMin": 62000,

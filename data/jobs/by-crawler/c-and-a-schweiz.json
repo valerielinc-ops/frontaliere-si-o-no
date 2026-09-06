@@ -3764,12 +3764,12 @@
     },
     {
       "id": "c-and-a-schweiz-936f1fd25082",
-      "slug": "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur",
+      "slug": "dipendenti-in-vendita-m-f-d-50-per-chur-c-a-schweiz-chur-ch",
       "slugByLocale": {
-        "it": "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur",
-        "en": "mitarbeiter-im-sales-m-w-d-50-fur-chur-c-a-schweiz-chur-ch",
+        "it": "dipendenti-in-vendita-m-f-d-50-per-chur-c-a-schweiz-chur-ch",
+        "en": "employees-in-sales-m-f-d-50-for-chur-c-a-schweiz-chur-ch",
         "de": "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
-        "fr": "mitarbeiter-im-vente-m-w-d-50-fur-chur-c-a-schweiz-chur-ch"
+        "fr": "employes-en-vente-h-f-d-50-pour-chur-c-a-schweiz-chur-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3810,17 +3810,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur",
+        "mitarbeiter-im-sales-m-w-d-50-fur-chur-c-a-schweiz-chur-ch",
+        "mitarbeiter-im-vente-m-w-d-50-fur-chur-c-a-schweiz-chur-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur"
         ],
         "en": [
-          "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
+          "mitarbeiter-im-sales-m-w-d-50-fur-chur-c-a-schweiz-chur-ch"
         ],
         "fr": [
-          "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch",
+          "mitarbeiter-im-vente-m-w-d-50-fur-chur-c-a-schweiz-chur-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T14:27:20.337Z",
@@ -3846,7 +3852,7 @@
         "it": "store-visual-merchandiser-m-w-d-100-per-aarau-c-a-schweiz-aarau",
         "en": "store-visual-merchandiser-m-w-d-100-fur-aarau-c-and-a-schweiz-ch",
         "de": "store-visual-merchandiser-m-w-d-100-fur-aarau-c-and-a-schweiz-ch",
-        "fr": "store-visual-merchandiser-m-w-d-100-fur-aarau-c-and-a-schweiz-ch"
+        "fr": "magasiner-un-marchand-visuel-h-f-d-100-pour-aarau-c-a-schweiz-aarau-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3903,7 +3909,8 @@
           "store-visual-merchandiser-w-m-d-60-80-fur-brugg-c-and-a-schweiz-ch"
         ],
         "fr": [
-          "magasiner-le-marchandiseur-visuel-f-m-d-60-80-pour-brugg-c-a-schweiz-brugg-ch"
+          "magasiner-le-marchandiseur-visuel-f-m-d-60-80-pour-brugg-c-a-schweiz-brugg-ch",
+          "store-visual-merchandiser-m-w-d-100-fur-aarau-c-and-a-schweiz-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T14:27:20.002Z",

@@ -10070,12 +10070,12 @@
     },
     {
       "id": "stadler-rail-ce6f696b16c4",
-      "slug": "materialdisponent-in-stadler-rail-st-margrethen",
+      "slug": "materiale-di-spedizione-in-stadler-rail-st-margrethen",
       "slugByLocale": {
-        "it": "materialdisponent-in-stadler-rail-st-margrethen",
-        "en": "materialdisponent-in-stadler-rail-st-margrethen",
+        "it": "materiale-di-spedizione-in-stadler-rail-st-margrethen",
+        "en": "material-dispatch-in-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
-        "fr": "materialdisponent-in-stadler-rail-st-margrethen"
+        "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -10117,11 +10117,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "materialdisponent-in-stadler-rail-ch"
+        "materialdisponent-in-stadler-rail-ch",
+        "materialdisponent-in-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "materialdisponent-in-stadler-rail-ch"
+          "materialdisponent-in-stadler-rail-ch",
+          "materialdisponent-in-stadler-rail-st-margrethen"
+        ],
+        "en": [
+          "materialdisponent-in-stadler-rail-st-margrethen"
+        ],
+        "fr": [
+          "materialdisponent-in-stadler-rail-st-margrethen"
         ]
       },
       "needsRetranslation": true,

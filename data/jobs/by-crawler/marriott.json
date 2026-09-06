@@ -1751,12 +1751,12 @@
     },
     {
       "id": "marriott-ae2a2cc7c199",
-      "slug": "cook-apprentice-marriott-geneva",
+      "slug": "cuocere-marriott-international-geneva",
       "slugByLocale": {
-        "it": "cook-apprentice-marriott-geneva",
+        "it": "cuocere-marriott-international-geneva",
         "en": "cook-apprentice-marriott-geneva",
-        "de": "cook-apprentice-marriott-geneva",
-        "fr": "cook-apprentice-marriott-geneva"
+        "de": "kochlehrling-marriott-international-geneva",
+        "fr": "apprentis-cuisinier-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1821,7 +1821,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "cook-apprentice-marriott-geneva"
+        ],
+        "de": [
+          "cook-apprentice-marriott-geneva"
+        ],
+        "fr": [
+          "cook-apprentice-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "cook-apprentice-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-3bbdb9f11632",
