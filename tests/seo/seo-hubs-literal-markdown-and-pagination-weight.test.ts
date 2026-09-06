@@ -78,8 +78,32 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).not.toContain('Pagina&nbsp;');
     expect(html).not.toContain('Seite&nbsp;');
     expect(html).not.toContain('Page&nbsp;');
-    // Bare-number anchors instead.
-    expect(html).toMatch(/class="hp">2500<\/a>/);
+    // Bare-number anchors, and no per-anchor class either: the chip styling
+    // moved onto the `.hpl` container (issue #7662), which is the largest
+    // remaining byte-shave on this ladder (13 B x every anchor).
+    expect(html).toMatch(/<a href="\/cerca-lavoro-ticino\/tutti\/page-2500\/">2500<\/a>/);
+    expect(html).toContain('<div class="s-6_t7LY hpl">');
+    expect(html).not.toContain('class="hp"');
+  });
+
+  it('renderPagination ships the flat ladder on page-1 only (O(total) instead of O(total^2))', () => {
+    // Issue #7662: the ladder is O(total) bytes, so emitting it on all `total`
+    // pages made the archive O(total^2) HTML and put 885
+    // /cerca-lavoro-ticino/tutti/page-N/ files at 282-284 KB against the
+    // 260 KB audit:page-weight budget. BFS depth is unaffected: page-1 is the
+    // only entry point the parent hubs link, so page-N already took its
+    // minimum depth from page-1's ladder.
+    const total = 2500;
+    const first = renderPagination('it', '/cerca-lavoro-ticino/tutti/', 1, total);
+    const inner = renderPagination('it', '/cerca-lavoro-ticino/tutti/', 1200, total);
+
+    expect(first).toContain('s-4nYHgH');
+    expect(inner).not.toContain('s-4nYHgH');
+    // The compact window still chains the archive for humans and prev/next.
+    for (const frag of ['page-1199/', 'page-1201/', 'page-2500/', 'rel="prev"', 'rel="next"']) {
+      expect(inner).toContain(frag);
+    }
+    expect(Buffer.byteLength(inner)).toBeLessThan(Buffer.byteLength(first) / 50);
   });
 
   it('visible breadcrumb links the hub (not a dead span) so page-N can pass equity to the root', () => {
@@ -128,6 +152,33 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     });
     expect(html).not.toContain('Pagina&nbsp;');
     expect(html).toContain('/cerca-lavoro-argovia/tutti/page-400/');
-    expect(html).toMatch(/class="thp">400<\/a>/);
+    expect(html).toMatch(/<a href="\/cerca-lavoro-argovia\/tutti\/page-400\/">400<\/a>/);
+    expect(html).toContain('<div class="s-6_t7LY hpl">');
+    expect(html).not.toContain('class="thp"');
+  });
+
+  it('buildThinCantonHubHtml ships the full ladder on page-1 only, compact window after (#7662)', () => {
+    const totalPages = 400;
+    const mk = (page: number) => buildThinCantonHubHtml({
+      locale: 'it', hub: 'tutti', canton: 'argovia', cantonLabel: 'Argovia',
+      basePath: '/cerca-lavoro-argovia/tutti/', totalItems: 40000,
+      items: [{ href: '/cerca-lavoro-argovia/x/', label: 'Ruolo', sub: 'Aarau' }],
+      hasSpaBundle: false, entryJs: '', entryCss: '', dateStamp: '2026-09-06',
+      page, totalPages,
+    });
+    const first = mk(1);
+    const inner = mk(200);
+
+    const laddered = (html: string) =>
+      new Set([...html.matchAll(/cerca-lavoro-argovia\/tutti\/page-(\d+)\//g)].map((m) => Number(m[1])));
+    // page-1 keeps every page-N anchor — load-bearing for BFS-depth closure.
+    expect(laddered(first).size).toBe(totalPages - 1);
+    // page-N > 1 keeps only the compact window: 1 / current +/- 1 / last.
+    // 200 is page-200's own canonical/og:url, not a ladder anchor (the current
+    // page renders as a bare <strong>, so the ladder itself links 199/201/400
+    // plus the basePath for page-1).
+    expect([...laddered(inner)].sort((a, b) => a - b)).toEqual([199, 200, 201, 400]);
+    expect(inner).toContain('/cerca-lavoro-argovia/tutti/');
+    expect(Buffer.byteLength(inner)).toBeLessThan(Buffer.byteLength(first) / 2);
   });
 });

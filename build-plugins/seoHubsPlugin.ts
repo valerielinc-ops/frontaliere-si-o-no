@@ -1752,8 +1752,8 @@ export function buildThinCantonHubHtml(args: {
         else anchors.push(`<a href="${href}">${p}</a>`);
       }
     } else {
-      const window = new Set<number>([1, totalPages, page - 1, page, page + 1]);
-      for (const p of [...window].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
+      const windowPages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
+      for (const p of [...windowPages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
         const href = p === 1 ? basePath : paginatedPath(basePath, p);
         if (p === page) anchors.push(`<strong>${p}</strong>`);
         else anchors.push(`<a href="${href}">${p}</a>`);
