@@ -23206,12 +23206,12 @@
     },
     {
       "id": "sulzer-a1a148847457",
-      "slug": "buyer-sulzer-ch",
+      "slug": "compratore-sulzer-aberdeen-netherley",
       "slugByLocale": {
-        "it": "buyer-sulzer-ch",
+        "it": "compratore-sulzer-aberdeen-netherley",
         "en": "buyer-sulzer-ch",
-        "de": "buyer-sulzer-ch",
-        "fr": "buyer-sulzer-ch"
+        "de": "kaufer-sulzer-aberdeen-netherley",
+        "fr": "acheteur-sulzer-aberdeen-netherley"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23264,16 +23264,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "buyer-sulzer-ch"
+        ],
+        "de": [
+          "buyer-sulzer-ch"
+        ],
+        "fr": [
+          "buyer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "buyer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-95f016aab6f4",
-      "slug": "goods-in-controller-sulzer-ch",
+      "slug": "prodotti-in-controller-sulzer-birmingham",
       "slugByLocale": {
-        "it": "goods-in-controller-sulzer-ch",
+        "it": "prodotti-in-controller-sulzer-birmingham",
         "en": "goods-in-controller-sulzer-ch",
-        "de": "goods-in-controller-sulzer-ch",
-        "fr": "goods-in-controller-sulzer-birmingham"
+        "de": "waren-im-controller-sulzer-birmingham",
+        "fr": "marchandises-sous-controle-sulzer-birmingham"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23326,16 +23340,31 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "goods-in-controller-sulzer-ch"
+        ],
+        "de": [
+          "goods-in-controller-sulzer-ch"
+        ],
+        "fr": [
+          "goods-in-controller-sulzer-birmingham"
+        ]
+      },
+      "previousSlugs": [
+        "goods-in-controller-sulzer-ch",
+        "goods-in-controller-sulzer-birmingham"
+      ]
     },
     {
       "id": "sulzer-654c9719489a",
-      "slug": "fitter-machinist-sulzer-ch",
+      "slug": "fitter-macchinista-sulzer-birmingham",
       "slugByLocale": {
-        "it": "fitter-machinist-sulzer-ch",
+        "it": "fitter-macchinista-sulzer-birmingham",
         "en": "fitter-machinist-sulzer-ch",
-        "de": "fitter-machinist-sulzer-ch",
-        "fr": "fitter-machinist-sulzer-ch"
+        "de": "fitter-maschinenfuhrer-sulzer-birmingham",
+        "fr": "fitter-machiniste-sulzer-birmingham"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23388,16 +23417,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "fitter-machinist-sulzer-ch"
+        ],
+        "de": [
+          "fitter-machinist-sulzer-ch"
+        ],
+        "fr": [
+          "fitter-machinist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fitter-machinist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-f64c91152bf7",
-      "slug": "environmental-energy-compliance-manager-sulzer-ch",
+      "slug": "responsabile-della-conformita-ambientale-ed-energetica-sulzer-leeds",
       "slugByLocale": {
-        "it": "environmental-energy-compliance-manager-sulzer-ch",
+        "it": "responsabile-della-conformita-ambientale-ed-energetica-sulzer-leeds",
         "en": "environmental-energy-compliance-manager-sulzer-ch",
         "de": "environmental-energy-compliance-manager-sulzer-ch",
-        "fr": "environmental-energy-compliance-manager-sulzer-ch"
+        "fr": "responsable-de-la-conformite-environnementale-et-energetique-sulzer-leeds"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23451,7 +23494,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "environmental-energy-compliance-manager-sulzer-ch"
+        ],
+        "fr": [
+          "environmental-energy-compliance-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "environmental-energy-compliance-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-20cdff3c84fd",
@@ -23459,8 +23513,8 @@
       "slugByLocale": {
         "it": "master-scheduler-production-planner-spare-parts-sulzer-ch",
         "en": "master-scheduler-production-planner-spare-parts-sulzer-ch",
-        "de": "master-scheduler-production-planner-spare-parts-sulzer-ch",
-        "fr": "master-scheduler-production-planner-spare-parts-sulzer-ch"
+        "de": "master-scheduler-produktionsplaner-ersatzteile-sulzer-easley",
+        "fr": "maitre-planificateur-planificateur-de-production-pieces-de-rechange-sulzer-easley"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",

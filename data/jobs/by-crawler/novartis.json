@@ -3087,12 +3087,12 @@
     },
     {
       "id": "novartis-948badb2223f",
-      "slug": "medical-affairs-lead-ecc-novartis-ch",
+      "slug": "affari-medici-piombo-ecc-novartis-basel-city",
       "slugByLocale": {
-        "it": "medical-affairs-lead-ecc-novartis-ch",
+        "it": "affari-medici-piombo-ecc-novartis-basel-city",
         "en": "medical-affairs-lead-ecc-novartis-ch",
         "de": "medical-affairs-lead-ecc-novartis-ch",
-        "fr": "medical-affairs-lead-ecc-novartis-ch"
+        "fr": "affaires-medicales-chef-de-file-cce-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3146,7 +3146,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-affairs-lead-ecc-novartis-ch"
+        ],
+        "fr": [
+          "medical-affairs-lead-ecc-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-affairs-lead-ecc-novartis-ch"
+      ]
     },
     {
       "id": "novartis-2568abc3606d",

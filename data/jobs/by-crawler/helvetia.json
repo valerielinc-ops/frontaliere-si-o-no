@@ -9984,12 +9984,12 @@
     },
     {
       "id": "helvetia-b20a69804cfe",
-      "slug": "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig",
+      "slug": "consulente-clienti-m-f-d-assicurazione-visp-part-time-full-time-helvetia-versicherungen-brig",
       "slugByLocale": {
-        "it": "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig",
-        "en": "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig",
+        "it": "consulente-clienti-m-f-d-assicurazione-visp-part-time-full-time-helvetia-versicherungen-brig",
+        "en": "customer-advisor-m-f-d-insurance-visp-part-time-full-time-helvetia-versicherungen-brig",
         "de": "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig",
-        "fr": "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig"
+        "fr": "conseiller-client-h-f-d-assurance-visp-temps-partiel-temps-plein-helvetia-versicherungen-brig"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10044,16 +10044,30 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherungen-visp-teilzeit-vollzeit-helvetia-brig"
+      ]
     },
     {
       "id": "helvetia-bd69f92fa6a2",
-      "slug": "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten",
+      "slug": "consulente-clienti-m-f-d-assicurazione-olten-part-time-fulltime-helvetia-versicherungen-olten",
       "slugByLocale": {
-        "it": "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten",
-        "en": "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten",
+        "it": "consulente-clienti-m-f-d-assicurazione-olten-part-time-fulltime-helvetia-versicherungen-olten",
+        "en": "customer-advisor-m-f-d-insurance-olten-part-time-full-time-helvetia-versicherungen-olten",
         "de": "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten",
-        "fr": "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten"
+        "fr": "conseiller-client-h-f-d-assurance-olten-temps-partiel-temps-plein-helvetia-versicherungen-olten"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10108,7 +10122,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-olten-teilzeit-vollzeit-helvetia-olten"
+      ]
     },
     {
       "id": "helvetia-995542da1beb",

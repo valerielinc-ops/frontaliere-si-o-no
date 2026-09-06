@@ -1225,12 +1225,12 @@
     },
     {
       "id": "privatklinik-wyss-4cd1404cf143",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-per-la-psychotherapieabteilung-privatklinik-wyss-munchenbuchsee",
+      "slug": "dipl-infermiera-hf-fh-m-f-d-per-il-dipartimento-di-psicoterapia-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-per-la-psychotherapieabteilung-privatklinik-wyss-munchenbuchsee",
-        "en": "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch",
+        "it": "dipl-infermiera-hf-fh-m-f-d-per-il-dipartimento-di-psicoterapia-privatklinik-wyss-munchenbuchsee",
+        "en": "dipl-nurse-hf-fh-m-f-d-for-the-psychotherapy-department-privatklinik-wyss-munchenbuchsee",
         "de": "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch"
+        "fr": "dipl-infirmiere-hf-fh-h-f-d-pour-le-departement-de-psychotherapie-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -1275,10 +1275,18 @@
       "pensumMax": 90,
       "pensum": "60 - 90%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch"
+        "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch",
+        "dipl-pflegefachperson-hf-fh-m-w-d-per-la-psychotherapieabteilung-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch",
+          "dipl-pflegefachperson-hf-fh-m-w-d-per-la-psychotherapieabteilung-privatklinik-wyss-munchenbuchsee"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-w-m-d-fur-die-psychotherapieabteilung-privatklinik-wyss-ch"
         ]
       },

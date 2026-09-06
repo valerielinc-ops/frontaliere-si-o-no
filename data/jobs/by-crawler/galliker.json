@@ -840,12 +840,12 @@
     },
     {
       "id": "galliker-19ed07471f06",
-      "slug": "logistiker-a-galliker-transport-ag-altishofen",
+      "slug": "logisticista-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "logistiker-a-galliker-transport-ag-altishofen",
-        "en": "logistiker-a-galliker-transport-ag-altishofen",
+        "it": "logisticista-a-galliker-transport-ag-altishofen",
+        "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logistiker-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -890,11 +890,19 @@
       "requirementsByLocale": {},
       "externalId": "0056",
       "previousSlugs": [
-        "logistiker-a-galliker-altishofen"
+        "logistiker-a-galliker-altishofen",
+        "logistiker-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-a-galliker-altishofen"
+          "logistiker-a-galliker-altishofen",
+          "logistiker-a-galliker-transport-ag-altishofen"
+        ],
+        "en": [
+          "logistiker-a-galliker-transport-ag-altishofen"
+        ],
+        "fr": [
+          "logistiker-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -914,12 +922,12 @@
     },
     {
       "id": "galliker-d388462152bf",
-      "slug": "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen",
+      "slug": "hgv-o-meccanica-delle-macchine-agricole-a-galliker-transport-ag-schachen",
       "slugByLocale": {
-        "it": "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen",
-        "en": "lkw-oder-landmaschinenmechaniker-a-galliker-schachen",
+        "it": "hgv-o-meccanica-delle-macchine-agricole-a-galliker-transport-ag-schachen",
+        "en": "hgv-or-agricultural-machinery-mechanic-a-galliker-transport-ag-schachen",
         "de": "lkw-oder-landmaschinenmechaniker-a-galliker-schachen",
-        "fr": "lkw-oder-landmaschinenmechaniker-a-galliker-schachen"
+        "fr": "mecanicien-des-vehicules-utilitaires-lourds-ou-des-machines-agricoles-a-galliker-transport-ag-schachen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -964,10 +972,18 @@
       "requirementsByLocale": {},
       "externalId": "0458",
       "previousSlugs": [
-        "lkw-oder-landmaschinenmechaniker-a-galliker-schachen"
+        "lkw-oder-landmaschinenmechaniker-a-galliker-schachen",
+        "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lkw-oder-landmaschinenmechaniker-a-galliker-schachen",
+          "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen"
+        ],
+        "en": [
+          "lkw-oder-landmaschinenmechaniker-a-galliker-schachen"
+        ],
+        "fr": [
           "lkw-oder-landmaschinenmechaniker-a-galliker-schachen"
         ]
       },

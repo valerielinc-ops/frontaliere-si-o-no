@@ -376,7 +376,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -422,8 +422,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -435,8 +434,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
@@ -2752,7 +2750,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2823,8 +2821,7 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
@@ -3094,7 +3091,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3142,8 +3139,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3159,8 +3155,7 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -4839,12 +4834,12 @@
     },
     {
       "id": "ksa-f9a8032b5564",
-      "slug": "stv-leitende-radiologiefachperson-hf-ksa-ch",
+      "slug": "stv-specialista-di-radiologia-senior-hf-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "stv-leitende-radiologiefachperson-hf-ksa-ch",
-        "en": "stv-leitende-radiologiefachperson-hf-ksa-ch",
+        "it": "stv-specialista-di-radiologia-senior-hf-kantonsspital-aarau-ksa-aarau",
+        "en": "stv-senior-radiology-specialist-hf-kantonsspital-aarau-ksa-aarau",
         "de": "stv-leitende-radiologiefachperson-hf-ksa-ch",
-        "fr": "stv-leitende-radiologiefachperson-hf-ksa-ch"
+        "fr": "stv-specialiste-principal-en-radiologie-hf-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4900,7 +4895,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leitende-radiologiefachperson-hf-ksa-ch"
+        ],
+        "en": [
+          "stv-leitende-radiologiefachperson-hf-ksa-ch"
+        ],
+        "fr": [
+          "stv-leitende-radiologiefachperson-hf-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leitende-radiologiefachperson-hf-ksa-ch"
+      ]
     },
     {
       "id": "ksa-e852978d46db",
@@ -4980,12 +4989,12 @@
     },
     {
       "id": "ksa-5df50d72c460",
-      "slug": "fachfrau-fachmann-gesundheit-ksa-ch-2",
+      "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-e9833d",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-ksa-ch-2",
-        "en": "fachfrau-fachmann-gesundheit-ksa-ch-2",
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-e9833d",
+        "en": "professional-health-kantonsspital-aarau-ksa-aarau-e9833d",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
-        "fr": "fachfrau-fachmann-gesundheit-ksa-ch-2"
+        "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-e9833d"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5040,7 +5049,8 @@
         "specialista-specialista-della-salute-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
         "vocational-elective-internship-specialist-health-specialist-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
         "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch",
-        "stage-professionnel-au-choix-specialiste-specialiste-de-la-sante-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau"
+        "stage-professionnel-au-choix-specialiste-specialiste-de-la-sante-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
+        "fachfrau-fachmann-gesundheit-ksa-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5056,11 +5066,13 @@
           "specialista-specialista-della-salute-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
           "vocational-elective-internship-specialist-health-specialist-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
           "berufswahlpraktikum-fachfrau-fachmann-gesundheit-28-09-30-09-2026-ksa-ch",
-          "stage-professionnel-au-choix-specialiste-specialiste-de-la-sante-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau"
+          "stage-professionnel-au-choix-specialiste-specialiste-de-la-sante-28-09-30-09-2026-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-ksa-ch-2"
         ],
         "en": [
           "med-practical-assistant-or-specialist-health-lung-function-laboratory-kantonsspital-aarau-ksa-aarau",
-          "vocational-elective-internship-specialist-health-professional-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau"
+          "vocational-elective-internship-specialist-health-professional-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-ksa-ch-2"
         ],
         "de": [
           "med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-lungenfunktionslabor-ksa-ch",
@@ -5068,7 +5080,8 @@
         ],
         "fr": [
           "medicament-assistant-pratique-ou-laboratoire-specialise-de-la-fonction-pulmonaire-kantonsspital-aarau-ksa-aarau",
-          "stage-professionnel-au-choix-specialiste-professionnels-de-la-sante-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau"
+          "stage-professionnel-au-choix-specialiste-professionnels-de-la-sante-05-10-07-10-2026-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-ksa-ch-2"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:06.288Z",

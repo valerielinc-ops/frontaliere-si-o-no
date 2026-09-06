@@ -4388,7 +4388,7 @@
         "it": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
         "en": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
         "de": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
-        "fr": "compliance-officer-sanctions-corporate-due-diligence-union-bancaire-privee-geneva-switzerland"
+        "fr": "agent-de-conformite-sanctions-et-diligence-raisonnable-de-l-entreprise-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -4442,7 +4442,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "compliance-officer-sanctions-corporate-due-diligence-union-bancaire-privee-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-sanctions-corporate-due-diligence-union-bancaire-privee-geneva-switzerland"
+      ]
     },
     {
       "id": "ubp-23694da4301c",

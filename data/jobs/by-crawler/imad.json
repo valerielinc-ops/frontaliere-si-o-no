@@ -712,11 +712,11 @@
     },
     {
       "id": "imad-e9c4e4e8dd14",
-      "slug": "candidature-spontanee-pour-un-stage-imad-geneva",
+      "slug": "applicazione-spontanea-per-uno-stage-imad-geneva",
       "slugByLocale": {
-        "it": "candidature-spontanee-pour-un-stage-imad-geneva",
-        "en": "candidature-spontanee-pour-un-stage-imad-geneva",
-        "de": "candidature-spontanee-pour-un-stage-imad-geneva",
+        "it": "applicazione-spontanea-per-uno-stage-imad-geneva",
+        "en": "spontaneous-application-for-an-internship-imad-geneva",
+        "de": "spontane-bewerbung-um-ein-praktikum-imad-geneva",
         "fr": "candidature-spontanee-pour-un-stage-imad-geneva"
       },
       "company": "imad",
@@ -772,7 +772,21 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-pour-un-stage-imad-geneva"
+        ],
+        "en": [
+          "candidature-spontanee-pour-un-stage-imad-geneva"
+        ],
+        "de": [
+          "candidature-spontanee-pour-un-stage-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "candidature-spontanee-pour-un-stage-imad-geneva"
+      ]
     }
   ]
 }

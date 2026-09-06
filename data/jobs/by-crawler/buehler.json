@@ -11643,12 +11643,12 @@
     },
     {
       "id": "buehler-522762202264",
-      "slug": "scb-sales-manager-buehler-wuxi",
+      "slug": "gestione-vendite-scb-buhler-group-wuxi",
       "slugByLocale": {
-        "it": "scb-sales-manager-buehler-wuxi",
+        "it": "gestione-vendite-scb-buhler-group-wuxi",
         "en": "scb-sales-manager-buehler-wuxi",
         "de": "scb-sales-manager-buehler-wuxi",
-        "fr": "scb-sales-manager-buehler-wuxi"
+        "fr": "directeur-des-ventes-de-scb-buhler-group-wuxi"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11692,11 +11692,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "scb-sales-manager-buhler-group-wuxi"
+        "scb-sales-manager-buhler-group-wuxi",
+        "scb-sales-manager-buehler-wuxi"
       ],
       "previousSlugsByLocale": {
         "en": [
           "scb-sales-manager-buhler-group-wuxi"
+        ],
+        "it": [
+          "scb-sales-manager-buehler-wuxi"
+        ],
+        "fr": [
+          "scb-sales-manager-buehler-wuxi"
         ]
       },
       "firstSeenAt": "2026-09-02T13:42:50.102Z",
@@ -11716,12 +11723,12 @@
     },
     {
       "id": "buehler-ce9e987de352",
-      "slug": "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries",
+      "slug": "stage-attivita-degli-studenti-di-lavoro-manutenzione-dei-dati-nell-area-di-stoccaggio-del-grano-buhler-group-beilngries",
       "slugByLocale": {
-        "it": "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries",
-        "en": "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries",
+        "it": "stage-attivita-degli-studenti-di-lavoro-manutenzione-dei-dati-nell-area-di-stoccaggio-del-grano-buhler-group-beilngries",
+        "en": "internship-working-student-activity-data-maintenance-in-the-area-of-grain-storage-buhler-group-beilngries",
         "de": "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries",
-        "fr": "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries"
+        "fr": "stage-activite-d-etudiant-au-travail-maintenance-des-donnees-dans-le-domaine-du-stockage-des-grains-buhler-group"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11776,7 +11783,21 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries"
+        ],
+        "en": [
+          "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries"
+        ],
+        "fr": [
+          "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-werkstudententatigkeit-datenpflege-im-bereich-grain-storage-buehler-beilngries"
+      ]
     },
     {
       "id": "buehler-3bd8bdbab259",

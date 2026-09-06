@@ -12645,12 +12645,12 @@
     },
     {
       "id": "spital-thurgau-10050da8f117",
-      "slug": "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon",
+      "slug": "assistenti-di-pratica-medica-spital-thurgau-stgag-ambulatorium-arbon",
       "slugByLocale": {
-        "it": "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon",
-        "en": "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon",
+        "it": "assistenti-di-pratica-medica-spital-thurgau-stgag-ambulatorium-arbon",
+        "en": "medical-practice-assistants-spital-thurgau-stgag-ambulatorium-arbon",
         "de": "medizinische-n-praxisassistenten-in-stgag-ch",
-        "fr": "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon"
+        "fr": "assistants-medicaux-spital-thurgau-stgag-ambulatorium-arbon"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -12694,11 +12694,19 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "medizinische-n-praxisassistenten-in-stgag-ch"
+        "medizinische-n-praxisassistenten-in-stgag-ch",
+        "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-n-praxisassistenten-in-stgag-ch"
+          "medizinische-n-praxisassistenten-in-stgag-ch",
+          "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon"
+        ],
+        "en": [
+          "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistenten-in-spital-thurgau-stgag-ambulatorium-arbon"
         ]
       },
       "firstSeenAt": "2026-09-02T13:37:24.647Z",
@@ -13971,12 +13979,12 @@
     },
     {
       "id": "spital-thurgau-e90c8fc1483f",
-      "slug": "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "slug": "specialist-health-efz-per-la-segreteria-di-stazione-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+        "it": "specialist-health-efz-per-la-segreteria-di-stazione-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
-        "fr": "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch"
+        "fr": "specialiste-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14020,10 +14028,18 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch"
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+        "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+          "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch"
         ]
       },
@@ -14044,12 +14060,12 @@
     },
     {
       "id": "spital-thurgau-f97aff157def",
-      "slug": "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch",
+      "slug": "dipl-biomedical-r-analista-in-hf-citologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch",
-        "en": "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch",
+        "it": "dipl-biomedical-r-analista-in-hf-citologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "dipl-biomedical-r-analyst-in-hf-cytology-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch",
-        "fr": "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch"
+        "fr": "dipl-analyste-biomedical-r-en-hf-cytologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14105,16 +14121,30 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch"
+        ],
+        "en": [
+          "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch"
+        ],
+        "fr": [
+          "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-biomedizinische-r-analytiker-in-hf-zytologie-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-9a6af9abf54a",
-      "slug": "pharmaassistent-in-o-laborant-in-zytostatika-e-qualitatskontrolle-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "assistente-farmaceutico-o-assistente-di-laboratorio-citostatico-e-controllo-di-qualita-spital-thurgau-stgag",
       "slugByLocale": {
-        "it": "pharmaassistent-in-o-laborant-in-zytostatika-e-qualitatskontrolle-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch",
+        "it": "assistente-farmaceutico-o-assistente-di-laboratorio-citostatico-e-controllo-di-qualita-spital-thurgau-stgag",
+        "en": "pharmaceutical-assistant-or-laboratory-assistant-cytostatics-and-quality-control-spital-thurgau-stgag-kantonsspital",
         "de": "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch",
-        "fr": "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch"
+        "fr": "assistant-pharmaceutique-ou-assistant-de-laboratoire-cytostatique-et-controle-de-qualite-spital-thurgau-stgag"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14158,10 +14188,18 @@
       "department": "Übriges akademisches Personal",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch"
+        "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch",
+        "pharmaassistent-in-o-laborant-in-zytostatika-e-qualitatskontrolle-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch",
+          "pharmaassistent-in-o-laborant-in-zytostatika-e-qualitatskontrolle-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch"
+        ],
+        "fr": [
           "pharmaassistent-in-oder-laborant-in-zytostatika-und-qualitatskontrolle-stgag-ch"
         ]
       },

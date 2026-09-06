@@ -2283,12 +2283,12 @@
     },
     {
       "id": "paraplegie-b7455c24f08e",
-      "slug": "dipl-sozialarbeiter-in-fh-paraplegie-nottwil",
+      "slug": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "dipl-sozialarbeiter-in-fh-paraplegie-nottwil",
-        "en": "dipl-sozialarbeiter-in-fh-paraplegie-nottwil",
+        "it": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "dipl-social-worker-in-fh-schweizer-paraplegiker-gruppe-nottwil",
         "de": "dipl-sozialarbeiter-in-fh-paraplegie-nottwil",
-        "fr": "dipl-sozialarbeiter-in-fh-paraplegie-nottwil"
+        "fr": "dipl-travailleurs-sociaux-en-fh-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2344,16 +2344,30 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-sozialarbeiter-in-fh-paraplegie-nottwil"
+        ],
+        "en": [
+          "dipl-sozialarbeiter-in-fh-paraplegie-nottwil"
+        ],
+        "fr": [
+          "dipl-sozialarbeiter-in-fh-paraplegie-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-sozialarbeiter-in-fh-paraplegie-nottwil"
+      ]
     },
     {
       "id": "paraplegie-b8b024d54ab0",
-      "slug": "pharma-assistent-in-paraplegie-nottwil",
+      "slug": "assistente-medico-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "pharma-assistent-in-paraplegie-nottwil",
-        "en": "pharma-assistent-in-paraplegie-nottwil",
+        "it": "assistente-medico-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "pharmaceutical-assistant-schweizer-paraplegiker-gruppe-nottwil",
         "de": "pharma-assistent-in-paraplegie-nottwil",
-        "fr": "pharma-assistent-in-paraplegie-nottwil"
+        "fr": "assistant-pharmaceutique-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2409,7 +2423,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistent-in-paraplegie-nottwil"
+        ],
+        "en": [
+          "pharma-assistent-in-paraplegie-nottwil"
+        ],
+        "fr": [
+          "pharma-assistent-in-paraplegie-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistent-in-paraplegie-nottwil"
+      ]
     },
     {
       "id": "paraplegie-d9c925dbd320",

@@ -1736,11 +1736,11 @@
     },
     {
       "id": "arsante-clinique-de-carouge-f9f1efac6b4a",
-      "slug": "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy",
+      "slug": "specialista-in-medicina-interna-generale-fmh-arsante-clinique-de-carouge-centre-sante-lancy-pont-rouge-lancy",
       "slugByLocale": {
-        "it": "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy",
-        "en": "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy",
-        "de": "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy",
+        "it": "specialista-in-medicina-interna-generale-fmh-arsante-clinique-de-carouge-centre-sante-lancy-pont-rouge-lancy",
+        "en": "specialist-in-general-internal-medicine-fmh-arsante-clinique-de-carouge-centre-sante-lancy-pont-rouge-lancy",
+        "de": "spezialist-fur-allgemeine-innere-medizin-fmh-arsante-clinique-de-carouge-centre-sante-lancy-pont-rouge-lancy",
         "fr": "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
       },
       "company": "Arsanté (Clinique de Carouge) — Centre Santé Lancy Pont-Rouge",
@@ -1795,7 +1795,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
+        ],
+        "en": [
+          "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
+        ],
+        "de": [
+          "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
+      ]
     }
   ]
 }

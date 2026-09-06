@@ -4377,12 +4377,12 @@
     },
     {
       "id": "weisse-arena-e1d75e1918bc",
-      "slug": "stv-kuchenverantwortliche-r-weisse-arena-ch",
+      "slug": "stv-cucina-manager-r-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "stv-kuchenverantwortliche-r-weisse-arena-ch",
-        "en": "stv-kuchenverantwortliche-r-weisse-arena-ch",
+        "it": "stv-cucina-manager-r-weisse-arena-gruppe-laax",
+        "en": "stv-kitchen-manager-r-weisse-arena-gruppe-laax",
         "de": "stv-kuchenverantwortliche-r-weisse-arena-ch",
-        "fr": "stv-kuchenverantwortliche-r-weisse-arena-ch"
+        "fr": "chef-de-cuisine-stv-r-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4441,7 +4441,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-kuchenverantwortliche-r-weisse-arena-ch"
+        ],
+        "en": [
+          "stv-kuchenverantwortliche-r-weisse-arena-ch"
+        ],
+        "fr": [
+          "stv-kuchenverantwortliche-r-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-kuchenverantwortliche-r-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-5b78fde8e984",

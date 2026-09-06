@@ -5441,12 +5441,12 @@
     },
     {
       "id": "emil-frey-5c7893681e00",
-      "slug": "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh",
+      "slug": "vendite-consulenti-nuove-auto-occasioni-emil-frey-erlenbach-zh",
       "slugByLocale": {
-        "it": "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh",
-        "en": "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh",
+        "it": "vendite-consulenti-nuove-auto-occasioni-emil-frey-erlenbach-zh",
+        "en": "sales-consultants-new-cars-occasions-emil-frey-erlenbach-zh",
         "de": "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh",
-        "fr": "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh"
+        "fr": "consultants-en-ventes-nouvelles-voitures-et-occasions-emil-frey-erlenbach-zh"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -5501,7 +5501,21 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh"
+        ],
+        "en": [
+          "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh"
+        ],
+        "fr": [
+          "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-neuwagen-occasionen-emil-frey-erlenbach-zh"
+      ]
     },
     {
       "id": "emil-frey-73f1ca4c2089",

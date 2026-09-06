@@ -1322,12 +1322,12 @@
     },
     {
       "id": "sanatorium-kilchberg-25c1ca3338e1",
-      "slug": "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg",
+      "slug": "specialista-di-attivazione-hf-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
-        "it": "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg",
-        "en": "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg",
+        "it": "specialista-di-attivazione-hf-sanatorium-kilchberg-kilchberg",
+        "en": "activation-specialist-hf-sanatorium-kilchberg-kilchberg",
         "de": "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg",
-        "fr": "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg"
+        "fr": "specialiste-de-l-activation-hf-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1381,7 +1381,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg"
+      ]
     }
   ]
 }

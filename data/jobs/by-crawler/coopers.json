@@ -2458,12 +2458,12 @@
     },
     {
       "id": "coopers-97d868b8316c",
-      "slug": "applikations-manager-in-payment-solution-m-w-d-coopers-bern",
+      "slug": "gestione-applicazioni-in-soluzione-di-pagamento-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "it": "applikations-manager-in-payment-solution-m-w-d-coopers-bern",
+        "it": "gestione-applicazioni-in-soluzione-di-pagamento-m-f-d-coopers-group-ag-bern",
         "en": "applikations-manager-in-payment-solution-m-w-d-coopers-bern",
         "de": "applikations-manager-in-payment-solution-m-w-d-coopers-bern",
-        "fr": "applikations-manager-in-payment-solution-m-w-d-coopers-bern"
+        "fr": "gestionnaire-d-applications-dans-solution-de-paiement-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -2532,7 +2532,18 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "applikations-manager-in-payment-solution-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "applikations-manager-in-payment-solution-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "applikations-manager-in-payment-solution-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-c02d774ba3c9",
@@ -2541,7 +2552,7 @@
         "it": "senior-postgresql-migration-consultant-sql-server-zu-postgresql-m-w-d-coopers-bern",
         "en": "senior-postgresql-migration-consultant-sql-server-zu-postgresql-m-w-d-coopers-bern",
         "de": "senior-postgresql-migration-consultant-sql-server-zu-postgresql-m-w-d-coopers-bern",
-        "fr": "senior-postgresql-migration-consultant-sql-server-zu-postgresql-m-w-d-coopers-bern"
+        "fr": "consultant-principal-en-migration-postgresql-serveur-sql-vers-postgresql-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",

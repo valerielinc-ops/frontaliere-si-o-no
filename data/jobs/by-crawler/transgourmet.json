@@ -1525,12 +1525,12 @@
     },
     {
       "id": "transgourmet-ee4631a4-c0a",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
+      "slug": "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
-        "en": "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln",
+        "it": "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln",
+        "en": "employee-employee-sales-checkout-check-in-check-out-transgourmet-pratteln",
         "de": "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
-        "fr": "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln"
+        "fr": "employe-vente-des-employes-check-out-check-in-check-out-transgourmet-pratteln"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1600,7 +1600,10 @@
         "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
         "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
         "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil"
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
+        "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln",
+        "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1612,11 +1615,13 @@
           "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
           "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
           "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil"
+          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil",
+          "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln"
         ],
         "en": [
           "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
+          "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln"
         ],
         "de": [
           "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-moosseedorf",
@@ -1627,7 +1632,8 @@
         ],
         "fr": [
           "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
+          "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln"
         ]
       },
       "needsRetranslation": true,
@@ -1648,12 +1654,12 @@
     },
     {
       "id": "transgourmet-91d38dc5-927",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
+      "slug": "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
-        "en": "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach",
+        "it": "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach",
+        "en": "employee-employee-sales-acceptance-of-goods-non-food-transgourmet-bellach",
         "de": "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
-        "fr": "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach"
+        "fr": "ventes-d-employes-et-d-employes-acceptation-de-biens-et-de-produits-non-alimentaires-transgourmet-bellach"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1713,17 +1719,23 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+        "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
+        "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach",
+        "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+          "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+          "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+          "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:58.238Z",

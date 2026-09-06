@@ -16045,12 +16045,12 @@
     },
     {
       "id": "usz-5127a07ede8e",
-      "slug": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
+      "slug": "personale-in-garanzia-dei-costi-standard-80-100-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
-        "en": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
+        "it": "personale-in-garanzia-dei-costi-standard-80-100-universitatsspital-zurich-usz-stettbach",
+        "en": "personnel-in-cost-assurance-standard-80-100-universitatsspital-zurich-usz-stettbach",
         "de": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
-        "fr": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+        "fr": "personnel-en-assurance-des-couts-standard-80-100-universitatsspital-zurich-usz-stettbach"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16105,7 +16105,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-7713a29edd21",

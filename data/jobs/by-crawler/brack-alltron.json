@@ -1913,12 +1913,12 @@
     },
     {
       "id": "brack-alltron-5daa1660a38a",
-      "slug": "technical-sales-physical-ai-robotics-brack-alltron-magenwil",
+      "slug": "vendita-tecnica-fisica-ai-robotica-brack-alltron-ag-magenwil",
       "slugByLocale": {
-        "it": "technical-sales-physical-ai-robotics-brack-alltron-magenwil",
+        "it": "vendita-tecnica-fisica-ai-robotica-brack-alltron-ag-magenwil",
         "en": "technical-sales-physical-ai-robotics-brack-alltron-magenwil",
         "de": "technical-sales-physical-ai-robotics-brack-alltron-magenwil",
-        "fr": "technical-sales-physical-ai-robotics-brack-alltron-magenwil"
+        "fr": "ventes-techniques-ai-physique-robotique-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -1974,16 +1974,27 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-sales-physical-ai-robotics-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "technical-sales-physical-ai-robotics-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "technical-sales-physical-ai-robotics-brack-alltron-magenwil"
+      ]
     },
     {
       "id": "brack-alltron-bf617c6e1f79",
-      "slug": "specialized-sales-physical-ai-robotics-brack-alltron-magenwil",
+      "slug": "vendita-specializzata-fisica-ai-robotica-brack-alltron-ag-magenwil",
       "slugByLocale": {
-        "it": "specialized-sales-physical-ai-robotics-brack-alltron-magenwil",
+        "it": "vendita-specializzata-fisica-ai-robotica-brack-alltron-ag-magenwil",
         "en": "specialized-sales-physical-ai-robotics-brack-alltron-magenwil",
         "de": "specialized-sales-physical-ai-robotics-brack-alltron-magenwil",
-        "fr": "specialized-sales-physical-ai-robotics-brack-alltron-magenwil"
+        "fr": "ventes-specialisees-ia-physique-robotique-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2039,7 +2050,18 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialized-sales-physical-ai-robotics-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "specialized-sales-physical-ai-robotics-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "specialized-sales-physical-ai-robotics-brack-alltron-magenwil"
+      ]
     },
     {
       "id": "brack-alltron-cc519de0cab3",

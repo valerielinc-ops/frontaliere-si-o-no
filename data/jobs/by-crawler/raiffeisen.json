@@ -10276,9 +10276,9 @@
       "slug": "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen",
       "slugByLocale": {
         "it": "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen",
-        "en": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
+        "en": "employee-services-m-f-d-raiffeisen-obergosgen",
         "de": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
-        "fr": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
+        "fr": "services-aux-employes-h-f-d-raiffeisen-obergosgen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10325,6 +10325,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
+        ],
+        "en": [
+          "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
+        ],
+        "fr": [
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
         ]
       },
@@ -10508,11 +10514,11 @@
     },
     {
       "id": "raiffeisen-79f1279e1761",
-      "slug": "conseiller-ere-a-la-clientele-raiffeisen-belfaux",
+      "slug": "consulente-cliente-raiffeisen-belfaux",
       "slugByLocale": {
-        "it": "conseiller-ere-a-la-clientele-raiffeisen-belfaux",
-        "en": "conseiller-ere-a-la-clientele-raiffeisen-belfaux",
-        "de": "conseiller-ere-a-la-clientele-raiffeisen-belfaux",
+        "it": "consulente-cliente-raiffeisen-belfaux",
+        "en": "client-adviser-raiffeisen-belfaux",
+        "de": "kundenberater-raiffeisen-belfaux",
         "fr": "conseiller-ere-a-la-clientele-raiffeisen-belfaux"
       },
       "company": "Raiffeisen",
@@ -10563,7 +10569,8 @@
         "consigliere-di-finanziamento-era-raiffeisen-montagny-pres-yverdon",
         "funding-advisor-era-raiffeisen-montagny-pres-yverdon",
         "forderberater-zeitalter-raiffeisen-montagny-pres-yverdon",
-        "conseiller-ere-en-financement-raiffeisen-montagny-pres-yverdon"
+        "conseiller-ere-en-financement-raiffeisen-montagny-pres-yverdon",
+        "conseiller-ere-a-la-clientele-raiffeisen-belfaux"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10574,13 +10581,16 @@
           "consigliere-di-finanziamento-era-raiffeisen-montagny-pres-yverdon",
           "funding-advisor-era-raiffeisen-montagny-pres-yverdon",
           "forderberater-zeitalter-raiffeisen-montagny-pres-yverdon",
-          "conseiller-ere-en-financement-raiffeisen-montagny-pres-yverdon"
+          "conseiller-ere-en-financement-raiffeisen-montagny-pres-yverdon",
+          "conseiller-ere-a-la-clientele-raiffeisen-belfaux"
         ],
         "en": [
-          "client-advisor-age-raiffeisen-montagny-pres-yverdon"
+          "client-advisor-age-raiffeisen-montagny-pres-yverdon",
+          "conseiller-ere-a-la-clientele-raiffeisen-belfaux"
         ],
         "de": [
-          "kundenberater-alter-raiffeisen-montagny-pres-yverdon"
+          "kundenberater-alter-raiffeisen-montagny-pres-yverdon",
+          "conseiller-ere-a-la-clientele-raiffeisen-belfaux"
         ],
         "fr": [
           "conseiller-ere-a-la-clientele-raiffeisen-montagny-pres-yverdon"
@@ -10603,12 +10613,12 @@
     },
     {
       "id": "raiffeisen-a5c7e56e3f34",
-      "slug": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
+      "slug": "clienti-specializzati-della-societa-di-elaborazione-del-credito-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
-        "it": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
-        "en": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
+        "it": "clienti-specializzati-della-societa-di-elaborazione-del-credito-m-f-d-raiffeisen-zurich",
+        "en": "specialist-credit-processing-company-customers-m-f-d-raiffeisen-zurich",
         "de": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
-        "fr": "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        "fr": "societe-specialisee-dans-le-traitement-du-credit-clients-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10663,7 +10673,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        ],
+        "fr": [
+          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
+      ]
     },
     {
       "id": "raiffeisen-13e579a9aee6",

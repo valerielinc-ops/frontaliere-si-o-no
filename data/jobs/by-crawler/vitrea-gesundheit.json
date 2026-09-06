@@ -637,12 +637,12 @@
     },
     {
       "id": "vitrea-gesundheit-9235fb724ee7",
-      "slug": "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-cfc-pflegehelferin-srk-in-unserem-flex-team-vitrea-gesundheit",
+      "slug": "dipl-infermieristica-professionale-hf-fh-specialist-health-efz-assistente-infermieristica-srk-nel-nostro-team-flex",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-cfc-pflegehelferin-srk-in-unserem-flex-team-vitrea-gesundheit",
-        "en": "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem",
+        "it": "dipl-infermieristica-professionale-hf-fh-specialist-health-efz-assistente-infermieristica-srk-nel-nostro-team-flex",
+        "en": "dipl-nursing-professional-hf-fh-specialist-health-efz-nursing-assistant-srk-in-our-flex-team-vitrea-gesundheit-dussnang",
         "de": "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem",
-        "fr": "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem"
+        "fr": "dipl-professionnels-des-soins-infirmiers-hf-fh-specialiste-sante-efz-assistant-infirmier-srk-dans-notre-equipe-flex"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -684,10 +684,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem"
+        "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem",
+        "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-cfc-pflegehelferin-srk-in-unserem-flex-team-vitrea-gesundheit"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem",
+          "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-cfc-pflegehelferin-srk-in-unserem-flex-team-vitrea-gesundheit"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-fachangestellte-gesundheit-efz-pflegehelferin-srk-in-unserem"
         ]
       },

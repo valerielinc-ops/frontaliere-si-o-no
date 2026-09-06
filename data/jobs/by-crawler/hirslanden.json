@@ -22490,12 +22490,12 @@
     },
     {
       "id": "hirslanden-bd1e1dffd4fb",
-      "slug": "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof",
+      "slug": "segretario-medico-segretario-medico-radiologia-a-30-hirslanden-klinik-hirslanden-klinik-birshof",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof",
-        "it": "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof",
-        "en": "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof",
-        "fr": "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof"
+        "it": "segretario-medico-segretario-medico-radiologia-a-30-hirslanden-klinik-hirslanden-klinik-birshof",
+        "en": "medical-secretary-medical-secretary-radiology-a-30-hirslanden-klinik-hirslanden-klinik-birshof",
+        "fr": "secretaire-medical-secretaire-medical-radiologie-a-30-hirslanden-klinik-hirslanden-klinik-birshof"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -22550,7 +22550,21 @@
           "maxValue": 49200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-radiologie-a-40-hirslanden-hirslanden-klinik-birshof"
+      ]
     },
     {
       "id": "hirslanden-a049ccd54085",
@@ -26661,12 +26675,12 @@
     },
     {
       "id": "hirslanden-59a8661e3fcf",
-      "slug": "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100",
+      "slug": "stv-testa-capo-reparto-letto-concentrarsi-sulla-chirurgia-interdisciplinare-prive-a-80-100-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100",
-        "it": "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100-hirslanden-klinik-hirslanden",
-        "en": "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100",
-        "fr": "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100"
+        "it": "stv-testa-capo-reparto-letto-concentrarsi-sulla-chirurgia-interdisciplinare-prive-a-80-100-hirslanden-klinik-hirslanden",
+        "en": "stv-head-head-of-bed-department-focus-on-interdisciplinary-surgery-prive-a-80-100-hirslanden-klinik-hirslanden-klinik",
+        "fr": "stv-chef-chef-du-service-de-lit-se-concentrer-sur-la-chirurgie-interdisciplinaire-prive-a-80-100-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26721,7 +26735,23 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100-hirslanden-klinik-hirslanden",
+          "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100"
+        ],
+        "en": [
+          "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100"
+        ],
+        "fr": [
+          "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100-hirslanden-klinik-hirslanden",
+        "stv-leiterin-leiter-bettenabteilung-schwerpunkt-interdisziplinare-chirurgie-prive-a-80-100"
+      ]
     },
     {
       "id": "hirslanden-e3544f5692c1",
@@ -26802,12 +26832,12 @@
     },
     {
       "id": "hirslanden-a431a9dc2d40",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau",
+      "slug": "dipl-expert-expert-intensive-care-nds-hf-a-70-100-hirslanden-klinik-hirslanden-klinik-beau-site",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau",
-        "it": "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau",
+        "it": "dipl-expert-expert-intensive-care-nds-hf-a-70-100-hirslanden-klinik-hirslanden-klinik-beau-site",
         "en": "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau"
+        "fr": "dipl-expert-expert-soins-intensifs-nds-hf-a-70-100-hirslanden-klinik-hirslanden-klinik-beau-site"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26861,15 +26891,26 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-hf-a-70-100-hirslanden-hirslanden-klinik-beau"
+      ]
     },
     {
       "id": "hirslanden-3df3b749bfc1",
-      "slug": "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+      "slug": "coordinatore-unita-operativa-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
-        "de": "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf",
-        "it": "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf",
-        "en": "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+        "de": "bedieneinheit-der-koordinateneinrichtung-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "it": "coordinatore-unita-operativa-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "en": "coordinator-equipment-operating-unit-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "fr": "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf"
       },
       "company": "Hirslanden Klinik",
@@ -26924,7 +26965,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "en": [
+          "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "de": [
+          "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-materiel-bloc-operatoire-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+      ]
     },
     {
       "id": "hirslanden-3a9cb2719fb9",
@@ -27005,12 +27060,12 @@
     },
     {
       "id": "hirslanden-f06063625fad",
-      "slug": "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden",
+      "slug": "salute-professionale-a-medicina-oncologia-e-palliazione-60-100-hirslanden-klinik-hirslanden-klinik-aarau",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden",
-        "it": "fachfrau-mann-gesundheit-a-medizin-onkologie-e-palliation-60-100-hirslanden-klinik-aarau",
-        "en": "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden",
-        "fr": "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden"
+        "it": "salute-professionale-a-medicina-oncologia-e-palliazione-60-100-hirslanden-klinik-hirslanden-klinik-aarau",
+        "en": "professional-health-a-medicine-oncology-and-palliation-60-100-hirslanden-klinik-hirslanden-klinik-aarau",
+        "fr": "sante-professionnelle-a-medecine-oncologie-et-palliation-60-a-100-hirslanden-klinik-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27064,7 +27119,23 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-a-medizin-onkologie-e-palliation-60-100-hirslanden-klinik-aarau",
+          "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-a-medizin-onkologie-e-palliation-60-100-hirslanden-klinik-aarau",
+        "fachfrau-mann-gesundheit-a-medizin-onkologie-und-palliation-60-100-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-bdd501b14599",

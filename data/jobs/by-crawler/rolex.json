@@ -7826,11 +7826,11 @@
     },
     {
       "id": "rolex-51ca4d3f1d0c",
-      "slug": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-geneve",
+      "slug": "computer-operator-learning-cfc-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-geneve",
+        "it": "computer-operator-learning-cfc-rolex-geneve",
         "en": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
-        "de": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
+        "de": "computerbetreiber-lernen-cfc-rolex-geneve",
         "fr": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -7873,15 +7873,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
-        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2"
+        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2",
+        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
-          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2"
+          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2",
+          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-geneve"
         ],
         "en": [
           "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2"
+        ],
+        "de": [
+          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
         ]
       },
       "needsRetranslation": true,
@@ -11375,11 +11380,11 @@
     },
     {
       "id": "rolex-7bf646075968",
-      "slug": "charge-securite-et-environnement-h-f-rolex-ch",
+      "slug": "sicurezza-e-ambiente-di-ricarica-m-f-rolex-bienne",
       "slugByLocale": {
-        "it": "charge-securite-et-environnement-h-f-rolex-ch",
-        "en": "charge-securite-et-environnement-h-f-rolex-ch",
-        "de": "charge-securite-et-environnement-h-f-rolex-ch",
+        "it": "sicurezza-e-ambiente-di-ricarica-m-f-rolex-bienne",
+        "en": "charged-safety-and-environment-m-f-rolex-bienne",
+        "de": "aufgeladene-sicherheit-und-umgebung-m-w-rolex-bienne",
         "fr": "charge-securite-et-environnement-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -11432,7 +11437,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-securite-et-environnement-h-f-rolex-ch"
+        ],
+        "en": [
+          "charge-securite-et-environnement-h-f-rolex-ch"
+        ],
+        "de": [
+          "charge-securite-et-environnement-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-securite-et-environnement-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-691e6170c8c1",
