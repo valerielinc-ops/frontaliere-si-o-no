@@ -1903,6 +1903,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'conferenza-osce-berna-2026': { it: 'conferenza-osce-berna-2026', en: 'osce-conference-berne-2026', de: 'osce-konferenz-berne-2026', fr: 'conference-osce-berne-2026' },
  'polizia-operazione-goldach': { it: 'polizia-operazione-goldach', en: 'police-operation-goldach', de: 'polizei-einsatz-goldach', fr: 'operation-police-goldach' },
  'permesso-l-breve-durata-canton-vallese': { it: 'permesso-l-breve-durata-canton-vallese', en: 'short-term-permit-canton-valais', de: 'kurzfristige-bewilligung-kanton-wallis', fr: 'permis-de-courte-duree-canton-valais' },
+ 'assegni-familiari-canton-vallese': { it: 'assegni-familiari-canton-vallese', en: 'family-allowances-canton-valais', de: 'familienzulagen-kanton-wallis', fr: 'allocations-familiales-canton-valais' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

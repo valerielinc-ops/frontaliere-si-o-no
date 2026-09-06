@@ -5632,6 +5632,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Permis L de courte durée dans le canton du Valais : validité et prolongation',
     'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'Le permis L de courte durée dans le canton du Valais a une durée de validité maximale de 1 an et ne peut être prolongé que dans des cas spécifiques.',
     'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Vue aérienne de la ville de Sion dans le canton du Valais, Suisse',
+    'blog.article.assegni-familiari-canton-vallese.title': 'Allocations familiales dans le canton du Valais : montants et demande',
+    'blog.article.assegni-familiari-canton-vallese.excerpt': 'Découvrez les montants mensuels par enfant, les conditions de droit et la procédure de demande pour les allocations familiales dans le canton du Valais.',
+    'blog.article.assegni-familiari-canton-vallese.imageAlt': 'Famille suisse avec enfants recevant des allocations familiales',
 };
 
 export default blogMetaChFr;
