@@ -5704,6 +5704,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-argovia.title': 'Assegni familiari Argovia: importi e domanda',
     'blog.article.assegni-familiari-argovia.excerpt': 'Guida completa: come richiedere assegni familiari nel Cantone di Argovia, documenti necessari, cassa di compensazione e procedura step-by-step.',
     'blog.article.assegni-familiari-argovia.imageAlt': 'Ufficio cantonale di Argovia per le prestazioni sociali familiari e assegni familiari',
+    'blog.article.borse-studio-canton-argovia.title': 'Borse di studio canton Argovia: requisiti e importi',
+    'blog.article.borse-studio-canton-argovia.excerpt': 'Guida completa alle borse di studio nel Cantone di Argovia: criteri di ammissione, importi massimi, procedura di domanda e ufficio cantonale competente.',
+    'blog.article.borse-studio-canton-argovia.imageAlt': 'Sala studio universitaria svizzera con studenti che consultano libri e usano computer portatili',
 };
 
 export default blogMetaChIt;
