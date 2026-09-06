@@ -48,6 +48,7 @@ import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -305,6 +306,12 @@ async function fetchJobListings() {
   if (!res.ok) {
     throw new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
   }
+  // The jobs2web tenant was taken offline: every path on the ATS host — feed,
+  // search and job-detail alike — now answers `301 → the group marketing page`,
+  // which `fetch` follows silently. Without this check the marketing HTML is
+  // handed to XMLValidator and the crawler dies reporting "char '&' is not
+  // expected", a diagnosis of the wrong document (#7847).
+  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
 
   const xml = await res.text();
   return parseNordAngliaRss(xml);
