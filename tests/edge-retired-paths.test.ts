@@ -415,6 +415,59 @@ describe('retiredEdgeResponse behaviour', () => {
     }
   });
 
+  it('matches a case variant of the same withdrawn URL', () => {
+    // The measured defect of #7671: the table lookup was string-exact, so
+    // /Articoli-Frontaliere/<Slug>/ missed it and fell through to matchSection,
+    // i.e. to the append-only shard that still holds the withdrawn article.
+    const from = '/articoli-frontaliere/caldo-torrido-lavoro-ticino/';
+    const variants = [
+      from.toUpperCase(), // whole path, section prefix included
+      '/Articoli-Frontaliere/Caldo-Torrido-Lavoro-Ticino/', // title case
+      from.replace('caldo', 'CALDO'), // mixed case inside the slug only
+      '/Articoli-Frontaliere/Caldo-Torrido-Lavoro-Ticino', // + slashless form
+      '/Articoli-Frontaliere/Caldo-Torrido-Lavoro-Ticino/INDEX.HTML', // + index.html
+    ];
+    for (const variant of variants) {
+      const resp = retiredEdgeResponse(new URL(APEX + variant)) as Response | null;
+      expect(resp, `${variant} must resolve like ${from}`).not.toBeNull();
+      expect(resp!.status).toBe(301);
+      // The Location stays the canonical target declared in the table — a
+      // redirect that echoed the requested casing would just move the problem.
+      expect(resp!.headers.get('Location')).toBe(RETIRED_TABLE[from]);
+    }
+  });
+
+  it('a case variant keeps the query string on the 301', () => {
+    const from = '/articoli-frontaliere/caldo-torrido-lavoro-ticino/';
+    const resp = retiredEdgeResponse(
+      new URL(`${APEX}/Articoli-Frontaliere/Caldo-Torrido-Lavoro-Ticino/?utm_source=gsc`),
+    ) as Response;
+    expect(resp.status).toBe(301);
+    expect(resp.headers.get('Location')).toBe(`${RETIRED_TABLE[from]}?utm_source=gsc`);
+  });
+
+  it('a case variant of a 410 keeps its locale and its hub link', async () => {
+    const from = '/de/grenzgaenger-artikel/schweizer-immobilienpreise-steigen/';
+    expect(RETIRED_TABLE[from], 'fixture must be a 410 row').toBeNull();
+    const resp = retiredEdgeResponse(
+      new URL(`${APEX}/DE/Grenzgaenger-Artikel/Schweizer-Immobilienpreise-Steigen/`),
+    ) as Response;
+    expect(resp.status).toBe(410);
+    const html = await resp.text();
+    expect(html).toMatch(/<html lang="de">/);
+    expect(html).toMatch(/href="\/de\/grenzgaenger-artikel\/"/);
+  });
+
+  it('an encoded slash never fabricates a path boundary', () => {
+    // %2F decoded eagerly would turn /articoli-frontaliere%2F<slug>/ into a
+    // table hit for a URL that names one segment, not two.
+    expect(
+      retiredEdgeResponse(
+        new URL(`${APEX}/articoli-frontaliere%2Fcaldo-torrido-lavoro-ticino/`),
+      ),
+    ).toBeNull();
+  });
+
   it('returns null for a live article, so nothing else changes', () => {
     for (const p of [
       '/articoli-frontaliere/caldo-lavoro-frontalieri-ticino/', // the substitute itself
