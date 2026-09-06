@@ -23,6 +23,7 @@ import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoConten
 import { firstParsableMs } from './shared/firstParsableDate';
 import { assertLocaleTablesComplete, findMissingLocaleTableEntries } from './shared/localeTableCompleteness';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { ARCHITECT_TECH_QUALIFIER_SRC } from './shared/architectTechQualifier';
 
 export type SectorHubKey =
   | 'infermieri'
@@ -798,7 +799,24 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   ),
   scuola: /\bscuola\b|\bscolastic|\binsegnant|\bdocente\b|\blehrer|\bteacher\b|\benseignant|\bma[iî]tre[ -]d|\bprofessore\b|\bschule\b|\bkindergarten\b|\bdoposcuola/i,
   designer: /\bdesigner\b|\bgrafico\b|\bgraphic[ -]design|\bgrafik|\bux[ -]|\bui[ -]design|\bgraphiste|\bweb[ -]design|\bproduct[ -]design|\bgestalter/i,
-  architetti: /\barchitet|\barchitect\b|\barchitekt|\barchitecte\b|\bbauzeichner|\bdisegnatore[ -]edil|\bdessinateur/i,
+  // `architect`/`Architekt`/`architetto` nominano anche il progettista di
+  // sistemi informatici: sul dataset riassemblato 136 dei 168 titoli catturati
+  // portano un qualificatore tecnico, e finivano tutti sulla landing
+  // dell'architetto edile (intento di ricerca sbagliato, e `SECTOR_HUB_KEYS`
+  // sceglie l'hub sullo stesso lessico). Il veto e' ADIACENTE, non sull'intera
+  // stringa: qui il pattern gira su title+category+tags concatenati, e un veto
+  // globale scarterebbe un architetto edile per la parola `test` in un tag.
+  // Il separatore e' `SEC_SEP` come in `sicurezza`, cosi' `ICT-Architekt`,
+  // `IT/OT Architect` e `Software  Architect` col doppio spazio sono lo stesso
+  // caso. Il `\w*` nel lookahead consuma la coda del sostantivo, perche' il
+  // gambo italiano `architet` da solo si ferma prima di `to software`.
+  architetti: new RegExp(
+    `(?<!${ARCHITECT_TECH_QUALIFIER_SRC}${SEC_SEP})`
+    + '\\b(?:architet|architect\\b|architekt|architecte\\b)'
+    + `(?!\\w*${SEC_SEP}${ARCHITECT_TECH_QUALIFIER_SRC})`
+    + '|\\bbauzeichner|\\bdisegnatore[ -]edil|\\bdessinateur',
+    'i',
+  ),
   agricoltura: /\bagricol|\blandwirt|\bagriculture\b|\bagriculteur|\bcontadin|\bgartenbau|\bgiardinier|\bgärtner|\bvivaist|\bviticol/i,
   energia: /\benergi|\benergy\b|\b[eé]nergie\b|\belettricit[aà][ -]produzion|\bsolare\b|\bphotovoltaik|\bfotovoltaic|\bwind[ -]energy|\bversorgung/i,
   // bare `\bmedia\b` matches the Italian "scuola media" (middle school →

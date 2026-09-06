@@ -37,6 +37,7 @@ import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDat
 import { jobMatchesCity, type CityHubKey } from './cityJobsHub';
 import { PROFESSION_CITY_DEFS } from './professionCityData';
 import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
+import { ARCHITECT_TECH_QUALIFIER_RE } from './shared/architectTechQualifier';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -285,8 +286,11 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     // the old hand-listed group only half-covered.
     title: /\b(architett[oaie]\b|architekt(?!ur)|architecte)/i,
     // The crawler dataset is dominated by IT/solution architects — reject any
-    // title with a tech qualifier so featured cards only show building architects.
-    exclude: /(software|solution|cloud|system|enterprise|data|\bit\b|\bict\b|security|\bai\b|infrastructure|network|platform|application|technical|test|\bsap\b|\biam\b|\berp\b|domain|business|pega|\bot\b|tagetik|informatique|logiciel)/i,
+    // title with a tech qualifier so featured cards only show building
+    // architects. The vocabulary lives in shared/architectTechQualifier.ts
+    // because SECTOR_MATCHERS.architetti separates the same two populations
+    // with the same words; two hand-kept copies drift apart in silence.
+    exclude: ARCHITECT_TECH_QUALIFIER_RE,
   },
 };
 
