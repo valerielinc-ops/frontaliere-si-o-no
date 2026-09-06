@@ -53,6 +53,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { ARTICLE_SECTION_CORE_LIST } from './articleSectionCore.mjs';
+import { parseSlugRegistry } from '../../scripts/lib/article-slug-registry.mjs';
 
 /** Repo-relative path of the redirect map. */
 export const ARTICLE_REDIRECTS_FILE = 'data/article-redirects.json';
@@ -500,14 +501,14 @@ export function readPublishedArticlePaths(rootDir, io = {}) {
       continue;
     }
     const src = String(readFile(abs, 'utf-8'));
-    // Same shape/regex convention as manage-article.mjs's parseSectionSlugs and
-    // scripts/ci/check-blog-slugs-sitemap-sync.mjs's parseSlugsConst.
-    const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-    const rx = /["'][^"']+["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
-    let m;
+    // The parse is the shared reader (scripts/lib/article-slug-registry.mjs).
+    // This was a hand-copy of the same regex, pinned on the emit order
+    // `it,en,de,fr` on ONE line: a reordered or wrapped emit read as "no live
+    // article paths at all", which is the reading that decides whether a URL is
+    // still published.
+    const registry = parseSlugRegistry(src, slugConst);
     let count = 0;
-    while ((m = rx.exec(block)) !== null) {
-      const bySlug = { it: m[1], en: m[2], de: m[3], fr: m[4] };
+    for (const bySlug of Object.values(registry)) {
       for (const locale of ARTICLE_LOCALES) {
         const hub = indexSlug[locale];
         const prefix = locale === 'it' ? `/${hub}/` : `/${locale}/${hub}/`;

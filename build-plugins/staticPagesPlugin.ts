@@ -32,6 +32,7 @@ import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
+import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 // Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
 // sospendeva il plugin prima di arrivare al render delle pagine, e
 // `seoHeroCardsPlugin` drena il registry delle hero card nello stesso tick
@@ -1325,10 +1326,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const ogSections: ReadonlyArray<{
  seoFiles: readonly string[];
  slugData: string;
+ slugConst: string;
  indexSlugs: Record<'en' | 'de' | 'fr', string>;
  }> = ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
  seoFiles: sec.seoFiles,
  slugData: sec.slugData,
+ slugConst: sec.slugConst,
  indexSlugs: { en: sec.indexSlug.en, de: sec.indexSlug.de, fr: sec.indexSlug.fr },
  }));
  const ogPagesPaths = new Set<string>();
@@ -1369,11 +1372,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // ogPagesPlugin uses to build its locale paths.
  try {
  const routerSrc = fs.readFileSync(np.resolve(rootDir, sec.slugData), 'utf-8');
- const bsRx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
+ // Shared reader, not a local copy of the regex: the copy pinned the emit
+ // order `it,en,de,fr` on ONE line, so a reordered or wrapped emit read as
+ // an empty registry and every locale variant fell back to fs.existsSync.
  const itSlugToLocales: Record<string, Record<string, string>> = {};
- let bm: RegExpExecArray | null;
- while ((bm = bsRx.exec(routerSrc)) !== null) {
- itSlugToLocales[bm[2]] = { en: bm[3], de: bm[4], fr: bm[5] };
+ for (const slugMap of Object.values(
+   parseSlugRegistry(routerSrc, sec.slugConst) as Record<string, Record<string, string>>,
+ )) {
+   itSlugToLocales[slugMap.it] = { en: slugMap.en, de: slugMap.de, fr: slugMap.fr };
  }
  for (const itPath of sectionItPaths) {
  // itPath is like /articoli-frontaliere/slug or /articoli-svizzera/slug
@@ -1991,13 +1997,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  try {
  const routerBlogDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
- let match: RegExpExecArray | null;
- while ((match = rx.exec(routerBlogDataSrc)) !== null) {
- blogArticleIdByLocale.it[match[2]] = match[1];
- blogArticleIdByLocale.en[match[3]] = match[1];
- blogArticleIdByLocale.de[match[4]] = match[1];
- blogArticleIdByLocale.fr[match[5]] = match[1];
+ const blogRegistry = parseSlugRegistry(routerBlogDataSrc, 'BLOG_SLUGS') as Record<
+   string,
+   Record<'it' | 'en' | 'de' | 'fr', string>
+ >;
+ for (const [id, slugMap] of Object.entries(blogRegistry)) {
+   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+     blogArticleIdByLocale[locale][slugMap[locale]] = id;
+   }
  }
  } catch { /* non-fatal */ }
 
@@ -2087,13 +2094,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  try {
  const routerSwissDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerSwissData.ts'), 'utf-8');
- const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
- let match: RegExpExecArray | null;
- while ((match = rx.exec(routerSwissDataSrc)) !== null) {
- swissArticleIdByLocale.it[match[2]] = match[1];
- swissArticleIdByLocale.en[match[3]] = match[1];
- swissArticleIdByLocale.de[match[4]] = match[1];
- swissArticleIdByLocale.fr[match[5]] = match[1];
+ const swissRegistry = parseSlugRegistry(routerSwissDataSrc, 'SWISS_SLUGS') as Record<
+   string,
+   Record<'it' | 'en' | 'de' | 'fr', string>
+ >;
+ for (const [id, slugMap] of Object.entries(swissRegistry)) {
+   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+     swissArticleIdByLocale[locale][slugMap[locale]] = id;
+   }
  }
  } catch { /* non-fatal */ }
 
