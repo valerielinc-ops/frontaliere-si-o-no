@@ -1915,6 +1915,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'creare-attivita-soletta-checklist': { it: 'creare-attivita-soletta-checklist', en: 'create-business-soletta-checklist', de: 'unternehmen-grunden-solothurn-checkliste', fr: 'creer-entreprise-soleure-checklist' },
  'nuova-impresa-soletta-tassazione-costi': { it: 'nuova-impresa-soletta-tassazione-costi', en: 'opening-business-soletta-taxation-costs', de: 'neues-geschaeft-soletta-besteuerung-kosten', fr: 'nouvelle-entreprise-soletta-fiscalite-couts' },
  'grigioni-immobili-guida-mutuo': { it: 'grigioni-immobili-guida-mutuo', en: 'grisons-property-buying-guide', de: 'graubunden-immobilien-kauf', fr: 'achat-immobilier-grisons' },
+ 'comprare-casa-grigioni-mutuo-imposte': { it: 'comprare-casa-grigioni-mutuo-imposte', en: 'buy-house-grisons-mortgage-taxes', de: 'haus-kaufen-graubuenden-hypothek-steuern', fr: 'acheter-maison-grisons-hypotheque-impots' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

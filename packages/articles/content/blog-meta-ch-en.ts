@@ -5668,6 +5668,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-immobili-guida-mutuo.title': 'Buying a house in Graubünden: prices, equity and mortgages',
     'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Guide to buying real estate in the Canton of Graubünden: procedure, costs, transfer tax, notary fees and how to access a sustainable mortgage loan',
     'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Modern house on a mountainside in the Swiss Alps with snowy peaks in the background',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Buying Casa Grisioni: mortgage and taxes',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Purchase in Graubünden: own funds 20-30%, mortgage loan up to 80%, variable transport tax per municipality, notary fees 1-2%. Explained procedure and costs.',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Traditional wooden house in Grisons surrounded by mountains and alpine landscape',
 };
 
 export default blogMetaChEn;

@@ -5668,6 +5668,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-immobili-guida-mutuo.title': 'Acheter une maison à Grisons : prix, fonds propres et prêts',
     'blog.article.grigioni-immobili-guida-mutuo.excerpt': 'Guide d\'achat immobilier dans le canton des Grisons : procédure, coûts, taxe de passage, frais de notaire et accès à un prêt hypothécaire durable',
     'blog.article.grigioni-immobili-guida-mutuo.imageAlt': 'Maison moderne sur un versant montagneux des Alpes suisses avec des pics enneiges',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Acheter maison Grisons : hypothèque et taxes',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Acheter dans les Grisons : fonds propres 20-30%, prêt hypothécaire jusqu\'à 80%, taxe de transport variable par commune, frais de notaire 1-2%. Procédure et coûts expliqués.',
+    'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Maison traditionnelle en bois dans les Grisons entourée de montagnes et paysage alpin',
 };
 
 export default blogMetaChFr;
