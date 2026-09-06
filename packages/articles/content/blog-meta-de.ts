@@ -11430,6 +11430,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.title': 'Milano: Niguarda und Istituto Tumori für onkologische Notfälle',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.excerpt': 'Das Krankenhaus Niguarda und die Stiftung IRCCS Istituto Nazionale dei Tumori di Milano haben ein Betriebsprotokoll unterzeichnet, um die Kontinuität der Versorgung von Krebspatienten im Notfall zu gewährleisten.',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.imageAlt': 'Ansicht des Krankenhauses in Lugano, Tessin',
+    'blog.article.lavorare-arosio-ticino.title': 'Leben in Arosio, Arbeiten im Tessin: Grenzführer',
+    'blog.article.lavorare-arosio-ticino.excerpt': 'Von der geografischen Lage bis zu den Steuervorteilen: Alles, was Sie über die Rechte des Grenzgängers wissen müssen, wenn Sie nach Arosio ziehen und im Kanton Tessin arbeiten möchten.',
+    'blog.article.lavorare-arosio-ticino.imageAlt': 'Blick auf den Comer See aus der Gegend von Arosio mit Tessiner Grenze im Hintergrund',
 };
 
 export default blogMetaDe;

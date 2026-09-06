@@ -11432,6 +11432,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.title': 'Milano: Niguarda e Istituto Tumori uniscono le forze per le emergenze oncologiche',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.excerpt': 'L\'Ospedale Niguarda e la Fondazione IRCCS Istituto Nazionale dei Tumori di Milano hanno siglato un protocollo operativo per garantire la continuità assistenziale ai pazienti oncologici in caso di emergenze.',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.imageAlt': 'Vista dell\'ospedale di Lugano, Ticino',
+    'blog.article.lavorare-arosio-ticino.title': 'Vivere a Arosio, lavorare in Ticino: guida frontaliere',
+    'blog.article.lavorare-arosio-ticino.excerpt': 'Dalla collocazione geografica ai vantaggi fiscali: tutto ciò che chi vuole trasferirsi ad Arosio e lavorare nel Cantone Ticino deve sapere sui diritti del frontaliere.',
+    'blog.article.lavorare-arosio-ticino.imageAlt': 'Veduta del lago di Como da Arosio, con confine Ticino sullo sfondo',
 };
 
 export default blogMetaIt;
