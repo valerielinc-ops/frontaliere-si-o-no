@@ -11436,6 +11436,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavorare-arosio-ticino.title': 'Vivre à Arosio, travailler au Tessin : guide frontalier',
     'blog.article.lavorare-arosio-ticino.excerpt': 'De la situation géographique aux avantages fiscaux : tout ce que ceux qui veulent déménager à Arosio et travailler dans le canton du Tessin doivent savoir sur les droits du frontalier.',
     'blog.article.lavorare-arosio-ticino.imageAlt': 'Vue du lac de Côme depuis Arosio, avec la frontière tessinoise en arrière-plan',
+    'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Milano-Varese, fermée pour une nuit la sortie de Busto Arsizio',
+    'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Fermeture du 22 du 9 au 5 du 10 septembre pour travaux aux barrières de sécurité. Sorties alternatives Castellanza et Gallarate.',
+    'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Panneau de sortie pour Busto Arsizio sur l\'autoroute A8 Milano-Varese au crépuscule, avec indications de trajets alternatifs.',
 };
 
 export default blogMetaFr;

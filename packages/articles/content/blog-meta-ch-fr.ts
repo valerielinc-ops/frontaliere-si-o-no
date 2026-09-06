@@ -5698,6 +5698,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.beloved-aiuto-vittime-crans-montana.title': 'Aide aux victimes : 70 demandes à la Fondation Beloved',
     'blog.article.beloved-aiuto-vittime-crans-montana.excerpt': 'La Fondation Beloved, créée par le canton du Valais, a traité 70 demandes d\'aide. Jusqu\'à présent pas de refus, versez des dizaines de milliers de francs.',
     'blog.article.beloved-aiuto-vittime-crans-montana.imageAlt': 'Bureau de fondation avec personnel offrant soutien psychologique et financier aux victimes en Suisse',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.title': 'Naturalisation canton du Valais : procédure ordinaire',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.excerpt': 'De la résidence au test de langue et d\'intégration : guide pratique pour la naturalisation ordinaire en Valais, avec échéances, taxes et procédure étape par étape.',
+    'blog.article.naturalizzazione-vallese-requisiti-procedura.imageAlt': 'Bâtiment administration communale alpine suisse avec architecture classique, environnement administratif professionnel pour naturalisation.',
+    'blog.article.assegni-familiari-argovia.title': 'Allocations familiales Argovie : montants et demande',
+    'blog.article.assegni-familiari-argovia.excerpt': 'Guide complet : comment demander des allocations familiales dans le canton d\'Argovie, documents nécessaires, caisse de compensation et procédure étape par étape.',
+    'blog.article.assegni-familiari-argovia.imageAlt': 'Bureau cantonal argovien pour les allocations familiales et prestations sociales',
 };
 
 export default blogMetaChFr;
