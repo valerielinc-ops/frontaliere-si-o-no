@@ -28,9 +28,12 @@ import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisEr
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
+  constantPostalLocations,
+  freeTextPostalCandidates,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
   schemaJobLocationCandidates,
+  variablePostalGeography,
 } from '../scripts/lib/prospector/location-evidence.mjs';
 import {
   COUNTRY_INVENTORY_VERSION,
@@ -430,6 +433,98 @@ describe('vacancy extraction', () => {
     expect(resolveDetailOrListingSwissGeography(detail, { location: 'Lugano, ZH' })).toMatchObject({
       geography: null,
       explicitlyForeign: true,
+    });
+  });
+
+  describe('localita dal testo libero: NPA variabile contro NPA di boilerplate', () => {
+    // Le tre pagine misurate su physioswiss.ch il 2026-09-06: l'NPA
+    // dell'annuncio cambia, `3013 Bern` (la sede dell'associazione) no.
+    const pages = [
+      'Physiotherapeut/in gesucht. Arbeitsort: 4528 Zuchwil. Physioswiss, Centralbahnplatz, 3013 Bern',
+      'Physiotherapeutin 80-100%. Unsere Praxis in 9472 Grabs sucht Sie. Physioswiss, 3013 Bern',
+      'Wir suchen fuer 4600 Olten eine Fachperson. Physioswiss, 3013 Bern',
+    ];
+    const perPage = pages.map((text) => freeTextPostalCandidates(text));
+
+    it('tiene fuori dai candidati un NPA senza comune e una parola di tutti i giorni', () => {
+      // `1271` e' un NPA reale (Givrins VD) e `Euro` non e' un comune; `alle`
+      // e' un comune del Giura e la parola tedesca «tutti».
+      expect(freeTextPostalCandidates('Lohn ab 1271 Euro pro Woche')).toEqual([]);
+      expect(freeTextPostalCandidates('Wir bieten 2900 Alle Mitarbeitenden eine Zulage')).toEqual([]);
+      expect(freeTextPostalCandidates('Postfach 9490 Vaduz')).toEqual([]);
+    });
+
+    it('riconosce come boilerplate l\'NPA che il datore ripete sulle sue pagine', () => {
+      expect(constantPostalLocations(perPage)).toEqual(['3013 bern']);
+      // Una pagina sola non ha varianza da osservare: `null`, non «niente e'
+      // boilerplate», o la sede passerebbe per posto di lavoro.
+      expect(constantPostalLocations(perPage.slice(0, 1))).toBeNull();
+    });
+
+    it('tiene la sede fra i boilerplate anche se una pagina non la stampa', () => {
+      // Il quorum e' una FRAZIONE delle pagine, non «tutte»: con l'apparteneza
+      // stretta bastava un footer variante — qui la sesta pagina, che nomina
+      // solo l'annuncio — per far uscire `3013 Bern` dal set. E il set stretto
+      // si restringe col numero di pagine, che validatore (campione) e runtime
+      // (listing intero) NON vedono uguale: il fallimento viveva esattamente
+      // dove il campione non arriva.
+      const conVariante = [
+        ...pages,
+        'Wir suchen fuer 8004 Zürich eine Fachperson. Physioswiss, 3013 Bern',
+        'Praxis in 2552 Orpund. Physioswiss, 3013 Bern',
+        'Stelle in 8618 Oetwil am See. Bewerbung an unsere Geschaeftsstelle',
+      ].map((text) => freeTextPostalCandidates(text));
+      const boilerplate = constantPostalLocations(conVariante);
+      expect(boilerplate).toContain('3013 bern');
+      // E' questa la riga che prima pubblicava la sede del datore come posto
+      // di lavoro: la sua unica coppia e' il boilerplate.
+      expect(variablePostalGeography(
+        freeTextPostalCandidates('Offene Stelle. Physioswiss, Centralbahnplatz, 3013 Bern'),
+        boilerplate,
+      ).geography).toBeNull();
+      // Scala-invariante: il campione a 3 pagine e il run intero a 6 danno lo
+      // stesso verdetto sulla sede.
+      expect(constantPostalLocations(perPage)).toContain('3013 bern');
+    });
+
+    it('accetta l\'NPA variabile dell\'annuncio e rifiuta quello costante di boilerplate', () => {
+      const boilerplate = constantPostalLocations(perPage);
+      expect(variablePostalGeography(perPage[0], boilerplate).geography)
+        .toMatchObject({ location: '4528 Zuchwil', canton: 'SO' });
+      // La stessa pagina senza il confronto fra pagine non decide nulla.
+      expect(variablePostalGeography(perPage[0], null).geography).toBeNull();
+      // Rimasto il solo NPA di boilerplate, non c'e' localita' da pubblicare.
+      expect(variablePostalGeography(
+        freeTextPostalCandidates('Physioswiss, 3013 Bern'),
+        boilerplate,
+      ).geography).toBeNull();
+      // Due NPA variabili sulla stessa pagina sono un'ambiguita' che la pagina
+      // non scioglie: sceglierne uno fabbricherebbe la localita'.
+      expect(variablePostalGeography(
+        freeTextPostalCandidates('Einsatzorte: 4528 Zuchwil und 9472 Grabs. Physioswiss, 3013 Bern'),
+        boilerplate,
+      ).geography).toBeNull();
+    });
+
+    it('resta dietro la guardia source-backed: la prosa non copre un campo strutturato', () => {
+      const context = {
+        postalTextCandidates: perPage[0],
+        boilerplatePostalLocations: constantPostalLocations(perPage),
+      };
+      // Nessun campo strutturato su detail o listing: la prosa e' l'ultima
+      // risorsa e la riga si pubblica invece di essere scartata.
+      expect(resolveDetailOrListingSwissGeography({}, {}, context).geography)
+        .toMatchObject({ location: '4528 Zuchwil', canton: 'SO' });
+      // Un campo strutturato c'e': decide quello, il testo non lo scavalca.
+      expect(resolveDetailOrListingSwissGeography({ location: 'Lugano' }, {}, context).geography)
+        .toMatchObject({ location: 'Lugano', canton: 'TI' });
+      // Evidenza estera esplicita resta un rifiuto, contesto o no.
+      expect(resolveDetailOrListingSwissGeography(
+        { locationGateRejected: true }, {}, context,
+      ).geography).toBeNull();
+      // Senza contesto (ogni chiamante che non ha visto le altre pagine) il
+      // comportamento e' quello di prima.
+      expect(resolveDetailOrListingSwissGeography({}, {}).geography).toBeNull();
     });
   });
 
@@ -1118,6 +1213,21 @@ describe('promotion gate', () => {
     const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
     const copy = (n: number) => `${shell} ultimo aggiornamento 05.09.2026 1${n}:0${n} visite ${1000 + n}`;
     expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
+  });
+
+  it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
+    // Il rumore di coda si toglie sulle forme grezze (data, ora, contatore),
+    // non su ogni token di cifre: NPA, pensum e numero di riferimento sono
+    // contenuto, e se collassassero il promotion gate leggerebbe «pagine
+    // identiche» su un datore valido e non lo crawlerebbe piu'.
+    const shell = `${'chrome '.repeat(900)}assistente amministrativa sede`;
+    const ad = (npa: string, pensum: string, ref: string) =>
+      `${shell} ${npa} Zürich pensum ${pensum}% riferimento ${ref} ultimo aggiornamento 05.09.2026 11:01 visite 1234`;
+    const signatures = new Set([
+      bodySignature(ad('8004', '80', '1001')),
+      bodySignature(ad('8005', '60', '1002')),
+    ]);
+    expect(signatures.size).toBe(2);
   });
 
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
