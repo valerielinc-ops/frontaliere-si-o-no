@@ -61,8 +61,9 @@ function isoDay(d) {
 async function fetchFromFrankfurter() {
   const end = new Date();
   const start = new Date();
-  start.setFullYear(end.getFullYear() - 1);
-  start.setDate(start.getDate() - 5); // small margin so 365d-ago has a point
+  // #7694: aritmetica sul calendario UTC, lo stesso di `isoDay()`.
+  start.setUTCFullYear(end.getUTCFullYear() - 1);
+  start.setUTCDate(start.getUTCDate() - 5); // small margin so 365d-ago has a point
 
   for (const base of FRANKFURTER_ENDPOINTS) {
     try {
