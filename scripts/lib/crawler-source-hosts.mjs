@@ -425,6 +425,27 @@ export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
 
   // url -> owning key, every key but this one. Built once per call: the
   // alternative, probing each of ~590 key sets per job, is a full scan per job.
+  //
+  // EVERY key on disk counts, including the ones THIS process wrote a moment
+  // ago (multi-brand umbrella crawlers do: scripts/update-swatchgroup-jobs.mjs
+  // persists six sub-brand keys in one loop, and the snapshot is re-read from
+  // disk at every write). Discounting what a key gained during this same run —
+  // "its fresh slice is this run's output, not a prior claim" — reads well and
+  // is wrong: the URL is already persisted under that key, so annulling its
+  // claim leaves NOBODY owning it and the next key publishes it too. That is
+  // the duplicate this guard exists to stop (issue #6759: two crawler keys on
+  // one vacancy = two company cards for one employer), created by the guard
+  // itself. The condition that triggers such a discount is precisely the one
+  // that produces the duplicate: the same URL in the filtered payload of two
+  // sub-brands of the same run, which SHARED_POOL_BRAND_PATTERNS
+  // (scripts/lib/swatchgroup-brand-filter.mjs) allows because a `company`
+  // string carrying two brand names matches both patterns.
+  //
+  // So an in-run gain is a real claim like any other, and mis-attribution by
+  // loop order is settled by a hand-over that also REMOVES the URL from the
+  // first key's slice (the reconciler's job,
+  // scripts/reconcile-crawler-company-ownership.mjs), never by making the
+  // vacancy ownerless here.
   /** @type {Map<string, string>} */
   const owners = new Map();
   for (const [key, urls] of ownerIndexSource) {
