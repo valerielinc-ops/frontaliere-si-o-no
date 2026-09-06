@@ -11481,6 +11481,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino, tunnel fire on board a train: but it\'s a drill',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Rescue exercise in the Monte Ceneri tunnel with 50 extras and 100 rescuers.',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Rescue exercise in the Monte Ceneri tunnel',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera Ticino border commuters: 2026 guide',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Living in Valmadrera and working in Ticino: the New Frontier Agreement, €10,000 deductible, Permit G, taxation and declaration procedure.',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'View from Monte Generoso towards the Intelvi Valley and Ticino mountains at the Italy-Switzerland border',
 };
 
 export default blogMetaEn;

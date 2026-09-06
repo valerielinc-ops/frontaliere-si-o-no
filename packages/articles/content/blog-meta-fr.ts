@@ -11483,6 +11483,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino : incendie dans un tunnel, exercice',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Exercice de sauvetage dans le tunnel du Monte Ceneri avec 50 figurants et 100 sauveteurs.',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Exercice de sauvetage dans le tunnel du Monte Ceneri',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera frontalier Tessin : guide 2026',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Vivre à Valmadrera et travailler au Tessin : le nouvel accord frontalier, franchise de 10 000 € , permis G, fiscalité et procédure de déclaration.',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Vue depuis le Monte Generoso vers la vallée d\'Intelvi et les montagnes tessinoises à la frontière italo-suisse',
 };
 
 export default blogMetaFr;
