@@ -715,7 +715,20 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
   const nextSalary = salaryStep(scenario.salary, 1);
   if (up && nextSalary !== null) {
     const retention = up.deltaCHF / (nextSalary - scenario.salary);
-    sentences.push(copy.retention(copy.retentionBuckets[bucketIndex(retention, RETENTION_EDGES)]));
+    // `retentionBuckets` nomina una quota di lordo che RESTA netta, quindi la
+    // frase ha senso solo dentro (0, 1]. `bucketIndex` non ha un fuori-fascia:
+    // una retention negativa — netto che SCENDE salendo di RAL — collasserebbe
+    // su «meno di un terzo» e una > 1 su «quasi tutto», cioè la pagina
+    // affermerebbe un fatto falso invece di tacere. Oggi la monotonia di
+    // `calculateSimulation` su `salary` regge su tutte le 408 coppie adiacenti
+    // del dominio pubblicato (osservata da
+    // `tests/scenario-lever-retention-monotonicity.test.ts`), ma se un giorno
+    // si rompesse la pagina deve perdere una frase, non dirne una sbagliata.
+    // Non si ripiega su `retentionTop`: quello afferma che sopra non c'è un
+    // gradino con cui confrontarsi, e qui il gradino c'è.
+    if (retention > 0 && retention <= 1) {
+      sentences.push(copy.retention(copy.retentionBuckets[bucketIndex(retention, RETENTION_EDGES)]));
+    }
   } else {
     sentences.push(copy.retentionTop);
   }
