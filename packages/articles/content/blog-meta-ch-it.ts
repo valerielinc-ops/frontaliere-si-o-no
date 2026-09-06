@@ -5794,6 +5794,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-neuchatel-zone.title': 'Abbonamenti trasporti Neuchâtel: zone e tariffe',
     'blog.article.abbonamenti-trasporti-neuchatel-zone.excerpt': 'Scopri come funzionano gli abbonamenti per i trasporti pubblici nel Cantone di Neuchâtel: zone tariffarie, metà-prezzo, GA e sconti per studenti e apprendisti.',
     'blog.article.abbonamenti-trasporti-neuchatel-zone.imageAlt': 'Stazione di trasporto pubblico svizzera con tabelloni orari e zone tariffarie, passeggeri in transito.',
+    'blog.article.avs-prestazioni-complementari-appenzello-esterno.title': 'Gestione del primo pilastro AVS nel Cantone di Appenzello Esterno',
+    'blog.article.avs-prestazioni-complementari-appenzello-esterno.excerpt': 'Il Cantone di Appenzello Esterno gestisce il primo pilastro AVS tramite una cassa di compensazione cantonale, garantendo le prestazioni ai contribuenti.',
+    'blog.article.avs-prestazioni-complementari-appenzello-esterno.imageAlt': 'Castelgrande in Bellinzona, Svizzera',
 };
 
 export default blogMetaChIt;

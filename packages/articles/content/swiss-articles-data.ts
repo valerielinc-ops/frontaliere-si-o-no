@@ -17380,6 +17380,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-appenzello-esterno',
+    category: 'pensione',
+    date: '2026-09-06T23:29:51.554Z',
+    image: '/images/blog/avs-prestazioni-complementari-appenzello-esterno.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

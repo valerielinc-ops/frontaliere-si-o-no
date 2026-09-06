@@ -5794,6 +5794,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-neuchatel-zone.title': 'Verkehrstickets Neuenburg: Zonen und Tarife',
     'blog.article.abbonamenti-trasporti-neuchatel-zone.excerpt': 'Erfahren Sie, wie die Abos für den öffentlichen Verkehr im Kanton Neuenburg funktionieren: Tarifzonen, Halbtax, GA sowie Studenten- und Lehrlingsrabatte.',
     'blog.article.abbonamenti-trasporti-neuchatel-zone.imageAlt': 'Schweizer Öffentlicher Verkehrsknotenpunkt mit Fahrplan- und Tarifzonenanzeigetafeln, Fahrgäste beim Einsteigen.',
+    'blog.article.avs-prestazioni-complementari-appenzello-esterno.title': 'Verwaltung der ersten AHV-Säule im Kanton Appenzell Ausserrhoden',
+    'blog.article.avs-prestazioni-complementari-appenzello-esterno.excerpt': 'Der Kanton Appenzell Ausserrhoden betreibt die erste AHV-Säule über eine kantonale Ausgleichskasse und stellt die Leistungen für die Steuerpflichtigen sicher.',
+    'blog.article.avs-prestazioni-complementari-appenzello-esterno.imageAlt': 'Castelgrande in Bellinzona, Schweiz',
 };
 
 export default blogMetaChDe;
