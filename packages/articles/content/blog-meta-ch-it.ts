@@ -5701,6 +5701,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-vallese-requisiti-procedura.title': 'Naturalizzazione canton Vallese: procedura ordinaria',
     'blog.article.naturalizzazione-vallese-requisiti-procedura.excerpt': 'Dalla residenza al test di lingua e integrazione: guida pratica alla naturalizzazione ordinaria nel Vallese, con scadenze, tasse e procedura step-by-step.',
     'blog.article.naturalizzazione-vallese-requisiti-procedura.imageAlt': 'Edificio amministrativo comunale alpino in Svizzera, con architettura classica e ambiente professionale per procedure ufficiali di naturalizzazione.',
+    'blog.article.assegni-familiari-argovia.title': 'Assegni familiari Argovia: importi e domanda',
+    'blog.article.assegni-familiari-argovia.excerpt': 'Guida completa: come richiedere assegni familiari nel Cantone di Argovia, documenti necessari, cassa di compensazione e procedura step-by-step.',
+    'blog.article.assegni-familiari-argovia.imageAlt': 'Ufficio cantonale di Argovia per le prestazioni sociali familiari e assegni familiari',
 };
 
 export default blogMetaChIt;

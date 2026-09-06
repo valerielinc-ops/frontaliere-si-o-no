@@ -17101,6 +17101,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assegni-familiari-argovia',
+    category: 'pratico',
+    date: '2026-09-06T08:50:57.390Z',
+    image: '/images/blog/assegni-familiari-argovia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
