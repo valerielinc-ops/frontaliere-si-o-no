@@ -20,13 +20,16 @@ const FORBIDDEN = [
 //
 // Qui il segmento e' matchato indipendentemente dalla delimitazione e da cio'
 // che lo SEGUE, dentro un literal di CODICE: stringa (`'x'`, `"x"`, `'/x'`,
-// `'x/'`, `'/x/'`) o regex (`/\/x\//`), incluse le forme con sub-path
-// (`'/x/aziende/'`, `'/x/ultimi-3-giorni/'`) — href di nav, tabelle per-locale
-// e mappe di redirect, cioe' proprio la classe funnel-critical che il gate
-// esiste per fermare. Restano fuori per scelta le citazioni in PROSA — docblock con
-// backtick, commenti, copy editoriale — dove il literal e' la URL pubblica
-// citata, non una ri-dichiarazione della tabella: includerle porterebbe ~20
-// offender di sola documentazione e trasformerebbe il gate in rumore.
+// `'x/'`, `'/x/'`), regex (`/\/x\//`), sub-path (`'/x/aziende/'`) e template
+// literal interpolato (`` `/x/${slug}/` ``, `` `/x/azienda-${slug}/` ``) —
+// href di nav, tabelle per-locale, mappe di redirect e builder di path, cioe'
+// proprio la classe funnel-critical che il gate esiste per fermare. Restano
+// fuori per scelta le citazioni in PROSA — docblock con backtick, commenti,
+// copy editoriale — dove il literal e' la URL pubblica citata, non una
+// ri-dichiarazione della tabella: includerle porterebbe ~20 offender di sola
+// documentazione e trasformerebbe il gate in rumore. Un template SENZA
+// interpolazione (`` `/x/` ``) resta fuori per lo stesso motivo: e' citazione,
+// non costruzione.
 const TI_SECTION_SLUGS = [
   'cerca-lavoro-ticino',
   'find-jobs-ticino',
@@ -42,18 +45,29 @@ const TI_SECTION_SLUGS = [
  * (`/?${slug}/?['"]`) vedeva il segmento solo quando era l'INTERO literal e
  * lasciava passare in silenzio ogni literal con sub-path. Lo slash finale non
  * apre la prosa: la quote iniziale resta obbligatoria.
+ *
+ * L'alternativa 3 apre sul backtick e pretende `${` prima della chiusura —
+ * costruzione in codice (`` `/x/${slug}/` ``), non citazione (`` `/x/` ``).
+ * Senza, ogni template literal interpolato restava invisibile.
  */
 export function tiSegmentPattern(slug: string): string {
-  return `['"]/?${slug}(['"]|/)|\\\\/${slug}\\\\/`;
+  return `['"]/?${slug}(['"]|/)|\\\\/${slug}\\\\/|\`/?${slug}/[^\`]*\\$\\{`;
+}
+
+/** JSON.stringify wraps in double quotes; bash still treats ` as command substitution inside them. */
+function grepEreArg(pattern: string): string {
+  return JSON.stringify(pattern).replace(/`/g, '\\`');
 }
 
 // ── Inventario congelato (ratchet, NON un esonero) ──────────────────────────
-// Le forme con slash non erano vigilate: al momento in cui lo diventano il
-// codice ne contiene 102 in 42 file, dai piu' innocui (un href al hub IT dentro
-// copy italiano) alle vere ri-dichiarazioni della tabella per-locale
-// (`services/analyticsPageContext.ts`, `scripts/lib/seo-ctr-curve.mjs`,
-// `infra/cloudflare-worker/locale-router.js`) e alle forme con sub-path
-// (`build-plugins/shared/relatedLinks.ts`, `build-plugins/legacyRedirectsPlugin.ts`).
+// Le forme con slash/sub-path/template interpolato non erano vigilate: al
+// momento in cui lo diventano il codice ne contiene 117 in 46 file, dai piu'
+// innocui (un href al hub IT dentro copy italiano) alle vere ri-dichiarazioni
+// della tabella per-locale (`services/analyticsPageContext.ts`,
+// `scripts/lib/seo-ctr-curve.mjs`, `infra/cloudflare-worker/locale-router.js`),
+// alle forme con sub-path (`build-plugins/shared/relatedLinks.ts`,
+// `build-plugins/legacyRedirectsPlugin.ts`) e ai template interpolati
+// (`build-plugins/seoHubsPlugin.ts`, `build-plugins/shared/employerLinks.ts`).
 // Ripararle tutte non sta in una PR chirurgica; lasciarle non vigilate era il
 // difetto.
 //
@@ -70,7 +84,7 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'build-plugins/exchangeRatePagesPlugin.ts': 1,
   'build-plugins/frontalierePillarCopy.ts': 2,
   'build-plugins/jobSectorLanding.ts': 1,
-  'build-plugins/jobsSeoPagesPlugin.ts': 4,
+  'build-plugins/jobsSeoPagesPlugin.ts': 7,
   'build-plugins/legacyRedirectsPlugin.ts': 7,
   'build-plugins/nursingLandingsPlugin.ts': 1,
   'build-plugins/pdfWhitepapersPlugin.ts': 1,
@@ -79,9 +93,12 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'build-plugins/searchConsoleCompat.ts': 4,
   'build-plugins/selfCertificationFormsPlugin.ts': 1,
   'build-plugins/seoHubsData.ts': 3,
-  'build-plugins/seoHubsPlugin.ts': 1,
+  'build-plugins/seoHubsPlugin.ts': 3,
+  'build-plugins/shared/employerLinks.ts': 1,
   'build-plugins/shared/relatedLinks.ts': 2,
+  'build-plugins/shared/trafficEvidenceFilter.ts': 1,
   'build-plugins/staticPagesPlugin.ts': 14,
+  'build-plugins/weeklyEmployersPlugin.ts': 1,
   'components/shared/RelatedTools.tsx': 1,
   'components/tabs/CalcolatoreTabContent.tsx': 2,
   'functions/src/lib/newsletterUrlPaths.js': 2,
@@ -90,16 +107,17 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'scripts/analytics-report.mjs': 2,
   'scripts/audit-cls-live.mjs': 2,
   'scripts/audit-cls-stripping.mjs': 1,
-  'scripts/build-legacy-aliases.mjs': 1,
+  'scripts/build-legacy-aliases.mjs': 2,
   'scripts/cwv-monitor-check.mjs': 1,
   'scripts/lib/fixture-data-filter.mjs': 1,
+  'scripts/lib/orphan-canton-paths.mjs': 2,
   'scripts/lib/seo-ctr-curve.mjs': 4,
   'scripts/monitor-cls-posthog.mjs': 4,
-  'scripts/monitor-sector-coverage.mjs': 1,
-  'scripts/newsletter-template.mjs': 3,
+  'scripts/monitor-sector-coverage.mjs': 2,
+  'scripts/newsletter-template.mjs': 4,
   'scripts/reconcile-job-slugs.mjs': 1,
   'scripts/refresh-noslash-keep.mjs': 1,
-  'scripts/seo-audit-employer-slugs.mjs': 6,
+  'scripts/seo-audit-employer-slugs.mjs': 8,
   'scripts/validate-spa-render.mjs': 4,
   'scripts/verify-post-deploy-seo.mjs': 4,
   'services/analyticsPageContext.ts': 4,
@@ -289,6 +307,10 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
       `{ href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },`,
       `  it: '/cerca-lavoro-ticino/ultimi-3-giorni/',`,
       `  '/cerca-lavoro-ticino/logistiker-in-efz-coop-grigioni/': '/cerca-lavoro-ticino/operatore-logistico-in-afc-coop-grigioni/',`,
+      // Template literal interpolato: builder di href/canonical, non citazione.
+      'const basePath = `/cerca-lavoro-ticino/${r.slug}/`;',
+      '          href: `/cerca-lavoro-ticino/${j.slug}/`,',
+      'return knownSlugs.has(slug) ? `/cerca-lavoro-ticino/azienda-${slug}/` : null;',
     ];
     expect(recognised.filter((line) => !rx.test(line))).toEqual([]);
 
@@ -301,6 +323,8 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
 
     // Fuori per scelta: la citazione in prosa/docblock della URL pubblica.
     expect(rx.test(' * canonical → section landing (`/cerca-lavoro-ticino/`)')).toBe(false);
+    // Template senza interpolazione = citazione, non costruzione.
+    expect(rx.test('const s = `/cerca-lavoro-ticino/`;')).toBe(false);
     // E niente match parziale su uno slug piu' lungo che contiene il segmento.
     expect(rx.test(`const s = '/cerca-lavoro-ticino-nord/';`)).toBe(false);
   });
@@ -309,7 +333,7 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
     const counts: Record<string, number> = {};
     const samples: Record<string, string[]> = {};
     for (const slug of TI_SECTION_SLUGS) {
-      const cmd = `grep -rnE ${JSON.stringify(tiSegmentPattern(slug))} ${SCAN_DIRS.join(' ')} || true`;
+      const cmd = `grep -rnE ${grepEreArg(tiSegmentPattern(slug))} ${SCAN_DIRS.join(' ')} || true`;
       const out = execSync(cmd, { encoding: 'utf8' });
       for (const entry of out.split('\n').filter(Boolean)
         .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
