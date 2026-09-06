@@ -1147,6 +1147,28 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
   } = options;
   const previousSummary = await readSummary();
   if (isConfirmedEmptySnapshot(previousSummary)) {
+    // No-op for the DATA: the durable zero is already published, so the jobs
+    // slice, the archive and the dataset stay untouched. The SUMMARY slice is
+    // not data though — it is the run's only report to
+    // `check-crawler-health.mjs`, and returning without writing it left the
+    // process-exit guard (`registerCrawlerSummaryGuard`) to publish it
+    // instead. That guard writes a placeholder — `total: 0`, `earlyExit: true`,
+    // and crucially NO `authoritativeEmptySnapshot` — because it exists to mark
+    // runs that never reached publish. From the third durable-zero observation
+    // on, a Fust that keeps proving its zero every day therefore published a
+    // slice claiming it had aborted: `emptyOk` collapsed to false (`fust` is
+    // deliberately NOT on `EMPTY_OK_CRAWLERS`, that is the point of #7324), the
+    // empty streak accrued one per day and the crawler was re-filed as `broken`
+    // after three — the exact loop #7324 closed for the first two observations
+    // and reopened for every one after them.
+    // Heartbeat: re-publish the confirmed zero with a fresh `generatedAt` so the
+    // proof, and the freshness the `stale` gate reads, both keep advancing.
+    const heartbeatPlan = buildFustPublishPlan([], beforeSnapshot, { durationMs, generatedAt });
+    await writeSummary({
+      ...heartbeatPlan.summary,
+      authoritativeEmptyConfirmed: true,
+      authoritativeEmptySnapshot: true,
+    });
     return { confirmed: true, total: 0, archived: 0, noop: true };
   }
   const priorEmptyRuns = emptySnapshotRunCount(previousSummary);
