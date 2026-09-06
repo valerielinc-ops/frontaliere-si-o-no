@@ -292,6 +292,21 @@
       "findings": [
         "fallback_rate_urgent"
       ]
+    },
+    {
+      "date": "2026-09-06",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 49,
+        "email_token": 108,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 157,
+      "fallbackRate": 0.31210191082802546,
+      "findings": [
+        "fallback_rate_urgent"
+      ]
     }
   ]
 }
