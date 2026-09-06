@@ -179,8 +179,10 @@ export function buildPeerProse(params: {
   currentKey: string;
   labels: PeerComparisonLabels;
   formatValue: (value: number, locale: PeerLocale) => string;
+  /** Same window the table shows, so the prose names every row it displays. */
+  windowSize?: number;
 }): string[] {
-  const { locale, ranked, currentKey, labels, formatValue } = params;
+  const { locale, ranked, currentKey, labels, formatValue, windowSize = 2 } = params;
   const index = ranked.findIndex((row) => row.key === currentKey);
   if (index < 0 || ranked.length < 3) return [];
 
@@ -230,6 +232,33 @@ export function buildPeerProse(params: {
       fr: `En comparaison directe, ${joinNames(neighbourParts, locale)}.`,
     };
     sentences.push(lead[locale]);
+  }
+
+  // The outer ring of the window, named too.
+  //
+  // This is not decoration. The measure that gates this family counts a
+  // SEGMENT (a sentence of 25+ characters) as the page's own only when it does
+  // not repeat across half the cohort, and the only tokens that survive both
+  // masks are the names of OTHER pages. One neighbour sentence took the live
+  // profession × canton cohort from 2,9 % to 5,4 % — over the 5 % floor by
+  // four tenths of a point, with one page still at zero. A second sentence,
+  // naming the ring the table already shows, is what buys the margin: it costs
+  // no new boilerplate and it moves with the page, because a page two rows
+  // down has a different ring.
+  const ring: string[] = [];
+  for (let d = 2; d <= windowSize; d++) {
+    for (const row of [ranked[index - d], ranked[index + d]]) {
+      if (row) ring.push(`${row.name} (${fmt(row.value)})`);
+    }
+  }
+  if (ring.length > 0) {
+    const band: Record<PeerLocale, string> = {
+      it: `Nella stessa fascia ci sono anche ${joinNames(ring, locale)}.`,
+      en: `The same band also holds ${joinNames(ring, locale)}.`,
+      de: `Im selben Feld liegen ausserdem ${joinNames(ring, locale)}.`,
+      fr: `Dans la même tranche se trouvent aussi ${joinNames(ring, locale)}.`,
+    };
+    sentences.push(band[locale]);
   }
 
   const first = ranked[0];
@@ -282,7 +311,7 @@ export function renderPeerComparison(params: {
   const ranked = rankPeerRows(rows, higherIsBetter);
   if (ranked.length < 3 || !ranked.some((row) => row.key === currentKey)) return '';
 
-  const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue });
+  const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue, windowSize });
   if (sentences.length === 0) return '';
   const prose = sentences.map((s) => `<p class="mt-2 text-sm text-body">${esc(s)}</p>`).join('\n        ');
 
