@@ -158,6 +158,40 @@ function pct(value) {
   return value === null || value === undefined ? 'n/d' : `${(value * 100).toFixed(1)}%`;
 }
 
+/**
+ * The three sentences a human needs before reading the table, derived from the
+ * totals rather than written by hand: a rate reported as `n/d` is otherwise
+ * indistinguishable from a broken script, and «unmeasurable on this corpus» is
+ * itself the answer the follow-up has to act on.
+ *
+ * @param {any} report
+ * @returns {string[]}
+ */
+function readingNotes(report) {
+  const { totals } = report;
+  const notes = [];
+  const onePct = totals.pages ? (totals.ambiguity.one / totals.pages) * 100 : 0;
+  notes.push(`- Il criterio produce una risposta univoca su ${totals.ambiguity.one} pagine su ${totals.pages}`
+    + ` (${onePct.toFixed(1)}%): sulle altre ${totals.ambiguity.none} il testo non porta nessun NPA riconosciuto`
+    + ` e ${totals.ambiguity.several} restano ambigue con più NPA variabili.`);
+  if (totals.criterion.hits + totals.criterion.misses === 0) {
+    notes.push(`- Precision e recall restano **non misurabili su questo corpus**: le ${totals.withTruth} pagine`
+      + ' la cui località il listing conosce sono esattamente quelle il cui testo non porta NPA, e le pagine'
+      + ' con NPA in prosa vengono da spec `template` il cui listing non porta località. Le due popolazioni'
+      + ' non si sovrappongono, quindi la verità di riferimento del listing non basta: chi implementa la'
+      + ' regola deve procurarsi un\'altra verità (etichettatura manuale del campione qui sotto, oppure'
+      + ' evidenza strutturata della pagina di dettaglio) prima di decidere.');
+  } else {
+    notes.push(`- Sulle ${totals.withTruth} pagine con verità nota il criterio ha ragione ${totals.criterion.hits} volte`
+      + ` e torto ${totals.criterion.misses}, contro ${totals.baseline.hits}/${totals.baseline.misses} della baseline.`);
+  }
+  const withConstant = report.hosts.filter((h) => h.constant.length).length;
+  notes.push(`- Un NPA di boilerplate — presente su tutte le pagine campionate — esiste su ${withConstant} host`
+    + ` su ${report.hosts.length}: dove c'è, il criterio lo esclude correttamente (colonna «NPA costanti»),`
+    + ' e questo è il pezzo di ipotesi che la misura conferma.');
+  return notes;
+}
+
 /** @param {any} report */
 function renderMarkdown(report) {
   const lines = [
@@ -177,11 +211,17 @@ function renderMarkdown(report) {
       + ` (hit ${report.totals.criterion.hits}, miss ${report.totals.criterion.misses}, nessuna previsione ${report.totals.criterion.noPrediction})`,
     `- baseline «primo NPA»: precision ${pct(report.totals.baseline.precision)} · recall ${pct(report.totals.baseline.recall)}`
       + ` (hit ${report.totals.baseline.hits}, miss ${report.totals.baseline.misses}, nessuna previsione ${report.totals.baseline.noPrediction})`,
+    `- pagine su cui il criterio ha una risposta univoca: ${report.totals.ambiguity.one}/${report.totals.pages}`
+      + ` (nessun NPA variabile ${report.totals.ambiguity.none}, ambiguo ${report.totals.ambiguity.several})`,
+    '',
+    '## Lettura',
+    '',
+    ...readingNotes(report),
     '',
     '## Per host',
     '',
-    '| host | pagine | NPA costanti (boilerplate) | NPA variabili | verità note | precision | recall | baseline precision |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| host | pagine | NPA costanti (boilerplate) | NPA variabili | risposta univoca | verità note | precision | recall | baseline precision |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const host of report.hosts) {
     lines.push([
@@ -190,6 +230,7 @@ function renderMarkdown(report) {
       host.pages,
       host.constant.length ? host.constant.map((k) => `\`${k}\``).join('<br>') : '—',
       host.variable.length ? host.variable.map((k) => `\`${k}\``).join('<br>') : '—',
+      `${host.ambiguity.one}/${host.pages}`,
       host.withTruth,
       pct(host.criterion.precision),
       pct(host.criterion.recall),
@@ -207,6 +248,16 @@ function renderMarkdown(report) {
 }
 
 async function main() {
+  // Re-render the prose of an existing measurement without crawling again.
+  // The JSON is the measurement; the markdown is a view of it, and a wording
+  // change must not cost 179 requests to 30 employers.
+  const from = String(arg('from', ''));
+  if (from) {
+    const existing = JSON.parse(fs.readFileSync(from, 'utf8'));
+    fs.writeFileSync(REPORT_MD, renderMarkdown(existing));
+    console.log(`[postal-variance] rigenerato ${path.relative(process.cwd(), REPORT_MD)} da ${from}`);
+    return;
+  }
   const pagesPerHost = positiveInt(arg('pages'), 6);
   const minHosts = positiveInt(arg('min-hosts'), 8);
   // Hosts alone do not make the measure: a spec whose vacancies are all abroad

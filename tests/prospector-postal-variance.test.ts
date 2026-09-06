@@ -99,6 +99,16 @@ describe('summarizeHostPostalVariance', () => {
     expect(summary.criterion.recall).toBeCloseTo(1 / 3);
   });
 
+  it('counts how often the criterion has an unambiguous answer, truth or not', () => {
+    const summary = summarizeHostPostalVariance([
+      pageOf('4528', 'Zuchwil', ''),
+      { url: 'a', truth: '', mentions: freeTextPostalMentions('<p>3013 Bern</p>') },
+      { url: 'b', truth: '', mentions: freeTextPostalMentions('<p>4600 Olten</p><p>9472 Grabs</p><footer>3013 Bern</footer>') },
+    ]);
+    expect(summary.constant).toEqual(['3013 bern']);
+    expect(summary.ambiguity).toEqual({ none: 1, one: 1, several: 1 });
+  });
+
   it('does not score pages whose location the listing does not know', () => {
     const summary = summarizeHostPostalVariance([
       pageOf('4528', 'Zuchwil', ''),
@@ -136,14 +146,15 @@ describe('summarizeHostPostalVariance', () => {
 describe('aggregatePostalVariance', () => {
   it('sums only the measurable hosts and recomputes the rates on the totals', () => {
     const totals = aggregatePostalVariance({
-      a: { measurable: true, pages: 5, withTruth: 4, criterion: { hits: 3, misses: 1, noPrediction: 0 }, baseline: { hits: 1, misses: 3, noPrediction: 0 } } as any,
-      b: { measurable: true, pages: 6, withTruth: 6, criterion: { hits: 3, misses: 1, noPrediction: 2 }, baseline: { hits: 2, misses: 4, noPrediction: 0 } } as any,
-      c: { measurable: false, pages: 1, withTruth: 1, criterion: { hits: 1, misses: 0, noPrediction: 0 }, baseline: { hits: 1, misses: 0, noPrediction: 0 } } as any,
+      a: { measurable: true, pages: 5, withTruth: 4, ambiguity: { none: 1, one: 3, several: 1 }, criterion: { hits: 3, misses: 1, noPrediction: 0 }, baseline: { hits: 1, misses: 3, noPrediction: 0 } } as any,
+      b: { measurable: true, pages: 6, withTruth: 6, ambiguity: { none: 2, one: 4, several: 0 }, criterion: { hits: 3, misses: 1, noPrediction: 2 }, baseline: { hits: 2, misses: 4, noPrediction: 0 } } as any,
+      c: { measurable: false, pages: 1, withTruth: 1, ambiguity: { none: 0, one: 1, several: 0 }, criterion: { hits: 1, misses: 0, noPrediction: 0 }, baseline: { hits: 1, misses: 0, noPrediction: 0 } } as any,
     });
     expect(totals.hosts).toBe(2);
     expect(totals.pages).toBe(11);
     expect(totals.criterion.precision).toBe(0.75);
     expect(totals.criterion.recall).toBe(0.6);
     expect(totals.baseline.precision).toBe(0.3);
+    expect(totals.ambiguity).toEqual({ none: 3, one: 7, several: 1 });
   });
 });

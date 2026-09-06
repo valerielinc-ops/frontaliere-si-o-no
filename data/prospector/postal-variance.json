@@ -1,28 +1,349 @@
 {
-  "generatedAt": "2026-09-06T05:45:45.435Z",
+  "generatedAt": "2026-09-06T05:56:45.163Z",
   "criterion": "NPA non presente su tutte le pagine di dettaglio dello stesso host",
   "truthSource": "localita del listing graduata da resolveDetailOrListingSwissGeography",
-  "pagesPerHost": 5,
+  "pagesPerHost": 6,
   "totals": {
-    "hosts": 1,
-    "pages": 5,
-    "withTruth": 0,
+    "hosts": 30,
+    "pages": 179,
+    "withTruth": 13,
+    "ambiguity": {
+      "none": 150,
+      "one": 29,
+      "several": 0
+    },
     "criterion": {
       "hits": 0,
       "misses": 0,
-      "noPrediction": 0,
+      "noPrediction": 13,
       "precision": null,
-      "recall": null
+      "recall": 0
     },
     "baseline": {
       "hits": 0,
       "misses": 0,
-      "noPrediction": 0,
+      "noPrediction": 13,
       "precision": null,
-      "recall": null
+      "recall": 0
     }
   },
   "hosts": [
+    {
+      "companyKey": "physioswiss",
+      "companyHost": "physioswiss.ch",
+      "platform": "",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://physioswiss.ch/stelleninserate/152760/physiotherapeut-in-20-80-temporaer-ab-januar-2027/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "4528 zuchwil"
+          ],
+          "predicted": "4528 zuchwil",
+          "verdict": "no-truth",
+          "baselinePredicted": "4528 zuchwil",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4528 zuchwil",
+              "known": true,
+              "cantons": [
+                "SO"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://physioswiss.ch/stelleninserate/154334/physiotherapeutin-w-50-100-zuerich-kreis-4/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8004 zurich"
+          ],
+          "predicted": "8004 zurich",
+          "verdict": "no-truth",
+          "baselinePredicted": "8004 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8004 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://physioswiss.ch/stelleninserate/153851/physiotherapeutin-80-100/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "2552 orpund"
+          ],
+          "predicted": "2552 orpund",
+          "verdict": "no-truth",
+          "baselinePredicted": "2552 orpund",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2552 orpund",
+              "known": true,
+              "cantons": [
+                "BE"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://physioswiss.ch/stelleninserate/153960/physiotherapeut-in-gesucht/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "9472 grabs"
+          ],
+          "predicted": "9472 grabs",
+          "verdict": "no-truth",
+          "baselinePredicted": "9472 grabs",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9472 grabs",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://physioswiss.ch/stelleninserate/154121/physiotherapeute-vestibulaire-et-musculo-squelettique/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "2000 neuchatel"
+          ],
+          "predicted": "2000 neuchatel",
+          "verdict": "no-truth",
+          "baselinePredicted": "2000 neuchatel",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2000 neuchatel",
+              "known": true,
+              "cantons": [
+                "NE"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://physioswiss.ch/stelleninserate/154166/2-physiotherapeuten-gesucht-40-100/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8618 oetwil am see"
+          ],
+          "predicted": "8618 oetwil am see",
+          "verdict": "no-truth",
+          "baselinePredicted": "8618 oetwil am see",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8618 oetwil am see",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        }
+      ],
+      "constant": [],
+      "variable": [
+        "2000 neuchatel",
+        "2552 orpund",
+        "4528 zuchwil",
+        "8004 zurich",
+        "8618 oetwil am see",
+        "9472 grabs"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 0,
+        "one": 6,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2862",
+      "companyHost": "recruitingapp-2862.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 23,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1445/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1444/Description/2",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "5703 seon"
+          ],
+          "predicted": "5703 seon",
+          "verdict": "no-truth",
+          "baselinePredicted": "5703 seon",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "5703 seon",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1443/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8058 zurich flughafen"
+          ],
+          "predicted": "8058 zurich flughafen",
+          "verdict": "no-truth",
+          "baselinePredicted": "8058 zurich flughafen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8058 zurich flughafen",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1442/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1441/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1439/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [
+        "5703 seon",
+        "8058 zurich flughafen"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 4,
+        "one": 2,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
     {
       "companyKey": "recruitingapp-2649",
       "companyHost": "recruitingapp-2649.umantis.com",
@@ -103,6 +424,4460 @@
       "variable": [],
       "withTruth": 0,
       "withoutTruth": 5,
+      "ambiguity": {
+        "none": 5,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "fachkraft",
+      "companyHost": "fachkraft.ch",
+      "platform": "",
+      "listingRows": 3631,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-luzern-temporaer-297271/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 2,
+          "variableMentions": [
+            "6210 sursee"
+          ],
+          "predicted": "6210 sursee",
+          "verdict": "no-truth",
+          "baselinePredicted": "6210 sursee",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-uster-temporaer-297313/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 2,
+          "variableMentions": [
+            "8400 winterthur"
+          ],
+          "predicted": "8400 winterthur",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-entlebuch-temporaer-293679/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "6003 luzern",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-luzern-dauerstelle-281907/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 2,
+          "variableMentions": [
+            "6210 sursee"
+          ],
+          "predicted": "6210 sursee",
+          "verdict": "no-truth",
+          "baselinePredicted": "6210 sursee",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-kreuzlingen-tryhire-286446/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 2,
+          "variableMentions": [
+            "8400 winterthur"
+          ],
+          "predicted": "8400 winterthur",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-uster-dauerstelle-292002/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 2,
+          "variableMentions": [
+            "8400 winterthur"
+          ],
+          "predicted": "8400 winterthur",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "6003 luzern"
+      ],
+      "variable": [
+        "6210 sursee",
+        "8400 winterthur"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 1,
+        "one": 5,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2783",
+      "companyHost": "recruitingapp-2783.de.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 50,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5222/Description/1",
+          "truth": "Givisiez",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5221/Description/1",
+          "truth": "Luzern",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5220/Description/1",
+          "truth": "Näfels",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5219/Description/1",
+          "truth": "Hürth, Köln",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5218/Description/1",
+          "truth": "Bönen",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5211/Description/1",
+          "truth": "Würzburg",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 6,
+      "withoutTruth": 0,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 6,
+        "precision": null,
+        "recall": 0
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 6,
+        "precision": null,
+        "recall": 0
+      }
+    },
+    {
+      "companyKey": "sta",
+      "companyHost": "sta.jobs",
+      "platform": "",
+      "listingRows": 1850,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.sta.jobs/stellen/allrounder-in-ausbaugewerbe-entlebuch-temporaer-107047/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "6003 luzern",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "8050 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zofingen-dauerstelle-105962/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4665 oftringen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4665 oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "8050 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zuerich-dauerstelle-102800/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8050 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8050 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-langenthal-temporaer-106114/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4665 oftringen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4665 oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "8050 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-uster-dauerstelle-107584/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8050 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8050 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zuerich-dauerstelle-103321/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8050 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8050 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2026 sta",
+        "4665 oftringen",
+        "6003 luzern",
+        "8050 zurich"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "griesser",
+      "companyHost": "recruitingapp-2690.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 24,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2690.umantis.com/Vacancies/1191/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2690.umantis.com/Vacancies/1278/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2690.umantis.com/Vacancies/1274/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2690.umantis.com/Vacancies/1275/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2690.umantis.com/Vacancies/1276/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2690.umantis.com/Vacancies/1272/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "stellentreff",
+      "companyHost": "stellentreff.ch",
+      "platform": "",
+      "listingRows": 1005,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.stellentreff.ch/stellen/allrounder-in-ausbaugewerbe-luzern-temporaer-114901/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "6210 sursee",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "9000 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            },
+            {
+              "key": "2026 stellentreff",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellentreff.ch/stellen/allrounder-in-ausbaugewerbe-uster-temporaer-114913/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "9000 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            },
+            {
+              "key": "2026 stellentreff",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellentreff.ch/stellen/allrounder-in-ausbaugewerbe-luzern-dauerstelle-110132/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "6210 sursee",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "9000 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            },
+            {
+              "key": "2026 stellentreff",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-kreuzlingen-tryhire-111291/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "9000 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            },
+            {
+              "key": "2026 stellentreff",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-uster-dauerstelle-113251/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "9000 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            },
+            {
+              "key": "2026 stellentreff",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-frauenfeld-temporaer-113792/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6210 sursee",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "9000 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            },
+            {
+              "key": "2026 stellentreff",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2026 stellentreff",
+        "6210 sursee",
+        "8400 winterthur",
+        "9000 st gallen"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2677",
+      "companyHost": "recruitingapp-2677.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 20,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1993/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9490 vaduz",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1990/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9490 vaduz",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9490 vaduz",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1982/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9490 vaduz",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1988/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1986/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9490 vaduz",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [],
+      "variable": [
+        "9490 vaduz"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "stellenpartner",
+      "companyHost": "stellenpartner.ch",
+      "platform": "",
+      "listingRows": 775,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-aarau-temporaer-105278/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "5400 baden",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "5400 baden",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6300 zug",
+              "known": true,
+              "cantons": [
+                "ZG"
+              ]
+            },
+            {
+              "key": "8500 frauenfeld",
+              "known": true,
+              "cantons": [
+                "TG"
+              ]
+            },
+            {
+              "key": "2026 stellenpartner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-zofingen-temporaer-106138/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "5400 baden",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "5400 baden",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6300 zug",
+              "known": true,
+              "cantons": [
+                "ZG"
+              ]
+            },
+            {
+              "key": "8500 frauenfeld",
+              "known": true,
+              "cantons": [
+                "TG"
+              ]
+            },
+            {
+              "key": "2026 stellenpartner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-bremgarten-temporaer-106926/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "5400 baden",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "5400 baden",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6300 zug",
+              "known": true,
+              "cantons": [
+                "ZG"
+              ]
+            },
+            {
+              "key": "8500 frauenfeld",
+              "known": true,
+              "cantons": [
+                "TG"
+              ]
+            },
+            {
+              "key": "2026 stellenpartner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-wil-sg-dauerstelle-106907/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8500 frauenfeld",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8500 frauenfeld",
+              "known": true,
+              "cantons": [
+                "TG"
+              ]
+            },
+            {
+              "key": "6300 zug",
+              "known": true,
+              "cantons": [
+                "ZG"
+              ]
+            },
+            {
+              "key": "5400 baden",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 stellenpartner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-wil-sg-dauerstelle-106909/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8500 frauenfeld",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8500 frauenfeld",
+              "known": true,
+              "cantons": [
+                "TG"
+              ]
+            },
+            {
+              "key": "6300 zug",
+              "known": true,
+              "cantons": [
+                "ZG"
+              ]
+            },
+            {
+              "key": "5400 baden",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 stellenpartner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-baden-dauerstelle-105986/",
+          "truth": "",
+          "mentions": 4,
+          "knownMentions": 3,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "5400 baden",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "5400 baden",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6300 zug",
+              "known": true,
+              "cantons": [
+                "ZG"
+              ]
+            },
+            {
+              "key": "8500 frauenfeld",
+              "known": true,
+              "cantons": [
+                "TG"
+              ]
+            },
+            {
+              "key": "2026 stellenpartner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2026 stellenpartner",
+        "5400 baden",
+        "6300 zug",
+        "8500 frauenfeld"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "sonnenhalde",
+      "companyHost": "recruitingapp-3030.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 13,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-3030.umantis.com/Vacancies/389/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-3030.umantis.com/Vacancies/398/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-3030.umantis.com/Vacancies/399/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-3030.umantis.com/Vacancies/406/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-3030.umantis.com/Vacancies/407/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-3030.umantis.com/Vacancies/403/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "anker-swiss",
+      "companyHost": "anker-swiss.ch",
+      "platform": "",
+      "listingRows": 312,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://anker-swiss.ch/stellen/maler-1250327/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8004 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8004 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 anker",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://anker-swiss.ch/stellen/maler-1248577/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8004 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8004 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 anker",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://anker-swiss.ch/stellen/storenmonteur-1313747/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8004 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8004 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 anker",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://anker-swiss.ch/stellen/allrounder-garten-1312549/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8004 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8004 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 anker",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://anker-swiss.ch/stellen/metallbaukonstrukteur-1312512/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8004 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8004 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 anker",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://anker-swiss.ch/stellen/metallbauer-1312274/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "8004 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8004 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 anker",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2026 anker",
+        "8004 zurich"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "jsafrasarasin",
+      "companyHost": "jsafrasarasin.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 9,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "silvaplana",
+      "companyHost": "engadinerpost.ch",
+      "platform": "engadinerpost.ch",
+      "listingRows": 41,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/1009",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 engadiner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/1010",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 engadiner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/1011",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [
+            "7505 pontresina"
+          ],
+          "predicted": "7505 pontresina",
+          "verdict": "no-truth",
+          "baselinePredicted": "7505 pontresina",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7505 pontresina",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2026 engadiner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/996",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 engadiner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/997",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 engadiner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/998",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [
+            "7503 samedan"
+          ],
+          "predicted": "7503 samedan",
+          "verdict": "no-truth",
+          "baselinePredicted": "7503 samedan",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7503 samedan",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2026 engadiner",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2026 engadiner"
+      ],
+      "variable": [
+        "7503 samedan",
+        "7505 pontresina"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 4,
+        "one": 2,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2794",
+      "companyHost": "recruitingapp-2794.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 12,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/962/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/961/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/960/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/958/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/957/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/956/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "ete",
+      "companyHost": "ete.ch",
+      "platform": "",
+      "listingRows": 31,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.ete.ch/jobs/mitarbeiter-in-maschinenumzuege-spezialtransporte-100/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 2,
+          "variableMentions": [
+            "8303 bassersdorf"
+          ],
+          "predicted": "8303 bassersdorf",
+          "verdict": "no-truth",
+          "baselinePredicted": "8303 bassersdorf",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8303 bassersdorf",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "9016 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "9016 st gallen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9016 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-2/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 2,
+          "variableMentions": [
+            "4624 harkingen"
+          ],
+          "predicted": "4624 harkingen",
+          "verdict": "no-truth",
+          "baselinePredicted": "4624 harkingen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4624 harkingen",
+              "known": true,
+              "cantons": [
+                "SO"
+              ]
+            },
+            {
+              "key": "9016 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.ete.ch/jobs/lkw-mechaniker-in-80-100/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "9016 st gallen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9016 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "9016 st gallen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9016 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.ete.ch/jobs/quereinsteiger-in-fuer-kat-c-2/",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "9016 st gallen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9016 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "9016 st gallen"
+      ],
+      "variable": [
+        "4624 harkingen",
+        "8303 bassersdorf"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 4,
+        "one": 2,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2748",
+      "companyHost": "karriere.ksbl.ch",
+      "platform": "umantis.com",
+      "listingRows": 11,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/op-lagerungspflegerin-op-lagerungspfleger/d2d478d0-76b2-43bb-94cf-85f3588f9cb6/",
+          "truth": "",
+          "mentions": 3,
+          "knownMentions": 2,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4410 liestal",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4410 liestal",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            },
+            {
+              "key": "4101 bruderholz",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "4242 laufen",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a/a96ae29f-2cfc-4996-8467-7e0d4bf04fd0/",
+          "truth": "",
+          "mentions": 3,
+          "knownMentions": 2,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4410 liestal",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4410 liestal",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            },
+            {
+              "key": "4101 bruderholz",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "4242 laufen",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-a/6d5f5c01-d3ca-4bf7-88ca-8fb19d346af8/",
+          "truth": "",
+          "mentions": 3,
+          "knownMentions": 2,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4410 liestal",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4410 liestal",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            },
+            {
+              "key": "4101 bruderholz",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "4242 laufen",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-onkologie-a/892539ac-ddf6-43a4-a1fc-118387c12b14/",
+          "truth": "",
+          "mentions": 3,
+          "knownMentions": 2,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4410 liestal",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4410 liestal",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            },
+            {
+              "key": "4101 bruderholz",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "4242 laufen",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/projektleiterin-projektleiter-bau-infrastruktur-a/eae17a06-6ae6-49e7-ba94-99b8687d467d/",
+          "truth": "",
+          "mentions": 3,
+          "knownMentions": 2,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4410 liestal",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4410 liestal",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            },
+            {
+              "key": "4101 bruderholz",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "4242 laufen",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stationsassistentin-stationsassistent-innere-medizin-a/256af427-838c-4c42-9298-06b4f97a1139/",
+          "truth": "",
+          "mentions": 3,
+          "knownMentions": 2,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "4410 liestal",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4410 liestal",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            },
+            {
+              "key": "4101 bruderholz",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "4242 laufen",
+              "known": true,
+              "cantons": [
+                "BL"
+              ]
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "4101 bruderholz",
+        "4242 laufen",
+        "4410 liestal"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "michaelpage",
+      "companyHost": "pageexecutive.com",
+      "platform": "pageexecutive.com",
+      "listingRows": 17,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.pageexecutive.com/job-detail/head-legal-compliance-switzerland/ref/jn-072026-7069175",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://www.pageexecutive.com/job-detail/general-manager-luxury-hotel-german-speaking-switzerland/ref/jn-072026-7061253",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://www.pageexecutive.com/job-detail/international-marketing-director-luxury-watch-brand/ref/jn-062026-7038066",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://www.pageexecutive.com/job-detail/head-digital-performance-marketing/ref/jn-082026-7088394",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://www.pageexecutive.com/job-detail/chief-operating-officer-implantable-medical-devices/ref/jn-082026-7089682",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "apleona-schweiz-ag",
+      "companyHost": "recruitingapp-2765.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2557/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2548/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2553/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2552/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2547/Description/1",
+          "truth": "Festanstellung",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2481/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 1,
+      "withoutTruth": 5,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 1,
+        "precision": null,
+        "recall": 0
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 1,
+        "precision": null,
+        "recall": 0
+      }
+    },
+    {
+      "companyKey": "okjob",
+      "companyHost": "okjob.ch",
+      "platform": "",
+      "listingRows": 35,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-im-nachtdienst-70-80-basel/?ref=41848",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4051 bale",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.okjob.ch/offres-demplois/mecatronicien-automobile-yverdon-les-bains/?ref=41867",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1400 yverdon",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.okjob.ch/offres-demplois/regleur-denrobe-h-f-le-sentier/?ref=41873",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1347 le",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.okjob.ch/offres-demplois/grutier-suva-a-b-h-f-yverdon-les-bains/?ref=41874",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1400 yverdon",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.okjob.ch/offres-demplois/macon-a-h-f-yverdon-les-bains/?ref=41875",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1400 yverdon",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-hf-pflegen-ausbilden-vereint-80-100-zuerich/?ref=41876",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8001 zurich"
+          ],
+          "predicted": "8001 zurich",
+          "verdict": "no-truth",
+          "baselinePredicted": "8001 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8001 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        }
+      ],
+      "constant": [],
+      "variable": [
+        "1347 le",
+        "1400 yverdon",
+        "4051 bale",
+        "8001 zurich"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 5,
+        "one": 1,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-1123",
+      "companyHost": "recruitingapp-1123.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1020 wien",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "2025 bundesimmobiliengesellschaft",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1020 wien",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "2025 bundesimmobiliengesellschaft",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1020 wien",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "2025 bundesimmobiliengesellschaft",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1020 wien",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "2025 bundesimmobiliengesellschaft",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1020 wien",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "2025 bundesimmobiliengesellschaft",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2509/Description/1",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "1020 wien",
+              "known": false,
+              "cantons": []
+            },
+            {
+              "key": "2025 bundesimmobiliengesellschaft",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "1020 wien",
+        "2025 bundesimmobiliengesellschaft"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2678",
+      "companyHost": "recruitingapp-2678.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3516/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3436/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3510/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3500/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3509/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3513/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2717",
+      "companyHost": "recruitingapp-2717.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2717.umantis.com/Vacancies/6348/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "7007 chur"
+          ],
+          "predicted": "7007 chur",
+          "verdict": "no-truth",
+          "baselinePredicted": "7007 chur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7007 chur",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2717.umantis.com/Vacancies/5150/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "9001 st gallen"
+          ],
+          "predicted": "9001 st gallen",
+          "verdict": "no-truth",
+          "baselinePredicted": "9001 st gallen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "9001 st gallen",
+              "known": true,
+              "cantons": [
+                "SG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2717.umantis.com/Vacancies/5990/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8280 kreuzlingen"
+          ],
+          "predicted": "8280 kreuzlingen",
+          "verdict": "no-truth",
+          "baselinePredicted": "8280 kreuzlingen",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8280 kreuzlingen",
+              "known": true,
+              "cantons": [
+                "TG"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2717.umantis.com/Vacancies/6006/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8640 rapperswil"
+          ],
+          "predicted": "8640 rapperswil",
+          "verdict": "no-truth",
+          "baselinePredicted": "8640 rapperswil",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8640 rapperswil",
+              "known": true,
+              "cantons": [
+                "BE"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2717.umantis.com/Vacancies/6140/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8050 zurich"
+          ],
+          "predicted": "8050 zurich",
+          "verdict": "no-truth",
+          "baselinePredicted": "8050 zurich",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8050 zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2717.umantis.com/Vacancies/6294/Description/1",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8400 winterthur"
+          ],
+          "predicted": "8400 winterthur",
+          "verdict": "no-truth",
+          "baselinePredicted": "8400 winterthur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8400 winterthur",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        }
+      ],
+      "constant": [],
+      "variable": [
+        "7007 chur",
+        "8050 zurich",
+        "8280 kreuzlingen",
+        "8400 winterthur",
+        "8640 rapperswil",
+        "9001 st gallen"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 0,
+        "one": 6,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "schauenstein",
+      "companyHost": "andreascaminada.com",
+      "platform": "andreascaminada.com",
+      "listingRows": 12,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.andreascaminada.com/offene-stellen/commisdecuisineschlossschauenstein-ey5jn-djz8z-nta2k-g76n5-y5nk8-maesr",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8704 herrliberg"
+          ],
+          "predicted": "8704 herrliberg",
+          "verdict": "no-truth",
+          "baselinePredicted": "8704 herrliberg",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8704 herrliberg",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.andreascaminada.com/offene-stellen/commisderang-ignivzh-a7tnt-8dmed-57w6l-6cl7h-3ad7r-fbzrz-t6frf-yhbel-cdls4-4bndp",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "8704 herrliberg"
+          ],
+          "predicted": "8704 herrliberg",
+          "verdict": "no-truth",
+          "baselinePredicted": "8704 herrliberg",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "8704 herrliberg",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.andreascaminada.com/offene-stellen/commisderang-ignivzh-a7tnt-8dmed-57w6l-6cl7h-3ad7r-fbzrz-t6frf-yhbel-cdls4",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "7414 furstenau"
+          ],
+          "predicted": "7414 furstenau",
+          "verdict": "no-truth",
+          "baselinePredicted": "7414 furstenau",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7414 furstenau",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.andreascaminada.com/offene-stellen/chefderang-hgamd-g9pry-s6yzt-bw2pd-k27yy-jzrpt-wrsry-jfg32-zz95p-ear7t-h9dhz-rt62n-lhmmk-gxfly",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "7414 furstenau"
+          ],
+          "predicted": "7414 furstenau",
+          "verdict": "no-truth",
+          "baselinePredicted": "7414 furstenau",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7414 furstenau",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.andreascaminada.com/offene-stellen/commisderang-ignivzh-a7tnt-8dmed-57w6l-6cl7h-3ad7r-fbzrz-t6frf-yhbel",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 1,
+          "variableMentions": [
+            "7414 furstenau"
+          ],
+          "predicted": "7414 furstenau",
+          "verdict": "no-truth",
+          "baselinePredicted": "7414 furstenau",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7414 furstenau",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            }
+          ]
+        },
+        {
+          "url": "https://www.andreascaminada.com/offene-stellen/commisderang-ignivzh-a7tnt-8dmed-57w6l-6cl7h-3ad7r-fbzrz-t6frf",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [
+        "7414 furstenau",
+        "8704 herrliberg"
+      ],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 1,
+        "one": 5,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2788",
+      "companyHost": "recruitingapp-2788.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/23023/Description/1",
+          "truth": "Oberösterreich",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "4190 bad",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24573/Description/1",
+          "truth": "Tirol",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6300 worgl",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24602/Description/1",
+          "truth": "Tirol",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6380 st",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24601/Description/1",
+          "truth": "Tirol",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6380 st",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24600/Description/1",
+          "truth": "Tirol",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "6380 st",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/19617/Description/1",
+          "truth": "Salzburg",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-prediction",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "5201 seekirchen",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [],
+      "variable": [
+        "4190 bad",
+        "5201 seekirchen",
+        "6300 worgl",
+        "6380 st"
+      ],
+      "withTruth": 6,
+      "withoutTruth": 0,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 6,
+        "precision": null,
+        "recall": 0
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 6,
+        "precision": null,
+        "recall": 0
+      }
+    },
+    {
+      "companyKey": "115west",
+      "companyHost": "115west.ch",
+      "platform": "",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2017-schulanlage-bruehl-solothurn",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2503 biel",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2016-pfarreizentrum-st-maria-ins",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2503 biel",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2015-doppelkindergarten-bueren-aa",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2503 biel",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2013-esplanade-bielbienne",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2503 biel",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2013-neubau-schulhaus-port",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2503 biel",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2012-volksschule-kirchenfeld-bern",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2503 biel",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2503 biel"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2806",
+      "companyHost": "recruitingapp-2806.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6627/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6656/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6651/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6655/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6453/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6637/Description/2",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "accor",
+      "companyHost": "careers.accor.com",
+      "platform": "",
+      "listingRows": 12,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://careers.accor.com/fr/fr/job/aide-comptable-et-administratif-ve-60-80-in-novotel-geneve-centre-geneva-switzerland-jid-107586",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 accor",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/service-staff-ribelli-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-24550",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 accor",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 accor",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 accor",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106812",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 accor",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
+          "truth": "",
+          "mentions": 1,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "2026 accor",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2026 accor"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2814",
+      "companyHost": "recruitingapp-2814.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 8,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8192/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8179/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/7975/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/6339/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/7806/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8061/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      },
+      "baseline": {
+        "hits": 0,
+        "misses": 0,
+        "noPrediction": 0,
+        "precision": null,
+        "recall": null
+      }
+    },
+    {
+      "companyKey": "belvair",
+      "companyHost": "rhb.ch",
+      "platform": "rhb.ch",
+      "listingRows": 10,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://www.rhb.ch/de/job/it-supporter-in-50-80_2026-2224/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "7001 chur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7001 chur",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2025 rhatische",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.rhb.ch/de/job/ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart_2026-2250/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "7001 chur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7001 chur",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2025 rhatische",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.rhb.ch/de/job/rangiermitarbeiter-in-50-100_2026-2249/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "7001 chur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7001 chur",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2025 rhatische",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.rhb.ch/de/job/sicherheitsbeauftragte-r-infrastruktur-50-100_2026-2248/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "7001 chur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7001 chur",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2025 rhatische",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.rhb.ch/de/job/handwerker-in-komponentenwechsel-50-100_2026-2214/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "7001 chur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7001 chur",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2025 rhatische",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        },
+        {
+          "url": "https://www.rhb.ch/de/job/gleismonteur-in-80-100_2026-2246/",
+          "truth": "",
+          "mentions": 2,
+          "knownMentions": 1,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "7001 chur",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "allMentions": [
+            {
+              "key": "7001 chur",
+              "known": true,
+              "cantons": [
+                "GR"
+              ]
+            },
+            {
+              "key": "2025 rhatische",
+              "known": false,
+              "cantons": []
+            }
+          ]
+        }
+      ],
+      "constant": [
+        "2025 rhatische",
+        "7001 chur"
+      ],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
+        "several": 0
+      },
       "criterion": {
         "hits": 0,
         "misses": 0,
@@ -119,5 +4894,22 @@
       }
     }
   ],
-  "skipped": []
+  "skipped": [
+    {
+      "companyKey": "im-bethesda-spital",
+      "reason": "solo 1 pagine di dettaglio raggiunte, varianza non osservabile"
+    },
+    {
+      "companyKey": "jobs",
+      "reason": "solo 1 pagine di dettaglio raggiunte, varianza non osservabile"
+    },
+    {
+      "companyKey": "ipersonal",
+      "reason": "solo 0 pagine di dettaglio raggiunte, varianza non osservabile"
+    },
+    {
+      "companyKey": "med-ipersonal",
+      "reason": "solo 0 pagine di dettaglio raggiunte, varianza non osservabile"
+    }
+  ]
 }

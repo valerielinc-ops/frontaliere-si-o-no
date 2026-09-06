@@ -172,11 +172,17 @@ export function summarizeHostPostalVariance(pages = []) {
 
   const score = { hits: 0, misses: 0, noPrediction: 0 };
   const baseline = { hits: 0, misses: 0, noPrediction: 0 };
+  // How often the criterion even has an unambiguous answer. This needs no
+  // ground truth, so it is the one number available on every sampled page:
+  // a rule that leaves two variable NPAs standing has not decided anything,
+  // and one that leaves none cannot replace what the crawler does today.
+  const ambiguity = { none: 0, one: 0, several: 0 };
   let withoutTruth = 0;
   const perPage = usable.map((page) => {
     const known = page.mentions.filter((m) => m.known);
     const variable = measurable ? known.filter((m) => !constantKeys.has(m.key)) : [];
     const predicted = variable[0] || null;
+    ambiguity[variable.length === 0 ? 'none' : variable.length === 1 ? 'one' : 'several'] += 1;
     const baselinePredicted = known[0] || null;
     const truth = String(page.truth || '').trim();
     let verdict = 'no-truth';
@@ -214,6 +220,7 @@ export function summarizeHostPostalVariance(pages = []) {
     variable: [...counts].filter(([key]) => !constantKeys.has(key)).map(([key]) => key).sort(),
     withTruth: usable.length - withoutTruth,
     withoutTruth,
+    ambiguity,
     criterion: rate(score),
     baseline: rate(baseline),
   };
@@ -245,6 +252,7 @@ export function aggregatePostalVariance(byHost = {}) {
     hosts: 0,
     pages: 0,
     withTruth: 0,
+    ambiguity: { none: 0, one: 0, several: 0 },
     criterion: { hits: 0, misses: 0, noPrediction: 0 },
     baseline: { hits: 0, misses: 0, noPrediction: 0 },
   };
@@ -253,6 +261,9 @@ export function aggregatePostalVariance(byHost = {}) {
     totals.hosts += 1;
     totals.pages += summary.pages;
     totals.withTruth += summary.withTruth;
+    for (const field of /** @type {const} */ (['none', 'one', 'several'])) {
+      totals.ambiguity[field] += summary.ambiguity?.[field] || 0;
+    }
     for (const bucket of /** @type {const} */ (['criterion', 'baseline'])) {
       for (const field of /** @type {const} */ (['hits', 'misses', 'noPrediction'])) {
         totals[bucket][field] += summary[bucket][field];
