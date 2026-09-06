@@ -27,24 +27,37 @@ import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-
  * @returns {any}
  */
 export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
-  const base = typeof opts.detailExtractor === 'function'
-    ? opts.detailExtractor
-    : spec?.platform === 'pageexecutive.com'
+  const tenantExtractor = typeof opts.detailExtractor === 'function' ? opts.detailExtractor : null;
+  const base = tenantExtractor
+    || (spec?.platform === 'pageexecutive.com'
       ? extractPageExecutiveDetailFields
-      : extractDetailFields;
+      : extractDetailFields);
   const detail = base(html, url);
   if (spec?.platform !== 'umantis.com') return detail;
+  // A tenant extractor read the very same page: its output is the whole
+  // verdict, EMPTY FIELDS INCLUDED. An empty location means "nothing here
+  // passed my verification", not "nobody looked yet", and an empty description
+  // means the vacancy boundary this tenant requires was not on the page. The
+  // generic re-derivation applies none of that verification, so running it on
+  // top silently undoes it: measured on 2026-09-06, `extractApleonaDetailFields`
+  // over a real Umantis-served detail page had `location`, `locationCandidates`
+  // and `description` all repopulated — its canton gate and its mandatory
+  // vacancy-specific section bypassed. The two former guards
+  // (`locationGateRejected`, non-empty `locationCandidates`) could not express
+  // that: no contract obliged a tenant to raise the flag, none of the four
+  // tenant extractors in this repo raises it when it simply found nothing, and
+  // the description branch had no guard at all.
+  //
+  // A tenant that DOES want the generic chain composes it explicitly, by
+  // calling this function without a `detailExtractor` — which is exactly what
+  // `recruitingapp-2649-job-parser.mjs` does inside its own extractor.
+  if (tenantExtractor) return detail;
 
   const umantisDetail = extractUmantisDetailFields(html);
   if (isSufficientVacancyDescription(umantisDetail.description)) {
     detail.description = umantisDetail.description;
   }
-  // A tenant-specific extractor that already rejected a verified candidate
-  // (e.g. Apleona's canton-suffix gate) must not have that rejection silently
-  // overridden by the generic Umantis re-derivation, which applies none of
-  // that tenant's verification.
-  if (!detail.locationGateRejected
-    && !detail.locationCandidates?.length
+  if (!detail.locationCandidates?.length
     && umantisDetail.locationCandidates?.length) {
     detail.locationCandidates = umantisDetail.locationCandidates;
     const [candidate] = umantisDetail.locationCandidates;
