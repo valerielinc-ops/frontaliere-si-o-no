@@ -847,7 +847,6 @@
         "venditrice-venditore-food-poste-pour-etudiant-e-m-w-d-coop-basel-x8ga2y",
         "vendeuse-vendeur-food-poste-pour-etudiant-e-m-w-d-coop-basel-x8ga2y"
       ],
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500
     },
@@ -931,7 +930,6 @@
       "previousSlugs": [
         "vendeuse-vendeur-caisses-services-m-w-d-coop-basel-7r147m"
       ],
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500
     },
@@ -2253,18 +2251,26 @@
           "venditore-in-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-klosters-serneus",
           "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-n1tdu3",
           "agent-name-in-fresh-products-bread-baked-goods-coop-genossenschaft-klosters-serneus-n1tdu3",
-          "nom-de-l-agent-dans-les-produits-frais-pain-marchandises-cuites-coop-genossenschaft-klosters-serneus-n1tdu3"
+          "nom-de-l-agent-dans-les-produits-frais-pain-marchandises-cuites-coop-genossenschaft-klosters-serneus-n1tdu3",
+          "sales-assistant-fresh-products-bread-and-bakery-coop-genossenschaft-killwangen",
+          "verkaufer-in-frischprodukte-brot-und-backwaren-coop-killwangen-aargau-htfdsv",
+          "vendeur-vendeuse-produits-frais-pain-et-boulangerie-coop-genossenschaft-killwangen",
+          "verkaufer-in-frischprodukte-brot-e-backwaren-coop-killwangen-aargau-htfdsv",
+          "vendeur-de-produits-frais-pain-produits-de-boulangerie-coop-genossenschaft-klosters-serneus"
         ],
         "en": [
           "verkaufer-in-frischprodukte-brot-backwaren-coop-basel-stadt-ueun1o",
-          "agent-name-in-fresh-products-bread-baked-goods-coop-genossenschaft-klosters-serneus-n1tdu3"
+          "agent-name-in-fresh-products-bread-baked-goods-coop-genossenschaft-klosters-serneus-n1tdu3",
+          "sales-assistant-fresh-products-bread-and-bakery-coop-genossenschaft-killwangen"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-n1tdu3"
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-n1tdu3",
+          "verkaufer-in-frischprodukte-brot-und-backwaren-coop-killwangen-aargau-htfdsv"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-brot-backwaren-coop-basel-stadt-ueun1o",
-          "nom-de-l-agent-dans-les-produits-frais-pain-marchandises-cuites-coop-genossenschaft-klosters-serneus-n1tdu3"
+          "nom-de-l-agent-dans-les-produits-frais-pain-marchandises-cuites-coop-genossenschaft-klosters-serneus-n1tdu3",
+          "vendeur-vendeuse-produits-frais-pain-et-boulangerie-coop-genossenschaft-killwangen"
         ]
       },
       "previousSlugs": [
@@ -2275,7 +2281,12 @@
         "venditore-in-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-klosters-serneus",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-n1tdu3",
         "agent-name-in-fresh-products-bread-baked-goods-coop-genossenschaft-klosters-serneus-n1tdu3",
-        "nom-de-l-agent-dans-les-produits-frais-pain-marchandises-cuites-coop-genossenschaft-klosters-serneus-n1tdu3"
+        "nom-de-l-agent-dans-les-produits-frais-pain-marchandises-cuites-coop-genossenschaft-klosters-serneus-n1tdu3",
+        "sales-assistant-fresh-products-bread-and-bakery-coop-genossenschaft-killwangen",
+        "verkaufer-in-frischprodukte-brot-und-backwaren-coop-killwangen-aargau-htfdsv",
+        "vendeur-vendeuse-produits-frais-pain-et-boulangerie-coop-genossenschaft-killwangen",
+        "verkaufer-in-frischprodukte-brot-e-backwaren-coop-killwangen-aargau-htfdsv",
+        "vendeur-de-produits-frais-pain-produits-de-boulangerie-coop-genossenschaft-klosters-serneus"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -3370,7 +3381,6 @@
         "collaborateur-trice-gastronomie-coop-genossenschaft-landquart-graubunden-nnvjni",
         "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -3728,22 +3738,58 @@
         "it": [
           "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-dg4cuv",
           "verkaufer-in-frischprodukte-coop-wiesendangen-zurich",
-          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-pvm6pl"
+          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-pvm6pl",
+          "vendita-prodotti-freschi-coop-genossenschaft-baden",
+          "seller-fresh-products-coop-genossenschaft-baden",
+          "verkaufer-in-frischprodukte-coop-baden-aargau-o7d1o7",
+          "vendeur-produits-frais-coop-genossenschaft-baden",
+          "verkaufer-in-frischprodukte-coop-baden-aargau",
+          "vendita-prodotti-freschi-coop-genossenschaft-baden-dattwil-dab9e1",
+          "seller-fresh-products-coop-genossenschaft-baden-dattwil-dab9e1",
+          "verkaufer-in-frischprodukte-coop-baden-dattwil-aargau-a0v8l9",
+          "vendeur-produits-frais-coop-genossenschaft-baden-dattwil-dab9e1",
+          "verkaufer-in-frischprodukte-coop-baden-dattwil-aargau",
+          "vendita-prodotti-freschi-coop-genossenschaft-obfelden",
+          "seller-fresh-products-coop-genossenschaft-obfelden",
+          "verkaufer-in-frischprodukte-coop-obfelden-zurich-flmclc",
+          "vendeur-produits-frais-coop-genossenschaft-obfelden",
+          "verkaufer-in-frischprodukte-coop-obfelden-zurich"
         ],
         "en": [
-          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-dg4cuv"
+          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-dg4cuv",
+          "seller-fresh-products-coop-genossenschaft-baden",
+          "seller-fresh-products-coop-genossenschaft-obfelden"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-pvm6pl"
+          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-pvm6pl",
+          "verkaufer-in-frischprodukte-coop-baden-aargau-o7d1o7",
+          "verkaufer-in-frischprodukte-coop-obfelden-zurich-flmclc"
         ],
         "fr": [
-          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-dg4cuv"
+          "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-dg4cuv",
+          "vendeur-produits-frais-coop-genossenschaft-baden",
+          "vendeur-produits-frais-coop-genossenschaft-obfelden"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-dg4cuv",
         "verkaufer-in-frischprodukte-coop-wiesendangen-zurich",
-        "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-pvm6pl"
+        "verkaufer-in-frischprodukte-coop-wiesendangen-zurich-pvm6pl",
+        "vendita-prodotti-freschi-coop-genossenschaft-baden",
+        "seller-fresh-products-coop-genossenschaft-baden",
+        "verkaufer-in-frischprodukte-coop-baden-aargau-o7d1o7",
+        "vendeur-produits-frais-coop-genossenschaft-baden",
+        "verkaufer-in-frischprodukte-coop-baden-aargau",
+        "vendita-prodotti-freschi-coop-genossenschaft-baden-dattwil-dab9e1",
+        "seller-fresh-products-coop-genossenschaft-baden-dattwil-dab9e1",
+        "verkaufer-in-frischprodukte-coop-baden-dattwil-aargau-a0v8l9",
+        "vendeur-produits-frais-coop-genossenschaft-baden-dattwil-dab9e1",
+        "verkaufer-in-frischprodukte-coop-baden-dattwil-aargau",
+        "vendita-prodotti-freschi-coop-genossenschaft-obfelden",
+        "seller-fresh-products-coop-genossenschaft-obfelden",
+        "verkaufer-in-frischprodukte-coop-obfelden-zurich-flmclc",
+        "vendeur-produits-frais-coop-genossenschaft-obfelden",
+        "verkaufer-in-frischprodukte-coop-obfelden-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -4021,7 +4067,6 @@
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-winterthur-zurich-z67ac1"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -4282,7 +4327,6 @@
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-davos-platz-e7pjgk"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -5568,7 +5612,7 @@
       "firstSeenAt": "2026-09-03T23:26:44.266Z",
       "titleByLocale": {
         "en": "Panettiera / Panettiere - Pasticciera / Pasticciere (m/f/d)",
-        "de": "",
+        "de": "Panettiera / Panettiere — Pasticciera / Pasticciere (m/w/d)",
         "fr": "Panettiera / Panettiere - Pasticciera / Pasticciere (h/f/d)"
       },
       "descriptionByLocale": {
@@ -8414,7 +8458,7 @@
       "firstSeenAt": "2026-09-03T23:26:44.266Z",
       "titleByLocale": {
         "it": "Chef / Chef (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "fr": "Chef / Chef (h/f/d)"
       },
       "descriptionByLocale": {
@@ -9420,16 +9464,23 @@
           "metzger-in-meat-specialist-coop-genossenschaft-zurich-jwc8rn",
           "metzger-in-meat-specialist-coop-genossenschaft-zurich-o7ep6y",
           "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-zurich-716f3c",
-          "metzger-in-specialiste-de-la-viande-coop-genossenschaft-zurich-o7ep6y"
+          "metzger-in-specialiste-de-la-viande-coop-genossenschaft-zurich-o7ep6y",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-bubendorf-basel-landschaft-3jd7q0",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-bubendorf",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-bubendorf"
         ],
         "en": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-61bsyv"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-61bsyv",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-bubendorf"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-g5ml1r"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-g5ml1r",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-bubendorf-basel-landschaft-3jd7q0"
         ],
         "fr": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-61bsyv"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-61bsyv",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-bubendorf"
         ]
       },
       "previousSlugs": [
@@ -9444,7 +9495,11 @@
         "metzger-in-meat-specialist-coop-genossenschaft-zurich-jwc8rn",
         "metzger-in-meat-specialist-coop-genossenschaft-zurich-o7ep6y",
         "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-zurich-716f3c",
-        "metzger-in-specialiste-de-la-viande-coop-genossenschaft-zurich-o7ep6y"
+        "metzger-in-specialiste-de-la-viande-coop-genossenschaft-zurich-o7ep6y",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bubendorf",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-bubendorf-basel-landschaft-3jd7q0",
+        "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-bubendorf",
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-bubendorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -11543,7 +11598,6 @@
         "auffuller-in-food-coop-city-thun-bern",
         "food-sales-assistant-coop-genossenschaft-thun"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -11851,18 +11905,31 @@
       },
       "previousSlugs": [
         "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen",
-        "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58"
+        "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58",
+        "venditore-di-fiori-chiosco-coop-genossenschaft-oftringen",
+        "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-kvb5b7",
+        "flower-seller-kiosk-coop-genossenschaft-oftringen-kvb5b7",
+        "vendeur-de-fleurs-kiosque-coop-genossenschaft-oftringen-kvb5b7"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen",
-          "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58"
+          "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58",
+          "venditore-di-fiori-chiosco-coop-genossenschaft-oftringen",
+          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-kvb5b7",
+          "flower-seller-kiosk-coop-genossenschaft-oftringen-kvb5b7",
+          "vendeur-de-fleurs-kiosque-coop-genossenschaft-oftringen-kvb5b7"
         ],
         "en": [
-          "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58"
+          "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58",
+          "flower-seller-kiosk-coop-genossenschaft-oftringen-kvb5b7"
         ],
         "fr": [
-          "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58"
+          "verkaufer-in-blumen-kiosk-coop-balgach-sankt-gallen-nclj58",
+          "vendeur-de-fleurs-kiosque-coop-genossenschaft-oftringen-kvb5b7"
+        ],
+        "de": [
+          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-kvb5b7"
         ]
       },
       "salaryMin": 57500,
@@ -12398,7 +12465,6 @@
           "verkaufer-in-food-coop-frutigen-bern-r8h422"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -13566,7 +13632,6 @@
         "vendeur-euse-produits-frais-coop-genossenschaft-zurich-1ewa3f",
         "vendeur-en-produits-frais-coop-genossenschaft-zurich-f8b2c7"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -13809,7 +13874,6 @@
           "verkaufer-in-food-coop-freienbach-schwyz-imeod1"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -14176,7 +14240,6 @@
           "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -14265,7 +14328,6 @@
           "stv-rayonleiter-in-convenience-metzgerei-coop-siebnen-schwyz-e08k4c"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -14530,7 +14592,6 @@
           "verkaufer-in-food-coop-reichenburg-schwyz-ur26t0"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -15521,7 +15582,6 @@
         "verkaufer-in-kassen-services-coop-lachen-schwyz",
         "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -16106,7 +16166,6 @@
           "verkaufer-in-food-milchprodukte-eier-kase-coop-zurich-eeevim"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -16208,7 +16267,6 @@
         "verkaufer-in-food-frischprodukte-coop-schubelbach-schwyz-c53qrp",
         "fresh-products-salesperson-coop-genossenschaft-schubelbach"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -16748,7 +16806,6 @@
         "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46",
         "aspirant-in-geschaftsfuhrer-in-coop-schafisheim"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -16908,7 +16965,6 @@
         "verkaufsberater-in-schmuck-reise-und-strumpfwaren-coop-city-zurich-l70vki",
         "verkaufsberater-in-schmuck-reise-und-strumpfwaren-coop-city-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -17088,7 +17144,6 @@
           "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -17245,7 +17300,6 @@
         "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q",
         "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 13700,
       "salaryMax": 20800
     },
@@ -18785,7 +18839,6 @@
         "verkaufer-in-kassen-services-coop-illnau-effretikon-zurich",
         "verkaufer-in-kassen-services-coop-illnau-effretikon-zurich-0qnowj"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -19203,9 +19256,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "macellaio-specialista-della-carne-coop-genossenschaft-birsfelden",
-          "macellaio-specialista-della-carne-coop-genossenschaft-egerkingen",
-          "macellaio-specialista-della-carne-coop-genossenschaft-feuerthalen",
           "macellaio-specialista-della-carne-coop-genossenschaft-kreuzlingen",
           "macellaio-specialista-della-carne-coop-genossenschaft-meisterschwanden",
           "macellaio-specialista-della-carne-coop-genossenschaft-ostermundigen",
@@ -19222,18 +19272,24 @@
           "macellaio-specialista-in-carne-coop-genossenschaft-goldach",
           "macellaio-specialista-in-carne-coop-genossenschaft-worb",
           "macellaio-specialista-della-carne-coop-genossenschaft-balgach",
-          "macellaio-specialista-della-carne-coop-genossenschaft-belp"
+          "macellaio-specialista-della-carne-coop-genossenschaft-belp",
+          "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-erstfeld",
+          "macellaio-specialista-della-carne-coop-genossenschaft-bubendorf",
+          "macellaio-specialista-della-carne-coop-genossenschaft-erstfeld"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw",
-          "butcher-meat-specialist-coop-genossenschaft-plaffeien-cmiw1s"
+          "butcher-meat-specialist-coop-genossenschaft-plaffeien-cmiw1s",
+          "butcher-meat-specialist-coop-genossenschaft-erstfeld-g50x6b"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-plaffeien-freiburg-cmiw1s"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-plaffeien-freiburg-cmiw1s",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-erstfeld-uri-g50x6b"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw",
-          "boucher-specialiste-de-la-viande-coop-genossenschaft-plaffeien-cmiw1s"
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-plaffeien-cmiw1s",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-erstfeld-g50x6b"
         ]
       },
       "previousSlugs": [
@@ -19267,7 +19323,13 @@
         "macellaio-a-specialista-in-carne-coop-genossenschaft-feuerthalen",
         "macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen",
         "macellaio-specialista-della-carne-coop-genossenschaft-regensdorf",
-        "macellaio-specialista-della-carne-coop-genossenschaft-wettingen"
+        "macellaio-specialista-della-carne-coop-genossenschaft-wettingen",
+        "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-erstfeld",
+        "macellaio-specialista-della-carne-coop-genossenschaft-bubendorf",
+        "macellaio-specialista-della-carne-coop-genossenschaft-erstfeld",
+        "butcher-meat-specialist-coop-genossenschaft-erstfeld-g50x6b",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-erstfeld-uri-g50x6b",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-erstfeld-g50x6b"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -19763,7 +19825,6 @@
         "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba",
         "verkaufer-in-food-non-food-coop-kerns-obwalden"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -21351,7 +21412,6 @@
         "verkaufer-in-kassen-services-coop-huttwil-bern",
         "verkaufer-in-kassen-services-coop-huttwil-bern-cc0e85"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -21697,7 +21757,6 @@
           "mitarbeiter-in-saison-coop-arosa-graubunden"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -22552,7 +22611,6 @@
         "venditore-di-prodotti-freschi-coop-genossenschaft-winterthur",
         "venditore-in-prodotti-freschi-coop-genossenschaft-winterthur"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -22815,7 +22873,6 @@
         "hauswart-in-coop-city-aarau-aargau-txn2dx",
         "hauswart-in-coop-city-aarau-aargau-2"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -23647,7 +23704,6 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-interlaken-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -23673,7 +23729,7 @@
       "firstSeenAt": "2026-09-01T01:04:53.153Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier(ère)"
       },
@@ -23730,7 +23786,6 @@
           "kochin-koch-m-w-d-coop-ristorante-luzern-ep2z0i"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -24023,7 +24078,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-09-01T01:04:53.153Z",
       "titleByLocale": {
-        "it": "Praktikum (w/m/d)",
+        "it": "Interno (m/f/d)",
         "en": "Internship (m/f/d)",
         "de": "Praktikum (w/m/d)",
         "fr": "Stage (h/f/d)"
@@ -24071,7 +24126,6 @@
           "praktikum-m-w-d-coop-basel-stadt-y9ejyf"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -29079,7 +29133,6 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietikon-aviwep"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -29469,7 +29522,6 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-d2hx17"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500
     },
@@ -32235,7 +32287,7 @@
       "firstSeenAt": "2026-09-01T01:04:53.153Z",
       "titleByLocale": {
         "it": "Chef / Chef (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "fr": "Chef / Chef (h/f/d)"
       },
       "descriptionByLocale": {
@@ -32317,7 +32369,7 @@
       "titleByLocale": {
         "it": "Consigliere interno (m/f/d), 70-90 %",
         "en": "Inhouse Counsel (m/f/d), 70-90 %",
-        "fr": ""
+        "fr": "Conseil interne (h/f/d), 70-90 %"
       },
       "descriptionByLocale": {
         "it": "## Consigliere interno (m/f/d), 70-90 %\n\nCoop Cooperative — Basel, Basel City, Svizzera\n\n## Compiti\n- Consulenza legale in vari campi legali per clienti interni di tutti i livelli gerarchici e filiali\n- Partecipazione ai negoziati interni ed esterni e alla rappresentanza della società dinanzi alle autorità pubbliche\n- Attuazione e ulteriore sviluppo dei processi di conformità, incluso il supporto formativo\n- Cooperazione nel programma di conformità della protezione dei dati\n- Rilevamento anticipato, valutazione e divulgazione dei rischi legali\n\n## Requisiti\n- Laurea in giurisprudenza completata (MLaw), idealmente con il brevetto dell’avvocato svizzero\n- Esperienza professionale nell'ambiente legale, preferibilmente in un servizio legale aziendale o in uno studio legale\n- Conoscenza del diritto contrattuale e societario nonché un vantaggio nella protezione dei dati\n- Flusso di lavoro efficiente, pragmatico e orientato alla soluzione\n- Lavoro di squadra, godimento della cooperazione interdisciplinare, nonché alta affinità di consulenza e disponibilità a svolgere\n- Sconti: 5 volte il numero di punti super nel supermercato, fino al 20% di sconto in tutti i formati del Gruppo Coop, Reka-Card: Sconto sull'acquisto\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità pagato, bonus di lealtà, piano di risparmio presso il fondo pensione\n- Ore lavorative: 6 settimane\n- Formazione: oltre 600 corsi di formazione interna, sostegno all'istruzione esterna e formazione\n- Sostenibilità: Impegno a persone e animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie attività aziendali\n\n## La persona di contatto\nConcimazioni Veronica\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Basilea",
@@ -34307,7 +34359,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -34467,7 +34518,6 @@
         "canton": "ZH"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -34665,7 +34715,6 @@
         "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -34754,7 +34803,6 @@
         "butcher-meat-specialist-meat-specialist-coop-genossenschaft-birsfelden"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -35441,7 +35489,6 @@
         "verkaufer-in-food-coop-genossenschaft-disentis-muster-graubunden-qz0m5q"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -35605,7 +35652,6 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -36181,7 +36227,6 @@
         "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-willisau-luzern"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -36296,7 +36341,6 @@
         "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-bettlach-roft7x"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -36469,7 +36513,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -37282,7 +37325,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -37717,7 +37759,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -38125,7 +38166,6 @@
         "canton": "ZH"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -38298,7 +38338,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -38514,7 +38553,6 @@
         "canton": "BE"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -39291,7 +39329,6 @@
         ]
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -39614,7 +39651,6 @@
         "vice-direttore-direttrice-coop-genossenschaft-arosa"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -39894,7 +39930,6 @@
         "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug-u792h8"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -40081,7 +40116,6 @@
         "aspirant-in-stv-geschaftsfuhrer-in-coop-buochs-nidwalden-yq72ac"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -40642,7 +40676,6 @@
         "mitarbeiter-in-gastronomie-coop-ristorante-biel-bern"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -40670,7 +40703,7 @@
       "firstSeenAt": "2026-08-26T02:34:05.299Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (F/M/D)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (F/M/D)"
       },
@@ -40728,7 +40761,6 @@
         "cuisinier-cuisiniere-m-w-d-coop-ristorante-zurich-hgbbbn"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -40994,7 +41026,6 @@
         ]
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -41151,7 +41182,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -42587,7 +42617,6 @@
         "verkaufer-in-food-fischprodukte-coop-erlenbach-zurich-ocry4t"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -43748,7 +43777,6 @@
         "stv-rayonleiter-in-convenience-metzgerei-coop-muri-ag-aargau-301gbx"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -44166,7 +44194,7 @@
       "firstSeenAt": "2026-08-26T02:34:05.299Z",
       "titleByLocale": {
         "it": "Cuoco /a (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (h/f/d)"
       },
@@ -44219,7 +44247,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -44252,7 +44279,7 @@
       "firstSeenAt": "2026-08-26T02:34:05.299Z",
       "titleByLocale": {
         "it": "Cuoco /a (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (h/f/d)"
       },
@@ -44339,7 +44366,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -45635,7 +45661,6 @@
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-bern-3f2kga"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -45718,7 +45743,6 @@
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-bern-8yq2g6"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -46843,18 +46867,39 @@
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden",
-        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc"
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc",
+        "commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus",
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-l4gzxj",
+        "sales-assistant-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus-l4gzxj",
+        "vendeur-euse-produits-frais-fruits-legumes-coop-genossenschaft-klosters-serneus-l4gzxj",
+        "venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-rj2ne2",
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus-rj2ne2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden",
-          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc"
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc",
+          "commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-l4gzxj",
+          "sales-assistant-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus-l4gzxj",
+          "vendeur-euse-produits-frais-fruits-legumes-coop-genossenschaft-klosters-serneus-l4gzxj",
+          "venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-rj2ne2",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus-rj2ne2"
         ],
         "en": [
-          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc"
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc",
+          "sales-assistant-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus-l4gzxj",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus-rj2ne2"
         ],
         "fr": [
-          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc"
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-8skcyc",
+          "vendeur-euse-produits-frais-fruits-legumes-coop-genossenschaft-klosters-serneus-l4gzxj"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-l4gzxj",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-rj2ne2"
         ]
       },
       "salarySource": "estimated",
@@ -47924,7 +47969,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -48716,7 +48760,7 @@
       "firstSeenAt": "2026-08-24T13:19:48.775Z",
       "titleByLocale": {
         "it": "Chef / Chef (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "fr": "Chef / Chef (h/f/d)"
       },
       "descriptionByLocale": {
@@ -50120,7 +50164,7 @@
       "firstSeenAt": "2026-08-22T00:46:59.142Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (m/f/d)"
       },
@@ -50192,7 +50236,6 @@
         "canton": "LU"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -50303,7 +50346,7 @@
         "it": "Selettori d'ordine: dentro, 60%",
         "en": "Order pickers: inside, 60%",
         "de": "Kommissionierer:innen, 60%",
-        "fr": ""
+        "fr": "Cueilleurs de commandes: à l'intérieur, 60%"
       },
       "descriptionByLocale": {
         "it": "## Selettori d'ordine: dentro, 60%\n\nCoop Cooperative — Langenthal, Bern, Svizzera\n\n## Compiti\n- Seleziona per voce (headset/headphones)\n- Attività di stoccaggio\n- Volontà di aiutare in altri dipartimenti\n\n## Requisiti\n- Esperienza ideale come committente: in warehousing/forwards\n- Lavoro autonomo\n- Affidabilità, flessibilità, puntualità\n- Buona conoscenza del tedesco almeno. Livello A2\n- Nessun parcheggio in loco – Arrivo obbligatorio con i mezzi pubblici\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobili e prepagati su Coop Mobile, Reka card: sconto su abbonamento, sconto su abbonamento GA, sconti per attività ricreative\n- Condizioni di lavoro: fondo pensione: 2/3 è pagato da Coop, condizioni di lavoro attraenti e parità di retribuzione certificata, contratto collettivo di lavoro (GAV), piano di risparmio presso il fondo pensione\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, sostegno all'istruzione esterna e formazione\n- Sostenibilità: Impegno a persone e animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie attività aziendali\n\n## La persona di contatto\nMichèle della Danimarca\nHR Marketing\n\nTipo: Tempo parziale\nLangenthal.",
@@ -50364,7 +50407,6 @@
         "selettori-d-ordine-dentro-60-coop-genossenschaft-langenthal"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -50479,7 +50521,7 @@
       "firstSeenAt": "2026-08-21T01:04:44.556Z",
       "titleByLocale": {
         "it": "Cuoco/Cuoca (d/u/x)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier/Cuisinière (f/h/d)"
       },
@@ -50538,7 +50580,6 @@
         "canton": "BE"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -50787,27 +50828,81 @@
         "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen-jkxgvc",
         "verkaufsberater-in-coop-genossenschaft-rapperswil-jona-sankt-gallen-jkxgvc",
         "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen",
-        "seller-in-food-coop-rapperswil-jona-sankt-gallen-6lz0pc"
+        "seller-in-food-coop-rapperswil-jona-sankt-gallen-6lz0pc",
+        "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66",
+        "vendeur-dans-les-aliments-produits-frais-butcher-convenience-coop-genossenschaft-rapperswil-jona",
+        "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen",
+        "commesso-a-prodotti-alimentari-freschi-macelleria-convenience-coop-genossenschaft-rapperswil-jona",
+        "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-o7hz2w",
+        "sales-assistant-food-fresh-products-butcher-convenience-coop-genossenschaft-rapperswil-jona-o7hz2w",
+        "vendeur-euse-produits-alimentaires-frais-boucherie-convenience-coop-genossenschaft-rapperswil-jona-o7hz2w",
+        "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-genossenschaft-rapperswil-jona",
+        "sales-assistant-food-fresh-products-butcher-convenience-coop-genossenschaft-rapperswil-jona",
+        "vendeur-euse-produits-alimentaires-frais-boucherie-convenience-coop-genossenschaft-rapperswil-jona",
+        "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-genossenschaft-rapperswil-jona-o7hz2w",
+        "assistente-vendita-di-prodotti-alimentari-freschi-macelleria-convenience-coop-genossenschaft-rapperswil-jona",
+        "seller-fresh-products-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben",
+        "vendeur-produits-frais-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben",
+        "venditore-a-prodotti-freschi-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "fresh-produce-sales-associate-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "venditore-in-prodotti-freschi-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "salesman-in-fresh-products-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "vendeur-en-produits-frais-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "salesman-in-fresh-products-coop-genossenschaft-rapperswil-jona",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben",
+        "vendeur-en-produits-frais-coop-genossenschaft-rapperswil-jona",
+        "venditore-in-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "verkaufer-in-frischprodukte-coop-rapperswil-jona-sankt-gallen",
+        "vendita-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+        "seller-fresh-products-coop-genossenschaft-rapperswil-jona",
+        "vendeur-produits-frais-coop-genossenschaft-rapperswil-jona",
+        "vendita-prodotti-freschi-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "seller-fresh-products-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "vendeur-produits-frais-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "fresh-produce-sales-associate-coop-genossenschaft-rapperswil-jona",
+        "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-rapperswil-jona",
+        "venditore-a-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+        "venditore-in-prodotti-alimentari-macellaio-convenienza-coop-genossenschaft-rapperswil-jona",
+        "seller-in-food-fresh-products-butcher-convenience-coop-genossenschaft-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-          "venditore-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-          "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen",
-          "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen-jkxgvc",
-          "verkaufsberater-in-coop-genossenschaft-rapperswil-jona-sankt-gallen-jkxgvc",
-          "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen",
-          "seller-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen-6lz0pc",
-          "seller-in-food-coop-rapperswil-jona-sankt-gallen-6lz0pc"
+          "venditore-a-prodotti-freschi-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "fresh-produce-sales-associate-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "venditore-in-prodotti-freschi-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "salesman-in-fresh-products-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "vendeur-en-produits-frais-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "venditore-in-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "verkaufer-in-frischprodukte-coop-rapperswil-jona-sankt-gallen",
+          "vendita-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+          "seller-fresh-products-coop-genossenschaft-rapperswil-jona",
+          "vendeur-produits-frais-coop-genossenschaft-rapperswil-jona",
+          "vendita-prodotti-freschi-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "seller-fresh-products-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "vendeur-produits-frais-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "fresh-produce-sales-associate-coop-genossenschaft-rapperswil-jona",
+          "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-rapperswil-jona",
+          "venditore-a-prodotti-freschi-coop-genossenschaft-rapperswil-jona",
+          "venditore-in-prodotti-alimentari-macellaio-convenienza-coop-genossenschaft-rapperswil-jona",
+          "seller-in-food-fresh-products-butcher-convenience-coop-genossenschaft-rapperswil-jona"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen",
           "seller-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen-6lz0pc",
-          "seller-in-food-coop-rapperswil-jona-sankt-gallen-6lz0pc"
+          "seller-in-food-coop-rapperswil-jona-sankt-gallen-6lz0pc",
+          "salesman-in-fresh-products-coop-genossenschaft-rapperswil-jona"
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-          "verkaufsberater-in-coop-genossenschaft-rapperswil-jona-sankt-gallen-jkxgvc"
+          "verkaufsberater-in-coop-genossenschaft-rapperswil-jona-sankt-gallen-jkxgvc",
+          "vendeur-en-produits-frais-coop-genossenschaft-rapperswil-jona"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-rapperswil-jona-sankt-gallen-fvnben"
         ]
       },
       "sourceLang": "de",
@@ -50893,7 +50988,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -50921,7 +51015,7 @@
       "firstSeenAt": "2026-08-21T13:07:51.998Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/m/d)"
       },
@@ -50985,7 +51079,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -52512,7 +52605,7 @@
       "firstSeenAt": "2026-08-21T13:07:51.998Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (d/m/f)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (f/m/d)"
       },
@@ -52566,7 +52659,6 @@
         "kochin-koch-m-w-d-coop-ristorante-interlaken-bern"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -53272,7 +53364,6 @@
         "canton": "SG"
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500
     },
@@ -53391,7 +53482,7 @@
       "firstSeenAt": "2026-08-22T00:46:59.142Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (donna/uomo/altro)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (h/f/autre)"
       },
@@ -53463,7 +53554,6 @@
         "canton": "SZ"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -54288,7 +54378,6 @@
         "verkaufer-in-food-getranke-coop-magden-aargau"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -54843,7 +54932,6 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-triengen-856c51"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -55130,7 +55218,6 @@
         "verkaufer-in-food-studentenaushilfe-coop-zurich-2"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -56013,18 +56100,31 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich-i5vue5",
-          "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich"
+          "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich",
+          "rayon-conductor-in-fruits-vegetables-with-daily-responsibility-coop-genossenschaft-winterthur",
+          "rayonleiter-in-fruchte-gemuse-mit-tagesverantwortung-coop-winterthur-zurich-mfw8bg",
+          "rayon-conducteur-dans-les-fruits-legumes-avec-responsabilite-quotidienne-coop-genossenschaft-winterthur",
+          "rayonleiter-in-fruchte-gemuse-con-tagesverantwortung-coop-winterthur-zurich-mfw8bg"
         ],
         "en": [
-          "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich-i5vue5"
+          "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich-i5vue5",
+          "rayon-conductor-in-fruits-vegetables-with-daily-responsibility-coop-genossenschaft-winterthur"
         ],
         "fr": [
-          "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich-i5vue5"
+          "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich-i5vue5",
+          "rayon-conducteur-dans-les-fruits-legumes-avec-responsabilite-quotidienne-coop-genossenschaft-winterthur"
+        ],
+        "de": [
+          "rayonleiter-in-fruchte-gemuse-mit-tagesverantwortung-coop-winterthur-zurich-mfw8bg"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich-i5vue5",
-        "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich"
+        "rayonleiter-in-fruchte-gemuse-coop-winterthur-zurich",
+        "rayon-conductor-in-fruits-vegetables-with-daily-responsibility-coop-genossenschaft-winterthur",
+        "rayonleiter-in-fruchte-gemuse-mit-tagesverantwortung-coop-winterthur-zurich-mfw8bg",
+        "rayon-conducteur-dans-les-fruits-legumes-avec-responsabilite-quotidienne-coop-genossenschaft-winterthur",
+        "rayonleiter-in-fruchte-gemuse-con-tagesverantwortung-coop-winterthur-zurich-mfw8bg"
       ],
       "salarySource": "reported",
       "salaryMin": 113000,
@@ -56459,7 +56559,8 @@
           "verkaufer-in-food-frische-insel-coop-kaiseraugst-aargau-depzie",
           "agent-name-in-food-fresh-island-coop-genossenschaft-kaiseraugst-depzie",
           "nom-de-l-agent-dans-food-fresh-island-coop-genossenschaft-kaiseraugst-depzie",
-          "venditore-in-food-fresh-island-coop-genossenschaft-mels"
+          "venditore-in-food-fresh-island-coop-genossenschaft-mels",
+          "venditore-in-food-fresh-island-coop-genossenschaft-emmen"
         ],
         "en": [
           "salesperson-food-freshness-island-coop-genossenschaft-wurenlingen-dtnq5b",
@@ -56491,7 +56592,8 @@
         "verkaufer-in-food-frische-insel-coop-kaiseraugst-aargau-depzie",
         "agent-name-in-food-fresh-island-coop-genossenschaft-kaiseraugst-depzie",
         "nom-de-l-agent-dans-food-fresh-island-coop-genossenschaft-kaiseraugst-depzie",
-        "venditore-in-food-fresh-island-coop-genossenschaft-mels"
+        "venditore-in-food-fresh-island-coop-genossenschaft-mels",
+        "venditore-in-food-fresh-island-coop-genossenschaft-emmen"
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
@@ -57065,20 +57167,41 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-baden-aargau-brzs1q",
-          "verkaufer-in-food-coop-baden-aargau",
-          "verkaufer-in-food-coop-genossenschaft-baden-hhcua8"
+          "seller-in-food-coop-genossenschaft-baden",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-r4flzy",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-bb21c9",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-dd14fb",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-pnquzi",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-ssusvv",
+          "vendeur-de-nourriture-coop-genossenschaft-baden",
+          "venditore-in-food-dairy-eggs-cheese-coop-genossenschaft-baden",
+          "seller-in-food-dairy-eggs-cheese-coop-genossenschaft-baden",
+          "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-e86kjh",
+          "vendeur-dans-la-nourriture-dairy-eggs-cheese-coop-genossenschaft-baden",
+          "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau",
+          "venditore-in-food-coop-genossenschaft-baden-dattwil",
+          "seller-in-food-coop-genossenschaft-baden-dattwil",
+          "verkaufer-in-food-coop-baden-dattwil-aargau-6ijxt9",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-dattwil",
+          "verkaufer-in-food-coop-baden-dattwil-aargau",
+          "venditore-in-food-coop-genossenschaft-baden"
         ],
         "en": [
           "verkaufer-in-food-coop-baden-aargau-brzs1q",
-          "seller-in-food-coop-genossenschaft-baden-ae98c3"
+          "seller-in-food-coop-genossenschaft-baden-ae98c3",
+          "seller-in-food-coop-genossenschaft-baden"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-baden-brzs1q"
+          "verkaufer-in-food-coop-genossenschaft-baden-brzs1q",
+          "verkaufer-in-food-coop-city-baden-aargau-pnquzi",
+          "verkaufer-in-food-coop-baden-aargau-0fdu39"
         ],
         "fr": [
           "verkaufer-in-food-coop-baden-aargau-brzs1q",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-ae98c3"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-ae98c3",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden"
         ]
       },
       "previousSlugs": [
@@ -57087,7 +57210,29 @@
         "seller-in-food-coop-genossenschaft-baden-ae98c3",
         "vendeur-dans-la-nourriture-coop-genossenschaft-baden-ae98c3",
         "verkaufer-in-food-coop-genossenschaft-baden-brzs1q",
-        "verkaufer-in-food-coop-genossenschaft-baden-hhcua8"
+        "verkaufer-in-food-coop-genossenschaft-baden-hhcua8",
+        "verkaufer-in-food-coop-city-baden-aargau-pnquzi",
+        "seller-in-food-coop-genossenschaft-baden",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-r4flzy",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-7d364b",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-bb21c9",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-dd14fb",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-pnquzi",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-ssusvv",
+        "vendeur-de-nourriture-coop-genossenschaft-baden",
+        "venditore-in-food-dairy-eggs-cheese-coop-genossenschaft-baden",
+        "seller-in-food-dairy-eggs-cheese-coop-genossenschaft-baden",
+        "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-e86kjh",
+        "vendeur-dans-la-nourriture-dairy-eggs-cheese-coop-genossenschaft-baden",
+        "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau",
+        "venditore-in-food-coop-genossenschaft-baden-dattwil",
+        "seller-in-food-coop-genossenschaft-baden-dattwil",
+        "verkaufer-in-food-coop-baden-dattwil-aargau-6ijxt9",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-dattwil",
+        "verkaufer-in-food-coop-baden-dattwil-aargau",
+        "verkaufer-in-food-coop-baden-aargau-0fdu39",
+        "venditore-in-food-coop-genossenschaft-baden"
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
@@ -57439,7 +57584,16 @@
         }
       },
       "previousSlugs": [
-        "magaziner-in-verkauf-coop-genossenschaft-laupen-bern"
+        "magaziner-in-verkauf-coop-genossenschaft-laupen-bern",
+        "magaziner-in-vendita-coop-laupen-bern-qsf0gg",
+        "magaziner-in-sales-coop-laupen-bern-qsf0gg",
+        "magaziner-in-verkauf-coop-laupen-bern-qsf0gg",
+        "magaziner-in-vente-coop-laupen-bern-qsf0gg",
+        "magaziner-in-verkauf-coop-laupen-bern",
+        "magaziner-in-vendita-coop-laupen-bern-iaeiih",
+        "magaziner-in-sales-coop-laupen-bern-iaeiih",
+        "magaziner-in-verkauf-coop-laupen-bern-iaeiih",
+        "magaziner-in-vente-coop-laupen-bern-iaeiih"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -57448,7 +57602,29 @@
       },
       "salarySource": "estimated",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "previousSlugsByLocale": {
+        "it": [
+          "magaziner-in-vendita-coop-laupen-bern-qsf0gg",
+          "magaziner-in-sales-coop-laupen-bern-qsf0gg",
+          "magaziner-in-verkauf-coop-laupen-bern-qsf0gg",
+          "magaziner-in-vente-coop-laupen-bern-qsf0gg",
+          "magaziner-in-verkauf-coop-laupen-bern",
+          "magaziner-in-vendita-coop-laupen-bern-iaeiih",
+          "magaziner-in-sales-coop-laupen-bern-iaeiih",
+          "magaziner-in-verkauf-coop-laupen-bern-iaeiih",
+          "magaziner-in-vente-coop-laupen-bern-iaeiih"
+        ],
+        "en": [
+          "magaziner-in-sales-coop-laupen-bern-qsf0gg"
+        ],
+        "de": [
+          "magaziner-in-verkauf-coop-laupen-bern-qsf0gg"
+        ],
+        "fr": [
+          "magaziner-in-vente-coop-laupen-bern-qsf0gg"
+        ]
+      }
     },
     {
       "id": "company-ak19qf",
@@ -57612,7 +57788,6 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-reinach-ag-aargau"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -57803,7 +57978,6 @@
         "verkaufer-in-kassen-services-coop-zurich-3-2"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -58301,7 +58475,6 @@
         "flower-seller-kiosk-coop-genossenschaft-frauenfeld"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -58543,7 +58716,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-09-01T02:10:55.599Z",
       "titleByLocale": {
-        "it": "",
+        "it": "Vice Capo Dipartimento Convenienza/Boucherie (m/f/d)",
         "en": "Deputy Head of Department Convenience/Boucherie (m/f/d)",
         "de": "Stellvertretender Abteilungsleiter Convenience/Boucherie (m/w/d)"
       },
@@ -58779,7 +58952,7 @@
       "firstSeenAt": "2026-08-20T13:08:20.789Z",
       "titleByLocale": {
         "it": "Cuoco/a (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (m/f/d)"
       },
@@ -58847,7 +59020,6 @@
         "canton": "BE"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -58875,7 +59047,7 @@
       "firstSeenAt": "2026-08-20T13:08:20.789Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (d/u/a)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/h/d)"
       },
@@ -58943,7 +59115,6 @@
         "canton": "BS"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -59125,7 +59296,6 @@
       ],
       "sourceLang": "de",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -59499,7 +59669,6 @@
       },
       "sourceLang": "de",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -60774,7 +60943,6 @@
         "canton": "BE"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -60853,7 +61021,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -61529,7 +61696,6 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-oberburg-bei-burgdorf-bern"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -64176,7 +64342,6 @@
       ],
       "sourceLang": "de",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -64403,7 +64568,7 @@
       "titleByLocale": {
         "it": "Bouchère - Boucher / Charcutière - Charcutier (f/m/d)",
         "en": "Bouchère - Boucher / Charcutière - Charcutier (m/f/d)",
-        "de": ""
+        "de": "Bouchère — Boucher / Charcutière — Charcutier (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "## Bouchère - Boucher / Charcutière - Charcutier (m/f/d)\n\nCoop Genossenschaft — Epalinges, Vaud, Svizzera\n\n## Missione\n- Il servizio tradizionale è la nostra immagine di marca e un importante punto di contatto per i nostri clienti, che consigliano e servono con passione al buffet.\n- Affettati e splendidamente presentati: prepari prodotti a base di carne secondo le regole dell'arte e li metta in modo attraente, e fai anche prodotti fatti in casa, come salsicce.\n- Gestisci le merci in self-service e contribuisci attivamente all'ottimizzazione della loro vendita.\n- Prendere ordini del cliente durante il periodo di vacanza e fuori, e prepararli.\n\n## Qualifiche\n- Ti diverti a lavorare in consulenza o servizio clienti, idealmente nel settore agroalimentare, e sei interessato al segmento carne e pesce.\n- Un'esperienza in un negozio di macelleria tradizionale è un vantaggio. Avendo già lavorato come cuoco/cooker (m/f/d) ti aiuta anche nel tuo ruolo consultivo quotidiano.\n- Ti piace il contatto con i clienti e fornire consigli.\n- Si implementa sistematicamente istruzioni e linee guida di qualità.\n- Sconti e sconti: sconti di viaggio a ITS Coop Travel, 5 volte più posti in supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a un prezzo ridotto a Coop Mobile, sconto sulla Reka Card, sconto sulle tariffe di Mobility CarSharing, sconto per il personale anche concesso al partner (vive sotto lo stesso tetto), abbonamenti ridotti a prezzi culturali\n- Condizioni di fidanzamento. fondo pensione: Coop assume oltre 2/3 dei contributi, condizioni di impegno e parità di retribuzione garantita, premi di anzianità, piano di risparmio a fondo pensione, contratto collettivo di lavoro (CCT), piano RA flessibile e attraente per il pensionamento anticipato da 58, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione Talent con molte e varie opportunità di sviluppo, per corsi di formazione e aggiornamento esterni\n- Sviluppo sostenibile: impegno per l'uomo, gli animali e la natura con oltre 400 atti\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\n## La persona di contatto\nNadia Ruetsch\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Scatters",
@@ -64479,7 +64644,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-09-01T02:10:55.599Z",
       "titleByLocale": {
-        "it": "Inventoriste (f/h/d)",
+        "it": "Inventore (m/f/d)",
         "en": "Inventorist (m/f/d)",
         "de": "Erfinder (m/w/d)"
       },
@@ -64852,7 +65017,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -65023,7 +65187,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -65334,7 +65497,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -67504,7 +67666,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -68036,7 +68197,6 @@
         "services-techniques-professionnels-installations-coop-immobilien-zurich-1zpyeq"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -69080,7 +69240,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -71822,7 +71981,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-08-19T00:25:57.149Z",
       "titleByLocale": {
-        "it": "Nachwuchstalente Verkauf",
+        "it": "Vendita di talenti emergenti",
         "en": "Sale of emerging talent",
         "de": "Nachwuchstalente Verkauf",
         "fr": "Vente de talents émergents"
@@ -71862,7 +72021,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -71949,7 +72107,6 @@
         "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne-lky4er",
         "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -72772,7 +72929,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -73037,7 +73193,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -76341,7 +76496,7 @@
       "titleByLocale": {
         "it": "Bouchère - Macellaio/Poissonnier - Fishman (m/f/d)",
         "en": "Bouchère - Butcher/Poissonnier - Fishman (m/f/d)",
-        "de": ""
+        "de": "Bouchère — Butcher/Poissonnier — Fishman (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "## Bouchère - Macellaio/Poissonnier - Fishman (m/f/d)\n\nCoop Genossenschaft — Crissier, Vaud, Svizzera\n\n## Missione\n- Il servizio tradizionale è la nostra immagine di marca e un importante punto di contatto per i nostri clienti, che consigliano e servono con passione al buffet.\n- Affettati e splendidamente presentati: prepari prodotti a base di carne secondo le regole dell'arte e li metta in modo attraente, e fai anche prodotti fatti in casa, come salsicce.\n- Gestisci le merci in self-service e contribuisci attivamente all'ottimizzazione della loro vendita.\n- Prendere ordini del cliente durante il periodo di vacanza e fuori, e prepararli.\n\n## Qualifiche\n- Ti diverti a lavorare in consulenza o servizio clienti, idealmente nel settore agroalimentare, e sei interessato al segmento carne e pesce.\n- Un'esperienza in un negozio di macelleria tradizionale è un vantaggio. Avendo già lavorato come cuoco/cooker (m/f/d) ti aiuta anche nel tuo ruolo consultivo quotidiano.\n- Ti piace il contatto con i clienti e fornire consigli.\n- Si implementa sistematicamente istruzioni e linee guida di qualità.\n\n## Cosa offriamo\n- Sconti e sconti: sconti di viaggio a ITS Coop Travel, 5 volte più posti in supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a un prezzo ridotto a Coop Mobile, sconto sulla Reka Card, sconto sulle tariffe di Mobility CarSharing, sconto per il personale anche concesso al partner (vive sotto lo stesso tetto), abbonamenti ridotti a prezzi culturali\n- Condizioni di fidanzamento. fondo pensione: Coop assume oltre 2/3 dei contributi, condizioni di impegno e parità di retribuzione garantita, premi di anzianità, piano di risparmio a fondo pensione, contratto collettivo di lavoro (CCT), piano RA flessibile e attraente per il pensionamento anticipato da 58, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione Talent con molte e varie opportunità di sviluppo, per corsi di formazione e aggiornamento esterni\n- Sviluppo sostenibile: impegno per l'uomo, gli animali e la natura con oltre 400 atti\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\n## La persona di contatto\nNadia Ruetsch\nHR Marketing\n\nTipo: Tempo parziale\nRevisione:",
@@ -76472,7 +76627,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -76500,7 +76654,7 @@
       "firstSeenAt": "2026-08-15T01:12:54.206Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (h/f/d)"
       },
@@ -76567,7 +76721,6 @@
         "canton": "AG"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -76600,7 +76753,7 @@
       "firstSeenAt": "2026-08-15T12:39:08.983Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (d/u/a)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/h/d)"
       },
@@ -76664,7 +76817,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau-15rrqh"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -76766,7 +76918,6 @@
         "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach-thurgau"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -77138,7 +77289,6 @@
         "canton": "GR"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -77465,7 +77615,6 @@
         "mitarbeiter-in-saison-coop-davos-platz"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -78838,7 +78987,6 @@
         "rayonleiter-in-fruchte-gemuse-coop-meisterschwanden-aargau"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -79820,7 +79968,6 @@
         "verkaufer-in-food-samstags-coop-genossenschaft-winterthur"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -79911,7 +80058,6 @@
         "deputy-department-manager-convenience-butcher-shop-coop-genossenschaft-chur"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -80376,7 +80522,6 @@
         "canton": "BE"
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -81097,7 +81242,6 @@
         "verkaufer-in-food-molkerei-eier-kase-coop-genossenschaft-baden-xhsfi3"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -81198,7 +81342,6 @@
         "vendeur-vendeuse-en-alimentation-coop-genossenschaft-emmen"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -81988,7 +82131,7 @@
       "firstSeenAt": "2026-08-13T13:48:02.559Z",
       "titleByLocale": {
         "it": "Cuoco/a (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (f/m/d)"
       },
@@ -82059,7 +82202,6 @@
         "canton": "LU"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -83220,7 +83362,6 @@
         "canton": "AG"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -83358,7 +83499,6 @@
         "mitarbeiter-in-verkauf-administration-kundendienst-coop-zurich"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -83447,7 +83587,6 @@
         "verkaufer-in-kassen-services-coop-lenzburg-aargau"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -83697,7 +83836,6 @@
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -83974,7 +84112,6 @@
         "vendita-in-cassa-servizi-coop-genossenschaft-altendorf"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -84480,7 +84617,6 @@
         "canton": "OW"
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -86723,7 +86859,6 @@
         "canton": "BL"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -86904,7 +87039,6 @@
         "venditrice-venditore-non-food-m-w-d-coop-losone-ticino"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -87467,7 +87601,8 @@
           "butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
           "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel",
           "metzger-in-meat-specialist-coop-genossenschaft-basel-8p3zal",
-          "metzger-in-specialiste-de-la-viande-coop-genossenschaft-basel-0vf7ia"
+          "metzger-in-specialiste-de-la-viande-coop-genossenschaft-basel-0vf7ia",
+          "metzger-in-specialista-di-carne-specialista-di-carne-room-winterthur-coop-genossenschaft-basel"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-mr3u1h"
@@ -87485,7 +87620,8 @@
         "butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
         "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel",
         "metzger-in-meat-specialist-coop-genossenschaft-basel-8p3zal",
-        "metzger-in-specialiste-de-la-viande-coop-genossenschaft-basel-0vf7ia"
+        "metzger-in-specialiste-de-la-viande-coop-genossenschaft-basel-0vf7ia",
+        "metzger-in-specialista-di-carne-specialista-di-carne-room-winterthur-coop-genossenschaft-basel"
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
@@ -87576,7 +87712,6 @@
         "verkaufer-in-kassen-services-coop-lachen-schwyz"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -87686,7 +87821,6 @@
         "vendeur-dans-les-caisses-enregistreuses-services-aide-aux-etudiants-coop-genossenschaft-st-gallen"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -87863,7 +87997,6 @@
         "verkaufer-in-kassen-services-coop-zurich"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -87983,7 +88116,7 @@
       "titleByLocale": {
         "it": "Bouchère - Boucher / Charcutière - Charcutier (f/m/d)",
         "en": "Bouchère - Boucher / Charcutière - Charcutier (m/f/d)",
-        "de": ""
+        "de": "Bouchère — Boucher / Charcutière — Charcutier (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "## Bouchère - Boucher / Charcutière - Charcutier (m/f/d)\n\nCoop Genossenschaft — Bulle, Fribourg, Svizzera\n\n## Missione\n- Il servizio tradizionale è la nostra immagine di marca e un importante punto di contatto per i nostri clienti, che consigliano e servono con passione al buffet.\n- Affettati e splendidamente presentati: prepari prodotti a base di carne secondo le regole dell'arte e li metta in modo attraente, e fai anche prodotti fatti in casa, come salsicce.\n- Gestisci le merci in self-service e contribuisci attivamente all'ottimizzazione della loro vendita.\n- Prendere ordini del cliente durante il periodo di vacanza e fuori, e prepararli.\n\n## Qualifiche\n- Ti diverti a lavorare in consulenza o servizio clienti, idealmente nel settore agroalimentare, e sei interessato al segmento carne e pesce.\n- Un'esperienza in un negozio di macelleria tradizionale è un vantaggio. Avendo già lavorato come cuoco/cooker (m/f/d) ti aiuta anche nel tuo ruolo consultivo quotidiano.\n- Ti piace il contatto con i clienti e fornire consigli.\n- Si implementa sistematicamente istruzioni e linee guida di qualità.\n- Sconti e sconti: sconti di viaggio a ITS Coop Travel, 5 volte più posti in supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a un prezzo ridotto a Coop Mobile, sconto sulla Reka Card, sconto sulle tariffe di Mobility CarSharing, sconto per il personale anche concesso al partner (vive sotto lo stesso tetto), abbonamenti ridotti a prezzi culturali\n- Condizioni di fidanzamento. fondo pensione: Coop assume oltre 2/3 dei contributi, condizioni di impegno e parità di retribuzione garantita, premi di anzianità, piano di risparmio a fondo pensione, contratto collettivo di lavoro (CCT), piano RA flessibile e attraente per il pensionamento anticipato da 58, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione Talent con molte e varie opportunità di sviluppo, per corsi di formazione e aggiornamento esterni\n- Sviluppo sostenibile: impegno per l'uomo, gli animali e la natura con oltre 400 atti\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\n## La persona di contatto\nViviane Natsch-Artmann\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Bulle",
@@ -88113,7 +88246,6 @@
         "canton": "ZH"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -88415,7 +88547,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -89009,7 +89140,7 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "Responsabile Acquisti Settore Caff (m/f/d)",
-        "en": "",
+        "en": "Purchasing Manager area of coffee (m/f/d)",
         "de": "Purchasing Manager Bereich Kaffee (w/m/d)",
         "fr": "Responsable Achats Secteur Café (m/f/d)"
       },
@@ -89056,7 +89187,6 @@
         "purchasing-manager-bereich-kaffee-m-w-d-coop-basel-stadt"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500
     },
@@ -89160,7 +89290,6 @@
         "venditore-in-cassa-servizi-assistenza-di-sabato-coop-genossenschaft-wald"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -90827,7 +90956,6 @@
         "canton": "SG"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -90914,7 +91042,6 @@
         "verkaufer-in-food-coop-wimmis-bern"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -91560,7 +91687,6 @@
         "canton": "ZH"
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -91639,7 +91765,6 @@
         "canton": "ZH"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -91851,7 +91976,6 @@
         "canton": "BE"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -91884,7 +92008,7 @@
       "firstSeenAt": "2026-08-11T13:12:21.038Z",
       "titleByLocale": {
         "it": "Cooker (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (h/f/d)"
       },
@@ -91940,7 +92064,6 @@
         "cuisiniere-cuisinier-h-f-coop-genossenschaft-kreuzlingen"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -91973,7 +92096,7 @@
       "firstSeenAt": "2026-08-11T13:12:21.038Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (f/m/div)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/h/div)"
       },
@@ -92029,7 +92152,6 @@
         "cuisiniere-cuisinier-h-f-d-coop-genossenschaft-volketswil"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -92190,7 +92312,6 @@
         "partenaire-en-franchise-coop-pronto-avec-station-service-coop-genossenschaft-allschwil"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -92271,7 +92392,6 @@
         "canton": "BE"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -92299,7 +92419,7 @@
       "firstSeenAt": "2026-08-12T00:52:26.790Z",
       "titleByLocale": {
         "it": "Cooker (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (h/f/d)"
       },
@@ -92393,7 +92513,6 @@
         "canton": "BE"
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -92569,7 +92688,6 @@
         "verkaufer-in-kassen-services-coop-grosshochstetten-bern"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -93225,7 +93343,6 @@
         "vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-horgen-ugymek"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -94528,7 +94645,6 @@
         "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-munsingen"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -95494,7 +95610,6 @@
         "verkaufer-in-frischprodukte-getranke-coop-oberageri-zug"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -95847,7 +95962,6 @@
         "rayonleiter-in-brot-backwaren-coop-kusnacht-zurich"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -96029,18 +96143,31 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl",
-          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern"
+          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern",
+          "vice-responsabile-di-reparto-generi-alimentari-di-base-coop-genossenschaft-lyss",
+          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-fk87gz",
+          "deputy-department-manager-basic-groceries-coop-genossenschaft-lyss-fk87gz",
+          "adjoint-e-responsable-de-rayon-produits-de-base-coop-genossenschaft-lyss-fk87gz"
         ],
         "en": [
-          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl"
+          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl",
+          "deputy-department-manager-basic-groceries-coop-genossenschaft-lyss-fk87gz"
         ],
         "fr": [
-          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl"
+          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl",
+          "adjoint-e-responsable-de-rayon-produits-de-base-coop-genossenschaft-lyss-fk87gz"
+        ],
+        "de": [
+          "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-fk87gz"
         ]
       },
       "previousSlugs": [
         "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl",
-        "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern"
+        "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern",
+        "vice-responsabile-di-reparto-generi-alimentari-di-base-coop-genossenschaft-lyss",
+        "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-fk87gz",
+        "deputy-department-manager-basic-groceries-coop-genossenschaft-lyss-fk87gz",
+        "adjoint-e-responsable-de-rayon-produits-de-base-coop-genossenschaft-lyss-fk87gz"
       ],
       "sourceLang": "de",
       "salarySource": "reported",
@@ -96145,7 +96272,6 @@
         "vendeuse-produits-frais-boucherie-coop-genossenschaft-affoltern-am-albis-2zp8o3"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -96263,7 +96389,6 @@
         "verkaufer-in-kassen-services-coop-wadenswil-zurich-du1mmc"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -97211,7 +97336,6 @@
       ],
       "sourceLang": "de",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -97300,7 +97424,6 @@
         "verkaufer-in-food-brot-molkerei-fruchte-gemuse-neueroffnung-coop-affoltern-am-albis-zurich"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -97584,7 +97707,7 @@
       "firstSeenAt": "2026-08-10T13:20:23.473Z",
       "titleByLocale": {
         "it": "Project Manager Sponsoring",
-        "en": "",
+        "en": "Project Manager: in Sponsorship",
         "de": "Project-Manager:in Sponsoring",
         "fr": "Responsable de projet : Sponsoring"
       },
@@ -105233,7 +105356,6 @@
         "logistiker-in-coop-gossau"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -105312,7 +105434,6 @@
         "logistiker-in-coop-gossau-2"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -129718,7 +129839,6 @@
         "logistiker-in-coop-basel"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -129797,7 +129917,6 @@
         "logistiker-in-coop-basel-2"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -131335,7 +131454,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Preliminary training in the retail trade",
         "de": "Vorlehre im Detailhandel",
         "fr": "Formation préliminaire dans le commerce de détail"
@@ -131377,7 +131496,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -131407,7 +131525,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Preliminary training in the retail trade",
         "de": "Vorlehre im Detailhandel",
         "fr": "Formation préliminaire dans le commerce de détail"
@@ -131449,7 +131567,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -131479,7 +131596,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Preliminary training in the retail trade",
         "de": "Vorlehre im Detailhandel",
         "fr": "Formation préliminaire dans le commerce de détail"
@@ -131521,7 +131638,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -131551,7 +131667,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Preliminary training in the retail trade",
         "de": "Vorlehre im Detailhandel",
         "fr": "Formation préliminaire dans le commerce de détail"
@@ -131593,7 +131709,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -131623,7 +131738,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Preliminary training in the retail trade",
         "de": "Vorlehre im Detailhandel",
         "fr": "Formation préliminaire dans le commerce de détail"
@@ -131665,7 +131780,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -131695,7 +131809,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Preliminary training in the retail trade",
         "de": "Vorlehre im Detailhandel",
         "fr": "Formation préliminaire dans le commerce de détail"
@@ -131737,7 +131851,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -144967,7 +145080,6 @@
         "logistiker-in-coop-basel-3"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -164564,7 +164676,6 @@
           "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-k8m5zc"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -164642,7 +164753,6 @@
           "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-z2niet"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -164720,7 +164830,6 @@
           "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-5bq9wx"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -164798,7 +164907,6 @@
           "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-668koj"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -170420,7 +170528,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -170450,7 +170557,7 @@
       "crawledAt": "2026-09-05T23:00:26.433Z",
       "firstSeenAt": "2026-06-15T16:12:11.397Z",
       "titleByLocale": {
-        "it": "Nachwuchstalente Verkauf",
+        "it": "Vendita di talenti emergenti",
         "en": "Young talents sales",
         "de": "Nachwuchstalente Verkauf",
         "fr": "Ventes de jeunes talents"
@@ -170492,7 +170599,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -172692,7 +172798,6 @@
         ]
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -172773,7 +172878,6 @@
         ]
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -172854,7 +172958,6 @@
         ]
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -174620,7 +174723,6 @@
       ],
       "sourceLang": "de",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -175580,7 +175682,6 @@
         ]
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     }
