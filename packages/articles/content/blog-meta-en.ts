@@ -11487,6 +11487,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: living and working in Ticino',
     'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'What it means to live in Montescheno and work as a border worker in Ticino. Guidance on G Leave, Taxation, Cost of Living and Administrative Procedures.',
     'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Cross-border worker at the Montescheno-Ticino frontier crossing at sunrise',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Living in Ponte in Valtellina, working in Graubünden',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Complete guide for border workers: source tax, G Permit, €10k deductible, AVS/LAMal, cost of living. Since 2024.',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Alpine panorama of Ponte in Valtelline valley with views toward Grisons, border mountain landscape for cross-border workers.',
 };
 
 export default blogMetaEn;

@@ -87355,6 +87355,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ponte-valtellina-grigioni-frontaliere': {
+    title: 'Vivere a Ponte in Valtellina, lavorare nei Grigioni',
+    description: 'Guida completa per frontalieri: imposta alla fonte, Permesso G, franchigia €10k, AVS/LAMal, costo della vita a Ponte in Valtellina vs Grigioni. Dal 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, ponte, valtellina, lavorare',
+    ogTitle: 'Vivere a Ponte, lavorare nei Grigioni: guida frontaliere',
+    ogDescription: 'Scopri come vivere a Ponte in Valtellina e lavorare nei Grigioni con Permesso G. Nuovo accordo 2024: imposta alla fonte, franchigia €10.000, contributi AVS, LAMal, dichiarazioni fiscali. Procedura, step-by-step, ristorni e scadenze critiche.',
+    canonicalPath: '/articoli-frontaliere/ponte-valtellina-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Ponte in Valtellina, lavorare nei Grigioni",
+      "description": "Guida completa per frontalieri: imposta alla fonte, Permesso G, franchigia €10k, AVS/LAMal, costo della vita a Ponte in Valtellina vs Grigioni. Dal 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ponte-valtellina-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama alpino di Ponte in Valtellina con vista verso i Grigioni, paesaggio montano di confine tra Italia e Svizzera."
+      },
+      "datePublished": "2026-09-06T23:13:28+00:00",
+      "dateModified": "2026-09-06T23:13:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ponte-valtellina-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

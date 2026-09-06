@@ -11486,6 +11486,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: Leben und Arbeiten im Tessin',
     'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Was es bedeutet, in Montescheno zu leben und als Grenzgänger im Tessin zu arbeiten. Führerschein G, Besteuerung, Lebenshaltungskosten und Verwaltungsverfahren.',
     'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Grenzgänger am Grenzübergang Montescheno-Tessin in der Morgenröte',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Leben in Ponte in Valtellina, Arbeiten in Graubünden',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Vollständiger Leitfaden für Grenzgänger: Quellensteuer, G-Bewilligung, € 10k-Franchise, AHV/KVG, Lebenshaltungskosten. Ab 2024.',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Alpenpanorama von Ponte in der Veltlin mit Blick auf Graubünden, Berglandschaft an der Schweizer-italienischen Grenze.',
 };
 
 export default blogMetaDe;
