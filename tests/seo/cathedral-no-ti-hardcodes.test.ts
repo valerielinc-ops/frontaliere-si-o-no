@@ -9,6 +9,83 @@ const FORBIDDEN = [
   "'trouver-emploi-tessin'",
 ];
 
+// ── Forme derivate del literal TI (#7674) ───────────────────────────────────
+// FORBIDDEN sopra e' una lista di stringhe fisse **con gli apici gia' dentro**,
+// passate a `grep -F`: intercetta `'cerca-lavoro-ticino'` e `"..."` e nient'altro.
+// Ma la tabella che il codice copia a mano non e' solo SECTION_LEGACY_TI: e'
+// anche SECTION_LEGACY_TI_PATH, che emette `/cerca-lavoro-ticino/` — con gli
+// slash. Una copia scritta in quella forma non produceva nessun match e restava
+// invisibile al guardiano, che quindi non poteva sostenere la claim «una
+// venticinquesima copia non puo' comparire in silenzio».
+//
+// Qui il segmento e' matchato indipendentemente dalla delimitazione, dentro un
+// literal di CODICE: stringa (`'x'`, `"x"`, `'/x'`, `'x/'`, `'/x/'`) o regex
+// (`/\/x\//`). Restano fuori per scelta le citazioni in PROSA — docblock con
+// backtick, commenti, copy editoriale — dove il literal e' la URL pubblica
+// citata, non una ri-dichiarazione della tabella: includerle porterebbe ~20
+// offender di sola documentazione e trasformerebbe il gate in rumore.
+const TI_SECTION_SLUGS = [
+  'cerca-lavoro-ticino',
+  'find-jobs-ticino',
+  'jobs-im-tessin',
+  'trouver-emploi-tessin',
+];
+
+/**
+ * ERE (valida sia per `grep -E` sia per `new RegExp`) che riconosce lo slug come
+ * segmento intero dentro un literal di codice, con o senza slash delimitanti.
+ */
+export function tiSegmentPattern(slug: string): string {
+  return `['"]/?${slug}/?['"]|\\\\/${slug}\\\\/`;
+}
+
+// ── Inventario congelato (ratchet, NON un esonero) ──────────────────────────
+// Le forme con slash non erano vigilate: al momento in cui lo diventano il
+// codice ne contiene 68 in 31 file, dai piu' innocui (un href al hub IT dentro
+// copy italiano) alle vere ri-dichiarazioni della tabella per-locale
+// (`services/analyticsPageContext.ts`, `scripts/lib/seo-ctr-curve.mjs`,
+// `infra/cloudflare-worker/locale-router.js`). Ripararle tutte non sta in una
+// PR chirurgica; lasciarle non vigilate era il difetto.
+//
+// Questo NON e' l'ALLOWLIST (che esonera per sempre) ne' il marker inline
+// (che esonera una riga con una ragione). E' un conteggio per file che puo'
+// solo SCENDERE: il test fallisce sia se un file supera il suo numero (un
+// hardcode NUOVO), sia se sta sotto (inventario stantio → si abbassa il
+// numero). Cosi' l'inventario converge a zero invece di marcire.
+const SEGMENT_BASELINE: Record<string, number> = {
+  'build-plugins/blogContextualLinksData.ts': 3,
+  'build-plugins/careerLandingsPlugin.ts': 1,
+  'build-plugins/editorialContent.ts': 2,
+  'build-plugins/exchangeRatePagesPlugin.ts': 1,
+  'build-plugins/frontalierePillarCopy.ts': 2,
+  'build-plugins/jobsSeoPagesPlugin.ts': 4,
+  'build-plugins/nursingLandingsPlugin.ts': 1,
+  'build-plugins/pdfWhitepapersPlugin.ts': 1,
+  'build-plugins/professionLandingsPlugin.ts': 1,
+  'build-plugins/publisherAdPagesPlugin.ts': 1,
+  'build-plugins/searchConsoleCompat.ts': 4,
+  'build-plugins/selfCertificationFormsPlugin.ts': 1,
+  'build-plugins/staticPagesPlugin.ts': 10,
+  'components/shared/RelatedTools.tsx': 1,
+  'components/tabs/CalcolatoreTabContent.tsx': 2,
+  'functions/src/lib/newsletterUrlPaths.js': 2,
+  'infra/cloudflare-worker/locale-router.js': 1,
+  'scripts/adsense-format-ab-report.mjs': 1,
+  'scripts/analytics-report.mjs': 2,
+  'scripts/audit-cls-live.mjs': 1,
+  'scripts/audit-cls-stripping.mjs': 1,
+  'scripts/build-legacy-aliases.mjs': 1,
+  'scripts/cwv-monitor-check.mjs': 1,
+  'scripts/lib/seo-ctr-curve.mjs': 4,
+  'scripts/monitor-cls-posthog.mjs': 2,
+  'scripts/seo-audit-employer-slugs.mjs': 4,
+  'scripts/validate-spa-render.mjs': 4,
+  'scripts/verify-post-deploy-seo.mjs': 3,
+  'services/analyticsPageContext.ts': 4,
+  'services/seo/seo-pages.ts': 1,
+  'services/seoService.ts': 1,
+};
+
 // Allowlist — any line that legitimately references a TI legacy section
 // literal. Every TI hardcode below has been audited as either (a) a
 // fallback default in a per-plugin SECTION_SLUG table, or (b) a TI-only
@@ -171,3 +248,61 @@ describe('isAllowlisted — voce-file esatta vs voce-cartella per prefisso', () 
     })).toBe(true);
   });
 });
+
+describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)', () => {
+  // OSSERVATORE: il matcher e' verificato in memoria sulle forme che deve
+  // riconoscere, cosi' una futura restrizione del pattern rompe QUESTO test
+  // invece di rendere il gate cieco in silenzio (che e' esattamente com'e'
+  // nato il difetto: FORBIDDEN restava verde perche' non matchava nulla).
+  it('riconosce ogni delimitazione del segmento, non solo il nudo fra apici', () => {
+    const rx = new RegExp(tiSegmentPattern('cerca-lavoro-ticino'));
+    const recognised = [
+      `const s = 'cerca-lavoro-ticino';`,
+      `const s = "cerca-lavoro-ticino";`,
+      `const s = '/cerca-lavoro-ticino';`,
+      `const s = 'cerca-lavoro-ticino/';`,
+      `const s = '/cerca-lavoro-ticino/';`,
+      `const s = "/cerca-lavoro-ticino/";`,
+      `const re = /\\/cerca-lavoro-ticino\\/([^/]+)$/;`,
+    ];
+    expect(recognised.filter((line) => !rx.test(line))).toEqual([]);
+
+    // La forma con slash e' proprio quella che il vecchio FORBIDDEN (stringhe
+    // fisse con gli apici dentro, grep -F) NON vedeva: se questa asserzione
+    // cade, il difetto #7674 e' stato riparato altrove e questo blocco puo'
+    // essere semplificato.
+    const slashForm = `const s = '/cerca-lavoro-ticino/';`;
+    expect(FORBIDDEN.filter((literal) => slashForm.includes(literal))).toEqual([]);
+
+    // Fuori per scelta: la citazione in prosa/docblock della URL pubblica.
+    expect(rx.test(' * canonical → section landing (`/cerca-lavoro-ticino/`)')).toBe(false);
+    // E niente match parziale su uno slug piu' lungo che contiene il segmento.
+    expect(rx.test(`const s = '/cerca-lavoro-ticino-nord/';`)).toBe(false);
+  });
+
+  it('nessun hardcode con slash oltre l\'inventario congelato', () => {
+    const counts: Record<string, number> = {};
+    const samples: Record<string, string[]> = {};
+    for (const slug of TI_SECTION_SLUGS) {
+      const cmd = `grep -rnE ${JSON.stringify(tiSegmentPattern(slug))} ${SCAN_DIRS.join(' ')} || true`;
+      const out = execSync(cmd, { encoding: 'utf8' });
+      for (const entry of out.split('\n').filter(Boolean)
+        .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
+        if (isAllowlisted(entry)) continue;
+        counts[entry.path] = (counts[entry.path] ?? 0) + 1;
+        (samples[entry.path] ??= []).push(`${entry.path}:${entry.lineNo}: ${entry.content.trim().slice(0, 120)}`);
+      }
+    }
+
+    const grown = Object.keys(counts)
+      .filter((path) => counts[path] > (SEGMENT_BASELINE[path] ?? 0))
+      .map((path) => `${path}: ${counts[path]} > ${SEGMENT_BASELINE[path] ?? 0}\n${samples[path].join('\n')}`);
+    expect(grown, `Nuovi hardcode TI in forma con slash. Usa SECTION_LEGACY_TI_PATH da build-plugins/shared/cantonSection (o resolveCantonSection per codice canton-aware); se la riga e' legittima, appendi \` // cathedral-allow: <ragione>\`. NON alzare i numeri di SEGMENT_BASELINE:\n${grown.join('\n')}`).toEqual([]);
+
+    const stale = Object.keys(SEGMENT_BASELINE)
+      .filter((path) => (counts[path] ?? 0) < SEGMENT_BASELINE[path])
+      .map((path) => `${path}: ${counts[path] ?? 0} < ${SEGMENT_BASELINE[path]}`);
+    expect(stale, `Inventario stantio: questi file hanno meno hardcode del baseline. Abbassa i numeri in SEGMENT_BASELINE (o togli la voce a 0) — il ratchet esiste per convergere a zero:\n${stale.join('\n')}`).toEqual([]);
+  }, 30000);
+});
+
