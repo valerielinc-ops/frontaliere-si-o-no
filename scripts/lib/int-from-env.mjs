@@ -32,6 +32,20 @@
  */
 
 /**
+ * LA FORMA, non solo il valore: `Number('0x10')` fa 16 e `Number('1e3')` fa
+ * 1000. Sono interi finiti e positivi, quindi attraversavano ogni controllo di
+ * questo modulo SENZA `::warning::` — e il crawler girava su un tetto diverso
+ * da quello scritto nel workflow, in silenzio (issue #7701, item 3). E' la
+ * stessa modalita' di guasto dei negativi: successo dichiarato con dataset
+ * troncato, solo per un refuso di notazione invece che di segno.
+ *
+ * Solo la notazione decimale e' accettata. Il segno resta ammesso perche' e' il
+ * modo normale di scrivere un intero (`-5`, `+7`); esadecimale, ottale,
+ * binario, esponenziale e separatori non lo sono.
+ */
+const DECIMAL_INT_RE = /^[+-]?\d+$/;
+
+/**
  * @param {string} name nome della variabile d'ambiente
  * @param {number} fallback valore da usare se assente, vuota o non intera
  * @param {{ env?: Record<string, string|undefined>, warn?: (msg: string) => void }} [opts]
@@ -42,12 +56,15 @@ export function intFromEnv(name, fallback, { env = process.env, warn = console.w
   // Assente o solo spazi: la variabile non e' stata impostata. Nessun avviso.
   if (raw === undefined || raw === null || String(raw).trim() === '') return fallback;
 
-  const n = Number(String(raw).trim());
-  if (!Number.isInteger(n)) {
+  const trimmed = String(raw).trim();
+  const n = Number(trimmed);
+  if (!DECIMAL_INT_RE.test(trimmed) || !Number.isInteger(n)) {
     warn(
-      `::warning::[int-from-env] ${name}=${JSON.stringify(String(raw))} non e' un intero — `
+      `::warning::[int-from-env] ${name}=${JSON.stringify(String(raw))} non e' un intero decimale — `
       + `uso il default ${fallback}. Un valore non numerico qui diventava NaN, e NaN non lancia: `
-      + 'si propagava in tetti, limiti di concorrenza e finestre temporali senza rendere rosso niente.',
+      + 'si propagava in tetti, limiti di concorrenza e finestre temporali senza rendere rosso niente. '
+      + "Una forma non decimale (`0x10`, `1e3`) e' invece un intero DIVERSO da quello scritto: stesso "
+      + 'guasto silenzioso, per un refuso di notazione.',
     );
     return fallback;
   }
@@ -92,12 +109,15 @@ export function positiveIntFromEnv(name, fallback, { env = process.env, warn = c
   const raw = env?.[name];
   if (raw === undefined || raw === null || String(raw).trim() === '') return fallback;
 
-  const n = Number(String(raw).trim());
-  if (!Number.isInteger(n) || n <= 0) {
+  const trimmed = String(raw).trim();
+  const n = Number(trimmed);
+  if (!DECIMAL_INT_RE.test(trimmed) || !Number.isInteger(n) || n <= 0) {
     warn(
-      `::warning::[int-from-env] ${name}=${JSON.stringify(String(raw))} non e' un intero positivo — `
+      `::warning::[int-from-env] ${name}=${JSON.stringify(String(raw))} non e' un intero positivo in notazione decimale — `
       + `uso il default ${fallback}. Un conteggio non positivo qui non degradava: SPEGNEVA la regola `
-      + '(uno `slice` negativo scarta dalla coda, un passo <= 0 non avanza) senza rendere rosso niente.',
+      + '(uno `slice` negativo scarta dalla coda, un passo <= 0 non avanza) senza rendere rosso niente. '
+      + "Una forma non decimale (`0x10` -> 16, `1e3` -> 1000) passava per intero positivo e cambiava "
+      + 'il tetto senza alcun segnale.',
     );
     return fallback;
   }
