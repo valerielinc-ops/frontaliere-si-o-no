@@ -5710,6 +5710,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-argovia-procedura.title': 'Haus kaufen im Aargau: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-argovia-procedura.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Aargau: Preise, Eigenmittel, Hypothekendarlehen, Ablösesumme und Notarkosten. Schritt-für-Schritt-Verfahren.',
     'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Schweizer Wohnviertel mit modernen Häusern und grünen Gärten, typische Schweizer Wohnsiedlung',
+    'blog.article.deposito-cauzione-argovia.title': 'Mieten Aargau: Mieten und Mietrecht',
+    'blog.article.deposito-cauzione-argovia.excerpt': 'Kaution max. 3 Monate Miete und Anfechtung in 30 Tagen: Leitfaden zum Bundesmietrecht, gültig im Aargau und in der ganzen Schweiz.',
+    'blog.article.deposito-cauzione-argovia.imageAlt': 'Schweizer Wohnhaus mit Mietangebot, moderne Architektur, natürliche Nachmittagsbeleuchtung.',
 };
 
 export default blogMetaChDe;

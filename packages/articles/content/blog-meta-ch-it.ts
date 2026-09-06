@@ -5710,6 +5710,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-argovia-procedura.title': 'Comprare casa in Argovia: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-argovia-procedura.excerpt': 'Guida all\'acquisto di immobili nel Canton Argovia: prezzi, fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Procedura step-by-step.',
     'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Quartiere residenziale svizzero con case moderne e giardini verdi, comunità abitativa tipica della Svizzera',
+    'blog.article.deposito-cauzione-argovia.title': 'Affitti Argovia: canoni e diritto di locazione',
+    'blog.article.deposito-cauzione-argovia.excerpt': 'Deposito max 3 mesi pigione e contestazione in 30 giorni: guida al diritto di locazione federale, valida in Argovia e in tutta la Svizzera.',
+    'blog.article.deposito-cauzione-argovia.imageAlt': 'Edificio residenziale svizzero con annuncio di affitto, architettura moderna, luce naturale pomeridiana.',
 };
 
 export default blogMetaChIt;

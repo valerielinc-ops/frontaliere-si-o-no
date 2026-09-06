@@ -5710,6 +5710,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-argovia-procedura.title': 'Buying a house in Aargau: prices and mortgage',
     'blog.article.comprare-casa-argovia-procedura.excerpt': 'Guide to buying real estate in the Canton of Aargau: prices, own funds, mortgage loan, transfer tax and notary fees. Step-by-step procedure.',
     'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Swiss residential neighborhood with modern houses and green gardens, typical Swiss housing community',
+    'blog.article.deposito-cauzione-argovia.title': 'Aargau rentals: fees and lease rights',
+    'blog.article.deposito-cauzione-argovia.excerpt': 'Maximum deposit of 3 months\' rent and dispute in 30 days: guide to federal lease law, valid in Aargau and throughout Switzerland.',
+    'blog.article.deposito-cauzione-argovia.imageAlt': 'Swiss residential building with To Let sign, modern architecture, natural afternoon lighting.',
 };
 
 export default blogMetaChEn;

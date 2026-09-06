@@ -17128,6 +17128,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'deposito-cauzione-argovia',
+    category: 'pratico',
+    date: '2026-09-06T10:35:27.053Z',
+    image: '/images/blog/deposito-cauzione-argovia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
