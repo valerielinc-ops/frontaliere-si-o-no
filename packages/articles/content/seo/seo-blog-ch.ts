@@ -74471,6 +74471,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conversione-patente-vallese': {
+    title: 'Conversione patente estera nel Cantone Vallese: guida',
+    description: 'Devi convertire la patente estera nel Vallese? Scopri i tempi, i documenti e la procedura obbligatoria entro 12 mesi dal trasferimento della residenza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, conversione, patente, estera, cantone',
+    ogTitle: 'Conversione patente estera nel Cantone Vallese: la guida',
+    ogDescription: 'Scopri come convertire la tua patente estera in Svizzera se risiedi nel Cantone Vallese: termini di legge, documenti necessari e procedure previste dal Servizio della circolazione.',
+    canonicalPath: '/articoli-svizzera/conversione-patente-vallese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conversione patente estera nel Cantone Vallese: guida",
+      "description": "Devi convertire la patente estera nel Vallese? Scopri i tempi, i documenti e la procedura obbligatoria entro 12 mesi dal trasferimento della residenza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conversione-patente-vallese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Patente di guida svizzera su un tavolo di legno"
+      },
+      "datePublished": "2026-09-06T12:57:01+00:00",
+      "dateModified": "2026-09-06T12:57:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/conversione-patente-vallese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

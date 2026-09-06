@@ -441,8 +441,18 @@ const DETAIL_DROP_ABORT_RATIO = 0.5;
 // exactly the dead crawl this enricher exists to prevent. Interdiscount and
 // Volg do publish slices this small (`fetchAllInterdiscountJobs()` hands its
 // whole batch straight over), so the ratio only governs batches where it is
-// statistically meaningful — below this floor a dropped page is read as expiry.
-const DETAIL_DROP_ABORT_FLOOR = 1;
+// statistically meaningful.
+//
+// "Statistically meaningful" is a property of the BATCH, so the floor is on
+// `input.length` — not on the number of dropped pages (#7545). Guarding the
+// drop count let the tiny-batch case back in through the other side: with two
+// vacancies both withdrawn, `dropped === 2` cleared a floor of 1 and 100%
+// cleared the ratio, so the crawl still died with «source drift» on the most
+// banal shape there is — a two-item slice that expired. Below this batch size
+// every dropped page is read as expiry, whatever their share; at or above it
+// crossing the ratio takes at least three dropped pages, which is no longer a
+// couple of vacancies ending on the same day.
+const DETAIL_DROP_ABORT_MIN_BATCH = 4;
 
 /**
  * Fetch and strictly apply all detail payloads with bounded concurrency.
@@ -530,7 +540,7 @@ export async function enrichCoopSourceBackedJobs(jobs, {
   await Promise.all(workers);
   if (gone.length === 0 && rejected.length === 0) return output;
   const dropped = gone.length + rejected.length;
-  if (dropped > DETAIL_DROP_ABORT_FLOOR && dropped > input.length * DETAIL_DROP_ABORT_RATIO) {
+  if (input.length >= DETAIL_DROP_ABORT_MIN_BATCH && dropped > input.length * DETAIL_DROP_ABORT_RATIO) {
     throw new Error(
       `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410), `
       + `${rejected.length}/${input.length} rejected — source drift, not vacancy expiry`,
