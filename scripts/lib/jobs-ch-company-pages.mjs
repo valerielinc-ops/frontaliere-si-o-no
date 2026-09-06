@@ -39,7 +39,31 @@ export function parseVacancyLinks(html = '') {
   return Array.from(urls);
 }
 
-const escapeRegExp = (value) => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * The employer part of a jobs.ch company slug, with its profile id stripped.
+ *
+ * jobs.ch mints two id shapes for the same employer — a legacy numeric one
+ * (`49929-gim-architekten-ag`) and a UUID (`d7896bfc-…-gim-architekten-ag`) —
+ * and a profile reached through the legacy id answers 200 while canonicalising
+ * to the UUID. The two ids are not interchangeable as strings, but everything
+ * after them is the same employer, and it is the employer that the counter has
+ * to be scoped to. Foreign counters stay out: `867-jobcloud-ag` reduces to
+ * `jobcloud-ag`, which is not this page's employer under any id.
+ *
+ * A slug with no recognisable id prefix is returned unchanged, so the
+ * comparison degrades to the exact match it used to be.
+ *
+ * @param {string} slug
+ * @returns {string}
+ */
+function companySlugIdentity(slug) {
+  const value = String(slug || '').toLowerCase();
+  const stripped = value
+    .replace(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}-/, '')
+    .replace(/^\d+-/, '');
+  return stripped || value;
+}
 
 /**
  * The company slug this page declares as its own, read from `rel="canonical"`.
@@ -74,7 +98,8 @@ export function parseCanonicalCompanySlug(html = '') {
  * not — so an empty result stops being provable and the crawler stays visibly
  * unhealthy instead of silently retiring live vacancies.
  *
- * SCOPED TO THIS PAGE'S OWN COMPANY, and that is the whole point. A profile
+ * SCOPED TO THIS PAGE'S OWN COMPANY — by employer identity, not by the id
+ * shape in the href — and that is the whole point. A profile
  * page carries other employers' `/companies/<slug>/vacancies/` hrefs — measured
  * on both live GIM profiles 2026-09-05, each also links `867-jobcloud-ag` (the
  * "Join our team" footer). An unscoped regex takes the FIRST counter in the
@@ -89,12 +114,14 @@ export function parseCanonicalCompanySlug(html = '') {
  *
  * @param {string} html
  * @returns {number|null} the count, or null when this page's own tab did not
- *   render (including: no canonical, so no company to scope to)
+ *   render for this employer (including: no canonical, so no company to
+ *   scope to)
  */
 export function parseVacancyCountTab(html = '') {
   const source = String(html || '');
-  const slug = parseCanonicalCompanySlug(source);
-  if (!slug) return null;
+  const canonical = parseCanonicalCompanySlug(source);
+  if (!canonical) return null;
+  const identity = companySlugIdentity(canonical);
   // locale-segment-ok: '/en/' is jobs.ch's own site-language path, not a site locale route
   // Quote-agnostic on purpose, and matching `parseCanonicalCompanySlug`, which
   // has always accepted both: the two readers look at the SAME markup, so a
@@ -103,12 +130,16 @@ export function parseVacancyCountTab(html = '') {
   // proof on all five jobs.ch company-page crawlers at once. The backreference
   // keeps the opening and closing delimiter the same, so a `'` inside a
   // double-quoted attribute cannot terminate it.
-  const re = new RegExp(
-    `href=(["'])/[a-z]{2}/companies/${escapeRegExp(slug)}/vacancies/\\1[^>]*>\\s*Jobs\\s*\\((\\d+)\\)\\s*<`,
-    'i',
-  );
-  const m = re.exec(source);
-  return m ? Number(m[2]) : null;
+  const re = /href=(["'])\/[a-z]{2}\/companies\/([^/"']+)\/vacancies\/\1[^>]*>\s*Jobs\s*\((\d+)\)\s*</gi;
+  let m;
+  while ((m = re.exec(source)) !== null) {
+    // Every counter on the page is a candidate; the employer identity decides,
+    // not the id shape. A profile fetched by legacy id whose canonical is the
+    // UUID keeps its proof, and a foreign employer's counter still cannot grant
+    // it — which is the only thing the exact-slug comparison ever bought.
+    if (companySlugIdentity(m[2]) === identity) return Number(m[3]);
+  }
+  return null;
 }
 
 /** @param {{ label: string, identity?: string }} target */

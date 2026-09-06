@@ -14,6 +14,14 @@ import {
 } from '../scripts/lib/gim-architekten-job-parser.mjs';
 import { fetchAllStrabagJobs, STRABAG_COMPANY_NAME } from '../scripts/lib/strabag-job-parser.mjs';
 import {
+  fetchAllHofweissbadJobs,
+  HOFWEISSBAD_COMPANY_NAME,
+} from '../scripts/lib/hofweissbad-job-parser.mjs';
+import {
+  fetchAllVisionapartmentsJobs,
+  VISIONAPARTMENTS_COMPANY_NAME,
+} from '../scripts/lib/visionapartments-job-parser.mjs';
+import {
   fetchAllFondationDomusJobs,
   parseVacancyBoardEvidence,
   FONDATION_DOMUS_COMPANY_NAME,
@@ -92,6 +100,10 @@ const jobsChProfile = (
   links: string[] = [],
   {
     canonicalSlug = `${employer.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-profile`,
+    // The counter's own href does not have to carry the canonical id: a profile
+    // reached through the legacy numeric id can render the canonical as the
+    // UUID while its vacancy tab still points at the legacy path.
+    counterSlug = canonicalSlug,
     // The attribute delimiter is the serialiser's choice, not a fact about the
     // page: `q` lets a fixture serve the exact same profile single-quoted.
     q = '"',
@@ -101,7 +113,7 @@ const jobsChProfile = (
 </head><body>
   <ul><li><a class=${q}d_flex${q} href=${q}/en/companies/867-jobcloud-ag/vacancies/${q} data-discover=${q}true${q}>Jobs (0)</a></li></ul>
   <h1>${employer}</h1>
-  <ul><li><a class=${q}d_flex${q} href=${q}/en/companies/${canonicalSlug}/vacancies/${q} data-discover=${q}true${q}>Jobs (${count})</a></li></ul>
+  <ul><li><a class=${q}d_flex${q} href=${q}/en/companies/${counterSlug}/vacancies/${q} data-discover=${q}true${q}>Jobs (${count})</a></li></ul>
   ${links.map((id) => `<a href=${q}/en/vacancies/detail/${id}/${q}>a job</a>`).join('')}
 </body></html>`;
 const gimProfile = (count: number, links: string[] = []) => jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, count, links);
@@ -253,6 +265,65 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     expect(parseVacancyCountTab(redirected)).toBe(0);
     const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => redirected });
     expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(true);
+  });
+
+  it('still proves a zero when the counter href keeps the legacy id the canonical dropped', async () => {
+    // `49929-gim-architekten-ag` and `70650-gim-architekten-ag` are the same
+    // employer under two profile ids, and both canonicalise to the UUID. Only
+    // the canonical is guaranteed to be rewritten: a page reached through a
+    // legacy id can keep rendering its own vacancy tab at the legacy path.
+    // Comparing the id STRINGS voids the proof there — the crawler stays
+    // `unhealthy` forever and the monitor reopens the same issue every week,
+    // which is the backlog this family exists to close.
+    const legacyCounter = jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, 0, [], {
+      canonicalSlug: 'd7896bfc-a2ec-4eda-a48b-d9eeeb8191e5-gim-architekten-ag',
+      counterSlug: '49929-gim-architekten-ag',
+    });
+    expect(parseVacancyCountTab(legacyCounter)).toBe(0);
+    const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => legacyCounter });
+    expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(true);
+  });
+
+  it('still refuses a foreign employer\'s counter once the id prefix stops mattering', async () => {
+    // The loosened comparison must buy nothing for `867-jobcloud-ag`: its
+    // employer part is not this page's employer under any id. Foreign `Jobs (0)`
+    // first in the document, this profile's own counter at 2.
+    const foreignZeroOwnTwo = jobsChProfile(GIM_ARCHITEKTEN_COMPANY_NAME, 2, [], {
+      canonicalSlug: 'd7896bfc-a2ec-4eda-a48b-d9eeeb8191e5-gim-architekten-ag',
+      counterSlug: '70650-gim-architekten-ag',
+    });
+    expect(parseVacancyCountTab(foreignZeroOwnTwo)).toBe(2);
+    const jobs = await fetchAllGimArchitektenJobs({ fetchPage: async () => foreignZeroOwnTwo });
+    expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(false);
+  });
+
+  it('proves a zero on the two profiles measured only through their sibling crawlers', async () => {
+    // The counter was measured live on the GIM profiles only. `hofweissbad`
+    // reads the dedicated `vacancies/` sub-tab (`pathSuffix`), a different page
+    // than the one measured, and `visionapartments` reads the profile root —
+    // both under a UUID path. Neither had a fixture, so nothing said their
+    // markup was covered by the same reader.
+    const hofweissbadUrls: string[] = [];
+    const hofweissbadJobs = await fetchAllHofweissbadJobs({
+      fetchPage: async (url: string) => {
+        hofweissbadUrls.push(url);
+        return jobsChProfile('Hof Weissbad AG', 0, [], {
+          canonicalSlug: '4716a540-19be-4788-a896-6594e6f9a5d7-hof-weissbad-ag',
+          counterSlug: '134218-hof-weissbad-ag',
+        });
+      },
+    });
+    expect(hofweissbadUrls).toEqual([
+      'https://www.jobs.ch/en/companies/4716a540-19be-4788-a896-6594e6f9a5d7-hof-weissbad-ag/vacancies/',
+    ]);
+    expect(publishesProvenZero(hofweissbadJobs, HOFWEISSBAD_COMPANY_NAME)).toBe(true);
+
+    const visionJobs = await fetchAllVisionapartmentsJobs({
+      fetchPage: async () => jobsChProfile('Vision Management Services GmbH', 0, [], {
+        canonicalSlug: '69c35774-5e33-4b40-94e0-4a9d949707c6-vision-management-services-gmbh',
+      }),
+    });
+    expect(publishesProvenZero(visionJobs, VISIONAPARTMENTS_COMPANY_NAME)).toBe(true);
   });
 
   it('reads the counter and the links when jobs.ch single-quotes its attributes', async () => {
