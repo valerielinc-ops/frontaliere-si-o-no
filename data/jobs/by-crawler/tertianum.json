@@ -5562,12 +5562,12 @@
     },
     {
       "id": "tertianum-c0886015fbff",
-      "slug": "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen",
+      "slug": "assistente-infermieristico-srk-90-100-tertianum-gampelen",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen",
-        "en": "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen",
+        "it": "assistente-infermieristico-srk-90-100-tertianum-gampelen",
+        "en": "nursing-assistant-srk-90-100-tertianum-gampelen",
         "de": "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen",
-        "fr": "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen"
+        "fr": "assistant-infirmier-srk-90-100-tertianum-gampelen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -5621,7 +5621,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen"
+        ],
+        "fr": [
+          "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-srk-90-100-tertianum-gampelen"
+      ]
     },
     {
       "id": "tertianum-9f97a1862327",
@@ -6588,12 +6602,12 @@
     },
     {
       "id": "tertianum-8d6077ab65ef",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-70-100-tertianum-gampelen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-70-100-tertianum-gampelen",
+        "en": "dipl-nursing-professional-hf-fh-dnii-70-100-tertianum-gampelen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-70-100-tertianum-gampelen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -6647,7 +6661,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-70-100-tertianum-gampelen"
+      ]
     },
     {
       "id": "tertianum-04bcb112a584",

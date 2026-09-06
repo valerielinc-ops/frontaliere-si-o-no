@@ -370,12 +370,12 @@
     },
     {
       "id": "alcon-7e8db3a81169",
-      "slug": "manager-accounting-reporting-alcon-ch",
+      "slug": "gestione-contabilita-e-reporting-alcon-fribourg",
       "slugByLocale": {
-        "it": "manager-accounting-reporting-alcon-ch",
+        "it": "gestione-contabilita-e-reporting-alcon-fribourg",
         "en": "manager-accounting-reporting-alcon-ch",
         "de": "manager-accounting-reporting-alcon-ch",
-        "fr": "manager-accounting-reporting-alcon-ch"
+        "fr": "gestionnaire-comptabilite-et-rapports-alcon-fribourg"
       },
       "company": "Alcon",
       "companyKey": "alcon",
@@ -430,7 +430,18 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-accounting-reporting-alcon-ch"
+        ],
+        "fr": [
+          "manager-accounting-reporting-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-accounting-reporting-alcon-ch"
+      ]
     }
   ]
 }

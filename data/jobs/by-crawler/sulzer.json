@@ -22984,12 +22984,12 @@
     },
     {
       "id": "sulzer-895685e866a1",
-      "slug": "industry-sales-manager-mining-sulzer-ch",
+      "slug": "responsabile-vendite-del-settore-mining-sulzer-johannesburg",
       "slugByLocale": {
-        "it": "industry-sales-manager-mining-sulzer-ch",
+        "it": "responsabile-vendite-del-settore-mining-sulzer-johannesburg",
         "en": "industry-sales-manager-mining-sulzer-ch",
         "de": "industry-sales-manager-mining-sulzer-ch",
-        "fr": "industry-sales-manager-mining-sulzer-ch"
+        "fr": "directeur-des-ventes-mines-sulzer-johannesburg"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23042,16 +23042,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "industry-sales-manager-mining-sulzer-ch"
+        ],
+        "fr": [
+          "industry-sales-manager-mining-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "industry-sales-manager-mining-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-6695d1435aac",
-      "slug": "industry-sales-manager-oil-gas-sulzer-ch",
+      "slug": "responsabile-vendite-industria-oil-gas-sulzer-johannesburg",
       "slugByLocale": {
-        "it": "industry-sales-manager-oil-gas-sulzer-ch",
+        "it": "responsabile-vendite-industria-oil-gas-sulzer-johannesburg",
         "en": "industry-sales-manager-oil-gas-sulzer-ch",
         "de": "industry-sales-manager-oil-gas-sulzer-ch",
-        "fr": "industry-sales-manager-oil-gas-sulzer-ch"
+        "fr": "directeur-des-ventes-de-l-industrie-petrole-et-gaz-sulzer-johannesburg"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23104,16 +23115,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "industry-sales-manager-oil-gas-sulzer-ch"
+        ],
+        "fr": [
+          "industry-sales-manager-oil-gas-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "industry-sales-manager-oil-gas-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-3568f9ec3305",
-      "slug": "helper-sulzer-ch",
+      "slug": "aiuto-sulzer-pasadena",
       "slugByLocale": {
-        "it": "helper-sulzer-ch",
+        "it": "aiuto-sulzer-pasadena",
         "en": "helper-sulzer-ch",
-        "de": "helper-sulzer-ch",
-        "fr": "helper-sulzer-ch"
+        "de": "helfer-sulzer-pasadena",
+        "fr": "aide-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23166,7 +23188,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "helper-sulzer-ch"
+        ],
+        "de": [
+          "helper-sulzer-ch"
+        ],
+        "fr": [
+          "helper-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "helper-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-a1a148847457",

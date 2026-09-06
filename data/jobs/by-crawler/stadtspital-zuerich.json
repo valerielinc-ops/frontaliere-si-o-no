@@ -8115,12 +8115,12 @@
     },
     {
       "id": "stadtspital-zuerich-bd77531ea904",
-      "slug": "praktikant-in-governance-stadtspital-zuerich-51517",
+      "slug": "stage-in-governance-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "praktikant-in-governance-stadtspital-zuerich-51517",
-        "en": "praktikant-in-governance-stadtspital-zuerich-51517",
+        "it": "stage-in-governance-stadtspital-zurich-zurich",
+        "en": "internship-in-governance-stadtspital-zurich-zurich",
         "de": "praktikant-in-governance-stadtspital-zuerich-51517",
-        "fr": "praktikant-in-governance-stadtspital-zuerich-51517"
+        "fr": "stage-en-gouvernance-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8166,11 +8166,21 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51517",
       "previousSlugs": [
-        "praktikant-in-governance-stadtspital-zurich-zurich"
+        "praktikant-in-governance-stadtspital-zurich-zurich",
+        "praktikant-in-governance-stadtspital-zuerich-51517"
       ],
       "previousSlugsByLocale": {
         "de": [
           "praktikant-in-governance-stadtspital-zurich-zurich"
+        ],
+        "it": [
+          "praktikant-in-governance-stadtspital-zuerich-51517"
+        ],
+        "en": [
+          "praktikant-in-governance-stadtspital-zuerich-51517"
+        ],
+        "fr": [
+          "praktikant-in-governance-stadtspital-zuerich-51517"
         ]
       },
       "needsRetranslation": true,
@@ -9755,12 +9765,12 @@
     },
     {
       "id": "stadtspital-zuerich-dea98eb30bc1",
-      "slug": "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie",
+      "slug": "med-assistente-di-pratica-specialista-di-salute-endocrinologia-diabetologia-porfiria-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie",
-        "en": "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie",
+        "it": "med-assistente-di-pratica-specialista-di-salute-endocrinologia-diabetologia-porfiria-stadtspital-zurich-zurich",
+        "en": "med-practice-assistant-health-specialist-endocrinology-diabetology-porphyria-stadtspital-zurich-zurich",
         "de": "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie",
-        "fr": "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie"
+        "fr": "medicament-assistant-de-pratique-specialiste-de-la-sante-endocrinologie-diabetologie-porphyrie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9819,7 +9829,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie"
+        ],
+        "en": [
+          "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie"
+        ],
+        "fr": [
+          "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-fachperson-gesundheit-endokrinologie-diabetologie-porphyrie"
+      ]
     },
     {
       "id": "stadtspital-zuerich-e604e9e1208c",

@@ -1008,12 +1008,12 @@
     },
     {
       "id": "sicpa-5ab6ad2a1e4e",
-      "slug": "administrative-assistant-sicpa-prilly",
+      "slug": "assistente-amministrativo-sicpa-sa-prilly",
       "slugByLocale": {
-        "it": "administrative-assistant-sicpa-prilly",
+        "it": "assistente-amministrativo-sicpa-sa-prilly",
         "en": "administrative-assistant-sicpa-prilly",
         "de": "administrative-assistent-sicpa-sa-prilly",
-        "fr": "administrative-assistant-sicpa-prilly"
+        "fr": "assistant-administratif-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -1067,7 +1067,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-sicpa-prilly"
+        ],
+        "fr": [
+          "administrative-assistant-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-e516602a8b73",

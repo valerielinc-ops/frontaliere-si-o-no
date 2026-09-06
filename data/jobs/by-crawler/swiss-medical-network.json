@@ -138,10 +138,11 @@
         "it": "Applicazione non richiesta - Settore medico",
         "de": "Unerbetene Anwendung - Medizinsektor"
       },
-      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
+      "slug": "applicazione-non-richiesta-settore-medico-swiss-medical-network-saint-imier",
       "slugByLocale": {
-        "it": "candidature-spontanee-secteur-medical-swiss-medical-network",
-        "en": "candidature-spontanee-secteur-medical-swiss-medical-network"
+        "it": "applicazione-non-richiesta-settore-medico-swiss-medical-network-saint-imier",
+        "en": "unsolicited-application-medical-sector-swiss-medical-network-saint-imier",
+        "de": "unerbetene-anwendung-medizinsektor-swiss-medical-network-saint-imier"
       },
       "category": "healthcare",
       "datePosted": "2026-09-02",
@@ -168,7 +169,18 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-secteur-medical-swiss-medical-network"
+        ],
+        "en": [
+          "candidature-spontanee-secteur-medical-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "candidature-spontanee-secteur-medical-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin",

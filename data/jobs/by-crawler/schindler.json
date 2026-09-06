@@ -5237,7 +5237,6 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
-          "cookie-consent-manager-schindler-bussigny",
           "responsabile-del-consenso-ai-cookie-schindler-bussigny",
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
           "cookie-einwilligungsmanager-schindler-bussigny",
@@ -5252,7 +5251,6 @@
       },
       "previousSlugs": [
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny",
         "responsabile-del-consenso-ai-cookie-schindler-bussigny",
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
         "cookie-einwilligungsmanager-schindler-bussigny",
@@ -5477,12 +5475,12 @@
     },
     {
       "id": "schindler-cebca0128372",
-      "slug": "sales-support-repairs-m-w-d-80-100-schindler-ebikon",
+      "slug": "riparazione-m-f-d-80-100-schindler-ebikon",
       "slugByLocale": {
-        "it": "sales-support-repairs-m-w-d-80-100-schindler-ebikon",
+        "it": "riparazione-m-f-d-80-100-schindler-ebikon",
         "en": "sales-support-repairs-m-w-d-80-100-schindler-ebikon",
         "de": "sales-support-repairs-m-w-d-80-100-schindler-ebikon",
-        "fr": "sales-support-repairs-m-w-d-80-100-schindler-ebikon"
+        "fr": "reparations-de-support-des-ventes-h-f-d-80-100-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -5536,7 +5534,18 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-repairs-m-w-d-80-100-schindler-ebikon"
+        ],
+        "fr": [
+          "sales-support-repairs-m-w-d-80-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-repairs-m-w-d-80-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-3597bc5ec697",

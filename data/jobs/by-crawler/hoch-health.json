@@ -16677,12 +16677,12 @@
     },
     {
       "id": "hoch-health-e9b73a5b5dd7",
-      "slug": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
+      "slug": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "en": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
+        "it": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
+        "en": "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
         "de": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "fr": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
+        "fr": "responsable-60-80-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16737,7 +16737,21 @@
           "maxValue": 69600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
+        ],
+        "en": [
+          "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
+        ],
+        "fr": [
+          "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
+      ]
     },
     {
       "id": "hoch-health-076de07fa039",

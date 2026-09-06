@@ -3309,12 +3309,12 @@
     },
     {
       "id": "concordia-ff5e8ff93709",
-      "slug": "kundenberater-in-60-in-olten-concordia-olten",
+      "slug": "servizio-clienti-in-60-a-olten-concordia-olten",
       "slugByLocale": {
-        "it": "kundenberater-in-60-in-olten-concordia-olten",
-        "en": "kundenberater-in-60-in-olten-concordia-olten",
+        "it": "servizio-clienti-in-60-a-olten-concordia-olten",
+        "en": "customer-service-in-60-in-olten-concordia-olten",
         "de": "kundenberater-in-60-in-olten-concordia-olten",
-        "fr": "kundenberater-in-60-in-olten-concordia-olten"
+        "fr": "service-clientele-en-60-a-olten-concordia-olten"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3370,7 +3370,21 @@
           "maxValue": 71100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-60-in-olten-concordia-olten"
+        ],
+        "en": [
+          "kundenberater-in-60-in-olten-concordia-olten"
+        ],
+        "fr": [
+          "kundenberater-in-60-in-olten-concordia-olten"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-60-in-olten-concordia-olten"
+      ]
     },
     {
       "id": "concordia-aa0d4ca4cd0f",

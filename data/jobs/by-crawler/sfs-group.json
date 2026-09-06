@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sfs-group-f207510fa814",
-      "slug": "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein",
+      "slug": "consulente-commerciale-presso-il-handwerkercenter-m-f-d-sfs-group-munchenstein",
       "slugByLocale": {
-        "it": "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein",
-        "en": "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein",
+        "it": "consulente-commerciale-presso-il-handwerkercenter-m-f-d-sfs-group-munchenstein",
+        "en": "sales-consultant-at-the-handwerkercenter-m-f-d-sfs-group-munchenstein",
         "de": "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein",
-        "fr": "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        "fr": "consultant-en-ventes-au-handwerkercenter-h-f-d-sfs-group-munchenstein"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -65,7 +65,21 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        ],
+        "en": [
+          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        ],
+        "fr": [
+          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+      ]
     },
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -149,12 +163,12 @@
     },
     {
       "id": "sfs-group-22c39276b3dd",
-      "slug": "project-manager-building-components-m-f-d-sfs-group-heerbrugg",
+      "slug": "componenti-per-la-costruzione-di-project-manager-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "project-manager-building-components-m-f-d-sfs-group-heerbrugg",
+        "it": "componenti-per-la-costruzione-di-project-manager-m-f-d-sfs-group-heerbrugg",
         "en": "project-manager-building-components-m-f-d-sfs-group-heerbrugg",
         "de": "project-manager-building-components-m-f-d-sfs-group-heerbrugg",
-        "fr": "project-manager-building-components-m-f-d-sfs-group-heerbrugg"
+        "fr": "gestionnaire-de-projet-composants-de-construction-h-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -202,14 +216,16 @@
         "responsabile-di-progetto-eprozesse-m-w-d-sfs-group-heerbrugg",
         "project-manager-eprozesse-m-f-d-sfs-group-heerbrugg",
         "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg",
-        "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg"
+        "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg",
+        "project-manager-building-components-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-di-progetto-eprozesse-m-w-d-sfs-group-heerbrugg",
           "project-manager-eprozesse-m-f-d-sfs-group-heerbrugg",
           "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg",
-          "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg"
+          "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg",
+          "project-manager-building-components-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "project-manager-eprozesse-m-f-d-sfs-group-heerbrugg"
@@ -218,7 +234,8 @@
           "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg"
         ],
         "fr": [
-          "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg"
+          "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg",
+          "project-manager-building-components-m-f-d-sfs-group-heerbrugg"
         ]
       },
       "needsRetranslation": true,

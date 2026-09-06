@@ -7004,12 +7004,12 @@
     },
     {
       "id": "clienia-ag-1e24712d12b1",
-      "slug": "mitarbeiterin-collaboratore-trice-kalte-kuche-100-clienia-ag-pfaffikon",
+      "slug": "dipendente-della-cucina-fredda-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-kalte-kuche-100-clienia-ag-pfaffikon",
-        "en": "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon",
+        "it": "dipendente-della-cucina-fredda-100-clienia-ag-pfaffikon-zh",
+        "en": "cold-kitchen-employee-100-clienia-ag-pfaffikon-zh",
         "de": "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon"
+        "fr": "employe-de-cuisine-froide-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7051,11 +7051,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-zurich"
+        "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-zurich",
+        "mitarbeiterin-collaboratore-trice-kalte-kuche-100-clienia-ag-pfaffikon",
+        "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-zurich"
+          "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-zurich",
+          "mitarbeiterin-collaboratore-trice-kalte-kuche-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-09-02T23:16:36.720Z",

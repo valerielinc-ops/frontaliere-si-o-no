@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "orell-fuessli-thalia-e4da5ba34cd3",
-      "slug": "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
+      "slug": "libreria-in-30-a-orell-fussli-thalia-wurenlos",
       "slugByLocale": {
-        "it": "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
-        "en": "buchhandler-in-30-a-orell-fussli-thalia-wurenlos",
+        "it": "libreria-in-30-a-orell-fussli-thalia-wurenlos",
+        "en": "bookseller-in-30-a-orell-fussli-thalia-wurenlos",
         "de": "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
-        "fr": "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos"
+        "fr": "librairie-en-30-a-orell-fussli-thalia-wurenlos"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -56,23 +56,28 @@
         "libreria-in-30-a-wurenlos-posto-di-riposo-orell-fussli-thalia-wurenlos",
         "bookseller-in-30-a-wurenlos-resting-place-orell-fussli-thalia-wurenlos",
         "buchhandler-in-30-a-wurenlos-raststatte-orell-fuessli-thalia-wurenlos",
-        "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos"
+        "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos",
+        "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
+        "buchhandler-in-30-a-orell-fussli-thalia-wurenlos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "libreria-in-30-a-wurenlos-posto-di-riposo-orell-fussli-thalia-wurenlos",
           "bookseller-in-30-a-wurenlos-resting-place-orell-fussli-thalia-wurenlos",
           "buchhandler-in-30-a-wurenlos-raststatte-orell-fuessli-thalia-wurenlos",
-          "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos"
+          "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos",
+          "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos"
         ],
         "en": [
-          "bookseller-in-30-a-wurenlos-resting-place-orell-fussli-thalia-wurenlos"
+          "bookseller-in-30-a-wurenlos-resting-place-orell-fussli-thalia-wurenlos",
+          "buchhandler-in-30-a-orell-fussli-thalia-wurenlos"
         ],
         "de": [
           "buchhandler-in-30-a-wurenlos-raststatte-orell-fuessli-thalia-wurenlos"
         ],
         "fr": [
-          "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos"
+          "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos",
+          "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos"
         ]
       },
       "needsRetranslation": true,
@@ -1877,12 +1882,12 @@
     },
     {
       "id": "orell-fuessli-thalia-d6e5e1711ca2",
-      "slug": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-thalwil",
+      "slug": "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-thalwil",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-thalwil",
-        "en": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
+        "it": "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-thalwil",
+        "en": "retail-specialist-man-papeterie-40-a-orell-fussli-thalia-thalwil",
         "de": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
-        "fr": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
+        "fr": "specialiste-du-commerce-de-detail-homme-papeterie-40-a-orell-fussli-thalia-thalwil"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1926,10 +1931,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
+        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
+        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-thalwil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-thalwil"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
+        ],
+        "fr": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
         ]
       },

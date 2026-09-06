@@ -3632,12 +3632,12 @@
     },
     {
       "id": "spital-buelach-b27cbcff2505",
-      "slug": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
+      "slug": "segreteria-medica-in-segreteria-di-medicina-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
-        "en": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
+        "it": "segreteria-medica-in-segreteria-di-medicina-spital-bulach-bulach",
+        "en": "medical-secretary-in-secretariat-of-medicine-spital-bulach-bulach",
         "de": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach",
-        "fr": "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach"
+        "fr": "secretaire-medical-au-secretariat-de-la-medecine-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3693,16 +3693,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach"
+        ],
+        "en": [
+          "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach"
+        ],
+        "fr": [
+          "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-sekretariat-medizin-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-be053d63748a",
-      "slug": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+      "slug": "lavoratore-sociale-in-case-manager-in-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
-        "en": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+        "it": "lavoratore-sociale-in-case-manager-in-spital-bulach-bulach",
+        "en": "social-worker-in-case-manager-in-spital-bulach-bulach",
         "de": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
-        "fr": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+        "fr": "travailleur-social-dans-gestionnaire-de-cas-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3758,7 +3772,21 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+        ],
+        "en": [
+          "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+        ],
+        "fr": [
+          "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-62297a5370b9",
