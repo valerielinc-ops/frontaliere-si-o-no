@@ -608,6 +608,35 @@ function referenceStepLever(levers: readonly Lever[]): Lever | null {
   return best;
 }
 
+/**
+ * Le coppie di leve già nominate da una frase del blocco, in ordine.
+ *
+ * Tre frasi su undici nominano DUE leve in un ordine che significa qualcosa —
+ * `ratio` (la più pesante e la seconda), `stepVsOther` (il gradino e una leva
+ * non salariale, più pesante per prima) e `closestPair` (le due adiacenti che
+ * si equivalgono di più). Sceglievano ciascuna per conto proprio, quindi la
+ * stessa coppia nello stesso ordine usciva due volte nello stesso `<ul>`: due
+ * `<li>` che dicono lo stesso fatto con parole diverse, cioè zero information
+ * gain proprio dove il blocco esiste per produrne. Un registro condiviso rende
+ * la collisione visibile a chi emette per secondo, che così può scegliere
+ * un'altra coppia (se resta vera) o tacere (se non resta).
+ */
+class NamedPairs {
+  private readonly seen = new Set<string>();
+
+  private static id(first: Lever, second: Lever): string {
+    return `${first.key}|${second.key}`;
+  }
+
+  has(first: Lever, second: Lever): boolean {
+    return this.seen.has(NamedPairs.id(first, second));
+  }
+
+  claim(first: Lever, second: Lever): void {
+    this.seen.add(NamedPairs.id(first, second));
+  }
+}
+
 /** Enumerazione localizzata: "a, b e c". */
 function joinList(items: string[], and: string): string {
   if (items.length <= 1) return items[0] ?? '';
@@ -637,6 +666,7 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
   const { scenario } = input;
   const levers = buildLevers(scenario, copy);
   const sentences: string[] = [];
+  const named = new NamedPairs();
   if (levers.length === 0) return sentences;
 
   sentences.push(copy.ranking(joinList(levers.map((x) => x.label), copy.and)));
@@ -656,6 +686,7 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
           copy.ratioBuckets[bucketIndex(ratio, RATIO_EDGES)],
         ),
       );
+      named.claim(top, second);
     }
   }
 
@@ -664,7 +695,26 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
   // cioè l'asse su cui le sorelle di una stessa combinazione si distinguevano
   // finora solo in cifre.
   const step = referenceStepLever(levers);
-  const other = levers.find((x) => x.key !== 'salaryUp' && x.key !== 'salaryDown');
+  // La prima leva non salariale con Δ non nullo la cui coppia col gradino non
+  // sia già stata nominata da `ratio`. Prendere sempre la prima e basta faceva
+  // uscire `(levers[0], levers[1])` una seconda volta su 188 delle 432
+  // combinazioni pubblicate — la frase non aggiungeva nulla a quella sopra.
+  // Nessun candidato libero (una sola leva non salariale, già nominata) → si
+  // tace: la frase esiste per mostrare un confronto nuovo, non per ripeterne
+  // uno.
+  const other =
+    step === null
+      ? undefined
+      : levers.find(
+          (x) =>
+            x.key !== 'salaryUp' &&
+            x.key !== 'salaryDown' &&
+            Math.abs(x.deltaCHF) > 0 &&
+            !named.has(
+              Math.abs(step.deltaCHF) >= Math.abs(x.deltaCHF) ? step : x,
+              Math.abs(step.deltaCHF) >= Math.abs(x.deltaCHF) ? x : step,
+            ),
+        );
   if (step && other && Math.abs(other.deltaCHF) > 0 && Math.abs(step.deltaCHF) > 0) {
     // `ratioBuckets` descrive un rapporto >= 1 ("pesa il doppio di"), e la
     // frase attribuisce il peso maggiore alla leva nominata per prima. Sotto
@@ -685,6 +735,7 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
         copy.ratioBuckets[bucketIndex(ratio, RATIO_EDGES)],
       ),
     );
+    named.claim(heavierLever, lighterLever);
   }
 
   // Quali leve battono un gradino di stipendio: l'insieme cambia con la RAL
@@ -712,7 +763,15 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
         closest = i;
       }
     }
-    sentences.push(copy.closestPair(levers[closest].label, levers[closest + 1].label));
+    // Qui non si può ripiegare sulla seconda coppia più vicina come fa
+    // `stepVsOther` con la sua leva: la frase afferma che QUELLE due sono le
+    // leve che si equivalgono di più, e nominarne altre la renderebbe falsa.
+    // Se la coppia più vicina è già stata nominata sopra, la pagina perde una
+    // frase invece di ripeterne una o di dirne una sbagliata.
+    if (!named.has(levers[closest], levers[closest + 1])) {
+      sentences.push(copy.closestPair(levers[closest].label, levers[closest + 1].label));
+      named.claim(levers[closest], levers[closest + 1]);
+    }
   }
 
   const weakest = levers[levers.length - 1];
