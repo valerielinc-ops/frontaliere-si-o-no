@@ -24,6 +24,7 @@ import {
   resetEventImageManifestCache,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
+  geocodeVenue,
   reverseGeocodeCacheKey,
   reverseGeocodeComune,
   enrichEventsWithGeoComune,
@@ -245,6 +246,51 @@ describe('reverseGeocodeComune', () => {
     expect(await reverseGeocodeComune({ lat: Number.NaN, lng: 9.7 }, cache, failing as never)).toBeNull();
     expect(await reverseGeocodeComune(undefined, cache, failing as never)).toBeNull();
     expect(failing).toHaveBeenCalledTimes(1);
+  });
+
+  // #7543: Nominatim answers an internal failure with HTTP 200 and an `error`
+  // payload. Read as "no match" it would be written to the on-disk (committed)
+  // cache as a permanent null, and that coordinate never retried — the Swiss
+  // event behind it would stay in the unattributed bucket forever.
+  it('does not cache a HTTP-200 Nominatim error payload as a permanent null', async () => {
+    const cache: Record<string, unknown> = {};
+    const errored = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ error: 'Unable to geocode' }) });
+    expect(await reverseGeocodeComune({ lat: 46.8, lng: 9.7 }, cache, errored as never)).toBeNull();
+    expect(cache).toEqual({});
+
+    // Same for a 200 that carries no `address` at all: nothing to read a
+    // country code from, so it must not be judged as a non-CH point.
+    const addressless = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ name: 'X' }) });
+    expect(await reverseGeocodeComune({ lat: 46.8, lng: 9.7 }, cache, addressless as never)).toBeNull();
+    expect(cache).toEqual({});
+
+    // A real answer for the same point still resolves afterwards.
+    const ok = vi.fn().mockResolvedValue(
+      nominatimResponse({ village: 'Vals', 'ISO3166-2-lvl4': 'CH-GR', country_code: 'ch' }),
+    );
+    expect(await reverseGeocodeComune({ lat: 46.8, lng: 9.7 }, cache, ok as never)).toEqual({
+      comune: 'Vals',
+      canton: 'GR',
+    });
+  });
+});
+
+// Same class of bug in the forward direction, sharing the same on-disk cache
+// file: `/search` also answers a server-side failure with a 200 + `error`
+// object instead of the usual array.
+describe('geocodeVenue', () => {
+  it('caches a genuine no-match but never a HTTP-200 error payload', async () => {
+    const cache: Record<string, unknown> = {};
+    const errored = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ error: { code: 500, message: 'boom' } }) });
+    expect(await geocodeVenue('Teatro Sociale, Bellinzona', cache, errored as never)).toBeNull();
+    expect(cache).toEqual({}); // retried next run
+
+    const empty = vi.fn().mockResolvedValue({ ok: true, json: async () => [] });
+    expect(await geocodeVenue('Teatro Sociale, Bellinzona', cache, empty as never)).toBeNull();
+    expect(Object.values(cache)).toEqual([null]); // genuine no-match: remembered
+
+    const hit = vi.fn().mockResolvedValue({ ok: true, json: async () => [{ lat: '46.19', lon: '9.02' }] });
+    expect(await geocodeVenue('Teatro Sociale, Lugano', cache, hit as never)).toEqual({ lat: 46.19, lng: 9.02 });
   });
 });
 
