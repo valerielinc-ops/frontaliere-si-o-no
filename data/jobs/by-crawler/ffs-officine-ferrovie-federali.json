@@ -2869,7 +2869,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1d16ed8babd2",
@@ -2934,20 +2935,33 @@
         "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
         "gatto-macchinista-un-trattore-a-catenaria-fzm-ffs-officine-ferrovie-federali-dulliken",
         "train-driver-cat-a-catenary-tractor-fzm-ffs-officine-ferrovie-federali-dulliken",
-        "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken"
+        "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "gatto-macchinista-trattore-a-catena-b100-ffs-officine-ferrovie-federali-dulliken",
+        "train-driver-cat-b100-catenary-tractor-ffs-officine-ferrovie-federali-dulliken",
+        "lokfuhrer-in-kat-b100-fahrleitungszugmaschine-ffs-officine-ferrovie-federali-dulliken",
+        "conducteur-de-train-cat-tracteur-a-catenaire-b100-ffs-officine-ferrovie-federali-dulliken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
           "gatto-macchinista-un-trattore-a-catenaria-fzm-ffs-officine-ferrovie-federali-dulliken",
           "train-driver-cat-a-catenary-tractor-fzm-ffs-officine-ferrovie-federali-dulliken",
-          "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken"
+          "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "gatto-macchinista-trattore-a-catena-b100-ffs-officine-ferrovie-federali-dulliken",
+          "train-driver-cat-b100-catenary-tractor-ffs-officine-ferrovie-federali-dulliken",
+          "lokfuhrer-in-kat-b100-fahrleitungszugmaschine-ffs-officine-ferrovie-federali-dulliken",
+          "conducteur-de-train-cat-tracteur-a-catenaire-b100-ffs-officine-ferrovie-federali-dulliken"
         ],
         "en": [
-          "train-driver-cat-a-catenary-tractor-fzm-ffs-officine-ferrovie-federali-dulliken"
+          "train-driver-cat-a-catenary-tractor-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "train-driver-cat-b100-catenary-tractor-ffs-officine-ferrovie-federali-dulliken"
         ],
         "fr": [
-          "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken"
+          "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "conducteur-de-train-cat-tracteur-a-catenaire-b100-ffs-officine-ferrovie-federali-dulliken"
+        ],
+        "de": [
+          "lokfuhrer-in-kat-b100-fahrleitungszugmaschine-ffs-officine-ferrovie-federali-dulliken"
         ]
       },
       "firstSeenAt": "2026-09-01T07:21:24.164Z",
@@ -4830,7 +4844,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "SAP Enterprise Architect (m/w/d)",
       "titleByLocale": {
-        "it": "SAP Enterprise Architect (m/w/d)",
+        "it": "SAP Enterprise Architect (m/f/d)",
         "en": "SAP Enterprise Architect (m/f/d)",
         "de": "SAP Enterprise Architect (m/w/d)",
         "fr": "Architecte d'entreprise SAP (h/f/d)"
@@ -4886,8 +4900,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-4d66898ca300",
@@ -4991,7 +5004,7 @@
       "title": "Product Architect Microsoft 365 (m/w/d)",
       "titleByLocale": {
         "it": "Architetto di prodotto Microsoft 365 (m/f/d)",
-        "en": "Product Architect Microsoft 365 (m/w/d)",
+        "en": "Product Architect Microsoft 365 (m/f/d)",
         "de": "Product Architect Microsoft 365 (m/w/d)",
         "fr": "Architecte produit Microsoft 365 (h/f/d)"
       },
@@ -5048,8 +5061,7 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-39b1a11e9670",
@@ -5158,7 +5170,7 @@
       "title": "Key Account Manager (m/w/d)",
       "titleByLocale": {
         "it": "Gestore dei Conti Chiave (m/f/d)",
-        "en": "Key Account Manager (m/w/d)",
+        "en": "Key Account Manager (m/f/d)",
         "de": "Key Account Manager (m/w/d)",
         "fr": "Gestionnaire de comptes clés (h/f/d)"
       },
@@ -5208,8 +5220,7 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "sbb-a372b1346856",
@@ -6506,7 +6517,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -7761,12 +7772,29 @@
       "crawledAt": "2026-09-05T22:57:20.712Z",
       "previousSlugs": [
         "reiniger-ffs-officine-ferrovie-federali-konolfingen",
-        "reiniger-in-ffs-officine-ferrovie-federali-konolfingen"
+        "reiniger-in-ffs-officine-ferrovie-federali-konolfingen",
+        "pulitore-ffs-officine-ferrovie-federali-brig",
+        "cleaner-ffs-officine-ferrovie-federali-brig",
+        "reiniger-in-ffs-officine-ferrovie-federali-brig",
+        "nettoyage-ffs-officine-ferrovie-federali-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reiniger-ffs-officine-ferrovie-federali-konolfingen",
-          "reiniger-in-ffs-officine-ferrovie-federali-konolfingen"
+          "reiniger-in-ffs-officine-ferrovie-federali-konolfingen",
+          "pulitore-ffs-officine-ferrovie-federali-brig",
+          "cleaner-ffs-officine-ferrovie-federali-brig",
+          "reiniger-in-ffs-officine-ferrovie-federali-brig",
+          "nettoyage-ffs-officine-ferrovie-federali-brig"
+        ],
+        "en": [
+          "cleaner-ffs-officine-ferrovie-federali-brig"
+        ],
+        "de": [
+          "reiniger-in-ffs-officine-ferrovie-federali-brig"
+        ],
+        "fr": [
+          "nettoyage-ffs-officine-ferrovie-federali-brig"
         ]
       },
       "firstSeenAt": "2026-08-18T21:54:32.169Z",
@@ -7972,7 +8000,7 @@
       "title": "Security Engineer (m/w/d) - Netzleitsystem Energie",
       "titleByLocale": {
         "it": "Security Engineer (m/f/d) - Sistema di gestione dell'energia",
-        "en": "Security Engineer (m/w/d) - Netzleitsystem Energie",
+        "en": "Security Engineer (m/f/d) - Power grid control system",
         "de": "Security Ingenieur (m/w/d) - Netzleitsystem Energie",
         "fr": "Ingénieur en sécurité (h/f/d) - Système de contrôle des réseaux énergétiques"
       },
