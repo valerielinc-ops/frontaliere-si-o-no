@@ -5785,6 +5785,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Salaires et emploi à Schaffhouse : secteurs, formation, niveaux',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Salaires à Schaffhouse : niveaux de formation, conventions collectives et cotisations sociales dans le système suisse.',
     'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Vue panoramique du centre économique de Lugano avec bâtiments modernes',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.title': 'Naturalisation dans le canton d\'Appenzell externe : exigences et procédure',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.excerpt': 'Découvrez les conditions et la procédure de naturalisation ordinaire dans le canton d\'Appenzell Extérieur.',
+    'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.imageAlt': 'Image d\'une scène nationale/cantonale suisse pertinente au processus de naturalisation',
 };
 
 export default blogMetaChFr;
