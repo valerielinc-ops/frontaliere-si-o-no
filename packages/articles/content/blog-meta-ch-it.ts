@@ -5752,6 +5752,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-mondo-multipolare.title': 'La direttrice della Seco mette in guardia dai rischi di un «mondo multipolare»',
     'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda avverte della necessità di una maggiore coesione interna e di un ruolo internazionale più attivo per la Svizzera.',
     'blog.article.svizzera-mondo-multipolare.imageAlt': 'Vista aerea del centro finanziario di Zurigo, Svizzera',
+    'blog.article.successione-donazione-vallese-guida.title': 'Imposta successione Vallese: aliquote e esenzioni',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Tassazione successoria nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini da rispettare.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Studio notarile con documenti di successione e moduli fiscali su scrivania in legno',
 };
 
 export default blogMetaChIt;

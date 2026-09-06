@@ -5752,6 +5752,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-mondo-multipolare.title': 'The director of Seco warns of the risks of a "multipolar world"',
     'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda warns of the need for greater internal cohesion and a more active international role for Switzerland.',
     'blog.article.svizzera-mondo-multipolare.imageAlt': 'Aerial view of Zurich financial district, Switzerland',
+    'blog.article.successione-donazione-vallese-guida.title': 'Valais inheritance tax: rates and exemptions',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Inheritance taxation in Valais: rates for degree of kinship, exemptions for spouse and descendants, declaration and deadlines to be respected.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Notary office desk with succession documents and tax forms on wooden table',
 };
 
 export default blogMetaChEn;

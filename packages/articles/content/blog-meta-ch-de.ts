@@ -5752,6 +5752,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-mondo-multipolare.title': 'Die Direktorin des Seco warnt vor den Gefahren einer «multipolaren Welt»',
     'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda warnt vor einem stärkeren inneren Zusammenhalt und einer aktiveren internationalen Rolle der Schweiz.',
     'blog.article.svizzera-mondo-multipolare.imageAlt': 'Luftaufnahme des Finanzdistrikts von Zürich, Schweiz',
+    'blog.article.successione-donazione-vallese-guida.title': 'Erbschaftssteuer Wallis: Steuersätze und Befreiungen',
+    'blog.article.successione-donazione-vallese-guida.excerpt': 'Erbschaftssteuer im Wallis: Sätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen, Erklärung und einzuhaltende Fristen.',
+    'blog.article.successione-donazione-vallese-guida.imageAlt': 'Schreibtisch mit Erbschaftsdokumenten und Steuerfomularen im Notariatsburo',
 };
 
 export default blogMetaChDe;
