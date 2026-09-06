@@ -27,4 +27,15 @@ describe('review → autorebase ordering', () => {
     expect(nativeAutoMerge).toContain('gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto');
     expect(nativeAutoMerge).not.toContain('auto-merge-eval.mjs');
   });
+
+  it('review_gate still runs when claude_review has outcome == failure (no outcome != failure skip)', () => {
+    const start = workflow.indexOf('id: review_gate');
+    expect(start).toBeGreaterThanOrEqual(0);
+    const gateBlock = workflow.slice(start, start + 1200);
+    const ifLine = gateBlock.split('\n').find((l) => /^\s+if:/.test(l));
+    expect(ifLine, 'review_gate must have a job-step if:').toBeTruthy();
+    expect(ifLine).toContain('always()');
+    expect(ifLine).toContain("steps.resolve.outputs.should_review == 'true'");
+    expect(ifLine).not.toMatch(/steps\.claude_review\.outcome\s*!=\s*'failure'/);
+  });
 });

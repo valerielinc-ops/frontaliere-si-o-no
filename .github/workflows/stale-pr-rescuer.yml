@@ -124,8 +124,8 @@ jobs:
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
             reviews=$(gh api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
-            LAST_BODY=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("claude";"i"))] | last | .body // ""')
-            LAST_CID=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("claude";"i"))] | last | .commit_id // ""')
+            LAST_BODY=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .body // ""')
+            LAST_CID=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .commit_id // ""')
 
             REASON=""; RESCUE=""
             if [ "$TESTS_CONCL" = "success" ] && [ "$LAST_CID" != "$HEAD" ]; then

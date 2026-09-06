@@ -87,7 +87,7 @@ function mergedPrStats(since) {
     prs = gh(['pr', 'list', '--repo', REPO, '--state', 'merged',
       '--search', `merged:>${since}`, '--limit', '300', '--json', 'number,reviews']);
   } catch { /* noop */ }
-  const claudeReviews = (pr) => (pr.reviews || []).filter((r) => /^claude/i.test(r.author?.login || '')).length;
+  const claudeReviews = (pr) => (pr.reviews || []).filter((r) => /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i.test(r.author?.login || '')).length;
   const merged = prs.length;
   // === 1 (non <=1): una PR mergiata con ZERO review claude (merge manuale,
   // o reopen-path prima che la review atterri) non e' un "first-shot LGTM" —
