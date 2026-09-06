@@ -5707,6 +5707,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-canton-argovia.title': 'Scholarships canton Aargau: requirements and amounts',
     'blog.article.borse-studio-canton-argovia.excerpt': 'Complete guide to scholarships in the Canton of Aargau: admission criteria, maximum amounts, application procedure and competent cantonal office.',
     'blog.article.borse-studio-canton-argovia.imageAlt': 'Swiss university study room with students consulting books and using laptops',
+    'blog.article.comprare-casa-argovia-procedura.title': 'Buying a house in Aargau: prices and mortgage',
+    'blog.article.comprare-casa-argovia-procedura.excerpt': 'Guide to buying real estate in the Canton of Aargau: prices, own funds, mortgage loan, transfer tax and notary fees. Step-by-step procedure.',
+    'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Swiss residential neighborhood with modern houses and green gardens, typical Swiss housing community',
 };
 
 export default blogMetaChEn;

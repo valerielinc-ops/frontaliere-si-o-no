@@ -5707,6 +5707,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-canton-argovia.title': 'Borse di studio canton Argovia: requisiti e importi',
     'blog.article.borse-studio-canton-argovia.excerpt': 'Guida completa alle borse di studio nel Cantone di Argovia: criteri di ammissione, importi massimi, procedura di domanda e ufficio cantonale competente.',
     'blog.article.borse-studio-canton-argovia.imageAlt': 'Sala studio universitaria svizzera con studenti che consultano libri e usano computer portatili',
+    'blog.article.comprare-casa-argovia-procedura.title': 'Comprare casa in Argovia: prezzi e mutuo ipotecario',
+    'blog.article.comprare-casa-argovia-procedura.excerpt': 'Guida all\'acquisto di immobili nel Canton Argovia: prezzi, fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Procedura step-by-step.',
+    'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Quartiere residenziale svizzero con case moderne e giardini verdi, comunità abitativa tipica della Svizzera',
 };
 
 export default blogMetaChIt;
