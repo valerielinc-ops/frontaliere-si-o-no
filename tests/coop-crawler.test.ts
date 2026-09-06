@@ -889,17 +889,62 @@ describe('Coop-family source-detail contract (#5253)', () => {
   });
 
   it('fails the whole enrichment before publishing a partial or malformed detail batch', async () => {
-    const jobs = cases.slice(0, 2).map(([companyKey, url]) => ({
+    // A batch-wide loss of the JSON-LD is the ATS drift the enricher exists to
+    // catch: below the drift share a bad payload is dropped one vacancy at a
+    // time (#7179), above it the batch still fails closed.
+    const jobs = cases.map(([companyKey, url]) => ({
       id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
       description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
     }));
-    const fetchImpl = async (input: URL) => String(input).includes('22222222')
-      ? new Response('<html>missing JSON-LD</html>', { status: 200 })
-      : new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 });
+    const fetchImpl = async (input: URL) => String(input).includes('11111111')
+      ? new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 })
+      : new Response('<html>missing JSON-LD</html>', { status: 200 });
 
     await expect(enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 }))
-      .rejects.toThrow(/has no JobPosting JSON-LD/);
+      .rejects.toThrow(/3\/4 rejected/);
     expect(jobs.every((job) => job.description === 'listing fallback')).toBe(true);
+  });
+
+  it('drops a single unusable detail payload instead of failing the whole crawl (#7179)', async () => {
+    // One 37-word fenaco posting among 677 made `Run volg` fail on every run:
+    // the vacancy is unpublishable, the other 676 are not.
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const thin = { ...jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'), description: '<p>Kurze Anzeige.</p>' };
+    const fetchImpl = async (input: URL) => new Response(
+      `<script type="application/ld+json">${JSON.stringify(String(input).includes('44444444') ? thin : jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`,
+      { status: 200 },
+    );
+
+    const rejected: string[] = [];
+    const enriched = await enrichCoopSourceBackedJobs(jobs, {
+      fetchImpl, concurrency: 2, onRejected: (urls) => rejected.push(...urls),
+    });
+    expect(enriched).toHaveLength(jobs.length - 1);
+    expect(enriched.map((job) => job.id)).not.toContain('volg-fenaco-stable');
+    expect(rejected).toEqual([jobs.find((job) => job.url.includes('44444444'))!.url]);
+    // Survivors are still source-backed, never the listing fallback.
+    expect(enriched.every((job) => job.location === 'Oberbüren' && job._enrichedFromDetail)).toBe(true);
+  });
+
+  it('counts gone and rejected pages against one drift budget', async () => {
+    // Split evenly, neither half crosses the ratio on its own — but the batch
+    // has lost half its detail payloads, which is drift either way.
+    const jobs = cases.map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => {
+      if (String(input).includes('11111111') || String(input).includes('22222222')) {
+        return new Response(null, { status: 410 });
+      }
+      return new Response('<html>missing JSON-LD</html>', { status: 200 });
+    };
+
+    await expect(enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 }))
+      .rejects.toThrow(/2\/4 pages gone .*, 2\/4 rejected/);
   });
 
   it('drops a withdrawn vacancy (HTTP 410) instead of failing the whole crawl (#6659)', async () => {
