@@ -5761,6 +5761,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.title': 'Comprare casa nel Cantone di Zurigo: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.excerpt': 'Scopri i prezzi medi delle abitazioni e i requisiti per i fondi propri nel Cantone di Zurigo. Pianifica il tuo acquisto con consigli pratici.',
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.imageAlt': 'Vista aerea di un\'area residenziale moderna a Zurigo, Svizzera',
+    'blog.article.affitti-sciaffusa-canoni-deposito.title': 'Affitti Sciaffusa: canoni, deposito e diritto di locazione',
+    'blog.article.affitti-sciaffusa-canoni-deposito.excerpt': 'Guida pratica ai diritti di locazione in Sciaffusa: deposito cauzionale, contestazione canoni, disdetta e procedure presso l\'autorità di conciliazione.',
+    'blog.article.affitti-sciaffusa-canoni-deposito.imageAlt': 'Contratto di locazione svizzero e chiave su scrivania con documenti legali immobiliari',
 };
 
 export default blogMetaChIt;

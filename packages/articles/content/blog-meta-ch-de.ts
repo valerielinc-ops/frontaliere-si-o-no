@@ -5761,6 +5761,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.title': 'Haus kaufen im Kanton Zürich: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.excerpt': 'Informieren Sie sich über die durchschnittlichen Wohnungspreise und Eigenmittelanforderungen im Kanton Zürich. Planen Sie Ihren Einkauf mit praktischen Tipps.',
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.imageAlt': 'Luftaufnahme eines modernen Wohngebiets in Zürich, Schweiz',
+    'blog.article.affitti-sciaffusa-canoni-deposito.title': 'Mieten Schaffhausen: Mieten, Kaution und Mietrecht',
+    'blog.article.affitti-sciaffusa-canoni-deposito.excerpt': 'Praktischer Leitfaden zu den Mietrechten in Schaffhausen: Kaution, Gebührenbeanstandung, Kündigung und Verfahren bei der Schlichtungsbehörde.',
+    'blog.article.affitti-sciaffusa-canoni-deposito.imageAlt': 'Schweizer Mietvertrag und Schlüssel auf Schreibtisch mit rechtlichen Immobiliendokumenten',
 };
 
 export default blogMetaChDe;

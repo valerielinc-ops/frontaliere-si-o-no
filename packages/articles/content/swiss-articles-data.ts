@@ -17281,6 +17281,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-sciaffusa-canoni-deposito',
+    category: 'pratico',
+    date: '2026-09-06T17:46:08.247Z',
+    image: '/images/blog/affitti-sciaffusa-canoni-deposito.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
