@@ -5782,6 +5782,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-svizzera-settori-formazione-contratti.title': 'Salari e mercato del lavoro: formazione, settori e livelli',
     'blog.article.salari-svizzera-settori-formazione-contratti.excerpt': 'Lo stipendio svizzero si compone di lordo, contributi AVS/LPP/LAMal e netto. Scopri come variano i salari per formazione, settore e come verificare la tua busta paga.',
     'blog.article.salari-svizzera-settori-formazione-contratti.imageAlt': 'Colloquio professionale in ufficio svizzero: discussione su stipendio e contratto di lavoro tra colleghi.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Salari e lavoro in Sciaffusa: settori, formazione, livelli',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Salari in Sciaffusa: livelli per formazione, contratti collettivi e contributi sociali nel sistema svizzero.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Panorama del centro economico di Lugano con edifici moderni al tramonto',
 };
 
 export default blogMetaChIt;

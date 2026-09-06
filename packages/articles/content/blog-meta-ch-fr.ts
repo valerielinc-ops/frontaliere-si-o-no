@@ -5782,6 +5782,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-svizzera-settori-formazione-contratti.title': 'Salaires et marché du travail : formation, secteurs et niveaux',
     'blog.article.salari-svizzera-settori-formazione-contratti.excerpt': 'Le salaire suisse se compose du brut, des cotisations AVS/LPP/LAMal et du net. Découvrez comment les salaires varient selon la formation, le secteur et comment vérifier votre paie.',
     'blog.article.salari-svizzera-settori-formazione-contratti.imageAlt': 'Discussion professionnelle sur les salaires dans un bureau suisse entre collègues examinant le contrat d\'emploi.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.title': 'Salaires et emploi à Schaffhouse : secteurs, formation, niveaux',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.excerpt': 'Salaires à Schaffhouse : niveaux de formation, conventions collectives et cotisations sociales dans le système suisse.',
+    'blog.article.sciaffusa-lavoro-contratti-collettivi.imageAlt': 'Vue panoramique du centre économique de Lugano avec bâtiments modernes',
 };
 
 export default blogMetaChFr;
