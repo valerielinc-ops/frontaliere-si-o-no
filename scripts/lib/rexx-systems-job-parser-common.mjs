@@ -185,7 +185,7 @@ function readRexxStructuredPosting(html, title, pageUrl) {
   const pageIdentity = canonicalRexxUrl(pageUrl);
   const candidates = postings.filter((posting) => {
     const titleMatches = title
-      && normalize(posting?.title || posting?.name) === normalize(title);
+      && normalize(decodeEntities(posting?.title || posting?.name || '')) === normalize(title);
     const postingIdentity = canonicalRexxUrl(posting?.url || posting?.sameAs || '');
     if (postingIdentity) return Boolean(pageIdentity && postingIdentity === pageIdentity);
     return titleMatches;

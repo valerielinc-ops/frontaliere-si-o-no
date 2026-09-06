@@ -283,6 +283,27 @@ describe('Kantonsspital Uri shared rexx parser', () => {
     expect(jobs[0]).toMatchObject({ location: 'Altdorf', canton: 'UR', postalCode: '6460' });
   });
 
+  it('still matches its own JobPosting when the structured title is HTML-escaped', async () => {
+    // The content of `<script type="application/ld+json">` is raw text, so the
+    // HTML parser never resolves its entities: a tenant whose JSON-LD title
+    // writes `K&ouml;chin&nbsp; / Koch &amp; ...` reaches the identity
+    // comparison escaped, while the `<h1>` side arrives decoded. Without
+    // decoding both sides the posting misses itself and the whole batch fails
+    // the same way as #7461.
+    const RENDERED_TITLE = 'Köchin  / Koch EFZ & Berufsbildungsfunktion 80 - 100 %';
+    const ESCAPED_TITLE = 'K&ouml;chin&nbsp; / Koch EFZ &amp; Berufsbildungsfunktion 80 - 100 %';
+    const html = realRexxDetailFixture({ title: RENDERED_TITLE, structuredTitle: ESCAPED_TITLE });
+    stubKantonsspitalSource(html);
+
+    const detail = extractRexxDetail(html, DETAIL_URL);
+    expect(detail.sourceAddresses).not.toHaveLength(0);
+
+    const jobs = await fetchAllKantonsspitalUriJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ location: 'Altdorf', canton: 'UR', postalCode: '6460' });
+  });
+
   it('lets an explicit different JobPosting URL override a coincidentally equal title', async () => {
     stubKantonsspitalSource(realRexxDetailFixture({
       structuredUrl: SECOND_DETAIL_URL,
