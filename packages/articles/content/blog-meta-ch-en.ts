@@ -5722,6 +5722,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Rescue exercise in the Monte Ceneri tunnel',
     'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Simulated fire in a Giruno train during a rescue exercise in the Monte Ceneri tunnel.',
     'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Aerial view of the Monte Ceneri tunnel during a safety drill, with emergency vehicles and personnel in action.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Naturalization in the Canton of Aargau: requirements and procedure',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Learn about the requirements and procedure for obtaining naturalization in the Canton of Aargau, including years of residence, integration tests, and taxes.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Panoramic view of Aarau, capital of the canton of Aargau, Switzerland',
 };
 
 export default blogMetaChEn;

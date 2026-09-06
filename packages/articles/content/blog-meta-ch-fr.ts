@@ -5722,6 +5722,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Exercice de sauvetage dans le tunnel du Monte Ceneri',
     'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Incendie simulé dans un train Giruno lors d\'un exercice de sauvetage dans le tunnel du Monte Ceneri.',
     'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Vue aérienne du tunnel du Monte Ceneri lors d\'un exercice de sécurité, avec des véhicules d\'urgence et du personnel en action.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Naturalisation dans le canton d\'Argovie : exigences et procédure',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Découvrez les conditions et la procédure d\'obtention de la naturalisation dans le canton d\'Argovie, y compris les années de résidence, les tests d\'intégration et les taxes.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Vue panoramique d\'Aarau, capitale du canton d\'Argovie, Suisse',
 };
 
 export default blogMetaChFr;

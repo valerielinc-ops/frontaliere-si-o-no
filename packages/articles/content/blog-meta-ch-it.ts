@@ -5722,6 +5722,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Esercitazione di salvataggio nella galleria del Monte Ceneri',
     'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Simulato incendio in un treno Giruno durante un\'esercitazione di salvataggio nella galleria del Monte Ceneri.',
     'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Vista aerea della galleria del Monte Ceneri durante un\'esercitazione di sicurezza, con veicoli di emergenza e personale in azione.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Naturalizzazione nel Canton Argovia: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Scopri i requisiti e la procedura per ottenere la naturalizzazione nel Canton Argovia, inclusi anni di residenza, test di integrazione e tasse.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Panoramica della città di Aarau, capitale del Canton Argovia, Svizzera',
 };
 
 export default blogMetaChIt;
