@@ -5683,6 +5683,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Comprare casa Vallese: prezzi, mutuo e costi',
     'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Guida all\'acquisto immobiliare in Vallese: fondi propri richiesti, sostenibilità del mutuo, imposte sui trapassi e spese notarili.',
     'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Documenti di mutuo e contratti immobiliari su scrivania di legno con casa svizzera sullo sfondo',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Avviare un\'attività a Grigioni: costi e procedura',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Guida completa: forme giuridiche, iscrizione al registro di commercio, imposte federali e cantonali, IVA, obblighi AVS, SUVA, LAMal. Procedura step-by-step.',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Ufficio e insegna commerciale di una piccola azienda registrata nel Cantone Grigioni',
 };
 
 export default blogMetaChIt;

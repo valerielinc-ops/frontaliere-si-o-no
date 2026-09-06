@@ -5683,6 +5683,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Buying a Valais house: prices, mortgage and costs',
     'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Guide to buying property in Valais: own funds required, mortgage sustainability, transfer taxes and notary fees.',
     'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Mortgage documents and real estate contracts on wooden desk with Swiss alpine house in background',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Starting a business in Graubünden: costs and procedures',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Complete guide: legal forms, registration in the trade register, federal and cantonal taxes, VAT, AVS obligations, SUVA, LAMal. Step-by-step procedure.',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Commercial office storefront of a registered business in Grisons Canton',
 };
 
 export default blogMetaChEn;
