@@ -21,6 +21,7 @@ import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const MAX_INSPECT_URLS = 20; // API quota: 2000/day — we use 20 per deploy
@@ -442,8 +443,7 @@ async function getSearchAnalytics(accessToken) {
   };
 
   const endDate = new Date();
-  const startDate = new Date();
-  startDate.setDate(startDate.getDate() - 7);
+  const startDate = utcDaysBefore(endDate, 7);
 
   const fmt = (d) => d.toISOString().split('T')[0];
 

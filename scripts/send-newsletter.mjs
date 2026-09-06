@@ -64,6 +64,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
 import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -784,8 +785,7 @@ async function fetchExchangeHistory(days = 120) {
   // 2. Fallback: Frankfurter API (only if Firestore is empty/unavailable)
   console.log('⚠️ Falling back to Frankfurter API for history');
   const end = new Date();
-  const start = new Date(end);
-  start.setDate(end.getDate() - days);
+  const start = utcDaysBefore(end, days);
   const startStr = start.toISOString().slice(0, 10);
   const endStr = end.toISOString().slice(0, 10);
   const endpoints = [

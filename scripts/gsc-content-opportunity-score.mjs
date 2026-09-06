@@ -26,6 +26,7 @@ import { join } from 'node:path';
 import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
 import { classifyAnalyticsPath } from './lib/analytics-opportunity-utils.mjs';
 import { rankPageOpportunities } from './lib/gsc-opportunity-scoring.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const SITE = 'sc-domain:frontaliereticino.ch';
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -105,8 +106,8 @@ const GSC_QUERY_MAX_PAGES = 8; // safety cap: 8 * 25000 = 200000 righe
 
 async function fetchPagePerformance(token, days) {
   const today = new Date();
-  const end = new Date(today); end.setDate(end.getDate() - 2); // GSC ha un ritardo di 2 giorni
-  const start = new Date(end); start.setDate(start.getDate() - days);
+  const end = utcDaysBefore(today, 2); // GSC ha un ritardo di 2 giorni
+  const start = utcDaysBefore(end, days);
 
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
   const rows = [];
