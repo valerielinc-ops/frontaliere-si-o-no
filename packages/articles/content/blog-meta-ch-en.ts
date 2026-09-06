@@ -5761,6 +5761,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.title': 'Buying a house in the Canton of Zurich: prices and mortgage',
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.excerpt': 'Find out about average house prices and own funds requirements in the Canton of Zurich. Plan your purchase with practical tips.',
     'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.imageAlt': 'Aerial view of a modern residential area in Zurich, Switzerland',
+    'blog.article.affitti-sciaffusa-canoni-deposito.title': 'Schaffhausen rentals: fees, deposit and rental rights',
+    'blog.article.affitti-sciaffusa-canoni-deposito.excerpt': 'Practical guide to lease rights in Schaffhausen: security deposit, dispute fees, cancellation and procedures with the conciliation authority.',
+    'blog.article.affitti-sciaffusa-canoni-deposito.imageAlt': 'Swiss rental contract and key on desk with legal real estate documentation',
 };
 
 export default blogMetaChEn;

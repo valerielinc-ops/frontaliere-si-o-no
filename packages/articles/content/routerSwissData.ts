@@ -1946,6 +1946,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'successione-donazione-vallese-guida': { it: 'successione-donazione-vallese-guida', en: 'succession-donation-valais-guide', de: 'erbschaft-schenkung-wallis-anleitung', fr: 'succession-donation-valais-guide' },
  'affitti-sciaffusa-deposito-contestazione': { it: 'affitti-sciaffusa-deposito-contestazione', en: 'shaffhausen-rental-deposit-dispute', de: 'mietrecht-schaffhausen-kaution-einspruch', fr: 'location-schaffhouse-depot-litige' },
  'comprare-casa-zurigo-prezzi-mutuo-ipotecario': { it: 'comprare-casa-zurigo-prezzi-mutuo-ipotecario', en: 'buying-house-zurich-prices-mortgage', de: 'hauskauf-zurich-preise-hypothek', fr: 'achat-maison-zurich-prix-hypotheque' },
+ 'affitti-sciaffusa-canoni-deposito': { it: 'affitti-sciaffusa-canoni-deposito', en: 'schaffhausen-rental-deposits-canons', de: 'schaffhausen-mietkaution-nebenkosten', fr: 'schaffhouse-loyers-depot-garantie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -74783,6 +74783,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-sciaffusa-canoni-deposito': {
+    title: 'Affitti Sciaffusa: canoni, deposito e diritto di locazione',
+    description: 'Guida pratica ai diritti di locazione in Sciaffusa: deposito cauzionale, contestazione canoni, disdetta e procedure presso l\'autorità di conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, sciaffusa, canoni, deposito',
+    ogTitle: 'Affitti Sciaffusa: canoni, deposito e diritto di locazione',
+    ogDescription: 'Scopri come funziona il mercato dei lettini a Sciaffusa, i tuoi diritti come inquilino, come contestare il canone iniziale e il ruolo dell\'autorità di conciliazione secondo il diritto di locazione federale svizzero.',
+    canonicalPath: '/articoli-svizzera/affitti-sciaffusa-canoni-deposito/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Sciaffusa: canoni, deposito e diritto di locazione",
+      "description": "Guida pratica ai diritti di locazione in Sciaffusa: deposito cauzionale, contestazione canoni, disdetta e procedure presso l'autorità di conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-sciaffusa-canoni-deposito.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Contratto di locazione svizzero e chiave su scrivania con documenti legali immobiliari"
+      },
+      "datePublished": "2026-09-06T17:46:08+00:00",
+      "dateModified": "2026-09-06T17:46:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-sciaffusa-canoni-deposito/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
