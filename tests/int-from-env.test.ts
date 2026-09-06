@@ -133,6 +133,9 @@ describe('i call site dove un conteggio non positivo SPEGNE la regola', () => {
     ['scripts/update-aldi-suisse-jobs.mjs', 'JOBS_CRAWLER_CONCURRENCY'],
     ['scripts/update-denner-jobs.mjs', 'JOBS_CRAWLER_CONCURRENCY'],
     ['scripts/update-burkhalter-jobs.mjs', 'JOBS_CRAWLER_CONCURRENCY'],
+    ['scripts/update-denner-jobs.mjs', 'JOBS_DENNER_MAX_PAGES'],
+    ['scripts/update-migros-jobs.mjs', 'JOBS_MIGROS_MAX_PAGES'],
+    ['scripts/update-giorgio-armani-jobs.mjs', 'ARMANI_MAX_LISTING_PAGES'],
   ];
 
   it.each(SLICE_BOUND)('%s legge %s con positiveIntFromEnv', (file, env) => {

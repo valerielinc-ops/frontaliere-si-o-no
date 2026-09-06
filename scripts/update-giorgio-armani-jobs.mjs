@@ -66,6 +66,7 @@ import {
 } from './lib/giorgio-armani-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -91,7 +92,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // JOBS_GIORGIO_ARMANI_HEADLESS=0 locally to watch the browser while debugging.
 const HEADLESS = process.env.JOBS_GIORGIO_ARMANI_HEADLESS !== '0';
 const BROWSER_TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 60000;
-const MAX_LISTING_PAGES = Number(process.env.ARMANI_MAX_LISTING_PAGES) || 25;
+const MAX_LISTING_PAGES = positiveIntFromEnv('ARMANI_MAX_LISTING_PAGES', 25);
 const DEFAULT_UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36';
