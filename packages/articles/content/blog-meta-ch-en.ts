@@ -5758,6 +5758,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-sciaffusa-deposito-contestazione.title': 'Schaffhausen lease right: filing and dispute',
     'blog.article.affitti-sciaffusa-deposito-contestazione.excerpt': 'Maximum deposit 3 months, escrow account, cancellation on official form: guide to the federal lease law in the Canton of Schaffhausen with procedures and deadlines.',
     'blog.article.affitti-sciaffusa-deposito-contestazione.imageAlt': 'Entrance of a Swiss residential building with door and mailbox',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.title': 'Buying a house in the Canton of Zurich: prices and mortgage',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.excerpt': 'Find out about average house prices and own funds requirements in the Canton of Zurich. Plan your purchase with practical tips.',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.imageAlt': 'Aerial view of a modern residential area in Zurich, Switzerland',
 };
 
 export default blogMetaChEn;

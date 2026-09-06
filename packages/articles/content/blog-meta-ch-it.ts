@@ -5758,6 +5758,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-sciaffusa-deposito-contestazione.title': 'Diritto locazione Sciaffusa: deposito e contestazione',
     'blog.article.affitti-sciaffusa-deposito-contestazione.excerpt': 'Deposito max 3 mesi, conto vincolato, disdetta su modulo ufficiale: guida al diritto federale di locazione nel Canton Sciaffusa con procedure e scadenze.',
     'blog.article.affitti-sciaffusa-deposito-contestazione.imageAlt': 'Ingresso di un edificio residenziale svizzero con porta e cassetta postale',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.title': 'Comprare casa nel Cantone di Zurigo: prezzi e mutuo ipotecario',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.excerpt': 'Scopri i prezzi medi delle abitazioni e i requisiti per i fondi propri nel Cantone di Zurigo. Pianifica il tuo acquisto con consigli pratici.',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.imageAlt': 'Vista aerea di un\'area residenziale moderna a Zurigo, Svizzera',
 };
 
 export default blogMetaChIt;

@@ -1945,6 +1945,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-mondo-multipolare': { it: 'svizzera-mondo-multipolare', en: 'switzerland-multipolar-world', de: 'schweiz-multipolare-welt', fr: 'suisse-monde-multipolaire' },
  'successione-donazione-vallese-guida': { it: 'successione-donazione-vallese-guida', en: 'succession-donation-valais-guide', de: 'erbschaft-schenkung-wallis-anleitung', fr: 'succession-donation-valais-guide' },
  'affitti-sciaffusa-deposito-contestazione': { it: 'affitti-sciaffusa-deposito-contestazione', en: 'shaffhausen-rental-deposit-dispute', de: 'mietrecht-schaffhausen-kaution-einspruch', fr: 'location-schaffhouse-depot-litige' },
+ 'comprare-casa-zurigo-prezzi-mutuo-ipotecario': { it: 'comprare-casa-zurigo-prezzi-mutuo-ipotecario', en: 'buying-house-zurich-prices-mortgage', de: 'hauskauf-zurich-preise-hypothek', fr: 'achat-maison-zurich-prix-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

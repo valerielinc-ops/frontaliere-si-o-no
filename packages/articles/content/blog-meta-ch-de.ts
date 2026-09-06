@@ -5758,6 +5758,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-sciaffusa-deposito-contestazione.title': 'Mietrecht Schaffhausen: Einreichung und Anfechtung',
     'blog.article.affitti-sciaffusa-deposito-contestazione.excerpt': 'Maximale Kaution 3 Monate, gebundenes Konto, Kündigung auf amtlichem Formular: Anleitung zum Bundesmietrecht im Kanton Schaffhausen mit Verfahren und Fristen.',
     'blog.article.affitti-sciaffusa-deposito-contestazione.imageAlt': 'Eingang eines Schweizer Wohngebäudes mit Tür und Postkasten',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.title': 'Haus kaufen im Kanton Zürich: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.excerpt': 'Informieren Sie sich über die durchschnittlichen Wohnungspreise und Eigenmittelanforderungen im Kanton Zürich. Planen Sie Ihren Einkauf mit praktischen Tipps.',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.imageAlt': 'Luftaufnahme eines modernen Wohngebiets in Zürich, Schweiz',
 };
 
 export default blogMetaChDe;
