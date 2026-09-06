@@ -5689,6 +5689,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affittare-bene-immobili-ticino.title': 'Renting a property well: strategies and tips for owners',
     'blog.article.affittare-bene-immobili-ticino.excerpt': 'Fast hosting doesn\'t mean good hosting. Learn how to protect your investment and choose reliable tenants.',
     'blog.article.affittare-bene-immobili-ticino.imageAlt': 'Aerial view of Lugano with modern apartments and a bustling market',
+    'blog.article.neutralita-svizzera-prospeta.title': 'Neutrality rhymes with prosperity',
+    'blog.article.neutralita-svizzera-prospeta.excerpt': 'Lorenzo Quadri discusses the importance of Swiss neutrality and its economic and political implications.',
+    'blog.article.neutralita-svizzera-prospeta.imageAlt': 'Aerial view of Mendrisio, Switzerland, focusing on the city\'s architecture and natural surroundings.',
 };
 
 export default blogMetaChEn;

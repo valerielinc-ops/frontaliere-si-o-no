@@ -1922,6 +1922,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-vallese-mutuo-costi': { it: 'comprare-casa-vallese-mutuo-costi', en: 'buy-house-valais-prices-mortgage-costs', de: 'haus-kaufen-wallis-preise-hypothek-kosten', fr: 'acheter-maison-valais-prix-hypotheque-frais' },
  'avviare-azienda-grigioni-registro-commercio': { it: 'avviare-azienda-grigioni-registro-commercio', en: 'start-business-grisons-registration-costs', de: 'betrieb-gruendung-graubuenden-handelsregister', fr: 'demarrer-entreprise-grisons-registre-commerce' },
  'affittare-bene-immobili-ticino': { it: 'affittare-bene-immobili-ticino', en: 'renting-well-properties-ticino', de: 'gut-vermieten-immobilien-tessin', fr: 'louer-bien-biens-tessin' },
+ 'neutralita-svizzera-prospeta': { it: 'neutralita-svizzera-prospeta', en: 'swiss-neutrality-prosperity', de: 'schweizer-neutralitaet-wohlstand', fr: 'neutralite-suisse-prosperite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
