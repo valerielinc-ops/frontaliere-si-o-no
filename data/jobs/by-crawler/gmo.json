@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pharmacien-ne-gmo-ch",
-        "farmaceutici-gmo-lugano"
+        "pharmacien-ne-gmo-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharmacien-ne-gmo-ch",
-          "farmaceutici-gmo-lugano"
+          "pharmacien-ne-gmo-ch"
         ],
         "en": [
           "pharmacien-ne-gmo-ch"
@@ -131,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experts-medicaux-gmo-ch",
-        "esperti-medici-gmo-lugano"
+        "experts-medicaux-gmo-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experts-medicaux-gmo-ch",
-          "esperti-medici-gmo-lugano"
+          "experts-medicaux-gmo-ch"
         ],
         "en": [
           "experts-medicaux-gmo-ch"
@@ -211,13 +207,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-pediatrique-gmo-ch",
-        "infermiere-pediatrico-gmo-lugano"
+        "infirmier-ere-pediatrique-gmo-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-pediatrique-gmo-ch",
-          "infermiere-pediatrico-gmo-lugano"
+          "infirmier-ere-pediatrique-gmo-ch"
         ],
         "en": [
           "infirmier-ere-pediatrique-gmo-ch"
@@ -291,13 +285,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conducteur-rice-de-travaux-junior-gmo-ch",
-        "junior-lavoratore-gmo-lugano"
+        "conducteur-rice-de-travaux-junior-gmo-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conducteur-rice-de-travaux-junior-gmo-ch",
-          "junior-lavoratore-gmo-lugano"
+          "conducteur-rice-de-travaux-junior-gmo-ch"
         ],
         "en": [
           "conducteur-rice-de-travaux-junior-gmo-ch"
@@ -371,13 +363,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-gmo-ch",
-        "assistente-medico-gmo-lugano"
+        "assistant-e-medical-e-gmo-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-gmo-ch",
-          "assistente-medico-gmo-lugano"
+          "assistant-e-medical-e-gmo-ch"
         ]
       },
       "firstSeenAt": "2026-08-28T05:19:23.816Z",
@@ -445,13 +435,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinateur-rice-gmo-ch",
-        "coordinatore-gmo-lugano"
+        "coordinateur-rice-gmo-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-rice-gmo-ch",
-          "coordinatore-gmo-lugano"
+          "coordinateur-rice-gmo-ch"
         ],
         "en": [
           "coordinateur-rice-gmo-ch"
@@ -478,12 +466,12 @@
     },
     {
       "id": "gmo-88ab010d0f39",
-      "slug": "assistant-e-medical-e-gmo-ch-2",
+      "slug": "assistente-medico-gmo-1201-geneve",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-gmo-ch",
-        "it": "assistant-e-medical-e-gmo-ch-2",
+        "it": "assistente-medico-gmo-1201-geneve",
         "en": "assistant-e-medical-e-gmo-ch-2",
-        "de": "assistant-e-medical-e-gmo-ch-2"
+        "de": "assistent-e-medical-e-gmo-1201-geneve"
       },
       "company": "gmo",
       "companyKey": "gmo",
@@ -542,21 +530,26 @@
       "firstSeenAt": "2026-09-05T22:49:34.246Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-gmo-ch"
+          "assistant-e-medical-e-gmo-ch",
+          "assistant-e-medical-e-gmo-ch-2"
+        ],
+        "de": [
+          "assistant-e-medical-e-gmo-ch-2"
         ]
       },
       "previousSlugs": [
-        "assistant-e-medical-e-gmo-ch"
+        "assistant-e-medical-e-gmo-ch",
+        "assistant-e-medical-e-gmo-ch-2"
       ]
     },
     {
       "id": "gmo-8e31a9f82f8a",
-      "slug": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
+      "slug": "specialista-in-medicina-interna-generale-fmh-gmo-1212-grand-lancy",
       "slugByLocale": {
         "fr": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
-        "it": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
-        "en": "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
-        "de": "specialiste-en-medecine-interne-generale-fmh-gmo-ch"
+        "it": "specialista-in-medicina-interna-generale-fmh-gmo-1212-grand-lancy",
+        "en": "specialist-in-general-internal-medicine-fmh-gmo-1212-grand-lancy",
+        "de": "spezialist-fur-allgemeine-innere-medizin-fmh-gmo-1212-grand-lancy"
       },
       "company": "gmo",
       "companyKey": "gmo",
@@ -612,7 +605,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-05T22:49:33.943Z"
+      "firstSeenAt": "2026-09-05T22:49:33.943Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-medecine-interne-generale-fmh-gmo-ch"
+        ],
+        "en": [
+          "specialiste-en-medecine-interne-generale-fmh-gmo-ch"
+        ],
+        "de": [
+          "specialiste-en-medecine-interne-generale-fmh-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-medecine-interne-generale-fmh-gmo-ch"
+      ]
     },
     {
       "id": "gmo-fdf6239fe3ec",
@@ -620,7 +627,7 @@
       "slugByLocale": {
         "it": "capo-gmo-lugano",
         "en": "chief-nurse-gmo-lugano",
-        "de": "infirmier-ere-chef-fe-gmo-lugano",
+        "de": "hauptkrankenschwester-gmo-lugano",
         "fr": "infirmier-ere-chef-fe-gmo-ch"
       },
       "company": "gmo",
@@ -684,12 +691,12 @@
         ],
         "de": [
           "infirmier-ere-chef-fe-gmo-ch",
-          "hauptkrankenschwester-gmo-lugano"
+          "infirmier-ere-chef-fe-gmo-lugano"
         ]
       },
       "previousSlugs": [
         "infirmier-ere-chef-fe-gmo-ch",
-        "hauptkrankenschwester-gmo-lugano"
+        "infirmier-ere-chef-fe-gmo-lugano"
       ],
       "crawlerMissStreak": 1
     },

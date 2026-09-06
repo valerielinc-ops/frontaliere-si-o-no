@@ -22078,12 +22078,12 @@
     },
     {
       "id": "swiss-re-baf4d457dc63",
-      "slug": "procurement-operations-associate-swiss-re-ch",
+      "slug": "operazioni-di-appalti-associate-swiss-re-bangalore-in",
       "slugByLocale": {
-        "it": "procurement-operations-associate-swiss-re-ch",
+        "it": "operazioni-di-appalti-associate-swiss-re-bangalore-in",
         "en": "procurement-operations-associate-swiss-re-ch",
-        "de": "procurement-operations-associate-swiss-re-ch",
-        "fr": "procurement-operations-associate-swiss-re-ch"
+        "de": "beauftragter-fur-beschaffungsvorgange-swiss-re-bangalore-in",
+        "fr": "operations-d-achat-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22137,7 +22137,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-operations-associate-swiss-re-ch"
+        ],
+        "de": [
+          "procurement-operations-associate-swiss-re-ch"
+        ],
+        "fr": [
+          "procurement-operations-associate-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-operations-associate-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-adff1d9cf326",
@@ -22290,12 +22304,12 @@
     },
     {
       "id": "swiss-re-fcfd23070963",
-      "slug": "build-your-career-in-reinsurance-technical-account-analista-swiss-re-bratislava-sk",
+      "slug": "costruisci-il-tuo-carriera-in-reinsurance-analista-del-conto-tecnico-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "build-your-career-in-reinsurance-technical-account-analista-swiss-re-bratislava-sk",
+        "it": "costruisci-il-tuo-carriera-in-reinsurance-analista-del-conto-tecnico-swiss-re-bratislava-sk",
         "en": "build-your-career-in-reinsurance-technical-account-analyst-swiss-re-ch",
-        "de": "build-your-career-in-reinsurance-technical-account-analyst-swiss-re-ch",
-        "fr": "build-your-career-in-reinsurance-technical-account-analyste-swiss-re-bratislava-sk"
+        "de": "bauen-sie-ihre-karriere-in-der-ruckversicherung-technical-account-analyst-swiss-re-bratislava-sk",
+        "fr": "creez-votre-carriere-en-reassurance-analyste-de-compte-technique-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22336,7 +22350,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "build-your-career-in-reinsurance-technical-account-analyst-swiss-re-ch",
-        "build-your-career-in-reinsurance-technical-account-analista-swiss-re-bratislava-sk"
+        "build-your-career-in-reinsurance-technical-account-analista-swiss-re-bratislava-sk",
+        "build-your-career-in-reinsurance-technical-account-analyste-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22344,6 +22359,10 @@
           "build-your-career-in-reinsurance-technical-account-analista-swiss-re-bratislava-sk"
         ],
         "fr": [
+          "build-your-career-in-reinsurance-technical-account-analyst-swiss-re-ch",
+          "build-your-career-in-reinsurance-technical-account-analyste-swiss-re-bratislava-sk"
+        ],
+        "de": [
           "build-your-career-in-reinsurance-technical-account-analyst-swiss-re-ch"
         ]
       },
