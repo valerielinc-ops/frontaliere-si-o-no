@@ -73964,6 +73964,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-vallese-requisiti-procedura': {
+    title: 'Naturalizzazione canton Vallese: procedura ordinaria',
+    description: 'Naturalizzazione ordinaria nel Vallese: permesso C, 10 anni residenza, test lingua/integrazione, tasse comunali. Procedura step-by-step e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, vallese, procedura',
+    ogTitle: 'Naturalizzazione Canton Vallese: procedura ordinaria',
+    ogDescription: 'Diventare cittadini svizzeri nel Vallese: dalla domanda alla decisione federale. Scopri i requisiti federali (10 anni residenza + permesso C), test lingua/integrazione, tasse cantonali e procedura completa.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-vallese-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione canton Vallese: procedura ordinaria",
+      "description": "Naturalizzazione ordinaria nel Vallese: permesso C, 10 anni residenza, test lingua/integrazione, tasse comunali. Procedura step-by-step e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-vallese-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo comunale alpino in Svizzera, con architettura classica e ambiente professionale per procedure ufficiali di naturalizzazione."
+      },
+      "datePublished": "2026-09-06T08:23:19+00:00",
+      "dateModified": "2026-09-06T08:23:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-vallese-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
