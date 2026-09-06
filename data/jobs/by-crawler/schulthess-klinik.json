@@ -480,12 +480,12 @@
     },
     {
       "id": "schulthess-klinik-33def48d83c8",
-      "slug": "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
-        "en": "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+        "it": "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich",
+        "en": "bed-care-professional-schulthess-klinik-lengghalde-2-zurich",
         "de": "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
-        "fr": "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
+        "fr": "specialiste-des-soins-du-lit-schulthess-klinik-lengghalde-2-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -528,10 +528,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
+        "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+        "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+          "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
         ]
       },

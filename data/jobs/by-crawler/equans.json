@@ -9544,11 +9544,11 @@
     },
     {
       "id": "equans-4e31ed8db3e8",
-      "slug": "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-switzerland-carouge",
+      "slug": "ricevitore-ausiliario-in-chiamata-regione-di-ginevra-equans-switzerland-carouge",
       "slugByLocale": {
-        "it": "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-switzerland-carouge",
-        "en": "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge",
-        "de": "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge",
+        "it": "ricevitore-ausiliario-in-chiamata-regione-di-ginevra-equans-switzerland-carouge",
+        "en": "auxiliary-receptionist-on-call-geneva-region-equans-switzerland-carouge",
+        "de": "auxiliary-receptionist-auf-abruf-region-genf-equans-switzerland-carouge",
         "fr": "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge"
       },
       "company": "Equans Switzerland",
@@ -9592,10 +9592,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge"
+        "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge",
+        "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-switzerland-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge",
+          "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-switzerland-carouge"
+        ],
+        "en": [
+          "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge"
+        ],
+        "de": [
           "receptionniste-auxiliaire-itinerant-e-sur-appel-region-geneve-equans-carouge"
         ]
       },

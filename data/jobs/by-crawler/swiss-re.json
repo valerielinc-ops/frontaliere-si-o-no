@@ -21688,8 +21688,8 @@
       "slugByLocale": {
         "it": "portfolio-manager-swiss-re-ch-2",
         "en": "portfolio-manager-swiss-re-ch",
-        "de": "portfolio-manager-swiss-re-ch-2",
-        "fr": "portfolio-manager-swiss-re-ch-2"
+        "de": "portfoliomanager-swiss-re-hong-kong-hk",
+        "fr": "gestionnaire-de-portefeuille-swiss-re-hong-kong-hk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21838,8 +21838,8 @@
       "slugByLocale": {
         "it": "portfolio-manager-swiss-re-ch",
         "en": "portfolio-manager-swiss-re-ch",
-        "de": "portfolio-manager-swiss-re-ch",
-        "fr": "portfolio-manager-swiss-re-ch"
+        "de": "portfoliomanager-swiss-re-bangalore-in",
+        "fr": "gestionnaire-de-portefeuille-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21902,7 +21902,7 @@
         "it": "l-h-underwriter-swiss-re-ch",
         "en": "l-h-underwriter-swiss-re-ch",
         "de": "l-h-underwriter-swiss-re-hong-kong-hk",
-        "fr": "l-h-underwriter-swiss-re-ch"
+        "fr": "sous-traitant-l-h-swiss-re-hong-kong-hk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22041,8 +22041,8 @@
       "slugByLocale": {
         "it": "portfolio-manager-1-swiss-re-ch",
         "en": "portfolio-manager-1-swiss-re-ch",
-        "de": "portfolio-manager-1-swiss-re-ch",
-        "fr": "portfolio-manager-1-swiss-re-ch"
+        "de": "portfoliomanager-1-swiss-re-beijing-cn",
+        "fr": "gestionnaire-de-portefeuille-1-swiss-re-beijing-cn"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22100,12 +22100,12 @@
     },
     {
       "id": "swiss-re-4fa3a0700b51",
-      "slug": "auditor-re-insurance-swiss-re-ch",
+      "slug": "auditor-re-assicurazione-swiss-re-armonk-ny-us",
       "slugByLocale": {
-        "it": "auditor-re-insurance-swiss-re-ch",
+        "it": "auditor-re-assicurazione-swiss-re-armonk-ny-us",
         "en": "auditor-re-insurance-swiss-re-ch",
-        "de": "auditor-re-insurance-swiss-re-ch",
-        "fr": "auditor-re-insurance-swiss-re-ch"
+        "de": "auditor-ruckversicherung-swiss-re-armonk-ny-us",
+        "fr": "auditeur-reassurance-swiss-re-armonk-ny-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22159,7 +22159,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditor-re-insurance-swiss-re-ch"
+        ],
+        "de": [
+          "auditor-re-insurance-swiss-re-ch"
+        ],
+        "fr": [
+          "auditor-re-insurance-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "auditor-re-insurance-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-9f9606460936",
@@ -22398,7 +22412,7 @@
         "it": "hr-business-partner-anz-swiss-re-ch",
         "en": "hr-business-partner-anz-swiss-re-ch",
         "de": "hr-business-partner-anz-swiss-re-ch",
-        "fr": "hr-business-partner-anz-swiss-re-ch"
+        "fr": "partenaire-d-affaires-rh-anz-swiss-re-sydney-au"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22460,8 +22474,8 @@
       "slugByLocale": {
         "it": "portfolio-manager-swiss-re-ch-3",
         "en": "portfolio-manager-swiss-re-ch",
-        "de": "portfolio-manager-swiss-re-ch-3",
-        "fr": "portfolio-manager-swiss-re-ch-3"
+        "de": "portfoliomanager-swiss-re-singapore-sg",
+        "fr": "gestionnaire-de-portefeuille-swiss-re-singapore-sg"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",

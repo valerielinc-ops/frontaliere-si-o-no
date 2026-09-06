@@ -392,12 +392,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-7184609b481e",
-      "slug": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "specialista-di-emergenza-sanitaria-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "specialista-di-emergenza-sanitaria-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "health-emergency-specialist-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "specialiste-des-urgences-sanitaires-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -451,16 +451,30 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-c55bf880e6cf",
-      "slug": "assistenz-gesundheit-ags-o-pflegeassistenz-pa-50-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "salute-assistita-ags-o-assistenza-sanitaria-pa-50-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "assistenz-gesundheit-ags-o-pflegeassistenz-pa-50-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal",
+        "it": "salute-assistita-ags-o-assistenza-sanitaria-pa-50-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "assisted-health-ags-or-care-assistance-pa-50-gesundheitszentrum-fricktal-rheinfelden",
         "de": "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal",
-        "fr": "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal"
+        "fr": "sante-assistee-sga-ou-aide-aux-soins-ap-50-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -502,10 +516,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal"
+        "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal",
+        "assistenz-gesundheit-ags-o-pflegeassistenz-pa-50-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal",
+          "assistenz-gesundheit-ags-o-pflegeassistenz-pa-50-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal"
+        ],
+        "fr": [
           "assistenz-gesundheit-ags-oder-pflegeassistenz-pa-50-gesundheitszentrum-fricktal"
         ]
       },

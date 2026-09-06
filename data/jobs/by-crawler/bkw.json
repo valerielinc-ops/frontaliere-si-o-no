@@ -1800,7 +1800,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-28",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-26",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-9as081",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-30",
@@ -1810,7 +1809,6 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-24",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-jx028j",
         "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich",
@@ -1833,7 +1831,6 @@
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-24",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-jx028j",
           "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
           "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich",
@@ -9467,7 +9464,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
         "apprendistato-montage-elektriker-in-cfc-alle-bkw-thun-u62vl5",
         "apprenticeship-of-assembly-electrician-in-efz-all-bkw-thun",
         "apprentissage-de-l-electricien-de-montage-dans-efz-tous-bkw-thun",
@@ -9481,7 +9477,6 @@
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-13",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-14",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-12",
-        "apprendistato-montage-elektriker-in-cfc-alle-bkw-thun",
         "apprendistato-montage-elektriker-in-cfc-alle-bkw-zuchwil-4a60uk",
         "apprendistato-montage-elektriker-in-cfc-alle-bkw-zuchwil",
         "apprendistato-montage-elektriker-in-cfc-alle-bkw-langenthal",
@@ -9504,7 +9499,6 @@
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-13",
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-14",
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-12",
-          "apprendistato-montage-elektriker-in-cfc-alle-bkw-thun",
           "apprendistato-montage-elektriker-in-cfc-alle-bkw-zuchwil-4a60uk",
           "apprendistato-montage-elektriker-in-cfc-alle-bkw-zuchwil",
           "apprendistato-montage-elektriker-in-cfc-alle-bkw-langenthal",
@@ -25300,11 +25294,11 @@
     },
     {
       "id": "bkw-61b6e7e84ac5",
-      "slug": "coordinateur-trice-erp-processus-tous-bkw-ch",
+      "slug": "coordinatore-e-processo-erp-tutti-bkw-bulle",
       "slugByLocale": {
-        "it": "coordinateur-trice-erp-processus-tous-bkw-ch",
-        "en": "coordinateur-trice-erp-processus-tous-bkw-ch",
-        "de": "coordinateur-trice-erp-processus-tous-bkw-ch",
+        "it": "coordinatore-e-processo-erp-tutti-bkw-bulle",
+        "en": "erp-coordinator-process-all-bkw-bulle",
+        "de": "erp-koordinator-prozess-alle-bkw-bulle",
         "fr": "coordinateur-trice-erp-processus-tous-bkw-ch"
       },
       "company": "BKW",
@@ -25360,7 +25354,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-erp-processus-tous-bkw-ch"
+        ],
+        "en": [
+          "coordinateur-trice-erp-processus-tous-bkw-ch"
+        ],
+        "de": [
+          "coordinateur-trice-erp-processus-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-erp-processus-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-b35deae0d0cb",

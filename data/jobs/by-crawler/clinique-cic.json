@@ -306,9 +306,9 @@
     },
     {
       "id": "clinique-cic-292bdf46db97",
-      "slug": "assistant-e-medical-e-80-clinique-cic-clarens",
+      "slug": "assistente-medico-80-clinique-cic-clarens-clarens",
       "slugByLocale": {
-        "it": "assistant-e-medical-e-80-clinique-cic-clarens",
+        "it": "assistente-medico-80-clinique-cic-clarens-clarens",
         "en": "assistant-e-medical-e-80-clinique-cic-clarens",
         "de": "assistent-e-medical-e-80-clinique-cic-clarens-clarens",
         "fr": "assistant-e-medical-e-80-clinique-cic-clarens"
@@ -365,7 +365,15 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-80-clinique-cic-clarens"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-80-clinique-cic-clarens"
+      ]
     }
   ]
 }

@@ -2260,9 +2260,9 @@
     },
     {
       "id": "hug-9f55d50b6ae3",
-      "slug": "assistante-ou-assistant-social-80-hug-geneve",
+      "slug": "assistente-sociale-80-hug-geneve",
       "slugByLocale": {
-        "it": "assistante-ou-assistant-social-80-hug-geneve",
+        "it": "assistente-sociale-80-hug-geneve",
         "en": "assistante-ou-assistant-social-80-hug-geneve",
         "de": "assistante-ou-assistent-social-80-hug-geneve",
         "fr": "assistante-ou-assistant-social-80-hug-geneve"
@@ -2310,14 +2310,16 @@
         "assistente-di-ricerca-50-60-hug-geneve",
         "research-assistant-50-to-60-hug-geneve",
         "assistent-ou-assistante-de-recherche-50-a-60-hug-geneve",
-        "assistant-ou-assistante-de-recherche-50-a-60-hug-geneve"
+        "assistant-ou-assistante-de-recherche-50-a-60-hug-geneve",
+        "assistante-ou-assistant-social-80-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-ricerca-50-60-hug-geneve",
           "research-assistant-50-to-60-hug-geneve",
           "assistent-ou-assistante-de-recherche-50-a-60-hug-geneve",
-          "assistant-ou-assistante-de-recherche-50-a-60-hug-geneve"
+          "assistant-ou-assistante-de-recherche-50-a-60-hug-geneve",
+          "assistante-ou-assistant-social-80-hug-geneve"
         ],
         "en": [
           "research-assistant-50-to-60-hug-geneve"
@@ -2425,11 +2427,11 @@
     },
     {
       "id": "hug-4b63444d68f0",
-      "slug": "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg",
+      "slug": "responsabile-del-servizio-informazione-decisionale-100-hug-chene-bourg",
       "slugByLocale": {
-        "it": "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg",
-        "en": "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg",
-        "de": "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg",
+        "it": "responsabile-del-servizio-informazione-decisionale-100-hug-chene-bourg",
+        "en": "head-of-the-decision-information-service-100-hug-chene-bourg",
+        "de": "leiter-des-entscheidungsinformationsdienstes-100-hug-chene-bourg",
         "fr": "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg"
       },
       "company": "HUG",
@@ -2485,14 +2487,28 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg"
+        ],
+        "en": [
+          "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg"
+        ],
+        "de": [
+          "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-service-d-information-decisionnelle-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-2a77445ddbcb",
-      "slug": "responsable-d-equipe-de-soins-uua-90-hug-geneve",
+      "slug": "leader-del-team-di-assistenza-uua-90-hug-geneve",
       "slugByLocale": {
-        "it": "responsable-d-equipe-de-soins-uua-90-hug-geneve",
-        "en": "responsable-d-equipe-de-soins-uua-90-hug-geneve",
+        "it": "leader-del-team-di-assistenza-uua-90-hug-geneve",
+        "en": "care-team-leader-uua-90-hug-geneve",
         "de": "responsable-d-equipe-de-soins-uua-90-hug-geneve",
         "fr": "responsable-d-equipe-de-soins-uua-90-hug-geneve"
       },
@@ -2549,14 +2565,25 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-equipe-de-soins-uua-90-hug-geneve"
+        ],
+        "en": [
+          "responsable-d-equipe-de-soins-uua-90-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-equipe-de-soins-uua-90-hug-geneve"
+      ]
     },
     {
       "id": "hug-75a27b69efae",
-      "slug": "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve",
+      "slug": "leader-del-team-di-assistenza-uetp-udmpr-smth-80-hug-geneve",
       "slugByLocale": {
-        "it": "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve",
-        "en": "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve",
+        "it": "leader-del-team-di-assistenza-uetp-udmpr-smth-80-hug-geneve",
+        "en": "care-team-leader-uetp-udmpr-smth-80-hug-geneve",
         "de": "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve",
         "fr": "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve"
       },
@@ -2613,15 +2640,26 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve"
+        ],
+        "en": [
+          "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-equipe-de-soins-uetp-udmpr-smth-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-c1b4705cb8da",
-      "slug": "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve",
+      "slug": "infermiera-dipartimento-di-medicina-tropicale-e-umanitaria-smth-100-hug-geneve",
       "slugByLocale": {
-        "it": "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve",
-        "en": "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve",
-        "de": "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve",
+        "it": "infermiera-dipartimento-di-medicina-tropicale-e-umanitaria-smth-100-hug-geneve",
+        "en": "nurse-department-of-tropical-and-humanitarian-medicine-smth-100-hug-geneve",
+        "de": "krankenschwester-abteilung-fur-tropen-und-humanitare-medizin-smth-100-hug-geneve",
         "fr": "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve"
       },
       "company": "HUG",
@@ -2677,7 +2715,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-9827910ebb22",
@@ -2758,11 +2810,11 @@
     },
     {
       "id": "hug-cd2af41007b9",
-      "slug": "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug",
+      "slug": "tecnologo-del-dispositivo-medico-o-tecnico-della-sterilizzazione-100-hug-geneve",
       "slugByLocale": {
-        "it": "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug",
-        "en": "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug",
-        "de": "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug",
+        "it": "tecnologo-del-dispositivo-medico-o-tecnico-della-sterilizzazione-100-hug-geneve",
+        "en": "medical-device-technologist-or-sterilization-technician-100-hug-geneve",
+        "de": "medizintechniker-oder-sterilisationstechniker-100-hug-geneve",
         "fr": "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug"
       },
       "company": "HUG",
@@ -2818,7 +2870,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug"
+        ],
+        "en": [
+          "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug"
+        ],
+        "de": [
+          "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-hug"
+      ]
     },
     {
       "id": "hug-b3d417f7d8dc",
@@ -3066,11 +3132,11 @@
     },
     {
       "id": "hug-7c3719756f72",
-      "slug": "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve",
+      "slug": "dieticiano-o-dieticiano-responsabile-del-settore-100-hug-geneve",
       "slugByLocale": {
-        "it": "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve",
-        "en": "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve",
-        "de": "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve",
+        "it": "dieticiano-o-dieticiano-responsabile-del-settore-100-hug-geneve",
+        "en": "dietician-or-dietician-responsible-for-sector-100-hug-geneve",
+        "de": "diatassistent-oder-diatassistent-verantwortlich-fur-den-sektor-100-hug-geneve",
         "fr": "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve"
       },
       "company": "HUG",
@@ -3121,7 +3187,8 @@
         "diatetiker-oder-diatetiker-40-hug-geneve",
         "dieteticien-ou-dieteticienne-40-hug-geneve",
         "dietitian-o-dietitian-40-all-80-hug-geneve",
-        "dietitian-or-dietitian-40-to-80-hug-geneve"
+        "dietitian-or-dietitian-40-to-80-hug-geneve",
+        "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3133,15 +3200,18 @@
           "diatetiker-oder-diatetiker-40-hug-geneve",
           "dieteticien-ou-dieteticienne-40-hug-geneve",
           "dietitian-o-dietitian-40-all-80-hug-geneve",
-          "dietitian-or-dietitian-40-to-80-hug-geneve"
+          "dietitian-or-dietitian-40-to-80-hug-geneve",
+          "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve"
         ],
         "en": [
           "dietician-or-dietician-responsible-for-sector-100-hug-geneve-be23e1",
-          "dietitian-or-dietitian-40-hug-geneve"
+          "dietitian-or-dietitian-40-hug-geneve",
+          "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve"
         ],
         "de": [
           "diatassistent-oder-diatassistent-verantwortlich-fur-den-sektor-100-hug-geneve-be23e1",
-          "diatetiker-oder-diatetiker-40-hug-geneve"
+          "diatetiker-oder-diatetiker-40-hug-geneve",
+          "dieteticien-ou-dieteticienne-responsable-de-secteur-100-hug-geneve"
         ],
         "fr": [
           "dieteticien-ou-dieteticienne-40-hug-geneve"

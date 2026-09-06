@@ -53,12 +53,10 @@
       "jobReqId": "R-017068",
       "previousSlugsByLocale": {
         "en": [
-          "lpg-analyst-trafigura-geneva",
-          "lpg-analyst-trafigura-ch"
+          "lpg-analyst-trafigura-geneva"
         ],
         "it": [
-          "lpg-analyst-trafigura-ch",
-          "lpg-analista-trafigura-geneva"
+          "lpg-analyst-trafigura-ch"
         ],
         "fr": [
           "lpg-analyst-trafigura-ch"
@@ -66,8 +64,7 @@
       },
       "previousSlugs": [
         "lpg-analyst-trafigura-ch",
-        "lpg-analyst-trafigura-geneva",
-        "lpg-analista-trafigura-geneva"
+        "lpg-analyst-trafigura-geneva"
       ],
       "firstSeenAt": "2026-07-03T23:41:01.667Z",
       "salaryMin": 60500,
@@ -133,13 +130,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-017868",
       "previousSlugs": [
-        "market-risk-manager-oil-products-trafigura-ch",
-        "market-risk-manager-prodotti-petroliferi-trafigura-geneva"
+        "market-risk-manager-oil-products-trafigura-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "market-risk-manager-oil-products-trafigura-ch",
-          "market-risk-manager-prodotti-petroliferi-trafigura-geneva"
+          "market-risk-manager-oil-products-trafigura-ch"
         ],
         "de": [
           "market-risk-manager-oil-products-trafigura-ch"
@@ -213,13 +208,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-018081",
       "previousSlugs": [
-        "ctrm-business-architect-trafigura-ch",
-        "ctrm-business-architetto-trafigura-geneva"
+        "ctrm-business-architect-trafigura-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ctrm-business-architect-trafigura-ch",
-          "ctrm-business-architetto-trafigura-geneva"
+          "ctrm-business-architect-trafigura-ch"
         ],
         "de": [
           "ctrm-business-architect-trafigura-ch"
@@ -295,14 +288,12 @@
       "previousSlugsByLocale": {
         "en": [
           "risk-quant-analyst-trafigura-ch",
-          "quantitative-analyst-trafigura-geneva",
-          "quantitative-analyst-trafigura-ch"
+          "quantitative-analyst-trafigura-geneva"
         ],
         "it": [
           "risk-quant-analyst-trafigura-ch",
           "quantitative-analyst-trafigura-ch",
-          "risk-quant-analista-trafigura-geneva",
-          "quantitative-analista-trafigura-geneva"
+          "risk-quant-analista-trafigura-geneva"
         ],
         "fr": [
           "risk-quant-analyst-trafigura-ch"
@@ -312,8 +303,7 @@
         "risk-quant-analyst-trafigura-ch",
         "quantitative-analyst-trafigura-ch",
         "risk-quant-analista-trafigura-geneva",
-        "quantitative-analyst-trafigura-geneva",
-        "quantitative-analista-trafigura-geneva"
+        "quantitative-analyst-trafigura-geneva"
       ],
       "firstSeenAt": "2026-07-03T23:41:00.808Z",
       "salaryMin": 60500,
@@ -396,12 +386,12 @@
     },
     {
       "id": "trafigura-3ef05ec1d535",
-      "slug": "senior-manager-credit-portfolio-management-trafigura-ch",
+      "slug": "senior-manager-gestione-del-portafoglio-crediti-trafigura-geneva",
       "slugByLocale": {
-        "it": "senior-manager-credit-portfolio-management-trafigura-ch",
+        "it": "senior-manager-gestione-del-portafoglio-crediti-trafigura-geneva",
         "en": "senior-manager-credit-portfolio-management-trafigura-ch",
         "de": "senior-manager-credit-portfolio-management-trafigura-ch",
-        "fr": "senior-manager-credit-portfolio-management-trafigura-ch"
+        "fr": "gestionnaire-principal-gestion-du-portefeuille-du-credit-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -456,7 +446,18 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-credit-portfolio-management-trafigura-ch"
+        ],
+        "fr": [
+          "senior-manager-credit-portfolio-management-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-credit-portfolio-management-trafigura-ch"
+      ]
     }
   ]
 }

@@ -7533,12 +7533,12 @@
     },
     {
       "id": "eth-zurich-c6f433c18c36",
-      "slug": "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch",
+      "slug": "responsabile-dell-ingegneria-del-software-educativo-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch",
+        "it": "responsabile-dell-ingegneria-del-software-educativo-m-f-d-eth-zurich-zurich",
         "en": "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch",
         "de": "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch",
-        "fr": "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
+        "fr": "chef-du-genie-logiciel-educatif-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7591,7 +7591,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-b643d9a37870",

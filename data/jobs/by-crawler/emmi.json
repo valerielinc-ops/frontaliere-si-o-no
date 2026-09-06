@@ -8140,12 +8140,12 @@
     },
     {
       "id": "emmi-759030eab461",
-      "slug": "teamleiter-in-produktion-jogurt-emmi-ch",
+      "slug": "team-leader-in-produzione-yogurt-emmi-ostermundigen-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-produktion-jogurt-emmi-ch",
-        "en": "teamleiter-in-produktion-jogurt-emmi-ch",
+        "it": "team-leader-in-produzione-yogurt-emmi-ostermundigen-bern",
+        "en": "team-leader-in-production-yogurt-emmi-ostermundigen-bern",
         "de": "teamleiter-in-produktion-jogurt-emmi-ch",
-        "fr": "teamleiter-in-produktion-jogurt-emmi-ch"
+        "fr": "chef-d-equipe-en-production-yaourt-emmi-ostermundigen-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8214,7 +8214,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-produktion-jogurt-emmi-ch"
+        ],
+        "en": [
+          "teamleiter-in-produktion-jogurt-emmi-ch"
+        ],
+        "fr": [
+          "teamleiter-in-produktion-jogurt-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-produktion-jogurt-emmi-ch"
+      ]
     },
     {
       "id": "emmi-959c2280b179",

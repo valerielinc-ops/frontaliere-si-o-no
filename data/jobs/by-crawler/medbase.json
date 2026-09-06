@@ -12169,12 +12169,12 @@
     },
     {
       "id": "medbase-a7ac1f6ff8e4",
-      "slug": "arztsekretar-in-a-80-100-medbase-ch",
+      "slug": "segretario-medico-a-80-100-medbase-kloten",
       "slugByLocale": {
-        "it": "arztsekretar-in-a-80-100-medbase-ch",
-        "en": "arztsekretar-in-a-80-100-medbase-ch",
+        "it": "segretario-medico-a-80-100-medbase-kloten",
+        "en": "medical-secretary-a-80-100-medbase-kloten",
         "de": "arztsekretar-in-a-80-100-medbase-ch",
-        "fr": "arztsekretar-in-a-80-100-medbase-ch"
+        "fr": "secretaire-medical-a-80-100-medbase-kloten"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12228,16 +12228,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-a-80-100-medbase-ch"
+        ],
+        "en": [
+          "arztsekretar-in-a-80-100-medbase-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-a-80-100-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-a-80-100-medbase-ch"
+      ]
     },
     {
       "id": "medbase-e84cbb14e797",
-      "slug": "fachverantwortliche-r-apotheker-in-a-medbase-basel",
+      "slug": "specialista-responsabile-medbase-basel",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-apotheker-in-a-medbase-basel",
-        "en": "fachverantwortliche-r-apotheker-in-a-medbase-basel",
+        "it": "specialista-responsabile-medbase-basel",
+        "en": "specialist-responsible-r-pharmacist-in-a-medbase-basel",
         "de": "fachverantwortliche-r-apotheker-in-a-medbase-ch",
-        "fr": "fachverantwortliche-r-apotheker-in-a-medbase-basel"
+        "fr": "specialiste-responsable-medbase-basel"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12280,11 +12294,19 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07671",
       "previousSlugs": [
-        "fachverantwortliche-r-apotheker-in-a-medbase-ch"
+        "fachverantwortliche-r-apotheker-in-a-medbase-ch",
+        "fachverantwortliche-r-apotheker-in-a-medbase-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-apotheker-in-a-medbase-ch"
+          "fachverantwortliche-r-apotheker-in-a-medbase-ch",
+          "fachverantwortliche-r-apotheker-in-a-medbase-basel"
+        ],
+        "en": [
+          "fachverantwortliche-r-apotheker-in-a-medbase-basel"
+        ],
+        "fr": [
+          "fachverantwortliche-r-apotheker-in-a-medbase-basel"
         ]
       },
       "firstSeenAt": "2026-09-02T13:39:50.049Z",
@@ -12381,12 +12403,12 @@
     },
     {
       "id": "medbase-7a7086e8c4cc",
-      "slug": "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch",
+      "slug": "assistente-medico-a-60-100-basel-toujours-medbase-basel",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch",
-        "en": "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch",
+        "it": "assistente-medico-a-60-100-basel-toujours-medbase-basel",
+        "en": "medical-practice-assistant-a-60-100-basel-toujours-medbase-basel",
         "de": "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch",
-        "fr": "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch"
+        "fr": "assistant-medical-a-60-100-bale-toujours-medbase-basel"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12440,16 +12462,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-60-100-basel-toujours-medbase-ch"
+      ]
     },
     {
       "id": "medbase-64f0f35ecad6",
       "slug": "fachfrau-fachmann-apotheke-cfc-drogist-in-a-80-100-medbase-zurich",
       "slugByLocale": {
         "it": "fachfrau-fachmann-apotheke-cfc-drogist-in-a-80-100-medbase-zurich",
-        "en": "fachfrau-fachmann-apotheke-efz-drogist-in-a-80-100-medbase-ch",
+        "en": "expert-specialist-pharmacy-efz-drogist-in-a-80-100-medbase-zurich",
         "de": "fachfrau-fachmann-apotheke-efz-drogist-in-a-80-100-medbase-ch",
-        "fr": "fachfrau-fachmann-apotheke-efz-drogist-in-a-80-100-medbase-ch"
+        "fr": "expert-specialiste-pharmacie-efz-drogiste-en-a-80-100-medbase-zurich"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12496,6 +12532,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-apotheke-efz-drogist-in-a-80-100-medbase-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-apotheke-efz-drogist-in-a-80-100-medbase-ch"
+        ],
+        "fr": [
           "fachfrau-fachmann-apotheke-efz-drogist-in-a-80-100-medbase-ch"
         ]
       },

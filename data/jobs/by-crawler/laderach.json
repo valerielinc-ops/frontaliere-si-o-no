@@ -232,12 +232,12 @@
     },
     {
       "id": "laderach-03df285b9260",
-      "slug": "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
+      "slug": "aiuto-stagionale-20-100-flessibile-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-schweiz-ag-zermatt",
       "slugByLocale": {
-        "it": "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
-        "en": "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
+        "it": "aiuto-stagionale-20-100-flessibile-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-schweiz-ag-zermatt",
+        "en": "seasonal-aid-20-100-flexible-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-schweiz-ag-zermatt",
         "de": "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
-        "fr": "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
+        "fr": "aide-saisonniere-20-100-chocolaterie-zermatt-flexible-01-12-2026-31-03-2027-laderach-schweiz-ag-zermatt"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -286,7 +286,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
+        ],
+        "en": [
+          "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
+        ],
+        "fr": [
+          "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
+      ]
     },
     {
       "id": "laderach-94305d4548f3",

@@ -325,12 +325,12 @@
     },
     {
       "id": "spital-limmattal-8ef5818d464e",
-      "slug": "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch",
+      "slug": "med-senior-medico-centro-di-emergenza-medico-senior-80-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch",
-        "en": "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch",
+        "it": "med-senior-medico-centro-di-emergenza-medico-senior-80-spital-limmattal-schlieren",
+        "en": "med-senior-physician-senior-physician-emergency-center-80-spital-limmattal-schlieren",
         "de": "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch",
-        "fr": "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch"
+        "fr": "medicament-medecin-superieur-centre-d-urgence-medecin-senior-80-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -387,7 +387,21 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch"
+        ],
+        "en": [
+          "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch"
+        ],
+        "fr": [
+          "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-oberarztin-oberarzt-notfallzentrum-80-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-2d424f8361ad",

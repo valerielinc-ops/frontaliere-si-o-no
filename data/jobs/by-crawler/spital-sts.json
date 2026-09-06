@@ -516,12 +516,12 @@
     },
     {
       "id": "spital-sts-c30ff0a9f6bf",
-      "slug": "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
+      "slug": "ict-application-manager-in-informaticista-medico-in-spital-sts-thun",
       "slugByLocale": {
-        "it": "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
-        "en": "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
+        "it": "ict-application-manager-in-informaticista-medico-in-spital-sts-thun",
+        "en": "ict-application-manager-in-medical-informatician-in-spital-sts-thun",
         "de": "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
-        "fr": "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+        "fr": "gestionnaire-d-applications-tic-in-informaticien-medical-in-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -576,7 +576,21 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+        ],
+        "en": [
+          "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+        ],
+        "fr": [
+          "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-40045a807e51",

@@ -3050,9 +3050,9 @@
     },
     {
       "id": "siemens-2db13a46343b",
-      "slug": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug",
+      "slug": "fabbrica-di-software-per-studenti-di-lavoro-comms-siemens-si-40-60-siemens-zug",
       "slugByLocale": {
-        "it": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug",
+        "it": "fabbrica-di-software-per-studenti-di-lavoro-comms-siemens-si-40-60-siemens-zug",
         "en": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug",
         "de": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug",
         "fr": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug"
@@ -3113,7 +3113,15 @@
           "maxValue": 63600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-software-factory-comms-siemens-si-40-60-siemens-zug"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-software-factory-comms-siemens-si-40-60-siemens-zug"
+      ]
     },
     {
       "id": "siemens-cd1cb0d85a02",

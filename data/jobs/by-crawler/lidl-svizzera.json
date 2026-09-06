@@ -1216,7 +1216,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-wattwil-k2pu79",
-        "en": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wattwil-k2pu79",
+        "en": "all-rounder-sale-m-f-d-20-40-wattwil-lidl-svizzera-wattwil",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wattwil-k2pu79",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-wattwil-k2pu79"
       },
@@ -1226,10 +1226,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wattwil"
+        ],
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wattwil-k2pu79"
         ]
       },
       "previousSlugs": [
-        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wattwil"
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wattwil",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wattwil-k2pu79"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1250,7 +1254,7 @@
     },
     {
       "id": "company-vvxhu1",
-      "slug": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+      "slug": "dipendenti-personale-di-pulizia-m-f-d-20-butzberg-lidl-svizzera-butzberg",
       "company": "Lidl Svizzera",
       "title": "Mitarbeiter / Mitarbeiterin Reinigung (m/w/d) 20 % — Bützberg",
       "location": "Bützberg",
@@ -1286,21 +1290,30 @@
         "fr": "Présentation\n\nAvec un réseau de succursales moderne, Lidl Suisse est de plus en plus présent sur le marché suisse. L'expansion en Suisse s'est poursuivie depuis l'entrée sur le marché en 2009.\nVos tâches\n\n- Nettoyage de la zone de vente et des locaux annexes de la succursale\n\n- Respect des normes de qualité et d'hygiène\n\n- Contribution à une expérience d'achat positive de nos clients\nVotre profil\n\n- L'expérience dans le secteur du nettoyage est avantageuse\n\n- Flexibilité concernant les temps d'exploitation (plusieurs fois par semaine entre 05:00-09:00 ou 17:00-21:00)\n\n- Travail fiable et indépendant\n\n- Esprit d'équipe\nNous offrons\n\nNous vous préparons à vos activités avec une formation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
-        "en": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+        "it": "dipendenti-personale-di-pulizia-m-f-d-20-butzberg-lidl-svizzera-butzberg",
+        "en": "employee-cleaning-staff-m-f-d-20-butzberg-lidl-svizzera-butzberg",
         "de": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
-        "fr": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1"
+        "fr": "employe-personnel-de-nettoyage-h-f-d-20-butzberg-lidl-svizzera-butzberg"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg"
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1321,7 +1334,7 @@
     },
     {
       "id": "company-zci12u",
-      "slug": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u",
+      "slug": "venditore-venditore-m-f-d-20-80-lucerna-lidl-svizzera-luzern",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Luzern",
       "location": "Luzern",
@@ -1357,21 +1370,29 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transfert et entretien de biens au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5h00 et 22h00);\n\n- Bonne condition physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u",
+        "it": "venditore-venditore-m-f-d-20-80-lucerna-lidl-svizzera-luzern",
+        "en": "seller-seller-m-f-d-20-80-lucerne-lidl-svizzera-luzern",
         "de": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u"
+        "fr": "vendeur-vendeur-h-f-d-20-80-lucerne-lidl-svizzera-luzern"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern"
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-luzern-zci12u"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1533,7 +1554,7 @@
     },
     {
       "id": "company-143iwz",
-      "slug": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
+      "slug": "responsabile-del-team-m-f-d-80-regione-di-losanna-lidl-svizzera-mont-sur-lausanne",
       "company": "Lidl Svizzera",
       "title": "Vendeur / Vendeuse responsable d'équipe (h/f/d) 80% - Région Lausanne",
       "location": "Mont-sur-Lausanne",
@@ -1569,9 +1590,9 @@
         "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n- Responsable d'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Soutien à la planification du personnel, à la gestion du personnel et à l'organisation du magasin - Commander et présenter la marchandise - Encaissement Votre profil\n- Expérience professionnelle dans la vente ou dans un domaine similaire - Dans l’idéal, formation professionnelle achevée dans le commerce de détail - Flexibilité en ce qui concerne les horaires de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Aptitudes en matière de communication et plaisir des contacts humains - Motivation élevée, flexibilité et résistance au stress - Bonnes connaissances en français à l’écrit et à l’oral Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !"
       },
       "slugByLocale": {
-        "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
-        "en": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
-        "de": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
+        "it": "responsabile-del-team-m-f-d-80-regione-di-losanna-lidl-svizzera-mont-sur-lausanne",
+        "en": "salesperson-responsible-for-team-m-f-d-80-lausanne-region-lidl-svizzera-mont-sur-lausanne",
+        "de": "verkaufer-verantwortlich-fur-team-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
       },
       "requirementsByLocale": {},
@@ -1579,11 +1600,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne"
+        ],
+        "en": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
+        ],
+        "de": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -6016,7 +6045,7 @@
     },
     {
       "id": "company-ae0lg8",
-      "slug": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8",
+      "slug": "vendor-m-f-d-40-60-bern-lidl-svizzera-bern",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 40-60% — Bern",
       "location": "Bern",
@@ -6052,10 +6081,10 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transfert et entretien de biens au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5h00 et 22h00);\n\n- Bonne condition physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8",
+        "it": "vendor-m-f-d-40-60-bern-lidl-svizzera-bern",
         "en": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8",
         "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8",
-        "fr": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8"
+        "fr": "fournisseur-h-f-d-40-60-berne-lidl-svizzera-bern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -6075,7 +6104,8 @@
           "vendeur-m-f-d-30-40-lidl-svizzera-bern",
           "verkaufer-verkauferin-m-w-d-30-40-lidl-svizzera-bern",
           "venditore-m-f-d-30-40-lidl-svizzera-bern-2",
-          "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-2"
+          "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-2",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8"
         ],
         "en": [
           "seller-m-f-d-80-100-lidl-svizzera-bern"
@@ -6084,7 +6114,8 @@
           "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-yxqvha"
         ],
         "fr": [
-          "vendeur-m-f-d-80-100-lidl-svizzera-bern"
+          "vendeur-m-f-d-80-100-lidl-svizzera-bern",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8"
         ]
       },
       "previousSlugs": [
@@ -6101,7 +6132,8 @@
         "vendeur-m-f-d-30-40-lidl-svizzera-bern",
         "verkaufer-verkauferin-m-w-d-30-40-lidl-svizzera-bern",
         "venditore-m-f-d-30-40-lidl-svizzera-bern-2",
-        "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-2"
+        "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-2",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8"
       ],
       "salarySource": "estimated",
       "baseSalary": {

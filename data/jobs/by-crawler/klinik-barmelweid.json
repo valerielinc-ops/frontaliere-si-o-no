@@ -2806,12 +2806,12 @@
     },
     {
       "id": "klinik-barmelweid-6bfb6313b20f",
-      "slug": "pflegehilfe-o-assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-per-nachtdienst-klinik-barmelweid",
+      "slug": "assistenza-o-assistente-in-salute-e-affari-sociali-ags-per-il-servizio-notturno-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "pflegehilfe-o-assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-per-nachtdienst-klinik-barmelweid",
-        "en": "pflegehilfe-oder-assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-fur",
+        "it": "assistenza-o-assistente-in-salute-e-affari-sociali-ags-per-il-servizio-notturno-klinik-barmelweid-barmelweid",
+        "en": "care-assistance-or-assistant-in-health-and-social-affairs-ags-for-night-service-klinik-barmelweid-barmelweid",
         "de": "pflegehilfe-oder-assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-fur",
-        "fr": "pflegehilfe-oder-assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-fur"
+        "fr": "aide-aux-soins-ou-assistant-en-sante-et-affaires-sociales-ags-pour-le-service-de-nuit-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -2854,12 +2854,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegehilfe-oder-assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-fur",
-        "assistant-a-la-sante-et-aux-affaires-sociales-ags-ou-assistant-aux-soins-infirmiers-ap-m-f-j-en-service-de-nuit"
+        "assistant-a-la-sante-et-aux-affaires-sociales-ags-ou-assistant-aux-soins-infirmiers-ap-m-f-j-en-service-de-nuit",
+        "pflegehilfe-o-assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-per-nachtdienst-klinik-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehilfe-oder-assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-fur",
-          "assistant-a-la-sante-et-aux-affaires-sociales-ags-ou-assistant-aux-soins-infirmiers-ap-m-f-j-en-service-de-nuit"
+          "assistant-a-la-sante-et-aux-affaires-sociales-ags-ou-assistant-aux-soins-infirmiers-ap-m-f-j-en-service-de-nuit",
+          "pflegehilfe-o-assistentinnen-e-assistent-in-gesundheit-e-soziales-ags-per-nachtdienst-klinik-barmelweid"
+        ],
+        "en": [
+          "pflegehilfe-oder-assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-fur"
+        ],
+        "fr": [
+          "pflegehilfe-oder-assistentinnen-und-assistent-in-gesundheit-und-soziales-ags-fur"
         ]
       },
       "firstSeenAt": "2026-09-02T13:35:19.865Z",

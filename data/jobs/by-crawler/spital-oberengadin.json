@@ -56,13 +56,11 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "facharztin-facharzt-padiatrie-spital-oberengadin-samedan",
-        "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan"
+        "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan",
-          "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan"
+          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
         ],
         "en": [
           "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
@@ -547,13 +545,11 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-        "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan"
+        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-          "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan"
+          "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
@@ -647,12 +643,12 @@
     },
     {
       "id": "spital-oberengadin-268d65aa8214",
-      "slug": "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
+      "slug": "chief-medical-officer-chief-medical-officer-membro-della-direzione-spital-oberengadin-samedan",
       "slugByLocale": {
-        "it": "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
-        "en": "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
+        "it": "chief-medical-officer-chief-medical-officer-membro-della-direzione-spital-oberengadin-samedan",
+        "en": "chief-medical-officer-chief-medical-officer-member-of-the-management-spital-oberengadin-samedan",
         "de": "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
-        "fr": "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
+        "fr": "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -710,7 +706,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
+      ]
     }
   ]
 }

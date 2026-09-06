@@ -75126,12 +75126,12 @@
     },
     {
       "id": "roche-68ba72109c8f",
-      "slug": "medical-science-partner-cardio-metabolic-roche-ch",
+      "slug": "partner-di-scienze-mediche-cardio-metabolic-roche-basel",
       "slugByLocale": {
-        "it": "medical-science-partner-cardio-metabolic-roche-ch",
+        "it": "partner-di-scienze-mediche-cardio-metabolic-roche-basel",
         "en": "medical-science-partner-cardio-metabolic-roche-ch",
         "de": "medical-science-partner-cardio-metabolic-roche-ch",
-        "fr": "medical-science-partner-cardio-metabolic-roche-ch"
+        "fr": "partenaire-des-sciences-medicales-cardio-metabolique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -75185,7 +75185,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-science-partner-cardio-metabolic-roche-ch"
+        ],
+        "fr": [
+          "medical-science-partner-cardio-metabolic-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-science-partner-cardio-metabolic-roche-ch"
+      ]
     },
     {
       "id": "roche-e9465f4a87e1",
@@ -75469,7 +75480,7 @@
         "it": "practicante-de-finanzas-data-2027-1-roche-ch",
         "en": "practicante-de-finanzas-data-2027-1-roche-ch",
         "de": "practicante-de-finanzas-data-2027-1-roche-ch",
-        "fr": "practicante-de-finanzas-data-2027-1-roche-ch"
+        "fr": "pratique-de-finanzas-donnees-2027-1-roche-bogota"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76011,7 +76022,7 @@
       "slugByLocale": {
         "it": "rdt-business-partner-roche-ch",
         "en": "rdt-business-partner-roche-ch",
-        "de": "rdt-business-partner-roche-ch",
+        "de": "fte-geschaftspartner-roche-laval",
         "fr": "rdt-business-partner-roche-ch"
       },
       "company": "Roche",
@@ -76225,8 +76236,8 @@
       "slugByLocale": {
         "it": "record-to-report-pec-sme-roche-ch",
         "en": "record-to-report-pec-sme-roche-ch",
-        "de": "record-to-report-pec-sme-roche-ch",
-        "fr": "record-to-report-pec-sme-roche-ch"
+        "de": "datensatz-fur-pec-sme-roche-petaling-jaya",
+        "fr": "enregistrement-au-rapport-pme-pec-roche-petaling-jaya"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76287,7 +76298,7 @@
       "slugByLocale": {
         "it": "accounts-payable-analista-korean-speaker-roche-petaling-jaya",
         "en": "accounts-payable-analyst-korean-speaker-roche-ch",
-        "de": "accounts-payable-analyst-korean-speaker-roche-ch",
+        "de": "accounts-payable-analyst-koreanischer-sprecher-roche-petaling-jaya",
         "fr": "accounts-payable-analyste-korean-speaker-roche-petaling-jaya"
       },
       "company": "Roche",
@@ -76336,6 +76347,9 @@
         ],
         "fr": [
           "accounts-payable-analyst-korean-speaker-roche-ch"
+        ],
+        "de": [
+          "accounts-payable-analyst-korean-speaker-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-02T13:34:06.158Z",
@@ -76356,11 +76370,11 @@
     },
     {
       "id": "roche-3bdda606feae",
-      "slug": "warehouse-operator-despatch-roche-ch",
+      "slug": "dispersione-dell-operatore-del-magazzino-roche-pemulwuy",
       "slugByLocale": {
-        "it": "warehouse-operator-despatch-roche-ch",
+        "it": "dispersione-dell-operatore-del-magazzino-roche-pemulwuy",
         "en": "warehouse-operator-despatch-roche-ch",
-        "de": "warehouse-operator-despatch-roche-ch",
+        "de": "versand-des-lagerbetreibers-roche-pemulwuy",
         "fr": "warehouse-operateur-despatch-roche-pemulwuy"
       },
       "company": "Roche",
@@ -76414,16 +76428,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "warehouse-operator-despatch-roche-ch"
+        ],
+        "de": [
+          "warehouse-operator-despatch-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "warehouse-operator-despatch-roche-ch"
+      ]
     },
     {
       "id": "roche-633ece3f0df8",
-      "slug": "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch",
+      "slug": "produzione-esterna-leadership-dei-prodotti-tecnici-lead-consumables-roche-rotkreuz",
       "slugByLocale": {
-        "it": "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch",
+        "it": "produzione-esterna-leadership-dei-prodotti-tecnici-lead-consumables-roche-rotkreuz",
         "en": "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch",
-        "de": "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch",
-        "fr": "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch"
+        "de": "externe-fertigung-technical-product-leadership-lead-verbrauchsmaterialien-roche-rotkreuz",
+        "fr": "fabrication-externe-leadership-des-produits-techniques-consommables-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76476,7 +76501,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch"
+        ],
+        "de": [
+          "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch"
+        ],
+        "fr": [
+          "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "external-manufacturing-technical-product-leadership-lead-consumables-roche-ch"
+      ]
     },
     {
       "id": "roche-544f4815f064",
@@ -76556,12 +76595,12 @@
     },
     {
       "id": "roche-8cf4d686f834",
-      "slug": "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet-per-2-jahre-roche-baden",
+      "slug": "customer-partnering-manager-m-f-d-nel-campo-dell-ematologia-stoccarda-reutlingen-temporaneo-per-2-anni-roche-baden",
       "slugByLocale": {
-        "it": "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet-per-2-jahre-roche-baden",
-        "en": "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet",
+        "it": "customer-partnering-manager-m-f-d-nel-campo-dell-ematologia-stoccarda-reutlingen-temporaneo-per-2-anni-roche-baden",
+        "en": "customer-partnering-manager-m-f-d-in-the-field-of-hematology-stuttgart-reutlingen-temporary-for-2-years-roche-baden",
         "de": "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet",
-        "fr": "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet"
+        "fr": "gestionnaire-de-partenaires-clients-h-f-d-dans-le-domaine-de-l-hematologie-stuttgart-reutlingen-temporaire-pour-2-ans"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76601,10 +76640,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet"
+        "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet",
+        "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet-per-2-jahre-roche-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet",
+          "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet-per-2-jahre-roche-baden"
+        ],
+        "en": [
+          "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet"
+        ],
+        "fr": [
           "customer-partnering-manager-m-w-d-im-bereich-hamatologie-stuttgart-reutlingen-befristet"
         ]
       },
@@ -76886,12 +76933,12 @@
     },
     {
       "id": "roche-c4da1113dbe9",
-      "slug": "customer-innovation-consulting-partner-roche-ch",
+      "slug": "partner-di-innovazione-e-consulenza-clienti-roche-petaling-jaya",
       "slugByLocale": {
-        "it": "customer-innovation-consulting-partner-roche-ch",
+        "it": "partner-di-innovazione-e-consulenza-clienti-roche-petaling-jaya",
         "en": "customer-innovation-consulting-partner-roche-ch",
         "de": "customer-innovation-consulting-partner-roche-ch",
-        "fr": "customer-innovation-consulting-partner-roche-ch"
+        "fr": "partenaire-d-innovation-et-de-conseil-a-la-clientele-roche-petaling-jaya"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76945,16 +76992,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-innovation-consulting-partner-roche-ch"
+        ],
+        "fr": [
+          "customer-innovation-consulting-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-innovation-consulting-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-3bbae052cee9",
-      "slug": "marketing-partner-digital-solutions-roche-ch",
+      "slug": "partner-marketing-soluzioni-digitali-roche-petaling-jaya",
       "slugByLocale": {
-        "it": "marketing-partner-digital-solutions-roche-ch",
+        "it": "partner-marketing-soluzioni-digitali-roche-petaling-jaya",
         "en": "marketing-partner-digital-solutions-roche-ch",
-        "de": "marketing-partner-digital-solutions-roche-ch",
-        "fr": "marketing-partner-digital-solutions-roche-ch"
+        "de": "marketing-partner-digitale-losungen-roche-petaling-jaya",
+        "fr": "partenaire-marketing-solutions-numeriques-roche-petaling-jaya"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -77007,7 +77065,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-partner-digital-solutions-roche-ch"
+        ],
+        "de": [
+          "marketing-partner-digital-solutions-roche-ch"
+        ],
+        "fr": [
+          "marketing-partner-digital-solutions-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-partner-digital-solutions-roche-ch"
+      ]
     },
     {
       "id": "roche-e191b2e3e22d",
@@ -77086,7 +77158,7 @@
         "it": "access-policy-partner-roche-ch",
         "en": "access-policy-partner-roche-ch",
         "de": "access-policy-partner-roche-ch",
-        "fr": "access-policy-partner-roche-ch"
+        "fr": "partenaire-acces-et-politique-roche-thailand"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -77207,12 +77279,12 @@
     },
     {
       "id": "roche-9f72810056d2",
-      "slug": "senior-specialista-directory-services-rdt-identity-access-management-roche-madrid",
+      "slug": "servizi-di-directory-specialistici-senior-rdt-gestione-dell-identita-e-dell-accesso-roche-madrid",
       "slugByLocale": {
-        "it": "senior-specialista-directory-services-rdt-identity-access-management-roche-madrid",
+        "it": "servizi-di-directory-specialistici-senior-rdt-gestione-dell-identita-e-dell-accesso-roche-madrid",
         "en": "senior-specialist-directory-services-rdt-identity-access-management-roche-ch",
         "de": "senior-spezialist-directory-services-rdt-identity-access-management-roche-madrid",
-        "fr": "senior-specialiste-directory-services-rdt-identity-access-management-roche-madrid"
+        "fr": "services-d-annuaire-de-specialistes-principaux-rdt-gestion-de-l-identite-et-de-l-acces-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -77252,17 +77324,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-directory-services-rdt-identity-access-management-roche-ch"
+        "senior-specialist-directory-services-rdt-identity-access-management-roche-ch",
+        "senior-specialista-directory-services-rdt-identity-access-management-roche-madrid",
+        "senior-specialiste-directory-services-rdt-identity-access-management-roche-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-directory-services-rdt-identity-access-management-roche-ch"
+          "senior-specialist-directory-services-rdt-identity-access-management-roche-ch",
+          "senior-specialista-directory-services-rdt-identity-access-management-roche-madrid"
         ],
         "de": [
           "senior-specialist-directory-services-rdt-identity-access-management-roche-ch"
         ],
         "fr": [
-          "senior-specialist-directory-services-rdt-identity-access-management-roche-ch"
+          "senior-specialist-directory-services-rdt-identity-access-management-roche-ch",
+          "senior-specialiste-directory-services-rdt-identity-access-management-roche-madrid"
         ]
       },
       "needsRetranslation": true,
@@ -77357,12 +77433,12 @@
     },
     {
       "id": "roche-d0e54df64eb1",
-      "slug": "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche",
+      "slug": "professionista-dell-universita-nel-campo-dell-analisi-delle-tracce-data-di-inizio-01-11-2026-12-mesi-roche-basel",
       "slugByLocale": {
-        "it": "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche",
-        "en": "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche",
+        "it": "professionista-dell-universita-nel-campo-dell-analisi-delle-tracce-data-di-inizio-01-11-2026-12-mesi-roche-basel",
+        "en": "university-practitioner-in-the-field-of-trace-analysis-start-date-01-11-2026-12-months-roche-basel",
         "de": "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche",
-        "fr": "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche"
+        "fr": "pratique-universitaire-dans-le-domaine-de-l-analyse-des-traces-date-de-debut-01-11-2026-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -77416,16 +77492,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche"
+        ],
+        "en": [
+          "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche"
+        ],
+        "fr": [
+          "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche"
+        ]
+      },
+      "previousSlugs": [
+        "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-11-2026-12-monate-roche"
+      ]
     },
     {
       "id": "roche-381d034ffa72",
-      "slug": "manufacturing-biotechnologist-roche-central-singapore",
+      "slug": "biotecnologia-di-produzione-roche-central-singapore",
       "slugByLocale": {
-        "it": "manufacturing-biotechnologist-roche-central-singapore",
+        "it": "biotecnologia-di-produzione-roche-central-singapore",
         "en": "manufacturing-biotechnologist-roche-ch",
-        "de": "manufacturing-biotechnologist-roche-ch",
-        "fr": "manufacturing-biotechnologist-roche-central-singapore"
+        "de": "herstellung-von-biotechnologen-roche-central-singapore",
+        "fr": "biotechnologie-de-la-fabrication-roche-central-singapore"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -77465,11 +77555,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-biotechnologist-roche-ch"
+        "manufacturing-biotechnologist-roche-ch",
+        "manufacturing-biotechnologist-roche-central-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manufacturing-biotechnologist-roche-ch",
+          "manufacturing-biotechnologist-roche-central-singapore"
+        ],
+        "de": [
           "manufacturing-biotechnologist-roche-ch"
+        ],
+        "fr": [
+          "manufacturing-biotechnologist-roche-central-singapore"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:50.290Z",
@@ -77709,7 +77807,7 @@
         "it": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch",
         "en": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch",
         "de": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch",
-        "fr": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch"
+        "fr": "professionnels-de-la-gestion-de-la-livraison-gestionnaire-des-services-de-livraison-r-d-rdt-pharma-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -77830,11 +77928,11 @@
     },
     {
       "id": "roche-3ea0f9e0801e",
-      "slug": "technical-lead-aem-platform-roche-ch",
+      "slug": "lead-tecnico-piattaforma-aem-roche-pune",
       "slugByLocale": {
-        "it": "technical-lead-aem-platform-roche-ch",
+        "it": "lead-tecnico-piattaforma-aem-roche-pune",
         "en": "technical-lead-aem-platform-roche-ch",
-        "de": "technical-lead-aem-platform-roche-ch",
+        "de": "technischer-lead-aem-plattform-roche-pune",
         "fr": "responsable-technique-aem-platform-roche-pune"
       },
       "company": "Roche",
@@ -77888,7 +77986,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-lead-aem-platform-roche-ch"
+        ],
+        "de": [
+          "technical-lead-aem-platform-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-lead-aem-platform-roche-ch"
+      ]
     },
     {
       "id": "roche-95ffd3b2a210",
@@ -78012,9 +78121,9 @@
     },
     {
       "id": "roche-685ae2be3d82",
-      "slug": "key-account-manager-comptes-publics-paris-ap-hp-d-f-m-roche-ch",
+      "slug": "key-account-manager-account-pubblici-parigi-ap-hp-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "key-account-manager-comptes-publics-paris-ap-hp-d-f-m-roche-ch",
+        "it": "key-account-manager-account-pubblici-parigi-ap-hp-d-f-m-roche-france",
         "en": "key-account-manager-comptes-publics-paris-ap-hp-d-f-m-roche-ch",
         "de": "key-account-manager-comptes-publics-paris-ap-hp-d-f-m-roche-ch",
         "fr": "key-account-manager-comptes-publics-paris-ap-hp-d-f-m-roche-ch"
@@ -78070,7 +78179,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-comptes-publics-paris-ap-hp-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-comptes-publics-paris-ap-hp-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-3aa3ec18f18e",
@@ -78149,7 +78266,7 @@
         "it": "data-consulente-roche-welwyn",
         "en": "data-consultant-roche-ch",
         "de": "data-berater-roche-welwyn",
-        "fr": "data-consultant-roche-ch"
+        "fr": "consultant-en-donnees-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -78196,6 +78313,9 @@
           "data-consultant-roche-ch"
         ],
         "de": [
+          "data-consultant-roche-ch"
+        ],
+        "fr": [
           "data-consultant-roche-ch"
         ]
       },
@@ -78363,12 +78483,12 @@
     },
     {
       "id": "roche-40cc02aff612",
-      "slug": "internship-pmo-technical-coordinatore-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel",
+      "slug": "stage-pmo-technical-coordinator-operazioni-change-enabler-a-basilea-12-mesi-a-novembre-2026-roche-basel",
       "slugByLocale": {
-        "it": "internship-pmo-technical-coordinatore-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel",
+        "it": "stage-pmo-technical-coordinator-operazioni-change-enabler-a-basilea-12-mesi-a-novembre-2026-roche-basel",
         "en": "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of",
         "de": "internship-pmo-technical-koordinator-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel",
-        "fr": "internship-pmo-technical-coordinateur-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel"
+        "fr": "stage-pmo-technical-coordinator-operations-change-enabler-a-bale-12-mois-a-compter-de-novembre-2026-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -78408,17 +78528,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of"
+        "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of",
+        "internship-pmo-technical-coordinatore-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel",
+        "internship-pmo-technical-coordinateur-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of"
+          "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of",
+          "internship-pmo-technical-coordinatore-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel"
         ],
         "de": [
           "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of"
         ],
         "fr": [
-          "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of"
+          "internship-pmo-technical-coordinator-operations-change-enabler-in-basel-12-months-as-of",
+          "internship-pmo-technical-coordinateur-operations-change-enabler-in-basel-12-months-as-of-november-2026-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:33.458Z",
@@ -78512,12 +78636,12 @@
     },
     {
       "id": "roche-22b3cf130287",
-      "slug": "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-mannheim",
+      "slug": "laboratorio-chimico-in-m-f-d-temporaneo-a-2-anni-roche-mannheim",
       "slugByLocale": {
-        "it": "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-mannheim",
-        "en": "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch",
+        "it": "laboratorio-chimico-in-m-f-d-temporaneo-a-2-anni-roche-mannheim",
+        "en": "chemical-laboratory-in-m-f-d-temporary-to-2-years-roche-mannheim",
         "de": "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch",
-        "fr": "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch"
+        "fr": "laboratoire-chimique-en-h-f-d-temporaire-a-2-ans-roche-mannheim"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -78557,10 +78681,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch"
+        "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch",
+        "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-mannheim"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch",
+          "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-mannheim"
+        ],
+        "en": [
+          "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch"
+        ],
+        "fr": [
           "chemielaborant-in-m-w-d-befristet-auf-2-jahre-roche-ch"
         ]
       },
@@ -84677,12 +84809,12 @@
     },
     {
       "id": "roche-fbbd1edab019",
-      "slug": "medical-science-partner-cardio-metabolic-roche-ch-2",
+      "slug": "partner-di-scienze-mediche-cardio-metabolic-roche-basel-fbd1ef",
       "slugByLocale": {
-        "it": "medical-science-partner-cardio-metabolic-roche-ch-2",
+        "it": "partner-di-scienze-mediche-cardio-metabolic-roche-basel-fbd1ef",
         "en": "medical-science-partner-cardio-metabolic-roche-ch-0vrmcj",
         "de": "medical-science-partner-cardio-metabolic-roche-ch-2",
-        "fr": "medical-science-partner-cardio-metabolic-roche-ch-2"
+        "fr": "partenaire-des-sciences-medicales-cardio-metabolique-roche-basel-fbd1ef"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84722,14 +84854,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medical-science-partner-cardio-metabolic-roche-ch"
+        "medical-science-partner-cardio-metabolic-roche-ch",
+        "medical-science-partner-cardio-metabolic-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-science-partner-cardio-metabolic-roche-ch"
+          "medical-science-partner-cardio-metabolic-roche-ch",
+          "medical-science-partner-cardio-metabolic-roche-ch-2"
         ],
         "en": [
           "medical-science-partner-cardio-metabolic-roche-ch"
+        ],
+        "fr": [
+          "medical-science-partner-cardio-metabolic-roche-ch-2"
         ]
       },
       "needsRetranslation": true,

@@ -2119,12 +2119,12 @@
     },
     {
       "id": "hornbach-155038",
-      "slug": "verkaufer-in-fliesen-hornbach-sirnach",
+      "slug": "vendita-in-piastrelle-hornbach-sirnach",
       "slugByLocale": {
-        "it": "verkaufer-in-fliesen-hornbach-sirnach",
-        "en": "verkaufer-in-fliesen-hornbach-sirnach",
+        "it": "vendita-in-piastrelle-hornbach-sirnach",
+        "en": "seller-in-tiles-hornbach-sirnach",
         "de": "verkaufer-in-fliesen-hornbach-sirnach",
-        "fr": "verkaufer-in-fliesen-hornbach-sirnach"
+        "fr": "vendeur-en-carreaux-hornbach-sirnach"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2180,7 +2180,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-fliesen-hornbach-sirnach"
+        ],
+        "en": [
+          "verkaufer-in-fliesen-hornbach-sirnach"
+        ],
+        "fr": [
+          "verkaufer-in-fliesen-hornbach-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-fliesen-hornbach-sirnach"
+      ]
     },
     {
       "id": "hornbach-155154",

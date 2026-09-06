@@ -16662,12 +16662,12 @@
     },
     {
       "id": "luks-7717c1df246a",
-      "slug": "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern",
+      "slug": "responsabile-applicazioni-aree-speciali-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern",
-        "en": "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern",
+        "it": "responsabile-applicazioni-aree-speciali-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "application-manager-specialised-areas-80-100-luzerner-kantonsspital-luks-luzern",
         "de": "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern",
-        "fr": "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern"
+        "fr": "gestionnaire-d-application-zones-specialisees-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16722,7 +16722,21 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern"
+        ],
+        "en": [
+          "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern"
+        ],
+        "fr": [
+          "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "application-manager-spezialisierte-fachbereiche-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-ae31d446601e",

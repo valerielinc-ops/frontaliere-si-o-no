@@ -3196,12 +3196,12 @@
     },
     {
       "id": "six-group-d4c7b671e796",
-      "slug": "information-security-officer-six-group-madrid",
+      "slug": "responsabile-della-sicurezza-six-group-madrid",
       "slugByLocale": {
-        "it": "information-security-officer-six-group-madrid",
+        "it": "responsabile-della-sicurezza-six-group-madrid",
         "en": "information-security-officer-six-group-madrid",
-        "de": "information-security-officer-six-group-madrid",
-        "fr": "information-security-officer-six-group-madrid"
+        "de": "informationssicherheitsbeauftragter-six-group-madrid",
+        "fr": "specialiste-de-la-securite-de-l-information-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3256,7 +3256,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "information-security-officer-six-group-madrid"
+        ],
+        "de": [
+          "information-security-officer-six-group-madrid"
+        ],
+        "fr": [
+          "information-security-officer-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "information-security-officer-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-0f6bcdb07a04",

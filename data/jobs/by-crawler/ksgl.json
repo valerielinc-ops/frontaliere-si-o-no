@@ -1990,12 +1990,12 @@
     },
     {
       "id": "ksgl-748de138b4c0",
-      "slug": "sachbearbeiter-in-einkauf-e-logistik-kantonsspital-glarus-ksgl-glarus",
+      "slug": "agente-nell-acquisto-e-nella-logistica-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-einkauf-e-logistik-kantonsspital-glarus-ksgl-glarus",
-        "en": "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus",
+        "it": "agente-nell-acquisto-e-nella-logistica-kantonsspital-glarus-ksgl-glarus",
+        "en": "agent-in-purchasing-and-logistics-kantonsspital-glarus-ksgl-glarus",
         "de": "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus",
-        "fr": "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus"
+        "fr": "agent-en-achats-et-logistique-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -2037,10 +2037,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus"
+        "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus",
+        "sachbearbeiter-in-einkauf-e-logistik-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus",
+          "sachbearbeiter-in-einkauf-e-logistik-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "en": [
+          "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus"
+        ],
+        "fr": [
           "sachbearbeiter-in-einkauf-und-logistik-ksgl-glarus"
         ]
       },

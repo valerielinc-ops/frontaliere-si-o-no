@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zermatt-bergbahnen-ba4b30408bd6",
-      "slug": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
+      "slug": "meccanico-di-costruzione-zermatt-bergbahnen-zermatt",
       "slugByLocale": {
-        "it": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
-        "en": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
+        "it": "meccanico-di-costruzione-zermatt-bergbahnen-zermatt",
+        "en": "construction-machinery-mechanic-zermatt-bergbahnen-zermatt",
         "de": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
-        "fr": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        "fr": "mecanicien-des-machines-de-construction-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -61,7 +61,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        ],
+        "en": [
+          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        ],
+        "fr": [
+          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+      ]
     },
     {
       "id": "zermatt-bergbahnen-450c7c2a86a3",

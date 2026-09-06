@@ -1409,12 +1409,12 @@
     },
     {
       "id": "gzo-wetzikon-ace844b94515",
-      "slug": "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch",
+      "slug": "medico-senior-radiologia-medico-senior-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
-        "it": "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch",
-        "en": "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch",
+        "it": "medico-senior-radiologia-medico-senior-100-gzo-spital-wetzikon-wetzikon",
+        "en": "senior-physician-senior-physician-radiology-100-gzo-spital-wetzikon-wetzikon",
         "de": "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch",
-        "fr": "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch"
+        "fr": "medecin-superieur-radiologie-medecin-superieur-100-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1471,7 +1471,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-radiologie-100-gzo-wetzikon-ch"
+      ]
     },
     {
       "id": "gzo-wetzikon-91433d8c0723",
