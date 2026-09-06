@@ -5716,6 +5716,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-affitti-canton-argovia.title': 'Mietmarkt im Kanton Aargau: Durchschnittsmieten und Mietrecht',
     'blog.article.mercato-affitti-canton-argovia.excerpt': 'Informieren Sie sich über die durchschnittlichen Mieten im Kanton Aargau, die Regelungen zur Kaution und die Mieterrechte.',
     'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Panoramablick auf den Kanton Aargau mit Wohngebäuden',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Vulkanausbruch, sechs Flughäfen in Indonesien blockiert',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Einstellung des Flugbetriebs in Indonesien aufgrund des Ausbruchs des Vulkans Anak Krakatoa. Über 20\'000 Fahrgäste waren beteiligt.',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Luftaufnahme eines Schweizer Flughafens mit einem Vulkanausbruch im Hintergrund',
 };
 
 export default blogMetaChDe;

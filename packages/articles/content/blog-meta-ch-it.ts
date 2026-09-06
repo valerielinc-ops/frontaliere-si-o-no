@@ -5716,6 +5716,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-affitti-canton-argovia.title': 'Mercato degli affitti nel Cantone di Argovia: canoni medi e diritto di locazione',
     'blog.article.mercato-affitti-canton-argovia.excerpt': 'Scopri i canoni medi degli affitti nel Cantone di Argovia, le normative sul deposito di garanzia e i diritti degli inquilini.',
     'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Vista panoramica del Cantone di Argovia con edifici residenziali',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.title': 'Erutta un vulcano, sei aeroporti bloccati in Indonesia',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.excerpt': 'Sospensione delle attività aeroportuali in Indonesia a causa dell\'eruzione del vulcano Anak Krakatoa. Oltre 20\'000 passeggeri coinvolti.',
+    'blog.article.eruzione-vulcano-aeroporti-indonesia.imageAlt': 'Vista aerea di un aeroporto svizzero con un\'eruzione vulcanica in lontananza',
 };
 
 export default blogMetaChIt;
