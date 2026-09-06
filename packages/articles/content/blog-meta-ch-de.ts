@@ -5725,6 +5725,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Einbürgerung im Kanton Aargau: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Informieren Sie sich über die Voraussetzungen und das Verfahren für die Einbürgerung im Kanton Aargau, einschliesslich Wohnsitzjahre, Integrationstests und Steuern.',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Panoramablick auf Aarau, Hauptstadt des Kantons Aargau, Schweiz',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.title': 'AHV und Ergänzungsleistungen im Kanton Wallis: Praxisleitfaden',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.excerpt': 'Erfahren Sie, wie die AHV und die Ergänzungsleistungen im Kanton Wallis funktionieren, mit Fokus auf die kantonale Ausgleichskasse und die Rentenberechnung.',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.imageAlt': 'Panoramablick auf den Luganersee mit dem Monte San Salvatore',
 };
 
 export default blogMetaChDe;

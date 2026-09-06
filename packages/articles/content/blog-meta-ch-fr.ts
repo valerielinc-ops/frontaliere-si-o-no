@@ -5725,6 +5725,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Naturalisation dans le canton d\'Argovie : exigences et procédure',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Découvrez les conditions et la procédure d\'obtention de la naturalisation dans le canton d\'Argovie, y compris les années de résidence, les tests d\'intégration et les taxes.',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Vue panoramique d\'Aarau, capitale du canton d\'Argovie, Suisse',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.title': 'AVS et prestations complémentaires dans le canton du Valais : guide pratique',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.excerpt': 'Découvrez le fonctionnement de l\'AVS et des prestations complémentaires dans le canton du Valais, en vous concentrant sur la caisse de compensation cantonale et le calcul de la rente.',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.imageAlt': 'Vue panoramique du lac de Lugano avec le Monte San Salvatore',
 };
 
 export default blogMetaChFr;

@@ -74315,6 +74315,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-canton-vallese': {
+    title: 'AVS e prestazioni complementari nel Canton Vallese: guida pratica',
+    description: 'Scopri come funziona l\'AVS e le prestazioni complementari nel Canton Vallese, con focus sulla cassa di compensazione cantonale e il calcolo della rendita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, vallese',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Vallese',
+    ogDescription: 'Guida pratica sull\'AVS e le prestazioni complementari nel Canton Vallese, con informazioni sulla cassa di compensazione cantonale e il calcolo della rendita.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-canton-vallese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Vallese: guida pratica",
+      "description": "Scopri come funziona l'AVS e le prestazioni complementari nel Canton Vallese, con focus sulla cassa di compensazione cantonale e il calcolo della rendita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-canton-vallese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con il Monte San Salvatore"
+      },
+      "datePublished": "2026-09-06T11:27:45+00:00",
+      "dateModified": "2026-09-06T11:27:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-canton-vallese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
