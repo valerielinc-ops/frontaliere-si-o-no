@@ -5722,6 +5722,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esercitazione-salvataggio-monte-ceneri.title': 'Rettungsübung im Ceneri-Tunnel',
     'blog.article.esercitazione-salvataggio-monte-ceneri.excerpt': 'Simulierter Brand in einem Giruno-Zug während einer Rettungsübung im Ceneri-Tunnel.',
     'blog.article.esercitazione-salvataggio-monte-ceneri.imageAlt': 'Luftaufnahme des Monte-Ceneri-Tunnels während einer Sicherheitsübung, mit Einsatzfahrzeugen und Personal im Einsatz.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Einbürgerung im Kanton Aargau: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Informieren Sie sich über die Voraussetzungen und das Verfahren für die Einbürgerung im Kanton Aargau, einschliesslich Wohnsitzjahre, Integrationstests und Steuern.',
+    'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Panoramablick auf Aarau, Hauptstadt des Kantons Aargau, Schweiz',
 };
 
 export default blogMetaChDe;

@@ -1933,6 +1933,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-affitti-canton-argovia': { it: 'mercato-affitti-canton-argovia', en: 'rent-market-canton-aargau', de: 'mietmarkt-kanton-aargau', fr: 'marche-locatif-canton-argovie' },
  'eruzione-vulcano-aeroporti-indonesia': { it: 'eruzione-vulcano-aeroporti-indonesia', en: 'volcano-eruption-indonesian-airports', de: 'vulkanausbruch-indonesische-flughaefen', fr: 'eruption-volcan-aeroports-indonesie' },
  'esercitazione-salvataggio-monte-ceneri': { it: 'esercitazione-salvataggio-monte-ceneri', en: 'monte-ceneri-rescue-drill', de: 'monte-ceneri-rettungsuebung', fr: 'exercice-de-sauvetage-monte-ceneri' },
+ 'naturalizzazione-canton-argovia-requisiti-e-procedura': { it: 'naturalizzazione-canton-argovia-requisiti-e-procedura', en: 'naturalization-canton-aargau-requirements-and-procedure', de: 'einbuergerung-kanton-aargau-voraussetzungen-und-verfahren', fr: 'naturalisation-canton-argovie-conditions-et-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
