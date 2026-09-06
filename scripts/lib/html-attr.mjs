@@ -237,3 +237,83 @@ export function readMetaContent(html = '', key = '') {
   });
   return tag ? readAttr(tag.raw, 'content') : '';
 }
+
+const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+
+/**
+ * Build a balanced-container index over `html` in a single ordered pass.
+ *
+ * The alternative idiom — `<tag class="x"[^>]*>([\s\S]*?)<\/tag>` — is not
+ * nesting-aware: a non-greedy body stops at the FIRST closing tag of the same
+ * name, so a container that legitimately wraps a list (`<li>…<ul><li>a</li>…`)
+ * is truncated after its first child. It is also tag-locked and
+ * attribute-order-locked, which real Umantis markup breaks on both counts.
+ *
+ * @param {string} html
+ * @returns {{ tags: ReturnType<typeof scanHtmlTags>, bounds: Map<number, {contentEnd: number, end: number}> }}
+ */
+export function indexHtmlContainers(html = '') {
+  const tags = scanHtmlTags(html);
+  const pending = new Map();
+  const bounds = new Map();
+  for (const tag of tags) {
+    if (!tag.closing) {
+      if (!tag.selfClosing && !VOID_TAGS.has(tag.name)) {
+        if (!pending.has(tag.name)) pending.set(tag.name, []);
+        pending.get(tag.name).push(tag);
+      }
+      continue;
+    }
+    const opening = pending.get(tag.name)?.pop();
+    if (opening) bounds.set(opening.index, { contentEnd: tag.index, end: tag.end });
+  }
+  return { tags: tags.filter((tag) => !tag.closing), bounds };
+}
+
+/**
+ * Outer HTML of every topmost container matching `predicate`. Nested matches
+ * are skipped so a section is never emitted twice.
+ *
+ * @param {string} html
+ * @param {ReturnType<typeof indexHtmlContainers>} index
+ * @param {(tag: ReturnType<typeof scanHtmlTags>[number]) => boolean} predicate
+ * @returns {string[]}
+ */
+export function htmlContainersMatching(html, index, predicate) {
+  const out = [];
+  let consumedUntil = 0;
+  for (const tag of index.tags) {
+    if (tag.index < consumedUntil || !predicate(tag)) continue;
+    const bound = index.bounds.get(tag.index);
+    if (!bound) continue;
+    out.push(html.slice(tag.index, bound.end));
+    consumedUntil = bound.end;
+  }
+  return out;
+}
+
+/**
+ * `htmlContainersMatching` for callers that need one query over one document.
+ *
+ * @param {string} html
+ * @param {(tag: ReturnType<typeof scanHtmlTags>[number]) => boolean} predicate
+ * @returns {string[]}
+ */
+export function selectHtmlContainers(html = '', predicate) {
+  const source = String(html || '');
+  if (!source) return [];
+  return htmlContainersMatching(source, indexHtmlContainers(source), predicate);
+}
+
+/**
+ * Whether a start tag carries `className` as one of its class tokens.
+ *
+ * @param {string} rawTag Raw start tag, e.g. `<p tabindex="1"class="x"id="y">`.
+ * @param {string} className
+ * @returns {boolean}
+ */
+export function tagHasClass(rawTag = '', className = '') {
+  const target = String(className).toLowerCase();
+  return readAttr(rawTag, 'class').toLowerCase().split(/\s+/).filter(Boolean)
+    .includes(target);
+}

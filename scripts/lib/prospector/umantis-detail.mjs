@@ -6,47 +6,17 @@
  * current layouts while keeping the generic crawler fail-closed: no employer
  * default is invented when a page does not expose a vacancy location.
  */
-import { readAttr, readMetaContent, scanHtmlTags } from '../html-attr.mjs';
+import {
+  htmlContainersMatching as containersMatching,
+  indexHtmlContainers as indexContainers,
+  readAttr,
+  readMetaContent,
+} from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
-
-const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 
 /** @param {string} raw */
 function classTokens(raw) {
   return readAttr(raw, 'class').toLowerCase().split(/\s+/).filter(Boolean);
-}
-
-/** @param {string} html */
-function indexContainers(html) {
-  const tags = scanHtmlTags(html);
-  const pending = new Map();
-  const bounds = new Map();
-  for (const tag of tags) {
-    if (!tag.closing) {
-      if (!tag.selfClosing && !VOID_TAGS.has(tag.name)) {
-        if (!pending.has(tag.name)) pending.set(tag.name, []);
-        pending.get(tag.name).push(tag);
-      }
-      continue;
-    }
-    const opening = pending.get(tag.name)?.pop();
-    if (opening) bounds.set(opening.index, { contentEnd: tag.index, end: tag.end });
-  }
-  return { tags: tags.filter((tag) => !tag.closing), bounds };
-}
-
-/** @param {string} html @param {ReturnType<typeof indexContainers>} index @param {(tag: any) => boolean} predicate */
-function containersMatching(html, index, predicate) {
-  const out = [];
-  let consumedUntil = 0;
-  for (const tag of index.tags) {
-    if (tag.index < consumedUntil || !predicate(tag)) continue;
-    const bound = index.bounds.get(tag.index);
-    if (!bound) continue;
-    out.push(html.slice(tag.index, bound.end));
-    consumedUntil = bound.end;
-  }
-  return out;
 }
 
 /**

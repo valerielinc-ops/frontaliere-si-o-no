@@ -39,6 +39,7 @@ import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mj
 import { slugify, stripHtml, fetchHtml as fetchHtmlResilient, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isCrossHostRedirect } from './umantis-detail-helpers.mjs';
+import { scanHtmlTags, selectHtmlContainers, tagHasClass } from './html-attr.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -275,8 +276,20 @@ function parseSwissDate(raw = '') {
 /**
  * Extract rich description content from an Umantis detail page.
  *
- * Newer-UI tenants (Bethesda, Sonnenhalde) use `<li class="customdatablock"
- * id="customdatablock_NNNN">…</li>` pairs:
+ * Newer-UI tenants tag every vacancy section with `class="customdatablock"
+ * id="customdatablock_NNNN"`, but the element carrying it is not stable across
+ * the renderer's layouts: `<li>` (Bethesda, Sonnenhalde), `<p>` (GZF 2924),
+ * `<div>` (GKB). Neither is the attribute order — GZF emits
+ * `<p tabindex="4300"class="customdatablock"id="customdatablock_3578">`, with
+ * `class` in second position and no space between attributes. Selecting these
+ * containers with a tag-locked, class-first regex therefore matched only the
+ * tenant header on GZF and dropped every real section, which is what left two
+ * of its four vacancies with a boilerplate-only description (issue #7846).
+ * The scan below is tag-agnostic, attribute-order-agnostic and nesting-aware,
+ * so a section that wraps `<ul><li>…</li></ul>` is no longer truncated after
+ * its first bullet.
+ *
+ * Sections come in pairs:
  *   - Header item: contains the section name as plain text (e.g. "Ihre Aufgaben")
  *   - Body item: contains the bullet list inside an inner <ul><li>...</li></ul>
  *
@@ -285,22 +298,47 @@ function parseSwissDate(raw = '') {
  *
  * Returns concatenated plain-text content (\n\n separated sections).
  */
+/**
+ * Per-vacancy chrome that Umantis renders inside `customdatablock` containers
+ * alongside the real sections: the tenant header ("<Company> | online seit:
+ * DD.MM.YYYY"), the corporate homepage link, the apply CTA and the back link.
+ * They are identical on every vacancy of a tenant, so keeping them inflates a
+ * thin body into text the parser-health monitor then reports as
+ * boilerplate-only (issue #7846).
+ *
+ * @param {string} text Plain text of one already-stripped container.
+ * @returns {boolean}
+ */
+function isDetailBlockChrome(text = '') {
+  const value = String(text || '').trim();
+  if (!value) return true;
+  if (/^(?:•\s*)?https?:\/\/\S+$/i.test(value)) return true;
+  if (/^(?:•\s*)?(?:zur[u\u00fc]ck|back|retour|indietro)$/i.test(value)) return true;
+  if (/\|\s*online seit\s*:/i.test(value)) return true;
+  if (/ich bin interessiert und m[o\u00f6]chte mich bewerben/i.test(value)) return true;
+  return false;
+}
+
 export function extractUmantisDetailContent(html) {
   if (!html || typeof html !== 'string') return '';
   // First try the newer-UI customdatablock pattern
   const blocks = [];
-  const dataBlockRx = /<li class="customdatablock"[^>]*id="customdatablock_\d+"[^>]*>([\s\S]*?)<\/li\s*>/g;
-  let m;
-  while ((m = dataBlockRx.exec(html))) {
-    let text = m[1]
+  for (const container of selectHtmlContainers(html, (tag) => tagHasClass(tag.raw, 'customdatablock'))) {
+    // `selectHtmlContainers` returns the outer HTML; drop the start tag so a
+    // `<li class="customdatablock">` section doesn't open with a stray bullet.
+    const [open] = scanHtmlTags(container);
+    let text = (open ? container.slice(open.end) : container)
       .replace(/<ul[^>]*>/gi, '')
       .replace(/<\/ul\s*>/gi, '')
       .replace(/<li[^>]*>/gi, '\n• ')
       .replace(/<\/li\s*>/gi, '')
       .replace(/<br\s*\/?>/gi, '\n')
       .replace(/<[^>]+>/g, ' ');
-    text = normalizeSpace(decodeEntities(text)).replace(/\s*•\s*/g, '\n• ');
-    if (text && text.length > 5) blocks.push(text);
+    // Some tenants (GZF 2924) ship the bullet list as literal middots inside a
+    // single <p>, with no list markup at all. Normalise them to the same '• '
+    // marker so `hasStructuredContent` sees the structure that is really there.
+    text = normalizeSpace(decodeEntities(text)).replace(/\s*[•·▪]\s*/g, '\n• ');
+    if (text && text.length > 5 && !isDetailBlockChrome(text)) blocks.push(text);
   }
   if (blocks.length > 0) return blocks.join('\n\n');
 
