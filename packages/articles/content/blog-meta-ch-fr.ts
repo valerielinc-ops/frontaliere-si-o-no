@@ -5689,6 +5689,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affittare-bene-immobili-ticino.title': 'Bien louer un bien immobilier : stratégies et conseils aux propriétaires',
     'blog.article.affittare-bene-immobili-ticino.excerpt': 'Louer rapidement ne signifie pas bien louer. Découvrez comment protéger votre investissement et choisir des locataires fiables.',
     'blog.article.affittare-bene-immobili-ticino.imageAlt': 'Vue aérienne de Lugano avec des appartements modernes et un marché animé',
+    'blog.article.neutralita-svizzera-prospeta.title': 'Neutralité rime avec prospérité',
+    'blog.article.neutralita-svizzera-prospeta.excerpt': 'Lorenzo Quadri discute de l\'importance de la neutralité suisse et de ses implications économiques et politiques.',
+    'blog.article.neutralita-svizzera-prospeta.imageAlt': 'Vue aérienne de Mendrisio, Suisse, avec un focus sur l\'architecture et les environnements naturels.',
 };
 
 export default blogMetaChFr;

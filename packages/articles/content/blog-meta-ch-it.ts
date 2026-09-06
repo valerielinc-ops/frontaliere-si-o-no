@@ -5689,6 +5689,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affittare-bene-immobili-ticino.title': 'Affittare bene un immobile: strategie e consigli per proprietari',
     'blog.article.affittare-bene-immobili-ticino.excerpt': 'Affittare rapidamente non significa affittare bene. Scopri come proteggere il tuo investimento e scegliere inquilini affidabili.',
     'blog.article.affittare-bene-immobili-ticino.imageAlt': 'Vista aerea di Lugano con appartamenti moderni e un mercato vivace',
+    'blog.article.neutralita-svizzera-prospeta.title': 'Neutralità fa rima con prosperità',
+    'blog.article.neutralita-svizzera-prospeta.excerpt': 'Lorenzo Quadri discute l\'importanza della neutralità svizzera e le sue implicazioni economiche e politiche.',
+    'blog.article.neutralita-svizzera-prospeta.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con focus sull\'architettura e gli ambienti naturali.',
 };
 
 export default blogMetaChIt;
