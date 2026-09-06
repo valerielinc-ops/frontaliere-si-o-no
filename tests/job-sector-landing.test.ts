@@ -276,6 +276,27 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  // ── `cyber` era nel lessico cyber ma non nel veto fisico (#7553) ──
+  //
+  // `Cyber Security Officer` cadeva su ENTRAMBE le landing: `cybersecurity` lo
+  // prendeva con `cyber SEC_SEP security`, e il lookbehind di `sicurezza`
+  // elencava information/it/cloud/network ma non `cyber`. Ora le due liste sono
+  // la stessa costante (`CYBER_QUALIFIER_SRC`), quindi non possono divergere.
+  it('un Cyber Security Officer cade su UNA sola landing (#7553)', () => {
+    for (const title of [
+      'Cyber Security Officer',
+      'Cyber Security Guard',
+      'Cybersecurity Officer',
+      'Cyber-Security Officer',
+      'Cyber  Security Officer',
+      'Cyber/Security Officer',
+      'Cyber\u00a0Security Officer',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${JSON.stringify(title)}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `NON doppio landing: ${JSON.stringify(title)}`).toBe(false);
+    }
+  });
+
   it('nessun annuncio puo\' matchare cybersecurity E sicurezza insieme', () => {
     // L'invariante che i due casi sopra servono: qualunque titolo, se cade in
     // entrambi i settori finisce su due landing. Qui si esercita sull'unione
@@ -285,6 +306,7 @@ describe('jobSectorLanding — sector match regex', () => {
       'Information/Security Officer', 'IT Security Officer', 'Cloud Security Officer',
       'Network Security Officer', 'Security Officer', 'Security Guard notturno',
       'IT SECURITY ARCHITECT', 'Guardia giurata Lugano', 'Sicherheitsdienst Mitarbeiter',
+      'Cyber Security Officer', 'Cyber Security Guard', 'Cyber-Security Officer',
       'AI Security \u2013 Consultant / Manager 80-100%',
     ]) {
       const both = jobMatchesSector({ title }, 'cybersecurity') && jobMatchesSector({ title }, 'sicurezza');
