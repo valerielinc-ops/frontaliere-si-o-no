@@ -17,6 +17,7 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
+import { dropNoindexUrlEntries } from './shared/sitemapNoindexFilter';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -1156,15 +1157,18 @@ export function renderPage(params: {
   return { urlPath: canonicalPath, html, wordCount };
 }
 
-function buildSitemap(entries: Array<{ municipality: Municipality; dateStamp: string }>): string {
+function buildSitemap(
+  entries: Array<{ municipality: Municipality; dateStamp: string }>,
+  noindexPaths: ReadonlySet<string>,
+): string {
   const urls = entries.map(({ municipality, dateStamp }) => {
     const alternates = LOCALES
       .map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, municipality)}" />`)
       .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', municipality)}" />`)
       .join('\n');
     return `  <url>\n    <loc>${BASE_URL}${pathFor('it', municipality)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.55</priority>\n  </url>`;
-  }).join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
+  });
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${dropNoindexUrlEntries(urls, noindexPaths).join('\n')}\n</urlset>\n`;
 }
 
 function patchSitemapIndex(distDir: string, dateStamp: string): void {
@@ -1290,11 +1294,18 @@ export function borderMunicipalityPagesPlugin(rootDir: string): Plugin {
       const collector = new WriteCollector({ distDir, pluginName: 'borderMunicipalityPagesPlugin' });
       let pagesWritten = 0;
       let thinPages = 0;
+      // Paths this build rendered `noindex` — dropped from the sitemap below
+      // (#7741). `thinPages` already measured them; listing a noindex page is a
+      // deploy-blocking `error` in scripts/validate-soft404.mjs (Rule 4).
+      const noindexPaths = new Set<string>();
 
       for (const municipality of municipalities) {
         for (const locale of LOCALES) {
           const rendered = renderPage({ municipality, locale, dateStamp, distDir, waitSnapshot });
-          if (rendered.wordCount < MIN_INDEXABLE_WORDS) thinPages++;
+          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+            thinPages++;
+            noindexPaths.add(rendered.urlPath);
+          }
           const indexPath = path.join(distDir, rendered.urlPath, 'index.html');
           const flatPath = path.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
           collector.add(indexPath, rendered.html);
@@ -1327,7 +1338,7 @@ export function borderMunicipalityPagesPlugin(rootDir: string): Plugin {
       // plugin adds on top of that shared plateau.
       forceGc();
 
-      const sitemapXml = buildSitemap(municipalities.map((municipality) => ({ municipality, dateStamp })));
+      const sitemapXml = buildSitemap(municipalities.map((municipality) => ({ municipality, dateStamp })), noindexPaths);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
 

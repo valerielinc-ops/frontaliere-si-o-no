@@ -36,6 +36,7 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
+import { dropNoindexUrlEntries } from './shared/sitemapNoindexFilter';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -932,7 +933,7 @@ function renderHubPage(params: { locale: FiscalLocale; dateStamp: string; distDi
 
 // ── Sitemap ─────────────────────────────────────────────────────
 
-function buildSitemap(dateStamp: string): string {
+function buildSitemap(dateStamp: string, noindexPaths: ReadonlySet<string>): string {
   const entry = (canonicalPath: string, alts: Array<{ hreflang: string; href: string }>, priority: string) => {
     const altLines = alts
       .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}" />`)
@@ -968,7 +969,7 @@ function buildSitemap(dateStamp: string): string {
     );
   }
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${dropNoindexUrlEntries(urls, noindexPaths).join('\n')}\n</urlset>\n`;
 }
 
 export function patchSitemapIndex(distDir: string, dateStamp: string): void {
@@ -1014,6 +1015,10 @@ export function fiscalMunicipalityPagesPlugin(rootDir: string): Plugin {
       let indexablePages = 0;
       let bridgePages = 0;
       let thinPages = 0;
+      // Paths this build rendered `noindex` — dropped from the sitemap below
+      // (#7741). `thinPages` already measured them; listing a noindex page is a
+      // deploy-blocking `error` in scripts/validate-soft404.mjs (Rule 4).
+      const noindexPaths = new Set<string>();
 
       // Hub index (one per locale).
       const hubPaths: string[] = [];
@@ -1028,7 +1033,10 @@ export function fiscalMunicipalityPagesPlugin(rootDir: string): Plugin {
       for (const municipality of FISCAL_ABOVE_FLOOR) {
         for (const locale of FISCAL_LOCALES) {
           const { urlPath, html, wordCount } = renderAboveFloorPage({ municipality, locale, dateStamp, distDir });
-          if (wordCount < MIN_INDEXABLE_WORDS) thinPages++;
+          if (wordCount < MIN_INDEXABLE_WORDS) {
+            thinPages++;
+            noindexPaths.add(urlPath);
+          }
           collector.add(path.join(distDir, urlPath, 'index.html'), html);
           collector.add(path.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           indexablePages++;
@@ -1048,7 +1056,7 @@ export function fiscalMunicipalityPagesPlugin(rootDir: string): Plugin {
 
       const written = await collector.flush();
 
-      fs.writeFileSync(path.join(distDir, SITEMAP_NAME), buildSitemap(dateStamp), 'utf-8');
+      fs.writeFileSync(path.join(distDir, SITEMAP_NAME), buildSitemap(dateStamp, noindexPaths), 'utf-8');
       patchSitemapIndex(distDir, dateStamp);
 
       console.log(

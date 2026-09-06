@@ -50,6 +50,7 @@ import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/t
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
+import { dropNoindexUrlEntries } from './shared/sitemapNoindexFilter';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
 import {
   loadEventsDataset,
@@ -3450,15 +3451,6 @@ export function renderDigestPage(params: {
   return { urlPath: canonicalPath, html, wordCount };
 }
 
-const ENTRY_LOC_RE = /<loc>([^<]+)<\/loc>/;
-
-/** The site-relative path of a `<url>` entry — the same string the emit loop
- * keys a rendered page by (`urlPath`), so the two sets are comparable (#7741). */
-function locOf(entry: string): string {
-  const loc = ENTRY_LOC_RE.exec(entry)?.[1] ?? '';
-  return loc.startsWith(BASE_URL) ? loc.slice(BASE_URL.length) : loc;
-}
-
 // Issue #3645 (F3) sitemap-sharding evaluation: a single `sitemap-eventi.xml`
 // (this function's return value) holds every hub/comune/digest/detail URL
 // for every hubbed canton, across all 4 locales' hreflang alternates — but
@@ -3531,7 +3523,7 @@ export function buildSitemap(
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp));
   // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
   // hub <loc> twice within this one file — dedupe keep-first at assembly.
-  const indexable = noindexPaths.size === 0 ? entries : entries.filter((entry) => !noindexPaths.has(locOf(entry)));
+  const indexable = dropNoindexUrlEntries(entries, noindexPaths);
   return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${indexable.join('\n')}\n</urlset>\n`);
 }
 

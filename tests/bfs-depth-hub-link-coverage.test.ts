@@ -41,6 +41,8 @@ import {
   renderOverflowLadderPage,
   overflowLadderPageCount,
   overflowLadderPath,
+  indexableOverflowLadderPages,
+  buildSitemap,
 } from '../build-plugins/eventsSeoPagesPlugin';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -382,5 +384,59 @@ describe('the overflow ladder keeps the rows it carries reachable (#7329)', () =
     for (let page = 3; page <= pageCount; page += 1) {
       expect(linked).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, page));
     }
+  });
+
+  /**
+   * #7741: sitemap membership and `robots` used to be two independent
+   * conditions with no value in common — `buildSitemap` listed every page
+   * `2..overflowLadderPageCount()` while the page's own `robots` came from the
+   * `MIN_INDEXABLE_WORDS` gate. Nothing made them agree, and the pair they can
+   * produce (`noindex` + listed in the sitemap) is a deploy-blocking `error` in
+   * `scripts/validate-soft404.mjs` Rule 4. These three lock the derivation.
+   */
+  describe('sitemap membership is derived from the same gate as robots (#7741)', () => {
+    const ladderParams = {
+      locale: 'it' as const,
+      canton: 'altri-cantoni',
+      comune: undefined,
+      events: LADDER_EVENTS as never,
+      cap: CAP,
+      dateStamp: '2026-09-04',
+      detailHref: ladderHref as never,
+    };
+
+    const locs = (xml: string) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+
+    it('agrees page by page with what the renderer marks index,follow', () => {
+      const indexable = indexableOverflowLadderPages(ladderParams);
+      for (let page = 2; page <= pageCount; page += 1) {
+        const rendered = !/\bnoindex\b/.test(robotsOf(ladderPage(page).html));
+        expect({ page, indexable: indexable.includes(page) }).toEqual({ page, indexable: rendered });
+      }
+    });
+
+    it('lists exactly the ladder pages it is handed — never a 2..pageCount walk', () => {
+      const xml = buildSitemap(
+        [{ canton: 'altri-cantoni', comuni: [], digests: [], ladders: [{ comune: undefined, pages: [2, 4] }] }],
+        '2026-09-04',
+      );
+      const paths = locs(xml).map((loc) => loc.replace(/^https?:\/\/[^/]+/, ''));
+      expect(paths).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 2));
+      expect(paths).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 4));
+      expect(paths).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 3));
+    });
+
+    it('drops any path the build rendered noindex, whatever surface it came from', () => {
+      const thin = overflowLadderPath('it', 'altri-cantoni', undefined, 3);
+      const xml = buildSitemap(
+        [{ canton: 'altri-cantoni', comuni: [], digests: [], ladders: [{ comune: undefined, pages: [2, 3] }] }],
+        '2026-09-04',
+        [],
+        new Set([thin]),
+      );
+      const paths = locs(xml).map((loc) => loc.replace(/^https?:\/\/[^/]+/, ''));
+      expect(paths).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 2));
+      expect(paths).not.toContain(thin);
+    });
   });
 });
