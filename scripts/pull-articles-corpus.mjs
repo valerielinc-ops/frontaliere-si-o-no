@@ -76,6 +76,12 @@ import {
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
 import { collectPreserveSnapshots, dropLedgeredRetirements } from './lib/corpus-local-preserve.mjs';
+import {
+  RETIRED_LOCALE_GROUPS_FILE,
+  parseRetiredLocaleGroups,
+  serializeRetiredLocaleGroups,
+  withRemovalGroups,
+} from './lib/retired-locale-groups.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 
 // Opt-in, never the default. See MAX_DELETIONS: removing content this repo
@@ -135,6 +141,38 @@ function readRegistries(resolveFile) {
     out[section] = readSlugRegistry(resolveFile(file), constName);
   }
   return out;
+}
+
+/**
+ * Record this sync's retirements in `data/retired-article-locale-groups.json`.
+ *
+ * Fails CLOSED, like every other gate here: a pin that cannot be read or
+ * written is not a reason to prune the rows anyway, because after the prune the
+ * four locale URLs of the article cannot be reconstructed from anything in this
+ * repo — recovering them took a walk over 1934 commits of registry history
+ * (issue #7669). Refusing costs a skipped sync run; proceeding costs the
+ * evidence permanently.
+ */
+function pinRetiredLocaleGroups(removals) {
+  const abs = path.join(ROOT, RETIRED_LOCALE_GROUPS_FILE);
+  let pinned;
+  try {
+    pinned = parseRetiredLocaleGroups(fs.readFileSync(abs, 'utf-8'));
+  } catch (err) {
+    console.error(
+      `::error::[pull-articles-corpus] cannot read ${RETIRED_LOCALE_GROUPS_FILE} (${err.message}) — ` +
+      'refusing to prune retirements whose locale URLs would then be unrecoverable',
+    );
+    process.exit(1);
+  }
+
+  const { groups, added } = withRemovalGroups(pinned, removals);
+  if (added.length === 0) return;
+  fs.writeFileSync(abs, serializeRetiredLocaleGroups(groups));
+  console.log(
+    `[pull-articles-corpus] pinned ${added.length} retirement group(s) in ` +
+    `${RETIRED_LOCALE_GROUPS_FILE}: ${added.join(', ')}`,
+  );
 }
 
 /**
@@ -349,12 +387,6 @@ try {
   }
   for (const r of verdict.removals.filter((r) => r.ledgered)) {
     console.log(`[pull-articles-corpus] retired (bridged): ${r.section}/${r.id} → ${r.canonical}`);
-    if (r.unbridgedLocalePaths.length) {
-      console.warn(
-        `[pull-articles-corpus] ⚠️  ${r.id}: ${r.unbridgedLocalePaths.length} locale URL(s) have no ` +
-        `bridge and will 404 after the next shard deploy — ${r.unbridgedLocalePaths.join(' ')}`,
-      );
-    }
   }
 
   if (!verdict.ok) {
@@ -369,6 +401,15 @@ try {
       console.error(
         `::error::[pull-articles-corpus] upstream drops ${r.section}/${r.id} but nothing retired it — ` +
         `live URLs: ${r.paths.join(' ')}`,
+      );
+    }
+    for (const r of verdict.partiallyBridged) {
+      console.error(
+        `::error::[pull-articles-corpus] ${r.section}/${r.id} is retired in Italian only — ` +
+        `${r.unbridgedLocalePaths.length} locale URL(s) have no bridge and this row is the last ` +
+        `place their slugs exist: ${r.unbridgedLocalePaths.join(' ')}. Add them to the ` +
+        '`redirects` table in build-plugins/legacyRedirectsPlugin.ts (and to EDGE_RETIRED_PATHS) ' +
+        'before syncing — after the prune they can no longer be derived.',
       );
     }
     for (const s of verdict.shortfalls) {
@@ -429,6 +470,16 @@ try {
     // resurrect a registry row whose module no longer exists — forever, since
     // the id stays local-only on every subsequent sync.
     dropLedgeredRetirements(preserveIds, verdict.removals);
+
+    // ── Keep the retired URLs nameable after the row is gone ─────────────
+    //
+    // This is the last moment the four locale slugs of a retired article exist
+    // in this repo: the mirror below deletes the registry row, and nothing else
+    // records which URLs belonged together. Without the pin,
+    // tests/edge-retired-paths.test.ts loses the id and its four-locale check
+    // silently becomes a test of nothing — measured at 0 visited retirements
+    // out of 81 on 2026-09-06 (issue #7669).
+    pinRetiredLocaleGroups(verdict.removals);
 
     const snapshots = [];
     if (preserveIds.size > 0) {
