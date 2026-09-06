@@ -1183,10 +1183,10 @@
         "fr": "addetto-alle-vendite-food-coop-genossenschaft-beringen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/addetto-alle-vendite-food-coop-genossenschaft-beringen",
-        "en": "/en/find-jobs-aargau/addetto-alle-vendite-food-coop-genossenschaft-beringen",
+        "it": "/cerca-lavoro-zurigo/addetto-alle-vendite-food-coop-genossenschaft-beringen",
+        "en": "/en/find-jobs-zurich/addetto-alle-vendite-food-coop-genossenschaft-beringen",
         "de": "/de/jobs-im-zurich/addetto-alle-vendite-food-coop-genossenschaft-beringen",
-        "fr": "/fr/trouver-emploi-argovie/addetto-alle-vendite-food-coop-genossenschaft-beringen"
+        "fr": "/fr/trouver-emploi-zurich/addetto-alle-vendite-food-coop-genossenschaft-beringen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24872,6 +24872,63 @@
       ]
     },
     {
+      "slug": "electriciens",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-vaud/electriciens/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-vaud/electriciens/"
+      },
+      "queries": [
+        {
+          "query": "find a job as an electrician in the canton of vaud",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "find a job as an electrician in the canton of vaud",
+      "title": "Electriciens",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "electriciens",
+        "en": "electriciens",
+        "de": "electriciens",
+        "fr": "electriciens"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/electriciens",
+        "en": "/en/find-jobs-vaud/electriciens",
+        "de": "/de/jobs-im-waadt/electriciens",
+        "fr": "/fr/trouver-emploi-vaud/electriciens"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "electronic-telecommunications-engineer-f-m-d-80-100-bellinzona-afry-bellinzona",
       "locale": "en",
       "path": "/en/find-jobs-ticino/electronic-telecommunications-engineer-f-m-d-80-100-bellinzona-afry-bellinzona",
@@ -25042,6 +25099,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern/"
+      },
+      "queries": [
+        {
+          "query": "voicebot test lösung",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "voicebot test lösung",
+      "title": "Embedded tester test automation ingegnere chatbot voicebot",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern",
+        "en": "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern",
+        "de": "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern",
+        "fr": "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern",
+        "en": "/en/find-jobs-bern/embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern",
+        "de": "/de/jobs-im-bern/embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern",
+        "fr": "/fr/trouver-emploi-berne/embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -26133,10 +26248,10 @@
         "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-        "en": "/en/find-jobs-lucerne/facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
+        "it": "/cerca-lavoro-argovia/facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
+        "en": "/en/find-jobs-aargau/facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
         "de": "/de/jobs-im-bern/facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-        "fr": "/fr/trouver-emploi-lucerne/facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen"
+        "fr": "/fr/trouver-emploi-argovie/facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -32838,10 +32953,10 @@
         "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop",
-        "en": "/en/find-jobs-st-gallen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop",
-        "de": "/de/jobs-in-st-gallen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop",
-        "fr": "/fr/trouver-emploi-saint-gall/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop"
+        "it": "/cerca-lavoro-argovia/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop",
+        "en": "/en/find-jobs-aargau/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop",
+        "de": "/de/jobs-im-aargau/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop",
+        "fr": "/fr/trouver-emploi-argovie/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -35793,6 +35908,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen",
+      "locale": "it",
+      "path": "/cerca-lavoro-san-gallo/ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-san-gallo/ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen/"
+      },
+      "queries": [
+        {
+          "query": "ffs orari",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "ffs orari",
+      "title": "Ispettore per il monitoraggio stradale st gallen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen",
+        "en": "ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen",
+        "de": "ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen",
+        "fr": "ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen",
+        "en": "/en/find-jobs-st-gallen/ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen",
+        "de": "/de/jobs-im-st-gallen/ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/ispettore-per-il-monitoraggio-stradale-ffs-officine-ferrovie-federali-st-gallen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -43837,10 +44010,10 @@
         "fr": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
-        "en": "/en/find-jobs-aargau/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
-        "de": "/de/jobs-im-aargau/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
-        "fr": "/fr/trouver-emploi-argovie/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
+        "it": "/cerca-lavoro-basilea/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
+        "en": "/en/find-jobs-basel/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
+        "de": "/de/jobs-in-basel/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
+        "fr": "/fr/trouver-emploi-bale/mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -44115,10 +44288,10 @@
         "fr": "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
-        "en": "/en/find-jobs-aargau/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
-        "de": "/de/jobs-im-aargau/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
-        "fr": "/fr/trouver-emploi-argovie/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg"
+        "it": "/cerca-lavoro-san-gallo/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
+        "en": "/en/find-jobs-st-gallen/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
+        "de": "/de/jobs-in-st-gallen/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg",
+        "fr": "/fr/trouver-emploi-saint-gall/montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47605,10 +47778,10 @@
         "fr": "pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve",
-        "en": "/en/find-jobs-geneva/pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve",
+        "it": "/cerca-lavoro-friburgo/pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve",
+        "en": "/en/find-jobs-fribourg/pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve",
         "de": "/de/jobs-im-genf/pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve",
-        "fr": "/fr/trouver-emploi-geneve/pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve"
+        "fr": "/fr/trouver-emploi-fribourg/pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50396,10 +50569,10 @@
         "fr": "product-data-specialista-w-m-d-80-100-bms-building-materials-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/product-data-specialista-w-m-d-80-100-bms-building-materials-bern",
-        "en": "/en/find-jobs-ticino/product-data-specialista-w-m-d-80-100-bms-building-materials-bern",
-        "de": "/de/jobs-im-tessin/product-data-specialista-w-m-d-80-100-bms-building-materials-bern",
-        "fr": "/fr/trouver-emploi-tessin/product-data-specialista-w-m-d-80-100-bms-building-materials-bern"
+        "it": "/cerca-lavoro-berna/product-data-specialista-w-m-d-80-100-bms-building-materials-bern",
+        "en": "/en/find-jobs-bern/product-data-specialista-w-m-d-80-100-bms-building-materials-bern",
+        "de": "/de/jobs-in-bern/product-data-specialista-w-m-d-80-100-bms-building-materials-bern",
+        "fr": "/fr/trouver-emploi-berne/product-data-specialista-w-m-d-80-100-bms-building-materials-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59448,10 +59621,10 @@
         "fr": "sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04",
-        "en": "/en/find-jobs-ticino/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04",
-        "de": "/de/jobs-im-tessin/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04",
-        "fr": "/fr/trouver-emploi-tessin/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04"
+        "it": "/cerca-lavoro-zurigo/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04",
+        "en": "/en/find-jobs-zurich/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04",
+        "de": "/de/jobs-in-zurich/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04",
+        "fr": "/fr/trouver-emploi-zurich/sales-associate-cashier-services-coop-genossenschaft-zurich-15ad04"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74875,10 +75048,10 @@
         "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt",
-        "en": "/en/find-jobs-aargau/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt",
-        "de": "/de/jobs-im-aargau/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt",
-        "fr": "/fr/trouver-emploi-argovie/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt"
+        "it": "/cerca-lavoro-zurigo/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt",
+        "en": "/en/find-jobs-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt",
+        "de": "/de/jobs-in-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-andermatt"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78649,10 +78822,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-glis"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-im-stundenlohn-denner-glis",
-        "en": "/en/find-jobs-zurich/verkaufer-in-im-stundenlohn-denner-glis",
-        "de": "/de/jobs-in-zurich/verkaufer-in-im-stundenlohn-denner-glis",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-im-stundenlohn-denner-glis"
+        "it": "/cerca-lavoro-turgovia/verkaufer-in-im-stundenlohn-denner-glis",
+        "en": "/en/find-jobs-thurgau/verkaufer-in-im-stundenlohn-denner-glis",
+        "de": "/de/jobs-im-thurgau/verkaufer-in-im-stundenlohn-denner-glis",
+        "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-im-stundenlohn-denner-glis"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
