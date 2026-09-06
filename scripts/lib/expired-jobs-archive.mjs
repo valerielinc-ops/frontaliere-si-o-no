@@ -25,8 +25,7 @@ import {
   addPreviousSlugForLocale,
   DEFAULT_PREV_SLUG_CAP,
   getPreviousSlugsForLocale,
-  LEGACY_ROUTE_CAP_ERROR_CODE,
-  LegacyRouteCapError,
+  isLegacyRouteCapRefusal,
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
@@ -305,9 +304,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
       // recognised by TYPE, not by its message: the wording is a log string
       // that no gate protects, so a reword would abort the whole archival step
       // and an unrelated defect that happened to match would be swallowed.
-      const isCapRefusal = error instanceof LegacyRouteCapError
-        || error?.code === LEGACY_ROUTE_CAP_ERROR_CODE;
-      if (!isCapRefusal) throw error;
+      if (!isLegacyRouteCapRefusal(error)) throw error;
       merged = false;
       capRefused += 1;
     }

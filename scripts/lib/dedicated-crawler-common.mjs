@@ -5969,6 +5969,17 @@ export class LegacyRouteCapError extends Error {
   }
 }
 
+/**
+ * Single place where "is this the cap refusal?" is decided, so no consumer has
+ * to re-derive it — and none can re-derive it from the message. `instanceof`
+ * covers the normal case; `code` covers a realm boundary (worker, second copy
+ * of this module) where the class identity would not hold.
+ */
+export function isLegacyRouteCapRefusal(error) {
+  return error instanceof LegacyRouteCapError
+    || error?.code === LEGACY_ROUTE_CAP_ERROR_CODE;
+}
+
 export function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
 
 export function dateOnly(input) {

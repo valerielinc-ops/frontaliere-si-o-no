@@ -25,7 +25,13 @@ import {
   transferOverlappingJobs,
   withFileRollback,
 } from '../scripts/reconcile-crawler-company-ownership.mjs';
-import { getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  getPreviousSlugsForLocale,
+  isLegacyRouteCapRefusal,
+  LEGACY_PREV_SLUGS_CAP,
+  LegacyRouteCapError,
+  promotePreviousSlugToLegacy,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
@@ -230,6 +236,62 @@ describe('issue #6759 reconciliation', () => {
     expect(result.entries).toHaveLength(2);
     const served = new Set(result.entries.flatMap((e) => [...localeRouteKeys(e)]));
     for (const route of requiredRoutes) expect(served.has(route), route).toBe(true);
+  });
+
+  it('types the legacy-cap refusal, so its message is not the contract', () => {
+    // `collapseDuplicateRouteEntries` assorbe SOLO il rifiuto del cap e rilancia
+    // tutto il resto. Finche' quella distinzione si faceva con una regex sul
+    // messaggio, le due meta' del contratto stavano in file diversi e nessun
+    // gate le legava: riformulare il testo (o aggiungere un secondo cap con un
+    // testo suo) trasformava ogni rifiuto legittimo in un abort dell'intero
+    // step di archiviazione, e un guasto qualunque il cui messaggio combaciasse
+    // finiva degradato a `unmergeable` silenzioso.
+    const job = {
+      id: 'acme-deep-history',
+      previousSlugs: Array.from({ length: LEGACY_PREV_SLUGS_CAP }, (_, i) => `legacy-${i}`),
+      previousSlugsByLocale: {},
+    };
+    let thrown: unknown;
+    try {
+      promotePreviousSlugToLegacy(job, 'one-slug-too-many');
+    } catch (error) {
+      thrown = error;
+    }
+    expect(thrown).toBeInstanceOf(LegacyRouteCapError);
+    expect((thrown as { code?: string }).code).toBe('LEGACY_PREV_SLUGS_CAP');
+    expect(isLegacyRouteCapRefusal(thrown)).toBe(true);
+    // Il cap ha rifiutato: la voce non e' stata scritta oltre il limite.
+    expect(job.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP);
+
+    // Un guasto qualunque con lo STESSO messaggio non e' un rifiuto del cap.
+    const impostor = new Error((thrown as Error).message);
+    expect(isLegacyRouteCapRefusal(impostor)).toBe(false);
+    expect(isLegacyRouteCapRefusal(new TypeError('x is not a function'))).toBe(false);
+  });
+
+  it('propagates a non-cap failure instead of degrading the component to unmergeable', () => {
+    // Il guasto (qui `previousSlugs` che non e' un array, quindi `.filter`
+    // esplode dentro `transferSlugHistory`) deve arrivare al chiamante: un
+    // `unmergeable` silenzioso e' indistinguibile da un rifiuto legittimo e
+    // invisibile nel log del cron.
+    const entry = (slug: string, expiredAt: string) => ({
+      slug,
+      companyKey: 'acme',
+      expiredAt,
+      slugByLocale: { it: slug },
+      previousSlugs: ['shared-history-slug'],
+      previousSlugsByLocale: {} as Record<string, string[]>,
+    });
+    const broken = {
+      ...entry('broken', '2026-08-01T00:00:00.000Z'),
+      previousSlugs: 'shared-history-slug' as unknown as string[],
+      previousSlugsByLocale: { it: ['shared-history-slug'] },
+    };
+
+    expect(() => collapseDuplicateRouteEntries([
+      broken,
+      entry('survivor', '2026-09-01T00:00:00.000Z'),
+    ])).toThrow(TypeError);
   });
 
   it('observes a zero-change dry run after repairing the SOH stale-writer resurrection', () => {
