@@ -236,7 +236,11 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
     // says WHICH email, `pos` says WHERE inside it the click came from, so two
     // links to the same /go/{id}/ stay attributable. The /go/ page is a static
     // redirect that ignores the query today — the param is inert until it reads it.
-    params.set('pos', `nl-recommended-${rec.goId}`);
+    // Solo come DEFAULT, mai come sovrascrittura: il `pos` calcolato sopra
+    // porta il placement esplicito o la campagna, e sostituirlo con uno slot
+    // fisso collassa tutte le superfici (weekly, welcome, drip) nello stesso
+    // slot tracciato — cioe' l'opposto di cio' che il parametro serve a dire.
+    if (!placement && !campaign) params.set('pos', `nl-recommended-${rec.goId}`);
     // goPathFromId already carries the canonical trailing slash before the query.
     return `${BASE_URL}${goPathFromId(rec.goId)}?${params.toString()}`;
   }
