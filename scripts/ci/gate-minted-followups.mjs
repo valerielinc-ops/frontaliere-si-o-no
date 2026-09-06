@@ -62,7 +62,12 @@ import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
-export const MINT_GATE_MARKER = '<!-- followup-mint-gate -->';
+// Non esportato di proposito: è una firma per chi legge i commenti, non un'affordance di
+// idempotenza in cerca di consumatore. L'idempotenza qui è per costruzione, non per
+// lettura del marker: dopo una demozione gli item rimasti sono tutti validi, quindi una
+// seconda passata dà `keep` e non commenta; dopo una soppressione la issue è chiusa,
+// quindi non compare più nella lista delle aperte. Nessun ramo può commentare due volte.
+const MINT_GATE_MARKER = '<!-- followup-mint-gate -->';
 
 /**
  * Spezza il corpo coniato in testa + item, e partiziona gli item con l'oracolo
@@ -139,9 +144,19 @@ export function rebuildBody(head, valid) {
   return `${head.replace(/\s+$/, '')}\n\n${valid.map((it, i) => `### ${i + 1}.${it.replace(/\s+$/, '')}`).join('\n\n')}\n`;
 }
 
-/** Titolo con il conteggio item riallineato (`N item deferred` → `M item deferred`). */
+/**
+ * Titolo con il conteggio item riallineato (`N item deferred` → `M item deferred`).
+ * Ritorna `null` quando il titolo non porta un conteggio nella forma attesa: il conio è un
+ * LLM e può scrivere un sostantivo diverso, e in quel caso un `replace` a vuoto lascerebbe
+ * il titolo sul conteggio VECCHIO (`4 item` su un corpo che ne ha 1) senza che nessuno se
+ * ne accorga. Meglio non toccare il titolo e dirlo, che riscriverlo identico in silenzio.
+ *
+ * @param {string} title @param {number} n @returns {string|null}
+ */
 export function retitle(title, n) {
-  return String(title || '').replace(/\b\d+\s+(item|verifiche)\b/i, `${n} $1`);
+  const t = String(title || '');
+  const out = t.replace(/\b\d+\s+(item|verifiche)\b/i, `${n} $1`);
+  return out === t ? null : out;
 }
 
 /**
@@ -256,8 +271,12 @@ function main() {
           report.push(`- 🚫 #${iss.number} soppressa in ingresso (${d.demoted.length} item senza condizione di accettazione) — PR #${pr}`);
         } else {
           const bf = writeBodyFile(d.body);
+          const newTitle = retitle(iss.title, d.valid.length);
+          if (newTitle === null) {
+            console.log(`ℹ️ #${iss.number}: titolo senza conteggio nella forma attesa («${iss.title.slice(0, 70)}») → lo lascio com'è invece di riscriverlo a vuoto; resta disallineato dal corpo.`);
+          }
           gh(['issue', 'edit', String(iss.number), ...repoArgs, '--body-file', bf,
-            '--title', retitle(iss.title, d.valid.length)], { allowFail: true });
+            ...(newTitle === null ? [] : ['--title', newTitle])], { allowFail: true });
           fs.rmSync(bf, { force: true });
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
             `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.`],

@@ -105,6 +105,10 @@ describe('gate sul conio — comportamento', () => {
 
   it('riallinea il conteggio nel titolo e sa estrarre la riga dell\'item demoto', () => {
     expect(retitle('follow-up(#7600): 4 item deferred — foo', 1)).toBe('follow-up(#7600): 1 item deferred — foo');
+    // Il conio è un LLM e può usare un sostantivo diverso: lì il replace sarebbe un no-op
+    // silenzioso e il titolo resterebbe sul conteggio VECCHIO. Meglio `null` — non tocco
+    // il titolo e lo dico — che riscriverlo identico fingendo di averlo riallineato.
+    expect(retitle('follow-up(#7600): 4 residui deferred — foo', 1)).toBeNull();
     expect(itemHeadline(itemProsa)).toBe('nessun gate impedisce un drift futuro');
   });
 
