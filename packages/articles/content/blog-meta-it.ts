@@ -11446,6 +11446,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-06.imageAlt': 'I numeri del giorno per i frontalieri – 6 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-06.seoDescription': 'Bollettino frontalieri del 6 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-06.ogDescription': 'I numeri del 6 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.title': 'Investimento a Busto Arsizio: 28enne trasportato in ospedale',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.excerpt': 'Un incidente stradale a Busto Arsizio ha coinvolto un ragazzo di 28 anni, trasportato in ospedale in codice giallo.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.imageAlt': 'Ambulanza e polizia a Busto Arsizio',
 };
 
 export default blogMetaIt;

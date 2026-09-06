@@ -11447,6 +11447,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-06.imageAlt': 'Les chiffres du jour pour les frontaliers – 6 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-06.seoDescription': 'Bulletin du frontalier du 6 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-06.ogDescription': 'Les chiffres du 6 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.title': 'Investissement à Busto Arsizio : 28 ans transporté à l\'hôpital',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.excerpt': 'Un accident de la route à Busto Arsizio a impliqué un garçon de 28 ans, transporté à l\'hôpital en code jaune.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.imageAlt': 'Ambulance et police à Busto Arsizio',
 };
 
 export default blogMetaFr;

@@ -34185,6 +34185,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'investimento-busto-arsizio-28enne-ospedale',
+ category: 'novita',
+ date: '2026-09-06T10:47:49.668Z',
+ image: '/images/blog/investimento-busto-arsizio-28enne-ospedale.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

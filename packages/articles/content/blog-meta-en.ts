@@ -11445,6 +11445,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-06.imageAlt': 'The day\'s numbers for cross-border commuters – September 6, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-06.seoDescription': 'Cross-border brief, September 6, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-06.ogDescription': 'The numbers for September 6, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.title': 'Investment in Busto Arsizio: 28-year-old transported to hospital',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.excerpt': 'A road accident in Busto Arsizio involved a 28-year-old boy, transported to the hospital in yellow code.',
+    'blog.article.investimento-busto-arsizio-28enne-ospedale.imageAlt': 'Ambulance and police in Busto Arsizio',
 };
 
 export default blogMetaEn;
