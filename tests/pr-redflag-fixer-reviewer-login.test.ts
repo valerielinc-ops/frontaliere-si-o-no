@@ -52,9 +52,19 @@ describe('pr-redflag-fixer job-level reviewer filter matches tests.yml bot set',
 
   it('the collect-review jq uses the same bot set, not claude-only', () => {
     const yaml = readFileSync(FIXER, 'utf8');
-    expect(yaml).toContain(
-      'select(.user.login|test("^(claude|frontaliere-automation)";"i"))',
-    );
+    const collect = yaml.split('\n').filter((l) => l.includes('select(.user.login|test('));
+    expect(collect.length).toBeGreaterThan(0);
+    expect(collect.join('\n')).toContain('frontaliere-automation');
+    expect(collect.join('\n')).toContain('$');
     expect(yaml).not.toContain('select(.user.login|test("claude";"i"))');
+  });
+
+  it('pr-autorebase and followup-has-candidates use isReviewerBot, not claude-only', () => {
+    const rebase = readFileSync(join(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf8');
+    expect(rebase).toContain('isReviewerBot');
+    expect(rebase).not.toMatch(/\^claude\/i\.test/);
+    const followup = readFileSync(join(ROOT, 'scripts/ci/followup-has-candidates.mjs'), 'utf8');
+    expect(followup).toContain('isReviewerBot');
+    expect(followup).not.toMatch(/\^claude\/i\.test/);
   });
 });

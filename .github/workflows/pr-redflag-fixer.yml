@@ -430,7 +430,7 @@ jobs:
           gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
             > "$OUT/files.txt" 2>/dev/null || : > "$OUT/files.txt"
           gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" \
-            --jq '[.[] | select(.user.login|test("^(claude|frontaliere-automation)";"i"))] | last | .body // empty' \
+            --jq '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .body // empty' \
             > "$OUT/latest-review.md" 2>/dev/null || : > "$OUT/latest-review.md"
 
           # Stati già dichiarati in `## Non implementato`: la tassonomia va letta
