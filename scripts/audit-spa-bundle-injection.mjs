@@ -524,6 +524,11 @@ if (REBASELINE) {
         skippedExplicit,
         skippedRedirect,
         groups: groupsObject,
+        // Recorded so the NEXT run knows this breakdown is folded without
+        // having to infer it from the presence of the overflow key: a key
+        // missing from a folded `groups` is "0 or inside <other>", not 0.
+        byFeatureTruncated: groups.has(GROUP_OVERFLOW_KEY),
+        groupCap: GROUP_CAP,
         rebasedAt: new Date().toISOString(),
       },
       null,
@@ -590,6 +595,11 @@ if (!baseline) {
         skippedExplicit,
         skippedRedirect,
         groups: groupsObject,
+        // Recorded so the NEXT run knows this breakdown is folded without
+        // having to infer it from the presence of the overflow key: a key
+        // missing from a folded `groups` is "0 or inside <other>", not 0.
+        byFeatureTruncated: groups.has(GROUP_OVERFLOW_KEY),
+        groupCap: GROUP_CAP,
         rebasedAt: new Date().toISOString(),
         note: 'auto-created on first run; commit me',
       },
@@ -647,9 +657,48 @@ console.error('Affected directories (top 2 path segments):');
 // each of N groups is the "dumping 100k paths" the breakdown exists to avoid.
 // Groups are sorted by count, so the slice keeps the worst offenders.
 const REGRESSION_GROUPS_SHOWN = 50;
+// A per-group delta only means something when both runs put that key in the
+// SAME bucket. The GROUP_CAP fold breaks that in two ways, and both used to
+// print a number that was silently wrong (follow-up of #7679):
+//   • GROUP_OVERFLOW_KEY itself — this run folded the tail of ITS key set, the
+//     baseline (when it was folded too) folded the tail of a DIFFERENT one, so
+//     the two buckets never describe the same directories. Subtracting them is
+//     arithmetic over non-homologous populations, and against an unfolded
+//     baseline it is worse still: there is no `<other>` entry at all, the
+//     lookup reads 0, and the whole fold is reported as a `+count` regression.
+//   • any key ABSENT from a folded baseline — absent means either "no offenders
+//     there at the time" or "folded into the baseline's own overflow bucket",
+//     and the baseline file cannot tell the two apart. Reading it as 0 invents
+//     a regression for an area that may not have moved.
+// Both cases now print `baseline=n/a, delta=n/a` plus the reason. Their samples
+// are printed unconditionally: with no delta to gate on, the samples are the
+// only diagnostic left for that bucket. Every other key is compared exactly as
+// before — a complete baseline entry against a retained (exact) count.
+const baselineGroups =
+  baseline.groups && typeof baseline.groups === 'object' ? baseline.groups : null;
+const baselineTruncated =
+  baseline.byFeatureTruncated === true ||
+  (baselineGroups !== null && typeof baselineGroups[GROUP_OVERFLOW_KEY] === 'number');
+let nonComparableGroups = 0;
 for (const [key, { count, samples }] of sortedGroups.slice(0, REGRESSION_GROUPS_SHOWN)) {
-  const baselineCount =
-    baseline.groups && typeof baseline.groups[key] === 'number' ? baseline.groups[key] : 0;
+  const hasBaselineCount = baselineGroups !== null && typeof baselineGroups[key] === 'number';
+  const nonComparableReason =
+    key === GROUP_OVERFLOW_KEY
+      ? `overflow bucket — folds a different directory set than the baseline`
+      : baselineTruncated && !hasBaselineCount
+        ? `absent from a folded baseline — 0 or inside its ${GROUP_OVERFLOW_KEY}`
+        : null;
+  if (nonComparableReason !== null) {
+    nonComparableGroups++;
+    console.error(
+      `  ${String(count).padStart(6)} × ${key}  (baseline=n/a, delta=n/a: ${nonComparableReason})`,
+    );
+    for (const s of samples) {
+      console.error(`           ${s}`);
+    }
+    continue;
+  }
+  const baselineCount = hasBaselineCount ? baselineGroups[key] : 0;
   const groupDelta = count - baselineCount;
   const marker = groupDelta > 0 ? `+${groupDelta}` : `${groupDelta}`;
   console.error(`  ${String(count).padStart(6)} × ${key}  (baseline=${baselineCount}, delta=${marker})`);
@@ -664,10 +713,13 @@ if (sortedGroups.length > REGRESSION_GROUPS_SHOWN) {
     `  … ${sortedGroups.length - REGRESSION_GROUPS_SHOWN} more group(s) not shown (see the JSON report's byFeature breakdown)`,
   );
 }
-if (groups.has(GROUP_OVERFLOW_KEY)) {
+if (groups.has(GROUP_OVERFLOW_KEY) || baselineTruncated) {
   console.error(
     `  note: past ${GROUP_CAP} distinct directories the breakdown folds the tail into ${GROUP_OVERFLOW_KEY}; ` +
-      `the ${current} total above is exact.`,
+      `the ${current} total above is exact.` +
+      (nonComparableGroups > 0
+        ? ` ${nonComparableGroups} group(s) above carry no delta: their bucket is not the same population as the baseline's.`
+        : ''),
   );
 }
 console.error('');
