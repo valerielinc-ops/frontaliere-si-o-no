@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tl-lausanne",
-  "assembledAt": "2026-09-05T23:06:07.354Z",
+  "assembledAt": "2026-09-06T23:10:01.488Z",
   "jobs": [
     {
       "id": "tl-lausanne-7fdd1e80fc35",
@@ -34,7 +34,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Porte-Parole-et-Communication-institutionnelle/1424627433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:57.386Z",
+      "crawledAt": "2026-09-06T23:09:48.083Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,11 +53,13 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
+        "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
+        "internship-portavoce-e-comunicazione-istituzionale-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
+          "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne",
+          "internship-portavoce-e-comunicazione-istituzionale-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "stagiaire-porte-parole-et-communication-institutionnelle-tl-lausanne-lausanne"
@@ -67,6 +69,173 @@
         ]
       },
       "firstSeenAt": "2026-08-31T07:36:17.428Z",
+      "salaryMin": 43500,
+      "salaryMax": 80000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 43500,
+          "maxValue": 80000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "tl-lausanne-f3513380a950",
+      "slug": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "slugByLocale": {
+        "it": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "logistician-apprenticeship-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "fr": "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
+      },
+      "company": "tl (Transports publics de la région lausannoise)",
+      "companyKey": "tl-lausanne",
+      "companyDomain": "t-l.ch",
+      "title": "Apprenti·e logisticien·ne",
+      "titleByLocale": {
+        "it": "Apprendistato Logisticista",
+        "en": "Logistician Apprenticeship",
+        "de": "Auszubildender Logistiker",
+        "fr": "Apprenti·e logisticien·ne"
+      },
+      "description": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\n Votre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+      "descriptionByLocale": {
+        "it": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+        "en": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+        "de": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+        "fr": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-logisticien%C2%B7ne/1428665133/",
+      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-06T23:09:47.561Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Trasporto pubblico urbano (TPL)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1428665133/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "streetAddress": "Chemin du Closel 15-17",
+      "previousSlugsByLocale": {
+        "fr": [
+          "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne",
+          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
+        ],
+        "it": [
+          "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
+          "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        ],
+        "en": [
+          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
+        "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne"
+      ],
+      "firstSeenAt": "2026-08-31T22:21:28.735Z",
+      "salaryMin": 43500,
+      "salaryMax": 80000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 43500,
+          "maxValue": 80000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "tl-lausanne-f252db52daa2",
+      "slug": "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "slugByLocale": {
+        "it": "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentices-employed-in-trade-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildende-im-handel-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "fr": "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
+      },
+      "company": "tl (Transports publics de la région lausannoise)",
+      "companyKey": "tl-lausanne",
+      "companyDomain": "t-l.ch",
+      "title": "Apprenti·es employé·es de commerce",
+      "titleByLocale": {
+        "it": "Apprendisti impiegati nel commercio",
+        "en": "Apprentices employed in trade",
+        "de": "Auszubildende im Handel",
+        "fr": "Apprenti·es employé·es de commerce"
+      },
+      "description": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\n Votre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔  Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+      "descriptionByLocale": {
+        "it": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+        "en": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+        "de": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
+        "fr": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-employ%C3%A9%C2%B7es-de-commerce/1428672533/",
+      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-06T23:09:47.030Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Trasporto pubblico urbano (TPL)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1428672533/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "streetAddress": "Chemin du Closel 15-17",
+      "previousSlugs": [
+        "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne",
+        "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne",
+          "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        ],
+        "en": [
+          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T22:21:32.665Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
       "salarySource": "estimated",
@@ -113,7 +282,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-relation-client/1428711533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:56.767Z",
+      "crawledAt": "2026-09-06T23:09:46.508Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -132,11 +301,13 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
+        "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne",
+        "apprendistato-customer-relations-officer-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
+          "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne",
+          "apprendistato-customer-relations-officer-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "apprenti-e-agent-e-relation-client-tl-lausanne-lausanne"
@@ -192,7 +363,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9canicien%C2%B7nes-en-maintenance-automobiles-v%C3%A9hicules-utilitaires/1428715533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:56.099Z",
+      "crawledAt": "2026-09-06T23:09:45.975Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -211,11 +382,13 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
+        "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne",
+        "apparecchiature-per-la-manutenzione-dei-veicoli-a-motore-veicoli-commerciali-tl-transports-publics-de-la-region"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
+          "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne",
+          "apparecchiature-per-la-manutenzione-dei-veicoli-a-motore-veicoli-commerciali-tl-transports-publics-de-la-region"
         ],
         "en": [
           "apprenti-es-mecanicien-nes-en-maintenance-automobiles-vehicules-utilitaires-tl-lausanne"
@@ -271,7 +444,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-d'exploitation/1428728233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:55.442Z",
+      "crawledAt": "2026-09-06T23:09:45.421Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -350,7 +523,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9catronicien%C2%B7nes-d'automobiles-v%C3%A9hicules-utilitaires-%28%C3%A9galement-RAC-3%C3%A8me%29/1428720633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:54.745Z",
+      "crawledAt": "2026-09-06T23:09:44.863Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -398,88 +571,6 @@
       }
     },
     {
-      "id": "tl-lausanne-f3513380a950",
-      "slug": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
-      "slugByLocale": {
-        "it": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "logistician-apprenticeship-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "fr": "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
-      },
-      "company": "tl (Transports publics de la région lausannoise)",
-      "companyKey": "tl-lausanne",
-      "companyDomain": "t-l.ch",
-      "title": "Apprenti·e logisticien·ne",
-      "titleByLocale": {
-        "it": "Apprendistato Logisticista",
-        "en": "Logistician Apprenticeship",
-        "de": "Auszubildender Logistiker",
-        "fr": "Apprenti·e logisticien·ne"
-      },
-      "description": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\n Votre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-      "descriptionByLocale": {
-        "it": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-        "en": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-        "de": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-        "fr": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons un·e\n\nApprenti·e logisticien·ne\nVotre mission\n\nLors de votre apprentissage, vous participez à :\n\n• La réception de la marchandise et le contrôle des produits livrés\n\n• La vérification des documents de livraison et l’entreposage des articles\n\n• L’inventaire des stocks\n\n• L’entrée et la sortie des marchandises\n\nVous serez également appelé·e à :\n\n• Vérifier les instruments de conditionnement (palettes et conteneurs)\n\n• Procéder à l'élimination des déchets dans le respect de l'environnement\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Logique et méthodique\n\n• Bonne mémoire et sens de l'organisation\n\n• Bonne condition physique\n\n• Aimant le travail en équipe\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Des habits de travail fournis et entretenus par l’entreprise\n\n• 13 mois de salaire\n\n• Une prime semestrielle selon résultats\n\n• Une sortie annuelle des apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou abonnement général à prix préférentiel\n\n• Activité récréative, salle de fitness et restaurant d’entreprise à prix préférentiel\n\nLes candidatures doivent impérativement contenir :\n\n• Lettre de motivation expliquant votre volonté de rejoindre les tl\n\n• Curriculum vitae\n\n• Copie des bulletins scolaires des trois dernières années\n\n• Attestations de travail ou de stage(s)\n\n• Copie de la pièce d’identité et du permis de séjour (si vous n'êtes pas de nationalité suisse)\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-logisticien%C2%B7ne/1428665133/",
-      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:54.132Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1020",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Trasporto pubblico urbano (TPL)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1428665133/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugs": [
-        "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
-        ],
-        "en": [
-          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
-        ],
-        "de": [
-          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
-        ],
-        "fr": [
-          "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T22:21:28.735Z",
-      "salaryMin": 43500,
-      "salaryMax": 80000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 43500,
-          "maxValue": 80000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "tl-lausanne-035401abf960",
       "slug": "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
@@ -511,7 +602,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-vernisseur%C2%B7euse-industriel/1428725433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:53.474Z",
+      "crawledAt": "2026-09-06T23:09:44.340Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -530,11 +621,13 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
+        "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
+        "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
+          "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
+          "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
@@ -590,7 +683,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-automaticien%C2%B7nes/1428782833/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:52.809Z",
+      "crawledAt": "2026-09-06T23:09:43.813Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -609,11 +702,13 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
+        "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
+        "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
+          "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
+          "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
@@ -633,85 +728,6 @@
           "@type": "QuantitativeValue",
           "minValue": 51000,
           "maxValue": 94500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "tl-lausanne-f252db52daa2",
-      "slug": "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne",
-      "slugByLocale": {
-        "it": "apprendisti-impiegati-nel-commercio-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "apprentices-employed-in-trade-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "auszubildende-im-handel-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "fr": "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
-      },
-      "company": "tl (Transports publics de la région lausannoise)",
-      "companyKey": "tl-lausanne",
-      "companyDomain": "t-l.ch",
-      "title": "Apprenti·es employé·es de commerce",
-      "titleByLocale": {
-        "it": "Apprendisti impiegati nel commercio",
-        "en": "Apprentices employed in trade",
-        "de": "Auszubildende im Handel",
-        "fr": "Apprenti·es employé·es de commerce"
-      },
-      "description": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\n Votre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔  Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-      "descriptionByLocale": {
-        "it": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-        "en": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-        "de": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
-        "fr": "Aux tl, nous nous engageons à vous accompagner tout au long de votre formation pour vous permettre de développer les connaissances nécessaires à votre succès professionnel.\n\nVous cherchez une place d'apprentissage dans une entreprise qui offre à ses apprenti·e·s les meilleures conditions pour se former ? Vous êtes motivé·e, curieux·se et prêt·e à vous investir pour votre avenir ? Alors rejoignez-nous !\n\nPour le 1er août 2027, nous recherchons deux\n\nApprenti·es employé·es de commerce\nVotre mission\n\n• Gérer différents projets variés visant à développer vos compétences\n\n• Collaborer avec divers partenaires\n\n• Organiser et/ou participer à divers événements et manifestations\n\n• Découvrir différents services passionnants (support, exploitation, clientèle)\n\nVotre profil\n\n• Âgé·e entre 15 et 20 ans, au bénéfice du certificat de fin de scolarité obligatoire\n\n• Envie d’apprendre et esprit d’équipe\n\n• Motivation à relever de nouveaux défis\n\nVotre candidatures: Place à votre personnalité (2 possibilités)\n\n➔ Option 1 : Cliquez sur \"Postuler\" et suivez les instructions. Dans votre lettre de motivation, faites place à votre créativité et répondez aux 3 questions suivantes :\n\n• Pourquoi souhaitez-vous rejoindre les tl ?\n\n• Qu’est-ce qui vous attire dans le métier d’employé·e de commerce ?\n\n• Pourquoi vous et pas un·e autre ?\n\n➔ Option 2 : Vous êtes plus à l’aise à l’oral qu’à l’écrit ? Envoyez-nous votre candidature directement par vidéo à apprentissages@t-l.ch :\n\n• Une vidéo de 2 à 3 minutes\n\n• Présentez-vous en quelques mots\n\n• Répondez aux 3 questions ci-dessus\n\n(Toutes les données et médias transmis sont traités exclusivement pour le recrutement en cours et de manière confidentielle).\n\nInformations complémentaires\n\nCe que nous vous offrons :\n\n• 13 mois de salaire\n\n• 6 semaines de vacances jusqu’à 20 ans\n\n• Une sortie annuelle des apprenti·e·s\n\n• Une prime semestrielle en fonction des résultats et prestations\n\n• Activité récréative et salle de fitness à prix préférentiel\n\n• Restaurant d’entreprise au siège avec prix préférentiel pour les apprenti·e·s\n\n• Gratuité de transport sur le réseau tl ou acquisition d’un abonnement général à prix préférentiel\n\n• Un encadrement structuré pour vous accompagner vers la réussite\n\n• L’opportunité pour certain·e·s apprenti·e·s de continuer chez nous après la formation\n\nAux tl, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-employ%C3%A9%C2%B7es-de-commerce/1428672533/",
-      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:52.146Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1020",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Trasporto pubblico urbano (TPL)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1428672533/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugs": [
-        "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
-        ],
-        "en": [
-          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
-        ],
-        "de": [
-          "apprenti-es-employe-es-de-commerce-tl-lausanne-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T22:21:32.665Z",
-      "salaryMin": 43500,
-      "salaryMax": 80000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 43500,
-          "maxValue": 80000,
           "unitText": "YEAR"
         }
       }
@@ -748,7 +764,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-agent%C2%B7es-de-transports-publics/1429059433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:51.473Z",
+      "crawledAt": "2026-09-06T23:09:43.284Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -767,11 +783,13 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
+        "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
+        "apprendisti-nei-trasporti-pubblici-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
+          "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
+          "apprendisti-nei-trasporti-pubblici-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
@@ -791,85 +809,6 @@
           "@type": "QuantitativeValue",
           "minValue": 43500,
           "maxValue": 80000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "tl-lausanne-cfbb9bce415b",
-      "slug": "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
-      "slugByLocale": {
-        "it": "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "director-or-director-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "direktor-oder-direktor-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "fr": "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
-      },
-      "company": "tl (Transports publics de la région lausannoise)",
-      "companyKey": "tl-lausanne",
-      "companyDomain": "t-l.ch",
-      "title": "Directrice ou Directeur Route & immobilier",
-      "titleByLocale": {
-        "it": "Direttore o Direttore Road & Real Estate",
-        "en": "Director or Director Road & Real Estate",
-        "de": "Direktor oder Direktor Road & Real Estate",
-        "fr": "Directrice ou Directeur Route & immobilier"
-      },
-      "description": "Acteur majeur de la mobilité en Suisse romande, les  Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
-      "descriptionByLocale": {
-        "it": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
-        "en": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
-        "de": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
-        "fr": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026"
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://carrieres.t-l.ch/job/Lausanne-Directrice-ou-Directeur-Route-&-immobilier/1429774733/",
-      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:50.854Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1020",
-      "category": "Trasporto pubblico urbano (TPL)",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Trasporto pubblico urbano (TPL)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1429774733/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugs": [
-        "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
-        ],
-        "en": [
-          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
-        ],
-        "de": [
-          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T21:51:24.701Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
           "unitText": "YEAR"
         }
       }
@@ -906,7 +845,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Directrice-ou-Directeur-Strat%C3%A9gie-&-Transformation-d'entreprise/1429773933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:50.186Z",
+      "crawledAt": "2026-09-06T23:09:42.719Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -954,6 +893,87 @@
       }
     },
     {
+      "id": "tl-lausanne-cfbb9bce415b",
+      "slug": "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "slugByLocale": {
+        "it": "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "director-or-director-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "direktor-oder-direktor-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "fr": "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
+      },
+      "company": "tl (Transports publics de la région lausannoise)",
+      "companyKey": "tl-lausanne",
+      "companyDomain": "t-l.ch",
+      "title": "Directrice ou Directeur Route & immobilier",
+      "titleByLocale": {
+        "it": "Direttore o Direttore Road & Real Estate",
+        "en": "Director or Director Road & Real Estate",
+        "de": "Direktor oder Direktor Road & Real Estate",
+        "fr": "Directrice ou Directeur Route & immobilier"
+      },
+      "description": "Acteur majeur de la mobilité en Suisse romande, les  Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
+      "descriptionByLocale": {
+        "it": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
+        "en": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
+        "de": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026",
+        "fr": "Acteur majeur de la mobilité en Suisse romande, les Transports publics de la région lausannoise (tl) assurent chaque année près de 135 millions de voyages grâce à l'engagement de plus de 2'000 collaboratrices et collaborateurs . Leur mission est de proposer une mobilité simple, innovante et durable, au service de la population et du développement de l’agglomération lausannoise.\n\nSuite à la nomination de la titulaire en tant que Directrice Générale, les Transports publics de la région lausannoise (tl) recrutent pour leur futur·e\n\nDirectrice ou Directeur Route & immobilier\n\nDans un contexte de croissance de l’offre de transport et de réalisation de projets majeurs, tels que la décarbonation de la flotte, le développement des infrastructures et la transformation des systèmes de transport, les tl recherchent une personnalité capable de porter une vision stratégique et de piloter l'évolution de l’ensemble système route.\n\nVotre mission\n\nRattaché·e à la Directrice générale, vous définissez et mettez en œuvre la stratégie de la Direction Route et Immobilier en cohérence avec les ambitions de l'entreprise.\n\nVous dirigez une organisation d'environ 180 collaboratrices et collaborateurs , répartis au sein de cinq domaines (pour le système route : pilotage & performance, véhicules voyageurs, infrastructures énergie de traction ; pour tout tl : bâtiments & immobilier, facility management ) en vous appuyant sur vos responsables pour donner le cap, accompagner les transformations et créer les conditions d'une performance durable.\n\nA ce titre, vous êtes responsable de la stratégie de gestion des actifs et des infrastructures du système route ainsi que des bâtiments et de l’immobilier pour toute l’entreprise. Vous en garantissez le développement, la disponibilité et l'évolution à long terme , tout en conciliant sécurité, qualité de service, maîtrise des investissements et excellence opérationnelle . Vous contribuez ainsi aux décisions qui façonneront durablement la mobilité de l’agglomération lausannoise.\n\nEn étroite collaboration avec les autres directions, vous accompagnez les grands projets de transformation de l'entreprise, développez les synergies entre les métiers et veillez à une utilisation efficiente des ressources. Vous représentez également les tl auprès des autorités, des partenaires institutionnels et des principales parties prenantes.\n\nVotre parcours\n\nVous êtes au bénéfice d'une formation supérieure en ingénierie, en gestion d'entreprise ou d'une formation jugée équivalente et avez exercé une fonction de direction au sein d'une organisation active dans les transports publics, la mobilité ou la gestion d'infrastructures comparables. Votre parcours vous a permis de développer une solide expertise dans le pilotage de systèmes techniques, la stratégie de gestion des actifs, la planification des investissements et la conduite d'organisations complexes.\n\nVous évoluez avec aisance dans des environnements où les enjeux techniques, humains, financiers et politiques se rencontrent. Une bonne connaissance du contexte institutionnel et politique vaudois représente un réel atout. De bonnes connaissances de l'allemand viendront compléter idéalement votre profil.\n\nAu-delà de votre parcours\n\nVous aimez construire autant que décider. Vous savez prendre de la hauteur tout en restant proche du terrain. Vous fédérez naturellement des équipes autour d'une vision commune, accompagnez le changement avec conviction et prenez des décisions dans l'intérêt collectif. Si les défis liés à la mobilité durable, aux infrastructures publiques et au service à la population vous inspirent, vous trouverez ici une fonction où votre impact sera concret et durable.\n\nEn quelques mots\n\nVision stratégique\n• Gestion d'actifs\n• Infrastructures\n• Mobilité\n• Leadership\n• Investissements\n• Transformation\n• Service public\n• Performance\n• Gouvernance\n• Innovation\n• Agglomération lausannoise\n\nPourquoi rejoindre les tl ?\n\nRejoindre les tl, c'est contribuer à façonner la mobilité de demain au sein d'une entreprise engagée et porteuse de sens. Vous occuperez une fonction stratégique, au cœur des décisions, avec l'opportunité de piloter des projets qui transformeront durablement le territoire vaudois.\n\nLes tl s'engagent en faveur de la diversité et de l'inclusion. Nous encourageons les candidatures de toutes les personnes qualifiées, quels que soient leur parcours, leur identité, leur âge, leur genre, leur origine, leur situation de handicap ou toute autre caractéristique personnelle. Nous sommes convaincus que la diversité des expériences et des perspectives constitue une richesse pour relever les défis de la mobilité de demain.\n\nLe mandat de recrutement est confié à Eneo , cabinet spécialisé dans le recrutement de cadres et d'experts de la transition énergétique et des infrastructures. Nous nous réjouissons de recevoir votre dossier de candidature complet à info@eneo-recrutement.ch . Pour toute question, notre équipe se tient à votre disposition au +41 21 613 14 46 .\n\nDélai de postulation : 13 septembre 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://carrieres.t-l.ch/job/Lausanne-Directrice-ou-Directeur-Route-&-immobilier/1429774733/",
+      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-06T23:09:42.186Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "category": "Trasporto pubblico urbano (TPL)",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Trasporto pubblico urbano (TPL)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1429774733/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "streetAddress": "Chemin du Closel 15-17",
+      "previousSlugs": [
+        "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
+        "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
+          "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        ],
+        "en": [
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-08-25T21:51:24.701Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "tl-lausanne-89a5b0ee385c",
       "slug": "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
@@ -985,7 +1005,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:49.491Z",
+      "crawledAt": "2026-09-06T23:09:41.624Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1012,7 +1032,8 @@
         "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
+        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1024,7 +1045,8 @@
           "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
+          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "railway-constructors-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -1083,7 +1105,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Data-Engineer/1431535933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:48.833Z",
+      "crawledAt": "2026-09-06T23:09:41.121Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1114,7 +1136,8 @@
         "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
+        "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1130,7 +1153,8 @@
           "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
+          "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "rail-project-manager-security-installations-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -1163,7 +1187,7 @@
       "slug": "internship-in-coordinamento-operativo-facility-management-infrastruttura-di-manutenzione-tl-transports-publics-de-la",
       "slugByLocale": {
         "it": "internship-in-coordinamento-operativo-facility-management-infrastruttura-di-manutenzione-tl-transports-publics-de-la",
-        "en": "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure",
+        "en": "internship-in-operational-coordination-facility-management-maintenance-infrastructure-tl-transports-publics-de-la-region",
         "de": "praktikum-in-operativer-koordination-facility-management-instandhaltungsinfrastruktur-tl-transports-publics-de-la-region",
         "fr": "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure"
       },
@@ -1184,12 +1208,13 @@
         "de": "Wir verpflichten uns, Sie während Ihrer gesamten Ausbildung zu unterstützen, um das für Ihren beruflichen Erfolg notwendige Wissen zu entwickeln. Suchen Sie ein Praktikum, bei dem Ihre Arbeit wirklich einen Unterschied macht?\n\nTreten Sie einem Team bei, das Ihnen die Möglichkeit gibt, Ihr Wissen zu üben, neue Fähigkeiten zu entwickeln und aktiv zu Projekten beizutragen. Als Praktikant tragen Sie direkt zur Betriebsführung bei und unterstützen den Facility Management Manager in seinen Projekten.\n\nPraktikum in operativer Koordination (Facility Management / Instandhaltungsinfrastruktur)\n\nIhre Missionen\n\nUnterstützung für den Facility Management Manager:\n\n• Verwalten Sie einige administrative Aspekte sowie die Planung.\n\n• Aktiv an verschiedenen Projekten teilnehmen, mit echter Initiativesfreiheit.\n\n• Geben Sie konkrete Lösungen und Empfehlungen zur Verbesserung unserer Prozesse.\n\n• Beteiligen Sie sich an der Organisation von Sitzungen, Workshops, Seminaren und anderen Veranstaltungen des Unternehmens.\n\nUnterstützung der operativen Koordination des Facility Managements:\n\n• Erforderlichenfalls bereichsübergreifende Unterstützung der Tätigkeiten des Unternehmens.\n\n• Bereitstellung administrativer und organisatorischer Unterstützung für das Management und die Unterstützung des Unternehmens.\n\n• Durchführung von Investitionsmandaten, wie von den operativen Teams gefordert.\n\n• Teilnahme an der betrieblichen Überwachung der Tätigkeiten des Unternehmens und Beitrag zur Koordinierung zwischen den verschiedenen internen und externen Gesprächspartnern.\n\nDein Profil\n\n• Junge Absolvent oder Student in einem Bereich im Zusammenhang mit Wirtschaft und Management (HEG oder ähnlich).\n\n• Neugierig, vielseitig und komfortabel mit Initiativen.\n\n• Fähigkeit, schnell zu lernen, leicht zu kommunizieren und als Team zu arbeiten.\n\n• Eine Affinität zu konkreten Projekten, bei denen Ihre Ideen wirklich wichtig sind.\n\nBezahltes Praktikum\n\n12 Monate\n\nSendezeit: 21.09.2026",
         "fr": "Aux tl, nous nous engageons à t'accompagner tout au long de ta formation pour te permettre de développer les connaissances nécessaires à ton succès professionnel. Tu cherches un stage où ton travail fera réellement la différence ?\n\nRejoins une équipe qui te donnera l'opportunité de mettre en pratique tes connaissances, de développer de nouvelles compétences et de contribuer activement à des projets. En tant que stagiaire, tu contribueras directement à la gestion des opérations tout en épaulant le responsable Facility Management dans ses projets.\n\nStage dans la coordination opérationnelle (Facility Management / maintenance infrastructure)\n\nTes missions\n\nSoutien au Responsable du Facility Management:\n\n• Gérer certains aspects administratifs ainsi que la planification des agendas.\n\n• Participer activement à des projets variés, avec une vraie liberté d'initiative.\n\n• Apporter des solutions concrètes et des recommandations pour améliorer nos processus.\n\n• Participer à l'organisation de séances, ateliers, séminaires et autres événements de l'entité.\n\nSupport à la coordination opérationnelle du Facility Management:\n\n• Apporter un soutien transversal aux activités de l'entité selon les besoins.\n\n• Assurer un soutien administratif et organisationnel aux cadres et supports de l'entité.\n\n• Réaliser des mandats d'investissement selon les besoins des équipes opérationnelles.\n\n• Participer au suivi opérationnel des activités de l'entité et contribuer à la coordination entre les différents interlocuteurs internes et externes.\n\nTon profil\n\n• Jeune diplômé·e ou étudiant·e dans un domaine lié à la gestion d’entreprise et du management (HEG ou similaire).\n\n• Curieux·se, polyvalent·e, et à l’aise avec la prise d’initiatives.\n\n• Capacité à apprendre rapidement, à communiquer avec aisance et à travailler en équipe.\n\n• Une affinité pour les projets concrets où tes idées comptent vraiment.\n\nStage rémunéré\n\n12 mois\n\nDélai de postulation: 21.09.2026"
       },
+      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stage-dans-la-coordination-op%C3%A9rationnelle-%28Facility-Management-maintenance-infrastructure%29/1432197933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:48.206Z",
+      "crawledAt": "2026-09-06T23:09:40.556Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1207,6 +1232,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
+      "previousSlugs": [
+        "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure",
+        "internship-in-coordinamento-operativo-facility-management-infrastruttura-di-manutenzione-tl-transports-publics-de-la"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure",
+          "internship-in-coordinamento-operativo-facility-management-infrastruttura-di-manutenzione-tl-transports-publics-de-la"
+        ],
+        "de": [
+          "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure"
+        ],
+        "en": [
+          "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure"
+        ]
+      },
       "firstSeenAt": "2026-09-01T07:38:35.589Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
@@ -1220,18 +1261,74 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "tl-lausanne-8b454ba6887f",
+      "slug": "architecte-systemes-d-information-tl-lausanne-lausanne",
+      "slugByLocale": {
+        "fr": "architecte-systemes-d-information-tl-lausanne-lausanne",
+        "it": "architecte-systemes-d-information-tl-lausanne-lausanne",
+        "en": "architecte-systemes-d-information-tl-lausanne-lausanne",
+        "de": "architecte-systemes-d-information-tl-lausanne-lausanne"
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure"
-        ],
-        "de": [
-          "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure"
-        ]
+      "company": "tl (Transports publics de la région lausannoise)",
+      "companyKey": "tl-lausanne",
+      "companyDomain": "t-l.ch",
+      "title": "Architecte systèmes d'information",
+      "titleByLocale": {
+        "fr": "Architecte systèmes d'information",
+        "it": "Architecte systèmes d'information",
+        "en": "Architecte systèmes d'information",
+        "de": "Architecte systèmes d'information"
       },
-      "previousSlugs": [
-        "stage-dans-la-coordination-operationnelle-facility-management-maintenance-infrastructure"
-      ]
+      "description": "Acteur de référence en matière de transports publics, les tl transportent chaque client·e en faisant battre le cœur de la région lausannoise par un engagement pour une mobilité simple, innovante et durable.\n\nPour renforcer nos équipes, et contribuer vous aussi, à cette expérience, rejoignez-nous.\n\nDevenez notre futur∙e\n\nArchitecte systèmes d'information\n\nVotre mission\n\nRattaché au Responsable Systèmes d’Information, vous contribuez à construire un système d’information cohérent, évolutif et aligné avec les besoins de l’entreprise. Vous définissez des principes et standards communs, notamment pour l’intégration, la gestion des identités et les services cloud, afin de guider les projets et de faciliter les décisions.\n\nVous animez la gouvernance d’architecture en lien avec les équipes SI, les métiers, la sécurité, le Data Office et les partenaires externes.\n\nVous documentez les choix structurants, facilitez les arbitrages et veillez à ce que les orientations retenues soient comprises, partagées et applicables.\nVotre rôle est aussi de faire le lien entre la stratégie, les projets et la réalité du terrain. Vous transformez les cibles d’architecture en recommandations concrètes, utiles aux équipes projet, aux équipes d’exploitation et aux métiers.\n\nGrâce à votre vision globale du SI et à votre compréhension des environnements IT et OT, vous contribuez à simplifier le paysage applicatif, à réduire la dette technique, à maîtriser les coûts sur le long terme et à favoriser une innovation réellement utile aux activités des tl.\n\nVotre profil\n\n• Vous êtes titulaire d’une formation HES ou universitaire, idéalement de niveau Master, en informatique, télécommunications, ingénierie ou dans un domaine équivalent ;\n• Vous disposez d’une expérience confirmée dans l’IT, dont plusieurs années dans un rôle d’architecte SI, d’architecte solutions ou d’architecte d’entreprise, idéalement dans des environnements complexes ;\n• Vous comprenez les enjeux liés aux applications, aux infrastructures, à l’intégration, aux données et à la sécurité ;\n• Vous savez prendre de la hauteur tout en restant proche du terrain : vous structurez la réflexion, synthétisez des sujets complexes et formulez des recommandations claires et pragmatiques ;\n• Vous communiquez avec aisance, à l’oral comme à l’écrit, et savez rendre vos recommandations compréhensibles pour des interlocuteurs techniques, métiers ou managériaux ;\n• Vous appréciez le travail transverse, la collaboration avec des équipes variées et la recherche de solutions équilibrées entre ambition, faisabilité et valeur ajoutée ;\n• Des connaissances en modélisation UML ou Archimate, ainsi que des cadres TOGAF et ITIL, constituent des atouts ;\n• Une expérience dans le domaine des transports, de l’informatique embarquée, des environnements industriels ou des flux IT/OT est un avantage ;\n• Vous maîtrisez le français à l’oral comme à l’écrit et disposez de bonnes connaissances en anglais.\n\nNous vous offrons un rôle transversal au cœur de l’évolution du système d’information des tl, avec une forte proximité avec les projets, les métiers et les enjeux de transformation de l’entreprise.\n\nDélai de postulation: 19 septembre 2026",
+      "descriptionByLocale": {
+        "fr": "Acteur de référence en matière de transports publics, les tl transportent chaque client·e en faisant battre le cœur de la région lausannoise par un engagement pour une mobilité simple, innovante et durable.\n\nPour renforcer nos équipes, et contribuer vous aussi, à cette expérience, rejoignez-nous.\n\nDevenez notre futur∙e\n\nArchitecte systèmes d'information\n\nVotre mission\n\nRattaché au Responsable Systèmes d’Information, vous contribuez à construire un système d’information cohérent, évolutif et aligné avec les besoins de l’entreprise. Vous définissez des principes et standards communs, notamment pour l’intégration, la gestion des identités et les services cloud, afin de guider les projets et de faciliter les décisions.\n\nVous animez la gouvernance d’architecture en lien avec les équipes SI, les métiers, la sécurité, le Data Office et les partenaires externes.\n\nVous documentez les choix structurants, facilitez les arbitrages et veillez à ce que les orientations retenues soient comprises, partagées et applicables.\nVotre rôle est aussi de faire le lien entre la stratégie, les projets et la réalité du terrain. Vous transformez les cibles d’architecture en recommandations concrètes, utiles aux équipes projet, aux équipes d’exploitation et aux métiers.\n\nGrâce à votre vision globale du SI et à votre compréhension des environnements IT et OT, vous contribuez à simplifier le paysage applicatif, à réduire la dette technique, à maîtriser les coûts sur le long terme et à favoriser une innovation réellement utile aux activités des tl.\n\nVotre profil\n\n• Vous êtes titulaire d’une formation HES ou universitaire, idéalement de niveau Master, en informatique, télécommunications, ingénierie ou dans un domaine équivalent ;\n• Vous disposez d’une expérience confirmée dans l’IT, dont plusieurs années dans un rôle d’architecte SI, d’architecte solutions ou d’architecte d’entreprise, idéalement dans des environnements complexes ;\n• Vous comprenez les enjeux liés aux applications, aux infrastructures, à l’intégration, aux données et à la sécurité ;\n• Vous savez prendre de la hauteur tout en restant proche du terrain : vous structurez la réflexion, synthétisez des sujets complexes et formulez des recommandations claires et pragmatiques ;\n• Vous communiquez avec aisance, à l’oral comme à l’écrit, et savez rendre vos recommandations compréhensibles pour des interlocuteurs techniques, métiers ou managériaux ;\n• Vous appréciez le travail transverse, la collaboration avec des équipes variées et la recherche de solutions équilibrées entre ambition, faisabilité et valeur ajoutée ;\n• Des connaissances en modélisation UML ou Archimate, ainsi que des cadres TOGAF et ITIL, constituent des atouts ;\n• Une expérience dans le domaine des transports, de l’informatique embarquée, des environnements industriels ou des flux IT/OT est un avantage ;\n• Vous maîtrisez le français à l’oral comme à l’écrit et disposez de bonnes connaissances en anglais.\n\nNous vous offrons un rôle transversal au cœur de l’évolution du système d’information des tl, avec une forte proximité avec les projets, les métiers et les enjeux de transformation de l’entreprise.\n\nDélai de postulation: 19 septembre 2026",
+        "it": "Acteur de référence en matière de transports publics, les tl transportent chaque client·e en faisant battre le cœur de la région lausannoise par un engagement pour une mobilité simple, innovante et durable.\n\nPour renforcer nos équipes, et contribuer vous aussi, à cette expérience, rejoignez-nous.\n\nDevenez notre futur∙e\n\nArchitecte systèmes d'information\n\nVotre mission\n\nRattaché au Responsable Systèmes d’Information, vous contribuez à construire un système d’information cohérent, évolutif et aligné avec les besoins de l’entreprise. Vous définissez des principes et standards communs, notamment pour l’intégration, la gestion des identités et les services cloud, afin de guider les projets et de faciliter les décisions.\n\nVous animez la gouvernance d’architecture en lien avec les équipes SI, les métiers, la sécurité, le Data Office et les partenaires externes.\n\nVous documentez les choix structurants, facilitez les arbitrages et veillez à ce que les orientations retenues soient comprises, partagées et applicables.\nVotre rôle est aussi de faire le lien entre la stratégie, les projets et la réalité du terrain. Vous transformez les cibles d’architecture en recommandations concrètes, utiles aux équipes projet, aux équipes d’exploitation et aux métiers.\n\nGrâce à votre vision globale du SI et à votre compréhension des environnements IT et OT, vous contribuez à simplifier le paysage applicatif, à réduire la dette technique, à maîtriser les coûts sur le long terme et à favoriser une innovation réellement utile aux activités des tl.\n\nVotre profil\n\n• Vous êtes titulaire d’une formation HES ou universitaire, idéalement de niveau Master, en informatique, télécommunications, ingénierie ou dans un domaine équivalent ;\n• Vous disposez d’une expérience confirmée dans l’IT, dont plusieurs années dans un rôle d’architecte SI, d’architecte solutions ou d’architecte d’entreprise, idéalement dans des environnements complexes ;\n• Vous comprenez les enjeux liés aux applications, aux infrastructures, à l’intégration, aux données et à la sécurité ;\n• Vous savez prendre de la hauteur tout en restant proche du terrain : vous structurez la réflexion, synthétisez des sujets complexes et formulez des recommandations claires et pragmatiques ;\n• Vous communiquez avec aisance, à l’oral comme à l’écrit, et savez rendre vos recommandations compréhensibles pour des interlocuteurs techniques, métiers ou managériaux ;\n• Vous appréciez le travail transverse, la collaboration avec des équipes variées et la recherche de solutions équilibrées entre ambition, faisabilité et valeur ajoutée ;\n• Des connaissances en modélisation UML ou Archimate, ainsi que des cadres TOGAF et ITIL, constituent des atouts ;\n• Une expérience dans le domaine des transports, de l’informatique embarquée, des environnements industriels ou des flux IT/OT est un avantage ;\n• Vous maîtrisez le français à l’oral comme à l’écrit et disposez de bonnes connaissances en anglais.\n\nNous vous offrons un rôle transversal au cœur de l’évolution du système d’information des tl, avec une forte proximité avec les projets, les métiers et les enjeux de transformation de l’entreprise.\n\nDélai de postulation: 19 septembre 2026",
+        "en": "Acteur de référence en matière de transports publics, les tl transportent chaque client·e en faisant battre le cœur de la région lausannoise par un engagement pour une mobilité simple, innovante et durable.\n\nPour renforcer nos équipes, et contribuer vous aussi, à cette expérience, rejoignez-nous.\n\nDevenez notre futur∙e\n\nArchitecte systèmes d'information\n\nVotre mission\n\nRattaché au Responsable Systèmes d’Information, vous contribuez à construire un système d’information cohérent, évolutif et aligné avec les besoins de l’entreprise. Vous définissez des principes et standards communs, notamment pour l’intégration, la gestion des identités et les services cloud, afin de guider les projets et de faciliter les décisions.\n\nVous animez la gouvernance d’architecture en lien avec les équipes SI, les métiers, la sécurité, le Data Office et les partenaires externes.\n\nVous documentez les choix structurants, facilitez les arbitrages et veillez à ce que les orientations retenues soient comprises, partagées et applicables.\nVotre rôle est aussi de faire le lien entre la stratégie, les projets et la réalité du terrain. Vous transformez les cibles d’architecture en recommandations concrètes, utiles aux équipes projet, aux équipes d’exploitation et aux métiers.\n\nGrâce à votre vision globale du SI et à votre compréhension des environnements IT et OT, vous contribuez à simplifier le paysage applicatif, à réduire la dette technique, à maîtriser les coûts sur le long terme et à favoriser une innovation réellement utile aux activités des tl.\n\nVotre profil\n\n• Vous êtes titulaire d’une formation HES ou universitaire, idéalement de niveau Master, en informatique, télécommunications, ingénierie ou dans un domaine équivalent ;\n• Vous disposez d’une expérience confirmée dans l’IT, dont plusieurs années dans un rôle d’architecte SI, d’architecte solutions ou d’architecte d’entreprise, idéalement dans des environnements complexes ;\n• Vous comprenez les enjeux liés aux applications, aux infrastructures, à l’intégration, aux données et à la sécurité ;\n• Vous savez prendre de la hauteur tout en restant proche du terrain : vous structurez la réflexion, synthétisez des sujets complexes et formulez des recommandations claires et pragmatiques ;\n• Vous communiquez avec aisance, à l’oral comme à l’écrit, et savez rendre vos recommandations compréhensibles pour des interlocuteurs techniques, métiers ou managériaux ;\n• Vous appréciez le travail transverse, la collaboration avec des équipes variées et la recherche de solutions équilibrées entre ambition, faisabilité et valeur ajoutée ;\n• Des connaissances en modélisation UML ou Archimate, ainsi que des cadres TOGAF et ITIL, constituent des atouts ;\n• Une expérience dans le domaine des transports, de l’informatique embarquée, des environnements industriels ou des flux IT/OT est un avantage ;\n• Vous maîtrisez le français à l’oral comme à l’écrit et disposez de bonnes connaissances en anglais.\n\nNous vous offrons un rôle transversal au cœur de l’évolution du système d’information des tl, avec une forte proximité avec les projets, les métiers et les enjeux de transformation de l’entreprise.\n\nDélai de postulation: 19 septembre 2026",
+        "de": "Acteur de référence en matière de transports publics, les tl transportent chaque client·e en faisant battre le cœur de la région lausannoise par un engagement pour une mobilité simple, innovante et durable.\n\nPour renforcer nos équipes, et contribuer vous aussi, à cette expérience, rejoignez-nous.\n\nDevenez notre futur∙e\n\nArchitecte systèmes d'information\n\nVotre mission\n\nRattaché au Responsable Systèmes d’Information, vous contribuez à construire un système d’information cohérent, évolutif et aligné avec les besoins de l’entreprise. Vous définissez des principes et standards communs, notamment pour l’intégration, la gestion des identités et les services cloud, afin de guider les projets et de faciliter les décisions.\n\nVous animez la gouvernance d’architecture en lien avec les équipes SI, les métiers, la sécurité, le Data Office et les partenaires externes.\n\nVous documentez les choix structurants, facilitez les arbitrages et veillez à ce que les orientations retenues soient comprises, partagées et applicables.\nVotre rôle est aussi de faire le lien entre la stratégie, les projets et la réalité du terrain. Vous transformez les cibles d’architecture en recommandations concrètes, utiles aux équipes projet, aux équipes d’exploitation et aux métiers.\n\nGrâce à votre vision globale du SI et à votre compréhension des environnements IT et OT, vous contribuez à simplifier le paysage applicatif, à réduire la dette technique, à maîtriser les coûts sur le long terme et à favoriser une innovation réellement utile aux activités des tl.\n\nVotre profil\n\n• Vous êtes titulaire d’une formation HES ou universitaire, idéalement de niveau Master, en informatique, télécommunications, ingénierie ou dans un domaine équivalent ;\n• Vous disposez d’une expérience confirmée dans l’IT, dont plusieurs années dans un rôle d’architecte SI, d’architecte solutions ou d’architecte d’entreprise, idéalement dans des environnements complexes ;\n• Vous comprenez les enjeux liés aux applications, aux infrastructures, à l’intégration, aux données et à la sécurité ;\n• Vous savez prendre de la hauteur tout en restant proche du terrain : vous structurez la réflexion, synthétisez des sujets complexes et formulez des recommandations claires et pragmatiques ;\n• Vous communiquez avec aisance, à l’oral comme à l’écrit, et savez rendre vos recommandations compréhensibles pour des interlocuteurs techniques, métiers ou managériaux ;\n• Vous appréciez le travail transverse, la collaboration avec des équipes variées et la recherche de solutions équilibrées entre ambition, faisabilité et valeur ajoutée ;\n• Des connaissances en modélisation UML ou Archimate, ainsi que des cadres TOGAF et ITIL, constituent des atouts ;\n• Une expérience dans le domaine des transports, de l’informatique embarquée, des environnements industriels ou des flux IT/OT est un avantage ;\n• Vous maîtrisez le français à l’oral comme à l’écrit et disposez de bonnes connaissances en anglais.\n\nNous vous offrons un rôle transversal au cœur de l’évolution du système d’information des tl, avec une forte proximité avec les projets, les métiers et les enjeux de transformation de l’entreprise.\n\nDélai de postulation: 19 septembre 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://carrieres.t-l.ch/job/Lausanne-Architecte-syst%C3%A8mes-d'information/1433913733/",
+      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-06T23:09:40.015Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "category": "Trasporto pubblico urbano (TPL)",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Trasporto pubblico urbano (TPL)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1433913733/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "streetAddress": "Chemin du Closel 15-17",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-06T23:09:40.015Z"
     },
     {
       "id": "tl-lausanne-311961b39488",
@@ -1265,7 +1362,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Gestionnaire-parc-v%C3%A9hicules/1434041333/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:05:47.576Z",
+      "crawledAt": "2026-09-06T23:09:39.457Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1285,12 +1382,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
-        "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "gestione-delle-pulci-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-parc-vehicules-tl-lausanne-lausanne",
-          "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "gestionnaire-parc-vehicules-tl-transports-publics-de-la-region-lausannoise-lausanne",
+          "gestione-delle-pulci-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "gestionnaire-parc-vehicules-tl-lausanne-lausanne"
