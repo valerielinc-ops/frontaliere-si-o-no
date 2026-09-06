@@ -104,9 +104,18 @@ jobs:
               --workflow "${{ github.workflow }}"
             exit 0
           fi
-          count=$(jq -r '.problems | length' "$report")
-          problems=$(jq -r '.problems | map("- " + .) | join("\n")' "$report")
-          dashboard=$(jq -r '.dashboard | join("\n")' "$report")
+          # `// []` su OGNI estrazione: questo step gira sotto `set -euo
+          # pipefail`, e `join`/`map` su un campo `null` è un errore jq, non una
+          # stringa vuota. Un report scritto da un chiamante che non passa da
+          # `buildReport()` — o un workspace con un report anteriore al rename di
+          # un campo — ucciderebbe lo step, e l'issue di dato degradato NON
+          # verrebbe aperta: il degrado passa muto, che è esattamente la classe di
+          # guasto (osservatore verde/muto per costruzione) che questo monitor
+          # esiste per chiudere. Il campo assente deve degradare il CONTENUTO
+          # dell'issue, mai la sua apertura.
+          count=$(jq -r '(.problems // []) | length' "$report")
+          problems=$(jq -r '(.problems // []) | if length == 0 then "- (report senza campo `problems`: leggi l'"'"'artifact `pharmacy-data-health-report`)" else map("- " + .) | join("\n") end' "$report")
+          dashboard=$(jq -r '(.dashboard // []) | if length == 0 then "(report senza campo `dashboard`)" else join("\n") end' "$report")
 
           body=$(cat <<EOF
           La dashboard dati farmacie ha trovato **${count}** problema/i di copertura, freschezza, fetch o conflitti.

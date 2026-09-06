@@ -112,8 +112,12 @@ jobs:
 
           shardCount=$(jq -r '.shardCount' "$report")
           totalUrls=$(jq -r '.totalUrls' "$report")
-          warnings=$(jq -r '.warnings | join(", ")' "$report")
-          criticals=$(jq -r '.criticals | join(", ")' "$report")
+          # `// []`: sotto `set -euo pipefail` un `join` su un campo assente o
+          # `null` è un errore jq che ucciderebbe lo step, e l'issue sugli shard
+          # sovradimensionati non verrebbe aperta affatto. Un campo mancante
+          # impoverisce il corpo dell'issue, non ne sopprime l'apertura.
+          warnings=$(jq -r '(.warnings // []) | join(", ")' "$report")
+          criticals=$(jq -r '(.criticals // []) | join(", ")' "$report")
 
           # Stable titles: the shard COUNT used to sit at ~char 31, inside the
           # 60-char window the dedup matches on, so a run that went from 2 to 3
@@ -129,12 +133,12 @@ jobs:
             label="sitemap-shard-warning"
             title="[sitemap-shard-size] WARNING: shard(s) at or above 40k urls"
             priority=3
-            flaggedCount=$(jq -r '.warnings | length' "$report")
+            flaggedCount=$(jq -r '(.warnings // []) | length' "$report")
           fi
 
           # Build a markdown table of every flagged shard.
           flagged=$(jq -r '
-            .shards
+            (.shards // [])
             | map(select(.warning or .critical))
             | sort_by(-.urlCount)
             | map("| `\(.filename)` | \(.urlCount) | \(if .critical then "CRITICAL" elif .warning then "warning" else "ok" end) |")
