@@ -16,6 +16,16 @@
  *   - Sets needsRetranslation
  *   - Changes the master slug (job.slug)
  *   - Touches sourceLang or any other job field
+ *
+ * Unica eccezione a «any other job field», e solo per le chiavi della lista
+ * chiusa `BRAND_RELABELLED_CRAWLER_KEYS`: `company` viene riconciliato con
+ * l'etichetta DICHIARATA dal parser (`applyDeclaredBrandRelabel`, la stessa
+ * rete che `assemble-jobs-dataset.mjs` applica in assemblaggio) PRIMA di
+ * derivare gli slug. Senza, questo script conierebbe gli slug da un'etichetta
+ * gia' nota come stale e cementerebbe il brand sbagliato in URL nuovi — la
+ * slice `ipersonal` porta ancora `iPersonal AG` su disco mentre il parser
+ * dichiara `MediPersonal` (#7722). La riconciliazione e' idempotente e non
+ * cambia il dataset servito, che quel net lo applica gia'.
  */
 
 import fs from 'node:fs';
@@ -40,7 +50,9 @@ import {
   isLikelyUntranslated,
   shortJobHash,
   slugMatchesTitle,
+  sourceLocaleNeedsBrandRefresh,
 } from './lib/regenerate-slugs-helpers.mjs';
+import { applyDeclaredBrandRelabel, declaredBrandLabels } from './lib/crawler-brand-relabel.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 
@@ -104,6 +116,12 @@ async function main() {
   let totalDisambiguated = 0;
   let totalPinned = 0;
   let slicesChanged = 0;
+  let totalRelabelled = 0;
+  let totalSourceRefreshed = 0;
+
+  // Etichette dichiarate dai parser delle chiavi rietichettate: lette una volta
+  // sola (ogni voce apre il sorgente del parser) e riusate su tutte le slice.
+  const brandLabels = declaredBrandLabels();
 
   for (const file of files) {
     const slicePath = path.join(BY_CRAWLER_DIR, file);
@@ -112,6 +130,18 @@ async function main() {
     if (jobs.length === 0) continue;
 
     let sliceChanged = false;
+
+    // Riconciliazione del brand PRIMA di derivare qualunque slug: su una chiave
+    // rietichettata la `company` su disco e' stale finche' quel crawler non
+    // rigira, e derivare da li' conierebbe URL nuovi col datore sbagliato.
+    const brandRelabelledKey = brandLabels.has(file.replace(/\.json$/, ''));
+    if (brandRelabelledKey) {
+      const { relabelled } = applyDeclaredBrandRelabel(jobs, brandLabels);
+      if (relabelled > 0) {
+        totalRelabelled += relabelled;
+        sliceChanged = true;
+      }
+    }
 
     for (const job of jobs) {
       const sourceLang = job.sourceLang || 'it';
@@ -124,11 +154,24 @@ async function main() {
       totalJobs++;
 
       for (const locale of LOCALES) {
-        // Never touch the source-lang slug or the master slug
-        if (locale === sourceLang) continue;
-
         const title = (tbl[locale] || '').trim();
         const currentSlug = (sbl[locale] || '').trim();
+
+        // Never touch the source-lang slug or the master slug — l'unica
+        // eccezione e' la rietichettatura del datore, dove lo slug sorgente
+        // resterebbe altrimenti congelato sul brand vecchio per sempre.
+        // Rationale completo in `sourceLocaleNeedsBrandRefresh`.
+        const sourceBrandRefresh =
+          locale === sourceLang &&
+          sourceLocaleNeedsBrandRefresh({
+            isBrandRelabelledKey: brandRelabelledKey,
+            currentSlug,
+            title,
+            company,
+            location,
+            disambiguator,
+          });
+        if (locale === sourceLang && !sourceBrandRefresh) continue;
 
         // ── Registry pin ────────────────────────────────────────────────────
         // If this job is registered with a real translation for this locale,
@@ -136,7 +179,14 @@ async function main() {
         // (possibly re-translated) title below. Restore it when the current
         // slice drifted, preserving the drifted slug as a previousSlug bridge,
         // then skip title-based regeneration for this locale entirely.
-        const pinnedSlug = registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
+        // Sul refresh di brand il pin va scavalcato: il registry conserva la
+        // forma coniata SOTTO L'ETICHETTA VECCHIA, quindi ri-pinnarla
+        // rimetterebbe esattamente lo slug che stiamo correggendo. Il pin
+        // difende le TRADUZIONI dal drift dell'AI, e il locale sorgente non e'
+        // una traduzione.
+        const pinnedSlug = sourceBrandRefresh
+          ? null
+          : registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
         if (pinnedSlug) {
           // Defense-in-depth: the registry pin bypasses the cross-job
           // disambiguator the title-derivation path applies below, so surface a
@@ -173,11 +223,17 @@ async function main() {
         // both exact copies and partial translations that changed only 1-2 words.
         // Without this, an Italian title in the EN slot would overwrite a properly
         // translated English slug with an Italian-derived one.
+        // (Sul locale sorgente `title === sourceTitle` per costruzione: il
+        // check e' un no-op semantico che scatterebbe sempre, va saltato.)
         const sourceTitle = (tbl[sourceLang] || '').trim();
-        if (sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
+        if (!sourceBrandRefresh && sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
-        // If slug already matches title+company+location (+ disambiguator), skip
-        if (currentSlug && slugMatchesTitle(currentSlug, title, company, location, disambiguator)) continue;
+        // If slug already matches title+company+location (+ disambiguator), skip.
+        // `slugMatchesTitle` confronta i soli token del TITOLO — sottrae
+        // company/location come rumore — quindi per costruzione non puo' vedere
+        // un brand stale: sul refresh di brand il verdetto sarebbe «gia'
+        // allineato» proprio sullo slug da correggere.
+        if (!sourceBrandRefresh && currentSlug && slugMatchesTitle(currentSlug, title, company, location, disambiguator)) continue;
 
         // Generate new slug from locale title, re-appending disambiguator
         let newSlug = buildSlug(title, company, location, disambiguator);
@@ -249,6 +305,7 @@ async function main() {
 
         sliceChanged = true;
         totalFixed++;
+        if (sourceBrandRefresh) totalSourceRefreshed++;
       }
     }
 
@@ -268,6 +325,12 @@ async function main() {
   }
 
   console.log(`\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
+  if (totalRelabelled > 0) {
+    console.log(`🏷️  Brand relabel: ${totalRelabelled} record riallineati all'etichetta dichiarata dal parser prima della derivazione degli slug`);
+  }
+  if (totalSourceRefreshed > 0) {
+    console.log(`🔤 Source-locale: ${totalSourceRefreshed} slug del locale sorgente riportati alla forma canonica dopo una rietichettatura (vecchio slug preservato in previousSlugsByLocale)`);
+  }
   if (totalPinned > 0) {
     console.log(`🔒 Registry pin: ${totalPinned} locale slug(s) restored to the immutable registry value (drift demoted to previousSlugs)`);
   }

@@ -118,3 +118,50 @@ export function slugMatchesTitle(slug, title, company, location, disambiguator =
   const union = slugTokens.size + titleTokens.size - intersection;
   return intersection / union >= 0.5;
 }
+
+/**
+ * Il locale SORGENTE deve rientrare nella rigenerazione?
+ *
+ * Normalmente no: lo slug source-lang lo conia il parser al crawl
+ * (`slugify(title + <chiave crawler> + …)`) e rigenerarlo su ogni passaggio
+ * sposterebbe URL indicizzati a ogni micro-drift del titolo. L'eccezione e' la
+ * RIETICHETTATURA del datore: quando l'etichetta dichiarata dal parser cambia,
+ * lo slug sorgente resta congelato sul brand vecchio per sempre — nessun altro
+ * passaggio lo tocca — e la route indicizzata continua a nominare un datore che
+ * il contenuto non dichiara piu' (#7722: 15/15 righe di `med-ipersonal` con
+ * `-med-ipersonal-ch` nello slug `de` e `company: iPersonal AG` nel record).
+ *
+ * Il discriminante NON e' un'euristica sul «token di brand»: il tail dello slug
+ * sorgente e' la CHIAVE del crawler per convenzione su tutti i parser dedicati,
+ * quindi «tail != company» e' la normalita' (`accor` → `Ibis Budget`) e usarlo
+ * come trigger sposterebbe migliaia di URL sani. Il trigger e' l'appartenenza
+ * alla lista chiusa `BRAND_RELABELLED_CRAWLER_KEYS`
+ * (`scripts/lib/crawler-brand-relabel.mjs`), cioe' le sole chiavi mono-datore la
+ * cui etichetta e' stata corretta: li' — e solo li' — lo slug sorgente si
+ * riallinea alla forma canonica `title + company + location` come ogni altro
+ * locale. Idempotente: una volta canonico, `canonical === currentSlug` e il
+ * passaggio successivo non tocca piu' nulla.
+ *
+ * @param {object} params
+ * @param {boolean} params.isBrandRelabelledKey chiave crawler nella lista chiusa
+ * @param {string} params.currentSlug slug sorgente attuale
+ * @param {string} params.title titolo nel locale sorgente
+ * @param {string} params.company etichetta RICONCILIATA (non quella su disco)
+ * @param {string} [params.location]
+ * @param {string} [params.disambiguator]
+ * @returns {boolean}
+ */
+export function sourceLocaleNeedsBrandRefresh({
+  isBrandRelabelledKey,
+  currentSlug,
+  title,
+  company,
+  location = '',
+  disambiguator = '',
+}) {
+  if (!isBrandRelabelledKey) return false;
+  if (!String(title || '').trim() || !String(company || '').trim()) return false;
+  const canonical = buildSlug(title, company, location, disambiguator);
+  if (!canonical) return false;
+  return canonical !== String(currentSlug || '').trim();
+}
