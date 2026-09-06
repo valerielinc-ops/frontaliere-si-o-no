@@ -1309,7 +1309,10 @@ function isPartTime(job: JobLike): boolean {
  const raw = normalizeSpace(`${job.contract || ''} ${job.title || ''}`);
  if (!raw) return false;
  if (/(part[\s-]?time|tempo parziale|teilzeit|temps partiel)/i.test(raw)) return true;
- const pctMatches = raw.match(/(\d{1,3})\s*%/g) || [];
+ // `|| []` senza annotazione e' `never[]` (TS 5.8, regex globale con gruppi):
+ // `match.replace` diventa un errore di tipo sul `never`, e il ratchet tsc
+ // lo conta come regressione bloccante fuori da tests/.
+ const pctMatches: string[] = raw.match(/(\d{1,3})\s*%/g) || [];
  return pctMatches.some((match) => {
  const pct = Number(match.replace(/[^0-9]/g, ''));
  return Number.isFinite(pct) && pct > 0 && pct < 100;
