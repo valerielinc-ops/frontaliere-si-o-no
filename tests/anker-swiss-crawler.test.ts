@@ -4,8 +4,10 @@ import {
   ANKER_SWISS_COMPANY_NAME,
   isAnkerSwissJob,
   isTrustedDomain,
+  buildSlugDisambiguator,
 } from '../scripts/lib/anker-swiss-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { appendSlugDisambiguator } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('Anker Swiss Ticino AG crawler parser', () => {
   // ── Constants ──
@@ -77,6 +79,34 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── slugDisambiguator (staffing agency: repeated title+location) ──
+  describe('buildSlugDisambiguator', () => {
+    const buildSlug = (title: string, location: string, url: string) =>
+      appendSlugDisambiguator(slugify(`${title} ${location} anker-swiss ch`), buildSlugDisambiguator(url));
+
+    it('keeps two vacancies with identical title and location on distinct slugs', () => {
+      const a = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-1/');
+      const b = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-2/');
+      expect(a).not.toBe(b);
+    });
+
+    it('is deterministic across runs for the same detail URL', () => {
+      const url = 'https://anker-swiss.ch/stellen/kranfuehrer/';
+      expect(buildSlugDisambiguator(url)).toBe(buildSlugDisambiguator(url));
+    });
+
+    it('returns an empty suffix for a missing URL', () => {
+      expect(buildSlugDisambiguator('')).toBe('');
+      expect(buildSlugDisambiguator(undefined)).toBe('');
+    });
+
+    it('produces URL-safe slugs within the pipeline length budget', () => {
+      const slug = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-1/');
+      expect(slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+      expect(slug.length).toBeLessThanOrEqual(120);
     });
   });
 

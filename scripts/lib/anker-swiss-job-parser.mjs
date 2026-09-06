@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
@@ -68,6 +68,24 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+/* ── Slug ──────────────────────────────────────────────────── */
+
+/**
+ * Stable per-vacancy slug suffix, derived from the detail-page URL.
+ *
+ * Anker Swiss is a staffing agency: the same title in the same locality recurs
+ * across distinct vacancies, so `title + location` is not injective and two
+ * different postings would otherwise share one slug (overwriting job pages and
+ * making the canonical unstable). The URL hash is deterministic per detail page,
+ * so the suffix survives every slug rebuild (hardenJobLocaleFields,
+ * regenerate-slugs-by-locale) via `job.slugDisambiguator`.
+ */
+export function buildSlugDisambiguator(publicUrl = '') {
+  const url = String(publicUrl || '').trim();
+  if (!url) return '';
+  return createHash('sha1').update(url).digest('hex').slice(0, 8);
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -150,14 +168,16 @@ export async function fetchAllAnkerSwissJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} ${location} anker-swiss ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const disambiguator = buildSlugDisambiguator(publicUrl);
+    const jobSlug = appendSlugDisambiguator(slugify(`${title} ${location} anker-swiss ch`), disambiguator);
 
     const job = {
       // ── Required fields ──
       id: `anker-swiss-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      slugDisambiguator: disambiguator,
       company: ANKER_SWISS_COMPANY_NAME,
       companyKey: ANKER_SWISS_KEY,
       companyDomain: ANKER_SWISS_COMPANY_DOMAIN,
