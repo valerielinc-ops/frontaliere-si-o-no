@@ -122,8 +122,10 @@ const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', '
  * @param {string} key
  * @param {CandidateStatus} status
  * @param {Record<string, any>} [patch]
+ * @param {string} [ledgerFile] dove scrivere la voce di registro; un test che
+ *   esercita una transizione non deve appendere al registro committato.
  */
-export function setStatus(store, key, status, patch = {}) {
+export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PATH) {
   const c = store.candidates[key];
   if (!c) return null;
   const prev = c.status;
@@ -134,7 +136,7 @@ export function setStatus(store, key, status, patch = {}) {
     || ORDER.indexOf(status) >= ORDER.indexOf(prev);
   if (forward) c.status = status;
   Object.assign(c, patch, { updatedAt: new Date().toISOString() });
-  if (prev !== c.status) appendLedger({ key, from: prev, to: c.status, at: c.updatedAt, reason: patch.reason });
+  if (prev !== c.status) appendLedger({ key, from: prev, to: c.status, at: c.updatedAt, reason: patch.reason }, ledgerFile);
   return c;
 }
 
@@ -143,6 +145,9 @@ export function setStatus(store, key, status, patch = {}) {
  * @param {string} [file]
  */
 export function appendLedger(entry, file = LEDGER_PATH) {
+  // `null` esplicito = non registrare: serve a una dry-run, che applica la
+  // transizione in memoria per stamparla e poi butta via lo store.
+  if (!file) return;
   try {
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.appendFileSync(file, `${JSON.stringify(entry)}\n`);
