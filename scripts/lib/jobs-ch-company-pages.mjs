@@ -160,6 +160,32 @@ function pageNamesEmployer(html, identity) {
 }
 
 /**
+ * Statuses that mean this profile URL is not coming back.
+ *
+ * jobs.ch mints two profile ids per employer and retires the legacy one when it
+ * feels like it; the retired URL then answers 404 forever. Every other status
+ * is ambiguous about the source — a 503 or an anti-bot fence says "ask again
+ * later", so it stays a break — but "gone" is not ambiguous: that profile has
+ * no vacancies to omit from the batch, because it has no page at all.
+ */
+const PROFILE_GONE_STATUS = new Set([404, 410]);
+
+/**
+ * The gone-status of a failed fetch, or null when the failure means anything
+ * else. `fetchHtml` attaches `.status`; the message is read as a fallback
+ * because the error crosses a proxy-rescue path that only guarantees to
+ * re-throw the original `HTTP <status> from <url>`.
+ *
+ * @param {unknown} err
+ * @returns {number|null}
+ */
+function goneStatusOf(err) {
+  const fromMessage = /\bHTTP (\d{3})\b/.exec(String(/** @type {any} */ (err)?.message || ''));
+  const status = Number(/** @type {any} */ (err)?.status) || Number(fromMessage?.[1]);
+  return PROFILE_GONE_STATUS.has(status) ? status : null;
+}
+
+/**
  * Walk every jobs.ch profile of one employer and collect its open vacancies.
  *
  * @param {Array<{ path: string, label: string, identity?: string }>} targets
@@ -172,11 +198,22 @@ function pageNamesEmployer(html, identity) {
  *   A swallowed fetch error, an unrecognised page or a non-zero counter all
  *   leave it false — i.e. "we did not observe an empty source", which the
  *   caller must translate into "keep the previous slice".
+ *
+ *   A profile that is *gone* (404/410) is the one failure that does not end the
+ *   run: the walk continues on the employer's remaining profiles and the proof
+ *   is withheld. Throwing on it made the whole crawler hard-down on every run
+ *   for as long as jobs.ch kept the retired id retired — a permanent red that
+ *   no longer publishes anything, and a weekly `[crawler-health]` issue, which
+ *   is the backlog this module exists to close. If EVERY profile is gone the
+ *   error still propagates: an employer with no page left on jobs.ch is a real
+ *   break, not a degraded one.
  */
 export async function collectJobsChVacancyUrls(targets, { fetchPage = fetchHtml, pathSuffix = '' } = {}) {
   const vacancyUrls = new Set();
   const counters = [];
   let everyProfileProvenEmpty = true;
+  let reachedAnyProfile = false;
+  let firstGoneError = null;
 
   for (const target of targets) {
     // locale-segment-ok: '/en/' is jobs.ch's own external site-language path, not a site locale route
@@ -191,7 +228,28 @@ export async function collectJobsChVacancyUrls(targets, { fetchPage = fetchHtml,
     // 503) surfaces as the break it is. It also removes the partial-batch
     // hazard — one profile answering while the other is unreachable can no
     // longer publish a batch that silently omits half the employer.
-    const html = await fetchPage(companyPageUrl);
+    //
+    // The single exception is a profile that is GONE (404/410). "Unreachable"
+    // and "retired" are different facts: the first hides vacancies that may
+    // exist, the second is jobs.ch stating there are none here any more, so
+    // there is no half-employer to omit. Propagating it kept the crawler
+    // hard-down on every run, publishing nothing at all, while the employer's
+    // surviving profile was answering 200 the whole time.
+    let html;
+    try {
+      html = await fetchPage(companyPageUrl);
+    } catch (err) {
+      const gone = goneStatusOf(err);
+      if (gone === null) throw err;
+      console.warn(
+        `  ⚠️ ${target.label}: profile is gone (HTTP ${gone}) — continuing with this`
+        + " employer's other profiles, without granting the empty proof",
+      );
+      firstGoneError ??= err;
+      everyProfileProvenEmpty = false;
+      continue;
+    }
+    reachedAnyProfile = true;
     const links = parseVacancyLinks(html);
     console.log(`  📋 ${target.label}: ${links.length} open vacancy link(s)`);
     for (const link of links) vacancyUrls.add(link);
@@ -212,6 +270,12 @@ export async function collectJobsChVacancyUrls(targets, { fetchPage = fetchHtml,
     counters.push(`${target.path}=${renderedCount}`);
     if (renderedCount !== 0) everyProfileProvenEmpty = false;
   }
+
+  // Degrading is only degrading while something is left to degrade to. With
+  // every profile gone there is no surviving reading of this employer, so the
+  // run must break rather than hand the caller an empty, unproven result that
+  // looks exactly like a quiet week.
+  if (!reachedAnyProfile && firstGoneError) throw firstGoneError;
 
   return {
     vacancyUrls: [...vacancyUrls],
