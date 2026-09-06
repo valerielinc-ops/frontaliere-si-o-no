@@ -329,23 +329,45 @@ describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
     }
   });
 
-  it('il blocco raccomandato renderizzato non promette un bonus quando linka Wise', async () => {
-    const { renderRecommendedBlock } = await import('@/services/newsletter/recommendedBlock.mjs');
-    let renderedWise = 0;
-    for (const loc of LOCALES) {
-      for (const interest of [undefined, 'general', 'utility', 'jobs', 'articles']) {
-        const html = renderRecommendedBlock({ locale: loc, interest });
-        if (!html.includes('/go/wise/')) continue;
-        renderedWise += 1;
-        expect(
-          WISE_BONUS_PROMISE_RE.test(stripHtmlTags(html)),
-          `blocco Wise (${loc}/${interest}) promette un bonus`,
-        ).toBe(false);
+  it('il blocco raccomandato renderizzato non promette un bonus quando linka Wise', async (ctx) => {
+    const { renderRecommendedBlock, NEWSLETTER_SPONSORS, NEWSLETTER_AFFILIATE_ENTRIES } = await import(
+      '@/services/newsletter/recommendedBlock.mjs'
+    );
+    const { getEnabledPartner } = await import('../functions/src/lib/affiliatePartnersRegistry.js');
+
+    // `pickNewsletterRecommendation()` sceglie UNA raccomandazione per invio:
+    // uno sponsor pagato attivo vince su ogni affiliato, e fra gli affiliati
+    // vincono interest-match + `priority` del registry. Contare i render che
+    // "capitano" di essere Wise legherebbe questo gate a decisioni di revenue:
+    // attivare uno sponsor — o alzare la priority di un altro partner — non
+    // riscrive il copy Wise ma spegnerebbe tests.yml su ogni PR.
+    // Forziamo quindi la selezione (nessuno sponsor, sola entry Wise in gara) e
+    // ripristiniamo subito: cosi' il render sotto e' sempre quello di Wise e
+    // l'invariante non e' mai vacua.
+    const wise = NEWSLETTER_AFFILIATE_ENTRIES.find((e: { goId: string }) => e.goId === 'wise');
+    expect(wise, 'entry Wise assente da NEWSLETTER_AFFILIATE_ENTRIES').toBeDefined();
+    // Unica dipendenza legittima: se il partner e' disabilitato nel registry
+    // non finisce in nessuna email e l'invariante non ha superficie da coprire.
+    if (!getEnabledPartner('wise')) ctx.skip();
+
+    const sponsors = NEWSLETTER_SPONSORS.splice(0, NEWSLETTER_SPONSORS.length);
+    const entries = NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
+    NEWSLETTER_AFFILIATE_ENTRIES.push(wise);
+    try {
+      for (const loc of LOCALES) {
+        for (const interest of [undefined, 'general', 'utility', 'jobs', 'articles']) {
+          const html = renderRecommendedBlock({ locale: loc, interest });
+          expect(html, `blocco Wise (${loc}/${interest}) non renderizzato`).toContain('/go/wise/');
+          expect(
+            WISE_BONUS_PROMISE_RE.test(stripHtmlTags(html)),
+            `blocco Wise (${loc}/${interest}) promette un bonus`,
+          ).toBe(false);
+        }
       }
+    } finally {
+      NEWSLETTER_SPONSORS.push(...sponsors);
+      NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length, ...entries);
     }
-    // Il gate deve aver visto almeno un render con Wise: se il partner smette
-    // di essere selezionabile l'asserzione sopra diventerebbe vacua.
-    expect(renderedWise).toBeGreaterThan(0);
   });
 
   it('la riga Wise del blocco partner non promette un bonus, quelle Fineco/CA restano', async () => {
@@ -370,9 +392,18 @@ describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
         WISE_BONUS_PROMISE_RE.test(stripHtmlTags(wiseRow as string)),
         `riga Wise (${loc}) promette un bonus`,
       ).toBe(false);
-      // Contro-prova: i partner con un'offerta reale non vengono ripuliti.
-      expect(rows.find((r: string) => r.includes('/go/fineco/'))).toMatch(/bonus/i);
-      expect(rows.find((r: string) => r.includes('/go/creditagricole/'))).toMatch(/50/);
+      // Contro-prova: i partner con un'offerta reale non vengono ripuliti. Sul
+      // TESTO visibile, non sul markup grezzo: un qualunque `50` in un padding
+      // o in un colore terrebbe verde la riga Crédit Agricole anche senza
+      // «Buono Amazon 50€» — cioe' proprio la sweep-troppo-larga che questa
+      // asserzione deve intercettare.
+      const finecoRow = rows.find((r: string) => r.includes('/go/fineco/'));
+      const caRow = rows.find((r: string) => r.includes('/go/creditagricole/'));
+      expect(finecoRow, `riga Fineco assente nel locale ${loc}`).toBeDefined();
+      expect(caRow, `riga Credit Agricole assente nel locale ${loc}`).toBeDefined();
+      expect(stripHtmlTags(finecoRow as string)).toMatch(/bonus/i);
+      expect(stripHtmlTags(caRow as string)).toMatch(/buono|voucher|gutschein|bon\b/i);
+      expect(stripHtmlTags(caRow as string)).toMatch(/50\s?€|€\s?50/);
     }
   });
 
