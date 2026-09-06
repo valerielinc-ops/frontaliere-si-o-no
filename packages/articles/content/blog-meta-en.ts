@@ -11431,6 +11431,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.title': 'Milan: Niguarda and Istituto Tumori join forces for oncological emergencies',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.excerpt': 'The Niguarda Hospital and the IRCCS Fondazione Istituto Nazionale dei Tumori in Milan have signed an operational protocol to ensure continuity of care for cancer patients in case of emergencies.',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.imageAlt': 'View of the hospital in Lugano, Ticino',
+    'blog.article.lavorare-arosio-ticino.title': 'Living in Arosio, working in Ticino: border guide',
+    'blog.article.lavorare-arosio-ticino.excerpt': 'From geographical location to tax advantages: everything that those who want to move to Arosio and work in the Canton of Ticino need to know about the rights of the border worker.',
+    'blog.article.lavorare-arosio-ticino.imageAlt': 'View of Lake Como from Arosio area, with Ticino border in background',
 };
 
 export default blogMetaEn;

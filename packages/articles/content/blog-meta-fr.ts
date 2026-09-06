@@ -11433,6 +11433,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.title': 'Milano: Niguarda et l\'Istituto Tumori uniscono le forze per le emergenze oncologiche',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.excerpt': 'L\'Hôpital Niguarda et la Fondation IRCCS Institut National des Tumeurs de Milan ont signé un protocole opérationnel pour garantir la continuité des soins aux patients cancéreux en cas d\'urgence.',
     'blog.article.ospedale-niguarda-istituto-tumori-emergenze-oncologici.imageAlt': 'Vue de l\'hôpital de Lugano, Tessin',
+    'blog.article.lavorare-arosio-ticino.title': 'Vivre à Arosio, travailler au Tessin : guide frontalier',
+    'blog.article.lavorare-arosio-ticino.excerpt': 'De la situation géographique aux avantages fiscaux : tout ce que ceux qui veulent déménager à Arosio et travailler dans le canton du Tessin doivent savoir sur les droits du frontalier.',
+    'blog.article.lavorare-arosio-ticino.imageAlt': 'Vue du lac de Côme depuis Arosio, avec la frontière tessinoise en arrière-plan',
 };
 
 export default blogMetaFr;
