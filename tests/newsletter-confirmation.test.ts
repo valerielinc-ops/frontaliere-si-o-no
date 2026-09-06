@@ -9,6 +9,8 @@
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
+import { stubNoEmailProviders } from './helpers/ambientEmailEnv';
+
 // sendNewsletterConfirmationEmail bridges Remote Config → process.env before
 // checking provider config (2026-07-16, cascade-routed) — stub the bridge as
 // a no-op so these tests never touch real firebase-admin/remote-config (no
@@ -78,24 +80,31 @@ describe('newsletterConfirmationEmail', () => {
   // Cascade-routed (2026-07-16): the function no longer takes a resendApiKey
   // param — it bridges Remote Config credentials for all 6 cascade providers
   // into process.env and gates on "at least one configured", not on Resend
-  // specifically. Test env has none of the provider env vars set, so this
-  // exercises the real zero-providers-configured path (error string kept for
-  // wire-compat — no external consumer distinguishes "no Resend" from "no
-  // provider at all").
+  // specifically. The zero-providers-configured path is asserted by STUBBING
+  // every provider credential empty, not by trusting the ambient environment: a
+  // run that does have them (Remote Config loaded, or a populated dev shell)
+  // clears the gate and fails much later, on `subscriber_not_found`. Error
+  // string kept for wire-compat — no external consumer distinguishes "no
+  // Resend" from "no provider at all".
   it('sendNewsletterConfirmationEmail rejects when no email provider configured', async () => {
     const { sendNewsletterConfirmationEmail } = await import(
       '../functions/src/newsletterConfirmationEmail.js'
     );
-    const result = await sendNewsletterConfirmationEmail({
-      email: 'test@example.com',
-      locale: 'it',
-      sourcePath: '/',
-      secret: 'secret',
-      db: undefined,
-      purpose: undefined,
-    });
-    expect(result.success).toBe(false);
-    expect(result.error).toBe('missing_resend_api_key');
+    stubNoEmailProviders();
+    try {
+      const result = await sendNewsletterConfirmationEmail({
+        email: 'test@example.com',
+        locale: 'it',
+        sourcePath: '/',
+        secret: 'secret',
+        db: undefined,
+        purpose: undefined,
+      });
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('missing_resend_api_key');
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 
   it('sendNewsletterConfirmationEmail rejects missing secret', async () => {

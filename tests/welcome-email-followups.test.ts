@@ -13,7 +13,7 @@
  *    signed in, without breaking the signed unsubscribe token or exceeding
  *    Mailgun's 1000-character click-tracking limit.
  */
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { buildWelcomeEmail } from '../functions/src/lib/welcomeEmailTemplate.js';
 import {
   makeOneClickUnsubscribeUrl,
@@ -21,6 +21,14 @@ import {
   wrapAuthenticatedHrefs,
   shouldWrapAuthenticatedHref,
 } from '../functions/src/lib/newsletterUrls.js';
+import { stubDefaultNewsletterTokenPolicy } from './helpers/ambientEmailEnv';
+
+// The unsubscribe token these assertions inspect is minted under the policy in
+// process.env, so the file has to state the default instead of inheriting it:
+// with `NEWSLETTER_TOKEN_SCHEME=v1` exported the minter returns a v1 token and
+// the `[a-f0-9]{64}` match below goes null on the environment, not on the code.
+beforeEach(() => { stubDefaultNewsletterTokenPolicy(); });
+afterEach(() => { vi.unstubAllEnvs(); });
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const SECRET = 'test-secret-for-welcome-followups';

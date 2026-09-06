@@ -8,9 +8,10 @@
  * unsubscribe-token round trip via verifyHmacToken, send-failure rollback,
  * and the confirm handler's fire-and-forget integration.
  */
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest';
 import admin from 'firebase-admin';
 import { JOB_ALERT_CONSENT } from './helpers/jobAlertConsent';
+import { stubDefaultNewsletterTokenPolicy } from './helpers/ambientEmailEnv';
 
 const TEST_SECRET = 'test-newsletter-secret-key-2026';
 
@@ -141,6 +142,12 @@ function recentDoc(overrides: Record<string, unknown> = {}) {
 }
 
 beforeEach(() => {
+  // The unsubscribe/preferences token round trips below are assertions about the
+  // token policy at its DEFAULT, and that default lives in process.env: with
+  // `NEWSLETTER_TOKEN_SCHEME=v1` exported the sender mints a v1 token and the
+  // legacy `verifyHmacToken` refuses a link that is in fact valid — a red that
+  // describes the environment. Pin it instead of inheriting it.
+  stubDefaultNewsletterTokenPolicy();
   getRemoteConfigValueMock.mockReset().mockResolvedValue('');
   getNewsletterSecretsMock.mockReset().mockResolvedValue({
     newsletterSecret: TEST_SECRET,
@@ -156,6 +163,8 @@ beforeEach(() => {
   vi.spyOn(console, 'warn').mockImplementation(() => {});
   vi.spyOn(console, 'error').mockImplementation(() => {});
 });
+
+afterEach(() => { vi.unstubAllEnvs(); });
 
 describe('sendNewsletterWelcomeEmail', () => {
   it('rejects invalid email', async () => {
