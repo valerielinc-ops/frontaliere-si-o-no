@@ -7,6 +7,7 @@
  *  - paid programs carry rel="sponsored", institutional links do not
  *  - exchange/banks top-2 cards stay visually unchanged (wise + fineco)
  *  - health context is populated (comparator + SSG premi pages surface)
+ *  - Partnerize deeplinks carry a per-placement `pubref` (#7346)
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -16,6 +17,8 @@ import {
   buildGoPath,
   partnerRelAttr,
   buildAffiliateUrl,
+  sanitizePubref,
+  PUBREF_MAX_LEN,
 } from '../services/affiliateService';
 import { WISE_REFERRAL_URL, EXCHANGE_REFERRAL_PARTNERS } from '../services/exchangePartners';
 
@@ -86,7 +89,47 @@ describe('affiliateService config gates', () => {
     expect(wise!.url).toBe(partnerize);
 
     const dest = buildAffiliateUrl(wise!, 'go-redirect');
-    expect(dest).toBe(partnerize);
+    expect(dest.startsWith(partnerize)).toBe(true);
+    expect(new URL(dest).origin + new URL(dest).pathname).toBe(partnerize);
     expect(dest).not.toContain('wise.com/invite');
+    // no UTM on the paid deeplink: extra params rewrite the destination
+    expect(dest).not.toContain('utm_source');
+  });
+
+  it('tags Partnerize deeplinks with a per-placement pubref', () => {
+    const wise = PARTNERS.find((p) => p.id === 'wise')!;
+
+    const fromNewsletter = new URL(buildAffiliateUrl(wise, 'go-redirect', 'nl-partner-2'));
+    expect(fromNewsletter.searchParams.get('pubref')).toBe('nl-partner-2');
+
+    const fromArticle = new URL(buildAffiliateUrl(wise, 'go-redirect', 'article-body'));
+    expect(fromArticle.searchParams.get('pubref')).toBe('article-body');
+
+    // two placements must not collapse into the same tracked value
+    expect(fromNewsletter.toString()).not.toBe(fromArticle.toString());
+
+    // no placement → the source keeps the click attributable
+    expect(new URL(buildAffiliateUrl(wise, 'go-redirect')).searchParams.get('pubref')).toBe(
+      'go-redirect',
+    );
+  });
+
+  it('normalises pubref values to a dashboard-safe slug', () => {
+    expect(sanitizePubref('NL Partner #2')).toBe('nl-partner-2');
+    expect(sanitizePubref('/cerca-lavoro-ticino/')).toBe('cerca-lavoro-ticino');
+    expect(sanitizePubref('---')).toBe('');
+    expect(sanitizePubref('x'.repeat(200)).length).toBeLessThanOrEqual(PUBREF_MAX_LEN);
+    // a value that would be truncated mid-separator must not end with one
+    expect(sanitizePubref('a'.repeat(PUBREF_MAX_LEN - 1) + '-bbb').endsWith('-')).toBe(false);
+  });
+
+  it('keeps UTM tracking on non-Partnerize partner URLs', () => {
+    const plain = PARTNERS.find(
+      (p) => !p.url.includes('prf.hn') && !p.url.includes('invite') && !p.url.includes('referral'),
+    );
+    if (!plain) return;
+    const dest = new URL(buildAffiliateUrl(plain, 'go-redirect'));
+    expect(dest.searchParams.get('utm_campaign')).toBe('go-redirect');
+    expect(dest.searchParams.get('pubref')).toBeNull();
   });
 });
