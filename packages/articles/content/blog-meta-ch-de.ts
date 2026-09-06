@@ -5776,6 +5776,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.beloved-richieste-settantina.title': 'Beloved-Stiftung: Siebzig Anfragen eingegangen',
     'blog.article.beloved-richieste-settantina.excerpt': 'Die Stiftung Beloved erhielt 70 Anträge von den Opfern des Brandes in Crans-Montana. Bietet psychologische, finanzielle und rehabilitative Unterstützung.',
     'blog.article.beloved-richieste-settantina.imageAlt': 'Blick auf Crans-Montana im Wallis mit schneebedeckten Alpen im Hintergrund',
+    'blog.article.borse-studio-neuchatel.title': 'Stipendien Neuenburg: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-neuchatel.excerpt': 'Vollständiger Leitfaden für Stipendien im Kanton Neuenburg: Vergabekriterien, Anforderungen an Wohnsitz und akademische Leistungen, Bewerbungsverfahren und wo aktualisierte Ausschreibungen zu finden sind.',
+    'blog.article.borse-studio-neuchatel.imageAlt': 'Moderne Universitätsbibliothek mit lernenden Studierenden, symbolisiert den Zugang zur Hochschulbildung in der Schweiz.',
 };
 
 export default blogMetaChDe;
