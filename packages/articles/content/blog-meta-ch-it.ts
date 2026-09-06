@@ -5674,6 +5674,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-vallese.title': 'Apprendistato e formazione professionale nel Canton Vallese',
     'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Canton Vallese.',
     'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'Un apprendista in un laboratorio nel Canton Vallese, Svizzera.',
+    'blog.article.grigioni-deposito-garanzia-locazione.title': 'Affitti Grigioni: canoni medi e diritto locazione',
+    'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Guida completa al diritto di locazione in Grigioni: canoni, deposito cauzionale, disdetta e contestazione secondo le norme federali svizzere.',
+    'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Via residenziale in una città alpina svizzera con edifici di appartamenti moderni e tipica architettura elvetica.',
 };
 
 export default blogMetaChIt;

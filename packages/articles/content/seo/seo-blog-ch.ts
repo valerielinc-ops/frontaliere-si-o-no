@@ -73652,6 +73652,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-deposito-garanzia-locazione': {
+    title: 'Affitti Grigioni: canoni medi e diritto locazione',
+    description: 'Guida completa al diritto di locazione in Grigioni: canoni, deposito cauzionale, disdetta e contestazione secondo le norme federali svizzere. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, grigioni, canoni, medi',
+    ogTitle: 'Affitti Grigioni: canoni e diritto di locazione',
+    ogDescription: 'Scopri come funziona il diritto di locazione in Grigioni: deposito cauzionale fino a 3 mesi, procedure di contestazione, disdetta e protezione dell\'inquilino secondo la legge federale svizzera.',
+    canonicalPath: '/articoli-svizzera/grigioni-deposito-garanzia-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Grigioni: canoni medi e diritto locazione",
+      "description": "Guida completa al diritto di locazione in Grigioni: canoni, deposito cauzionale, disdetta e contestazione secondo le norme federali svizzere. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-deposito-garanzia-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via residenziale in una città alpina svizzera con edifici di appartamenti moderni e tipica architettura elvetica."
+      },
+      "datePublished": "2026-09-06T04:30:19+00:00",
+      "dateModified": "2026-09-06T04:30:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-deposito-garanzia-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

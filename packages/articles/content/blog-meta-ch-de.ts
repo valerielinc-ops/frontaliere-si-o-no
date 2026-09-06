@@ -5674,6 +5674,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-vallese.title': 'Lehre und Berufsausbildung im Kanton Wallis',
     'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Erfahren Sie, wie Sie im Kanton Wallis eine Lehrstelle finden, die Vertragsdetails und die Entlohnung der Lernenden.',
     'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'Ein Lehrling in einer Werkstatt im Kanton Wallis, Schweiz.',
+    'blog.article.grigioni-deposito-garanzia-locazione.title': 'Mieten Graubünden: Durchschnittsmieten und Mietrecht',
+    'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Vollständiger Leitfaden zum Mietrecht in Graubünden: Gebühren, Kaution, Kündigung und Anfechtung gemäss schweizerischen Bundesvorschriften.',
+    'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Wohnstraße in einer Schweizer Alpenstadt mit modernen Apartmentgebäuden und typischer Helvetischer Architektur.',
 };
 
 export default blogMetaChDe;

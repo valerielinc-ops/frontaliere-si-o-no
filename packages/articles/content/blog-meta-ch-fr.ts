@@ -5674,6 +5674,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-vallese.title': 'Apprentissage et formation professionnelle dans le canton du Valais',
     'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Découvrez comment trouver un poste d\'apprentissage, les détails du contrat et la rémunération des apprentis dans le canton du Valais.',
     'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'Un apprenti dans un atelier dans le canton du Valais, Suisse.',
+    'blog.article.grigioni-deposito-garanzia-locazione.title': 'Loyers Grisons : loyers moyens et droit locatif',
+    'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Guide complet du droit de location dans les Grisons : redevances, dépôt de garantie, résiliation et contestation selon les règles fédérales suisses.',
+    'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Rue résidentielle dans une ville suisse alpine avec immeubles modernes et architecture résidentielle typique.',
 };
 
 export default blogMetaChFr;
