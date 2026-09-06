@@ -34311,6 +34311,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ponte-valtellina-grigioni-frontaliere',
+ category: 'pratico',
+ date: '2026-09-06T23:13:28.583Z',
+ image: '/images/blog/ponte-valtellina-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
