@@ -5713,6 +5713,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deposito-cauzione-argovia.title': 'Mieten Aargau: Mieten und Mietrecht',
     'blog.article.deposito-cauzione-argovia.excerpt': 'Kaution max. 3 Monate Miete und Anfechtung in 30 Tagen: Leitfaden zum Bundesmietrecht, gültig im Aargau und in der ganzen Schweiz.',
     'blog.article.deposito-cauzione-argovia.imageAlt': 'Schweizer Wohnhaus mit Mietangebot, moderne Architektur, natürliche Nachmittagsbeleuchtung.',
+    'blog.article.mercato-affitti-canton-argovia.title': 'Mietmarkt im Kanton Aargau: Durchschnittsmieten und Mietrecht',
+    'blog.article.mercato-affitti-canton-argovia.excerpt': 'Informieren Sie sich über die durchschnittlichen Mieten im Kanton Aargau, die Regelungen zur Kaution und die Mieterrechte.',
+    'blog.article.mercato-affitti-canton-argovia.imageAlt': 'Panoramablick auf den Kanton Aargau mit Wohngebäuden',
 };
 
 export default blogMetaChDe;
