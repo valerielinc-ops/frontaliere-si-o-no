@@ -52,6 +52,17 @@ describe('check-hardcoded-locale-segments — detection predicate', () => {
     const target = 'const url = `${base}/de/job/${hash}`;';
     expect(lineHasViolation(target, '// locale-segment-ok: legacy portal fixed at /de/')).toBe(false);
   });
+
+  // Issue #7676: il marker disinnesca solo DENTRO un commento. Prima era
+  // cercato nel contenuto grezzo, quindi una riga di prosa che contenesse
+  // quelle parole si auto-esonerava senza dichiarare il motivo che la doc
+  // pretende.
+  it('NON rispetta il marker fuori da un commento (#7676)', () => {
+    const prosa = 'const url = `${base}/de/job/${hash}`; const l = "locale-segment-ok: non e\' un commento";';
+    expect(lineHasViolation(prosa)).toBe(true);
+    const target = 'const url = `${base}/de/job/${hash}`;';
+    expect(lineHasViolation(target, 'const t = "locale-segment-ok: non e\' un commento";')).toBe(true);
+  });
 });
 
 describe('check-hardcoded-locale-segments — identità per-literal (robusto al line-shift)', () => {

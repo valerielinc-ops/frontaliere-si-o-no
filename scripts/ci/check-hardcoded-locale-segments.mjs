@@ -38,6 +38,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { markerInComment } from '../lib/inline-comment-marker.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BASELINE_PATH = path.join(ROOT, 'data', 'hardcoded-locale-segments-baseline.json');
@@ -72,7 +73,13 @@ const URLISH = /^(?:\/(?!\/)|\.{0,2}\/|https?:|\$\{)|:\/\//;
 
 // Allowlist inline: `// locale-segment-ok: <motivo>` sulla stessa riga o sulla
 // riga immediatamente precedente disinnesca il flag (richiede un motivo).
-const INLINE_OK = /locale-segment-ok:/;
+//
+// Issue #7676: il marker deve stare DENTRO un commento. Testato sul contenuto
+// grezzo della riga, come era prima, una riga di prosa che contenesse quelle
+// parole si auto-esonerava senza che nessuno avesse dichiarato il motivo che
+// la doc pretende. Predicato condiviso con l'altro gate a marker inline
+// (tests/seo/cathedral-no-ti-hardcodes.test.ts) per non driftare.
+const INLINE_OK = markerInComment('locale-segment-ok:');
 
 function walk(dir, acc) {
   let entries;
