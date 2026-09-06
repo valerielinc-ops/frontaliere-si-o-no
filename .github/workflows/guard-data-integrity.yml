@@ -130,12 +130,16 @@ jobs:
 
           # Ripristina ogni file troncato al contenuto PRE-push (ultimo buono).
           files=$(node -e "JSON.parse(process.argv[1]).forEach(v=>console.log(v.file))" "$VIOLATIONS")
-          while IFS= read -r f; do
+          # La lista sta su fd 9: con `done <<< "$files"` la here-string e' lo
+          # stdin del ciclo e ogni `git` del corpo lo eredita — un byte letto
+          # li' e' un file che il `read` successivo non vede piu', cioe' un
+          # troncamento non revertato senza una riga di log che lo dica.
+          while IFS= read -r -u 9 f; do
             [ -z "$f" ] && continue
             echo "revert $f -> $BEFORE"
             git checkout "$BEFORE" -- "$f"
             git add "$f"
-          done <<< "$files"
+          done 9<<< "$files"
 
           if git diff --cached --quiet; then
             echo "Niente da revertare (gia allineato)."

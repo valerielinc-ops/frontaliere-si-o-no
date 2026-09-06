@@ -165,7 +165,12 @@ jobs:
             exit 0
           fi
           fail=0
-          while IFS= read -r article_id; do
+          # #7505: the id list on fd 9, not on stdin. With `done <<< "$ARTICLE_IDS"`
+          # the here-string IS the loop's stdin, inherited by the `node -e` and
+          # by trigger-workflow.sh (which calls `gh`) below: a byte read there
+          # is an article id the next `read` never sees, and the article is
+          # never fast-published — silently, since the loop just ends.
+          while IFS= read -r -u 9 article_id; do
             [ -z "$article_id" ] && continue
             echo "🚀 Dispatching fast-publish-article.yml for '$article_id'"
             INPUTS_JSON="$(node -e "console.log(JSON.stringify({article_id: process.argv[1], section: 'frontaliere', sha: process.argv[2]}))" \
@@ -174,7 +179,7 @@ jobs:
             TRIGGER_EXPECTED_SHA="$FAST_PUBLISH_SHA" \
             bash scripts/lib/trigger-workflow.sh "fast-publish-article.yml" "$INPUTS_JSON" \
               || { echo "::warning::fast-publish dispatch failed for '$article_id' — continuing"; fail=1; }
-          done <<< "$ARTICLE_IDS"
+          done 9<<< "$ARTICLE_IDS"
           [ "$fail" -eq 0 ] || true
 
       - name: Report failure to GitHub Issues

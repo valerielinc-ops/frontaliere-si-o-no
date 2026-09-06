@@ -110,6 +110,67 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     }
   });
 
+  it('#7505 — a while-read fed by a file never shares its stdin with the body', () => {
+    // `while read … done < "$CANDS"` makes the candidate FILE the loop's stdin,
+    // and every external command in the body inherits it. Whatever one of them
+    // reads is a line the next `read` never sees: the walk-back stops early and
+    // reports "no successful deploy.yml run … still has a 'github-pages'
+    // artifact" — a wrong diagnosis that reads exactly like the right one. It
+    // does not depend on what `gh`/`unzip`/`node` do today: none of them
+    // contracts that it leaves stdin alone. A dedicated fd removes the question.
+    //   printf 'a\nb\nc\n' > f; while read -r x; do cat >/dev/null; done < f
+    //   → 1 iteration; the same loop on `read -u 9` … `done 9< f` → 3.
+    // Only loops whose body actually runs a command that CAN consume stdin are
+    // offenders: `cat "$log"`, `cp`, `mkdir` take their input from arguments and
+    // are safe by construction.
+    // `m`: without it `^` only matches the start of the whole body, so a
+    // consumer on a line of its own — `gh issue close "$num"`, preceded by
+    // nothing but a newline and its indent, which is the commonest shape of
+    // all — never matched and three of the six sites here were invisible.
+    // Two halves, and BOTH have to hold or the scan measures less than it
+    // says. The token list is the perimeter: `npm run X` spawns node with OUR
+    // stdin and `bash`/`sh` inherit it by definition, so they belong next to
+    // `gh`/`node`. And the command POSITION is not just `^|;|&|||(`: a command
+    // can be preceded by env assignments (and by `env`), which is exactly the
+    // shape that hid the ninth site — `(NODE_OPTIONS="…" npm run "$script")` in
+    // `audit-dist-from-run.yml`, where `npm` sits after an assignment and would
+    // stay invisible even with the token added.
+    const ASSIGN_PREFIX =
+      String.raw`(?:env[ \t]+)?(?:[A-Za-z_]\w*=(?:"[^"\n]*"|'[^'\n]*'|[^ \t\n]*)[ \t]+)*`;
+    const CONSUMERS = new RegExp(
+      String.raw`(^|[;&|(]|\bthen\b|\bdo\b|\belse\b)[ \t]*${ASSIGN_PREFIX}(gh|unzip|node|npx|npm|bash|sh|ssh|curl|xargs|git)\b`,
+      'm',
+    );
+    // `while …` line, body, and a `done` at the SAME indentation whose redirect
+    // is a plain file (`< "$f"`), not a process substitution (`< <(…)`, which is
+    // matched by the negative lookahead and left alone — it has the same defect
+    // but the fix there is the same fd, and none of the current ones qualify).
+    // The lookahead has to sit right after the redirect operator and swallow
+    // the spacing ITSELF: `<[ \t]*(?!\()` lets the engine backtrack `[ \t]*`
+    // to zero and pass the lookahead on the space, so `done < <(…)` matched
+    // anyway. And the character to refuse is the `<` of the substitution, not
+    // the `(` — after the redirect operator of `done < <(…)` comes `<`.
+    const LOOP =
+      /^([ \t]*)while\b[^\n]*\bread\b[^\n]*\n([\s\S]*?)^\1done[ \t]+(\d*)<(?![ \t]*<?\()[^\n]*$/gm;
+    const offenders: string[] = [];
+    for (const f of allGithubShellFiles()) {
+      const src = codeOnly(f);
+      for (const m of src.matchAll(LOOP)) {
+        const [, , body, fd] = m;
+        if (!CONSUMERS.test(body)) continue;
+        const head = m[0].slice(0, m[0].indexOf('\n'));
+        if (!fd || !new RegExp(`read\\b[^\\n]*-u[ \\t]+${fd}\\b`).test(head)) {
+          offenders.push(`${f}: ${head.trim()} … done ${fd}<`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+    // And the walk-back itself, positively — the regex above only proves the
+    // absence of the shape, not that this loop is still the one being read.
+    expect(codeOnly(ACTION_PATH)).toMatch(/while IFS=\$'\\t' read -r -u 9 cand created sha; do/);
+    expect(codeOnly(ACTION_PATH)).toMatch(/done 9< "\$CANDS"/);
+  });
+
   it('#7504 — every deploy-run page is shape-checked before it is counted', () => {
     // A 2xx body is not necessarily a runs collection: the secondary-rate-limit
     // guard answers HTTP 200 with an object carrying `message`, and a truncated
