@@ -556,18 +556,39 @@ function wordSet(value) {
  * which left every other ATS with the same behaviour permanently red.
  *
  * Two deliberate limits keep it from swallowing the defects the check exists
- * to raise. A bare canton/region name is never corroborated, because that is
- * precisely the generic fallback shape (`swisslog` publishing `Argovia`), and
- * only JSON-LD contradictions are eligible: job-scoped rendered markup IS a
- * workplace declaration, so a disagreement with it stays a finding.
+ * to raise. A bare canton/region name is never corroborated OUT OF PROSE,
+ * because that is precisely the generic fallback shape (`swisslog` publishing
+ * `Argovia`) — it is corroborated by a labelled workplace field that spells it
+ * inside the vacancy's own postal address, which is per-vacancy geography and
+ * not a fallback. And only JSON-LD contradictions are eligible: job-scoped
+ * rendered markup IS a workplace declaration, so a disagreement with it stays
+ * a finding.
  */
 export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   const normalizedLocation = normalizePlace(publishedLocation);
   if (normalizedLocation.length < 3) return false;
+  // The workplace is not always in the prose: the federal portal renders it as
+  // a labelled field (`Arbeitsort: Reckenholzstrasse 191, 8046 Zürich`) that
+  // neither the title nor the description contains, so the corroboration the
+  // page actually offers was unreadable here (#7711). The bare label stays in
+  // SOURCE_LOCATION_PLACEHOLDERS — it is the VALUE that is evidence.
+  const workplaceLabels = Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : [];
+  // A postal code immediately followed by the published locality inside that
+  // labelled field is per-vacancy geography, not a generic fallback, so it
+  // also settles the canton/city homonym the region guard below refuses on
+  // prose alone: `Zürich` is a canton, and it is equally the city at `8046
+  // Zürich` that this vacancy states as its own workplace. Normalisation
+  // leaves only `[a-z0-9 ]`, so the locality is safe to inline in the pattern.
+  const postalAddressedWorkplace = workplaceLabels.some((value) => new RegExp(
+    `(?:^| )\\d{4} ${normalizedLocation}(?: |$)`,
+  ).test(normalizePlace(value)));
+  if (postalAddressedWorkplace) return true;
   // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
   // canton, and only one of the two spellings is in the region set.
   if (SWISS_REGION_NAMES.has(canonicalLocationTokens(publishedLocation).join(' '))) return false;
-  const haystack = normalizePlace(`${detail?.title || ''} ${detail?.description || ''}`);
+  const haystack = normalizePlace(
+    [detail?.title || '', detail?.description || '', ...workplaceLabels].join(' '),
+  );
   if (!haystack) return false;
   return ` ${haystack} `.includes(` ${normalizedLocation} `);
 }
