@@ -995,6 +995,24 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(gone).toEqual([url]);
   });
 
+  it('reads a fully withdrawn two-vacancy batch as expiry, not drift (#7545)', async () => {
+    // The floor is on the batch size, not on the drop count: two withdrawn
+    // vacancies out of two used to clear a floor of 1 and the ratio at once,
+    // so the crawl still died with «source drift» on a slice that just expired.
+    const jobs = cases.slice(0, 2).map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async () => new Response(null, { status: 410 });
+
+    const gone: string[] = [];
+    const enriched = await enrichCoopSourceBackedJobs(jobs, {
+      fetchImpl, concurrency: 2, onGone: (urls) => gone.push(...urls),
+    });
+    expect(enriched).toEqual([]);
+    expect(gone).toHaveLength(2);
+  });
+
   it('fails closed when most detail pages are gone — source drift, not expiry', async () => {
     const jobs = cases.map(([companyKey, url]) => ({
       id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
