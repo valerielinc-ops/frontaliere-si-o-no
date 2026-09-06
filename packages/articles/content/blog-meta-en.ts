@@ -11469,6 +11469,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giussano-como-ticino-frontaliere.title': 'Living in Giussano, working in Ticino: frontier guide',
     'blog.article.giussano-como-ticino-frontaliere.excerpt': 'Permit G, tax at source, AVS, LAMal: complete guide for border workers from Giussano (Como) working in Ticino. Taxation, time, costs.',
     'blog.article.giussano-como-ticino-frontaliere.imageAlt': 'Aerial view of Lugano on Lake Ceresio with the Alps in the background, a major work hub for Giussano-Ticino commuters',
+    'blog.article.vivere-sumirago-frontaliere.title': 'Living in Sumirago, working in Ticino: border guide',
+    'blog.article.vivere-sumirago-frontaliere.excerpt': 'Practical guide to living in Sumirago and working in Ticino: permits, border taxation, administrative procedures and what to consider before transferring.',
+    'blog.article.vivere-sumirago-frontaliere.imageAlt': 'Provincial road at the Varese-Ticino border with Swiss road signs and Alpine landscape',
 };
 
 export default blogMetaEn;
