@@ -32,6 +32,7 @@ import {
   compareSourceDetail,
   checkSourceDetailsBatch,
   applySourceDetailResults,
+  formatSourceDetailObservationLines,
   sourceDetailSeverity,
   finalizeSourceDetailEvidence,
   runSourceDetailChecks,
@@ -1307,6 +1308,73 @@ describe('unexplained source-detail failure ceiling', () => {
     const headroomPct = SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT - worst;
     expect(headroomPct).toBeGreaterThan(4 * (2 / 1077) * 100);
     expect(headroomPct).toBeLessThan(1);
+  });
+});
+
+describe('source-detail observation counters (#7714)', () => {
+  it('prints the corroborated observations and their share of the authoritative checks', async () => {
+    const html = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/kanton-zuerich-source-detail-admin-location.html'),
+      'utf8',
+    );
+    const description = 'Ausführliche Stellenbeschreibung '.repeat(20);
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'kanton-zuerich',
+      url: 'https://example.test/kanton-zuerich',
+      job: { addressLocality: 'Dietikon', sourceLang: 'de', description },
+    }], 1, {
+      fetchPage: async (url: string) => ({
+        ok: true, status: 200, url, body: html, host: 'example.test',
+      }),
+    });
+    expect(result.locationAuthority).toBe('source-corroborated');
+
+    const report = { 'kanton-zuerich': { total: 1, issues: [], severity: 'OK' as const } };
+    const summary = applySourceDetailResults(report, [result], 1);
+    expect(summary.authoritativeLocationChecks).toBe(1);
+    expect(summary.sourceCorroboratedLocationObservations).toBe(1);
+
+    // The reader the counter lacked: a pass earned by page corroboration is
+    // now visible next to the authoritative checks, so widening the rule
+    // shows up in stdout instead of only in the JSON report.
+    const lines = formatSourceDetailObservationLines(summary);
+    expect(lines.join('\n')).toContain('corroborated by other page evidence: 1/1 (100.0 % of authoritative checks)');
+  });
+
+  it('reports the share over the authoritative checks, not over the fetched pages', () => {
+    const lines = formatSourceDetailObservationLines({
+      requested: 40, fetched: 30,
+      authoritativeLocationChecks: 8,
+      locationMatches: 7,
+      locationMismatches: 1,
+      sourceCorroboratedLocationObservations: 2,
+      inconclusiveLocationObservations: 5,
+      tenantConstantLocationObservations: 3,
+      descriptionMismatches: 4,
+      processingFailed: 2,
+    });
+    expect(lines).toEqual([
+      'Source detail location observations: 7/8 authoritative checks matched, 1 mismatched',
+      '  corroborated by other page evidence: 2/8 (25.0 % of authoritative checks)',
+      '  inconclusive: 5 (3 tenant-constant)',
+      'Source detail description mismatches: 4',
+      'Source detail processing failures: 2/40',
+    ]);
+  });
+
+  it('says nothing when no location observation was made', () => {
+    expect(formatSourceDetailObservationLines({ requested: 3, fetched: 0, fetchFailed: 3 })).toEqual([]);
+    expect(formatSourceDetailObservationLines()).toEqual([]);
+  });
+
+  it('is actually called by the source-detail printing block', () => {
+    // The bug this closes was a value written and never read: an exported
+    // formatter that main() forgets to call would reproduce it exactly.
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/audit-parser-quality.mjs'),
+      'utf8',
+    );
+    expect(source).toMatch(/for \(const line of formatSourceDetailObservationLines\(sourceDetailSummary\)\) console\.log\(line\);/);
   });
 });
 
