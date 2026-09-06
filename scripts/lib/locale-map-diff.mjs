@@ -53,3 +53,19 @@ export function diffLocaleKeys(left, right) {
 export function localeMapsEqual(left, right) {
   return diffLocaleKeys(left, right).length === 0;
 }
+
+/**
+ * Stable identity key for a locale map: the same pairs always produce the same
+ * string, whatever order the keys were inserted in. For the call sites that use
+ * a serialised locale map as a fallback identity (no `slug`, no `id`) and then
+ * match that key against an object of DIFFERENT provenance — an in-memory entry
+ * against the same record re-read from an on-disk slice, say — where the key
+ * order is whatever the last writer emitted, and a raw `JSON.stringify` makes
+ * the two identities miss each other.
+ *
+ * @param {unknown} map
+ */
+export function localeMapKey(map) {
+  const m = asMap(map);
+  return JSON.stringify(Object.keys(m).sort().map((key) => [key, m[key]]));
+}
