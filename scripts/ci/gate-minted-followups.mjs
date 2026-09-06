@@ -149,14 +149,26 @@ function main() {
     console.log('gate-minted-followups: batch vuoto, niente da controllare.');
     return;
   }
+  // UNA lista sola per tutto il batch, e SENZA `--search`. La ricerca GitHub passa da un
+  // indice con latenza propria: una issue creata dallo step precedente pochi secondi fa
+  // puo' non esserci ancora, e il gate non troverebbe nulla proprio nel caso per cui
+  // esiste. La `list` REST e' immediatamente consistente. Niente `body` qui: con ~170
+  // issue follow-up il dump e' emoji-heavy e grosso — i corpi si leggono uno per uno,
+  // solo per le poche issue che il filtro sul titolo seleziona davvero.
+  const openRaw = gh(['issue', 'list', ...repoArgs, '--label', 'follow-up', '--state', 'open',
+    '--limit', '200', '--json', 'number,title,createdAt'], { allowFail: true });
+  let open = [];
+  try { open = JSON.parse(openRaw || '[]') || []; } catch { open = []; }
   const report = [];
   for (const pr of prs) {
     try {
-      const raw = gh(['issue', 'list', ...repoArgs, '--label', 'follow-up', '--state', 'open',
-        '--search', `in:title "follow-up(#${pr})"`, '--limit', '20',
-        '--json', 'number,title,body,createdAt'], { allowFail: true });
-      const issues = (JSON.parse(raw || '[]') || []).filter((i) => String(i.title || '').startsWith(`follow-up(#${pr})`));
-      if (!issues.length) { console.log(`PR #${pr}: nessuna issue coniata → niente da fare.`); continue; }
+      const found = open.filter((i) => String(i.title || '').startsWith(`follow-up(#${pr})`));
+      if (!found.length) { console.log(`PR #${pr}: nessuna issue coniata → niente da fare.`); continue; }
+      const issues = [];
+      for (const f of found) {
+        const one = gh(['issue', 'view', String(f.number), ...repoArgs, '--json', 'number,title,body,createdAt'], { allowFail: true });
+        try { issues.push(JSON.parse(one)); } catch { /* proceed-safe: issue illeggibile → intatta */ }
+      }
       for (const iss of issues) {
         const d = decideMintGate(iss);
         console.log(`#${iss.number} (PR #${pr}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
@@ -166,7 +178,7 @@ function main() {
         if (DRY_RUN) { console.log(why); continue; }
         if (d.action === 'suppress') {
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-            `${why}\n\nNessun item valido resta: questa issue non sarebbe mai potuta uscire dalla coda (\`aggregateCloseGate()\` la blocca per costruzione). Chiusa in ingresso; il testo resta qui e nel commento di summary della PR #${pr}. Se un item era lavoro vero, riaprilo come issue autonoma con una riga \`Suggested action\` che citi il simbolo da cercare.`],
+            `${why}\n\nNessun item valido resta: questa issue non sarebbe mai potuta uscire dalla coda (\`aggregateCloseGate()\` la blocca per costruzione). Chiusa in ingresso; il testo resta qui e nel commento di summary della PR #${pr}. Se un item era lavoro vero, riaprilo come issue autonoma con una riga \`Suggested action\` che citi il simbolo **nella sua forma di codice**: un identificatore nudo (\`nomeFunzione\`) e un path nudo (\`scripts/ci/foo.mjs\`) non contano, perché compaiono nel file citato a prescindere dal fix — servono \`nomeFunzione()\`, \`oggetto.campo\`, \`COSTANTE >= 1\` o simili (\`isDistinctiveToken()\`, classe #1647).`],
             { allowFail: true });
           gh(['issue', 'close', String(iss.number), ...repoArgs, '--reason', 'not planned'], { allowFail: true });
           report.push(`- 🚫 #${iss.number} soppressa in ingresso (${d.demoted.length} item senza condizione di accettazione) — PR #${pr}`);
