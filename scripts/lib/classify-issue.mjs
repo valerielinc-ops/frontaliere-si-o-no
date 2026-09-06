@@ -11,7 +11,9 @@
  * crawler — vedi tests/classify-issue.test.ts).
  *
  * autofix = true per OGNI categoria (2026-07-05, owner decision: guardrail
- * category-based rimosse — vedi AGENTS.md → "Issue automation"). Il fixer ha
+ * category-based rimosse — vedi AGENTS.md → "Issue automation"). L'unica
+ * eccezione non è una categoria ma un PIN esplicito sulla singola issue
+ * (`FIXER_EXEMPT_LABELS`, sotto): un tracker su causa esterna. Il fixer ha
  * comunque le sue safety-valve generiche (root-cause non determinabile,
  * capability-guard workflows/secrets, ecc. — ISSUES.md → "Abort senza PR"):
  * quelle restano, non sono guardrail di categoria.
@@ -42,6 +44,44 @@
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
+/**
+ * Label che PINNANO una issue fuori dal ciclo di fix automatico.
+ *
+ * Sono tracker su una causa che vive FUORI dal repository: nessun turn-budget
+ * le chiude, perché l'input che manca non è codice. Mandarci il fixer costa un
+ * run Max (~1M token) per ri-scoprire ogni volta la stessa cosa, e rischia di
+ * chiudere ciò che deve restare aperto — l'opposto del compito del tracker.
+ *
+ *   `keep-open`         pin esplicito «tracker su causa esterna» (la stessa
+ *                       label che `reconcile-followups.mjs` già onora come veto
+ *                       all'auto-close). Fino a ora vietava la CHIUSURA ma non
+ *                       la PROMOZIONE: #7648 nasce dichiarando nel body «senza
+ *                       agent:fix-queued/agent:fix», e ha comunque attraversato
+ *                       triage → coda → `agent:fix` → un run del fixer.
+ *   `agent:no-age-out`  tracker/issue-contatore permanente (#5615). Identica
+ *                       asimmetria, già diagnosticata e chiusa a metà da #5544:
+ *                       l'esclusione dalla promozione esisteva solo nel pool del
+ *                       PARKED-RETRY di `followup-drainer.mjs`, cioè per chi era
+ *                       già stato parcheggiato — non alla porta d'ingresso.
+ *
+ * Le altre tre label del veto all'auto-close di `reconcile-followups.mjs`
+ * (`pinned`, `do-not-close`, `revenue`/`tracker`) NON sono qui, e la differenza
+ * è voluta: le prime due dicono «non chiudere», che non implica «non riparare»;
+ * `revenue`/`tracker` sono instradate al fixer per decisione esplicita del
+ * proprietario del 2026-07-05 («Rimuovi tutte le guardie»), e riesumarle qui
+ * sarebbe reintrodurre di soppiatto una guardrail di categoria.
+ */
+export const FIXER_EXEMPT_LABELS = ['keep-open', 'agent:no-age-out'];
+
+/**
+ * Questa issue è pinnata fuori dal ciclo di fix automatico? Pura → testabile.
+ * @param {Array<string|{name:string}>} labels
+ */
+export function isFixerExempt(labels = []) {
+  const set = new Set((labels || []).map((l) => String(typeof l === 'string' ? l : l?.name ?? '').toLowerCase()));
+  return FIXER_EXEMPT_LABELS.some((l) => set.has(l));
+}
+
 export function classifyIssue(title = '', labels = []) {
   const set = new Set((labels || []).map((s) => String(s).toLowerCase()));
   const has = (name) => set.has(String(name).toLowerCase());
@@ -67,8 +107,15 @@ export function classifyIssue(title = '', labels = []) {
     category = 'validation-failure';
   }
 
-  const autofix = true;
-  const route = category === 'crawler' ? 'fix' : 'queue'; // crawler: immediato; resto: coda anti-starvation
+  // Pin fuori dal ciclo (vedi `FIXER_EXEMPT_LABELS`): la categoria resta quella
+  // che è — serve ancora a chi legge e ai monitor — ma non c'è routing. Il
+  // ramo `route === 'none' || autofix !== true` esiste già, e intatto, in
+  // `issue-triage.yml`, in entrambi i passaggi di `triage-sweep.mjs` e nel
+  // drainer: era stato lasciato «come guard contro un futuro classifier che
+  // reintroduca una categoria human-only». Questo è quel caso.
+  const exempt = isFixerExempt(labels);
+  const autofix = !exempt;
+  const route = exempt ? 'none' : category === 'crawler' ? 'fix' : 'queue'; // crawler: immediato; resto: coda anti-starvation
   const fuPrio =
     route === 'queue'
       ? has('funnel-monetization') ||

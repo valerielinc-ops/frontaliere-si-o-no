@@ -77,6 +77,7 @@ import { execFileSync } from 'node:child_process';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { PREPASS_VERDICT_BEATS_FAMILY, AGGREGATE_ITEMS_RE, isDecomposeEligible } from './followup-drainer.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { isFixerExempt } from '../lib/classify-issue.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const DRY = process.argv.includes('--dry-run');
@@ -480,8 +481,12 @@ export function prepassDecision({
 
 /** Il ramo che sceglie l'azione. Separato dal wrapper solo per tenerlo puro. */
 function decideAction({ title = '', labels = [], verdict = null, reg }) {
-  // Un tracker permanente è aperto per scelta: non si accoda e non si scorpora.
-  if (labels.includes('agent:no-age-out')) return { action: 'keep', reason: 'tracker permanente' };
+  // Un tracker è aperto per scelta: non si accoda e non si scorpora. `keep-open`
+  // sta accanto a `agent:no-age-out` (stessa lista `FIXER_EXEMPT_LABELS` che
+  // toglie la issue dal routing automatico, #7648): entrambe dicono «la causa
+  // vive fuori dal repository», e ri-accodare o scorporare un'attesa altrui
+  // produce solo un altro giro a vuoto.
+  if (isFixerExempt(labels)) return { action: 'keep', reason: 'tracker permanente' };
   // Sotto lavorazione attiva di una sessione locale (claim mutex, #6427): l'unico
   // caso dove `needs-human` + un'altra label può davvero significare «in volo».
   // `agent:fix`/`agent:fix-queued`/`agent:decompose`/`agent:decompose-queued`

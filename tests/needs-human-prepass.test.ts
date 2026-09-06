@@ -477,6 +477,20 @@ describe('il registro non scavalca i verdetti che questo stadio non sa cambiare'
     expect(d.action).toBe('keep');
     expect(d.note).toBeUndefined();
   });
+
+  // #7648: `keep-open` dice la stessa cosa di `agent:no-age-out` — la causa vive
+  // fuori dal repository — e va letta dallo stesso ramo, altrimenti il prepass
+  // ri-accoda o scorpora un'attesa altrui.
+  it('anche keep-open è un tracker: keep, mai accodato né scorporato', () => {
+    const d = prepassDecision({
+      title: 'Instagram/TikTok publishing: attivare i poster',
+      body: 'due review esterne',
+      labels: ['keep-open'],
+      registry: REGISTRY,
+    });
+    expect(d.action).toBe('keep');
+    expect(d.reason).toMatch(/tracker/i);
+  });
 });
 
 describe('blocchi scaduti — la forma reale di nanako#471', () => {
