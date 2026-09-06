@@ -5788,6 +5788,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.title': 'Einbürgerung im Kanton Appenzell Ausserrhoden: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.excerpt': 'Entdecken Sie die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Appenzell Ausserrhoden.',
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.imageAlt': 'Bild einer schweizerischen nationalen/kantonalen Szene, die für den Einbürgerungsprozess relevant ist',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.title': 'Haus kaufen in Neuenburg: Preise und Hypothekendarlehen',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.excerpt': 'Haus kaufen in Neuenburg: Eigenmittelberechnung, nachhaltiges Hypothekendarlehen, Durchgangssteuern und Notarkosten in der Schweiz.',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.imageAlt': 'Modernes Steinhaus im Kanton Neuenburg mit Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

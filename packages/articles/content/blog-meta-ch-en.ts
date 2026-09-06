@@ -5788,6 +5788,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.title': 'Naturalization in the canton of outer Appenzell: requirements and procedure',
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.excerpt': 'Learn about the requirements and procedure for ordinary naturalization in the Canton of Appenzello Outer.',
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.imageAlt': 'Image of a Swiss national/cantonal scene relevant to the naturalization process',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.title': 'Buying a house in Neuchâtel: prices and mortgage',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.excerpt': 'Buying a house in Neuchâtel: calculation of own funds, sustainable mortgage, transfer taxes and notary fees in Switzerland.',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.imageAlt': 'Modern stone house in Neuchâtel canton with mountains in background',
 };
 
 export default blogMetaChEn;

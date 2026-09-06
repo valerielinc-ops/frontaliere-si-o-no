@@ -5788,6 +5788,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.title': 'Naturalizzazione nel cantone di Appenzello esterno: requisiti e procedura',
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.excerpt': 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Appenzello Esterno.',
     'blog.article.naturalizzazione-appenzello-esterno-requisiti-procedura.imageAlt': 'Immagine di una scena svizzera nazionale/cantonale pertinente al tema della naturalizzazione',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.title': 'Comprare casa a Neuchâtel: prezzi e mutuo ipotecario',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.excerpt': 'Acquistare casa a Neuchâtel: calcolo dei fondi propri, mutuo ipotecario sostenibile, tasse sui trapassi e spese notarili in Svizzera.',
+    'blog.article.acquisto-casa-neuchatel-costi-mutuo.imageAlt': 'Casa moderna in pietra nel Cantone Neuchâtel con montagne sullo sfondo',
 };
 
 export default blogMetaChIt;
