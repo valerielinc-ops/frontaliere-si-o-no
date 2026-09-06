@@ -5671,6 +5671,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-imposte.title': 'Acheter maison Grisons : hypothèque et taxes',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.excerpt': 'Acheter dans les Grisons : fonds propres 20-30%, prêt hypothécaire jusqu\'à 80%, taxe de transport variable par commune, frais de notaire 1-2%. Procédure et coûts expliqués.',
     'blog.article.comprare-casa-grigioni-mutuo-imposte.imageAlt': 'Maison traditionnelle en bois dans les Grisons entourée de montagnes et paysage alpin',
+    'blog.article.apprendistato-formazione-canton-vallese.title': 'Apprentissage et formation professionnelle dans le canton du Valais',
+    'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Découvrez comment trouver un poste d\'apprentissage, les détails du contrat et la rémunération des apprentis dans le canton du Valais.',
+    'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'Un apprenti dans un atelier dans le canton du Valais, Suisse.',
 };
 
 export default blogMetaChFr;
