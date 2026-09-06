@@ -26,6 +26,7 @@ import {
   parseOlderUiListing,
   decodeEntities,
   parseSwissDate,
+  extractUmantisDetailContent,
 } from '../../scripts/lib/umantis-listing-common.mjs';
 import {
   BETHESDA_SPITAL_KEY,
@@ -267,5 +268,49 @@ describe('createUmantisListingParser — config validation', () => {
     expect(typeof p.fetchAllJobs).toBe('function');
     expect(typeof p.isCompanyJob).toBe('function');
     expect(typeof p.isTrustedDomain).toBe('function');
+  });
+});
+
+describe('extractUmantisDetailContent — customdatablock container shapes', () => {
+  // GZF (tenant 2924) renders the vacancy sections as <p>, puts `class` in
+  // second attribute position with no separating space, and ships its bullets
+  // as literal middots. A tag-locked, class-first regex matched none of it and
+  // left two of four vacancies with a boilerplate-only description (#7846).
+  it('reads <p> sections whose class attribute is not first', () => {
+    const html = `<html><body>
+      <li class="customdatablock" role="listitem" aria-label="GZF"id="customdatablock_26525">Gesundheitszentrum Fricktal AG&nbsp;|&nbsp;<span class="customdatablock_label">online seit</span>: 01.09.2026&nbsp;</li>
+      <p tabindex="4300"class="customdatablock"id="customdatablock_3578">\t· Du \u00fcbernimmst gerne die Verantwortung und Organisation einer Pflegegruppe· Du gew\u00e4hrleistest einen vollst\u00e4ndigen Pflegeprozess von Eintritt bis Austritt</p >
+      <p class="customdatablock"id="customdatablock_3595"><a href="http://www.gzf.ch" class="HSlink">http://www.gzf.ch</a></p >
+      <p class="customdatablock"id="customdatablock_3599"><a href="/Jobs" class="HSlink">Zur\u00fcck</a></p >
+    </body></html>`;
+    const content = extractUmantisDetailContent(html);
+    expect(content).toContain('Organisation einer Pflegegruppe');
+    expect(content).toContain('vollst\u00e4ndigen Pflegeprozess');
+    // Middots become the '• ' marker the structured-content audit looks for.
+    expect(content).toMatch(/^• Du \u00fcbernimmst/m);
+    // Per-vacancy chrome must stay out: it repeats identically on every job of
+    // the tenant and is exactly what tips a thin body into "boilerplate-only".
+    expect(content).not.toContain('online seit');
+    expect(content).not.toContain('gzf.ch');
+    expect(content).not.toContain('Zur\u00fcck');
+  });
+
+  it('keeps a nested bullet list intact instead of stopping at the first </li>', () => {
+    const html = '<html><body><li class="customdatablock" id="customdatablock_3578">'
+      + '<ul><li>Erste Aufgabe im Pflegebereich</li><li>Zweite Aufgabe im Pflegebereich</li>'
+      + '<li>Dritte Aufgabe im Pflegebereich</li></ul></li></body></html>';
+    const content = extractUmantisDetailContent(html);
+    expect(content).toContain('Erste Aufgabe');
+    expect(content).toContain('Zweite Aufgabe');
+    expect(content).toContain('Dritte Aufgabe');
+  });
+
+  it('still reads <div> sections (GKB-style tenants)', () => {
+    const html = '<html><body><div class="customdatablock" id="customdatablock_3581">'
+      + '<ul><li>Erfahrung im Payments-Umfeld</li><li>Selbst\u00e4ndige Arbeitsweise</li></ul>'
+      + '</div></body></html>';
+    const content = extractUmantisDetailContent(html);
+    expect(content).toContain('Erfahrung im Payments-Umfeld');
+    expect(content).toContain('Selbst\u00e4ndige Arbeitsweise');
   });
 });

@@ -42,6 +42,7 @@ import {
 } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { mergeUmantisListing } from './umantis-listing-merge.mjs';
+import { scanHtmlTags, selectHtmlContainers, tagHasClass } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -331,13 +332,17 @@ export function parseGkbDetailPage(html = '', fallbackTitle = '') {
   const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*class="contenttitle"[^>]*>([^<]+)<\/h1>/);
   const title = normalizeSpace(decodeEntities(h1Match ? h1Match[1] : fallbackTitle));
 
-  // Extract all customdatablock content sections
+  // Extract all customdatablock content sections. Selecting them with
+  // `<div\s+class="customdatablock"[^>]*>([\s\S]*?)<\/div>` is the same
+  // defect fixed in `umantis-listing-common.mjs` for issue #7846: it is
+  // tag-locked, requires `class` to be the FIRST attribute, and its non-greedy
+  // body stops at the first nested `</div>`. Umantis is one multi-tenant
+  // renderer — GZF (2924) already emits `<p tabindex="…"class="customdatablock"…>`
+  // — so the balanced, attribute-order-agnostic scan is used here too.
   const blocks = [];
-  const blockRegex = /<div\s+class="customdatablock"[^>]*>([\s\S]*?)<\/div>/g;
-  let blockMatch;
-
-  while ((blockMatch = blockRegex.exec(html)) !== null) {
-    const content = normalizeSpace(stripHtml(decodeEntities(blockMatch[1])));
+  for (const container of selectHtmlContainers(html, (tag) => tagHasClass(tag.raw, 'customdatablock'))) {
+    const [open] = scanHtmlTags(container);
+    const content = normalizeSpace(stripHtml(decodeEntities(open ? container.slice(open.end) : container)));
     // Skip empty blocks and short metadata blocks (company name, dates)
     if (content.length > 20) {
       blocks.push(content);

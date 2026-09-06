@@ -7,14 +7,9 @@
  * span. Selecting only those vendor-owned containers preserves headings and
  * bullets without admitting navigation, related-job cards or footer copy.
  */
-import { readAttr, scanHtmlTags } from '../html-attr.mjs';
+import { indexHtmlContainers as indexContainers, readAttr } from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
 import { extractDetailFields } from './extract.mjs';
-
-const VOID_TAGS = new Set([
-  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta',
-  'param', 'source', 'track', 'wbr',
-]);
 
 const DESCRIPTION_SECTIONS = [
   ['job_advert__job-desc-company', 'About Our Client'],
@@ -29,24 +24,6 @@ function classTokens(raw = '') {
 }
 
 /** @param {string} html */
-function indexContainers(html = '') {
-  const tags = scanHtmlTags(html);
-  const pending = new Map();
-  const bounds = new Map();
-  for (const tag of tags) {
-    if (!tag.closing) {
-      if (!tag.selfClosing && !VOID_TAGS.has(tag.name)) {
-        if (!pending.has(tag.name)) pending.set(tag.name, []);
-        pending.get(tag.name).push(tag);
-      }
-      continue;
-    }
-    const opening = pending.get(tag.name)?.pop();
-    if (opening) bounds.set(opening.index, { contentEnd: tag.index, end: tag.end });
-  }
-  return { tags: tags.filter((tag) => !tag.closing), bounds };
-}
-
 /**
  * @param {string} html
  * @param {ReturnType<typeof indexContainers>} index
