@@ -11460,6 +11460,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.amazon-malpensa-trasferimento.title': 'Amazon leaves Malpensa: the Cub denounces ten years of precarious work',
     'blog.article.amazon-malpensa-trasferimento.excerpt': 'Amazon moves logistics activities from Terminal 2 in Malpensa to Brescia Montichiari, after ten years of presence. The Cub denounces the massive use of precarious contracts.',
     'blog.article.amazon-malpensa-trasferimento.imageAlt': 'Aerial view of Malpensa Airport with Amazon cargo planes on the runway',
+    'blog.article.angera-corso-musei-demenza.title': 'Angera: free course on museums and dementia on 12 September',
+    'blog.article.angera-corso-musei-demenza.excerpt': 'On September 12, the Archaeological Museum of Angera hosts a free course for professionals on museum accessibility for people with dementia.',
+    'blog.article.angera-corso-musei-demenza.imageAlt': 'Civico Museo Archeologico di Angera',
 };
 
 export default blogMetaEn;

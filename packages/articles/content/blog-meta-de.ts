@@ -11459,6 +11459,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.amazon-malpensa-trasferimento.title': 'Amazon verlässt Malpensa: Cub klagt zehn Jahre prekäre Beschäftigung an',
     'blog.article.amazon-malpensa-trasferimento.excerpt': 'Amazon verlagert die Logistikaktivitäten nach zehnjähriger Präsenz vom Terminal 2 in Malpensa nach Brescia Montichiari. Die Cub prangert den massiven Einsatz prekärer Verträge an.',
     'blog.article.amazon-malpensa-trasferimento.imageAlt': 'Luftaufnahme des Flughafens Malpensa mit Amazon-Frachtflugzeugen auf der Landebahn',
+    'blog.article.angera-corso-musei-demenza.title': 'Angera: Kostenloser Museums- und Demenzkurs am 12. September',
+    'blog.article.angera-corso-musei-demenza.excerpt': 'Am 12. September veranstaltet das Archäologische Museum von Angera einen kostenlosen Kurs für Fachleute über die Zugänglichkeit des Museums für Menschen mit Demenz.',
+    'blog.article.angera-corso-musei-demenza.imageAlt': 'Civico Museo Archeologico di Angera',
 };
 
 export default blogMetaDe;

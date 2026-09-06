@@ -34230,6 +34230,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'angera-corso-musei-demenza',
+ category: 'novita',
+ date: '2026-09-06T11:43:37.348Z',
+ image: '/images/blog/angera-corso-musei-demenza.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
