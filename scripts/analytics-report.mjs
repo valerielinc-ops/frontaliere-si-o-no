@@ -43,6 +43,7 @@ import {
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { engagementConsistency, dailyEngagementConsistency, engagementUnreliableNoteFromReason } from './lib/ga4-engagement-reliability.mjs';
+import { settledDays, settledEndDate, fmtUtcDate } from './lib/analytics-settled-window.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -759,6 +760,20 @@ async function reportGA4(token) {
     dateRanges: [{ startDate: fmtDate(startDate), endDate: fmtDate(endDate) }],
   };
 
+  // #7510: la finestra qui sopra finisce OGGI, quindi contiene per costruzione
+  // i giorni in lag 24-48h che GA4 non ha finito di elaborare — e basta UNA di
+  // quelle giornate perché `dailyEngagementConsistency()` marchi tutta la
+  // finestra, sopprimendo in blocco anche le `highBouncePaths` genuine. Per il
+  // canale per-path si chiude la finestra sull'ultimo giorno ASSESTATO invece
+  // di sopprimere a valle. Il lag è quello condiviso di
+  // `lib/analytics-settled-window.mjs` (lo stesso di `last7Days()` in
+  // revenue-monitor), non una copia locale.
+  const settledEnd = fmtUtcDate(settledEndDate(endDate));
+  const hasSettledWindow = settledEnd > fmtDate(startDate);
+  const settledRequest = hasSettledWindow
+    ? { dateRanges: [{ startDate: fmtDate(startDate), endDate: settledEnd }] }
+    : baseRequest;
+
   const result = { period: `${fmtDate(startDate)} → ${fmtDate(endDate)}` };
   // #7509: il verdetto d'affidabilità viaggia CON la cifra. Le tabelle bounce
   // per-device/per-landing-page e la diagnostica per sorgente leggono la STESSA
@@ -795,6 +810,9 @@ async function reportGA4(token) {
   // stessa finestra con la dimensione `date` una volta sola e si riusa il
   // verdetto sui consumer qui sotto (riepilogo e canale AI).
   let dailyEngagement = { reliable: true, reason: null, unreliableDates: [] };
+  // `null` finché la richiesta per-giorno non è andata a buon fine: serve a
+  // distinguere «nessuna giornata incoerente» da «giornate mai lette» (#7510).
+  let dailyEngagementRows = null;
   try {
     const res = await fetchRetry(
       `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
@@ -814,20 +832,37 @@ async function reportGA4(token) {
     );
     if (res.ok) {
       const data = await res.json();
-      dailyEngagement = dailyEngagementConsistency(
-        (data.rows || []).map((r) => ({
-          date: r.dimensionValues?.[0]?.value || '?',
-          sessions: parseInt(r.metricValues?.[0]?.value || '0', 10),
-          engagedSessions: parseInt(r.metricValues?.[1]?.value || '0', 10),
-          averageSessionDuration: parseFloat(r.metricValues?.[2]?.value || '0'),
-        }))
-      );
+      dailyEngagementRows = (data.rows || []).map((r) => ({
+        date: r.dimensionValues?.[0]?.value || '?',
+        sessions: parseInt(r.metricValues?.[0]?.value || '0', 10),
+        engagedSessions: parseInt(r.metricValues?.[1]?.value || '0', 10),
+        averageSessionDuration: parseFloat(r.metricValues?.[2]?.value || '0'),
+      }));
+      dailyEngagement = dailyEngagementConsistency(dailyEngagementRows);
     } else {
       log('⚠️', `GA4 engagement per-giorno: ${res.status} — sanity-check #6703 non applicato`);
     }
   } catch (e) {
     log('⚠️', `GA4 engagement per-giorno: ${e.message} — sanity-check #6703 non applicato`);
   }
+
+  // #7510: verdetto sulle sole giornate ASSESTATE, quello che gatea il canale
+  // per-path. Il verdetto di finestra piena resta valido per i canali che
+  // espongono l'aggregato — è calcolato SU quei giorni contaminati — ma per le
+  // `highBouncePaths`, che ora leggono la finestra assestata, giudicare i
+  // giorni in lag significherebbe sopprimere un dato che non le riguarda.
+  // Senza righe per-giorno (richiesta fallita) o senza nemmeno una giornata
+  // assestata nella finestra non c'è niente di nuovo da dichiarare: si ricade
+  // sul verdetto del riepilogo, dove «non calcolato» vale già negativo (#7508).
+  const settledEngagementVerdict = () => {
+    const rows = dailyEngagementRows === null ? [] : settledDays(dailyEngagementRows, { now: endDate });
+    if (rows.length > 0) return dailyEngagementConsistency(rows);
+    return {
+      reliable: result.summary?.engagementReliable !== false,
+      reason: result.summary?.engagementUnreliableReason ?? null,
+      unreliableDates: [],
+    };
+  };
 
   // #7508: `engagementReliable` era assegnato in un punto solo, sul percorso
   // felice del riepilogo. Sui rami d'errore (403, non-ok, throw) il campo
@@ -3224,7 +3259,8 @@ async function reportGA4(token) {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          ...baseRequest,
+          // #7510: finestra assestata, non `baseRequest` (che finisce a oggi).
+          ...settledRequest,
           dimensions: [{ name: 'pagePath' }],
           metrics: [
             { name: 'sessions' },
@@ -3255,6 +3291,7 @@ async function reportGA4(token) {
         .filter(p => p.sessions >= 10 && p.bounceRate > 0.5); // Min 10 sessions, >50% bounce
 
       result.highBouncePaths = highBouncePages;
+      result.highBouncePathsPeriod = settledRequest.dateRanges[0].startDate + ' → ' + settledRequest.dateRanges[0].endDate;
 
       if (!flags.json && highBouncePages.length > 0) {
         log('', '');
@@ -3441,7 +3478,13 @@ async function reportGA4(token) {
     }
 
     // High-bounce specific pages
-    if (result.summary?.engagementReliable !== false && result.highBouncePaths && result.highBouncePaths.length > 0) {
+    // #7510: il gate legge il verdetto delle sole giornate ASSESTATE, le stesse
+    // che la richiesta per-path ha interrogato. Col verdetto di finestra piena
+    // bastava un giorno in lag — che c'è quasi sempre — per azzerare l'intera
+    // raccomandazione, comprese le pagine con bounce genuinamente alto. Il
+    // guard resta come rete di sicurezza: se anche la finestra assestata è
+    // incoerente, la raccomandazione non esce.
+    if (settledEngagementVerdict().reliable && result.highBouncePaths && result.highBouncePaths.length > 0) {
       const criticalBounce = result.highBouncePaths.filter(p => p.sessions >= 50 && p.bounceRate > 0.7);
       if (criticalBounce.length > 0) {
         const paths = criticalBounce.slice(0, 3).map(p => p.path).join(', ');
