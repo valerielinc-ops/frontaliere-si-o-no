@@ -5707,6 +5707,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-canton-argovia.title': 'Bourses canton d\'Argovie : exigences et montants',
     'blog.article.borse-studio-canton-argovia.excerpt': 'Guide complet des bourses d\'études dans le canton d\'Argovie : critères d\'admission, montants maximaux, procédure de demande et bureau cantonal compétent.',
     'blog.article.borse-studio-canton-argovia.imageAlt': 'Salle d\'étude universitaire suisse avec des étudiants consultant des livres et des ordinateurs portables',
+    'blog.article.comprare-casa-argovia-procedura.title': 'Acheter une maison en Argovie : prix et hypothèque',
+    'blog.article.comprare-casa-argovia-procedura.excerpt': 'Guide d\'achat immobilier dans le canton d\'Argovie : prix, fonds propres, hypothèque, taxe de passage et frais de notaire. Procédure étape par étape.',
+    'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Quartier résidentiel suisse avec maisons modernes et jardins verts, communauté d\'habitation type suisse',
 };
 
 export default blogMetaChFr;

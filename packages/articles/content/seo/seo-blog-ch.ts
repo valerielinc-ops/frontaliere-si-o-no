@@ -74081,6 +74081,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-argovia-procedura': {
+    title: 'Comprare casa in Argovia: prezzi e mutuo ipotecario',
+    description: 'Guida all\'acquisto di immobili nel Canton Argovia: prezzi, fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Procedura step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, argovia, prezzi',
+    ogTitle: 'Comprare casa in Argovia: prezzi e mutuo ipotecario',
+    ogDescription: 'Stai pensando di comprare casa in Canton Argovia? Scopri come accedere al mutuo ipotecario, quali sono i fondi propri richiesti, come funziona la tassazione sul trasferimento di proprietà e quali spese notarili aspettarti.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-argovia-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Argovia: prezzi e mutuo ipotecario",
+      "description": "Guida all'acquisto di immobili nel Canton Argovia: prezzi, fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Procedura step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-argovia-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere residenziale svizzero con case moderne e giardini verdi, comunità abitativa tipica della Svizzera"
+      },
+      "datePublished": "2026-09-06T10:24:42+00:00",
+      "dateModified": "2026-09-06T10:24:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-argovia-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -17119,6 +17119,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-argovia-procedura',
+    category: 'pratico',
+    date: '2026-09-06T10:24:42.832Z',
+    image: '/images/blog/comprare-casa-argovia-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

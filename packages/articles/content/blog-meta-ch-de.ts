@@ -5707,6 +5707,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-canton-argovia.title': 'Stipendien Kanton Aargau: Voraussetzungen und Beträge',
     'blog.article.borse-studio-canton-argovia.excerpt': 'Vollständiger Stipendienleitfaden im Kanton Aargau: Zulassungskriterien, Höchstbeträge, Bewerbungsverfahren und zuständige kantonale Stelle.',
     'blog.article.borse-studio-canton-argovia.imageAlt': 'Universitätsstudiersaal in der Schweiz mit Studierenden, die Bücher lesen und Laptops nutzen',
+    'blog.article.comprare-casa-argovia-procedura.title': 'Haus kaufen im Aargau: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-argovia-procedura.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Aargau: Preise, Eigenmittel, Hypothekendarlehen, Ablösesumme und Notarkosten. Schritt-für-Schritt-Verfahren.',
+    'blog.article.comprare-casa-argovia-procedura.imageAlt': 'Schweizer Wohnviertel mit modernen Häusern und grünen Gärten, typische Schweizer Wohnsiedlung',
 };
 
 export default blogMetaChDe;
