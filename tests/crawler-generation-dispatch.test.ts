@@ -1515,6 +1515,94 @@ describe('generation checkpoint and preflight', () => {
     });
   });
 
+  it('dispatches the pinned corpus generation while the site→corpus lockstep is still propagating', () => {
+    // #6876: il mirror `.github/corpus-workflows/**` è allineato al repo corpus
+    // da un lockstep asincrono (~6 min). Una wave che parte dentro quella
+    // finestra vede un mirror più avanti del remoto: non è una divergenza, e
+    // bloccarla significava zero crawler per quel ciclo.
+    const observer = Buffer.from('observer-workflow\n');
+    const remoteArtifacts = groupArtifactFixture();
+    const lineage = {
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'c'.repeat(64),
+    };
+    const remoteContract = { ...preflightFixture(observer, remoteArtifacts), ...lineage };
+    const aheadArtifacts = { ...remoteArtifacts, 'crawler-group-07.yml': Buffer.from('name: crawler-group-07 (+1 crawler)\n') };
+    const localContract = { ...preflightFixture(observer, aheadArtifacts), ...lineage };
+    expect(evaluateCrawlerGenerationPreflight({
+      corpusCodeCommit,
+      localContract,
+      remoteContract,
+      localObserver: observer,
+      remoteObserver: observer,
+      remoteArtifacts,
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    })).toEqual({
+      ready: true,
+      dispatchMode: 'shadow',
+      corpusCodeCommit,
+      reasons: ['corpus_mirror_lockstep_pending'],
+    });
+  });
+
+  it('blocks a mirror skew that is not the same generator lineage', () => {
+    const observer = Buffer.from('observer-workflow\n');
+    const remoteArtifacts = groupArtifactFixture();
+    const remoteContract = {
+      ...preflightFixture(observer, remoteArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'c'.repeat(64),
+    };
+    const aheadArtifacts = { ...remoteArtifacts, 'crawler-group-07.yml': Buffer.from('name: crawler-group-07 (+1 crawler)\n') };
+    const input = {
+      corpusCodeCommit,
+      localContract: { ...preflightFixture(observer, aheadArtifacts), ...{
+        sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+        generatorSha256: 'd'.repeat(64),
+      } },
+      remoteContract,
+      localObserver: observer,
+      remoteObserver: observer,
+      remoteArtifacts,
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    };
+    expect(evaluateCrawlerGenerationPreflight(input)).toEqual({
+      ready: false,
+      dispatchMode: 'blocked',
+      corpusCodeCommit: null,
+      reasons: ['contract_mismatch'],
+    });
+    expect(evaluateCrawlerGenerationPreflight({
+      ...input,
+      localContract: { ...input.localContract, generatorSha256: 'c'.repeat(64), sourceRepository: 'someone-else/fork' },
+    })).toMatchObject({ ready: false, reasons: ['contract_mismatch'] });
+  });
+
+  it('blocks a lockstep skew whose pinned corpus tree is not self-consistent', () => {
+    const observer = Buffer.from('observer-workflow\n');
+    const remoteArtifacts = groupArtifactFixture();
+    const lineage = {
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'c'.repeat(64),
+    };
+    const aheadArtifacts = { ...remoteArtifacts, 'crawler-group-07.yml': Buffer.from('name: crawler-group-07 (+1 crawler)\n') };
+    expect(evaluateCrawlerGenerationPreflight({
+      corpusCodeCommit,
+      localContract: { ...preflightFixture(observer, aheadArtifacts), ...lineage },
+      remoteContract: { ...preflightFixture(observer, remoteArtifacts), ...lineage },
+      localObserver: observer,
+      remoteObserver: observer,
+      // il tree pinnato non corrisponde al contratto pubblicato su quel commit
+      remoteArtifacts: { ...remoteArtifacts, 'crawler-group-11.yml': Buffer.from('tampered\n') },
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    })).toEqual({
+      ready: false,
+      dispatchMode: 'blocked',
+      corpusCodeCommit: null,
+      reasons: ['group_artifact_hash_mismatch'],
+    });
+  });
+
   it('persists an all-missing checkpoint before the first POST and after every outcome', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-dispatch-'));
     tempRoots.push(root);

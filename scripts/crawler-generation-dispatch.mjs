@@ -41,6 +41,7 @@ const MAX_PREFLIGHT_READ_DELAY_MS = 5_000;
 export const LEGACY_DISPATCH_POST_ATTEMPTS = 3;
 export const LEGACY_DISPATCH_RETRY_DELAY_MS = 2_000;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
+const SHA256_RE = /^[a-f0-9]{64}$/;
 const ACCEPTED_STATUSES = new Set(['direct', 'reconciled_transport_error']);
 const DISPATCH_STATUS_SET = new Set(CRAWLER_GENERATION_DISPATCH_STATUSES);
 const ORCHESTRATOR_WORKFLOW_PATH = '.github/workflows/orchestrate-crawlers.yml';
@@ -723,6 +724,68 @@ export async function runCrawlerGenerationDispatchWave({
   return checkpoint;
 }
 
+function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifacts) {
+  const reasons = [];
+  const observers = Array.isArray(contract?.observers) ? contract.observers : [];
+  const observer = observers.find((entry) => entry?.target === OBSERVER_TARGET);
+  const expectedArtifacts = [
+    ...GROUP_IDS.map((group) => `crawler-group-${group}.yml`),
+    'translate-pending.yml',
+  ].sort(compareCodePoint);
+  const actualArtifacts = Array.isArray(contract?.artifacts)
+    ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
+    : [];
+  if (contract?.schemaVersion !== 1
+      || contract?.groupCount !== GROUP_IDS.length
+      || contract?.artifactCount !== expectedArtifacts.length
+      || canonicalJson(actualArtifacts) !== canonicalJson(expectedArtifacts)
+      || contract?.observerCount !== observers.length
+      || contract?.crawlerGeneration?.mode !== 'shadow'
+      || contract?.crawlerGeneration?.dispatchesTranslation !== false
+      || !observer || observer.source !== 'observers/workflows/crawler-generation-observer-shadow.yml') {
+    reasons.push('contract_invalid');
+  }
+  if (!Buffer.isBuffer(observerBytes) || observer?.sha256 !== sha256(observerBytes)) {
+    reasons.push('observer_hash_mismatch');
+  }
+  if (remoteArtifacts === null) return reasons;
+  const groupArtifacts = new Map(
+    Array.isArray(contract?.artifacts)
+      ? contract.artifacts.map((entry) => [entry?.file, entry])
+      : [],
+  );
+  for (const group of GROUP_IDS) {
+    const file = `crawler-group-${group}.yml`;
+    const contractArtifact = groupArtifacts.get(file);
+    const bytes = remoteArtifacts?.[file];
+    if (!Buffer.isBuffer(bytes)
+        || !SHA256_RE.test(contractArtifact?.artifactSha256 ?? '')
+        || sha256(bytes) !== contractArtifact.artifactSha256) {
+      reasons.push('group_artifact_hash_mismatch');
+      break;
+    }
+  }
+  return reasons;
+}
+
+// Il mirror di `.github/corpus-workflows/**` e il tree del repo corpus sono
+// allineati da un lockstep ASINCRONO (site → corpus, ~6 min: il merge site
+// 4b614a72 delle 12:41:01 è arrivato sul corpus alle 12:46:45). Una wave che
+// parte dentro quella finestra vede un mirror LEGITTIMAMENTE più avanti del
+// remoto: prima di #6876 questo dava `contract_mismatch` +
+// `group_artifact_hash_mismatch`, exit 1, job rosso e — peggio — lo skip dello
+// step che dispaccia i 23 gruppi, cioè zero crawler per quel ciclo, per una
+// condizione che si auto-risolve alla run successiva.
+//
+// Il contratto che GOVERNA il dispatch è quello pubblicato sul commit corpus
+// che stiamo per pinnare: è quel tree che eseguirà, quindi è contro di lui che
+// vanno verificati gli hash dei 23 artifact e dell'observer (binding integrity,
+// #6806/#6933 — invariata, anzi ora verificata sull'oggetto giusto). Il mirror
+// locale resta l'ancora di LINEAGE: uno skew è tollerato solo se il contratto
+// remoto dichiara lo stesso `sourceRepository` e lo stesso `generatorSha256`
+// del nostro, cioè è una generazione precedente prodotta dallo STESSO
+// generatore che abbiamo in checkout. Qualsiasi altra divergenza resta
+// fail-closed come prima.
 export function evaluateCrawlerGenerationPreflight({
   corpusCodeCommit,
   localContract,
@@ -734,58 +797,34 @@ export function evaluateCrawlerGenerationPreflight({
 }) {
   const reasons = [];
   if (!COMMIT_RE.test(corpusCodeCommit ?? '')) reasons.push('corpus_commit_invalid');
+  let mirrorSkew = true;
   try {
-    if (canonicalJson(localContract) !== canonicalJson(remoteContract)) reasons.push('contract_mismatch');
+    mirrorSkew = canonicalJson(localContract) !== canonicalJson(remoteContract)
+      || !Buffer.isBuffer(localObserver) || !Buffer.isBuffer(remoteObserver)
+      || sha256(localObserver) !== sha256(remoteObserver);
   } catch {
     reasons.push('contract_invalid');
   }
-  const observers = Array.isArray(localContract?.observers) ? localContract.observers : [];
-  const observer = observers.find((entry) => entry?.target === OBSERVER_TARGET);
-  const expectedArtifacts = [
-    ...GROUP_IDS.map((group) => `crawler-group-${group}.yml`),
-    'translate-pending.yml',
-  ];
-  const actualArtifacts = Array.isArray(localContract?.artifacts)
-    ? localContract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
-    : [];
-  if (localContract?.schemaVersion !== 1
-      || localContract?.groupCount !== GROUP_IDS.length
-      || localContract?.artifactCount !== expectedArtifacts.length
-      || canonicalJson(actualArtifacts) !== canonicalJson(expectedArtifacts.sort(compareCodePoint))
-      || localContract?.observerCount !== observers.length
-      || localContract?.crawlerGeneration?.mode !== 'shadow'
-      || localContract?.crawlerGeneration?.dispatchesTranslation !== false
-      || !observer || observer.source !== 'observers/workflows/crawler-generation-observer-shadow.yml') {
-    reasons.push('contract_invalid');
-  }
-  if (!Buffer.isBuffer(localObserver) || !Buffer.isBuffer(remoteObserver)
-      || observer?.sha256 !== sha256(localObserver) || observer?.sha256 !== sha256(remoteObserver)) {
-    reasons.push('observer_hash_mismatch');
-  }
+  reasons.push(...crawlerGenerationContractReasons(remoteContract, remoteObserver, remoteArtifacts));
   if (remoteWorkflow?.state !== 'active' || remoteWorkflow?.path !== OBSERVER_TARGET) {
     reasons.push('observer_workflow_inactive');
   }
-  const groupArtifacts = new Map(
-    Array.isArray(localContract?.artifacts)
-      ? localContract.artifacts.map((entry) => [entry?.file, entry])
-      : [],
-  );
-  for (const group of GROUP_IDS) {
-    const file = `crawler-group-${group}.yml`;
-    const contractArtifact = groupArtifacts.get(file);
-    const bytes = remoteArtifacts?.[file];
-    if (!Buffer.isBuffer(bytes)
-        || !/^[a-f0-9]{64}$/.test(contractArtifact?.artifactSha256 ?? '')
-        || sha256(bytes) !== contractArtifact.artifactSha256) {
-      reasons.push('group_artifact_hash_mismatch');
-      break;
-    }
+  if (mirrorSkew) {
+    reasons.push(...crawlerGenerationContractReasons(localContract, localObserver, null));
+    const sameLineage = localContract?.sourceRepository === SITE_REPOSITORY
+      && remoteContract?.sourceRepository === SITE_REPOSITORY
+      && SHA256_RE.test(remoteContract?.generatorSha256 ?? '')
+      && remoteContract.generatorSha256 === localContract?.generatorSha256;
+    if (!sameLineage) reasons.push('contract_mismatch');
   }
+  const ready = reasons.length === 0;
   return {
-    ready: reasons.length === 0,
-    dispatchMode: reasons.length === 0 ? 'shadow' : 'blocked',
-    corpusCodeCommit: reasons.length === 0 ? corpusCodeCommit : null,
-    reasons: [...new Set(reasons)].sort(compareCodePoint),
+    ready,
+    dispatchMode: ready ? 'shadow' : 'blocked',
+    corpusCodeCommit: ready ? corpusCodeCommit : null,
+    reasons: ready && mirrorSkew
+      ? ['corpus_mirror_lockstep_pending']
+      : [...new Set(reasons)].sort(compareCodePoint),
   };
 }
 
@@ -950,6 +989,12 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
       fs.appendFileSync(
         env.GITHUB_OUTPUT,
         `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}\n`,
+      );
+    }
+    if (result.ready && result.reasons.includes('corpus_mirror_lockstep_pending')) {
+      process.stderr.write(
+        `::warning::crawler generation mirror ahead of ${CALLER_REPOSITORY}@${result.corpusCodeCommit}`
+        + ' — lockstep still propagating, dispatching the corpus generation pinned at that commit\n',
       );
     }
     process.stdout.write(`${JSON.stringify(result)}\n`);
