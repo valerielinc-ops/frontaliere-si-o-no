@@ -28,9 +28,12 @@ import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisEr
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
+  constantPostalLocations,
+  freeTextPostalCandidates,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
   schemaJobLocationCandidates,
+  variablePostalGeography,
 } from '../scripts/lib/prospector/location-evidence.mjs';
 import {
   COUNTRY_INVENTORY_VERSION,
@@ -430,6 +433,72 @@ describe('vacancy extraction', () => {
     expect(resolveDetailOrListingSwissGeography(detail, { location: 'Lugano, ZH' })).toMatchObject({
       geography: null,
       explicitlyForeign: true,
+    });
+  });
+
+  describe('localita dal testo libero: NPA variabile contro NPA di boilerplate', () => {
+    // Le tre pagine misurate su physioswiss.ch il 2026-09-06: l'NPA
+    // dell'annuncio cambia, `3013 Bern` (la sede dell'associazione) no.
+    const pages = [
+      'Physiotherapeut/in gesucht. Arbeitsort: 4528 Zuchwil. Physioswiss, Centralbahnplatz, 3013 Bern',
+      'Physiotherapeutin 80-100%. Unsere Praxis in 9472 Grabs sucht Sie. Physioswiss, 3013 Bern',
+      'Wir suchen fuer 4600 Olten eine Fachperson. Physioswiss, 3013 Bern',
+    ];
+    const perPage = pages.map((text) => freeTextPostalCandidates(text));
+
+    it('tiene fuori dai candidati un NPA senza comune e una parola di tutti i giorni', () => {
+      // `1271` e' un NPA reale (Givrins VD) e `Euro` non e' un comune; `alle`
+      // e' un comune del Giura e la parola tedesca «tutti».
+      expect(freeTextPostalCandidates('Lohn ab 1271 Euro pro Woche')).toEqual([]);
+      expect(freeTextPostalCandidates('Wir bieten 2900 Alle Mitarbeitenden eine Zulage')).toEqual([]);
+      expect(freeTextPostalCandidates('Postfach 9490 Vaduz')).toEqual([]);
+    });
+
+    it('riconosce come boilerplate solo l\'NPA presente su ogni pagina', () => {
+      expect(constantPostalLocations(perPage)).toEqual(['3013 bern']);
+      // Una pagina sola non ha varianza da osservare: `null`, non «niente e'
+      // boilerplate», o la sede passerebbe per posto di lavoro.
+      expect(constantPostalLocations(perPage.slice(0, 1))).toBeNull();
+    });
+
+    it('accetta l\'NPA variabile dell\'annuncio e rifiuta quello costante di boilerplate', () => {
+      const boilerplate = constantPostalLocations(perPage);
+      expect(variablePostalGeography(perPage[0], boilerplate).geography)
+        .toMatchObject({ location: '4528 Zuchwil', canton: 'SO' });
+      // La stessa pagina senza il confronto fra pagine non decide nulla.
+      expect(variablePostalGeography(perPage[0], null).geography).toBeNull();
+      // Rimasto il solo NPA di boilerplate, non c'e' localita' da pubblicare.
+      expect(variablePostalGeography(
+        freeTextPostalCandidates('Physioswiss, 3013 Bern'),
+        boilerplate,
+      ).geography).toBeNull();
+      // Due NPA variabili sulla stessa pagina sono un'ambiguita' che la pagina
+      // non scioglie: sceglierne uno fabbricherebbe la localita'.
+      expect(variablePostalGeography(
+        freeTextPostalCandidates('Einsatzorte: 4528 Zuchwil und 9472 Grabs. Physioswiss, 3013 Bern'),
+        boilerplate,
+      ).geography).toBeNull();
+    });
+
+    it('resta dietro la guardia source-backed: la prosa non copre un campo strutturato', () => {
+      const context = {
+        postalTextCandidates: perPage[0],
+        boilerplatePostalLocations: constantPostalLocations(perPage),
+      };
+      // Nessun campo strutturato su detail o listing: la prosa e' l'ultima
+      // risorsa e la riga si pubblica invece di essere scartata.
+      expect(resolveDetailOrListingSwissGeography({}, {}, context).geography)
+        .toMatchObject({ location: '4528 Zuchwil', canton: 'SO' });
+      // Un campo strutturato c'e': decide quello, il testo non lo scavalca.
+      expect(resolveDetailOrListingSwissGeography({ location: 'Lugano' }, {}, context).geography)
+        .toMatchObject({ location: 'Lugano', canton: 'TI' });
+      // Evidenza estera esplicita resta un rifiuto, contesto o no.
+      expect(resolveDetailOrListingSwissGeography(
+        { locationGateRejected: true }, {}, context,
+      ).geography).toBeNull();
+      // Senza contesto (ogni chiamante che non ha visto le altre pagine) il
+      // comportamento e' quello di prima.
+      expect(resolveDetailOrListingSwissGeography({}, {}).geography).toBeNull();
     });
   });
 

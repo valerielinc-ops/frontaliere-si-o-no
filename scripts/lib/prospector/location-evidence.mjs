@@ -388,7 +388,10 @@ const FREE_TEXT_POSTAL_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'â
 function knownMunicipalityPrefix(name = '') {
   const words = String(name).split(/\s+/).filter(Boolean);
   for (let size = words.length; size >= 1; size -= 1) {
-    const candidate = words.slice(0, size).join(' ');
+    // Trailing sentence punctuation is not part of the name: `4528 Zuchwil.`
+    // resolves through the gazetteer, which normalises it away, and would
+    // otherwise be published verbatim with the full stop attached.
+    const candidate = words.slice(0, size).join(' ').replace(/[.\-'â€™]+$/, '');
     if (TEXT_RESCUE_AMBIGUOUS_TOKENS.has(normalizeSwissTargetLocationText(candidate))) continue;
     if (isKnownSwissMunicipality(candidate)) return candidate;
   }
