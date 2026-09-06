@@ -113,27 +113,15 @@ const ORPHAN_MIN_AGE_MIN = 30;
 const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 
 // Quante run `issue-fix` possono essere vive insieme. Era 1 hard-coded — un
-// mutex, non un cap — e con una mediana di 25 min per run piu' il tick di 20
-// min del drainer il tetto teorico era ~32 fix/giorno, ma l'osservato e' ~13.
+// mutex, non un cap — poi alzato a 3 (2026-09-04). Dal 2026-09-06 il default
+// e' di nuovo 1: tre fixer paralleli consumano troppi token. Override:
+// `FOLLOWUP_MAX_INFLIGHT_FIX=3` ripristina il parallelismo precedente, senza
+// toccare il codice (VISION.md D4: cap, kill-switch, telemetria — la riga
+// `in-flight=N/M` nel log di ogni run).
 //
-// Alzato a 3 su istruzione diretta del proprietario (2026-09-04), con le due
-// misure che dicono che c'e' spazio: al momento del cambio 1 sola PR aperta sul
-// sito, e nessun backoff di quota attivo (`check-quota-backoff.mjs`:
-// `quota_blocked=false`). Il vincolo noto a valle e' la coda CI, che degrada
-// sopra ~5 PR aperte insieme: con 3 run vive le PR aperte restano nella banda
-// sicura.
-//
-// Quelle due misure guardavano a VALLE (PR aperte, quota) e nessuna guardava a
-// MONTE: `issue-fix.yml` non ha 3 slot da riempire, ne ha 1 — vedi
-// `fixQueueDepth()` qui sotto, che ora clampa questo numero alla profondita'
-// vera della coda invece di lasciarlo libero. Il valore richiesto resta 3: il
-// giorno in cui il `concurrency` di `issue-fix.yml` diventa per-issue, i 3 slot
-// diventano reali e il cap li usa senza altre modifiche qui.
-//
-// KILL-SWITCH: `FOLLOWUP_MAX_INFLIGHT_FIX=1` ripristina esattamente il
-// comportamento precedente, senza toccare il codice (VISION.md D4: ogni
-// consumer di quota nasce con cap, kill-switch e telemetria — la telemetria e'
-// la riga `in-flight=N/M` nel log di ogni run).
+// `fixQueueDepth()` clampa questo numero alla profondita' vera della coda di
+// `issue-fix.yml`. Con la chiave per-issue il clamp non morde; se qualcuno
+// rimette un group costante, il cap torna a 1 invece di sfrattare le pending.
 //
 // `Number.isFinite` e non `Math.max(1, Number(...))`: con un valore non
 // numerico (`FOLLOWUP_MAX_INFLIGHT_FIX=nonsense`) `Number()` da' `NaN`, e
@@ -147,12 +135,12 @@ const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 //    Non deve mai diventare `NaN`, che disarmerebbe il cap.
 //  - valore numerico FUORI RANGE (`0`, negativo): e' una richiesta esplicita di
 //    «il meno possibile», tipicamente durante un incidente. Si porta a 1, MAI al
-//    default: dare 3 a chi ha scritto 0 per frenare sarebbe il contrario di
-//    quello che ha chiesto.
+//    default: dare il default a chi ha scritto 0 per frenare sarebbe il contrario
+//    di quello che ha chiesto.
 const RAW_MAX_INFLIGHT_FIX = Number(process.env.FOLLOWUP_MAX_INFLIGHT_FIX);
 const REQUESTED_MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
   ? Math.max(1, Math.floor(RAW_MAX_INFLIGHT_FIX))
-  : 3;
+  : 1;
 
 /**
  * Quante promozioni `agent:fix` puo' reggere DAVVERO la coda di `issue-fix.yml`.
