@@ -11470,6 +11470,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giussano-como-ticino-frontaliere.title': 'Vivere a Giussano, lavorare in Ticino: guida del frontaliere',
     'blog.article.giussano-como-ticino-frontaliere.excerpt': 'Permesso G, imposta alla fonte, AVS, LAMal: guida completa per frontalieri da Giussano (Como) che lavorano in Ticino. Fiscalità, tempi, costi.',
     'blog.article.giussano-como-ticino-frontaliere.imageAlt': 'Vista aerea di Lugano sul Lago Ceresio con le Alpi sullo sfondo, principale centro di lavoro per frontalieri Giussano-Ticino',
+    'blog.article.vivere-sumirago-frontaliere.title': 'Vivere a Sumirago, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-sumirago-frontaliere.excerpt': 'Guida pratica per vivere a Sumirago e lavorare in Ticino: permessi, tassazione frontaliere, procedure amministrative e cosa considerare prima del trasferimento.',
+    'blog.article.vivere-sumirago-frontaliere.imageAlt': 'Strada provinciale al confine tra la provincia di Varese e il Ticino con segnaletica svizzera e paesaggio montano',
 };
 
 export default blogMetaIt;

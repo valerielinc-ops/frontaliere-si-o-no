@@ -87121,6 +87121,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-sumirago-frontaliere': {
+    title: 'Vivere a Sumirago, lavorare in Ticino: guida frontaliere',
+    description: 'Guida completa per frontalieri: vivere a Sumirago e lavorare in Ticino. Permessi G, tassazione, contributi AVS, assicurazione malattia e procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, sumirago, lavorare, pratica',
+    ogTitle: 'Vivere a Sumirago, lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Frontalieri da Sumirago in Ticino? Scopri tutto sulla tassazione, permesso G, contributi AVS, assicurazione malattia e come pianificare il trasferimento tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/vivere-sumirago-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Sumirago, lavorare in Ticino: guida frontaliere",
+      "description": "Guida completa per frontalieri: vivere a Sumirago e lavorare in Ticino. Permessi G, tassazione, contributi AVS, assicurazione malattia e procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-sumirago-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada provinciale al confine tra la provincia di Varese e il Ticino con segnaletica svizzera e paesaggio montano"
+      },
+      "datePublished": "2026-09-06T13:21:53+00:00",
+      "dateModified": "2026-09-06T13:21:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-sumirago-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

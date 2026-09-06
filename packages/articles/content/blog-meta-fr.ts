@@ -11471,6 +11471,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giussano-como-ticino-frontaliere.title': 'Vivre à Giussano, travailler au Tessin : guide du frontalier',
     'blog.article.giussano-como-ticino-frontaliere.excerpt': 'Permis G, impôt à la source, AVS, LAMal : guide complet pour les frontaliers de Giussano (Côme) qui travaillent au Tessin. Fiscalité, délais, coûts.',
     'blog.article.giussano-como-ticino-frontaliere.imageAlt': 'Vue aérienne de Lugano sur le Lac de Lugano avec les Alpes en arrière-plan, pôle d\'emploi majeur pour frontaliers Giussano-Tessin',
+    'blog.article.vivere-sumirago-frontaliere.title': 'Vivre à Sumirago, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-sumirago-frontaliere.excerpt': 'Guide pratique pour vivre à Sumirago et travailler au Tessin : permis, fiscalité frontalière, procédures administratives et ce qu\'il faut prendre en compte avant le transfert.',
+    'blog.article.vivere-sumirago-frontaliere.imageAlt': 'Route provinciale à la frontière entre Varèse et le Tessin avec panneaux routiers suisses',
 };
 
 export default blogMetaFr;
