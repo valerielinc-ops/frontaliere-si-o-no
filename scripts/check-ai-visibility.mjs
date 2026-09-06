@@ -393,6 +393,24 @@ let retryBudgetLeftMs = RETRY_BUDGET_MS;
 function resetRetryBudget() { retryBudgetLeftMs = RETRY_BUDGET_MS; }
 
 /**
+ * Reset EVERY per-run budget, at the one place a run begins.
+ *
+ * Both ceilings live in module state, so "per run" only holds if something
+ * clears them per run. The OpenRouter cap was cleared at the top of runCheck();
+ * the retry budget was cleared nowhere, so it was per-IMPORT — a second
+ * runCheck() in the same process (or a test that imported this surface after
+ * one that burned retries) started with the waiting budget already spent and
+ * gave up on the first transient failure without retrying, recording an
+ * unreached platform for a query that would have answered on attempt 2 (issue
+ * #7489 item 3). Resetting them one by one at call sites is what let them
+ * drift apart: any budget added here is reset by construction.
+ */
+function resetRunBudgets() {
+  resetOpenRouterBudget();
+  resetRetryBudget();
+}
+
+/**
  * Spend `ms` of the run's retry budget. Returns false when the budget cannot
  * cover the planned wait — the caller must then give up WITHOUT sleeping.
  */
@@ -613,8 +631,11 @@ async function runCheck() {
   console.log(`   Domain: ${SITE_DOMAIN}`);
   console.log(`   Queries: ${QUERIES.length}`);
 
+  // A run starts with its full metered budgets, whatever a previous run in
+  // this process spent (issue #7489 item 3).
+  resetRunBudgets();
+
   // Detect available platforms
-  resetOpenRouterBudget();
   const platforms = detectPlatforms();
   const availablePlatforms = listAvailablePlatforms(platforms);
 
@@ -1019,6 +1040,7 @@ export {
   listAvailablePlatforms,
   resetOpenRouterBudget,
   resetRetryBudget,
+  resetRunBudgets,
   OPENROUTER_MAX_REQUESTS,
   RETRY_BUDGET_MS,
   UNMEASURED_BUDGET_CAP,
