@@ -57,6 +57,7 @@ import {
   groupByComune,
   slugifyComune,
   slugifyEvent,
+  reserveLadderShape,
   EVENT_SOURCES,
   eventsBasePathForCanton,
   EVENTS_INDEX_PATH,
@@ -1052,7 +1053,10 @@ function renderSourceAttribution(events: SiteEvent[], copy: Copy, dateStamp: str
   return `${esc(copy.updated)}: <time datetime="${dateStamp}">${dateStamp}</time> · ${esc(copy.source)}: ${links}`;
 }
 
-function pathFor(locale: Locale, canton: string, comune?: string): string {
+/** Canonical path of a bucket page: `<canton-base>/<comune>/` (or the canton
+ *  base itself for the comune-less bucket). Exported so the ladder test can
+ *  assert the two path families never collide (#7743). */
+export function pathFor(locale: Locale, canton: string, comune?: string): string {
   const base = basePathFor(canton)[locale];
   if (!comune) return `${base}/`;
   const segment = comune === OTHER_EVENTS_COMUNE_KEY ? OTHER_EVENTS_SEGMENT[locale] : slugifyComune(comune);
@@ -1663,9 +1667,17 @@ export function sitemapLadders(laddersByLocale: Map<Locale, LadderBucket[]>): La
 /**
  * URL of ladder page `page` (≥2) of a bucket: `<bucket-path>page-N/`.
  *
- * No collision with an event detail page under the same bucket:
- * `slugifyEvent()` always appends the ISO start date (`titolo-2026-07-04`),
- * so no assigned slug can ever be the literal `page-2`.
+ * No collision with any sibling segment, and the reason is not the ISO date the
+ * previous version of this note claimed. `comune` is optional here, so with a
+ * comune-less bucket the ladder is `<canton-base>/page-N/` — the same shape
+ * `pathFor()` mints for a comune bucket, where the date plays no part at all.
+ * Both segments (and the event detail slug, whose date part is empty when the
+ * event has no `startDate`) are minted through `slugifyComune()` /
+ * `slugifyEvent()`, which reserve `RESERVED_EVENTS_SEGMENT_RE` (`^page-\d+$`)
+ * and disambiguate any input that normalizes to it; `assignEventSlugs()`
+ * applies the same reservation to its post-dedup `-N` tie-breaker, which is a
+ * finished segment as well. That is what makes the collision unrepresentable
+ * (issue #7743).
  */
 export function overflowLadderPath(locale: Locale, canton: string, comune: string | undefined, page: number): string {
   return `${pathFor(locale, canton, comune)}page-${page}/`;
@@ -3585,8 +3597,9 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
 /**
  * Assign a stable, collision-free detail slug to every event in `list`
  * (already scoped to one canton+comune peer group). `slugifyEvent(ev)` is
- * the base; ties (same title+date) are broken with a plain incrementing
- * suffix (`-2`, `-3`, ...) in list order. `list` must already be
+ * the base; ties (same title+date) are broken with an incrementing suffix
+ * (`-2`, `-3`, ...), passed through `reserveLadderShape()` so the tie-breaker
+ * cannot land on the reserved `page-N` ladder shape, in list order. `list` must already be
  * deterministically ordered on ties — both `upcomingEvents` and
  * `recentlyEndedEvents` (scripts/lib/events-utils.mjs) sort ties on
  * `.title` then `.id`, so two colliding events always land in the same
@@ -3608,7 +3621,13 @@ export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlyS
     const base = slugifyEvent(ev);
     let slug = base;
     let n = 2;
-    while (used.has(slug)) slug = `${base}-${n++}`;
+    // The `-N` tie-breaker mints a FINISHED segment, so it has to honour the
+    // reserved ladder shape too: base `page` (a dateless event titled `Page`,
+    // which `slugifyEvent()` correctly leaves alone) would otherwise give the
+    // second sibling `page-2` — the URL of ladder page 2 of this very bucket
+    // (issue #7743). `reserveLadderShape()` runs inside the loop so the
+    // disambiguated candidate is re-checked against `used`.
+    while (used.has(slug)) slug = reserveLadderShape(`${base}-${n++}`, 'evento');
     used.add(slug);
     slugFor.set(ev.id, slug);
   }

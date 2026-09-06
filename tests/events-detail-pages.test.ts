@@ -8,7 +8,7 @@ import { describe, it, expect } from 'vitest';
 import { mkdtempSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, OTHER_EVENTS_COMUNE_KEY } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE } from '../scripts/lib/events-utils.mjs';
 import {
   eventLd,
   pathForEventDetail,
@@ -988,6 +988,21 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     const forward = assignEventSlugs([evA, evB] as never);
     expect(forward.get('tio-agenda:100')).toBe('sagra-2026-08-01');
     expect(forward.get('tio-agenda:200')).toBe('sagra-2026-08-01-2');
+  });
+
+  it('the -N tie-breaker never lands on the reserved page-N ladder shape (issue #7743)', () => {
+    // A dateless event titled `Page` mints base `page`, which is correctly NOT
+    // reserved. Without the reservation on the tie-breaker the second sibling
+    // would take `page-2` = overflowLadderPath(locale, canton, comune, 2).
+    const evA = { ...EVENT, id: 'tio-agenda:400', title: 'Page', startDate: '' };
+    const evB = { ...EVENT, id: 'tio-agenda:401', title: 'Page', startDate: '' };
+    const evC = { ...EVENT, id: 'tio-agenda:402', title: 'Page', startDate: '' };
+    const slugs = assignEventSlugs([evA, evB, evC] as never);
+    expect(slugs.get('tio-agenda:400')).toBe('page');
+    for (const id of ['tio-agenda:400', 'tio-agenda:401', 'tio-agenda:402']) {
+      expect(slugs.get(id)).not.toMatch(RESERVED_EVENTS_SEGMENT_RE);
+    }
+    expect(new Set(slugs.values()).size).toBe(3);
   });
 
   it('reservedBaseSlugs forces the decorated suffix even with zero in-list collisions (the actual #3700 gap)', () => {

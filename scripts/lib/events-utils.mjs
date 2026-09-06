@@ -338,8 +338,38 @@ export function normalizeText(value) {
     .trim();
 }
 
-/** Canonical URL slug for a comune name (diacritic-free, hyphenated, ascii). */
-export function slugifyComune(value) {
+/**
+ * Segment shape the events tree reserves for its own overflow ladder:
+ * `overflowLadderPath()` mints `<bucket-path>page-N/`, and the bucket path is
+ * `<canton-base>/` when the bucket has no comune, so a comune whose name
+ * normalizes to `page-N` would land on the very URL of ladder page N of the
+ * canton. The same shape is reachable from an event detail slug whose date part
+ * is empty. Both `slugifyComune()` and `slugifyEvent()` disambiguate a finished
+ * segment that lands on this shape, so the collision is closed by construction
+ * rather than by convention.
+ */
+export const RESERVED_EVENTS_SEGMENT_RE = /^page-\d+$/;
+
+/** Append `suffix` to a freshly minted segment that lands on the reserved
+ *  ladder shape. No comune of `data/canton-municipalities.json` (0 of 2110) and
+ *  no crawled event title normalizes to `page-N` today, so this never rewrites
+ *  a live URL — it only makes the collision unrepresentable.
+ *
+ *  Exported because the minter is not the only place a segment is FINISHED:
+ *  `assignEventSlugs()` (build-plugins/eventsSeoPagesPlugin.ts) breaks ties
+ *  with an incrementing `-N` suffix AFTER `slugifyEvent()`, so a dateless
+ *  event titled `Page` (base `page`, correctly not reserved) would otherwise
+ *  hand its second peer-group sibling the slug `page-2` — exactly
+ *  `overflowLadderPath(locale, canton, comune, 2)`. A guard that only runs in
+ *  the minter is a guard the dedup step walks around. */
+export function reserveLadderShape(slug, suffix) {
+  return RESERVED_EVENTS_SEGMENT_RE.test(slug) ? `${slug}-${suffix}` : slug;
+}
+
+/** Shared normalization: diacritic-free, lowercase, hyphenated, ascii. Kept
+ *  separate from `slugifyComune()` so the reservation applies to a FINISHED
+ *  URL segment — an event title is only a fragment of one. */
+function normalizeSlug(value) {
   return String(value ?? '')
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
@@ -349,17 +379,28 @@ export function slugifyComune(value) {
     .replace(/^-+|-+$/g, '');
 }
 
+/** Canonical URL slug for a comune name (diacritic-free, hyphenated, ascii). */
+export function slugifyComune(value) {
+  return reserveLadderShape(normalizeSlug(value), 'comune');
+}
+
 /**
  * Stable, URL-safe slug for a single event detail page: `<title>-<YYYY-MM-DD>`
  * (title truncated at a word boundary). Deterministic from title+startDate so
  * the detail-page URL is stable across crawl runs. Collisions (same title+date
  * in the same comune) are disambiguated by the caller (the SSG emit loop).
+ *
+ * The reserved ladder shape is checked on the ASSEMBLED slug, not on the title:
+ * an event without a `startDate` has an empty date part, so the slug is the
+ * title alone — and the word-boundary truncation can cut a longer title down to
+ * the reserved shape. Checking the title alone would also tag `Page 2` events
+ * that a date already disambiguates.
  */
 export function slugifyEvent(event) {
-  const titlePart = truncateSlugAtWordBoundary(slugifyComune(event?.title || ''), 60).replace(/-+$/, '');
+  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), 60).replace(/-+$/, '');
   const datePart = String(event?.startDate || '').slice(0, 10);
-  const base = [titlePart, datePart].filter(Boolean).join('-');
-  return base || `evento-${slugifyComune(event?.id || 'senza-data')}`;
+  const base = reserveLadderShape([titlePart, datePart].filter(Boolean).join('-'), 'evento');
+  return base || `evento-${normalizeSlug(event?.id || 'senza-data')}`;
 }
 
 // ── Comuni loader ────────────────────────────────────────────
