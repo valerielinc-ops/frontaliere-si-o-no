@@ -5629,6 +5629,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.polizia-operazione-goldach.title': 'School Party Alarm: Maxi Police Operation',
     'blog.article.polizia-operazione-goldach.excerpt': 'Law enforcement has received reports of "suspected shootings" at the school and is working to evacuate the approximately 300 people present.',
     'blog.article.polizia-operazione-goldach.imageAlt': 'Police present at a school party in Goldach',
+    'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Short-term permit L in the Canton of Valais: validity and extension',
+    'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'The short-term L permit in the Canton of Valais is valid for a maximum of 1 year and can only be extended in specific cases.',
+    'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Aerial view of the city of Sion in the canton of Valais, Switzerland',
 };
 
 export default blogMetaChEn;

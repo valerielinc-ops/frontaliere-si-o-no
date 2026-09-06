@@ -5629,6 +5629,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.polizia-operazione-goldach.title': 'Alarme lors d\'une fête scolaire : maxi opération de police',
     'blog.article.polizia-operazione-goldach.excerpt': 'Les forces de l\'ordre ont reçu des rapports de « coups de feu présumés » à l\'école et travaillent à évacuer les quelque 300 personnes présentes.',
     'blog.article.polizia-operazione-goldach.imageAlt': 'Police présente à une fête scolaire à Goldach',
+    'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Permis L de courte durée dans le canton du Valais : validité et prolongation',
+    'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'Le permis L de courte durée dans le canton du Valais a une durée de validité maximale de 1 an et ne peut être prolongé que dans des cas spécifiques.',
+    'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Vue aérienne de la ville de Sion dans le canton du Valais, Suisse',
 };
 
 export default blogMetaChFr;
