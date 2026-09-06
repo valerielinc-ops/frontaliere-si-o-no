@@ -5683,6 +5683,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Acheter maison Valais : prix, hypothèque et coûts',
     'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Guide d\'achat immobilier en Valais : fonds propres requis, viabilité de l\'hypothèque, taxes de passage et frais de notaire.',
     'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Documents hypothécaires et contrats immobiliers sur un bureau en bois avec chalet alpin suisse en arrière-plan',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Démarrer une entreprise à Grisons : coûts et procédure',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Guide complet : formes juridiques, inscription au registre du commerce, impôts fédéraux et cantonaux, TVA, obligations AVS, SUVA, LAMal. Procédure étape par étape.',
+    'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Bureau et enseigne commerciale d\'une entreprise enregistrée dans le canton des Grisons',
 };
 
 export default blogMetaChFr;
