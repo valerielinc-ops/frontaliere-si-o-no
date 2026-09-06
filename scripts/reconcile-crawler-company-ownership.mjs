@@ -92,13 +92,7 @@ function readSlice(key) {
 }
 
 function readExpiredSlice(key) {
-  const slice = readSliceFrom(EXPIRED_SLICES_DIR, key);
-  // Same ingress repair as the archive writers (#7736): the merge below picks
-  // a component survivor with `compareExpiredAt`, which orders an unparseable
-  // value last by construction — here that decides which payload survives,
-  // downstream it decides who falls off the EXPIRED_JOBS_CAP cut.
-  if (slice) normalizeExpiredAtEntries(slice.jobs, { source: `reconcile-expired-slice/${key}` });
-  return slice;
+  return readSliceFrom(EXPIRED_SLICES_DIR, key);
 }
 
 let activeRollbackJournal = null;
@@ -405,7 +399,17 @@ function reconcile({ apply = false } = {}) {
       );
       canonicalExpired.jobs = result.jobs;
       assertNoDuplicateRoutesWithin(canonicalExpired.jobs, `${item.retired}->${item.canonical} archive merge`);
-      const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0;
+      // Same ingress repair as the archive writers (#7736), applied AFTER the
+      // component merge above: `compareExpiredAt` orders an unparseable value
+      // last by construction, so it loses the survivor pick to a payload with
+      // a real date — stamping the run timestamp first would invert that and
+      // let the degraded record win. Repairing here still keeps the value from
+      // reaching the EXPIRED_JOBS_CAP cut downstream, which is the point.
+      const repaired = normalizeExpiredAtEntries(
+        canonicalExpired.jobs,
+        { source: `reconcile-expired-slice/${item.canonical}` },
+      );
+      const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0 || repaired > 0;
       if (needsWrite) {
         archiveResult = {
           ...result,

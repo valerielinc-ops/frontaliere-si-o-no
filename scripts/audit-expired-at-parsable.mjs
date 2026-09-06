@@ -81,23 +81,28 @@ for (const file of AGGREGATES) {
   bad += auditFile(file, path.relative(ROOT, file));
 }
 
-if (total === 0) {
-  console.log('[audit-expired-at-parsable] no expired archive on disk — nothing to audit');
-  process.exit(0);
+if (total > 0) {
+  const rate = ((bad / total) * 100).toFixed(4);
+  console.log(
+    `[audit-expired-at-parsable] ${bad}/${total} entries without a parsable expiredAt (${rate}%) ` +
+    `— ${sliceFiles.length} slices + ${aggregatesSeen} aggregates`,
+  );
 }
 
-const rate = ((bad / total) * 100).toFixed(4);
-console.log(
-  `[audit-expired-at-parsable] ${bad}/${total} entries without a parsable expiredAt (${rate}%) ` +
-  `— ${sliceFiles.length} slices + ${aggregatesSeen} aggregates`,
-);
-
+// Before the empty-archive exit, not after: a file that is not a JSON array
+// contributes zero entries, so an archive whose files are all corrupt lands on
+// `total === 0` and a zero-tolerance gate would pass it as «nothing to audit».
 if (malformed.length > 0) {
   console.error(
     `\x1b[31m[audit-expired-at-parsable]\x1b[0m FAIL — ${malformed.length} archive files are not a JSON array:\n` +
     malformed.map((m) => `  - ${m}`).join('\n'),
   );
   process.exit(1);
+}
+
+if (total === 0) {
+  console.log('[audit-expired-at-parsable] no expired archive on disk — nothing to audit');
+  process.exit(0);
 }
 
 if (bad > 0) {

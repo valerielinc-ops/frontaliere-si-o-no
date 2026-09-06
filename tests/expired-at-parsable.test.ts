@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import {
   archiveRemovedJobsToSlice,
   isParsableExpiredAt,
@@ -99,6 +100,45 @@ describe('archiveRemovedJobsToSlice — repairs the slice it reads back', () => 
       const written = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
       expect(written).toHaveLength(1);
       expect(isParsableExpiredAt(written[0].expiredAt)).toBe(true);
+    });
+  });
+});
+
+describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
+  const runGate = (cwd: string) =>
+    spawnSync(
+      process.execPath,
+      [path.resolve(__dirname, '..', 'scripts', 'audit-expired-at-parsable.mjs')],
+      { cwd, encoding: 'utf8' },
+    );
+
+  const withArchive = (files: Record<string, string>, fn: (dir: string) => void) => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'expired-audit-'));
+    const slices = path.join(dir, 'data', 'jobs', 'expired', 'by-crawler');
+    fs.mkdirSync(slices, { recursive: true });
+    for (const [name, body] of Object.entries(files)) fs.writeFileSync(path.join(slices, name), body);
+    try {
+      fn(dir);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  };
+
+  it('fails on a non-array archive file even when no entry could be counted', () => {
+    // Every file corrupt → `total === 0`. The empty-archive exit must not run
+    // first, or a zero-tolerance gate green-lights a corrupt archive.
+    withArchive({ 'acme.json': '{"jobs":[]}', 'other.json': 'not json at all' }, (dir) => {
+      const res = runGate(dir);
+      expect(res.status).toBe(1);
+      expect(res.stderr).toContain('not a JSON array');
+    });
+  });
+
+  it('passes on a genuinely empty archive', () => {
+    withArchive({}, (dir) => {
+      const res = runGate(dir);
+      expect(res.status).toBe(0);
+      expect(res.stdout).toContain('nothing to audit');
     });
   });
 });
