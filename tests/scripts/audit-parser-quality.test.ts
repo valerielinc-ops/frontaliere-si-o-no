@@ -596,6 +596,73 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-detail');
   });
 
+  // Issue #7713: fourteen region names are also BFS municipalities, so the
+  // region guard alone made the busiest cities of the dataset un-corroborable
+  // by construction. Per-vacancy postal geography, not the name, is what
+  // separates the commune from its canton.
+  it('corroborates a canton-homonym city named with its postal code in the prose', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Bern',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Dietikon, Dietikon',
+        description: 'Arbeitsort: Marktgasse 12, 3011 Bern. '
+          + 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('source-corroborated');
+  });
+
+  it('corroborates a canton-homonym city from a structured postal address', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Zug',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Dietikon, Dietikon',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+        locationCandidates: [
+          { location: 'Dietikon, Dietikon', addressLocality: 'Dietikon', postalCode: '8953' },
+          { location: 'Zug', addressLocality: 'Zug', postalCode: '6300' },
+        ],
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('source-corroborated');
+  });
+
+  it('keeps the mismatch when the page names the canton without postal geography', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Bern',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Dietikon, Dietikon',
+        description: 'Standorte im Kanton Bern und weiteren Kantonen. '
+          + 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
   it('never corroborates against rendered job-scoped location markup', () => {
     const result = compareSourceDetail(
       {
