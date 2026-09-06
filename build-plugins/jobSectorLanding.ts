@@ -706,8 +706,15 @@ const SEC_SEP = '[\\s\\-–—/_.]{1,3}';
  * inclusi, come in `SEC_SEP`) e l'alternativa tiene la punteggiatura dei
  * composti intra-campo (`ICT-Architekt`, `IT/OT Architect`).
  *
- * Solo per i lookaround: nei matcher POSITIVI il salto di campo e' voluto
- * (`Security` nel titolo + `Officer` nella category e' un match legittimo).
+ * Nei matcher POSITIVI il salto di campo e' voluto di regola (`Security` nel
+ * titolo + `Officer` nella category e' un match legittimo), con UNA eccezione:
+ * quando il matcher positivo e il lookaround che lo veta condividono lo stesso
+ * qualificatore, devono condividere anche il separatore. Se il positivo usa
+ * `SEC_SEP` e il veto `INTRA_FIELD_SEP`, un qualificatore in un campo e
+ * `Security Guard` in quello dopo matchano il lessico cyber senza far scattare
+ * il veto fisico: e' il doppio-landing di #7553 sulla terza dimensione, dopo
+ * lessico e ancoraggio. Percio' `CYBER_QUALIFIER_SRC` gira su `INTRA_FIELD_SEP`
+ * su ENTRAMBI i lati.
  */
 const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
 
@@ -735,6 +742,14 @@ const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
  * `ARCHITECT_TECH_QUALIFIER_SRC`) tiene fuori pure il verso opposto: un
  * `Italia Security Guard` vetato dalla sua landing fisica per un `it` che
  * non e' una parola.
+ *
+ * Terza dimensione, stesso argomento: il SEPARATORE. I due lati girano
+ * entrambi su `INTRA_FIELD_SEP`. Col positivo su `SEC_SEP` (che matcha per
+ * intero il joiner ` \n ` di `jobMatchesSectorCanonical`) e il veto su
+ * `INTRA_FIELD_SEP` (che il joiner non lo attraversa), un qualificatore a fine
+ * campo e `Security Guard/Officer` nel campo dopo — `{title: 'Junior IT',
+ * category: 'Security Officer'}` — matchavano il lessico cyber senza far
+ * scattare il veto fisico: ancora il doppio-landing di #7553.
  */
 const CYBER_QUALIFIER_SRC = '(?:\\binformation|\\bit\\b|\\bcloud|\\bnetwork|\\bcyber)';
 
@@ -787,7 +802,14 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     'cybersecurity'
     + '|sicurezza' + SEC_SEP + 'informatic'
     + '|security' + SEC_SEP + '(?:engineer|analyst|architect|specialist|consultant)'
-    + `|${CYBER_QUALIFIER_SRC}${SEC_SEP}security`
+    // `INTRA_FIELD_SEP` e non `SEC_SEP`: il qualificatore deve essere adiacente
+    // DENTRO il campo, come nel veto di `sicurezza` che usa la stessa costante.
+    // Con `SEC_SEP` qui il positivo scavalcava il joiner ` \n ` di
+    // `jobMatchesSectorCanonical` e il veto no, quindi `{title: 'Junior IT',
+    // category: 'Security Officer'}` cadeva di nuovo su ENTRAMBE le landing.
+    // Il salto di campo resta dove serve: `security SEC_SEP (?:engineer|...)`
+    // sopra e il matcher `sicurezza` continuano ad attraversarlo.
+    + `|${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP}security`
     + '|informationssicherheit|sicherheitsarchitekt'
     + '|s[eé]curit[eé]' + SEC_SEP + 'informatique'
     + '|penetration' + SEC_SEP + 'test|\\bpentester\\b|\\bsoc' + SEC_SEP + 'analyst',
@@ -841,7 +863,9 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // L'alternanza del veto e' `CYBER_QUALIFIER_SRC`, la STESSA costante del
   // lessico positivo di `cybersecurity`: le due liste, scritte a mano, erano
   // gia' divergite su `cyber` (#7553). Il `\b` iniziale NON e' qui ma dentro
-  // la costante, cosi' i due lati non divergono nemmeno sull'ancoraggio.
+  // la costante, cosi' i due lati non divergono nemmeno sull'ancoraggio; e
+  // l'alternativa positiva di `cybersecurity` usa lo stesso `INTRA_FIELD_SEP`
+  // di questo veto, cosi' non divergono nemmeno sul separatore.
   sicurezza: new RegExp(
     '\\bsicurezza' + SEC_SEP + '(?:privata|fisica)'
     + `|(?<!${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
