@@ -922,3 +922,42 @@ export function getCantonForLocation(rawLocation = '') {
   }
   return '';
 }
+
+// ─── LOCATION PROVENANCE ────────────────────────────────────────────────────
+
+/**
+ * Field a parser stamps on a job when the published locality was read out of
+ * the vacancy's own free TEXT (title/description prose) rather than off a
+ * location field of the source.
+ *
+ * It exists so a downstream check can tell the two apart. The corroboration in
+ * `audit-parser-quality.mjs` accepts a published locality that the vacancy page
+ * names in its title or description; for a locality that was EXTRACTED from
+ * that same description the test is circular — it holds by construction, for
+ * the right value and the wrong one alike, and the audit stops measuring
+ * exactly the family most likely to be wrong.
+ *
+ * Declared at the point of derivation, per vacancy, and never as a list of
+ * crawler keys: a hand-kept exemption roster is the antipattern PR #7579
+ * removed, it leaves every crawler that starts doing this tomorrow
+ * mis-measured, and it cannot express that one crawler resolves some of its
+ * vacancies from a structured field and others from prose.
+ */
+export const LOCATION_PROVENANCE_FIELD = 'locationDerivedFrom';
+
+/** Value of {@link LOCATION_PROVENANCE_FIELD}: locality extracted from prose. */
+export const LOCATION_FROM_VACANCY_TEXT = 'vacancy-text';
+
+/**
+ * Declare that this job's published locality came from the vacancy text.
+ * Returns the job so it can be used inline at the point of derivation.
+ */
+export function markLocationDerivedFromVacancyText(job) {
+  if (job && typeof job === 'object') job[LOCATION_PROVENANCE_FIELD] = LOCATION_FROM_VACANCY_TEXT;
+  return job;
+}
+
+/** Whether this job declares a locality derived from its own text. */
+export function isLocationDerivedFromVacancyText(job) {
+  return job?.[LOCATION_PROVENANCE_FIELD] === LOCATION_FROM_VACANCY_TEXT;
+}

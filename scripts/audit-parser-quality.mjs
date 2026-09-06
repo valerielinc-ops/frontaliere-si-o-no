@@ -26,6 +26,7 @@ import {
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
 } from './lib/target-swiss-locations.mjs';
+import { isLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { isRobotsDeniedError, mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
@@ -560,14 +561,23 @@ function wordSet(value) {
  * precisely the generic fallback shape (`swisslog` publishing `Argovia`), and
  * only JSON-LD contradictions are eligible: job-scoped rendered markup IS a
  * workplace declaration, so a disagreement with it stays a finding.
+ *
+ * A third limit is `fields`, and it is what keeps the test from being
+ * circular. Corroboration is evidence only when the haystack is a field the
+ * PARSER did not read: for a locality extracted from the vacancy prose the
+ * description contains it by construction — right value and wrong value alike —
+ * so consulting it would answer `true` for every possible published string.
+ * See `compareSourceDetail`.
  */
-export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
+export function sourceCorroboratesPublishedLocation(detail, publishedLocation, {
+  fields = ['title', 'description'],
+} = {}) {
   const normalizedLocation = normalizePlace(publishedLocation);
   if (normalizedLocation.length < 3) return false;
   // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
   // canton, and only one of the two spellings is in the region set.
   if (SWISS_REGION_NAMES.has(canonicalLocationTokens(publishedLocation).join(' '))) return false;
-  const haystack = normalizePlace(`${detail?.title || ''} ${detail?.description || ''}`);
+  const haystack = normalizePlace(fields.map((field) => detail?.[field] || '').join(' '));
   if (!haystack) return false;
   return ` ${haystack} `.includes(` ${normalizedLocation} `);
 }
@@ -583,20 +593,39 @@ export function compareSourceDetail(job, detail, {
   const sourceWords = wordSet(sourceDescriptionText);
   let overlap = 0;
   for (const word of publishedWords) if (sourceWords.has(word)) overlap++;
+  // The vacancy's own description is not evidence about a locality that was
+  // EXTRACTED from it: the parser declares that provenance per vacancy
+  // (`markLocationDerivedFromVacancyText`), and the field it read is dropped
+  // from the haystack. What remains — the title — is a field no text-rescue
+  // parser derives from, so a pass earned here is still a real observation.
+  const locationFromVacancyText = isLocationDerivedFromVacancyText(job);
+  const corroborationFields = locationFromVacancyText ? ['title'] : ['title', 'description'];
   const publishedCorroboratedBySource = locationEvidence === 'jsonld'
+    && sourceCorroboratesPublishedLocation(detail, publishedLocation, { fields: corroborationFields });
+  const sourceFieldsAgree = sourceLocationMatches(publishedLocation, sourceLocation);
+  const locationMatchesPublished = sourceFieldsAgree || publishedCorroboratedBySource;
+  // Corroborated ONLY by the field the parser derived the value from. Neither a
+  // pass nor a mismatch: the sample cannot discriminate, exactly like a tenant
+  // -constant source location, so it is scored as inconclusive and stays
+  // visible as such instead of being counted as a check the crawler passed.
+  const circularCorroboration = !sourceFieldsAgree
+    && !publishedCorroboratedBySource
+    && locationEvidence === 'jsonld'
+    && locationFromVacancyText
     && sourceCorroboratesPublishedLocation(detail, publishedLocation);
-  const locationMatchesPublished = sourceLocationMatches(publishedLocation, sourceLocation)
-    || publishedCorroboratedBySource;
   const locationChecked = Boolean(publishedLocation)
     && isUsableSourceLocation(sourceLocation)
-    && locationEvidence !== 'generic';
+    && locationEvidence !== 'generic'
+    && !circularCorroboration;
   const observation = {
     location: {
       checked: locationChecked,
       matchesPublished: locationMatchesPublished,
       inconclusive: Boolean(sourceLocation) && !locationChecked,
       evidence: locationEvidence,
-      authority: publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail',
+      authority: circularCorroboration
+        ? 'circular'
+        : (publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail'),
       published: publishedLocation,
       source: sourceLocation,
     },
@@ -932,6 +961,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     locationMatches: 0,
     locationMismatches: 0,
     sourceCorroboratedLocationObservations: 0,
+    circularCorroborationObservations: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
   };
@@ -943,6 +973,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
       descriptionMismatches: 0, unobserved: 0, tenantConstantObservations: 0,
+      circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
     };
     const info = byKey[key];
@@ -994,6 +1025,15 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     } else if (result.locationInconclusive) {
       info.locationInconclusive++;
       sourceDetailSummary.inconclusiveLocationObservations++;
+      // Same treatment as a tenant-constant source location, and for the same
+      // reason: the only thing that spoke for the published value is the field
+      // the parser read it from, so the sample discriminates nothing. Counted
+      // where it can be seen, never as a pass.
+      if (result.locationAuthority === 'circular') {
+        info.circularCorroborationObservations++;
+        sourceDetailSummary.circularCorroborationObservations++;
+        info.unobservedDetails.push(`${sourceReference}: published "${result.publishedLocation}" is named only in the description this crawler derives the locality from, and the source declares "${result.sourceLocation}" — the page corroborates nothing here`);
+      }
     }
     if (result.locationMismatch && !isTenantConstant) {
       info.locationMismatches++;
