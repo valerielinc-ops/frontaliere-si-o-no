@@ -29,7 +29,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 // need the same two primitives to stop emitting duplicate routes in the first
 // place. Re-exported here because this module is their historical home and the
 // callers (tests included) import them from it.
-import { localeRouteKeys, transferSlugHistory } from './lib/expired-jobs-archive.mjs';
+import { localeRouteKeys, normalizeExpiredAtEntries, transferSlugHistory } from './lib/expired-jobs-archive.mjs';
 
 export { localeRouteKeys, transferSlugHistory };
 
@@ -92,7 +92,13 @@ function readSlice(key) {
 }
 
 function readExpiredSlice(key) {
-  return readSliceFrom(EXPIRED_SLICES_DIR, key);
+  const slice = readSliceFrom(EXPIRED_SLICES_DIR, key);
+  // Same ingress repair as the archive writers (#7736): the merge below picks
+  // a component survivor with `compareExpiredAt`, which orders an unparseable
+  // value last by construction — here that decides which payload survives,
+  // downstream it decides who falls off the EXPIRED_JOBS_CAP cut.
+  if (slice) normalizeExpiredAtEntries(slice.jobs, { source: `reconcile-expired-slice/${key}` });
+  return slice;
 }
 
 let activeRollbackJournal = null;
