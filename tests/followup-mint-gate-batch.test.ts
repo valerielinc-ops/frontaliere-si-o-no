@@ -16,7 +16,7 @@
  */
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, chmodSync, rmSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, chmodSync, rmSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,10 +52,23 @@ afterAll(() => { if (binDir) rmSync(binDir, { recursive: true, force: true }); }
 
 describe('gate sul conio — proceed-safe PER ISSUE, non per PR', () => {
   it('una issue illeggibile in mezzo al lotto non porta via le altre', () => {
+    // `GITHUB_STEP_SUMMARY` si eredita dall'ambiente: in CI questo test scriverebbe la
+    // propria riga nel summary REALE del job. Lo punto a un file di scarto e verifico che
+    // resti vuoto — un dry-run non deve scrivere da nessuna parte.
+    const summaryFile = join(binDir, 'step-summary.md');
+    writeFileSync(summaryFile, '');
     const out = execFileSync('node', [GATE], {
       encoding: 'utf-8',
-      env: { ...process.env, PATH: `${binDir}:${process.env.PATH}`, BATCH_PRS: '900', DRY_RUN: '1', GH_REPO: 'o/r' },
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '900',
+        DRY_RUN: '1',
+        GH_REPO: 'o/r',
+        GITHUB_STEP_SUMMARY: summaryFile,
+      },
     });
+    expect(readFileSync(summaryFile, 'utf-8')).toBe('');
     // Le due leggibili sono state giudicate...
     expect(out).toContain('#101 (PR #900)');
     expect(out).toContain('#103 (PR #900)');

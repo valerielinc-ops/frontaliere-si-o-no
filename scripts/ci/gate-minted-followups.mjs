@@ -340,7 +340,11 @@ function main() {
   const demotedTotal = tally.reduce((a, t) => a + t.demoted, 0);
   const summary = `Gate sul conio: ${report.length} issue toccate, ${demotedTotal} item demoti${DRY_RUN ? ' (dry-run)' : ''}.`;
   console.log(summary);
-  if (process.env.GITHUB_STEP_SUMMARY) {
+  // Un dry-run non scrive da NESSUNA parte, nemmeno nel job summary: `GITHUB_STEP_SUMMARY`
+  // si eredita dall'ambiente, quindi qualunque invocazione dry-run dentro un job (il test
+  // di lotto ne fa una) appenderebbe la sua riga al summary reale di quel job — rumore
+  // permanente in CI, e in un posto dove si va a leggere cosa ha fatto il gate davvero.
+  if (process.env.GITHUB_STEP_SUMMARY && !DRY_RUN) {
     fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${report.join('\n')}\n`);
   }
 }
