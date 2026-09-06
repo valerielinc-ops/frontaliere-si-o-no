@@ -5758,6 +5758,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-sciaffusa-deposito-contestazione.title': 'Droit locatif Schaffhouse : dépôt et contestation',
     'blog.article.affitti-sciaffusa-deposito-contestazione.excerpt': 'Dépôt maximum 3 mois, compte lié, résiliation sur formulaire officiel : guide du droit fédéral de la location dans le canton de Schaffhouse avec procédures et délais.',
     'blog.article.affitti-sciaffusa-deposito-contestazione.imageAlt': 'Entrée d\'un immeuble résidentiel suisse avec porte et boîte aux lettres',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.title': 'Acheter une maison dans le canton de Zurich : prix et hypothèque',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.excerpt': 'Découvrez les prix moyens des logements et les exigences de fonds propres dans le canton de Zurich. Planifiez votre achat avec des conseils pratiques.',
+    'blog.article.comprare-casa-zurigo-prezzi-mutuo-ipotecario.imageAlt': 'Vue aérienne d\'un quartier résidentiel moderne à Zurich, Suisse',
 };
 
 export default blogMetaChFr;
