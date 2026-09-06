@@ -58,6 +58,7 @@ import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -76,7 +77,7 @@ const CAREERS_URL = 'https://jobs.axa.ch/?lang=it';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.AXA_MAX_DETAIL_PAGES) || 100000;
+const MAX_DETAIL_PAGES = positiveIntFromEnv('AXA_MAX_DETAIL_PAGES', 100000);
 const DETAIL_DELAY_MS = 300;
 const DETAIL_CONCURRENCY = 4;
 

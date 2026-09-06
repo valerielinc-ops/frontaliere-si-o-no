@@ -51,6 +51,7 @@ import {
 } from './lib/hitachi-energy-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -70,8 +71,8 @@ const LISTING_API = 'https://www.hitachienergy.com/careers/open-jobs/_jcr_conten
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_PAGES = Number(process.env.HITACHI_MAX_PAGES) || 100000; // uncapped — loop breaks on empty items / !hasMorePages
-const MAX_DETAIL_PAGES = Number(process.env.HITACHI_MAX_DETAIL_PAGES) || 100000;
+const MAX_PAGES = positiveIntFromEnv('HITACHI_MAX_PAGES', 100000); // uncapped — loop breaks on empty items / !hasMorePages
+const MAX_DETAIL_PAGES = positiveIntFromEnv('HITACHI_MAX_DETAIL_PAGES', 100000);
 const DETAIL_DELAY_MS = 1200;
 
 function readJson(filePath, fallback) {
