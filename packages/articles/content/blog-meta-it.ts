@@ -11449,6 +11449,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.investimento-busto-arsizio-28enne-ospedale.title': 'Investimento a Busto Arsizio: 28enne trasportato in ospedale',
     'blog.article.investimento-busto-arsizio-28enne-ospedale.excerpt': 'Un incidente stradale a Busto Arsizio ha coinvolto un ragazzo di 28 anni, trasportato in ospedale in codice giallo.',
     'blog.article.investimento-busto-arsizio-28enne-ospedale.imageAlt': 'Ambulanza e polizia a Busto Arsizio',
+    'blog.article.bando-mobilita-prefettura-varese.title': 'Prefettura Varese: bando di mobilità per 6 posti',
+    'blog.article.bando-mobilita-prefettura-varese.excerpt': 'Il Ministero dell\'Interno apre la mobilità volontaria per 6 posizioni a Varese. Scadenza candidature fissata al 30 settembre 2026 tramite il portale inPA.',
+    'blog.article.bando-mobilita-prefettura-varese.imageAlt': 'Uffici della Prefettura di Varese',
 };
 
 export default blogMetaIt;
