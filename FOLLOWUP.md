@@ -102,6 +102,14 @@ Riconosci `live-verify-only` dalle frasi-segnale nell'item (l'azione è SOLO isp
 
 **Override deterministico (presenza di file-path = actionable):** prima di classificare `live-verify-only` sulle frasi-segnale, controlla se il testo dell'item (`Original text` + `## Suggested action`) contiene un **token che è un percorso file editabile** — un path-like che termina in `.tsx` / `.ts` / `.mjs` / `.js` / `.yml` / `.yaml` / `.json` / `.md` / `.css` (es. `scripts/foo.mjs`, `components/Bar.tsx`, `build-plugins/baz.ts`). Se sì → **classifica `actionable`** (resta candidate normale) **a prescindere** dalle frasi-segnale live-verify. Razionale: un item puramente live-verify non nomina mai un file da editare; la presenza di un path è il segnale forte che esiste un'edit concreta, e il giudizio prompt-driven sul "mescola" qui sopra rischia di batchare (= perdere) un fix funnel-critico. Override deterministico, non dipende dal giudizio dell'agente. (Eccezione naturale: un'URL di prod come `/sitemap.xml` non è un path-token editabile — `.xml`/`.html` non sono nella lista, restano live-verify.)
 
+### Hard-exclude: no-acceptance-condition — ora ANCHE un gate deterministico dopo il conio
+
+La regola («un item entra in coda solo se la sua `Suggested action` cita fra backtick almeno un token-codice distintivo») è scritta nel prompt di `post-merge-followup.yml`, e finché è vissuta solo lì è una richiesta a un LLM, non un invariante. Misurato il 2026-09-06 sul sito, ultimi 7 giorni: 164 aggregate coniate, **91 immortali per costruzione (55% = 13,0/giorno)** — 76 senza nemmeno un item falsificabile, 15 con un corpo non spezzabile in item. Una `no-valid-item` non si chiude MAI: `aggregateCloseGate()` la blocca per costruzione, perché chiuderla sarebbe chiudere su evidenza assente (#5849).
+
+Dal 2026-09-06 lo step `Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`, zero-Claude, subito dopo la sessione Claude) rilegge la issue appena creata e applica la regola con lo **stesso** oracolo che poi chiude l'item — `hasFalsifiableAcceptance()` in `scripts/ci/followup-resolution-match.mjs`, importato, mai reimplementato: usarne uno più permissivo in apertura è ciò che ha prodotto la coda immortale (#7587). Gli item che non passano vengono **demoti** — tolti dal corpo, superstiti rinumerati, testo integrale riscritto in un commento sulla PR, esattamente come i `Live-verification` — e la issue viene **soppressa** (chiusa in ingresso) quando non ne resta nessuno. Un corpo senza struttura a item non viene mai soppresso: «non so leggerlo» non è «è vuoto».
+
+Conseguenza pratica per chi conia: un item scritto senza `- Suggested action:` con un token-codice non sopravvive al gate. Scrivi il simbolo, la costante o il path che un `grep` futuro dovrà trovare.
+
 ## Dedup
 
 Tre livelli, in quest'ordine:
