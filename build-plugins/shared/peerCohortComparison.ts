@@ -155,7 +155,16 @@ export interface PeerComparisonLabels {
   heading: string;
   /** Noun phrase for the metric ("le posizioni aperte"), localised, lowercase. */
   metricLabel: string;
-  /** Plural noun for the cohort members ("valichi", "cantoni"), localised. */
+  /**
+   * Plural noun for the cohort members ("valichi", "cantoni"), localised.
+   *
+   * In `de` it must be the DATIVE plural ("Kantonen", "Berufen", i.e. the -n
+   * form), because the German template consumes it inside the prepositional
+   * phrase "Von ${total} vergleichbaren ${peerNoun}", which governs the
+   * dative. The nominative reads as broken grammar on every page of the
+   * family, and it does so silently — this line is the contract, the two
+   * callers of the module diverged on it once (#7596).
+   */
   peerNoun: string;
 }
 

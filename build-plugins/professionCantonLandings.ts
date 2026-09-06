@@ -165,7 +165,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     salaryLink: (r, c) => `${r}-Lohn im Kanton ${c}: brutto, netto und Vergleich`,
     peerHeading: (c) => `Im Vergleich mit den Berufen im Kanton ${c}`,
     peerMetric: 'aktive Stellen',
-    peerNoun: 'Berufe',
+    // Dativo plurale: il template DE del modulo condiviso lo consuma dentro
+    // «Von N vergleichbaren …», sintagma preposizionale che regge il dativo.
+    peerNoun: 'Berufen',
     peerSource: 'Zahlen aus dem Bestand aktiver Stellen, bei jedem Build neu berechnet.',
   },
   fr: {
