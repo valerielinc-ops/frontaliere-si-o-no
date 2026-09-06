@@ -29,8 +29,12 @@ import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCount
 import { enumerateTenants } from './lib/prospector/tenant-enum.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
 import { registrableDomain, tenantLabel } from './lib/prospector/registrable.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
+assertKnownFlags(argv, ['platform', 'platforms', 'max-probe', 'dry-run']);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 

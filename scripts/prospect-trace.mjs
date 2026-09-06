@@ -30,8 +30,12 @@ import { traceCareers, traceFromCareersUrl } from './lib/prospector/careers-trai
 import { registrableDomain } from './lib/prospector/registrable.mjs';
 import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { CONCURRENCY } from './lib/prospector/config.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
+assertKnownFlags(argv, ['key', 'limit', 'source', 'dry-run']);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
