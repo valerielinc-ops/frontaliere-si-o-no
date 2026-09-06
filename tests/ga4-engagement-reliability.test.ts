@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import {
   engagementConsistency,
   dailyEngagementConsistency,
+  fetchDailyEngagementVerdict,
   engagementUnreliableNote,
   engagementUnreliableNoteFromReason,
   GA4_ENGAGED_SESSION_MIN_SECONDS,
@@ -347,5 +348,203 @@ describe('il mirror Apps Script della soglia di affidabilita non drifta', () => 
   it('windowEngagementVerdict interroga GA4 per giornata, non sull aggregato', () => {
     expect(gs).toContain("['date']");
     expect(gs).toContain('engagementConsistency(rows[i][1], rows[i][2], rows[i][3])');
+  });
+});
+
+// #7511: `perf-sources/ga4.mjs` era l'ultimo consumer a emettere il verdetto
+// sulla finestra AGGREGATA (una sola richiesta per `pagePath`), cioè proprio
+// dove la giornata in lag annega. Il blocco dichiarato era `pagePath × date`
+// contro il `limit: 10000` — ma il verdetto di finestra non richiede quel
+// prodotto: basta una seconda richiesta aggregata per sola `date`
+// (~windowDays righe). Qui si pinna che venga emessa e che prevalga.
+describe('fetchGa4ByPage — verdetto engagement per-giorno, non sulla finestra aggregata', () => {
+  const PATH = '/articoli-frontaliere/quadro-frontalieri';
+
+  // Riga per-pagePath COERENTE: da sola darebbe `reliable: true`.
+  const perPathRows = {
+    rows: [
+      {
+        dimensionValues: [{ value: PATH }],
+        metricValues: [{ value: '4306' }, { value: '0.419' }, { value: '172.43' }],
+      },
+    ],
+  };
+
+  const dayRow = (date: string, sessions: number, engaged: number, duration: number) => ({
+    dimensionValues: [{ value: date }],
+    metricValues: [{ value: String(sessions) }, { value: String(engaged) }, { value: String(duration) }],
+  });
+
+  const okRes = (body: unknown) => ({ ok: true, status: 200, json: async () => body, text: async () => '' });
+
+  async function run(second: unknown) {
+    const calls: any[] = [];
+    const fetchImpl = async (_url: string, init: { body: string }) => {
+      const parsed = JSON.parse(init.body);
+      calls.push(parsed);
+      if (calls.length === 1) return okRes(perPathRows);
+      if (second instanceof Error) throw second;
+      return second;
+    };
+    const prev = process.env.GA4_PROPERTY_ID;
+    process.env.GA4_PROPERTY_ID = '524485296';
+    try {
+      const { fetchGa4ByPage } = await import('../scripts/lib/perf-sources/ga4.mjs');
+      const result = await fetchGa4ByPage({
+        windowDays: 30,
+        fetchImpl: fetchImpl as any,
+        getTokenImpl: async () => 'tok',
+      });
+      return { calls, result };
+    } finally {
+      if (prev === undefined) delete process.env.GA4_PROPERTY_ID;
+      else process.env.GA4_PROPERTY_ID = prev;
+    }
+  }
+
+  it('emette due richieste, la seconda aggregata per `date` e senza `pagePath`', async () => {
+    const { calls } = await run(okRes({ rows: [dayRow('20260901', 4306, 1803, 172.43)] }));
+    expect(calls).toHaveLength(2);
+    expect(calls[0].dimensions).toEqual([{ name: 'pagePath' }]);
+    expect(calls[1].dimensions).toEqual([{ name: 'date' }]);
+    expect(calls[1].metrics.map((m: any) => m.name)).toEqual([
+      'sessions',
+      'engagedSessions',
+      'averageSessionDuration',
+    ]);
+    // Stesso filtro newsletter-excluded e stessa finestra della prima.
+    expect(calls[1].dimensionFilter).toEqual(calls[0].dimensionFilter);
+    expect(calls[1].dateRanges).toEqual(calls[0].dateRanges);
+    // Nessun prodotto `pagePath × date`: è il blocco che questa forma evita.
+    expect(calls[1].dimensions).not.toContainEqual({ name: 'pagePath' });
+  });
+
+  it('una sola giornata incoerente marca ogni entry di perPath, benché la riga per-path sia coerente', async () => {
+    const { result } = await run(
+      okRes({
+        rows: [
+          dayRow('20260901', 4306, 1803, 172.43),
+          dayRow('20260902', 3316, 1598, 101),
+          dayRow('20260904', 7943, 125, 236.47), // giornata in lag (#6703)
+        ],
+      }),
+    );
+    const entry = result.perPath.get(PATH);
+    expect(entry.engagementReliable).toBe(false);
+    expect(entry.engagementUnreliableReason).toContain('20260904');
+    expect(result.engagement.unreliableDates).toEqual(['20260904']);
+  });
+
+  it('finestra pulita: il verdetto per-path resta quello che decide', async () => {
+    const { result } = await run(
+      okRes({ rows: [dayRow('20260901', 4306, 1803, 172.43), dayRow('20260902', 3316, 1598, 101)] }),
+    );
+    const entry = result.perPath.get(PATH);
+    expect(entry.engagementReliable).toBe(true);
+    expect(entry.engagementUnreliableReason).toBeNull();
+  });
+
+  it('richiesta per-giorno non-ok: verdetto NON calcolato, non fail-open', async () => {
+    const { result } = await run({ ok: false, status: 429, json: async () => ({}), text: async () => 'quota' });
+    const entry = result.perPath.get(PATH);
+    expect(entry.engagementReliable).toBe(false);
+    expect(entry.engagementUnreliableReason).toContain('verdetto non calcolato');
+    expect(entry.engagementUnreliableReason).toContain('429');
+  });
+
+  it('richiesta per-giorno che lancia: verdetto NON calcolato, e la prima richiesta non va persa', async () => {
+    const { result } = await run(new Error('socket hang up'));
+    expect(result.rows).toBe(1);
+    const entry = result.perPath.get(PATH);
+    expect(entry.engagementReliable).toBe(false);
+    expect(entry.engagementUnreliableReason).toContain('socket hang up');
+  });
+});
+
+// La richiesta per-giorno è identica in ogni consumer che interroga GA4 per
+// pagina (#7511), quindi vive una volta sola qui. Il contratto che i due
+// call-site danno per scontato è pinnato su questo helper.
+describe('fetchDailyEngagementVerdict — richiesta per-giorno condivisa', () => {
+  const dateRanges = [{ startDate: '2026-08-06', endDate: '2026-09-04' }];
+  const filter = { notExpression: { filter: { fieldName: 'sessionMedium' } } };
+
+  it('chiede `date` come unica dimensione e propaga finestra e filtro del report giudicato', async () => {
+    const seen: any[] = [];
+    await fetchDailyEngagementVerdict({
+      runReport: async (body: any) => {
+        seen.push(body);
+        return { ok: true, status: 200, json: async () => ({ rows: [] }) };
+      },
+      dateRanges,
+      dimensionFilter: filter,
+    });
+    expect(seen[0].dimensions).toEqual([{ name: 'date' }]);
+    expect(seen[0].dateRanges).toBe(dateRanges);
+    expect(seen[0].dimensionFilter).toBe(filter);
+  });
+
+  it('omette `dimensionFilter` quando il report giudicato non ne ha uno', async () => {
+    let body: any;
+    await fetchDailyEngagementVerdict({
+      runReport: async (b: any) => ((body = b), { ok: true, status: 200, json: async () => ({ rows: [] }) }),
+      dateRanges,
+    });
+    expect('dimensionFilter' in body).toBe(false);
+  });
+
+  it('non-ok e throw danno entrambi un verdetto negativo, mai un fail-open', async () => {
+    const nonOk = await fetchDailyEngagementVerdict({
+      runReport: async () => ({ ok: false, status: 503, json: async () => ({}) }),
+      dateRanges,
+    });
+    expect(nonOk.reliable).toBe(false);
+    expect(nonOk.reason).toContain('verdetto non calcolato: HTTP 503');
+
+    const threw = await fetchDailyEngagementVerdict({
+      runReport: async () => {
+        throw new Error('socket hang up');
+      },
+      dateRanges,
+    });
+    expect(threw.reliable).toBe(false);
+    expect(threw.reason).toContain('socket hang up');
+  });
+});
+
+// Sibling della stessa classe (#7511): il guardrail A/B leggeva l'engagement
+// sui 7 giorni aggregati delle due pagine, quindi diluiva la giornata in lag
+// esattamente come faceva `perf-sources/ga4.mjs`. `fetchGa4Engagement` non
+// accetta un `fetchImpl` iniettabile, quindi il contratto si pinna sul
+// sorgente — stessa forma dei source-assert qui sopra.
+describe("il guardrail A/B AdSense giudica l'engagement per-giorno", () => {
+  const src = readFileSync(
+    new URL('../scripts/adsense-format-ab-report.mjs', import.meta.url),
+    'utf8',
+  );
+
+  it('riusa la richiesta per-giorno condivisa invece di riscriverla', () => {
+    expect(src).toContain(
+      "import { engagementConsistency, fetchDailyEngagementVerdict } from './lib/ga4-engagement-reliability.mjs';",
+    );
+    expect(src).toContain('const dailyEngagement = await fetchDailyEngagementVerdict({');
+  });
+
+  it('la richiesta per-giorno riusa finestra e filtro della richiesta per-pagina', () => {
+    expect(src).toContain('dateRanges: body.dateRanges,');
+    expect(src).toContain('dimensionFilter: body.dimensionFilter,');
+  });
+
+  it('il verdetto per-giorno prevale su quello del singolo lato', () => {
+    expect(src).toContain('const effective = dailyEngagement.reliable ? verdict : dailyEngagement;');
+    expect(src).toContain('engagementReliable: effective.reliable,');
+    expect(src).toContain('engagementUnreliableReason: effective.reason,');
+  });
+
+  // Non vacuo: i toContain sopra resterebbero verdi anche se il consumer del
+  // verdetto sparisse. Qui si pinna che il delta engagement lo legga ancora.
+  it('il delta engagement/bounce resta omesso quando un lato è inaffidabile', () => {
+    expect(src).toContain(
+      'const engagementUsable = control.engagementReliable !== false && treatment.engagementReliable !== false;',
+    );
   });
 });
