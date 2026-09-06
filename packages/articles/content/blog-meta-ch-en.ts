@@ -5770,6 +5770,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.hotel-lenzerheide-hacker-avviso.title': 'Hotel Schweizerhof hacker attack: 10,000 customers alerted',
     'blog.article.hotel-lenzerheide-hacker-avviso.excerpt': 'The Hotel Schweizerhof in Lenzerheide was the victim of a hacker attack. Approximately 10,000 customers were alerted to possible fraud attempts with a fictitious offer of CHF 250.',
     'blog.article.hotel-lenzerheide-hacker-avviso.imageAlt': 'Swiss luxury hotel with mountain backdrop in alpine golden light',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.title': 'Schaffhausen rentals: average fees and rental rights',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.excerpt': 'Federal rules on leasing apply throughout the Canton of Schaffhausen. Find out about security deposit, rent dispute and conciliation procedures.',
+    'blog.article.sciaffusa-canone-locazione-deposito-guida.imageAlt': 'Swiss residential apartment building with mailboxes and entrance',
 };
 
 export default blogMetaChEn;
