@@ -5734,6 +5734,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-pubblici-vallese-guida.title': 'Trasporti pubblici in Vallese: zone, tariffe e abbonamenti',
     'blog.article.trasporti-pubblici-vallese-guida.excerpt': 'Guida pratica al sistema di mobilità vallesano: come funzionano zone e abbonamenti per pendolari e residenti nel rispetto delle direttive federali.',
     'blog.article.trasporti-pubblici-vallese-guida.imageAlt': 'Treno regionale che attraversa il paesaggio montano del Vallese.',
+    'blog.article.avviare-attivita-vallese-registro-commercio.title': 'Aprire attività Vallese: guida al registro commercio',
+    'blog.article.avviare-attivita-vallese-registro-commercio.excerpt': 'Forma giuridica, iscrizione al registro commercio, tassazione a 3 livelli (federale, cantonale, comunale) e obblighi assicurativi: la procedura completa per avviare un\'attività nel canton Vallese.',
+    'blog.article.avviare-attivita-vallese-registro-commercio.imageAlt': 'Ufficio amministrativo cantone Vallese a Sionne con persone che compilano moduli di iscrizione al registro di commercio',
 };
 
 export default blogMetaChIt;

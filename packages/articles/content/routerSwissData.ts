@@ -1937,6 +1937,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-canton-vallese': { it: 'avs-prestazioni-complementari-canton-vallese', en: 'avs-complementary-benefits-canton-valais', de: 'avs-zusatzleistungen-kanton-wallis', fr: 'avs-prestations-complementaires-canton-valais' },
  'attacco-hacker-schweizerhof': { it: 'attacco-hacker-schweizerhof', en: 'swiss-hotel-hacked', de: 'schweizer-hotel-gehaekt', fr: 'hotel-suisse-pirate' },
  'trasporti-pubblici-vallese-guida': { it: 'trasporti-pubblici-vallese-guida', en: 'public-transport-valais-guide', de: 'oeffentlicher-verkehr-wallis-leitfaden', fr: 'transports-publics-valais-guide' },
+ 'avviare-attivita-vallese-registro-commercio': { it: 'avviare-attivita-vallese-registro-commercio', en: 'start-business-canton-valais-commerce-registry', de: 'betrieb-eroffnen-wallis-handelsregister', fr: 'demarrer-activite-canton-valais-registre-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

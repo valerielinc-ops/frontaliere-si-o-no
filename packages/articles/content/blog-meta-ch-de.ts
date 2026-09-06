@@ -5734,6 +5734,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-pubblici-vallese-guida.title': 'Öffentlicher Verkehr im Wallis: Zonen, Tarife und Abonnements',
     'blog.article.trasporti-pubblici-vallese-guida.excerpt': 'Praktischer Leitfaden zum Walliser Mobilitätssystem: So funktionieren Zonen und Abos für Pendler und Anwohner unter Beachtung der Bundesrichtlinien.',
     'blog.article.trasporti-pubblici-vallese-guida.imageAlt': 'Regionalzug durchquert die Berglandschaft des Wallis.',
+    'blog.article.avviare-attivita-vallese-registro-commercio.title': 'Geschäft eröffnen Wallis: Leitfaden zum Handelsregister',
+    'blog.article.avviare-attivita-vallese-registro-commercio.excerpt': 'Rechtsform, Handelsregistereintrag, dreistufige Besteuerung (eidgenössisch, kantonal, kommunal) und Versicherungspflichten: Das komplette Verfahren zur Aufnahme einer Tätigkeit im Kanton Wallis.',
+    'blog.article.avviare-attivita-vallese-registro-commercio.imageAlt': 'Verwaltungsgebäude des Kantons Wallis in Sitten mit Beamten bei der Bearbeitung von Handelsregistereintragungen',
 };
 
 export default blogMetaChDe;

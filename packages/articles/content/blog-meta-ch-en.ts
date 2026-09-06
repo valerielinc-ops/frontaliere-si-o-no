@@ -5734,6 +5734,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-pubblici-vallese-guida.title': 'Public transport in Valais: zones, fares and season tickets',
     'blog.article.trasporti-pubblici-vallese-guida.excerpt': 'Practical guide to the Valais mobility system: how commuter and resident zones and passes work in compliance with federal directives.',
     'blog.article.trasporti-pubblici-vallese-guida.imageAlt': 'Regional train crossing the mountainous landscape of Valais.',
+    'blog.article.avviare-attivita-vallese-registro-commercio.title': 'Open business Valais: guide to the trade register',
+    'blog.article.avviare-attivita-vallese-registro-commercio.excerpt': 'Legal form, registration in the commercial register, taxation at 3 levels (federal, cantonal, municipal) and insurance obligations: the complete procedure to start a business in the canton of Valais.',
+    'blog.article.avviare-attivita-vallese-registro-commercio.imageAlt': 'Cantonal administrative office in Sion, Valais, with staff processing business registration forms and official documents',
 };
 
 export default blogMetaChEn;
