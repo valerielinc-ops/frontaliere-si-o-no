@@ -3,6 +3,8 @@ import {
   createSmnClinicParser,
   normalizeClinicLabel,
   extractPostingDepartmentLabels,
+  classifyZeroMatchRun,
+  suggestDirectoryLabels,
 } from '../scripts/lib/smn-clinic-job-parser.mjs';
 import {
   matchesHopitalDeMoutierPosting,
@@ -161,5 +163,129 @@ describe('Privatklinik Siloah clinic attribution (issue #3859)', () => {
 
   it('rejects unrelated clinics', () => {
     expect(matchesKlinikSiloahPosting(posting())).toBe(false);
+  });
+});
+
+/**
+ * Issue #7320: a clinic with no current openings and a renamed ATS department
+ * look identical in the postings payload — the configured label is absent in
+ * both cases. Only the tenant department directory tells them apart.
+ */
+describe('classifyZeroMatchRun (drift vs empty board, issue #7320)', () => {
+  const targets = ['clinique de montchoisi'];
+
+  it('reports "matched" when a configured label is in the payload, directory irrelevant', () => {
+    expect(classifyZeroMatchRun({
+      targets,
+      seenLabels: new Set(['clinique de montchoisi', 'motionlab']),
+      directoryLabels: null,
+    })).toBe('matched');
+  });
+
+  it('reports "empty-board" when the department is still live in the directory', () => {
+    expect(classifyZeroMatchRun({
+      targets,
+      seenLabels: new Set(['motionlab', 'swiss visio']),
+      directoryLabels: new Set(['clinique de montchoisi', 'centre medical montchoisi']),
+    })).toBe('empty-board');
+  });
+
+  it('reports "label-drift" only when the department is gone from the directory too', () => {
+    expect(classifyZeroMatchRun({
+      targets,
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: new Set(['centre medical montchoisi', 'clinique de genolier']),
+    })).toBe('label-drift');
+  });
+
+  it('reports "unverified" instead of guessing when the directory is unreachable', () => {
+    expect(classifyZeroMatchRun({
+      targets,
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: null,
+    })).toBe('unverified');
+  });
+
+  it('accepts a city-scoped label as payload evidence ("matched")', () => {
+    expect(classifyZeroMatchRun({
+      targets: ['hopital de moutier', 'reseau de l arc'],
+      directoryTargets: ['hopital de moutier'],
+      seenLabels: new Set(['reseau de l arc']),
+      directoryLabels: new Set(['reseau de l arc']),
+    })).toBe('matched');
+  });
+
+  it('ignores a city-scoped network brand in the DIRECTORY check (drift stays detectable)', () => {
+    // "Réseau de l'Arc" is listed in the tenant directory whatever happens to
+    // Moutier: counting it as evidence would permanently mute drift detection.
+    expect(classifyZeroMatchRun({
+      targets: ['hopital de moutier', 'reseau de l arc'],
+      directoryTargets: ['hopital de moutier'],
+      seenLabels: new Set(['clinique de genolier']),
+      directoryLabels: new Set(['reseau de l arc']),
+    })).toBe('label-drift');
+  });
+
+  it('still reports "empty-board" when the clinic\'s OWN label is in the directory', () => {
+    expect(classifyZeroMatchRun({
+      targets: ['hopital de moutier', 'reseau de l arc'],
+      directoryTargets: ['hopital de moutier'],
+      seenLabels: new Set(['clinique de genolier']),
+      directoryLabels: new Set(['reseau de l arc', 'hopital de moutier']),
+    })).toBe('empty-board');
+  });
+
+  it('falls back to targets when directoryTargets is omitted', () => {
+    expect(classifyZeroMatchRun({
+      targets,
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: new Set(['clinique de montchoisi']),
+    })).toBe('empty-board');
+  });
+
+  it('treats an EMPTY directory as a non-observation, not as drift', () => {
+    // assertJsonListShape warns and returns [] on an unexpected envelope, so an
+    // empty directory cannot be told apart from a degraded fetch.
+    expect(classifyZeroMatchRun({
+      targets,
+      directoryTargets: targets,
+      seenLabels: new Set(['motionlab']),
+      directoryLabels: new Set(),
+    })).toBe('unverified');
+  });
+
+  it('reports "unverified" when the clinic has no own label to check', () => {
+    expect(classifyZeroMatchRun({
+      targets: ['reseau de l arc'],
+      directoryTargets: [],
+      seenLabels: new Set(['clinique de genolier']),
+      directoryLabels: new Set(['reseau de l arc']),
+    })).toBe('unverified');
+  });
+
+  it('defaults to "unverified" on empty input rather than throwing', () => {
+    expect(classifyZeroMatchRun()).toBe('unverified');
+  });
+});
+
+describe('suggestDirectoryLabels', () => {
+  const directory = [
+    { label: 'Centre Médical Montchoisi' },
+    { label: 'Clinique de Genolier' },
+    { label: 'MotionLab' },
+  ];
+
+  it('surfaces rename candidates sharing a significant word', () => {
+    expect(suggestDirectoryLabels(['clinique de montchoisi'], directory))
+      .toEqual(['Centre Médical Montchoisi', 'Clinique de Genolier']);
+  });
+
+  it('ignores short filler words', () => {
+    expect(suggestDirectoryLabels(['de la'], directory)).toEqual([]);
+  });
+
+  it('returns an empty list on empty input', () => {
+    expect(suggestDirectoryLabels([], directory)).toEqual([]);
+    expect(suggestDirectoryLabels(['motionlab'])).toEqual([]);
   });
 });
