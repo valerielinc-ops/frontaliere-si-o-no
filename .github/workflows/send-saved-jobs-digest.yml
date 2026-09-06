@@ -82,3 +82,16 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      # Il rosso del run, DOPO l'apertura della issue: `continue-on-error` sullo
+      # step di invio tiene vivo il job perche' il reporter possa girare, non per
+      # dichiarare verde un run fallito. `close-recovered-failure-issues.yml`
+      # chiude `CI Failure: <workflow>` sulla premessa «ultimo run completato
+      # success dopo l'apertura»: con un run verde per costruzione la issue si
+      # chiude come recuperata al giro dopo, guasto ancora in piedi. Stesso idiom
+      # di `location-quality-audit.yml` (#7379, item 3).
+      - name: Fail job if the send step failed
+        if: steps.send-digest.outcome == 'failure'
+        run: |
+          echo "::error::invio del saved-jobs digest fallito — vedi l'issue aperta sopra."
+          exit 1

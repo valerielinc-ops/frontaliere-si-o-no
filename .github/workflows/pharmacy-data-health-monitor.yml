@@ -80,6 +80,7 @@ jobs:
           node scripts/check-pharmacy-data-health.mjs | tee /tmp/pharmacy-health.txt
 
       - name: Open issue for degraded pharmacy data
+        id: open-issue
         if: steps.check.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -102,6 +103,17 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "${{ github.workflow }}"
+            # Segnala il ramo allo step successivo, che fa fallire il JOB. Uscire
+            # 0 qui lasciava il run VERDE mentre lo script era morto, e il
+            # verdetto del run e' il segnale su cui
+            # `close-recovered-failure-issues.yml` decide la chiusura di questa
+            # issue: «ultimo run completato success e partito dopo l'apertura».
+            # Con un run verde per costruzione quella premessa e' sempre vera al
+            # giro seguente, quindi la issue si chiudeva come «recuperata» anche
+            # con lo script ancora morto (osservatore muto, la classe che questo
+            # monitor esiste per chiudere). Il fallimento va segnalato DOPO
+            # l'apertura della issue, non al posto suo.
+            echo "report_missing=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           # `// []` su OGNI estrazione: questo step gira sotto `set -euo
@@ -142,6 +154,16 @@ jobs:
             --label content-quality \
             --workflow "${{ github.workflow }}"
 
+      # Stesso idiom dei tre `*-locale-audit` / `location-quality-audit`: la issue
+      # la apre lo step precedente (che deve poter girare), il rosso del run lo
+      # mette questo. Senza, `Workflow Failure: pharmacy-data-health-monitor`
+      # resta accoppiata a un run che non e' mai rosso.
+      - name: Fail job if the health report was never written
+        if: steps.open-issue.outputs.report_missing == 'true'
+        run: |
+          echo "::error::dashboard dati farmacie morta prima di scrivere data/pharmacy-data-health-report.json — vedi l'issue aperta sopra."
+          exit 1
+
       - name: Resolve issue on clean dashboard
         if: steps.check.outcome == 'success'
         continue-on-error: true
@@ -162,8 +184,10 @@ jobs:
           if-no-files-found: ignore
           retention-days: 30
 
+      # Esclude il ramo report-mancante: la issue con questo stesso titolo l'ha
+      # gia' aperta lo step sopra, con una diagnosi piu' precisa.
       - name: Report unexpected failure to GitHub Issues
-        if: failure()
+        if: failure() && steps.open-issue.outputs.report_missing != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

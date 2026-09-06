@@ -36,6 +36,7 @@ import {
   finalizeSourceDetailEvidence,
   runSourceDetailChecks,
   finishAudit,
+  SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT,
   filledLocaleCount,
   getSourceDetailImplementationVersions,
   SOURCE_DETAIL_EXTRACTOR_VERSION_FILES,
@@ -1085,6 +1086,69 @@ describe('source-detail fidelity checks', () => {
       errorSpy.mockRestore();
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('unexplained source-detail failure ceiling', () => {
+  /**
+   * The two live runs that stamped the rate, sealed here so the ceiling can
+   * never drift back above the band they define (#7630, item 2). Both are
+   * posterior to the #7536 merge that introduced the measure; the second is
+   * posterior to the #7673 merge, i.e. classified by the code under test.
+   */
+  const LIVE_MEASUREMENTS = [
+    { run: '33997497767', unexplained: 40, requested: 1077, ratePct: 3.714 },
+    { run: '34020480797', unexplained: 36, requested: 1077, ratePct: 3.3426 },
+  ];
+
+  function gate(ratePct: number): number {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-ceiling-'));
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      return finishAudit({ fixture: { total: 1, issues: [], severity: 'OK' } }, {
+        strict: true,
+        outPath: path.join(dir, 'report.json'),
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary: {
+          requested: 1077,
+          fetched: 958,
+          fetchFailed: 119,
+          unexplainedFetchFailures: Math.round((ratePct / 100) * 1077),
+          unexplainedFetchFailureRatePct: ratePct,
+        },
+      });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  it('accepts every rate the live runs actually measured', () => {
+    for (const measurement of LIVE_MEASUREMENTS) {
+      expect(Number((100 * measurement.unexplained / measurement.requested).toFixed(4)))
+        .toBe(measurement.ratePct);
+      expect(measurement.ratePct).toBeLessThan(SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT);
+      expect(gate(measurement.ratePct)).toBe(0);
+    }
+  });
+
+  it('refuses the band the pre-#7630 ceiling accepted', () => {
+    // 4,6 % passed under the 5 % ceiling and fails under this one: without the
+    // tightening this expectation is red, which is the whole point of the item.
+    expect(SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT).toBeLessThan(5);
+    expect(gate(4.6)).toBe(1);
+    expect(gate(5)).toBe(1);
+  });
+
+  it('keeps enough headroom over the worst live run to survive sampling noise', () => {
+    // The sampler draws 2 details per crawler out of 1077, so one crawler is
+    // worth ~0,19 pp: a ceiling pinned to the measurement would flap.
+    const worst = Math.max(...LIVE_MEASUREMENTS.map((m) => m.ratePct));
+    const headroomPct = SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT - worst;
+    expect(headroomPct).toBeGreaterThan(4 * (2 / 1077) * 100);
+    expect(headroomPct).toBeLessThan(1);
   });
 });
 

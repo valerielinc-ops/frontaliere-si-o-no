@@ -5701,6 +5701,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-vallese-requisiti-procedura.title': 'Einbürgerung Kanton Wallis: ordentliches Verfahren',
     'blog.article.naturalizzazione-vallese-requisiti-procedura.excerpt': 'Vom Wohnsitz bis zum Sprach- und Integrationstest: Praktischer Leitfaden zur ordentlichen Einbürgerung im Wallis mit Fristen, Gebühren und Schritt-für-Schritt-Verfahren.',
     'blog.article.naturalizzazione-vallese-requisiti-procedura.imageAlt': 'Alpines Schweizer Gemeindeverwaltungsgebäude mit klassischer Architektur, professionelle Amtsumgebung für Einbürgerungsverfahren.',
+    'blog.article.assegni-familiari-argovia.title': 'Familienzulagen Aargau: Beträge und Antrag',
+    'blog.article.assegni-familiari-argovia.excerpt': 'Vollständige Anleitung: So beantragen Sie Familienzulagen im Kanton Aargau, benötigte Unterlagen, Ausgleichskasse und Schritt-für-Schritt-Verfahren.',
+    'blog.article.assegni-familiari-argovia.imageAlt': 'Aargauer Kantonsamt für Familienleistungen und Familienbeihilfen',
 };
 
 export default blogMetaChDe;
