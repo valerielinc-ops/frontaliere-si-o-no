@@ -46,6 +46,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
@@ -364,27 +365,25 @@ const SECTION_SITEMAPS = {
 
 /**
  * `{ id: {it,en,de,fr} }` out of a registry .ts, or null when the file is not
- * in this checkout. Same regex as scripts/ci/check-blog-slugs-sitemap-sync.mjs
- * — these are TypeScript and this is a plain .mjs script with no TS pipeline.
+ * in this checkout. The parse itself is `scripts/lib/article-slug-registry.mjs`
+ * — this file used to carry a fourth hand-copy of the same regex, which is the
+ * drift the shared reader exists to prevent.
  *
  * Absent ≠ empty: a tree without the corpus (the script's own tests, a fixture
- * run) simply cannot judge and reinstates nothing. A file that EXISTS but
- * parses to zero entries is corrupt and refuses, because treating it as empty
- * would silently stop protecting every article at once.
+ * run) simply cannot judge and reinstates nothing. A file that EXISTS but does
+ * not parse COMPLETELY is corrupt and refuses — not merely one that parses to
+ * zero: a parse that read 200 of 3789 rows would otherwise quietly stop
+ * protecting 94% of the articles, which is the same silence as protecting none.
  */
 function readSlugRegistry(file, constName) {
   const abs = path.join(ROOT, file);
   if (!fs.existsSync(abs)) return null;
-  const src = fs.readFileSync(abs, 'utf-8');
-  const declared = src.match(new RegExp(`const ${constName}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
-  const out = new Map();
-  let m;
-  while ((m = rx.exec(declared)) !== null) {
-    out.set(m[1], { it: m[2], en: m[3], de: m[4], fr: m[5] });
+  const { registry, rows } = readSlugRegistryWithRows(abs, constName);
+  const parsed = Object.entries(registry);
+  if (parsed.length < rows || rows === 0) {
+    fail(`parsed ${parsed.length} of ${rows} ${constName} rows in ${file} — refusing`);
   }
-  if (out.size === 0) fail(`could not parse ${constName} out of ${file} — refusing`);
-  return out;
+  return new Map(parsed);
 }
 
 function readOverrideKeys(file) {

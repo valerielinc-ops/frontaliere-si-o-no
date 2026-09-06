@@ -313,4 +313,34 @@ describe('evaluateCorpusRemoval', () => {
     expect(v.ok).toBe(false);
     expect(v.parseFailures).toHaveLength(4);
   });
+
+  it('fails CLOSED when a registry parses to only PART of the rows in its file', () => {
+    // The failure the absolute floor cannot see: 3789 rows in the file, 200
+    // parsed. That is well over MIN_PARSED_REGISTRY_ENTRIES, so the old check
+    // read it as a corpus — and the 3589 unread ids look like removals nobody
+    // declared, or, on both sides at once, like no removal at all.
+    const big = (n: number) =>
+      Object.fromEntries(
+        Array.from({ length: n }, (_, i) => [
+          `id-${i}`,
+          { it: `it-${i}`, en: `en-${i}`, de: `de-${i}`, fr: `fr-${i}` },
+        ]),
+      );
+    const trees = { frontaliere: big(200), svizzera: big(200) };
+
+    const v = evaluateCorpusRemoval({
+      local: trees,
+      incoming: trees,
+      retiredPaths: emptyLedger,
+      rowCounts: { local: { frontaliere: 3789, svizzera: 200 }, incoming: { frontaliere: 3789, svizzera: 200 } },
+    });
+
+    expect(v.ok).toBe(false);
+    // Only the frontaliere side is short; svizzera parsed every row it had.
+    expect(v.parseFailures.map((f) => `${f.side}/${f.section}`)).toEqual([
+      'local/frontaliere',
+      'incoming/frontaliere',
+    ]);
+    expect(v.parseFailures[0]).toMatchObject({ size: 200, rows: 3789 });
+  });
 });

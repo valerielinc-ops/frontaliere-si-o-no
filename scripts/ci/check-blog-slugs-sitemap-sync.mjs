@@ -18,7 +18,7 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { readSlugRegistry } from '../lib/article-slug-registry.mjs';
+import { readSlugRegistryWithRows } from '../lib/article-slug-registry.mjs';
 import { loadSectionCanonicalOverrides, shadowedArticleIds } from '../lib/article-canonical-overrides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -57,8 +57,24 @@ const SWISS_LOC_PATTERNS = {
 // registries identically: a drift between them would let a removal through the
 // pre-write guard and then redden `main` here — the exact sequence of
 // 2026-08-07 (site commit 10c8c8178, corpus recovery nanako PR #20).
+// Anti-vacuity, and it belongs HERE too: this check only ever reports slugs
+// that are MISSING from a sitemap, so a registry that parsed to nothing (or to
+// part of itself) has nothing to report and the gate goes green — fail-open, in
+// the direction the pre-write guard already refuses on
+// (MIN_PARSED_REGISTRY_ENTRIES). The yardstick is the file's own row count, not
+// a constant: `> 100` on a 3789-row registry stays green with 97% unread.
 function parseSlugsConst(file, constName) {
-  return readSlugRegistry(resolve(root, file), constName);
+  const { registry, rows } = readSlugRegistryWithRows(resolve(root, file), constName);
+  const parsed = Object.keys(registry).length;
+  if (rows === 0 || parsed < rows) {
+    console.error(
+      `❌ ${file}: parsed ${parsed} of ${rows} ${constName} rows — that is a parse failure, ` +
+      "not a corpus. The generator's emit shape most likely changed; fix " +
+      'scripts/lib/article-slug-registry.mjs, or this check is blind.',
+    );
+    process.exit(1);
+  }
+  return registry;
 }
 
 function parseBlogSlugs() {

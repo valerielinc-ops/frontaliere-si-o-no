@@ -50,6 +50,7 @@ import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { ARTICLE_SECTION_CORE_LIST } from '../build-plugins/shared/articleSectionCore.mjs';
+import { parseSlugRegistry } from './lib/article-slug-registry.mjs';
 import {
   ARTICLE_LOCALES,
   ARTICLE_REDIRECTS_FILE,
@@ -388,21 +389,15 @@ function removeFromSeoService(articleId) {
 const SITEMAP_FILE_BY_SECTION = { frontaliere: 'public/sitemap-blog.xml', svizzera: 'public/sitemap-blog-ch.xml' };
 
 // Parses a `const <slugConst>: Record<string, Record<Locale,string>> = { ... }`
-// slug map out of `slugDataFile` (same shape/regex as
-// check-blog-slugs-sitemap-sync.mjs's parseSlugsConst — single source of the
-// parsing convention would require exporting it from a shared module; kept
-// local here to avoid widening that script's surface for these 2 callers).
+// slug map out of `slugDataFile`. The parse is now the shared reader
+// (scripts/lib/article-slug-registry.mjs) instead of a local copy of the regex:
+// the copy pinned the emit order `it,en,de,fr` on one line, so a reordered or
+// wrapped emit made this return `{}` — and an empty slug map here reads as
+// "this article is not in the registry", which is the answer that decides
+// whether an id gets removed.
 // Returns `{ [articleId]: { it, en, de, fr } }`.
 function parseSectionSlugs(slugDataFile, slugConst) {
-  const src = read(slugDataFile);
-  const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
-  const slugs = {};
-  let m;
-  while ((m = rx.exec(block)) !== null) {
-    slugs[m[1]] = { it: m[2], en: m[3], de: m[4], fr: m[5] };
-  }
-  return slugs;
+  return parseSlugRegistry(read(slugDataFile), slugConst);
 }
 
 // Finds which section's registry contains `articleId` (an id lives in
