@@ -233,4 +233,20 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     expect(second.changed).toBe(false);
     expect(second.job).toBe(first);
   });
+
+  it('a locale map that differs only in KEY ORDER is not a change (no slice rewrite)', () => {
+    // Same it/en pairs on both sides, different insertion order — the two
+    // sides build their maps independently, so this is the normal case. The
+    // pre-fix `JSON.stringify(a) !== JSON.stringify(b)` reported a change and
+    // rewrote the job (follow-up #7492, same class as the journal counter).
+    const sliceJob = baseSlice();
+    const assembled = {
+      ...baseSlice(),
+      titleByLocale: { en: 'T', it: 'T' },
+      slugByLocale: { en: 's-en-old', it: 's-it' },
+    };
+    const result = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(result.changed).toBe(false);
+    expect(result.job).toBe(sliceJob);
+  });
 });

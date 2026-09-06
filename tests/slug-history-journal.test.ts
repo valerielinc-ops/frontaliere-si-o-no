@@ -7,6 +7,7 @@ import {
   clear,
   mergePreviousSlugsCapped,
   capSlugArray,
+  restoreExistingSlugIdentity,
 } from '../scripts/lib/slug-history-journal.mjs';
 import {
   addPreviousSlugForLocale,
@@ -170,6 +171,62 @@ describe('slug-history-journal', () => {
     expect(result.mergedSlugs).toBeGreaterThanOrEqual(1);
     expect(active[0].previousSlugsByLocale?.it).toContain('associate-designer-medacta-castel-san-pietro');
     expect(active[0].previousSlugs).toContain('associate-designer-medacta-castel-san-pietro');
+  });
+
+  it('restoreExistingSlugIdentity does not count a restore when only the key ORDER differs', () => {
+    // Same it/en pairs, different insertion order. The pre-fix
+    // `JSON.stringify(a) !== JSON.stringify(b)` check saw a difference and
+    // incremented `restored`, while the per-locale loop — which compares
+    // values field by field — recorded nothing: counter and journal telling
+    // two contradictory stories about the same (non-)restore.
+    const existing = [{
+      id: 'job-order',
+      slug: 'tornitore-acme-lugano',
+      slugByLocale: { en: 'turner-acme-lugano', it: 'tornitore-acme-lugano' },
+    }];
+    const current = [{
+      id: 'job-order',
+      slug: 'tornitore-acme-lugano',
+      slugByLocale: { it: 'tornitore-acme-lugano', en: 'turner-acme-lugano' },
+    }];
+    const { jobs, restored } = restoreExistingSlugIdentity(existing, current);
+    expect(restored).toBe(0);
+    expect(getEvents().filter((e: any) => e.action === 'restore')).toHaveLength(0);
+    expect(jobs[0].slugByLocale).toEqual({ it: 'tornitore-acme-lugano', en: 'turner-acme-lugano' });
+  });
+
+  it('restoreExistingSlugIdentity still counts and journals a real per-locale restore', () => {
+    const existing = [{
+      id: 'job-real',
+      slug: 'tornitore-acme-lugano',
+      slugByLocale: { en: 'lathe-operator-acme-lugano', it: 'tornitore-acme-lugano' },
+    }];
+    const current = [{
+      id: 'job-real',
+      slug: 'tornitore-acme-lugano',
+      slugByLocale: { it: 'tornitore-acme-lugano', en: 'turner-acme-lugano' },
+    }];
+    const { jobs, restored } = restoreExistingSlugIdentity(existing, current);
+    expect(restored).toBe(1);
+    const restores = getEvents().filter((e: any) => e.action === 'restore');
+    expect(restores).toHaveLength(1);
+    expect(restores[0]).toMatchObject({ jobId: 'job-real', locale: 'en', slug: 'lathe-operator-acme-lugano' });
+    expect(jobs[0].slugByLocale.en).toBe('lathe-operator-acme-lugano');
+  });
+
+  it('restoreExistingSlugIdentity journals one event per differing locale, counter once', () => {
+    const existing = [{
+      id: 'job-two',
+      slugByLocale: { it: 'tornitore-acme', en: 'lathe-operator-acme', de: 'dreher-acme' },
+    }];
+    const current = [{
+      id: 'job-two',
+      slugByLocale: { de: 'turner-acme', en: 'turner-acme', it: 'tornitore-acme' },
+    }];
+    const { restored } = restoreExistingSlugIdentity(existing, current);
+    expect(restored).toBe(1);
+    const restores = getEvents().filter((e: any) => e.action === 'restore');
+    expect(restores.map((e: any) => e.locale)).toEqual(['de', 'en']);
   });
 
   it('cleanPreviousSlugsPerLocale only drops matches against the same locale active slug', () => {
