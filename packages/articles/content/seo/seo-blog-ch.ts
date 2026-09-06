@@ -74588,6 +74588,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-vallese-dichiarazione': {
+    title: 'Imposta di successione nel Vallese: aliquote e dichiarazione',
+    description: 'Scopri come funziona l\'imposta di successione e donazione nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e figli, dichiarazione e termini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, vallese, aliquote',
+    ogTitle: 'Imposta di successione nel Vallese: aliquote e dichiarazione',
+    ogDescription: 'L\'imposta di successione e donazione nel Vallese: come funziona la tassazione per grado di parentela, quali sono le esenzioni per coniuge e discendenti, come e quando dichiarare. Guida completa.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-vallese-dichiarazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione nel Vallese: aliquote e dichiarazione",
+      "description": "Scopri come funziona l'imposta di successione e donazione nel Vallese: aliquote per grado di parentela, esenzioni per coniuge e figli, dichiarazione e termini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-vallese-dichiarazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di un tradizionale villaggio vallesano con architettura in pietra e montagne alpine."
+      },
+      "datePublished": "2026-09-06T14:55:30+00:00",
+      "dateModified": "2026-09-06T14:55:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-vallese-dichiarazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;
