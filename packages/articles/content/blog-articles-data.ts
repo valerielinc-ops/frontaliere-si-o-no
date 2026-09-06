@@ -34248,6 +34248,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giussano-como-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-09-06T12:42:47.007Z',
+ image: '/images/blog/giussano-como-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
