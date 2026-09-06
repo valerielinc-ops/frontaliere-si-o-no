@@ -353,8 +353,16 @@ export const RESERVED_EVENTS_SEGMENT_RE = /^page-\d+$/;
 /** Append `suffix` to a freshly minted segment that lands on the reserved
  *  ladder shape. No comune of `data/canton-municipalities.json` (0 of 2110) and
  *  no crawled event title normalizes to `page-N` today, so this never rewrites
- *  a live URL — it only makes the collision unrepresentable. */
-function reserveLadderShape(slug, suffix) {
+ *  a live URL — it only makes the collision unrepresentable.
+ *
+ *  Exported because the minter is not the only place a segment is FINISHED:
+ *  `assignEventSlugs()` (build-plugins/eventsSeoPagesPlugin.ts) breaks ties
+ *  with an incrementing `-N` suffix AFTER `slugifyEvent()`, so a dateless
+ *  event titled `Page` (base `page`, correctly not reserved) would otherwise
+ *  hand its second peer-group sibling the slug `page-2` — exactly
+ *  `overflowLadderPath(locale, canton, comune, 2)`. A guard that only runs in
+ *  the minter is a guard the dedup step walks around. */
+export function reserveLadderShape(slug, suffix) {
   return RESERVED_EVENTS_SEGMENT_RE.test(slug) ? `${slug}-${suffix}` : slug;
 }
 
