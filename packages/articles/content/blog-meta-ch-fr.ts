@@ -5638,6 +5638,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-vallese-importi.title': 'Allocations familiales Valais : montants et procédure de demande',
     'blog.article.assegni-familiari-vallese-importi.excerpt': 'Dans le canton du Valais, les allocations familiales s\'élèvent à 300 CHF par mois et par enfant, et à 440 CHF pour l\'allocation de formation après 16 ans.',
     'blog.article.assegni-familiari-vallese-importi.imageAlt': 'Documents relatifs aux prestations sociales et allocations familiales dans le canton du Valais.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Système scolaire canton du Valais : guide des cycles et des inscriptions',
+    'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Découvrez le fonctionnement de l\'enseignement obligatoire en Valais : de la structure des cycles scolaires aux procédures pratiques d\'inscription pour les familles.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Bâtiment scolaire moderne dans le canton du Valais',
 };
 
 export default blogMetaChFr;

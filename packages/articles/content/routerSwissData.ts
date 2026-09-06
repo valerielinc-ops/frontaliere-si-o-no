@@ -1905,6 +1905,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-breve-durata-canton-vallese': { it: 'permesso-l-breve-durata-canton-vallese', en: 'short-term-permit-canton-valais', de: 'kurzfristige-bewilligung-kanton-wallis', fr: 'permis-de-courte-duree-canton-valais' },
  'assegni-familiari-canton-vallese': { it: 'assegni-familiari-canton-vallese', en: 'family-allowances-canton-valais', de: 'familienzulagen-kanton-wallis', fr: 'allocations-familiales-canton-valais' },
  'assegni-familiari-vallese-importi': { it: 'assegni-familiari-vallese-importi', en: 'valais-family-allowances-amounts', de: 'familienzulagen-kanton-wallis-betraege', fr: 'allocations-familiales-valais-montants' },
+ 'istruzione-obbligatoria-canton-vallese': { it: 'istruzione-obbligatoria-canton-vallese', en: 'compulsory-education-canton-valais', de: 'schulpflicht-kanton-wallis', fr: 'scolarite-obligatoire-canton-valais' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

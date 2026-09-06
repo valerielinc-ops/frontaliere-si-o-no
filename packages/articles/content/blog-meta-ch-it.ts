@@ -5638,6 +5638,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-vallese-importi.title': 'Assegni familiari Vallese: importi e procedura di domanda',
     'blog.article.assegni-familiari-vallese-importi.excerpt': 'Nel Canton Vallese gli assegni familiari ammontano a CHF 300 mensili per figlio, salendo a CHF 440 per l\'assegno di formazione dopo i 16 anni.',
     'blog.article.assegni-familiari-vallese-importi.imageAlt': 'Documenti relativi alle prestazioni sociali e assegni familiari nel Canton Vallese.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Sistema scolastico Cantone Vallese: guida a cicli e iscrizioni',
+    'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Scopri come funziona l\'istruzione obbligatoria nel Vallese: dalla struttura dei cicli scolastici alle procedure pratiche di iscrizione per le famiglie.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Edificio scolastico moderno nel Cantone Vallese',
 };
 
 export default blogMetaChIt;

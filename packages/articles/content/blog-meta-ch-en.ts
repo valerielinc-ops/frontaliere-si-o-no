@@ -5638,6 +5638,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-vallese-importi.title': 'Valais family allowances: amounts and application procedure',
     'blog.article.assegni-familiari-vallese-importi.excerpt': 'In the Canton of Valais, family allowances amount to CHF 300 per month per child, rising to CHF 440 for the training allowance after the age of 16.',
     'blog.article.assegni-familiari-vallese-importi.imageAlt': 'Documents related to social benefits and family allowances in the Canton of Valais.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Canton of Valais school system: guide to cycles and enrolments',
+    'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Find out how compulsory education works in Valais: from the structure of school cycles to practical enrolment procedures for families.',
+    'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Modern school building in the Canton of Valais',
 };
 
 export default blogMetaChEn;
