@@ -5692,6 +5692,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-svizzera-prospeta.title': 'Neutrality rhymes with prosperity',
     'blog.article.neutralita-svizzera-prospeta.excerpt': 'Lorenzo Quadri discusses the importance of Swiss neutrality and its economic and political implications.',
     'blog.article.neutralita-svizzera-prospeta.imageAlt': 'Aerial view of Mendrisio, Switzerland, focusing on the city\'s architecture and natural surroundings.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Management of the first AVS pillar in the Canton of Basel-Country',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'The Canton of Basel-Country manages the first AVS pillar with a cantonal compensation fund, guaranteeing the minimum of life.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Swiss landscape with focus on AVS system and complementary benefits',
 };
 
 export default blogMetaChEn;

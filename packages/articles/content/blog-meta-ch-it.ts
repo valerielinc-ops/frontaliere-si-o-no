@@ -5692,6 +5692,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralita-svizzera-prospeta.title': 'Neutralità fa rima con prosperità',
     'blog.article.neutralita-svizzera-prospeta.excerpt': 'Lorenzo Quadri discute l\'importanza della neutralità svizzera e le sue implicazioni economiche e politiche.',
     'blog.article.neutralita-svizzera-prospeta.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con focus sull\'architettura e gli ambienti naturali.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Gestione del primo pilastro AVS nel Cantone di Basilea Campagna',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'Il Cantone di Basilea Campagna gestisce il primo pilastro AVS con una cassa di compensazione cantonale, garantendo il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Paesaggio svizzero con focus sul sistema AVS e prestazioni complementari',
 };
 
 export default blogMetaChIt;
