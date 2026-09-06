@@ -32,8 +32,61 @@
  * Share the dataset-boundary threshold (#3789) so both gates move together.
  * @returns {number}
  */
-function systemicRatio() {
+export function systemicRatio() {
   return Number(process.env.JOBS_SYSTEMIC_INVALID_RATIO) || 0.5;
+}
+
+/**
+ * Population below which a rejection RATIO says nothing about drift (#7702,
+ * follow-up of #7609).
+ *
+ * A ratio needs a sample. On a listing of three rows, two vacancies the source
+ * legitimately places abroad read as 67% — over the 50% systemic threshold —
+ * and the valve suppresses the one live Swiss vacancy too, which is the exact
+ * traffic loss #7459 closed, just restricted to small tenants. Measured on the
+ * jobup.ch feed tenants the follow-up names: six of the eight publish four
+ * records or fewer (`city-pop` 1, `josef-mueller` 1, `cham-swiss-properties`
+ * 2, `croix-rouge-fribourgeoise` 4, `pole-sante-pays-enhaut` 4, `dic-sa` 0;
+ * only `cnp` 25 and `fondation-soins-lausanne` 11 are large), so on this
+ * source family the ratio is below its own sample floor most of the time.
+ *
+ * Same idiom the sibling gates in `dedicated-crawler-common.mjs` already use
+ * (`JOBS_SYSTEMIC_MIN_TOTAL` on the thin-source ratio, `BOILERPLATE_MIN_ELIGIBLE`
+ * at the dataset boundary): below the floor the signal is too weak to brick a
+ * whole batch.
+ * @returns {number}
+ */
+export function systemicMinObserved() {
+  return Number(process.env.JOBS_SYSTEMIC_MIN_OBSERVED) || 6;
+}
+
+/**
+ * Minimum ABSOLUTE number of rejections a systemic verdict needs.
+ *
+ * Expressed as "what the ratio would demand on the smallest listing where the
+ * ratio means anything" instead of a second cliff at `observed >= floor`: with
+ * the defaults (50% of 6) that is 3, so 2-of-3 and 2-of-4 quarantine per record
+ * and keep publishing the siblings, while 3-of-5 and 3-of-6 still fail closed
+ * exactly as today. Never below the historical 2 — one outlier is never drift.
+ * @returns {number}
+ */
+export function systemicMinRejections() {
+  return Math.max(2, Math.ceil(systemicRatio() * systemicMinObserved()));
+}
+
+/**
+ * The shared systemic verdict: rejections stopped looking like individual
+ * outliers and started looking like the parser or the configured headquarters
+ * having drifted.
+ *
+ * @param {number} rejectedCount how many records the gate rejected
+ * @param {number} denominator how many records the gate actually judged
+ * @returns {boolean}
+ */
+export function isSystemicRejection(rejectedCount, denominator) {
+  if (rejectedCount < systemicMinRejections()) return false;
+  const ratio = denominator > 0 ? rejectedCount / denominator : 1;
+  return ratio >= systemicRatio();
 }
 
 /**
@@ -87,7 +140,7 @@ export function createSourceRecordQuarantine({ label, total }) {
 
       const denominator = observed || total;
       const ratio = denominator > 0 ? rejected.length / denominator : 1;
-      const systemic = rejected.length >= 2 && ratio >= systemicRatio();
+      const systemic = isSystemicRejection(rejected.length, denominator);
       if (systemic || !jobs.length) {
         const sample = rejected.slice(0, 5).map((r) => `- ${r.id}: ${r.reason}`).join('\n');
         console.log(
