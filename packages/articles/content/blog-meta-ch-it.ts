@@ -5731,6 +5731,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attacco-hacker-schweizerhof.title': 'Attacco hacker all\'hotel, allertati circa 10\'000 clienti',
     'blog.article.attacco-hacker-schweizerhof.excerpt': 'L\'Hotel Schweizerhof di Lenzerheide è stato vittima di un attacco hacker. Circa 10\'000 clienti sono stati allertati.',
     'blog.article.attacco-hacker-schweizerhof.imageAlt': 'Immagine di un hotel svizzero con un computer hackerato in primo piano',
+    'blog.article.trasporti-pubblici-vallese-guida.title': 'Trasporti pubblici in Vallese: zone, tariffe e abbonamenti',
+    'blog.article.trasporti-pubblici-vallese-guida.excerpt': 'Guida pratica al sistema di mobilità vallesano: come funzionano zone e abbonamenti per pendolari e residenti nel rispetto delle direttive federali.',
+    'blog.article.trasporti-pubblici-vallese-guida.imageAlt': 'Treno regionale che attraversa il paesaggio montano del Vallese.',
 };
 
 export default blogMetaChIt;

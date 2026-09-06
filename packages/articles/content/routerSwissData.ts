@@ -1936,6 +1936,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-canton-argovia-requisiti-e-procedura': { it: 'naturalizzazione-canton-argovia-requisiti-e-procedura', en: 'naturalization-canton-aargau-requirements-and-procedure', de: 'einbuergerung-kanton-aargau-voraussetzungen-und-verfahren', fr: 'naturalisation-canton-argovie-conditions-et-procedure' },
  'avs-prestazioni-complementari-canton-vallese': { it: 'avs-prestazioni-complementari-canton-vallese', en: 'avs-complementary-benefits-canton-valais', de: 'avs-zusatzleistungen-kanton-wallis', fr: 'avs-prestations-complementaires-canton-valais' },
  'attacco-hacker-schweizerhof': { it: 'attacco-hacker-schweizerhof', en: 'swiss-hotel-hacked', de: 'schweizer-hotel-gehaekt', fr: 'hotel-suisse-pirate' },
+ 'trasporti-pubblici-vallese-guida': { it: 'trasporti-pubblici-vallese-guida', en: 'public-transport-valais-guide', de: 'oeffentlicher-verkehr-wallis-leitfaden', fr: 'transports-publics-valais-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
