@@ -471,3 +471,34 @@ describe('newsletter partner rows survive an unknown locale', () => {
     expect([...produced].sort()).toEqual(Object.keys(PARTNER_DESC).sort());
   });
 });
+
+// Stessa classe, template LIVE: `services/newsletter-template.mjs` ha i suoi
+// lookup per-locale (`nlT`, DATE_LOCALE, monthNames) e i test esistenti
+// (newsletter-locale-leakage) li esercitano solo sui quattro locali
+// supportati. Un iscritto con `locale` fuori da quell'insieme — o nullo, che
+// in DB capita — deve ricevere l'italiano, mai la stringa `undefined`.
+describe('live newsletter template survives an unknown locale', () => {
+  const buildLive = (locale: unknown) => buildNewsletter({
+    aiBriefing: '<p>Test.</p>',
+    exchangeRate: SAMPLE_EXCHANGE,
+    matchedJobs: SAMPLE_JOBS,
+    featuredTool: SAMPLE_TOOL,
+    weeklyFact: SAMPLE_FACT,
+    locale,
+    unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+    resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+  });
+
+  it('never prints the literal "undefined", in any locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr', 'es', 'es-ES', 'zh-CN', 'pt_BR', '', undefined, null]) {
+      expect(buildLive(locale), `locale=${String(locale)}`).not.toContain('undefined');
+    }
+  });
+
+  it('falls back to the Italian copy outside it|en|de|fr', () => {
+    for (const locale of ['es', 'es-ES', 'zh-CN', 'pt_BR', '', undefined, null]) {
+      const html = buildLive(locale);
+      expect(html, `locale=${String(locale)}`).toContain('lang="it"');
+    }
+  });
+});

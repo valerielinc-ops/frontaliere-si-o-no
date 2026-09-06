@@ -466,3 +466,32 @@ describe('buildBriefEmail', () => {
     expect(built.html).toContain('una volta a settimana');
   });
 });
+
+// Stessa classe di #7528, altro template: i lookup per-locale di
+// `daily-brief-template.mjs` (`I18N[locale] || I18N.it`, `DATE_LOCALE[locale]`)
+// hanno un fallback che nessun test attraversava — la copertura dell'I18N era
+// misurata solo sui quattro locali supportati, mai su un locale ignoto ne'
+// sull'artefatto che un buco produce: la stringa `undefined` spedita
+// all'iscritto.
+describe('daily brief email survives an unknown locale', () => {
+  const UNKNOWN_LOCALES: unknown[] = ['es', 'es-ES', 'zh-CN', 'pt_BR', '', undefined, null];
+
+  it('never prints the literal "undefined", in any locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr', ...UNKNOWN_LOCALES]) {
+      const { html } = build({ locale, brief: ORDINARY });
+      expect(html, `locale=${String(locale)}`).not.toContain('undefined');
+    }
+  });
+
+  it('falls back to the Italian copy outside it|en|de|fr', () => {
+    const italian = build({ locale: 'it', brief: ORDINARY }).html;
+    // La riga di cadenza e' la stessa stringa I18N che i quattro locali
+    // differenziano: se il fallback cade, qui esce il testo di un'altra lingua
+    // o niente.
+    const cadence = cadenceSentence('it', 1);
+    expect(italian).toContain(cadence);
+    for (const locale of UNKNOWN_LOCALES) {
+      expect(build({ locale, brief: ORDINARY }).html, `locale=${String(locale)}`).toContain(cadence);
+    }
+  });
+});
