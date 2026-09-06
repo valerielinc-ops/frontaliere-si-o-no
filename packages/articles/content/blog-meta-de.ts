@@ -11471,6 +11471,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-sumirago-frontaliere.title': 'Leben in Sumirago, Arbeiten im Tessin: Grenzüberschreitendes Fahren',
     'blog.article.vivere-sumirago-frontaliere.excerpt': 'Praktischer Leitfaden für das Leben in Sumirago und das Arbeiten im Tessin: Genehmigungen, Grenzbesteuerung, Verwaltungsverfahren und was vor dem Umzug zu beachten ist.',
     'blog.article.vivere-sumirago-frontaliere.imageAlt': 'Provinzstraße an der Grenze zwischen Varese und dem Tessin mit schweizer Straßenschildern',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno frontier: Leitfaden zu Kosten und Gebühren 2024',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'Ab 2024 beträgt die Selbstbeteiligung für neue Grenzgänger € 10.000. Wie man in Garzeno lebt und im Tessin arbeitet: Quellensteuer, G-Genehmigung, AHV, KVG und praktische Verfahren.',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Blick auf den Luganersee von der Schweizer Seite, mit lombardischen Dörfern jenseits der Grenze sichtbar—Symbol des Grenzpendels.',
 };
 
 export default blogMetaDe;

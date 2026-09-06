@@ -11473,6 +11473,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-sumirago-frontaliere.title': 'Vivere a Sumirago, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-sumirago-frontaliere.excerpt': 'Guida pratica per vivere a Sumirago e lavorare in Ticino: permessi, tassazione frontaliere, procedure amministrative e cosa considerare prima del trasferimento.',
     'blog.article.vivere-sumirago-frontaliere.imageAlt': 'Strada provinciale al confine tra la provincia di Varese e il Ticino con segnaletica svizzera e paesaggio montano',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno frontaliere: guida a costi e tasse 2024',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'Dal 2024 la franchigia per i nuovi frontalieri è €10.000. Come vivere a Garzeno e lavorare in Ticino: imposta alla fonte, permesso G, AVS, LAMal e procedure pratiche.',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Veduta del Lago di Lugano dal Ticino svizzero, con villages lombardi sullo sfondo, simbolo del pendolarismo transfrontaliero tra la Svizzera e l\'Italia.',
 };
 
 export default blogMetaIt;

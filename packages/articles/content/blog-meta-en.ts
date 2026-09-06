@@ -11472,6 +11472,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-sumirago-frontaliere.title': 'Living in Sumirago, working in Ticino: border guide',
     'blog.article.vivere-sumirago-frontaliere.excerpt': 'Practical guide to living in Sumirago and working in Ticino: permits, border taxation, administrative procedures and what to consider before transferring.',
     'blog.article.vivere-sumirago-frontaliere.imageAlt': 'Provincial road at the Varese-Ticino border with Swiss road signs and Alpine landscape',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.title': 'Garzeno border: cost and tax guide 2024',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.excerpt': 'From 2024, the deductible for new frontier workers is €10,000. How to live in Garzeno and work in Ticino: tax at source, G permit, AVS, LAMal and practical procedures.',
+    'blog.article.garzeno-ticino-trasferimento-frontaliere.imageAlt': 'Lake Como view from Swiss Ticino, showing Lombardy villages across the border, a symbol of daily commuting between Switzerland and Italy.',
 };
 
 export default blogMetaEn;

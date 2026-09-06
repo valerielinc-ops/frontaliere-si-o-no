@@ -34266,6 +34266,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'garzeno-ticino-trasferimento-frontaliere',
+ category: 'fiscale',
+ date: '2026-09-06T15:02:57.418Z',
+ image: '/images/blog/garzeno-ticino-trasferimento-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
