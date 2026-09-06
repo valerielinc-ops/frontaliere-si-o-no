@@ -223,6 +223,12 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign } = {}) 
   if (acquisitionSource) params.set('as', String(acquisitionSource));
 
   if (rec.kind === 'affiliate' && rec.goId) {
+    // Placement slot, same shape as the newsletter partner rows
+    // (`nl-partner-<n>-<id>` in scripts/newsletter-template.mjs): utm_campaign
+    // says WHICH email, `pos` says WHERE inside it the click came from, so two
+    // links to the same /go/{id}/ stay attributable. The /go/ page is a static
+    // redirect that ignores the query today — the param is inert until it reads it.
+    params.set('pos', `nl-recommended-${rec.goId}`);
     // goPathFromId already carries the canonical trailing slash before the query.
     return `${BASE_URL}${goPathFromId(rec.goId)}?${params.toString()}`;
   }

@@ -346,3 +346,44 @@ describe('directUrl helper', () => {
     expect(url).toContain('frontaliereticino.ch');
   });
 });
+
+// Le tre righe partner puntano tutte a `/go/{id}/` con gli stessi utm: senza un
+// parametro di posizione non si sa quale slot converte (#7527).
+describe('affiliate partner rows carry their position', () => {
+  const buildPartnerNewsletter = async () => {
+    const { buildNewsletter: buildLegacy } = await import('../scripts/newsletter-template.mjs');
+    return buildLegacy({
+      aiBriefing: '<p>Test.</p>',
+      exchangeRate: SAMPLE_EXCHANGE,
+      matchedJobs: SAMPLE_JOBS,
+      featuredTool: SAMPLE_TOOL,
+      weeklyFact: SAMPLE_FACT,
+      locale: 'it',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+    });
+  };
+
+  const goHrefs = (html: string) =>
+    [...html.matchAll(/href="(https:\/\/frontaliereticino\.ch\/go\/[^"]+)"/g)].map((m) => m[1]);
+
+  it('gives each /go/ row a distinct pos parameter', async () => {
+    const hrefs = goHrefs(await buildPartnerNewsletter());
+    expect(hrefs).toHaveLength(3);
+    const positions = hrefs.map((h) => new URL(h).searchParams.get('pos'));
+    expect(positions.every(Boolean)).toBe(true);
+    expect(new Set(positions).size).toBe(3);
+  });
+
+  it('encodes slot index + partner id, and keeps the utm params intact', async () => {
+    const hrefs = goHrefs(await buildPartnerNewsletter());
+    const positions = hrefs.map((h) => new URL(h).searchParams.get('pos'));
+    expect(positions).toEqual(['nl-partner-1-wise', 'nl-partner-2-fineco', 'nl-partner-3-creditagricole']);
+    for (const href of hrefs) {
+      const params = new URL(href).searchParams;
+      expect(params.get('utm_source')).toBe('newsletter');
+      expect(params.get('utm_medium')).toBe('email');
+      expect(params.get('utm_campaign')).toMatch(/^weekly_\d{4}-\d{2}-\d{2}$/);
+    }
+  });
+});
