@@ -1111,6 +1111,15 @@ describe('promotion gate', () => {
     expect(bodySignature(`${chrome} posto uno`)).toBe(bodySignature(`${chrome} posto uno`));
   });
 
+  it('ignora il rumore per-richiesta in coda: N copie della stessa pagina firmano uguale', () => {
+    // La coda dei layout server-rendered porta data, ora e contatore visite
+    // diversi a ogni richiesta. Senza normalizzarli, quattro copie della stessa
+    // pagina danno quattro firme e `detailDistinctRate` legge 1.00.
+    const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
+    const copy = (n: number) => `${shell} ultimo aggiornamento 05.09.2026 1${n}:0${n} visite ${1000 + n}`;
+    expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
+  });
+
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
     // `null` = misurato, byte illeggibili. Diverso da assente.
     const pdf = graded(2);
