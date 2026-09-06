@@ -1918,6 +1918,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-grigioni-mutuo-imposte': { it: 'comprare-casa-grigioni-mutuo-imposte', en: 'buy-house-grisons-mortgage-taxes', de: 'haus-kaufen-graubuenden-hypothek-steuern', fr: 'acheter-maison-grisons-hypotheque-impots' },
  'apprendistato-formazione-canton-vallese': { it: 'apprendistato-formazione-canton-vallese', en: 'apprenticeship-training-canton-valais', de: 'lehre-ausbildung-kanton-wallis', fr: 'apprentissage-formation-canton-valais' },
  'grigioni-deposito-garanzia-locazione': { it: 'grigioni-deposito-garanzia-locazione', en: 'grisons-deposit-guarantee-rental', de: 'graubuenden-kaution-miete', fr: 'grisons-depot-garantie-location' },
+ 'borse-studio-vallese-requisiti': { it: 'borse-studio-vallese-requisiti', en: 'vallese-scholarships-requirements', de: 'wallis-stipendien-anforderungen', fr: 'vallese-bourses-etudes-conditions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

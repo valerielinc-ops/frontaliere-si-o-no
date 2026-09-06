@@ -5677,6 +5677,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-deposito-garanzia-locazione.title': 'Affitti Grigioni: canoni medi e diritto locazione',
     'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Guida completa al diritto di locazione in Grigioni: canoni, deposito cauzionale, disdetta e contestazione secondo le norme federali svizzere.',
     'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Via residenziale in una città alpina svizzera con edifici di appartamenti moderni e tipica architettura elvetica.',
+    'blog.article.borse-studio-vallese-requisiti.title': 'Borse di studio canton Vallese: come ottenerle',
+    'blog.article.borse-studio-vallese-requisiti.excerpt': 'Guida alle borse di studio nel canton Vallese: requisiti generali, dove cercare informazioni e come presentare domanda alle autorità cantonali.',
+    'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Studenti che studiano all\'aperto in un paesaggio alpino svizzero con montagne sullo sfondo.',
 };
 
 export default blogMetaChIt;

@@ -5677,6 +5677,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-deposito-garanzia-locazione.title': 'Rentals in Graubünden: average fees and rental law',
     'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Complete guide to the right to rent in Graubünden: fees, security deposit, cancellation and dispute according to Swiss federal rules.',
     'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Residential street in a Swiss Alpine town with modern apartment buildings and typical Swiss architecture.',
+    'blog.article.borse-studio-vallese-requisiti.title': 'Canton Valais Scholarships: how to get them',
+    'blog.article.borse-studio-vallese-requisiti.excerpt': 'Guide to scholarships in the canton of Valais: general requirements, where to look for information and how to apply to the cantonal authorities.',
+    'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Students studying outdoors in a Swiss Alpine landscape with mountains in the background.',
 };
 
 export default blogMetaChEn;
