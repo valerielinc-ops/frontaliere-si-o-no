@@ -5629,6 +5629,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.polizia-operazione-goldach.title': 'Allarme a una festa scolastica: maxi operazione di polizia',
     'blog.article.polizia-operazione-goldach.excerpt': 'Le forze dell’ordine hanno ricevuto segnalazioni di «presunti spari» a scuola e lavorano per evacuare le circa 300 persone presenti.',
     'blog.article.polizia-operazione-goldach.imageAlt': 'Polizia presente a una festa scolastica a Goldach',
+    'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Permesso L di breve durata nel Canton Vallese: validità e proroga',
+    'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'Il permesso L di breve durata nel Cantone di Vallese ha una validità massima di 1 anno e può essere prorogato solo in casi specifici.',
+    'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Vista aerea della città di Sion nel canton Vallese, Svizzera',
 };
 
 export default blogMetaChIt;

@@ -73067,6 +73067,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-canton-vallese': {
+    title: 'Permesso L di breve durata nel Canton Vallese: validità e proroga',
+    description: 'Scopri la validità e le condizioni di proroga del permesso L di breve durata nel Cantone di Vallese. Informazioni utili per lavoratori stranieri e datori',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, breve, durata, canton',
+    ogTitle: 'Permesso L di breve durata nel Canton Vallese: validità e proroga',
+    ogDescription: 'Il permesso L di breve durata nel Cantone di Vallese ha una validità massima di 1 anno e può essere prorogato solo in casi specifici. Scopri di più sulle condizioni e le implicazioni pratiche.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-canton-vallese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L di breve durata nel Canton Vallese: validità e proroga",
+      "description": "Scopri la validità e le condizioni di proroga del permesso L di breve durata nel Cantone di Vallese. Informazioni utili per lavoratori stranieri e datori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-canton-vallese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della città di Sion nel canton Vallese, Svizzera"
+      },
+      "datePublished": "2026-09-06T01:34:18+00:00",
+      "dateModified": "2026-09-06T01:34:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-canton-vallese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

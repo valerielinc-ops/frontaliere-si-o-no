@@ -5629,6 +5629,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.polizia-operazione-goldach.title': 'Alarm auf einer Schulfeier: Maxi-Polizeieinsatz',
     'blog.article.polizia-operazione-goldach.excerpt': 'Die Ordnungskräfte haben Berichte über „mutmaßliche Schüsse“ in der Schule erhalten und arbeiten daran, die rund 300 anwesenden Personen zu evakuieren.',
     'blog.article.polizia-operazione-goldach.imageAlt': 'Polizei anwesend bei einer Schulparty in Goldach',
+    'blog.article.permesso-l-breve-durata-canton-vallese.title': 'Kurzzeitbewilligung L im Kanton Wallis: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-breve-durata-canton-vallese.excerpt': 'Die Kurzzeitbewilligung L im Kanton Wallis ist maximal 1 Jahr gültig und kann nur in Einzelfällen verlängert werden.',
+    'blog.article.permesso-l-breve-durata-canton-vallese.imageAlt': 'Luftaufnahme der Stadt Sion im Kanton Wallis, Schweiz',
 };
 
 export default blogMetaChDe;
