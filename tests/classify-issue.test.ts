@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
+import { classifyIssue, isFixerExempt, FIXER_EXEMPT_LABELS } from '../scripts/lib/classify-issue.mjs';
 
 describe('classifyIssue', () => {
   const cases: Array<{
@@ -94,6 +94,53 @@ describe('classifyIssue', () => {
   it("nessuna categoria produce più route='none' (era il branch 'umano' pre-estensione)", () => {
     for (const c of cases) {
       expect(classifyIssue(c.title, c.labels).route).not.toBe('none');
+    }
+  });
+});
+
+/**
+ * Pin fuori dal ciclo (#7648). `keep-open` vietava l'auto-close del reconcile ma
+ * non la PROMOZIONE al fixer: #7648 nasce dichiarando nel body «senza
+ * agent:fix-queued/agent:fix», ha attraversato triage → coda → `agent:fix` e ha
+ * speso un run Max su un'attesa che nessun turn-budget può chiudere (due review
+ * esterne, Meta e TikTok). Stessa asimmetria di `agent:no-age-out`, che #5544
+ * aveva chiuso solo nel pool del PARKED-RETRY del drainer.
+ */
+describe('classifyIssue — pin fuori dal ciclo di fix', () => {
+  it('keep-open → route none / autofix false, categoria invariata', () => {
+    const out = classifyIssue('Instagram/TikTok publishing: attivare i poster', ['follow-up', 'funnel-seo', 'keep-open']);
+    expect(out.category).toBe('follow-up'); // la categoria resta leggibile
+    expect(out.route).toBe('none');
+    expect(out.autofix).toBe(false);
+    expect(out.fuPrio).toBeNull(); // niente priorità di coda: non è in coda
+  });
+
+  it('agent:no-age-out → nemmeno un crawler pinnato viene instradato a agent:fix', () => {
+    // Senza il pin questo titolo è l'unica categoria a route diretto.
+    expect(classifyIssue('[crawler-health] X broken', ['parser-broken']).route).toBe('fix');
+    expect(classifyIssue('[crawler-health] X broken', ['parser-broken', 'agent:no-age-out']).route).toBe('none');
+  });
+
+  it('le label del veto auto-close che NON pinnano restano instradate', () => {
+    // `pinned`/`do-not-close` dicono «non chiudere», non «non riparare»;
+    // `revenue`/`tracker` sono in coda per decisione del proprietario (2026-07-05).
+    for (const l of ['pinned', 'do-not-close', 'revenue', 'tracker']) {
+      expect(classifyIssue('follow-up(#1): qualcosa', ['follow-up', l]).route).toBe('queue');
+    }
+  });
+
+  it('isFixerExempt accetta sia stringhe sia oggetti label GitHub, case-insensitive', () => {
+    expect(isFixerExempt(['keep-open'])).toBe(true);
+    expect(isFixerExempt([{ name: 'Keep-Open' }])).toBe(true);
+    expect(isFixerExempt([{ name: 'agent:no-age-out' }, { name: 'bug' }])).toBe(true);
+    expect(isFixerExempt(['follow-up', 'funnel-seo'])).toBe(false);
+    expect(isFixerExempt([])).toBe(false);
+    expect(isFixerExempt(undefined as unknown as string[])).toBe(false);
+  });
+
+  it('ogni label esente produce davvero route none (nessun drift fra lista e comportamento)', () => {
+    for (const l of FIXER_EXEMPT_LABELS) {
+      expect(classifyIssue('follow-up(#1): qualcosa', ['follow-up', l]).route).toBe('none');
     }
   });
 });

@@ -1620,6 +1620,28 @@ export function isReparkableCandidate(iss) {
   if (isPermanentTracker(iss)) return false;                   // tracker permanente (#5615/#5544)
   return reparkGenOf(iss) < MAX_REPARK_GEN;                    // generation-cap
 }
+/**
+ * Ammissione al pool del RESCUE CRAWLER (#5514), sulle sole label (puro, niente
+ * `gh`) → testabile. È il COMPLEMENTO esatto di `stuckFix` dentro `agent:fix`:
+ * chi non è queue-managed, non è già in coda/parcheggiato/escalato, e non è un
+ * padre decomposto.
+ *
+ * L'esclusione dei pin (`isFixerExempt`) non è ridondante ed è la ragione per
+ * cui questo filtro vive qui invece che inline: «non queue-managed» significava
+ * «crawler» finché `classifyIssue` restituiva solo `fix`/`queue`. Da quando un
+ * pin `keep-open`/`agent:no-age-out` porta `route='none'` (#7648), il
+ * complemento è «i crawler PIÙ i pinnati», e senza il guard il rescue crawler
+ * ri-armerebbe con `agent:fix` proprio le issue che il pin toglie dal ciclo —
+ * per la sola ragione che non sono in coda.
+ * @param {{number?: number, title?: string, labels?: Array<{name:string}>}} iss
+ */
+export function isCrawlerRescueCandidate(iss) {
+  if (isQueueManaged(iss)) return false;      // quelli li prende `stuckFix`
+  if (isFixerExempt(names(iss))) return false; // pin fuori dal ciclo (#7648)
+  if (has(iss, LBL_QUEUED) || has(iss, LBL_PARKED) || has(iss, 'needs-human')) return false;
+  return !isDecomposedParent(iss);
+}
+
 /** WF-scope = il fix toccherebbe .github/workflows (capability-guard) → non
  * auto-fixabile. Riusa `detectWorkflowScoped` (stesso detector di
  * `check-workflows-scope.mjs`, vedi `scripts/lib/workflow-scope-detect.mjs`)
@@ -2700,15 +2722,7 @@ export function runDrain() {
   // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
   // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
   // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
-  // `!isQueueManaged` è il complemento di `stuckFix`, e da quando un pin
-  // `keep-open`/`agent:no-age-out` porta `route='none'` quel complemento non è
-  // più «i crawler» ma «i crawler PIÙ i pinnati»: senza questa esclusione il
-  // rescue crawler ri-armerebbe proprio le issue che il pin toglie dal ciclo,
-  // per la sola ragione che non sono queue-managed (#7648).
-  const crawlerFix = rescueSafe ? allFix.filter(
-    (i) => !isQueueManaged(i) && !isFixerExempt(names(i)) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !has(i, 'needs-human')
-      && !isDecomposedParent(i)
-  ) : [];
+  const crawlerFix = rescueSafe ? allFix.filter(isCrawlerRescueCandidate) : [];
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza
   // queue→listing di alcuni secondi). In entrambi i casi lo slot issue-fix è
