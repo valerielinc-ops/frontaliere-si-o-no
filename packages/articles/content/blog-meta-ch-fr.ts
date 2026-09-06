@@ -5773,6 +5773,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sciaffusa-canone-locazione-deposito-guida.title': 'Location Schaffhouse : loyers moyens et droit de location',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.excerpt': 'Les règles fédérales de location s\'appliquent dans tout le canton de Schaffhouse. Découvrez le dépôt de garantie, la contestation de la redevance et les procédures de conciliation.',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.imageAlt': 'Immeuble résidentiel suisse avec boîtes aux lettres et entrée',
+    'blog.article.beloved-richieste-settantina.title': 'Fondation Beloved : soixante-dix demandes reçues',
+    'blog.article.beloved-richieste-settantina.excerpt': 'La fondation Beloved a reçu 70 demandes des victimes de l\'incendie de Crans-Montana. Fournit un soutien psychologique, financier et de réadaptation.',
+    'blog.article.beloved-richieste-settantina.imageAlt': 'Vue panoramique de Crans-Montana en Valais avec les Alpes enneigées en arrière-plan',
 };
 
 export default blogMetaChFr;

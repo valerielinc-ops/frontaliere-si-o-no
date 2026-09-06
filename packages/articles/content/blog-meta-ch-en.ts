@@ -5773,6 +5773,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sciaffusa-canone-locazione-deposito-guida.title': 'Schaffhausen rentals: average fees and rental rights',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.excerpt': 'Federal rules on leasing apply throughout the Canton of Schaffhausen. Find out about security deposit, rent dispute and conciliation procedures.',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.imageAlt': 'Swiss residential apartment building with mailboxes and entrance',
+    'blog.article.beloved-richieste-settantina.title': 'Beloved Foundation: seventy requests received',
+    'blog.article.beloved-richieste-settantina.excerpt': 'The Beloved foundation received 70 requests from the victims of the Crans-Montana fire. Provides psychological, financial and rehabilitative support.',
+    'blog.article.beloved-richieste-settantina.imageAlt': 'Panoramic view of Crans-Montana in Valais with snow-covered Alpine peaks in the background',
 };
 
 export default blogMetaChEn;

@@ -5773,6 +5773,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sciaffusa-canone-locazione-deposito-guida.title': 'Mieten Schaffhausen: Durchschnittsmieten und Mietrecht',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.excerpt': 'Die eidgenössischen Mietregeln gelten im ganzen Kanton Schaffhausen. Entdecken Sie die Kaution, die Anfechtung der Gebühr und das Schlichtungsverfahren.',
     'blog.article.sciaffusa-canone-locazione-deposito-guida.imageAlt': 'Schweizer Wohngebäude mit Briefkästen und Eingang',
+    'blog.article.beloved-richieste-settantina.title': 'Beloved-Stiftung: Siebzig Anfragen eingegangen',
+    'blog.article.beloved-richieste-settantina.excerpt': 'Die Stiftung Beloved erhielt 70 Anträge von den Opfern des Brandes in Crans-Montana. Bietet psychologische, finanzielle und rehabilitative Unterstützung.',
+    'blog.article.beloved-richieste-settantina.imageAlt': 'Blick auf Crans-Montana im Wallis mit schneebedeckten Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;
