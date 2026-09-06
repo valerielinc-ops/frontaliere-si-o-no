@@ -5695,6 +5695,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Gestion du premier pilier AVS dans le canton de Bâle-Campagne',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'Le canton de Bâle-Campagne gère le premier pilier AVS avec une caisse de compensation cantonale, garantissant le minimum vital.',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Paysage suisse avec focus sur le système AVS et les prestations complémentaires',
+    'blog.article.beloved-aiuto-vittime-crans-montana.title': 'Aide aux victimes : 70 demandes à la Fondation Beloved',
+    'blog.article.beloved-aiuto-vittime-crans-montana.excerpt': 'La Fondation Beloved, créée par le canton du Valais, a traité 70 demandes d\'aide. Jusqu\'à présent pas de refus, versez des dizaines de milliers de francs.',
+    'blog.article.beloved-aiuto-vittime-crans-montana.imageAlt': 'Bureau de fondation avec personnel offrant soutien psychologique et financier aux victimes en Suisse',
 };
 
 export default blogMetaChFr;

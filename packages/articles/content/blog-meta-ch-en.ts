@@ -5695,6 +5695,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Management of the first AVS pillar in the Canton of Basel-Country',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'The Canton of Basel-Country manages the first AVS pillar with a cantonal compensation fund, guaranteeing the minimum of life.',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Swiss landscape with focus on AVS system and complementary benefits',
+    'blog.article.beloved-aiuto-vittime-crans-montana.title': 'Aid to victims: 70 requests to the Beloved Foundation',
+    'blog.article.beloved-aiuto-vittime-crans-montana.excerpt': 'The Beloved Foundation, established by the Canton of Valais, handled 70 requests for help. So far no refusal, you pay tens of thousands of francs.',
+    'blog.article.beloved-aiuto-vittime-crans-montana.imageAlt': 'Foundation office with staff providing psychological and financial support to victims in Switzerland',
 };
 
 export default blogMetaChEn;
