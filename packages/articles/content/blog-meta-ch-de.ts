@@ -5737,6 +5737,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-attivita-vallese-registro-commercio.title': 'Geschäft eröffnen Wallis: Leitfaden zum Handelsregister',
     'blog.article.avviare-attivita-vallese-registro-commercio.excerpt': 'Rechtsform, Handelsregistereintrag, dreistufige Besteuerung (eidgenössisch, kantonal, kommunal) und Versicherungspflichten: Das komplette Verfahren zur Aufnahme einer Tätigkeit im Kanton Wallis.',
     'blog.article.avviare-attivita-vallese-registro-commercio.imageAlt': 'Verwaltungsgebäude des Kantons Wallis in Sitten mit Beamten bei der Bearbeitung von Handelsregistereintragungen',
+    'blog.article.conversione-patente-vallese.title': 'Umtausch ausländischer Führerscheine im Kanton Wallis: Fahren',
+    'blog.article.conversione-patente-vallese.excerpt': 'Umwandlungspflicht des ausländischen Führerscheins innerhalb von 12 Monaten für Neubürger im Wallis: Hier das Verfahren und die von der kantonalen Behörde geforderten Unterlagen.',
+    'blog.article.conversione-patente-vallese.imageAlt': 'Schweizer Führerschein auf einem Holztisch',
 };
 
 export default blogMetaChDe;

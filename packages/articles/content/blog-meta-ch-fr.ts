@@ -5737,6 +5737,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-attivita-vallese-registro-commercio.title': 'Ouvrir activité Valais : guide du registre du commerce',
     'blog.article.avviare-attivita-vallese-registro-commercio.excerpt': 'Forme juridique, inscription au registre du commerce, taxation à 3 niveaux (fédéral, cantonal, communal) et obligations d\'assurance : la procédure complète pour démarrer une activité dans le canton du Valais.',
     'blog.article.avviare-attivita-vallese-registro-commercio.imageAlt': 'Bureau administratif cantonal du Valais à Sion avec employés traitant les demandes d\'immatriculation au registre du commerce',
+    'blog.article.conversione-patente-vallese.title': 'Conversion permis étranger dans le canton du Valais : guide',
+    'blog.article.conversione-patente-vallese.excerpt': 'Obligation de conversion du permis étranger dans les 12 mois pour les nouveaux résidents en Valais : voici la procédure et les documents requis par l\'autorité cantonale.',
+    'blog.article.conversione-patente-vallese.imageAlt': 'Permis de conduire suisse sur une table en bois',
 };
 
 export default blogMetaChFr;

@@ -5737,6 +5737,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-attivita-vallese-registro-commercio.title': 'Aprire attività Vallese: guida al registro commercio',
     'blog.article.avviare-attivita-vallese-registro-commercio.excerpt': 'Forma giuridica, iscrizione al registro commercio, tassazione a 3 livelli (federale, cantonale, comunale) e obblighi assicurativi: la procedura completa per avviare un\'attività nel canton Vallese.',
     'blog.article.avviare-attivita-vallese-registro-commercio.imageAlt': 'Ufficio amministrativo cantone Vallese a Sionne con persone che compilano moduli di iscrizione al registro di commercio',
+    'blog.article.conversione-patente-vallese.title': 'Conversione patente estera nel Cantone Vallese: guida',
+    'blog.article.conversione-patente-vallese.excerpt': 'Obbligo di conversione della patente estera entro 12 mesi per i nuovi residenti nel Vallese: ecco la procedura e i documenti richiesti dall\'autorità cantonale.',
+    'blog.article.conversione-patente-vallese.imageAlt': 'Patente di guida svizzera su un tavolo di legno',
 };
 
 export default blogMetaChIt;

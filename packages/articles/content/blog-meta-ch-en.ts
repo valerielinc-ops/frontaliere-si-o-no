@@ -5737,6 +5737,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-attivita-vallese-registro-commercio.title': 'Open business Valais: guide to the trade register',
     'blog.article.avviare-attivita-vallese-registro-commercio.excerpt': 'Legal form, registration in the commercial register, taxation at 3 levels (federal, cantonal, municipal) and insurance obligations: the complete procedure to start a business in the canton of Valais.',
     'blog.article.avviare-attivita-vallese-registro-commercio.imageAlt': 'Cantonal administrative office in Sion, Valais, with staff processing business registration forms and official documents',
+    'blog.article.conversione-patente-vallese.title': 'Foreign driver\'s license conversion in the Valais Canton: guide',
+    'blog.article.conversione-patente-vallese.excerpt': 'Obligation to convert the foreign license within 12 months for new residents in Valais: here is the procedure and documents required by the cantonal authority.',
+    'blog.article.conversione-patente-vallese.imageAlt': 'Swiss driver\'s license on a wooden table',
 };
 
 export default blogMetaChEn;
