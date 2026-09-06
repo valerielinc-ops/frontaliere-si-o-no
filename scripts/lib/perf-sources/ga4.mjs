@@ -6,7 +6,7 @@
 // digits too, we prefix on the fly).
 
 import { windowDates } from './safe.mjs';
-import { engagementConsistency, dailyEngagementConsistency } from '../ga4-engagement-reliability.mjs';
+import { engagementConsistency, fetchDailyEngagementVerdict } from '../ga4-engagement-reliability.mjs';
 
 const SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
 
@@ -32,47 +32,6 @@ async function getToken({ fetchImpl = fetch } = {}) {
 function normalizePropertyId(raw) {
   if (!raw) return null;
   return raw.startsWith('properties/') ? raw : `properties/${raw}`;
-}
-
-/**
- * Verdetto di finestra a partire dalle sue giornate (una sola richiesta GA4
- * aggregata per `date`, senza `pagePath`).
- *
- * Su errore NON si fa fail-open: «verdetto non calcolato» è un verdetto
- * negativo, non un'assenza (stesso contratto di `analytics-report.mjs`, #7508).
- * Un `reliable: true` di default lascerebbe passare come buono proprio il caso
- * in cui la rilevazione è rotta.
- */
-async function fetchDailyEngagement({ runReport, start, end, dimensionFilter }) {
-  const notComputed = (cause) => ({
-    reliable: false,
-    reason: `verdetto non calcolato: ${cause}`,
-    unreliableDates: [],
-  });
-  try {
-    const res = await runReport({
-      dateRanges: [{ startDate: start, endDate: end }],
-      dimensions: [{ name: 'date' }],
-      metrics: [
-        { name: 'sessions' },
-        { name: 'engagedSessions' },
-        { name: 'averageSessionDuration' },
-      ],
-      dimensionFilter,
-    });
-    if (!res.ok) return notComputed(`HTTP ${res.status}`);
-    const data = await res.json();
-    return dailyEngagementConsistency(
-      (data.rows || []).map((r) => ({
-        date: r.dimensionValues?.[0]?.value || '?',
-        sessions: Number(r.metricValues?.[0]?.value || 0),
-        engagedSessions: Number(r.metricValues?.[1]?.value || 0),
-        averageSessionDuration: Number(r.metricValues?.[2]?.value || 0),
-      })),
-    );
-  } catch (err) {
-    return notComputed(err && err.message ? err.message : String(err));
-  }
 }
 
 /**
@@ -137,7 +96,11 @@ export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTo
   const data = await res.json();
   const rows = data.rows || [];
 
-  const dailyEngagement = await fetchDailyEngagement({ runReport, start, end, dimensionFilter: newsletterExcluded });
+  const dailyEngagement = await fetchDailyEngagementVerdict({
+    runReport,
+    dateRanges: requestBody.dateRanges,
+    dimensionFilter: newsletterExcluded,
+  });
 
   const perPath = new Map();
   for (const r of rows) {
