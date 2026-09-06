@@ -5725,6 +5725,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Naturalizzazione nel Canton Argovia: requisiti e procedura',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Scopri i requisiti e la procedura per ottenere la naturalizzazione nel Canton Argovia, inclusi anni di residenza, test di integrazione e tasse.',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Panoramica della città di Aarau, capitale del Canton Argovia, Svizzera',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.title': 'AVS e prestazioni complementari nel Canton Vallese: guida pratica',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.excerpt': 'Scopri come funziona l\'AVS e le prestazioni complementari nel Canton Vallese, con focus sulla cassa di compensazione cantonale e il calcolo della rendita.',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.imageAlt': 'Vista panoramica del Lago di Lugano con il Monte San Salvatore',
 };
 
 export default blogMetaChIt;

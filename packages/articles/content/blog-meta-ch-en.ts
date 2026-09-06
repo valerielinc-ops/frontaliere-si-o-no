@@ -5725,6 +5725,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.title': 'Naturalization in the Canton of Aargau: requirements and procedure',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.excerpt': 'Learn about the requirements and procedure for obtaining naturalization in the Canton of Aargau, including years of residence, integration tests, and taxes.',
     'blog.article.naturalizzazione-canton-argovia-requisiti-e-procedura.imageAlt': 'Panoramic view of Aarau, capital of the canton of Aargau, Switzerland',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.title': 'AVS and complementary services in the Canton of Valais: practical guide',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.excerpt': 'Find out how the AVS and complementary services work in the Canton of Valais, with a focus on the cantonal compensation fund and the calculation of the annuity.',
+    'blog.article.avs-prestazioni-complementari-canton-vallese.imageAlt': 'Panoramic view of Lake Lugano with Monte San Salvatore',
 };
 
 export default blogMetaChEn;

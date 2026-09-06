@@ -17173,6 +17173,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-canton-vallese',
+    category: 'pensione',
+    date: '2026-09-06T11:27:45.394Z',
+    image: '/images/blog/avs-prestazioni-complementari-canton-vallese.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
