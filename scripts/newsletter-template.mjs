@@ -217,9 +217,16 @@ function nlT(locale, key) {
   return NL_TRANSLATIONS[lang]?.[key] || NL_TRANSLATIONS.it[key] || key;
 }
 
-function utmUrl(path, campaign) {
+function utmUrl(path, campaign, extraParams) {
   const sep = path.includes('?') ? '&' : '?';
-  return `${BASE_URL}${path}${sep}utm_source=newsletter&utm_medium=email&utm_campaign=${campaign}`;
+  // `extraParams` porta gli identificatori che utm non copre — oggi `pos`, lo
+  // slot di piazzamento della riga (vedi renderAffiliatePartners): senza, due
+  // link allo stesso `/go/{id}/` dallo stesso invio sono indistinguibili.
+  const extra = Object.entries(extraParams || {})
+    .filter(([, v]) => v !== undefined && v !== null && v !== '')
+    .map(([k, v]) => `&${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+    .join('');
+  return `${BASE_URL}${path}${sep}utm_source=newsletter&utm_medium=email&utm_campaign=${campaign}${extra}`;
 }
 
 function escapeHtml(str) {
@@ -504,13 +511,24 @@ const AFFILIATE_PARTNERS_NL = [
   { emoji: '🏦', name: 'Crédit Agricole', desc: { it: 'Buono Amazon 50€ con invito', en: '€50 Amazon voucher with invite', de: '50€ Amazon-Gutschein mit Einladung', fr: 'Bon Amazon 50€ avec invitation' }, goUrl: '/go/creditagricole/' },
 ];
 
+/** `/go/wise/` → `wise` — id stabile del partner per il parametro di posizione. */
+function goIdFromPath(goUrl) {
+  return String(goUrl).replace(/^\/+go\/+/, '').replace(/\/+$/, '') || 'unknown';
+}
+
 function renderAffiliatePartners({ campaign, locale }) {
-  const rows = AFFILIATE_PARTNERS_NL.map(p => {
+  const rows = AFFILIATE_PARTNERS_NL.map((p, i) => {
     const desc = p.desc[locale] || p.desc.it;
+    // Posizione della riga nel blocco: `nl-partner-<indice 1-based>-<id>`.
+    // L'indice viene dall'ordine di AFFILIATE_PARTNERS_NL, cioe' dall'ordine
+    // in cui le righe compaiono nell'email, quindi lo slot resta identificabile
+    // anche se il partner che lo occupa cambia. La pagina /go/{id}/ oggi ignora
+    // la query (redirect statico) — il parametro e' inerte finche' non lo legge.
+    const pos = `nl-partner-${i + 1}-${goIdFromPath(p.goUrl)}`;
     return `
       <tr>
         <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
-          <a target="_blank" rel="noopener noreferrer" href="${utmUrl(p.goUrl, campaign)}" style="text-decoration:none;">
+          <a target="_blank" rel="noopener noreferrer" href="${utmUrl(p.goUrl, campaign, { pos })}" style="text-decoration:none;">
             <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${p.emoji} ${escapeHtml(p.name)}</div>
             <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${escapeHtml(desc)}</div>
           </a>

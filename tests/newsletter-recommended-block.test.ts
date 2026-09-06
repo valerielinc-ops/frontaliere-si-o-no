@@ -47,6 +47,8 @@ describe('recommendedBlock selection', () => {
     expect(href).toContain('utm_medium=email');
     expect(href).toContain('utm_campaign=weekly');
     expect(href).toContain('as=weather-hub');
+    // Placement slot: utm_campaign dice quale email, `pos` dove dentro (#7527).
+    expect(new URL(href).searchParams.get('pos')).toBe(`nl-recommended-${rec!.goId}`);
   });
 
   it('lets a paid sponsor win over affiliate partners', () => {
