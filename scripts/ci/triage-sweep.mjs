@@ -288,6 +288,16 @@ function main() {
         continue;
       }
 
+      // Pin fuori dal ciclo (`FIXER_EXEMPT_LABELS`, #7648): tracker su causa
+      // esterna. Il ramo finale (`route === 'queue' || 'fix'`) già non la
+      // instraderebbe, ma in silenzio e a ogni sweep: esplicitarlo la conta come
+      // marked-only invece di lasciarla indistinguibile da un buco del router.
+      if (route === 'none') {
+        console.log(`#${n} triaged-no-route pin fuori dal ciclo (keep-open/agent:no-age-out) → skip.`);
+        markedOnly++;
+        continue;
+      }
+
       if (!PAT) {
         routeDeferredNoPat++;
         console.log(`::warning::#${n} triaged-no-route route=${route} GITHUB_PAT assente → skip, retry al prossimo sweep.`);
