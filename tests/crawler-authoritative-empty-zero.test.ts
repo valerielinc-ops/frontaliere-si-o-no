@@ -6,7 +6,11 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
-import { parseVacancyCountTab, parseVacancyLinks } from '../scripts/lib/jobs-ch-company-pages.mjs';
+import {
+  collectJobsChVacancyUrls,
+  parseVacancyCountTab,
+  parseVacancyLinks,
+} from '../scripts/lib/jobs-ch-company-pages.mjs';
 import { umantisListingStatesEmpty } from '../scripts/lib/umantis-empty-listing.mjs';
 import {
   fetchAllGimArchitektenJobs,
@@ -235,6 +239,51 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
       },
     })).rejects.toThrow(/503/);
     expect(call).toBe(1);
+  });
+
+  it('a retired profile id degrades to the employer\'s surviving profile instead of hard-downing the run', async () => {
+    // jobs.ch keeps two profile ids per employer and retires the legacy one when
+    // it feels like it. Propagating that 404 made the crawler break on EVERY
+    // run — publishing nothing at all, and reopening a `[crawler-health]` issue
+    // every week — while the surviving profile answered 200 the whole time.
+    let call = 0;
+    const { vacancyUrls, provenEmpty } = await collectJobsChVacancyUrls(
+      [{ path: '49929-gone', label: 'GIM Architekten AG (legacy id)' }, { path: '70650-alive', label: GIM_ARCHITEKTEN_COMPANY_NAME }],
+      {
+        fetchPage: async () => {
+          call += 1;
+          if (call === 1) throw Object.assign(new Error('HTTP 404 from jobs.ch'), { status: 404 });
+          return gimProfile(1, ['aaaaaaaa-1111-2222-3333-444444444444']);
+        },
+      },
+    );
+    expect(call).toBe(2);
+    expect(vacancyUrls).toEqual(['https://www.jobs.ch/en/vacancies/detail/aaaaaaaa-1111-2222-3333-444444444444/']);
+    // "Gone" is not "empty": the surviving profile's zero would speak only for
+    // itself, so the proof stays withheld.
+    expect(provenEmpty).toBe(false);
+  });
+
+  it('a retired profile id never lets the surviving profile\'s zero become the proof', async () => {
+    let call = 0;
+    const jobs = await fetchAllGimArchitektenJobs({
+      fetchPage: async () => {
+        call += 1;
+        if (call === 1) throw Object.assign(new Error('HTTP 410 from jobs.ch'), { status: 410 });
+        return gimProfile(0);
+      },
+    });
+    expect(call).toBe(2);
+    expect(jobs).toEqual([]);
+    expect(publishesProvenZero(jobs, GIM_ARCHITEKTEN_COMPANY_NAME)).toBe(false);
+  });
+
+  it('an employer whose every profile is gone is still a break, not a degrade', async () => {
+    // Degrading needs something left to degrade to. With no page at all, an
+    // empty unproven result is indistinguishable from a quiet week.
+    await expect(fetchAllGimArchitektenJobs({
+      fetchPage: async () => { throw Object.assign(new Error('HTTP 404 from jobs.ch'), { status: 404 }); },
+    })).rejects.toThrow(/404/);
   });
 
   it('reads the counter of the page\'s own company, not the first one in the document', async () => {
