@@ -534,6 +534,31 @@ function wordSet(value) {
 }
 
 /**
+ * A postal code immediately followed by the published locality is per-vacancy
+ * geography, not a generic fallback: `8046 Zürich` is an address this vacancy
+ * states, while `Zürich` alone is also the canton. Normalisation leaves only
+ * `[a-z0-9 ]`, so the locality is safe to inline in the pattern.
+ */
+function namesPostalAddressedLocality(value, normalizedLocation) {
+  return new RegExp(`(?:^| )\\d{4} ${normalizedLocation}(?: |$)`).test(normalizePlace(value));
+}
+
+/**
+ * The same per-vacancy evidence read off a structured address instead of the
+ * prose: a candidate that carries BOTH a postal code and an `addressLocality`
+ * resolving to the published BFS municipality states a commune, not a region.
+ * A canton that is not a municipality (`Aargau`, `Argovia`) has no BFS key, so
+ * it can never be corroborated this way.
+ */
+function structuredAddressNamesLocality(detail, publishedLocation) {
+  const publishedMunicipality = swissMunicipalityKey(publishedLocation);
+  if (!publishedMunicipality) return false;
+  const candidates = Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [];
+  return candidates.some((candidate) => /\b\d{4,5}\b/.test(plainText(candidate?.postalCode || ''))
+    && swissMunicipalityKey(candidate?.addressLocality || '') === publishedMunicipality);
+}
+
+/**
  * `jobLocation` in an ATS JSON-LD is not always the workplace: on the postings
  * an organisation publishes on behalf of another one it carries the POSTING
  * organisation's seat, constant across vacancies that are worked in different
@@ -558,9 +583,17 @@ function wordSet(value) {
  * Two deliberate limits keep it from swallowing the defects the check exists
  * to raise. A bare canton/region name is never corroborated OUT OF PROSE,
  * because that is precisely the generic fallback shape (`swisslog` publishing
- * `Argovia`) — it is corroborated by a labelled workplace field that spells it
- * inside the vacancy's own postal address, which is per-vacancy geography and
- * not a fallback. And only JSON-LD contradictions are eligible: job-scoped
+ * `Argovia`) — it is corroborated by a postal address or a structured address
+ * field that spells it, which is per-vacancy geography and not a fallback.
+ * That distinction is what the guard owes the fourteen region names BFS also
+ * lists as municipalities (`Bern`, `Zug`, `Basel`, `Zürich`, `Luzern`…, issue
+ * #7713): refusing the published value on the region set alone made the cities
+ * with the most volume in the dataset un-corroborable BY CONSTRUCTION, even
+ * when the page states `3011 Bern` as this vacancy's own workplace. The
+ * evidence is therefore weighed BEFORE the region guard, and only a canton
+ * that no page ties to a postal address or a BFS locality — the fallback shape
+ * the check exists to raise — still falls through it.
+ * And only JSON-LD contradictions are eligible: job-scoped
  * rendered markup IS a workplace declaration, so a disagreement with it stays
  * a finding.
  */
@@ -573,16 +606,17 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   // page actually offers was unreadable here (#7711). The bare label stays in
   // SOURCE_LOCATION_PLACEHOLDERS — it is the VALUE that is evidence.
   const workplaceLabels = Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : [];
-  // A postal code immediately followed by the published locality inside that
-  // labelled field is per-vacancy geography, not a generic fallback, so it
-  // also settles the canton/city homonym the region guard below refuses on
-  // prose alone: `Zürich` is a canton, and it is equally the city at `8046
-  // Zürich` that this vacancy states as its own workplace. Normalisation
-  // leaves only `[a-z0-9 ]`, so the locality is safe to inline in the pattern.
-  const postalAddressedWorkplace = workplaceLabels.some((value) => new RegExp(
-    `(?:^| )\\d{4} ${normalizedLocation}(?: |$)`,
-  ).test(normalizePlace(value)));
-  if (postalAddressedWorkplace) return true;
+  // Postal evidence settles the canton/city homonym the region guard below
+  // refuses on prose alone: `Zürich` is a canton, and it is equally the city at
+  // `8046 Zürich` that this vacancy states as its own workplace. It is read
+  // from every authoritative per-vacancy text of the page, not only from the
+  // labelled workplace field — `3011 Bern` in the vacancy's own title or body
+  // is the same statement, and restricting it to the label left the homonym
+  // cities red on every ATS that has no such field (#7713).
+  const postalAddressed = [detail?.title || '', detail?.description || '', ...workplaceLabels]
+    .some((value) => namesPostalAddressedLocality(value, normalizedLocation));
+  if (postalAddressed) return true;
+  if (structuredAddressNamesLocality(detail, publishedLocation)) return true;
   // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
   // canton, and only one of the two spellings is in the region set.
   if (SWISS_REGION_NAMES.has(canonicalLocationTokens(publishedLocation).join(' '))) return false;
