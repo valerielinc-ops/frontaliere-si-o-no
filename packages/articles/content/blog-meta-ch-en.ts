@@ -5755,6 +5755,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.successione-donazione-vallese-guida.title': 'Valais inheritance tax: rates and exemptions',
     'blog.article.successione-donazione-vallese-guida.excerpt': 'Inheritance taxation in Valais: rates for degree of kinship, exemptions for spouse and descendants, declaration and deadlines to be respected.',
     'blog.article.successione-donazione-vallese-guida.imageAlt': 'Notary office desk with succession documents and tax forms on wooden table',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.title': 'Schaffhausen lease right: filing and dispute',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.excerpt': 'Maximum deposit 3 months, escrow account, cancellation on official form: guide to the federal lease law in the Canton of Schaffhausen with procedures and deadlines.',
+    'blog.article.affitti-sciaffusa-deposito-contestazione.imageAlt': 'Entrance of a Swiss residential building with door and mailbox',
 };
 
 export default blogMetaChEn;
