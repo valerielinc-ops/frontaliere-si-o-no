@@ -848,10 +848,32 @@ export const SOURCE_LEVEL_FAILURE_MIN_SAMPLES = 2;
  * The share of the source-detail sample that may fail for a reason nothing
  * explains. Above it the audit's own coverage claim is unproven: the run says
  * «checked 1075» while some of those samples proved nothing and nobody can say
- * why. Set at the 5 % the ticket asks for, against a measured 0,93 % — the
- * headroom is deliberate, it is a floor under a regression, not a target.
+ * why. It is a floor under a regression, not a target, so it sits above the
+ * measured rate — but only as far above as the measurements justify.
+ *
+ * Tightened 5 % → 4,5 % on the first live runs that stamped the number, which
+ * is what the 5 % was waiting for (#7630, item 2):
+ *   - 40/1077 = 3,714 %  — run 33997497767, 2026-09-05T23:16Z
+ *   - 36/1077 = 3,3426 % — run 34020480797, 2026-09-06T08:12Z, first run after
+ *     the #7673 merge, i.e. the first one classified by the code that is here
+ *
+ * The 5 % was set against «a measured 0,93 %», and that figure was never the
+ * live rate: it came from replaying artifact parser-quality-report-33969036485
+ * whose samples PREDATE the cause split, so the 30 samples our own
+ * `public-fetch-policy` refuses and the 30 robots denials were still recorded
+ * as `blocked-by-source`, promoted to a source-level finding and subtracted.
+ * Live they are `refused-by-us`/scattered and stay unexplained: 30 of the 36
+ * are the policy refusals alone. The real rate is ~3,5 %, not ~1 %, and the
+ * ceiling has to be read against that.
+ *
+ * Why 4,5 % and not the measured 3,34 %: the two runs are 0,37 pp apart, and
+ * the sampler draws 2 details per crawler, so one crawler moving in or out of
+ * the bucket is worth ~0,19 pp. A ceiling pinned to the measurement would go
+ * red on that noise; 4,5 % leaves ~0,8 pp over the worse of the two, about
+ * four crawlers' worth of slack, and still refuses the 4,6-5,0 % band the old
+ * ceiling accepted.
  */
-export const SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT = 5;
+export const SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT = 4.5;
 
 /**
  * Split failures the source explains from failures we still owe an answer for.
@@ -868,6 +890,11 @@ export const SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT = 5;
  * 120/1075 failures = 6 expired vacancies + 104 samples over 52 sources that
  * lost every detail they were sampled on + 10 scattered.
  * Unexplained goes 10,60 % → 0,93 %.
+ *
+ * That 0,93 % is a property of THAT corpus, not the live rate: those samples
+ * predate the cause split, so our own policy refusals and the robots denials
+ * were still `blocked-by-source` there and got promoted. On live runs the same
+ * function measures ~3,5 % — see SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT.
  */
 export function classifySourceLevelFailures(byKey) {
   const sources = {};
