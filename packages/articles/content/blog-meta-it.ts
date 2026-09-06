@@ -11467,6 +11467,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.colacem-sostenibilita-2025.title': 'Colacem: 46 milioni in investimenti ambientali',
     'blog.article.colacem-sostenibilita-2025.excerpt': 'Nel triennio 2023-2025, Colacem ha investito oltre 46 milioni di euro in ambiente, con un focus su materiali riciclati e combustibili alternativi.',
     'blog.article.colacem-sostenibilita-2025.imageAlt': 'Vista aerea dello stabilimento Colacem di Caravate, Varese, Italia, che mostra il suo paesaggio industriale e le iniziative ambientali.',
+    'blog.article.giussano-como-ticino-frontaliere.title': 'Vivere a Giussano, lavorare in Ticino: guida del frontaliere',
+    'blog.article.giussano-como-ticino-frontaliere.excerpt': 'Permesso G, imposta alla fonte, AVS, LAMal: guida completa per frontalieri da Giussano (Como) che lavorano in Ticino. Fiscalità, tempi, costi.',
+    'blog.article.giussano-como-ticino-frontaliere.imageAlt': 'Vista aerea di Lugano sul Lago Ceresio con le Alpi sullo sfondo, principale centro di lavoro per frontalieri Giussano-Ticino',
 };
 
 export default blogMetaIt;
