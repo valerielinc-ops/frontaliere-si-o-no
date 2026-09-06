@@ -5,6 +5,7 @@
  * colpire il candidato giusto (le chiavi candidato e crawler divergono),
  * scrivere sempre la causa, e non poter spegnere un crawler gia' spedito.
  */
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -12,6 +13,8 @@ import { describe, expect, it } from 'vitest';
 import { rejectCandidates, resolveCandidateRef, SHIPPED_STATUSES } from '../scripts/lib/prospector/reject-candidates.mjs';
 import { unknownFlags } from '../scripts/lib/prospector/cli-flags.mjs';
 import { LEDGER_PATH } from '../scripts/lib/prospector/config.mjs';
+
+const ROOT = path.resolve(__dirname, '..');
 
 // Il registro e' un file committato: una transizione di test non deve finirci.
 const ledgerFile = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'prospect-reject-')), 'ledger.jsonl');
@@ -123,5 +126,22 @@ describe('rejection con causa accertata', () => {
     expect(unknownFlags(['--dry-run', "picks='aggregatore'"], ['dry-run'])).toEqual([]);
     // Gli stadi con valore: `--limit=40` e' noto, `--limite=40` no.
     expect(unknownFlags(['--limit=40', '--limite=40'], ['limit', 'dry-run'])).toEqual(['--limite=40']);
+  });
+
+  it('il CLI esce 2 su --dryrun e non tocca candidates.json', () => {
+    // assertKnownFlags deve morire PRIMA di loadCandidates/saveCandidates: un
+    // refuso che arrivasse a setStatus scriverebbe un rejected terminale.
+    const candidates = path.join(ROOT, 'data/prospector/candidates.json');
+    const before = fs.statSync(candidates);
+    const res = spawnSync(
+      process.execPath,
+      ['scripts/prospect-reject.mjs', '--dryrun', "picks='aggregatore'"],
+      { cwd: ROOT, encoding: 'utf8' },
+    );
+    expect(res.status).toBe(2);
+    expect(res.stderr).toContain('Flag sconosciuto: --dryrun');
+    const after = fs.statSync(candidates);
+    expect(after.mtimeMs).toBe(before.mtimeMs);
+    expect(after.size).toBe(before.size);
   });
 });
