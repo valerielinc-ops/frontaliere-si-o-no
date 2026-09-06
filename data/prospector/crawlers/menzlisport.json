@@ -1,0 +1,20 @@
+{
+  "companyKey": "menzlisport",
+  "companyName": "Intersport",
+  "companyHost": "yousty.ch",
+  "platform": "yousty.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/profile/9421948-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-sportartikel-ilanz-gr-menzli-sport-ag?widget=70c25654-9284-4460-b7e4-2fc6d7aae304"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/9421948-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-sportartikel-ilanz-gr-menzli-sport-ag",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lehrstelle als Detailhandelsfachmann/-frau EFZ Gestalten von Einkaufserlebnissen Sportartikel"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-06T09:05:00.383Z"
+}

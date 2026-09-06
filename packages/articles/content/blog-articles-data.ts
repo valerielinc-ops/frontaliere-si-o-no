@@ -34167,6 +34167,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-daverio-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-09-06T09:06:14.627Z',
+ image: '/images/blog/vivere-daverio-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11439,6 +11439,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Milano-Varese, fermée pour une nuit la sortie de Busto Arsizio',
     'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Fermeture du 22 du 9 au 5 du 10 septembre pour travaux aux barrières de sécurité. Sorties alternatives Castellanza et Gallarate.',
     'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Panneau de sortie pour Busto Arsizio sur l\'autoroute A8 Milano-Varese au crépuscule, avec indications de trajets alternatifs.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.title': 'Vivre à Daverio, travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.excerpt': 'Guide complet pour les frontaliers italiens : permis G, impôt à la source, double imposition, AVS, LPP et comment maximiser le salaire en travaillant en Suisse.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.imageAlt': 'Vue du lac de Lugano avec les Alpes en arrière-plan, centre financier du Tessin pour les travailleurs frontaliers',
 };
 
 export default blogMetaFr;

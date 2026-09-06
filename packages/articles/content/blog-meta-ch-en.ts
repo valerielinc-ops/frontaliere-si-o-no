@@ -5701,6 +5701,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-vallese-requisiti-procedura.title': 'Naturalization of the canton of Valais: ordinary procedure',
     'blog.article.naturalizzazione-vallese-requisiti-procedura.excerpt': 'From residency to language test and integration: practical guide to ordinary naturalization in Valais, with deadlines, fees and step-by-step procedure.',
     'blog.article.naturalizzazione-vallese-requisiti-procedura.imageAlt': 'Alpine Swiss municipality administration building with classical architecture, professional official environment for naturalization procedures.',
+    'blog.article.assegni-familiari-argovia.title': 'Family allowances Aargau: amounts and demand',
+    'blog.article.assegni-familiari-argovia.excerpt': 'Complete guide: how to request family allowances in the Canton of Aargau, necessary documents, compensation fund and step-by-step procedure.',
+    'blog.article.assegni-familiari-argovia.imageAlt': 'Aargau cantonal office for family social benefits and family allowances',
 };
 
 export default blogMetaChEn;

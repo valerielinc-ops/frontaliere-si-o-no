@@ -1,0 +1,21 @@
+{
+  "companyKey": "graubuenden",
+  "companyName": "Talmuseum Samnaun",
+  "companyHost": "graubuenden.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.graubuenden.ch/de/offene-stellen"
+  ],
+  "detailTemplate": "/de/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Wir suchen: Manager*in Service Finanzbuchhaltung (40 – 50 %)",
+    "Wir suchen: Praktikant*in PR & Content Management (100 %)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-06T09:07:03.510Z"
+}
