@@ -603,7 +603,10 @@ async function translateChunkGoogle(text, sourceLang, targetLang) {
           translated = segments.map((seg) => (Array.isArray(seg) ? String(seg[0] || '') : '')).join('');
         }
         const result = normalizeBlock(translated);
-        if (result && result.toLowerCase() !== q.toLowerCase()) return result;
+        // Il `continue` implicito resta: se questo endpoint rende l'eco si prova
+        // il successivo, come prima. Cambia solo che la formula e' una sola e
+        // che il tentativo finisce nel bucket invece di sparire.
+        if (result && !rejectedAsPassthrough('google', q, result)) return result;
       } catch { continue; }
     } catch { continue; }
   }
@@ -684,7 +687,10 @@ async function translateWithLingva(text, sourceLang, targetLang) {
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.translation || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    // Dentro `raceInstances`: se questa istanza rende l'eco NON deve vincere la
+    // gara, le altre stanno ancora provando. Percio' il rifiuto resta qui e non
+    // sale in `tryTier` — ma passa dalla formula condivisa e viene contato.
+    if (translated && !rejectedAsPassthrough('lingva', q, translated)) return translated;
     return '';
   });
 }
@@ -708,7 +714,7 @@ async function translateWithSimplyTranslate(text, sourceLang, targetLang) {
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.translated_text || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    if (translated && !rejectedAsPassthrough('simplyTranslate', q, translated)) return translated;
     return '';
   });
 }
@@ -735,7 +741,7 @@ async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLan
     }
     const data = await res.json();
     const translated = normalizeBlock(data?.translatedText || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) {
+    if (translated && !rejectedAsPassthrough('libreTranslateSelfHosted', q, translated)) {
       _ltWarmupDone = true;
       return translated;
     }
@@ -761,7 +767,7 @@ async function translateWithLibreTranslate(text, sourceLang, targetLang) {
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.translatedText || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    if (translated && !rejectedAsPassthrough('libreTranslate', q, translated)) return translated;
     return '';
   });
 }
@@ -786,7 +792,11 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
     const data = await res.json();
     // Mozhi uses 'translated-text' (hyphenated) in its response
     const translated = normalizeBlock(data?.['translated-text'] || data?.translated_text || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    // Chiave per MOTORE: `tryTier` chiama questa stessa funzione con quattro
+    // nomi diversi (`mozhiDdg`, `mozhiGoogle`, `mozhiYandex`, `mozhiDeepL`) e da
+    // qui dentro non sono ricostruibili, quindi il bucket usa `mozhi:<engine>`
+    // invece di inventare una corrispondenza che poi deriva.
+    if (translated && !rejectedAsPassthrough(`mozhi:${engine}`, q, translated)) return translated;
     return '';
   });
 }
