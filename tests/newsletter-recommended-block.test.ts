@@ -50,7 +50,9 @@ describe('recommendedBlock selection', () => {
     expect(href).toContain('utm_campaign=weekly');
     expect(href).toContain('as=weather-hub');
     // Placement slot: utm_campaign dice quale email, `pos` dove dentro (#7527).
-    expect(new URL(href).searchParams.get('pos')).toBe(`nl-recommended-${rec!.goId}`);
+    // La campagna e' dentro lo slot perche' quattro superfici rendono lo stesso
+    // blocco verso lo stesso /go/{goId}/ (#7695).
+    expect(new URL(href).searchParams.get('pos')).toBe(`nl-recommended-weekly-${rec!.goId}`);
   });
 
   it('lets a paid sponsor win over affiliate partners', () => {
@@ -140,7 +142,9 @@ describe('recommendedBlock render', () => {
     expect(rec).not.toBeNull();
 
     const weekly = new URL(buildRecommendedHref(rec!, { campaign: 'weekly-42' }));
-    expect(weekly.searchParams.get('pos')).toBe(`weekly-42-${rec!.id}`);
+    // Forma canonica del blocco (newsletterPlacements.js), non piu' il default
+    // `<campagna>-<id>`: e' quella che il redirect /go/ pinna come pubref.
+    expect(weekly.searchParams.get('pos')).toBe(`nl-recommended-weekly-42-${rec!.goId}`);
 
     // a different surface must not collapse into the same tracked slot
     const welcome = new URL(buildRecommendedHref(rec!, { campaign: 'welcome' }));

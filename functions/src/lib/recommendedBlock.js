@@ -242,7 +242,12 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
     // newsletterPlacements.js, the single source shared with the consumer
     // (build-plugins/affiliateRedirectPlugin.ts) — a divergence there produces
     // an EMPTY pubref without failing, so it must not be spelled out twice.
-    params.set(PLACEMENT_PARAM, newsletterRecommendedPlacement(rec.goId));
+    // Un `placement` esplicito vince: e' il chiamante che dichiara lo slot.
+    // Senza, la forma canonica del blocco, che porta la campagna perche' le
+    // quattro superfici che lo rendono puntano tutte allo stesso /go/{goId}/.
+    if (!placement) {
+      params.set(PLACEMENT_PARAM, newsletterRecommendedPlacement(campaign, rec.goId));
+    }
     // goPathFromId already carries the canonical trailing slash before the query.
     return `${BASE_URL}${goPathFromId(rec.goId)}?${params.toString()}`;
   }

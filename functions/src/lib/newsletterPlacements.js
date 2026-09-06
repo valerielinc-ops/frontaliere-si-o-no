@@ -44,14 +44,38 @@ export function newsletterPartnerPlacement(index, id) {
 }
 
 /**
- * Placement of the single "Consigliato per te" affiliate recommendation:
- * `nl-recommended-<goId>`.
+ * Normalise a free-form token (a campaign name) to the alphabet the redirect's
+ * `pubref` sanitiser preserves, so the placement reaches Partnerize byte-identical
+ * to what the email emitted. A token normalised here and one normalised there
+ * are the same string; a token that isn't would arrive silently rewritten.
  *
+ * @param {string} raw
+ * @returns {string}
+ */
+export function placementToken(raw) {
+  return String(raw)
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Placement of the single "Consigliato per te" affiliate recommendation:
+ * `nl-recommended-<campaign>-<goId>`.
+ *
+ * The campaign is part of the slot, not decoration: the SAME block is rendered
+ * by four surfaces (weekly newsletter, job alert, welcome, drip) and they all
+ * link to the same `/go/{goId}/`. Keyed on the goId alone, those four collapse
+ * into one indistinguishable `pubref` and no surface can be compared against
+ * another — the exact ambiguity the partner rows already avoid by carrying
+ * their slot index.
+ *
+ * @param {string} campaign campaign of the surface rendering the block
  * @param {string} goId registry go id of the recommended partner
  * @returns {string}
  */
-export function newsletterRecommendedPlacement(goId) {
-  return `nl-recommended-${goId}`;
+export function newsletterRecommendedPlacement(campaign, goId) {
+  return `nl-recommended-${placementToken(campaign || 'recommended')}-${goId}`;
 }
 
 /**
@@ -60,4 +84,4 @@ export function newsletterRecommendedPlacement(goId) {
  * sanitiser and still be unreadable by the consumer — the test pins both sides
  * against this.
  */
-export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended)-[a-z0-9-]+$/;
+export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended-[a-z0-9_-]+)-[a-z0-9-]+$/;
