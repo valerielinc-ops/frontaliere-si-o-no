@@ -5656,6 +5656,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-soletta-commercio-costi.title': 'Aprire un\'attività canton Soletta: guida registro e costi',
     'blog.article.aprire-attivita-soletta-commercio-costi.excerpt': 'Come avviare un\'attività nel canton Soletta: forme giuridiche, registrazione commerciale, tassazione cantonale e previdenza obbligatoria (AVS, LPP, LAMal).',
     'blog.article.aprire-attivita-soletta-commercio-costi.imageAlt': 'Ufficio del registro di commercio svizzero con banco accoglienza moderno e linee architettoniche contemporanee',
+    'blog.article.avviare-attivita-soletta-guida-completa.title': 'Aprire attività in Soletta: forme giuridiche, costi e procedure',
+    'blog.article.avviare-attivita-soletta-guida-completa.excerpt': 'Guida pratica all\'avviamento di un\'impresa nel Cantone di Soletta: scelta della forma giuridica, iscrizione al Registro di commercio, imposte e obblighi assicurativi.',
+    'blog.article.avviare-attivita-soletta-guida-completa.imageAlt': 'Veduta di un ufficio amministrativo svizzero, simbolo di procedura di avvio d\'impresa e registro di commercio',
 };
 
 export default blogMetaChIt;
