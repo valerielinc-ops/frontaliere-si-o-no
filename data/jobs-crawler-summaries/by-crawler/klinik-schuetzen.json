@@ -1,19 +1,20 @@
 {
   "key": "klinik-schuetzen",
   "label": "Klinik Schützen Rheinfelden",
-  "generatedAt": "2026-09-05T22:44:21.978Z",
+  "generatedAt": "2026-09-06T22:49:13.361Z",
   "total": 9,
   "discovered": null,
+  "parsed": 9,
   "written": 9,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6357,
-  "avgDurationMs": 6357,
+  "durationMs": 4954,
+  "avgDurationMs": 4954,
   "durationHistory": [
-    6357
+    4954
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-PLUT7122",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.277Z",
+      "crawledAt": "2026-09-06T22:49:06.304Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",

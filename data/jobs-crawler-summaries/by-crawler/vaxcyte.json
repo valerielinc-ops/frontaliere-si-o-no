@@ -1,19 +1,20 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-09-05T22:44:22.369Z",
+  "generatedAt": "2026-09-06T22:49:12.694Z",
   "total": 3,
   "discovered": null,
+  "parsed": 3,
   "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6513,
-  "avgDurationMs": 6513,
+  "durationMs": 4090,
+  "avgDurationMs": 4090,
   "durationHistory": [
-    6513
+    4090
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +30,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:44:10.465Z",
+      "crawledAt": "2026-09-06T22:49:06.135Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -71,7 +72,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:44:10.519Z",
+      "crawledAt": "2026-09-06T22:49:06.155Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -112,7 +113,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:44:10.471Z",
+      "crawledAt": "2026-09-06T22:49:06.138Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -142,53 +143,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "vaxcyte-5ccbbb2c0520",
-      "slug": "senior-project-manager-cmc-vaxcyte-ch",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Senior Project Manager, CMC",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5311536008?gh_jid=5311536008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:46.736Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5311536008?gh_jid=5311536008",
-      "department": "Project Management",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-09T12:13:14.086Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
