@@ -5662,6 +5662,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.creare-attivita-soletta-checklist.title': 'Starting activities in Solothurn: costs and procedure',
     'blog.article.creare-attivita-soletta-checklist.excerpt': 'Legal form, registration in the commercial register, cantonal taxes and social security obligations: the procedure for opening businesses in the canton of Solothurn.',
     'blog.article.creare-attivita-soletta-checklist.imageAlt': 'Entrepreneur reviewing business registration documents while starting a new venture in Canton Soletta.',
+    'blog.article.nuova-impresa-soletta-tassazione-costi.title': 'Opening a business in Solothurn: registration and costs',
+    'blog.article.nuova-impresa-soletta-tassazione-costi.excerpt': 'Practical guide to opening a business in the canton of Solothurn: legal forms, business registration, federal/cantonal taxation and insurance obligations.',
+    'blog.article.nuova-impresa-soletta-tassazione-costi.imageAlt': 'Swiss commercial registration office with official documents and wooden desk.',
 };
 
 export default blogMetaChEn;
