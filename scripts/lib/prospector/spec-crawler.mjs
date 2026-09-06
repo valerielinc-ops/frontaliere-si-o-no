@@ -21,11 +21,17 @@ import { lookup as dnsLookup } from 'node:dns/promises';
 import {
   extractVacancies,
   isSufficientVacancyDescription,
+  textOf,
 } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
-import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
+import {
+  constantPostalLocations,
+  freeTextPostalCandidates,
+  resolveDetailOrListingSwissGeography,
+  variablePostalGeography,
+} from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import {
@@ -264,6 +270,13 @@ export async function runSpecInProduction(spec, runtime = {}) {
   // Workers complete out of order; index-addressed writes keep the listing
   // order deterministic so stable downstream sorts do not churn job slices.
   const enriched = new Array(rows.length);
+  // L'NPA scritto nella prosa e' evidenza solo confrontato con le ALTRE pagine
+  // del datore: la sede che compare su tutte non e' il posto di lavoro. Le
+  // pagine si visitano una volta sola, quindi le candidate si accumulano qui e
+  // le righe senza geografia strutturata aspettano il campione completo.
+  const pageCandidates = new Array(rows.length).fill(null);
+  /** @type {{ index: number, publishable: any, postalTextCandidates: any[] }[]} */
+  const pendingGeography = [];
   let geographyDrops = 0;
   let descriptionDrops = 0;
   let next = 0;
@@ -290,11 +303,14 @@ export async function runSpecInProduction(spec, runtime = {}) {
         const description = isSufficientVacancyDescription(detail.description)
           ? detail.description
           : row.description;
-        if (!geography) { geographyDrops++; continue; }
-        if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
-        enriched[index] = { ...row, ...geography, title: detail.title || row.title, description,
+        const postalTextCandidates = freeTextPostalCandidates(textOf(page.body));
+        pageCandidates[index] = postalTextCandidates;
+        const publishable = { ...row, title: detail.title || row.title, description,
           postedAt: detail.postedDate || row.postedAt,
           employmentType: detail.employmentType || row.employmentType };
+        if (!geography) { pendingGeography.push({ index, publishable, postalTextCandidates }); continue; }
+        if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
+        enriched[index] = { ...publishable, ...geography };
       } catch (err) {
         // A row without both source-backed fields must not be published with a
         // fabricated employer default. Keep already complete index rows only.
@@ -307,6 +323,19 @@ export async function runSpecInProduction(spec, runtime = {}) {
   };
   const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
   await Promise.all(Array.from({ length: concurrency }, worker));
+  // Stesso criterio del validatore — vedi `constantPostalLocations()`: cio' che
+  // il datore ripete su ogni pagina e' la sua sede, cio' che varia e' il posto
+  // di lavoro dell'annuncio. Il resto della decisione resta la guardia
+  // source-backed di sempre.
+  const boilerplatePostalLocations = constantPostalLocations(pageCandidates.filter(Boolean));
+  for (const { index, publishable, postalTextCandidates } of pendingGeography) {
+    const geography = geographyFieldsForDecision(
+      variablePostalGeography(postalTextCandidates, boilerplatePostalLocations),
+    );
+    if (!geography) { geographyDrops++; continue; }
+    if (!isSufficientVacancyDescription(publishable.description)) { descriptionDrops++; continue; }
+    enriched[index] = { ...publishable, ...geography };
+  }
   reportDroppedRows(spec, geographyDrops, rows.length,
     'localita svizzera source-backed assente o non verificabile');
   reportDroppedRows(spec, descriptionDrops, rows.length,

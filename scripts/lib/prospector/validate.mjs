@@ -40,7 +40,12 @@ import {
   isSufficientVacancyDescription,
   textOf,
 } from './extract.mjs';
-import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
+import {
+  constantPostalLocations,
+  freeTextPostalCandidates,
+  resolveDetailOrListingSwissGeography,
+  variablePostalGeography,
+} from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
@@ -160,6 +165,10 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     { detailExtractor: fetchOptions.detailExtractor },
   );
   out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
+  // Free-text evidence, not a verdict: whether a pair is the workplace or the
+  // employer's seat is only decidable against the spec's other sampled pages,
+  // so `gradeExtraction()` settles it once the sample is complete.
+  out.postalTextCandidates = freeTextPostalCandidates(bodyText);
 
   const words = bodyText.split(/\s+/).filter(Boolean).length;
   out.words = words;
@@ -241,6 +250,21 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
     await urlPolicy.dispatcher.close();
   }
 
+  // La localita' che vive solo nella prosa si decide qui, non nella singola
+  // pagina: il criterio e' «l'NPA che varia fra le pagine del datore contro
+  // quello costante», e la varianza esiste solo sul campione intero. Misurato
+  // il 2026-09-06 su physioswiss.ch: `3013 Bern` (la sede dell'associazione)
+  // su tutte e sei le pagine, l'NPA dell'annuncio su una sola.
+  const boilerplatePostalLocations = constantPostalLocations(
+    graded.map((g) => g.postalTextCandidates || []),
+  );
+  for (const g of graded) {
+    if (g.sourceBackedLocation) continue;
+    g.sourceBackedLocation = Boolean(
+      variablePostalGeography(g.postalTextCandidates || [], boilerplatePostalLocations).geography,
+    );
+  }
+
   const rate = (fn) => (graded.length ? graded.filter(fn).length / graded.length : 0);
   const reachableRate = rate((g) => g.reachable);
   // Distinzione misurata sulle PAGINE, non sui titoli del listing. Un'agenzia
@@ -306,6 +330,8 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
     score: Number(score.toFixed(3)),
     verdict,
     problems,
-    samples: graded,
+    // L'evidenza grezza di testo libero serve al passo qui sopra, non al
+    // report committato: fuori da li' e' rumore che gonfia validation.json.
+    samples: graded.map(({ postalTextCandidates, ...sample }) => sample),
   };
 }

@@ -1,7 +1,10 @@
 import {
+  TEXT_RESCUE_AMBIGUOUS_TOKENS,
   inferSwissTargetCanton,
   isCantonRelevant,
+  isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
+  isLiechtensteinPostalCode,
   normalizeSwissTargetLocationText,
   swissMunicipalityCantons,
 } from '../target-swiss-locations.mjs';
@@ -360,14 +363,139 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
   return { geography: null, explicitlyForeign, candidate: EMPTY_LOCATION_EVIDENCE };
 }
 
+/** @returns {{ geography: null, explicitlyForeign: false, candidate: LocationEvidenceCandidate }} */
+function noGeography() {
+  return { geography: null, explicitlyForeign: false, candidate: EMPTY_LOCATION_EVIDENCE };
+}
+
+// `1201 Genève`, `CH-8003 Zürich`: the same pair `renderedPostalAddressCandidates()`
+// reads inside an address block, matched here against the WHOLE page text.
+// Nothing out here says the pair is an address rather than a sentence, which is
+// why a match is evidence only after the cross-page rule below has removed what
+// the employer prints on every page.
+const FREE_TEXT_POSTAL_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'’.-]*(?:[ -]\p{L}[\p{L}'’.-]*){0,3})/gu;
+
 /**
+ * The longest leading run of the matched words that names a BFS municipality.
+ * The regex cannot know where the place name ends — `8618 Oetwil am See Wir
+ * suchen` — so the gazetteer decides, longest first.
+ *
+ * `TEXT_RESCUE_AMBIGUOUS_TOKENS` is the same blocklist the description rescue
+ * uses: `alle` is a municipality (JU) and the German word "all", and prose is
+ * full of it. A postal code in front of it does not make the sentence an
+ * address.
+ */
+function knownMunicipalityPrefix(name = '') {
+  const words = String(name).split(/\s+/).filter(Boolean);
+  for (let size = words.length; size >= 1; size -= 1) {
+    const candidate = words.slice(0, size).join(' ');
+    if (TEXT_RESCUE_AMBIGUOUS_TOKENS.has(normalizeSwissTargetLocationText(candidate))) continue;
+    if (isKnownSwissMunicipality(candidate)) return candidate;
+  }
+  return '';
+}
+
+/**
+ * Postal-code + municipality pairs written in a page's free text, in document
+ * order. Requiring BOTH halves is what keeps a number out of the gazetteer:
+ * `1271 Euro` names a real postal code (Givrins VD) and no municipality, so it
+ * yields nothing.
+ *
+ * This is raw evidence, not a decision: callers must still pass it through
+ * `variablePostalGeography()` with the employer's boilerplate, because a
+ * detail page names the employer's own seat as readily as the workplace.
+ *
+ * @param {string} text
+ * @returns {LocationEvidenceCandidate[]}
+ */
+export function freeTextPostalCandidates(text = '') {
+  const out = [];
+  const seen = new Set();
+  for (const match of String(text || '').matchAll(FREE_TEXT_POSTAL_RX)) {
+    const postalCode = match[1];
+    // 1000 is the lowest Swiss postal code; 9485-9498 is Liechtenstein, which
+    // is out of scope for canton inference.
+    if (Number(postalCode) < 1000 || isLiechtensteinPostalCode(postalCode)) continue;
+    const addressLocality = knownMunicipalityPrefix(match[2].replace(/\s+/g, ' ').trim());
+    if (!addressLocality) continue;
+    const location = `${postalCode} ${addressLocality}`;
+    const key = location.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ ...EMPTY_LOCATION_EVIDENCE, location, addressLocality, postalCode });
+  }
+  return out;
+}
+
+/**
+ * The postal locations an employer prints on EVERY one of its pages — its own
+ * seat, in other words, not the workplace of any single vacancy. Measured on
+ * physioswiss.ch on 2026-09-06: six detail pages, `3013 Bern` (the
+ * association's seat) on all six, one further pair per page and each of them
+ * the vacancy's actual town.
+ *
+ * Pages with no pair at all are excluded from the intersection: they say
+ * nothing about what is boilerplate, and counting them would empty the set and
+ * let the seat through as if it were the workplace.
+ *
+ * Returns `null` — not `[]` — when fewer than two pages carry a pair: the
+ * criterion is variance across pages, and with one page there is no variance
+ * to observe. `[]` means "measured, this employer repeats nothing".
+ *
+ * @param {LocationEvidenceCandidate[][]} pages per-page output of `freeTextPostalCandidates()`
+ * @returns {string[]|null}
+ */
+export function constantPostalLocations(pages = []) {
+  const withEvidence = (Array.isArray(pages) ? pages : [])
+    .map((page) => new Set((page || []).map((candidate) => String(candidate?.location || '').toLowerCase())))
+    .filter((page) => page.size > 0);
+  if (withEvidence.length < 2) return null;
+  const [first, ...rest] = withEvidence;
+  return [...first].filter((location) => rest.every((page) => page.has(location)));
+}
+
+/**
+ * Decide a page's geography from the postal pair that VARIES across the
+ * employer's pages, behind the same source-backed guard every other candidate
+ * goes through: the canton still has to come from the municipality the page
+ * itself names.
+ *
+ * Two conditions, both refusals rather than guesses:
+ *   - `boilerplate` must be an array, i.e. the caller actually observed the
+ *     employer's other pages. Without that observation a constant seat is
+ *     indistinguishable from a workplace, which is the failure this rule
+ *     exists to avoid;
+ *   - exactly one pair must remain. Two of them on one page is an ambiguity
+ *     the page does not resolve, and picking either would fabricate a
+ *     location.
+ *
+ * @param {LocationEvidenceCandidate[]} candidates
+ * @param {string[]|null} boilerplate
+ */
+export function variablePostalGeography(candidates = [], boilerplate = null) {
+  if (!Array.isArray(boilerplate)) return noGeography();
+  const constant = new Set(boilerplate.map((location) => String(location || '').toLowerCase()));
+  const variable = (candidates || []).filter(
+    (candidate) => !constant.has(String(candidate?.location || '').toLowerCase()),
+  );
+  if (variable.length !== 1) return noGeography();
+  return evaluateSourceBackedSwissGeography(variable);
+}
+
+/**
+ * @param {any} [detail]
+ * @param {any} [listing]
+ * @param {{ postalTextCandidates?: LocationEvidenceCandidate[], boilerplatePostalLocations?: string[]|null }} [pageContext]
+ *   free-text evidence for THIS page plus the employer's boilerplate, both
+ *   produced by the caller that saw the other pages. Absent (the default), the
+ *   free-text tier stays off and behaviour is exactly what it was.
  * @returns {{
  *   geography: { location: string, canton: string, addressCountry?: string } | null,
  *   explicitlyForeign: boolean,
  *   candidate: LocationEvidenceCandidate,
  * }}
  */
-export function resolveDetailOrListingSwissGeography(detail = {}, listing = {}) {
+export function resolveDetailOrListingSwissGeography(detail = {}, listing = {}, pageContext = {}) {
   // `locationGateRejected` marks a tenant-specific extractor that already
   // verified and refused a candidate (e.g. a canton suffix mismatch): treat
   // it like an authoritative conflict, not an absence of evidence, so the
@@ -378,7 +506,16 @@ export function resolveDetailOrListingSwissGeography(detail = {}, listing = {}) 
   }
   const detailDecision = evaluateSourceBackedSwissGeography(locationEvidenceCandidates(detail));
   if (detailDecision.geography || detailDecision.explicitlyForeign) return detailDecision;
-  return evaluateSourceBackedSwissGeography(locationEvidenceCandidates(listing));
+  const listingDecision = evaluateSourceBackedSwissGeography(locationEvidenceCandidates(listing));
+  if (listingDecision.geography || listingDecision.explicitlyForeign) return listingDecision;
+  // Last tier: no structured field on either page named a place, so read the
+  // one the page prints in its own prose. Only reached when the structured
+  // cascade found nothing, so it can never override a source-backed field.
+  const textDecision = variablePostalGeography(
+    pageContext?.postalTextCandidates || [],
+    pageContext?.boilerplatePostalLocations ?? null,
+  );
+  return textDecision.geography ? textDecision : listingDecision;
 }
 
 function structuredText(value) {
