@@ -5620,6 +5620,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.title': 'Einbürgerung im Kanton Solothurn: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Solothurn, inklusive Wohnsitzjahre, Integrationstests und Gebühren.',
     'blog.article.naturalizzazione-canton-soletta-requisiti-procedura.imageAlt': 'Panoramablick auf Bellinzona, Schweiz, mit der Burg im Vordergrund.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.title': 'Niederlassungsbewilligung C im Kanton Wallis: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren zur Erlangung der Niederlassungsbewilligung C im Kanton Wallis, einschliesslich erforderlicher Jahre, Integrationskriterien und Sprachkenntnisse.',
+    'blog.article.permesso-domicilio-c-canton-vallese-requisiti-domanda.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund.',
 };
 
 export default blogMetaChDe;
