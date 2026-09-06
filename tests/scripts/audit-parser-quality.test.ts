@@ -486,6 +486,97 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-corroborated');
   });
 
+  // jobs.admin.ch / agroscope, issue #7711: the federal portal states the real
+  // workplace ONLY in a rendered labelled field, while its JSON-LD carries the
+  // publishing office's seat. The label value is evidence; the bare label is
+  // not, and stays in SOURCE_LOCATION_PLACEHOLDERS.
+  it('corroborates the published workplace named only in the Arbeitsort field', async () => {
+    const html = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/jobs-admin-source-detail-arbeitsort-label.html'),
+      'utf8',
+    );
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'agroscope',
+      url: 'https://jobs.admin.ch/posti-vacanti/praktikum-waldrandbeweidung/1',
+      job: {
+        addressLocality: 'Zürich',
+        sourceLang: 'de',
+        description: 'Agroscope forscht entlang der Wertschöpfungskette der Landwirtschaft. '.repeat(6),
+      },
+    }], 1, {
+      fetchPage: async (url: string) => ({
+        ok: true, status: 200, url, body: html, host: 'jobs.admin.ch',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      sourceLocation: 'Wädenswil, Wädenswil',
+      locationMismatch: false,
+      locationAuthority: 'source-corroborated',
+    });
+  });
+
+  it('keeps the mismatch when the Arbeitsort label carries no usable value', async () => {
+    const html = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/jobs-admin-source-detail-arbeitsort-label.html'),
+      'utf8',
+    );
+    const cases = [
+      ['<label>Arbeitsort:</label>\n          <span></span>', 'empty value'],
+      ['<label>Arbeitsort:</label>\n          <span>Arbeitsort</span>', 'placeholder value'],
+    ] as const;
+    for (const [field, label] of cases) {
+      const body = html.replace(
+        '<label>Arbeitsort:</label>\n          <span>Reckenholzstrasse 191, 8046 Zürich</span>',
+        field,
+      );
+      expect(body, label).not.toContain('Reckenholzstrasse');
+      const [result] = await checkSourceDetailsBatch([{
+        crawlerKey: 'agroscope',
+        url: 'https://jobs.admin.ch/posti-vacanti/praktikum-waldrandbeweidung/1',
+        job: {
+          addressLocality: 'Zürich',
+          sourceLang: 'de',
+          description: 'Agroscope forscht entlang der Wertschöpfungskette der Landwirtschaft. '.repeat(6),
+        },
+      }], 1, {
+        fetchPage: async (url: string) => ({
+          ok: true, status: 200, url, body, host: 'jobs.admin.ch',
+        }),
+      });
+
+      expect(result, label).toMatchObject({
+        locationMismatch: true,
+        locationAuthority: 'source-detail',
+      });
+    }
+  });
+
+  it('keeps the mismatch when no field of the page names the published place', async () => {
+    const html = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/jobs-admin-source-detail-arbeitsort-label.html'),
+      'utf8',
+    );
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'agroscope',
+      url: 'https://jobs.admin.ch/posti-vacanti/praktikum-waldrandbeweidung/1',
+      job: {
+        addressLocality: 'Lugano',
+        sourceLang: 'de',
+        description: 'Agroscope forscht entlang der Wertschöpfungskette der Landwirtschaft. '.repeat(6),
+      },
+    }], 1, {
+      fetchPage: async (url: string) => ({
+        ok: true, status: 200, url, body: html, host: 'jobs.admin.ch',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      locationMismatch: true,
+      locationAuthority: 'source-detail',
+    });
+  });
+
   it('never corroborates a bare canton name, the generic-fallback shape', () => {
     const result = compareSourceDetail(
       {
