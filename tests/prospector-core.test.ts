@@ -30,6 +30,7 @@ import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionP
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   constantPostalLocations,
+  evaluateSourceBackedSwissGeography,
   freeTextPostalCandidates,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
@@ -427,6 +428,54 @@ describe('vacancy extraction', () => {
       geography: null,
       explicitlyForeign: true,
     });
+  });
+
+  it('never raises the authoritative conflict on evidence that merely disagrees within Switzerland', () => {
+    // The flag is the only input allowed to quarantine a single record in the
+    // batch parsers (#7702): raising it without an explicitly foreign candidate
+    // would let a live Swiss vacancy disappear from the published slice instead
+    // of failing the batch closed. Two Swiss representations that name
+    // different municipalities disagree, but neither excludes the vacancy.
+    const pageUrl = 'https://x.example/job/current';
+    const html = `<h1>Current Engineer</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Current Engineer', url: pageUrl,
+      jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+    })}</script>` +
+      '<article itemscope itemtype="https://schema.org/JobPosting">' +
+      '<meta itemprop="title" content="Current Engineer">' +
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Lausanne">' +
+      '<meta itemprop="addressRegion" content="VD"><meta itemprop="addressCountry" content="CH"></div>' +
+      '</article>';
+    const detail = extractDetailFields(html, pageUrl);
+    expect(detail.locationCandidates).toHaveLength(2);
+    expect(detail.authoritativeLocationConflict).toBe(false);
+  });
+
+  it('always ships an explicitly foreign candidate alongside the authoritative conflict', () => {
+    // Contract the batch parsers rely on to tell an exclusion the source proved
+    // from evidence that merely disagrees: whenever the flag is up, the foreign
+    // record that raised it is among `locationCandidates`.
+    const pageUrl = 'https://x.example/job/current';
+    const conflicting = [
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Geneva">'
+        + '<meta itemprop="addressRegion" content="NY"><meta itemprop="addressCountry" content="US"></div>',
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Berlin">'
+        + '<meta itemprop="addressRegion" content="Berlin"></div>',
+    ];
+    for (const jobLocation of conflicting) {
+      const html = `<h1>Current Engineer</h1><script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting', title: 'Current Engineer', url: pageUrl,
+        jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      })}</script>`
+        + '<article itemscope itemtype="https://schema.org/JobPosting">'
+        + '<meta itemprop="title" content="Current Engineer">'
+        + `${jobLocation}</article>`;
+      const detail = extractDetailFields(html, pageUrl);
+      expect(detail.authoritativeLocationConflict).toBe(true);
+      expect(detail.locationCandidates.some(
+        (candidate) => evaluateSourceBackedSwissGeography([candidate]).explicitlyForeign,
+      )).toBe(true);
+    }
   });
 
   it('detects authoritative foreign subdivision evidence without addressCountry', () => {
