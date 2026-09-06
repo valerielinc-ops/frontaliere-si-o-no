@@ -154,6 +154,15 @@ interface LeverCopy {
   weakestBuckets: readonly string[];
   residencyBuckets: readonly string[];
   ordinals: readonly string[];
+  /**
+   * L'ordinale oltre la fine di `ordinals`. La lista letterale copre la scala
+   * pubblicata di oggi; la scala però è DERIVATA dai dati — le combinazioni
+   * alla stessa RAL, i gradini di `SALARY_LEVELS` — e cresce da sola appena si
+   * aggiunge una dimensione o un valore. Il ripiego riceve la posizione in
+   * base 1 e la rende nella forma grammaticale che la frase del locale
+   * pretende (issue #7730).
+   */
+  ordinalFallback: (position: number) => string;
   /** Congiunzione finale dell'enumerazione ("a, b e c"). */
   and: string;
   labels: {
@@ -193,6 +202,25 @@ function bucketIndex(value: number, edges: readonly number[]): number {
     if (value < edges[i]) return i;
   }
   return edges.length;
+}
+
+/**
+ * L'ordinale della posizione `position` (base 0) — sempre una stringa, mai
+ * niente.
+ *
+ * I due call site avevano una guardia `position < copy.ordinals.length` che, a
+ * scala più lunga della lista, non diceva la frase invece di dirla altrimenti:
+ * nessun errore, nessun test rosso, solo una pagina con un fatto in meno. E il
+ * margine era ZERO — 24 voci letterali contro le 24 combinazioni alla stessa
+ * RAL — quindi bastava un valore in più su una qualunque delle dimensioni
+ * perché la frase sparisse in silenzio dalle pagine eccedenti (issue #7730).
+ * Le parole restano la resa preferita finché ci sono; oltre, la cifra dice
+ * comunque il fatto vero. Che la lista vada RIALLUNGATA a parole quando la
+ * scala cresce lo dice un test rosso, non l'erosione silenziosa della prosa:
+ * `tests/scenario-lever-ordinals-scale.test.ts`.
+ */
+function ordinalAt(copy: LeverCopy, position: number): string {
+  return copy.ordinals[position] ?? copy.ordinalFallback(position + 1);
 }
 
 const COPY: Record<LeverLocale, LeverCopy> = {
@@ -265,6 +293,7 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'la diciassettesima', 'la diciottesima', 'la diciannovesima', 'la ventesima',
       'la ventunesima', 'la ventiduesima', 'la ventitreesima', 'la ventiquattresima',
     ],
+    ordinalFallback: (position) => `la ${position}ª`,
     and: 'e',
     labels: {
       salaryUp: 'il gradino di RAL successivo',
@@ -347,6 +376,13 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth',
       'twenty-first', 'twenty-second', 'twenty-third', 'twenty-fourth',
     ],
+    ordinalFallback: (position) => {
+      // 11ᵗʰ/12ᵗʰ/13ᵗʰ sono l'eccezione che il suffisso per unità sbaglierebbe.
+      const teens = position % 100;
+      if (teens >= 11 && teens <= 13) return `${position}th`;
+      const unit = position % 10;
+      return `${position}${unit === 1 ? 'st' : unit === 2 ? 'nd' : unit === 3 ? 'rd' : 'th'}`;
+    },
     and: 'and',
     labels: {
       salaryUp: 'the next gross salary step',
@@ -430,6 +466,7 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'neunzehnter', 'zwanzigster', 'einundzwanzigster', 'zweiundzwanzigster',
       'dreiundzwanzigster', 'vierundzwanzigster',
     ],
+    ordinalFallback: (position) => `${position}.`,
     and: 'und',
     labels: {
       salaryUp: 'die nächsthöhere Bruttostufe',
@@ -513,6 +550,7 @@ const COPY: Record<LeverLocale, LeverCopy> = {
       'dix-huitième', 'dix-neuvième', 'vingtième', 'vingt-et-unième',
       'vingt-deuxième', 'vingt-troisième', 'vingt-quatrième',
     ],
+    ordinalFallback: (position) => (position === 1 ? '1re' : `${position}e`),
     and: 'et',
     labels: {
       salaryUp: 'le palier de brut supérieur',
@@ -813,8 +851,8 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
     return { key: scenarioKey(variant), share: netItalianResident(variant) / salary };
   }).sort((a, b) => b.share - a.share || (a.key < b.key ? -1 : 1));
   const ladderPosition = ladder.findIndex((x) => x.key === scenarioKey(scenario));
-  if (ladderPosition >= 0 && ladderPosition < copy.ordinals.length) {
-    sentences.push(copy.ladderRank(copy.ordinals[ladderPosition], String(ladder.length)));
+  if (ladderPosition >= 0) {
+    sentences.push(copy.ladderRank(ordinalAt(copy, ladderPosition), String(ladder.length)));
   }
 
   const sameSalary = input.allScenarios
@@ -822,8 +860,8 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
     .map((s) => ({ key: scenarioKey(s), net: netItalianResident(s) }))
     .sort((a, b) => b.net - a.net || (a.key < b.key ? -1 : 1));
   const position = sameSalary.findIndex((s) => s.key === scenarioKey(scenario));
-  if (position >= 0 && position < copy.ordinals.length) {
-    sentences.push(copy.rank(copy.ordinals[position], String(sameSalary.length)));
+  if (position >= 0) {
+    sentences.push(copy.rank(ordinalAt(copy, position), String(sameSalary.length)));
   }
 
   if (input.chResidentNetAnnual > 0) {
@@ -848,4 +886,14 @@ export function renderScenarioLeverComparison(input: LeverComparisonInput): stri
   if (sentences.length === 0) return '';
   const items = sentences.map((s) => `<li>${escapeHtml(s)}</li>`).join('');
   return `<h2>${escapeHtml(copy.heading)}</h2><ul class="scenario-levers">${items}</ul>`;
+}
+
+/**
+ * L'ordinale di un locale a una posizione (base 0), esposto per la sola
+ * verifica: la scala dei gradini di RAL è interna alla funzione — non arriva
+ * dall'input — quindi il ripiego sul ramo `ladderRank` non è raggiungibile
+ * costruendo uno scenario, e senza questa porta resterebbe non osservato.
+ */
+export function leverOrdinal(locale: LeverLocale, position: number): string {
+  return ordinalAt(COPY[locale], position);
 }
