@@ -274,7 +274,35 @@ export function collectWebcamUrls(crossings) {
 // already documented (#4557 in the header of `scripts/lib/git-push-with-retry.sh`).
 // Now an entry only changes when the STATUS changes, so the workflow's
 // diff-guard means what its comment says.
+//
+// DURABILITY (issue #7376): the transition is one-shot — it can only be seen by
+// the run that reads the PREVIOUS run's `offline`, and never recomputed from a
+// window afterwards. The push that persists it is best-effort, so a lost push
+// used to silently drop the recovery alert. `border-live-data-watchdog.yml`
+// therefore carries this file across runs in the Actions cache too, written on
+// every run whatever the push did, and restored over the checked-out copy
+// before this script loads it. main stays the record; the cache is the carry.
+// When BOTH are gone (cache eviction on top of a lost push) the previous state
+// is empty and no recovery is detectable at all — `describeMissingWebcamState`
+// says so in the report instead of letting it read like a healthy run.
 const WEBCAM_STATUS_FILE = 'data/webcam-status.json';
+
+/**
+ * Report line for the case where there is no previous per-webcam state at all
+ * while this run DID observe feeds: the first run ever, a corrupt file, or a
+ * lost persist compounded by a cache miss. In that window a feed coming back
+ * cannot be announced, and silence would otherwise be indistinguishable from
+ * "nothing was down". Informational only — never a `problem`, it must not page.
+ *
+ * @param {Record<string, unknown>|null|undefined} previous
+ * @param {Array<unknown>} observations
+ * @returns {string|null}
+ */
+export function describeMissingWebcamState(previous, observations) {
+  if (!Array.isArray(observations) || observations.length === 0) return null;
+  if (previous && typeof previous === 'object' && Object.keys(previous).length > 0) return null;
+  return `ℹ️ Nessuno stato webcam precedente (${WEBCAM_STATUS_FILE} vuoto o mancante): in questa run una recovery non e' rilevabile. Atteso alla prima run; altrimenti il persist precedente non e' arrivato ne' su main ne' in cache.`;
+}
 
 /**
  * Fold this run's webcam verdicts into the persisted per-webcam state and
@@ -602,7 +630,10 @@ async function main() {
   // report that the workflow embeds in the canonical issue comment.
   const recoveredLines = [];
   if (webcamObservations.length > 0) {
-    const { state, recovered } = applyWebcamStatus(loadWebcamStatus(), webcamObservations, Date.now());
+    const previousWebcamState = loadWebcamStatus();
+    const missingState = describeMissingWebcamState(previousWebcamState, webcamObservations);
+    if (missingState) lines.push(missingState);
+    const { state, recovered } = applyWebcamStatus(previousWebcamState, webcamObservations, Date.now());
     saveWebcamStatus(state);
     for (const r of recovered) {
       const line = `🔄 WEBCAM RECOVERED: ${r.url} — back online after ${formatDowntime(r.offlineForMs)}${r.served.length ? ` — serves: ${r.served.join(', ')}` : ''}`;

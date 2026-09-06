@@ -8,6 +8,8 @@
  * never time-bombs on a calendar boundary.
  */
 
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   evaluateStaleness,
@@ -18,6 +20,7 @@ import {
   staleThresholdMinutesFor,
   applyWebcamStatus,
   formatDowntime,
+  describeMissingWebcamState,
   // @ts-expect-error — plain .mjs, no type declarations
 } from '../scripts/check-border-data-health.mjs';
 
@@ -409,5 +412,76 @@ describe('formatDowntime', () => {
   it('reads as unknown rather than zero when the downtime start is unrecorded', () => {
     expect(formatDowntime(null)).toBe('durata sconosciuta');
     expect(formatDowntime(Number.NaN)).toBe('durata sconosciuta');
+  });
+});
+
+// ── Recovery durability across a lost push (issue #7376) ────────────
+//
+// The offline→online transition is one-shot: only the run that reads the
+// PREVIOUS run's `offline` can announce it. The persist push is best-effort
+// (`--soft-fail-exhausted` + `continue-on-error`), so a dropped push used to
+// erase the alert silently — a failure shaped exactly like a healthy run.
+// The state is now carried across runs in the Actions cache as well, and the
+// case where BOTH copies are gone is said out loud in the report.
+
+describe('describeMissingWebcamState (lost persist visibility, issue #7376)', () => {
+  const obs = [{ url: 'https://cam.example/a.jpg', verdict: { broken: false } }];
+
+  it('flags an empty previous state when feeds WERE observed', () => {
+    expect(describeMissingWebcamState({}, obs)).toMatch(/recovery non e' rilevabile/);
+    expect(describeMissingWebcamState(null, obs)).toMatch(/webcam-status\.json/);
+    expect(describeMissingWebcamState(undefined, obs)).not.toBeNull();
+  });
+
+  it('stays silent once a previous state exists', () => {
+    expect(
+      describeMissingWebcamState({ 'https://cam.example/a.jpg': { status: 'online' } }, obs),
+    ).toBeNull();
+  });
+
+  it('stays silent when nothing was observed (registry unreadable, no webcams)', () => {
+    expect(describeMissingWebcamState({}, [])).toBeNull();
+  });
+
+  it('is informational, never a paging problem', () => {
+    expect(describeMissingWebcamState({}, obs)?.startsWith('ℹ️')).toBe(true);
+  });
+});
+
+describe('border-live-data-watchdog.yml — state carry outside git (issue #7376)', () => {
+  const YML = readFileSync(
+    resolve(process.cwd(), '.github/workflows/border-live-data-watchdog.yml'),
+    'utf-8',
+  );
+
+  it('restores the state file from cache BEFORE the health check reads it', () => {
+    const restore = YML.indexOf('actions/cache/restore@v5');
+    const health = YML.indexOf('npx --no-install tsx scripts/check-border-data-health.mjs');
+    expect(restore).toBeGreaterThan(-1);
+    expect(health).toBeGreaterThan(restore);
+    expect(YML).toMatch(/restore-keys: webcam-status-/);
+  });
+
+  it('saves the state on EVERY run, whatever the push did', () => {
+    expect(YML).toMatch(/actions\/cache\/save@v5/);
+    // `always()`: a soft-failed push (or a degraded health verdict) must not
+    // skip the save — that copy is the whole point of the carry.
+    expect(YML).toMatch(/if: always\(\) && hashFiles\('data\/webcam-status\.json'\) != ''/);
+  });
+
+  it('caches only the status file, keyed uniquely per run', () => {
+    const restoreBlock = YML.slice(YML.indexOf('Restore per-webcam status from cache'));
+    expect(restoreBlock).toMatch(/path: data\/webcam-status\.json/);
+    expect(restoreBlock).toMatch(/key: webcam-status-\$\{\{ github\.run_id \}\}/);
+  });
+
+  it('surfaces a lost previous persist instead of swallowing it', () => {
+    expect(YML).toMatch(/Flag a lost previous persist/);
+    expect(YML).toMatch(/if: steps\.webcam-cache\.outputs\.cache-matched-key != ''/);
+    expect(YML).toMatch(/::warning::/);
+  });
+
+  it('still guards the commit on a real diff (issue #7376 must not undo #7602)', () => {
+    expect(YML).toMatch(/git diff --cached --quiet/);
   });
 });
