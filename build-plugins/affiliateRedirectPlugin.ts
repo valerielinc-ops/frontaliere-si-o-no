@@ -10,7 +10,14 @@
  */
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { PARTNERS, buildAffiliateUrl, partnerRelAttr } from '../services/affiliateService';
+import {
+ PARTNERS,
+ PUBREF_INVALID_RE,
+ PUBREF_MAX_LEN,
+ buildAffiliateUrl,
+ isPartnerizeUrl,
+ partnerRelAttr,
+} from '../services/affiliateService';
 import {
  ADSENSE_SNIPPET,
  BASE_URL,
@@ -43,8 +50,33 @@ import { WriteCollector } from './batchWrite';
  */
 const REDIRECT_TRACKING_TIMEOUT_MS = 400;
 
-function buildRedirectPage(partner: typeof PARTNERS[number]): string {
+/**
+ * Query parameter every surface may append to `/go/{partner}/` to declare WHICH
+ * slot the click came from (`/go/wise/?pos=nl-partner-2`). The redirect turns it
+ * into the Partnerize `pubref`, which is the per-position signal the dashboard
+ * reports on. Without it the page falls back to the referring path, so surfaces
+ * that don't (yet) pass `pos` still land in a distinguishable bucket instead of
+ * collapsing into one undifferentiated count.
+ */
+const PLACEMENT_PARAM = 'pos';
+
+export function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  const targetUrl = buildAffiliateUrl(partner, 'go-redirect');
+ // Same normalisation as `sanitizePubref`, inlined because this snippet runs in
+ // the browser with no bundler — the character class and the cap come from the
+ // single definition in services/affiliateService.ts.
+ const pubrefRewriteJs = isPartnerizeUrl(partner.url)
+ ? `try{
+var q=new URLSearchParams(location.search);
+var raw=q.get(${JSON.stringify(PLACEMENT_PARAM)})||q.get('utm_content')||q.get('utm_campaign')||'';
+if(!raw&&document.referrer){try{raw='ref-'+new URL(document.referrer).pathname;}catch(e){}}
+var ref=String(raw).toLowerCase().replace(new RegExp(${JSON.stringify(PUBREF_INVALID_RE.source)},'g'),'-').replace(/^-+|-+$/g,'').slice(0,${PUBREF_MAX_LEN}).replace(/-+$/,'');
+if(ref){var t=new URL(u);t.searchParams.set('pubref',ref);u=t.toString();
+var patch=function(){var a=document.getElementById('go-link');if(a)a.setAttribute('href',u);};
+if(document.readyState!=='loading')patch();else document.addEventListener('DOMContentLoaded',patch);}
+}catch(e){}
+`
+ : '';
  const esc = (s: string) =>
  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -64,7 +96,7 @@ function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  ${PARTNERIZE_TAG_SNIPPET}
  <script>(function(){
 var u=${JSON.stringify(targetUrl)};
-var redirected=false;
+${pubrefRewriteJs}var redirected=false;
 function go(){if(redirected)return;redirected=true;window.location.replace(u);}
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
@@ -79,7 +111,7 @@ setTimeout(go,${REDIRECT_TRACKING_TIMEOUT_MS});
  <p class="s-16ZGVZ">${partner.emoji}</p>
  <h1 class="s-0Ns7AE">Stai per visitare ${esc(partner.name)}</h1>
  <p class="s-a4vtCV">Verrai reindirizzato automaticamente. Se non succede, clicca il link qui sotto.</p>
- <p><a class="s-uJ0x5V" href="${esc(targetUrl)}" rel="${partnerRelAttr(partner)}">Vai a ${esc(partner.name)} &rarr;</a></p>
+ <p><a id="go-link" class="s-uJ0x5V" href="${esc(targetUrl)}" rel="${partnerRelAttr(partner)}">Vai a ${esc(partner.name)} &rarr;</a></p>
  </main>
  </body>
 </html>`;

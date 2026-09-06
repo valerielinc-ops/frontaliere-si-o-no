@@ -210,16 +210,24 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
  * signed sponsor URL. Both carry utm + acquisitionSource so revenue can be
  * attributed to the email channel and the originating signup surface.
  *
+ * `pos` declares WHICH slot produced the click (surface + recommended entry).
+ * The /go/ redirect turns it into the Partnerize `pubref`
+ * (build-plugins/affiliateRedirectPlugin.ts): without it every email surface
+ * lands in the dashboard as the same undifferentiated click, so no placement
+ * can be compared against another. Sponsors carry it too — the signed URL keeps
+ * the parameter and the sponsor reports on the same key.
+ *
  * @param {{ kind: string, goId?: string, url?: string, id: string }} rec
- * @param {{ acquisitionSource?: string|null, campaign?: string }} [opts]
+ * @param {{ acquisitionSource?: string|null, campaign?: string, placement?: string }} [opts]
  * @returns {string}
  */
-export function buildRecommendedHref(rec, { acquisitionSource, campaign } = {}) {
+export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement } = {}) {
   const params = new URLSearchParams();
   params.set('utm_source', 'newsletter');
   params.set('utm_medium', 'email');
   params.set('utm_campaign', campaign || 'recommended');
   params.set('utm_content', rec.id);
+  params.set('pos', placement || `${campaign || 'recommended'}-${rec.id}`);
   if (acquisitionSource) params.set('as', String(acquisitionSource));
 
   if (rec.kind === 'affiliate' && rec.goId) {
@@ -247,15 +255,15 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign } = {}) 
  * no partner/sponsor is active. Styling mirrors the newsletter template card
  * language (light card, orange accent). Clear disclosure line above the card.
  *
- * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string }} [args]
+ * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string, placement?: string }} [args]
  * @returns {string} HTML `<tr>…</tr>` or ''
  */
-export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign } = {}) {
+export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement } = {}) {
   const loc = normLocale(locale);
   const rec = pickNewsletterRecommendation({ locale: loc, interest });
   if (!rec) return '';
 
-  const href = buildRecommendedHref(rec, { acquisitionSource, campaign });
+  const href = buildRecommendedHref(rec, { acquisitionSource, campaign, placement });
   const eyebrow = chrome(loc, 'eyebrow');
 
   return `
