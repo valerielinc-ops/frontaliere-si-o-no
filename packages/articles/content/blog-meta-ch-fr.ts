@@ -5743,6 +5743,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-vallese-aliquote.title': 'Droits de succession et de donation en Valais : taux',
     'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guide des droits de succession et de donation dans le canton du Valais : structure cantonale, exonérations pour conjoint et enfants, déclaration et délais officiels.',
     'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Bâtiment administratif du canton du Valais avec paysage alpin en arrière-plan',
+    'blog.article.eredita-donazioni-vallese-guida.title': 'Droit de succession en Valais : taux et procédures',
+    'blog.article.eredita-donazioni-vallese-guida.excerpt': 'La succession en Valais est soumise à des impôts cantonaux calculés par degré de parenté. Le conjoint et les descendants bénéficient d\'exemptions spécifiques. Voici comment cela fonctionne et quelles procédures suivre.',
+    'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Bureau notarial valaisan avec documents de succession et vue sur les Alpes',
 };
 
 export default blogMetaChFr;
