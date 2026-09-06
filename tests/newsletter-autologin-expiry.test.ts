@@ -20,7 +20,7 @@
  *      not when expired, not when revoked, not when autologin is disabled, and
  *      not for any value of the policy.
  */
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHmac } from 'node:crypto';
@@ -46,6 +46,7 @@ import {
   verifyOptOutCredential,
 } from '../functions/src/newsletterSubscriptionManagement.js';
 import { classifyEmailLink, auditEmailLinksStatic } from '../functions/src/lib/emailLinkAudit.js';
+import { stubEmptyAutologinPolicy } from './helpers/ambientEmailEnv';
 
 const SECRET = 'test-newsletter-secret-key-2026';
 const EMAIL = 'user@example.com';
@@ -54,6 +55,16 @@ const NOW = Date.UTC(2026, 7, 12, 10, 0, 0);
 
 const V1 = { NEWSLETTER_AC_SCHEME: 'v1' };
 const ttl = (days: number) => ({ ...V1, NEWSLETTER_AC_TTL_DAYS: String(days) });
+
+// Every assertion in this file that does NOT thread an explicit `env`/`scheme`
+// is an assertion about the policy at its DEFAULT — "an empty environment mints
+// the pre-#5685 code". That default lives in process.env, so reading the ambient
+// one turns the assertion into a report on whoever ran the suite: with Remote
+// Config bridged in (`NEWSLETTER_AC_SCHEME=v1`) the minters return a v1 code and
+// the file goes red on a flip the repository never made. Pinning the three
+// variables empty makes the baseline the file's own.
+beforeEach(() => { stubEmptyAutologinPolicy(); });
+afterEach(() => { vi.unstubAllEnvs(); });
 
 /** Minimal Firestore double — same shape as tests/newsletter-subscription-management.ts's. */
 function createFakeDb(existing: Record<string, Record<string, Record<string, unknown>>> = {}) {
