@@ -201,6 +201,20 @@ function isIndividualJobPage(path) {
 }
 
 // ── Per-check sitemap loaders + URL resolvers ─────────────────────────────
+//
+// COST OF THE `flatString` CALLS BELOW — measured, issue #7488 item 2.
+// The four loaders pay a Buffer round-trip for every `<loc>` (and every
+// `<xhtml:link href>`) of every shard, which is the memory-for-CPU trade of
+// issue #7419: without it each ~80-byte URL is a SlicedString pinning the
+// whole multi-MB sitemap XML inside a collection that spans the entire scan.
+// The open question was whether this gate had merely swapped an OOM for a
+// timeout. It has not: 356 ns per `<loc>` and 403 ns per alternate on a
+// 45'000-URL synthetic shard, i.e. ~0.8 s at the ~2M flattens a production run
+// makes, against a gate measured at 504-545 s and a job with no
+// `timeout-minutes` — about 0.15 %. The fallback the issue proposed (flatten
+// only what enters a cross-shard collection) is therefore moot: every call
+// site here already does, and there is nothing to claw back.
+// The bound that keeps this true is tests/seo/sitemap-loader-flatten-budget.test.ts.
 
 /** audit-sitemap-canonicals: dist/sitemap-*.xml minus index + news, no asset URLs. */
 function loadAuditSitemapCanonicalsUrls() {
