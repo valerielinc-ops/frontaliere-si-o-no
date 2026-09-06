@@ -39,10 +39,89 @@ import { renderAboveFloorPage as renderLiechtenstein } from '@/build-plugins/lie
 import { MUNICIPALITIES } from '@/data/municipalities';
 import { renderPage as renderItalian } from '@/build-plugins/borderMunicipalityPagesPlugin';
 import { TICINO_VITA_CORRIDOR_PROVINCES } from '@/build-plugins/shared/borderMunicipalityCorridors';
+import { renderProfessionCantonPage } from '@/build-plugins/professionCantonLandings';
+import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from '@/build-plugins/professionCantonData';
+import { ALL_CANTON_PROFESSION_IDS, type AnyProfessionId } from '@/build-plugins/professionLandingsData';
+import type { ProfessionJobsSnapshot } from '@/build-plugins/professionJobsAggregate';
 
 const DIST = '/tmp/information-gain-families';
 
 type Rendered = { urlPath: string; html: string };
+
+
+/**
+ * IL CORPUS SINTETICO DELLA FAMIGLIA professione × cantone (#7596)
+ * ---------------------------------------------------------------------------
+ * Le sei famiglie comunali sopra rendono da dati checked-in. Questa no: i suoi
+ * snapshot escono da `aggregateProfessionJobsByCanton`, che legge
+ * `data/jobs.json` — un blob da 31 MB che la CI assembla e che qui non c'è.
+ *
+ * QUESTO NUMERO NON È IL NUMERO LIVE, e non prova a esserlo. Il corpus qui
+ * sotto tiene gli stessi tre datori di lavoro su OGNI pagina e fa variare fra
+ * le celle le sole CIFRE, cioè proprio ciò che la maschera n. 1 dell'auditor
+ * riduce a `#`; misura 9,7 % col blocco di confronto e 6,2 % senza, mentre il
+ * corpus live misura 6,7 % col blocco e 2,9 % senza (110 URL campionate dal
+ * sitemap il 2026-09-06, issue #7596 — comando nella scheda della issue).
+ * I due assoluti non sono confrontabili perché i corpus non lo sono; il DELTA
+ * sì, ed è quello che questo test difende.
+ *
+ * Da qui la soglia: 8,7 % è il misurato meno un punto, e sta SOPRA il 6,2 %
+ * che la famiglia darebbe senza il blocco. È questo che rende il test un
+ * osservatore e non una decorazione — svuota `renderPeerComparison` e il test
+ * diventa rosso, che è l'unica cosa che il gate post-deploy non può fare in
+ * tempo utile.
+ */
+const SYNTHETIC_CANTONS = PROFESSION_CANTON_KEYS.slice(0, 8);
+
+/** Conteggio deterministico e ben distribuito per (cantone, professione). */
+const syntheticLiveCount = (cantonKey: string, id: AnyProfessionId): number => {
+  let h = 7;
+  for (const ch of `${cantonKey}:${id}`) h = (h * 31 + ch.charCodeAt(0)) % 100003;
+  // 0-3 finisce sotto MIN_JOBS: anche nel sintetico alcune coppie non hanno
+  // pagina, così le coorti per cantone hanno dimensioni diverse come dal vivo.
+  return h % 60;
+};
+
+const syntheticSnapshot = (cantonKey: string, id: AnyProfessionId): ProfessionJobsSnapshot => {
+  const liveCount = syntheticLiveCount(cantonKey, id);
+  return {
+    liveCount,
+    fresh30Count: liveCount % 7,
+    medianSalaryChf: 60000 + (liveCount % 13) * 1000,
+    featured: [],
+    // Identici ovunque: vedi il commento sopra, il gain non deve poter venire
+    // da qui.
+    topEmployers: [
+      { name: 'Alpha AG', count: 3 },
+      { name: 'Beta SA', count: 2 },
+      { name: 'Gamma GmbH', count: 1 },
+    ],
+  };
+};
+
+const renderProfessionCantonFamily = (): Rendered[] => {
+  const pages: Rendered[] = [];
+  for (const cantonKey of SYNTHETIC_CANTONS) {
+    const cantonProfessions: Partial<Record<AnyProfessionId, ProfessionJobsSnapshot>> = {};
+    for (const id of ALL_CANTON_PROFESSION_IDS) cantonProfessions[id] = syntheticSnapshot(cantonKey, id);
+    for (const id of ALL_CANTON_PROFESSION_IDS) {
+      const snapshot = cantonProfessions[id]!;
+      if (snapshot.liveCount < 3) continue; // MIN_JOBS: sotto floor esce un bridge, non questa pagina
+      pages.push({
+        urlPath: buildProfessionCantonPath('it', cantonKey, id),
+        html: renderProfessionCantonPage({
+          locale: 'it',
+          cantonKey,
+          id,
+          snapshot,
+          cantonProfessions,
+          distDir: DIST,
+        }).html,
+      });
+    }
+  }
+  return pages;
+};
 
 /** Misurato il 2026-08-24 sull'output dei plugin, meno 1 punto di margine. */
 const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[] }> = [
@@ -95,6 +174,13 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
       ),
   },
   {
+    name: 'lavoro-cantone-professione',
+    // Misurato 9,7 % sul corpus sintetico qui sopra, meno 1 punto di margine —
+    // e sopra il 6,2 % che la stessa famiglia dà senza il blocco.
+    minMedian: 8.7,
+    render: renderProfessionCantonFamily,
+  },
+  {
     name: 'vivere-in-austria',
     // La sola famiglia sotto il floor del gate, e per questo INVENTARIATA con
     // 4,2 %: il corridoio non ha alcun regime frontalieri, quindi la pagina è
@@ -120,7 +206,7 @@ const measure = (pages: Rendered[]) => {
   return cohorts.slice().sort((a, b) => b.pages - a.pages)[0] ?? null;
 };
 
-describe('information gain delle sei famiglie comunali, misurato sull’output dei plugin', () => {
+describe('information gain delle famiglie a payload numerico, misurato sull’output dei plugin', () => {
   for (const family of FAMILIES) {
     it(`${family.name} sta sopra ${family.minMedian} %`, () => {
       const cohort = measure(family.render());
