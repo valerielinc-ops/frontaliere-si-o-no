@@ -58,7 +58,7 @@ describe('check-hardcoded-locale-segments — detection predicate', () => {
   // quelle parole si auto-esonerava senza dichiarare il motivo che la doc
   // pretende.
   it('NON rispetta il marker fuori da un commento (#7676)', () => {
-    const prosa = 'const s = `<p>locale-segment-ok: ${base}/de/job/${hash}</p>`;';
+    const prosa = 'const url = `${base}/de/job/${hash}`; const l = "locale-segment-ok: non e\' un commento";';
     expect(lineHasViolation(prosa)).toBe(true);
     const target = 'const url = `${base}/de/job/${hash}`;';
     expect(lineHasViolation(target, 'const t = "locale-segment-ok: non e\' un commento";')).toBe(true);
