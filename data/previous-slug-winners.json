@@ -25199,6 +25199,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::en::sozialpadagog-in-hf-fh-kindheitspadagog-in-hf-fachperson-betreuung-zirka-40-betreuung-st": {
+    "winnerJobIdentifier": "stadt-luzern-35fca431e9c8",
+    "winnerCanonical": "social-pedagogue-in-hf-fh-childhood-pedagogue-in-hf-specialist-care-about-40-care-st-karli-stadt-luzern-luzern",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.2632,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::station-manager-in-care-schweizer-paraplegiker-zentrum-spz-nottwil": {
     "winnerJobIdentifier": "paraplegie-65df3c2e44e9",
     "winnerCanonical": "cook-chef-schweizer-paraplegiker-zentrum-spz-nottwil",
@@ -25736,6 +25745,15 @@
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
     "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::sozialpadagog-in-hf-fh-kindheitspadagog-in-hf-fachperson-betreuung-zirka-40-betreuung-st": {
+    "winnerJobIdentifier": "stadt-luzern-35fca431e9c8",
+    "winnerCanonical": "pedagogue-sociale-en-hf-fh-pedagogue-de-l-enfance-en-hf-soins-specialises-environ-40-care-st-karli-stadt-luzern-luzern",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.1739,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -27077,6 +27095,15 @@
     "decidedAt": "2026-07-06T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
     "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::sozialpadagog-in-hf-fh-kindheitspadagog-in-hf-fachperson-betreuung-zirka-40-betreuung-st": {
+    "winnerJobIdentifier": "stadt-luzern-35fca431e9c8",
+    "winnerCanonical": "pedagoga-sociale-in-hf-fh-pedagoga-infantile-in-hf-assistenza-specialistica-circa-40-cura-st-karli-stadt-luzern-luzern",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -36324,10 +36351,10 @@
     "canton": "SH"
   },
   "SH::it::specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen": {
-    "winnerJobIdentifier": "spitaeler-schaffhausen-fb12a519583e",
+    "winnerJobIdentifier": "spitaeler-schaffhausen-825a352d197e",
     "winnerCanonical": "dipl-infermiera-infermiera-specialista-hf-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
-    "lastSeenAt": "2026-08-15T00:00:00.000Z",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.5385,
     "candidatesCount": 1,
     "canton": "SH"
@@ -56879,6 +56906,24 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::fr::dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-3da5787dfcea",
+    "winnerCanonical": "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-4d9368862ff1",
+    "winnerCanonical": "dipl-groupe-de-soins-infirmiers-hf-fh-triemlipark-1-stadt-zurich-zurich",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-b1-psychiatrische": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
     "winnerCanonical": "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
@@ -62009,12 +62054,30 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-3da5787dfcea",
+    "winnerCanonical": "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zuerich-zurigo-51488": {
     "winnerJobIdentifier": "stadt-zuerich-4d9368862ff1",
     "winnerCanonical": "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
     "decidedAt": "2026-09-02T00:00:00.000Z",
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-3da5787dfcea",
+    "winnerCanonical": "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -63357,6 +63420,15 @@
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::hms-praxisjahr-2027-facility-management-stadt-zuerich-zurigo-50567": {
+    "winnerJobIdentifier": "stadt-zuerich-d689fa857744",
+    "winnerCanonical": "hochschulpraktikum-facility-management-stadt-zurich-zurich",
+    "decidedAt": "2026-09-06T00:00:00.000Z",
+    "lastSeenAt": "2026-09-06T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::hms-praxisjahr-2027-hr-services-stadt-zuerich-zurigo-51051": {
