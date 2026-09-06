@@ -23,6 +23,7 @@ import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mj
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
 import { tokenOverlap, gradeExtraction, isReadableText, bodySignature } from '../scripts/lib/prospector/validate.mjs';
 import { extractRuntimeDetailFields, listingEvidenceFields } from '../scripts/lib/prospector/detail-extract.mjs';
+import { extractApleonaDetailFields } from '../scripts/lib/apleona-schweiz-ag-job-parser.mjs';
 import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
@@ -1169,6 +1170,52 @@ describe('promotion gate', () => {
       { detailExtractor: () => once },
     );
     expect(twice).toEqual(once);
+  });
+
+  it('non ri-deriva sopra un detailExtractor tenant che ha gia\' deciso', () => {
+    // Su HTML Umantis REALE (non sintetico: la pagina sintetica non porta i
+    // container del tema Umantis, quindi la ri-derivazione generica non trova
+    // nulla e il difetto non si vede). `extractApleonaDetailFields` e' un
+    // estrattore tenant vero, con il suo gate sul suffisso di cantone e la sua
+    // sezione vacancy-specific obbligatoria: su questa pagina non trova ne'
+    // localita' ne' descrizione, e quel vuoto e' un VERDETTO. Prima del fix la
+    // ri-derivazione generica gli ripopolava `location`, `locationCandidates` e
+    // `description`, aggirando entrambi i gate senza che nessuna guardia se ne
+    // accorgesse (`locationGateRejected` non viene alzato quando semplicemente
+    // non si trova niente, e il ramo `description` non aveva guardia alcuna).
+    const html = fs.readFileSync(
+      path.resolve(process.cwd(), 'tests/fixtures/umantis-prospector-2649.html'),
+      'utf8',
+    );
+    const url = 'https://recruitingapp-2765.umantis.com/Vacancies/123/Description/1';
+    const tenant = extractApleonaDetailFields(html, url);
+    expect(tenant.location).toBe('');
+    expect(tenant.description).toBe('');
+
+    const runtime = extractRuntimeDetailFields(
+      { platform: 'umantis.com' },
+      html,
+      url,
+      { detailExtractor: extractApleonaDetailFields },
+    );
+    // La METRICA della issue: zero campi divergenti fra l'estrattore tenant e
+    // cio' che il runtime pubblichera'.
+    expect(runtime).toEqual(tenant);
+
+    // Lo stesso contratto senza dipendere dagli interni di Apleona: un
+    // estrattore tenant che lascia la localita' vuota SENZA alzare
+    // `locationGateRejected` non se la vede ripopolare, e la sua descrizione
+    // non viene sostituita da quella generica.
+    const stub = () => ({ title: 'Posto', description: '', location: '', addressCountry: '', locationCandidates: [] });
+    expect(extractRuntimeDetailFields({ platform: 'umantis.com' }, html, url, { detailExtractor: stub }))
+      .toEqual(stub());
+
+    // La ri-derivazione resta viva dove serve: senza estrattore tenant la base
+    // e' la cascata generica, e su questa stessa pagina produce localita' e
+    // descrizione (e' il caso recruitingapp-2924 per cui il modulo esiste).
+    const generic = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, url);
+    expect(generic.locationCandidates.length).toBeGreaterThan(0);
+    expect(generic.description.length).toBeGreaterThan(0);
   });
 
   it('lascia vincere la riga sull\'evidenza di listing', () => {
