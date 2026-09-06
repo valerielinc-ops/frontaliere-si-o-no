@@ -741,16 +741,25 @@ function jobCanonShardKey(slug) {
 // path is a job-detail orphan whose slug is in the map (with a prefix for the
 // request's `locale`) AND the canonical differs from the requested path;
 // otherwise null (caller serves the normal 404). `locale` is the request's locale
+// Lowercased, percent-decoded form of ONE path segment. A malformed %-escape
+// keeps the raw segment (lowercased) rather than throwing: the caller is always
+// on a recovery path, and a 404 that could have been a 301 is the worse outcome.
+// One helper because three call sites need the identical rule (canton-drift
+// slugs, legacy search clusters, retired-path lookup) and three copies of a
+// try/catch drift the day one of them learns something the others do not.
+function lowerSegment(seg) {
+  try {
+    return decodeURIComponent(seg).toLowerCase();
+  } catch {
+    return seg.toLowerCase(); // malformed %-escape → use raw segment
+  }
+}
+
 // (en|de|fr) so the 301 stays within-locale, never cross-locale to IT.
 async function recoverCantonDriftOrphan(url, locale) {
   const m = url.pathname.match(JOB_DETAIL_RE);
   if (!m) return null;
-  let slug;
-  try {
-    slug = decodeURIComponent(m[1]).toLowerCase();
-  } catch {
-    slug = m[1].toLowerCase(); // malformed %-escape → use raw segment
-  }
+  const slug = lowerSegment(m[1]);
   const sk = jobCanonShardKey(slug);
 
   const controller = new AbortController();
@@ -1288,12 +1297,30 @@ const GONE_COPY = {
 // normalisation — see scripts/lib/sitemap-retired-urls.mjs. A second copy of
 // the three-form rule would drift, and a sitemap that disagrees with the edge
 // about which URLs are dead is exactly the defect of issue #7670.
+// Case- and encoding-normalised form of a full pathname: every segment is
+// decoded and lowercased on its own, so a %2F stays a literal character inside
+// its segment instead of fabricating a path boundary the request never sent.
+// URL paths are case-sensitive by the letter of the RFC, but the retirement
+// table is not a filesystem: an inbound /Articoli-Frontaliere/<Slug>/ names the
+// SAME withdrawn article, and matching it exactly is what let a case variant
+// skip the 301 and reach the append-only shard that still holds it (#7671).
+export function normaliseRetiredPath(pathname) {
+  return pathname
+    .split('/')
+    .map((seg) => {
+      const decoded = lowerSegment(seg);
+      return decoded.includes('/') ? seg.toLowerCase() : decoded;
+    })
+    .join('/');
+}
+
 export function lookupRetired(pathname) {
   const own = (key) => Object.prototype.hasOwnProperty.call(EDGE_RETIRED_PATHS, key);
-  if (own(pathname)) return EDGE_RETIRED_PATHS[pathname];
-  if (!pathname.endsWith('/') && own(`${pathname}/`)) return EDGE_RETIRED_PATHS[`${pathname}/`];
-  if (pathname.endsWith('/index.html')) {
-    const dir = pathname.slice(0, -'index.html'.length);
+  const path = normaliseRetiredPath(pathname);
+  if (own(path)) return EDGE_RETIRED_PATHS[path];
+  if (!path.endsWith('/') && own(`${path}/`)) return EDGE_RETIRED_PATHS[`${path}/`];
+  if (path.endsWith('/index.html')) {
+    const dir = path.slice(0, -'index.html'.length);
     if (own(dir)) return EDGE_RETIRED_PATHS[dir];
   }
   return undefined;
@@ -1355,10 +1382,14 @@ function buildGonePage(pathname) {
  * contained a correct redirect table the serving path never read.
  */
 export function retiredEdgeResponse(url) {
-  const target = lookupRetired(url.pathname);
+  // The normalised path, not the raw one: the 410 body derives its locale and
+  // its one live link from matchSection, which is prefix-exact, so a mixed-case
+  // request would otherwise be told it is Italian and pointed at the apex.
+  const path = normaliseRetiredPath(url.pathname);
+  const target = lookupRetired(path);
   if (target === undefined) return null;
   if (target === null) {
-    return new Response(buildGonePage(url.pathname), {
+    return new Response(buildGonePage(path), {
       status: 410,
       headers: {
         'Content-Type': 'text/html; charset=utf-8',
@@ -1447,12 +1478,7 @@ function recoverLegacySearchCluster(url, locale) {
   if (!board) return null;
   const m = url.pathname.match(JOB_DETAIL_RE);
   if (!m) return null;
-  let lastSeg;
-  try {
-    lastSeg = decodeURIComponent(m[1]).toLowerCase();
-  } catch {
-    lastSeg = m[1].toLowerCase();
-  }
+  const lastSeg = lowerSegment(m[1]);
   if (!SEARCH_CLUSTER_PREFIX_RE.test(lastSeg)) return null;
   // Already on the national board (loop guard — the board path has no extra segment).
   if (url.pathname.replace(/\/+$/, '') + '/' === board) return null;
