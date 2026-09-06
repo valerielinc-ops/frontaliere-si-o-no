@@ -5695,6 +5695,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Gestione del primo pilastro AVS nel Cantone di Basilea Campagna',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'Il Cantone di Basilea Campagna gestisce il primo pilastro AVS con una cassa di compensazione cantonale, garantendo il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Paesaggio svizzero con focus sul sistema AVS e prestazioni complementari',
+    'blog.article.beloved-aiuto-vittime-crans-montana.title': 'Aiuto alle vittime: 70 richieste alla Fondazione Beloved',
+    'blog.article.beloved-aiuto-vittime-crans-montana.excerpt': 'La Fondazione Beloved, istituita dal Canton Vallese, ha gestito 70 richieste di aiuto. Finora nessun rifiuto, versate decine di migliaia di franchi.',
+    'blog.article.beloved-aiuto-vittime-crans-montana.imageAlt': 'Ufficio di fondazione con personale che offre supporto psicologico e finanziario a vittime in Svizzera',
 };
 
 export default blogMetaChIt;

@@ -5695,6 +5695,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea-campagna.title': 'Verwaltung der ersten AHV-Säule im Kanton Basel-Landschaft',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.excerpt': 'Der Kanton Basel-Landschaft betreibt die erste AHV-Säule mit einer kantonalen Ausgleichskasse und sichert das Existenzminimum.',
     'blog.article.avs-prestazioni-complementari-basilea-campagna.imageAlt': 'Schweizer Landschaft mit Fokus auf AVS-System und ergänzenden Leistungen',
+    'blog.article.beloved-aiuto-vittime-crans-montana.title': 'Opferhilfe: 70 Anträge an die Beloved-Stiftung',
+    'blog.article.beloved-aiuto-vittime-crans-montana.excerpt': 'Die vom Kanton Wallis gegründete Beloved-Stiftung hat 70 Hilfsgesuche bearbeitet. Bisher keine Ablehnung, zahlen Sie Zehntausende von Franken.',
+    'blog.article.beloved-aiuto-vittime-crans-montana.imageAlt': 'Büro einer Stiftung mit Personal, das Opfern psychologische und finanzielle Unterstützung bietet',
 };
 
 export default blogMetaChDe;

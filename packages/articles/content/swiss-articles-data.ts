@@ -17083,6 +17083,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'beloved-aiuto-vittime-crans-montana',
+    category: 'pratico',
+    date: '2026-09-06T07:55:34.256Z',
+    image: '/images/blog/beloved-aiuto-vittime-crans-montana.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

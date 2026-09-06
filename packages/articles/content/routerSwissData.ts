@@ -1924,6 +1924,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affittare-bene-immobili-ticino': { it: 'affittare-bene-immobili-ticino', en: 'renting-well-properties-ticino', de: 'gut-vermieten-immobilien-tessin', fr: 'louer-bien-biens-tessin' },
  'neutralita-svizzera-prospeta': { it: 'neutralita-svizzera-prospeta', en: 'swiss-neutrality-prosperity', de: 'schweizer-neutralitaet-wohlstand', fr: 'neutralite-suisse-prosperite' },
  'avs-prestazioni-complementari-basilea-campagna': { it: 'avs-prestazioni-complementari-basilea-campagna', en: 'avs-complementary-benefits-basel-countryside', de: 'avs-zusatzleistungen-baselland', fr: 'avs-prestations-complementaires-basel-campagne' },
+ 'beloved-aiuto-vittime-crans-montana': { it: 'beloved-aiuto-vittime-crans-montana', en: 'beloved-assistance-victims-crans-montana', de: 'beloved-opferhilfe-crans-montana', fr: 'beloved-aide-victimes-crans-montana' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
