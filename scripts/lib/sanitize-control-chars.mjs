@@ -291,21 +291,79 @@ export function sanitizeJsonText(raw) {
 }
 
 /**
- * Throw if `text` still carries an invalid control character.
+ * Every unpaired surrogate code unit in `text`, as `{ index, code }`.
+ *
+ * Un surrogate spaiato non e' un carattere: e' meta' di una coppia UTF-16 che
+ * non ha una codifica UTF-8. Su questo percorso non fallisce nulla, ed e'
+ * proprio questo il problema — `fs.writeFileSync` lo sostituisce con U+FFFD
+ * mentre lo scrive, e `Buffer.byteLength` calcola i byte della STESSA
+ * sostituzione. Dichiarato e disco quindi coincidono, `manifest.files` resta
+ * verde, e il documento pubblicato e' gia' alterato: il caso peggiore di
+ * AGENTS.md, quello che non fallisce da solo.
+ *
+ * Sul percorso JSON la stringa e' protetta da `JSON.stringify` (well-formed
+ * stringify: emette `\udXXX` invece di perdere il code unit); sul percorso XML
+ * — sitemap e feed — no, e li' l'unica rete e' rifiutare a monte.
+ */
+export function findLoneSurrogates(text) {
+  const found = [];
+  if (typeof text !== 'string') return found;
+  for (let i = 0; i < text.length; i++) {
+    const code = text.charCodeAt(i);
+    if (code >= 0xd800 && code <= 0xdbff) {
+      const next = i + 1 < text.length ? text.charCodeAt(i + 1) : 0;
+      if (next >= 0xdc00 && next <= 0xdfff) {
+        i += 1; // coppia valida: consuma anche il low surrogate
+        continue;
+      }
+      found.push({ index: i, code });
+    } else if (code >= 0xdc00 && code <= 0xdfff) {
+      // Un low surrogate raggiunto qui non e' preceduto da un high: se lo fosse,
+      // il ramo sopra lo avrebbe gia' consumato insieme al suo.
+      found.push({ index: i, code });
+    }
+  }
+  return found;
+}
+
+/**
+ * Throw if `text` still carries an invalid control character — or a lone
+ * surrogate.
  *
  * The emitters call this on what they have just written, so a NEW output added
  * later without going through a sanitizer fails the build that adds it rather
  * than the crawler that reads it three days on. It is deliberately a tautology
  * on the paths already covered above: the paths not yet covered are the point.
+ *
+ * Sui surrogati spaiati NON e' una tautologia, ed e' voluto: non esiste un
+ * sanitizer a monte che li tolga, perche' sostituirli in silenzio e'
+ * esattamente cio' che gia' fa `writeFileSync` — e la coerenza fra dichiarato
+ * e disco non e' correttezza del pubblicato. L'unica risposta corretta e'
+ * rifiutare, cosi' fallisce la build che introduce il code unit rotto invece
+ * del crawler che tre giorni dopo legge un documento diverso dal corpus.
+ * Va quindi chiamata PRIMA della scrittura: riletta dal disco la stringa e'
+ * gia' U+FFFD, e non c'e' piu' niente da vedere.
  */
 export function assertNoControlChars(text, label) {
   const found = findControlChars(text);
-  if (found.length === 0) return;
-  const detail = found
-    .slice(0, 5)
-    .map((f) => `0x${f.code.toString(16).padStart(2, '0')}@${f.index}`)
-    .join(', ');
-  throw new Error(
-    `${label}: ${found.length} XML-invalid control character(s) survived sanitisation (${detail}) — refusing to publish`,
-  );
+  if (found.length > 0) {
+    const detail = found
+      .slice(0, 5)
+      .map((f) => `0x${f.code.toString(16).padStart(2, '0')}@${f.index}`)
+      .join(', ');
+    throw new Error(
+      `${label}: ${found.length} XML-invalid control character(s) survived sanitisation (${detail}) — refusing to publish`,
+    );
+  }
+  const lone = findLoneSurrogates(text);
+  if (lone.length > 0) {
+    const detail = lone
+      .slice(0, 5)
+      .map((f) => `0x${f.code.toString(16).padStart(4, '0')}@${f.index}`)
+      .join(', ');
+    throw new Error(
+      `${label}: ${lone.length} lone surrogate(s) (${detail}) — writeFileSync would publish them as U+FFFD ` +
+        'and the byte-size gate would still match; refusing to publish an already-altered document',
+    );
+  }
 }

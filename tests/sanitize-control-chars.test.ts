@@ -44,6 +44,7 @@ import {
   sanitizeJsonText,
   findControlChars,
   assertNoControlChars,
+  findLoneSurrogates,
 } from '../scripts/lib/sanitize-control-chars.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -326,6 +327,42 @@ describe('assertNoControlChars', () => {
     expect(() => assertNoControlChars(DIRTY_TITLE, 'sitemap-blog.xml')).toThrow(
       /sitemap-blog\.xml: 2 XML-invalid control character\(s\).*0x17@.*0x08@/s,
     );
+  });
+});
+
+/**
+ * La meta' gemella portata dal corpus (commit 7a380e5f9, #921/#1001). Il file e'
+ * `identical` nel manifest del ciclo, e il sito era fermo alla versione senza questo
+ * ramo: due lati diversi su una voce `identical` escono dal trasporto — `classify()`
+ * legge `both-moved` alla prossima modifica del sito invece di `site-ahead`, e
+ * `transportVerdict()` copia SOLO `site-ahead`. Il canale del mirror si spegneva in
+ * silenzio proprio su questo file.
+ *
+ * Il difetto che il codice portato sorveglia: un surrogate spaiato non e' un carattere
+ * ma meta' di una coppia UTF-16 senza codifica UTF-8. Non fallisce niente da solo —
+ * `writeFileSync` lo scrive come U+FFFD e `Buffer.byteLength` misura i byte della
+ * STESSA sostituzione, quindi dichiarato e disco coincidono, il gate sulla dimensione
+ * resta verde, e il documento pubblicato e' gia' alterato.
+ */
+describe('lone surrogates (meta\' gemella del corpus)', () => {
+  const HIGH = '\ud83d'; // meta' alta, senza la sua bassa
+  const LOW = '\ude00'; // meta' bassa, senza la sua alta
+
+  it('non segnala una coppia valida, segnala le due meta\' spaiate', () => {
+    expect(findLoneSurrogates('ciao 😀 mondo')).toEqual([]); // coppia completa
+    expect(findLoneSurrogates(`a${HIGH}b`)).toEqual([{ index: 1, code: 0xd83d }]);
+    expect(findLoneSurrogates(`a${LOW}b`)).toEqual([{ index: 1, code: 0xde00 }]);
+    expect(findLoneSurrogates(null as unknown as string)).toEqual([]);
+  });
+
+  it('rifiuta di pubblicare invece di lasciar sostituire in silenzio', () => {
+    // La sostituzione silenziosa e' cio' che `writeFileSync` gia' fa: l'unica risposta
+    // corretta e' far fallire la build che introduce il code unit rotto, non il crawler
+    // che tre giorni dopo legge un documento diverso dal corpus.
+    expect(() => assertNoControlChars(`titolo ${HIGH}`, 'sitemap-blog.xml')).toThrow(
+      /sitemap-blog\.xml: 1 lone surrogate\(s\).*0xd83d@7.*U\+FFFD/s,
+    );
+    expect(() => assertNoControlChars('titolo 😀', 'sitemap-blog.xml')).not.toThrow();
   });
 });
 
