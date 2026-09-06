@@ -1,19 +1,20 @@
 {
   "key": "city-pop",
   "label": "City Pop",
-  "generatedAt": "2026-09-05T22:54:48.709Z",
+  "generatedAt": "2026-09-06T22:57:45.299Z",
   "total": 1,
   "discovered": null,
+  "parsed": 1,
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5428,
-  "avgDurationMs": 5428,
+  "durationMs": 7321,
+  "avgDurationMs": 7321,
   "durationHistory": [
-    5428
+    7321
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +30,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/2b348b1e-a516-4a1f-87f6-748275ef32cf/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:54:40.435Z",
+      "crawledAt": "2026-09-06T22:57:33.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bernerstrasse Süd 169",
@@ -48,11 +49,11 @@
       "hiringOrganizationName": "City Pop AG",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T14:17:57.850Z",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     }
