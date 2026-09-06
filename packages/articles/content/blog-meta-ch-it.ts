@@ -5641,6 +5641,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Sistema scolastico Cantone Vallese: guida a cicli e iscrizioni',
     'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Scopri come funziona l\'istruzione obbligatoria nel Vallese: dalla struttura dei cicli scolastici alle procedure pratiche di iscrizione per le famiglie.',
     'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Edificio scolastico moderno nel Cantone Vallese',
+    'blog.article.avs-prestazioni-complementari-soletta.title': 'AVS e prestazioni complementari nel Cantone di Soletta',
+    'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'La cassa di compensazione cantonale di Soletta gestisce il primo pilastro AVS, calcolando rendite e prestazioni complementari per garantire il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'Vista della città di Bellinzona con i suoi castelli medievali.',
 };
 
 export default blogMetaChIt;

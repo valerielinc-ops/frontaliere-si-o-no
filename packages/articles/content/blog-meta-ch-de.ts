@@ -5641,6 +5641,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Schulsystem Kanton Wallis: Zyklus- und Einschreibungsleitfaden',
     'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Erfahren Sie, wie die Schulpflicht im Wallis funktioniert: von der Struktur der Schulzyklen bis hin zu praktischen Anmeldeverfahren für Familien.',
     'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Modernes Schulgebäude im Kanton Wallis',
+    'blog.article.avs-prestazioni-complementari-soletta.title': 'AHV und Ergänzungsleistungen im Kanton Solothurn',
+    'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'Die kantonale Ausgleichskasse Solothurn betreibt die erste AHV-Säule und berechnet Renten und Ergänzungsleistungen zur Sicherung des Existenzminimums.',
+    'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'Ansicht der Stadt Bellinzona mit ihren mittelalterlichen Burgen.',
 };
 
 export default blogMetaChDe;

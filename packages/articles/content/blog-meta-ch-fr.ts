@@ -5641,6 +5641,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Système scolaire canton du Valais : guide des cycles et des inscriptions',
     'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Découvrez le fonctionnement de l\'enseignement obligatoire en Valais : de la structure des cycles scolaires aux procédures pratiques d\'inscription pour les familles.',
     'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Bâtiment scolaire moderne dans le canton du Valais',
+    'blog.article.avs-prestazioni-complementari-soletta.title': 'AVS et prestations complémentaires dans le canton de Soleure',
+    'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'La caisse de compensation cantonale de Soleure gère le premier pilier AVS, calculant les rentes et prestations complémentaires pour assurer le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'Vue de la ville de Bellinzona avec ses châteaux médiévaux.',
 };
 
 export default blogMetaChFr;

@@ -5641,6 +5641,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.istruzione-obbligatoria-canton-vallese.title': 'Canton of Valais school system: guide to cycles and enrolments',
     'blog.article.istruzione-obbligatoria-canton-vallese.excerpt': 'Find out how compulsory education works in Valais: from the structure of school cycles to practical enrolment procedures for families.',
     'blog.article.istruzione-obbligatoria-canton-vallese.imageAlt': 'Modern school building in the Canton of Valais',
+    'blog.article.avs-prestazioni-complementari-soletta.title': 'AVS and complementary services in the Canton of Solothurn',
+    'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'The cantonal compensation fund of Solothurn manages the first AVS pillar, calculating complementary annuities and benefits to ensure the minimum living.',
+    'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'View of the city of Bellinzona with its medieval castles.',
 };
 
 export default blogMetaChEn;
