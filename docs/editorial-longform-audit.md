@@ -132,9 +132,13 @@ Sui confini strutturali va detto cosa il renderer protegge e cosa no. L'ad non
 viene mai emesso "a ogni paragrafo": i punti di emissione sono due — prima di un
 confine `## ` e a fine segmento di corpo (`tryEmitAd`) — e l'ad che cadrebbe a
 cavallo di una tabella viene rinviato al confine successivo, mai perso (issue
-#7337). Citazioni e liste operative non hanno invece una protezione dedicata e
-possono ancora essere spezzate: è il residuo aperto rispetto al brief benchmark
-(§"Principi per frontaliereticino.ch" dell'issue).
+#7337). Dal 2026-09-06 (issue #7647) la stessa regola vale per le citazioni e le
+liste operative: `isAdStraddleBlock` copre tabella, blockquote e lista — puntata
+o procedura numerata — e il rinvio attraversa un'intera sequenza di quei blocchi,
+con la soglia di gap presa dal profilo di `resolveArticleAdDensity`, non
+duplicata. Il residuo rispetto al brief benchmark (§"Principi per
+frontaliereticino.ch" dell'issue) è chiuso; resta fuori protezione solo ciò che
+il renderer non tratta come blocco a sé.
 
 Il mapping dettagliato, il wireframe e lo stato di implementazione sono in
 `docs/ads-placement-longform.md` §1 e §6.

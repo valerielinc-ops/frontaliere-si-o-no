@@ -15,7 +15,7 @@
 import { describe, it, expect } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { renderFormattedContent, isTableBlock } from '@/components/community/BlogArticles';
+import { renderFormattedContent, isTableBlock, isAdStraddleBlock } from '@/components/community/BlogArticles';
 
 const AD_MARKER = 'data-testid="inline-ad"';
 const adRenderer = (keyPrefix: string) => <div key={keyPrefix} data-testid="inline-ad" />;
@@ -148,5 +148,95 @@ describe('inline ads around a table that opens a section (#7337)', () => {
     const html = render(bodyWithoutTable);
     const h2 = html.indexOf('<h2');
     expect(html.slice(0, h2)).toContain(AD_MARKER);
+  });
+});
+
+/**
+ * Issue #7647 — the same straddle protection for the two blocks the audit
+ * (`docs/editorial-longform-audit.md` §6) still listed as unprotected: a
+ * citation and an operative list. Both are read as one unit, so an ad emitted
+ * between the `## ` and the block splits the reader mid-procedure.
+ */
+const QUOTE = '> Il frontaliere che supera i 45 giorni di non-rientro perde lo statuto.';
+const BULLET_LIST = ['- Raccogli il modulo', '- Compila la sezione B', '- Invia entro il 31 marzo'].join('\n');
+const NUMBERED_LIST = ['1. Raccogli il modulo', '2. Compila la sezione B', '3. Invia entro il 31 marzo'].join('\n');
+
+describe('isAdStraddleBlock', () => {
+  it('accepts a table, a citation, a bulleted list and a numbered procedure', () => {
+    expect(isAdStraddleBlock(TABLE)).toBe(true);
+    expect(isAdStraddleBlock(QUOTE)).toBe(true);
+    expect(isAdStraddleBlock(BULLET_LIST)).toBe(true);
+    expect(isAdStraddleBlock(NUMBERED_LIST)).toBe(true);
+  });
+
+  it('rejects prose and the empty block (a `## ` with no block after it)', () => {
+    expect(isAdStraddleBlock(words(20))).toBe(false);
+    expect(isAdStraddleBlock('')).toBe(false);
+    expect(isAdStraddleBlock('   ')).toBe(false);
+    // A paragraph that merely opens with a digit is not a procedure.
+    expect(isAdStraddleBlock('45 giorni sono il limite di non-rientro previsto.')).toBe(false);
+  });
+});
+
+describe('inline ads around a citation or an operative list (#7647)', () => {
+  /** Big enough that the deferral spans more than a full gap, as BIG_TABLE does. */
+  const bigList = (marker: (i: number) => string) =>
+    Array.from({ length: 30 }, (_, i) => `${marker(i)} passo ${i} della procedura completa`).join('\n');
+  const BIG_QUOTE = `> ${words(260)}`;
+  const BIG_BULLETS = bigList(() => '-');
+  const BIG_NUMBERS = bigList(i => `${i + 1}.`);
+  const tokens = (block: string) => block.trim().split(/\s+/).filter(Boolean).length;
+
+  /**
+   * The ad an H2 boundary emits is pushed BEFORE the heading element, so the
+   * straddle is visible in the markup as an ad sitting between the end of the
+   * previous section and the block the heading introduces. `INTRO_END` marks
+   * where that window opens; `blockEnd` is the last text the block renders.
+   */
+  const INTRO_END = 'fineintroduzione';
+  const body = (block: string) =>
+    `${words(250)}\n\n${INTRO_END}\n\n## Sezione operativa\n\n${block}\n\n${words(250)}`;
+
+  const cases: ReadonlyArray<readonly [string, string, string]> = [
+    ['citazione', BIG_QUOTE, 'parola259'],
+    ['lista puntata', BIG_BULLETS, 'passo 29'],
+    ['procedura numerata', BIG_NUMBERS, 'passo 29'],
+  ];
+
+  for (const [label, block, blockEndText] of cases) {
+    it(`defers the ad past the ${label} the H2 introduces instead of straddling it`, () => {
+      const html = render(body(block));
+      const introEnd = html.indexOf(INTRO_END);
+      const blockEnd = html.indexOf(blockEndText, introEnd);
+      expect(introEnd).toBeGreaterThanOrEqual(0);
+      expect(blockEnd).toBeGreaterThan(introEnd);
+      expect(html.slice(introEnd, blockEnd)).not.toContain(AD_MARKER);
+      expect(html.slice(blockEnd)).toContain(AD_MARKER);
+    });
+
+    it(`keeps the per-article ad count identical with a ${label} as with prose`, () => {
+      const control = body(words(tokens(block)));
+      expect(countAds(render(control))).toBeGreaterThan(1);
+      expect(countAds(render(body(block)))).toBe(countAds(render(control)));
+    });
+  }
+
+  /**
+   * The straddle unit is often more than one block: a citation introducing the
+   * procedure, then the list itself. The deferral has to survive the whole run,
+   * not just its first block.
+   */
+  it('keeps the ad deferred across a run of citation + list, then emits it after', () => {
+    const html = render(body(`${QUOTE}\n\n${BULLET_LIST}`));
+    const introEnd = html.indexOf(INTRO_END);
+    const listEnd = html.indexOf('</ul>', introEnd);
+    expect(listEnd).toBeGreaterThan(introEnd);
+    expect(html.slice(introEnd, listEnd)).not.toContain(AD_MARKER);
+    expect(html.slice(listEnd)).toContain(AD_MARKER);
+  });
+
+  it('still emits the ad before an H2 whose section opens with prose', () => {
+    const html = render(bodyWithoutTable);
+    expect(html.slice(0, html.indexOf('<h2'))).toContain(AD_MARKER);
   });
 });
