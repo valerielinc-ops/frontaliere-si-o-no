@@ -122,6 +122,36 @@ describe('#6759 — a vacancy belongs to exactly one crawler', () => {
     expect(result.jobs).toHaveLength(1);
   });
 
+  it('does not let a key this run wrote become incumbent for the next one', () => {
+    // Issue #7618, item 2. An umbrella crawler writes several sub-brand keys in
+    // ONE process (update-swatchgroup-jobs.mjs: six of them, one shared vacancy
+    // pool). The snapshot is re-read from disk at every write, so the first key
+    // is already on disk when the second is written: without the pre-run set
+    // the second brand would drop its own vacancies because of loop order.
+    const url = 'https://jobs.example.test/offene-stellen/swatch-shared';
+    const ownership = ownershipOf({ comadur: [url] });
+    // comadur held nothing before this run — its slice is this run's output.
+    const priorUrlsByKey = new Map([['comadur', new Set<string>()]]);
+
+    const guarded = dropForeignOwnedVacancies('eta-sa', [{ url }], ownership as never, { priorUrlsByKey });
+
+    expect(guarded.dropped).toEqual([]);
+    expect(guarded.jobs).toHaveLength(1);
+  });
+
+  it('keeps the incumbency a same-run writer already had before this run', () => {
+    // The other half: discounting a fresh gain must not amnesty a real
+    // incumbent just because this process happened to refresh its slice too.
+    const url = 'https://jobs.example.test/offene-stellen/long-published';
+    const ownership = ownershipOf({ comadur: [url] });
+    const priorUrlsByKey = new Map([['comadur', new Set([url])]]);
+
+    const guarded = dropForeignOwnedVacancies('eta-sa', [{ url }], ownership as never, { priorUrlsByKey });
+
+    expect(guarded.dropped).toEqual([expect.objectContaining({ owner: 'comadur' })]);
+    expect(guarded.jobs).toHaveLength(0);
+  });
+
   it('picks one owner deterministically when two crawlers both hold the URL', () => {
     // Already-duplicated state must resolve the same way on every run,
     // whatever order readdir returned the slices in.
