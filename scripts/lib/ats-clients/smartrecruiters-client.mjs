@@ -206,6 +206,53 @@ export function buildSmartRecruitersApiUrl(tenant, options = {}) {
 }
 
 /**
+ * Fetch the tenant's department directory (`/v1/companies/{tenant}/departments`).
+ *
+ * Distinct from the postings payload, and that difference is the point: the
+ * directory lists EVERY department the tenant has configured, including those
+ * with zero live postings. It is therefore the ground truth for telling an ATS
+ * department RENAME apart from a department whose board is legitimately empty —
+ * in the postings payload the two states are indistinguishable, because the
+ * configured label is simply absent in both cases.
+ *
+ * @param {string} tenant                          e.g. "SwissMedicalNetwork1"
+ * @param {Object} [options]
+ * @param {boolean} [options.includeArchived]      Keep archived departments. Default false.
+ * @param {number} [options.timeoutMs]             Per-request. Default 20_000 ms.
+ * @param {string} [options.userAgent]             Default polite UA.
+ * @returns {Promise<Array<{ id: (number|string), label: string, archived: boolean }>>}
+ * @throws {SmartRecruitersApiError} on persistent failure.
+ */
+export async function fetchSmartRecruitersDepartments(tenant, options = {}) {
+  if (!tenant || typeof tenant !== 'string') {
+    throw new TypeError('fetchSmartRecruitersDepartments: tenant must be a non-empty string');
+  }
+  const {
+    includeArchived = false,
+    timeoutMs = DEFAULT_TIMEOUT_MS,
+    userAgent = POLITE_UA,
+  } = options;
+
+  const departments = [];
+  let offset = 0;
+  for (;;) {
+    const url = `${SR_API_BASE}/${encodeURIComponent(tenant)}/departments?limit=${DEFAULT_PAGE_SIZE}&offset=${offset}`;
+    const { content, totalFound } = await fetchListPage(url, { timeoutMs, userAgent });
+    for (const dept of content) {
+      const label = typeof dept?.label === 'string' ? dept.label.trim() : '';
+      if (!label) continue;
+      const archived = dept?.archived === true;
+      if (archived && !includeArchived) continue;
+      departments.push({ id: dept?.id, label, archived });
+    }
+    if (content.length === 0) break;
+    offset += content.length;
+    if (offset >= totalFound) break;
+  }
+  return departments;
+}
+
+/**
  * Fetch a single page from SmartRecruiters list endpoint, with one retry on 5xx.
  *
  * @param {string} url
