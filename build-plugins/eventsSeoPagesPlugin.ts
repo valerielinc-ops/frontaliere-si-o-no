@@ -1648,7 +1648,7 @@ export function cantonLadders(byComune: Map<string, SiteEvent[]>, otherEvents: S
  * `detailHref` stays locale-independent this is identical to any single
  * locale's list, which is exactly today's output.
  */
-function sitemapLadders(laddersByLocale: Map<Locale, LadderBucket[]>): LadderBucket[] {
+export function sitemapLadders(laddersByLocale: Map<Locale, LadderBucket[]>): LadderBucket[] {
   const perLocale = [...laddersByLocale.values()];
   const [first, ...rest] = perLocale;
   if (!first) return [];
