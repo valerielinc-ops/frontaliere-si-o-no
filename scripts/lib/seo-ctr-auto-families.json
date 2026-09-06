@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "pathContains": "/cerca-lavoro-berna/",
+    "pathAliases": [
+      "/find-jobs-bern/",
+      "/jobs-in-bern/",
+      "/trouver-emploi-berne/"
+    ],
+    "id": "cerca-lavoro-berna",
+    "label": "Cerca lavoro Berna",
+    "kind": "template",
+    "targetCtr": 0.03,
+    "monitored": true,
+    "note": "Auto-registrata da discovery template job-board (cantonCode=BE), scoperta via /trouver-emploi-berne/.",
+    "impressions90d": 54585,
+    "measuredOn": "2026-09-06"
+  }
+]
