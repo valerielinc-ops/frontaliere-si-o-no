@@ -56,7 +56,7 @@
  * are correctly excluded by the walk.
  */
 import fs from 'node:fs';
-import { opendir, readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
@@ -210,16 +210,23 @@ const WALK_CONCURRENCY = 24;
 // was O(corpus). Raising the heap cap only moves the same wall further out.
 //
 // The walker below never holds more than a bounded slice of the tree:
-//   • directories are STREAMED with opendir(), so a directory with a million
-//     children never materialises a million Dirents at once;
 //   • sub-directories go on a shared LIFO stack only while it is under
 //     DIR_STACK_HIGH_WATER; above it the worker descends into them INLINE
-//     (depth-first), which costs one open handle per tree LEVEL instead of one
-//     retained path per page;
+//     (depth-first), which costs recursion bounded by the tree DEPTH instead of
+//     one retained path per page;
 //   • there is no file queue at all: a worker that finds an index.html reads it
 //     and hands it to `onFile` before looking at its next entry, so pending
 //     reads are bounded by the worker count — that IS the backpressure the
 //     two-queue version lacked.
+//
+// What is left is O(widest directory) — one readdir() batch per worker — plus
+// O(tree depth) inline descent, instead of O(dist/). Streaming those batches
+// with opendir() would drop even that, but it was measured and rejected: on a
+// 120 000-page synthetic tree (one directory per page, the shape that matters
+// here) opendir()'s per-entry async iteration cost +62 % wall (18.4 s vs 11.4 s)
+// for 10 MB less peak RSS. This gate is the critical path of its step; the batch
+// readdir keeps the pre-fix wall (11.4 s vs 12.1 s for the two-FIFO version)
+// while cutting peak RSS from 285 MB to 107 MB, i.e. 2.7×.
 //
 // COVERAGE AND VERDICT ARE UNCHANGED, deliberately: same skipped directories
 // (assets / data / images), same descent into dot-directories, same "every entry
@@ -229,16 +236,12 @@ const WALK_CONCURRENCY = 24;
 // which 3 paths a group prints as samples). All of it is pinned by
 // tests/seo/audit-spa-bundle-injection-walk.test.ts.
 const DIR_STACK_HIGH_WATER = 4096;
-// Entries read per opendir() syscall (default is 32). Bigger batches mean fewer
-// syscalls on the wide directories that dominate this tree, at 24 × 256 Dirents
-// of resident cost — a rounding error next to what the FIFOs used to retain.
-const OPENDIR_BUFFER = 256;
 
 /**
  * Walk `root` and invoke `onFile(relDir, html)` for every `index.html`, with at
- * most WALK_CONCURRENCY directory streams open — and therefore at most that many
- * reads in flight. Rejects with the first error seen, after the in-flight work
- * has drained.
+ * most WALK_CONCURRENCY directories being processed — and therefore at most that
+ * many reads in flight. Rejects with the first error seen, after the in-flight
+ * work has drained.
  *
  * @param {string} root
  * @param {(relDir: string, html: string) => void} onFile
@@ -260,9 +263,8 @@ async function scanIndexHtml(root, onFile) {
   /** @param {string} base */
   const visit = async (base) => {
     const abs = base ? path.join(root, base) : root;
-    const dir = await opendir(abs, { bufferSize: OPENDIR_BUFFER });
-    // `for await` closes the handle on completion, on break and on throw.
-    for await (const entry of dir) {
+    const entries = await readdir(abs, { withFileTypes: true });
+    for (const entry of entries) {
       if (failure) break;
       if (entry.isDirectory()) {
         // Skip asset/data/image directories — they don't contain index.html

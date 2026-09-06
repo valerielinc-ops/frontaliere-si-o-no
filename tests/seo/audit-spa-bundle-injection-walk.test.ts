@@ -28,7 +28,13 @@
  *   • a read error still aborts the run instead of quietly skipping a file —
  *     the async pump must REJECT, not deadlock (an earlier draft exited 13
  *     with "unsettled top-level await" on exactly this path);
- *   • the queue's prefix-release path (>4096 directories) is exercised.
+ *   • the walker's OVERFLOW path (> DIR_STACK_HIGH_WATER = 4096 pending
+ *     directories, where a worker stops queueing and descends inline) visits
+ *     exactly the same pages as the queued path. That branch replaced the old
+ *     FIFO's prefix-release: releasing consumed entries bounded nothing, the
+ *     frontier was still O(corpus), and run 33998018692 OOMed at 4 GB
+ *     (exit 134) on a 4.44M-file dist/. A walker that skipped pages past the
+ *     high-water mark would move this zero-tolerance ratchet silently.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -68,10 +74,10 @@ function page(relDir: string, body: string): void {
 // synthetic offenders — the same kind of unobserved coupling issue #5451
 // fixed in the gate itself. Merge both streams so the offender-count
 // assertion holds regardless of which branch the real baseline sends it down.
-function run(): { stdout: string; status: number } {
+function run(cwd: string = workdir): { stdout: string; status: number } {
   try {
     const stdout = execFileSync(process.execPath, [SCRIPT], {
-      cwd: workdir,
+      cwd,
       encoding: 'utf8',
       env: { ...process.env, AUDIT_REPORTS_DIR: REPORTS_DIR },
       stdio: ['ignore', 'pipe', 'pipe'],
@@ -140,7 +146,7 @@ beforeAll(() => {
   fs.mkdirSync(path.join(dist, 'symlinked'), { recursive: true });
   fs.symlinkSync(path.join(dist, 'bad', 'section', 'p-0', 'index.html'), path.join(dist, 'symlinked', 'index.html'));
 
-  // >4096 directories so the queue's prefix-release branch actually runs.
+  // >4096 directories so the walker's overflow branch actually runs.
   for (let i = 0; i < 4200; i++) fs.mkdirSync(path.join(dist, 'wide', `n-${i}`), { recursive: true });
 });
 
@@ -188,5 +194,41 @@ describe('audit-spa-bundle-injection — which files the walk visits', () => {
     } finally {
       fs.rmSync(broken, { recursive: true, force: true });
     }
+  });
+});
+
+/**
+ * The overflow branch, on its own fixture: a single directory with more
+ * children than DIR_STACK_HIGH_WATER (4096), each holding a real page. Past the
+ * high-water mark the worker stops queueing and descends inline; every page
+ * must still be scanned and classified identically, or the ratchet's absolute
+ * count drifts with nothing but the size of dist/.
+ */
+describe('audit-spa-bundle-injection — directories past the walker high-water mark', () => {
+  const WIDE = 4200;
+  let wideWorkdir: string;
+
+  beforeAll(() => {
+    wideWorkdir = fs.mkdtempSync(path.join(os.tmpdir(), 'spa-bundle-wide-'));
+    const wideDist = path.join(wideWorkdir, 'dist');
+    for (let i = 0; i < WIDE; i++) {
+      const dir = path.join(wideDist, 'wide', `n-${i}`);
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(
+        path.join(dir, 'index.html'),
+        `<html><body>${i % 2 === 0 ? BUNDLE : '<h1>no bundle</h1>'}</body></html>`,
+        'utf8',
+      );
+    }
+  });
+
+  afterAll(() => {
+    fs.rmSync(wideWorkdir, { recursive: true, force: true });
+  });
+
+  it('scans every page and flags exactly the bundle-less half', () => {
+    const { stdout } = run(wideWorkdir);
+    expect(counters(stdout).scanned).toBe(WIDE);
+    expect(offenders(stdout)).toBe(WIDE / 2);
   });
 });
