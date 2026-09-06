@@ -3364,3 +3364,14 @@
 {"key":"schweizerhofpontresina.ch","from":"traced","to":"rejected","at":"2026-09-05T08:42:43.316Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
 {"key":"hotel-5doerfer.ch","from":"synthesized","to":"rejected","at":"2026-09-05T08:44:22.009Z"}
 {"key":"recruitingapp-2820@umantis.com","from":"validated","to":"rejected","at":"2026-09-05T08:46:12.654Z"}
+{"key":"ibg.ch","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.524Z","reason":"identita' del datore sbagliata: la spec estrae da zhaw.ch, non da IBG Engineering AG"}
+{"key":"baloise.ch","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.535Z","reason":"identita' del datore sbagliata: la spec estrae da helvetia.com (Basilese), non da Baloise"}
+{"key":"picks.ch","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.546Z","reason":"aggregatore: pubblica annunci di altri datori (Universitaetsspital Zuerich, Grand Hotel Montreux...), non i propri"}
+{"key":"monopol.ch","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.556Z","reason":"aggregatore: la spec legge hotelcareer.at, portale di annunci di terzi, e non restituisce righe"}
+{"key":"parkhoteldelta.ch","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.566Z","reason":"aggregatore: la spec legge hotelcareer.ch, portale di annunci di terzi, e non restituisce righe"}
+{"key":"azs.ch","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.576Z","reason":"dettagli solo in PDF: pagine di dettaglio non leggibili come testo e titoli che non corrispondono alla pagina ufficiale glsc.ch"}
+{"key":"recruitingapp-2316@umantis.com","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.587Z","reason":"UI agganciata: pagine di dettaglio senza testo (render lato client), nessuna localita' source-backed"}
+{"key":"vebego@castione","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.597Z","reason":"UI agganciata: la lista raccoglie pagine di navigazione (great-place-to-work, il-mondo-del-lavoro) e non annunci"}
+{"key":"115west.ch","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.612Z","reason":"UI agganciata: pagine di dettaglio senza testo e 67% che non legge come annuncio di lavoro"}
+{"key":"recruitingapp-2783@umantis.com","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.623Z","reason":"datore estero: tenant recruitingapp-2783.de.umantis.com (Kloeckner), annunci fuori dalla Svizzera"}
+{"key":"recruitingapp-2862@umantis.com","from":"promoted","to":"rejected","at":"2026-09-06T05:42:06.633Z","reason":"datore estero: il tenant Mammut pubblica posti fuori dalla Svizzera (es. Outlet Metzingen), nessuna localita' source-backed"}

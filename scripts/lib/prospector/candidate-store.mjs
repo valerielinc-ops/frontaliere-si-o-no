@@ -145,6 +145,9 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
  * @param {string} [file]
  */
 export function appendLedger(entry, file = LEDGER_PATH) {
+  // `null` esplicito = non registrare: serve a una dry-run, che applica la
+  // transizione in memoria per stamparla e poi butta via lo store.
+  if (!file) return;
   try {
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.appendFileSync(file, `${JSON.stringify(entry)}\n`);
