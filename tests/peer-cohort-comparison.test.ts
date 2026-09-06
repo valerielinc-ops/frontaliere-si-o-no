@@ -103,7 +103,19 @@ describe('buildPeerProse', () => {
       labels,
       formatValue: fmt,
     }).join(' ');
-    expect(prose).toContain('identica ovunque');
+    expect(prose).toContain('stesso valore ovunque');
+  });
+
+  it('never bends the metric label into a verb, so a plural label stays grammatical', () => {
+    // `labels.metricLabel` here is a bare plural ("offerte attive"). A template
+    // that made it the subject of a verb would emit "offerte attive va da …".
+    const ranked = rankPeerRows(rows, true);
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const prose = buildPeerProse({ locale, ranked, currentKey: 'c', labels, formatValue: fmt }).join(' ');
+      for (const bad of ['offerte attive va', 'offerte attive runs', 'reicht offerte attive', 'bei offerte attive']) {
+        expect(prose).not.toContain(bad);
+      }
+    }
   });
 
   it('renders in all four locales', () => {

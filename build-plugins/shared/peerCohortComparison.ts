@@ -162,6 +162,12 @@ export interface PeerComparisonLabels {
 /**
  * The page-specific sentences.
  *
+ * The metric label always enters as an APPOSITION ("… ${metricLabel}: da X a
+ * Y"), never as the subject or the object of a verb. A family passes it a bare
+ * plural noun ("offerte attive") as readily as a singular one ("l'attesa"), and
+ * a template with a verb agreeing with one of the two produces broken grammar
+ * for the other — in four languages, silently, on a thousand pages.
+ *
  * Three claims, all computed and all falsifiable from the cohort: where this
  * page sits, who is immediately on either side of it (named), and how wide the
  * cohort is (extremes named). A sentence that would read the same on a sibling
@@ -188,7 +194,7 @@ export function buildPeerProse(params: {
   const position: Record<PeerLocale, string> = {
     it: `Su ${total} ${peerNoun} confrontabili, questa pagina è ${ordinal} per ${metricLabel}, con ${fmt(current.value)}.`,
     en: `Of ${total} comparable ${peerNoun}, this page ranks ${current.rank} on ${metricLabel}, at ${fmt(current.value)}.`,
-    de: `Von ${total} vergleichbaren ${peerNoun} steht diese Seite bei ${metricLabel} auf Rang ${current.rank}, mit ${fmt(current.value)}.`,
+    de: `Von ${total} vergleichbaren ${peerNoun} steht diese Seite auf Rang ${current.rank} — ${metricLabel}: ${fmt(current.value)}.`,
     fr: `Sur ${total} ${peerNoun} comparables, cette page est ${ordinal} pour ${metricLabel}, avec ${fmt(current.value)}.`,
   };
   sentences.push(position[locale]);
@@ -230,20 +236,20 @@ export function buildPeerProse(params: {
   const last = ranked[ranked.length - 1];
   if (first.value !== last.value) {
     const spread: Record<PeerLocale, string> = {
-      it: `Sull’intero gruppo ${metricLabel} va da ${fmt(first.value)} (${first.name}) a ${fmt(last.value)} (${last.name}).`,
-      en: `Across the whole group ${metricLabel} runs from ${fmt(first.value)} (${first.name}) to ${fmt(last.value)} (${last.name}).`,
-      de: `Über die ganze Gruppe reicht ${metricLabel} von ${fmt(first.value)} (${first.name}) bis ${fmt(last.value)} (${last.name}).`,
-      fr: `Sur l’ensemble du groupe, ${metricLabel} va de ${fmt(first.value)} (${first.name}) à ${fmt(last.value)} (${last.name}).`,
+      it: `Sull’intero gruppo ${metricLabel}: da ${fmt(first.value)} (${first.name}) a ${fmt(last.value)} (${last.name}).`,
+      en: `Across the whole group ${metricLabel}: from ${fmt(first.value)} (${first.name}) to ${fmt(last.value)} (${last.name}).`,
+      de: `Über die ganze Gruppe ${metricLabel}: von ${fmt(first.value)} (${first.name}) bis ${fmt(last.value)} (${last.name}).`,
+      fr: `Sur l’ensemble du groupe ${metricLabel} : de ${fmt(first.value)} (${first.name}) à ${fmt(last.value)} (${last.name}).`,
     };
     sentences.push(spread[locale]);
   } else {
     // A flat cohort is itself information: it says this figure is not the lever
     // to move on — the opposite of what a page showing the figure alone implies.
     const flat: Record<PeerLocale, string> = {
-      it: `Su questo gruppo ${metricLabel} è identica ovunque (${fmt(first.value)}): qui non è la voce che fa la differenza.`,
-      en: `Across this group ${metricLabel} is the same everywhere (${fmt(first.value)}): it is not the line that makes the difference here.`,
-      de: `In dieser Gruppe ist ${metricLabel} überall gleich (${fmt(first.value)}): Hier ist es nicht der entscheidende Posten.`,
-      fr: `Dans ce groupe, ${metricLabel} est identique partout (${fmt(first.value)}) : ce n’est pas ce poste qui fait la différence ici.`,
+      it: `Su questo gruppo ${metricLabel}: stesso valore ovunque (${fmt(first.value)}), qui non è la voce che fa la differenza.`,
+      en: `Across this group ${metricLabel}: the same everywhere (${fmt(first.value)}), so it is not the line that makes the difference here.`,
+      de: `In dieser Gruppe ${metricLabel}: überall gleich (${fmt(first.value)}) — hier ist es nicht der entscheidende Posten.`,
+      fr: `Dans ce groupe ${metricLabel} : identique partout (${fmt(first.value)}), ce n’est pas ce poste qui fait la différence ici.`,
     };
     sentences.push(flat[locale]);
   }
