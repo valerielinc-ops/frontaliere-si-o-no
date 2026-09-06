@@ -16930,6 +16930,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'avs-soletta-cassa-compensazione',
+    category: 'pensione',
+    date: '2026-09-06T02:19:35.234Z',
+    image: '/images/blog/avs-soletta-cassa-compensazione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

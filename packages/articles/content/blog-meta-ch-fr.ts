@@ -5644,6 +5644,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-soletta.title': 'AVS et prestations complémentaires dans le canton de Soleure',
     'blog.article.avs-prestazioni-complementari-soletta.excerpt': 'La caisse de compensation cantonale de Soleure gère le premier pilier AVS, calculant les rentes et prestations complémentaires pour assurer le minimum vital.',
     'blog.article.avs-prestazioni-complementari-soletta.imageAlt': 'Vue de la ville de Bellinzona avec ses châteaux médiévaux.',
+    'blog.article.avs-soletta-cassa-compensazione.title': 'AVS et prestations complémentaires à Soleure',
+    'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Caisse de compensation, calcul des rentes AVS et prestations complémentaires dans le canton de Soleure : comment fonctionne le système de prévoyance local.',
+    'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Bureau administratif cantonal suisse avec des citoyens âgés discutant de documentation retraite.',
 };
 
 export default blogMetaChFr;

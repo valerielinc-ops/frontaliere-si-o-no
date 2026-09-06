@@ -73262,6 +73262,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-soletta-cassa-compensazione': {
+    title: 'AVS e prestazioni complementari nel Soletta | Frontaliere Ticino',
+    description: 'Cassa di compensazione, calcolo rendita AVS e prestazioni complementari nel Cantone Soletta: come funziona il sistema previdenziale locale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, soletta, cassa',
+    ogTitle: 'AVS e prestazioni complementari nel Soletta',
+    ogDescription: 'Scopri come funziona la cassa di compensazione cantonale del Soletta, il calcolo della rendita AVS, l\'impatto delle lacune contributive e l\'accesso alle prestazioni complementari per il minimo vitale di sussistenza.',
+    canonicalPath: '/articoli-svizzera/avs-soletta-cassa-compensazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Soletta",
+      "description": "Cassa di compensazione, calcolo rendita AVS e prestazioni complementari nel Cantone Soletta: come funziona il sistema previdenziale locale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-soletta-cassa-compensazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo cantonale svizzero con cittadini anziani che discutono documentazione pensionistica."
+      },
+      "datePublished": "2026-09-06T02:19:35+00:00",
+      "dateModified": "2026-09-06T02:19:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-soletta-cassa-compensazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
