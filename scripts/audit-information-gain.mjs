@@ -49,7 +49,12 @@ import { relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
-import { fingerprintPage, scoreCohorts, resolveInventoryEntry } from './lib/informationGain.mjs';
+import {
+  fingerprintPage,
+  scoreCohorts,
+  resolveInventoryEntry,
+  MIN_COHORT_PAGES,
+} from './lib/informationGain.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 /**
@@ -82,13 +87,6 @@ const MEDIAN_IGS_FLOOR_PCT = 5;
 
 /** How far an inventoried cohort may drift down before it is a regression. */
 const REGRESSION_TOLERANCE_PCT = 1.5;
-
-/**
- * Cohorts with a cohort of at least this many pages are gated. Below it the
- * "shared with half the cohort" test is noise — and under AUDIT_SAMPLE_RATE a
- * large family can legitimately show up with a handful of pages.
- */
-const MIN_COHORT_PAGES = 12;
 
 /**
  * Pre-existing low-gain cohorts, with the median measured when they were

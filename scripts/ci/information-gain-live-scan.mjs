@@ -53,7 +53,12 @@
  */
 
 import { fileURLToPath } from 'node:url';
-import { fingerprintPage, scoreCohorts, resolveInventoryEntry } from '../lib/informationGain.mjs';
+import {
+  fingerprintPage,
+  scoreCohorts,
+  resolveInventoryEntry,
+  MIN_COHORT_PAGES,
+} from '../lib/informationGain.mjs';
 import { INFORMATION_GAIN_GATE } from '../audit-information-gain.mjs';
 
 const { MEDIAN_IGS_FLOOR_PCT, REGRESSION_TOLERANCE_PCT, KNOWN_LOW_GAIN_COHORTS } =
@@ -219,10 +224,14 @@ async function main() {
     fingerprints.push(...fam.fingerprints);
   }
 
-  // Gating threshold lowered vs the dist gate: a live sample is 12 pages per
-  // family by construction, so MIN_COHORT_PAGES=12 would gate nothing. 6 is
-  // the smallest cohort where "shared with half the cohort" is not noise.
-  const { cohorts, pagesScored } = scoreCohorts(fingerprints, { minCohortPages: 6 });
+  // Gating threshold lowered vs the dist gate: a live sample is PER_FAMILY
+  // pages per family by construction, so the dist MIN_COHORT_PAGES would gate
+  // nothing at the default sample of 12. Half the sample is the smallest
+  // cohort where "shared with half the cohort" is not noise; capped at the
+  // dist floor so a larger --per-family never makes this scan STRICTER than
+  // the gate it monitors. Derived, not re-typed, so the two cannot drift.
+  const liveMinCohortPages = Math.min(MIN_COHORT_PAGES, Math.max(2, Math.floor(PER_FAMILY / 2)));
+  const { cohorts, pagesScored } = scoreCohorts(fingerprints, { minCohortPages: liveMinCohortPages });
   const gated = cohorts.filter((c) => c.gated);
 
   const { regressions, ratchets, opportunities } = classifyCohorts(gated, {

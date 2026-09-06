@@ -75,6 +75,20 @@ const MIN_SEGMENT_CHARS = 25;
 const TEMPLATE_DF_SHARE = 0.5;
 
 /**
+ * Cohorts of at least this many pages are gated. Below it the "shared with
+ * half the cohort" test is noise — and under AUDIT_SAMPLE_RATE a large family
+ * can legitimately show up with a handful of pages.
+ *
+ * SINGLE SOURCE. The dist gate (`audit-information-gain.mjs`) and the default
+ * of `scoreCohorts` used to declare this 12 as two independent literals, so
+ * raising one left the other measuring a different population with nothing to
+ * signal the drift (issue #7731). Callers that need a DIFFERENT threshold —
+ * the live scan gates a 12-URL sample, the tests gate three-page fixtures —
+ * pass `minCohortPages` explicitly and derive it from this value.
+ */
+export const MIN_COHORT_PAGES = 12;
+
+/**
  * Per-page segment cap. The dist walk can reach ~130k pages; keeping every
  * segment hash of every page would be the memory profile that forced
  * `post-deploy-validate-dist.yml` serial in the first place. 400 hashes/page
@@ -382,7 +396,7 @@ const median = (values) => {
  * @returns {{cohorts: Array, pagesScored: number, pagesUncohorted: number}}
  */
 export function scoreCohorts(fingerprints, opts = {}) {
-  const minCohortPages = opts.minCohortPages ?? 12;
+  const minCohortPages = opts.minCohortPages ?? MIN_COHORT_PAGES;
 
   const groups = new Map();
   for (const fp of fingerprints) {
