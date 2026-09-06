@@ -1952,6 +1952,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sciaffusa-canone-locazione-deposito-guida': { it: 'sciaffusa-canone-locazione-deposito-guida', en: 'schaffhausen-rental-lease-guide', de: 'schaffhausen-mietrecht-kaution', fr: 'schaffhouse-loyer-locaction-guide' },
  'beloved-richieste-settantina': { it: 'beloved-richieste-settantina', en: 'beloved-requests-seventy', de: 'beloved-anfragen-siebzig', fr: 'beloved-soixante-dix-demandes' },
  'borse-studio-neuchatel': { it: 'borse-studio-neuchatel', en: 'neuchatel-scholarships-requirements-amounts', de: 'neuchatel-stipendien-voraussetzungen-betrage', fr: 'neuchatel-bourses-etude-conditions-montants' },
+ 'salari-svizzera-settori-formazione-contratti': { it: 'salari-svizzera-settori-formazione-contratti', en: 'salaries-switzerland-sectors-education-contracts', de: 'lohne-schweiz-sektoren-bildung-kollektivvertraege', fr: 'salaires-suisse-secteurs-formation-conventions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

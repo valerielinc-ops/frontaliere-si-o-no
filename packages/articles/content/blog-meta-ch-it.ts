@@ -5779,6 +5779,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-neuchatel.title': 'Borse di studio Neuchâtel: requisiti e importi',
     'blog.article.borse-studio-neuchatel.excerpt': 'Guida completa alle borse di studio nel Cantone di Neuchâtel: criteri di assegnazione, requisiti di residenza e merito accademico, procedura di candidatura e dove trovare i bandi aggiornati.',
     'blog.article.borse-studio-neuchatel.imageAlt': 'Biblioteca universitaria moderna con studenti che studiano, rappresenta l\'accesso alla formazione superiore in Svizzera.',
+    'blog.article.salari-svizzera-settori-formazione-contratti.title': 'Salari e mercato del lavoro: formazione, settori e livelli',
+    'blog.article.salari-svizzera-settori-formazione-contratti.excerpt': 'Lo stipendio svizzero si compone di lordo, contributi AVS/LPP/LAMal e netto. Scopri come variano i salari per formazione, settore e come verificare la tua busta paga.',
+    'blog.article.salari-svizzera-settori-formazione-contratti.imageAlt': 'Colloquio professionale in ufficio svizzero: discussione su stipendio e contratto di lavoro tra colleghi.',
 };
 
 export default blogMetaChIt;
