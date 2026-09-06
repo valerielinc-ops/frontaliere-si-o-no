@@ -5647,6 +5647,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-soletta-cassa-compensazione.title': 'AVS et prestations complémentaires à Soleure',
     'blog.article.avs-soletta-cassa-compensazione.excerpt': 'Caisse de compensation, calcul des rentes AVS et prestations complémentaires dans le canton de Soleure : comment fonctionne le système de prévoyance local.',
     'blog.article.avs-soletta-cassa-compensazione.imageAlt': 'Bureau administratif cantonal suisse avec des citoyens âgés discutant de documentation retraite.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.title': 'Ouvrir une entreprise à Soleure : Registre et coûts',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.excerpt': 'Découvrez les étapes bureaucratiques et financières pour démarrer une entreprise dans le canton de Soleure, y compris les frais d\'inscription et les obligations d\'assurance.',
+    'blog.article.aprire-attivita-canton-soletta-registro-di-commercio-e-costi.imageAlt': 'Bureau d\'enregistrement des entreprises dans le canton de Soleure',
 };
 
 export default blogMetaChFr;

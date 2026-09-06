@@ -16939,6 +16939,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'aprire-attivita-canton-soletta-registro-di-commercio-e-costi',
+    category: 'pratico',
+    date: '2026-09-06T02:35:48.163Z',
+    image: '/images/blog/aprire-attivita-canton-soletta-registro-di-commercio-e-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
