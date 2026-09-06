@@ -127,8 +127,20 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     // consumer on a line of its own — `gh issue close "$num"`, preceded by
     // nothing but a newline and its indent, which is the commonest shape of
     // all — never matched and three of the six sites here were invisible.
-    const CONSUMERS =
-      /(^|[;&|(]|\bthen\b|\bdo\b|\belse\b)[ \t]*(gh|unzip|node|npx|ssh|curl|xargs|git)\b/m;
+    // Two halves, and BOTH have to hold or the scan measures less than it
+    // says. The token list is the perimeter: `npm run X` spawns node with OUR
+    // stdin and `bash`/`sh` inherit it by definition, so they belong next to
+    // `gh`/`node`. And the command POSITION is not just `^|;|&|||(`: a command
+    // can be preceded by env assignments (and by `env`), which is exactly the
+    // shape that hid the ninth site — `(NODE_OPTIONS="…" npm run "$script")` in
+    // `audit-dist-from-run.yml`, where `npm` sits after an assignment and would
+    // stay invisible even with the token added.
+    const ASSIGN_PREFIX =
+      String.raw`(?:env[ \t]+)?(?:[A-Za-z_]\w*=(?:"[^"\n]*"|'[^'\n]*'|[^ \t\n]*)[ \t]+)*`;
+    const CONSUMERS = new RegExp(
+      String.raw`(^|[;&|(]|\bthen\b|\bdo\b|\belse\b)[ \t]*${ASSIGN_PREFIX}(gh|unzip|node|npx|npm|bash|sh|ssh|curl|xargs|git)\b`,
+      'm',
+    );
     // `while …` line, body, and a `done` at the SAME indentation whose redirect
     // is a plain file (`< "$f"`), not a process substitution (`< <(…)`, which is
     // matched by the negative lookahead and left alone — it has the same defect

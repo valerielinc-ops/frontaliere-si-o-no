@@ -253,7 +253,10 @@ jobs:
             exit 1
           fi
 
-          while IFS= read -r n; do
+          # fd 9, non stdin: il corpo lancia `npm run` (che spawna node) e
+          # qualunque byte letto lì è una riga di richiesta che il `read`
+          # successivo non vede — un audit mai eseguito sotto un summary verde.
+          while IFS= read -r -u 9 n; do
             [ -z "$n" ] && continue
             IDX=$((IDX+1))
             script=$(resolve_script "$n")
@@ -280,7 +283,7 @@ jobs:
               echo "✅ PASS $script" | tee -a /tmp/summary.txt
               printf 'VERDICT\t%s\tPASS\n' "$n" >> /tmp/verdicts.txt
             fi
-          done <<< "$REQUESTED"
+          done 9<<< "$REQUESTED"
 
           # RICONCILIAZIONE richiesti ↔ eseguiti. L'input viene ri-parsato da
           # capo e confrontato coi verdetti realmente emessi + i log realmente
