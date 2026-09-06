@@ -5749,6 +5749,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-vallese-dichiarazione.title': 'Inheritance tax in Valais: rates and declaration',
     'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'The inheritance and gift tax is regulated at the cantonal level: Valais has its own rules on degrees of kinship, exemptions and terms of declaration.',
     'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Aerial view of a traditional Valais village with stone architecture and Alpine mountains.',
+    'blog.article.svizzera-mondo-multipolare.title': 'The director of Seco warns of the risks of a "multipolar world"',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda warns of the need for greater internal cohesion and a more active international role for Switzerland.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Aerial view of Zurich financial district, Switzerland',
 };
 
 export default blogMetaChEn;

@@ -1942,6 +1942,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-vallese-aliquote': { it: 'imposta-successione-vallese-aliquote', en: 'estate-tax-donation-valais-canton-rates', de: 'erbschaftssteuer-donationen-kanton-wallis-saetze', fr: 'impot-succession-donations-canton-valais-taux' },
  'eredita-donazioni-vallese-guida': { it: 'eredita-donazioni-vallese-guida', en: 'inheritance-donations-valais-guide', de: 'erbschaft-schenkung-wallis-leitfaden', fr: 'heritage-donations-valais-guide' },
  'imposta-successione-vallese-dichiarazione': { it: 'imposta-successione-vallese-dichiarazione', en: 'succession-tax-valais-declaration', de: 'erbschaftssteuer-wallis-erklaerung', fr: 'impot-succession-valais-declaration' },
+ 'svizzera-mondo-multipolare': { it: 'svizzera-mondo-multipolare', en: 'switzerland-multipolar-world', de: 'schweiz-multipolare-welt', fr: 'suisse-monde-multipolaire' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

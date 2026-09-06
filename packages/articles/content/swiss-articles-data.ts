@@ -17245,6 +17245,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'svizzera-mondo-multipolare',
+    category: 'fiscale',
+    date: '2026-09-06T15:10:22.595Z',
+    image: '/images/blog/svizzera-mondo-multipolare.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

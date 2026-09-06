@@ -5749,6 +5749,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-vallese-dichiarazione.title': 'Droit de succession en Valais : taux et déclaration',
     'blog.article.imposta-successione-vallese-dichiarazione.excerpt': 'L\'impôt sur les successions et les donations est réglementé au niveau cantonal : le Valais a ses propres règles sur les degrés de parenté, les exemptions et les délais de déclaration.',
     'blog.article.imposta-successione-vallese-dichiarazione.imageAlt': 'Vue aerienne d\'un village traditionnel du Valais avec architecture en pierre et montagnes.',
+    'blog.article.svizzera-mondo-multipolare.title': 'La SECO met en garde contre un « monde multipolaire »',
+    'blog.article.svizzera-mondo-multipolare.excerpt': 'Helene Budliger Artieda met en garde contre la nécessité d\'une plus grande cohésion interne et d\'un rôle international plus actif pour la Suisse.',
+    'blog.article.svizzera-mondo-multipolare.imageAlt': 'Vue aérienne du quartier financier de Zurich, Suisse',
 };
 
 export default blogMetaChFr;
