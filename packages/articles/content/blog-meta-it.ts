@@ -11438,6 +11438,14 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Milano-Varese, chiusa per una notte l\'uscita di Busto Arsizio',
     'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Chiusura dalle 22 del 9 alle 5 del 10 settembre per lavori alle barriere di sicurezza. Uscite alternative Castellanza e Gallarate.',
     'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Segnale di uscita autostradale di Busto Arsizio sulla A8 Milano-Varese al tramonto, con indicazioni per percorsi alternativi.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.title': 'Vivere a Daverio, lavorare in Ticino da frontaliere',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.excerpt': 'Guida completa per frontalieri italiani: permesso G, imposta alla fonte, doppia imposizione, AVS, LPP e come massimizzare lo stipendio lavorando in Svizzera.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.imageAlt': 'Vista del lago di Lugano con le Alpi sullo sfondo, centro finanziario ticinese dove lavorano i frontalieri',
+    'blog.article.bollettino-frontaliere-2026-09-06.title': 'Bollettino del frontaliere – 6 settembre 2026: 362 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-06.excerpt': 'I numeri di oggi, 6 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-06.imageAlt': 'I numeri del giorno per i frontalieri – 6 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-06.seoDescription': 'Bollettino frontalieri del 6 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-06.ogDescription': 'I numeri del 6 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

@@ -11439,6 +11439,14 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a8-busto-arsizio-chiusura-notte.title': 'A8 Milano-Varese, fermée pour une nuit la sortie de Busto Arsizio',
     'blog.article.a8-busto-arsizio-chiusura-notte.excerpt': 'Fermeture du 22 du 9 au 5 du 10 septembre pour travaux aux barrières de sécurité. Sorties alternatives Castellanza et Gallarate.',
     'blog.article.a8-busto-arsizio-chiusura-notte.imageAlt': 'Panneau de sortie pour Busto Arsizio sur l\'autoroute A8 Milano-Varese au crépuscule, avec indications de trajets alternatifs.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.title': 'Vivre à Daverio, travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.excerpt': 'Guide complet pour les frontaliers italiens : permis G, impôt à la source, double imposition, AVS, LPP et comment maximiser le salaire en travaillant en Suisse.',
+    'blog.article.vivere-daverio-lavorare-ticino-frontaliere.imageAlt': 'Vue du lac de Lugano avec les Alpes en arrière-plan, centre financier du Tessin pour les travailleurs frontaliers',
+    'blog.article.bollettino-frontaliere-2026-09-06.title': 'Bulletin du frontalier – 6 septembre 2026 : 362 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-06.excerpt': 'Les chiffres du jour, 6 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-06.imageAlt': 'Les chiffres du jour pour les frontaliers – 6 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-06.seoDescription': 'Bulletin du frontalier du 6 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-06.ogDescription': 'Les chiffres du 6 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

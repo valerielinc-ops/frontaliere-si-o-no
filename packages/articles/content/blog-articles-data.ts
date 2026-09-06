@@ -34167,6 +34167,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-daverio-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-09-06T09:06:14.627Z',
+ image: '/images/blog/vivere-daverio-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-06',
+ category: 'novita',
+ date: '2026-09-06T09:13:45.431Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-06.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
