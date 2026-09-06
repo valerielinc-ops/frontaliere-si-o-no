@@ -26,6 +26,7 @@ import {
   rebuildBody,
   retitle,
   itemHeadline,
+  parseIssueJson,
   demotedBlock,
   isLosslessSplit,
 } from '../scripts/ci/gate-minted-followups.mjs';
@@ -110,6 +111,18 @@ describe('gate sul conio — comportamento', () => {
     // silenzioso e il titolo resterebbe sul conteggio VECCHIO. Meglio `null` — non tocco
     // il titolo e lo dico — che riscriverlo identico fingendo di averlo riallineato.
     expect(retitle('follow-up(#7600): 4 residui deferred — foo', 1)).toBeNull();
+    // E «già allineato» NON è «senza conteggio»: col confronto fatto DOPO il replace le
+    // due cose collassavano, e il log diceva «titolo senza conteggio, resta disallineato»
+    // su un titolo perfettamente allineato — proprio nell'unico posto in cui si guarda
+    // per capire un disallineamento.
+    expect(retitle('follow-up(#7600): 1 item deferred — foo', 1)).toBe('follow-up(#7600): 1 item deferred — foo');
+    // `gh()` ritorna null quando fallisce, e `JSON.parse(null)` NON lancia: legge "null"
+    // e ritorna null. Senza questo filtro l'oggetto nullo entrava nella lista.
+    expect(parseIssueJson(null)).toBeNull();
+    expect(parseIssueJson('null')).toBeNull();
+    expect(parseIssueJson('')).toBeNull();
+    expect(parseIssueJson('[]')).toBeNull();
+    expect(parseIssueJson('{"number":1}')).toEqual({ number: 1 });
     expect(itemHeadline(itemProsa)).toBe('nessun gate impedisce un drift futuro');
   });
 

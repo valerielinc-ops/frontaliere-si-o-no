@@ -63,10 +63,13 @@ import { intFromEnv } from '../lib/int-from-env.mjs';
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
 // Non esportato di proposito: è una firma per chi legge i commenti, non un'affordance di
-// idempotenza in cerca di consumatore. L'idempotenza qui è per costruzione, non per
-// lettura del marker: dopo una demozione gli item rimasti sono tutti validi, quindi una
-// seconda passata dà `keep` e non commenta; dopo una soppressione la issue è chiusa,
-// quindi non compare più nella lista delle aperte. Nessun ramo può commentare due volte.
+// idempotenza in cerca di consumatore. L'idempotenza qui è per costruzione FINCHE' LE
+// SCRITTURE RIESCONO: dopo una demozione riuscita gli item rimasti sono tutti validi,
+// quindi una seconda passata dà `keep` e non commenta; dopo una soppressione la issue è
+// chiusa e non compare più fra le aperte. Se invece la riscrittura del corpo FALLISCE, la
+// passata successiva ridà `demote` e posta un secondo commento identico: è il verso giusto
+// in cui sbagliare, perché il testo degli item è già al sicuro sulla PR e un commento
+// duplicato costa una riga, mentre perderli è irreversibile.
 const MINT_GATE_MARKER = '<!-- followup-mint-gate -->';
 
 /**
@@ -155,8 +158,32 @@ export function rebuildBody(head, valid) {
  */
 export function retitle(title, n) {
   const t = String(title || '');
-  const out = t.replace(/\b\d+\s+(item|verifiche)\b/i, `${n} $1`);
-  return out === t ? null : out;
+  // Il test PRIMA del replace, non il confronto DOPO: un titolo già allineato
+  // (`1 item` con un solo item valido) produce una stringa identica, e leggerlo come
+  // «titolo senza conteggio» farebbe loggare un disallineamento che non esiste.
+  if (!COUNT_RE.test(t)) return null;
+  return t.replace(COUNT_RE, `${n} $1`);
+}
+const COUNT_RE = /\b\d+\s+(item|verifiche)\b/i;
+
+/**
+ * L'output di `gh --json` come oggetto, oppure `null` se non è leggibile. Serve una
+ * funzione, non un `JSON.parse` nudo: `gh()` ritorna `null` quando la chiamata fallisce, e
+ * `JSON.parse(null)` coerce l'argomento a `"null"` e ritorna `null` SENZA LANCIARE — il
+ * `try/catch` attorno non scatterebbe, l'oggetto nullo finirebbe nella lista e il primo
+ * accesso a un suo campo farebbe esplodere il ciclo, facendo perdere tutte le ALTRE issue
+ * della stessa PR invece della sola issue illeggibile. Puro.
+ *
+ * @param {string|null} raw @returns {object|null}
+ */
+export function parseIssueJson(raw) {
+  if (typeof raw !== 'string' || !raw.trim()) return null;
+  try {
+    const o = JSON.parse(raw);
+    return o && typeof o === 'object' && !Array.isArray(o) ? o : null;
+  } catch {
+    return null;
+  }
 }
 
 /**
@@ -232,8 +259,12 @@ function main() {
       if (!found.length) { console.log(`PR #${pr}: nessuna issue coniata → niente da fare.`); continue; }
       const issues = [];
       for (const f of found) {
-        const one = gh(['issue', 'view', String(f.number), ...repoArgs, '--json', 'number,title,body,createdAt'], { allowFail: true });
-        try { issues.push(JSON.parse(one)); } catch { /* proceed-safe: issue illeggibile → intatta */ }
+        const one = parseIssueJson(gh(['issue', 'view', String(f.number), ...repoArgs, '--json', 'number,title,body,createdAt'], { allowFail: true }));
+        // Proceed-safe PER ISSUE, non per PR: una lettura fallita salta QUELLA issue e le
+        // altre del lotto proseguono. Lasciare entrare un `null` qui farebbe esplodere il
+        // ciclo al primo accesso a un campo, e il catch per-PR abbandonerebbe tutte le altre.
+        if (!one) { console.log(`#${f.number}: non leggibile → lasciata intatta, proseguo col resto del lotto.`); continue; }
+        issues.push(one);
       }
       for (const iss of issues) {
         const d = decideMintGate(iss);
@@ -275,9 +306,18 @@ function main() {
           if (newTitle === null) {
             console.log(`ℹ️ #${iss.number}: titolo senza conteggio nella forma attesa («${iss.title.slice(0, 70)}») → lo lascio com'è invece di riscriverlo a vuoto; resta disallineato dal corpo.`);
           }
-          gh(['issue', 'edit', String(iss.number), ...repoArgs, '--body-file', bf,
+          const edited = gh(['issue', 'edit', String(iss.number), ...repoArgs, '--body-file', bf,
             ...(newTitle === null ? [] : ['--title', newTitle])], { allowFail: true });
           fs.rmSync(bf, { force: true });
+          if (edited === null) {
+            // Il testo è già al sicuro sulla PR (si conserva prima di riscrivere), quindi
+            // qui non si perde niente: la issue resta com'era e la prossima passata
+            // ritenterà, al costo di un secondo commento identico. Duplicare un commento è
+            // il verso giusto in cui sbagliare; perdere gli item no.
+            console.log(`⚠️ #${iss.number}: riscrittura del corpo non riuscita → issue invariata, il testo resta sulla PR #${pr}. La prossima passata ritenta (e ricommenta).`);
+            report.push(`- ⚠️ #${iss.number} riscrittura non riuscita, issue invariata — PR #${pr}`);
+            continue;
+          }
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
             `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.`],
             { allowFail: true });
