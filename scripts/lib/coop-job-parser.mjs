@@ -337,6 +337,20 @@ function listingAddressEvidence(job) {
 }
 
 /**
+ * A defect of ONE vacancy's detail payload, as opposed to a failure of the
+ * fetch or of the enricher's own configuration. `enrichCoopSourceBackedJobs`
+ * drops the tagged record instead of aborting the batch — under the same
+ * ratio/floor guard as a withdrawn page, so a source-wide drift (ATS switch,
+ * JSON-LD removed, description markup changed) still fails the batch closed.
+ * Callers that apply the enricher directly still see the message verbatim.
+ */
+function detailRejection(message) {
+  const error = new Error(message);
+  error.coopDetailRejection = true;
+  return error;
+}
+
+/**
  * Replace listing fallbacks with the source-backed detail payload. Missing,
  * malformed or geographically unresolved detail data is a hard failure: the
  * caller must never publish a partially enriched Coop-family slice.
@@ -358,25 +372,25 @@ function listingAddressEvidence(job) {
  */
 export function applyCoopSourceDetailToJob(job, jsonLd) {
   if (!jsonLd || !String(jsonLd?.['@type'] || '').includes('JobPosting')) {
-    throw new Error(`Coop-family detail has no JobPosting JSON-LD: ${job?.url || 'missing-url'}`);
+    throw detailRejection(`Coop-family detail has no JobPosting JSON-LD: ${job?.url || 'missing-url'}`);
   }
   const overlap = titleOverlap(job?.title, jsonLd?.title || '');
   if (!jsonLd?.title || overlap < 0.6) {
-    throw new Error(`Coop-family detail title mismatch (${overlap.toFixed(2)}): ${job?.url || 'missing-url'}`);
+    throw detailRejection(`Coop-family detail title mismatch (${overlap.toFixed(2)}): ${job?.url || 'missing-url'}`);
   }
 
   const sourceHtml = String(jsonLd?.description || '');
   const description = coopDescHtmlToMarkdown(sourceHtml);
   const validation = validateCoopDescription(description, sourceHtml.length);
   if (!validation.ok || wordCount(description) < 50) {
-    throw new Error(`Coop-family detail description rejected: ${validation.warnings.join('; ') || `${wordCount(description)} words`}`);
+    throw detailRejection(`Coop-family detail description rejected: ${validation.warnings.join('; ') || `${wordCount(description)} words`}`);
   }
 
   const detailEvidence = jsonLdAddressCandidates(jsonLd)
     .map((candidate) => ({ candidate, geography: resolveCoopJsonLdGeography(candidate) }))
     .find(({ geography }) => geography);
   if (!detailEvidence) {
-    throw new Error(`Coop-family detail location rejected: ${job?.url || 'missing-url'}`);
+    throw detailRejection(`Coop-family detail location rejected: ${job?.url || 'missing-url'}`);
   }
 
   const listingEvidence = listingAddressEvidence(job);
@@ -414,18 +428,21 @@ export function applyCoopSourceDetailToJob(job, jsonLd) {
 // parsed, which is what made `Run fust` a chronic failure (#6659). Every other
 // non-ok status still fails the batch closed.
 const GONE_STATUS = new Set([404, 410]);
-// Past this share of the batch "the vacancies expired" stops being a credible
-// reading — that is source drift (host migration, ATS switch), and publishing a
-// gutted slice would be exactly the partial batch this enricher exists to
-// prevent. Fail closed instead.
-const GONE_ABORT_RATIO = 0.5;
+// Past this share of the batch "the vacancies expired / this one posting is
+// thin" stops being a credible reading — that is source drift (host migration,
+// ATS switch, JSON-LD reshaped), and publishing a gutted slice would be exactly
+// the partial batch this enricher exists to prevent. Fail closed instead.
+// Counts gone AND rejected pages together: they are the same statement about
+// the batch, "the detail payload is no longer usable", and splitting the budget
+// would let a half-gone/half-rejected batch through both halves of the guard.
+const DETAIL_DROP_ABORT_RATIO = 0.5;
 // …but a ratio alone is meaningless on a tiny batch: with a single job in
 // `input`, one withdrawn vacancy is 100% and would throw «source drift», i.e.
 // exactly the dead crawl this enricher exists to prevent. Interdiscount and
 // Volg do publish slices this small (`fetchAllInterdiscountJobs()` hands its
 // whole batch straight over), so the ratio only governs batches where it is
-// statistically meaningful — below this floor a gone page is read as expiry.
-const GONE_ABORT_FLOOR = 1;
+// statistically meaningful — below this floor a dropped page is read as expiry.
+const DETAIL_DROP_ABORT_FLOOR = 1;
 
 /**
  * Fetch and strictly apply all detail payloads with bounded concurrency.
@@ -435,6 +452,16 @@ const GONE_ABORT_FLOOR = 1;
  * hold a listing-derived source-of-truth need it: dropping the job here is only
  * half the retirement, the URL must also leave their authoritative set, or a
  * downstream completeness check still counts it as a failed parse.
+ *
+ * `onRejected` is the same channel for the detail pages that ARE served but
+ * whose payload one vacancy at a time fails the source-backed invariant (no
+ * JobPosting JSON-LD, title mismatch, description below the quality floor,
+ * unresolvable location). Those used to throw and kill the whole crawl: a
+ * single 37-word fenaco posting among 677 made `Run volg` fail on every run
+ * from 2026-09-02 (#7179), the same shape as the expired posting that made
+ * `Run fust` chronic (#6659). The record is unpublishable either way — thin
+ * content on an indexable URL is Non-Negotiable #4 — so it leaves the batch,
+ * and only a batch-wide share of rejections is read as drift and fails closed.
  */
 export async function enrichCoopSourceBackedJobs(jobs, {
   fetchImpl = undiciFetch,
@@ -442,10 +469,12 @@ export async function enrichCoopSourceBackedJobs(jobs, {
   concurrency = 6,
   timeoutMs = 20000,
   onGone = null,
+  onRejected = null,
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
   const output = new Array(input.length);
   const gone = [];
+  const rejected = [];
   const validateUrl = createSpecUrlPolicy({
     seedUrls: allowedHosts.map((hostname) => `https://${hostname}`),
   });
@@ -490,19 +519,33 @@ export async function enrichCoopSourceBackedJobs(jobs, {
         throw new Error(`HTTP ${response?.status || 'unknown'}`);
       }
       const jsonLd = extractJsonLd(await response.text());
-      output[index] = applyCoopSourceDetailToJob(job, jsonLd);
+      try {
+        output[index] = applyCoopSourceDetailToJob(job, jsonLd);
+      } catch (error) {
+        if (!error?.coopDetailRejection) throw error;
+        rejected.push({ url: url.toString(), reason: error.message });
+      }
     }
   });
   await Promise.all(workers);
-  if (gone.length === 0) return output;
-  if (gone.length > GONE_ABORT_FLOOR && gone.length > input.length * GONE_ABORT_RATIO) {
+  if (gone.length === 0 && rejected.length === 0) return output;
+  const dropped = gone.length + rejected.length;
+  if (dropped > DETAIL_DROP_ABORT_FLOOR && dropped > input.length * DETAIL_DROP_ABORT_RATIO) {
     throw new Error(
-      `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410) — source drift, not vacancy expiry`,
+      `Coop-family detail batch: ${gone.length}/${input.length} pages gone (HTTP 404/410), `
+      + `${rejected.length}/${input.length} rejected — source drift, not vacancy expiry`,
     );
   }
-  const goneLabels = gone.map(({ url, status }) => `${url} (HTTP ${status})`);
-  console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${goneLabels.join(', ')}`);
-  if (typeof onGone === 'function') onGone(gone.map(({ url }) => url));
+  if (gone.length > 0) {
+    const goneLabels = gone.map(({ url, status }) => `${url} (HTTP ${status})`);
+    console.warn(`⚠️  Dropped ${gone.length}/${input.length} withdrawn Coop-family vacancies: ${goneLabels.join(', ')}`);
+    if (typeof onGone === 'function') onGone(gone.map(({ url }) => url));
+  }
+  if (rejected.length > 0) {
+    const rejectedLabels = rejected.map(({ url, reason }) => `${url} (${reason})`);
+    console.warn(`⚠️  Dropped ${rejected.length}/${input.length} unusable Coop-family detail payloads: ${rejectedLabels.join(', ')}`);
+    if (typeof onRejected === 'function') onRejected(rejected.map(({ url }) => url));
+  }
   return output.filter((job) => job !== undefined);
 }
 
