@@ -5776,6 +5776,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.beloved-richieste-settantina.title': 'Fondazione Beloved: settantina di richieste ricevute',
     'blog.article.beloved-richieste-settantina.excerpt': 'La fondazione Beloved ha ricevuto 70 richieste dalle vittime dell\'incendio di Crans-Montana. Fornisce supporto psicologico, finanziario e riabilitativo.',
     'blog.article.beloved-richieste-settantina.imageAlt': 'Veduta panoramica di Crans-Montana in Vallese con le Alpi innevate sullo sfondo',
+    'blog.article.borse-studio-neuchatel.title': 'Borse di studio Neuchâtel: requisiti e importi',
+    'blog.article.borse-studio-neuchatel.excerpt': 'Guida completa alle borse di studio nel Cantone di Neuchâtel: criteri di assegnazione, requisiti di residenza e merito accademico, procedura di candidatura e dove trovare i bandi aggiornati.',
+    'blog.article.borse-studio-neuchatel.imageAlt': 'Biblioteca universitaria moderna con studenti che studiano, rappresenta l\'accesso alla formazione superiore in Svizzera.',
 };
 
 export default blogMetaChIt;

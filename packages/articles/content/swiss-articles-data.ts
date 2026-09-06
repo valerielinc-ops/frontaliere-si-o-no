@@ -17326,6 +17326,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-studio-neuchatel',
+    category: 'pratico',
+    date: '2026-09-06T19:39:00.816Z',
+    image: '/images/blog/borse-studio-neuchatel.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

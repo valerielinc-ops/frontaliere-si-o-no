@@ -5776,6 +5776,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.beloved-richieste-settantina.title': 'Beloved Foundation: seventy requests received',
     'blog.article.beloved-richieste-settantina.excerpt': 'The Beloved foundation received 70 requests from the victims of the Crans-Montana fire. Provides psychological, financial and rehabilitative support.',
     'blog.article.beloved-richieste-settantina.imageAlt': 'Panoramic view of Crans-Montana in Valais with snow-covered Alpine peaks in the background',
+    'blog.article.borse-studio-neuchatel.title': 'Neuchâtel Scholarships: Requirements and Amounts',
+    'blog.article.borse-studio-neuchatel.excerpt': 'Complete guide to scholarships in the Canton of Neuchâtel: award criteria, residency and academic merit requirements, application procedure and where to find updated calls.',
+    'blog.article.borse-studio-neuchatel.imageAlt': 'Modern university library with students studying, representing access to higher education in Switzerland.',
 };
 
 export default blogMetaChEn;
