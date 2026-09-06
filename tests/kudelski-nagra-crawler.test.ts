@@ -1,11 +1,20 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+
+// Only the two network calls are stubbed; every other crawler-template export
+// the parser relies on (slugify, stripHtml, normalizeSpace) stays real.
+vi.mock('../scripts/lib/crawler-template.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/crawler-template.mjs')>()),
+  fetchJson: vi.fn(),
+  fetchHtml: vi.fn(),
+}));
 import {
   KUDELSKI_NAGRA_KEY,
   KUDELSKI_NAGRA_COMPANY_NAME,
   isKudelskiNagraJob,
   isTrustedDomain,
+  fetchAllKudelskiNagraJobs,
 } from '../scripts/lib/kudelski-nagra-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify, fetchJson, fetchHtml } from '../scripts/lib/crawler-template.mjs';
 
 describe('Kudelski NAGRA crawler parser', () => {
   // ── Constants ──
@@ -124,6 +133,61 @@ describe('Kudelski NAGRA crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+  // ── Filtered-empty health signal (issue #7707) ──
+  describe('discoveredCount', () => {
+    beforeEach(() => {
+      vi.mocked(fetchHtml).mockResolvedValue('');
+      vi.mocked(fetchJson).mockReset();
+    });
+
+    /** Greenhouse board payload; the first board slug tried already answers. */
+    function greenhouseBoard(jobs: Array<Record<string, unknown>>) {
+      vi.mocked(fetchJson).mockResolvedValue({ jobs } as never);
+    }
+
+    it('reports the pre-filter candidate count when the Swiss gate keeps nothing', async () => {
+      greenhouseBoard([
+        { id: 1, title: 'Embedded Software Engineer', location: { name: 'Madrid, Spain' }, content: 'Firmware work.' },
+        { id: 2, title: 'Security Architect', location: { name: 'Paris, France' }, content: 'Threat modelling.' },
+      ]);
+
+      const jobs = await fetchAllKudelskiNagraJobs();
+
+      // Without this the crawler looks identical to a selector break: zero jobs
+      // and no evidence that the board was parsed at all, so
+      // check-crawler-health counts an empty streak and flags it broken.
+      expect(jobs).toHaveLength(0);
+      expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(2);
+    });
+
+    it('does not count listings dropped by the non-geographic title gate', async () => {
+      // Regression: discoveredCount used to be `listings.length`, the count
+      // BEFORE every gate. If title extraction broke on every Swiss offer the
+      // crawler would report `discovered > 0 && written === 0` — exactly the
+      // shape autoFilteredEmpty reads as "healthy, just filtered" — and a real
+      // outage would be laundered into a healthy verdict. Only the geographic
+      // gate may leave a listing counted.
+      greenhouseBoard([
+        { id: 1, title: '', location: { name: 'Cheseaux-sur-Lausanne, Switzerland' }, content: 'Firmware work.' },
+        { id: 2, title: '  ', location: { name: 'Lugano, Switzerland' }, content: 'Threat modelling.' },
+      ]);
+
+      const jobs = await fetchAllKudelskiNagraJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(0);
+    });
+
+    it('keeps the count non-enumerable so it never leaks into the slice', async () => {
+      greenhouseBoard([
+        { id: 1, title: 'Embedded Software Engineer', location: { name: 'Madrid, Spain' }, content: 'Firmware work.' },
+      ]);
+
+      const jobs = await fetchAllKudelskiNagraJobs();
+
+      expect(JSON.stringify(jobs)).toBe('[]');
     });
   });
 });

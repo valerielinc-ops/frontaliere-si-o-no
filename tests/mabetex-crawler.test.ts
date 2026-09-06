@@ -11,6 +11,7 @@ import {
   MABETEX_COMPANY_NAME,
   isMabetexJob,
   isTrustedDomain,
+  parseCareerPage,
 } from '../scripts/lib/mabetex-job-parser.mjs';
 import { fetchAllMabetexJobs } from '../scripts/lib/mabetex-job-parser.mjs';
 import { slugify, fetchHtml } from '../scripts/lib/crawler-template.mjs';
@@ -199,6 +200,34 @@ describe('Mabetex Group crawler parser', () => {
 
       expect(jobs).toHaveLength(0);
       expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(0);
+    });
+  });
+  // ── Title gate before the count (issue #7707) ──
+  describe('title gate', () => {
+    it('never emits a listing whose title is too short to build a slug from', () => {
+      // The loop in fetchAllMabetexJobs drops `title.length < 3` BEFORE
+      // incrementing geoEligible, aligned with the other three instrumented
+      // parsers. Today that gate is a backstop: the ALL-CAPS sniff already
+      // requires >= 5 chars, so no emitted listing can trip it. This pins that
+      // invariant — if the sniff is ever loosened, a titleless listing would
+      // otherwise inflate geoEligible (laundering a selector break into
+      // "filtered empty") and reach buildJobSlug with a degenerate slug.
+      const intro = Array.from({ length: 12 }, () =>
+        'Mabetex Group builds large civil works packages across several regions.',
+      ).join(' ');
+      const listings = parseCareerPage(`<html><body><div class="et_pb_text_inner">
+        <h2>Job offers</h2>
+        <p>${intro}</p>
+        <p><strong>A B</strong></p>
+        <p><strong>OK</strong></p>
+        <p><strong>PROJECT MANAGER</strong></p>
+        <p>Place of work: Lugano</p>
+      </div></body></html>`);
+
+      expect(listings.length).toBeGreaterThan(0);
+      for (const listing of listings) {
+        expect(listing.title.trim().length).toBeGreaterThanOrEqual(3);
+      }
     });
   });
 });

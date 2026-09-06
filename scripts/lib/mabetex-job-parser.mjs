@@ -232,10 +232,13 @@ export async function fetchAllMabetexJobs() {
   const jobs = [];
   let geoEligible = 0;
   for (const listing of listings) {
+    const title = normalizeSpace(listing.title || '');
+    if (!title || title.length < 3) continue;
+
     const description = listing.description;
     if (!description || description.length < MIN_DESC_LENGTH) continue;
 
-    // Every non-geographic gate is behind us: the description is fully
+    // Every non-geographic gate is behind us: title and description are fully
     // extracted, so only the location can still exclude this listing.
     // Counting here — and not `listings.length` — is what makes the count
     // mean what autoFilteredEmpty claims it means (see note below).

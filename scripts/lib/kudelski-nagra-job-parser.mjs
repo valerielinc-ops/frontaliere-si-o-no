@@ -209,6 +209,11 @@ function isRelevantLocation(location = '') {
   return /lugano|ticino|tessin|cheseaux|lausanne|switzerland|schweiz|suisse|svizzera|vaud/i.test(loc) || !loc;
 }
 
+/** Title of a raw listing, whatever shape the source used for it. */
+function listingTitle(listing) {
+  return normalizeSpace(listing?.title || listing?.name || '');
+}
+
 /**
  * Fetch all Kudelski NAGRA jobs.
  * Returns an array of ParsedJob objects (source-locale only).
@@ -259,10 +264,15 @@ export async function fetchAllKudelskiNagraJobs() {
 
   console.log(`  📋 Total listings: ${listings.length}, Swiss-filtered: ${swissListings.length}`);
 
+  // Candidates that cleared every NON-geographic gate the loop below applies
+  // (only the title gate), counted over the UNfiltered listings so the number
+  // stays pre-geographic — see the note next to `discoveredCount`.
+  const titleEligible = listings.filter((l) => listingTitle(l).length >= 3).length;
+
   const jobs = [];
   for (const listing of swissListings) {
-    const title = normalizeSpace(listing.title || listing.name || '');
-    if (!title || title.length < 3) continue;
+    const title = listingTitle(listing);
+    if (title.length < 3) continue;
 
     // Greenhouse returns location as { name: "..." } or a string
     const rawLoc = listing.location?.name || listing.location || listing.city || '';
@@ -331,6 +341,14 @@ export async function fetchAllKudelskiNagraJobs() {
   // after filtering" as healthy instead of broken (check-crawler-health.mjs
   // autoFilteredEmpty, issue #5945). All 11 current listings are Spain/
   // Germany/France; that is the source's genuine state, not a selector break.
-  jobs.discoveredCount = listings.length;
+  // It counts post-title-gate, not `listings.length` (issue #7707): if title
+  // extraction broke the outcome would otherwise be `discovered > 0,
+  // written === 0` — a real selector break disguised as filtered-empty.
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: titleEligible,
+    enumerable: false,
+    writable: true,
+    configurable: true,
+  });
   return jobs;
 }
