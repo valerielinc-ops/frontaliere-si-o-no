@@ -5626,6 +5626,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.conferenza-osce-berna-2026.title': 'Conférence OSCE à Berne : réflexions sur la sécurité européenne',
     'blog.article.conferenza-osce-berna-2026.excerpt': 'La présidence suisse de l\'OSCE a organisé à Berne une conférence pour discuter des origines de la CSCE et de l\'importance de ses principes fondateurs pour la sécurité européenne.',
     'blog.article.conferenza-osce-berna-2026.imageAlt': 'Vue aérienne de Berne, Suisse, avec le drapeau suisse flottant, symbole de la conférence de l\'OSCE.',
+    'blog.article.polizia-operazione-goldach.title': 'Alarme lors d\'une fête scolaire : maxi opération de police',
+    'blog.article.polizia-operazione-goldach.excerpt': 'Les forces de l\'ordre ont reçu des rapports de « coups de feu présumés » à l\'école et travaillent à évacuer les quelque 300 personnes présentes.',
+    'blog.article.polizia-operazione-goldach.imageAlt': 'Police présente à une fête scolaire à Goldach',
 };
 
 export default blogMetaChFr;

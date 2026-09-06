@@ -5626,6 +5626,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.conferenza-osce-berna-2026.title': 'OSCE Berne Conference: Reflections on European Security',
     'blog.article.conferenza-osce-berna-2026.excerpt': 'The Swiss Chairmanship of the OSCE organized a conference in Bern to discuss the origins of the CSCE and the importance of its founding principles for European security.',
     'blog.article.conferenza-osce-berna-2026.imageAlt': 'Aerial view of Berna, Switzerland, with the Swiss flag flying, symbolizing the OSCE conference.',
+    'blog.article.polizia-operazione-goldach.title': 'School Party Alarm: Maxi Police Operation',
+    'blog.article.polizia-operazione-goldach.excerpt': 'Law enforcement has received reports of "suspected shootings" at the school and is working to evacuate the approximately 300 people present.',
+    'blog.article.polizia-operazione-goldach.imageAlt': 'Police present at a school party in Goldach',
 };
 
 export default blogMetaChEn;

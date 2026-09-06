@@ -5626,6 +5626,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.conferenza-osce-berna-2026.title': 'OSZE-Konferenz in Bern: Überlegungen zur europäischen Sicherheit',
     'blog.article.conferenza-osce-berna-2026.excerpt': 'Der Schweizer OSZE-Vorsitz organisierte in Bern eine Konferenz, um die Ursprünge der KSZE und die Bedeutung ihrer Grundprinzipien für die europäische Sicherheit zu diskutieren.',
     'blog.article.conferenza-osce-berna-2026.imageAlt': 'Luftaufnahme von Bern, Schweiz, mit der schweizerischen Flagge, die im Wind weht, Symbol der OSCE-Konferenz.',
+    'blog.article.polizia-operazione-goldach.title': 'Alarm auf einer Schulfeier: Maxi-Polizeieinsatz',
+    'blog.article.polizia-operazione-goldach.excerpt': 'Die Ordnungskräfte haben Berichte über „mutmaßliche Schüsse“ in der Schule erhalten und arbeiten daran, die rund 300 anwesenden Personen zu evakuieren.',
+    'blog.article.polizia-operazione-goldach.imageAlt': 'Polizei anwesend bei einer Schulparty in Goldach',
 };
 
 export default blogMetaChDe;
