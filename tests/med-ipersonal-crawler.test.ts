@@ -94,7 +94,7 @@ describe('iPersonal AG crawler parser', () => {
     });
 
     it('builds slug with company suffix inline', () => {
-      expect(slugify('Developer med-ipersonal ch')).toBe('developer-med-ipersonal-ch');
+      expect(slugify(`Developer ${MED_IPERSONAL_COMPANY_NAME} ch`)).toBe('developer-ipersonal-ag-ch');
     });
 
     it('respects max length', () => {

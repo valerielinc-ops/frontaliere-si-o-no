@@ -595,7 +595,7 @@ describe('MediPersonal crawler parser', () => {
     });
 
     it('builds slug with company suffix inline', () => {
-      expect(slugify('Developer ipersonal ch')).toBe('developer-ipersonal-ch');
+      expect(slugify(`Developer ${IPERSONAL_COMPANY_NAME} ch`)).toBe('developer-medipersonal-ch');
     });
 
     it('respects max length', () => {

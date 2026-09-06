@@ -120,7 +120,7 @@ export function slugMatchesTitle(slug, title, company, location, disambiguator =
 }
 
 /**
- * Il locale SORGENTE deve rientrare nella rigenerazione?
+ * Lo slug va ri-coniato perche il datore e stato RIETICHETTATO?
  *
  * Normalmente no: lo slug source-lang lo conia il parser al crawl
  * (`slugify(title + <chiave crawler> + …)`) e rigenerarlo su ogni passaggio
@@ -151,7 +151,7 @@ export function slugMatchesTitle(slug, title, company, location, disambiguator =
  * @param {string} [params.disambiguator]
  * @returns {boolean}
  */
-export function sourceLocaleNeedsBrandRefresh({
+export function slugNeedsBrandRefresh({
   isBrandRelabelledKey,
   currentSlug,
   title,

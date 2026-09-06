@@ -50,7 +50,7 @@ import {
   isLikelyUntranslated,
   shortJobHash,
   slugMatchesTitle,
-  sourceLocaleNeedsBrandRefresh,
+  slugNeedsBrandRefresh,
 } from './lib/regenerate-slugs-helpers.mjs';
 import { applyDeclaredBrandRelabel, declaredBrandLabels } from './lib/crawler-brand-relabel.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -160,17 +160,20 @@ async function main() {
         // Never touch the source-lang slug or the master slug — l'unica
         // eccezione e' la rietichettatura del datore, dove lo slug sorgente
         // resterebbe altrimenti congelato sul brand vecchio per sempre.
-        // Rationale completo in `sourceLocaleNeedsBrandRefresh`.
-        const sourceBrandRefresh =
-          locale === sourceLang &&
-          sourceLocaleNeedsBrandRefresh({
-            isBrandRelabelledKey: brandRelabelledKey,
-            currentSlug,
-            title,
-            company,
-            location,
-            disambiguator,
-          });
+        // Rationale completo in `slugNeedsBrandRefresh`.
+        // Vale per OGNI locale, non solo il sorgente: su una chiave
+        // rietichettata anche gli slug tradotti possono portare l'etichetta
+        // vecchia, e i due freni qui sotto (registry pin e `slugMatchesTitle`)
+        // sono ciechi al brand per costruzione.
+        const brandRefresh = slugNeedsBrandRefresh({
+          isBrandRelabelledKey: brandRelabelledKey,
+          currentSlug,
+          title,
+          company,
+          location,
+          disambiguator,
+        });
+        const sourceBrandRefresh = locale === sourceLang && brandRefresh;
         if (locale === sourceLang && !sourceBrandRefresh) continue;
 
         // ── Registry pin ────────────────────────────────────────────────────
@@ -184,7 +187,7 @@ async function main() {
         // rimetterebbe esattamente lo slug che stiamo correggendo. Il pin
         // difende le TRADUZIONI dal drift dell'AI, e il locale sorgente non e'
         // una traduzione.
-        const pinnedSlug = sourceBrandRefresh
+        const pinnedSlug = brandRefresh
           ? null
           : registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
         if (pinnedSlug) {
@@ -223,17 +226,29 @@ async function main() {
         // both exact copies and partial translations that changed only 1-2 words.
         // Without this, an Italian title in the EN slot would overwrite a properly
         // translated English slug with an Italian-derived one.
+        // Lo slug attuale codifica gia' QUESTO titolo? Serve a due decisioni
+        // sotto, e calcolarlo una volta sola tiene le due coerenti.
+        const slugEncodesTitle =
+          Boolean(currentSlug) && slugMatchesTitle(currentSlug, title, company, location, disambiguator);
+
         // (Sul locale sorgente `title === sourceTitle` per costruzione: il
         // check e' un no-op semantico che scatterebbe sempre, va saltato.)
+        //
+        // Il freno vale anche sotto rietichettatura, con una sola deroga: se lo
+        // slug attuale e' GIA' derivato da questo titolo non tradotto,
+        // ri-coniarlo non peggiora nessuna traduzione — cambia solo il tail del
+        // datore. Senza la deroga una riga con titolo non tradotto resta
+        // sull'etichetta vecchia per sempre (2 righe di `ipersonal`, #7722).
+        const skipUntranslatedGuard = sourceBrandRefresh || (brandRefresh && slugEncodesTitle);
         const sourceTitle = (tbl[sourceLang] || '').trim();
-        if (!sourceBrandRefresh && sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
+        if (!skipUntranslatedGuard && sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
         // If slug already matches title+company+location (+ disambiguator), skip.
         // `slugMatchesTitle` confronta i soli token del TITOLO — sottrae
         // company/location come rumore — quindi per costruzione non puo' vedere
         // un brand stale: sul refresh di brand il verdetto sarebbe «gia'
         // allineato» proprio sullo slug da correggere.
-        if (!sourceBrandRefresh && currentSlug && slugMatchesTitle(currentSlug, title, company, location, disambiguator)) continue;
+        if (!brandRefresh && slugEncodesTitle) continue;
 
         // Generate new slug from locale title, re-appending disambiguator
         let newSlug = buildSlug(title, company, location, disambiguator);

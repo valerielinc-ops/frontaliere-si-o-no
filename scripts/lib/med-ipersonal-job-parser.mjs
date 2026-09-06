@@ -172,7 +172,11 @@ export async function fetchAllMedIpersonalJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} med-ipersonal ch`);
+    // Il tail dello slug esce dall'etichetta DICHIARATA, non dalla chiave
+    // letterale: qui la chiave (`med-ipersonal`) e' il brand del gemello, non
+    // il datore di questo host, e cementarla nell'URL fa nascere ogni riga
+    // nuova con un datore che il record non dichiara (#7722).
+    const jobSlug = slugify(`${title} ${MED_IPERSONAL_COMPANY_NAME} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const job = {
