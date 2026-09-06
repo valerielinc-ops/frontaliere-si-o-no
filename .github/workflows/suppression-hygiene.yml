@@ -204,16 +204,22 @@ jobs:
             echo "Check failed but no report emitted (Firestore/auth error) — skipping issue creation."
             exit 0
           fi
-          count=$(jq -r '.totals["no-evidence"]' "$report")
-          if [ "$count" -eq 0 ]; then
+          # `?` (non `0`) quando il campo manca: indicizzare un `.totals` `null`
+          # è un errore jq sotto `set -euo pipefail`, e defaultare a `0` sarebbe
+          # peggio dell'errore — trasformerebbe un report malformato in un
+          # "nessun residuo" silenzioso. Con `?` il confronto è testuale, la
+          # guardia non scatta e l'issue si apre comunque, dicendo che il conteggio
+          # non è leggibile.
+          count=$(jq -r '(.totals // {})["no-evidence"] // "?"' "$report")
+          if [ "$count" = "0" ]; then
             echo "No no-evidence residue (check failed for another reason) — skipping issue creation."
             exit 0
           fi
-          proven=$(jq -r '.noEvidenceByTier["proven-alive"]' "$report")
-          probed=$(jq -r '.noEvidenceByTier["never-probed"]' "$report")
-          cooling=$(jq -r '.noEvidenceByTier.none' "$report")
-          per_collection=$(jq -r '.collections | to_entries | map("- `" + .key + "`: " + (.value.buckets["no-evidence"]|tostring) + " no-evidence / " + (.value.scanned|tostring) + " scanned") | join("\n")' "$report")
-          reasons=$(jq -r '[.collections | to_entries[] | .value.reasonBreakdown | to_entries[]] | group_by(.key) | map({k: .[0].key, v: (map(.value) | add)}) | sort_by(-.v) | .[0:10] | map("- `" + .k + "` × " + (.v|tostring)) | join("\n")' "$report")
+          proven=$(jq -r '(.noEvidenceByTier // {})["proven-alive"] // "?"' "$report")
+          probed=$(jq -r '(.noEvidenceByTier // {})["never-probed"] // "?"' "$report")
+          cooling=$(jq -r '(.noEvidenceByTier // {}).none // "?"' "$report")
+          per_collection=$(jq -r '(.collections // {}) | to_entries | if length == 0 then "- (report senza campo `collections`)" else map("- `" + .key + "`: " + ((.value.buckets // {})["no-evidence"] // 0 |tostring) + " no-evidence / " + (.value.scanned // 0 |tostring) + " scanned") | join("\n") end' "$report")
+          reasons=$(jq -r '[(.collections // {}) | to_entries[] | (.value.reasonBreakdown // {}) | to_entries[]] | group_by(.key) | map({k: .[0].key, v: (map(.value) | add)}) | sort_by(-.v) | .[0:10] | if length == 0 then "- (nessun `reasonBreakdown` nel report)" else map("- `" + .k + "` × " + (.v|tostring)) | join("\n") end' "$report")
 
           # The re-probe ramp's own state. A halted breaker is the single most
           # important thing this issue can say — without it the residue looks

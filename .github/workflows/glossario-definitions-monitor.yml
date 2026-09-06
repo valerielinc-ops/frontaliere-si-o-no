@@ -79,13 +79,17 @@ jobs:
             echo "Check failed but no report emitted (fetch error) — skipping issue creation."
             exit 0
           fi
-          count=$(jq -r '.flagged | length' "$report")
-          if [ "$count" -eq 0 ]; then
+          # `.flagged` assente ≠ zero flagged: `null | length` è `0` in jq, quindi
+          # un report malformato uscirebbe da questa guardia come "niente da
+          # segnalare" e il degrado passerebbe muto. `?` non è `0`, la guardia non
+          # scatta, l'issue si apre e dice che il campo manca.
+          count=$(jq -r 'if (.flagged | type) == "array" then (.flagged | length) else "?" end' "$report")
+          if [ "$count" = "0" ]; then
             echo "No placeholders flagged (only fetch errors) — skipping issue creation."
             exit 0
           fi
 
-          urls=$(jq -r '.flagged | map("- " + .url) | join("\n")' "$report")
+          urls=$(jq -r '(.flagged // []) | if length == 0 then "- (report senza campo `flagged`: leggi l'"'"'artifact)" else map("- " + .url) | join("\n") end' "$report")
           body=$(cat <<EOF
           Weekly glossario placeholder-definition monitor found **${count}** live term page(s) still shipping the generic auto-generated \`DefinedTerm.description\` fallback text instead of a real, term-specific definition.
 

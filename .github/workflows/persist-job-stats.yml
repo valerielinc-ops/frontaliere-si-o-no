@@ -69,7 +69,10 @@ jobs:
             baselineStddev=$(jq -r ".[$i].baselineStddev" data/job-dataset-churn-issues.json)
             threshold=$(jq -r ".[$i].threshold" data/job-dataset-churn-issues.json)
             baselineDays=$(jq -r ".[$i].baselineDays" data/job-dataset-churn-issues.json)
-            hosts=$(jq -r ".[$i].topHosts | map(\"\\(.host) (\\(.count))\") | join(\", \")" data/job-dataset-churn-issues.json)
+            # `// []`: un'anomalia senza `topHosts` (metrica non attribuita a un
+            # host) farebbe fallire `map` sotto `set -euo pipefail`, uccidendo il
+            # loop e lasciando non aperte anche le issue delle anomalie successive.
+            hosts=$(jq -r "(.[$i].topHosts // []) | map(\"\\(.host) (\\(.count))\") | join(\", \")" data/job-dataset-churn-issues.json)
 
             # issueTitle is stable for the same metric + dominant-host hash, so a
             # multi-day event becomes recurrence comments on one open issue.
