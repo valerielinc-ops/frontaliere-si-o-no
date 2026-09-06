@@ -365,8 +365,9 @@ export function createRexxSystemsParser(config) {
    * an assertion about ONE record, so only the first may be quarantined:
    *
    * - `provenExclusion: true` — the source itself places this vacancy away
-   *   from the configured workplace (explicit foreign country or subdivision,
-   *   or a tenant extractor that already verified and refused a candidate).
+   *   from the configured workplace: an explicit foreign country or
+   *   subdivision on one of its own address candidates. A flag that only says
+   *   the evidence disagrees does not qualify — see the conflict guard below.
    * - `provenExclusion: false` — nobody managed to place it: no address block
    *   in the detail, a multi-canton homonym, an employer label the source
    *   never corroborates. That is an assertion about the RUN, so the caller
@@ -381,10 +382,22 @@ export function createRexxSystemsParser(config) {
   function resolveRexxWorkplace(detail) {
     const unresolved = { workplace: null, provenExclusion: false };
     const excluded = { workplace: null, provenExclusion: true };
-    // A tenant extractor that already refused a candidate (e.g. a canton
-    // suffix mismatch) is an authoritative conflict, not missing evidence.
-    if (detail?.authoritativeLocationConflict) return excluded;
     const candidates = Array.isArray(detail?.sourceAddresses) ? detail.sourceAddresses : [];
+    // `authoritativeLocationConflict` alone is NOT proof of exclusion, so it
+    // may not by itself quarantine a record (#7702, follow-up #7609). Its only
+    // producer today (`prospector/extract.mjs`) raises it when one structured
+    // representation of THIS vacancy is explicitly foreign while another reads
+    // Swiss, and that foreign candidate is always among `sourceAddresses` — so
+    // requiring it here is a no-op on the real signal. Any other route that
+    // ever set the flag on merely contradictory evidence would be an assertion
+    // about the RUN, not about this record: dropping it would retire a live
+    // Swiss vacancy, so fall through to `unresolved` and keep the batch atomic.
+    if (detail?.authoritativeLocationConflict) {
+      const provenForeign = candidates.some(
+        (candidate) => evaluateSourceBackedSwissGeography([candidate]).explicitlyForeign,
+      );
+      return provenForeign ? excluded : unresolved;
+    }
     const isEmployerLabel = (candidate) => {
       const locality = normalizeSpace(candidate?.addressLocality || candidate?.location || '');
       const localityKey = normalize(locality);

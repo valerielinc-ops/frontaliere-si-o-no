@@ -11,6 +11,26 @@ import {
 } from '../scripts/lib/kantonsspital-uri-job-parser.mjs';
 import { restoreExistingSlugIdentity, slugify } from '../scripts/lib/crawler-template.mjs';
 
+// Simulates the hypothetical second producer of `authoritativeLocationConflict`
+// the #7702 census looked for: a detail extractor raising the flag on merely
+// contradictory evidence, with no explicitly foreign candidate attached. Off by
+// default, so every other test in this file runs against the real extractor.
+const conflictInjection = vi.hoisted(() => ({ forPageUrl: '' }));
+
+vi.mock('../scripts/lib/prospector/extract.mjs', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../scripts/lib/prospector/extract.mjs')>();
+  return {
+    ...actual,
+    extractDetailFields: (html = '', pageUrl = '') => {
+      const detail = actual.extractDetailFields(html, pageUrl);
+      if (conflictInjection.forPageUrl && pageUrl === conflictInjection.forPageUrl) {
+        return { ...detail, authoritativeLocationConflict: true };
+      }
+      return detail;
+    },
+  };
+});
+
 const DETAIL_URL = 'https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Gynaekologie-und-Geburtshil-de-j402.html';
 const SECOND_DETAIL_URL = 'https://stellen.ksuri.ch/Pflegefachperson-de-j403.html';
 const TITLE = 'Assistenzärztin / -Assistenzarzt Gynäkologie und Geburtshilfe (w/m/d) 100%';
@@ -93,6 +113,7 @@ afterEach(() => {
   delete process.env.JOBS_CRAWLER_RETRIES;
   delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
   delete process.env.JOBS_CRAWLER_TIMEOUT_MS;
+  conflictInjection.forPageUrl = '';
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
 });
@@ -383,6 +404,33 @@ describe('Kantonsspital Uri shared rexx parser', () => {
     const jobs = await fetchAllKantonsspitalUriJobs();
 
     expect(jobs.map((job: { url: string }) => job.url)).toEqual([DETAIL_URL, SECOND_DETAIL_URL]);
+  });
+
+  it('fails closed when a location conflict arrives without proof the source places the row abroad', async () => {
+    // #7702: quarantining a record is allowed only on PROOF of exclusion. The
+    // single producer of `authoritativeLocationConflict` today
+    // (`prospector/extract.mjs`) raises it with an explicitly foreign candidate
+    // attached; a producer that flagged merely contradictory-but-Swiss evidence
+    // would be asserting something about the RUN, so the record must keep the
+    // batch atomic instead of disappearing from the published slice — the
+    // invariant mirroring the one #7609 defends.
+    conflictInjection.forPageUrl = DETAIL_URL;
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/stellenangebote.html')) {
+        return new Response(listingFixture([
+          { url: DETAIL_URL, title: TITLE },
+          { url: SECOND_DETAIL_URL, title: 'Pflegefachperson HF 80–100%' },
+        ]), { status: 200 });
+      }
+      if (url === SECOND_DETAIL_URL) {
+        return new Response(realRexxDetailFixture({ title: 'Pflegefachperson HF 80–100%' }), { status: 200 });
+      }
+      if (url === DETAIL_URL) return new Response(realRexxDetailFixture(), { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+
+    await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
   });
 
   it('still fails closed when the contradicted records are systemic rather than outliers', async () => {
