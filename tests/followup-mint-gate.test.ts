@@ -26,6 +26,8 @@ import {
   rebuildBody,
   retitle,
   itemHeadline,
+  demotedBlock,
+  isLosslessSplit,
 } from '../scripts/ci/gate-minted-followups.mjs';
 
 const GATE_SRC = fileURLToPath(new URL('../scripts/ci/gate-minted-followups.mjs', import.meta.url));
@@ -113,6 +115,43 @@ describe('gate sul conio — comportamento', () => {
   });
 });
 
+describe('gate sul conio — la demozione non perde il testo', () => {
+  it('il blocco per la PR porta il TESTO INTEGRALE dell\'item, non la sua prima riga', () => {
+    // Nel ramo `demote` il corpo della issue viene riscritto senza gli item demoti: questo
+    // blocco e' l'unica copia che resta. Se conservasse il solo titolo, il prezzo
+    // dichiarato («resta leggibile sulla PR») sarebbe falso, e in modo irreversibile.
+    const b = demotedBlock([itemProsa]);
+    expect(b).toContain('nessun gate impedisce un drift futuro');
+    expect(b).toContain('- Source: reviewer');
+    expect(b).toContain('- Stato dichiarato nella PR: nessuno');
+    expect(b).toContain('- Original text: > il valore potrebbe divergere col tempo');
+    expect(b).toContain('- Suggested action: valutare se serve un campo esplicito');
+  });
+
+  it('NON riscrive un corpo che non si ricompone identico dai suoi item', () => {
+    // `splitFollowupItems()` spezza su `^### \d+\.` anche dentro un blocco citato, e il
+    // conio cita verbatim body di PR e review, che usano quel formato. Il frammento
+    // spurio farebbe buttare via la coda dell'item vero: il round-trip lo intercetta.
+    // La citazione sta in un blocco recintato, cioe' a colonna zero: e' li' che
+    // `^### \d+\.` colpisce davvero. (Una citazione indentata o dentro un `>` non
+    // comincia a colonna zero e resta innocua — il caso sotto lo mostra.)
+    const conCitazione = HEAD +
+      '### 1. item che cita il body di una PR\n- Original text:\n```\n### 2. la PR citata numerava cosi\n```\n' +
+      '- Suggested action: chiama `normalizza()` in `scripts/ci/x.mjs`\n\n' +
+      `### 2.${itemProsa}`;
+    expect(isLosslessSplit(conCitazione)).toBe(false);
+    const d = decideMintGate({ body: conCitazione, createdAt: new Date().toISOString() });
+    expect(d.action).toBe('skip');
+    expect(d.reason).toBe('unsafe-rewrite');
+    expect(d.body).toBeNull();
+  });
+
+  it('un corpo normale si ricompone identico, quindi la demozione parte', () => {
+    expect(isLosslessSplit(aggregata(itemValido, itemProsa))).toBe(true);
+    expect(decideMintGate({ body: aggregata(itemValido, itemProsa), createdAt: new Date().toISOString() }).action).toBe('demote');
+  });
+});
+
 describe('gate sul conio — pin sul sorgente', () => {
   it('PIN: il criterio di ingresso E\' l\'oracolo di uscita, importato — mai reimplementato', () => {
     const src = readFileSync(GATE_SRC, 'utf-8');
@@ -127,6 +166,21 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(src).not.toMatch(/function\s+isDistinctiveToken/);
     expect(src).not.toMatch(/\/suggested action\/i/i);
     expect(src).not.toMatch(/ACCEPTANCE_CONDITION\s*=/);
+  });
+
+  it('PIN: si CONSERVA prima di distruggere — il commento sulla PR precede la riscrittura', () => {
+    const src = readFileSync(GATE_SRC, 'utf-8');
+    // Terza direzione che nessun caso comportamentale vede: l'ORDINE delle due scritture.
+    // Riscrivere il corpo e poi provare a commentare perde gli item per sempre quando la
+    // seconda chiamata fallisce — ed e' la finestra in cui `gh` fallisce piu' spesso
+    // (rate limit dopo N scritture in un batch).
+    const comment = src.indexOf("'pr', 'comment'");
+    const edit = src.indexOf("'issue', 'edit'");
+    expect(comment).toBeGreaterThan(-1);
+    expect(edit).toBeGreaterThan(-1);
+    expect(comment).toBeLessThan(edit);
+    // E la riscrittura e' esplicitamente subordinata all'esito del commento.
+    expect(src).toMatch(/d\.action === 'demote' && posted === null/);
   });
 
   it('PIN: lo step gira nel workflow, zero-Claude, DOPO il conio e senza poterlo far cadere', () => {
