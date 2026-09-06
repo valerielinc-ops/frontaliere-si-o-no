@@ -249,6 +249,14 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
  * the same slug (the collision class of issue #3734), and an entry without a
  * companyKey claims no route at all rather than merging across companies.
  *
+ * The collapse is greedy and therefore sensitive to the order the conflicts
+ * arrive in, so the entries are visited in a CANONICAL order and the "is this
+ * route somebody else's?" question is answered from a pre-pass index of the
+ * whole input rather than from the incremental one. Both used to be read off
+ * the caller's array: reversing the input changed the output of 4 of the 547
+ * committed slices (measured 2026-09-06), and a survivor could take a route
+ * owned by an entry further down — a 301 to the wrong vacancy.
+ *
  * A merge is applied only when it provably preserves the component's whole
  * route union. Two histories can be too deep to fit the legacy previousSlugs
  * cap, and `promotePreviousSlugToLegacy` correctly refuses to drop the
@@ -262,7 +270,19 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   const namespaced = (entry) => (entry?.companyKey
     ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
     : []);
-  const input = Array.isArray(entries) ? entries : [...entries];
+  // Entries are visited in a CANONICAL order, not the caller's. The collapse is
+  // greedy — each entry is merged onto the component it already conflicts with —
+  // so the order the conflicts arrive in decides which merges are attempted and
+  // which are refused. Reading that order off the input made the result depend
+  // on it: reversing the input changed the output of 4 of the 547 committed
+  // slices (measured 2026-09-06), and `archiveRemovedJobsToSlice`,
+  // `cleanup-jobs` and `backfill-*` do not all hand over the same order. Newest
+  // first matches the survivor rule below (the most recently expired payload
+  // wins); the slug/companyKey tie-breaks keep two records expired in the same
+  // millisecond from swapping roles.
+  const input = [...entries].sort((a, b) => compareExpiredAt(b?.expiredAt, a?.expiredAt)
+    || String(a?.slug || '').localeCompare(String(b?.slug || ''))
+    || String(a?.companyKey || '').localeCompare(String(b?.companyKey || '')));
   const out = [];
   const owners = new Map();
   // The incremental index below answers "which SURVIVING entry holds this
