@@ -479,20 +479,36 @@ describe('validateDedicatedLocaleCoverage — ems-chemie call site (issue #3797 
     expect(after.map((j) => j.url)).not.toContain('https://not-ems-group.example.test/jobs/untrusted');
   });
 
+  const untrustedJob = (n: number) => ({
+    ...goodJob(n),
+    slug: `ems-chemie-untrusted-domain-job-${n}`,
+    url: `https://not-ems-group.example.test/jobs/untrusted-${n}`,
+  });
+
   it('a SYSTEMIC non-translation problem (majority untrusted domains) still hard-fails the run — per-item quarantine never silently wipes a broken batch', () => {
-    const untrusted = (n: number) => ({
-      ...goodJob(n),
-      slug: `ems-chemie-untrusted-domain-job-${n}`,
-      url: `https://not-ems-group.example.test/jobs/untrusted-${n}`,
-    });
-    const jobs = [goodJob(0), untrusted(1), untrusted(2)];
+    // 4 rejected out of 6: above the sample floor the ratio has a sample to
+    // speak of, so the systemic verdict still fires exactly as before (#7702).
+    const jobs = [goodJob(0), goodJob(1), untrustedJob(2), untrustedJob(3), untrustedJob(4), untrustedJob(5)];
     const jobsPath = writeScratchJobs(jobs);
 
     expect(() => runValidation(jobsPath)).toThrow(/localization validation failed/i);
     // Dataset untouched: the previous data stays intact for the workflow's
     // non-zero-exit issue-creation path.
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
-    expect(after).toHaveLength(3);
+    expect(after).toHaveLength(6);
+  });
+
+  it('below the sample floor the same shape stays a per-item quarantine — the untrusted jobs are dropped, the valid one is published (#7702)', () => {
+    // 2 rejected out of 3 reads as 67% but is 2 outliers, not drift: the
+    // dataset-boundary guarantee (an untrusted-domain job never reaches the
+    // dataset) is unchanged, the valid sibling is no longer discarded with it.
+    const jobs = [goodJob(0), untrustedJob(1), untrustedJob(2)];
+    const jobsPath = writeScratchJobs(jobs);
+
+    expect(() => runValidation(jobsPath)).not.toThrow();
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as Array<{ url: string }>;
+    expect(after).toHaveLength(1);
+    expect(after.every((j) => j.url.startsWith('https://jobs.ems-group.com/'))).toBe(true);
   });
 
   it('all-translated batch passes cleanly with no tolerance needed', () => {

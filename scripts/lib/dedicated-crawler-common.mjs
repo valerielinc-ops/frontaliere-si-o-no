@@ -29,6 +29,7 @@ import { isAcceptableTranslation, hasConcatenatedWords, isStructureFlattenedCopy
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
+import { isSystemicRejection } from './source-record-quarantine.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -4416,7 +4417,8 @@ export function validateDedicatedLocaleCoverage({
     // still commit. Two escape hatches keep the loud failure where it is the
     // safer outcome:
     //   1. SYSTEMIC (>= JOBS_SYSTEMIC_INVALID_RATIO of the batch invalid, and
-    //      at least 2 invalid): that pattern is a parser break, not a
+    //      at least JOBS_SYSTEMIC_MIN_OBSERVED * that ratio invalid — see
+    //      `isSystemicRejection`): that pattern is a parser break, not a
     //      per-item glitch — hard-fail so the previous dataset stays intact
     //      and the workflow's issue-creation path fires.
     //   2. EVERY job invalid (incl. a 1-job source): quarantining would wipe
@@ -4425,9 +4427,10 @@ export function validateDedicatedLocaleCoverage({
     if (nonTranslationBlocking.length > 0) {
       const invalidSlugs = new Set(nonTranslationBlocking.map((i) => i.slug));
       const invalidJobs = jobs.filter((j) => invalidSlugs.has(j?.slug));
-      const SYSTEMIC_INVALID_RATIO = Number(process.env.JOBS_SYSTEMIC_INVALID_RATIO) || 0.5;
-      const invalidRatio = invalidJobs.length / jobs.length;
-      const systemic = invalidRatio >= SYSTEMIC_INVALID_RATIO && invalidJobs.length >= 2;
+      // Same sample floor as the per-record valve (#7702): on a 3-job source
+      // two invalid records read as 67% and hard-fail the batch, discarding
+      // the one valid job with them, where the ratio has no sample to speak of.
+      const systemic = isSystemicRejection(invalidJobs.length, jobs.length);
       if (!systemic && invalidJobs.length > 0 && invalidJobs.length < jobs.length) {
         const sample = nonTranslationBlocking
           .slice(0, sampleLimit)

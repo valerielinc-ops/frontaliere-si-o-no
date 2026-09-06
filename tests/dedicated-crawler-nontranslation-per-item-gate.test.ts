@@ -141,17 +141,39 @@ describe('validateDedicatedLocaleCoverage — per-item gate for non-translation 
   });
 
   it('systemic invalidity (majority of the batch) still hard-fails and leaves the dataset untouched', () => {
+    // Four invalid out of six: above the sample floor the ratio can tell a
+    // parser break from per-item outliers (#7702), so this still hard-fails.
     const jobs = [
       makeJob('valid-job-1', 1),
-      makeJob('bad-domain-job-1', 2, { badDomain: true }),
-      makeJob('bad-domain-job-2', 3, { badDomain: true }),
+      makeJob('valid-job-2', 2),
+      makeJob('bad-domain-job-1', 3, { badDomain: true }),
+      makeJob('bad-domain-job-2', 4, { badDomain: true }),
+      makeJob('bad-domain-job-3', 5, { badDomain: true }),
+      makeJob('bad-domain-job-4', 6, { badDomain: true }),
     ];
     const { jobsPath } = writeJobs(jobs);
 
     expect(() => runGuard(jobsPath)).toThrow(/localization validation failed/);
-    // All 3 jobs still on disk: the previous data is preserved for the
+    // All 6 jobs still on disk: the previous data is preserved for the
     // workflow's non-zero-exit issue path, nothing is silently wiped.
-    expect(readJobIds(jobsPath)).toEqual(['bad-domain-job-1', 'bad-domain-job-2', 'valid-job-1']);
+    expect(readJobIds(jobsPath)).toEqual([
+      'bad-domain-job-1', 'bad-domain-job-2', 'bad-domain-job-3', 'bad-domain-job-4',
+      'valid-job-1', 'valid-job-2',
+    ]);
+  });
+
+  // #7702 (follow-up of #7609): below the sample floor the ratio says nothing
+  // about drift — two invalid jobs out of three read as 67% and used to discard
+  // the valid one with them, which is the loss the per-item gate exists to stop.
+  it('two invalid jobs out of three stay a per-item quarantine, the valid job survives', () => {
+    const { jobsPath } = writeJobs([
+      makeJob('valid-job-1', 1),
+      makeJob('bad-domain-job-1', 2, { badDomain: true }),
+      makeJob('bad-domain-job-2', 3, { badDomain: true }),
+    ]);
+
+    expect(() => runGuard(jobsPath)).not.toThrow();
+    expect(readJobIds(jobsPath)).toEqual(['valid-job-1']);
   });
 
   it('a single-job source whose only job is invalid still hard-fails (quarantine would silently wipe the dataset)', () => {

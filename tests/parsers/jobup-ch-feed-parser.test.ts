@@ -470,6 +470,8 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     await expect(parser.fetchAllJobs()).resolves.toEqual([]);
   });
 
+  // Four rejected rows out of five: above the sample floor (#7702) the ratio
+  // can tell drift from per-record outliers, so the batch still fails closed.
   it('still invalidates the whole batch when the unresolved rows are a systemic share of it', async () => {
     const foreignRow = (n: number) => ({
       ...JOBUP_FEED_JOB,
@@ -479,7 +481,7 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     });
     stubJobupSource(
       () => new Response(RICH_JOBUP_DETAIL, { status: 200 }),
-      [JOBUP_FEED_JOB, foreignRow(1), foreignRow(2)],
+      [JOBUP_FEED_JOB, foreignRow(1), foreignRow(2), foreignRow(3), foreignRow(4)],
     );
     const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
 

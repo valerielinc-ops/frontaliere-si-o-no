@@ -76,10 +76,30 @@ describe('jobup.ch feed per-record quarantine', () => {
     stubFeed([
       feedRow('a1', 'Infirmier·ère en psychiatrie 80-100%', '2000 Neuchâtel'),
       feedRow('a2', 'Psychologue FSP 60%', '2300 La Chaux-de-Fonds'),
-      feedRow('a3', 'Consultant international', 'Paris, France'),
-      feedRow('a4', 'Chef de projet', 'Lyon, France'),
+      feedRow('a3', 'Aide-soignant·e 70%', '2400 Le Locle'),
+      feedRow('a4', 'Consultant international', 'Paris, France'),
+      feedRow('a5', 'Chef de projet', 'Lyon, France'),
+      feedRow('a6', 'Responsable qualité', 'Besançon, France'),
     ]);
 
     await expect(fetchAllCnpJobs()).resolves.toEqual([]);
+  });
+
+  // #7702 (follow-up of #7609): on a listing this small the ratio has no
+  // sample — two rows the source legitimately places abroad read as 67% and
+  // used to suppress the live Swiss vacancy with them, which is the traffic
+  // loss #7459 closed, restricted to the small tenants. Six of the eight
+  // jobup.ch tenants publish four records or fewer, so this is their norm.
+  it('publishes the surviving row when the listing is below the ratio sample floor', async () => {
+    const rows = [
+      feedRow('a1', 'Infirmier·ère en psychiatrie 80-100%', '2000 Neuchâtel'),
+      feedRow('a2', 'Consultant international', 'Paris, France'),
+      feedRow('a3', 'Chef de projet', 'Lyon, France'),
+    ];
+    stubFeed(rows);
+
+    const jobs = await fetchAllCnpJobs();
+
+    expect(jobs.map((job: { url: string }) => job.url)).toEqual([rows[0].link]);
   });
 });
