@@ -67,37 +67,119 @@ export function missingModuleSpecifier(error) {
   return m ? m[1] : null;
 }
 
-/**
- * I path repo-relativi che uno specificatore RELATIVO potrebbe designare.
- * Uno specificatore bare (`react`, `node:fs`) non è mai un effetto del profilo
- * sparse: risolve in `node_modules`, che un worktree sparse ha comunque.
- */
-export function moduleCandidates(fromFile, specifier) {
-  if (!specifier || !specifier.startsWith('.')) return [];
-  const dir = path.posix.dirname(fromFile.split(path.sep).join('/'));
-  const base = path.posix.normalize(path.posix.join(dir, specifier));
-  if (base.startsWith('..')) return []; // fuori dal repo: è il confine fra i due repo, non lo sparse.
+const withSuffixes = (base) => {
+  if (!base || base.startsWith('..')) return []; // fuori dal repo: confine fra i due repo, non sparse.
   return CANDIDATE_SUFFIXES.map((suffix) => `${base}${suffix}`);
+};
+
+/**
+ * I path repo-relativi che uno specificatore potrebbe designare.
+ *
+ * Due forme, ed è la seconda che ha reso questo modulo necessario: metà del
+ * codice importa i moduli dati con l'ALIAS di `tsconfig.json`
+ * (`@/data/blog-articles-data`), non con un path relativo. MISURATO su questo
+ * repo simulando lo sparse: senza risolvere `paths` restavano 9 falsi
+ * "regressioni" in 4 componenti — cioè il gate sarebbe stato rosso in ogni
+ * worktree sparse, che è la stessa inutilizzabilità di prima con un'altra
+ * faccia. Uno specificatore bare vero (`react`, `node:fs`) non è mai un
+ * effetto del profilo sparse: risolve in `node_modules`, che c'è comunque.
+ *
+ * @param {string} fromFile file che contiene l'import, repo-relativo
+ * @param {string} specifier
+ * @param {Record<string,string[]>} [paths] `compilerOptions.paths` (target repo-relativi)
+ */
+export function moduleCandidates(fromFile, specifier, paths = {}) {
+  if (!specifier) return [];
+  if (specifier.startsWith('.')) {
+    const dir = path.posix.dirname(fromFile.split(path.sep).join('/'));
+    return withSuffixes(path.posix.normalize(path.posix.join(dir, specifier)));
+  }
+  const out = [];
+  for (const [pattern, targets] of Object.entries(paths)) {
+    const star = pattern.indexOf('*');
+    if (star === -1) {
+      if (pattern !== specifier) continue;
+      for (const target of targets) out.push(...withSuffixes(path.posix.normalize(target)));
+      continue;
+    }
+    const prefix = pattern.slice(0, star);
+    const suffix = pattern.slice(star + 1);
+    if (!specifier.startsWith(prefix) || !specifier.endsWith(suffix)) continue;
+    const matched = specifier.slice(prefix.length, specifier.length - suffix.length);
+    for (const target of targets) {
+      out.push(...withSuffixes(path.posix.normalize(target.replace('*', matched))));
+    }
+  }
+  return out;
+}
+
+/**
+ * `compilerOptions.paths` di un tsconfig, normalizzato a target repo-relativi.
+ * Fallisce in silenzio verso `{}`: senza alias la classificazione resta
+ * corretta sui path relativi, e un tsconfig illeggibile non deve trasformare
+ * il gate in un crash.
+ */
+export function tsconfigPaths(tsconfigText) {
+  try {
+    const parsed = JSON.parse(tsconfigText);
+    const raw = (parsed.compilerOptions && parsed.compilerOptions.paths) || {};
+    const out = {};
+    for (const [pattern, targets] of Object.entries(raw)) {
+      out[pattern] = targets.map((t) => path.posix.normalize(t.replace(/^\.\//, '')));
+    }
+    return out;
+  } catch {
+    return {};
+  }
 }
 
 /**
  * Divide gli errori in ciò che questo worktree può giudicare e ciò che è solo
  * il profilo sparse che parla.
  *
+ * Tre bucket, e il terzo è il compromesso esplicito di #7677:
+ *   - `environment`: `TS2307` verso un path tracciato-ma-assente. Prova diretta.
+ *   - `downstream`: gli errori sulla STESSA RIGA di un errore `environment`.
+ *     Un `await import('@/data/blog-articles-data')` non risolto produce lì un
+ *     `TS2307` e, sulla stessa riga, il `TS2322` del valore diventato
+ *     `Map<unknown, unknown>` — MISURATO in `services/seo/articleAuthorUrl.ts`
+ *     riga 72, e sparisce appena il modulo c'è. Contarlo terrebbe il gate rosso
+ *     in OGNI worktree sparse, cioè inutilizzabile esattamente come quando
+ *     usciva 2. Nemmeno questi spariscono in silenzio: sono stampati e contati
+ *     a parte.
+ *     La riga, non il FILE. Il primo tentativo declassava tutti gli errori dei
+ *     file con un import rotto: MISURATO, si mangiava una regressione vera
+ *     (`const x: number = 'stringa'` piantato a riga 4056 di
+ *     `services/router.ts`, che importa un modulo non materializzato) e il gate
+ *     usciva 0 su un errore reale — fail-open, cioè il difetto che questo
+ *     script dichiara di non voler avere. Sulla riga il nesso è provato; sul
+ *     file è solo una vicinanza.
+ *   - `measured`: tutto il resto, incluso un `TS2307` verso un modulo che non
+ *     esiste in nessun checkout (i 20 errori strutturali della baseline).
+ *
  * @param {{file:string,code:string,msg:string,line:number}[]} errors
  * @param {Set<string>} missingTracked path tracciati da git ma assenti su disco
- * @returns {{measured: object[], environment: object[]}}
+ * @param {{paths?: Record<string,string[]>}} [options]
+ * @returns {{measured: object[], environment: object[], downstream: object[]}}
  */
-export function classifySparseErrors(errors, missingTracked) {
-  const measured = [];
+export function classifySparseErrors(errors, missingTracked, options = {}) {
+  const paths = options.paths || {};
   const environment = [];
+  const rest = [];
   for (const error of errors) {
     const specifier = missingModuleSpecifier(error);
-    const candidates = specifier ? moduleCandidates(error.file, specifier) : [];
+    const candidates = specifier ? moduleCandidates(error.file, specifier, paths) : [];
     if (candidates.some((candidate) => missingTracked.has(candidate))) environment.push(error);
+    else rest.push(error);
+  }
+  const poisonedLines = new Set(environment.map((e) => `${e.file}:${e.line}`));
+  const measured = [];
+  const downstream = [];
+  for (const error of rest) {
+    if (poisonedLines.has(`${error.file}:${error.line}`)) downstream.push(error);
     else measured.push(error);
   }
-  return { measured, environment };
+  return { measured, environment, downstream };
 }
 
 /**

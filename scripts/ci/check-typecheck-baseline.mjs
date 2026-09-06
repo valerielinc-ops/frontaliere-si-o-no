@@ -102,7 +102,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { classifySparseErrors, trackedButAbsent, unmeasurableBaselineFiles } from './lib/typecheck-sparse.mjs';
+import { classifySparseErrors, trackedButAbsent, tsconfigPaths, unmeasurableBaselineFiles } from './lib/typecheck-sparse.mjs';
 // Lettore sparse-immune già esistente e documentato come tale: legge il file
 // dal working tree quando c'è, altrimenti dall'oggetto git. La baseline vive
 // sotto `data/`, che è proprio ciò che un worktree sparse non materializza.
@@ -283,16 +283,24 @@ const parsed = parseTsc(output);
 const skipped = parsed.skipped;
 let errors = parsed.errors;
 let environmentErrors = [];
+let downstreamErrors = [];
 
 if (sparse) {
-  const split = classifySparseErrors(parsed.errors, missingTracked);
+  const paths = tsconfigPaths(fs.readFileSync(path.join(ROOT, 'tsconfig.json'), 'utf8'));
+  const split = classifySparseErrors(parsed.errors, missingTracked, { paths });
   errors = split.measured;
   environmentErrors = split.environment;
+  downstreamErrors = split.downstream;
   console.log(
     `⚠️ worktree sparse: misura DEGRADATA — ${missingTracked.size} file tracciati non materializzati, ` +
-      `${environmentErrors.length} errori TS2307 verso di loro esclusi dalla misura.`,
+      `${environmentErrors.length} errori TS2307 verso di loro esclusi dalla misura, ` +
+      `${downstreamErrors.length} errori sulla stessa riga di un import rotto.`,
   );
   console.log('   Il verdetto vale sulle REGRESSIONI per-file; i cali qui non provano niente e non stringono il ratchet.');
+  console.log('   La misura autorevole su quei file resta quella della CI, dove il checkout è pieno.');
+  for (const e of downstreamErrors.filter((e) => !e.file.startsWith('tests/')).slice(0, 10)) {
+    console.log(`   ~ ${e.file}(${e.line}): ${e.code}: ${e.msg}`);
+  }
 }
 
 const current = tally(errors);
@@ -303,16 +311,20 @@ if (skipped) {
 }
 
 if (args.includes('--json')) {
-  console.log(JSON.stringify({ ...current, errors, sparse, environmentErrors }, null, 2));
+  console.log(JSON.stringify({ ...current, errors, sparse, environmentErrors, downstreamErrors }, null, 2));
   process.exit(0);
 }
 
 if (args.includes('--list')) {
   for (const e of errors) console.log(`${e.file}(${e.line}): ${e.code}: ${e.msg}`);
   console.log(`\n${current.total} errori — bloccanti ${current.total - current.advisoryTotal}, tests/ ${current.advisoryTotal}`);
-  if (environmentErrors.length) {
-    console.log(`\n${environmentErrors.length} errori d'ambiente (moduli tracciati ma non materializzati), esclusi dal conteggio:`);
-    for (const e of environmentErrors) console.log(`  ~ ${e.file}(${e.line}): ${e.code}: ${e.msg}`);
+  for (const [label, bucket] of [
+    ["errori d'ambiente (moduli tracciati ma non materializzati)", environmentErrors],
+    ['errori sulla stessa riga di un import non risolto dal profilo sparse', downstreamErrors],
+  ]) {
+    if (!bucket.length) continue;
+    console.log(`\n${bucket.length} ${label}, esclusi dal conteggio:`);
+    for (const e of bucket) console.log(`  ~ ${e.file}(${e.line}): ${e.code}: ${e.msg}`);
   }
   process.exit(0);
 }
