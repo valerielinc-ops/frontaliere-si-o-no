@@ -139,10 +139,24 @@ export function dailyEngagementConsistency(days = []) {
 }
 
 /**
+ * Etichetta breve a partire da un `reason` già calcolato.
+ *
+ * Serve perché il verdetto che i report propagano non nasce sempre
+ * dall'aggregato: `dailyEngagementConsistency` prevale, e ri-chiamare
+ * `engagementConsistency` sui totali della finestra restituirebbe `null`
+ * proprio nei casi che quel verdetto ha intercettato. Il testo della nota
+ * resta però uno solo, qui.
+ *
+ * `null` quando non c'è motivo, così il call-site non stampa rumore.
+ */
+export function engagementUnreliableNoteFromReason(reason) {
+  return reason ? `⚠️ engagement inaffidabile — ${reason}` : null;
+}
+
+/**
  * Etichetta breve da appendere a un valore di engagement in un report.
  * `null` quando il dato è coerente, così il call-site non stampa rumore.
  */
 export function engagementUnreliableNote(input) {
-  const verdict = engagementConsistency(input);
-  return verdict.reliable ? null : `⚠️ engagement inaffidabile — ${verdict.reason}`;
+  return engagementUnreliableNoteFromReason(engagementConsistency(input).reason);
 }

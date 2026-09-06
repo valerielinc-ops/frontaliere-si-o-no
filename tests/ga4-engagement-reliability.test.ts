@@ -4,6 +4,8 @@ import {
   engagementConsistency,
   dailyEngagementConsistency,
   engagementUnreliableNote,
+  engagementUnreliableNoteFromReason,
+  GA4_ENGAGED_SESSION_MIN_SECONDS,
   MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS,
   MIN_SESSIONS_FOR_VERDICT,
 } from '../scripts/lib/ga4-engagement-reliability.mjs';
@@ -159,6 +161,23 @@ describe('dailyEngagementConsistency — la finestra non deve annegare il giorno
   });
 });
 
+describe('engagementUnreliableNoteFromReason', () => {
+  it('è null senza motivo', () => {
+    expect(engagementUnreliableNoteFromReason(null)).toBeNull();
+    expect(engagementUnreliableNoteFromReason('')).toBeNull();
+  });
+
+  // Il verdetto che i report propagano viene da dailyEngagementConsistency,
+  // che prevale sull'aggregato: la nota va derivabile dal `reason` già
+  // calcolato, senza ri-giudicare i totali della finestra (che direbbero
+  // "affidabile" proprio nei casi intercettati).
+  it('formatta un motivo già calcolato senza ri-giudicare', () => {
+    expect(engagementUnreliableNoteFromReason('2 giornate incoerenti nella finestra')).toBe(
+      '⚠️ engagement inaffidabile — 2 giornate incoerenti nella finestra',
+    );
+  });
+});
+
 describe('engagementUnreliableNote', () => {
   it('è null quando il dato è coerente', () => {
     expect(engagementUnreliableNote({ sessions: 4306, engagedSessions: 1803, averageSessionDuration: 172.43 })).toBeNull();
@@ -249,5 +268,84 @@ describe("i rami d'errore del riepilogo GA4 marcano il verdetto come non calcola
   it('il catch di chiusura del blocco marca il verdetto', () => {
     const tail = block.slice(block.lastIndexOf('} catch ('));
     expect(tail).toContain('markEngagementNotComputed(');
+  });
+});
+
+// Stessa forma di source-assert dei tre rami di raccomandazione qui sopra, per
+// i quattro canali che espongono il bounceRate della STESSA finestra giudicata
+// (#7509): tabelle per-device, per-landing-page, diagnostica per sorgente e
+// delta week-over-week. Prima uscivano nel JSON e nel print come dato buono.
+describe("le tabelle bounce e il delta WoW marcano l'affidabilita' della finestra", () => {
+  const src = readFileSync(
+    new URL('../scripts/analytics-report.mjs', import.meta.url),
+    'utf8',
+  );
+
+  it('esiste un solo marcatore condiviso, che legge il verdetto del riepilogo', () => {
+    expect(src).toContain('const markEngagementReliability = (rows) => {');
+    expect(src).toContain("const reliable = result.summary?.engagementReliable !== false;");
+    expect(src).toContain('engagementUnreliableNoteFromReason(result.summary?.engagementUnreliableReason)');
+  });
+
+  it('la tabella per-device passa dal marcatore', () => {
+    expect(src).toContain('result.devices = markEngagementReliability(');
+  });
+
+  it('la tabella per-landing-page passa dal marcatore', () => {
+    expect(src).toContain('result.landingPages = markEngagementReliability(');
+  });
+
+  it('la diagnostica per sorgente/canale passa dal marcatore', () => {
+    expect(src).toContain('const rows = markEngagementReliability(');
+    expect(src).toContain('result.emptyLandingDiagnostic = rows;');
+  });
+
+  it('il delta WoW del bounceRate consulta entrambe le finestre', () => {
+    expect(src).toContain(
+      'const deltaBounceReliable = cur.engagementReliable !== false && prev.engagementReliable !== false;',
+    );
+    expect(src).toContain('engagementReliable: deltaBounceReliable,');
+  });
+
+  it('il print avverte su ognuna delle tre tabelle', () => {
+    expect(src).toContain('result.devices[0].engagementUnreliableNote');
+    expect(src).toContain('result.landingPages[0].engagementUnreliableNote');
+    expect(src).toContain('rows[0].engagementUnreliableNote');
+  });
+
+  // Non vacuo: i toContain sopra resterebbero verdi anche se le quattro
+  // sezioni sparissero del tutto. Qui si pinna che i canali esistano ancora.
+  it('i quattro canali esistono ancora nel sorgente', () => {
+    expect(src).toContain("log('📱', 'Dispositivi:');");
+    expect(src).toContain("log('🚪', 'Top landing pages (dove entrano gli utenti):');");
+    expect(src).toContain('Diagnostica landing page vuota');
+    expect(src).toContain('deltas.ga4 = {');
+  });
+});
+
+// scripts/looker-dashboard.gs e' un template da incollare INTERO nell'editor
+// Apps Script, un runtime senza module resolution: non puo' importare il
+// modulo qui sopra, quindi ne rispecchia formula e soglie. La duplicazione e'
+// imposta dal runtime, ma il drift no — questo test la pinna (#7509).
+describe('il mirror Apps Script della soglia di affidabilita non drifta', () => {
+  const gs = readFileSync(
+    new URL('../scripts/looker-dashboard.gs', import.meta.url),
+    'utf8',
+  );
+
+  it('le tre soglie coincidono con quelle del modulo', () => {
+    expect(gs).toContain(`const GA4_ENGAGED_SESSION_MIN_SECONDS = ${GA4_ENGAGED_SESSION_MIN_SECONDS};`);
+    expect(gs).toContain(`const MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS = ${MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS};`);
+    expect(gs).toContain(`const MIN_SESSIONS_FOR_VERDICT = ${MIN_SESSIONS_FOR_VERDICT};`);
+  });
+
+  it('i quattro fogli che espongono un Bounce Rate scrivono l’avvertenza', () => {
+    expect(gs.match(/writeEngagementWarning\(sheet, \d+, startDate, endDate\);/g) ?? []).toHaveLength(4);
+    expect(gs).toContain('function windowEngagementVerdict(startDate, endDate) {');
+  });
+
+  it('windowEngagementVerdict interroga GA4 per giornata, non sull aggregato', () => {
+    expect(gs).toContain("['date']");
+    expect(gs).toContain('engagementConsistency(rows[i][1], rows[i][2], rows[i][3])');
   });
 });

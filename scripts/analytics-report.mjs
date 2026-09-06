@@ -42,7 +42,7 @@ import {
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
-import { engagementConsistency, dailyEngagementConsistency } from './lib/ga4-engagement-reliability.mjs';
+import { engagementConsistency, dailyEngagementConsistency, engagementUnreliableNoteFromReason } from './lib/ga4-engagement-reliability.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -760,6 +760,24 @@ async function reportGA4(token) {
   };
 
   const result = { period: `${fmtDate(startDate)} → ${fmtDate(endDate)}` };
+  // #7509: il verdetto d'affidabilità viaggia CON la cifra. Le tabelle bounce
+  // per-device/per-landing-page e la diagnostica per sorgente leggono la STESSA
+  // finestra del riepilogo, quindi ereditano lo stesso verdetto — ma finivano
+  // nel JSON e nel print come un dato buono, perché nessuna di loro consultava
+  // `result.summary.engagementReliable`. È un'ANNOTAZIONE, non una
+  // soppressione: il numero resta, marcato. Il verdetto va letto al momento
+  // della chiamata, non alla definizione: il riepilogo (§3a) lo scrive prima,
+  // ma se quel blocco fallisce `summary` può mancare del tutto.
+  const markEngagementReliability = (rows) => {
+    const reliable = result.summary?.engagementReliable !== false;
+    const note = reliable ? null : engagementUnreliableNoteFromReason(result.summary?.engagementUnreliableReason);
+    for (const row of rows) {
+      row.engagementReliable = reliable;
+      if (note) row.engagementUnreliableNote = note;
+    }
+    return rows;
+  };
+
   const defaultGaEvents = new Set([
     'page_view',
     'session_start',
@@ -2678,17 +2696,18 @@ async function reportGA4(token) {
 
     if (res.ok) {
       const data = await res.json();
-      result.devices = (data.rows || []).map(r => ({
+      result.devices = markEngagementReliability((data.rows || []).map(r => ({
         device: r.dimensionValues[0].value,
         sessions: parseInt(r.metricValues[0].value),
         users: parseInt(r.metricValues[1].value),
         bounceRate: parseFloat(r.metricValues[2].value),
         avgDuration: parseFloat(r.metricValues[3].value),
-      }));
+      })));
 
       if (!flags.json && result.devices.length > 0) {
         log('', '');
         log('📱', 'Dispositivi:');
+        if (result.devices[0].engagementUnreliableNote) log('', `  ${result.devices[0].engagementUnreliableNote}`);
         for (const d of result.devices) {
           log('', `  ${d.device.padEnd(12)} Sessioni: ${fmtNum(d.sessions).padStart(6)}  Bounce: ${(d.bounceRate * 100).toFixed(1)}%  Dur. media: ${Math.round(d.avgDuration)}s`);
         }
@@ -2720,17 +2739,18 @@ async function reportGA4(token) {
 
     if (res.ok) {
       const data = await res.json();
-      result.landingPages = (data.rows || []).map(r => ({
+      result.landingPages = markEngagementReliability((data.rows || []).map(r => ({
         path: r.dimensionValues[0].value,
         sessions: parseInt(r.metricValues[0].value),
         bounceRate: parseFloat(r.metricValues[1].value),
         avgDuration: parseFloat(r.metricValues[2].value),
         engagedSessions: parseInt(r.metricValues[3].value),
-      }));
+      })));
 
       if (!flags.json && result.landingPages.length > 0) {
         log('', '');
         log('🚪', 'Top landing pages (dove entrano gli utenti):');
+        if (result.landingPages[0].engagementUnreliableNote) log('', `  ${result.landingPages[0].engagementUnreliableNote}`);
         log('', '  Pagina                                 Sessioni  Bounce   Engaged  Durata');
         log('', '  ' + '─'.repeat(75));
         for (const p of result.landingPages.slice(0, 10)) {
@@ -2774,18 +2794,19 @@ async function reportGA4(token) {
 
     if (res.ok) {
       const data = await res.json();
-      const rows = (data.rows || []).map(r => ({
+      const rows = markEngagementReliability((data.rows || []).map(r => ({
         channel: r.dimensionValues[1].value,
         sourceMedium: r.dimensionValues[2].value,
         sessions: parseInt(r.metricValues[0].value),
         bounceRate: parseFloat(r.metricValues[1].value),
-      }));
+      })));
 
       if (rows.length > 0) {
         result.emptyLandingDiagnostic = rows;
         if (!flags.json) {
           log('', '');
           log('🔍', 'Diagnostica landing page vuota ("not set"):');
+          if (rows[0].engagementUnreliableNote) log('', `  ${rows[0].engagementUnreliableNote}`);
           for (const r of rows) {
             log('', `  ${r.sourceMedium.padEnd(40)} ${r.channel.padEnd(20)} ${String(r.sessions).padStart(6)} sess  bounce ${(r.bounceRate * 100).toFixed(0)}%`);
           }
@@ -4440,10 +4461,25 @@ async function main() {
           if (curGa4 && prevGa4) {
             const cur = curGa4;
             const prev = prevGa4;
+            // #7509: il delta nasce da DUE finestre. Se una delle due è marcata
+            // inaffidabile la differenza non è un movimento del sito ma un
+            // artefatto dell'elaborazione GA4: si annota, non si sopprime.
+            const deltaBounceReliable = cur.engagementReliable !== false && prev.engagementReliable !== false;
+            const deltaBounceNote = deltaBounceReliable
+              ? null
+              : engagementUnreliableNoteFromReason(
+                  cur.engagementReliable === false ? cur.engagementUnreliableReason : prev.engagementUnreliableReason,
+                );
             deltas.ga4 = {
               sessions: { current: cur.sessions, previous: prev.sessions, change: cur.sessions - prev.sessions },
               users: { current: cur.users, previous: prev.users, change: cur.users - prev.users },
-              bounceRate: { current: cur.bounceRate, previous: prev.bounceRate, change: parseFloat(((cur.bounceRate || 0) - (prev.bounceRate || 0)).toFixed(1)) },
+              bounceRate: {
+                current: cur.bounceRate,
+                previous: prev.bounceRate,
+                change: parseFloat(((cur.bounceRate || 0) - (prev.bounceRate || 0)).toFixed(1)),
+                engagementReliable: deltaBounceReliable,
+                ...(deltaBounceNote ? { engagementUnreliableNote: deltaBounceNote } : {}),
+              },
             };
           }
 
