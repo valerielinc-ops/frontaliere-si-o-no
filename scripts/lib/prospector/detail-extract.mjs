@@ -15,6 +15,7 @@
  */
 
 import { extractDetailFields, isSufficientVacancyDescription } from './extract.mjs';
+import { dedupeLocationCandidates } from './location-evidence.mjs';
 import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-detail.mjs';
 
@@ -98,6 +99,11 @@ export function listingEvidenceFields(row = {}, evidence) {
     addressCountry: row.addressCountry || evidence.addressCountry || '',
     postalCode: row.postalCode || evidence.postalCode || '',
     streetAddress: row.streetAddress || evidence.streetAddress || '',
-    locationCandidates: [...(row.locationCandidates || []), evidence],
+    // Folding the same evidence twice must not grow the row: the crawler and
+    // the synthesiser both apply this function, and a validator run that
+    // re-applies it over an already-folded row would otherwise publish the
+    // same place twice as separate evidence. Identity is the address, so
+    // `f(f(row, e), e)` equals `f(row, e)`.
+    locationCandidates: dedupeLocationCandidates([...(row.locationCandidates || []), evidence]),
   };
 }
