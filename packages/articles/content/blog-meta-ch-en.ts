@@ -5686,6 +5686,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Starting a business in Graubünden: costs and procedures',
     'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Complete guide: legal forms, registration in the trade register, federal and cantonal taxes, VAT, AVS obligations, SUVA, LAMal. Step-by-step procedure.',
     'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Commercial office storefront of a registered business in Grisons Canton',
+    'blog.article.affittare-bene-immobili-ticino.title': 'Renting a property well: strategies and tips for owners',
+    'blog.article.affittare-bene-immobili-ticino.excerpt': 'Fast hosting doesn\'t mean good hosting. Learn how to protect your investment and choose reliable tenants.',
+    'blog.article.affittare-bene-immobili-ticino.imageAlt': 'Aerial view of Lugano with modern apartments and a bustling market',
 };
 
 export default blogMetaChEn;

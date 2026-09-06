@@ -5686,6 +5686,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-azienda-grigioni-registro-commercio.title': 'Ein Unternehmen in Graubünden gründen: Kosten und Ablauf',
     'blog.article.avviare-azienda-grigioni-registro-commercio.excerpt': 'Vollständiger Leitfaden: Rechtsformen, Handelsregistereintrag, eidgenössische und kantonale Steuern, Mehrwertsteuer, AHV-, Suva-, KVG-Pflichten. Schritt-für-Schritt-Verfahren.',
     'blog.article.avviare-azienda-grigioni-registro-commercio.imageAlt': 'Büro und Geschäftsschild eines in Graubünden eingetragenen Unternehmens',
+    'blog.article.affittare-bene-immobili-ticino.title': 'Eine Immobilie gut vermieten: Strategien und Tipps für Eigentümer',
+    'blog.article.affittare-bene-immobili-ticino.excerpt': 'Schnell zu vermieten bedeutet nicht, gut zu vermieten. Erfahren Sie, wie Sie Ihre Investition schützen und zuverlässige Mieter auswählen können.',
+    'blog.article.affittare-bene-immobili-ticino.imageAlt': 'Luftaufnahme von Lugano mit modernen Wohnungen und einem belebten Markt',
 };
 
 export default blogMetaChDe;
