@@ -711,6 +711,21 @@ const SEC_SEP = '[\\s\\-–—/_.]{1,3}';
  */
 const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
 
+/**
+ * Le qualificazioni che trasformano `Security <ruolo>` da guardiano fisico a
+ * ruolo cyber.
+ *
+ * UNA sola sorgente perche' la lista compare in DUE posti che devono restare
+ * speculari: l'alternativa positiva di `cybersecurity` e il lookbehind di
+ * `sicurezza` che la esclude. Scritte a mano due volte hanno gia' divergito:
+ * `cyber` stava nel lessico cyber ma non nel veto fisico, e un
+ * `Cyber Security Officer` cadeva su ENTRAMBE le landing indicizzate — il
+ * doppio contenuto che il lookbehind esiste per impedire (#7553). Con la
+ * costante condivisa la divergenza non e' piu' esprimibile, come per
+ * `ARCHITECT_TECH_QUALIFIER_SRC`.
+ */
+const CYBER_QUALIFIER_SRC = '(?:information|it|cloud|network|cyber)';
+
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
   // NOTE: do NOT add 3-letter abbreviations like \bris\b or \blis\b here —
@@ -757,10 +772,10 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // guardiano fisico e vivono in `sicurezza`, che li esclude con il lookbehind
   // simmetrico a questo quando li precede una qualificazione informatica.
   cybersecurity: new RegExp(
-    'cybersecurity|cyber' + SEC_SEP + 'security'
+    'cybersecurity'
     + '|sicurezza' + SEC_SEP + 'informatic'
     + '|security' + SEC_SEP + '(?:engineer|analyst|architect|specialist|consultant)'
-    + `|(?:information|it|cloud|network)${SEC_SEP}security`
+    + `|${CYBER_QUALIFIER_SRC}${SEC_SEP}security`
     + '|informationssicherheit|sicherheitsarchitekt'
     + '|s[eé]curit[eé]' + SEC_SEP + 'informatique'
     + '|penetration' + SEC_SEP + 'test|\\bpentester\\b|\\bsoc' + SEC_SEP + 'analyst',
@@ -803,17 +818,20 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
-  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network
-  // Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
+  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
+  // Cyber Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
   // l'allargamento del lessico `cybersecurity` sopra lo farebbe comparire su
   // ENTRAMBE le landing. Il separatore del lookbehind e' `INTRA_FIELD_SEP`: un
   // separatore fisso non vedrebbe `Information  Security Officer` col doppio
   // spazio ne' `Information/Security Officer` (e proprio quei casi tornerebbero
   // a comparire su due landing), ma `SEC_SEP` matcherebbe anche il joiner di
   // campo e vieterebbe un `Security Guard` in category dopo un `IT` nel titolo.
+  // L'alternanza del veto e' `CYBER_QUALIFIER_SRC`, la STESSA costante del
+  // lessico positivo di `cybersecurity`: le due liste, scritte a mano, erano
+  // gia' divergite su `cyber` (#7553).
   sicurezza: new RegExp(
     '\\bsicurezza' + SEC_SEP + '(?:privata|fisica)'
-    + `|(?<!\\b(?:information|it|cloud|network)${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
+    + `|(?<!\\b${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
