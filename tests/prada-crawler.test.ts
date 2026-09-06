@@ -526,3 +526,25 @@ describe('Prada Group crawler — inferEmploymentType', () => {
     expect(inferEmploymentType('Visual Merchandiser')).toBe('FULL_TIME');
   });
 });
+
+describe('Prada Group crawler — post-parser counter (#7707)', () => {
+  const updater = readFileSync('scripts/update-prada-jobs.mjs', 'utf8');
+
+  it('registers the summary guard with a parsed counter', () => {
+    expect(updater).toContain('const sourceCounts = { discovered: null, parsed: null };');
+    expect(updater).toContain('registerCrawlerSummaryGuard(COMPANY_KEY, \'Prada Group\', sourceCounts)');
+  });
+
+  it('updates parsed inside the detail loop, so a mid-loop abort keeps the signal', () => {
+    const loopBody = updater.slice(
+      updater.indexOf('const parsedJobs = [];'),
+      updater.indexOf('const targetExisting ='),
+    );
+    expect(loopBody.match(/sourceCounts\.parsed = parsedJobs\.length;/g)).toHaveLength(2);
+  });
+
+  it('emits parsed on both summary slices', () => {
+    expect(updater).toContain('parsed: sourceCounts.parsed,');
+    expect(updater).toContain('parsed: sourceCounts.parsed, newCount:');
+  });
+});

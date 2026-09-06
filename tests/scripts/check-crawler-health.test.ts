@@ -948,6 +948,63 @@ describe('nextCrawlerState — discovered/written auto-classification (#5945)', 
     expect(state._autoFilteredEmpty).toBe(false);
   });
 
+  it('does NOT auto-classify as filtered when the parser emitted jobs and the pipeline dropped them all (#7707)', () => {
+    // `discovered > 0, written === 0` alone is ambiguous: the parser's own
+    // geographic filter may have dropped everything (healthy), or a
+    // post-parser stage of the pipeline (merge, expiry archival, validation,
+    // slice filter) may have (broken). `parsed > 0` settles it — the jobs
+    // survived the parser, so the emptying happened downstream.
+    const prev = {
+      lastSuccessfulRunAt: new Date(NOW_MS - 3 * DAY_MS).toISOString(),
+      lastNonZeroJobs: 9,
+      consecutiveEmptyRuns: 2,
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+    };
+    const { status, reason, state } = nextCrawlerState(
+      prev,
+      { ...obsWithCounts(0, 12, 0), parsed: 9 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state._autoFilteredEmpty).toBe(false);
+    expect(state._pipelineDroppedAll).toBe(true);
+    expect(state._lastObservedParsedCount).toBe(9);
+    expect(state.consecutiveEmptyRuns).toBe(3);
+    // Triage must point downstream of the parser, not at dead selectors.
+    expect(reason).toContain('post-parser pipeline drop');
+  });
+
+  it('still auto-classifies as filtered when the parser itself emitted 0 (#7707)', () => {
+    const { status, reason, state } = nextCrawlerState(
+      undefined,
+      { ...obsWithCounts(0, 12, 0), parsed: 0 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state._autoFilteredEmpty).toBe(true);
+    expect(state._pipelineDroppedAll).toBe(false);
+    expect(state._lastObservedParsedCount).toBe(0);
+  });
+
+  it('keeps the pre-#7707 behaviour when the run reports no parsed count', () => {
+    const { status, state } = nextCrawlerState(
+      undefined,
+      obsWithCounts(0, 12, 0),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(state._autoFilteredEmpty).toBe(true);
+    expect(state._pipelineDroppedAll).toBe(false);
+    expect(state._lastObservedParsedCount).toBeNull();
+  });
+
   it('does not mark autoFilteredEmpty when the run actually found and kept jobs', () => {
     const { state } = nextCrawlerState(
       undefined,

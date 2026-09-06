@@ -923,6 +923,16 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && Number.isFinite(Number(summary.written))
       ? Number(summary.written)
       : null;
+  // Post-parser, pre-pipeline count (issue #7707): how many jobs the parser
+  // actually handed to the pipeline, AFTER its own Swiss/location filter and
+  // BEFORE merge/localization/validation/slice. `discovered` alone cannot tell
+  // "the geo filter dropped everything" (healthy) from "a post-parser gate of
+  // the pipeline dropped everything" (broken) — both read `discovered > 0,
+  // written === 0`. Null for crawlers not yet instrumented: unchanged behaviour.
+  const parsed =
+    summary && typeof summary === 'object' && Number.isFinite(Number(summary.parsed))
+      ? Number(summary.parsed)
+      : null;
   // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
   // absent for crawlers without an authoritative-snapshot validator.
   const authoritativeEmpty =
@@ -972,6 +982,7 @@ async function inspectCrawler(slug) {
     activeJobCount,
     discovered,
     written,
+    parsed,
     authoritativeEmpty,
     earlyExit,
     exitCode,
@@ -1044,6 +1055,16 @@ function corpusObservationFromPayloads(slug, data, summary) {
     summary.written >= 0
       ? summary.written
       : null;
+  // Same post-parser count as `inspectCrawler` (#7707): the corpus republishes
+  // the slice verbatim, so the cross-repo observation must carry it too or the
+  // pipeline-drop signal would be lost exactly for the crawlers whose
+  // observation usually wins `selectNewestCrawlerObservation`.
+  const parsed =
+    typeof summary.parsed === 'number' &&
+    Number.isSafeInteger(summary.parsed) &&
+    summary.parsed >= 0
+      ? summary.parsed
+      : null;
   const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
   // Same guard-slice marker as `inspectCrawler` above: the corpus republishes
   // whatever slice the crawler wrote, exit-guard placeholders included — and
@@ -1064,6 +1085,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     activeJobCount,
     discovered,
     written,
+    parsed,
     authoritativeEmpty,
     earlyExit,
     exitCode,
@@ -1204,6 +1226,14 @@ function selectNewestCrawlerObservation(
  * open positions" marker). The latter two need no allowlist entry: the run's
  * own evidence already distinguishes "legitimately empty" from "broken".
  *
+ * The filtered-empty rule is narrowed by `observation.parsed` when the run
+ * reports it (#7707): `discovered` is counted BEFORE the parser's geographic
+ * filter, `written` AFTER the whole pipeline, so a run whose parser emitted
+ * jobs that the pipeline then dropped (merge, expiry archival, validation,
+ * slice filter) shows the same `discovered > 0, written === 0` shape as a
+ * genuine geographic filter-empty. `parsed > 0` says the jobs existed past the
+ * parser's own filter, so that run is broken and must accrue its streak.
+ *
  * A zero can also mean neither: `observation.earlyExit` marks a slice written
  * by the process-exit guard, i.e. a run that returned BEFORE publishing. That
  * does not make the crawler healthy (it stays broken and keeps its streak) —
@@ -1219,8 +1249,24 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     observation.discovered !== undefined &&
     observation.discovered !== null &&
     Number.isFinite(observation.discovered);
+  // Post-parser count (#7707). `discovered > 0 && written === 0` is only
+  // evidence of a GEOGRAPHIC filter-empty while the parser itself emitted
+  // nothing: the pipeline that runs after it (merge, expiry archival,
+  // localization, validation, slug re-pin, `isCompanyJob` slice filter) can
+  // also zero a run, and that is a break, not a quiet source. When the run
+  // reports `parsed > 0` with nothing written, the jobs survived the parser's
+  // own filter and were dropped downstream — never `emptyOk`.
+  const hasParsedSignal =
+    observation.parsed !== undefined &&
+    observation.parsed !== null &&
+    Number.isFinite(observation.parsed);
+  const pipelineDroppedAll =
+    hasParsedSignal && observation.parsed > 0 && lastObservedJobs === 0;
   const autoFilteredEmpty =
-    hasDiscoveredSignal && observation.discovered > 0 && lastObservedJobs === 0;
+    hasDiscoveredSignal &&
+    observation.discovered > 0 &&
+    lastObservedJobs === 0 &&
+    !pipelineDroppedAll;
   // A source-proven empty state (the run's own `validateAuthoritativeSnapshot`
   // matched the page's explicit "no open positions" marker) is the SAME kind of
   // evidence as the filtered-empty counts above, for the complementary case
@@ -1357,7 +1403,13 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // SOURCE and it sends triage to the parser selectors or to retiring the
     // crawler; when the run aborted, both are the wrong place to look and the
     // source is usually still full. Say what actually happened instead.
-    reason = abortedRun
+    reason = pipelineDroppedAll && !abortedRun
+      // The parser worked — it handed `parsed` jobs to the pipeline and the
+      // published slice still came out empty. Naming it "returned 0 jobs"
+      // sends triage to the selectors, which are provably fine; the drop
+      // happened in merge/expiry/validation/slice instead.
+      ? `${consecutiveEmptyRuns} consecutive runs published 0 jobs while the parser emitted ${observation.parsed} (post-parser pipeline drop: merge/expiry/validation/slice) — the selectors are working, look downstream of the parser`
+      : abortedRun
       // `?? 'unknown'` and never `?? 0`: 0 means "deliberate bail-out" and
       // non-zero means "crash", which is different triage. An absent field is
       // neither, and defaulting it to 0 would assert a clean bail-out on a
@@ -1393,7 +1445,9 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedGeneratedAt: observation.generatedAt ?? null,
       _lastObservedDiscoveredCount: hasDiscoveredSignal ? observation.discovered : null,
       _lastObservedWrittenCount: observation.written ?? null,
+      _lastObservedParsedCount: hasParsedSignal ? observation.parsed : null,
       _autoFilteredEmpty: autoFilteredEmpty,
+      _pipelineDroppedAll: pipelineDroppedAll,
       _authoritativeEmptySnapshot: authoritativeEmpty,
       _abortedRun: abortedRun,
     },

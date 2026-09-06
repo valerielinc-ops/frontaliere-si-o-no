@@ -118,7 +118,12 @@ function buildPradaDescriptions(title, location, department) {
 
 async function main() {
   setCrawlerStartTime();
-  const sourceCounts = { discovered: null };
+  // `sourceCounts.parsed` (issue #7707): the post-parser, pre-pipeline count.
+  // Without it a run emptied downstream of the parser (detail-fetch abort,
+  // merge, localization) reads as `discovered > 0, written === 0`, the same
+  // shape as a legitimate "found jobs, none in Mendrisio" run, and
+  // check-crawler-health calls a broken crawler healthy.
+  const sourceCounts = { discovered: null, parsed: null };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Prada Group', sourceCounts);
   console.log(`👜 Running dedicated ${COMPANY_NAME} crawler...`);
 
@@ -204,8 +209,15 @@ async function main() {
       sourceLang: detectLang(description || raw.title, 'en'),
       crawledAt: new Date().toISOString(),
     });
+    // Updated inside the loop, not after it: the detail fetches above can abort
+    // the run mid-loop, and the exit guard's slice must still carry what the
+    // parser had already produced.
+    sourceCounts.parsed = parsedJobs.length;
     console.log(`  \u2705 ${raw.title} \u2014 ${loc}`);
   }
+  // Also after the loop, so a run that parsed nothing reports 0 (a real
+  // filtered-empty) instead of the "not instrumented" null.
+  sourceCounts.parsed = parsedJobs.length;
 
   // The query endpoint returned a coherent non-empty snapshot, so records
   // outside this crawler's Mendrisio ownership are known false positives, not
@@ -231,6 +243,7 @@ async function main() {
       generatedAt: new Date().toISOString(),
       total: 0,
       discovered: rawJobs.length,
+      parsed: sourceCounts.parsed,
       written: 0,
       sourceProvenEmpty: true,
       newCount: 0,
@@ -268,7 +281,7 @@ async function main() {
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCompanyJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Prada Group', generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Prada Group', generatedAt: new Date().toISOString(), total: _sliceJobs.length, parsed: sourceCounts.parsed, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
   await assembleJobsDataset();
 }
 

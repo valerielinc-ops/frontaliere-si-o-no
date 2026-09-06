@@ -273,7 +273,12 @@ async function main() {
   // return skips writeSummaryCrawlerSlice() below — so check-crawler-health
   // can classify "found jobs, filtered to 0" as healthy without needing a
   // human to add this slug to EMPTY_OK_CRAWLERS first.
-  const counts = { discovered: null };
+  // `counts.parsed` (issue #7707): the post-parser, pre-pipeline count. Same
+  // role as in crawler-template — without it a run emptied by merge/validation
+  // (a NON-geographic drop) reads as `discovered > 0, written === 0`, exactly
+  // like a legitimate "found jobs, none Swiss" run, and check-crawler-health
+  // calls a broken crawler healthy.
+  const counts = { discovered: null, parsed: null };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Baronie', counts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Baronie — Dedicated Crawler');
@@ -308,6 +313,7 @@ async function main() {
   }
 
   console.log(`\n🇨🇭 Swiss jobs: ${parsed.length} / ${jobUrls.length} total`);
+  counts.parsed = parsed.length;
   if (parsed.length === 0) {
     console.log('⚠️ No Swiss jobs found — skipping.');
     return;
@@ -336,6 +342,9 @@ async function main() {
       deduplicated.push(job);
     }
   }
+  // What the pipeline below actually receives, so the summary's `parsed`
+  // measures the parser's output and not a count the merge never saw.
+  counts.parsed = deduplicated.length;
   if (deduplicated.length < jobs.length) {
     console.log(`\n🔄 Deduplicated: ${jobs.length} → ${deduplicated.length} unique`);
   }
@@ -370,6 +379,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
     discovered: counts.discovered,
+    parsed: counts.parsed,
     written: _sliceJobs.length,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
