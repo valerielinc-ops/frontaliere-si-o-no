@@ -390,12 +390,19 @@ export function matchExistingCrawler(urls, ownership, opts = {}) {
  * @param {string} crawlerKey  key of the slice being written
  * @param {{url?: string}[]} jobs  the payload about to be persisted
  * @param {SourceHostOwnership} ownership  from `loadSourceHostOwnership(root, { urls: true })`
+ * @param {object} [options]
+ * @param {Map<string, Set<string>>} [options.priorUrlsByKey]  for keys THIS
+ *   process has already written in this run: the URL set each of them held on
+ *   disk BEFORE that write. A key in this map is an incumbent only for those
+ *   URLs — what it gained during this same run is this run's output, not a
+ *   prior claim. Omit it and every on-disk slice counts as an incumbent, which
+ *   is correct for the one-key-per-process crawlers.
  * @returns {{ jobs: {url?: string}[], dropped: { url: string, owner: string }[] }}
  *   `jobs` filtered to what this crawler may publish, plus what was removed and
  *   to whom it belongs. An empty/unloaded ownership map drops nothing: not
  *   knowing who owns a URL must never be read as "someone else owns it".
  */
-export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
+export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership, options = {}) {
   const mine = String(crawlerKey || '').toLowerCase();
   const urlsByKey = ownership?.urlsByKey;
   if (!mine || !Array.isArray(jobs) || !(urlsByKey instanceof Map)) {
@@ -425,11 +432,24 @@ export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
 
   // url -> owning key, every key but this one. Built once per call: the
   // alternative, probing each of ~590 key sets per job, is a full scan per job.
+  // Slices this same process wrote earlier in this run (multi-brand umbrella
+  // crawlers do: scripts/update-swatchgroup-jobs.mjs persists six sub-brand
+  // keys in one loop, and the snapshot is re-read from disk at every write).
+  // Their fresh slice is on disk by the time the next key is written, so
+  // without this the FIRST key written would become incumbent for the SECOND
+  // one and the second would silently drop its own vacancies — a loss decided
+  // by loop order, not by who published first. Judging those keys against the
+  // state they had BEFORE this run keeps the answer order-independent while
+  // leaving their genuine, pre-existing incumbency intact.
+  const priorUrlsByKey = options?.priorUrlsByKey instanceof Map ? options.priorUrlsByKey : null;
+
   /** @type {Map<string, string>} */
   const owners = new Map();
   for (const [key, urls] of ownerIndexSource) {
     if (key === mine || !(urls instanceof Set)) continue;
+    const priorUrls = priorUrlsByKey?.get(key);
     for (const url of urls) {
+      if (priorUrls && !priorUrls.has(url)) continue;
       // Lexicographic tie-break so two claimants give a stable answer whatever
       // order readdir returned their slices in.
       const held = owners.get(url);
