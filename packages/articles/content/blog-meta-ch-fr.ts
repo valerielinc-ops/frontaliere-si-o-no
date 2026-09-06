@@ -5680,6 +5680,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-vallese-requisiti.title': 'Bourses cantonales valaisannes : comment les obtenir',
     'blog.article.borse-studio-vallese-requisiti.excerpt': 'Guide des bourses d\'études dans le canton du Valais : exigences générales, où chercher des informations et comment postuler auprès des autorités cantonales.',
     'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Étudiants étudiant en plein air dans un paysage alpin suisse avec des montagnes en arrière-plan.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.title': 'Acheter maison Valais : prix, hypothèque et coûts',
+    'blog.article.comprare-casa-vallese-mutuo-costi.excerpt': 'Guide d\'achat immobilier en Valais : fonds propres requis, viabilité de l\'hypothèque, taxes de passage et frais de notaire.',
+    'blog.article.comprare-casa-vallese-mutuo-costi.imageAlt': 'Documents hypothécaires et contrats immobiliers sur un bureau en bois avec chalet alpin suisse en arrière-plan',
 };
 
 export default blogMetaChFr;
