@@ -11450,6 +11450,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.investimento-busto-arsizio-28enne-ospedale.title': 'Investissement à Busto Arsizio : 28 ans transporté à l\'hôpital',
     'blog.article.investimento-busto-arsizio-28enne-ospedale.excerpt': 'Un accident de la route à Busto Arsizio a impliqué un garçon de 28 ans, transporté à l\'hôpital en code jaune.',
     'blog.article.investimento-busto-arsizio-28enne-ospedale.imageAlt': 'Ambulance et police à Busto Arsizio',
+    'blog.article.bando-mobilita-prefettura-varese.title': 'Préfecture de Varèse : avis de mobilité pour 6 places',
+    'blog.article.bando-mobilita-prefettura-varese.excerpt': 'Le ministère de l\'Intérieur ouvre la mobilité volontaire pour 6 postes à Varèse. Date limite de candidature fixée au 30 septembre 2026 via le portail inPA.',
+    'blog.article.bando-mobilita-prefettura-varese.imageAlt': 'Bureaux de la préfecture de Varese',
 };
 
 export default blogMetaFr;

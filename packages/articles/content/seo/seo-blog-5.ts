@@ -86848,6 +86848,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bando-mobilita-prefettura-varese': {
+    title: 'Prefettura Varese: bando di mobilità per 6 posti',
+    description: 'Il Ministero dell\'Interno indice un bando di mobilità volontaria per la Prefettura di Varese: 6 posti disponibili. Candidature su inPA entro il 30 settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, prefettura, varese, bando, mobilità',
+    ogTitle: 'Prefettura Varese: bando di mobilità per 6 posti',
+    ogDescription: 'Sei posti disponibili per personale di ruolo presso la Prefettura di Varese tramite procedura di mobilità volontaria. Scadenza domande 30 settembre 2026.',
+    canonicalPath: '/articoli-frontaliere/bando-mobilita-prefettura-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prefettura Varese: bando di mobilità per 6 posti",
+      "description": "Il Ministero dell'Interno indice un bando di mobilità volontaria per la Prefettura di Varese: 6 posti disponibili. Candidature su inPA entro il 30 settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bando-mobilita-prefettura-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici della Prefettura di Varese"
+      },
+      "datePublished": "2026-09-06T11:02:29+00:00",
+      "dateModified": "2026-09-06T11:02:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bando-mobilita-prefettura-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

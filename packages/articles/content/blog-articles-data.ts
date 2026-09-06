@@ -34194,6 +34194,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bando-mobilita-prefettura-varese',
+ category: 'pratico',
+ date: '2026-09-06T11:02:29.016Z',
+ image: '/images/blog/bando-mobilita-prefettura-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
