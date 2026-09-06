@@ -53,9 +53,14 @@ jobs:
     # un vero 🔴 Important quel salto era invisibile ovunque (issue #5534, PR
     # #5515 — check-run "skipped", zero commenti, zero label). Qui restano solo i
     # pre-filtri economici che non richiedono distinguere lo scope.
+    # Reviewer set = the same bots tests.yml already treats as the review
+    # oracle (`claude*` + `frontaliere-automation[bot]`). A job-level
+    # `startsWith(..., 'claude')` alone skipped every App-bot 🔴 (PRs #7610
+    # and #7609): preflight never ran, check-run "skipped", fixer silent.
     if: |
       github.event.review.user.type == 'Bot' &&
-      startsWith(github.event.review.user.login, 'claude') &&
+      (startsWith(github.event.review.user.login, 'claude') ||
+       github.event.review.user.login == 'frontaliere-automation[bot]') &&
       contains(github.event.review.body, '🔴') &&
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest

@@ -2185,7 +2185,11 @@ jobs:
 
       - name: Require approving Claude review
         id: review_gate
-        if: always() && steps.claude_review.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        # Must still run when claude_review has outcome=failure (continue-on-error
+        # 429/action crash). Skipping here left the required check green with
+        # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
+        # parked forever. Fail this step when HEAD has no valid LGTM.
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
