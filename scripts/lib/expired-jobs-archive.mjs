@@ -83,6 +83,57 @@ export function buildExpiredEntry(job) {
   return entry;
 }
 
+/** An `expiredAt` that `Date.parse` can actually order. */
+export function isParsableExpiredAt(value) {
+  return typeof value === 'string' && value !== '' && Number.isFinite(Date.parse(value));
+}
+
+/**
+ * Give every entry read back from disk an `expiredAt` the downstream sort can
+ * order, BEFORE it reaches one of the two `slice(0, EXPIRED_JOBS_CAP)` cuts
+ * (`assemble-jobs-dataset.mjs`, `cleanup-jobs.mjs`).
+ *
+ * `buildExpiredEntry` always stamps a fresh ISO timestamp, so an unparseable
+ * value can only arrive from an archive already on disk (hand-edit, legacy
+ * format, truncated write). `compareExpiredAt` sends such a value to the tail
+ * BY CONSTRUCTION — the safe direction for a comparator, but the archive is
+ * then cut at 5000, so an entry that sat inside the cap in the input gets
+ * pushed out of it and the soft landing for a still-indexed URL 404s. The
+ * comparator is not the defect: the defect is that the value reaches it at
+ * all, so it is repaired at the ingress instead.
+ *
+ * The repair stamps the run timestamp, which is what `buildExpiredEntry`
+ * would have written had the entry been archived now. That errs toward
+ * KEEPING the record (the whole point of the archive is the soft landing)
+ * rather than toward faking an old date that the cap would drop anyway. It is
+ * idempotent: once written the value parses, so a second pass leaves it alone
+ * and the relative order stops moving.
+ *
+ * Mutates in place — every caller hands over entries it just parsed from JSON.
+ *
+ * @param {object[]} entries
+ * @param {object} [opts]
+ * @param {string} [opts.now] - Timestamp to stamp (default: now)
+ * @param {string} [opts.source] - Label for the log line
+ * @returns {number} repaired count
+ */
+export function normalizeExpiredAtEntries(entries, opts = {}) {
+  if (!Array.isArray(entries)) return 0;
+  const now = opts.now || new Date().toISOString();
+  const source = opts.source || 'expired-archive-normalize';
+  let repaired = 0;
+  for (const entry of entries) {
+    if (!entry || typeof entry !== 'object') continue;
+    if (isParsableExpiredAt(entry.expiredAt)) continue;
+    entry.expiredAt = now;
+    repaired += 1;
+  }
+  if (repaired > 0) {
+    console.log(`  🩹 ${source}: ${repaired} expired entries had no parsable expiredAt → stamped ${now}`);
+  }
+  return repaired;
+}
+
 /**
  * Archive removed jobs to a per-crawler expired slice file.
  *
@@ -112,6 +163,9 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   } catch {
     existing = [];
   }
+  const repaired = normalizeExpiredAtEntries(existing, {
+    source: `archive-removed-jobs-to-slice/${crawlerKey}`,
+  });
 
   const bySlug = new Map();
   for (const ej of existing) {
@@ -132,7 +186,9 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     }
   }
 
-  if (added === 0 && bySlug.size === sizeBefore) return 0;
+  // A repair alone changes no slug, so the counters above stay put: write it
+  // out anyway, otherwise the bad value survives on disk until the next add.
+  if (added === 0 && bySlug.size === sizeBefore && repaired === 0) return 0;
 
   const archived = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),

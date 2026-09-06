@@ -29,7 +29,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
@@ -180,6 +180,7 @@ function processSlice(sliceFile) {
       if (Array.isArray(parsed)) existing = parsed;
     } catch { /* malformed → start fresh */ }
   }
+  normalizeExpiredAtEntries(existing, { source: `backfill-expired-from-history/${sliceFile}` });
 
   const bySlug = new Map();
   for (const ej of existing) {

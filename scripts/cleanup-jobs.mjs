@@ -26,7 +26,7 @@ import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
-import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -259,6 +259,7 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
   // (same collision class fixed in scatter-jobs-to-slices.mjs /
   // reconcile-job-slugs.mjs for issue #3734).
   const archiveKey = (entry) => `${entry.companyKey || ''}::${entry.slug}`;
+  const repaired = normalizeExpiredAtEntries(existing, { source: 'cleanup-jobs/aggregate' });
   const bySlug = new Map();
   for (const ej of existing) {
     if (ej.slug) bySlug.set(archiveKey(ej), ej);
@@ -272,7 +273,9 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
     added++;
   }
 
-  if (added === 0 && existing.length === bySlug.size) return 0;
+  // A repair changes no key, so the counters above stay put: write it out
+  // anyway, otherwise the unorderable value survives to the cap below.
+  if (added === 0 && existing.length === bySlug.size && repaired === 0) return 0;
 
   // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP.
   // `archiveKey` dedups on companyKey+slug, i.e. the CURRENT slug: two entries
@@ -308,6 +311,7 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     if (!Array.isArray(existing)) existing = [];
   } catch { /* file missing or malformed — start fresh */ }
 
+  const repaired = normalizeExpiredAtEntries(existing, { source: `cleanup-jobs/slice/${crawlerKey}` });
   const bySlug = new Map();
   for (const ej of existing) {
     if (ej.slug) bySlug.set(ej.slug, ej);
@@ -321,7 +325,7 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     added++;
   }
 
-  if (added === 0 && existing.length === bySlug.size) return 0;
+  if (added === 0 && existing.length === bySlug.size && repaired === 0) return 0;
 
   const archived = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
