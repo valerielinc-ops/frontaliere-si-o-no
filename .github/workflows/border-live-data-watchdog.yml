@@ -89,6 +89,50 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # Cross-run carry of data/webcam-status.json OUTSIDE git (issue #7376).
+      # The persist step below is best-effort (`--soft-fail-exhausted` plus
+      # `continue-on-error`), and the state it carries is NOT recomputable from
+      # a window: if the run that first sees a feed OFFLINE loses its push, main
+      # keeps saying `online`, and when the feed comes back the next run reads
+      # `prev.status !== 'offline'` and never announces the recovery. The
+      # transition is one-shot — unlike refresh-thin-promotions.yml or
+      # discover-404s-via-cloudflare.yml, whose overlapping windows recapture a
+      # lost push on the next run — and the failure looks exactly like a healthy
+      # run: no alert.
+      # The Actions cache is written on EVERY run regardless of the push
+      # outcome, so restoring it over the checked-out copy hands this run the
+      # state the previous push dropped. Because the restored file then differs
+      # from HEAD, the persist step re-pushes it by itself. Cache miss (first
+      # run, eviction) leaves the committed copy in place, i.e. the previous
+      # behaviour. It is a carry, not a source of truth: main stays the record.
+      - name: Restore per-webcam status from cache
+        id: webcam-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: data/webcam-status.json
+          key: webcam-status-${{ github.run_id }}
+          restore-keys: webcam-status-
+
+      # Make the lost push VISIBLE: without this, a dropped persist is
+      # indistinguishable from a run where nothing changed.
+      - name: Flag a lost previous persist
+        if: steps.webcam-cache.outputs.cache-matched-key != ''
+        run: |
+          if git diff --quiet -- data/webcam-status.json; then
+            echo "Cached webcam status matches main — previous persist landed."
+          else
+            echo "::warning::data/webcam-status.json su main e' indietro rispetto alla cache: il persist della run precedente non e' arrivato (push best-effort). Stato ripreso dalla cache, questa run ritenta il push."
+            {
+              echo '### Stato webcam ripreso dalla cache'
+              echo ''
+              echo 'Il persist della run precedente non e arrivato su main (push best-effort esaurito o step fallito). Lo stato e stato ripreso dalla cache Actions, quindi una recovery resta rilevabile; questa run ritenta il push.'
+              echo ''
+              echo '```diff'
+              git --no-pager diff -- data/webcam-status.json
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Run border live-data health check
         id: health
         env:
@@ -117,6 +161,17 @@ jobs:
             git commit -m "chore(webcam): per-webcam status snapshot [skip ci]"
             bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted
           fi
+
+      # Written on every run, push outcome irrelevant: this is the copy the next
+      # run restores when the push above did not land. Keyed by run id (unique,
+      # so the save never collides) and read back by the `webcam-status-` prefix,
+      # which resolves to the most recent cache.
+      - name: Save per-webcam status to cache
+        if: always() && hashFiles('data/webcam-status.json') != ''
+        uses: actions/cache/save@v5
+        with:
+          path: data/webcam-status.json
+          key: webcam-status-${{ github.run_id }}
 
       # Recovery alert (issue #6644). On a DEGRADED run the recovered lines are
       # already inside HEALTH_SUMMARY (the canonical issue comment). This step

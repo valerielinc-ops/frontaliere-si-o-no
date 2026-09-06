@@ -5677,6 +5677,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-deposito-garanzia-locazione.title': 'Mieten Graubünden: Durchschnittsmieten und Mietrecht',
     'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Vollständiger Leitfaden zum Mietrecht in Graubünden: Gebühren, Kaution, Kündigung und Anfechtung gemäss schweizerischen Bundesvorschriften.',
     'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Wohnstraße in einer Schweizer Alpenstadt mit modernen Apartmentgebäuden und typischer Helvetischer Architektur.',
+    'blog.article.borse-studio-vallese-requisiti.title': 'Stipendien Kanton Wallis: Wie bekomme ich sie?',
+    'blog.article.borse-studio-vallese-requisiti.excerpt': 'Leitfaden für Stipendien im Kanton Wallis: Allgemeine Anforderungen, wo Sie nach Informationen suchen und wie Sie sich bei den kantonalen Behörden bewerben können.',
+    'blog.article.borse-studio-vallese-requisiti.imageAlt': 'Studenten, die in einer Schweizer Alplandschaft mit Bergen im Hintergrund im Freien lernen.',
 };
 
 export default blogMetaChDe;
