@@ -123,12 +123,23 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     // Only loops whose body actually runs a command that CAN consume stdin are
     // offenders: `cat "$log"`, `cp`, `mkdir` take their input from arguments and
     // are safe by construction.
-    const CONSUMERS = /(^|[;&|(]|\bthen\b|\bdo\b|\belse\b)[ \t]*(gh|unzip|node|npx|ssh|curl|xargs|git)\b/;
+    // `m`: without it `^` only matches the start of the whole body, so a
+    // consumer on a line of its own — `gh issue close "$num"`, preceded by
+    // nothing but a newline and its indent, which is the commonest shape of
+    // all — never matched and three of the six sites here were invisible.
+    const CONSUMERS =
+      /(^|[;&|(]|\bthen\b|\bdo\b|\belse\b)[ \t]*(gh|unzip|node|npx|ssh|curl|xargs|git)\b/m;
     // `while …` line, body, and a `done` at the SAME indentation whose redirect
     // is a plain file (`< "$f"`), not a process substitution (`< <(…)`, which is
     // matched by the negative lookahead and left alone — it has the same defect
     // but the fix there is the same fd, and none of the current ones qualify).
-    const LOOP = /^([ \t]*)while\b[^\n]*\bread\b[^\n]*\n([\s\S]*?)^\1done[ \t]+(\d*)<[ \t]*(?!\()[^\n]*$/gm;
+    // The lookahead has to sit right after the redirect operator and swallow
+    // the spacing ITSELF: `<[ \t]*(?!\()` lets the engine backtrack `[ \t]*`
+    // to zero and pass the lookahead on the space, so `done < <(…)` matched
+    // anyway. And the character to refuse is the `<` of the substitution, not
+    // the `(` — after the redirect operator of `done < <(…)` comes `<`.
+    const LOOP =
+      /^([ \t]*)while\b[^\n]*\bread\b[^\n]*\n([\s\S]*?)^\1done[ \t]+(\d*)<(?![ \t]*<?\()[^\n]*$/gm;
     const offenders: string[] = [];
     for (const f of allGithubShellFiles()) {
       const src = codeOnly(f);
