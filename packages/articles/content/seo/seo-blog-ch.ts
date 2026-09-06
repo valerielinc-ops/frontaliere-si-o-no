@@ -74003,6 +74003,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-argovia': {
+    title: 'Assegni familiari Argovia: importi e domanda | Frontaliere Ticino',
+    description: 'Guida completa su come richiedere assegni familiari nel Cantone di Argovia: procedura, documenti necessari, cassa di compensazione e importi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, argovia, importi',
+    ogTitle: 'Assegni familiari Argovia: come richiedere',
+    ogDescription: 'Procedura completa e step-by-step per richiedere gli assegni familiari nel Cantone di Argovia. Scopri i documenti necessari, come contattare la cassa di compensazione cantonale, e le implicazioni pratiche per le famiglie che lavorano in Svizzera.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-argovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Argovia: importi e domanda",
+      "description": "Guida completa su come richiedere assegni familiari nel Cantone di Argovia: procedura, documenti necessari, cassa di compensazione e importi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale di Argovia per le prestazioni sociali familiari e assegni familiari"
+      },
+      "datePublished": "2026-09-06T08:50:57+00:00",
+      "dateModified": "2026-09-06T08:50:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-argovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

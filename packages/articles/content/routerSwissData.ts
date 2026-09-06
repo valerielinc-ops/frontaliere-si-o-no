@@ -1926,6 +1926,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-basilea-campagna': { it: 'avs-prestazioni-complementari-basilea-campagna', en: 'avs-complementary-benefits-basel-countryside', de: 'avs-zusatzleistungen-baselland', fr: 'avs-prestations-complementaires-basel-campagne' },
  'beloved-aiuto-vittime-crans-montana': { it: 'beloved-aiuto-vittime-crans-montana', en: 'beloved-assistance-victims-crans-montana', de: 'beloved-opferhilfe-crans-montana', fr: 'beloved-aide-victimes-crans-montana' },
  'naturalizzazione-vallese-requisiti-procedura': { it: 'naturalizzazione-vallese-requisiti-procedura', en: 'naturalization-canton-valais-requirements-procedure', de: 'einbuergerung-kanton-wallis-anforderungen-verfahren', fr: 'naturalisation-canton-valais-conditions-procedure' },
+ 'assegni-familiari-argovia': { it: 'assegni-familiari-argovia', en: 'family-allowances-aargau', de: 'familienleistungen-aargau', fr: 'allocations-familiales-argovie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
