@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { execSync } from 'node:child_process';
+import { markerInComment } from '../../scripts/lib/inline-comment-marker.mjs';
 
 const FORBIDDEN = [
   "'cerca-lavoro-ticino'",
@@ -222,9 +223,17 @@ function parseGrepLine(line: string): { path: string; lineNo: number; content: s
 // lines that have not yet been migrated to inline annotations. New
 // hardcodes MUST use the inline marker — do NOT add new entries to
 // ALLOWLIST.
-const INLINE_ALLOW_MARKER = /\bcathedral-allow\b/;
+//
+// Issue #7676: il marker vale SOLO dentro un commento. Prima era testato sul
+// contenuto grezzo della riga, quindi una riga di prosa editoriale che
+// contenesse quella parola si auto-esonerava — un esonero che nessuno aveva
+// dichiarato, cioe' la stessa classe di verde vacuo che questo gate esiste per
+// impedire. Il predicato «apri-commento sulla stessa riga» sta in un modulo
+// condiviso con l'altro gate che ha lo stesso marker inline
+// (scripts/ci/check-hardcoded-locale-segments.mjs), cosi' i due non driftano.
+const INLINE_ALLOW_MARKER = markerInComment(String.raw`\bcathedral-allow\b`);
 
-function hasInlineAllow(content: string): boolean {
+export function hasInlineAllow(content: string): boolean {
   return INLINE_ALLOW_MARKER.test(content);
 }
 
@@ -297,6 +306,42 @@ describe('isAllowlisted — voce-file esatta vs voce-cartella per prefisso', () 
       lineNo: 1,
       content: "  it: 'cerca-lavoro-ticino', // cathedral-allow: ragione",
     })).toBe(true);
+  });
+});
+
+// Issue #7676 — il marker inline esonera solo dentro un commento. OSSERVATORE:
+// se il pattern tornasse a leggere il contenuto grezzo, la prosa qui sotto
+// tornerebbe esonerata e QUESTO test diventerebbe rosso, invece che il gate
+// diventare cieco in silenzio.
+describe('hasInlineAllow — il marker vale solo dentro un commento (#7676)', () => {
+  it('NON esonera la prosa che contiene il marker fuori da un commento', () => {
+    expect(hasInlineAllow("<p>la parola cathedral-allow in prosa 'cerca-lavoro-ticino'</p>")).toBe(false);
+  });
+
+  it('esonera la riga annotata con un commento di linea', () => {
+    expect(hasInlineAllow("const x = 'cerca-lavoro-ticino'; // cathedral-allow: motivo")).toBe(true);
+  });
+
+  it('esonera le forme di commento realmente usate nel repo', () => {
+    // continuazione di docblock (build-plugins/shared/cantonSection.ts)
+    expect(hasInlineAllow("  * `{ it: 'cerca-lavoro-ticino' }` cathedral-allow: docblock")).toBe(true);
+    // shell / Python (scripts/lib/strip-section-subtree.sh, analyze-not-indexed.py)
+    expect(hasInlineAllow('  it) sub="$slug" ;;  # cathedral-allow: bash')).toBe(true);
+    // blocco su una riga
+    expect(hasInlineAllow("const x = 'cerca-lavoro-ticino'; /* cathedral-allow: motivo */")).toBe(true);
+  });
+
+  it('un apri-commento solo apparente in una stringa non esonera', () => {
+    expect(hasInlineAllow("const u = 'https://esempio.dev/cathedral-allow/cerca-lavoro-ticino';")).toBe(false);
+    expect(hasInlineAllow('<a href="#cathedral-allow">cerca-lavoro-ticino</a>')).toBe(false);
+  });
+
+  it('isAllowlisted rifiuta la prosa auto-esonerante su un path non allowlistato', () => {
+    expect(isAllowlisted({
+      path: 'components/community/JobBoard.tsx',
+      lineNo: 1,
+      content: "<p>la parola cathedral-allow in prosa 'cerca-lavoro-ticino'</p>",
+    })).toBe(false);
   });
 });
 
