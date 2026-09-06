@@ -1906,6 +1906,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-canton-vallese': { it: 'assegni-familiari-canton-vallese', en: 'family-allowances-canton-valais', de: 'familienzulagen-kanton-wallis', fr: 'allocations-familiales-canton-valais' },
  'assegni-familiari-vallese-importi': { it: 'assegni-familiari-vallese-importi', en: 'valais-family-allowances-amounts', de: 'familienzulagen-kanton-wallis-betraege', fr: 'allocations-familiales-valais-montants' },
  'istruzione-obbligatoria-canton-vallese': { it: 'istruzione-obbligatoria-canton-vallese', en: 'compulsory-education-canton-valais', de: 'schulpflicht-kanton-wallis', fr: 'scolarite-obligatoire-canton-valais' },
+ 'avs-prestazioni-complementari-soletta': { it: 'avs-prestazioni-complementari-soletta', en: 'avs-complementary-benefits-soletta', de: 'avs-zusatzleistungen-soletta', fr: 'avs-prestations-complementaires-soletta' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
