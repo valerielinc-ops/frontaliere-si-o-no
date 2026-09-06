@@ -5674,6 +5674,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-vallese.title': 'Apprenticeship and vocational training in the canton of Valais',
     'blog.article.apprendistato-formazione-canton-vallese.excerpt': 'Learn how to find an internship, contract details, and apprenticeship pay in the Valais Canton.',
     'blog.article.apprendistato-formazione-canton-vallese.imageAlt': 'An apprentice in a workshop in the Canton of Valais, Switzerland.',
+    'blog.article.grigioni-deposito-garanzia-locazione.title': 'Rentals in Graubünden: average fees and rental law',
+    'blog.article.grigioni-deposito-garanzia-locazione.excerpt': 'Complete guide to the right to rent in Graubünden: fees, security deposit, cancellation and dispute according to Swiss federal rules.',
+    'blog.article.grigioni-deposito-garanzia-locazione.imageAlt': 'Residential street in a Swiss Alpine town with modern apartment buildings and typical Swiss architecture.',
 };
 
 export default blogMetaChEn;
