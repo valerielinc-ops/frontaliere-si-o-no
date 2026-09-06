@@ -38,6 +38,7 @@ import path from 'node:path';
 // senza la sua dipendenza (ERR_MODULE_NOT_FOUND con la CI verde); così invece
 // è il file che NON viaggia a dipendere da quello che viaggia.
 import { bulletState } from '../lib/pr-body-sections-check.mjs';
+import { isReviewerBot } from './lib/constants.mjs';
 
 const PR = process.env.PR_NUMBER;
 const repoArgs = (process.env.GH_REPO || process.env.GITHUB_REPOSITORY)
@@ -172,11 +173,10 @@ export function reviewerMarkerLines(reviewBody) {
 /**
  * Pick the body of the LATEST review left by the Claude reviewer bot.
  *
- * Matches on `user.type === 'Bot' && /^claude/i.test(user.login)` — the SAME
- * convention as the sibling gates `pr-autorebase.mjs` / `auto-merge-eval.mjs`.
- * The reviewer posts as `claude[bot]` (verified on #3074), NOT
- * `github-actions[bot]`: an exact-match on the wrong login matched zero reviews
- * and silently killed the 🟡/❓ branch (🔴 caught in review of this PR).
+ * Matches via `isReviewerBot` (`claude*` or `frontaliere-automation[bot]`) —
+ * the SAME oracle as `tests.yml` / `auto-merge-eval.mjs` / `pr-autorebase.mjs`.
+ * `github-actions[bot]` is NOT a reviewer: an exact-match on the wrong login
+ * matched zero reviews and silently killed the 🟡/❓ branch.
  *
  * @param {Array<{user?:{login?:string,type?:string}, body?:string}>} reviews
  * @returns {string}
@@ -184,7 +184,7 @@ export function reviewerMarkerLines(reviewBody) {
 export function selectReviewerBody(reviews) {
   if (!Array.isArray(reviews)) return '';
   const mine = reviews.filter(
-    (r) => r?.user?.type === 'Bot' && /^claude/i.test(r?.user?.login || '') && r?.body,
+    (r) => isReviewerBot(r?.user) && r?.body,
   );
   return mine.length ? String(mine[mine.length - 1].body) : '';
 }

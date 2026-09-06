@@ -103,6 +103,14 @@ describe('selectReviewerBody', () => {
     expect(selectReviewerBody(undefined as unknown as [])).toBe('');
     expect(selectReviewerBody([])).toBe('');
   });
+
+  it('picks a frontaliere-automation[bot] review the same way as claude[bot]', () => {
+    const reviews = [
+      { user: { login: 'github-actions[bot]', type: 'Bot' }, body: 'CI summary' },
+      { user: { login: 'frontaliere-automation[bot]', type: 'Bot' }, body: '## LGTM\n🟡 nit' },
+    ];
+    expect(selectReviewerBody(reviews)).toBe('## LGTM\n🟡 nit');
+  });
 });
 
 describe('hasCandidates', () => {
