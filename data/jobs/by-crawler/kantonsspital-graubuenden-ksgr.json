@@ -269,9 +269,11 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-09-05T22:55:25.035Z",
-      "slug": "automation-engineer-kantonsspital-graubunden-chur",
+      "slug": "ingegnere-di-automazione-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "automation-engineer-kantonsspital-graubunden-chur"
+        "de": "automation-engineer-kantonsspital-graubunden-chur",
+        "it": "ingegnere-di-automazione-kantonsspital-graubunden-chur",
+        "fr": "ingenieur-d-automatisation-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Automation Engineer",
@@ -301,7 +303,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-01T07:21:30.364Z"
+      "firstSeenAt": "2026-09-01T07:21:30.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-engineer-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "automation-engineer-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10161831",

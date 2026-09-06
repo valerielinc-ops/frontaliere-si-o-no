@@ -6305,11 +6305,11 @@
     },
     {
       "id": "etat-de-fribourg-c5c0d379fe62",
-      "slug": "aspirant-e-de-police-etat-de-fribourg-ch",
+      "slug": "aspirante-di-polizia-etat-de-fribourg-granges-paccot",
       "slugByLocale": {
-        "it": "aspirant-e-de-police-etat-de-fribourg-ch",
+        "it": "aspirante-di-polizia-etat-de-fribourg-granges-paccot",
         "en": "aspirant-e-de-police-etat-de-fribourg-ch",
-        "de": "aspirant-e-de-police-etat-de-fribourg-ch",
+        "de": "polizeianwarter-etat-de-fribourg-granges-paccot",
         "fr": "aspirant-e-de-police-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -6369,7 +6369,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "aspirant-e-de-police-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "aspirant-e-de-police-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "aspirant-e-de-police-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-c52614fba760",
