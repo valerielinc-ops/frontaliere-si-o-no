@@ -34203,6 +34203,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'adolescente-travolto-treno-berna',
+ category: 'novita',
+ date: '2026-09-06T11:11:23.350Z',
+ image: '/images/blog/adolescente-travolto-treno-berna.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

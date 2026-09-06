@@ -11453,6 +11453,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bando-mobilita-prefettura-varese.title': 'Préfecture de Varèse : avis de mobilité pour 6 places',
     'blog.article.bando-mobilita-prefettura-varese.excerpt': 'Le ministère de l\'Intérieur ouvre la mobilité volontaire pour 6 postes à Varèse. Date limite de candidature fixée au 30 septembre 2026 via le portail inPA.',
     'blog.article.bando-mobilita-prefettura-varese.imageAlt': 'Bureaux de la préfecture de Varese',
+    'blog.article.adolescente-travolto-treno-berna.title': 'Adolescent écrasé mortellement par un train à Berne',
+    'blog.article.adolescente-travolto-treno-berna.excerpt': 'Samedi soir sanglant à Berne : un adolescent a été renversé par un train à la gare d\'Europaplatz.',
+    'blog.article.adolescente-travolto-treno-berna.imageAlt': 'Un adolescent percuté par un train à Berne',
 };
 
 export default blogMetaFr;

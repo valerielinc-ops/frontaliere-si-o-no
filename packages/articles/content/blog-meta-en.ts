@@ -11451,6 +11451,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bando-mobilita-prefettura-varese.title': 'Varese Prefecture: mobility call for 6 places',
     'blog.article.bando-mobilita-prefettura-varese.excerpt': 'The Ministry of the Interior opens voluntary mobility for 6 positions in Varese. Application deadline set at 30 September 2026 through the inPA portal.',
     'blog.article.bando-mobilita-prefettura-varese.imageAlt': 'Varese Prefecture offices',
+    'blog.article.adolescente-travolto-treno-berna.title': 'Teenager fatally hit by train in Bern',
+    'blog.article.adolescente-travolto-treno-berna.excerpt': 'Saturday night in Bern: a teenager was hit by a train at the Europaplatz station.',
+    'blog.article.adolescente-travolto-treno-berna.imageAlt': 'A teenager hit by a train in Bern',
 };
 
 export default blogMetaEn;

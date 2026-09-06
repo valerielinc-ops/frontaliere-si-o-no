@@ -86887,6 +86887,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-adolescente-travolto-treno-berna': {
+    title: 'Adolescente travolto mortalmente da un treno a Berna',
+    description: 'Sabato sera di sangue a Berna: un adolescente è stato investito da un treno presso la stazione di Europaplatz. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, adolescente, travolto, mortalmente, treno',
+    ogTitle: 'Adolescente travolto mortalmente da un treno a Berna',
+    ogDescription: 'Un adolescente è stato travolto mortalmente da un treno presso la stazione di Europaplatz a Berna sabato sera. L\'incidente ha causato la chiusura della linea ferroviaria per quasi due ore e mezza.',
+    canonicalPath: '/articoli-frontaliere/adolescente-travolto-treno-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Adolescente travolto mortalmente da un treno a Berna",
+      "description": "Sabato sera di sangue a Berna: un adolescente è stato investito da un treno presso la stazione di Europaplatz. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/adolescente-travolto-treno-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un adolescente travolto da un treno a Berna"
+      },
+      "datePublished": "2026-09-06T11:11:23+00:00",
+      "dateModified": "2026-09-06T11:11:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/adolescente-travolto-treno-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
