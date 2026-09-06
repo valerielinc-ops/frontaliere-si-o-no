@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import {
   engagementConsistency,
   dailyEngagementConsistency,
@@ -17,7 +18,10 @@ import {
   settledDays,
   settledEndDate,
   settledWindow,
+  utcDaysBefore,
 } from '../scripts/lib/analytics-settled-window.mjs';
+
+const libUrl = new URL('../scripts/lib/analytics-settled-window.mjs', import.meta.url).href;
 
 // Numeri reali della property 524485296 (issue #6703). Le tre righe
 // "as-letto" sono ciò che GA4 riportava il 2026-08-30 e il 2026-09-05 sui
@@ -666,4 +670,74 @@ describe("il guardrail A/B AdSense giudica l'engagement per-giorno", () => {
       'const engagementUsable = control.engagementReliable !== false && treatment.engagementReliable !== false;',
     );
   });
+});
+
+// #7694: `settledEnd` nasceva da `setUTCDate`, ma gli `startDate` delle stesse
+// richieste da `setDate` locale, e poi tutto veniva formattato in UTC. Con `TZ`
+// non-UTC e un salto DST dentro la finestra i due calendari divergono: la
+// finestra interrogata smette di coincidere con quella dichiarata e col
+// confronto stringa che decide se esiste una finestra assestata. In CI (UTC) è
+// indistinguibile, su una dev box no — per questo il test forza la TZ.
+describe('finestra assestata — aritmetica UTC, non locale (TZ/DST)', () => {
+  // La TZ va imposta al PROCESSO: il calendario locale di V8 si fissa
+  // all'avvio, quindi il caso reale (una dev box non-UTC) si riproduce solo in
+  // un processo figlio con `TZ` diversa.
+  const inTz = (tz: string, expr: string) =>
+    execFileSync(process.execPath, ['--input-type=module', '-e', `
+      const { utcDaysBefore, fmtUtcDate, settledWindow } = await import(${JSON.stringify(libUrl)});
+      const now = new Date('2026-03-29T23:30:00Z');
+      console.log(JSON.stringify(${expr}));
+    `], { encoding: 'utf8', env: { ...process.env, TZ: tz } }).trim();
+
+  it('utcDaysBefore sposta di giornate UTC intere, non di ore di parete locale', () => {
+    const from = new Date('2026-03-29T23:30:00Z');
+    expect(utcDaysBefore(from, 30).toISOString()).toBe('2026-02-27T23:30:00.000Z');
+    expect(utcDaysBefore(from, 0).toISOString()).toBe(from.toISOString());
+  });
+
+  it('il vecchio idioma locale scivola di un giorno sul salto DST, il nuovo no', () => {
+    // 2026-03-29 è il salto DST europeo (CET +1 → CEST +2) e le 23:30 UTC sono
+    // già l'1:30 del 30 a Zurigo: -30 giorni di calendario LOCALE atterrano su
+    // una data UTC diversa da -30 giorni di calendario UTC.
+    const drifted = inTz('Europe/Zurich', `(() => {
+      const local = new Date(now.getTime());
+      local.setDate(local.getDate() - 30);
+      return { local: fmtUtcDate(local), utc: fmtUtcDate(utcDaysBefore(now, 30)) };
+    })()`);
+    expect(JSON.parse(drifted)).toEqual({ local: '2026-02-28', utc: '2026-02-27' });
+  });
+
+  it('gli estremi della finestra assestata non dipendono dalla TZ del processo', () => {
+    const window = 'settledWindow({ days: 30, now })';
+    const utc = inTz('UTC', window);
+    expect(JSON.parse(utc)).toEqual({ start: '2026-02-26', end: '2026-03-27' });
+    for (const tz of ['Europe/Zurich', 'Pacific/Auckland', 'America/Los_Angeles']) {
+      expect(inTz(tz, window)).toBe(utc);
+    }
+  });
+});
+
+describe('le finestre dei report non mescolano calendario locale e formato UTC', () => {
+  // Ogni file qui formatta le date con `toISOString()`, quindi in UTC: usare
+  // `setDate`/`getDate` (locali) per costruirle rimette in scena #7694.
+  const files = [
+    'analytics-report.mjs',
+    'gsc-content-opportunity-score.mjs',
+    'gsc-page-query-export.mjs',
+    'refresh-gsc-position-rolling.mjs',
+    'refresh-indexed-cluster-urls.mjs',
+    'refresh-noslash-keep.mjs',
+    'monitor-gsc-job-indexation.mjs',
+    'verify-post-deploy-seo.mjs',
+    'submit-google-indexing.js',
+  ];
+
+  for (const file of files) {
+    it(`${file} costruisce le finestre con l helper UTC condiviso`, () => {
+      const src = readFileSync(new URL(`../scripts/${file}`, import.meta.url), 'utf8');
+      expect(src).toContain("from './lib/analytics-settled-window.mjs'");
+      expect(src).toContain('utcDaysBefore(');
+      expect(src).not.toMatch(/set(?:UTC)?Date\((?:\w+\.)?get(?!UTC)Date\(\)\s*-/);
+    });
+  }
 });
