@@ -17290,6 +17290,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'riflessione-neutralita-svizzera-delbiaggio',
+    category: 'novita',
+    date: '2026-09-06T17:57:04.800Z',
+    image: '/images/blog/riflessione-neutralita-svizzera-delbiaggio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

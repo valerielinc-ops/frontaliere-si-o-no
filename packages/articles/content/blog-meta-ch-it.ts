@@ -5764,6 +5764,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-sciaffusa-canoni-deposito.title': 'Affitti Sciaffusa: canoni, deposito e diritto di locazione',
     'blog.article.affitti-sciaffusa-canoni-deposito.excerpt': 'Guida pratica ai diritti di locazione in Sciaffusa: deposito cauzionale, contestazione canoni, disdetta e procedure presso l\'autorità di conciliazione.',
     'blog.article.affitti-sciaffusa-canoni-deposito.imageAlt': 'Contratto di locazione svizzero e chiave su scrivania con documenti legali immobiliari',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.title': 'Neutralità svizzera: il pensiero di Elio Del Biaggio',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.excerpt': 'Elio Del Biaggio analizza il ruolo della neutralità come pilastro di stabilità, indipendenza e identità nazionale nel contesto geopolitico attuale.',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.imageAlt': 'Bandiera svizzera che sventola sopra le Alpi svizzere.',
 };
 
 export default blogMetaChIt;

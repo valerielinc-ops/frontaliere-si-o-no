@@ -74822,6 +74822,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riflessione-neutralita-svizzera-delbiaggio': {
+    title: 'Neutralità svizzera: il pensiero di Elio Del Biaggio',
+    description: 'Elio Del Biaggio riflette sul valore della neutralità svizzera come pilastro di indipendenza e stabilità nella complessa geopolitica odierna. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, pensiero, elio, biaggio',
+    ogTitle: 'Neutralità svizzera: il pensiero di Elio Del Biaggio',
+    ogDescription: 'Il dibattito sulla neutralità svizzera analizzato da Elio Del Biaggio: perché la sovranità e l\'indipendenza restano risorse strategiche per il futuro del Paese.',
+    canonicalPath: '/articoli-svizzera/riflessione-neutralita-svizzera-delbiaggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità svizzera: il pensiero di Elio Del Biaggio",
+      "description": "Elio Del Biaggio riflette sul valore della neutralità svizzera come pilastro di indipendenza e stabilità nella complessa geopolitica odierna. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riflessione-neutralita-svizzera-delbiaggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bandiera svizzera che sventola sopra le Alpi svizzere."
+      },
+      "datePublished": "2026-09-06T17:57:04+00:00",
+      "dateModified": "2026-09-06T17:57:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riflessione-neutralita-svizzera-delbiaggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

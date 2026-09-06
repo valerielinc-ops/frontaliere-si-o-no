@@ -5764,6 +5764,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-sciaffusa-canoni-deposito.title': 'Mieten Schaffhausen: Mieten, Kaution und Mietrecht',
     'blog.article.affitti-sciaffusa-canoni-deposito.excerpt': 'Praktischer Leitfaden zu den Mietrechten in Schaffhausen: Kaution, Gebührenbeanstandung, Kündigung und Verfahren bei der Schlichtungsbehörde.',
     'blog.article.affitti-sciaffusa-canoni-deposito.imageAlt': 'Schweizer Mietvertrag und Schlüssel auf Schreibtisch mit rechtlichen Immobiliendokumenten',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.title': 'Schweizer Neutralität: der Gedanke von Elio Del Biaggio',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.excerpt': 'Elio Del Biaggio analysiert die Rolle der Neutralität als Säule der Stabilität, Unabhängigkeit und nationalen Identität im aktuellen geopolitischen Kontext.',
+    'blog.article.riflessione-neutralita-svizzera-delbiaggio.imageAlt': 'Schweizer Flagge weht über den Schweizer Alpen.',
 };
 
 export default blogMetaChDe;
