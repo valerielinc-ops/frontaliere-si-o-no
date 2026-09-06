@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-9c62d69a882d",
-      "slug": "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch",
+      "slug": "i-praticanti-pneumatici-100-ricercati-nella-regione-di-balsthal-si-applicano-ora-ipersonal-ag-balsthal-solothurn",
       "slugByLocale": {
         "de": "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "en": "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        "it": "i-praticanti-pneumatici-100-ricercati-nella-regione-di-balsthal-si-applicano-ora-ipersonal-ag-balsthal-solothurn",
+        "en": "tire-practitioners-100-sought-in-the-balsthal-region-apply-now-ipersonal-ag-balsthal-solothurn",
+        "fr": "pratiques-de-pneus-100-recherches-dans-la-region-de-balsthal-appliquer-maintenant-ipersonal-ag-balsthal-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -61,16 +61,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-05T23:06:14.784Z"
+      "firstSeenAt": "2026-09-05T23:06:14.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ],
+        "en": [
+          "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ],
+        "fr": [
+          "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-2fb556969c44",
-      "slug": "reifenpraktiker-100-per-la-region-niederbipp-jobangebot-ipersonal-ag-niederbipp",
+      "slug": "professionisti-pneumatici-100-per-la-regione-niederbipp-offerta-di-lavoro-ipersonal-ag-niederbipp-solothurn",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-niederbipp-jobangebot-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-niederbipp-jobangebot-ipersonal-ag-niederbipp",
-        "en": "reifenpraktiker-100-fur-die-region-niederbipp-jobangebot-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-niederbipp-jobangebot-med-ipersonal-ch"
+        "it": "professionisti-pneumatici-100-per-la-regione-niederbipp-offerta-di-lavoro-ipersonal-ag-niederbipp-solothurn",
+        "en": "tire-practitioners-100-for-the-niederbipp-region-job-offer-ipersonal-ag-niederbipp-solothurn",
+        "fr": "pratiques-de-pneus-100-pour-la-region-de-niederbipp-offre-d-emploi-ipersonal-ag-niederbipp-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -129,13 +143,15 @@
           "reifenpraktiker-100-per-la-region-bern-jobangebot-medipersonal-bern",
           "reifenpraktiker-100-fur-die-region-bern-jobangebot-medipersonal-bern",
           "professionisti-pneumatici-100-per-la-regione-dietikon-offerta-di-lavoro-medipersonal-dietikon-zurich",
-          "reifenpraktiker-100-fur-die-region-dietikon-jobangebot-med-ipersonal-ch"
+          "reifenpraktiker-100-fur-die-region-dietikon-jobangebot-med-ipersonal-ch",
+          "reifenpraktiker-100-per-la-region-niederbipp-jobangebot-ipersonal-ag-niederbipp"
         ],
         "en": [
           "tire-practitioners-100-in-the-savognin-region-job-offer-medipersonal-savognin-graubunden",
           "tire-practitioners-100-for-the-seon-region-job-offer-medipersonal-seon-aargau",
           "tire-practitioners-100-in-the-spiez-region-job-offer-medipersonal-spiez-bern",
-          "tire-practitioners-100-for-the-munsingen-region-job-offer-medipersonal-munsingen-bern"
+          "tire-practitioners-100-for-the-munsingen-region-job-offer-medipersonal-munsingen-bern",
+          "reifenpraktiker-100-fur-die-region-niederbipp-jobangebot-med-ipersonal-ch"
         ],
         "de": [
           "reifenpraktiker-100-in-der-region-savognin-jobangebot-med-ipersonal-ch",
@@ -147,7 +163,8 @@
           "pratiques-de-pneus-100-dans-la-region-de-savognin-offre-d-emploi-medipersonal-savognin-graubunden",
           "pratiques-de-pneus-100-pour-la-region-de-seon-offre-d-emploi-medipersonal-seon-aargau",
           "pratiques-de-pneus-100-dans-la-region-de-spiez-offre-d-emploi-medipersonal-spiez-bern",
-          "pratiques-de-pneus-100-pour-la-region-de-munsingen-offre-d-emploi-medipersonal-munsingen-bern"
+          "pratiques-de-pneus-100-pour-la-region-de-munsingen-offre-d-emploi-medipersonal-munsingen-bern",
+          "reifenpraktiker-100-fur-die-region-niederbipp-jobangebot-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -202,7 +219,8 @@
         "reifenpraktiker-100-per-la-region-bern-jobangebot-medipersonal-bern",
         "reifenpraktiker-100-fur-die-region-bern-jobangebot-medipersonal-bern",
         "professionisti-pneumatici-100-per-la-regione-dietikon-offerta-di-lavoro-medipersonal-dietikon-zurich",
-        "reifenpraktiker-100-fur-die-region-dietikon-jobangebot-med-ipersonal-ch"
+        "reifenpraktiker-100-fur-die-region-dietikon-jobangebot-med-ipersonal-ch",
+        "reifenpraktiker-100-per-la-region-niederbipp-jobangebot-ipersonal-ag-niederbipp"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -221,12 +239,12 @@
     },
     {
       "id": "med-ipersonal-dc5f9eacf3f8",
-      "slug": "reifenpraktiker-100-per-la-region-hagendorf-temporar-dauerstelle-ipersonal-ag-hagendorf",
+      "slug": "professionisti-del-pneumatico-100-per-la-regione-di-hagendorf-ufficio-temporaneo-e-permanente-ipersonal-ag-hagendorf",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-hagendorf-temporar-amp-dauerstelle-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-hagendorf-temporar-dauerstelle-ipersonal-ag-hagendorf",
-        "en": "reifenpraktiker-100-fur-die-region-hagendorf-temporar-amp-dauerstelle-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-hagendorf-temporar-amp-dauerstelle-med-ipersonal-ch"
+        "it": "professionisti-del-pneumatico-100-per-la-regione-di-hagendorf-ufficio-temporaneo-e-permanente-ipersonal-ag-hagendorf",
+        "en": "tire-practitioners-100-for-the-hagendorf-region-temporary-permanent-office-ipersonal-ag-hagendorf-solothurn",
+        "fr": "pratiques-de-pneus-100-pour-la-region-de-hagendorf-bureau-temporaire-permanent-ipersonal-ag-hagendorf-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -272,16 +290,19 @@
           "reifenpraktiker-100-in-der-region-berikon-temporar-amp-dauerstelle-med-ipersonal-ch",
           "tire-practitioner-100-in-the-berikon-region-temporary-permanent-office-medipersonal-berikon-aargau",
           "pratique-de-pneus-100-dans-la-region-de-berikon-bureau-temporaire-et-permanent-medipersonal-berikon-aargau",
-          "reifenpraktiker-100-in-der-region-berikon-temporar-dauerstelle-medipersonal-berikon"
+          "reifenpraktiker-100-in-der-region-berikon-temporar-dauerstelle-medipersonal-berikon",
+          "reifenpraktiker-100-per-la-region-hagendorf-temporar-dauerstelle-ipersonal-ag-hagendorf"
         ],
         "en": [
-          "tire-practitioner-100-in-the-berikon-region-temporary-permanent-office-medipersonal-berikon-aargau"
+          "tire-practitioner-100-in-the-berikon-region-temporary-permanent-office-medipersonal-berikon-aargau",
+          "reifenpraktiker-100-fur-die-region-hagendorf-temporar-amp-dauerstelle-med-ipersonal-ch"
         ],
         "de": [
           "reifenpraktiker-100-in-der-region-berikon-temporar-amp-dauerstelle-med-ipersonal-ch"
         ],
         "fr": [
-          "pratique-de-pneus-100-dans-la-region-de-berikon-bureau-temporaire-et-permanent-medipersonal-berikon-aargau"
+          "pratique-de-pneus-100-dans-la-region-de-berikon-bureau-temporaire-et-permanent-medipersonal-berikon-aargau",
+          "reifenpraktiker-100-fur-die-region-hagendorf-temporar-amp-dauerstelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -290,7 +311,8 @@
         "reifenpraktiker-100-in-der-region-berikon-temporar-amp-dauerstelle-med-ipersonal-ch",
         "tire-practitioner-100-in-the-berikon-region-temporary-permanent-office-medipersonal-berikon-aargau",
         "pratique-de-pneus-100-dans-la-region-de-berikon-bureau-temporaire-et-permanent-medipersonal-berikon-aargau",
-        "reifenpraktiker-100-in-der-region-berikon-temporar-dauerstelle-medipersonal-berikon"
+        "reifenpraktiker-100-in-der-region-berikon-temporar-dauerstelle-medipersonal-berikon",
+        "reifenpraktiker-100-per-la-region-hagendorf-temporar-dauerstelle-ipersonal-ag-hagendorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -309,12 +331,12 @@
     },
     {
       "id": "med-ipersonal-77fa8dbc57bc",
-      "slug": "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch",
+      "slug": "professionisti-pneumatici-100-nella-regione-di-dornach-offerta-di-lavoro-ipersonal-ag-dornach-solothurn",
       "slugByLocale": {
         "de": "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch",
-        "en": "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch"
+        "it": "professionisti-pneumatici-100-nella-regione-di-dornach-offerta-di-lavoro-ipersonal-ag-dornach-solothurn",
+        "en": "tire-practitioners-100-in-the-dornach-region-job-offer-ipersonal-ag-dornach-solothurn",
+        "fr": "pratiques-de-pneus-100-dans-la-region-de-dornach-offre-d-emploi-ipersonal-ag-dornach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -366,16 +388,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-05T23:06:13.879Z"
+      "firstSeenAt": "2026-09-05T23:06:13.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch"
+        ],
+        "en": [
+          "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch"
+        ],
+        "fr": [
+          "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-100-in-der-region-dornach-jobangebot-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-cc387f3baddc",
-      "slug": "reifenpraktiker-100-per-la-region-battwil-offene-stelle-ipersonal-ag-battwil",
+      "slug": "praticanti-pneumatici-100-per-la-regione-di-battwil-posizione-aperta-ipersonal-ag-battwil-solothurn",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-battwil-offene-stelle-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-battwil-offene-stelle-ipersonal-ag-battwil",
-        "en": "reifenpraktiker-100-fur-die-region-battwil-offene-stelle-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-battwil-offene-stelle-med-ipersonal-ch"
+        "it": "praticanti-pneumatici-100-per-la-regione-di-battwil-posizione-aperta-ipersonal-ag-battwil-solothurn",
+        "en": "tire-practitioners-100-for-the-battwil-region-open-position-ipersonal-ag-battwil-solothurn",
+        "fr": "pratiques-de-pneus-100-pour-la-region-de-battwil-position-ouverte-ipersonal-ag-battwil-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -428,11 +464,13 @@
           "tire-practitioners-100-for-the-ilanz-region-open-position-medipersonal-ilanz-graubunden",
           "pratiques-de-pneus-100-pour-la-region-d-ilanz-position-ouverte-medipersonal-ilanz-graubunden",
           "reifenpraktiker-100-per-la-region-ilanz-offene-stelle-medipersonal-ilanz",
-          "reifenpraktiker-100-fur-die-region-ilanz-offene-stelle-medipersonal-ilanz"
+          "reifenpraktiker-100-fur-die-region-ilanz-offene-stelle-medipersonal-ilanz",
+          "reifenpraktiker-100-per-la-region-battwil-offene-stelle-ipersonal-ag-battwil"
         ],
         "en": [
           "tire-practitioners-100-for-the-chur-region-open-position-medipersonal-chur-graubunden",
-          "tire-practitioners-100-for-the-ilanz-region-open-position-medipersonal-ilanz-graubunden"
+          "tire-practitioners-100-for-the-ilanz-region-open-position-medipersonal-ilanz-graubunden",
+          "reifenpraktiker-100-fur-die-region-battwil-offene-stelle-med-ipersonal-ch"
         ],
         "de": [
           "reifenpraktiker-100-fur-die-region-chur-offene-stelle-med-ipersonal-ch",
@@ -440,7 +478,8 @@
         ],
         "fr": [
           "pratiques-de-pneus-100-pour-la-region-de-chur-position-ouverte-medipersonal-chur-graubunden",
-          "pratiques-de-pneus-100-pour-la-region-d-ilanz-position-ouverte-medipersonal-ilanz-graubunden"
+          "pratiques-de-pneus-100-pour-la-region-d-ilanz-position-ouverte-medipersonal-ilanz-graubunden",
+          "reifenpraktiker-100-fur-die-region-battwil-offene-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -456,7 +495,8 @@
         "tire-practitioners-100-for-the-ilanz-region-open-position-medipersonal-ilanz-graubunden",
         "pratiques-de-pneus-100-pour-la-region-d-ilanz-position-ouverte-medipersonal-ilanz-graubunden",
         "reifenpraktiker-100-per-la-region-ilanz-offene-stelle-medipersonal-ilanz",
-        "reifenpraktiker-100-fur-die-region-ilanz-offene-stelle-medipersonal-ilanz"
+        "reifenpraktiker-100-fur-die-region-ilanz-offene-stelle-medipersonal-ilanz",
+        "reifenpraktiker-100-per-la-region-battwil-offene-stelle-ipersonal-ag-battwil"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -475,12 +515,12 @@
     },
     {
       "id": "med-ipersonal-2ea78e1a33e8",
-      "slug": "reifenpraktiker-100-per-la-region-selzach-temporar-dauerstelle-ipersonal-ag-selzach",
+      "slug": "praticanti-pneumatici-100-per-la-regione-di-selzach-ufficio-temporaneo-e-permanente-ipersonal-ag-selzach-solothurn",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-selzach-temporar-dauerstelle-ipersonal-ag-selzach",
-        "en": "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch"
+        "it": "praticanti-pneumatici-100-per-la-regione-di-selzach-ufficio-temporaneo-e-permanente-ipersonal-ag-selzach-solothurn",
+        "en": "tire-practitioners-100-for-the-selzach-region-temporary-permanent-office-ipersonal-ag-selzach-solothurn",
+        "fr": "pratiques-de-pneus-100-pour-la-region-de-selzach-bureau-temporaire-et-permanent-ipersonal-ag-selzach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -521,11 +561,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-selzach-temporaer-dauerstelle/",
       "previousSlugsByLocale": {
         "it": [
+          "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch",
+          "reifenpraktiker-100-per-la-region-selzach-temporar-dauerstelle-ipersonal-ag-selzach"
+        ],
+        "en": [
+          "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch"
+        ],
+        "fr": [
           "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch"
+        "reifenpraktiker-100-fur-die-region-selzach-temporar-amp-dauerstelle-med-ipersonal-ch",
+        "reifenpraktiker-100-per-la-region-selzach-temporar-dauerstelle-ipersonal-ag-selzach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -544,12 +592,12 @@
     },
     {
       "id": "med-ipersonal-4bca07889f4b",
-      "slug": "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch",
+      "slug": "praticanti-pneumatici-100-ricercati-nella-regione-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn",
       "slugByLocale": {
         "de": "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch",
-        "en": "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch"
+        "it": "praticanti-pneumatici-100-ricercati-nella-regione-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn",
+        "en": "tire-practitioners-100-sought-in-the-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn",
+        "fr": "pratiques-de-pneus-100-recherches-dans-la-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -600,16 +648,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-05T23:06:12.973Z"
+      "firstSeenAt": "2026-09-05T23:06:12.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch"
+        ],
+        "en": [
+          "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch"
+        ],
+        "fr": [
+          "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-100-in-der-region-buren-an-der-aare-gesucht-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-4cc1ebbd89dc",
-      "slug": "reifenpraktiker-100-per-la-region-bern-gesucht-jetzt-bewerben-ipersonal-ag-bern",
+      "slug": "i-praticanti-pneumatici-100-ricercati-per-la-regione-di-berna-si-applicano-ora-ipersonal-ag-bern-bern",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-bern-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-bern-gesucht-jetzt-bewerben-ipersonal-ag-bern",
-        "en": "reifenpraktiker-100-fur-die-region-bern-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-bern-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        "it": "i-praticanti-pneumatici-100-ricercati-per-la-regione-di-berna-si-applicano-ora-ipersonal-ag-bern-bern",
+        "en": "tire-practitioners-100-wanted-for-the-bern-region-apply-now-ipersonal-ag-bern-bern",
+        "fr": "pratiques-de-pneus-100-recherchees-pour-la-region-de-berne-postuler-maintenant-ipersonal-ag-bern-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -661,11 +723,13 @@
           "reifenpraktiker-100-in-der-region-wettingen-gesucht-jetzt-bewerben-med-ipersonal-ch",
           "tire-practitioners-100-sought-in-the-wettingen-region-apply-now-medipersonal-wettingen-aargau",
           "pratiques-de-pneus-100-recherches-dans-la-region-de-wettingen-postuler-maintenant-medipersonal-wettingen-aargau",
-          "reifenpraktiker-100-in-der-region-wettingen-gesucht-jetzt-bewerben-medipersonal-wettingen"
+          "reifenpraktiker-100-in-der-region-wettingen-gesucht-jetzt-bewerben-medipersonal-wettingen",
+          "reifenpraktiker-100-per-la-region-bern-gesucht-jetzt-bewerben-ipersonal-ag-bern"
         ],
         "en": [
           "tire-practitioners-100-wanted-for-the-spiringen-region-apply-now-medipersonal-spiringen-uri",
-          "tire-practitioners-100-sought-in-the-wettingen-region-apply-now-medipersonal-wettingen-aargau"
+          "tire-practitioners-100-sought-in-the-wettingen-region-apply-now-medipersonal-wettingen-aargau",
+          "reifenpraktiker-100-fur-die-region-bern-gesucht-jetzt-bewerben-med-ipersonal-ch"
         ],
         "de": [
           "reifenpraktiker-100-fur-die-region-spiringen-gesucht-jetzt-bewerben-med-ipersonal-ch",
@@ -673,7 +737,8 @@
         ],
         "fr": [
           "pratiques-de-pneus-100-recherchees-pour-la-region-de-spiringen-postuler-maintenant-medipersonal-spiringen-uri",
-          "pratiques-de-pneus-100-recherches-dans-la-region-de-wettingen-postuler-maintenant-medipersonal-wettingen-aargau"
+          "pratiques-de-pneus-100-recherches-dans-la-region-de-wettingen-postuler-maintenant-medipersonal-wettingen-aargau",
+          "reifenpraktiker-100-fur-die-region-bern-gesucht-jetzt-bewerben-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -688,7 +753,8 @@
         "reifenpraktiker-100-in-der-region-wettingen-gesucht-jetzt-bewerben-med-ipersonal-ch",
         "tire-practitioners-100-sought-in-the-wettingen-region-apply-now-medipersonal-wettingen-aargau",
         "pratiques-de-pneus-100-recherches-dans-la-region-de-wettingen-postuler-maintenant-medipersonal-wettingen-aargau",
-        "reifenpraktiker-100-in-der-region-wettingen-gesucht-jetzt-bewerben-medipersonal-wettingen"
+        "reifenpraktiker-100-in-der-region-wettingen-gesucht-jetzt-bewerben-medipersonal-wettingen",
+        "reifenpraktiker-100-per-la-region-bern-gesucht-jetzt-bewerben-ipersonal-ag-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -707,12 +773,12 @@
     },
     {
       "id": "med-ipersonal-3d304f0b0f74",
-      "slug": "reifenpraktiker-100-per-la-region-biel-bienne-temporarburo-ipersonal-ag-biel-bienne",
+      "slug": "professionista-di-pneumatici-100-per-la-regione-di-biel-bienne-ufficio-temporaneo-ipersonal-ipersonal-ag-biel-bienne",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-biel-bienne-temporarburo-ipersonal-ag-biel-bienne",
-        "en": "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch"
+        "it": "professionista-di-pneumatici-100-per-la-regione-di-biel-bienne-ufficio-temporaneo-ipersonal-ipersonal-ag-biel-bienne",
+        "en": "tire-practitioner-100-for-the-biel-bienne-region-temporary-office-ipersonal-ipersonal-ag-biel-bienne-bern",
+        "fr": "pratique-de-pneus-100-pour-la-region-bienne-bureau-temporaire-ipersonal-ipersonal-ag-biel-bienne-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -753,11 +819,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-biel-bienne-temporaerbuero-ipersonal/",
       "previousSlugsByLocale": {
         "it": [
+          "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch",
+          "reifenpraktiker-100-per-la-region-biel-bienne-temporarburo-ipersonal-ag-biel-bienne"
+        ],
+        "en": [
+          "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "fr": [
           "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch"
+        "reifenpraktiker-100-fur-die-region-biel-bienne-temporarburo-ipersonal-med-ipersonal-ch",
+        "reifenpraktiker-100-per-la-region-biel-bienne-temporarburo-ipersonal-ag-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -776,12 +850,12 @@
     },
     {
       "id": "med-ipersonal-7cac95b3a986",
-      "slug": "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch",
+      "slug": "professionisti-pneumatici-100-nella-regione-thun-offerta-di-lavoro-ipersonal-ag-thun-bern",
       "slugByLocale": {
         "de": "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch",
-        "en": "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch"
+        "it": "professionisti-pneumatici-100-nella-regione-thun-offerta-di-lavoro-ipersonal-ag-thun-bern",
+        "en": "tire-practitioners-100-in-the-thun-region-job-offer-ipersonal-ag-thun-bern",
+        "fr": "pratiques-de-pneus-100-dans-la-region-de-thun-offre-d-emploi-ipersonal-ag-thun-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -833,16 +907,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-05T23:06:12.069Z"
+      "firstSeenAt": "2026-09-05T23:06:12.069Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch"
+        ],
+        "en": [
+          "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch"
+        ],
+        "fr": [
+          "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-100-in-der-region-thun-jobangebot-med-ipersonal-ch"
+      ]
     },
     {
       "id": "med-ipersonal-fa5c5fc40d54",
-      "slug": "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch",
+      "slug": "praticanti-pneumatici-100-nella-regione-di-koniz-ufficio-temporaneo-ipersonal-ipersonal-ag-koniz-bern",
       "slugByLocale": {
         "de": "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch",
-        "en": "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch"
+        "it": "praticanti-pneumatici-100-nella-regione-di-koniz-ufficio-temporaneo-ipersonal-ipersonal-ag-koniz-bern",
+        "en": "tire-practitioners-100-in-the-koniz-region-temporary-office-ipersonal-ipersonal-ag-koniz-bern",
+        "fr": "pratiques-de-pneus-100-dans-la-region-de-koniz-bureau-temporaire-ipersonal-ipersonal-ag-koniz-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -916,11 +1004,13 @@
           "praticanti-pneumatici-100-nella-regione-di-dubendorf-ufficio-temporaneo-ipersonal-medipersonal-dubendorf-zurich",
           "reifenpraktiker-100-in-der-region-dubendorf-temporarburo-ipersonal-med-ipersonal-ch",
           "tire-practitioners-100-in-the-dubendorf-region-temporary-office-ipersonal-medipersonal-dubendorf-zurich",
-          "pratiques-de-pneus-100-dans-la-region-de-dubendorf-bureau-temporaire-ipersonal-medipersonal-dubendorf-zurich"
+          "pratiques-de-pneus-100-dans-la-region-de-dubendorf-bureau-temporaire-ipersonal-medipersonal-dubendorf-zurich",
+          "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch"
         ],
         "en": [
           "tire-practitioners-100-in-the-ennenda-region-temporary-office-ipersonal-medipersonal-ennenda-glarus",
-          "tire-practitioners-100-in-the-linthal-region-temporary-office-ipersonal-medipersonal-linthal-glarus"
+          "tire-practitioners-100-in-the-linthal-region-temporary-office-ipersonal-medipersonal-linthal-glarus",
+          "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch"
         ],
         "de": [
           "reifenpraktiker-100-in-der-region-ennenda-temporarburo-ipersonal-med-ipersonal-ch",
@@ -928,7 +1018,8 @@
         ],
         "fr": [
           "pratiques-de-pneus-100-dans-la-region-d-ennenda-bureau-temporaire-ipersonal-medipersonal-ennenda-glarus",
-          "pratiques-de-pneus-100-dans-la-region-linthal-bureau-temporaire-ipersonal-medipersonal-linthal-glarus"
+          "pratiques-de-pneus-100-dans-la-region-linthal-bureau-temporaire-ipersonal-medipersonal-linthal-glarus",
+          "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -969,17 +1060,18 @@
         "praticanti-pneumatici-100-nella-regione-di-dubendorf-ufficio-temporaneo-ipersonal-medipersonal-dubendorf-zurich",
         "reifenpraktiker-100-in-der-region-dubendorf-temporarburo-ipersonal-med-ipersonal-ch",
         "tire-practitioners-100-in-the-dubendorf-region-temporary-office-ipersonal-medipersonal-dubendorf-zurich",
-        "pratiques-de-pneus-100-dans-la-region-de-dubendorf-bureau-temporaire-ipersonal-medipersonal-dubendorf-zurich"
+        "pratiques-de-pneus-100-dans-la-region-de-dubendorf-bureau-temporaire-ipersonal-medipersonal-dubendorf-zurich",
+        "reifenpraktiker-100-in-der-region-koniz-temporarburo-ipersonal-med-ipersonal-ch"
       ]
     },
     {
       "id": "med-ipersonal-291006e3954f",
-      "slug": "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-ipersonal-ag-langenthal",
+      "slug": "professionisti-pneumatici-100-nella-regione-langenthal-posizione-vacante-ipersonal-ag-langenthal-bern",
       "slugByLocale": {
         "de": "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-ipersonal-ag-langenthal",
-        "en": "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch"
+        "it": "professionisti-pneumatici-100-nella-regione-langenthal-posizione-vacante-ipersonal-ag-langenthal-bern",
+        "en": "tire-practitioners-100-in-the-langenthal-region-vacant-position-ipersonal-ag-langenthal-bern",
+        "fr": "pratiques-de-pneus-100-dans-la-region-de-langenthal-poste-vacant-ipersonal-ag-langenthal-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -1020,11 +1112,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-langenthal-freie-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch",
+          "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-ipersonal-ag-langenthal"
+        ],
+        "en": [
+          "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch"
+        ],
+        "fr": [
           "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch"
+        "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-med-ipersonal-ch",
+        "reifenpraktiker-100-in-der-region-langenthal-freie-stelle-ipersonal-ag-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1043,12 +1143,12 @@
     },
     {
       "id": "med-ipersonal-ccaec273fbce",
-      "slug": "reifenpraktiker-100-per-la-region-burgdorf-stellenangebot-ipersonal-ag-burgdorf",
+      "slug": "professionisti-pneumatici-100-per-la-regione-di-burgdorf-offerta-di-lavoro-ipersonal-ag-burgdorf-bern",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-burgdorf-stellenangebot-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-burgdorf-stellenangebot-ipersonal-ag-burgdorf",
-        "en": "reifenpraktiker-100-fur-die-region-burgdorf-stellenangebot-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-burgdorf-stellenangebot-med-ipersonal-ch"
+        "it": "professionisti-pneumatici-100-per-la-regione-di-burgdorf-offerta-di-lavoro-ipersonal-ag-burgdorf-bern",
+        "en": "tire-practitioners-100-for-the-burgdorf-region-job-offer-ipersonal-ag-burgdorf-bern",
+        "fr": "pratiques-de-pneus-100-pour-la-region-de-burgdorf-offre-d-emploi-ipersonal-ag-burgdorf-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -1108,14 +1208,16 @@
           "praticanti-pneumatici-100-per-la-regione-di-goschenen-offerta-di-lavoro-medipersonal-goschenen-uri",
           "reifenpraktiker-100-per-la-region-goschenen-stellenangebot-medipersonal-goschenen",
           "reifenpraktiker-100-fur-die-region-goschenen-stellenangebot-medipersonal-goschenen",
-          "professionisti-pneumatici-100-nella-regione-mels-offerta-di-lavoro-medipersonal-mels-st-gallen"
+          "professionisti-pneumatici-100-nella-regione-mels-offerta-di-lavoro-medipersonal-mels-st-gallen",
+          "reifenpraktiker-100-per-la-region-burgdorf-stellenangebot-ipersonal-ag-burgdorf"
         ],
         "en": [
           "tire-practitioners-100-in-the-balsthal-region-job-offer-medipersonal-balsthal-solothurn",
           "tire-practitioners-100-for-the-goschenen-region-job-offer-medipersonal-goschenen-uri",
           "tire-practitioners-100-in-the-mels-region-job-offer-medipersonal-mels-st-gallen",
           "tire-practitioners-100-in-the-wadenswil-region-job-offer-medipersonal-wadenswil-zurich",
-          "tire-practitioners-100-in-the-winterthur-region-job-offer-medipersonal-winterthur-zurich"
+          "tire-practitioners-100-in-the-winterthur-region-job-offer-medipersonal-winterthur-zurich",
+          "reifenpraktiker-100-fur-die-region-burgdorf-stellenangebot-med-ipersonal-ch"
         ],
         "de": [
           "reifenpraktiker-100-in-der-region-balsthal-stellenangebot-med-ipersonal-ch",
@@ -1129,7 +1231,8 @@
           "pratiques-de-pneus-100-pour-la-region-de-goschenen-offre-d-emploi-medipersonal-goschenen-uri",
           "pratiques-de-pneus-100-dans-la-region-de-mels-offre-d-emploi-medipersonal-mels-st-gallen",
           "pratiques-de-pneus-100-dans-la-region-de-wadenswil-offre-d-emploi-medipersonal-wadenswil-zurich",
-          "pratiques-de-pneus-100-dans-la-region-de-winterthur-offre-d-emploi-medipersonal-winterthur-zurich"
+          "pratiques-de-pneus-100-dans-la-region-de-winterthur-offre-d-emploi-medipersonal-winterthur-zurich",
+          "reifenpraktiker-100-fur-die-region-burgdorf-stellenangebot-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -1159,7 +1262,8 @@
         "reifenpraktiker-100-fur-die-region-goschenen-stellenangebot-med-ipersonal-ch",
         "reifenpraktiker-100-in-der-region-mels-stellenangebot-med-ipersonal-ch",
         "pratiques-de-pneus-100-dans-la-region-de-balsthal-offre-d-emploi-medipersonal-balsthal-solothurn",
-        "pratiques-de-pneus-100-pour-la-region-de-goschenen-offre-d-emploi-medipersonal-goschenen-uri"
+        "pratiques-de-pneus-100-pour-la-region-de-goschenen-offre-d-emploi-medipersonal-goschenen-uri",
+        "reifenpraktiker-100-per-la-region-burgdorf-stellenangebot-ipersonal-ag-burgdorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1178,12 +1282,12 @@
     },
     {
       "id": "med-ipersonal-de68c6847a46",
-      "slug": "reifenpraktiker-100-per-la-region-ittigen-offene-stelle-ipersonal-ag-ittigen",
+      "slug": "praticanti-pneumatici-100-per-la-regione-di-ittigen-posizione-aperta-ipersonal-ag-ittigen-bern",
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-per-la-region-ittigen-offene-stelle-ipersonal-ag-ittigen",
-        "en": "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch"
+        "it": "praticanti-pneumatici-100-per-la-regione-di-ittigen-posizione-aperta-ipersonal-ag-ittigen-bern",
+        "en": "tire-practitioners-100-for-the-ittigen-region-open-position-ipersonal-ag-ittigen-bern",
+        "fr": "pratiques-de-pneus-100-pour-la-region-d-ittigen-position-ouverte-ipersonal-ag-ittigen-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -1224,11 +1328,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-ittigen-offene-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch",
+          "reifenpraktiker-100-per-la-region-ittigen-offene-stelle-ipersonal-ag-ittigen"
+        ],
+        "en": [
+          "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch"
+        ],
+        "fr": [
           "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch"
+        "reifenpraktiker-100-fur-die-region-ittigen-offene-stelle-med-ipersonal-ch",
+        "reifenpraktiker-100-per-la-region-ittigen-offene-stelle-ipersonal-ag-ittigen"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -1247,12 +1359,12 @@
     },
     {
       "id": "med-ipersonal-dcf43528defe",
-      "slug": "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-ipersonal-ag-ostermundigen",
+      "slug": "praticanti-pneumatici-100-nella-regione-di-ostermundigen-posizione-vacante-ipersonal-ag-ostermundigen-bern",
       "slugByLocale": {
         "de": "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch",
-        "it": "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-ipersonal-ag-ostermundigen",
-        "en": "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch",
-        "fr": "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch"
+        "it": "praticanti-pneumatici-100-nella-regione-di-ostermundigen-posizione-vacante-ipersonal-ag-ostermundigen-bern",
+        "en": "tire-practitioners-100-in-the-ostermundigen-region-vacant-position-ipersonal-ag-ostermundigen-bern",
+        "fr": "pratiques-de-pneus-100-dans-la-region-d-ostermundige-poste-vacant-ipersonal-ag-ostermundigen-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -1293,11 +1405,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch",
+          "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-ipersonal-ag-ostermundigen"
+        ],
+        "en": [
+          "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch"
+        ],
+        "fr": [
           "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
-        "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch"
+        "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-med-ipersonal-ch",
+        "reifenpraktiker-100-in-der-region-ostermundigen-freie-stelle-ipersonal-ag-ostermundigen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
