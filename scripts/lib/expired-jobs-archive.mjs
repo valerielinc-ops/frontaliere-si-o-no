@@ -249,6 +249,14 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
  * the same slug (the collision class of issue #3734), and an entry without a
  * companyKey claims no route at all rather than merging across companies.
  *
+ * The collapse is greedy and therefore sensitive to the order the conflicts
+ * arrive in, so the entries are visited in a CANONICAL order and the "is this
+ * route somebody else's?" question is answered from a pre-pass index of the
+ * whole input rather than from the incremental one. Both used to be read off
+ * the caller's array: reversing the input changed the output of 4 of the 547
+ * committed slices (measured 2026-09-06), and a survivor could take a route
+ * owned by an entry further down — a 301 to the wrong vacancy.
+ *
  * A merge is applied only when it provably preserves the component's whole
  * route union. Two histories can be too deep to fit the legacy previousSlugs
  * cap, and `promotePreviousSlugToLegacy` correctly refuses to drop the
@@ -262,8 +270,46 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   const namespaced = (entry) => (entry?.companyKey
     ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
     : []);
+  // Entries are visited in a CANONICAL order, not the caller's. The collapse is
+  // greedy — each entry is merged onto the component it already conflicts with —
+  // so the order the conflicts arrive in decides which merges are attempted and
+  // which are refused. Reading that order off the input made the result depend
+  // on it: reversing the input changed the output of 4 of the 547 committed
+  // slices (measured 2026-09-06), and `archiveRemovedJobsToSlice`,
+  // `cleanup-jobs` and `backfill-*` do not all hand over the same order. Newest
+  // first matches the survivor rule below (the most recently expired payload
+  // wins); the slug/companyKey tie-breaks keep two records expired in the same
+  // millisecond from swapping roles.
+  const input = [...entries].sort((a, b) => compareExpiredAt(b?.expiredAt, a?.expiredAt)
+    || String(a?.slug || '').localeCompare(String(b?.slug || ''))
+    || String(a?.companyKey || '').localeCompare(String(b?.companyKey || '')));
   const out = [];
   const owners = new Map();
+  // The incremental index below answers "which SURVIVING entry holds this
+  // route?" — it only ever knows the entries already processed. That is the
+  // right answer for resolving a component, but the wrong one for the
+  // anti-theft check further down, which asks "is this route somebody else's?"
+  // and must count the entries still ahead in the input too. Answering it from
+  // the incremental index made the result depend on input order: a survivor
+  // that gained, via `promotePreviousSlugToLegacy`, a route belonging to a
+  // later entry saw the route as free and stole it (a 301 to the wrong
+  // vacancy). Measured on 2026-09-06, 4 of the 547 committed slices collapsed
+  // differently when the input was reversed. This pre-pass indexes every
+  // namespaced route of every input entry ONCE — O(n), never rebuilt, so the
+  // complexity contract on `keep()` below still holds.
+  const claimants = new Map();
+  for (const entry of input) {
+    for (const route of namespaced(entry)) {
+      let holders = claimants.get(route);
+      if (!holders) claimants.set(route, (holders = new Set()));
+      holders.add(entry);
+    }
+  }
+  // A survivor is a clone, absent from the pre-pass index, so a component
+  // member cannot be matched against it by identity. Track which INPUT entries
+  // each surviving record represents: that is what "my own component" means
+  // once records start merging.
+  const origins = new Map();
   let collapsed = 0;
   let slugsTransferred = 0;
   let unmergeable = 0;
@@ -272,12 +318,13 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   // ~30k-entry aggregate archive, where a full rebuild per entry would be
   // quadratic. An entry whose merge was refused is kept in `out` but claims no
   // route, so a later entry cannot try (and fail) to collapse onto it again.
-  const keep = (entry, { claimsRoutes = true } = {}) => {
+  const keep = (entry, { claimsRoutes = true, represents = [entry] } = {}) => {
     out.push(entry);
+    origins.set(entry, new Set(represents));
     if (claimsRoutes) for (const route of namespaced(entry)) owners.set(route, entry);
   };
 
-  for (const entry of entries) {
+  for (const entry of input) {
     const claimed = new Set(namespaced(entry).map((route) => owners.get(route)).filter(Boolean));
     if (claimed.size === 0) {
       keep(entry);
@@ -289,6 +336,10 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     const component = [...claimed, entry].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
     const required = new Set(component.flatMap(namespaced));
     const survivor = structuredClone(component[0]);
+    const componentOrigins = new Set();
+    for (const member of component) {
+      for (const origin of origins.get(member) ?? [member]) componentOrigins.add(origin);
+    }
     let transferred = 0;
     let merged = true;
     try {
@@ -310,13 +361,24 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     }
     if (merged) {
       const served = new Set(namespaced(survivor));
+      // A gained route is free only if nobody else holds it — neither an
+      // already-surviving record (incremental index) nor an input entry not yet
+      // processed (pre-pass index). Consulting only the first made the verdict
+      // depend on where the other holder happened to sit in the input.
+      const heldByOthers = (route) => {
+        if (owners.has(route)) return true;
+        for (const holder of claimants.get(route) ?? []) {
+          if (!componentOrigins.has(holder)) return true;
+        }
+        return false;
+      };
       // `promotePreviousSlugToLegacy` moves a slug out of its per-locale bucket
       // into flat `previousSlugs`, which the SEO bridge serves under EVERY
       // locale prefix. The survivor can therefore gain routes neither original
       // entry served — and one of those may already belong to a third record.
       // Requiring the union is not enough: the gained routes must be free.
       merged = [...required].every((route) => served.has(route))
-        && [...served].every((route) => required.has(route) || !owners.has(route));
+        && [...served].every((route) => required.has(route) || !heldByOthers(route));
     }
     if (!merged) {
       unmergeable += 1;
@@ -326,6 +388,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     for (let index = out.length - 1; index >= 0; index -= 1) {
       if (!claimed.has(out[index])) continue;
       for (const route of namespaced(out[index])) owners.delete(route);
+      origins.delete(out[index]);
       out.splice(index, 1);
     }
     slugsTransferred += transferred;
@@ -333,7 +396,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     // Safe to re-add wholesale: the survivor was accepted only after proving it
     // serves the component's entire route union, so it re-claims every route
     // just deleted plus its own.
-    keep(survivor);
+    keep(survivor, { represents: componentOrigins });
   }
 
   // A survivor is pushed at the position of the OLDEST member of its component

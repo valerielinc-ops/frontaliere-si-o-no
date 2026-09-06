@@ -26,6 +26,7 @@ import {
   withFileRollback,
 } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import {
+  DEFAULT_PREV_SLUG_CAP,
   getPreviousSlugsForLocale,
   isLegacyRouteCapRefusal,
   LEGACY_PREV_SLUGS_CAP,
@@ -292,6 +293,56 @@ describe('issue #6759 reconciliation', () => {
       broken,
       entry('survivor', '2026-09-01T00:00:00.000Z'),
     ])).toThrow(TypeError);
+  });
+
+  it('does not let a merge steal a route from an entry further down the input', () => {
+    // L'indice delle rotte era costruito INCREMENTALMENTE dentro il loop: al
+    // momento del check anti-furto conosceva solo le voci gia' processate. Un
+    // survivor che, per overflow del cap, vede una rotta promossa a
+    // `previousSlugs` flat — e quindi servita sotto OGNI prefisso di locale —
+    // la trovava libera se il vero proprietario stava piu' a valle nell'input,
+    // e se la prendeva: quell'URL indicizzato finiva a 301 sull'annuncio
+    // sbagliato. Qui `a-middle` fonde con `b-newest` facendo tracimare il
+    // bucket `fr`, lo slug sfrattato diventa legacy piatto e reclama
+    // `de:fr-b-0`, che appartiene a `c-oldest` — l'ultima voce dell'input.
+    const withFrHistory = (slug: string, expiredAt: string, fr: string[]) => ({
+      slug,
+      companyKey: 'acme',
+      expiredAt,
+      slugByLocale: { it: slug } as Record<string, string>,
+      previousSlugsByLocale: { fr, it: ['bridge'] } as Record<string, string[]>,
+    });
+    const input = () => [
+      withFrHistory('b-newest', '2026-09-03T00:00:00.000Z', Array.from({ length: DEFAULT_PREV_SLUG_CAP }, (_, i) => `fr-b-${i}`)),
+      withFrHistory('a-middle', '2026-09-02T00:00:00.000Z', ['ghost-route']),
+      {
+        slug: 'c-oldest',
+        companyKey: 'acme',
+        expiredAt: '2026-09-01T00:00:00.000Z',
+        slugByLocale: { it: 'c-oldest', de: 'fr-b-0' } as Record<string, string>,
+        previousSlugsByLocale: {} as Record<string, string[]>,
+      },
+    ];
+
+    const forward = collapseDuplicateRouteEntries(input());
+    // La fusione avrebbe portato via una rotta di terzi: va rifiutata, non
+    // applicata. `c-oldest` resta una voce sua e continua a servire la rotta.
+    expect(forward.unmergeable).toBe(1);
+    expect(forward.collapsed).toBe(0);
+    expect(forward.entries.map((e) => e.slug).sort()).toEqual(['a-middle', 'b-newest', 'c-oldest']);
+    const stolen = forward.entries.filter((e) => [...localeRouteKeys(e)].includes('de:fr-b-0'));
+    expect(stolen.map((e) => e.slug)).toEqual(['c-oldest']);
+
+    // E l'esito non dipende da dove le voci stanno nell'input: l'insieme delle
+    // rotte servite e' lo stesso a input invertito.
+    const reversed = collapseDuplicateRouteEntries(input().reverse());
+    const routesOf = (result: { entries: Array<Record<string, unknown>> }) => [...new Set(
+      result.entries.flatMap((e) => [...localeRouteKeys(e)].map((r) => `${e.companyKey}::${r}`)),
+    )].sort();
+    expect(routesOf(reversed)).toEqual(routesOf(forward));
+    expect(reversed.entries.map((e) => e.slug).sort()).toEqual(forward.entries.map((e) => e.slug).sort());
+    expect(reversed.collapsed).toBe(forward.collapsed);
+    expect(reversed.unmergeable).toBe(forward.unmergeable);
   });
 
   it('observes a zero-change dry run after repairing the SOH stale-writer resurrection', () => {
