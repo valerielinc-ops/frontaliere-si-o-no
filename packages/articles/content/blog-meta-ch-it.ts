@@ -5743,6 +5743,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-vallese-aliquote.title': 'Imposta di successione e donazione nel Vallese: aliquote',
     'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guida alle imposte di successione e donazione nel Cantone Vallese: struttura cantonale, esenzioni per coniuge e figli, dichiarazione e termini ufficiali.',
     'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Edificio amministrativo cantonale in Vallese con montagne sullo sfondo, rappresenta l\'amministrazione fiscale svizzera',
+    'blog.article.eredita-donazioni-vallese-guida.title': 'Imposta di successione nel Vallese: aliquote e procedure',
+    'blog.article.eredita-donazioni-vallese-guida.excerpt': 'La successione nel Vallese è soggetta a imposte cantonali calcolate per grado di parentela. Coniuge e discendenti hanno esenzioni specifiche. Ecco come funziona e quali procedimenti seguire.',
+    'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Ufficio notarile vallese con documenti legali di successione e vista sulle Alpi',
 };
 
 export default blogMetaChIt;

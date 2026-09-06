@@ -5743,6 +5743,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-vallese-aliquote.title': 'Inheritance and gift tax in Valais: rates',
     'blog.article.imposta-successione-vallese-aliquote.excerpt': 'Guide to inheritance and gift taxes in the Valais Canton: cantonal structure, exemptions for spouse and children, official declaration and terms.',
     'blog.article.imposta-successione-vallese-aliquote.imageAlt': 'Cantonal tax office building in Valais Canton with Alpine mountains in the background, Swiss fiscal administration',
+    'blog.article.eredita-donazioni-vallese-guida.title': 'Inheritance tax in Valais: rates and procedures',
+    'blog.article.eredita-donazioni-vallese-guida.excerpt': 'Succession in Valais is subject to cantonal taxes calculated by degree of kinship. Spouse and descendants have specific exemptions. Here\'s how it works and what procedures to follow.',
+    'blog.article.eredita-donazioni-vallese-guida.imageAlt': 'Valais notary office with succession legal documents and Alpine mountain views',
 };
 
 export default blogMetaChEn;

@@ -17227,6 +17227,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'eredita-donazioni-vallese-guida',
+    category: 'fiscale',
+    date: '2026-09-06T14:17:14.380Z',
+    image: '/images/blog/eredita-donazioni-vallese-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
