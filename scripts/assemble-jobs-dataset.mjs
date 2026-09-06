@@ -71,23 +71,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 let _summaryWritten = false;
 
 /**
- * Ownership held on disk by each key THIS process has already written, as it
- * was BEFORE that write (issue #7618, item 2).
- *
- * The duplicate-identity guard below re-reads the slice directory at every
- * write, so an umbrella crawler that persists several keys in one run
- * (scripts/update-swatchgroup-jobs.mjs: six Swatch Group sub-brands in one
- * loop, all reading one shared vacancy pool) would meet its own first slice as
- * an incumbent when it writes the second — and drop those vacancies, silently,
- * because the loop happened to run in that order. Recording the pre-write set
- * per key lets the guard keep each writer's genuine incumbency and discount
- * only what it gained in this same run.
- *
- * @type {Map<string, Set<string>>}
- */
-const _preRunOwnedUrlsByKey = new Map();
-
-/**
  * Register a process-exit guard that writes a minimal summary if the crawler
  * exits (via early return, process.exit, or uncaught error) before calling
  * writeSummaryCrawlerSlice().
@@ -1968,18 +1951,15 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!process.env.SKIP_OWNERSHIP_GUARD && !options.skipOwnershipGuard) {
     try {
       const ownership = loadSourceHostOwnership(ROOT, { urls: true });
-      // Snapshot this key's pre-write ownership the FIRST time this process
-      // writes it: a retry on the same key must not re-record the state its
-      // own earlier attempt left on disk.
-      // Keyed lowercase, like the ownership index itself.
-      const ownershipKey = crawlerKey.toLowerCase();
-      if (!_preRunOwnedUrlsByKey.has(ownershipKey)) {
-        const mineOnDisk = ownership?.urlsByKey?.get(ownershipKey);
-        _preRunOwnedUrlsByKey.set(ownershipKey, mineOnDisk instanceof Set ? new Set(mineOnDisk) : new Set());
-      }
-      const owned = dropForeignOwnedVacancies(crawlerKey, mergedJobs, ownership, {
-        priorUrlsByKey: _preRunOwnedUrlsByKey,
-      });
+      // The index is re-read at every write, so a key this same process wrote
+      // earlier in the run is an incumbent here — deliberately (issue #7618,
+      // item 2). Whoever writes first keeps the vacancy and it stays published
+      // exactly once; discounting the in-run gain would leave it ownerless and
+      // let this key publish a second copy of a URL already on disk. Moving a
+      // vacancy between keys is a hand-over, and a hand-over has to remove it
+      // from the losing slice: that is reconcile-crawler-company-ownership.mjs,
+      // not a write-time drop.
+      const owned = dropForeignOwnedVacancies(crawlerKey, mergedJobs, ownership);
       if (owned.dropped.length > 0) {
         const byOwner = new Map();
         for (const { owner } of owned.dropped) byOwner.set(owner, (byOwner.get(owner) || 0) + 1);

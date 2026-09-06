@@ -390,19 +390,12 @@ export function matchExistingCrawler(urls, ownership, opts = {}) {
  * @param {string} crawlerKey  key of the slice being written
  * @param {{url?: string}[]} jobs  the payload about to be persisted
  * @param {SourceHostOwnership} ownership  from `loadSourceHostOwnership(root, { urls: true })`
- * @param {object} [options]
- * @param {Map<string, Set<string>>} [options.priorUrlsByKey]  for keys THIS
- *   process has already written in this run: the URL set each of them held on
- *   disk BEFORE that write. A key in this map is an incumbent only for those
- *   URLs — what it gained during this same run is this run's output, not a
- *   prior claim. Omit it and every on-disk slice counts as an incumbent, which
- *   is correct for the one-key-per-process crawlers.
  * @returns {{ jobs: {url?: string}[], dropped: { url: string, owner: string }[] }}
  *   `jobs` filtered to what this crawler may publish, plus what was removed and
  *   to whom it belongs. An empty/unloaded ownership map drops nothing: not
  *   knowing who owns a URL must never be read as "someone else owns it".
  */
-export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership, options = {}) {
+export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership) {
   const mine = String(crawlerKey || '').toLowerCase();
   const urlsByKey = ownership?.urlsByKey;
   if (!mine || !Array.isArray(jobs) || !(urlsByKey instanceof Map)) {
@@ -432,24 +425,32 @@ export function dropForeignOwnedVacancies(crawlerKey, jobs, ownership, options =
 
   // url -> owning key, every key but this one. Built once per call: the
   // alternative, probing each of ~590 key sets per job, is a full scan per job.
-  // Slices this same process wrote earlier in this run (multi-brand umbrella
-  // crawlers do: scripts/update-swatchgroup-jobs.mjs persists six sub-brand
-  // keys in one loop, and the snapshot is re-read from disk at every write).
-  // Their fresh slice is on disk by the time the next key is written, so
-  // without this the FIRST key written would become incumbent for the SECOND
-  // one and the second would silently drop its own vacancies — a loss decided
-  // by loop order, not by who published first. Judging those keys against the
-  // state they had BEFORE this run keeps the answer order-independent while
-  // leaving their genuine, pre-existing incumbency intact.
-  const priorUrlsByKey = options?.priorUrlsByKey instanceof Map ? options.priorUrlsByKey : null;
-
+  //
+  // EVERY key on disk counts, including the ones THIS process wrote a moment
+  // ago (multi-brand umbrella crawlers do: scripts/update-swatchgroup-jobs.mjs
+  // persists six sub-brand keys in one loop, and the snapshot is re-read from
+  // disk at every write). Discounting what a key gained during this same run —
+  // "its fresh slice is this run's output, not a prior claim" — reads well and
+  // is wrong: the URL is already persisted under that key, so annulling its
+  // claim leaves NOBODY owning it and the next key publishes it too. That is
+  // the duplicate this guard exists to stop (issue #6759: two crawler keys on
+  // one vacancy = two company cards for one employer), created by the guard
+  // itself. The condition that triggers such a discount is precisely the one
+  // that produces the duplicate: the same URL in the filtered payload of two
+  // sub-brands of the same run, which SHARED_POOL_BRAND_PATTERNS
+  // (scripts/lib/swatchgroup-brand-filter.mjs) allows because a `company`
+  // string carrying two brand names matches both patterns.
+  //
+  // So an in-run gain is a real claim like any other, and mis-attribution by
+  // loop order is settled by a hand-over that also REMOVES the URL from the
+  // first key's slice (the reconciler's job,
+  // scripts/reconcile-crawler-company-ownership.mjs), never by making the
+  // vacancy ownerless here.
   /** @type {Map<string, string>} */
   const owners = new Map();
   for (const [key, urls] of ownerIndexSource) {
     if (key === mine || !(urls instanceof Set)) continue;
-    const priorUrls = priorUrlsByKey?.get(key);
     for (const url of urls) {
-      if (priorUrls && !priorUrls.has(url)) continue;
       // Lexicographic tie-break so two claimants give a stable answer whatever
       // order readdir returned their slices in.
       const held = owners.get(url);

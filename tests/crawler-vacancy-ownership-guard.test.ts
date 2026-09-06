@@ -122,31 +122,22 @@ describe('#6759 — a vacancy belongs to exactly one crawler', () => {
     expect(result.jobs).toHaveLength(1);
   });
 
-  it('does not let a key this run wrote become incumbent for the next one', () => {
+  it('still owns a URL a key wrote earlier in THIS run — an in-run gain is a claim', () => {
     // Issue #7618, item 2. An umbrella crawler writes several sub-brand keys in
     // ONE process (update-swatchgroup-jobs.mjs: six of them, one shared vacancy
-    // pool). The snapshot is re-read from disk at every write, so the first key
-    // is already on disk when the second is written: without the pre-run set
-    // the second brand would drop its own vacancies because of loop order.
+    // pool) and the index is re-read from disk at every write, so the first key
+    // written is an incumbent for the second. That is loop-order attribution,
+    // and the temptation is to discount what a key gained during this same run.
+    // It must not happen: the URL is already persisted under `comadur`, so
+    // annulling that claim leaves it ownerless and `eta-sa` publishes a SECOND
+    // copy — the two-company-cards-for-one-employer duplicate this guard
+    // exists to stop. Whatever the ownership snapshot's age, one URL keeps
+    // exactly one owner.
     const url = 'https://jobs.example.test/offene-stellen/swatch-shared';
+    // `comadur` held nothing before this run: this slice IS this run's output.
     const ownership = ownershipOf({ comadur: [url] });
-    // comadur held nothing before this run — its slice is this run's output.
-    const priorUrlsByKey = new Map([['comadur', new Set<string>()]]);
 
-    const guarded = dropForeignOwnedVacancies('eta-sa', [{ url }], ownership as never, { priorUrlsByKey });
-
-    expect(guarded.dropped).toEqual([]);
-    expect(guarded.jobs).toHaveLength(1);
-  });
-
-  it('keeps the incumbency a same-run writer already had before this run', () => {
-    // The other half: discounting a fresh gain must not amnesty a real
-    // incumbent just because this process happened to refresh its slice too.
-    const url = 'https://jobs.example.test/offene-stellen/long-published';
-    const ownership = ownershipOf({ comadur: [url] });
-    const priorUrlsByKey = new Map([['comadur', new Set([url])]]);
-
-    const guarded = dropForeignOwnedVacancies('eta-sa', [{ url }], ownership as never, { priorUrlsByKey });
+    const guarded = dropForeignOwnedVacancies('eta-sa', [{ url }], ownership as never);
 
     expect(guarded.dropped).toEqual([expect.objectContaining({ owner: 'comadur' })]);
     expect(guarded.jobs).toHaveLength(0);
