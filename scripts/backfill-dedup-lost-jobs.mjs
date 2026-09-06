@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -434,7 +434,9 @@ function loadExpiredSliceFromDisk(crawlerKey) {
   try {
     const text = fs.readFileSync(slicePath, 'utf8');
     const parsed = JSON.parse(text);
-    return Array.isArray(parsed) ? parsed : [];
+    if (!Array.isArray(parsed)) return [];
+    normalizeExpiredAtEntries(parsed, { source: `backfill-dedup-lost-jobs/${crawlerKey}` });
+    return parsed;
   } catch {
     return [];
   }

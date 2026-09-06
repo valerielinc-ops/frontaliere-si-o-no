@@ -61,7 +61,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
@@ -2710,6 +2710,10 @@ function assembleExpiredJobs() {
       continue;
     }
     totalSliceEntries += entries.length;
+    // Repair before the entries reach the sort + `slice(0, EXPIRED_JOBS_CAP)`
+    // below: `compareExpiredAt` sends an unparseable value to the tail, which
+    // past the cap means the soft landing for a still-indexed URL disappears.
+    normalizeExpiredAtEntries(entries, { source: `assemble/${path.basename(slicePath)}` });
     for (const entry of entries) {
       if (!entry.slug) continue;
       const key = expiredKey(entry);
@@ -2731,6 +2735,7 @@ function assembleExpiredJobs() {
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
   const existingAgg = readJson(DATA_EXPIRED, []);
   if (Array.isArray(existingAgg)) {
+    normalizeExpiredAtEntries(existingAgg, { source: 'assemble/existing-aggregate' });
     for (const entry of existingAgg) {
       if (!entry.slug) continue;
       const key = expiredKey(entry);

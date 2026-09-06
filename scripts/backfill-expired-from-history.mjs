@@ -29,7 +29,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
@@ -167,7 +167,8 @@ function processSlice(sliceFile) {
     }
   }
 
-  if (lostById.size === 0) return { crawlerKey, scannedCommits: sliceCommits.length, lost: 0, added: 0 };
+  // No early return on an empty `lostById`: the existing slice still gets its
+  // ingress repair below, which is the whole point of reading it.
 
   // Read any existing expired slice, merge by slug. We keep entries whose
   // expiredAt is newer (the existing slice may already have entries from
@@ -200,7 +201,21 @@ function processSlice(sliceFile) {
     }
   }
 
-  if (added === 0) return { crawlerKey, scannedCommits: sliceCommits.length, lost: lostById.size, added: 0 };
+  // Repair AFTER the historical merge, never before: stamping the run
+  // timestamp on a legacy entry first would make it the MOST recent one, so
+  // the refresh above would never fire and the degraded payload would keep the
+  // soft landing — the comparator inverts, instead of the entry losing as it
+  // does with an unorderable value.
+  const repaired = normalizeExpiredAtEntries(
+    [...bySlug.values()],
+    { source: `backfill-expired-from-history/${sliceFile}` },
+  );
+
+  // A repair adds no slug, so `added` stays put: write it out anyway,
+  // otherwise the unorderable value survives on disk until an unrelated add.
+  if (added === 0 && repaired === 0) {
+    return { crawlerKey, scannedCommits: sliceCommits.length, lost: lostById.size, added: 0 };
+  }
 
   // Same slug-keyed dedup as the pipeline writers: `bySlug` keeps the CURRENT
   // slug, so two entries whose histories overlap on a locale route both

@@ -29,7 +29,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 // need the same two primitives to stop emitting duplicate routes in the first
 // place. Re-exported here because this module is their historical home and the
 // callers (tests included) import them from it.
-import { localeRouteKeys, transferSlugHistory } from './lib/expired-jobs-archive.mjs';
+import { localeRouteKeys, normalizeExpiredAtEntries, transferSlugHistory } from './lib/expired-jobs-archive.mjs';
 
 export { localeRouteKeys, transferSlugHistory };
 
@@ -399,7 +399,17 @@ function reconcile({ apply = false } = {}) {
       );
       canonicalExpired.jobs = result.jobs;
       assertNoDuplicateRoutesWithin(canonicalExpired.jobs, `${item.retired}->${item.canonical} archive merge`);
-      const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0;
+      // Same ingress repair as the archive writers (#7736), applied AFTER the
+      // component merge above: `compareExpiredAt` orders an unparseable value
+      // last by construction, so it loses the survivor pick to a payload with
+      // a real date — stamping the run timestamp first would invert that and
+      // let the degraded record win. Repairing here still keeps the value from
+      // reaching the EXPIRED_JOBS_CAP cut downstream, which is the point.
+      const repaired = normalizeExpiredAtEntries(
+        canonicalExpired.jobs,
+        { source: `reconcile-expired-slice/${item.canonical}` },
+      );
+      const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0 || repaired > 0;
       if (needsWrite) {
         archiveResult = {
           ...result,
