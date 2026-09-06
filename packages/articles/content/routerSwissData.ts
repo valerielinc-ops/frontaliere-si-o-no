@@ -1904,6 +1904,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'polizia-operazione-goldach': { it: 'polizia-operazione-goldach', en: 'police-operation-goldach', de: 'polizei-einsatz-goldach', fr: 'operation-police-goldach' },
  'permesso-l-breve-durata-canton-vallese': { it: 'permesso-l-breve-durata-canton-vallese', en: 'short-term-permit-canton-valais', de: 'kurzfristige-bewilligung-kanton-wallis', fr: 'permis-de-courte-duree-canton-valais' },
  'assegni-familiari-canton-vallese': { it: 'assegni-familiari-canton-vallese', en: 'family-allowances-canton-valais', de: 'familienzulagen-kanton-wallis', fr: 'allocations-familiales-canton-valais' },
+ 'assegni-familiari-vallese-importi': { it: 'assegni-familiari-vallese-importi', en: 'valais-family-allowances-amounts', de: 'familienzulagen-kanton-wallis-betraege', fr: 'allocations-familiales-valais-montants' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
