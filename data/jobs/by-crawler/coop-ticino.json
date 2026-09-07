@@ -8745,7 +8745,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-ittigen",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-ittigen-bern",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-ittigen-bern",
         "de": "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-t8o74u",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-ittigen"
       },
@@ -8775,7 +8775,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-t8o74u",
           "kochin-koch-w-m-d-coop-genossenschaft-ittigen",
-          "chef-chef-m-f-d-coop-genossenschaft-ittigen-bern"
+          "kochin-koch-w-m-d-coop-genossenschaft-ittigen-bern"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb"
@@ -8790,7 +8790,8 @@
         "chef-chef-m-f-d-coop-genossenschaft-ittigen-bern",
         "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb",
         "chef-cheffe-m-w-d-coop-genossenschaft-ittigen",
-        "kochin-koch-w-m-d-coop-genossenschaft-ittigen"
+        "kochin-koch-w-m-d-coop-genossenschaft-ittigen",
+        "kochin-koch-w-m-d-coop-genossenschaft-ittigen-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -32600,7 +32601,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-bern-0d1192",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-bern",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-bern",
         "de": "kochin-koch-m-w-d-coop-ristorante-bern-5l0uiy",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-bern-0d1192"
       },
@@ -32622,8 +32623,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-bern",
         "kochin-koch-m-w-d-coop-ristorante-bern-5l0uiy",
-        "chef-chef-m-f-d-coop-genossenschaft-bern",
-        "chef-chef-m-f-d-coop-genossenschaft-bern-5l0uiy"
+        "chef-chef-m-f-d-coop-genossenschaft-bern-5l0uiy",
+        "kochin-koch-w-m-d-coop-genossenschaft-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -32632,8 +32633,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-bern-5l0uiy",
-          "chef-chef-m-f-d-coop-genossenschaft-bern",
-          "chef-chef-m-f-d-coop-genossenschaft-bern-5l0uiy"
+          "chef-chef-m-f-d-coop-genossenschaft-bern-5l0uiy",
+          "kochin-koch-w-m-d-coop-genossenschaft-bern"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-bern-5l0uiy"
@@ -76733,7 +76734,7 @@
       "slugByLocale": {
         "it": "bouchere-macellaio-poissonnier-fishman-m-f-d-coop-genossenschaft-crissier-vaud",
         "en": "bouchere-butcher-poissonnier-fishman-m-f-d-coop-genossenschaft-crissier-vaud",
-        "de": "bouchere-butcher-poissonnier-fishman-m-w-d-coop-genossenschaft-crissier-vaud",
+        "de": "bouchere-metzger-fischer-fishman-m-w-d-coop-genossenschaft-crissier-vaud",
         "fr": "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-e3m764"
       },
       "needsRetranslation": true,
@@ -76753,7 +76754,8 @@
       },
       "previousSlugs": [
         "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud",
-        "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-e3m764"
+        "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-e3m764",
+        "bouchere-butcher-poissonnier-fishman-m-w-d-coop-genossenschaft-crissier-vaud"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76764,7 +76766,8 @@
           "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-e3m764"
         ],
         "de": [
-          "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-e3m764"
+          "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-e3m764",
+          "bouchere-butcher-poissonnier-fishman-m-w-d-coop-genossenschaft-crissier-vaud"
         ]
       },
       "salaryMin": 60500,
