@@ -6025,6 +6025,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Rentals in Geneva: average fees and rental rights',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Detailed analysis of the rental market in the Canton of Geneva, with a focus on average rents by area, security deposit, dispute and federal rental rules.',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Real estate market and rents in the Canton of Geneva',
+    'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Security deposit and fee dispute in Geneva',
+    'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'The security deposit may not exceed three months of rent; the dispute of the fee must take place within 30 days with the conciliation authority.',
+    'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Apartment building in Geneva with a \'For Rent\' sign and Alpine backdrop',
 };
 
 export default blogMetaChEn;

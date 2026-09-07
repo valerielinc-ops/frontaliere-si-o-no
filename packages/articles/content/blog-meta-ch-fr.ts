@@ -6025,6 +6025,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Loyers à Genève : loyers moyens et droit de location',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Analyse détaillée du marché locatif dans le canton de Genève, en mettant l\'accent sur les loyers moyens par zone, le dépôt de garantie, la contestation et les règles fédérales de location.',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Marché immobilier et loyers dans le canton de Genève',
+    'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Caution et contestation des redevances à Genève',
+    'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Le dépôt de garantie ne peut excéder trois mois de loyer ; la contestation de la redevance doit avoir lieu dans les 30 jours auprès de l’autorité de conciliation.',
+    'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Immeuble à Genève avec pancarte \'À louer\' et vue sur les Alpes',
 };
 
 export default blogMetaChFr;
