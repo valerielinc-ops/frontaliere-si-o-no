@@ -111,6 +111,27 @@ describe('salto per azienda sterile — scenario marriott (N=2, K=3)', () => {
     expect(a).toBe(b);
   });
 
+  it('armare il salto azzera il contatore: dopo la scadenza servono N righe NUOVE', () => {
+    // È LA convenzione che separa le due simulazioni della stessa regola
+    // (17,8 min in workspace#27 contro 23,9 in workspace#24). Qui è fissata
+    // sull'estremo conservativo: il contatore NON riprende da dove era
+    // rimasto, così un'azienda riparabile non viene risaltata dopo una sola
+    // riga sterile. Se qualcuno la cambia, questo test cade e il guadagno
+    // atteso va rimisurato invece che ereditato.
+    let ledger: Record<string, unknown> = {};
+    ledger = runCascade(ledger, 1, 0).ledger; // sterile 1
+    ledger = runCascade(ledger, 2, 0).ledger; // sterile 2 -> armato
+    expect((ledger.marriott as { sterile: number }).sterile).toBe(0);
+
+    // Run 3-5 saltate, run 6 rientra.
+    for (const run of [3, 4, 5]) expect(runCascade(ledger, run, 0).skipped).toBe(true);
+    const back = runCascade(ledger, 6, 0);
+    expect(back.skipped).toBe(false);
+    // Una SOLA riga sterile dopo il rientro non basta a risaltare.
+    expect((back.ledger.marriott as { sterile: number }).sterile).toBe(1);
+    expect(runCascade(back.ledger, 7, 0).skipped).toBe(false);
+  });
+
   it('N e K restano quelli ratificati dalla simulazione', () => {
     // Cambiarli e' lecito, ma il valore atteso (23,9 min recuperati, 2 cleared
     // persi) e' misurato su questa coppia: va rimisurato, non ereditato.

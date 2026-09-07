@@ -436,10 +436,31 @@ export function shouldStopAfterConsecutiveFailures(
 // alla scadenza, o prima se il testo sorgente dell'azienda e' cambiato.
 //
 // N=2/K=3 dalla simulazione retroattiva sui 10 artifact `translation-thinking-ab`
-// del 2026-09-05/07: 23,9 min sterili recuperati (10,1% della finestra) al
-// prezzo di 2 `cleared` persi. I due persi sono `marriott`, che ha 3 run a
-// zero e poi 1 su ciascuna delle due successive — ed e' anche la prova che il
-// riarmo funziona: rientra alla run successiva alla scadenza.
+// del 2026-09-05/07. Il guadagno atteso e' un INTERVALLO, non un numero: due
+// simulazioni indipendenti sulla stessa serie danno 17,8 min (workspace#27,
+// .agents/references/cascade-short-row-fixed-cost-research.md) e 23,9 min
+// (workspace#24), al prezzo di 2 `cleared` persi. La forbice viene per intero
+// dalla CONVENZIONE DI AZZERAMENTO del contatore, che e' percio' fissata qui
+// esplicitamente invece di essere lasciata implicita nel codice:
+//
+//   1. Qualunque riga con `cleared > 0` DIMENTICA l'azienda (voce cancellata),
+//      non la decrementa soltanto. Vale anche per un `cleared` che arriva dal
+//      retry pass, non solo dal passaggio principale.
+//   2. Quando il salto viene ARMATO, `sterile` torna a 0. Dopo la scadenza
+//      l'azienda deve quindi collezionare N righe sterili NUOVE per essere
+//      saltata di nuovo: il contatore non riprende da dove era rimasto.
+//   3. Una firma sorgente diversa da quella osservata riparte da 1: le righe
+//      contate valevano per un altro testo.
+//
+// E' la convenzione CONSERVATIVA — la (2) e' quella che separa le due stime, e
+// scegliendola questa implementazione punta all'estremo BASSO dell'intervallo,
+// intorno ai 17,8 min. Tenere il contatore attraverso il salto darebbe piu'
+// minuti (un'azienda risaltata dopo una sola riga sterile) ma alza il rischio
+// di tenere fuori un'azienda riparabile, che e' il fallimento che questa
+// regola deve evitare: il prezzo dichiarato e' 2 `cleared` persi, non di piu'.
+//
+// `marriott` — 3 run a zero e poi 1 su ciascuna delle due successive — e' la
+// prova che il riarmo funziona: rientra alla run successiva alla scadenza.
 export const COMPANY_STERILE_RUNS = 2;
 export const COMPANY_SKIP_RUNS = 3;
 
