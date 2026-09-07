@@ -2018,6 +2018,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'nepal-inondazione-lutto-vittime': { it: 'nepal-inondazione-lutto-vittime', en: 'nepal-flood-mourning-victims', de: 'nepal-ueberschwemmung-trauer-opfer', fr: 'nepal-inondation-deuil-victimes' },
  'investito-treno-13-anni-berna': { it: 'investito-treno-13-anni-berna', en: 'fatal-train-accident-berna', de: 'todlicher-zugunfall-berna', fr: 'accident-train-mortel-berne' },
  'affitti-appenzello-interno-canoni': { it: 'affitti-appenzello-interno-canoni', en: 'rent-appenzell-innerrhoden-rental-fees', de: 'mieten-appenzell-innerrhoden-mietpreise', fr: 'loyers-appenzell-rhodes-interieures' },
+ 'seco-mercato-lavoro-svizzero-solido': { it: 'seco-mercato-lavoro-svizzero-solido', en: 'seco-swiss-labor-market-solid', de: 'seco-schweizer-arbeitsmarkt-solid', fr: 'seco-marche-du-travail-suisse-solide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

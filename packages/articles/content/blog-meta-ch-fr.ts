@@ -5977,6 +5977,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-appenzello-interno-canoni.title': 'Location Appenzell Interne : loyers et loyers',
     'blog.article.affitti-appenzello-interno-canoni.excerpt': 'Analyse des loyers moyens dans le canton d\'Appenzell Interne, dépôt de garantie, contestation du loyer et règles fédérales sur la location.',
     'blog.article.affitti-appenzello-interno-canoni.imageAlt': 'Maisons traditionnelles et paysage dans le canton d\'Appenzell Rhodes-Intérieures',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.title': 'Marché du travail en Suisse : le SECO confirme sa solidité',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.excerpt': 'Le marché du travail suisse reste solide malgré les incertitudes. Le chômage en août s\'établit à 3,0 %, avec une augmentation saisonnière chez les jeunes.',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.imageAlt': 'Analyse des données sur le marché du travail suisse publiées par le Seco',
 };
 
 export default blogMetaChFr;

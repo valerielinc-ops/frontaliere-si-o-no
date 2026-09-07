@@ -5977,6 +5977,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-appenzello-interno-canoni.title': 'Affitti Appenzello Interno: canoni e locazione',
     'blog.article.affitti-appenzello-interno-canoni.excerpt': 'Analisi dei canoni medi nel Cantone di Appenzello Interno, deposito cauzionale, contestazione del canone e norme federali sulla locazione.',
     'blog.article.affitti-appenzello-interno-canoni.imageAlt': 'Case tradizionali e paesaggio nel Cantone di Appenzello Interno',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.title': 'Mercato del lavoro in Svizzera: la Seco conferma la solidità',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.excerpt': 'Il mercato del lavoro svizzero resta solido nonostante le incertezze. La disoccupazione in agosto si attesta al 3,0%, con un aumento stagionale tra i giovani.',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.imageAlt': 'Analisi dei dati sul mercato del lavoro in Svizzera pubblicati dalla Seco',
 };
 
 export default blogMetaChIt;
