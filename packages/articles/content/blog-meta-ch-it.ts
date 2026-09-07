@@ -5986,6 +5986,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.posta-svizzera-taglio-posti.title': 'La Posta taglia posti di lavoro: previsti fino a 110 licenziamenti',
     'blog.article.posta-svizzera-taglio-posti.excerpt': 'La Posta prevede di tagliare fino a 110 posti di lavoro per ridurre i costi interni e finanziare a lungo termine il servizio pubblico senza denaro pubblico.',
     'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Edificio della Posta svizzera in un contesto urbano',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Permesso C a Lucerna: requisiti, anni e procedura',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'Come ottenere il permesso di domicilio C nel Canton Lucerna: anni di residenza, integrazione, lingua e procedura di domanda.',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'Vista del centro storico di Lucerna con il Kapellbrücke e il lago',
 };
 
 export default blogMetaChIt;

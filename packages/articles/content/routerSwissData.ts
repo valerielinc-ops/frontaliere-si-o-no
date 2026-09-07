@@ -2021,6 +2021,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'seco-mercato-lavoro-svizzero-solido': { it: 'seco-mercato-lavoro-svizzero-solido', en: 'seco-swiss-labor-market-solid', de: 'seco-schweizer-arbeitsmarkt-solid', fr: 'seco-marche-du-travail-suisse-solide' },
  'permesso-domicilio-c-ginevra': { it: 'permesso-domicilio-c-ginevra', en: 'c-permit-geneva-canton-requirements', de: 'c-bewilligung-kanton-genf-voraussetzungen', fr: 'permis-c-canton-geneve-conditions' },
  'posta-svizzera-taglio-posti': { it: 'posta-svizzera-taglio-posti', en: 'swiss-post-job-cuts', de: 'schweizer-post-stellenabbau', fr: 'poste-suisse-suppression-postes' },
+ 'permesso-c-lucerna-requisiti-domanda': { it: 'permesso-c-lucerna-requisiti-domanda', en: 'lucerne-c-permit-requirements', de: 'lucerne-c-aufenthaltsbewilligung-voraussetzungen', fr: 'permis-c-lucerne-conditions-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -5986,6 +5986,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.posta-svizzera-taglio-posti.title': 'La Poste supprime des emplois : jusqu\'à 110 licenciements prévus',
     'blog.article.posta-svizzera-taglio-posti.excerpt': 'La Poste prévoit de supprimer jusqu\'à 110 emplois pour réduire les coûts internes et financer à long terme le service public sans argent public.',
     'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Bâtiment de la Poste suisse en milieu urbain',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Permis C à Lucerne : exigences, années et procédure',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'Comment obtenir le permis de séjour C dans le canton de Lucerne : années de résidence, intégration, langue et procédure de demande.',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'Vue de la vieille ville de Lucerne avec le pont de la Chapelle et le lac',
 };
 
 export default blogMetaChFr;

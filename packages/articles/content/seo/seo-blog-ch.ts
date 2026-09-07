@@ -77708,6 +77708,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-c-lucerna-requisiti-domanda': {
+    title: 'Permesso C a Lucerna: requisiti, anni e procedura',
+    description: 'Permesso di domicilio C nel Canton Lucerna: anni richiesti, integrazione, lingua, procedura di domanda e casi di rilascio anticipato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, lucerna, requisiti, anni',
+    ogTitle: 'Permesso C a Lucerna: requisiti e procedura',
+    ogDescription: 'Tutto sul permesso di domicilio C nel Canton Lucerna: 10 anni di residenza (5 per UE/AELS), conoscenza del tedesco, integrazione economica e procedura di domanda al comune di residenza.',
+    canonicalPath: '/articoli-svizzera/permesso-c-lucerna-requisiti-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C a Lucerna: requisiti, anni e procedura",
+      "description": "Permesso di domicilio C nel Canton Lucerna: anni richiesti, integrazione, lingua, procedura di domanda e casi di rilascio anticipato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-lucerna-requisiti-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del centro storico di Lucerna con il Kapellbrücke e il lago"
+      },
+      "datePublished": "2026-09-07T14:57:12+00:00",
+      "dateModified": "2026-09-07T14:57:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-lucerna-requisiti-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
