@@ -11556,6 +11556,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula nominato direttore IRE USI dal 2026',
     'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'L\'economista specializzato in previdenza e finanza familiare guiderà l\'Istituto di ricerche economiche dell\'USI dal 1° settembre 2026.',
     'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'Campus USI a Lugano con vista sul lago',
+    'blog.article.morazzone-tante-care-cose-2026.title': 'Morazzone - torna “tante care cose” a casa macchi',
+    'blog.article.morazzone-tante-care-cose-2026.excerpt': 'Sabato 12 e domenica 13 settembre, Casa Macchi ospita una nuova edizione del mercato dedicato a rigatterie, antiquariato e modernariato.',
+    'blog.article.morazzone-tante-care-cose-2026.imageAlt': 'Mercato di rigatterie e anticaglie a Casa Macchi, Morazzone',
 };
 
 export default blogMetaIt;

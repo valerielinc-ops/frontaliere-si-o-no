@@ -11554,6 +11554,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula ab 2026 zum Direktor DER USI ernannt',
     'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'Der auf Vorsorge und Familienfinanzierung spezialisierte Ökonom wird ab dem 1. September 2026 das Institut für Wirtschaftsforschung der USI leiten.',
     'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'USI-Campus in Lugano mit Seeblick',
+    'blog.article.morazzone-tante-care-cose-2026.title': 'Morazzone - „viele liebe Dinge“ kehren nach Hause zurück',
+    'blog.article.morazzone-tante-care-cose-2026.excerpt': 'Am Samstag, den 12. und Sonntag, den 13. September, veranstaltet Casa Macchi eine neue Ausgabe des Marktes für Batterien, Antiquitäten und Modernität.',
+    'blog.article.morazzone-tante-care-cose-2026.imageAlt': 'Markt für Antiquitäten und Vintage-Artikel in Casa Macchi, Morazzone',
 };
 
 export default blogMetaDe;

@@ -11555,6 +11555,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula appointed IRE USI director since 2026',
     'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'The economist specialising in retirement and family finance will lead the USI Economic Research Institute from 1 September 2026.',
     'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'USI campus in Lugano overlooking the lake',
+    'blog.article.morazzone-tante-care-cose-2026.title': 'Morazzone - "many dear things" return home macchi',
+    'blog.article.morazzone-tante-care-cose-2026.excerpt': 'On Saturday 12 and Sunday 13 September, Casa Macchi hosts a new edition of the market dedicated to garbage, antiques and modernity.',
+    'blog.article.morazzone-tante-care-cose-2026.imageAlt': 'Market of vintage items and antiques at Casa Macchi, Morazzone',
 };
 
 export default blogMetaEn;
