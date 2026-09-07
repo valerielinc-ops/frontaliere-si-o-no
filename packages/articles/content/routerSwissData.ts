@@ -1975,6 +1975,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'startup-crypto-difficolta-bancarie': { it: 'startup-crypto-difficolta-bancarie', en: 'crypto-startup-banking-difficulties', de: 'krypto-startup-banken-probleme', fr: 'startup-crypto-difficultes-bancaires' },
  'avs-integrazioni-canton-berna': { it: 'avs-integrazioni-canton-berna', en: 'avs-integrations-canton-berna', de: 'ahv-zulagen-kanton-bern', fr: 'ava-allocations-canton-berne' },
  'riassetto-vw-impatti-svizzera': { it: 'riassetto-vw-impatti-svizzera', en: 'vw-reorganization-impact-switzerland', de: 'vw-umbau-auswirkungen-schweiz', fr: 'reorganisation-vw-impact-suisse' },
+ 'fondazione-beloved-primi-versamenti': { it: 'fondazione-beloved-primi-versamenti', en: 'beloved-foundation-first-payments', de: 'beloved-stiftung-erste-auszahlungen', fr: 'fondation-beloved-premiers-versements' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -17542,6 +17542,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'fondazione-beloved-primi-versamenti',
+    category: 'novita',
+    date: '2026-09-07T05:34:07.963Z',
+    image: '/images/blog/fondazione-beloved-primi-versamenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
