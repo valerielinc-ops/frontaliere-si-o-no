@@ -7693,12 +7693,12 @@
     },
     {
       "id": "ksb-dcfda9d76ca3",
-      "slug": "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden",
+      "slug": "emergenza-interdisciplinare-sanitaria-70-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden",
-        "en": "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch",
+        "it": "emergenza-interdisciplinare-sanitaria-70-100-kantonsspital-baden-ksb-baden",
+        "en": "health-interdisciplinary-emergency-70-100-kantonsspital-baden-ksb-baden",
         "de": "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch",
-        "fr": "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch"
+        "fr": "sante-urgence-interdisciplinaire-70-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7740,10 +7740,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch"
+        "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch",
+        "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch",
+          "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch"
         ]
       },

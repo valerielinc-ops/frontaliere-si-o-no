@@ -130,7 +130,7 @@
       },
       "slugByLocale": {
         "it": "stv-responsabile-food-coop-city-thun-bern-amzsqe",
-        "en": "stv-leiter-in-food-coop-city-thun-bern-amzsqe",
+        "en": "deputy-manager-food-coop-genossenschaft-thun",
         "de": "stv-leiter-in-food-coop-city-thun-bern-amzsqe",
         "fr": "stv-leiter-dans-la-nourriture-coop-genossenschaft-thun"
       },
@@ -157,6 +157,9 @@
         ],
         "it": [
           "stv-leiter-in-food-coop-city-thun-bern"
+        ],
+        "en": [
+          "stv-leiter-in-food-coop-city-thun-bern-amzsqe"
         ]
       },
       "previousSlugs": [
@@ -167,7 +170,7 @@
     },
     {
       "id": "company-38ep9h",
-      "slug": "polydesigner-in-3d-coop-city-zurich",
+      "slug": "polidesigner-3d-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Polydesigner:in 3D",
       "location": "Zürich",
@@ -213,8 +216,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "polydesigner-in-3d-coop-city-zurich-38ep9h",
-        "en": "polydesigner-in-3d-coop-city-zurich-38ep9h",
+        "it": "polidesigner-3d-coop-genossenschaft-zurich",
+        "en": "3d-poly-designer-coop-genossenschaft-zurich",
         "de": "polydesigner-in-3d-coop-city-zurich-38ep9h",
         "fr": "polydesigner-in-3d-coop-city-zurich-38ep9h"
       },
@@ -235,7 +238,20 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "polydesigner-in-3d-coop-city-zurich-38ep9h",
+          "polydesigner-in-3d-coop-city-zurich"
+        ],
+        "en": [
+          "polydesigner-in-3d-coop-city-zurich-38ep9h"
+        ]
+      },
+      "previousSlugs": [
+        "polydesigner-in-3d-coop-city-zurich-38ep9h",
+        "polydesigner-in-3d-coop-city-zurich"
+      ]
     },
     {
       "id": "company-kw0lwh",
@@ -286,7 +302,7 @@
       },
       "slugByLocale": {
         "it": "polydesigner-3d-m-f-d-coop-genossenschaft-schaffhausen",
-        "en": "polydesigner-3d-m-w-d-coop-city-schaffhausen-kw0lwh",
+        "en": "poly-3d-designer-m-f-d-coop-genossenschaft-schaffhausen",
         "de": "polydesigner-3d-m-w-d-coop-city-schaffhausen-kw0lwh",
         "fr": "polydesigner-3d-h-f-d-coop-genossenschaft-schaffhausen"
       },
@@ -313,6 +329,9 @@
           "polydesigner-3d-m-w-d-coop-city-schaffhausen"
         ],
         "fr": [
+          "polydesigner-3d-m-w-d-coop-city-schaffhausen-kw0lwh"
+        ],
+        "en": [
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-kw0lwh"
         ]
       },
@@ -32641,7 +32660,6 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-bern",
         "kochin-koch-m-w-d-coop-ristorante-bern-5l0uiy",
-        "chef-chef-m-f-d-coop-genossenschaft-bern-5l0uiy",
         "kochin-koch-w-m-d-coop-genossenschaft-bern",
         "chef-chef-m-f-d-coop-genossenschaft-bern"
       ],
@@ -32652,7 +32670,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-bern-5l0uiy",
-          "chef-chef-m-f-d-coop-genossenschaft-bern-5l0uiy",
           "kochin-koch-w-m-d-coop-genossenschaft-bern",
           "chef-chef-m-f-d-coop-genossenschaft-bern"
         ],

@@ -3535,12 +3535,12 @@
     },
     {
       "id": "unibe-d3b32fb5a651",
-      "slug": "assistenzprofessur-con-tenure-track-open-rank-o-ausserordentliche-professur-per-palliativmedizin-verbunden-con-der-stelle-der-chefarztin-chefarztes-des-uzp-universitat-bern",
+      "slug": "professore-aggiunto-con-tenure-track-open-rank-o-professore-straordinario-per-medicina-palliativa-collegata-alla",
       "slugByLocale": {
-        "it": "assistenzprofessur-con-tenure-track-open-rank-o-ausserordentliche-professur-per-palliativmedizin-verbunden-con-der-stelle-der-chefarztin-chefarztes-des-uzp-universitat-bern",
-        "en": "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur",
+        "it": "professore-aggiunto-con-tenure-track-open-rank-o-professore-straordinario-per-medicina-palliativa-collegata-alla",
+        "en": "assistant-professorship-with-tenure-track-open-rank-or-extraordinary-professorship-for-palliative-medicine-connected-to",
         "de": "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur",
-        "fr": "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur"
+        "fr": "professeur-adjoint-titulaire-d-une-piste-d-occupation-ou-d-une-chaire-extraordinaire-de-medecine-palliative-liee-au"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3583,10 +3583,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur"
+        "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur",
+        "assistenzprofessur-con-tenure-track-open-rank-o-ausserordentliche-professur-per-palliativmedizin-verbunden-con-der-stelle-der-chefarztin-chefarztes-des-uzp-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur",
+          "assistenzprofessur-con-tenure-track-open-rank-o-ausserordentliche-professur-per-palliativmedizin-verbunden-con-der-stelle-der-chefarztin-chefarztes-des-uzp-universitat-bern"
+        ],
+        "en": [
+          "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur"
+        ],
+        "fr": [
           "assistenzprofessur-mit-tenure-track-open-rank-oder-ausserordentliche-professur-fur"
         ]
       },
@@ -3607,12 +3615,12 @@
     },
     {
       "id": "unibe-8bf5752477f0",
-      "slug": "assistant-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative",
+      "slug": "professore-aggiunto-con-tenure-track-open-rank-o-professore-associato-di-medicina-palliativa-combinato-con-il-ruolo-di",
       "slugByLocale": {
-        "it": "assistant-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative",
+        "it": "professore-aggiunto-con-tenure-track-open-rank-o-professore-associato-di-medicina-palliativa-combinato-con-il-ruolo-di",
         "en": "assistant-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative",
-        "de": "assistent-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative-medicine-combined-with-the-role-of",
-        "fr": "assistant-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative"
+        "de": "assistant-professor-mit-tenure-track-offener-rang-oder-associate-professor-fur-palliativmedizin-kombiniert-mit-der-rolle",
+        "fr": "professeur-adjoint-titulaire-d-une-piste-d-occupation-de-grade-ouvert-ou-professeur-associe-de-medecine-palliative"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3667,7 +3675,22 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative"
+        ],
+        "de": [
+          "assistent-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative-medicine-combined-with-the-role-of"
+        ],
+        "fr": [
+          "assistant-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative",
+        "assistent-professor-with-tenure-track-open-rank-or-associate-professor-of-palliative-medicine-combined-with-the-role-of"
+      ]
     },
     {
       "id": "unibe-74c8785c52cb",
@@ -3675,7 +3698,7 @@
       "slugByLocale": {
         "it": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor",
         "en": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor",
-        "de": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor",
+        "de": "stiftungsprofessur-neuromorphe-systeme-am-institut-fur-physiologie-geber-manfred-stark-fdn-fur-hirnforschung-br",
         "fr": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor"
       },
       "company": "Universität Bern",
@@ -4132,7 +4155,7 @@
         "it": "assistente-junior-universitat-bern-bern",
         "en": "junior-assistant-unibe-bern",
         "de": "junior-assistent-universitat-bern-bern",
-        "fr": "junior-assistant-universitat-bern-bern"
+        "fr": "assistant-auxiliaire-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4179,7 +4202,7 @@
         "junior-assistent-universitat-bern-bern",
         "junior-assistant-unibe-bern-2",
         "junior-assistant-unibe-bern",
-        "assistant-auxiliaire-universitat-bern-bern"
+        "junior-assistant-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4192,7 +4215,7 @@
           "junior-assistant-unibe-bern"
         ],
         "fr": [
-          "assistant-auxiliaire-universitat-bern-bern"
+          "junior-assistant-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:48:34.901Z",
@@ -4373,7 +4396,7 @@
         "it": "assistente-nei-social-media-comunicazione-e-supporto-alla-gestione-dei-progetti-40-60-universitat-bern-bern",
         "en": "assistant-in-social-media-communication-and-project-management-support-40-60-universitat-bern-bern",
         "de": "hilfsassistent-in-social-media-kommunikation-und-projektmanagementsupport-40-60-unibe-bern",
-        "fr": "hilfsassistent-in-social-media-kommunikation-und-projektmanagementsupport-40-60-universitat-bern-bern"
+        "fr": "assistant-en-medias-sociaux-communication-et-soutien-a-la-gestion-de-projets-40-60-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4420,7 +4443,7 @@
         "hilfsassistent-in-social-media-kommunikation-e-projektmanagementsupport-40-60-9n3bfx",
         "hilfsassistent-in-social-media-kommunikation-e-projektmanagementsupport-40-60-universitat-bern",
         "hilfsassistent-in-social-media-kommunikation-und-projektmanagementsupport-40-60-universitat-bern",
-        "assistant-en-medias-sociaux-communication-et-soutien-a-la-gestion-de-projets-40-60-universitat-bern-bern"
+        "hilfsassistent-in-social-media-kommunikation-und-projektmanagementsupport-40-60-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4434,7 +4457,7 @@
         "fr": [
           "hilfsassistent-in-social-media-kommunikation-und-projektmanagementsupport-40-60-unibe-bern",
           "hilfsassistent-in-social-media-kommunikation-und-projektmanagementsupport-40-60-universitat-bern",
-          "assistant-en-medias-sociaux-communication-et-soutien-a-la-gestion-de-projets-40-60-universitat-bern-bern"
+          "hilfsassistent-in-social-media-kommunikation-und-projektmanagementsupport-40-60-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:48:34.895Z",

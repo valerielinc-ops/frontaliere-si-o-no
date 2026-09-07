@@ -14572,9 +14572,9 @@
     },
     {
       "id": "lonza-045577eca5db",
-      "slug": "chemist-project-leader-quality-control-f-m-d-lonza-ch",
+      "slug": "chemist-project-leader-controllo-qualita-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "chemist-project-leader-quality-control-f-m-d-lonza-ch",
+        "it": "chemist-project-leader-controllo-qualita-m-f-d-lonza-ch",
         "en": "chemist-project-leader-quality-control-f-m-d-lonza-ch",
         "de": "chemist-project-leader-quality-control-f-m-d-lonza-ch",
         "fr": "chemist-project-leader-quality-control-f-m-d-lonza-ch"
@@ -14631,16 +14631,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "chemist-project-leader-quality-control-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chemist-project-leader-quality-control-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-850706ac5b3f",
-      "slug": "process-expert-cleaning-80-100-lonza-ch",
+      "slug": "esperto-di-processo-pulizia-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "process-expert-cleaning-80-100-lonza-ch",
+        "it": "esperto-di-processo-pulizia-80-100-lonza-ch",
         "en": "process-expert-cleaning-80-100-lonza-ch",
-        "de": "process-expert-cleaning-80-100-lonza-ch",
-        "fr": "process-expert-cleaning-80-100-lonza-ch"
+        "de": "prozessexperte-reinigung-80-100-lonza-ch",
+        "fr": "expert-en-procedes-nettoyage-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14695,7 +14703,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-expert-cleaning-80-100-lonza-ch"
+        ],
+        "de": [
+          "process-expert-cleaning-80-100-lonza-ch"
+        ],
+        "fr": [
+          "process-expert-cleaning-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "process-expert-cleaning-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-aadebb42515a",

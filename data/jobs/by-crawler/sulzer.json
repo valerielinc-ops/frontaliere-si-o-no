@@ -24290,12 +24290,12 @@
     },
     {
       "id": "sulzer-237f09877d74",
-      "slug": "welder-fabricator-sulzer-ch",
+      "slug": "tessuto-per-saldatori-sulzer-santa-ana",
       "slugByLocale": {
-        "it": "welder-fabricator-sulzer-ch",
+        "it": "tessuto-per-saldatori-sulzer-santa-ana",
         "en": "welder-fabricator-sulzer-ch",
-        "de": "welder-fabricator-sulzer-ch",
-        "fr": "welder-fabricator-sulzer-ch"
+        "de": "schwei-erfabrikator-sulzer-santa-ana",
+        "fr": "fabrication-de-soudeurs-sulzer-santa-ana"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -24348,16 +24348,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "welder-fabricator-sulzer-ch"
+        ],
+        "de": [
+          "welder-fabricator-sulzer-ch"
+        ],
+        "fr": [
+          "welder-fabricator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "welder-fabricator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-4085b159c2e4",
-      "slug": "journeylevel-machinist-sulzer-ch",
+      "slug": "macchinista-a-livello-di-viaggio-sulzer-odessa",
       "slugByLocale": {
-        "it": "journeylevel-machinist-sulzer-ch",
+        "it": "macchinista-a-livello-di-viaggio-sulzer-odessa",
         "en": "journeylevel-machinist-sulzer-ch",
-        "de": "journeylevel-machinist-sulzer-ch",
-        "fr": "journeylevel-machinist-sulzer-ch"
+        "de": "journeylevel-maschinist-sulzer-odessa",
+        "fr": "machiniste-de-niveau-voyage-sulzer-odessa"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -24410,7 +24424,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "journeylevel-machinist-sulzer-ch"
+        ],
+        "de": [
+          "journeylevel-machinist-sulzer-ch"
+        ],
+        "fr": [
+          "journeylevel-machinist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "journeylevel-machinist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-df1787f602f2",
