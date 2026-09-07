@@ -5944,6 +5944,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.title': 'Why Switzerland does not sanction the United States for the attack on Iran',
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.excerpt': 'Ignazio Cassis explains that every war is different and that Switzerland cannot condemn the actions of the United States without demonstrating concrete facts.',
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.imageAlt': 'Autumn aerial view of Berna from the Swiss Alps, featuring the Federal Palace in the foreground and the Eiger mountain in the background.',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.title': 'Free workshop on AI for the elderly in Lugano',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.excerpt': 'The OCST Union organises a free workshop on artificial intelligence for the elderly on 11 September 2024 in Lugano.',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.imageAlt': 'Group of seniors learning artificial intelligence in a laboratory in Lugano',
 };
 
 export default blogMetaChEn;
