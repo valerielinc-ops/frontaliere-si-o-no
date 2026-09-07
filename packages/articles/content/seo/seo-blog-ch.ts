@@ -76967,6 +76967,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bepi-colombo-missione-mercurio': {
+    title: 'BepiColombo verso Mercurio: la missione nella fase cruciale',
+    description: 'Dopo otto anni e oltre 10 miliardi di chilometri, la missione BepiColombo si prepara all\'inserimento orbitale di Mercurio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, bepicolombo, verso, mercurio, missione',
+    ogTitle: 'BepiColombo verso Mercurio: la missione nella fase cruciale',
+    ogDescription: 'Dopo otto anni e oltre 10 miliardi di chilometri, la missione BepiColombo si prepara all\'inserimento orbitale di Mercurio. Scopri le sfide e le innovazioni di questa missione congiunta dell\'ESA e della JAXA.',
+    canonicalPath: '/articoli-svizzera/bepi-colombo-missione-mercurio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BepiColombo verso Mercurio: la missione nella fase cruciale",
+      "description": "Dopo otto anni e oltre 10 miliardi di chilometri, la missione BepiColombo si prepara all'inserimento orbitale di Mercurio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bepi-colombo-missione-mercurio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La sonda BepiColombo si avvicina a Mercurio"
+      },
+      "datePublished": "2026-09-07T11:30:16+00:00",
+      "dateModified": "2026-09-07T11:30:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bepi-colombo-missione-mercurio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

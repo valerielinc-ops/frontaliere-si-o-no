@@ -5929,6 +5929,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-svizzera-27-settembre.title': 'Neutrality: on September 27 we choose Switzerland',
     'blog.article.neutralita-svizzera-27-settembre.excerpt': 'The September 27 vote on Swiss neutrality: what it means and what the implications are for the country\'s future.',
     'blog.article.neutralita-svizzera-27-settembre.imageAlt': 'Panoramic view of Lugano, Switzerland',
+    'blog.article.bepi-colombo-missione-mercurio.title': 'BepiColombo towards Mercury: the mission in the crucial phase',
+    'blog.article.bepi-colombo-missione-mercurio.excerpt': 'After eight years and more than 10 billion kilometers, the BepiColombo mission is preparing for the orbital insertion of Mercury.',
+    'blog.article.bepi-colombo-missione-mercurio.imageAlt': 'The BepiColombo spacecraft approaching Mercury',
 };
 
 export default blogMetaChEn;
