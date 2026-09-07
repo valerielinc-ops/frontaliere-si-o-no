@@ -5830,6 +5830,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.title': 'Permis de séjour B dans le canton de Thurgovie : exigences et renouvellement',
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.excerpt': 'Découvrez les conditions et la procédure de renouvellement du permis de séjour B dans le canton de Thurgovie.',
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.imageAlt': 'Bureau cantonal de l\'immigration en Turgovie',
+    'blog.article.permesso-l-breve-durata-turgovia.title': 'Permis L courte durée Thurgovie : prorogation et renouvellement',
+    'blog.article.permesso-l-breve-durata-turgovia.excerpt': 'Le permis L permet de travailler en Suisse pour des périodes allant jusqu\'à un an. Découvrez comment cela fonctionne en Thurgovie, les conditions de prolongation et le passage au permis B.',
+    'blog.article.permesso-l-breve-durata-turgovia.imageAlt': 'Bureau administratif suisse avec dossiers de permis de travail de courte duree',
 };
 
 export default blogMetaChFr;

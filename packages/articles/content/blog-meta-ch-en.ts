@@ -5830,6 +5830,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.title': 'Residence permit B in the Canton of Thurgau: requirements and renewal',
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.excerpt': 'Learn about the requirements and procedure for renewing a B residence permit in the Canton of Thurgau.',
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.imageAlt': 'Cantonal immigration office in Turgovia',
+    'blog.article.permesso-l-breve-durata-turgovia.title': 'Permit L short duration Thurgau: extension and renewal',
+    'blog.article.permesso-l-breve-durata-turgovia.excerpt': 'The L permit allows you to work in Switzerland for periods of up to one year. Find out how it works in Thurgau, the extension conditions and the switch to the B permit.',
+    'blog.article.permesso-l-breve-durata-turgovia.imageAlt': 'Swiss administrative office with temporary work permit L forms and documents',
 };
 
 export default blogMetaChEn;

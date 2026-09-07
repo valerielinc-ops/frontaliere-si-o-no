@@ -75680,6 +75680,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-turgovia': {
+    title: 'Permesso L breve durata Turgovia: proroga e rinnovo',
+    description: 'Guida al permesso L di breve durata in Turgovia: durata massima 1 anno, condizioni di proroga, passaggio al permesso B e vincoli legati al datore di lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, breve, durata, turgovia',
+    ogTitle: 'Permesso L Turgovia: validita, proroga e rinnovo',
+    ogDescription: 'Come funziona il permesso L di breve durata in Turgovia? Guida completa su validita massima (1 anno), proroga, passaggio al permesso B e vincoli del datore di lavoro in Svizzera.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-turgovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L breve durata Turgovia: proroga e rinnovo",
+      "description": "Guida al permesso L di breve durata in Turgovia: durata massima 1 anno, condizioni di proroga, passaggio al permesso B e vincoli legati al datore di lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-turgovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con moduli per permesso L di breve durata"
+      },
+      "datePublished": "2026-09-07T03:58:39+00:00",
+      "dateModified": "2026-09-07T03:58:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-turgovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

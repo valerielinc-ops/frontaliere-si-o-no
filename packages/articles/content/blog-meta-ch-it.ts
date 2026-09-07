@@ -5830,6 +5830,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.title': 'Permesso di dimora B nel Cantone di Turgovia: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.excerpt': 'Scopri i requisiti e la procedura per il rinnovo del permesso di dimora B nel Cantone di Turgovia.',
     'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.imageAlt': 'Ufficio cantonale della migrazione in Turgovia',
+    'blog.article.permesso-l-breve-durata-turgovia.title': 'Permesso L breve durata Turgovia: proroga e rinnovo',
+    'blog.article.permesso-l-breve-durata-turgovia.excerpt': 'Il permesso L consente di lavorare in Svizzera per periodi fino a un anno. Scopri come funziona in Turgovia, le condizioni di proroga e il passaggio al permesso B.',
+    'blog.article.permesso-l-breve-durata-turgovia.imageAlt': 'Ufficio amministrativo svizzero con moduli per permesso L di breve durata',
 };
 
 export default blogMetaChIt;
