@@ -34482,6 +34482,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tram-treno-lugano-lavori-inizio',
+ category: 'novita',
+ date: '2026-09-07T10:00:13.893Z',
+ image: '/images/blog/tram-treno-lugano-lavori-inizio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-07',
+ category: 'novita',
+ date: '2026-09-07T10:02:12.831Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-07.webp',
+ hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11544,6 +11544,14 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luganese-tram-treno-cantieri-2035.title': 'Lugano Tram-Train: First sites in October, operational by 2035',
     'blog.article.luganese-tram-treno-cantieri-2035.excerpt': 'Preliminary work will start at the end of October 2026 on the section between Manno and Bioggio.',
     'blog.article.luganese-tram-treno-cantieri-2035.imageAlt': 'Aerial view of Lugano with the new Tram-Train network under construction',
+    'blog.article.tram-treno-lugano-lavori-inizio.title': 'Construction of the Lugano tram-train begins',
+    'blog.article.tram-treno-lugano-lavori-inizio.excerpt': 'Preliminary work for the Luganese tram-train will begin at the end of October 2026 on the Bioggio-Manno section.',
+    'blog.article.tram-treno-lugano-lavori-inizio.imageAlt': 'Aerial view of Lugano with tram-train tracks under construction',
+    'blog.article.bollettino-frontaliere-2026-09-07.title': 'Cross-border daily brief – September 7, 2026: 118 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-07.excerpt': 'Today\'s numbers, September 7, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-07.imageAlt': 'The day\'s numbers for cross-border commuters – September 7, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-07.seoDescription': 'Cross-border brief, September 7, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-07.ogDescription': 'The numbers for September 7, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
