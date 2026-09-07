@@ -5950,6 +5950,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Genf: Voraussetzungen und Verlängerung',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'Alles zur Erlangung und Erneuerung der Aufenthaltsbewilligung B im Kanton Genf: Voraussetzungen, Dokumente und Verfahren.',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Luftbild von Genf mit See und Bergen im Hintergrund',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.title': 'KI-Auswirkung auf Telekommunikationsmitarbeiter, Syndicom formuliert Ansprüche',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.excerpt': 'Ecoplan-Studie für Syndicom: KI steigert Effizienz, aber auch Arbeitsdruck, Mitarbeiter fordern mehr Schulung und Transparenz',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.imageAlt': 'Moderne Arbeitsstätte in der Schweiz mit Mitarbeitern, die um einen Computer mit AI-bezogenen Daten und Diagrammen zusammenarbeiten',
 };
 
 export default blogMetaChDe;

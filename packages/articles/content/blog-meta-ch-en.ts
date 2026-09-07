@@ -5950,6 +5950,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Residence permit B in the Canton of Geneva: requirements and renewal',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'All about how to obtain and renew the residence permit B in the Canton of Geneva: requirements, documents and procedures.',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Aerial view of Geneva with lake and mountains in the background',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.title': 'AI Impact on Telecom Employees, Syndicom Formulates Claims',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.excerpt': 'Ecoplan study for Syndicom: AI increases efficiency but also work pressure, employees demand more training and transparency',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.imageAlt': 'Modern office in Switzerland with employees collaborating around a computer showing AI-related data and diagrams',
 };
 
 export default blogMetaChEn;

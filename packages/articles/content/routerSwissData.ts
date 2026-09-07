@@ -2009,6 +2009,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-sanzioni-stati-uniti-ignazio-cassis': { it: 'svizzera-sanzioni-stati-uniti-ignazio-cassis', en: 'switzerland-sanctions-usa-ignazio-cassis', de: 'schweiz-sanktionen-usa-ignazio-cassis', fr: 'suisse-sanctions-usa-ignazio-cassis' },
  'laboratorio-intelligenza-artificiale-terza-eta': { it: 'laboratorio-intelligenza-artificiale-terza-eta', en: 'artificial-intelligence-workshop-for-seniors', de: 'kuenstliche-intelligenz-workshop-fuer-senioren', fr: 'atelier-intelligence-artificielle-pour-seniors' },
  'permesso-dimora-b-canton-ginevra-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-ginevra-requisiti-rinnovo', en: 'residence-permit-b-canton-geneva-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-genf-anforderungen-erneuerung', fr: 'permis-de-sejour-b-canton-geneve-exigences-renouvellement' },
+ 'impatto-ia-dipendenti-telecom-syndicom-rivendicazioni': { it: 'impatto-ia-dipendenti-telecom-syndicom-rivendicazioni', en: 'impact-ai-telecom-workers-syndicom-demand', de: 'auswirkung-kuenstliche-intelligenz-telekommitarbeiter-syndicom-forderungen', fr: 'impact-intelligence-artificielle-employes-telecom-syndicom-revendications' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

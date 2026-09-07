@@ -5950,6 +5950,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Permesso di dimora B nel Canton Ginevra: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'Tutto su come ottenere e rinnovare il permesso di dimora B nel Canton Ginevra: requisiti, documenti e procedure.',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Vista aerea di Ginevra con il lago e le montagne sullo sfondo',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.title': 'Impatto IA su dipendenti telecom, Syndicom formula rivendicazioni',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.excerpt': 'Studio Ecoplan per Syndicom: IA aumenta efficienza ma anche pressione lavorativa, dipendenti chiedono più formazione e trasparenza',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.imageAlt': 'Ufficio moderno in Svizzera con dipendenti che collaborano intorno a un computer con dati e diagrammi relativi all\'IA',
 };
 
 export default blogMetaChIt;
