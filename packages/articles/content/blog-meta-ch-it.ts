@@ -5800,6 +5800,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attivita-appenzello-esterno-registro.title': 'Aprire un\'attività in Appenzello Esterno: procedure e costi',
     'blog.article.attivita-appenzello-esterno-registro.excerpt': 'Guida completa: forme giuridiche, registro di commercio, capitale minimo, contributi AVS/LPP e obblighi assicurativi per fondare un\'impresa nel cantone.',
     'blog.article.attivita-appenzello-esterno-registro.imageAlt': 'Scrivania d\'ufficio con moduli di registrazione commerciale e documenti in edificio amministrativo svizzero.',
+    'blog.article.fondare-impresa-appenzello-esterno.title': 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    'blog.article.fondare-impresa-appenzello-esterno.excerpt': 'Forme giuridiche, iscrizione al registro, capitale minimo, imposte federali e cantonali, previdenza sociale e obblighi assicurativi per avviare un\'attività.',
+    'blog.article.fondare-impresa-appenzello-esterno.imageAlt': 'Veduta di un moderno ufficio commerciale in Svizzera con moduli di registrazione e paesaggio montano sullo sfondo',
 };
 
 export default blogMetaChIt;
