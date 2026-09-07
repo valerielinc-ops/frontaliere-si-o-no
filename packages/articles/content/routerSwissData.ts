@@ -1999,6 +1999,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-custodia-bambini-canton-appenzello-interno': { it: 'asilo-nido-custodia-bambini-canton-appenzello-interno', en: 'daycare-childcare-canton-appenzell-innerrhoden', de: 'kindertagesstatte-kinderbetreuung-kanton-appenzell-innerrhoden', fr: 'garde-d-enfants-canton-appenzell-rhodes-interieures' },
  'tragitto-casa-scuola-rischioso': { it: 'tragitto-casa-scuola-rischioso', en: 'school-commute-risky', de: 'schulweg-gefahrlich', fr: 'trajets-ecole-dangereux' },
  'settembre-mese-ambiente-collina-doro': { it: 'settembre-mese-ambiente-collina-doro', en: 'september-environment-month-collina-doro', de: 'september-umweltmonat-collina-doro', fr: 'septembre-mois-environnement-collina-doro' },
+ 'rana-caff-scoperta-costa-rica': { it: 'rana-caff-scoperta-costa-rica', en: 'coffee-frog-discovered-in-costa-rica', de: 'kaffeefrosch-in-kosta-rica-entdeckt', fr: 'grenouille-cafe-decouverte-au-costa-rica' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
