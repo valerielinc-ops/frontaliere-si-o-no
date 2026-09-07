@@ -5926,6 +5926,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.title': 'Patente di guida nel Canton Neuchâtel: conversione ed esami',
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.excerpt': 'Scopri come convertire la tua patente estera e sostenere gli esami nel Canton Neuchâtel.',
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.imageAlt': 'Una persona che studia per l\'esame della patente di guida in Svizzera',
+    'blog.article.neutralita-svizzera-27-settembre.title': 'Neutralità: il 27 settembre scegliamo la Svizzera',
+    'blog.article.neutralita-svizzera-27-settembre.excerpt': 'Il voto del 27 settembre sulla neutralità svizzera: cosa significa e quali sono le implicazioni per il futuro del Paese.',
+    'blog.article.neutralita-svizzera-27-settembre.imageAlt': 'Vista panoramica di Lugano, Svizzera',
 };
 
 export default blogMetaChIt;

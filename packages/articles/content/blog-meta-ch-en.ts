@@ -5926,6 +5926,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.title': 'Driver\'s license in the canton of Neuchâtel: conversion and exams',
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.excerpt': 'Learn how to convert your foreign license and take exams in the Canton of Neuchâtel.',
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.imageAlt': 'A person studying for a driving license exam in Switzerland',
+    'blog.article.neutralita-svizzera-27-settembre.title': 'Neutrality: on September 27 we choose Switzerland',
+    'blog.article.neutralita-svizzera-27-settembre.excerpt': 'The September 27 vote on Swiss neutrality: what it means and what the implications are for the country\'s future.',
+    'blog.article.neutralita-svizzera-27-settembre.imageAlt': 'Panoramic view of Lugano, Switzerland',
 };
 
 export default blogMetaChEn;

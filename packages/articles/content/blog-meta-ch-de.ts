@@ -5926,6 +5926,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.title': 'Führerschein im Kanton Neuenburg: Umschulung und Prüfungen',
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.excerpt': 'Erfahren Sie, wie Sie Ihren ausländischen Führerschein umtauschen und Prüfungen im Kanton Neuenburg ablegen können.',
     'blog.article.patente-guida-neuchatel-conversione-ed-esami.imageAlt': 'Eine Person, die für die Führerscheinprüfung in der Schweiz lernt',
+    'blog.article.neutralita-svizzera-27-settembre.title': 'Neutralität: Am 27. September wählen wir die Schweiz',
+    'blog.article.neutralita-svizzera-27-settembre.excerpt': 'Die Abstimmung vom 27. September über die Neutralität der Schweiz: Was bedeutet sie und was bedeutet sie für die Zukunft des Landes?',
+    'blog.article.neutralita-svizzera-27-settembre.imageAlt': 'Panoramablick auf Lugano, Schweiz',
 };
 
 export default blogMetaChDe;
