@@ -75953,6 +75953,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-registrazione-impresa-berna-registro-commercio': {
+    title: 'Aprire attività a Berna: registro di commercio e costi',
+    description: 'Guida completa per registrare un\'attività nel canton Berna: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, berna, registro',
+    ogTitle: 'Aprire attività a Berna: registro di commercio e costi',
+    ogDescription: 'Scopri come registrare un\'attività a Berna: dalle forme giuridiche ai costi di iscrizione, dagli obblighi assicurativi alle procedure passo per passo. Guida completa per imprenditori.',
+    canonicalPath: '/articoli-svizzera/registrazione-impresa-berna-registro-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività a Berna: registro di commercio e costi",
+      "description": "Guida completa per registrare un'attività nel canton Berna: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/registrazione-impresa-berna-registro-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di una città svizzera con edifici storici e paesaggio alpino di sfondo"
+      },
+      "datePublished": "2026-09-07T05:51:32+00:00",
+      "dateModified": "2026-09-07T05:51:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/registrazione-impresa-berna-registro-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

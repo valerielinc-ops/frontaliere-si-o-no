@@ -5851,6 +5851,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fondazione-beloved-primi-versamenti.title': 'Beloved Foundation: first payments for victims',
     'blog.article.fondazione-beloved-primi-versamenti.excerpt': 'Beloved Foundation begins payments: CHF 24 million for victims of the Crans-Montana fire. Priority: reintegration into work and long-term psychological support.',
     'blog.article.fondazione-beloved-primi-versamenti.imageAlt': 'Swiss institutional building representing the Beloved Foundation\'s work supporting disaster victims',
+    'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Business opening in Bern: trade register and costs',
+    'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Business registration in Bern: choice of legal form, registration in the commercial register, minimum capital and insurance obligations.',
+    'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Swiss city skyline with historic buildings and alpine landscape backdrop',
 };
 
 export default blogMetaChEn;

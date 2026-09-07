@@ -5851,6 +5851,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fondazione-beloved-primi-versamenti.title': 'Fondazione Beloved: primi versamenti per le vittime',
     'blog.article.fondazione-beloved-primi-versamenti.excerpt': 'Fondazione Beloved inizia i versamenti: 24 milioni CHF per vittime dell\'incendio di Crans-Montana. Priorità: reinserimento lavorativo e supporto psicologico a lungo termine.',
     'blog.article.fondazione-beloved-primi-versamenti.imageAlt': 'Edificio istituzionale svizzero che rappresenta la Fondazione Beloved e il suo lavoro di supporto alle vittime',
+    'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Aprire attività a Berna: registro di commercio e costi',
+    'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Registrazione impresa a Berna: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo e obblighi assicurativi.',
+    'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Vista di una città svizzera con edifici storici e paesaggio alpino di sfondo',
 };
 
 export default blogMetaChIt;

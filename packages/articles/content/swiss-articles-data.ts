@@ -17551,6 +17551,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'registrazione-impresa-berna-registro-commercio',
+    category: 'pratico',
+    date: '2026-09-07T05:51:31.974Z',
+    image: '/images/blog/registrazione-impresa-berna-registro-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

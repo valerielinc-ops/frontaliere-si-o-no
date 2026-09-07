@@ -1976,6 +1976,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-integrazioni-canton-berna': { it: 'avs-integrazioni-canton-berna', en: 'avs-integrations-canton-berna', de: 'ahv-zulagen-kanton-bern', fr: 'ava-allocations-canton-berne' },
  'riassetto-vw-impatti-svizzera': { it: 'riassetto-vw-impatti-svizzera', en: 'vw-reorganization-impact-switzerland', de: 'vw-umbau-auswirkungen-schweiz', fr: 'reorganisation-vw-impact-suisse' },
  'fondazione-beloved-primi-versamenti': { it: 'fondazione-beloved-primi-versamenti', en: 'beloved-foundation-first-payments', de: 'beloved-stiftung-erste-auszahlungen', fr: 'fondation-beloved-premiers-versements' },
+ 'registrazione-impresa-berna-registro-commercio': { it: 'registrazione-impresa-berna-registro-commercio', en: 'business-registration-bern-commerce-register', de: 'betriebsregistrierung-bern-handelsregister', fr: 'enregistrement-entreprise-berne-registre-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
