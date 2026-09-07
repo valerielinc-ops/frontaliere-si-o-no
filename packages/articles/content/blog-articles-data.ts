@@ -34572,6 +34572,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'grenzgaenger-schweiz-steuern-2026',
+ category: 'fiscale',
+ date: '2026-09-07T16:22:00.813Z',
+ image: '/images/blog/grenzgaenger-schweiz-steuern-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

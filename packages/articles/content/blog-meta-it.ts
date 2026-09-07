@@ -11577,6 +11577,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-b-quellensteuer.title': 'Permesso B e Quellensteuer: tariffe e regole fiscali',
     'blog.article.permesso-b-quellensteuer.excerpt': 'Guida completa al Permesso B e all\'imposta alla fonte in Svizzera: tariffe, deduzioni del Pillar 3a e confronto con i regimi per i frontalieri.',
     'blog.article.permesso-b-quellensteuer.imageAlt': 'Vista panoramica di Lugano e del lago Ceresio',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.title': 'Grenzgänger schweiz steuern 2026: regole e obblighi',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.excerpt': 'Analisi delle imposte e degli obblighi fiscali per i lavoratori transfrontalieri tra Svizzera e Italia in base al nuovo accordo e alle normative vigenti.',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.imageAlt': 'Vista panoramica di Lugano e del Canton Ticino con il lago',
 };
 
 export default blogMetaIt;

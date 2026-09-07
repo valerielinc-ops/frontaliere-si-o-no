@@ -11575,6 +11575,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-b-quellensteuer.title': 'B-Genehmigung und Quellensteuer: Tarife und Steuervorschriften',
     'blog.article.permesso-b-quellensteuer.excerpt': 'Vollständiger Leitfaden zur Bewilligung B und zur Quellensteuer in der Schweiz: Tarife, Abzüge der Säule 3a und Vergleich mit den Regelungen für Grenzgänger.',
     'blog.article.permesso-b-quellensteuer.imageAlt': 'Panoramablick auf Lugano und den Luganersee',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.title': 'Grenzgänger schweiz steuern 2026: Regeln und Pflichten',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.excerpt': 'Analyse der Steuern und steuerlichen Pflichten für Grenzgänger zwischen der Schweiz und Italien auf der Grundlage des neuen Abkommens und der geltenden Vorschriften.',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.imageAlt': 'Panoramablick auf Lugano und den Kanton Tessin mit dem See',
 };
 
 export default blogMetaDe;

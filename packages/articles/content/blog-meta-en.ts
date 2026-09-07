@@ -11576,6 +11576,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-b-quellensteuer.title': 'Permit B and Quellensteuer: Rates and Tax Rules',
     'blog.article.permesso-b-quellensteuer.excerpt': 'Complete Guide to Permit B and Source Tax in Switzerland: Fees, Pillar 3a Deductions and Comparison with Border Regimes.',
     'blog.article.permesso-b-quellensteuer.imageAlt': 'Panoramic view of Lugano and Lake Ceresio',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.title': 'Grenzgänger schweiz steuern 2026: rules and obligations',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.excerpt': 'Analysis of taxes and tax obligations for cross-border workers between Switzerland and Italy according to the new agreement and current regulations.',
+    'blog.article.grenzgaenger-schweiz-steuern-2026.imageAlt': 'Panoramic view of Lugano and Canton Ticino with the lake',
 };
 
 export default blogMetaEn;
