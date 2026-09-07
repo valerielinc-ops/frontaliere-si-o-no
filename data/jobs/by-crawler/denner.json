@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-09-07T15:05:48.067Z",
+  "assembledAt": "2026-09-07T13:54:05.144Z",
   "jobs": [
     {
       "id": "company-gxkggo",
@@ -7887,12 +7887,20 @@
         "adjoint-e-gerant-e-denner-sa-lausanne-aut94t",
         "adjoint-e-gerant-e-denner-sa-lausanne",
         "deputy-managing-officer-denner-sa-lausanne-aut94t",
-        "stellvertretender-geschaftsfuhrer-denner-sa-lausanne-aut94t"
+        "stellvertretender-geschaftsfuhrer-denner-sa-lausanne-aut94t",
+        "deputy-managing-officer-denner-lonay",
+        "deputy-managing-officer-denner-morges",
+        "deputy-managing-officer-denner-sion",
+        "gerant-e-denner-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-gerant-e-denner-sa-lausanne-aut94t",
-          "adjoint-e-gerant-e-denner-sa-lausanne"
+          "adjoint-e-gerant-e-denner-sa-lausanne",
+          "deputy-managing-officer-denner-lonay",
+          "deputy-managing-officer-denner-morges",
+          "deputy-managing-officer-denner-sion",
+          "gerant-e-denner-le-mont-sur-lausanne"
         ],
         "en": [
           "adjoint-e-gerant-e-denner-sa-lausanne-aut94t",
@@ -7907,7 +7915,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -7920,7 +7927,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-80dzii",

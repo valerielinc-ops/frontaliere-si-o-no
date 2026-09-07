@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-09-07T15:29:45.063Z",
+  "assembledAt": "2026-09-07T14:24:08.579Z",
   "jobs": [
     {
       "id": "company-ezrgvy",
@@ -2040,7 +2040,7 @@
         "en": "media-creator-m-w-d-migros-industrie-ag-zurich-3veuhf"
       },
       "titleByLocale": {
-        "it": "Media Creator (w/m/d)",
+        "it": "Media Creator (m/f/d)",
         "de": "Media Creator (w/m/d)",
         "en": "Media Creator (m/f/d)",
         "fr": "Créateur de médias (h/f/d)"
@@ -2089,7 +2089,6 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -13821,17 +13820,40 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6"
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6",
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-crissier",
+          "sales-manager-food-m-f-d-societe-cooperative-migros-vaud-crissier",
+          "sales-manager-food-m-w-d-societe-cooperative-migros-vaud-crissier",
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-crissier-gtgp9n",
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-crissier-7h1eqx",
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-pully",
+          "sales-manager-food-m-f-d-societe-cooperative-migros-vaud-pully",
+          "sales-manager-food-m-w-d-societe-cooperative-migros-vaud-pully",
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-pully-35nq6a"
         ],
         "en": [
-          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6"
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6",
+          "sales-manager-food-m-f-d-societe-cooperative-migros-vaud-crissier"
         ],
         "de": [
-          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6"
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6",
+          "sales-manager-food-m-w-d-societe-cooperative-migros-vaud-crissier"
+        ],
+        "fr": [
+          "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-crissier-gtgp9n"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6"
+        "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-vevey-wbgcq6",
+        "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-crissier",
+        "sales-manager-food-m-f-d-societe-cooperative-migros-vaud-crissier",
+        "sales-manager-food-m-w-d-societe-cooperative-migros-vaud-crissier",
+        "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-crissier-gtgp9n",
+        "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-crissier-7h1eqx",
+        "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-pully",
+        "sales-manager-food-m-f-d-societe-cooperative-migros-vaud-pully",
+        "sales-manager-food-m-w-d-societe-cooperative-migros-vaud-pully",
+        "gestionnaire-de-vente-food-m-w-d-societe-cooperative-migros-vaud-pully-35nq6a"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -13847,9 +13869,9 @@
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-ukkak6",
@@ -27825,15 +27847,32 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-verkauf-genossenschaft-migros-luzern"
+          "allrounder-in-verkauf-genossenschaft-migros-luzern",
+          "allrounder-in-vendita-genossenschaft-migros-luzern-6t4feg",
+          "allrounder-in-sale-genossenschaft-migros-luzern-luzern-599a90",
+          "allrounder-in-verkauf-genossenschaft-migros-luzern-6t4feg",
+          "allrounder-in-vente-genossenschaft-migros-luzern-6t4feg",
+          "allrounder-in-verkauf-genossenschaft-migros-luzern-2"
         ],
         "en": [
-          "allrounder-in-verkauf-genossenschaft-migros-luzern-gq7rzv"
+          "allrounder-in-verkauf-genossenschaft-migros-luzern-gq7rzv",
+          "allrounder-in-sale-genossenschaft-migros-luzern-luzern-599a90"
+        ],
+        "de": [
+          "allrounder-in-verkauf-genossenschaft-migros-luzern-6t4feg"
+        ],
+        "fr": [
+          "allrounder-in-vente-genossenschaft-migros-luzern-6t4feg"
         ]
       },
       "previousSlugs": [
         "allrounder-in-verkauf-genossenschaft-migros-luzern",
-        "allrounder-in-verkauf-genossenschaft-migros-luzern-gq7rzv"
+        "allrounder-in-verkauf-genossenschaft-migros-luzern-gq7rzv",
+        "allrounder-in-vendita-genossenschaft-migros-luzern-6t4feg",
+        "allrounder-in-sale-genossenschaft-migros-luzern-luzern-599a90",
+        "allrounder-in-verkauf-genossenschaft-migros-luzern-6t4feg",
+        "allrounder-in-vente-genossenschaft-migros-luzern-6t4feg",
+        "allrounder-in-verkauf-genossenschaft-migros-luzern-2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -57648,24 +57687,34 @@
           "employee-cashier-genossenschaft-migros-aare-lenzburg",
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg-26le8h",
           "employe-caissier-genossenschaft-migros-aare-lenzburg",
-          "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg"
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg",
+          "collaboratore-trice-in-kasse-genossenschaft-migros-aare-unterentfelden-y4fvy1",
+          "employee-cashier-genossenschaft-migros-aare-unterentfelden",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-unterentfelden-y4fvy1",
+          "employe-caissier-genossenschaft-migros-aare-unterentfelden",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-unterentfelden",
+          "caisses-enregistreuses-genossenschaft-migros-aare-unterentfelden"
         ],
         "en": [
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-herzogenbuchsee-nd2naa",
           "employee-cashier-genossenschaft-migros-aare-belp",
-          "employee-cashier-genossenschaft-migros-aare-huttwil"
+          "employee-cashier-genossenschaft-migros-aare-huttwil",
+          "employee-cashier-genossenschaft-migros-aare-unterentfelden"
         ],
         "de": [
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp",
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-huttwil-5nsq3z",
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-huttwil",
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg-26le8h",
-          "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg"
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-unterentfelden-y4fvy1",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-unterentfelden"
         ],
         "fr": [
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-herzogenbuchsee-nd2naa",
           "employe-caissier-genossenschaft-migros-aare-belp",
-          "employe-caissier-genossenschaft-migros-aare-huttwil"
+          "employe-caissier-genossenschaft-migros-aare-huttwil",
+          "employe-caissier-genossenschaft-migros-aare-unterentfelden"
         ]
       },
       "previousSlugs": [
@@ -57683,7 +57732,13 @@
         "employee-cashier-genossenschaft-migros-aare-lenzburg",
         "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg-26le8h",
         "employe-caissier-genossenschaft-migros-aare-lenzburg",
-        "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg"
+        "mitarbeiter-in-kasse-genossenschaft-migros-aare-lenzburg",
+        "collaboratore-trice-in-kasse-genossenschaft-migros-aare-unterentfelden-y4fvy1",
+        "employee-cashier-genossenschaft-migros-aare-unterentfelden",
+        "mitarbeiter-in-kasse-genossenschaft-migros-aare-unterentfelden-y4fvy1",
+        "employe-caissier-genossenschaft-migros-aare-unterentfelden",
+        "mitarbeiter-in-kasse-genossenschaft-migros-aare-unterentfelden",
+        "caisses-enregistreuses-genossenschaft-migros-aare-unterentfelden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -57701,9 +57756,9 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6tgptl",

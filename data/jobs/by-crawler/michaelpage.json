@@ -1,6 +1,6 @@
 {
   "crawlerKey": "michaelpage",
-  "assembledAt": "2026-09-07T15:19:04.613Z",
+  "assembledAt": "2026-09-07T14:22:58.299Z",
   "jobs": [
     {
       "id": "michaelpage-b924f8e93a0e",
@@ -660,23 +660,37 @@
         "compliance-director-michaelpage-ch",
         "directeur-de-la-conformite-michael-page-zurich-switzerland",
         "compliance-direttore-michael-page-zurich",
-        "compliance-director-michael-page-zurich"
+        "compliance-director-michael-page-zurich",
+        "direttore-legal-compliance-michael-page-zurich",
+        "director-legal-amp-compliance-michaelpage-ch",
+        "direktor-legal-compliance-michael-page-zurich",
+        "directeur-juridique-et-conformite-michael-page-zurich-switzerland",
+        "director-legal-compliance-michael-page-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-director-michaelpage-ch",
-          "compliance-direttore-michael-page-zurich"
+          "compliance-direttore-michael-page-zurich",
+          "direttore-legal-compliance-michael-page-zurich",
+          "director-legal-amp-compliance-michaelpage-ch",
+          "direktor-legal-compliance-michael-page-zurich",
+          "directeur-juridique-et-conformite-michael-page-zurich-switzerland",
+          "director-legal-compliance-michael-page-zurich"
         ],
         "de": [
-          "compliance-director-michaelpage-ch"
+          "compliance-director-michaelpage-ch",
+          "direktor-legal-compliance-michael-page-zurich"
         ],
         "fr": [
           "directeur-de-la-conformite-michael-page-zurich-switzerland",
-          "compliance-director-michael-page-zurich"
+          "compliance-director-michael-page-zurich",
+          "directeur-juridique-et-conformite-michael-page-zurich-switzerland"
+        ],
+        "en": [
+          "director-legal-amp-compliance-michaelpage-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T23:19:59.319Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -689,7 +703,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "michaelpage-389a8a294925",

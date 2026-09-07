@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-09-07T15:06:04.804Z",
+  "assembledAt": "2026-09-07T14:18:58.542Z",
   "jobs": [
     {
       "id": "company-kc9uax",
@@ -5443,18 +5443,33 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn",
-          "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym"
+          "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym",
+          "direttore-di-filiale-m-f-d-80-100-solothurn-lidl-svizzera-solothurn",
+          "branch-manager-m-f-d-80-100-solothurn-lidl-svizzera-solothurn",
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-solothurn-cl0iw4",
+          "gestionnaire-de-succursale-m-f-j-80-100-soleure-lidl-svizzera-solothurn",
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-solothurn"
         ],
         "en": [
-          "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym"
+          "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym",
+          "branch-manager-m-f-d-80-100-solothurn-lidl-svizzera-solothurn"
         ],
         "fr": [
-          "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym"
+          "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym",
+          "gestionnaire-de-succursale-m-f-j-80-100-soleure-lidl-svizzera-solothurn"
+        ],
+        "de": [
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-solothurn-cl0iw4"
         ]
       },
       "previousSlugs": [
         "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn",
-        "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym"
+        "filialleiter-filialleiterin-m-w-d-80-100-1-lidl-svizzera-solothurn-8m7lym",
+        "direttore-di-filiale-m-f-d-80-100-solothurn-lidl-svizzera-solothurn",
+        "branch-manager-m-f-d-80-100-solothurn-lidl-svizzera-solothurn",
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-solothurn-cl0iw4",
+        "gestionnaire-de-succursale-m-f-j-80-100-soleure-lidl-svizzera-solothurn",
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-solothurn"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5470,9 +5485,9 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rtx2f2",

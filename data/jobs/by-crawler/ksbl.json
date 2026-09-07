@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksbl",
-  "assembledAt": "2026-09-07T15:19:27.343Z",
+  "assembledAt": "2026-09-07T14:17:51.226Z",
   "jobs": [
     {
       "id": "ksbl-c5f32826ffb7",
@@ -5794,18 +5794,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiterin-teamleiter-elektrotechnik-a-ksbl-liestal",
-        "team-leader-ingegneria-elettrica-a-kantonsspital-baselland-ksbl-liestal"
+        "team-leader-ingegneria-elettrica-a-kantonsspital-baselland-ksbl-liestal",
+        "team-leader-time-management-a-kantonsspital-baselland-ksbl-liestal",
+        "teamleiterin-teamleiter-zeitwirtschaft-a-ksbl-liestal",
+        "chef-d-equipe-gestion-du-temps-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiterin-teamleiter-elektrotechnik-a-ksbl-liestal",
-          "team-leader-ingegneria-elettrica-a-kantonsspital-baselland-ksbl-liestal"
+          "team-leader-ingegneria-elettrica-a-kantonsspital-baselland-ksbl-liestal",
+          "team-leader-time-management-a-kantonsspital-baselland-ksbl-liestal",
+          "teamleiterin-teamleiter-zeitwirtschaft-a-ksbl-liestal",
+          "chef-d-equipe-gestion-du-temps-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "teamleiterin-teamleiter-elektrotechnik-a-ksbl-liestal"
+          "teamleiterin-teamleiter-elektrotechnik-a-ksbl-liestal",
+          "team-leader-time-management-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "teamleiterin-teamleiter-elektrotechnik-a-ksbl-liestal"
+          "teamleiterin-teamleiter-elektrotechnik-a-ksbl-liestal",
+          "chef-d-equipe-gestion-du-temps-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "teamleiterin-teamleiter-zeitwirtschaft-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-07-22T22:40:02.162Z",
@@ -7464,17 +7475,51 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal"
+        "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal",
+        "mpa-neurologia-a-kantonsspital-baselland-ksbl-liestal",
+        "mpa-neurology-a-kantonsspital-baselland-ksbl-liestal",
+        "mpa-neurologie-a-ksbl-liestal",
+        "mpa-pneumologie-angiologie-a-ksbl-liestal",
+        "mpa-pneumology-angiology-a-kantonsspital-baselland-ksbl-liestal",
+        "mpa-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
+        "mpa-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+        "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
+        "mpa-oncologie-et-hematologie-a-kantonsspital-baselland-ksbl-liestal",
+        "praxisassistentin-praxisassistent-onkologie-hamatologie-a-ksbl-liestal",
+        "internship-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+        "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
+        "stage-oncologie-et-hematologie-a-kantonsspital-baselland-ksbl-liestal",
+        "interno-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
+        "internship-ambulatory-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+        "stages-oncologie-ambulatoire-et-hematologie-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal"
+          "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal",
+          "mpa-neurologia-a-kantonsspital-baselland-ksbl-liestal",
+          "mpa-neurology-a-kantonsspital-baselland-ksbl-liestal",
+          "mpa-neurologie-a-ksbl-liestal",
+          "mpa-pneumologie-angiologie-a-ksbl-liestal",
+          "mpa-pneumology-angiology-a-kantonsspital-baselland-ksbl-liestal",
+          "mpa-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
+          "mpa-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+          "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
+          "mpa-oncologie-et-hematologie-a-kantonsspital-baselland-ksbl-liestal",
+          "praxisassistentin-praxisassistent-onkologie-hamatologie-a-ksbl-liestal",
+          "internship-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+          "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
+          "stage-oncologie-et-hematologie-a-kantonsspital-baselland-ksbl-liestal",
+          "interno-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
+          "internship-ambulatory-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+          "stages-oncologie-ambulatoire-et-hematologie-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal"
+          "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal",
+          "mpa-neurology-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal"
+          "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal",
+          "mpa-neurologie-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-08-18T21:49:59.771Z",

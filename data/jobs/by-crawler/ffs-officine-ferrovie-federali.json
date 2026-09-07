@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-09-07T15:28:00.196Z",
+  "assembledAt": "2026-09-07T13:59:50.609Z",
   "jobs": [
     {
       "id": "sbb-ffe33f0ac0a2",
@@ -10431,11 +10431,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-07T15:23:07.552Z",
       "previousSlugs": [
-        "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-olten"
+        "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-olten",
+        "responsabile-del-treno-cross-entry-in-ffs-officine-ferrovie-federali-muttenz",
+        "lateral-entry-train-traffic-manager-ffs-officine-ferrovie-federali-muttenz",
+        "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-muttenz",
+        "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-olten"
+          "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-olten",
+          "responsabile-del-treno-cross-entry-in-ffs-officine-ferrovie-federali-muttenz",
+          "lateral-entry-train-traffic-manager-ffs-officine-ferrovie-federali-muttenz",
+          "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-muttenz",
+          "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "en": [
+          "lateral-entry-train-traffic-manager-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "de": [
+          "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "fr": [
+          "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
