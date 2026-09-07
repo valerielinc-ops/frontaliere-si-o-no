@@ -1989,6 +1989,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cannabis-farmacia-berna-bienne-lucerna': { it: 'cannabis-farmacia-berna-bienne-lucerna', en: 'cannabis-pharmacy-berna-bienne-lucerne', de: 'cannabis-apotheke-berna-biel-biel-bienne', fr: 'cannabis-pharmacie-berne-bienne-lucerne' },
  'padula-direttore-ire-usi-2026': { it: 'padula-direttore-ire-usi-2026', en: 'padula-ire-director-usi-2026', de: 'padula-ire-direktor-usi-2026', fr: 'padula-directeur-ire-usi-2026' },
  'cannabis-farmacia-vendita': { it: 'cannabis-farmacia-vendita', en: 'cannabis-pharmacy-sale', de: 'cannabis-apothekenverkauf', fr: 'cannabis-pharmacie-vente' },
+ 'black-keys-concerto-annullato-berna': { it: 'black-keys-concerto-annullato-berna', en: 'black-keys-concert-cancelled-berne', de: 'black-keys-konzert-abgesagt-bern', fr: 'black-keys-concert-annule-berne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
