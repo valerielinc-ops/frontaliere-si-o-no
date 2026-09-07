@@ -1992,6 +1992,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'black-keys-concerto-annullato-berna': { it: 'black-keys-concerto-annullato-berna', en: 'black-keys-concert-cancelled-berne', de: 'black-keys-konzert-abgesagt-bern', fr: 'black-keys-concert-annule-berne' },
  'mondo-auto-grigio-impressione-colore': { it: 'mondo-auto-grigio-impressione-colore', en: 'world-cars-gray-impression-color', de: 'welt-autos-grau-eindruck-farbe', fr: 'monde-voitures-gris-impression-couleur' },
  'jaipur-robotics-4-3-milioni-internazionale': { it: 'jaipur-robotics-4-3-milioni-internazionale', en: 'jaipur-robotics-4-3-million-international-expansion', de: 'jaipur-robotics-4-3-million-internationale-ausweitung', fr: 'jaipur-robotics-4-3-millions-extension-internationale' },
+ 'volo-swiss-emergenza-medica-zurigo-boston': { it: 'volo-swiss-emergenza-medica-zurigo-boston', en: 'swiss-flight-medical-emergency-zurich-boston', de: 'swiss-flug-medizinischer-notfall-zurich-boston', fr: 'vol-swiss-urgence-medicale-zurich-boston' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

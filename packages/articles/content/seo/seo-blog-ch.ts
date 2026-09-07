@@ -76577,6 +76577,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-volo-swiss-emergenza-medica-zurigo-boston': {
+    title: 'Emergenza medica: volo Swiss torna indietro sull\'Atlantico',
+    description: 'Sabato sera il volo Swiss LX54 partito da Zurigo alla volta di Boston ha dovuto invertire la rotta sopra l’Atlantico e tornare in Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, emergenza, medica, volo, swiss',
+    ogTitle: 'Emergenza medica a bordo: volo Swiss costretto a fare dietrofront sopra l’Atlantico',
+    ogDescription: 'Sabato sera il volo Swiss LX54 partito da Zurigo alla volta di Boston ha dovuto invertire la rotta sopra l’Atlantico e tornare in Svizzera. Le condizioni di salute della persona coinvolta si sono stabilizzate durante il volo di ritorno e ha ricevuto',
+    canonicalPath: '/articoli-svizzera/volo-swiss-emergenza-medica-zurigo-boston/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emergenza medica: volo Swiss torna indietro sull'Atlantico",
+      "description": "Sabato sera il volo Swiss LX54 partito da Zurigo alla volta di Boston ha dovuto invertire la rotta sopra l’Atlantico e tornare in Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/volo-swiss-emergenza-medica-zurigo-boston.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un aereo svizzero sopra l'Atlantico"
+      },
+      "datePublished": "2026-09-07T09:29:24+00:00",
+      "dateModified": "2026-09-07T09:29:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/volo-swiss-emergenza-medica-zurigo-boston/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
