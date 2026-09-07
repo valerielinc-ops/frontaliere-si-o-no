@@ -11573,6 +11573,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.title': 'A8 Varese-Gallarate: closures for 3 nights',
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.excerpt': 'Night closures A8 from 9 to 11 September 2026, 21-5, for work on the noise barriers between Gallarate-Gattico and Castronno Branch.',
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.imageAlt': 'A8 highway night works between Varese and Gallarate',
+    'blog.article.permesso-b-quellensteuer.title': 'Permit B and Quellensteuer: Rates and Tax Rules',
+    'blog.article.permesso-b-quellensteuer.excerpt': 'Complete Guide to Permit B and Source Tax in Switzerland: Fees, Pillar 3a Deductions and Comparison with Border Regimes.',
+    'blog.article.permesso-b-quellensteuer.imageAlt': 'Panoramic view of Lugano and Lake Ceresio',
 };
 
 export default blogMetaEn;

@@ -11572,6 +11572,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.title': 'A8 schließt drei Abende zwischen Varese und Gallarate: Umwege',
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.excerpt': 'Nachtschließungen A8 vom 9. bis 11. September 2026, 21-5 Uhr, für Arbeiten an den Lärmschutzwänden zwischen Abzweigung Gallarate-Gattico und Castronno.',
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.imageAlt': 'A8 Autobahn Nachtarbeiten zwischen Varese und Gallarate',
+    'blog.article.permesso-b-quellensteuer.title': 'B-Genehmigung und Quellensteuer: Tarife und Steuervorschriften',
+    'blog.article.permesso-b-quellensteuer.excerpt': 'Vollständiger Leitfaden zur Bewilligung B und zur Quellensteuer in der Schweiz: Tarife, Abzüge der Säule 3a und Vergleich mit den Regelungen für Grenzgänger.',
+    'blog.article.permesso-b-quellensteuer.imageAlt': 'Panoramablick auf Lugano und den Luganersee',
 };
 
 export default blogMetaDe;
