@@ -88330,6 +88330,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-nus-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Nus e lavorare in Vallese da frontaliere',
+    description: 'Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lavorare, vallese, scopri',
+    ogTitle: 'Vivere a Nus e lavorare in Vallese da frontaliere',
+    ogDescription: 'Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.',
+    canonicalPath: '/articoli-frontaliere/vivere-nus-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Nus e lavorare in Vallese da frontaliere",
+      "description": "Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-nus-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le Alpi svizzere sullo sfondo, mostrando una casa accogliente con un balcone che guarda sull'acqua."
+      },
+      "datePublished": "2026-09-07T11:24:20+00:00",
+      "dateModified": "2026-09-07T11:24:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-nus-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

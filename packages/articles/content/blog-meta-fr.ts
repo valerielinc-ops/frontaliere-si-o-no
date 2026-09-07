@@ -11566,6 +11566,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-comunita-energetiche-rinnovabili.title': 'Varese : conférence sur les communautés d\'énergie renouvelable',
     'blog.article.varese-comunita-energetiche-rinnovabili.excerpt': 'La Chambre de Commerce de Varèse organise une conférence sur les Communautés Énergétiques Renouvelables pour les entreprises, les collectivités locales et les particuliers.',
     'blog.article.varese-comunita-energetiche-rinnovabili.imageAlt': 'Vue aérienne du Lac de Lugano avec des panneaux solaires sur les toits.',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.title': 'Vivre à Nus et travailler en Valais comme frontalier',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.excerpt': 'Découvrez les avantages et les inconvénients de vivre à Nus et de travailler en Valais en tant que frontalier, y compris les liaisons, les temps de trajet et le coût de la vie.',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.imageAlt': 'Vue panoramique du lac de Lugano avec les Alpes suisses en arrière-plan, montrant une maison confortable avec un balcon dominant l\'eau.',
 };
 
 export default blogMetaFr;
