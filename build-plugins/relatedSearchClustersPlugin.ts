@@ -1745,6 +1745,48 @@ export function buildJunkRetirementHtml(locale: Locale): string {
 }
 
 /**
+ * The dist-relative files ONE retired doorway path must produce.
+ *
+ * The withdrawal used to write only `<path>/index.html`. The doorway had been
+ * published as a PAIR — the per-cluster loop below emits `<path>/index.html`
+ * AND the flat `<path>.html` bridge that GitHub Pages serves for the no-slash
+ * URL — so overwriting half of it left the other half serving the ORIGINAL
+ * doorway bytes on every no-slash URL Google had indexed (issue #7751).
+ *
+ * `transformFlatRedirect` cannot repair that: the post-walk rewrites the flat
+ * files PRESENT in `dist/`, it never creates one, so a build whose cluster
+ * loop no longer emits the doorway leaves it nothing to rewrite.
+ *
+ * The bridge is built from the retirement HTML with the same helper the
+ * post-walk uses, so it is byte-identical to what `transformFlatRedirect`
+ * would produce from the same sibling and the coordinator's
+ * `html === original` guard skips the rewrite — same contract as the
+ * per-cluster and hub emit sites.
+ *
+ * Unlike the legacy per-canton mirrors, which emit `index.html` only on
+ * purpose (a flat bridge per mirror would add hundreds of thousands of files
+ * across ~52k clusters), retirements are bounded by the junk denylist and a
+ * withdrawn doorway may have been indexed in either URL form — so every
+ * retired path gets both halves.
+ *
+ * Returns `[]` for an empty path: `<stem>.html` with an empty stem is a
+ * `.html` dotfile, which GitHub Pages serves for the DIRECTORY URL as
+ * application/octet-stream, masking the real `index.html` (the same hazard
+ * `transformFlatRedirect` guards with its leading-dot check).
+ */
+export function junkRetirementWrites(
+  retiredPath: string,
+  retirementHtml: string,
+): { rel: string; html: string }[] {
+  const stem = retiredPath.replace(/^\/+/, '').replace(/\/+$/, '');
+  if (stem === '') return [];
+  return [
+    { rel: `${stem}/index.html`, html: retirementHtml },
+    { rel: `${stem}.html`, html: buildFlatBridgeFromSibling(retirementHtml, `${BASE_URL}/${stem}/`) },
+  ];
+}
+
+/**
  * Build a localized job-detail URL.
  *
  * Each job's canonical detail page is emitted by jobsSeoPagesPlugin under the
@@ -3677,13 +3719,22 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         }
         retiredSlugCount++;
         for (const retiredPath of retirement.paths) {
-          const outFile = path.join(distDir, retiredPath, 'index.html');
-          collector.add(outFile, html);
-          const rel = path.relative(distDir, outFile);
-          emittedFiles.push(rel);
-          // Tagged so the cache-hit path can restore the file WITHOUT
-          // registering it as a planned keyword landing (issue #7316).
-          retiredFiles.push(rel);
+          // Both halves of the published pair: `<path>/index.html` and the
+          // flat `<path>.html` sibling the no-slash URL is served from
+          // (issue #7751) — see `junkRetirementWrites`.
+          for (const write of junkRetirementWrites(retiredPath, html)) {
+            const outFile = path.join(distDir, write.rel);
+            collector.add(outFile, write.html);
+            const rel = path.relative(distDir, outFile);
+            emittedFiles.push(rel);
+            // Tagged so the cache-hit path can restore the file WITHOUT
+            // registering it as a planned keyword landing (issue #7316).
+            // The flat sibling MUST be tagged too: `landingPathFromDistRelative`
+            // maps `<path>.html` and `<path>/index.html` to the SAME landing
+            // path, so an untagged flat would re-plan the withdrawal as a live
+            // keyword landing on every cache HIT.
+            retiredFiles.push(rel);
+          }
           // Same backpressure cadence as the per-cluster loop: bound the
           // in-flight write closures instead of queueing tens of thousands.
           if (++retiredPathCount % 2000 === 0) await collector.awaitDrainSlot(2);
