@@ -5980,6 +5980,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.seco-mercato-lavoro-svizzero-solido.title': 'Marché du travail en Suisse : le SECO confirme sa solidité',
     'blog.article.seco-mercato-lavoro-svizzero-solido.excerpt': 'Le marché du travail suisse reste solide malgré les incertitudes. Le chômage en août s\'établit à 3,0 %, avec une augmentation saisonnière chez les jeunes.',
     'blog.article.seco-mercato-lavoro-svizzero-solido.imageAlt': 'Analyse des données sur le marché du travail suisse publiées par le Seco',
+    'blog.article.permesso-domicilio-c-ginevra.title': 'Permis C Genève : exigences et demande',
+    'blog.article.permesso-domicilio-c-ginevra.excerpt': 'Guide complet du permis de résidence C dans le canton de Genève : années de résidence requises, critères d\'intégration, procédures et vérifications.',
+    'blog.article.permesso-domicilio-c-ginevra.imageAlt': 'Permis d\'établissement C dans le canton de Genève conditions et procédure',
 };
 
 export default blogMetaChFr;

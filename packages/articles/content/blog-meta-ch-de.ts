@@ -5980,6 +5980,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-mercato-lavoro-svizzero-solido.title': 'Arbeitsmarkt Schweiz: Seco bestätigt Solidität',
     'blog.article.seco-mercato-lavoro-svizzero-solido.excerpt': 'Der Schweizer Arbeitsmarkt bleibt trotz Unsicherheiten solide. Die Arbeitslosigkeit liegt im August bei 3,0%, mit einem saisonalen Anstieg bei Jugendlichen.',
     'blog.article.seco-mercato-lavoro-svizzero-solido.imageAlt': 'Analyse der von Seco veröffentlichten Schweizer Arbeitsmarktdaten',
+    'blog.article.permesso-domicilio-c-ginevra.title': 'Ausweis C Genf: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-ginevra.excerpt': 'Vollständiger Leitfaden zur Niederlassungsbewilligung C im Kanton Genf: erforderliche Aufenthaltsjahre, Integrationskriterien, Verfahren und Prüfungen.',
+    'blog.article.permesso-domicilio-c-ginevra.imageAlt': 'C-Bewilligung Wohnsitz im Kanton Genf Voraussetzungen und Verfahren',
 };
 
 export default blogMetaChDe;

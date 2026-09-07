@@ -5980,6 +5980,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-mercato-lavoro-svizzero-solido.title': 'Mercato del lavoro in Svizzera: la Seco conferma la solidità',
     'blog.article.seco-mercato-lavoro-svizzero-solido.excerpt': 'Il mercato del lavoro svizzero resta solido nonostante le incertezze. La disoccupazione in agosto si attesta al 3,0%, con un aumento stagionale tra i giovani.',
     'blog.article.seco-mercato-lavoro-svizzero-solido.imageAlt': 'Analisi dei dati sul mercato del lavoro in Svizzera pubblicati dalla Seco',
+    'blog.article.permesso-domicilio-c-ginevra.title': 'Permesso C Ginevra: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-ginevra.excerpt': 'Guida completa al permesso di domicilio C nel Cantone di Ginevra: anni di residenza richiesti, criteri di integrazione, procedure e verifiche.',
+    'blog.article.permesso-domicilio-c-ginevra.imageAlt': 'Permesso di domicilio C nel Cantone di Ginevra requisiti e procedura',
 };
 
 export default blogMetaChIt;
