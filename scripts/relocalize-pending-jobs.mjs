@@ -1500,6 +1500,7 @@ async function runRelocalization(phase) {
     }
     cascadeCompanyKeys.push(key);
   }
+  const cascadeCompanyKeySet = new Set(cascadeCompanyKeys);
   if (skippedCompanies.length > 0) {
     console.log(`\n⏭️  Run ${companySkipRun}: ${skippedCompanies.length} aziende saltate — ${COMPANY_STERILE_RUNS} run consecutive senza un solo job liberato, rientrano entro ${COMPANY_SKIP_RUNS} run o prima se il sorgente cambia: ${skippedCompanies.join(', ')}`);
   }
@@ -1801,7 +1802,10 @@ async function runRelocalization(phase) {
     const retryCompanies = new Map();
     for (const j of retryPending) {
       const k = normalizeCompanyKey(j.companyKey || j.company || '');
-      if (k && companyJobCounts.has(k)) {
+      // `cascadeCompanyKeys`, non `companyJobCounts`: senza questo il retry pass
+    // ripescherebbe proprio le aziende appena saltate — i loro job sono ancora
+    // pending per definizione — e rispenderebbe il tempo che il salto libera.
+    if (k && cascadeCompanyKeySet.has(k)) {
         retryCompanies.set(k, (retryCompanies.get(k) || 0) + 1);
       }
     }
@@ -1875,6 +1879,11 @@ async function runRelocalization(phase) {
               writeJsonAtomic(DATA_JOBS_PATH, afterRetry, { compact: true });
               totalFixed += cleared;
               console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
+              // Il passaggio principale ha appena registrato questa azienda come
+              // sterile; il retry lo smentisce. Senza questa riga un'azienda che
+              // produce solo al secondo tentativo verrebbe contata verso il salto.
+              delete companySkipState.companies[key];
+              writeCompanySkipState(companySkipState);
               syncTranslationsToCrawlerFile(key, afterRetry, retryAttemptedAll);
               if (retryArm) {
                 // La riga e' gia' in coda: qui si aggiorna solo l'esito.
