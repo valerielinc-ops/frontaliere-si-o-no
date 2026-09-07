@@ -5998,6 +5998,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.title': 'Location en Thurgovie : loyers moyens, dépôt et conciliation',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.excerpt': 'Marché locatif dans le canton de Thurgovie : comment fonctionne le dépôt de garantie, quand contester le loyer initial et comment agir devant l\'autorité de conciliation.',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.imageAlt': 'Vue d\'un quartier résidentiel dans le canton de Thurgovie avec des immeubles locatifs typiques',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Naturalisation en Thurgovie : exigences, tests et procédure',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'Comment obtenir la citoyenneté dans le canton de Thourgovie : années de résidence, langue, tests et coûts.',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Façade d\'une mairie de Thurgovie avec drapeau suisse',
 };
 
 export default blogMetaChFr;

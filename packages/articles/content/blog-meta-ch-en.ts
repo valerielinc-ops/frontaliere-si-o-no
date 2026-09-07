@@ -5998,6 +5998,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.title': 'Rentals in Thurgau: average fees, deposit and conciliation',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.excerpt': 'Rental market in the canton of Thurgau: how the security deposit works, when to challenge the initial rent and how to act before the conciliation authority.',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.imageAlt': 'View of a residential neighborhood in Thurgau Canton with typical rental buildings',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Naturalization in Thurgau: requirements, tests and procedure',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'How to obtain citizenship in the Canton of Thurgau: years of residence, language, tests and costs.',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Facade of a Thurgau town hall with Swiss flag',
 };
 
 export default blogMetaChEn;

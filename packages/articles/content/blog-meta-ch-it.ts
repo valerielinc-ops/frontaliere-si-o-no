@@ -5998,6 +5998,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.title': 'Affitti in Turgovia: canoni medi, deposito e conciliazione',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.excerpt': 'Mercato degli affitti nel Canton Turgovia: come funziona il deposito cauzionale, quando contestare il canone iniziale e come agire davanti all\'autorità di conciliazione.',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.imageAlt': 'Veduta di un quartiere residenziale nel Canton Turgovia con edifici locativi tipici',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Naturalizzazione in Turgovia: requisiti, test e procedura',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'Come ottenere la cittadinanza nel Canton Turgovia: anni di residenza, lingua, test e costi.',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Facciata di un municipio del Canton Turgovia con bandiera svizzera',
 };
 
 export default blogMetaChIt;
