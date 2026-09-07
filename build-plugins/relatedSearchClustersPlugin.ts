@@ -110,6 +110,7 @@ import {
   registerKeywordLandingPaths,
   keywordLandingPlanSize,
   landingPathFromDistRelative,
+  normalizeLandingPath,
 } from './shared/keywordLandingPlan';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
@@ -1703,13 +1704,6 @@ export function restoredKeywordLandingPaths(
   return files.filter((rel) => !retired.has(rel)).map(landingPathFromDistRelative);
 }
 
-/** Leading + trailing slash, so the two path sources compare as one shape. */
-function normalizeRetirementPath(urlPath: string): string {
-  const trimmed = urlPath.trim();
-  if (!trimmed) return '/';
-  return `/${trimmed}/`.replace(/\/+/g, '/');
-}
-
 /**
  * Fail the build when a junk withdrawal would land on a path a LIVE cluster
  * also emits (issue #7752).
@@ -1737,11 +1731,15 @@ export function assertRetirementsDisjointFromPlan(
   plannedPaths: ReadonlyArray<string>,
 ): void {
   if (retirements.length === 0 || plannedPaths.length === 0) return;
-  const planned = new Set(plannedPaths.map(normalizeRetirementPath));
+  // `normalizeLandingPath` — the plan's own normalizer, not a second one: the
+  // two sides must agree on the path shape or a collision hides behind a
+  // trailing slash (`plannedPaths` takes the indexed-URL entries verbatim from
+  // the data file, `enumerateJunkRetirements` re-slashes them).
+  const planned = new Set(plannedPaths.map(normalizeLandingPath));
   const collisions: string[] = [];
   for (const retirement of retirements) {
     for (const retiredPath of retirement.paths) {
-      const normalized = normalizeRetirementPath(retiredPath);
+      const normalized = normalizeLandingPath(retiredPath);
       if (planned.has(normalized)) {
         collisions.push(`${normalized} (${retirement.locale}::${retirement.slug})`);
       }
@@ -1760,15 +1758,15 @@ export function assertRetirementsDisjointFromPlan(
  *
  * `computeCacheKey` hashes the DATA inputs, not this file, so a manifest
  * written by a build that predates `assertRetirementsDisjointFromPlan` is
- * still restorable by a build that has it. Two signatures give the collision
- * away in a manifest:
- *   1. a retired rel listed twice in `files` — the retirement loop pushes each
- *      rel once, and slugs are part of the path, so a second occurrence means
- *      a non-retirement writer produced the same file;
- *   2. a NON-retired rel whose landing path is also a retired one — the same
- *      landing reached through the other half of the `<path>.html` /
- *      `<path>/index.html` pair.
- * Either way the plan below would silently drop a live landing.
+ * still restorable by a build that has it. The signature it leaves is a
+ * retired rel listed TWICE in `files`: the retirement loop pushes each rel
+ * once and the slug is part of the path, so a second occurrence means a
+ * non-retirement writer produced the same file — and the filter below, which
+ * matches on the exact rel, would then drop a LIVE landing from the plan.
+ *
+ * A non-retired rel that merely SHARES a landing path with a retired one is
+ * deliberately not flagged: that is the half-tagged pair of issue #7751, whose
+ * documented behaviour is to re-plan the landing, not to fail the build.
  */
 function assertNoRestoredRetirementCollision(
   files: ReadonlyArray<string>,
@@ -1776,18 +1774,12 @@ function assertNoRestoredRetirementCollision(
 ): void {
   if (retiredFiles.length === 0) return;
   const retired = new Set(retiredFiles);
-  const retiredLandings = new Set(retiredFiles.map(landingPathFromDistRelative));
   const seen = new Set<string>();
   const collisions = new Set<string>();
   for (const rel of files) {
-    if (retired.has(rel)) {
-      if (seen.has(rel)) collisions.add(landingPathFromDistRelative(rel));
-      seen.add(rel);
-      continue;
-    }
-    if (retiredLandings.has(landingPathFromDistRelative(rel))) {
-      collisions.add(landingPathFromDistRelative(rel));
-    }
+    if (!retired.has(rel)) continue;
+    if (seen.has(rel)) collisions.add(landingPathFromDistRelative(rel));
+    seen.add(rel);
   }
   if (collisions.size > 0) {
     const list = Array.from(collisions).sort();
