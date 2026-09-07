@@ -110,6 +110,7 @@ import {
   registerKeywordLandingPaths,
   keywordLandingPlanSize,
   landingPathFromDistRelative,
+  normalizeLandingPath,
 } from './shared/keywordLandingPlan';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
@@ -1698,8 +1699,95 @@ export function restoredKeywordLandingPaths(
   files: ReadonlyArray<string>,
   retiredFiles: ReadonlyArray<string> = [],
 ): string[] {
+  assertNoRestoredRetirementCollision(files, retiredFiles);
   const retired = new Set(retiredFiles);
   return files.filter((rel) => !retired.has(rel)).map(landingPathFromDistRelative);
+}
+
+/**
+ * Fail the build when a junk withdrawal would land on a path a LIVE cluster
+ * also emits (issue #7752).
+ *
+ * The two path sets are built by different code from different sources — the
+ * plan from `contexts` (canonical `ctx.cantonGroup` + `ctx.legacyCantonGroup`
+ * + `'TI'` mirrors), the withdrawals from `enumerateJunkRetirements`
+ * (`AGGREGATE_KEY` + `'TI'` + the indexed-URL union) — and both feed
+ * `collector.add`. They SHOULD be disjoint: `buildClusterContext` returns null
+ * for a junk keyword, so no surviving context shares a (locale, slug) with a
+ * retirement. Nothing enforced it, and the two failure modes of an overlap are
+ * silent: on the emit path the retirement loop runs FIRST, so the live cluster
+ * page wins the last write and the withdrawal quietly does nothing; on a cache
+ * HIT the rel is tagged retired, so `restoredKeywordLandingPaths` drops the
+ * LIVE landing from the plan and `transformHreflang` strips its alternates.
+ * Write order is not a guarantee — it is an accident of loop placement — so
+ * the overlap is asserted instead of ranked.
+ *
+ * Throwing is the point: an empty intersection is the invariant, and a
+ * non-empty one means the junk classification and the match filter disagree
+ * about the same URL. Emitting either document would be a guess.
+ */
+export function assertRetirementsDisjointFromPlan(
+  retirements: ReadonlyArray<JunkRetirement>,
+  plannedPaths: ReadonlyArray<string>,
+): void {
+  if (retirements.length === 0 || plannedPaths.length === 0) return;
+  // `normalizeLandingPath` — the plan's own normalizer, not a second one: the
+  // two sides must agree on the path shape or a collision hides behind a
+  // trailing slash (`plannedPaths` takes the indexed-URL entries verbatim from
+  // the data file, `enumerateJunkRetirements` re-slashes them).
+  const planned = new Set(plannedPaths.map(normalizeLandingPath));
+  const collisions: string[] = [];
+  for (const retirement of retirements) {
+    for (const retiredPath of retirement.paths) {
+      const normalized = normalizeLandingPath(retiredPath);
+      if (planned.has(normalized)) {
+        collisions.push(`${normalized} (${retirement.locale}::${retirement.slug})`);
+      }
+    }
+  }
+  if (collisions.length > 0) {
+    throw new Error(
+      `[related-search-clusters] ${collisions.length} junk-doorway retirement path(s) collide with live cluster landings ` +
+      `— the withdrawal would overwrite a page this build also emits (issue #7752):\n  ${collisions.join('\n  ')}`,
+    );
+  }
+}
+
+/**
+ * The cache-HIT half of the same invariant (issue #7752).
+ *
+ * `computeCacheKey` hashes the DATA inputs, not this file, so a manifest
+ * written by a build that predates `assertRetirementsDisjointFromPlan` is
+ * still restorable by a build that has it. The signature it leaves is a
+ * retired rel listed TWICE in `files`: the retirement loop pushes each rel
+ * once and the slug is part of the path, so a second occurrence means a
+ * non-retirement writer produced the same file — and the filter below, which
+ * matches on the exact rel, would then drop a LIVE landing from the plan.
+ *
+ * A non-retired rel that merely SHARES a landing path with a retired one is
+ * deliberately not flagged: that is the half-tagged pair of issue #7751, whose
+ * documented behaviour is to re-plan the landing, not to fail the build.
+ */
+function assertNoRestoredRetirementCollision(
+  files: ReadonlyArray<string>,
+  retiredFiles: ReadonlyArray<string>,
+): void {
+  if (retiredFiles.length === 0) return;
+  const retired = new Set(retiredFiles);
+  const seen = new Set<string>();
+  const collisions = new Set<string>();
+  for (const rel of files) {
+    if (!retired.has(rel)) continue;
+    if (seen.has(rel)) collisions.add(landingPathFromDistRelative(rel));
+    seen.add(rel);
+  }
+  if (collisions.size > 0) {
+    const list = Array.from(collisions).sort();
+    throw new Error(
+      `[related-search-clusters] restored manifest has ${list.length} landing path(s) that are BOTH a junk-doorway ` +
+      `withdrawal and a live cluster page (issue #7752) — rebuild with a cache MISS to re-derive it:\n  ${list.join('\n  ')}`,
+    );
+  }
 }
 
 const JUNK_RETIREMENT_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
@@ -3626,6 +3714,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const extras = indexedClusterUrlsByKey.get(`${loc}::${ctx.candidate.slug}`);
         if (extras) for (const p of extras) plannedPaths.push(p);
       }
+      // The plan is now complete for every locale, and `junkRetirements` was
+      // enumerated above: assert the two sets are disjoint BEFORE anything is
+      // registered or written, so a collision fails the build with the paths
+      // named instead of resolving itself as "whoever writes last wins"
+      // (issue #7752).
+      assertRetirementsDisjointFromPlan(junkRetirements, plannedPaths);
       registerKeywordLandingPaths('related-search-clusters', plannedPaths);
       profileRecord('register-landing-plan', __tPlan);
       console.log(

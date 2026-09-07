@@ -15,6 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 import {
+  assertRetirementsDisjointFromPlan,
   buildClusterContext,
   buildJunkRetirementHtml,
   clusterKeywordFromCandidate,
@@ -200,6 +201,73 @@ describe('junkRetirementWrites — the flat sibling is withdrawn too (issue #775
     expect(restoredKeywordLandingPaths(rels, rels)).toEqual([]);
     expect(restoredKeywordLandingPaths(rels, [rels[0]])).toEqual([
       '/cerca-lavoro-svizzera/ricerca-cookie-bern',
+    ]);
+  });
+});
+
+describe('assertRetirementsDisjointFromPlan — a withdrawal never lands on a live cluster (issue #7752)', () => {
+  const RETIREMENTS = enumerateJunkRetirements([JUNK]);
+  const LIVE_PLAN = [
+    '/cerca-lavoro-svizzera/ricerca-infermiere-lugano/',
+    '/cerca-lavoro-ticino/ricerca-infermiere-lugano/',
+  ];
+
+  it('throws and NAMES the path when a retirement overlaps a planned landing', () => {
+    // The defect this guards: both sets feed `collector.add`, so an overlap
+    // was resolved by write order (retirements first, clusters after) — the
+    // withdrawal silently lost on the emit path and silently won on a cache
+    // HIT, where the rel is tagged retired and the LIVE landing drops out of
+    // the plan.
+    const colliding = [...LIVE_PLAN, '/cerca-lavoro-svizzera/ricerca-cookie-bern/'];
+    expect(() => assertRetirementsDisjointFromPlan(RETIREMENTS, colliding)).toThrow(
+      /\/cerca-lavoro-svizzera\/ricerca-cookie-bern \(it::ricerca-cookie-bern\)/,
+    );
+  });
+
+  it('compares the two path shapes normalized, not verbatim', () => {
+    // `plannedPaths` takes the indexed-URL entries straight from the data
+    // file; `enumerateJunkRetirements` re-slashes them. A collision must not
+    // hide behind a missing trailing slash.
+    expect(() =>
+      assertRetirementsDisjointFromPlan(RETIREMENTS, ['/cerca-lavoro-ticino/ricerca-cookie-bern']),
+    ).toThrow(/issue #7752/);
+  });
+
+  it('passes silently on the disjoint sets a healthy build produces', () => {
+    // `buildClusterContext` returns null for a junk keyword, so no surviving
+    // context shares a (locale, slug) with a retirement: the empty
+    // intersection is the normal case, and the guard must not cost a build.
+    expect(() => assertRetirementsDisjointFromPlan(RETIREMENTS, LIVE_PLAN)).not.toThrow();
+    expect(() => assertRetirementsDisjointFromPlan([], LIVE_PLAN)).not.toThrow();
+    expect(() => assertRetirementsDisjointFromPlan(RETIREMENTS, [])).not.toThrow();
+  });
+});
+
+describe('restoredKeywordLandingPaths — a poisoned manifest fails the cache HIT (issue #7752)', () => {
+  const LIVE = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+  const RETIRED = 'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html';
+  const RETIRED_FLAT = 'cerca-lavoro-svizzera/ricerca-cookie-bern.html';
+
+  it('throws when a retired rel was written twice — a second writer produced it', () => {
+    // `computeCacheKey` hashes the data inputs, not this plugin, so a manifest
+    // from a build that predates the emit-path guard is still restorable.
+    expect(() => restoredKeywordLandingPaths([LIVE, RETIRED, RETIRED], [RETIRED])).toThrow(
+      /ricerca-cookie-bern/,
+    );
+  });
+
+  it('does NOT fail the half-tagged pair of issue #7751 — that one re-plans by design', () => {
+    // A flat sibling left out of `retiredFiles` shares the retired landing
+    // path but is not a second writer: the documented behaviour is to put the
+    // landing back in the plan, and this guard must not change it.
+    expect(restoredKeywordLandingPaths([LIVE, RETIRED_FLAT], [RETIRED])).toContain(
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern',
+    );
+  });
+
+  it('leaves the healthy manifest exactly as it was', () => {
+    expect(restoredKeywordLandingPaths([LIVE, RETIRED, RETIRED_FLAT], [RETIRED, RETIRED_FLAT])).toEqual([
+      '/cerca-lavoro-svizzera/ricerca-infermiere-lugano',
     ]);
   });
 });
