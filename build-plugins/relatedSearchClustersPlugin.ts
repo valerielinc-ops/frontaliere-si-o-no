@@ -514,7 +514,7 @@ function cacheDirFor(rootDir: string, cacheKey: string): string {
   return path.join(rootDir, '.cache', 'related-search-clusters', cacheKey);
 }
 
-async function tryRestoreFromCache(
+export async function tryRestoreFromCache(
   rootDir: string,
   distDir: string,
   cacheKey: string,
@@ -546,6 +546,7 @@ async function tryRestoreFromCache(
   const files = manifest.files;
   const ensuredDirs = new Set<string>();
   let restored = 0;
+  let missing = 0;
 
   for (let i = 0; i < files.length; i += concurrency) {
     const batch = files.slice(i, i + concurrency);
@@ -561,13 +562,40 @@ async function tryRestoreFromCache(
         await fs.promises.copyFile(src, dst);
         restored++;
       } catch (err) {
-        // Missing src or unwritable dst: skip silently — the missing file
-        // will be detected by post-build audits if it actually mattered.
+        // ANY failure here leaves `dst` absent from dist/, and that is a
+        // CORRUPT restore regardless of errno: `saveToCache` only lists rels
+        // it actually copied, and the plugin source is a `CACHE_KEY_INPUTS`
+        // entry, so no manifest written by an older (pre-#7755) build can
+        // ever match this key. ENOENT means the blob is gone; EMFILE (the
+        // very risk the concurrency note above weighs), EACCES, ENOSPC, EIO
+        // and ENOTDIR mean the copy did not land — downstream the difference
+        // is nil, because the landing plan is registered from
+        // `manifest.files`, not from what reached the disk. Count them all
+        // and let the caller invalidate — a silent skip shipped a dist/ with
+        // missing cluster pages while `restoredKeywordLandingPaths` still
+        // registered them as planned landings.
+        missing++;
         if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
+          // Different diagnostic: the blob exists but the copy failed, so the
+          // cache dir is fine and the runner (fd limit, perms, disk) is not.
           console.warn(`\x1b[33m[related-search-clusters]\x1b[0m restore failed for ${rel}:`, err);
         }
       }
     }));
+  }
+
+  // Criterion (issue #7755): ONE entry that did not land invalidates the
+  // whole restore — missing blob or failed copy, the outcome on disk is the
+  // same.
+  // A partial restore is indistinguishable from a complete one downstream —
+  // the plan is registered from `manifest.files`, not from what landed on
+  // disk — so the only honest fallback is to re-emit. The already-copied
+  // files are harmless: the emit path rewrites the same set.
+  if (missing > 0) {
+    console.warn(
+      `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): ${missing}/${files.length} manifest entries failed to restore — falling back to a full emit`,
+    );
+    return null;
   }
 
   // Each shard carries a `<lastmod>` per URL; refresh today's date on every
@@ -593,7 +621,7 @@ async function tryRestoreFromCache(
   return { ...manifest, emittedCount: restored };
 }
 
-function saveToCache(
+export function saveToCache(
   rootDir: string,
   distDir: string,
   cacheKey: string,
@@ -609,23 +637,40 @@ function saveToCache(
   fs.rmSync(cacheDir, { recursive: true, force: true });
   fs.mkdirSync(path.join(cacheDir, 'files'), { recursive: true });
 
-  const seen = new Set<string>();
-  let copied = 0;
+  // Two sets on purpose. `visited` dedupes the input list; `stored` is the
+  // subset whose blob actually landed under `cacheDir/files`, and it is the
+  // ONLY one the manifest may advertise. Marking a rel as stored before the
+  // `existsSync` guard produced a manifest that promised files the cache did
+  // not hold: on the next cache HIT `tryRestoreFromCache` swallowed the
+  // ENOENT and `restoredKeywordLandingPaths` registered a landing whose file
+  // was never written to dist/ (issue #7755).
+  const visited = new Set<string>();
+  const stored: string[] = [];
+  let skipped = 0;
   for (const rel of emittedFiles) {
-    if (seen.has(rel)) continue;
-    seen.add(rel);
+    if (visited.has(rel)) continue;
+    visited.add(rel);
     const src = path.join(distDir, rel);
-    if (!fs.existsSync(src)) continue;
+    if (!fs.existsSync(src)) {
+      skipped++;
+      continue;
+    }
     const dst = path.join(cacheDir, 'files', rel);
     fs.mkdirSync(path.dirname(dst), { recursive: true });
     fs.copyFileSync(src, dst);
-    copied++;
+    stored.push(rel);
   }
+  if (skipped > 0) {
+    console.warn(
+      `\x1b[33m[related-search-clusters]\x1b[0m ${skipped} emitted file(s) missing from dist/ at cache-save time: excluded from the manifest`,
+    );
+  }
+  const copied = stored.length;
 
   const manifest: CacheManifest = {
     version: CACHE_VERSION,
     generatedAt: new Date().toISOString(),
-    files: Array.from(seen),
+    files: stored.slice(),
     hubs: hubs.slice(),
     sitemapLocs: sitemapLocs.slice(),
     crossSectionMirrorLocs: crossSectionMirrorLocs.slice(),
@@ -633,7 +678,10 @@ function saveToCache(
     // Only the ones that actually made it into `files`: a retirement whose
     // source was missing at copy time is not restored either, so recording it
     // would exclude a path that is never registered in the first place.
-    retiredFiles: retiredFiles.filter((rel) => seen.has(rel)),
+    retiredFiles: (() => {
+      const storedSet = new Set(stored);
+      return retiredFiles.filter((rel) => storedSet.has(rel));
+    })(),
     emittedCount: copied,
   };
   fs.writeFileSync(
