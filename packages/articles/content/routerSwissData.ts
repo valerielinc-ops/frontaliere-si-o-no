@@ -2035,6 +2035,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-ginevra-mutuo-ipotecario': { it: 'comprare-casa-ginevra-mutuo-ipotecario', en: 'buy-house-geneva-mortgage', de: 'haus-kaufen-genf-hypothek', fr: 'acheter-maison-geneve-hypotheque' },
  'ginevra-mercato-affitti-diritto-locazione': { it: 'ginevra-mercato-affitti-diritto-locazione', en: 'geneva-rental-market-housing-law', de: 'genf-mietmarkt-mietrecht', fr: 'geneve-marche-locatif-droit-bail' },
  'affitti-ginevra-deposito-cauzionale': { it: 'affitti-ginevra-deposito-cauzionale', en: 'geneva-rental-deposit', de: 'geneva-mietkaution', fr: 'geneve-depot-location' },
+ 'incontro-pensioni-salute-2026': { it: 'incontro-pensioni-salute-2026', en: 'pension-health-meeting-2026', de: 'pension-gesundheitsmeeting-2026', fr: 'rencontre-pensions-sante-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

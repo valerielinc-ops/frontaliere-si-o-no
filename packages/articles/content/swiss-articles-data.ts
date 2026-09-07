@@ -18082,6 +18082,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'incontro-pensioni-salute-2026',
+    category: 'pensione',
+    date: '2026-09-07T19:26:55.771Z',
+    image: '/images/blog/incontro-pensioni-salute-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

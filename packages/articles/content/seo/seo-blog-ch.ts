@@ -78254,6 +78254,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incontro-pensioni-salute-2026': {
+    title: 'Incontro dei ministri sociali in Lussemburgo: focus su pensioni e salute',
+    description: 'Scopri i risultati dell’incontro del 7 settembre 2026 a Lussemburgo su pensioni, malattie non trasmissibili e neurodegenerative, e le implicazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, incontro, ministri, sociali, lussemburgo',
+    ogTitle: 'Incontro su pensioni e salute a Lussemburgo',
+    ogDescription: 'Il 7 settembre 2026 i ministri svizzeri e dei paesi germanofoni hanno firmato una dichiarazione su pensioni, prevenzione NCD e malattie neurodegenerative. Scopri le implicazioni per la Svizzera.',
+    canonicalPath: '/articoli-svizzera/incontro-pensioni-salute-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incontro dei ministri sociali in Lussemburgo: focus su pensioni e salute",
+      "description": "Scopri i risultati dell’incontro del 7 settembre 2026 a Lussemburgo su pensioni, malattie non trasmissibili e neurodegenerative, e le implicazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incontro-pensioni-salute-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lussemburgo al tramonto, simbolo di un incontro svizzero‑europeo su pensioni e salute"
+      },
+      "datePublished": "2026-09-07T19:26:55+00:00",
+      "dateModified": "2026-09-07T19:26:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incontro-pensioni-salute-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

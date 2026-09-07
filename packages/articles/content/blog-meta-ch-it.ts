@@ -6028,6 +6028,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Deposito cauzionale e contestazione canoni a Ginevra',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Il deposito cauzionale non può superare tre mesi di pigione; la contestazione del canone deve avvenire entro 30 giorni presso l’autorità di conciliazione.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Edificio residenziale a Ginevra con cartello \'Affittasi\' e vista alpina',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Incontro dei ministri sociali in Lussemburgo: focus su pensioni e salute',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'Il 7 settembre 2026 a Lussemburgo, la Svizzera ha firmato una dichiarazione con Austria, Germania, Liechtenstein e Lussemburgo su pensioni, NCD e malattie neurodegenerative.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Panorama di Lussemburgo al tramonto, simbolo di un incontro svizzero‑europeo su pensioni e salute',
 };
 
 export default blogMetaChIt;
