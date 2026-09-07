@@ -17443,6 +17443,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'argovia-mercato-lavoro-settori',
+    category: 'pratico',
+    date: '2026-09-07T02:52:53.978Z',
+    image: '/images/blog/argovia-mercato-lavoro-settori.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

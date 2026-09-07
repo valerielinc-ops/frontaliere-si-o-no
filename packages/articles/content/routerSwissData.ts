@@ -1964,6 +1964,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-cassa-compensazione-canton': { it: 'avs-cassa-compensazione-canton', en: 'avs-contribution-compensation-fund-canton', de: 'avs-ausgleichskasse-kanton', fr: 'avs-caisse-de-compensation-canton' },
  'assegni-familiari-berna-diritti-domanda': { it: 'assegni-familiari-berna-diritti-domanda', en: 'family-allowances-bern-conditions-application', de: 'familienzulagen-bern-bedingungen-antrag', fr: 'allocations-familiales-berne-conditions-demande' },
  'imposta-eredita-appenzello-esterno': { it: 'imposta-eredita-appenzello-esterno', en: 'inheritance-tax-appenzell-rhodes-outer', de: 'erbschaftsteuer-appenzell-ausserrhoden', fr: 'impot-succession-appenzell-rhodes-externes' },
+ 'argovia-mercato-lavoro-settori': { it: 'argovia-mercato-lavoro-settori', en: 'aargau-labour-market-sectors', de: 'aargau-arbeitsmarkt-sektoren', fr: 'argovie-marche-travail-secteurs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
