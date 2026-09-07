@@ -6013,6 +6013,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Apprentissage et formation professionnelle dans le canton de Genève',
     'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Double parcours à Genève : contrat de stage, salaire, maturité professionnelle et accès aux SUP. Guide complet.',
     'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Apprenti au travail dans une entreprise formatrice du canton de Genève',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Bourses d\'études dans le canton de Genève : exigences et montants',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Bourses et prêts à l\'étude dans le canton de Genève : exigences de mérite et de revenu, montants maximaux, délais et bureau cantonal compétent.',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'Campus universitaire sur le lac Léman avec le Jet d\'Eau en arrière-plan',
 };
 
 export default blogMetaChFr;

@@ -6013,6 +6013,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Apprendistato e formazione professionale nel Canton Ginevra',
     'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Percorso duale a Ginevra: contratto di tirocinio, salario, maturità professionale e accesso alle SUP. Guida completa.',
     'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Apprendista al lavoro in un\'azienda formatrice nel Cantone di Ginevra',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Borse di studio nel Canton Ginevra: requisiti e importi',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Borse e prestiti allo studio nel Canton Ginevra: requisiti di merito e reddito, importi massimi, termini e ufficio cantonale competente.',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'Campus universitario sul lago Lemano a Ginevra con il Jet d\'Eau sullo sfondo',
 };
 
 export default blogMetaChIt;
