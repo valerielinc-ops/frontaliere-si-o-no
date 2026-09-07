@@ -77864,6 +77864,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-turgovia-requisiti-procedura': {
+    title: 'Naturalizzazione in Turgovia: requisiti, test e procedura',
+    description: 'Requisiti, test di lingua, anni di residenza, tasse e procedura completa per naturalizzarsi nel Canton Turgovia. Guida operativa 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, turgovia, requisiti, test',
+    ogTitle: 'Naturalizzazione Canton Turgovia: requisiti e procedura',
+    ogDescription: 'Tutto sulla naturalizzazione ordinaria in Turgovia: permesso C, 10 anni di residenza, test di lingua tedesca, tasse cantonali e comunali, iter passo per passo fino al passaggio federale.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-turgovia-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione in Turgovia: requisiti, test e procedura",
+      "description": "Requisiti, test di lingua, anni di residenza, tasse e procedura completa per naturalizzarsi nel Canton Turgovia. Guida operativa 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-turgovia-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un municipio del Canton Turgovia con bandiera svizzera"
+      },
+      "datePublished": "2026-09-07T15:36:08+00:00",
+      "dateModified": "2026-09-07T15:36:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-turgovia-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5998,6 +5998,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.title': 'Mieten im Thurgau: Durchschnittsmieten, Kaution und Schlichtung',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.excerpt': 'Mietmarkt im Kanton Thurgau: Wie funktioniert die Mietkaution, wann wird die Erstmiete angefochten und wie wird vor der Schlichtungsbehörde vorgegangen?',
     'blog.article.affitti-turgovia-canoni-locazione-conciliazione.imageAlt': 'Blick auf ein Wohnquartier im Kanton Thurgau mit typischen Mietgebäuden',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Einbürgerung im Thurgau: Anforderungen, Tests und Verfahren',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'So erhalten Sie die Staatsbürgerschaft im Kanton Thurgau: Jahre des Wohnsitzes, Sprache, Tests und Kosten.',
+    'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Fassade eines Thurgauer Rathauses mit Schweizer Flagge',
 };
 
 export default blogMetaChDe;
