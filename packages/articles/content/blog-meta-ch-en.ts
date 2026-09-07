@@ -5923,6 +5923,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rana-caff-scoperta-costa-rica.title': 'The "coffee frog": a new species discovered in Costa Rica',
     'blog.article.rana-caff-scoperta-costa-rica.excerpt': 'From coffee plantations to aquatic ecosystems: the discovery of the amphibian and the relationship between agriculture, tourism and the protection of biodiversity',
     'blog.article.rana-caff-scoperta-costa-rica.imageAlt': 'Panoramic view of Castelgrande in Bellinzona, Switzerland',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.title': 'Driver\'s license in the canton of Neuchâtel: conversion and exams',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.excerpt': 'Learn how to convert your foreign license and take exams in the Canton of Neuchâtel.',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.imageAlt': 'A person studying for a driving license exam in Switzerland',
 };
 
 export default blogMetaChEn;
