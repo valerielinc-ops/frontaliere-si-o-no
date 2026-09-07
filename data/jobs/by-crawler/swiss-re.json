@@ -8705,12 +8705,12 @@
     },
     {
       "id": "swiss-re-906f16c3a157",
-      "slug": "cat-tools-infrastructure-associate-swiss-re-ch",
+      "slug": "strumenti-per-gatti-e-infrastrutture-associate-swiss-re-bangalore-in",
       "slugByLocale": {
-        "it": "cat-tools-infrastructure-associate-swiss-re-ch",
+        "it": "strumenti-per-gatti-e-infrastrutture-associate-swiss-re-bangalore-in",
         "en": "cat-tools-infrastructure-associate-swiss-re-ch",
         "de": "cat-tools-infrastructure-associate-swiss-re-ch",
-        "fr": "cat-tools-infrastructure-associate-swiss-re-ch"
+        "fr": "cat-outils-et-infrastructure-associe-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -8764,7 +8764,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "cat-tools-infrastructure-associate-swiss-re-ch"
+        ],
+        "fr": [
+          "cat-tools-infrastructure-associate-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cat-tools-infrastructure-associate-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-7cc3d5d12b12",

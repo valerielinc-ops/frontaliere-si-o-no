@@ -26198,12 +26198,12 @@
     },
     {
       "id": "interdiscount-b7569550-b9b",
-      "slug": "fachfrau-mann-kundendialog-interdiscount-jegenstorf",
+      "slug": "esperto-dialogo-con-i-clienti-dimann-interdiscount-jegenstorf",
       "slugByLocale": {
         "de": "fachfrau-mann-kundendialog-interdiscount-jegenstorf",
-        "it": "fachfrau-mann-kundendialog-interdiscount-jegenstorf",
-        "en": "fachfrau-mann-kundendialog-interdiscount-jegenstorf",
-        "fr": "fachfrau-mann-kundendialog-interdiscount-jegenstorf"
+        "it": "esperto-dialogo-con-i-clienti-dimann-interdiscount-jegenstorf",
+        "en": "expert-mann-customer-dialogue-interdiscount-jegenstorf",
+        "fr": "expert-dialogue-clientmann-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -26271,16 +26271,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-kundendialog-interdiscount-jegenstorf"
+        ],
+        "en": [
+          "fachfrau-mann-kundendialog-interdiscount-jegenstorf"
+        ],
+        "fr": [
+          "fachfrau-mann-kundendialog-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-kundendialog-interdiscount-jegenstorf"
+      ]
     },
     {
       "id": "interdiscount-37c80865-954",
-      "slug": "kauffrau-mann-interdiscount-jegenstorf",
+      "slug": "donna-d-affari-mann-interdiscount-jegenstorf",
       "slugByLocale": {
         "de": "kauffrau-mann-interdiscount-jegenstorf",
-        "it": "kauffrau-mann-interdiscount-jegenstorf",
-        "en": "kauffrau-mann-interdiscount-jegenstorf",
-        "fr": "kauffrau-mann-interdiscount-jegenstorf"
+        "it": "donna-d-affari-mann-interdiscount-jegenstorf",
+        "en": "businesswoman-mann-interdiscount-jegenstorf",
+        "fr": "femme-d-affaires-mann-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -26348,7 +26362,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kauffrau-mann-interdiscount-jegenstorf"
+        ],
+        "en": [
+          "kauffrau-mann-interdiscount-jegenstorf"
+        ],
+        "fr": [
+          "kauffrau-mann-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "kauffrau-mann-interdiscount-jegenstorf"
+      ]
     },
     {
       "id": "interdiscount-feb31d42-c2a",
@@ -26356,8 +26384,8 @@
       "slugByLocale": {
         "de": "logistiker-in-interdiscount-jegenstorf",
         "it": "impiegata-impiegato-in-logistica-interdiscount-jegenstorf",
-        "en": "logistiker-in-interdiscount-jegenstorf",
-        "fr": "logistiker-in-interdiscount-jegenstorf"
+        "en": "logistician-interdiscount-jegenstorf",
+        "fr": "logisticien-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",

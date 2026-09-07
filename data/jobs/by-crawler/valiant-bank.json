@@ -1793,12 +1793,12 @@
     },
     {
       "id": "valiant-bank-47df8e7ec7be",
-      "slug": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
+      "slug": "personale-bancario-consultivo-residente-50-100-valiant-bank-ag-bern",
       "slugByLocale": {
-        "it": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
-        "en": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
+        "it": "personale-bancario-consultivo-residente-50-100-valiant-bank-ag-bern",
+        "en": "consultant-residential-banking-staff-50-100-valiant-bank-ag-bern",
         "de": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
-        "fr": "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern"
+        "fr": "personnel-de-consultants-banques-residentielles-50-100-valiant-bank-ag-bern"
       },
       "company": "Valiant Bank AG",
       "companyKey": "valiant-bank",
@@ -1855,7 +1855,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern"
+        ],
+        "en": [
+          "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern"
+        ],
+        "fr": [
+          "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern"
+        ]
+      },
+      "previousSlugs": [
+        "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern"
+      ]
     },
     {
       "id": "valiant-bank-1b76a3ffb194",

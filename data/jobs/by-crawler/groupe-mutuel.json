@@ -112,11 +112,11 @@
         "de": "Kompatibel (m/w) 50-60%",
         "fr": "Comptable (h/f) 50-60%"
       },
-      "slug": "comptable-h-f-50-60-groupe-mutuel",
+      "slug": "compatibile-m-f-50-60-groupe-mutuel-martigny",
       "slugByLocale": {
-        "it": "comptable-h-f-50-60-groupe-mutuel",
+        "it": "compatibile-m-f-50-60-groupe-mutuel-martigny",
         "en": "comptable-h-f-50-60-groupe-mutuel",
-        "de": "comptable-h-f-50-60-groupe-mutuel",
+        "de": "kompatibel-m-w-50-60-groupe-mutuel-martigny",
         "fr": "comptable-h-f-50-60-groupe-mutuel"
       },
       "category": "finance",
@@ -150,7 +150,18 @@
         }
       },
       "addressLocality": "Martigny",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "comptable-h-f-50-60-groupe-mutuel"
+        ],
+        "de": [
+          "comptable-h-f-50-60-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "comptable-h-f-50-60-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",

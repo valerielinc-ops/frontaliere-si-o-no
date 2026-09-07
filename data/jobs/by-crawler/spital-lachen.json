@@ -3496,12 +3496,12 @@
     },
     {
       "id": "spital-lachen-e6f12cae26d8",
-      "slug": "assistenzarztinnen-e-assistenzarzte-chirurgie-100-spital-lachen",
+      "slug": "chirurgia-dei-medici-assistente-100-spital-lachen-lachen",
       "slugByLocale": {
-        "it": "assistenzarztinnen-e-assistenzarzte-chirurgie-100-spital-lachen",
-        "en": "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen",
+        "it": "chirurgia-dei-medici-assistente-100-spital-lachen-lachen",
+        "en": "assistant-doctors-surgery-100-spital-lachen-lachen",
         "de": "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen",
-        "fr": "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
+        "fr": "medecins-adjoints-chirurgie-100-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -3543,10 +3543,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
+        "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen",
+        "assistenzarztinnen-e-assistenzarzte-chirurgie-100-spital-lachen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen",
+          "assistenzarztinnen-e-assistenzarzte-chirurgie-100-spital-lachen"
+        ],
+        "en": [
+          "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
+        ],
+        "fr": [
           "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
         ]
       },

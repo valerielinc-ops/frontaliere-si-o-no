@@ -864,12 +864,12 @@
     },
     {
       "id": "baloise-0a757f8e61be",
-      "slug": "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn",
+      "slug": "consulente-clienti-privato-m-f-d-bank-region-solothurn-olten-baloise-solothurn",
       "slugByLocale": {
-        "it": "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn",
-        "en": "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn",
+        "it": "consulente-clienti-privato-m-f-d-bank-region-solothurn-olten-baloise-solothurn",
+        "en": "private-client-advisor-m-f-d-bank-region-solothurn-olten-baloise-solothurn",
         "de": "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn",
-        "fr": "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn"
+        "fr": "conseiller-client-prive-h-f-d-banque-region-soleure-olten-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -924,7 +924,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn"
+        ],
+        "en": [
+          "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn"
+        ],
+        "fr": [
+          "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-w-m-d-bank-region-solothurn-olten-baloise-solothurn"
+      ]
     },
     {
       "id": "baloise-6f631e5124ef",

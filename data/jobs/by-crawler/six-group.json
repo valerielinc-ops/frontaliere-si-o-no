@@ -5582,12 +5582,12 @@
     },
     {
       "id": "six-group-05378d71168a",
-      "slug": "product-manager-six-group-warsaw",
+      "slug": "responsabile-del-prodotto-six-group-warsaw",
       "slugByLocale": {
-        "it": "product-manager-six-group-warsaw",
+        "it": "responsabile-del-prodotto-six-group-warsaw",
         "en": "product-manager-six-group-warsaw",
-        "de": "product-manager-six-group-warsaw",
-        "fr": "product-manager-six-group-warsaw"
+        "de": "produktmanager-six-group-warsaw",
+        "fr": "gestionnaire-de-produits-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5642,7 +5642,21 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-six-group-warsaw"
+        ],
+        "de": [
+          "product-manager-six-group-warsaw"
+        ],
+        "fr": [
+          "product-manager-six-group-warsaw"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-six-group-warsaw"
+      ]
     },
     {
       "id": "six-group-807ea9f09409",

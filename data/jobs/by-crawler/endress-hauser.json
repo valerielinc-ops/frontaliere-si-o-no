@@ -4474,12 +4474,12 @@
     },
     {
       "id": "endress-hauser-5881a5e074ec",
-      "slug": "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach",
+      "slug": "proprietario-di-prodotto-di-software-rigs-industriali-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach",
+        "it": "proprietario-di-prodotto-di-software-rigs-industriali-m-f-d-endress-hauser-reinach",
         "en": "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach",
         "de": "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach",
-        "fr": "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach"
+        "fr": "proprietaire-de-produits-logiciels-rigs-industriels-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -4534,7 +4534,18 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "software-product-owner-industrial-rigs-w-m-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-6efde504dfa7",

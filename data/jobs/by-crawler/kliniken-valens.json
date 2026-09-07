@@ -8558,12 +8558,12 @@
     },
     {
       "id": "kliniken-valens-0187d9d0fbef",
-      "slug": "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel",
+      "slug": "installatore-sanitario-m-f-a-100-kliniken-valens-davos-clavdel",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel",
-        "en": "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel",
+        "it": "installatore-sanitario-m-f-a-100-kliniken-valens-davos-clavdel",
+        "en": "sanitary-installer-m-f-a-100-kliniken-valens-davos-clavdel",
         "de": "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel",
-        "fr": "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel"
+        "fr": "installation-sanitaire-m-f-a-100-kliniken-valens-davos-clavdel"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8618,7 +8618,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel"
+        ],
+        "en": [
+          "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel"
+        ],
+        "fr": [
+          "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-in-m-w-a-100-kliniken-valens-davos-clavdel"
+      ]
     },
     {
       "id": "kliniken-valens-acf698f89bbf",

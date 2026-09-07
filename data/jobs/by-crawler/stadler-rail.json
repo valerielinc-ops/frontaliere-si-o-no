@@ -9968,12 +9968,12 @@
     },
     {
       "id": "stadler-rail-8548fd5acad7",
-      "slug": "environmental-manager-stadler-rail-ch",
+      "slug": "responsabile-ambientale-stadler-rail-winterthur",
       "slugByLocale": {
-        "it": "environmental-manager-stadler-rail-ch",
+        "it": "responsabile-ambientale-stadler-rail-winterthur",
         "en": "environmental-manager-stadler-rail-ch",
         "de": "environmental-manager-stadler-rail-ch",
-        "fr": "environmental-manager-stadler-rail-ch"
+        "fr": "directeur-de-l-environnement-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -10028,16 +10028,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "environmental-manager-stadler-rail-ch"
+        ],
+        "fr": [
+          "environmental-manager-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "environmental-manager-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-f88d451d5423",
-      "slug": "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch",
+      "slug": "ingegnere-di-sviluppo-in-ingegnere-strutturale-in-stadler-rail-frauenfeld",
       "slugByLocale": {
-        "it": "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch",
-        "en": "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch",
+        "it": "ingegnere-di-sviluppo-in-ingegnere-strutturale-in-stadler-rail-frauenfeld",
+        "en": "development-engineer-in-structural-engineer-in-stadler-rail-frauenfeld",
         "de": "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch",
-        "fr": "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+        "fr": "ingenieur-de-developpement-in-ingenieur-structural-in-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -10092,7 +10103,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+        ],
+        "en": [
+          "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+        ],
+        "fr": [
+          "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-fbf342c6f643",

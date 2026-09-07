@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "lhm-luzerner-hohenklinik-montana-93cfc81b59b2",
-      "slug": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
+      "slug": "cuocere-cucinare-efz-100-luzerner-hohenklinik-montana-crans-montana",
       "slugByLocale": {
-        "it": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "en": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
+        "it": "cuocere-cucinare-efz-100-luzerner-hohenklinik-montana-crans-montana",
+        "en": "cook-cook-efz-100-luzerner-hohenklinik-montana-crans-montana",
         "de": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "fr": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        "fr": "faire-cuire-faire-cuire-efz-100-luzerner-hohenklinik-montana-crans-montana"
       },
       "company": "Luzerner Höhenklinik Montana",
       "companyKey": "lhm-luzerner-hohenklinik-montana",
@@ -63,7 +63,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "en": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "fr": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+      ]
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-e5dc0f811a97",
