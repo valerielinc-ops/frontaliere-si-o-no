@@ -634,7 +634,7 @@ export const DELIVERED = new Set(['pr-created']);
  * e l'ordine fra i due non è garantito: 120s è largo abbastanza da non perdere
  * mai una promozione del drainer, e stretto abbastanza da non catturare un
  * re-queue precedente (il giro minimo del drainer è il suo cron). */
-export const PROMOTION_PAIR_WINDOW_SEC = Number(process.env.FOLLOWUP_PROMOTION_PAIR_WINDOW_SEC || 120);
+export const PROMOTION_PAIR_WINDOW_SEC = intFromEnv('FOLLOWUP_PROMOTION_PAIR_WINDOW_SEC', 120);
 
 /** Timestamp (epoch ms) dell'ULTIMA aggiunta di `label` nella timeline eventi
  * di una issue, o null se non compare. Pura → testabile.
@@ -2625,10 +2625,36 @@ export function runDrain() {
       // ri-accodata una seconda volta. Senza il marker, un giorno in cui gli
       // sfratti tornassero produrrebbe un livelock invece di un backlog — un
       // guasto più difficile da vedere, non meno grave.
-      if (outcome === null && !isUnparkedOnce(iss)) {
+      // UNPARK-DELIVERED — #7903 ha chiuso la causa, questo drena l'effetto già
+      // prodotto. Una parked il cui ULTIMO verdetto è `pr-created` e che ha una
+      // PR di fix realmente MERGIATA non ha fallito tre volte: ha consegnato, e
+      // il RESCUE le ha addebitato il tentativo perché `hasFixPR` interroga solo
+      // `--state open` mentre una PR di fix mergia in ~20-25 min contro i 30 di
+      // `ORPHAN_MIN_AGE_MIN`. Senza questo ramo restano in uno stato terminale
+      // per un addebito falso, come le sfrattate che UNPARK-NO-VERDICT drena:
+      // stessa ingiustizia, causa opposta.
+      //
+      // Misurato il 2026-09-07 sulle parked non già sparcheggiate: 14 sul sito,
+      // 4 nel corpus. L'adversarial check di #7903 temeva che una PR mergiata da
+      // un branch con nome diverso leggesse `null` e consumasse il tentativo
+      // comunque: misurato, non morde su questo insieme — 18 su 18 hanno la PR
+      // esattamente su `fix/issue-N`, e confrontando `gh pr list --head` con
+      // `GET /pulls` sulle 14 candidate del sito le divergenze sono zero (merge
+      // più vecchio 09-02, dentro qualunque finestra). Resta vero in generale,
+      // ed è il motivo per cui la condizione è `!== null` e non un conteggio:
+      // chi non risolve resta parked, che è il verso sicuro.
+      //
+      // NON chiude la issue, la RIMETTE IN CODA. Un'aggregata può avere item
+      // ancora dovuti oltre a quello consegnato, quindi a dichiararla finita
+      // dev'essere `detectAlreadyResolved()` al giro dopo, sul corpo, non questo
+      // ramo sulla provenienza. `mergedFixPrAt()` costa una chiamata `gh`, per
+      // questo sta DOPO il test su `outcome`, che è già in memoria.
+      const deliveredParked = outcome === 'pr-created' && mergedFixPrAt(iss.number) !== null;
+
+      if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {
         acted++;
         if (DRY) {
-          console.log(`[dry] unpark #${iss.number} (parked senza alcun FIX_OUTCOME: nessun tentativo reale) — "${iss.title?.slice(0, 60)}"`);
+          console.log(`[dry] unpark #${iss.number} (${deliveredParked ? 'parked con pr-created e PR mergiata: ha consegnato' : 'parked senza alcun FIX_OUTCOME: nessun tentativo reale'}) — "${iss.title?.slice(0, 60)}"`);
           continue;
         }
         if (!unparkLabelEnsured) {
@@ -2636,8 +2662,10 @@ export function runDrain() {
           unparkLabelEnsured = true;
         }
         try {
-          gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body',
-            `♻️ **Ri-accodata dal followup-drainer (zero-Claude): era parcheggiata senza un solo tentativo.**\n\nQuesta issue portava \`${LBL_PARKED}\` e \`fu-attempt:${attemptOf(iss) || '?'}\`, ma nei suoi commenti non c'è **nessun** \`FIX_OUTCOME\`: nessuna run del fixer l'ha mai lavorata. Il contatore dei tentativi è stato alzato dal RESCUE su promozioni che la coda di concorrenza di \`issue-fix.yml\` aveva sfrattato (\`cancelled\` prima di eseguire uno step), non su fix falliti.\n\nTolgo \`${LBL_PARKED}\` e il contatore e la rimetto in coda con \`${LBL_QUEUED}\`. Il primo giro vero comincia adesso.`], { json: false });
+          const unparkBody = deliveredParked
+            ? `♻️ **Ri-accodata dal followup-drainer (zero-Claude): aveva consegnato, non fallito.**\n\nQuesta issue portava \`${LBL_PARKED}\` e \`fu-attempt:${attemptOf(iss) || '?'}\`, ma il suo ultimo \`FIX_OUTCOME\` è \`pr-created\` **e la PR di fix su \`fix/issue-${iss.number}\` risulta mergiata**. Il tentativo è stato addebitato dal RESCUE perché \`hasFixPR\` guarda solo le PR \`open\`, e una PR di fix mergia prima dei 30 minuti di \`ORPHAN_MIN_AGE_MIN\`: la consegna è stata letta come una run morta.\n\nTolgo \`${LBL_PARKED}\` e il contatore e la rimetto in coda con \`${LBL_QUEUED}\`. Se il lavoro è davvero finito, a chiuderla sarà il rilevatore di già-risolto al giro dopo: questo ramo non lo decide.`
+            : `♻️ **Ri-accodata dal followup-drainer (zero-Claude): era parcheggiata senza un solo tentativo.**\n\nQuesta issue portava \`${LBL_PARKED}\` e \`fu-attempt:${attemptOf(iss) || '?'}\`, ma nei suoi commenti non c'è **nessun** \`FIX_OUTCOME\`: nessuna run del fixer l'ha mai lavorata. Il contatore dei tentativi è stato alzato dal RESCUE su promozioni che la coda di concorrenza di \`issue-fix.yml\` aveva sfrattato (\`cancelled\` prima di eseguire uno step), non su fix falliti.\n\nTolgo \`${LBL_PARKED}\` e il contatore e la rimetto in coda con \`${LBL_QUEUED}\`. Il primo giro vero comincia adesso.`;
+          gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', unparkBody], { json: false });
         } catch { /* il commento spiega, non è il meccanismo */ }
         edit(iss.number, {
           add: [LBL_QUEUED, LBL_UNPARKED],
