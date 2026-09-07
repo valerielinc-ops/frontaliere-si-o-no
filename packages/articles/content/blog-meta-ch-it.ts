@@ -5815,6 +5815,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-eredita-appenzello-esterno.title': 'Imposta di successione e donazione in Appenzello Esterno',
     'blog.article.imposta-eredita-appenzello-esterno.excerpt': 'Aliquote per grado di parentela, esenzioni per coniuge e discendenti diretti, dichiarazione e termini di pagamento nel Canton Appenzello Esterno.',
     'blog.article.imposta-eredita-appenzello-esterno.imageAlt': 'Scrivania con documenti fiscali di successione svizzeri, moduli di dichiarazione e calcolatrice sotto luce naturale, paesaggio alpino sullo sfondo.',
+    'blog.article.argovia-mercato-lavoro-settori.title': 'Mercato del lavoro Argovia: salari, settori e formazione',
+    'blog.article.argovia-mercato-lavoro-settori.excerpt': 'Nel canton Argovia il mercato del lavoro segue il sistema svizzero: formazione determina i salari, contratti collettivi fissano i minimi, diritti federali garantiscono ferie e orari.',
+    'blog.article.argovia-mercato-lavoro-settori.imageAlt': 'Professionisti svizzeri in ambiente di lavoro moderno rappresentanti i settori del mercato del lavoro dell\'Argovia',
 };
 
 export default blogMetaChIt;

@@ -5815,6 +5815,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-eredita-appenzello-esterno.title': 'Erbschafts- und Schenkungssteuer in Appenzell Ausserrhoden',
     'blog.article.imposta-eredita-appenzello-esterno.excerpt': 'Sätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und direkte Nachkommen, Erklärung und Zahlungsfristen im Kanton Appenzell Ausserrhoden.',
     'blog.article.imposta-eredita-appenzello-esterno.imageAlt': 'Schreibtisch mit Schweizer Erbschaftssteuerdokumenten, Anmeldungsformularen und Taschenrechner bei natürlichem Licht, Alpenlandschaft im Hintergrund.',
+    'blog.article.argovia-mercato-lavoro-settori.title': 'Arbeitsmarkt Aargau: Löhne, Branchen und Ausbildung',
+    'blog.article.argovia-mercato-lavoro-settori.excerpt': 'Im Kanton Aargau orientiert sich der Arbeitsmarkt am schweizerischen System: Ausbildung bestimmt die Löhne, Kollektivverträge legen die Mindestlöhne fest, Bundesrechte garantieren Ferien und Arbeitszeiten.',
+    'blog.article.argovia-mercato-lavoro-settori.imageAlt': 'Schweizer Fachkräfte in modernem Büroumfeld, die die Arbeitssektoren des Kantons Aargau repräsentieren',
 };
 
 export default blogMetaChDe;

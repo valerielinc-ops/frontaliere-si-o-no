@@ -5815,6 +5815,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-eredita-appenzello-esterno.title': 'Droit de succession et donation à Appenzell Extérieur',
     'blog.article.imposta-eredita-appenzello-esterno.excerpt': 'Taux par degré de parenté, exonérations pour conjoint et descendants directs, déclaration et délais de paiement dans le canton d\'Appenzell Extérieur.',
     'blog.article.imposta-eredita-appenzello-esterno.imageAlt': 'Bureau avec documents fiscaux d\'héritage suisse, formulaires de déclaration et calculatrice à la lumière naturelle, paysage alpin visible par la fenêtre.',
+    'blog.article.argovia-mercato-lavoro-settori.title': 'Marché du travail Argovie : salaires, secteurs et formation',
+    'blog.article.argovia-mercato-lavoro-settori.excerpt': 'Dans le canton d\'Argovie, le marché du travail suit le système suisse : la formation détermine les salaires, les conventions collectives fixent les minima, les droits fédéraux garantissent les congés et les horaires.',
+    'blog.article.argovia-mercato-lavoro-settori.imageAlt': 'Professionnels suisses en environnement de travail moderne représentant les secteurs du marché du travail d\'Argovie',
 };
 
 export default blogMetaChFr;
