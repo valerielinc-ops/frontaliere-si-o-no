@@ -11522,6 +11522,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arredamento-uffici-ticino-ai.title': 'Die 5 Top-Unternehmen für Büros im Tessin',
     'blog.article.arredamento-uffici-ticino-ai.excerpt': 'Finden Sie heraus, welche Unternehmen im Tessin am besten für die Einrichtung und Planung von Büros nach der IV geeignet sind.',
     'blog.article.arredamento-uffici-ticino-ai.imageAlt': 'Modernes Büro in Tessin mit maßgeschneiderten Möbeln und fortschrittlicher Technologie.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.title': 'Wohnen in Introd und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.excerpt': 'Praktischer Leitfaden für italienische Grenzgänger: Introd-Walliser-Verbindung, Steuern, Genehmigung G, Kosten und operative Aspekte des Transfers.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.imageAlt': 'Blick auf das Alpendorf Introd im Aostatal mit verschneiten Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

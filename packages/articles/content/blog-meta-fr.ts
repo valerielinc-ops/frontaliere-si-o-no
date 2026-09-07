@@ -11525,6 +11525,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arredamento-uffici-ticino-ai.title': 'Les 5 meilleures entreprises pour les bureaux au Tessin',
     'blog.article.arredamento-uffici-ticino-ai.excerpt': 'Découvrez quelles entreprises du Tessin sont les plus indiquées pour meubler et concevoir des bureaux selon l’AI.',
     'blog.article.arredamento-uffici-ticino-ai.imageAlt': 'Bureau moderne au Tessin avec mobilier sur mesure et technologie avancée.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.title': 'Vivre à Introd et travailler en Valais comme frontalier',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.excerpt': 'Guide pratique pour les frontaliers italiens : liaison Introd-Valais, fiscalité, permis G, coûts et aspects opérationnels du transfert.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.imageAlt': 'Vue du village alpin d\'Introd dans la Vallée d\'Aoste avec des montagnes enneigées en arrière-plan',
 };
 
 export default blogMetaFr;

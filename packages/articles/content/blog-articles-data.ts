@@ -34419,6 +34419,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-introd-lavorare-vallese-frontaliere',
+ category: 'pratico',
+ date: '2026-09-07T07:54:46.806Z',
+ image: '/images/blog/vivere-introd-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

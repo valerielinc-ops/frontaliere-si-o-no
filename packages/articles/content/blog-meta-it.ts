@@ -11524,6 +11524,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arredamento-uffici-ticino-ai.title': 'Le 5 aziende top per uffici in Ticino',
     'blog.article.arredamento-uffici-ticino-ai.excerpt': 'Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI.',
     'blog.article.arredamento-uffici-ticino-ai.imageAlt': 'Ufficio moderno in Ticino con arredamento su misura e tecnologia avanzata.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.title': 'Vivere a Introd e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.excerpt': 'Guida pratica per frontalieri italiani: collegamento Introd–Vallese, fiscalità, Permesso G, costi e aspetti operativi del trasferimento.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.imageAlt': 'Vista del villaggio alpino di Introd in Valle d\'Aosta con montagne innevate sullo sfondo',
 };
 
 export default blogMetaIt;

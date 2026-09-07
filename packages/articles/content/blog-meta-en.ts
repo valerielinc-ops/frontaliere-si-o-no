@@ -11523,6 +11523,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arredamento-uffici-ticino-ai.title': 'Top 5 office companies in Ticino',
     'blog.article.arredamento-uffici-ticino-ai.excerpt': 'Find out which companies in Ticino are best suited to furnish and design offices according to AI.',
     'blog.article.arredamento-uffici-ticino-ai.imageAlt': 'Modern office in Ticino with custom furniture and advanced technology.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.title': 'Living in Introd and working in Valais as a border worker',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.excerpt': 'Practical guide for Italian border workers: Introd-Vallese connection, taxation, G Permit, costs and operational aspects of the transfer.',
+    'blog.article.vivere-introd-lavorare-vallese-frontaliere.imageAlt': 'View of the Alpine village of Introd in Aosta Valley with snowy mountains in the background',
 };
 
 export default blogMetaEn;
