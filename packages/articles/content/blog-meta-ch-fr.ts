@@ -5893,6 +5893,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.black-keys-concerto-annullato-berna.title': 'Les Black Keys annulent leur concert à Berne pour cause de maladie',
     'blog.article.black-keys-concerto-annullato-berna.excerpt': 'Le groupe américain a dû annuler le spectacle à la Festhalle de Berne en raison de cas de maladie.',
     'blog.article.black-keys-concerto-annullato-berna.imageAlt': 'Concert annulé à la Festhalle de Berne',
+    'blog.article.mondo-auto-grigio-impressione-colore.title': 'Le monde des voitures devient gris',
+    'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'Selon une analyse de l\'Office fédéral des routes, le rouge était la couleur la plus prisée pour les nouvelles immatriculations en 1985, avec près de 23%. Aujourd\'hui, cette part est tombée à 4 %.',
+    'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'Une route suisse avec des voitures de différentes couleurs, avec un focus sur les voitures grises, noires et blanches.',
 };
 
 export default blogMetaChFr;

@@ -5893,6 +5893,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.black-keys-concerto-annullato-berna.title': 'The Black Keys annullano il concerto a Berna per malattia',
     'blog.article.black-keys-concerto-annullato-berna.excerpt': 'La band americana ha dovuto cancellare lo spettacolo alla Festhalle di Berna a causa di casi di malattia.',
     'blog.article.black-keys-concerto-annullato-berna.imageAlt': 'Concerto annullato alla Festhalle di Berna',
+    'blog.article.mondo-auto-grigio-impressione-colore.title': 'Il mondo delle auto diventa sempre più grigio e non è solo un\'impressione',
+    'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'Secondo un\'analisi dell\'Ufficio federale delle strade, il rosso era il colore più gettonato per le nuove immatricolazioni nel 1985, con quasi il 23%. Oggi quella quota si è ridotta al 4%.',
+    'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'Una strada svizzera con auto di vari colori, con un focus su auto grigie, nere e bianche.',
 };
 
 export default blogMetaChIt;

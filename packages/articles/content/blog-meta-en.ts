@@ -11538,6 +11538,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.emergenza-terra-trasformazione.title': 'Earth Emergency tells the story of the great transformation',
     'blog.article.emergenza-terra-trasformazione.excerpt': 'Series of meetings on ecological and social transformation from 16 September to 9 December at the SUPSI Campus in Mendrisio.',
     'blog.article.emergenza-terra-trasformazione.imageAlt': 'Aerial view of the SUPSI campus in Mendrisio, Ticino, with people attending an event.',
+    'blog.article.sciopero-ferroviario-italia-ticino.title': 'Rail strike: possible delays in Ticino',
+    'blog.article.sciopero-ferroviario-italia-ticino.excerpt': 'A national strike by the Italian State Railways could also cause disruption in Ticino.',
+    'blog.article.sciopero-ferroviario-italia-ticino.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

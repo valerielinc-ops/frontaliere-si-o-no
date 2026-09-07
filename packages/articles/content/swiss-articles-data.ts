@@ -17677,6 +17677,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mondo-auto-grigio-impressione-colore',
+    category: 'novita',
+    date: '2026-09-07T09:05:48.215Z',
+    image: '/images/blog/mondo-auto-grigio-impressione-colore.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

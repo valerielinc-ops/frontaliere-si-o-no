@@ -11537,6 +11537,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.emergenza-terra-trasformazione.title': 'Emergenza Terra erzählt von der großen Transformation',
     'blog.article.emergenza-terra-trasformazione.excerpt': 'Veranstaltungsreihe zum ökologischen und sozialen Wandel vom 16. September bis 9. Dezember auf dem SUPSI-Campus in Mendrisio.',
     'blog.article.emergenza-terra-trasformazione.imageAlt': 'Luftaufnahme des SUPSI-Campus in Mendrisio, Tessin, mit Menschen, die an einer Veranstaltung teilnehmen.',
+    'blog.article.sciopero-ferroviario-italia-ticino.title': 'Bahnstreik: mögliche Verspätungen im Tessin',
+    'blog.article.sciopero-ferroviario-italia-ticino.excerpt': 'Ein landesweiter Streik der italienischen Staatsbahnen könnte auch im Tessin zu Unannehmlichkeiten führen.',
+    'blog.article.sciopero-ferroviario-italia-ticino.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

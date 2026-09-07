@@ -5893,6 +5893,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.black-keys-concerto-annullato-berna.title': 'The Black Keys cancel concert in Bern due to illness',
     'blog.article.black-keys-concerto-annullato-berna.excerpt': 'The American band had to cancel the show at Bern\'s Festhalle due to illness.',
     'blog.article.black-keys-concerto-annullato-berna.imageAlt': 'Cancelled concert at Berna\'s Festhalle',
+    'blog.article.mondo-auto-grigio-impressione-colore.title': 'The world of cars is getting greyer and greyer and it\'s not just an impression',
+    'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'According to an analysis by the Federal Office of Roads, red was the most popular colour for new registrations in 1985, with almost 23%. Today that share has dropped to 4%.',
+    'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'A Swiss road with cars of various colors, focusing on gray, black, and white cars.',
 };
 
 export default blogMetaChEn;
