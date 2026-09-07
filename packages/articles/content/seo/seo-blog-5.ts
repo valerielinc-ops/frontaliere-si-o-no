@@ -87628,6 +87628,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-villeneuve-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Villeneuve e lavorare in Vallese: guida frontaliere',
+    description: 'Villeneuve è meta di frontalieri che lavorano in Vallese. Scopri permessi G, imposte alla fonte, LAMal, AVS, LPP, ristorni. Guida pratica per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, villeneuve, lavorare, vallese',
+    ogTitle: 'Vivere a Villeneuve, lavorare in Vallese: guida frontaliere',
+    ogDescription: 'Vivere a Villeneuve e lavorare in Vallese: scopri permessi G, imposte alla fonte, LAMal, AVS, LPP, ristorni. Procedura step-by-step, vantaggi e costi per frontalieri Vallese-Italia.',
+    canonicalPath: '/articoli-frontaliere/vivere-villeneuve-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Villeneuve e lavorare in Vallese: guida frontaliere",
+      "description": "Villeneuve è meta di frontalieri che lavorano in Vallese. Scopri permessi G, imposte alla fonte, LAMal, AVS, LPP, ristorni. Guida pratica per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-villeneuve-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valle del Vallese con strada principale, scenario di pendolarismo frontaliero Vallese-Italia"
+      },
+      "datePublished": "2026-09-07T06:47:51+00:00",
+      "dateModified": "2026-09-07T06:47:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-villeneuve-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
