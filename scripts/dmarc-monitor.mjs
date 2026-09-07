@@ -64,6 +64,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
   cfGraphQL,
   resolveZoneId,
@@ -376,11 +377,42 @@ export function buildFailBody(a, days, since, policy) {
     '',
     '_Aperto automaticamente dal workflow DMARC Monitor. Si auto-aggiorna con un',
     'commento finché la condizione persiste; chiudilo quando hai sistemato._',
+    '',
+    // Fino a qui la condizione di chiusura viveva solo in prosa («chiudilo quando
+    // hai sistemato»), che non è un criterio: non dice cosa guardare né con quale
+    // comando. La scheda la rende osservabile.
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) ${a.failingSources.length} sorgente/i inviano posta a nome del`,
+        'dominio senza SPF allineato o firma DKIM valida. Quale delle due manchi, e se la',
+        'sorgente sia un mittente legittimo dimenticato o uno spoofer, lo decide la tabella',
+        'qui sopra — non si assume: i due rimedi sono opposti (configurare il mittente',
+        "contro alzare l'enforcement).",
+      ],
+      fix: [
+        'Dipende dalla sorgente; non preassegnata qui. **Il rimedio è un record DNS, non un',
+        'commit**: SPF/DKIM del provider in `frontaliereticino.ch`, o la policy in',
+        '`_dmarc.frontaliereticino.ch`. | **REPO**: nessuno (zona DNS Cloudflare).',
+      ],
+      metrica: `prima=${a.failingSources.length} sorgenti che falliscono in volume atteso=0`,
+      comando: `node scripts/dmarc-monitor.mjs --days ${days} --json --dry-run`,
+      note: [
+        'Il comando stampa `failingSources`: la issue si chiude quando quell\'array è vuoto',
+        'sulla stessa finestra. Vuole `CF_API_TOKEN` — dalla root del workspace,',
+        '`source bin/rc-env.sh` prima di eseguirlo; `--dry-run` garantisce che non conii nulla.',
+      ],
+      osservatore: [
+        '`.github/workflows/dmarc-monitor.yml`, che rigira la stessa misura ogni giorno e',
+        'commenta su questa issue finché la condizione persiste. Non esiste un closer',
+        'automatico: il comando qui sopra è il criterio con cui chiuderla a mano.',
+      ],
+      fallimento: `\`${FAIL_ISSUE_TITLE}\``,
+    }),
   );
   return lines.join('\n');
 }
 
-function buildReadyBody(a, days, since, step) {
+export function buildReadyBody(a, days, since, step) {
   const cfg =
     step === 'reject'
       ? {
@@ -419,6 +451,32 @@ function buildReadyBody(a, days, since, step) {
     '',
     '_Aperto automaticamente dal workflow DMARC Monitor. Una volta alzata la',
     'policy chiudi pure questa issue._',
+    '',
+    buildScheda({
+      causa: [
+        `Nessun difetto: la policy è ferma a \`${cfg.from}\` mentre i dati della finestra`,
+        `dicono che \`${cfg.to}\` è sicuro. La issue esiste per l'azione mancante, non per`,
+        'un rosso.',
+      ],
+      fix: [
+        `Alzare \`${cfg.from}\` a \`${cfg.to}\` nel record \`_dmarc.frontaliereticino.ch\`.`,
+        '**È una modifica DNS, decisione del proprietario: nessuna PR la può fare.**',
+        '| **REPO**: nessuno (zona DNS Cloudflare).',
+      ],
+      metrica: `prima=${cfg.from} atteso=${cfg.to}`,
+      comando: `node scripts/dmarc-monitor.mjs --days ${days} --json --dry-run`,
+      note: [
+        'Il comando stampa `policy`: la issue si chiude quando quel campo legge',
+        `\`${step}\`. Vuole \`CF_API_TOKEN\` — dalla root del workspace,`,
+        '`source bin/rc-env.sh` prima di eseguirlo.',
+      ],
+      osservatore: [
+        '`.github/workflows/dmarc-monitor.yml`. Alzata la policy, `nextEnforcementStep()`',
+        'non propone più questo scalino e il monitor smette di riconiare la issue — quindi',
+        'una issue che ricompare dopo la chiusura significa che il record DNS non ha preso.',
+      ],
+      fallimento: `\`${step === 'reject' ? READY_REJECT_TITLE : READY_QUARANTINE_TITLE}\``,
+    }),
   ].join('\n');
 }
 

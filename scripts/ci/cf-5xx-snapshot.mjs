@@ -24,6 +24,7 @@
  * ─── Reading it back ────────────────────────────────────────────────────────────────
  *   node scripts/ci/cf-5xx-snapshot.mjs --report          # trend across all snapshots
  *   node scripts/ci/cf-5xx-snapshot.mjs --report --json   # same, machine-readable
+ *   node scripts/ci/cf-5xx-snapshot.mjs --check-url '<host/path>' --snapshots 7   # closure criterion, exit 1 = still failing
  *
  * ─── Auth ───────────────────────────────────────────────────────────────────────────
  * CF_API_TOKEN (Zone -> Analytics -> Read), from Firebase Remote Config via
@@ -204,6 +205,72 @@ export function loadHistory(file) {
   return out;
 }
 
+/** Quanti snapshot puliti servono per considerare chiuso un `CF 5xx: <url>`. */
+export const CHECK_URL_DEFAULT_SNAPSHOTS = 7;
+/** Oltre questa eta' dell'ultimo snapshot la serie non e' un osservatore: e' un fermo immagine. */
+export const CHECK_URL_MAX_AGE_DAYS = 3;
+
+/** `cdn.frontaliereticino.ch/assets/x.js`, con o senza schema, sempre nella stessa forma. */
+function normalizeUrl(u) {
+  return String(u ?? '').trim().replace(/^https?:\/\//, '').replace(/\/+$/, '') || '/';
+}
+
+/**
+ * La condizione di chiusura di un `CF 5xx: <url>`, letta su
+ * `data/cf-5xx-history.jsonl`: «questo URL non compare fra i path 5xx degli
+ * ultimi N snapshot».
+ *
+ * ─── Perche' si conta in SNAPSHOT e non in «finestre di deploy» ────────────
+ * La serie e' giornaliera a finestra fissa di 23 ore e il deploy non compare
+ * nel file, quindi «due finestre di deploy» non e' esprimibile su questo dato.
+ * L'unita' esprimibile e' lo snapshot.
+ *
+ * ─── Cosa si fa del buco (decisione, non default) ─────────────────────────
+ * Si contano N snapshot PRESENTI — le ultime N righe del file — NON N giorni
+ * di calendario consecutivi. Misurato il 2026-09-07 su origin/main: 31
+ * snapshot su uno span di 32 giorni, un solo giorno mancante (2026-09-01).
+ * Un giorno mancante e' un fatto sul MONITOR (una run saltata), non sulla
+ * zona: far rompere la catena a quel buco significherebbe rimandare la
+ * chiusura di una issue per l'indisponibilita' di GitHub Actions, cioe' un
+ * rosso che nessuna modifica al repo puo' togliere. Con un buco ogni 32
+ * giorni, una catena di 7 giorni consecutivi fallirebbe circa un quinto delle
+ * volte per quel motivo.
+ *
+ * Il prezzo di quella scelta e' dichiarato e pagato qui: se il monitor si
+ * ferma del tutto, le ultime N righe restano pulite per sempre e il criterio
+ * leggerebbe «verde» su dati morti. Percio' la freschezza e' un requisito
+ * SEPARATO e fail-closed — serie piu' vecchia di `maxAgeDays` o piu' corta di
+ * N snapshot: `ok: false` con la ragione, mai un verde per assenza di dati.
+ *
+ * @param {Array<object>} history
+ * @param {string} url
+ * @returns {{ok: boolean, reason: string, checked: number, lastSeenAt: string|null}}
+ */
+export function checkUrlClean(history, url, {
+  snapshots = CHECK_URL_DEFAULT_SNAPSHOTS,
+  now = Date.now(),
+  maxAgeDays = CHECK_URL_MAX_AGE_DAYS,
+} = {}) {
+  const target = normalizeUrl(url);
+  if (!target || target === '/') return { ok: false, reason: 'URL mancante', checked: 0, lastSeenAt: null };
+  const all = (history || []).filter((s) => s && s.ts);
+  if (all.length < snapshots) {
+    return { ok: false, reason: `storia troppo corta: ${all.length} snapshot su ${snapshots} richiesti`, checked: all.length, lastSeenAt: null };
+  }
+  const ageDays = (now - Date.parse(all[all.length - 1].ts)) / 86_400_000;
+  if (!(ageDays <= maxAgeDays)) {
+    return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${maxAgeDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
+  }
+  const window = all.slice(-snapshots);
+  let lastSeenAt = null;
+  for (const s of window) {
+    if ((s.topPaths || []).some((p) => normalizeUrl(p?.url) === target)) lastSeenAt = s.ts;
+  }
+  return lastSeenAt
+    ? { ok: false, reason: `ancora fra i path 5xx, ultimo snapshot ${lastSeenAt}`, checked: window.length, lastSeenAt }
+    : { ok: true, reason: `nessun 5xx negli ultimi ${window.length} snapshot presenti (dal ${window[0].ts})`, checked: window.length, lastSeenAt: null };
+}
+
 /** Human-readable trend across snapshots — the thing you actually want when triaging. */
 export function renderReport(history) {
   if (!history.length) return 'Nessuno snapshot ancora registrato.';
@@ -256,6 +323,23 @@ async function main() {
     canonicalPath: DEFAULT_HISTORY_FILE,
     root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'),
   });
+
+  // `--check-url <url> [--snapshots N]`: la condizione di chiusura di un
+  // `CF 5xx: <url>`, eseguibile. Exit 1 = non ancora chiudibile (ancora 5xx,
+  // oppure serie corta/ferma). Non tocca la rete e non vuole CF_API_TOKEN.
+  const argv = process.argv.slice(2);
+  const valueOf = (flag) => {
+    const i = argv.indexOf(flag);
+    return i >= 0 ? argv[i + 1] : undefined;
+  };
+  const checkUrl = valueOf('--check-url');
+  if (checkUrl) {
+    const snapshots = Number(valueOf('--snapshots') ?? CHECK_URL_DEFAULT_SNAPSHOTS);
+    const res = checkUrlClean(loadHistory(historyFile), checkUrl, { snapshots });
+    console.log(`${res.ok ? '✅' : '❌'} ${checkUrl}: ${res.reason}`);
+    process.exitCode = res.ok ? 0 : 1;
+    return;
+  }
 
   if (args.has('--report')) {
     const history = loadHistory(historyFile);

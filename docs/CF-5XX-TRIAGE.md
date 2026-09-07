@@ -27,8 +27,33 @@ in un posto solo.
 `cf-5xx-monitor.yml` gira ogni giorno alle 03:50 UTC e appende uno snapshot classificato a
 `data/cf-5xx-history.jsonl`. **Esiste perché la retention del piano free è ~3 giorni**: senza
 questo file, «è meglio della settimana scorsa?» non è una domanda a cui si possa rispondere,
-e un criterio di chiusura osservativo («nessun 5xx per due finestre di deploy») non è
-verificabile perché i dati scadono prima della finestra.
+e la retention dell'API — piano free, ~3 giorni, query cappate a ~1 giorno per chiamata —
+non è più il vincolo che era.
+
+**Il criterio di chiusura osservativo è tornato verificabile, e questo paragrafo diceva il
+contrario.** Fino al 2026-08-05 «nessun 5xx per due finestre di deploy» non era valutabile,
+perché i dati scadevano prima della finestra: vero per l'API, non più per noi dal giorno in
+cui il monitor ha cominciato a persistere. Misurata la profondità reale il 2026-09-07 su
+`origin/main`: **31 snapshot su uno span di 32 giorni** (2026-08-06 → 2026-09-06), **un solo
+giorno mancante** (2026-09-01), 26 giorni consecutivi senza buchi, `total5xx` sceso da 443 a
+14. Rimisurala con `git show origin/main:data/cf-5xx-history.jsonl | wc -l` (il checkout è
+sparse: si legge da git, non dal disco).
+
+Due conseguenze pratiche. La prima: N si esprime in **snapshot consecutivi**, non in
+«finestre di deploy» — la serie è giornaliera a finestra fissa di 23 ore e il deploy non
+compare nel file. La seconda: il criterio si conta su N snapshot **presenti**, non su N
+giorni di calendario, perché un giorno mancante è un fatto sul monitor e non sulla zona; la
+freschezza della serie è un requisito separato e fail-closed. Il codice che lo applica è
+`checkUrlClean()` in `scripts/ci/cf-5xx-snapshot.mjs`, che documenta la scelta e il suo
+prezzo:
+
+```bash
+# «questo URL ha smesso?» — exit 0 solo se pulito negli ultimi 7 snapshot
+node scripts/ci/cf-5xx-snapshot.mjs --check-url 'cdn.frontaliereticino.ch/assets/x.js' --snapshots 7
+```
+
+È il comando che `cf-5xx-issue-sync.mjs` allega come `COMANDO` nella scheda di ogni issue
+che conia, quindi l'esenzione permanente dal criterio di chiusura non serve più.
 
 ```bash
 # andamento su tutti gli snapshot + istogramma orario dell'ultimo

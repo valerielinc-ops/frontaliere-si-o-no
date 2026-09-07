@@ -30,6 +30,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolveOutputPath } from './lib/resolve-output-path.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 import { runHogQL } from './lib/posthog-client.mjs';
 import { abstainIfSourceDead } from './lib/source-liveness.mjs';
 
@@ -131,6 +132,48 @@ export function evaluateConsecutiveRegression(weeks, metricField, threshold) {
 const fmtCls = (n) => (typeof n === 'number' ? n.toFixed(2) : 'n/a');
 const fmtMs = (n) => (typeof n === 'number' ? `${Math.round(n)}ms` : 'n/a');
 
+/** Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami. */
+export function buildIssueBody(e) {
+  return [
+      `**Page:** ${e.path}`,
+      `**Metric:** field p75 ${e.metric} (target: ${e.metric === 'CLS' ? `< ${e.threshold}` : `< ${e.threshold}ms`})`,
+      `**Last 2 weekly snapshots (both over target):**`,
+      `- ${e.previous.date}: ${e.fmt(e.previous[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])}`,
+      `- ${e.current.date}: ${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])}`,
+      '',
+      '_Source: PostHog `$web_vitals` real-user events, scripts/cwv-monitor-check.mjs weekly regression check. History: data/cwv-monitor-history.json._',
+      '',
+      buildScheda({
+        causa: [
+          `(ipotesi, da confermare.) Il p75 sul campo di ${e.metric} su \`${e.path}\` sta sopra`,
+          'la soglia da due snapshot settimanali di fila, quindi non e\' rumore di una settimana.',
+          'Quale sia la causa — un\'immagine senza dimensioni dichiarate, uno slot pubblicitario',
+          'senza spazio riservato, un handler lungo — non si assume: e\' una misura di campo, non',
+          'un profilo.',
+        ],
+        fix: [
+          'Dipende da cosa mostra il profilo della pagina; non preassegnata qui. **Mai',
+          "sopprimendo Auto Ads** (AGENTS.md Non-Negotiable #7): lo spazio si riserva",
+          '(`min-height`/`aspect-ratio`), non si toglie. | **REPO**: sito.',
+        ],
+        metrica: `prima=${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])} atteso=<${e.threshold}${e.metric === 'CLS' ? '' : 'ms'}`,
+        comando: 'node scripts/cwv-monitor-check.mjs --dry-run',
+        note: [
+          'Il comando rigira la stessa query PostHog senza scrivere la storia e senza coniare:',
+          'la issue si chiude quando questa pagina non compare piu\' fra le regressioni. Vuole le',
+          'credenziali PostHog — dalla root del workspace, `source bin/rc-env.sh`. La serie sta',
+          'in `data/cwv-monitor-history.json`.',
+        ],
+        osservatore: [
+          '`.github/workflows/cwv-monitor.yml`, che ogni settimana rimisura e ricommenta sulla',
+          "issue canonica finche' il p75 resta sopra soglia. Non esiste un closer automatico: il",
+          "comando qui sopra e' il criterio con cui chiuderla.",
+        ],
+        fallimento: `\`CWV Regression (${e.metric}): ${e.path}\``,
+      }),
+  ].join('\n');
+}
+
 export async function main() {
   const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
   const PID = process.env.POSTHOG_PROJECT_ID;
@@ -208,13 +251,17 @@ const MIN_SAMPLES_PER_METRIC = 30;
     process.exit(1);
   }
 
-  saveHistory(HISTORY_FILE, history);
+  // `--dry-run` verifica il criterio di chiusura di una issue gia' aperta: non
+  // deve lasciare tracce sul file di storia.
+  const dryRun = process.argv.includes('--dry-run');
+  if (!dryRun) saveHistory(HISTORY_FILE, history);
   console.log(`[cwv-monitor-check] snapshot recorded for ${today} — ${regressions.length} regression(s) detected`);
 
   if (!regressions.length) return;
 
   return syncErrorIssues({
     entries: regressions,
+    dryRun,
     maxIssues: regressions.length,
     labels: ['performance', 'cwv-regression'],
     source: `CWV Monitor — weekly regression check (#4302), ${WINDOW_DAYS}d window`,
@@ -223,15 +270,7 @@ const MIN_SAMPLES_PER_METRIC = 30;
     // regression dedupes onto the SAME issue via createGithubIssue's
     // title-prefix match instead of opening a fresh one every week.
     titleFor: (e) => `CWV Regression (${e.metric}): ${e.path}`,
-    bodyFor: (e) => [
-      `**Page:** ${e.path}`,
-      `**Metric:** field p75 ${e.metric} (target: ${e.metric === 'CLS' ? `< ${e.threshold}` : `< ${e.threshold}ms`})`,
-      `**Last 2 weekly snapshots (both over target):**`,
-      `- ${e.previous.date}: ${e.fmt(e.previous[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])}`,
-      `- ${e.current.date}: ${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])}`,
-      '',
-      '_Source: PostHog `$web_vitals` real-user events, scripts/cwv-monitor-check.mjs weekly regression check. History: data/cwv-monitor-history.json._',
-    ].join('\n'),
+    bodyFor: buildIssueBody,
   });
 }
 
