@@ -688,6 +688,47 @@ describe('enrichEventsWithLocaleFallbackTranslations', () => {
     expect(out[0].titleByLocale).toEqual({ it: 'Solo italiano' });
   });
 
+  // #7771: dal #7750 la cascata rende '' anche quando il testo e' gia'
+  // identico nella lingua target (toponimi, «Locarno Film Festival»). Senza
+  // memo di quell'esito la cascata veniva ripagata per intero a ogni run.
+  it('memoizes a rejected passthrough so the next run does not re-pay the cascade', async () => {
+    const events = [{ id: 'myswitzerland:pt', titleByLocale: { it: 'Locarno Film Festival' } }];
+    const cache: Record<string, Record<string, string | null>> = {};
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) =>
+      targetLang === 'en' ? { text: '', passthrough: true } : `[${targetLang}]`,
+    );
+
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
+    // Lo slot resta scoperto come prima: nessun byte pubblicato cambia.
+    expect(out[0].titleByLocale).toEqual({ it: 'Locarno Film Festival', de: '[de]', fr: '[fr]' });
+    expect(Object.values(cache)[0].en).toBeNull();
+
+    const translateFn2 = vi.fn(async ({ targetLang }: { targetLang: string }) => `[${targetLang}]`);
+    const out2 = await enrichEventsWithLocaleFallbackTranslations(
+      [{ id: 'myswitzerland:pt2', titleByLocale: { it: 'Locarno Film Festival' } }],
+      cache,
+      { translateFn: translateFn2, delayMs: 0 },
+    );
+    expect(translateFn2).not.toHaveBeenCalled(); // cascata NON ripagata
+    expect(out2[0].titleByLocale).toEqual({ it: 'Locarno Film Festival', de: '[de]', fr: '[fr]' });
+  });
+
+  // Il verso opposto: motore giu' (nessun passthrough dichiarato) non si
+  // memoizza, altrimenti un guasto transitorio congelerebbe il locale a vita.
+  it('does NOT memoize an empty result that is not a declared passthrough', async () => {
+    const events = [{ id: 'guidle:down', titleByLocale: { it: 'Concerto di Natale' } }];
+    const cache = {};
+    const translateFn = vi.fn(async () => ({ text: '', passthrough: false }));
+
+    await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn, delayMs: 0 });
+    expect(cache).toEqual({});
+
+    const translateFn2 = vi.fn(async ({ targetLang }: { targetLang: string }) => `[${targetLang}]`);
+    const out = await enrichEventsWithLocaleFallbackTranslations(events, cache, { translateFn: translateFn2, delayMs: 0 });
+    expect(translateFn2).toHaveBeenCalledTimes(3); // riprovato al run successivo
+    expect(out[0].titleByLocale.en).toBe('[en]');
+  });
+
   // The stage that cancelled crawl-events daily from 2026-07-07 on. It runs
   // AFTER each nationwide crawler's budgeted visit loop, so RUN_BUDGET_MS never
   // bounded it; unbounded, it consumed the rest of timeout-minutes and the job

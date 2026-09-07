@@ -57,7 +57,7 @@ import {
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
 } from './lib/events-utils.mjs';
-import { freeTranslateWithRetry } from './lib/free-translate.mjs';
+import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -311,7 +311,7 @@ const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
  * Returns a NEW array (does not mutate `events`). `translateFn`/`cache` are
  * injectable so tests can verify the enrichment without a live network call.
  */
-export async function enrichEventsWithTranslations(events, cache, translateFn = freeTranslateWithRetry) {
+export async function enrichEventsWithTranslations(events, cache, translateFn = freeTranslateWithRetryDetailed) {
   const out = [];
   for (const ev of events) {
     const key = normalizeText(ev.title);
@@ -323,23 +323,37 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
     if (!entry || Object.keys(entry).length < TRANSLATE_LOCALES.length) {
       entry = {};
       for (const locale of TRANSLATE_LOCALES) {
-        const translated = await translateFn({
-          text: ev.title,
-          sourceLang: 'it',
-          targetLang: locale,
-          fieldType: 'title',
-          maxRetries: 1,
-        });
+        const { text: translated, passthrough } = asTranslationResult(
+          await translateFn({
+            text: ev.title,
+            sourceLang: 'it',
+            targetLang: locale,
+            fieldType: 'title',
+            maxRetries: 1,
+          }),
+        );
         if (translated) entry[locale] = translated;
-        if (translateFn === freeTranslateWithRetry) await sleep(TRANSLATE_DELAY_MS);
+        // Passthrough = la cascata ha stabilito che il titolo e' gia' identico
+        // in quella lingua (un festival, un toponimo): esito deterministico,
+        // memoizzato come `null`. Senza questo slot l'entry non arriva MAI a
+        // tre locale, non viene mai scritta in cache, e questo crawler — che
+        // riscrive la sua slice da zero ogni giorno — ripaga l'intera cascata
+        // sullo stesso titolo ogni singolo run.
+        else if (passthrough) entry[locale] = null;
+        if (translateFn === freeTranslateWithRetryDetailed) await sleep(TRANSLATE_DELAY_MS);
       }
       if (Object.keys(entry).length === TRANSLATE_LOCALES.length) cache[key] = entry;
     }
-    if (Object.keys(entry).length === 0) {
+    // I marker `null` non sono traduzioni: il locale resta scoperto e legge
+    // l'italiano come prima, esattamente come quando la traduzione mancava.
+    const usable = Object.fromEntries(
+      Object.entries(entry).filter(([, v]) => typeof v === 'string' && v),
+    );
+    if (Object.keys(usable).length === 0) {
       out.push({ ...ev });
       continue;
     }
-    out.push({ ...ev, titleByLocale: { it: ev.title, ...entry } });
+    out.push({ ...ev, titleByLocale: { it: ev.title, ...usable } });
   }
   return out;
 }

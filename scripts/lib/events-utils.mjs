@@ -20,7 +20,7 @@ import path from 'node:path';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
-import { freeTranslateWithRetry } from './free-translate.mjs';
+import { freeTranslateWithRetryDetailed, asTranslationResult } from './free-translate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -1123,7 +1123,12 @@ export async function enrichEventsWithGeoComune(
 // titles cost a network call.
 const TRANSLATION_CACHE_PATH = path.join(REPO_ROOT, 'data', 'events-translation-cache.json');
 
-/** Load the on-disk title translation cache (`{ [normalizedItTitle]: {en?,de?,fr?} }`). */
+/**
+ * Load the on-disk title translation cache
+ * (`{ [normalizedItTitle]: {en?,de?,fr?} }`). Un valore `null` in uno slot e'
+ * il memo di un passthrough: la cascata ha gia' stabilito che la sorgente e'
+ * identica in quella lingua, quindi non va ripagata (vedi `fillLocaleGaps`).
+ */
 export function loadEventTitleTranslationCache() {
   try {
     if (!existsSync(TRANSLATION_CACHE_PATH)) return {};
@@ -1157,6 +1162,10 @@ export function saveEventTitleTranslationCache(cache) {
 // entries collision-free against tio-agenda's own bare-title keys.
 const LOCALE_FALLBACK_DELAY_MS = 200;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// Variante che riporta anche il MOTIVO della stringa vuota (passthrough vs
+// motore giu'), necessaria per memoizzare solo il primo. Il seam iniettabile
+// dei test resta a stringa: `asTranslationResult` accetta entrambe le forme.
+const DEFAULT_TRANSLATE_FN = freeTranslateWithRetryDetailed;
 
 /**
  * Which locales in `byLocale` (a `titleByLocale`/`descriptionByLocale`-shaped
@@ -1190,6 +1199,11 @@ export function localesNeedingTranslation(byLocale, locales = ['it', 'en', 'de',
  * disk in `cache` (caller loads/saves once per run, same convention as
  * `loadEventTitleTranslationCache`). Returns a NEW map — never mutates
  * `byLocale` — or the SAME reference when nothing needs translating.
+ *
+ * Memoizza DUE esiti, non uno: la traduzione riuscita e il passthrough (la
+ * cascata rende `''` perche' la sorgente e' gia' identica nella lingua
+ * target). Senza il secondo, dal #7750 in poi ogni titolo legittimamente
+ * uguale fra it/en ripagava l'intera cascata a ogni run, per sempre.
  */
 async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, translateFn }) {
   const needing = localesNeedingTranslation(byLocale, locales);
@@ -1206,15 +1220,29 @@ async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, tr
     if (target === sourceLocale) continue;
     const cacheKey = `${fieldType}::${sourceLocale}::${normalizedSource}`;
     const entry = cache[cacheKey] || {};
-    let translated = entry[target];
-    if (!translated) {
-      translated = await translateFn({ text: sourceText, sourceLang: sourceLocale, targetLang: target, fieldType, maxRetries: 1 });
-      if (translated) {
-        cache[cacheKey] = { ...entry, [target]: translated };
-        if (translateFn === freeTranslateWithRetry) await sleep(delayMs);
-      }
+    if (Object.prototype.hasOwnProperty.call(entry, target)) {
+      // `null` = passthrough memoizzato (vedi sotto): esito noto, nessuna rete.
+      const memo = entry[target];
+      if (typeof memo === 'string' && memo) updated[target] = memo;
+      continue;
     }
-    if (translated) updated[target] = translated;
+    const { text: translated, passthrough } = asTranslationResult(
+      await translateFn({ text: sourceText, sourceLang: sourceLocale, targetLang: target, fieldType, maxRetries: 1 }),
+    );
+    if (translated) {
+      cache[cacheKey] = { ...entry, [target]: translated };
+      updated[target] = translated;
+      if (translateFn === DEFAULT_TRANSLATE_FN) await sleep(delayMs);
+    } else if (passthrough) {
+      // La cascata ha stabilito che la sorgente e' gia' identica in `target`
+      // («Locarno Film Festival», i toponimi): esito deterministico, si
+      // memoizza come `null` cosi' il prossimo run non ripaga l'intera
+      // cascata sulla stessa stringa. Marker e non la sorgente di proposito:
+      // scrivere la sorgente riempirebbe uno slot MANCANTE con testo italiano
+      // pubblicato sotto /de/, cioe' il difetto che la guardia #7750 esiste
+      // per impedire. Lo slot resta com'era — zero byte pubblicati cambiano.
+      cache[cacheKey] = { ...entry, [target]: null };
+    }
   }
   return updated;
 }
@@ -1251,7 +1279,7 @@ export async function enrichEventsWithLocaleFallbackTranslations(events, cache, 
   const {
     locales = ['it', 'en', 'de', 'fr'],
     delayMs = LOCALE_FALLBACK_DELAY_MS,
-    translateFn = freeTranslateWithRetry,
+    translateFn = DEFAULT_TRANSLATE_FN,
     deadline = null,
   } = options;
   const out = [];
