@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-09-06T22:57:18.565Z",
+  "assembledAt": "2026-09-07T15:15:02.864Z",
   "jobs": [
     {
       "id": "coopers-4c65b0608cd3",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:12.829Z",
+      "crawledAt": "2026-09-07T15:14:57.143Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:53.050Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -120,7 +121,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:57:11.713Z",
+      "crawledAt": "2026-09-07T15:14:56.092Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -188,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -217,7 +219,7 @@
       "title": "AI Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della Governance AI (m/f/d)",
-        "en": "AI Governance Manager (m/f/d)",
+        "en": "AI Governance Manager (m/w/d)",
         "de": "AI Governance Manager (m/w/d)",
         "fr": "Responsable de la gouvernance de l'IA (m/f/d)"
       },
@@ -233,7 +235,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OL0A91",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:10.869Z",
+      "crawledAt": "2026-09-07T15:14:55.168Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -282,6 +284,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:51.132Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -327,7 +330,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3N22VU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:57:09.992Z",
+      "crawledAt": "2026-09-07T15:14:54.231Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -380,6 +383,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:45.542Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -425,7 +429,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:09.092Z",
+      "crawledAt": "2026-09-07T15:14:53.317Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -457,6 +461,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:23:50.233Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
@@ -516,7 +521,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:08.248Z",
+      "crawledAt": "2026-09-07T15:14:51.697Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -577,6 +582,7 @@
         "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-07-10T10:28:37.373Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -606,7 +612,7 @@
       "title": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
-        "en": "SHEQ Manager / Security Officer:r (SiBe) 100% (m/f/d)",
+        "en": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "de": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "fr": "SHEQ Gestionnaire / Agent de sécurité (SiBe) 100% (m/f/d)"
       },
@@ -622,7 +628,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3MQ82W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:02.383Z",
+      "crawledAt": "2026-09-07T15:14:50.784Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -670,6 +676,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:38:19.523Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -715,7 +722,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:01.556Z",
+      "crawledAt": "2026-09-07T15:14:49.233Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -764,6 +771,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:25:24.511Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -809,7 +817,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42QOW9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:59.253Z",
+      "crawledAt": "2026-09-07T15:14:48.319Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -859,6 +867,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:40:23.949Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -888,7 +897,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
+        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -904,7 +913,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:58.407Z",
+      "crawledAt": "2026-09-07T15:14:47.372Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -975,6 +984,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1004,7 +1014,7 @@
       "title": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
       "titleByLocale": {
         "it": "Senior SAP Banking & Payment Architetto (EBICS & ISO 20022) (m/w/d)",
-        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/f/d)",
+        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
         "de": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
         "fr": "Senior SAP Banking & Payment Architecte (EBICS & ISO 20022) (m/w/d)"
       },
@@ -1020,7 +1030,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BG26A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:57.543Z",
+      "crawledAt": "2026-09-07T15:14:46.451Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1100,7 +1110,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P5J50Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:56.689Z",
+      "crawledAt": "2026-09-07T15:14:45.531Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1134,6 +1144,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:18:31.261Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1179,7 +1190,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=010VGG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:55.829Z",
+      "crawledAt": "2026-09-07T15:14:44.632Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1262,6 +1273,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:23.525Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1307,7 +1319,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:55.001Z",
+      "crawledAt": "2026-09-07T15:14:43.677Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1354,6 +1366,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:53:35.533Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
@@ -1383,7 +1396,7 @@
       "title": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Solution Architetto D365 & Power Platform 80 – 100 % (m/w/d)",
-        "en": "Solution Architect D365 & Power Platform 80 – 100% (m/f/d)",
+        "en": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "de": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "fr": "Solution Architecte D365 & Power Platform 80 – 100 % (m/w/d)"
       },
@@ -1399,7 +1412,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:52.855Z",
+      "crawledAt": "2026-09-07T15:14:42.768Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1480,7 +1493,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F26HA4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:51.997Z",
+      "crawledAt": "2026-09-07T15:14:41.850Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1584,7 +1597,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:51.167Z",
+      "crawledAt": "2026-09-07T15:14:40.762Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1638,6 +1651,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:53:46.212Z",
+      "needsRetranslation": true,
       "salaryMin": 22600,
       "salaryMax": 38400,
       "salarySource": "estimated",
@@ -1667,7 +1681,7 @@
       "title": "Test Manager (SAP RISE Migration) (m/w/d)",
       "titleByLocale": {
         "it": "Test Manager (Migrazione RISE SAP) (m/f/d)",
-        "en": "Test Manager (SAP RISE Migration) (m/f/d)",
+        "en": "Test Manager (SAP RISE Migration) (m/w/d)",
         "de": "Test Manager (SAP RISE Migration) (m/w/d)",
         "fr": "Gestionnaire de tests (Migration PAS RISE) (h/f/d)"
       },
@@ -1683,7 +1697,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=UC6N58",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:50.324Z",
+      "crawledAt": "2026-09-07T15:14:39.739Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1759,7 +1773,7 @@
       "title": "DevOps Engineer (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere (m/w/d)",
-        "en": "DevOps Engineer (m/f/d)",
+        "en": "DevOps Engineer (m/w/d)",
         "de": "DevOps Ingenieur (m/w/d)",
         "fr": "DevOps Ingénieur (m/w/d)"
       },
@@ -1775,7 +1789,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FG97O1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:49.442Z",
+      "crawledAt": "2026-09-07T15:14:38.793Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1878,7 +1892,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=A121LY",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:48.605Z",
+      "crawledAt": "2026-09-07T15:14:37.541Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1968,7 +1982,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:47.356Z",
+      "crawledAt": "2026-09-07T15:14:36.617Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2025,98 +2039,6 @@
       }
     },
     {
-      "id": "coopers-8be6320dcff1",
-      "slug": "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern",
-      "slugByLocale": {
-        "it": "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern",
-        "en": "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
-        "de": "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
-        "fr": "business-analyste-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
-      "titleByLocale": {
-        "it": "Business Analista Self-Service BI (SSBI) (m/w/d)",
-        "en": "Business analyst self-service BI (SSBI) (m/f/d)",
-        "de": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
-        "fr": "Business Analyste Self-Service BI (SSBI) (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\n\t\t\t\t\t\t\tIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCantine\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\nIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\nIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\n\nIT - Business Analysis\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\nCantine\n\nCompany laptop\n\nCoopers Care\n\nFirst-name terms\n\nGood public transport connection\n\nHome Office\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\nIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life-balance\n\nSounds interesting?\n\nSimply click \""
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V3LO54",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:46.431Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=V3LO54",
-      "requirements": [
-        "IT - Business Analysis",
-        "Bern",
-        "Contracting",
-        "Part Time, 80%",
-        "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
-        "SQL, Power BI, Business Analyse"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Business Analysis",
-          "Contracting",
-          "Part Time, 80%",
-          "Ab sofort - 31.12.2026",
-          "SQL, Power BI, Business Analyse",
-          "Ab sofort - 31.12.2026 mit Option auf Verlängerung"
-        ]
-      },
-      "previousSlugs": [
-        "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
-        "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
-          "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern"
-        ],
-        "fr": [
-          "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:15:07.899Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "coopers-358417cdda78",
       "slug": "head-of-downstream-processing-dsp-manufacturing-operation-s-m-f-d-coopers-wallis",
       "slugByLocale": {
@@ -2147,7 +2069,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=06P8UJ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:45.587Z",
+      "crawledAt": "2026-09-07T15:14:35.560Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2227,7 +2149,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:44.734Z",
+      "crawledAt": "2026-09-07T15:14:34.628Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2323,7 +2245,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OZ155L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:43.868Z",
+      "crawledAt": "2026-09-07T15:14:33.157Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2392,6 +2314,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:15:03.492Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2437,7 +2360,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:43.013Z",
+      "crawledAt": "2026-09-07T15:14:31.978Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2515,7 +2438,7 @@
       "title": "Applikations Manager:in (Payment Solution) (m/w/d)",
       "titleByLocale": {
         "it": "Gestione applicazioni: in (Soluzione di pagamento) (m/f/d)",
-        "en": "Applications Manager:in (Payment Solution) (m/f/d)",
+        "en": "Applikations Manager:in (Payment Solution) (m/w/d)",
         "de": "Applikations Manager:in (Payment Solution) (m/w/d)",
         "fr": "Gestionnaire d'applications:dans (solution de paiement) (h/f/d)"
       },
@@ -2531,7 +2454,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80VB8J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:42.161Z",
+      "crawledAt": "2026-09-07T15:14:30.574Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2606,7 +2529,7 @@
       "title": "Senior PostgreSQL Migration Consultant (SQL Server zu PostgreSQL) (m/w/d)",
       "titleByLocale": {
         "it": "Senior PostgreSQL Migration Consulente (SQL Server zu PostgreSQL) (m/w/d)",
-        "en": "Senior PostgreSQL Migration Consultant (SQL Server to PostgreSQL) (m/f/d)",
+        "en": "Senior PostgreSQL Migration Consultant (SQL Server zu PostgreSQL) (m/w/d)",
         "de": "Senior PostgreSQL Migration Berater (SQL Server zu PostgreSQL) (m/w/d)",
         "fr": "Consultant principal en migration PostgreSQL (serveur SQL vers PostgreSQL) (h/f/d)"
       },
@@ -2622,7 +2545,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5F8Y1Q",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:41.293Z",
+      "crawledAt": "2026-09-07T15:14:29.659Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2700,7 +2623,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=43JYM0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:40.454Z",
+      "crawledAt": "2026-09-07T15:14:28.400Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2797,7 +2720,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4FAG76",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:39.570Z",
+      "crawledAt": "2026-09-07T15:14:27.438Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2876,7 +2799,7 @@
       "title": "Senior Data Engineer (Azure Databricks / Airflow) (m/w/d)",
       "titleByLocale": {
         "it": "Senior Data Ingegnere (Azure Databricks / Airflow) (m/w/d)",
-        "en": "Senior Data Engineer (Azure Databricks / Airflow) (m/f/d)",
+        "en": "Senior Data Engineer (Azure Databricks / Airflow) (m/w/d)",
         "de": "Senior Data Ingenieur (Azure Databricks / Airflow) (m/w/d)",
         "fr": "Senior Data Ingénieur (Azure Databricks / Airflow) (m/w/d)"
       },
@@ -2892,7 +2815,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8SO7P0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:38.719Z",
+      "crawledAt": "2026-09-07T15:14:26.460Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2971,7 +2894,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OBI201",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:37.886Z",
+      "crawledAt": "2026-09-07T15:14:25.560Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3024,6 +2947,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T08:58:08.447Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -3069,7 +2993,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=06XT3H",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:37.043Z",
+      "crawledAt": "2026-09-07T15:14:24.593Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3143,7 +3067,7 @@
       "title": "Talent Acquisition Specialist (Basel) (m/w/d)",
       "titleByLocale": {
         "it": "Talent Acquisition Specialista (Basel) (m/w/d)",
-        "en": "Talent Acquisition Specialist (Basel) (m/f/d)",
+        "en": "Talent Acquisition Specialist (Basel) (m/w/d)",
         "de": "Talent Acquisition Spezialist (Basel) (m/w/d)",
         "fr": "Talent Acquisition Spécialiste (Basel) (m/w/d)"
       },
@@ -3159,7 +3083,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:36.114Z",
+      "crawledAt": "2026-09-07T15:14:23.536Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3171,7 +3095,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "postedDate": "2026-09-01",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "requirements": [
         "Administration - Human Resources",
@@ -3203,6 +3127,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:44:15.661Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3232,7 +3157,7 @@
       "title": "Senior Software Engineer / Go Developer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Software Ingegnere / Go Sviluppatore (m/w/d)",
-        "en": "Senior Software Engineer / Go Developer (m/f/d)",
+        "en": "Senior Software Engineer / Go Developer (m/w/d)",
         "de": "Senior Software Ingenieur / Go Entwickler (m/w/d)",
         "fr": "Senior Software Ingénieur / Go Développeur (m/w/d)"
       },
@@ -3248,7 +3173,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:34.532Z",
+      "crawledAt": "2026-09-07T15:14:22.613Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3340,7 +3265,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AF31M1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:32.327Z",
+      "crawledAt": "2026-09-07T15:14:21.641Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3400,7 +3325,7 @@
       "title": "Archiv Manager:in (m/w/d)",
       "titleByLocale": {
         "it": "Gestione archivio: in (m/f/d)",
-        "en": "Archive Manager:in (m/f/d)",
+        "en": "Archiv Manager:in (m/w/d)",
         "de": "Archiv Manager:in (m/w/d)",
         "fr": "Gestionnaire d'archives:dans (h/f/d)"
       },
@@ -3416,7 +3341,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=RHG048",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:31.443Z",
+      "crawledAt": "2026-09-07T15:14:20.732Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3510,7 +3435,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:30.610Z",
+      "crawledAt": "2026-09-07T15:14:19.671Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3605,7 +3530,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:29.699Z",
+      "crawledAt": "2026-09-07T15:14:18.626Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3699,7 +3624,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8I4I2V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:28.444Z",
+      "crawledAt": "2026-09-07T15:14:17.717Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3744,6 +3669,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T23:00:41.148Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3789,7 +3715,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SEC718",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T22:56:27.576Z",
+      "crawledAt": "2026-09-07T15:14:16.802Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3850,6 +3776,257 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "coopers-097dc4e8c90d",
+      "slug": "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt",
+      "slugByLocale": {
+        "en": "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt",
+        "it": "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt",
+        "de": "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt",
+        "fr": "compliance-support-expert-gxp-training-m-f-d-coopers-basel-stadt"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Compliance Support Expert, GxP Training (m/f/d)",
+      "titleByLocale": {
+        "en": "Compliance Support Expert, GxP Training (m/f/d)",
+        "it": "Compliance Support Expert, GxP Training (m/f/d)",
+        "de": "Compliance Support Expert, GxP Training (m/f/d)",
+        "fr": "Compliance Support Expert, GxP Training (m/f/d)"
+      },
+      "description": "positions\n\n•\n\t\t\t\t\t\tCompliance Support Expert, GxP Training\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+      "descriptionByLocale": {
+        "en": "positions\n\n•\n\t\t\t\t\t\tCompliance Support Expert, GxP Training\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+        "it": "positions\n\n•\n\t\t\t\t\t\tCompliance Support Expert, GxP Training\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+        "de": "positions\n\n•\n\t\t\t\t\t\tCompliance Support Expert, GxP Training\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+        "fr": "positions\n\n•\n\t\t\t\t\t\tCompliance Support Expert, GxP Training\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap"
+      },
+      "location": "Basel-Stadt",
+      "canton": "BS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=31JGY3",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-07T15:14:15.885Z",
+      "addressLocality": "Basel-Stadt",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=31JGY3",
+      "requirements": [
+        "Life Sciences - Quality Management",
+        "Basel-Stadt",
+        "Contracting",
+        "Part Time, 100%",
+        "Immediately - 1 year after start date",
+        "Quality Assurance, GxP, Compliance, Cornerstone, Training"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Life Sciences - Quality Management",
+          "Basel-Stadt",
+          "Contracting",
+          "Part Time, 100%",
+          "Immediately - 1 year after start date",
+          "Quality Assurance, GxP, Compliance, Cornerstone, Training"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-07T15:14:15.885Z"
+    },
+    {
+      "id": "coopers-3358bb94f65e",
+      "slug": "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern",
+      "slugByLocale": {
+        "de": "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern",
+        "it": "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern",
+        "en": "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern",
+        "fr": "senior-data-engineer-datenplattform-databricks-m-w-d-coopers-luzern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Senior Data Engineer - Datenplattform & Databricks (m/w/d)",
+      "titleByLocale": {
+        "de": "Senior Data Ingenieur - Datenplattform & Databricks (m/w/d)",
+        "en": "Senior Data Engineer - Datenplattform & Databricks (m/w/d)",
+        "it": "Senior Data Ingegnere - Datenplattform & Databricks (m/w/d)",
+        "fr": "Senior Data Ingénieur - Datenplattform & Databricks (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (XRN197)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nDatabricks, SQL, Python, Data Vault, dbt Core, CI/CD, SAFe\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (XRN197)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nDatabricks, SQL, Python, Data Vault, dbt Core, CI/CD, SAFe\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (XRN197)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nDatabricks, SQL, Python, Data Vault, dbt Core, CI/CD, SAFe\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (XRN197)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nDatabricks, SQL, Python, Data Vault, dbt Core, CI/CD, SAFe\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (XRN197)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nDatabricks, SQL, Python, Data Vault, dbt Core, CI/CD, SAFe\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \""
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XRN197",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-07T15:14:14.673Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-07",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=XRN197",
+      "requirements": [
+        "IT - Software Engineering",
+        "Luzern",
+        "Contracting",
+        "Part Time, 80-100%",
+        "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
+        "Databricks, SQL, Python, Data Vault, dbt Core, CI/CD, SAFe"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - Software Engineering",
+          "Luzern",
+          "Contracting",
+          "Part Time, 80-100%",
+          "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
+          "Databricks, SQL, Python, Data Vault, dbt Core, CI/CD, SAFe"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 107000,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 107000,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-07T15:14:14.673Z"
+    },
+    {
+      "id": "coopers-8be6320dcff1",
+      "slug": "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern",
+      "slugByLocale": {
+        "it": "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern",
+        "en": "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
+        "de": "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
+        "fr": "business-analyste-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
+      "titleByLocale": {
+        "it": "Business Analista Self-Service BI (SSBI) (m/w/d)",
+        "en": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
+        "de": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
+        "fr": "Business Analyste Self-Service BI (SSBI) (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\n\t\t\t\t\t\t\tIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCantine\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\nIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\nIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\n\nIT - Business Analysis\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\nCantine\n\nCompany laptop\n\nCoopers Care\n\nFirst-name terms\n\nGood public transport connection\n\nHome Office\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (V3LO54)\n\n•\nIT - Business Analysis\n\n•\n\nBern\n\nContracting\n\nPart Time, 80%\n\nAb sofort - 31.12.2026\n\nSQL, Power BI, Business Analyse\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life-balance\n\nSounds interesting?\n\nSimply click \""
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V3LO54",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:56:46.431Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=V3LO54",
+      "requirements": [
+        "IT - Business Analysis",
+        "Bern",
+        "Contracting",
+        "Part Time, 80%",
+        "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
+        "SQL, Power BI, Business Analyse"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - Business Analysis",
+          "Contracting",
+          "Part Time, 80%",
+          "Ab sofort - 31.12.2026",
+          "SQL, Power BI, Business Analyse",
+          "Ab sofort - 31.12.2026 mit Option auf Verlängerung"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
+        "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern",
+          "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern"
+        ],
+        "fr": [
+          "business-analyst-self-service-bi-ssbi-m-w-d-coopers-bern"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:15:07.899Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
