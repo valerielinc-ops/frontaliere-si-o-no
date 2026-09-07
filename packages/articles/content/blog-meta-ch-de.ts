@@ -5947,6 +5947,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.title': 'Kostenloses KI-Labor für Senioren in Lugano',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.excerpt': 'Die Gewerkschaft OCST organisiert am 11. September 2024 in Lugano einen kostenlosen Workshop zur künstlichen Intelligenz für Senioren.',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.imageAlt': 'Gruppe von Senioren, die Künstliche Intelligenz in einem Labor in Lugano lernen',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Genf: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'Alles zur Erlangung und Erneuerung der Aufenthaltsbewilligung B im Kanton Genf: Voraussetzungen, Dokumente und Verfahren.',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Luftbild von Genf mit See und Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

@@ -2008,6 +2008,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'disoccupazione-giovani-svizzera-agosto-2023': { it: 'disoccupazione-giovani-svizzera-agosto-2023', en: 'youth-unemployment-switzerland-august-2023', de: 'jugendarbeitslosigkeit-schweiz-august-2023', fr: 'chomage-jeunes-suisse-aout-2023' },
  'svizzera-sanzioni-stati-uniti-ignazio-cassis': { it: 'svizzera-sanzioni-stati-uniti-ignazio-cassis', en: 'switzerland-sanctions-usa-ignazio-cassis', de: 'schweiz-sanktionen-usa-ignazio-cassis', fr: 'suisse-sanctions-usa-ignazio-cassis' },
  'laboratorio-intelligenza-artificiale-terza-eta': { it: 'laboratorio-intelligenza-artificiale-terza-eta', en: 'artificial-intelligence-workshop-for-seniors', de: 'kuenstliche-intelligenz-workshop-fuer-senioren', fr: 'atelier-intelligence-artificielle-pour-seniors' },
+ 'permesso-dimora-b-canton-ginevra-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-ginevra-requisiti-rinnovo', en: 'residence-permit-b-canton-geneva-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-genf-anforderungen-erneuerung', fr: 'permis-de-sejour-b-canton-geneve-exigences-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

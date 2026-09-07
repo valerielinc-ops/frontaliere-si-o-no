@@ -5947,6 +5947,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.title': 'Atelier gratuit sur l\'IA pour les personnes âgées à Lugano',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.excerpt': 'Le Syndicat OCST organise un atelier gratuit sur l\'intelligence artificielle pour les personnes âgées le 11 septembre 2024 à Lugano.',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.imageAlt': 'Groupe de seniors apprenant l\'intelligence artificielle dans un laboratoire à Lugano',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Permis de séjour B dans le canton de Genève : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'Tout sur l\'obtention et le renouvellement du permis de séjour B dans le canton de Genève : exigences, documents et procédures.',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Vue aérienne de Genève avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

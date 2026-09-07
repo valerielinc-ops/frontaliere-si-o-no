@@ -5947,6 +5947,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.title': 'Free workshop on AI for the elderly in Lugano',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.excerpt': 'The OCST Union organises a free workshop on artificial intelligence for the elderly on 11 September 2024 in Lugano.',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.imageAlt': 'Group of seniors learning artificial intelligence in a laboratory in Lugano',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Residence permit B in the Canton of Geneva: requirements and renewal',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'All about how to obtain and renew the residence permit B in the Canton of Geneva: requirements, documents and procedures.',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Aerial view of Geneva with lake and mountains in the background',
 };
 
 export default blogMetaChEn;

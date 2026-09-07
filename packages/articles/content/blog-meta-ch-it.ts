@@ -5947,6 +5947,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.title': 'Laboratorio gratuito sull\'IA per la terza età a Lugano',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.excerpt': 'Il Sindacato OCST organizza un laboratorio gratuito sull\'intelligenza artificiale per la terza età il 11 settembre 2024 a Lugano.',
     'blog.article.laboratorio-intelligenza-artificiale-terza-eta.imageAlt': 'Gruppo di anziani che imparano l\'intelligenza artificiale in un laboratorio a Lugano',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Permesso di dimora B nel Canton Ginevra: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'Tutto su come ottenere e rinnovare il permesso di dimora B nel Canton Ginevra: requisiti, documenti e procedure.',
+    'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Vista aerea di Ginevra con il lago e le montagne sullo sfondo',
 };
 
 export default blogMetaChIt;
