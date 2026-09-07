@@ -34545,6 +34545,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sergio-savoia-politica-avanti-ticino-lavoro',
+ category: 'novita',
+ date: '2026-09-07T11:34:01.830Z',
+ image: '/images/blog/sergio-savoia-politica-avanti-ticino-lavoro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
