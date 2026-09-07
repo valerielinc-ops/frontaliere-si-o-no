@@ -1,7 +1,7 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-09-07T15:18:37.355Z",
+  "generatedAt": "2026-09-07T23:42:38.504Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 28694,
-  "avgDurationMs": 28694,
+  "durationMs": 28577,
+  "avgDurationMs": 28577,
   "durationHistory": [
-    28694
+    28577
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T15:18:30.266Z",
+      "crawledAt": "2026-09-07T23:42:31.194Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,6 +44,7 @@
       "featured": false,
       "postedDate": "2026-09-01",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T23:27:08.641Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -65,7 +66,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T15:18:31.236Z",
+      "crawledAt": "2026-09-07T23:42:32.158Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,6 +79,7 @@
       "featured": false,
       "postedDate": "2026-05-28",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -120,7 +122,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
