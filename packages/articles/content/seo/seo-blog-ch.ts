@@ -77318,6 +77318,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luna-wedler-golden-eye-award-zurigo': {
+    title: 'Festival Zurigo: alla Svizzera luna wedler il golden eye award',
+    description: 'L\'attrice svizzera Luna Wedler riceve il Golden Eye Award al festival di Zurigo per essere la prima attrice svizzera a vincere questo riconoscimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, festival, zurigo, alla, luna',
+    ogTitle: 'Festival Zurigo: alla svizzera Luna Wedler il Golden Eye Award',
+    ogDescription: 'L\'attrice svizzera Luna Wedler riceve il Golden Eye Award al festival di Zurigo per essere la prima attrice svizzera a vincere questo riconoscimento. Scopri di più sul cinema svizzero e come supportarlo.',
+    canonicalPath: '/articoli-svizzera/luna-wedler-golden-eye-award-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festival Zurigo: alla Svizzera luna wedler il golden eye award",
+      "description": "L'attrice svizzera Luna Wedler riceve il Golden Eye Award al festival di Zurigo per essere la prima attrice svizzera a vincere questo riconoscimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/luna-wedler-golden-eye-award-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Luna Wedler riceve il Golden Eye Award durante la cerimonia d'apertura del festival di Zurigo."
+      },
+      "datePublished": "2026-09-07T13:05:51+00:00",
+      "dateModified": "2026-09-07T13:05:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/luna-wedler-golden-eye-award-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

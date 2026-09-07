@@ -5956,6 +5956,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.melide-riqualifica-centro.title': 'Com\'è cambiato il nucleo di Melide grazie ai lavori',
     'blog.article.melide-riqualifica-centro.excerpt': 'I lavori di riqualifica del centro di Melide sono stati conclusi il 6 settembre con granito di Iragna e porfido rosa di Cuasso al Monte.',
     'blog.article.melide-riqualifica-centro.imageAlt': 'Centro di Melide dopo i lavori di riqualifica',
+    'blog.article.luna-wedler-golden-eye-award-zurigo.title': 'Festival Zurigo: alla Svizzera luna wedler il golden eye award',
+    'blog.article.luna-wedler-golden-eye-award-zurigo.excerpt': 'L\'attrice svizzera riceve il premio per essere la prima attrice svizzera a vincere il Golden Eye Award.',
+    'blog.article.luna-wedler-golden-eye-award-zurigo.imageAlt': 'Luna Wedler riceve il Golden Eye Award durante la cerimonia d\'apertura del festival di Zurigo.',
 };
 
 export default blogMetaChIt;
