@@ -17641,6 +17641,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'cannabis-farmacia-berna-bienne-lucerna',
+    category: 'novita',
+    date: '2026-09-07T08:23:18.516Z',
+    image: '/images/blog/cannabis-farmacia-berna-bienne-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

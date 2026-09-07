@@ -1986,6 +1986,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'intelligenza-artificiale-cardiologia-2026': { it: 'intelligenza-artificiale-cardiologia-2026', en: 'artificial-intelligence-cardiology-2026', de: 'kuenstliche-intelligenz-kardiologie-2026', fr: 'intelligence-artificielle-cardiologie-2026' },
  'disuguaglianze-salariali-stage-svizzera': { it: 'disuguaglianze-salariali-stage-svizzera', en: 'wage-disparities-internships-switzerland', de: 'gehalt-differenzen-praktika-schweiz', fr: 'ecarts-salariaux-stages-suisse' },
  'disoccupazione-stabile-svizzera-agosto-2024': { it: 'disoccupazione-stabile-svizzera-agosto-2024', en: 'unemployment-rate-stable-switzerland-august-2024', de: 'arbeitslosenquote-stabil-schweiz-august-2024', fr: 'taux-de-chomage-stable-suisse-aout-2024' },
+ 'cannabis-farmacia-berna-bienne-lucerna': { it: 'cannabis-farmacia-berna-bienne-lucerna', en: 'cannabis-pharmacy-berna-bienne-lucerne', de: 'cannabis-apotheke-berna-biel-biel-bienne', fr: 'cannabis-pharmacie-berne-bienne-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

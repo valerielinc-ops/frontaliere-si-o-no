@@ -5881,6 +5881,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Switzerland\'s Unemployment Rate Stable in August',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'The unemployment rate in Switzerland remained stable at 3% in August, with a slight increase of 0.2% year-on-year.',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background, showcasing the economic stability of the region.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.title': 'Cannabis in the pharmacy: less risk and more awareness',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.excerpt': 'The pilot project for the sale of cannabis in pharmacies in Bern, Biel and Lucerne is proving to favour less risky consumption.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.imageAlt': 'A pharmacy in Berna, Bienne or Lucerna with a sign for cannabis sale.',
 };
 
 export default blogMetaChEn;

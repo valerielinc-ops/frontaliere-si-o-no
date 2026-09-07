@@ -5881,6 +5881,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Taux de chômage stable en Suisse en août',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'Le taux de chômage en Suisse est resté stable à 3 % en août, avec une légère hausse de 0,2 % sur un an.',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan, montrant la stabilité économique de la région.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.title': 'Cannabis en pharmacie : moins de risques et plus de sensibilisation',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.excerpt': 'Le projet pilote de vente de cannabis dans les pharmacies de Berne, Bienne et Lucerne s\'avère favoriser une consommation moins risquée.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.imageAlt': 'Une pharmacie à Berna, Bienne ou Lucerna avec un panneau pour la vente de cannabis.',
 };
 
 export default blogMetaChFr;

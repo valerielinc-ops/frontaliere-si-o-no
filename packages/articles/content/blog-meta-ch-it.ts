@@ -5881,6 +5881,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Stabile il tasso di disoccupazione in Svizzera ad agosto',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3% ad agosto, con un lieve aumento dello 0,2% su base annua.',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra la stabilità economica della regione.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.title': 'Cannabis in farmacia: meno rischi e più consapevolezza',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.excerpt': 'Il progetto pilota di vendita di cannabis nelle farmacie di Berna, Bienne e Lucerna sta dimostrando di favorire un consumo meno rischioso.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.imageAlt': 'Una farmacia a Berna, Bienne o Lucerna con un cartello per la vendita di cannabis.',
 };
 
 export default blogMetaChIt;
