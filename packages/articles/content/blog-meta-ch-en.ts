@@ -5956,6 +5956,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.melide-riqualifica-centro.title': 'How the core of Melide has changed thanks to the work',
     'blog.article.melide-riqualifica-centro.excerpt': 'The redevelopment of the centre of Melide was completed on 6 September with Iragna granite and pink porphyry from Cuasso al Monte.',
     'blog.article.melide-riqualifica-centro.imageAlt': 'Melide town center after renovation work',
+    'blog.article.luna-wedler-golden-eye-award-zurigo.title': 'Festival Zurich: the golden eye award goes to Luna Wedler in Switzerland',
+    'blog.article.luna-wedler-golden-eye-award-zurigo.excerpt': 'The Swiss actress receives the award for being the first Swiss actress to win the Golden Eye Award.',
+    'blog.article.luna-wedler-golden-eye-award-zurigo.imageAlt': 'Luna Wedler receives the Golden Eye Award at the Zurich Film Festival opening ceremony.',
 };
 
 export default blogMetaChEn;
