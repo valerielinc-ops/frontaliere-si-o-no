@@ -2338,7 +2338,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2411,11 +2411,11 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2428,7 +2428,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-50d01a54c105",
@@ -2684,7 +2685,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2732,7 +2733,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2748,11 +2750,11 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2765,7 +2767,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -4543,7 +4546,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4589,7 +4592,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4601,14 +4605,14 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4621,7 +4625,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-803625157377",
@@ -7157,17 +7162,17 @@
       "companyDomain": "ksa.ch",
       "title": "ICT-Applikationsentwickler/in",
       "titleByLocale": {
-        "it": "ICT-Applikationsentwickler/in",
-        "en": "ICT-Applikationsentwickler/in",
+        "it": "Sviluppo delle applicazioni ICT/in",
+        "en": "ICT application developer/in",
         "de": "ICT-Applikationsentwickler/in",
-        "fr": "ICT-Applikationsentwickler/in"
+        "fr": "Développeur/in d'applications TIC"
       },
       "description": "Aufgaben:\n• Leitung oder Teilprojektleitung anspruchsvoller Automatisierungsprojekte sowie Mitarbeit in zentralen Rollen bei strategischen Vorhaben.\n\n• Analyse der Arbeitsabläufe und Identifizierung des Automatisierungspotenzials bei unseren Stakeholdern.\n\n• Planung, Konzeption und Umsetzung von Automatisierungslösungen mit Hilfe von UIPath in enger Zusammenarbeit mit unserem Dienstleister.\n\n• Mitarbeit beim Aufbau und der Weiterentwicklung von Betrieb, Support und Governance von UIPath / SAP BPA.\n\n• In dieser Rolle arbeiten Sie eng mit unserem SAP-Team zusammen.\n\nAnforderungen:\n• Abgeschlossenes Studium mit IT-Bezug oder eine vergleichbare Ausbildung.\n\n• Erfahrung mit Automation Software wie UiPath, Microsoft Power Platform, Automation Anywhere oder SAP BPA.\n\n• Verständnis von UI-Elementen und API Programmierung (für AI Anbindungen).\n\n• Erprobte analytische Fähigkeiten und konzeptionelles Denkvermögen.\n\n• Begeisterung für visionäre IT-Themen und Lust, die Zukunft der Arbeitswelt initiativ mitzugestalten.\n\n• Selbstständige, analytische, strukturierte und qualitätsorientierte Arbeitsweise.\n\n• Hohe Serviceorientierung, Eigeninitiative und Sozialkompetenz sowie Fähigkeit zur Zusammenarbeit mit interdisziplinären Teams.\n\n• Klare und präzise Kommunikationsfähigkeit in Deutsch mündlich und schriftlich, von Vorteil ebenfalls in Englisch.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Leitung oder Teilprojektleitung anspruchsvoller Automatisierungsprojekte sowie Mitarbeit in zentralen Rollen bei strategischen Vorhaben.\n\n• Analyse der Arbeitsabläufe und Identifizierung des Automatisierungspotenzials bei unseren Stakeholdern.\n\n• Planung, Konzeption und Umsetzung von Automatisierungslösungen mit Hilfe von UIPath in enger Zusammenarbeit mit unserem Dienstleister.\n\n• Mitarbeit beim Aufbau und der Weiterentwicklung von Betrieb, Support und Governance von UIPath / SAP BPA.\n\n• In dieser Rolle arbeiten Sie eng mit unserem SAP-Team zusammen.\n\nAnforderungen:\n• Abgeschlossenes Studium mit IT-Bezug oder eine vergleichbare Ausbildung.\n\n• Erfahrung mit Automation Software wie UiPath, Microsoft Power Platform, Automation Anywhere oder SAP BPA.\n\n• Verständnis von UI-Elementen und API Programmierung (für AI Anbindungen).\n\n• Erprobte analytische Fähigkeiten und konzeptionelles Denkvermögen.\n\n• Begeisterung für visionäre IT-Themen und Lust, die Zukunft der Arbeitswelt initiativ mitzugestalten.\n\n• Selbstständige, analytische, strukturierte und qualitätsorientierte Arbeitsweise.\n\n• Hohe Serviceorientierung, Eigeninitiative und Sozialkompetenz sowie Fähigkeit zur Zusammenarbeit mit interdisziplinären Teams.\n\n• Klare und präzise Kommunikationsfähigkeit in Deutsch mündlich und schriftlich, von Vorteil ebenfalls in Englisch.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\n• Leitung oder Teilprojektleitung anspruchsvoller Automatisierungsprojekte sowie Mitarbeit in zentralen Rollen bei strategischen Vorhaben.\n\n• Analyse der Arbeitsabläufe und Identifizierung des Automatisierungspotenzials bei unseren Stakeholdern.\n\n• Planung, Konzeption und Umsetzung von Automatisierungslösungen mit Hilfe von UIPath in enger Zusammenarbeit mit unserem Dienstleister.\n\n• Mitarbeit beim Aufbau und der Weiterentwicklung von Betrieb, Support und Governance von UIPath / SAP BPA.\n\n• In dieser Rolle arbeiten Sie eng mit unserem SAP-Team zusammen.\n\nAnforderungen:\n• Abgeschlossenes Studium mit IT-Bezug oder eine vergleichbare Ausbildung.\n\n• Erfahrung mit Automation Software wie UiPath, Microsoft Power Platform, Automation Anywhere oder SAP BPA.\n\n• Verständnis von UI-Elementen und API Programmierung (für AI Anbindungen).\n\n• Erprobte analytische Fähigkeiten und konzeptionelles Denkvermögen.\n\n• Begeisterung für visionäre IT-Themen und Lust, die Zukunft der Arbeitswelt initiativ mitzugestalten.\n\n• Selbstständige, analytische, strukturierte und qualitätsorientierte Arbeitsweise.\n\n• Hohe Serviceorientierung, Eigeninitiative und Sozialkompetenz sowie Fähigkeit zur Zusammenarbeit mit interdisziplinären Teams.\n\n• Klare und präzise Kommunikationsfähigkeit in Deutsch mündlich und schriftlich, von Vorteil ebenfalls in Englisch.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
+        "it": "Compiti:\n• Gestione o parziale gestione dei progetti di automazione impegnativa e partecipazione a ruoli centrali in progetti strategici.\n\n• Analisi dei flussi di lavoro e identificazione del potenziale di automazione tra i nostri stakeholder.\n\n• Pianificazione, concezione e realizzazione di soluzioni di automazione con l'aiuto di UIPath in stretta collaborazione con il nostro fornitore di servizi.\n\n• Partecipazione alla creazione e sviluppo di operazioni, supporto e governance di UIPath / SAP BPA.\n\n• In questo ruolo, si lavora a stretto contatto con il nostro team SAP.\n\nRequisiti\n• Studi completi relativi all'IT o a una formazione comparabile.\n\n• Esperienza con software di automazione come UiPath, Microsoft Power Platform, Automation Anywhere o SAP BPA.\n\n• Comprendere gli elementi UI e la programmazione API (per le connessioni AI).\n\n• Prove abilità analitiche e capacità di pensiero concettuale.\n\n• Entusiasmo per temi IT visionari e il desiderio di plasmare il futuro del mondo del lavoro.\n\n• Metodo di lavoro indipendente, analitico, strutturato e orientato alla qualità.\n\n• Alto orientamento al servizio, iniziativa e competenza sociale, nonché la capacità di lavorare con team interdisciplinari.\n\n• Competenze di comunicazione chiare e precise in tedesco per via orale e per iscritto, anche benefiche in inglese.\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\n• Management or partial project management of demanding automation projects as well as participation in central roles in strategic projects.\n\n• Analysis of workflows and identification of automation potential among our stakeholders.\n\n• Planning, conception and implementation of automation solutions with the help of UIPath in close cooperation with our service provider.\n\n• Participation in the establishment and further development of operations, support and governance of UIPath / SAP BPA.\n\n• In this role, you work closely with our SAP team.\n\nRequirements\n• Completed studies related to IT or a comparable education.\n\n• Experience with automation software such as UiPath, Microsoft Power Platform, Automation Anywhere or SAP BPA.\n\n• Understanding UI elements and API programming (for AI connections).\n\n• Proven analytical skills and conceptual thinking skills.\n\n• Enthusiasm for visionary IT topics and desire to shape the future of the world of work.\n\n• Independent, analytical, structured and quality-oriented working method.\n\n• High service orientation, initiative and social competence as well as the ability to work with interdisciplinary teams.\n\n• Clear and precise communication skills in German orally and in writing, also beneficial in English.\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
         "de": "Aufgaben:\n• Leitung oder Teilprojektleitung anspruchsvoller Automatisierungsprojekte sowie Mitarbeit in zentralen Rollen bei strategischen Vorhaben.\n\n• Analyse der Arbeitsabläufe und Identifizierung des Automatisierungspotenzials bei unseren Stakeholdern.\n\n• Planung, Konzeption und Umsetzung von Automatisierungslösungen mit Hilfe von UIPath in enger Zusammenarbeit mit unserem Dienstleister.\n\n• Mitarbeit beim Aufbau und der Weiterentwicklung von Betrieb, Support und Governance von UIPath / SAP BPA.\n\n• In dieser Rolle arbeiten Sie eng mit unserem SAP-Team zusammen.\n\nAnforderungen:\n• Abgeschlossenes Studium mit IT-Bezug oder eine vergleichbare Ausbildung.\n\n• Erfahrung mit Automation Software wie UiPath, Microsoft Power Platform, Automation Anywhere oder SAP BPA.\n\n• Verständnis von UI-Elementen und API Programmierung (für AI Anbindungen).\n\n• Erprobte analytische Fähigkeiten und konzeptionelles Denkvermögen.\n\n• Begeisterung für visionäre IT-Themen und Lust, die Zukunft der Arbeitswelt initiativ mitzugestalten.\n\n• Selbstständige, analytische, strukturierte und qualitätsorientierte Arbeitsweise.\n\n• Hohe Serviceorientierung, Eigeninitiative und Sozialkompetenz sowie Fähigkeit zur Zusammenarbeit mit interdisziplinären Teams.\n\n• Klare und präzise Kommunikationsfähigkeit in Deutsch mündlich und schriftlich, von Vorteil ebenfalls in Englisch.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\n• Leitung oder Teilprojektleitung anspruchsvoller Automatisierungsprojekte sowie Mitarbeit in zentralen Rollen bei strategischen Vorhaben.\n\n• Analyse der Arbeitsabläufe und Identifizierung des Automatisierungspotenzials bei unseren Stakeholdern.\n\n• Planung, Konzeption und Umsetzung von Automatisierungslösungen mit Hilfe von UIPath in enger Zusammenarbeit mit unserem Dienstleister.\n\n• Mitarbeit beim Aufbau und der Weiterentwicklung von Betrieb, Support und Governance von UIPath / SAP BPA.\n\n• In dieser Rolle arbeiten Sie eng mit unserem SAP-Team zusammen.\n\nAnforderungen:\n• Abgeschlossenes Studium mit IT-Bezug oder eine vergleichbare Ausbildung.\n\n• Erfahrung mit Automation Software wie UiPath, Microsoft Power Platform, Automation Anywhere oder SAP BPA.\n\n• Verständnis von UI-Elementen und API Programmierung (für AI Anbindungen).\n\n• Erprobte analytische Fähigkeiten und konzeptionelles Denkvermögen.\n\n• Begeisterung für visionäre IT-Themen und Lust, die Zukunft der Arbeitswelt initiativ mitzugestalten.\n\n• Selbstständige, analytische, strukturierte und qualitätsorientierte Arbeitsweise.\n\n• Hohe Serviceorientierung, Eigeninitiative und Sozialkompetenz sowie Fähigkeit zur Zusammenarbeit mit interdisziplinären Teams.\n\n• Klare und präzise Kommunikationsfähigkeit in Deutsch mündlich und schriftlich, von Vorteil ebenfalls in Englisch.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "fr": "Tâches :\n• Gestion ou gestion partielle de projets d'automatisation exigeants ainsi que participation à des rôles centraux dans des projets stratégiques.\n\n• Analyse des flux de travail et identification du potentiel d'automatisation parmi nos intervenants.\n\n• Planification, conception et mise en œuvre de solutions d'automatisation avec l'aide d'UIPath en étroite collaboration avec notre prestataire de services.\n\n• Participation à l'établissement et au développement des opérations, du soutien et de la gouvernance d'UIPath / SAP BPA.\n\n• Dans ce rôle, vous travaillez en étroite collaboration avec notre équipe SAP.\n\nExigences\n• Études terminées liées à la TI ou à une éducation comparable.\n\n• Expérience avec les logiciels d'automatisation tels que UiPath, Microsoft Power Platform, Automation Anywhere ou SAP BPA.\n\n• Comprendre les éléments d'interface utilisateur et la programmation d'API (pour les connexions AI).\n\n• Compétences d'analyse et de pensée conceptuelle éprouvées.\n\n• Enthousiasme pour les sujets informatiques visionnaires et le désir de façonner l'avenir du monde du travail.\n\n• Méthode de travail indépendante, analytique, structurée et axée sur la qualité.\n\n• Orientation, initiative et compétences sociales élevées ainsi que la capacité de travailler avec des équipes interdisciplinaires.\n\n• Des compétences claires et précises en communication orale et écrite en allemand, également bénéfiques en anglais.\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",

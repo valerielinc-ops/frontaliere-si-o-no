@@ -321,7 +321,6 @@
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-h-f-d-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3322,28 +3321,6 @@
         "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-b6d7fbd2bf6d",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
-        "apothekenmitarbeiter-afc-amavita-galenica-bern",
-        "pharma-assistent-in-efz-amavita-galenica-bern",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
-          "apothekenmitarbeiter-afc-amavita-galenica-bern",
-          "pharma-assistent-in-efz-amavita-galenica-bern"
-        ],
-        "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3362,7 +3339,28 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
+          "apothekenmitarbeiter-afc-amavita-galenica-bern",
+          "pharma-assistent-in-efz-amavita-galenica-bern"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
+        "apothekenmitarbeiter-afc-amavita-galenica-bern",
+        "pharma-assistent-in-efz-amavita-galenica-bern",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3876,7 +3874,6 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pully"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -4076,19 +4073,6 @@
         "fr": "Aide à la recherche agricole"
       },
       "id": "galenica-a221ddf2cfb5",
-      "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-courtepin",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-courtepin"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-courtepin"
-        ],
-        "fr": [
-          "galenica-amavita-assistant-e-en-pharmacie-cfc-courtepin"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4106,7 +4090,19 @@
       },
       "addressLocality": "Courtepin",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-courtepin"
+        ],
+        "fr": [
+          "galenica-amavita-assistant-e-en-pharmacie-cfc-courtepin"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-courtepin",
+        "galenica-amavita-assistant-e-en-pharmacie-cfc-courtepin"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4159,7 +4155,6 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6104,20 +6099,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6a6335b62d44",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -6134,7 +6115,20 @@
       },
       "addressLocality": "Genève",
       "addressRegion": "GE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6547,23 +6541,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-a8707bf9e909",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
-        "apothekenassistent-in-afc-amavita-galenica-neuchatel",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
-          "apothekenassistent-in-afc-amavita-galenica-neuchatel",
-          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3"
-        ],
-        "de": [
-          "apothekenassistent-in-afc-amavita-galenica-neuchatel"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -6580,7 +6557,23 @@
       },
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+          "apothekenassistent-in-afc-amavita-galenica-neuchatel",
+          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3"
+        ],
+        "de": [
+          "apothekenassistent-in-afc-amavita-galenica-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+        "apothekenassistent-in-afc-amavita-galenica-neuchatel",
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7394,7 +7387,6 @@
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -7661,7 +7653,6 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8057,32 +8048,6 @@
         "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-eab4e432abe3",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc1rd",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0fu",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc1rd",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0fu",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go"
-        ],
-        "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -8099,7 +8064,32 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc1rd",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0fu",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc1rd",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0fu",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9410,25 +9400,6 @@
         "fr": "Assistant/e de pharmacie AFC"
       },
       "id": "galenica-93ab2f0a19e4",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
-        "apothekenassistent-afc-amavita-galenica-pratteln",
-        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
-          "apothekenassistent-afc-amavita-galenica-pratteln",
-          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5"
-        ],
-        "de": [
-          "apothekenassistent-afc-amavita-galenica-pratteln",
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -9445,7 +9416,25 @@
       },
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
+          "apothekenassistent-afc-amavita-galenica-pratteln",
+          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5"
+        ],
+        "de": [
+          "apothekenassistent-afc-amavita-galenica-pratteln",
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
+        "apothekenassistent-afc-amavita-galenica-pratteln",
+        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9935,7 +9924,6 @@
           "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11610,7 +11598,6 @@
           "apothekenhelferin-afc-sun-store-apotheke-galenica-monthey"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11742,7 +11729,6 @@
           "pharmaassistent-in-afc-sun-store-apotheke-galenica-conthey"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
