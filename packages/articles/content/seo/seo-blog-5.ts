@@ -87550,6 +87550,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-colorina-lavorare-grigioni-da-frontaliere': {
+    title: 'Vivere a Colorina e lavorare in Grigioni | Frontaliere Ticino',
+    description: 'Permesso G frontaliere, tassazione Svizzera, imposta alla fonte, AVS/LPP, LAMal, credito d\'imposta italiano, nuovo accordo 2024, procedura: guida completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, colorina, lavorare, grigioni',
+    ogTitle: 'Vivere a Colorina e lavorare in Grigioni',
+    ogDescription: 'Frontaliere tra Colorina (Sondrio) e Grigioni: permesso G, busta paga svizzera, AVS/LPP, LAMal, tassazione, credito d\'imposta, ristorni, procedure 2024. Guida completa per trasferirsi.',
+    canonicalPath: '/articoli-frontaliere/vivere-colorina-lavorare-grigioni-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Colorina e lavorare in Grigioni",
+      "description": "Permesso G frontaliere, tassazione Svizzera, imposta alla fonte, AVS/LPP, LAMal, credito d'imposta italiano, nuovo accordo 2024, procedura: guida completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-colorina-lavorare-grigioni-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Colorina, comune di confine in provincia di Sondrio: scenario residenziale per frontalieri che lavorano in Grigioni"
+      },
+      "datePublished": "2026-09-07T04:06:41+00:00",
+      "dateModified": "2026-09-07T04:06:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-colorina-lavorare-grigioni-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

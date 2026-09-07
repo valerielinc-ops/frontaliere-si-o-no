@@ -11501,6 +11501,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.schilpario-frontaliere-grigioni-guida.title': 'Von Schilpario nach Graubünden: Leben wie ein Grenzgänger',
     'blog.article.schilpario-frontaliere-grigioni-guida.excerpt': 'Bewilligung G, Besteuerung, Quellensteuer, AHV und KVG: Erfahren Sie, wie das Steuersystem für Grenzgänger funktioniert, die in Schilpario leben und in Graubünden arbeiten.',
     'blog.article.schilpario-frontaliere-grigioni-guida.imageAlt': 'Aussicht von Graubünden nach Lombardien: Grenzübergreifende Alpenlandschaft für Grenzgänger',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Leben in Colorina und Arbeiten in Graubünden',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'G-Bewilligung, Besteuerung in der Schweiz, italienische Steuergutschrift, AHV/BVG, KVG und Verfahren: der umfassende Leitfaden für Grenzgänger zwischen Sondrio und Graubünden.',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina in der Provinz Sondrio: typischer Wohnbereich für Grenzgänger, die im Kanton Graubünden arbeiten',
 };
 
 export default blogMetaDe;
