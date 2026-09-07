@@ -1960,6 +1960,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-appenzello-esterno': { it: 'avs-prestazioni-complementari-appenzello-esterno', en: 'avs-complementary-benefits-appenzell-outer-rhodes', de: 'avs-zusatzleistungen-appenzell-ausserrhoden', fr: 'avs-prestations-complementaires-appenzell-exterieur' },
  'attivita-appenzello-esterno-registro': { it: 'attivita-appenzello-esterno-registro', en: 'open-business-appenzell-ausserrhoden-registry', de: 'unternehmen-appenzell-ausserrhoden-register', fr: 'ouvrir-activite-appenzell-rhodes-exterieures' },
  'fondare-impresa-appenzello-esterno': { it: 'fondare-impresa-appenzello-esterno', en: 'founding-business-eastern-appenzell', de: 'unternehmen-gruenden-appenzell-ausserrhoden', fr: 'creer-entreprise-appenzell-rhodes' },
+ 'patente-guida-appenzello-esterno-conversione': { it: 'patente-guida-appenzello-esterno-conversione', en: 'driving-license-appenzell-eastern-conversion', de: 'fuehrerschein-appenzell-ausserrhoden-umwandlung', fr: 'permis-conduire-appenzell-externe-conversion' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

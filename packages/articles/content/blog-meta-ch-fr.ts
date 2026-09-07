@@ -5803,6 +5803,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fondare-impresa-appenzello-esterno.title': 'Ouvrir une entreprise à Appenzell Extérieur : guide pratique',
     'blog.article.fondare-impresa-appenzello-esterno.excerpt': 'Formes juridiques, inscription au registre, capital minimum, impôts fédéraux et cantonaux, sécurité sociale et obligations d\'assurance pour démarrer une activité.',
     'blog.article.fondare-impresa-appenzello-esterno.imageAlt': 'Bureau commercial suisse moderne avec documents de registre et paysage alpin en arrière-plan',
+    'blog.article.patente-guida-appenzello-esterno-conversione.title': 'Permis de conduire Appenzell Extérieur : conversion et examens',
+    'blog.article.patente-guida-appenzello-esterno-conversione.excerpt': 'Comment convertir le permis étranger en Appenzell Extérieur : examen théorique, pratique, cours et procédure auprès de l\'Office de la circulation cantonale.',
+    'blog.article.patente-guida-appenzello-esterno-conversione.imageAlt': 'Bureau cantonal de circulation avec signalisation, lieu de conversion des permis de conduire.',
 };
 
 export default blogMetaChFr;

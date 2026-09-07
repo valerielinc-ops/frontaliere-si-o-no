@@ -5803,6 +5803,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fondare-impresa-appenzello-esterno.title': 'Ein Geschäft in Appenzell Ausserrhoden eröffnen: Praxisleitfaden',
     'blog.article.fondare-impresa-appenzello-esterno.excerpt': 'Rechtsformen, Registereintragung, Mindestkapital, eidgenössische und kantonale Steuern, Sozialversicherung und Versicherungspflichten zur Unternehmensgründung.',
     'blog.article.fondare-impresa-appenzello-esterno.imageAlt': 'Modernes Schweizer Büro mit Geschäftsdokumenten und Alpengipfeln im Hintergrund',
+    'blog.article.patente-guida-appenzello-esterno-conversione.title': 'Führerschein Appenzell Ausserrhoden: Umbau und Prüfungen',
+    'blog.article.patente-guida-appenzello-esterno-conversione.excerpt': 'Wie man den ausländischen Führerschein in Appenzell Ausserrhoden umwandelt: Theorie-, Praxis-, Kurs- und Verfahrensprüfung beim kantonalen Strassenverkehrsamt.',
+    'blog.article.patente-guida-appenzello-esterno-conversione.imageAlt': 'Kantonsverkehrsbuero mit Beschilderung, Ort der Fahrererlaubniskonvertierung.',
 };
 
 export default blogMetaChDe;
